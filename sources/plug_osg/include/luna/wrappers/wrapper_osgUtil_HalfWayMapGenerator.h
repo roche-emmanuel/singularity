@@ -16,12 +16,27 @@ public:
 	~wrapper_osgUtil_HalfWayMapGenerator() {
 		logDEBUG3("Calling delete function for wrapper osgUtil_HalfWayMapGenerator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::HalfWayMapGenerator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_HalfWayMapGenerator(lua_State* L, lua_Table* dum, const osg::Vec3f & light_direction, int texture_size = 64) : osgUtil::HalfWayMapGenerator(light_direction, texture_size), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_HalfWayMapGenerator(lua_State* L, lua_Table* dum, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop) : osgUtil::HalfWayMapGenerator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_HalfWayMapGenerator(lua_State* L, lua_Table* dum, const osg::Vec3f & light_direction, int texture_size = 64) 
+		: osgUtil::HalfWayMapGenerator(light_direction, texture_size), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::HalfWayMapGenerator*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_HalfWayMapGenerator(lua_State* L, lua_Table* dum, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop) 
+		: osgUtil::HalfWayMapGenerator(copy, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::HalfWayMapGenerator*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +45,7 @@ protected:
 	// osg::Vec4f osgUtil::HalfWayMapGenerator::compute_color(const osg::Vec3f & R) const
 	osg::Vec4f compute_color(const osg::Vec3f & R) const {
 		if(_obj.pushFunction("compute_color")) {
+			_obj.pushArg((osgUtil::HalfWayMapGenerator*)this);
 			_obj.pushArg(&R);
 			return *(_obj.callFunction<osg::Vec4f*>());
 		}
@@ -42,6 +58,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::HalfWayMapGenerator*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -238,11 +255,11 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_op_assign",_bind_public_op_assign},
-		{"protected_set_pixel",_bind_public_set_pixel},
-		{"protected_vector_to_color",_bind_public_vector_to_color},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"op_assign",_bind_public_op_assign},
+		{"set_pixel",_bind_public_set_pixel},
+		{"vector_to_color",_bind_public_vector_to_color},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

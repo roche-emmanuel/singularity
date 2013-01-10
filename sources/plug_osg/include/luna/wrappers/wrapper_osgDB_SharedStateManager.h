@@ -16,11 +16,19 @@ public:
 	~wrapper_osgDB_SharedStateManager() {
 		logDEBUG3("Calling delete function for wrapper osgDB_SharedStateManager");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::SharedStateManager*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_SharedStateManager(lua_State* L, lua_Table* dum, unsigned int mode = osgDB::SharedStateManager::SHARE_ALL) : osgDB::SharedStateManager(mode), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_SharedStateManager(lua_State* L, lua_Table* dum, unsigned int mode = osgDB::SharedStateManager::SHARE_ALL) 
+		: osgDB::SharedStateManager(mode), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::SharedStateManager*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::SharedStateManager*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// void osg::NodeVisitor::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osgDB::SharedStateManager*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -50,6 +60,7 @@ public:
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
 		if(_obj.pushFunction("getEyePoint")) {
+			_obj.pushArg((osgDB::SharedStateManager*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -59,6 +70,7 @@ public:
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {
 		if(_obj.pushFunction("getViewPoint")) {
+			_obj.pushArg((osgDB::SharedStateManager*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -68,6 +80,7 @@ public:
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToEyePoint")) {
+			_obj.pushArg((osgDB::SharedStateManager*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -79,6 +92,7 @@ public:
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceFromEyePoint")) {
+			_obj.pushArg((osgDB::SharedStateManager*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -90,6 +104,7 @@ public:
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToViewPoint")) {
+			_obj.pushArg((osgDB::SharedStateManager*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -101,6 +116,7 @@ public:
 	// const char * osgDB::SharedStateManager::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgDB::SharedStateManager*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -110,6 +126,7 @@ public:
 	// const char * osgDB::SharedStateManager::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgDB::SharedStateManager*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -119,6 +136,7 @@ public:
 	// void osgDB::SharedStateManager::apply(osg::Node & node)
 	void apply(osg::Node & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgDB::SharedStateManager*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -129,6 +147,7 @@ public:
 	// void osgDB::SharedStateManager::apply(osg::Geode & geode)
 	void apply(osg::Geode & geode) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgDB::SharedStateManager*)this);
 			_obj.pushArg(&geode);
 			return (_obj.callFunction<void>());
 		}
@@ -402,14 +421,14 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_shareTexture",_bind_public_shareTexture},
-		{"protected_shareStateSet",_bind_public_shareStateSet},
-		{"protected_process",_bind_public_process},
-		{"protected_find",_bind_public_find},
-		{"protected_setStateSet",_bind_public_setStateSet},
-		{"protected_shareTextures",_bind_public_shareTextures},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"shareTexture",_bind_public_shareTexture},
+		{"shareStateSet",_bind_public_shareStateSet},
+		{"process",_bind_public_process},
+		{"find",_bind_public_find},
+		{"setStateSet",_bind_public_setStateSet},
+		{"shareTextures",_bind_public_shareTextures},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

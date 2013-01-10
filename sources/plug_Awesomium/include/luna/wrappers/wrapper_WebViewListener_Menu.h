@@ -16,11 +16,19 @@ public:
 	~wrapper_WebViewListener_Menu() {
 		logDEBUG3("Calling delete function for wrapper WebViewListener_Menu");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((WebViewListener::Menu*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_WebViewListener_Menu(lua_State* L, lua_Table* dum) : WebViewListener::Menu(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_WebViewListener_Menu(lua_State* L, lua_Table* dum) 
+		: WebViewListener::Menu(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((WebViewListener::Menu*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void WebViewListener::Menu::OnShowPopupMenu(Awesomium::WebView * caller, const Awesomium::WebPopupMenuInfo & menu_info)
 	void OnShowPopupMenu(Awesomium::WebView * caller, const Awesomium::WebPopupMenuInfo & menu_info) {
 		THROW_IF(!_obj.pushFunction("OnShowPopupMenu"),"No implementation for abstract function WebViewListener::Menu::OnShowPopupMenu");
+		_obj.pushArg((WebViewListener::Menu*)this);
 		_obj.pushArg(caller);
 		_obj.pushArg(&menu_info);
 		return (_obj.callFunction<void>());
@@ -39,6 +48,7 @@ public:
 	// void WebViewListener::Menu::OnShowContextMenu(Awesomium::WebView * caller, const Awesomium::WebContextMenuInfo & menu_info)
 	void OnShowContextMenu(Awesomium::WebView * caller, const Awesomium::WebContextMenuInfo & menu_info) {
 		THROW_IF(!_obj.pushFunction("OnShowContextMenu"),"No implementation for abstract function WebViewListener::Menu::OnShowContextMenu");
+		_obj.pushArg((WebViewListener::Menu*)this);
 		_obj.pushArg(caller);
 		_obj.pushArg(&menu_info);
 		return (_obj.callFunction<void>());

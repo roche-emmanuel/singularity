@@ -16,11 +16,19 @@ public:
 	~wrapper_wxGridTableBase() {
 		logDEBUG3("Calling delete function for wrapper wxGridTableBase");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxGridTableBase*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxGridTableBase(lua_State* L, lua_Table* dum) : wxGridTableBase(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGridTableBase(lua_State* L, lua_Table* dum) 
+		: wxGridTableBase(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxGridTableBase*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -38,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -50,6 +60,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -59,18 +70,21 @@ public:
 	// int wxGridTableBase::GetNumberRows()
 	int GetNumberRows() {
 		THROW_IF(!_obj.pushFunction("GetNumberRows"),"No implementation for abstract function wxGridTableBase::GetNumberRows");
+		_obj.pushArg((wxGridTableBase*)this);
 		return (_obj.callFunction<int>());
 	};
 
 	// int wxGridTableBase::GetNumberCols()
 	int GetNumberCols() {
 		THROW_IF(!_obj.pushFunction("GetNumberCols"),"No implementation for abstract function wxGridTableBase::GetNumberCols");
+		_obj.pushArg((wxGridTableBase*)this);
 		return (_obj.callFunction<int>());
 	};
 
 	// bool wxGridTableBase::IsEmptyCell(int row, int col)
 	bool IsEmptyCell(int row, int col) {
 		if(_obj.pushFunction("IsEmptyCell")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			return (_obj.callFunction<bool>());
@@ -82,6 +96,7 @@ public:
 	// wxString wxGridTableBase::GetValue(int row, int col)
 	wxString GetValue(int row, int col) {
 		THROW_IF(!_obj.pushFunction("GetValue"),"No implementation for abstract function wxGridTableBase::GetValue");
+		_obj.pushArg((wxGridTableBase*)this);
 		_obj.pushArg(row);
 		_obj.pushArg(col);
 		return *(_obj.callFunction<wxString*>());
@@ -90,6 +105,7 @@ public:
 	// void wxGridTableBase::SetValue(int row, int col, const wxString & value)
 	void SetValue(int row, int col, const wxString & value) {
 		THROW_IF(!_obj.pushFunction("SetValue"),"No implementation for abstract function wxGridTableBase::SetValue");
+		_obj.pushArg((wxGridTableBase*)this);
 		_obj.pushArg(row);
 		_obj.pushArg(col);
 		_obj.pushArg(value);
@@ -99,6 +115,7 @@ public:
 	// wxString wxGridTableBase::GetTypeName(int row, int col)
 	wxString GetTypeName(int row, int col) {
 		if(_obj.pushFunction("GetTypeName")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			return *(_obj.callFunction<wxString*>());
@@ -110,6 +127,7 @@ public:
 	// bool wxGridTableBase::CanGetValueAs(int row, int col, const wxString & typeName)
 	bool CanGetValueAs(int row, int col, const wxString & typeName) {
 		if(_obj.pushFunction("CanGetValueAs")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			_obj.pushArg(typeName);
@@ -122,6 +140,7 @@ public:
 	// bool wxGridTableBase::CanSetValueAs(int row, int col, const wxString & typeName)
 	bool CanSetValueAs(int row, int col, const wxString & typeName) {
 		if(_obj.pushFunction("CanSetValueAs")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			_obj.pushArg(typeName);
@@ -134,6 +153,7 @@ public:
 	// long wxGridTableBase::GetValueAsLong(int row, int col)
 	long GetValueAsLong(int row, int col) {
 		if(_obj.pushFunction("GetValueAsLong")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			return (_obj.callFunction<long>());
@@ -145,6 +165,7 @@ public:
 	// double wxGridTableBase::GetValueAsDouble(int row, int col)
 	double GetValueAsDouble(int row, int col) {
 		if(_obj.pushFunction("GetValueAsDouble")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			return (_obj.callFunction<double>());
@@ -156,6 +177,7 @@ public:
 	// bool wxGridTableBase::GetValueAsBool(int row, int col)
 	bool GetValueAsBool(int row, int col) {
 		if(_obj.pushFunction("GetValueAsBool")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			return (_obj.callFunction<bool>());
@@ -167,6 +189,7 @@ public:
 	// void * wxGridTableBase::GetValueAsCustom(int row, int col, const wxString & typeName)
 	void * GetValueAsCustom(int row, int col, const wxString & typeName) {
 		if(_obj.pushFunction("GetValueAsCustom")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			_obj.pushArg(typeName);
@@ -179,6 +202,7 @@ public:
 	// void wxGridTableBase::SetValueAsLong(int row, int col, long value)
 	void SetValueAsLong(int row, int col, long value) {
 		if(_obj.pushFunction("SetValueAsLong")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			_obj.pushArg(value);
@@ -191,6 +215,7 @@ public:
 	// void wxGridTableBase::SetValueAsDouble(int row, int col, double value)
 	void SetValueAsDouble(int row, int col, double value) {
 		if(_obj.pushFunction("SetValueAsDouble")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			_obj.pushArg(value);
@@ -203,6 +228,7 @@ public:
 	// void wxGridTableBase::SetValueAsBool(int row, int col, bool value)
 	void SetValueAsBool(int row, int col, bool value) {
 		if(_obj.pushFunction("SetValueAsBool")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			_obj.pushArg(value);
@@ -215,6 +241,7 @@ public:
 	// void wxGridTableBase::SetValueAsCustom(int row, int col, const wxString & typeName, void * value)
 	void SetValueAsCustom(int row, int col, const wxString & typeName, void * value) {
 		if(_obj.pushFunction("SetValueAsCustom")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			_obj.pushArg(typeName);
@@ -228,6 +255,7 @@ public:
 	// void wxGridTableBase::SetView(wxGrid * grid)
 	void SetView(wxGrid * grid) {
 		if(_obj.pushFunction("SetView")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(grid);
 			return (_obj.callFunction<void>());
 		}
@@ -238,6 +266,7 @@ public:
 	// wxGrid * wxGridTableBase::GetView() const
 	wxGrid * GetView() const {
 		if(_obj.pushFunction("GetView")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			return (_obj.callFunction<wxGrid*>());
 		}
 
@@ -247,6 +276,7 @@ public:
 	// void wxGridTableBase::Clear()
 	void Clear() {
 		if(_obj.pushFunction("Clear")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -256,6 +286,7 @@ public:
 	// bool wxGridTableBase::InsertRows(size_t pos = 0, size_t numRows = 1)
 	bool InsertRows(size_t pos = 0, size_t numRows = 1) {
 		if(_obj.pushFunction("InsertRows")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(pos);
 			_obj.pushArg(numRows);
 			return (_obj.callFunction<bool>());
@@ -267,6 +298,7 @@ public:
 	// bool wxGridTableBase::AppendRows(size_t numRows = 1)
 	bool AppendRows(size_t numRows = 1) {
 		if(_obj.pushFunction("AppendRows")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(numRows);
 			return (_obj.callFunction<bool>());
 		}
@@ -277,6 +309,7 @@ public:
 	// bool wxGridTableBase::DeleteRows(size_t pos = 0, size_t numRows = 1)
 	bool DeleteRows(size_t pos = 0, size_t numRows = 1) {
 		if(_obj.pushFunction("DeleteRows")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(pos);
 			_obj.pushArg(numRows);
 			return (_obj.callFunction<bool>());
@@ -288,6 +321,7 @@ public:
 	// bool wxGridTableBase::InsertCols(size_t pos = 0, size_t numCols = 1)
 	bool InsertCols(size_t pos = 0, size_t numCols = 1) {
 		if(_obj.pushFunction("InsertCols")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(pos);
 			_obj.pushArg(numCols);
 			return (_obj.callFunction<bool>());
@@ -299,6 +333,7 @@ public:
 	// bool wxGridTableBase::AppendCols(size_t numCols = 1)
 	bool AppendCols(size_t numCols = 1) {
 		if(_obj.pushFunction("AppendCols")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(numCols);
 			return (_obj.callFunction<bool>());
 		}
@@ -309,6 +344,7 @@ public:
 	// bool wxGridTableBase::DeleteCols(size_t pos = 0, size_t numCols = 1)
 	bool DeleteCols(size_t pos = 0, size_t numCols = 1) {
 		if(_obj.pushFunction("DeleteCols")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(pos);
 			_obj.pushArg(numCols);
 			return (_obj.callFunction<bool>());
@@ -320,6 +356,7 @@ public:
 	// wxString wxGridTableBase::GetRowLabelValue(int row)
 	wxString GetRowLabelValue(int row) {
 		if(_obj.pushFunction("GetRowLabelValue")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			return *(_obj.callFunction<wxString*>());
 		}
@@ -330,6 +367,7 @@ public:
 	// wxString wxGridTableBase::GetColLabelValue(int col)
 	wxString GetColLabelValue(int col) {
 		if(_obj.pushFunction("GetColLabelValue")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(col);
 			return *(_obj.callFunction<wxString*>());
 		}
@@ -340,6 +378,7 @@ public:
 	// void wxGridTableBase::SetRowLabelValue(int row, const wxString & label)
 	void SetRowLabelValue(int row, const wxString & label) {
 		if(_obj.pushFunction("SetRowLabelValue")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(label);
 			return (_obj.callFunction<void>());
@@ -351,6 +390,7 @@ public:
 	// void wxGridTableBase::SetColLabelValue(int col, const wxString & label)
 	void SetColLabelValue(int col, const wxString & label) {
 		if(_obj.pushFunction("SetColLabelValue")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(col);
 			_obj.pushArg(label);
 			return (_obj.callFunction<void>());
@@ -362,6 +402,7 @@ public:
 	// wxGridCellAttr * wxGridTableBase::GetAttr(int row, int col, wxGridCellAttr::wxAttrKind kind)
 	wxGridCellAttr * GetAttr(int row, int col, wxGridCellAttr::wxAttrKind kind) {
 		if(_obj.pushFunction("GetAttr")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			_obj.pushArg(kind);
@@ -374,6 +415,7 @@ public:
 	// void wxGridTableBase::SetAttr(wxGridCellAttr * attr, int row, int col)
 	void SetAttr(wxGridCellAttr * attr, int row, int col) {
 		if(_obj.pushFunction("SetAttr")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(attr);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
@@ -386,6 +428,7 @@ public:
 	// void wxGridTableBase::SetRowAttr(wxGridCellAttr * attr, int row)
 	void SetRowAttr(wxGridCellAttr * attr, int row) {
 		if(_obj.pushFunction("SetRowAttr")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(attr);
 			_obj.pushArg(row);
 			return (_obj.callFunction<void>());
@@ -397,6 +440,7 @@ public:
 	// void wxGridTableBase::SetColAttr(wxGridCellAttr * attr, int col)
 	void SetColAttr(wxGridCellAttr * attr, int col) {
 		if(_obj.pushFunction("SetColAttr")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			_obj.pushArg(attr);
 			_obj.pushArg(col);
 			return (_obj.callFunction<void>());
@@ -408,6 +452,7 @@ public:
 	// bool wxGridTableBase::CanHaveAttributes()
 	bool CanHaveAttributes() {
 		if(_obj.pushFunction("CanHaveAttributes")) {
+			_obj.pushArg((wxGridTableBase*)this);
 			return (_obj.callFunction<bool>());
 		}
 

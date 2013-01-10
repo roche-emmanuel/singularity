@@ -142,7 +142,6 @@ public:
 	typedef std::string VarType;
 	
 	static void TW_CALL setCallback(const void *value, void *clientData) {
-		// logINFO("Setter called with value="<<*(const VarType*)value);
 		static_cast<StringCallback*>(clientData)->setValue(*(const VarType*)value);
 	};
 	
@@ -153,7 +152,7 @@ public:
 		// logINFO("Getter called, returned: "<< *(VarType *)value);
 	};
 
-	virtual void setValue(VarType val) = 0;
+	virtual void setValue(const VarType& val) = 0;
 	virtual VarType getValue() = 0;
 };
 

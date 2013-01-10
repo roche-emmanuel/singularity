@@ -16,11 +16,19 @@ public:
 	~wrapper_WebViewListener_Load() {
 		logDEBUG3("Calling delete function for wrapper WebViewListener_Load");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((WebViewListener::Load*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_WebViewListener_Load(lua_State* L, lua_Table* dum) : WebViewListener::Load(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_WebViewListener_Load(lua_State* L, lua_Table* dum) 
+		: WebViewListener::Load(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((WebViewListener::Load*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page)
 	void OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page) {
 		THROW_IF(!_obj.pushFunction("OnBeginLoadingFrame"),"No implementation for abstract function WebViewListener::Load::OnBeginLoadingFrame");
+		_obj.pushArg((WebViewListener::Load*)this);
 		_obj.pushArg(caller);
 		_obj.pushArg(frame_id);
 		_obj.pushArg(is_main_frame);
@@ -42,6 +51,7 @@ public:
 	// void WebViewListener::Load::OnFailLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, int error_code, const Awesomium::WebString & error_desc)
 	void OnFailLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, int error_code, const Awesomium::WebString & error_desc) {
 		THROW_IF(!_obj.pushFunction("OnFailLoadingFrame"),"No implementation for abstract function WebViewListener::Load::OnFailLoadingFrame");
+		_obj.pushArg((WebViewListener::Load*)this);
 		_obj.pushArg(caller);
 		_obj.pushArg(frame_id);
 		_obj.pushArg(is_main_frame);
@@ -54,6 +64,7 @@ public:
 	// void WebViewListener::Load::OnFinishLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url)
 	void OnFinishLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url) {
 		THROW_IF(!_obj.pushFunction("OnFinishLoadingFrame"),"No implementation for abstract function WebViewListener::Load::OnFinishLoadingFrame");
+		_obj.pushArg((WebViewListener::Load*)this);
 		_obj.pushArg(caller);
 		_obj.pushArg(frame_id);
 		_obj.pushArg(is_main_frame);
@@ -64,6 +75,7 @@ public:
 	// void WebViewListener::Load::OnDocumentReady(Awesomium::WebView * caller, const Awesomium::WebURL & url)
 	void OnDocumentReady(Awesomium::WebView * caller, const Awesomium::WebURL & url) {
 		THROW_IF(!_obj.pushFunction("OnDocumentReady"),"No implementation for abstract function WebViewListener::Load::OnDocumentReady");
+		_obj.pushArg((WebViewListener::Load*)this);
 		_obj.pushArg(caller);
 		_obj.pushArg(&url);
 		return (_obj.callFunction<void>());

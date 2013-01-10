@@ -16,6 +16,7 @@ public:
 	~wrapper_wxTarInputStream() {
 		logDEBUG3("Calling delete function for wrapper wxTarInputStream");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxTarInputStream*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -30,6 +31,7 @@ public:
 	// bool wxTarInputStream::CloseEntry()
 	bool CloseEntry() {
 		if(_obj.pushFunction("CloseEntry")) {
+			_obj.pushArg((wxTarInputStream*)this);
 			return (_obj.callFunction<bool>());
 		}
 

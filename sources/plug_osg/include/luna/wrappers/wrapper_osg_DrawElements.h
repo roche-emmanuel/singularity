@@ -16,12 +16,27 @@ public:
 	~wrapper_osg_DrawElements() {
 		logDEBUG3("Calling delete function for wrapper osg_DrawElements");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::DrawElements*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_DrawElements(lua_State* L, lua_Table* dum, osg::PrimitiveSet::Type primType = osg::PrimitiveSet::PrimitiveType, unsigned int mode = 0, int numInstances = 0) : osg::DrawElements(primType, mode, numInstances), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_DrawElements(lua_State* L, lua_Table* dum, const osg::DrawElements & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawElements(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_DrawElements(lua_State* L, lua_Table* dum, osg::PrimitiveSet::Type primType = osg::PrimitiveSet::PrimitiveType, unsigned int mode = 0, int numInstances = 0) 
+		: osg::DrawElements(primType, mode, numInstances), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::DrawElements*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_DrawElements(lua_State* L, lua_Table* dum, const osg::DrawElements & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osg::DrawElements(copy, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::DrawElements*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -32,12 +47,14 @@ public:
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
 		THROW_IF(!_obj.pushFunction("cloneType"),"No implementation for abstract function osg::Object::cloneType");
+		_obj.pushArg((osg::DrawElements*)this);
 		return (_obj.callFunction<osg::Object*>());
 	};
 
 	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		THROW_IF(!_obj.pushFunction("clone"),"No implementation for abstract function osg::Object::clone");
+		_obj.pushArg((osg::DrawElements*)this);
 		_obj.pushArg(&arg1);
 		return (_obj.callFunction<osg::Object*>());
 	};
@@ -45,6 +62,7 @@ public:
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -55,6 +73,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -65,6 +84,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -74,6 +94,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -84,6 +105,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -93,6 +115,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -102,6 +125,7 @@ public:
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			_obj.pushArg(state);
 			return (_obj.callFunction<void>());
 		}
@@ -112,6 +136,7 @@ public:
 	// bool osg::PrimitiveSet::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -122,6 +147,7 @@ public:
 	// const char * osg::PrimitiveSet::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -131,6 +157,7 @@ public:
 	// const char * osg::PrimitiveSet::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -140,6 +167,7 @@ public:
 	// const void * osg::PrimitiveSet::getDataPointer() const
 	const void * getDataPointer() const {
 		if(_obj.pushFunction("getDataPointer")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			return (_obj.callFunction<void*>());
 		}
 
@@ -149,6 +177,7 @@ public:
 	// unsigned int osg::PrimitiveSet::getTotalDataSize() const
 	unsigned int getTotalDataSize() const {
 		if(_obj.pushFunction("getTotalDataSize")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -158,6 +187,7 @@ public:
 	// bool osg::PrimitiveSet::supportsBufferObject() const
 	bool supportsBufferObject() const {
 		if(_obj.pushFunction("supportsBufferObject")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -167,6 +197,7 @@ public:
 	// void osg::PrimitiveSet::draw(osg::State & state, bool useVertexBufferObjects) const
 	void draw(osg::State & state, bool useVertexBufferObjects) const {
 		THROW_IF(!_obj.pushFunction("draw"),"No implementation for abstract function osg::PrimitiveSet::draw");
+		_obj.pushArg((osg::DrawElements*)this);
 		_obj.pushArg(&state);
 		_obj.pushArg(useVertexBufferObjects);
 		return (_obj.callFunction<void>());
@@ -175,6 +206,7 @@ public:
 	// unsigned int osg::PrimitiveSet::index(unsigned int pos) const
 	unsigned int index(unsigned int pos) const {
 		THROW_IF(!_obj.pushFunction("index"),"No implementation for abstract function osg::PrimitiveSet::index");
+		_obj.pushArg((osg::DrawElements*)this);
 		_obj.pushArg(pos);
 		return (_obj.callFunction<unsigned int>());
 	};
@@ -182,12 +214,14 @@ public:
 	// unsigned int osg::PrimitiveSet::getNumIndices() const
 	unsigned int getNumIndices() const {
 		THROW_IF(!_obj.pushFunction("getNumIndices"),"No implementation for abstract function osg::PrimitiveSet::getNumIndices");
+		_obj.pushArg((osg::DrawElements*)this);
 		return (_obj.callFunction<unsigned int>());
 	};
 
 	// void osg::PrimitiveSet::offsetIndices(int offset)
 	void offsetIndices(int offset) {
 		THROW_IF(!_obj.pushFunction("offsetIndices"),"No implementation for abstract function osg::PrimitiveSet::offsetIndices");
+		_obj.pushArg((osg::DrawElements*)this);
 		_obj.pushArg(offset);
 		return (_obj.callFunction<void>());
 	};
@@ -195,6 +229,7 @@ public:
 	// unsigned int osg::PrimitiveSet::getNumPrimitives() const
 	unsigned int getNumPrimitives() const {
 		if(_obj.pushFunction("getNumPrimitives")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -204,6 +239,7 @@ public:
 	// void osg::PrimitiveSet::computeRange() const
 	void computeRange() const {
 		if(_obj.pushFunction("computeRange")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -213,6 +249,7 @@ public:
 	// osg::DrawElements * osg::DrawElements::getDrawElements()
 	osg::DrawElements * getDrawElements() {
 		if(_obj.pushFunction("getDrawElements")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			return (_obj.callFunction<osg::DrawElements*>());
 		}
 
@@ -222,6 +259,7 @@ public:
 	// const osg::DrawElements * osg::DrawElements::getDrawElements() const
 	const osg::DrawElements * getDrawElements() const {
 		if(_obj.pushFunction("getDrawElements")) {
+			_obj.pushArg((osg::DrawElements*)this);
 			return (_obj.callFunction<osg::DrawElements*>());
 		}
 
@@ -231,6 +269,7 @@ public:
 	// void osg::DrawElements::reserveElements(unsigned int numIndices)
 	void reserveElements(unsigned int numIndices) {
 		THROW_IF(!_obj.pushFunction("reserveElements"),"No implementation for abstract function osg::DrawElements::reserveElements");
+		_obj.pushArg((osg::DrawElements*)this);
 		_obj.pushArg(numIndices);
 		return (_obj.callFunction<void>());
 	};
@@ -238,6 +277,7 @@ public:
 	// void osg::DrawElements::setElement(unsigned int arg1, unsigned int arg2)
 	void setElement(unsigned int arg1, unsigned int arg2) {
 		THROW_IF(!_obj.pushFunction("setElement"),"No implementation for abstract function osg::DrawElements::setElement");
+		_obj.pushArg((osg::DrawElements*)this);
 		_obj.pushArg(arg1);
 		_obj.pushArg(arg2);
 		return (_obj.callFunction<void>());
@@ -246,6 +286,7 @@ public:
 	// unsigned int osg::DrawElements::getElement(unsigned int arg1)
 	unsigned int getElement(unsigned int arg1) {
 		THROW_IF(!_obj.pushFunction("getElement"),"No implementation for abstract function osg::DrawElements::getElement");
+		_obj.pushArg((osg::DrawElements*)this);
 		_obj.pushArg(arg1);
 		return (_obj.callFunction<unsigned int>());
 	};
@@ -253,6 +294,7 @@ public:
 	// void osg::DrawElements::addElement(unsigned int arg1)
 	void addElement(unsigned int arg1) {
 		THROW_IF(!_obj.pushFunction("addElement"),"No implementation for abstract function osg::DrawElements::addElement");
+		_obj.pushArg((osg::DrawElements*)this);
 		_obj.pushArg(arg1);
 		return (_obj.callFunction<void>());
 	};
@@ -328,8 +370,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

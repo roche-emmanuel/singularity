@@ -16,13 +16,35 @@ public:
 	~wrapper_osgUtil_DelaunayTriangulator() {
 		logDEBUG3("Calling delete function for wrapper osgUtil_DelaunayTriangulator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::DelaunayTriangulator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_DelaunayTriangulator(lua_State* L, lua_Table* dum) : osgUtil::DelaunayTriangulator(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_DelaunayTriangulator(lua_State* L, lua_Table* dum, osg::Vec3Array * points, osg::Vec3Array * normals = 0) : osgUtil::DelaunayTriangulator(points, normals), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_DelaunayTriangulator(lua_State* L, lua_Table* dum, const osgUtil::DelaunayTriangulator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::DelaunayTriangulator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_DelaunayTriangulator(lua_State* L, lua_Table* dum) 
+		: osgUtil::DelaunayTriangulator(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::DelaunayTriangulator*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_DelaunayTriangulator(lua_State* L, lua_Table* dum, osg::Vec3Array * points, osg::Vec3Array * normals = 0) 
+		: osgUtil::DelaunayTriangulator(points, normals), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::DelaunayTriangulator*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_DelaunayTriangulator(lua_State* L, lua_Table* dum, const osgUtil::DelaunayTriangulator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osgUtil::DelaunayTriangulator(copy, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::DelaunayTriangulator*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -33,6 +55,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::DelaunayTriangulator*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -187,10 +210,10 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_getindex",_bind_public_getindex},
-		{"protected_op_assign",_bind_public_op_assign},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"getindex",_bind_public_getindex},
+		{"op_assign",_bind_public_op_assign},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

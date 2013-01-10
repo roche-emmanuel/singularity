@@ -16,11 +16,19 @@ public:
 	~wrapper_Awesomium_SurfaceFactory() {
 		logDEBUG3("Calling delete function for wrapper Awesomium_SurfaceFactory");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((Awesomium::SurfaceFactory*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_Awesomium_SurfaceFactory(lua_State* L, lua_Table* dum) : Awesomium::SurfaceFactory(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_Awesomium_SurfaceFactory(lua_State* L, lua_Table* dum) 
+		: Awesomium::SurfaceFactory(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((Awesomium::SurfaceFactory*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// Awesomium::Surface * Awesomium::SurfaceFactory::CreateSurface(Awesomium::WebView * view, int width, int height)
 	Awesomium::Surface * CreateSurface(Awesomium::WebView * view, int width, int height) {
 		THROW_IF(!_obj.pushFunction("CreateSurface"),"No implementation for abstract function Awesomium::SurfaceFactory::CreateSurface");
+		_obj.pushArg((Awesomium::SurfaceFactory*)this);
 		_obj.pushArg(view);
 		_obj.pushArg(width);
 		_obj.pushArg(height);
@@ -40,6 +49,7 @@ public:
 	// void Awesomium::SurfaceFactory::DestroySurface(Awesomium::Surface * surface)
 	void DestroySurface(Awesomium::Surface * surface) {
 		THROW_IF(!_obj.pushFunction("DestroySurface"),"No implementation for abstract function Awesomium::SurfaceFactory::DestroySurface");
+		_obj.pushArg((Awesomium::SurfaceFactory*)this);
 		_obj.pushArg(surface);
 		return (_obj.callFunction<void>());
 	};

@@ -16,11 +16,19 @@ public:
 	~wrapper_QuatCallback() {
 		logDEBUG3("Calling delete function for wrapper QuatCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((QuatCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_QuatCallback(lua_State* L, lua_Table* dum) : QuatCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_QuatCallback(lua_State* L, lua_Table* dum) 
+		: QuatCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((QuatCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void QuatCallback::setValue(osg::Quat val)
 	void setValue(osg::Quat val) {
 		THROW_IF(!_obj.pushFunction("setValue"),"No implementation for abstract function QuatCallback::setValue");
+		_obj.pushArg((QuatCallback*)this);
 		_obj.pushArg(val);
 		return (_obj.callFunction<void>());
 	};
@@ -38,6 +47,7 @@ public:
 	// osg::Quat QuatCallback::getValue()
 	osg::Quat getValue() {
 		THROW_IF(!_obj.pushFunction("getValue"),"No implementation for abstract function QuatCallback::getValue");
+		_obj.pushArg((QuatCallback*)this);
 		return (_obj.callFunction<osg::Quat>());
 	};
 

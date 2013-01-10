@@ -16,12 +16,27 @@ public:
 	~wrapper_wxTextValidator() {
 		logDEBUG3("Calling delete function for wrapper wxTextValidator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxTextValidator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxTextValidator(lua_State* L, lua_Table* dum, const wxTextValidator & validator) : wxTextValidator(validator), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxTextValidator(lua_State* L, lua_Table* dum, long style = ::wxFILTER_NONE, wxString * valPtr = NULL) : wxTextValidator(style, valPtr), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxTextValidator(lua_State* L, lua_Table* dum, const wxTextValidator & validator) 
+		: wxTextValidator(validator), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxTextValidator*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxTextValidator(lua_State* L, lua_Table* dum, long style = ::wxFILTER_NONE, wxString * valPtr = NULL) 
+		: wxTextValidator(style, valPtr), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxTextValidator*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +45,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxTextValidator*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -39,6 +55,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxTextValidator*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -49,6 +66,7 @@ protected:
 	// bool wxEvtHandler::TryBefore(wxEvent & event)
 	bool TryBefore(wxEvent & event) {
 		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg((wxTextValidator*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<bool>());
 		}
@@ -59,6 +77,7 @@ protected:
 	// bool wxEvtHandler::TryAfter(wxEvent & event)
 	bool TryAfter(wxEvent & event) {
 		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg((wxTextValidator*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<bool>());
 		}
@@ -69,6 +88,7 @@ protected:
 	// wxString wxTextValidator::IsValid(const wxString & val) const
 	wxString IsValid(const wxString & val) const {
 		if(_obj.pushFunction("IsValid")) {
+			_obj.pushArg((wxTextValidator*)this);
 			_obj.pushArg(val);
 			return *(_obj.callFunction<wxString*>());
 		}
@@ -81,6 +101,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxTextValidator*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -90,6 +111,7 @@ public:
 	// void wxEvtHandler::QueueEvent(wxEvent * event)
 	void QueueEvent(wxEvent * event) {
 		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg((wxTextValidator*)this);
 			_obj.pushArg(event);
 			return (_obj.callFunction<void>());
 		}
@@ -100,6 +122,7 @@ public:
 	// void wxEvtHandler::AddPendingEvent(const wxEvent & event)
 	void AddPendingEvent(const wxEvent & event) {
 		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg((wxTextValidator*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<void>());
 		}
@@ -110,6 +133,7 @@ public:
 	// bool wxEvtHandler::ProcessEvent(wxEvent & event)
 	bool ProcessEvent(wxEvent & event) {
 		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg((wxTextValidator*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<bool>());
 		}
@@ -120,6 +144,7 @@ public:
 	// void wxEvtHandler::SetNextHandler(wxEvtHandler * handler)
 	void SetNextHandler(wxEvtHandler * handler) {
 		if(_obj.pushFunction("SetNextHandler")) {
+			_obj.pushArg((wxTextValidator*)this);
 			_obj.pushArg(handler);
 			return (_obj.callFunction<void>());
 		}
@@ -130,6 +155,7 @@ public:
 	// void wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler)
 	void SetPreviousHandler(wxEvtHandler * handler) {
 		if(_obj.pushFunction("SetPreviousHandler")) {
+			_obj.pushArg((wxTextValidator*)this);
 			_obj.pushArg(handler);
 			return (_obj.callFunction<void>());
 		}
@@ -140,6 +166,7 @@ public:
 	// wxObject * wxTextValidator::Clone() const
 	wxObject * Clone() const {
 		if(_obj.pushFunction("Clone")) {
+			_obj.pushArg((wxTextValidator*)this);
 			return (_obj.callFunction<wxObject*>());
 		}
 
@@ -149,6 +176,7 @@ public:
 	// bool wxTextValidator::TransferFromWindow()
 	bool TransferFromWindow() {
 		if(_obj.pushFunction("TransferFromWindow")) {
+			_obj.pushArg((wxTextValidator*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -158,6 +186,7 @@ public:
 	// bool wxTextValidator::TransferToWindow()
 	bool TransferToWindow() {
 		if(_obj.pushFunction("TransferToWindow")) {
+			_obj.pushArg((wxTextValidator*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -167,6 +196,7 @@ public:
 	// bool wxTextValidator::Validate(wxWindow * parent)
 	bool Validate(wxWindow * parent) {
 		if(_obj.pushFunction("Validate")) {
+			_obj.pushArg((wxTextValidator*)this);
 			_obj.pushArg(parent);
 			return (_obj.callFunction<bool>());
 		}
@@ -247,8 +277,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_ContainsOnlyIncludedCharacters",_bind_public_ContainsOnlyIncludedCharacters},
-		{"protected_ContainsExcludedCharacters",_bind_public_ContainsExcludedCharacters},
+		{"ContainsOnlyIncludedCharacters",_bind_public_ContainsOnlyIncludedCharacters},
+		{"ContainsExcludedCharacters",_bind_public_ContainsExcludedCharacters},
 		{NULL,NULL}
 		};
 

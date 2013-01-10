@@ -16,6 +16,7 @@ public:
 	~wrapper_wxGridColumnHeaderRenderer() {
 		logDEBUG3("Calling delete function for wrapper wxGridColumnHeaderRenderer");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxGridColumnHeaderRenderer*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -30,6 +31,7 @@ public:
 	// void wxGridCornerHeaderRenderer::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const
 	void DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const {
 		THROW_IF(!_obj.pushFunction("DrawBorder"),"No implementation for abstract function wxGridCornerHeaderRenderer::DrawBorder");
+		_obj.pushArg((wxGridColumnHeaderRenderer*)this);
 		_obj.pushArg(&grid);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -39,6 +41,7 @@ public:
 	// void wxGridHeaderLabelsRenderer::DrawLabel(const wxGrid & grid, wxDC & dc, const wxString & value, const wxRect & rect, int horizAlign, int vertAlign, int textOrientation) const
 	void DrawLabel(const wxGrid & grid, wxDC & dc, const wxString & value, const wxRect & rect, int horizAlign, int vertAlign, int textOrientation) const {
 		if(_obj.pushFunction("DrawLabel")) {
+			_obj.pushArg((wxGridColumnHeaderRenderer*)this);
 			_obj.pushArg(&grid);
 			_obj.pushArg(&dc);
 			_obj.pushArg(value);

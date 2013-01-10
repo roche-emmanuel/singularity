@@ -45,3 +45,5 @@
 - Moved web modules in gui.
 - Added support for "new" function call in class construction process.
 - Changed default size for OSG Test apps.
+- Refactored virtual wrappers model to avoid circular dependencies.
+- Fixed issue with ATB variable callbacks not taking wrapper into account in argument list.

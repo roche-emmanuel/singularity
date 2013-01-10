@@ -16,6 +16,7 @@ public:
 	~wrapper_wxFontEnumerator() {
 		logDEBUG3("Calling delete function for wrapper wxFontEnumerator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxFontEnumerator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -30,6 +31,7 @@ public:
 	// bool wxFontEnumerator::EnumerateEncodings(const wxString & font = wxEmptyString)
 	bool EnumerateEncodings(const wxString & font = wxEmptyString) {
 		if(_obj.pushFunction("EnumerateEncodings")) {
+			_obj.pushArg((wxFontEnumerator*)this);
 			_obj.pushArg(font);
 			return (_obj.callFunction<bool>());
 		}
@@ -40,6 +42,7 @@ public:
 	// bool wxFontEnumerator::EnumerateFacenames(wxFontEncoding encoding = ::wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false)
 	bool EnumerateFacenames(wxFontEncoding encoding = ::wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false) {
 		if(_obj.pushFunction("EnumerateFacenames")) {
+			_obj.pushArg((wxFontEnumerator*)this);
 			_obj.pushArg(encoding);
 			_obj.pushArg(fixedWidthOnly);
 			return (_obj.callFunction<bool>());
@@ -51,6 +54,7 @@ public:
 	// bool wxFontEnumerator::OnFacename(const wxString & font)
 	bool OnFacename(const wxString & font) {
 		if(_obj.pushFunction("OnFacename")) {
+			_obj.pushArg((wxFontEnumerator*)this);
 			_obj.pushArg(font);
 			return (_obj.callFunction<bool>());
 		}
@@ -61,6 +65,7 @@ public:
 	// bool wxFontEnumerator::OnFontEncoding(const wxString & font, const wxString & encoding)
 	bool OnFontEncoding(const wxString & font, const wxString & encoding) {
 		if(_obj.pushFunction("OnFontEncoding")) {
+			_obj.pushArg((wxFontEnumerator*)this);
 			_obj.pushArg(font);
 			_obj.pushArg(encoding);
 			return (_obj.callFunction<bool>());

@@ -16,11 +16,19 @@ public:
 	~wrapper_wxLogInterposerTemp() {
 		logDEBUG3("Calling delete function for wrapper wxLogInterposerTemp");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxLogInterposerTemp*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxLogInterposerTemp(lua_State* L, lua_Table* dum) : wxLogInterposerTemp(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxLogInterposerTemp(lua_State* L, lua_Table* dum) 
+		: wxLogInterposerTemp(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxLogInterposerTemp*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +37,7 @@ protected:
 	// void wxLog::DoLogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info)
 	void DoLogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info) {
 		if(_obj.pushFunction("DoLogRecord")) {
+			_obj.pushArg((wxLogInterposerTemp*)this);
 			_obj.pushArg(level);
 			_obj.pushArg(msg);
 			_obj.pushArg(&info);
@@ -41,6 +50,7 @@ protected:
 	// void wxLog::DoLogTextAtLevel(unsigned long level, const wxString & msg)
 	void DoLogTextAtLevel(unsigned long level, const wxString & msg) {
 		if(_obj.pushFunction("DoLogTextAtLevel")) {
+			_obj.pushArg((wxLogInterposerTemp*)this);
 			_obj.pushArg(level);
 			_obj.pushArg(msg);
 			return (_obj.callFunction<void>());
@@ -52,6 +62,7 @@ protected:
 	// void wxLog::DoLogText(const wxString & msg)
 	void DoLogText(const wxString & msg) {
 		if(_obj.pushFunction("DoLogText")) {
+			_obj.pushArg((wxLogInterposerTemp*)this);
 			_obj.pushArg(msg);
 			return (_obj.callFunction<void>());
 		}
@@ -64,6 +75,7 @@ public:
 	// void wxLog::Flush()
 	void Flush() {
 		if(_obj.pushFunction("Flush")) {
+			_obj.pushArg((wxLogInterposerTemp*)this);
 			return (_obj.callFunction<void>());
 		}
 

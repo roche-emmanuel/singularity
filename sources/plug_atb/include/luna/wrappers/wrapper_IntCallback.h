@@ -16,11 +16,19 @@ public:
 	~wrapper_IntCallback() {
 		logDEBUG3("Calling delete function for wrapper IntCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((IntCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_IntCallback(lua_State* L, lua_Table* dum) : IntCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_IntCallback(lua_State* L, lua_Table* dum) 
+		: IntCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((IntCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void IntCallback::setValue(int val)
 	void setValue(int val) {
 		THROW_IF(!_obj.pushFunction("setValue"),"No implementation for abstract function IntCallback::setValue");
+		_obj.pushArg((IntCallback*)this);
 		_obj.pushArg(val);
 		return (_obj.callFunction<void>());
 	};
@@ -38,6 +47,7 @@ public:
 	// int IntCallback::getValue()
 	int getValue() {
 		THROW_IF(!_obj.pushFunction("getValue"),"No implementation for abstract function IntCallback::getValue");
+		_obj.pushArg((IntCallback*)this);
 		return (_obj.callFunction<int>());
 	};
 

@@ -16,11 +16,19 @@ public:
 	~wrapper_osgViewer_ScreenCaptureHandler_WriteToFile() {
 		logDEBUG3("Calling delete function for wrapper osgViewer_ScreenCaptureHandler_WriteToFile");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgViewer::ScreenCaptureHandler::WriteToFile*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgViewer_ScreenCaptureHandler_WriteToFile(lua_State* L, lua_Table* dum, const std::string & filename, const std::string & extension, osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy savePolicy = osgViewer::ScreenCaptureHandler::WriteToFile::SEQUENTIAL_NUMBER) : osgViewer::ScreenCaptureHandler::WriteToFile(filename, extension, savePolicy), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgViewer_ScreenCaptureHandler_WriteToFile(lua_State* L, lua_Table* dum, const std::string & filename, const std::string & extension, osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy savePolicy = osgViewer::ScreenCaptureHandler::WriteToFile::SEQUENTIAL_NUMBER) 
+		: osgViewer::ScreenCaptureHandler::WriteToFile(filename, extension, savePolicy), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgViewer::ScreenCaptureHandler::WriteToFile*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgViewer::ScreenCaptureHandler::WriteToFile*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// void osgViewer::ScreenCaptureHandler::WriteToFile::operator()(const osg::Image & image, const unsigned int context_id)
 	void operator()(const osg::Image & image, const unsigned int context_id) {
 		if(_obj.pushFunction("op_call")) {
+			_obj.pushArg((osgViewer::ScreenCaptureHandler::WriteToFile*)this);
 			_obj.pushArg(&image);
 			_obj.pushArg(context_id);
 			return (_obj.callFunction<void>());
@@ -158,9 +168,9 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_op_assign",_bind_public_op_assign},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"op_assign",_bind_public_op_assign},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

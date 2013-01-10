@@ -16,11 +16,19 @@ public:
 	~wrapper_wxSocketServer() {
 		logDEBUG3("Calling delete function for wrapper wxSocketServer");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxSocketServer*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxSocketServer(lua_State* L, lua_Table* dum, const wxSockAddress & address, int flags = ::wxSOCKET_NONE) : wxSocketServer(address, flags), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxSocketServer(lua_State* L, lua_Table* dum, const wxSockAddress & address, int flags = ::wxSOCKET_NONE) 
+		: wxSocketServer(address, flags), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxSocketServer*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxSocketServer*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -38,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxSocketServer*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -50,6 +60,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxSocketServer*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -59,6 +70,7 @@ public:
 	// bool wxSocketBase::GetLocal(wxSockAddress & addr) const
 	bool GetLocal(wxSockAddress & addr) const {
 		if(_obj.pushFunction("GetLocal")) {
+			_obj.pushArg((wxSocketServer*)this);
 			_obj.pushArg(&addr);
 			return (_obj.callFunction<bool>());
 		}
@@ -69,6 +81,7 @@ public:
 	// bool wxSocketBase::GetPeer(wxSockAddress & addr) const
 	bool GetPeer(wxSockAddress & addr) const {
 		if(_obj.pushFunction("GetPeer")) {
+			_obj.pushArg((wxSocketServer*)this);
 			_obj.pushArg(&addr);
 			return (_obj.callFunction<bool>());
 		}
@@ -79,6 +92,7 @@ public:
 	// bool wxSocketBase::Close()
 	bool Close() {
 		if(_obj.pushFunction("Close")) {
+			_obj.pushArg((wxSocketServer*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -88,6 +102,7 @@ public:
 	// bool wxSocketBase::SetLocal(const wxIPV4address & local)
 	bool SetLocal(const wxIPV4address & local) {
 		if(_obj.pushFunction("SetLocal")) {
+			_obj.pushArg((wxSocketServer*)this);
 			_obj.pushArg(&local);
 			return (_obj.callFunction<bool>());
 		}

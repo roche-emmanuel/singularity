@@ -16,13 +16,35 @@ public:
 	~wrapper_wxXmlNode() {
 		logDEBUG3("Calling delete function for wrapper wxXmlNode");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxXmlNode*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxXmlNode(lua_State* L, lua_Table* dum, wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1) : wxXmlNode(parent, type, name, content, attrs, next, lineNo), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxXmlNode(lua_State* L, lua_Table* dum, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1) : wxXmlNode(type, name, content, lineNo), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxXmlNode(lua_State* L, lua_Table* dum, const wxXmlNode & node) : wxXmlNode(node), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxXmlNode(lua_State* L, lua_Table* dum, wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1) 
+		: wxXmlNode(parent, type, name, content, attrs, next, lineNo), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxXmlNode*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxXmlNode(lua_State* L, lua_Table* dum, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1) 
+		: wxXmlNode(type, name, content, lineNo), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxXmlNode*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxXmlNode(lua_State* L, lua_Table* dum, const wxXmlNode & node) 
+		: wxXmlNode(node), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxXmlNode*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -33,6 +55,7 @@ public:
 	// void wxXmlNode::AddAttribute(const wxString & name, const wxString & value)
 	void AddAttribute(const wxString & name, const wxString & value) {
 		if(_obj.pushFunction("AddAttribute")) {
+			_obj.pushArg((wxXmlNode*)this);
 			_obj.pushArg(name);
 			_obj.pushArg(value);
 			return (_obj.callFunction<void>());
@@ -44,6 +67,7 @@ public:
 	// void wxXmlNode::AddAttribute(wxXmlAttribute * attr)
 	void AddAttribute(wxXmlAttribute * attr) {
 		if(_obj.pushFunction("AddAttribute")) {
+			_obj.pushArg((wxXmlNode*)this);
 			_obj.pushArg(attr);
 			return (_obj.callFunction<void>());
 		}
@@ -54,6 +78,7 @@ public:
 	// void wxXmlNode::AddChild(wxXmlNode * child)
 	void AddChild(wxXmlNode * child) {
 		if(_obj.pushFunction("AddChild")) {
+			_obj.pushArg((wxXmlNode*)this);
 			_obj.pushArg(child);
 			return (_obj.callFunction<void>());
 		}
@@ -64,6 +89,7 @@ public:
 	// bool wxXmlNode::DeleteAttribute(const wxString & name)
 	bool DeleteAttribute(const wxString & name) {
 		if(_obj.pushFunction("DeleteAttribute")) {
+			_obj.pushArg((wxXmlNode*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<bool>());
 		}
@@ -74,6 +100,7 @@ public:
 	// bool wxXmlNode::InsertChild(wxXmlNode * child, wxXmlNode * followingNode)
 	bool InsertChild(wxXmlNode * child, wxXmlNode * followingNode) {
 		if(_obj.pushFunction("InsertChild")) {
+			_obj.pushArg((wxXmlNode*)this);
 			_obj.pushArg(child);
 			_obj.pushArg(followingNode);
 			return (_obj.callFunction<bool>());
@@ -85,6 +112,7 @@ public:
 	// bool wxXmlNode::InsertChildAfter(wxXmlNode * child, wxXmlNode * precedingNode)
 	bool InsertChildAfter(wxXmlNode * child, wxXmlNode * precedingNode) {
 		if(_obj.pushFunction("InsertChildAfter")) {
+			_obj.pushArg((wxXmlNode*)this);
 			_obj.pushArg(child);
 			_obj.pushArg(precedingNode);
 			return (_obj.callFunction<bool>());
@@ -96,6 +124,7 @@ public:
 	// bool wxXmlNode::RemoveChild(wxXmlNode * child)
 	bool RemoveChild(wxXmlNode * child) {
 		if(_obj.pushFunction("RemoveChild")) {
+			_obj.pushArg((wxXmlNode*)this);
 			_obj.pushArg(child);
 			return (_obj.callFunction<bool>());
 		}

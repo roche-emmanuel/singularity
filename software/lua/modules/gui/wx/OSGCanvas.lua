@@ -12,6 +12,7 @@ local prof = require "debugging.Profiler"
 local tools = require "osg.Tools"
 local fs = require "base.FileSystem"
 
+
 --- Create an OSG Canvas:
 function Class:initialize(options)
 	self:debug4("Initializing OSG Canvas.")
@@ -25,16 +26,32 @@ function Class:initialize(options)
 	self:check(gl.DEPTH_BUFFER_BIT,"Invalid value DEPTH_BUFFER_BIT")
 	
 	self._attribs = options.attribs or {wx.WX_GL_RGBA,wx.WX_GL_DOUBLEBUFFER}
-		
-	self:create(options)
+	
+	self:buildInstance()
 	
 	self:debug4("OSG Canvas initialization done.")
 end
 
-function Class:create(options)
+function Class:getWindow()
+	return self._panel;
+end
+
+function Class:buildInstance()
+	self:info("Building OSGCanvas instance...")
 	
-	self._window = osgWX.createGLCanvas(self._parent,wx.wxID_ANY,self._attribs)
+	-- We need an intermediate panel to assign it a custom deleter here  and release the eventHandlers properly:
+	self._panel = self:createPanel{parent=self._parent,wrapper={
+		delete = function()
+			self:info("Calling deleter for OSGCanvas panel.")
+			self:disconnectHandlers()
+			self:info("Removing graphics context from osg canvas.");
+			self._viewer:getCamera():setGraphicsContext(nil); -- this is needed to avoid wxWidgets resource access after deletion.
+		end
+	}};
+	
+	self._window = osgWX.createGLCanvas(self._panel,wx.wxID_ANY,self._attribs)
 	self:check(self._window,"Invalid wxGLCanvas")
+	self._panel:GetSizer():Add(self._window,1,wx.wxEXPAND,0);
 	
 	-- Create the glcontext:
 	self._context = wx.wxGLContext:new(self._window)
@@ -58,12 +75,10 @@ function Class:create(options)
 	
 	-- self._viewer:setThreadingModel(osgViewer.ViewerBase.SingleThreaded);
 	
-	for _,h in ipairs(options.handlers or {}) do
-		self._viewer:addEventHandler( h );
-	end
+	local win = self._window
 	
 	-- connect the event handlers for the canvas:
-	self._intf:connectHandler(self._window,wx.wxEVT_SIZE,function(intf,event)
+	self:connectHandler(win,wx.wxEVT_SIZE,function(intf,event)
     	local size = event:GetSize()
     	local ww = size:GetWidth()
     	local hh = size:GetHeight()
@@ -73,52 +88,6 @@ function Class:create(options)
         self._gw:resized(0,0,ww,hh);
 		self._viewer:getCamera():setViewport(0,0,ww,hh);
 	end)
-	
-	self:getEventManager():addListener{event=Event.FRAME,object=self}
-	
-	self:getEventManager():addListener{event=Event.APP_CLOSING,func=function()
-		self:info("Removing graphics context from osg canvas.");
-		self._viewer:getCamera():setGraphicsContext(nil); -- this is needed to avoid wxWidgets resource access after deletion.
-	end}
-end
-
-local keyMap = {}
-keyMap[wx.WXK_CONTROL] = osgGA.GUIEventAdapter.KEY_Control_L;
-keyMap[wx.WXK_SHIFT] = osgGA.GUIEventAdapter.KEY_Shift_L;
-keyMap[wx.WXK_ALT] = osgGA.GUIEventAdapter.KEY_Alt_L;
-keyMap[wx.WXK_UP] = osgGA.GUIEventAdapter.KEY_Up;
-keyMap[wx.WXK_DOWN] = osgGA.GUIEventAdapter.KEY_Down;
-keyMap[wx.WXK_LEFT] = osgGA.GUIEventAdapter.KEY_Left;
-keyMap[wx.WXK_RIGHT] = osgGA.GUIEventAdapter.KEY_Right;
-keyMap[wx.WXK_BACK] = osgGA.GUIEventAdapter.KEY_BackSpace;
-keyMap[wx.WXK_TAB] = osgGA.GUIEventAdapter.KEY_Tab;
-keyMap[wx.WXK_RETURN] = osgGA.GUIEventAdapter.KEY_Return;
-keyMap[wx.WXK_ESCAPE] = osgGA.GUIEventAdapter.KEY_Escape 
-keyMap[wx.WXK_SPACE] = osgGA.GUIEventAdapter.KEY_Space
-keyMap[wx.WXK_DELETE] = osgGA.GUIEventAdapter.KEY_Delete
-keyMap[wx.WXK_START] = osgGA.GUIEventAdapter.KEY_Start 
-keyMap[wx.WXK_CANCEL] = osgGA.GUIEventAdapter.KEY_Cancel
-keyMap[wx.WXK_CLEAR] = osgGA.GUIEventAdapter.KEY_Clear
-keyMap[wx.WXK_MENU] = osgGA.GUIEventAdapter.KEY_Menu
-keyMap[wx.WXK_PAUSE] = osgGA.GUIEventAdapter.KEY_Pause
-keyMap[wx.WXK_END] = osgGA.GUIEventAdapter.KEY_End
-keyMap[wx.WXK_HOME] = osgGA.GUIEventAdapter.KEY_Home
-keyMap[wx.WXK_SELECT] = osgGA.GUIEventAdapter.KEY_Select
-keyMap[wx.WXK_PRINT] = osgGA.GUIEventAdapter.KEY_Print
-keyMap[wx.WXK_EXECUTE] = osgGA.GUIEventAdapter.KEY_Execute
-keyMap[wx.WXK_SNAPSHOT] = osgGA.GUIEventAdapter.KEY_Snapshot
-keyMap[wx.WXK_INSERT] = osgGA.GUIEventAdapter.KEY_Insert
-keyMap[wx.WXK_HELP] = osgGA.GUIEventAdapter.KEY_Help
-
-
-function Class:adaptKeyCode(key)
-	return keyMap[key] or key
-end
-
-function Class:connectHandlers()
-	if self._initialized then
-		return
-	end
 	
 	local mouseDownHandler = function(intf,event)
     	--self:info("Sending mouse down event: X=",event:GetX(),", Y=",event:GetY(),", button=",event:GetButton())
@@ -158,21 +127,57 @@ function Class:connectHandlers()
 		self._gw:getEventQueue():keyPress(self:adaptKeyCode(event:GetKeyCode()));
 		event:Skip();
 	end
+	
+	self:connectHandler(win,wx.wxEVT_LEFT_DOWN,mouseDownHandler)
+	self:connectHandler(win,wx.wxEVT_MIDDLE_DOWN,mouseDownHandler)
+	self:connectHandler(win,wx.wxEVT_RIGHT_DOWN,mouseDownHandler)
+	self:connectHandler(win,wx.wxEVT_LEFT_UP,mouseUpHandler)
+	self:connectHandler(win,wx.wxEVT_MIDDLE_UP,mouseUpHandler)
+	self:connectHandler(win,wx.wxEVT_RIGHT_UP,mouseUpHandler)
+	self:connectHandler(win,wx.wxEVT_MOUSEWHEEL,mouseWheelHandler)
+	self:connectHandler(win,wx.wxEVT_MOTION,mouseMotionHandler)
+	
+	self:connectHandler(win,wx.wxEVT_KEY_UP,keyUpHandler)
+	self:connectHandler(win,wx.wxEVT_KEY_DOWN,keyDownHandler)
+	self:connectHandler(win,wx.wxEVT_CHAR,charHandler)
+	
+	self:getEventManager():addListener{event=Event.FRAME,object=self}
+	
+	--self:getEventManager():addListener{event=Event.APP_CLOSING,func=function()
+	--end}
+end
 
-	local win = self._window
-	
-	self._intf:connectHandler(win,wx.wxEVT_LEFT_DOWN,mouseDownHandler)
-	self._intf:connectHandler(win,wx.wxEVT_MIDDLE_DOWN,mouseDownHandler)
-	self._intf:connectHandler(win,wx.wxEVT_RIGHT_DOWN,mouseDownHandler)
-	self._intf:connectHandler(win,wx.wxEVT_LEFT_UP,mouseUpHandler)
-	self._intf:connectHandler(win,wx.wxEVT_MIDDLE_UP,mouseUpHandler)
-	self._intf:connectHandler(win,wx.wxEVT_RIGHT_UP,mouseUpHandler)
-	self._intf:connectHandler(win,wx.wxEVT_MOUSEWHEEL,mouseWheelHandler)
-	self._intf:connectHandler(win,wx.wxEVT_MOTION,mouseMotionHandler)
-	
-	self._intf:connectHandler(win,wx.wxEVT_KEY_UP,keyUpHandler)
-	self._intf:connectHandler(win,wx.wxEVT_KEY_DOWN,keyDownHandler)
-	self._intf:connectHandler(win,wx.wxEVT_CHAR,charHandler)
+local keyMap = {}
+keyMap[wx.WXK_CONTROL] = osgGA.GUIEventAdapter.KEY_Control_L;
+keyMap[wx.WXK_SHIFT] = osgGA.GUIEventAdapter.KEY_Shift_L;
+keyMap[wx.WXK_ALT] = osgGA.GUIEventAdapter.KEY_Alt_L;
+keyMap[wx.WXK_UP] = osgGA.GUIEventAdapter.KEY_Up;
+keyMap[wx.WXK_DOWN] = osgGA.GUIEventAdapter.KEY_Down;
+keyMap[wx.WXK_LEFT] = osgGA.GUIEventAdapter.KEY_Left;
+keyMap[wx.WXK_RIGHT] = osgGA.GUIEventAdapter.KEY_Right;
+keyMap[wx.WXK_BACK] = osgGA.GUIEventAdapter.KEY_BackSpace;
+keyMap[wx.WXK_TAB] = osgGA.GUIEventAdapter.KEY_Tab;
+keyMap[wx.WXK_RETURN] = osgGA.GUIEventAdapter.KEY_Return;
+keyMap[wx.WXK_ESCAPE] = osgGA.GUIEventAdapter.KEY_Escape 
+keyMap[wx.WXK_SPACE] = osgGA.GUIEventAdapter.KEY_Space
+keyMap[wx.WXK_DELETE] = osgGA.GUIEventAdapter.KEY_Delete
+keyMap[wx.WXK_START] = osgGA.GUIEventAdapter.KEY_Start 
+keyMap[wx.WXK_CANCEL] = osgGA.GUIEventAdapter.KEY_Cancel
+keyMap[wx.WXK_CLEAR] = osgGA.GUIEventAdapter.KEY_Clear
+keyMap[wx.WXK_MENU] = osgGA.GUIEventAdapter.KEY_Menu
+keyMap[wx.WXK_PAUSE] = osgGA.GUIEventAdapter.KEY_Pause
+keyMap[wx.WXK_END] = osgGA.GUIEventAdapter.KEY_End
+keyMap[wx.WXK_HOME] = osgGA.GUIEventAdapter.KEY_Home
+keyMap[wx.WXK_SELECT] = osgGA.GUIEventAdapter.KEY_Select
+keyMap[wx.WXK_PRINT] = osgGA.GUIEventAdapter.KEY_Print
+keyMap[wx.WXK_EXECUTE] = osgGA.GUIEventAdapter.KEY_Execute
+keyMap[wx.WXK_SNAPSHOT] = osgGA.GUIEventAdapter.KEY_Snapshot
+keyMap[wx.WXK_INSERT] = osgGA.GUIEventAdapter.KEY_Insert
+keyMap[wx.WXK_HELP] = osgGA.GUIEventAdapter.KEY_Help
+
+
+function Class:adaptKeyCode(key)
+	return keyMap[key] or key
 end
 
 function Class:onFrame()
@@ -181,7 +186,6 @@ function Class:onFrame()
 	if not self._initialized then
 		-- Need to change the start tick for the event queue here:
 		self._gw:getEventQueue():setStartTick(osg.Timer.instance():tick());
-		self:connectHandlers()
 		self._initialized = true
 	end
 	

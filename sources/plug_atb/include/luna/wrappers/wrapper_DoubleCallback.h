@@ -16,11 +16,19 @@ public:
 	~wrapper_DoubleCallback() {
 		logDEBUG3("Calling delete function for wrapper DoubleCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((DoubleCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_DoubleCallback(lua_State* L, lua_Table* dum) : DoubleCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_DoubleCallback(lua_State* L, lua_Table* dum) 
+		: DoubleCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((DoubleCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void DoubleCallback::setValue(double val)
 	void setValue(double val) {
 		THROW_IF(!_obj.pushFunction("setValue"),"No implementation for abstract function DoubleCallback::setValue");
+		_obj.pushArg((DoubleCallback*)this);
 		_obj.pushArg(val);
 		return (_obj.callFunction<void>());
 	};
@@ -38,6 +47,7 @@ public:
 	// double DoubleCallback::getValue()
 	double getValue() {
 		THROW_IF(!_obj.pushFunction("getValue"),"No implementation for abstract function DoubleCallback::getValue");
+		_obj.pushArg((DoubleCallback*)this);
 		return (_obj.callFunction<double>());
 	};
 

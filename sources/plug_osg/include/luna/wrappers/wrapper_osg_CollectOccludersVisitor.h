@@ -16,11 +16,19 @@ public:
 	~wrapper_osg_CollectOccludersVisitor() {
 		logDEBUG3("Calling delete function for wrapper osg_CollectOccludersVisitor");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::CollectOccludersVisitor*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_CollectOccludersVisitor(lua_State* L, lua_Table* dum) : osg::CollectOccludersVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_CollectOccludersVisitor(lua_State* L, lua_Table* dum) 
+		: osg::CollectOccludersVisitor(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
 		if(_obj.pushFunction("getEyePoint")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -50,6 +60,7 @@ public:
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {
 		if(_obj.pushFunction("getViewPoint")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -59,6 +70,7 @@ public:
 	// void osg::CullSettings::setDefaults()
 	void setDefaults() {
 		if(_obj.pushFunction("setDefaults")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -68,6 +80,7 @@ public:
 	// void osg::CullSettings::inheritCullSettings(const osg::CullSettings & settings)
 	void inheritCullSettings(const osg::CullSettings & settings) {
 		if(_obj.pushFunction("inheritCullSettings")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			_obj.pushArg(&settings);
 			return (_obj.callFunction<void>());
 		}
@@ -78,6 +91,7 @@ public:
 	// void osg::CullSettings::inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)
 	void inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask) {
 		if(_obj.pushFunction("inheritCullSettings")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			_obj.pushArg(&settings);
 			_obj.pushArg(inheritanceMask);
 			return (_obj.callFunction<void>());
@@ -89,6 +103,7 @@ public:
 	// const char * osg::CollectOccludersVisitor::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -98,6 +113,7 @@ public:
 	// const char * osg::CollectOccludersVisitor::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -107,6 +123,7 @@ public:
 	// osg::CollectOccludersVisitor * osg::CollectOccludersVisitor::cloneType() const
 	osg::CollectOccludersVisitor * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			return (_obj.callFunction<osg::CollectOccludersVisitor*>());
 		}
 
@@ -116,6 +133,7 @@ public:
 	// void osg::CollectOccludersVisitor::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -125,6 +143,7 @@ public:
 	// float osg::CollectOccludersVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToEyePoint")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -136,6 +155,7 @@ public:
 	// float osg::CollectOccludersVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToViewPoint")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -147,6 +167,7 @@ public:
 	// float osg::CollectOccludersVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceFromEyePoint")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -158,6 +179,7 @@ public:
 	// void osg::CollectOccludersVisitor::apply(osg::Node & arg1)
 	void apply(osg::Node & arg1) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -168,6 +190,7 @@ public:
 	// void osg::CollectOccludersVisitor::apply(osg::Transform & node)
 	void apply(osg::Transform & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -178,6 +201,7 @@ public:
 	// void osg::CollectOccludersVisitor::apply(osg::Projection & node)
 	void apply(osg::Projection & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -188,6 +212,7 @@ public:
 	// void osg::CollectOccludersVisitor::apply(osg::Switch & node)
 	void apply(osg::Switch & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -198,6 +223,7 @@ public:
 	// void osg::CollectOccludersVisitor::apply(osg::LOD & node)
 	void apply(osg::LOD & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -208,6 +234,7 @@ public:
 	// void osg::CollectOccludersVisitor::apply(osg::OccluderNode & node)
 	void apply(osg::OccluderNode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::CollectOccludersVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -463,13 +490,13 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_handle_cull_callbacks_and_traverse",_bind_public_handle_cull_callbacks_and_traverse},
-		{"protected_handle_cull_callbacks_and_accept",_bind_public_handle_cull_callbacks_and_accept},
-		{"protected_op_assign",_bind_public_op_assign},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
-		{"protected_computeFrustumVolume",_bind_public_computeFrustumVolume},
-		{"protected_createOrReuseMatrix",_bind_public_createOrReuseMatrix},
+		{"handle_cull_callbacks_and_traverse",_bind_public_handle_cull_callbacks_and_traverse},
+		{"handle_cull_callbacks_and_accept",_bind_public_handle_cull_callbacks_and_accept},
+		{"op_assign",_bind_public_op_assign},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"computeFrustumVolume",_bind_public_computeFrustumVolume},
+		{"createOrReuseMatrix",_bind_public_createOrReuseMatrix},
 		{NULL,NULL}
 		};
 

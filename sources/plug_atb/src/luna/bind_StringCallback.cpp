@@ -153,11 +153,11 @@ public:
 		return 0;
 	}
 
-	// void StringCallback::setValue(std::string val)
+	// void StringCallback::setValue(const std::string & val)
 	static int _bind_setValue(lua_State *L) {
 		if (!_lg_typecheck_setValue(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void StringCallback::setValue(std::string val) function, expected prototype:\nvoid StringCallback::setValue(std::string val)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void StringCallback::setValue(const std::string & val) function, expected prototype:\nvoid StringCallback::setValue(const std::string & val)\nClass arguments details:\n");
 		}
 
 		std::string val(lua_tostring(L,2),lua_objlen(L,2));
@@ -165,7 +165,7 @@ public:
 		StringCallback* self=Luna< osg::Referenced >::checkSubType< StringCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void StringCallback::setValue(std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void StringCallback::setValue(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setValue(val);
 
@@ -200,7 +200,7 @@ StringCallback* LunaTraits< StringCallback >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_StringCallback::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
-	// void StringCallback::setValue(std::string val)
+	// void StringCallback::setValue(const std::string & val)
 	// std::string StringCallback::getValue()
 }
 

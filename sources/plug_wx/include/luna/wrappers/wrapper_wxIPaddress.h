@@ -16,6 +16,7 @@ public:
 	~wrapper_wxIPaddress() {
 		logDEBUG3("Calling delete function for wrapper wxIPaddress");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxIPaddress*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -28,6 +29,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxIPaddress*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -37,6 +39,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxIPaddress*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -49,6 +52,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxIPaddress*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -58,30 +62,35 @@ public:
 	// void wxSockAddress::Clear()
 	void Clear() {
 		THROW_IF(!_obj.pushFunction("Clear"),"No implementation for abstract function wxSockAddress::Clear");
+		_obj.pushArg((wxIPaddress*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// wxSockAddress::Family wxSockAddress::Type()
 	wxSockAddress::Family Type() {
 		THROW_IF(!_obj.pushFunction("Type"),"No implementation for abstract function wxSockAddress::Type");
+		_obj.pushArg((wxIPaddress*)this);
 		return (wxSockAddress::Family)(_obj.callFunction<int>());
 	};
 
 	// wxSockAddress * wxSockAddress::Clone() const
 	wxSockAddress * Clone() const {
 		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxSockAddress::Clone");
+		_obj.pushArg((wxIPaddress*)this);
 		return (_obj.callFunction<wxSockAddress*>());
 	};
 
 	// wxString wxIPaddress::IPAddress() const
 	wxString IPAddress() const {
 		THROW_IF(!_obj.pushFunction("IPAddress"),"No implementation for abstract function wxIPaddress::IPAddress");
+		_obj.pushArg((wxIPaddress*)this);
 		return *(_obj.callFunction<wxString*>());
 	};
 
 	// bool wxIPaddress::IsLocalHost() const
 	bool IsLocalHost() const {
 		THROW_IF(!_obj.pushFunction("IsLocalHost"),"No implementation for abstract function wxIPaddress::IsLocalHost");
+		_obj.pushArg((wxIPaddress*)this);
 		return (_obj.callFunction<bool>());
 	};
 

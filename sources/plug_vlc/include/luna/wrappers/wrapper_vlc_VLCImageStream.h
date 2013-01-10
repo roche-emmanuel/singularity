@@ -16,11 +16,19 @@ public:
 	~wrapper_vlc_VLCImageStream() {
 		logDEBUG3("Calling delete function for wrapper vlc_VLCImageStream");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((vlc::VLCImageStream*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_vlc_VLCImageStream(lua_State* L, lua_Table* dum) : vlc::VLCImageStream(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_vlc_VLCImageStream(lua_State* L, lua_Table* dum) 
+		: vlc::VLCImageStream(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((vlc::VLCImageStream*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void vlc::VLCImageStream::play()
 	void play() {
 		if(_obj.pushFunction("play")) {
+			_obj.pushArg((vlc::VLCImageStream*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -40,6 +49,7 @@ public:
 	// void vlc::VLCImageStream::pause()
 	void pause() {
 		if(_obj.pushFunction("pause")) {
+			_obj.pushArg((vlc::VLCImageStream*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -49,6 +59,7 @@ public:
 	// void vlc::VLCImageStream::rewind()
 	void rewind() {
 		if(_obj.pushFunction("rewind")) {
+			_obj.pushArg((vlc::VLCImageStream*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -58,6 +69,7 @@ public:
 	// void vlc::VLCImageStream::quit(bool waitForThreadToExit = true)
 	void quit(bool waitForThreadToExit = true) {
 		if(_obj.pushFunction("quit")) {
+			_obj.pushArg((vlc::VLCImageStream*)this);
 			_obj.pushArg(waitForThreadToExit);
 			return (_obj.callFunction<void>());
 		}
@@ -68,6 +80,7 @@ public:
 	// void vlc::VLCImageStream::setReferenceTime(double time)
 	void setReferenceTime(double time) {
 		if(_obj.pushFunction("setReferenceTime")) {
+			_obj.pushArg((vlc::VLCImageStream*)this);
 			_obj.pushArg(time);
 			return (_obj.callFunction<void>());
 		}
@@ -78,6 +91,7 @@ public:
 	// double vlc::VLCImageStream::getReferenceTime() const
 	double getReferenceTime() const {
 		if(_obj.pushFunction("getReferenceTime")) {
+			_obj.pushArg((vlc::VLCImageStream*)this);
 			return (_obj.callFunction<double>());
 		}
 
@@ -87,6 +101,7 @@ public:
 	// void vlc::VLCImageStream::setTimeMultiplier(double m)
 	void setTimeMultiplier(double m) {
 		if(_obj.pushFunction("setTimeMultiplier")) {
+			_obj.pushArg((vlc::VLCImageStream*)this);
 			_obj.pushArg(m);
 			return (_obj.callFunction<void>());
 		}
@@ -97,6 +112,7 @@ public:
 	// double vlc::VLCImageStream::getTimeMultiplier() const
 	double getTimeMultiplier() const {
 		if(_obj.pushFunction("getTimeMultiplier")) {
+			_obj.pushArg((vlc::VLCImageStream*)this);
 			return (_obj.callFunction<double>());
 		}
 
@@ -106,6 +122,7 @@ public:
 	// void vlc::VLCImageStream::setVolume(float vol)
 	void setVolume(float vol) {
 		if(_obj.pushFunction("setVolume")) {
+			_obj.pushArg((vlc::VLCImageStream*)this);
 			_obj.pushArg(vol);
 			return (_obj.callFunction<void>());
 		}
@@ -116,6 +133,7 @@ public:
 	// float vlc::VLCImageStream::getVolume() const
 	float getVolume() const {
 		if(_obj.pushFunction("getVolume")) {
+			_obj.pushArg((vlc::VLCImageStream*)this);
 			return (_obj.callFunction<float>());
 		}
 

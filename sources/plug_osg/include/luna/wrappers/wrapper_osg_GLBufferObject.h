@@ -16,11 +16,19 @@ public:
 	~wrapper_osg_GLBufferObject() {
 		logDEBUG3("Calling delete function for wrapper osg_GLBufferObject");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::GLBufferObject*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_GLBufferObject(lua_State* L, lua_Table* dum, unsigned int contextID, osg::BufferObject * bufferObject, unsigned int glObjectID = 0) : osg::GLBufferObject(contextID, bufferObject, glObjectID), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_GLBufferObject(lua_State* L, lua_Table* dum, unsigned int contextID, osg::BufferObject * bufferObject, unsigned int glObjectID = 0) 
+		: osg::GLBufferObject(contextID, bufferObject, glObjectID), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::GLBufferObject*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::GLBufferObject*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -143,9 +152,9 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_computeBufferAlignment",_bind_public_computeBufferAlignment},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"computeBufferAlignment",_bind_public_computeBufferAlignment},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

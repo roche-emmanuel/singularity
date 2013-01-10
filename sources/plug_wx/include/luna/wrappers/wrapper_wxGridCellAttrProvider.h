@@ -16,11 +16,19 @@ public:
 	~wrapper_wxGridCellAttrProvider() {
 		logDEBUG3("Calling delete function for wrapper wxGridCellAttrProvider");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxGridCellAttrProvider*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxGridCellAttrProvider(lua_State* L, lua_Table* dum) : wxGridCellAttrProvider(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGridCellAttrProvider(lua_State* L, lua_Table* dum) 
+		: wxGridCellAttrProvider(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxGridCellAttrProvider*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// wxGridCellAttr * wxGridCellAttrProvider::GetAttr(int row, int col, wxGridCellAttr::wxAttrKind kind) const
 	wxGridCellAttr * GetAttr(int row, int col, wxGridCellAttr::wxAttrKind kind) const {
 		if(_obj.pushFunction("GetAttr")) {
+			_obj.pushArg((wxGridCellAttrProvider*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			_obj.pushArg(kind);
@@ -43,6 +52,7 @@ public:
 	// void wxGridCellAttrProvider::SetAttr(wxGridCellAttr * attr, int row, int col)
 	void SetAttr(wxGridCellAttr * attr, int row, int col) {
 		if(_obj.pushFunction("SetAttr")) {
+			_obj.pushArg((wxGridCellAttrProvider*)this);
 			_obj.pushArg(attr);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
@@ -55,6 +65,7 @@ public:
 	// void wxGridCellAttrProvider::SetRowAttr(wxGridCellAttr * attr, int row)
 	void SetRowAttr(wxGridCellAttr * attr, int row) {
 		if(_obj.pushFunction("SetRowAttr")) {
+			_obj.pushArg((wxGridCellAttrProvider*)this);
 			_obj.pushArg(attr);
 			_obj.pushArg(row);
 			return (_obj.callFunction<void>());
@@ -66,6 +77,7 @@ public:
 	// void wxGridCellAttrProvider::SetColAttr(wxGridCellAttr * attr, int col)
 	void SetColAttr(wxGridCellAttr * attr, int col) {
 		if(_obj.pushFunction("SetColAttr")) {
+			_obj.pushArg((wxGridCellAttrProvider*)this);
 			_obj.pushArg(attr);
 			_obj.pushArg(col);
 			return (_obj.callFunction<void>());
@@ -77,6 +89,7 @@ public:
 	// const wxGridColumnHeaderRenderer & wxGridCellAttrProvider::GetColumnHeaderRenderer(int col)
 	const wxGridColumnHeaderRenderer & GetColumnHeaderRenderer(int col) {
 		if(_obj.pushFunction("GetColumnHeaderRenderer")) {
+			_obj.pushArg((wxGridCellAttrProvider*)this);
 			_obj.pushArg(col);
 			return *(_obj.callFunction<wxGridColumnHeaderRenderer*>());
 		}
@@ -87,6 +100,7 @@ public:
 	// const wxGridRowHeaderRenderer & wxGridCellAttrProvider::GetRowHeaderRenderer(int row)
 	const wxGridRowHeaderRenderer & GetRowHeaderRenderer(int row) {
 		if(_obj.pushFunction("GetRowHeaderRenderer")) {
+			_obj.pushArg((wxGridCellAttrProvider*)this);
 			_obj.pushArg(row);
 			return *(_obj.callFunction<wxGridRowHeaderRenderer*>());
 		}
@@ -97,6 +111,7 @@ public:
 	// const wxGridCornerHeaderRenderer & wxGridCellAttrProvider::GetCornerRenderer()
 	const wxGridCornerHeaderRenderer & GetCornerRenderer() {
 		if(_obj.pushFunction("GetCornerRenderer")) {
+			_obj.pushArg((wxGridCellAttrProvider*)this);
 			return *(_obj.callFunction<wxGridCornerHeaderRenderer*>());
 		}
 

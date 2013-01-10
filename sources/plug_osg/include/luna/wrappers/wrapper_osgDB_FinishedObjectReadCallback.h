@@ -16,11 +16,19 @@ public:
 	~wrapper_osgDB_FinishedObjectReadCallback() {
 		logDEBUG3("Calling delete function for wrapper osgDB_FinishedObjectReadCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::FinishedObjectReadCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_FinishedObjectReadCallback(lua_State* L, lua_Table* dum) : osgDB::FinishedObjectReadCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_FinishedObjectReadCallback(lua_State* L, lua_Table* dum) 
+		: osgDB::FinishedObjectReadCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::FinishedObjectReadCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::FinishedObjectReadCallback*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream & is, osg::Object & obj)
 	void objectRead(osgDB::InputStream & is, osg::Object & obj) {
 		THROW_IF(!_obj.pushFunction("objectRead"),"No implementation for abstract function osgDB::FinishedObjectReadCallback::objectRead");
+		_obj.pushArg((osgDB::FinishedObjectReadCallback*)this);
 		_obj.pushArg(&is);
 		_obj.pushArg(&obj);
 		return (_obj.callFunction<void>());
@@ -117,8 +127,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

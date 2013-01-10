@@ -16,11 +16,19 @@ public:
 	~wrapper_osgDB_FileCache() {
 		logDEBUG3("Calling delete function for wrapper osgDB_FileCache");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::FileCache*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_FileCache(lua_State* L, lua_Table* dum, const std::string & path) : osgDB::FileCache(path), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_FileCache(lua_State* L, lua_Table* dum, const std::string & path) 
+		: osgDB::FileCache(path), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::FileCache*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::FileCache*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// bool osgDB::FileCache::isFileAppropriateForFileCache(const std::string & originalFileName) const
 	bool isFileAppropriateForFileCache(const std::string & originalFileName) const {
 		if(_obj.pushFunction("isFileAppropriateForFileCache")) {
+			_obj.pushArg((osgDB::FileCache*)this);
 			_obj.pushArg(originalFileName);
 			return (_obj.callFunction<bool>());
 		}
@@ -51,6 +61,7 @@ public:
 	// std::string osgDB::FileCache::createCacheFileName(const std::string & originalFileName) const
 	std::string createCacheFileName(const std::string & originalFileName) const {
 		if(_obj.pushFunction("createCacheFileName")) {
+			_obj.pushArg((osgDB::FileCache*)this);
 			_obj.pushArg(originalFileName);
 			return (_obj.callFunction<std::string>());
 		}
@@ -61,6 +72,7 @@ public:
 	// bool osgDB::FileCache::existsInCache(const std::string & originalFileName) const
 	bool existsInCache(const std::string & originalFileName) const {
 		if(_obj.pushFunction("existsInCache")) {
+			_obj.pushArg((osgDB::FileCache*)this);
 			_obj.pushArg(originalFileName);
 			return (_obj.callFunction<bool>());
 		}
@@ -71,6 +83,7 @@ public:
 	// osgDB::ReaderWriter::ReadResult osgDB::FileCache::readImage(const std::string & originalFileName, const osgDB::Options * options) const
 	osgDB::ReaderWriter::ReadResult readImage(const std::string & originalFileName, const osgDB::Options * options) const {
 		if(_obj.pushFunction("readImage")) {
+			_obj.pushArg((osgDB::FileCache*)this);
 			_obj.pushArg(originalFileName);
 			_obj.pushArg(options);
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
@@ -82,6 +95,7 @@ public:
 	// osgDB::ReaderWriter::WriteResult osgDB::FileCache::writeImage(const osg::Image & image, const std::string & originalFileName, const osgDB::Options * options) const
 	osgDB::ReaderWriter::WriteResult writeImage(const osg::Image & image, const std::string & originalFileName, const osgDB::Options * options) const {
 		if(_obj.pushFunction("writeImage")) {
+			_obj.pushArg((osgDB::FileCache*)this);
 			_obj.pushArg(&image);
 			_obj.pushArg(originalFileName);
 			_obj.pushArg(options);
@@ -94,6 +108,7 @@ public:
 	// osgDB::ReaderWriter::ReadResult osgDB::FileCache::readObject(const std::string & originalFileName, const osgDB::Options * options) const
 	osgDB::ReaderWriter::ReadResult readObject(const std::string & originalFileName, const osgDB::Options * options) const {
 		if(_obj.pushFunction("readObject")) {
+			_obj.pushArg((osgDB::FileCache*)this);
 			_obj.pushArg(originalFileName);
 			_obj.pushArg(options);
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
@@ -105,6 +120,7 @@ public:
 	// osgDB::ReaderWriter::WriteResult osgDB::FileCache::writeObject(const osg::Object & object, const std::string & originalFileName, const osgDB::Options * options) const
 	osgDB::ReaderWriter::WriteResult writeObject(const osg::Object & object, const std::string & originalFileName, const osgDB::Options * options) const {
 		if(_obj.pushFunction("writeObject")) {
+			_obj.pushArg((osgDB::FileCache*)this);
 			_obj.pushArg(&object);
 			_obj.pushArg(originalFileName);
 			_obj.pushArg(options);
@@ -117,6 +133,7 @@ public:
 	// osgDB::ReaderWriter::ReadResult osgDB::FileCache::readHeightField(const std::string & originalFileName, const osgDB::Options * options) const
 	osgDB::ReaderWriter::ReadResult readHeightField(const std::string & originalFileName, const osgDB::Options * options) const {
 		if(_obj.pushFunction("readHeightField")) {
+			_obj.pushArg((osgDB::FileCache*)this);
 			_obj.pushArg(originalFileName);
 			_obj.pushArg(options);
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
@@ -128,6 +145,7 @@ public:
 	// osgDB::ReaderWriter::WriteResult osgDB::FileCache::writeHeightField(const osg::HeightField & hf, const std::string & originalFileName, const osgDB::Options * options) const
 	osgDB::ReaderWriter::WriteResult writeHeightField(const osg::HeightField & hf, const std::string & originalFileName, const osgDB::Options * options) const {
 		if(_obj.pushFunction("writeHeightField")) {
+			_obj.pushArg((osgDB::FileCache*)this);
 			_obj.pushArg(&hf);
 			_obj.pushArg(originalFileName);
 			_obj.pushArg(options);
@@ -140,6 +158,7 @@ public:
 	// osgDB::ReaderWriter::ReadResult osgDB::FileCache::readNode(const std::string & originalFileName, const osgDB::Options * options, bool buildKdTreeIfRequired = true) const
 	osgDB::ReaderWriter::ReadResult readNode(const std::string & originalFileName, const osgDB::Options * options, bool buildKdTreeIfRequired = true) const {
 		if(_obj.pushFunction("readNode")) {
+			_obj.pushArg((osgDB::FileCache*)this);
 			_obj.pushArg(originalFileName);
 			_obj.pushArg(options);
 			_obj.pushArg(buildKdTreeIfRequired);
@@ -152,6 +171,7 @@ public:
 	// osgDB::ReaderWriter::WriteResult osgDB::FileCache::writeNode(const osg::Node & node, const std::string & originalFileName, const osgDB::Options * options) const
 	osgDB::ReaderWriter::WriteResult writeNode(const osg::Node & node, const std::string & originalFileName, const osgDB::Options * options) const {
 		if(_obj.pushFunction("writeNode")) {
+			_obj.pushArg((osgDB::FileCache*)this);
 			_obj.pushArg(&node);
 			_obj.pushArg(originalFileName);
 			_obj.pushArg(options);
@@ -164,6 +184,7 @@ public:
 	// osgDB::ReaderWriter::ReadResult osgDB::FileCache::readShader(const std::string & originalFileName, const osgDB::Options * options) const
 	osgDB::ReaderWriter::ReadResult readShader(const std::string & originalFileName, const osgDB::Options * options) const {
 		if(_obj.pushFunction("readShader")) {
+			_obj.pushArg((osgDB::FileCache*)this);
 			_obj.pushArg(originalFileName);
 			_obj.pushArg(options);
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
@@ -175,6 +196,7 @@ public:
 	// osgDB::ReaderWriter::WriteResult osgDB::FileCache::writeShader(const osg::Shader & shader, const std::string & originalFileName, const osgDB::Options * options) const
 	osgDB::ReaderWriter::WriteResult writeShader(const osg::Shader & shader, const std::string & originalFileName, const osgDB::Options * options) const {
 		if(_obj.pushFunction("writeShader")) {
+			_obj.pushArg((osgDB::FileCache*)this);
 			_obj.pushArg(&shader);
 			_obj.pushArg(originalFileName);
 			_obj.pushArg(options);
@@ -321,10 +343,10 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_readFileList",_bind_public_readFileList},
-		{"protected_removeFileFromBlackListed",_bind_public_removeFileFromBlackListed},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"readFileList",_bind_public_readFileList},
+		{"removeFileFromBlackListed",_bind_public_removeFileFromBlackListed},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

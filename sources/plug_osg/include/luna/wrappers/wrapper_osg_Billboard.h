@@ -16,12 +16,27 @@ public:
 	~wrapper_osg_Billboard() {
 		logDEBUG3("Calling delete function for wrapper osg_Billboard");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::Billboard*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_Billboard(lua_State* L, lua_Table* dum) : osg::Billboard(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_Billboard(lua_State* L, lua_Table* dum, const osg::Billboard & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Billboard(arg1, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Billboard(lua_State* L, lua_Table* dum) 
+		: osg::Billboard(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Billboard*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Billboard(lua_State* L, lua_Table* dum, const osg::Billboard & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osg::Billboard(arg1, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Billboard*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -32,6 +47,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -42,6 +58,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -51,6 +68,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -61,6 +79,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -70,6 +89,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -79,6 +99,7 @@ public:
 	// osg::Group * osg::Node::asGroup()
 	osg::Group * asGroup() {
 		if(_obj.pushFunction("asGroup")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return (_obj.callFunction<osg::Group*>());
 		}
 
@@ -88,6 +109,7 @@ public:
 	// const osg::Group * osg::Node::asGroup() const
 	const osg::Group * asGroup() const {
 		if(_obj.pushFunction("asGroup")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return (_obj.callFunction<osg::Group*>());
 		}
 
@@ -97,6 +119,7 @@ public:
 	// osg::Transform * osg::Node::asTransform()
 	osg::Transform * asTransform() {
 		if(_obj.pushFunction("asTransform")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
@@ -106,6 +129,7 @@ public:
 	// const osg::Transform * osg::Node::asTransform() const
 	const osg::Transform * asTransform() const {
 		if(_obj.pushFunction("asTransform")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
@@ -115,6 +139,7 @@ public:
 	// osg::Switch * osg::Node::asSwitch()
 	osg::Switch * asSwitch() {
 		if(_obj.pushFunction("asSwitch")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
@@ -124,6 +149,7 @@ public:
 	// const osg::Switch * osg::Node::asSwitch() const
 	const osg::Switch * asSwitch() const {
 		if(_obj.pushFunction("asSwitch")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
@@ -133,6 +159,7 @@ public:
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
 	void ascend(osg::NodeVisitor & nv) {
 		if(_obj.pushFunction("ascend")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(&nv);
 			return (_obj.callFunction<void>());
 		}
@@ -143,6 +170,7 @@ public:
 	// void osg::Node::traverse(osg::NodeVisitor & arg1)
 	void traverse(osg::NodeVisitor & arg1) {
 		if(_obj.pushFunction("traverse")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -153,6 +181,7 @@ public:
 	// osg::Geode * osg::Geode::asGeode()
 	osg::Geode * asGeode() {
 		if(_obj.pushFunction("asGeode")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
@@ -162,6 +191,7 @@ public:
 	// const osg::Geode * osg::Geode::asGeode() const
 	const osg::Geode * asGeode() const {
 		if(_obj.pushFunction("asGeode")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
@@ -171,6 +201,7 @@ public:
 	// bool osg::Geode::removeDrawables(unsigned int i, unsigned int numDrawablesToRemove = 1)
 	bool removeDrawables(unsigned int i, unsigned int numDrawablesToRemove = 1) {
 		if(_obj.pushFunction("removeDrawables")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(i);
 			_obj.pushArg(numDrawablesToRemove);
 			return (_obj.callFunction<bool>());
@@ -182,6 +213,7 @@ public:
 	// bool osg::Geode::replaceDrawable(osg::Drawable * origDraw, osg::Drawable * newDraw)
 	bool replaceDrawable(osg::Drawable * origDraw, osg::Drawable * newDraw) {
 		if(_obj.pushFunction("replaceDrawable")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(origDraw);
 			_obj.pushArg(newDraw);
 			return (_obj.callFunction<bool>());
@@ -193,6 +225,7 @@ public:
 	// bool osg::Geode::setDrawable(unsigned int i, osg::Drawable * drawable)
 	bool setDrawable(unsigned int i, osg::Drawable * drawable) {
 		if(_obj.pushFunction("setDrawable")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(i);
 			_obj.pushArg(drawable);
 			return (_obj.callFunction<bool>());
@@ -204,6 +237,7 @@ public:
 	// void osg::Geode::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -214,6 +248,7 @@ public:
 	// void osg::Geode::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -224,6 +259,7 @@ public:
 	// osg::Object * osg::Billboard::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -233,6 +269,7 @@ public:
 	// osg::Object * osg::Billboard::clone(const osg::CopyOp & copyop) const
 	osg::Object * clone(const osg::CopyOp & copyop) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(&copyop);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -243,6 +280,7 @@ public:
 	// bool osg::Billboard::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -253,6 +291,7 @@ public:
 	// const char * osg::Billboard::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -262,6 +301,7 @@ public:
 	// const char * osg::Billboard::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -271,6 +311,7 @@ public:
 	// void osg::Billboard::accept(osg::NodeVisitor & nv)
 	void accept(osg::NodeVisitor & nv) {
 		if(_obj.pushFunction("accept")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(&nv);
 			return (_obj.callFunction<void>());
 		}
@@ -281,6 +322,7 @@ public:
 	// bool osg::Billboard::addDrawable(osg::Drawable * gset)
 	bool addDrawable(osg::Drawable * gset) {
 		if(_obj.pushFunction("addDrawable")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(gset);
 			return (_obj.callFunction<bool>());
 		}
@@ -291,6 +333,7 @@ public:
 	// bool osg::Billboard::addDrawable(osg::Drawable * gset, const osg::Vec3f & pos)
 	bool addDrawable(osg::Drawable * gset, const osg::Vec3f & pos) {
 		if(_obj.pushFunction("addDrawable")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(gset);
 			_obj.pushArg(&pos);
 			return (_obj.callFunction<bool>());
@@ -302,6 +345,7 @@ public:
 	// bool osg::Billboard::removeDrawable(osg::Drawable * gset)
 	bool removeDrawable(osg::Drawable * gset) {
 		if(_obj.pushFunction("removeDrawable")) {
+			_obj.pushArg((osg::Billboard*)this);
 			_obj.pushArg(gset);
 			return (_obj.callFunction<bool>());
 		}
@@ -312,6 +356,7 @@ public:
 	// osg::BoundingSphered osg::Billboard::computeBound() const
 	osg::BoundingSphered computeBound() const {
 		if(_obj.pushFunction("computeBound")) {
+			_obj.pushArg((osg::Billboard*)this);
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
@@ -604,15 +649,15 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_updateCache",_bind_public_updateCache},
-		{"protected_addParent",_bind_public_addParent},
-		{"protected_removeParent",_bind_public_removeParent},
-		{"protected_setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
-		{"protected_setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
-		{"protected_setNumChildrenWithCullingDisabled",_bind_public_setNumChildrenWithCullingDisabled},
-		{"protected_setNumChildrenWithOccluderNodes",_bind_public_setNumChildrenWithOccluderNodes},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"updateCache",_bind_public_updateCache},
+		{"addParent",_bind_public_addParent},
+		{"removeParent",_bind_public_removeParent},
+		{"setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
+		{"setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
+		{"setNumChildrenWithCullingDisabled",_bind_public_setNumChildrenWithCullingDisabled},
+		{"setNumChildrenWithOccluderNodes",_bind_public_setNumChildrenWithOccluderNodes},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

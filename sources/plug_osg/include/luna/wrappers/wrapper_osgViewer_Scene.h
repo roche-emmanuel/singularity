@@ -16,11 +16,19 @@ public:
 	~wrapper_osgViewer_Scene() {
 		logDEBUG3("Calling delete function for wrapper osgViewer_Scene");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgViewer::Scene*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgViewer_Scene(lua_State* L, lua_Table* dum) : osgViewer::Scene(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgViewer_Scene(lua_State* L, lua_Table* dum) 
+		: osgViewer::Scene(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgViewer::Scene*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgViewer::Scene*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// const char * osgViewer::Scene::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgViewer::Scene*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -152,9 +162,9 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_getOrCreateScene",_bind_public_getOrCreateScene},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"getOrCreateScene",_bind_public_getOrCreateScene},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

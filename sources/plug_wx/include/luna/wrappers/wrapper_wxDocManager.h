@@ -16,11 +16,19 @@ public:
 	~wrapper_wxDocManager() {
 		logDEBUG3("Calling delete function for wrapper wxDocManager");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxDocManager*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxDocManager(lua_State* L, lua_Table* dum, long flags = 0, bool initialize = true) : wxDocManager(flags, initialize), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxDocManager(lua_State* L, lua_Table* dum, long flags = 0, bool initialize = true) 
+		: wxDocManager(flags, initialize), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxDocManager*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxDocManager*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -38,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -48,6 +58,7 @@ protected:
 	// bool wxEvtHandler::TryBefore(wxEvent & event)
 	bool TryBefore(wxEvent & event) {
 		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<bool>());
 		}
@@ -58,6 +69,7 @@ protected:
 	// bool wxEvtHandler::TryAfter(wxEvent & event)
 	bool TryAfter(wxEvent & event) {
 		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<bool>());
 		}
@@ -68,6 +80,7 @@ protected:
 	// void wxDocManager::OnMRUFileNotExist(unsigned int n, const wxString & filename)
 	void OnMRUFileNotExist(unsigned int n, const wxString & filename) {
 		if(_obj.pushFunction("OnMRUFileNotExist")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(n);
 			_obj.pushArg(filename);
 			return (_obj.callFunction<void>());
@@ -81,6 +94,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxDocManager*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -90,6 +104,7 @@ public:
 	// void wxEvtHandler::QueueEvent(wxEvent * event)
 	void QueueEvent(wxEvent * event) {
 		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(event);
 			return (_obj.callFunction<void>());
 		}
@@ -100,6 +115,7 @@ public:
 	// void wxEvtHandler::AddPendingEvent(const wxEvent & event)
 	void AddPendingEvent(const wxEvent & event) {
 		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<void>());
 		}
@@ -110,6 +126,7 @@ public:
 	// bool wxEvtHandler::ProcessEvent(wxEvent & event)
 	bool ProcessEvent(wxEvent & event) {
 		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<bool>());
 		}
@@ -120,6 +137,7 @@ public:
 	// void wxEvtHandler::SetNextHandler(wxEvtHandler * handler)
 	void SetNextHandler(wxEvtHandler * handler) {
 		if(_obj.pushFunction("SetNextHandler")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(handler);
 			return (_obj.callFunction<void>());
 		}
@@ -130,6 +148,7 @@ public:
 	// void wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler)
 	void SetPreviousHandler(wxEvtHandler * handler) {
 		if(_obj.pushFunction("SetPreviousHandler")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(handler);
 			return (_obj.callFunction<void>());
 		}
@@ -140,6 +159,7 @@ public:
 	// void wxDocManager::ActivateView(wxView * doc, bool activate = true)
 	void ActivateView(wxView * doc, bool activate = true) {
 		if(_obj.pushFunction("ActivateView")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(doc);
 			_obj.pushArg(activate);
 			return (_obj.callFunction<void>());
@@ -151,6 +171,7 @@ public:
 	// void wxDocManager::AddFileToHistory(const wxString & filename)
 	void AddFileToHistory(const wxString & filename) {
 		if(_obj.pushFunction("AddFileToHistory")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(filename);
 			return (_obj.callFunction<void>());
 		}
@@ -161,6 +182,7 @@ public:
 	// wxDocument * wxDocManager::CreateDocument(const wxString & path, long flags = 0)
 	wxDocument * CreateDocument(const wxString & path, long flags = 0) {
 		if(_obj.pushFunction("CreateDocument")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(path);
 			_obj.pushArg(flags);
 			return (_obj.callFunction<wxDocument*>());
@@ -172,6 +194,7 @@ public:
 	// wxView * wxDocManager::CreateView(wxDocument * doc, long flags = 0)
 	wxView * CreateView(wxDocument * doc, long flags = 0) {
 		if(_obj.pushFunction("CreateView")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(doc);
 			_obj.pushArg(flags);
 			return (_obj.callFunction<wxView*>());
@@ -183,6 +206,7 @@ public:
 	// void wxDocManager::FileHistoryAddFilesToMenu()
 	void FileHistoryAddFilesToMenu() {
 		if(_obj.pushFunction("FileHistoryAddFilesToMenu")) {
+			_obj.pushArg((wxDocManager*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -192,6 +216,7 @@ public:
 	// void wxDocManager::FileHistoryAddFilesToMenu(wxMenu * menu)
 	void FileHistoryAddFilesToMenu(wxMenu * menu) {
 		if(_obj.pushFunction("FileHistoryAddFilesToMenu")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(menu);
 			return (_obj.callFunction<void>());
 		}
@@ -202,6 +227,7 @@ public:
 	// void wxDocManager::FileHistoryLoad(const wxConfigBase & config)
 	void FileHistoryLoad(const wxConfigBase & config) {
 		if(_obj.pushFunction("FileHistoryLoad")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(&config);
 			return (_obj.callFunction<void>());
 		}
@@ -212,6 +238,7 @@ public:
 	// void wxDocManager::FileHistoryRemoveMenu(wxMenu * menu)
 	void FileHistoryRemoveMenu(wxMenu * menu) {
 		if(_obj.pushFunction("FileHistoryRemoveMenu")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(menu);
 			return (_obj.callFunction<void>());
 		}
@@ -222,6 +249,7 @@ public:
 	// void wxDocManager::FileHistorySave(wxConfigBase & resourceFile)
 	void FileHistorySave(wxConfigBase & resourceFile) {
 		if(_obj.pushFunction("FileHistorySave")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(&resourceFile);
 			return (_obj.callFunction<void>());
 		}
@@ -232,6 +260,7 @@ public:
 	// void wxDocManager::FileHistoryUseMenu(wxMenu * menu)
 	void FileHistoryUseMenu(wxMenu * menu) {
 		if(_obj.pushFunction("FileHistoryUseMenu")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(menu);
 			return (_obj.callFunction<void>());
 		}
@@ -242,6 +271,7 @@ public:
 	// wxDocTemplate * wxDocManager::FindTemplateForPath(const wxString & path)
 	wxDocTemplate * FindTemplateForPath(const wxString & path) {
 		if(_obj.pushFunction("FindTemplateForPath")) {
+			_obj.pushArg((wxDocManager*)this);
 			_obj.pushArg(path);
 			return (_obj.callFunction<wxDocTemplate*>());
 		}
@@ -252,6 +282,7 @@ public:
 	// wxView * wxDocManager::GetCurrentView() const
 	wxView * GetCurrentView() const {
 		if(_obj.pushFunction("GetCurrentView")) {
+			_obj.pushArg((wxDocManager*)this);
 			return (_obj.callFunction<wxView*>());
 		}
 
@@ -261,6 +292,7 @@ public:
 	// wxFileHistory * wxDocManager::GetFileHistory() const
 	wxFileHistory * GetFileHistory() const {
 		if(_obj.pushFunction("GetFileHistory")) {
+			_obj.pushArg((wxDocManager*)this);
 			return (_obj.callFunction<wxFileHistory*>());
 		}
 
@@ -270,6 +302,7 @@ public:
 	// size_t wxDocManager::GetHistoryFilesCount() const
 	size_t GetHistoryFilesCount() const {
 		if(_obj.pushFunction("GetHistoryFilesCount")) {
+			_obj.pushArg((wxDocManager*)this);
 			return (_obj.callFunction<size_t>());
 		}
 
@@ -279,6 +312,7 @@ public:
 	// bool wxDocManager::Initialize()
 	bool Initialize() {
 		if(_obj.pushFunction("Initialize")) {
+			_obj.pushArg((wxDocManager*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -288,6 +322,7 @@ public:
 	// wxString wxDocManager::MakeNewDocumentName()
 	wxString MakeNewDocumentName() {
 		if(_obj.pushFunction("MakeNewDocumentName")) {
+			_obj.pushArg((wxDocManager*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -297,6 +332,7 @@ public:
 	// wxFileHistory * wxDocManager::OnCreateFileHistory()
 	wxFileHistory * OnCreateFileHistory() {
 		if(_obj.pushFunction("OnCreateFileHistory")) {
+			_obj.pushArg((wxDocManager*)this);
 			return (_obj.callFunction<wxFileHistory*>());
 		}
 

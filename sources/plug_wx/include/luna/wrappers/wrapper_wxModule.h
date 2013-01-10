@@ -16,11 +16,19 @@ public:
 	~wrapper_wxModule() {
 		logDEBUG3("Calling delete function for wrapper wxModule");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxModule*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxModule(lua_State* L, lua_Table* dum) : wxModule(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxModule(lua_State* L, lua_Table* dum) 
+		: wxModule(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxModule*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxModule*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -38,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxModule*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -50,6 +60,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxModule*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -59,12 +70,14 @@ public:
 	// void wxModule::OnExit()
 	void OnExit() {
 		THROW_IF(!_obj.pushFunction("OnExit"),"No implementation for abstract function wxModule::OnExit");
+		_obj.pushArg((wxModule*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// bool wxModule::OnInit()
 	bool OnInit() {
 		THROW_IF(!_obj.pushFunction("OnInit"),"No implementation for abstract function wxModule::OnInit");
+		_obj.pushArg((wxModule*)this);
 		return (_obj.callFunction<bool>());
 	};
 
@@ -108,7 +121,7 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_AddDependency",_bind_public_AddDependency},
+		{"AddDependency",_bind_public_AddDependency},
 		{NULL,NULL}
 		};
 

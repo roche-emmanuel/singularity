@@ -16,11 +16,19 @@ public:
 	~wrapper_wxHtmlColourCell() {
 		logDEBUG3("Calling delete function for wrapper wxHtmlColourCell");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxHtmlColourCell*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxHtmlColourCell(lua_State* L, lua_Table* dum, const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND) : wxHtmlColourCell(clr, flags), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxHtmlColourCell(lua_State* L, lua_Table* dum, const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND) 
+		: wxHtmlColourCell(clr, flags), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxHtmlColourCell*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxHtmlColourCell*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -38,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxHtmlColourCell*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -50,6 +60,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxHtmlColourCell*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -59,6 +70,7 @@ public:
 	// bool wxHtmlCell::AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const
 	bool AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const {
 		if(_obj.pushFunction("AdjustPagebreak")) {
+			_obj.pushArg((wxHtmlColourCell*)this);
 			_obj.pushArg(pagebreak);
 			_obj.pushArg(&known_pagebreaks);
 			return (_obj.callFunction<bool>());
@@ -70,6 +82,7 @@ public:
 	// void wxHtmlCell::Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info)
 	void Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info) {
 		if(_obj.pushFunction("Draw")) {
+			_obj.pushArg((wxHtmlColourCell*)this);
 			_obj.pushArg(&dc);
 			_obj.pushArg(x);
 			_obj.pushArg(y);
@@ -85,6 +98,7 @@ public:
 	// void wxHtmlCell::DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info)
 	void DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info) {
 		if(_obj.pushFunction("DrawInvisible")) {
+			_obj.pushArg((wxHtmlColourCell*)this);
 			_obj.pushArg(&dc);
 			_obj.pushArg(x);
 			_obj.pushArg(y);
@@ -98,6 +112,7 @@ public:
 	// const wxHtmlCell * wxHtmlCell::Find(int condition, const void * param) const
 	const wxHtmlCell * Find(int condition, const void * param) const {
 		if(_obj.pushFunction("Find")) {
+			_obj.pushArg((wxHtmlColourCell*)this);
 			_obj.pushArg(condition);
 			_obj.pushArg(param);
 			return (_obj.callFunction<wxHtmlCell*>());
@@ -109,6 +124,7 @@ public:
 	// wxHtmlCell * wxHtmlCell::GetFirstChild() const
 	wxHtmlCell * GetFirstChild() const {
 		if(_obj.pushFunction("GetFirstChild")) {
+			_obj.pushArg((wxHtmlColourCell*)this);
 			return (_obj.callFunction<wxHtmlCell*>());
 		}
 
@@ -118,6 +134,7 @@ public:
 	// wxHtmlLinkInfo * wxHtmlCell::GetLink(int x = 0, int y = 0) const
 	wxHtmlLinkInfo * GetLink(int x = 0, int y = 0) const {
 		if(_obj.pushFunction("GetLink")) {
+			_obj.pushArg((wxHtmlColourCell*)this);
 			_obj.pushArg(x);
 			_obj.pushArg(y);
 			return (_obj.callFunction<wxHtmlLinkInfo*>());
@@ -129,6 +146,7 @@ public:
 	// void wxHtmlCell::Layout(int w)
 	void Layout(int w) {
 		if(_obj.pushFunction("Layout")) {
+			_obj.pushArg((wxHtmlColourCell*)this);
 			_obj.pushArg(w);
 			return (_obj.callFunction<void>());
 		}
@@ -139,6 +157,7 @@ public:
 	// void wxHtmlCell::SetPos(int x, int y)
 	void SetPos(int x, int y) {
 		if(_obj.pushFunction("SetPos")) {
+			_obj.pushArg((wxHtmlColourCell*)this);
 			_obj.pushArg(x);
 			_obj.pushArg(y);
 			return (_obj.callFunction<void>());

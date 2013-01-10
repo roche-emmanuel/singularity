@@ -16,12 +16,27 @@ public:
 	~wrapper_wxAnimation() {
 		logDEBUG3("Calling delete function for wrapper wxAnimation");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxAnimation*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxAnimation(lua_State* L, lua_Table* dum, const wxAnimation & anim) : wxAnimation(anim), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxAnimation(lua_State* L, lua_Table* dum, const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) : wxAnimation(name, type), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxAnimation(lua_State* L, lua_Table* dum, const wxAnimation & anim) 
+		: wxAnimation(anim), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxAnimation*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxAnimation(lua_State* L, lua_Table* dum, const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) 
+		: wxAnimation(name, type), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxAnimation*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +45,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxAnimation*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -39,6 +55,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxAnimation*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -51,6 +68,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxAnimation*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -60,6 +78,7 @@ public:
 	// int wxAnimation::GetDelay(unsigned int i) const
 	int GetDelay(unsigned int i) const {
 		if(_obj.pushFunction("GetDelay")) {
+			_obj.pushArg((wxAnimation*)this);
 			_obj.pushArg(i);
 			return (_obj.callFunction<int>());
 		}
@@ -70,6 +89,7 @@ public:
 	// wxImage wxAnimation::GetFrame(unsigned int i) const
 	wxImage GetFrame(unsigned int i) const {
 		if(_obj.pushFunction("GetFrame")) {
+			_obj.pushArg((wxAnimation*)this);
 			_obj.pushArg(i);
 			return *(_obj.callFunction<wxImage*>());
 		}
@@ -80,6 +100,7 @@ public:
 	// unsigned int wxAnimation::GetFrameCount() const
 	unsigned int GetFrameCount() const {
 		if(_obj.pushFunction("GetFrameCount")) {
+			_obj.pushArg((wxAnimation*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -89,6 +110,7 @@ public:
 	// wxSize wxAnimation::GetSize() const
 	wxSize GetSize() const {
 		if(_obj.pushFunction("GetSize")) {
+			_obj.pushArg((wxAnimation*)this);
 			return *(_obj.callFunction<wxSize*>());
 		}
 
@@ -98,6 +120,7 @@ public:
 	// bool wxAnimation::IsOk() const
 	bool IsOk() const {
 		if(_obj.pushFunction("IsOk")) {
+			_obj.pushArg((wxAnimation*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -107,6 +130,7 @@ public:
 	// bool wxAnimation::Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY)
 	bool Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY) {
 		if(_obj.pushFunction("Load")) {
+			_obj.pushArg((wxAnimation*)this);
 			_obj.pushArg(&stream);
 			_obj.pushArg(type);
 			return (_obj.callFunction<bool>());
@@ -118,6 +142,7 @@ public:
 	// bool wxAnimation::LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)
 	bool LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) {
 		if(_obj.pushFunction("LoadFile")) {
+			_obj.pushArg((wxAnimation*)this);
 			_obj.pushArg(name);
 			_obj.pushArg(type);
 			return (_obj.callFunction<bool>());

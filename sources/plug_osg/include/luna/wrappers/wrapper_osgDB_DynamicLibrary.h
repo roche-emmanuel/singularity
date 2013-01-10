@@ -16,13 +16,35 @@ public:
 	~wrapper_osgDB_DynamicLibrary() {
 		logDEBUG3("Calling delete function for wrapper osgDB_DynamicLibrary");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::DynamicLibrary*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_DynamicLibrary(lua_State* L, lua_Table* dum) : osgDB::DynamicLibrary(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgDB_DynamicLibrary(lua_State* L, lua_Table* dum, const osgDB::DynamicLibrary & arg1) : osgDB::DynamicLibrary(arg1), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgDB_DynamicLibrary(lua_State* L, lua_Table* dum, const std::string & name, void * handle) : osgDB::DynamicLibrary(name, handle), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_DynamicLibrary(lua_State* L, lua_Table* dum) 
+		: osgDB::DynamicLibrary(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::DynamicLibrary*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgDB_DynamicLibrary(lua_State* L, lua_Table* dum, const osgDB::DynamicLibrary & arg1) 
+		: osgDB::DynamicLibrary(arg1), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::DynamicLibrary*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgDB_DynamicLibrary(lua_State* L, lua_Table* dum, const std::string & name, void * handle) 
+		: osgDB::DynamicLibrary(name, handle), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::DynamicLibrary*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -33,6 +55,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::DynamicLibrary*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -183,10 +206,10 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_getLibraryHandle",_bind_public_getLibraryHandle},
-		{"protected_op_assign",_bind_public_op_assign},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"getLibraryHandle",_bind_public_getLibraryHandle},
+		{"op_assign",_bind_public_op_assign},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

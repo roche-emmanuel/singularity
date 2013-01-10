@@ -16,11 +16,19 @@ public:
 	~wrapper_osgDB_FileLocationCallback() {
 		logDEBUG3("Calling delete function for wrapper osgDB_FileLocationCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::FileLocationCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_FileLocationCallback(lua_State* L, lua_Table* dum) : osgDB::FileLocationCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_FileLocationCallback(lua_State* L, lua_Table* dum) 
+		: osgDB::FileLocationCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::FileLocationCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::FileLocationCallback*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// osgDB::FileLocationCallback::Location osgDB::FileLocationCallback::fileLocation(const std::string & filename, const osgDB::Options * options)
 	osgDB::FileLocationCallback::Location fileLocation(const std::string & filename, const osgDB::Options * options) {
 		THROW_IF(!_obj.pushFunction("fileLocation"),"No implementation for abstract function osgDB::FileLocationCallback::fileLocation");
+		_obj.pushArg((osgDB::FileLocationCallback*)this);
 		_obj.pushArg(filename);
 		_obj.pushArg(options);
 		return (osgDB::FileLocationCallback::Location)(_obj.callFunction<int>());
@@ -49,6 +59,7 @@ public:
 	// bool osgDB::FileLocationCallback::useFileCache() const
 	bool useFileCache() const {
 		THROW_IF(!_obj.pushFunction("useFileCache"),"No implementation for abstract function osgDB::FileLocationCallback::useFileCache");
+		_obj.pushArg((osgDB::FileLocationCallback*)this);
 		return (_obj.callFunction<bool>());
 	};
 
@@ -123,8 +134,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

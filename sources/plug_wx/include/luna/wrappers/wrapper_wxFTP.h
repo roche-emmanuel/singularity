@@ -16,11 +16,19 @@ public:
 	~wrapper_wxFTP() {
 		logDEBUG3("Calling delete function for wrapper wxFTP");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxFTP*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxFTP(lua_State* L, lua_Table* dum) : wxFTP(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxFTP(lua_State* L, lua_Table* dum) 
+		: wxFTP(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxFTP*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxFTP*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -38,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxFTP*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -50,6 +60,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxFTP*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -59,6 +70,7 @@ public:
 	// bool wxSocketBase::GetLocal(wxSockAddress & addr) const
 	bool GetLocal(wxSockAddress & addr) const {
 		if(_obj.pushFunction("GetLocal")) {
+			_obj.pushArg((wxFTP*)this);
 			_obj.pushArg(&addr);
 			return (_obj.callFunction<bool>());
 		}
@@ -69,6 +81,7 @@ public:
 	// bool wxSocketBase::GetPeer(wxSockAddress & addr) const
 	bool GetPeer(wxSockAddress & addr) const {
 		if(_obj.pushFunction("GetPeer")) {
+			_obj.pushArg((wxFTP*)this);
 			_obj.pushArg(&addr);
 			return (_obj.callFunction<bool>());
 		}
@@ -79,6 +92,7 @@ public:
 	// bool wxSocketBase::SetLocal(const wxIPV4address & local)
 	bool SetLocal(const wxIPV4address & local) {
 		if(_obj.pushFunction("SetLocal")) {
+			_obj.pushArg((wxFTP*)this);
 			_obj.pushArg(&local);
 			return (_obj.callFunction<bool>());
 		}
@@ -89,12 +103,14 @@ public:
 	// wxString wxProtocol::GetContentType() const
 	wxString GetContentType() const {
 		THROW_IF(!_obj.pushFunction("GetContentType"),"No implementation for abstract function wxProtocol::GetContentType");
+		_obj.pushArg((wxFTP*)this);
 		return *(_obj.callFunction<wxString*>());
 	};
 
 	// wxProtocolError wxProtocol::GetError() const
 	wxProtocolError GetError() const {
 		if(_obj.pushFunction("GetError")) {
+			_obj.pushArg((wxFTP*)this);
 			return (wxProtocolError)(_obj.callFunction<int>());
 		}
 
@@ -104,6 +120,7 @@ public:
 	// bool wxFTP::Connect(const wxString & host)
 	bool Connect(const wxString & host) {
 		if(_obj.pushFunction("Connect")) {
+			_obj.pushArg((wxFTP*)this);
 			_obj.pushArg(host);
 			return (_obj.callFunction<bool>());
 		}
@@ -114,6 +131,7 @@ public:
 	// bool wxFTP::Connect(const wxString & host, unsigned short port)
 	bool Connect(const wxString & host, unsigned short port) {
 		if(_obj.pushFunction("Connect")) {
+			_obj.pushArg((wxFTP*)this);
 			_obj.pushArg(host);
 			_obj.pushArg(port);
 			return (_obj.callFunction<bool>());
@@ -125,6 +143,7 @@ public:
 	// bool wxFTP::Abort()
 	bool Abort() {
 		if(_obj.pushFunction("Abort")) {
+			_obj.pushArg((wxFTP*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -134,6 +153,7 @@ public:
 	// bool wxFTP::Close()
 	bool Close() {
 		if(_obj.pushFunction("Close")) {
+			_obj.pushArg((wxFTP*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -143,6 +163,7 @@ public:
 	// void wxFTP::SetPassword(const wxString & passwd)
 	void SetPassword(const wxString & passwd) {
 		if(_obj.pushFunction("SetPassword")) {
+			_obj.pushArg((wxFTP*)this);
 			_obj.pushArg(passwd);
 			return (_obj.callFunction<void>());
 		}
@@ -153,6 +174,7 @@ public:
 	// void wxFTP::SetUser(const wxString & user)
 	void SetUser(const wxString & user) {
 		if(_obj.pushFunction("SetUser")) {
+			_obj.pushArg((wxFTP*)this);
 			_obj.pushArg(user);
 			return (_obj.callFunction<void>());
 		}
@@ -163,6 +185,7 @@ public:
 	// wxInputStream * wxFTP::GetInputStream(const wxString & path)
 	wxInputStream * GetInputStream(const wxString & path) {
 		if(_obj.pushFunction("GetInputStream")) {
+			_obj.pushArg((wxFTP*)this);
 			_obj.pushArg(path);
 			return (_obj.callFunction<wxInputStream*>());
 		}
@@ -173,6 +196,7 @@ public:
 	// wxOutputStream * wxFTP::GetOutputStream(const wxString & file)
 	wxOutputStream * GetOutputStream(const wxString & file) {
 		if(_obj.pushFunction("GetOutputStream")) {
+			_obj.pushArg((wxFTP*)this);
 			_obj.pushArg(file);
 			return (_obj.callFunction<wxOutputStream*>());
 		}

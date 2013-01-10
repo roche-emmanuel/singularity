@@ -16,14 +16,43 @@ public:
 	~wrapper_wxPen() {
 		logDEBUG3("Calling delete function for wrapper wxPen");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxPen*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxPen(lua_State* L, lua_Table* dum) : wxPen(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID) : wxPen(colour, width, style), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxBitmap & stipple, int width) : wxPen(stipple, width), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxPen & pen) : wxPen(pen), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxPen(lua_State* L, lua_Table* dum) 
+		: wxPen(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxPen*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID) 
+		: wxPen(colour, width, style), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxPen*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxBitmap & stipple, int width) 
+		: wxPen(stipple, width), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxPen*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxPen & pen) 
+		: wxPen(pen), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxPen*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -32,6 +61,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxPen*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -41,6 +71,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxPen*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -53,6 +84,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxPen*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -62,6 +94,7 @@ public:
 	// wxPenCap wxPen::GetCap() const
 	wxPenCap GetCap() const {
 		if(_obj.pushFunction("GetCap")) {
+			_obj.pushArg((wxPen*)this);
 			return (wxPenCap)(_obj.callFunction<int>());
 		}
 
@@ -71,6 +104,7 @@ public:
 	// wxColour wxPen::GetColour() const
 	wxColour GetColour() const {
 		if(_obj.pushFunction("GetColour")) {
+			_obj.pushArg((wxPen*)this);
 			return *(_obj.callFunction<wxColour*>());
 		}
 
@@ -80,6 +114,7 @@ public:
 	// wxPenJoin wxPen::GetJoin() const
 	wxPenJoin GetJoin() const {
 		if(_obj.pushFunction("GetJoin")) {
+			_obj.pushArg((wxPen*)this);
 			return (wxPenJoin)(_obj.callFunction<int>());
 		}
 
@@ -89,6 +124,7 @@ public:
 	// wxBitmap * wxPen::GetStipple() const
 	wxBitmap * GetStipple() const {
 		if(_obj.pushFunction("GetStipple")) {
+			_obj.pushArg((wxPen*)this);
 			return (_obj.callFunction<wxBitmap*>());
 		}
 
@@ -98,6 +134,7 @@ public:
 	// wxPenStyle wxPen::GetStyle() const
 	wxPenStyle GetStyle() const {
 		if(_obj.pushFunction("GetStyle")) {
+			_obj.pushArg((wxPen*)this);
 			return (wxPenStyle)(_obj.callFunction<int>());
 		}
 
@@ -107,6 +144,7 @@ public:
 	// int wxPen::GetWidth() const
 	int GetWidth() const {
 		if(_obj.pushFunction("GetWidth")) {
+			_obj.pushArg((wxPen*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -116,6 +154,7 @@ public:
 	// bool wxPen::IsOk() const
 	bool IsOk() const {
 		if(_obj.pushFunction("IsOk")) {
+			_obj.pushArg((wxPen*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -125,6 +164,7 @@ public:
 	// void wxPen::SetCap(wxPenCap capStyle)
 	void SetCap(wxPenCap capStyle) {
 		if(_obj.pushFunction("SetCap")) {
+			_obj.pushArg((wxPen*)this);
 			_obj.pushArg(capStyle);
 			return (_obj.callFunction<void>());
 		}
@@ -135,6 +175,7 @@ public:
 	// void wxPen::SetColour(wxColour & colour)
 	void SetColour(wxColour & colour) {
 		if(_obj.pushFunction("SetColour")) {
+			_obj.pushArg((wxPen*)this);
 			_obj.pushArg(&colour);
 			return (_obj.callFunction<void>());
 		}
@@ -145,6 +186,7 @@ public:
 	// void wxPen::SetColour(unsigned char red, unsigned char green, unsigned char blue)
 	void SetColour(unsigned char red, unsigned char green, unsigned char blue) {
 		if(_obj.pushFunction("SetColour")) {
+			_obj.pushArg((wxPen*)this);
 			_obj.pushArg(red);
 			_obj.pushArg(green);
 			_obj.pushArg(blue);
@@ -157,6 +199,7 @@ public:
 	// void wxPen::SetJoin(wxPenJoin join_style)
 	void SetJoin(wxPenJoin join_style) {
 		if(_obj.pushFunction("SetJoin")) {
+			_obj.pushArg((wxPen*)this);
 			_obj.pushArg(join_style);
 			return (_obj.callFunction<void>());
 		}
@@ -167,6 +210,7 @@ public:
 	// void wxPen::SetStipple(const wxBitmap & stipple)
 	void SetStipple(const wxBitmap & stipple) {
 		if(_obj.pushFunction("SetStipple")) {
+			_obj.pushArg((wxPen*)this);
 			_obj.pushArg(&stipple);
 			return (_obj.callFunction<void>());
 		}
@@ -177,6 +221,7 @@ public:
 	// void wxPen::SetStyle(wxPenStyle style)
 	void SetStyle(wxPenStyle style) {
 		if(_obj.pushFunction("SetStyle")) {
+			_obj.pushArg((wxPen*)this);
 			_obj.pushArg(style);
 			return (_obj.callFunction<void>());
 		}
@@ -187,6 +232,7 @@ public:
 	// void wxPen::SetWidth(int width)
 	void SetWidth(int width) {
 		if(_obj.pushFunction("SetWidth")) {
+			_obj.pushArg((wxPen*)this);
 			_obj.pushArg(width);
 			return (_obj.callFunction<void>());
 		}

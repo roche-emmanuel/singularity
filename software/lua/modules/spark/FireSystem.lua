@@ -5,11 +5,9 @@ Class:generateWrapping(spark.SparkDrawable_BaseSystemCreator)
 
 function Class:initialize(options)	
 	self:debug2("Creating FireSystem");
-	
-	self:createWrapper(spark.SparkDrawable_BaseSystemCreator)	
 end
 
-function Class:op_call(textureIDMap, screenWidth, screenHeight)
+function Class:op_call(obj,textureIDMap, screenWidth, screenHeight)
     local textureFire = textureIDMap:get("fire");
     local textureSmoke = textureIDMap:get("explosion");
     

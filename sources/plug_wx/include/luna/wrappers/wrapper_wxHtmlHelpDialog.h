@@ -16,12 +16,27 @@ public:
 	~wrapper_wxHtmlHelpDialog() {
 		logDEBUG3("Calling delete function for wrapper wxHtmlHelpDialog");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxHtmlHelpDialog*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxHtmlHelpDialog(lua_State* L, lua_Table* dum, wxHtmlHelpData * data = NULL) : wxHtmlHelpDialog(data), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxHtmlHelpDialog(lua_State* L, lua_Table* dum, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) : wxHtmlHelpDialog(parent, wxWindowID, title, style, data), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxHtmlHelpDialog(lua_State* L, lua_Table* dum, wxHtmlHelpData * data = NULL) 
+		: wxHtmlHelpDialog(data), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxHtmlHelpDialog*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxHtmlHelpDialog(lua_State* L, lua_Table* dum, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) 
+		: wxHtmlHelpDialog(parent, wxWindowID, title, style, data), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxHtmlHelpDialog*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:

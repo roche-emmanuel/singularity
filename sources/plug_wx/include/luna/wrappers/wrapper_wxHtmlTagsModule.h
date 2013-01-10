@@ -16,6 +16,7 @@ public:
 	~wrapper_wxHtmlTagsModule() {
 		logDEBUG3("Calling delete function for wrapper wxHtmlTagsModule");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxHtmlTagsModule*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -28,6 +29,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxHtmlTagsModule*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -37,6 +39,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxHtmlTagsModule*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -49,6 +52,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxHtmlTagsModule*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -58,18 +62,21 @@ public:
 	// void wxModule::OnExit()
 	void OnExit() {
 		THROW_IF(!_obj.pushFunction("OnExit"),"No implementation for abstract function wxModule::OnExit");
+		_obj.pushArg((wxHtmlTagsModule*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// bool wxModule::OnInit()
 	bool OnInit() {
 		THROW_IF(!_obj.pushFunction("OnInit"),"No implementation for abstract function wxModule::OnInit");
+		_obj.pushArg((wxHtmlTagsModule*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// void wxHtmlTagsModule::FillHandlersTable(wxHtmlWinParser * parser)
 	void FillHandlersTable(wxHtmlWinParser * parser) {
 		if(_obj.pushFunction("FillHandlersTable")) {
+			_obj.pushArg((wxHtmlTagsModule*)this);
 			_obj.pushArg(parser);
 			return (_obj.callFunction<void>());
 		}
@@ -117,7 +124,7 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_AddDependency",_bind_public_AddDependency},
+		{"AddDependency",_bind_public_AddDependency},
 		{NULL,NULL}
 		};
 

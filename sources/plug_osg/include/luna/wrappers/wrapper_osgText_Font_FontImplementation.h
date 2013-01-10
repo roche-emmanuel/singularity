@@ -16,11 +16,19 @@ public:
 	~wrapper_osgText_Font_FontImplementation() {
 		logDEBUG3("Calling delete function for wrapper osgText_Font_FontImplementation");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgText::Font::FontImplementation*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgText_Font_FontImplementation(lua_State* L, lua_Table* dum) : osgText::Font::FontImplementation(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgText_Font_FontImplementation(lua_State* L, lua_Table* dum) 
+		: osgText::Font::FontImplementation(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgText::Font::FontImplementation*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgText::Font::FontImplementation*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,18 +50,21 @@ public:
 	// std::string osgText::Font::FontImplementation::getFileName() const
 	std::string getFileName() const {
 		THROW_IF(!_obj.pushFunction("getFileName"),"No implementation for abstract function osgText::Font::FontImplementation::getFileName");
+		_obj.pushArg((osgText::Font::FontImplementation*)this);
 		return (_obj.callFunction<std::string>());
 	};
 
 	// bool osgText::Font::FontImplementation::supportsMultipleFontResolutions() const
 	bool supportsMultipleFontResolutions() const {
 		THROW_IF(!_obj.pushFunction("supportsMultipleFontResolutions"),"No implementation for abstract function osgText::Font::FontImplementation::supportsMultipleFontResolutions");
+		_obj.pushArg((osgText::Font::FontImplementation*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// osgText::Glyph * osgText::Font::FontImplementation::getGlyph(const osgText::FontResolution & fontRes, unsigned int charcode)
 	osgText::Glyph * getGlyph(const osgText::FontResolution & fontRes, unsigned int charcode) {
 		THROW_IF(!_obj.pushFunction("getGlyph"),"No implementation for abstract function osgText::Font::FontImplementation::getGlyph");
+		_obj.pushArg((osgText::Font::FontImplementation*)this);
 		_obj.pushArg(&fontRes);
 		_obj.pushArg(charcode);
 		return (_obj.callFunction<osgText::Glyph*>());
@@ -61,6 +73,7 @@ public:
 	// osgText::Glyph3D * osgText::Font::FontImplementation::getGlyph3D(unsigned int charcode)
 	osgText::Glyph3D * getGlyph3D(unsigned int charcode) {
 		THROW_IF(!_obj.pushFunction("getGlyph3D"),"No implementation for abstract function osgText::Font::FontImplementation::getGlyph3D");
+		_obj.pushArg((osgText::Font::FontImplementation*)this);
 		_obj.pushArg(charcode);
 		return (_obj.callFunction<osgText::Glyph3D*>());
 	};
@@ -68,6 +81,7 @@ public:
 	// osg::Vec2f osgText::Font::FontImplementation::getKerning(unsigned int leftcharcode, unsigned int rightcharcode, osgText::KerningType kerningType)
 	osg::Vec2f getKerning(unsigned int leftcharcode, unsigned int rightcharcode, osgText::KerningType kerningType) {
 		THROW_IF(!_obj.pushFunction("getKerning"),"No implementation for abstract function osgText::Font::FontImplementation::getKerning");
+		_obj.pushArg((osgText::Font::FontImplementation*)this);
 		_obj.pushArg(leftcharcode);
 		_obj.pushArg(rightcharcode);
 		_obj.pushArg(kerningType);
@@ -77,6 +91,7 @@ public:
 	// bool osgText::Font::FontImplementation::hasVertical() const
 	bool hasVertical() const {
 		THROW_IF(!_obj.pushFunction("hasVertical"),"No implementation for abstract function osgText::Font::FontImplementation::hasVertical");
+		_obj.pushArg((osgText::Font::FontImplementation*)this);
 		return (_obj.callFunction<bool>());
 	};
 
@@ -151,8 +166,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

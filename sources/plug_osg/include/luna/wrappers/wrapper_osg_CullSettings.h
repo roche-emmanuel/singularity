@@ -16,13 +16,35 @@ public:
 	~wrapper_osg_CullSettings() {
 		logDEBUG3("Calling delete function for wrapper osg_CullSettings");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::CullSettings*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum) : osg::CullSettings(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osg::CullSettings(arguments), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, const osg::CullSettings & cs) : osg::CullSettings(cs), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum) 
+		: osg::CullSettings(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::CullSettings*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) 
+		: osg::CullSettings(arguments), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::CullSettings*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, const osg::CullSettings & cs) 
+		: osg::CullSettings(cs), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::CullSettings*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -33,6 +55,7 @@ public:
 	// void osg::CullSettings::setDefaults()
 	void setDefaults() {
 		if(_obj.pushFunction("setDefaults")) {
+			_obj.pushArg((osg::CullSettings*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -42,6 +65,7 @@ public:
 	// void osg::CullSettings::inheritCullSettings(const osg::CullSettings & settings)
 	void inheritCullSettings(const osg::CullSettings & settings) {
 		if(_obj.pushFunction("inheritCullSettings")) {
+			_obj.pushArg((osg::CullSettings*)this);
 			_obj.pushArg(&settings);
 			return (_obj.callFunction<void>());
 		}
@@ -52,6 +76,7 @@ public:
 	// void osg::CullSettings::inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)
 	void inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask) {
 		if(_obj.pushFunction("inheritCullSettings")) {
+			_obj.pushArg((osg::CullSettings*)this);
 			_obj.pushArg(&settings);
 			_obj.pushArg(inheritanceMask);
 			return (_obj.callFunction<void>());

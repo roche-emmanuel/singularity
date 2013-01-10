@@ -31,6 +31,8 @@ bool LuaObject::pushFunction(String name) const {
 	// move the table at the top of the stack:
 	lua_pushvalue(_state,-2); // table is now at the top, function is just under.
 	lua_remove(_state,-3); // remove the original copy of the table under the function.
+	
+	//lua_remove(_state,-2); // remove the original copy of the table under the function.
 	reset();
 
 	//logINFO("Successfully pushing function '"<<name<<"'");

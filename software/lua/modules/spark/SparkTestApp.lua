@@ -31,13 +31,13 @@ function Class:initialize(options)
 		sdraw:addImage( "flare", tools:getImage("tests/data/flare.bmp"), gl.ALPHA );
 		
 		local SimpleSystem = require "spark.SimpleSystem"
-		sdraw:setBaseSystemCreator( SimpleSystem():getWrapper() );
+		sdraw:setBaseSystemCreator( SimpleSystem.createInstance() );
 		sdraw:addParticleSystem();
 	elseif options.system == "smoke" then		
 		sdraw:addImage( "smoke", tools:getImage("tests/data/smoke.png"), gl.RGBA );
 		
 		local System = require "spark.SmokeSystem"
-		sdraw:setBaseSystemCreator( System():getWrapper() );
+		sdraw:setBaseSystemCreator( System.createInstance() );
 		sdraw:addParticleSystem();
 		tracking = true
 	elseif options.system == "fire" then		
@@ -45,13 +45,13 @@ function Class:initialize(options)
 		sdraw:addImage( "explosion", tools:getImage("tests/data/explosion.bmp"), gl.ALPHA );
 		
 		local System = require "spark.FireSystem"
-		sdraw:setBaseSystemCreator( System():getWrapper() );
+		sdraw:setBaseSystemCreator( System.createInstance() );
 		sdraw:addParticleSystem();
 	elseif options.system == "rain" then		
 		sdraw:addImage( "waterdrops", tools:getImage("tests/data/waterdrops.bmp"), gl.ALPHA);
 		
 		local System = require "spark.RainSystem"
-		sdraw:setBaseSystemCreator( System():getWrapper(), true );
+		sdraw:setBaseSystemCreator( System.createInstance(), true );
 	elseif options.system == "explosion" then		
 		sdraw:addImage( "explosion", tools:getImage("tests/data/explosion.bmp"), gl.ALPHA );
 		sdraw:addImage( "flash", tools:getImage("tests/data/flash.bmp"), gl.RGB );
@@ -60,7 +60,7 @@ function Class:initialize(options)
 		sdraw:addImage( "wave", tools:getImage("tests/data/wave.bmp"), gl.RGBA );
 		
 		local System = require "spark.ExplosionSystem"
-		sdraw:setBaseSystemCreator( System():getWrapper() );
+		sdraw:setBaseSystemCreator( System.createInstance() );
 		sdraw:addParticleSystem();
 		sdraw:setSortParticles( true );
 	else

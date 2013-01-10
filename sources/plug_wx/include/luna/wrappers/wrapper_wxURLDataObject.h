@@ -16,11 +16,19 @@ public:
 	~wrapper_wxURLDataObject() {
 		logDEBUG3("Calling delete function for wrapper wxURLDataObject");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxURLDataObject*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxURLDataObject(lua_State* L, lua_Table* dum, const wxString & url = wxEmptyString) : wxURLDataObject(url), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxURLDataObject(lua_State* L, lua_Table* dum, const wxString & url = wxEmptyString) 
+		: wxURLDataObject(url), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxURLDataObject*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:

@@ -16,12 +16,27 @@ public:
 	~wrapper_osgDB_DatabasePager() {
 		logDEBUG3("Calling delete function for wrapper osgDB_DatabasePager");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::DatabasePager*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_DatabasePager(lua_State* L, lua_Table* dum) : osgDB::DatabasePager(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgDB_DatabasePager(lua_State* L, lua_Table* dum, const osgDB::DatabasePager & rhs) : osgDB::DatabasePager(rhs), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_DatabasePager(lua_State* L, lua_Table* dum) 
+		: osgDB::DatabasePager(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::DatabasePager*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgDB_DatabasePager(lua_State* L, lua_Table* dum, const osgDB::DatabasePager & rhs) 
+		: osgDB::DatabasePager(rhs), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::DatabasePager*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +45,7 @@ protected:
 	// void osgDB::DatabasePager::removeExpiredSubgraphs(const osg::FrameStamp & frameStamp)
 	void removeExpiredSubgraphs(const osg::FrameStamp & frameStamp) {
 		if(_obj.pushFunction("removeExpiredSubgraphs")) {
+			_obj.pushArg((osgDB::DatabasePager*)this);
 			_obj.pushArg(&frameStamp);
 			return (_obj.callFunction<void>());
 		}
@@ -42,6 +58,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::DatabasePager*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -52,6 +69,7 @@ public:
 	// const char * osgDB::DatabasePager::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgDB::DatabasePager*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -61,6 +79,7 @@ public:
 	// osgDB::DatabasePager * osgDB::DatabasePager::clone() const
 	osgDB::DatabasePager * clone() const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgDB::DatabasePager*)this);
 			return (_obj.callFunction<osgDB::DatabasePager*>());
 		}
 
@@ -70,6 +89,7 @@ public:
 	// void osgDB::DatabasePager::requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options)
 	void requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options) {
 		if(_obj.pushFunction("requestNodeFile")) {
+			_obj.pushArg((osgDB::DatabasePager*)this);
 			_obj.pushArg(fileName);
 			_obj.pushArg(&nodePath);
 			_obj.pushArg(priority);
@@ -85,6 +105,7 @@ public:
 	// int osgDB::DatabasePager::cancel()
 	int cancel() {
 		if(_obj.pushFunction("cancel")) {
+			_obj.pushArg((osgDB::DatabasePager*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -94,6 +115,7 @@ public:
 	// bool osgDB::DatabasePager::isRunning() const
 	bool isRunning() const {
 		if(_obj.pushFunction("isRunning")) {
+			_obj.pushArg((osgDB::DatabasePager*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -103,6 +125,7 @@ public:
 	// void osgDB::DatabasePager::clear()
 	void clear() {
 		if(_obj.pushFunction("clear")) {
+			_obj.pushArg((osgDB::DatabasePager*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -112,6 +135,7 @@ public:
 	// void osgDB::DatabasePager::signalBeginFrame(const osg::FrameStamp * framestamp)
 	void signalBeginFrame(const osg::FrameStamp * framestamp) {
 		if(_obj.pushFunction("signalBeginFrame")) {
+			_obj.pushArg((osgDB::DatabasePager*)this);
 			_obj.pushArg(framestamp);
 			return (_obj.callFunction<void>());
 		}
@@ -122,6 +146,7 @@ public:
 	// void osgDB::DatabasePager::signalEndFrame()
 	void signalEndFrame() {
 		if(_obj.pushFunction("signalEndFrame")) {
+			_obj.pushArg((osgDB::DatabasePager*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -131,6 +156,7 @@ public:
 	// void osgDB::DatabasePager::registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0)
 	void registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0) {
 		if(_obj.pushFunction("registerPagedLODs")) {
+			_obj.pushArg((osgDB::DatabasePager*)this);
 			_obj.pushArg(subgraph);
 			_obj.pushArg(frameNumber);
 			return (_obj.callFunction<void>());
@@ -142,6 +168,7 @@ public:
 	// void osgDB::DatabasePager::updateSceneGraph(const osg::FrameStamp & frameStamp)
 	void updateSceneGraph(const osg::FrameStamp & frameStamp) {
 		if(_obj.pushFunction("updateSceneGraph")) {
+			_obj.pushArg((osgDB::DatabasePager*)this);
 			_obj.pushArg(&frameStamp);
 			return (_obj.callFunction<void>());
 		}
@@ -286,10 +313,10 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_compileCompleted",_bind_public_compileCompleted},
-		{"protected_addLoadedDataToSceneGraph",_bind_public_addLoadedDataToSceneGraph},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"compileCompleted",_bind_public_compileCompleted},
+		{"addLoadedDataToSceneGraph",_bind_public_addLoadedDataToSceneGraph},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

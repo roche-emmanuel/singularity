@@ -16,6 +16,7 @@ public:
 	~wrapper_wxStackFrame() {
 		logDEBUG3("Calling delete function for wrapper wxStackFrame");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxStackFrame*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -30,6 +31,7 @@ public:
 	// bool wxStackFrame::GetParam(size_t n, wxString * type, wxString * name, wxString * value) const
 	bool GetParam(size_t n, wxString * type, wxString * name, wxString * value) const {
 		if(_obj.pushFunction("GetParam")) {
+			_obj.pushArg((wxStackFrame*)this);
 			_obj.pushArg(n);
 			_obj.pushArg(type);
 			_obj.pushArg(name);
@@ -43,6 +45,7 @@ public:
 	// size_t wxStackFrame::GetParamCount() const
 	size_t GetParamCount() const {
 		if(_obj.pushFunction("GetParamCount")) {
+			_obj.pushArg((wxStackFrame*)this);
 			return (_obj.callFunction<size_t>());
 		}
 

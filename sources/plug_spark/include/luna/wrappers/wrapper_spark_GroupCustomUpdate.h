@@ -16,11 +16,19 @@ public:
 	~wrapper_spark_GroupCustomUpdate() {
 		logDEBUG3("Calling delete function for wrapper spark_GroupCustomUpdate");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((spark::GroupCustomUpdate*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_spark_GroupCustomUpdate(lua_State* L, lua_Table* dum) : spark::GroupCustomUpdate(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_spark_GroupCustomUpdate(lua_State* L, lua_Table* dum) 
+		: spark::GroupCustomUpdate(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((spark::GroupCustomUpdate*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// bool spark::GroupCustomUpdate::operator()(SPK::Particle & particle, float deltaTime) const
 	bool operator()(SPK::Particle & particle, float deltaTime) const {
 		if(_obj.pushFunction("op_call")) {
+			_obj.pushArg((spark::GroupCustomUpdate*)this);
 			_obj.pushArg(&particle);
 			_obj.pushArg(deltaTime);
 			return (_obj.callFunction<bool>());

@@ -113,15 +113,29 @@ void main() {
 	log:info("Tests","Vec3Array test done.")
 end
 
+function test_wrapper_deletion()
+	log:info("Tests","Testing wrapper deletion.")
+	local BasicNode = require "osg.BasicNode"
+	
+	log:info("Tests","Creating wrapper...")
+	local node = BasicNode.createInstance()
+	log:info("Tests","Deleting wrapper...")
+	node:delete()
+	
+	--assert_equal(nil,node,"Node object is still valid.")
+	
+	log:info("Tests","Wrapper deletion test done.")
+end
+
 function test_protected_function_access()
 	log:info("Tests","Testing protection function access.")
 	local BasicNode = require "osg.BasicNode"
 	local osg = require "osg"
 	
-	local node = BasicNode()
+	local node = BasicNode.createInstance()
 	local grp = osg.Group()
-	node:addParent(grp)
-	node:setNumChildrenRequiringUpdateTraversal(1)
+	node:getTable().addParent(node,grp)
+	node:getTable().setNumChildrenRequiringUpdateTraversal(node,1)
 
 	log:info("Tests","Protection function access test done.")
 end

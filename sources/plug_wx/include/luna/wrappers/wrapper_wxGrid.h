@@ -16,12 +16,27 @@ public:
 	~wrapper_wxGrid() {
 		logDEBUG3("Calling delete function for wrapper wxGrid");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxGrid*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxGrid(lua_State* L, lua_Table* dum) : wxGrid(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxGrid(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxWANTS_CHARS, const wxString & name = wxGridNameStr) : wxGrid(parent, id, pos, size, style, name), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGrid(lua_State* L, lua_Table* dum) 
+		: wxGrid(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxGrid*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxGrid(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxWANTS_CHARS, const wxString & name = wxGridNameStr) 
+		: wxGrid(parent, id, pos, size, style, name), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxGrid*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -32,6 +47,7 @@ public:
 	// wxPen wxGrid::GetColGridLinePen(int col)
 	wxPen GetColGridLinePen(int col) {
 		if(_obj.pushFunction("GetColGridLinePen")) {
+			_obj.pushArg((wxGrid*)this);
 			_obj.pushArg(col);
 			return *(_obj.callFunction<wxPen*>());
 		}
@@ -42,6 +58,7 @@ public:
 	// wxPen wxGrid::GetDefaultGridLinePen()
 	wxPen GetDefaultGridLinePen() {
 		if(_obj.pushFunction("GetDefaultGridLinePen")) {
+			_obj.pushArg((wxGrid*)this);
 			return *(_obj.callFunction<wxPen*>());
 		}
 
@@ -51,6 +68,7 @@ public:
 	// wxPen wxGrid::GetRowGridLinePen(int row)
 	wxPen GetRowGridLinePen(int row) {
 		if(_obj.pushFunction("GetRowGridLinePen")) {
+			_obj.pushArg((wxGrid*)this);
 			_obj.pushArg(row);
 			return *(_obj.callFunction<wxPen*>());
 		}
@@ -61,6 +79,7 @@ public:
 	// wxGridCellEditor * wxGrid::GetDefaultEditorForCell(int row, int col) const
 	wxGridCellEditor * GetDefaultEditorForCell(int row, int col) const {
 		if(_obj.pushFunction("GetDefaultEditorForCell")) {
+			_obj.pushArg((wxGrid*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			return (_obj.callFunction<wxGridCellEditor*>());
@@ -72,6 +91,7 @@ public:
 	// wxGridCellEditor * wxGrid::GetDefaultEditorForType(const wxString & typeName) const
 	wxGridCellEditor * GetDefaultEditorForType(const wxString & typeName) const {
 		if(_obj.pushFunction("GetDefaultEditorForType")) {
+			_obj.pushArg((wxGrid*)this);
 			_obj.pushArg(typeName);
 			return (_obj.callFunction<wxGridCellEditor*>());
 		}
@@ -82,6 +102,7 @@ public:
 	// wxGridCellRenderer * wxGrid::GetDefaultRendererForCell(int row, int col) const
 	wxGridCellRenderer * GetDefaultRendererForCell(int row, int col) const {
 		if(_obj.pushFunction("GetDefaultRendererForCell")) {
+			_obj.pushArg((wxGrid*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
 			return (_obj.callFunction<wxGridCellRenderer*>());
@@ -93,6 +114,7 @@ public:
 	// wxGridCellRenderer * wxGrid::GetDefaultRendererForType(const wxString & typeName) const
 	wxGridCellRenderer * GetDefaultRendererForType(const wxString & typeName) const {
 		if(_obj.pushFunction("GetDefaultRendererForType")) {
+			_obj.pushArg((wxGrid*)this);
 			_obj.pushArg(typeName);
 			return (_obj.callFunction<wxGridCellRenderer*>());
 		}
@@ -103,6 +125,7 @@ public:
 	// void wxGrid::Fit()
 	void Fit() {
 		if(_obj.pushFunction("Fit")) {
+			_obj.pushArg((wxGrid*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -276,11 +299,11 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_CanHaveAttributes",_bind_public_CanHaveAttributes},
-		{"protected_GetColMinimalWidth",_bind_public_GetColMinimalWidth},
-		{"protected_GetColRight",_bind_public_GetColRight},
-		{"protected_GetColLeft",_bind_public_GetColLeft},
-		{"protected_GetRowMinimalHeight",_bind_public_GetRowMinimalHeight},
+		{"CanHaveAttributes",_bind_public_CanHaveAttributes},
+		{"GetColMinimalWidth",_bind_public_GetColMinimalWidth},
+		{"GetColRight",_bind_public_GetColRight},
+		{"GetColLeft",_bind_public_GetColLeft},
+		{"GetRowMinimalHeight",_bind_public_GetRowMinimalHeight},
 		{NULL,NULL}
 		};
 

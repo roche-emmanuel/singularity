@@ -16,11 +16,19 @@ public:
 	~wrapper_osgDB_WriteFileCallback() {
 		logDEBUG3("Calling delete function for wrapper osgDB_WriteFileCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::WriteFileCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_WriteFileCallback(lua_State* L, lua_Table* dum) : osgDB::WriteFileCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_WriteFileCallback(lua_State* L, lua_Table* dum) 
+		: osgDB::WriteFileCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::WriteFileCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::WriteFileCallback*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeObject(const osg::Object & obj, const std::string & fileName, const osgDB::Options * options)
 	osgDB::ReaderWriter::WriteResult writeObject(const osg::Object & obj, const std::string & fileName, const osgDB::Options * options) {
 		if(_obj.pushFunction("writeObject")) {
+			_obj.pushArg((osgDB::WriteFileCallback*)this);
 			_obj.pushArg(&obj);
 			_obj.pushArg(fileName);
 			_obj.pushArg(options);
@@ -53,6 +63,7 @@ public:
 	// osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeImage(const osg::Image & obj, const std::string & fileName, const osgDB::Options * options)
 	osgDB::ReaderWriter::WriteResult writeImage(const osg::Image & obj, const std::string & fileName, const osgDB::Options * options) {
 		if(_obj.pushFunction("writeImage")) {
+			_obj.pushArg((osgDB::WriteFileCallback*)this);
 			_obj.pushArg(&obj);
 			_obj.pushArg(fileName);
 			_obj.pushArg(options);
@@ -65,6 +76,7 @@ public:
 	// osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeHeightField(const osg::HeightField & obj, const std::string & fileName, const osgDB::Options * options)
 	osgDB::ReaderWriter::WriteResult writeHeightField(const osg::HeightField & obj, const std::string & fileName, const osgDB::Options * options) {
 		if(_obj.pushFunction("writeHeightField")) {
+			_obj.pushArg((osgDB::WriteFileCallback*)this);
 			_obj.pushArg(&obj);
 			_obj.pushArg(fileName);
 			_obj.pushArg(options);
@@ -77,6 +89,7 @@ public:
 	// osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeNode(const osg::Node & obj, const std::string & fileName, const osgDB::Options * options)
 	osgDB::ReaderWriter::WriteResult writeNode(const osg::Node & obj, const std::string & fileName, const osgDB::Options * options) {
 		if(_obj.pushFunction("writeNode")) {
+			_obj.pushArg((osgDB::WriteFileCallback*)this);
 			_obj.pushArg(&obj);
 			_obj.pushArg(fileName);
 			_obj.pushArg(options);
@@ -89,6 +102,7 @@ public:
 	// osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeShader(const osg::Shader & obj, const std::string & fileName, const osgDB::Options * options)
 	osgDB::ReaderWriter::WriteResult writeShader(const osg::Shader & obj, const std::string & fileName, const osgDB::Options * options) {
 		if(_obj.pushFunction("writeShader")) {
+			_obj.pushArg((osgDB::WriteFileCallback*)this);
 			_obj.pushArg(&obj);
 			_obj.pushArg(fileName);
 			_obj.pushArg(options);
@@ -169,8 +183,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

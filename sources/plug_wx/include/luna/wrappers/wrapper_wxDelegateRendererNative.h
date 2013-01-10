@@ -16,12 +16,27 @@ public:
 	~wrapper_wxDelegateRendererNative() {
 		logDEBUG3("Calling delete function for wrapper wxDelegateRendererNative");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxDelegateRendererNative*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxDelegateRendererNative(lua_State* L, lua_Table* dum) : wxDelegateRendererNative(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxDelegateRendererNative(lua_State* L, lua_Table* dum, wxRendererNative & rendererNative) : wxDelegateRendererNative(rendererNative), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxDelegateRendererNative(lua_State* L, lua_Table* dum) 
+		: wxDelegateRendererNative(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxDelegateRendererNative(lua_State* L, lua_Table* dum, wxRendererNative & rendererNative) 
+		: wxDelegateRendererNative(rendererNative), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -32,6 +47,7 @@ public:
 	// void wxRendererNative::DrawChoice(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawChoice(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawChoice"),"No implementation for abstract function wxRendererNative::DrawChoice");
+		_obj.pushArg((wxDelegateRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -42,6 +58,7 @@ public:
 	// void wxRendererNative::DrawComboBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawComboBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawComboBox"),"No implementation for abstract function wxRendererNative::DrawComboBox");
+		_obj.pushArg((wxDelegateRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -52,6 +69,7 @@ public:
 	// void wxRendererNative::DrawTextCtrl(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawTextCtrl(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawTextCtrl"),"No implementation for abstract function wxRendererNative::DrawTextCtrl");
+		_obj.pushArg((wxDelegateRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -62,6 +80,7 @@ public:
 	// void wxRendererNative::DrawRadioBitmap(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawRadioBitmap(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawRadioBitmap"),"No implementation for abstract function wxRendererNative::DrawRadioBitmap");
+		_obj.pushArg((wxDelegateRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -72,6 +91,7 @@ public:
 	// void wxRendererNative::DrawTitleBarBitmap(wxWindow * win, wxDC & dc, const wxRect & rect, wxTitleBarButton button, int flags = 0)
 	void DrawTitleBarBitmap(wxWindow * win, wxDC & dc, const wxRect & rect, wxTitleBarButton button, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawTitleBarBitmap"),"No implementation for abstract function wxRendererNative::DrawTitleBarBitmap");
+		_obj.pushArg((wxDelegateRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -83,6 +103,7 @@ public:
 	// int wxDelegateRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
 	int DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) {
 		if(_obj.pushFunction("DrawHeaderButton")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			_obj.pushArg(&dc);
 			_obj.pushArg(&rect);
@@ -98,6 +119,7 @@ public:
 	// int wxDelegateRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
 	int DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) {
 		if(_obj.pushFunction("DrawHeaderButtonContents")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			_obj.pushArg(&dc);
 			_obj.pushArg(&rect);
@@ -113,6 +135,7 @@ public:
 	// int wxDelegateRendererNative::GetHeaderButtonHeight(wxWindow * win)
 	int GetHeaderButtonHeight(wxWindow * win) {
 		if(_obj.pushFunction("GetHeaderButtonHeight")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			return (_obj.callFunction<int>());
 		}
@@ -123,6 +146,7 @@ public:
 	// int wxDelegateRendererNative::GetHeaderButtonMargin(wxWindow * win)
 	int GetHeaderButtonMargin(wxWindow * win) {
 		if(_obj.pushFunction("GetHeaderButtonMargin")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			return (_obj.callFunction<int>());
 		}
@@ -133,6 +157,7 @@ public:
 	// void wxDelegateRendererNative::DrawTreeItemButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawTreeItemButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		if(_obj.pushFunction("DrawTreeItemButton")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			_obj.pushArg(&dc);
 			_obj.pushArg(&rect);
@@ -146,6 +171,7 @@ public:
 	// void wxDelegateRendererNative::DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		if(_obj.pushFunction("DrawSplitterBorder")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			_obj.pushArg(&dc);
 			_obj.pushArg(&rect);
@@ -159,6 +185,7 @@ public:
 	// void wxDelegateRendererNative::DrawSplitterSash(wxWindow * win, wxDC & dc, const wxSize & size, int position, wxOrientation orient, int flags = 0)
 	void DrawSplitterSash(wxWindow * win, wxDC & dc, const wxSize & size, int position, wxOrientation orient, int flags = 0) {
 		if(_obj.pushFunction("DrawSplitterSash")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			_obj.pushArg(&dc);
 			_obj.pushArg(&size);
@@ -174,6 +201,7 @@ public:
 	// void wxDelegateRendererNative::DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		if(_obj.pushFunction("DrawComboBoxDropButton")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			_obj.pushArg(&dc);
 			_obj.pushArg(&rect);
@@ -187,6 +215,7 @@ public:
 	// void wxDelegateRendererNative::DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		if(_obj.pushFunction("DrawDropArrow")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			_obj.pushArg(&dc);
 			_obj.pushArg(&rect);
@@ -200,6 +229,7 @@ public:
 	// void wxDelegateRendererNative::DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		if(_obj.pushFunction("DrawCheckBox")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			_obj.pushArg(&dc);
 			_obj.pushArg(&rect);
@@ -213,6 +243,7 @@ public:
 	// wxSize wxDelegateRendererNative::GetCheckBoxSize(wxWindow * win)
 	wxSize GetCheckBoxSize(wxWindow * win) {
 		if(_obj.pushFunction("GetCheckBoxSize")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			return *(_obj.callFunction<wxSize*>());
 		}
@@ -223,6 +254,7 @@ public:
 	// void wxDelegateRendererNative::DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		if(_obj.pushFunction("DrawPushButton")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			_obj.pushArg(&dc);
 			_obj.pushArg(&rect);
@@ -236,6 +268,7 @@ public:
 	// void wxDelegateRendererNative::DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		if(_obj.pushFunction("DrawItemSelectionRect")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			_obj.pushArg(&dc);
 			_obj.pushArg(&rect);
@@ -249,6 +282,7 @@ public:
 	// void wxDelegateRendererNative::DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		if(_obj.pushFunction("DrawFocusRect")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			_obj.pushArg(&dc);
 			_obj.pushArg(&rect);
@@ -262,6 +296,7 @@ public:
 	// wxSplitterRenderParams wxDelegateRendererNative::GetSplitterParams(const wxWindow * win)
 	wxSplitterRenderParams GetSplitterParams(const wxWindow * win) {
 		if(_obj.pushFunction("GetSplitterParams")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			_obj.pushArg(win);
 			return *(_obj.callFunction<wxSplitterRenderParams*>());
 		}
@@ -272,6 +307,7 @@ public:
 	// wxRendererVersion wxDelegateRendererNative::GetVersion() const
 	wxRendererVersion GetVersion() const {
 		if(_obj.pushFunction("GetVersion")) {
+			_obj.pushArg((wxDelegateRendererNative*)this);
 			return *(_obj.callFunction<wxRendererVersion*>());
 		}
 

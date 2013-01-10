@@ -16,17 +16,26 @@ public:
 	~wrapper_SPK_BufferCreator() {
 		logDEBUG3("Calling delete function for wrapper SPK_BufferCreator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((SPK::BufferCreator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_SPK_BufferCreator(lua_State* L, lua_Table* dum) : SPK::BufferCreator(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_SPK_BufferCreator(lua_State* L, lua_Table* dum) 
+		: SPK::BufferCreator(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((SPK::BufferCreator*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 private:
 	// Private virtual methods:
 	// SPK::Buffer * SPK::BufferCreator::createBuffer(size_t nbParticles, const SPK::Group & group) const
 	SPK::Buffer * createBuffer(size_t nbParticles, const SPK::Group & group) const {
 		THROW_IF(!_obj.pushFunction("createBuffer"),"No implementation for abstract function SPK::BufferCreator::createBuffer");
+		_obj.pushArg((SPK::BufferCreator*)this);
 		_obj.pushArg(nbParticles);
 		_obj.pushArg(&group);
 		return (_obj.callFunction<SPK::Buffer*>());

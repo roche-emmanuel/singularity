@@ -16,11 +16,19 @@ public:
 	~wrapper_osg_NodeVisitor_ImageRequestHandler() {
 		logDEBUG3("Calling delete function for wrapper osg_NodeVisitor_ImageRequestHandler");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::NodeVisitor::ImageRequestHandler*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_NodeVisitor_ImageRequestHandler(lua_State* L, lua_Table* dum) : osg::NodeVisitor::ImageRequestHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_NodeVisitor_ImageRequestHandler(lua_State* L, lua_Table* dum) 
+		: osg::NodeVisitor::ImageRequestHandler(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::NodeVisitor::ImageRequestHandler*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::NodeVisitor::ImageRequestHandler*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,12 +50,14 @@ public:
 	// double osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const
 	double getPreLoadTime() const {
 		THROW_IF(!_obj.pushFunction("getPreLoadTime"),"No implementation for abstract function osg::NodeVisitor::ImageRequestHandler::getPreLoadTime");
+		_obj.pushArg((osg::NodeVisitor::ImageRequestHandler*)this);
 		return (_obj.callFunction<double>());
 	};
 
 	// osg::Image * osg::NodeVisitor::ImageRequestHandler::readImageFile(const std::string & fileName)
 	osg::Image * readImageFile(const std::string & fileName) {
 		THROW_IF(!_obj.pushFunction("readImageFile"),"No implementation for abstract function osg::NodeVisitor::ImageRequestHandler::readImageFile");
+		_obj.pushArg((osg::NodeVisitor::ImageRequestHandler*)this);
 		_obj.pushArg(fileName);
 		return (_obj.callFunction<osg::Image*>());
 	};
@@ -54,6 +65,7 @@ public:
 	// void osg::NodeVisitor::ImageRequestHandler::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp)
 	void requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp) {
 		THROW_IF(!_obj.pushFunction("requestImageFile"),"No implementation for abstract function osg::NodeVisitor::ImageRequestHandler::requestImageFile");
+		_obj.pushArg((osg::NodeVisitor::ImageRequestHandler*)this);
 		_obj.pushArg(fileName);
 		_obj.pushArg(attachmentPoint);
 		_obj.pushArg(attachmentIndex);
@@ -133,8 +145,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

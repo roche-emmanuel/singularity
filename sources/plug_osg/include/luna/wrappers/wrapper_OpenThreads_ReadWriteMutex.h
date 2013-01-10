@@ -16,6 +16,7 @@ public:
 	~wrapper_OpenThreads_ReadWriteMutex() {
 		logDEBUG3("Calling delete function for wrapper OpenThreads_ReadWriteMutex");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((OpenThreads::ReadWriteMutex*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};

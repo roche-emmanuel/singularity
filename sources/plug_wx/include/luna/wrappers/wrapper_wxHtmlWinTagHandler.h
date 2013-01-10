@@ -16,6 +16,7 @@ public:
 	~wrapper_wxHtmlWinTagHandler() {
 		logDEBUG3("Calling delete function for wrapper wxHtmlWinTagHandler");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxHtmlWinTagHandler*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -28,6 +29,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxHtmlWinTagHandler*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -37,6 +39,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxHtmlWinTagHandler*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -49,6 +52,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxHtmlWinTagHandler*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -58,12 +62,14 @@ public:
 	// wxString wxHtmlTagHandler::GetSupportedTags()
 	wxString GetSupportedTags() {
 		THROW_IF(!_obj.pushFunction("GetSupportedTags"),"No implementation for abstract function wxHtmlTagHandler::GetSupportedTags");
+		_obj.pushArg((wxHtmlWinTagHandler*)this);
 		return *(_obj.callFunction<wxString*>());
 	};
 
 	// bool wxHtmlTagHandler::HandleTag(const wxHtmlTag & tag)
 	bool HandleTag(const wxHtmlTag & tag) {
 		THROW_IF(!_obj.pushFunction("HandleTag"),"No implementation for abstract function wxHtmlTagHandler::HandleTag");
+		_obj.pushArg((wxHtmlWinTagHandler*)this);
 		_obj.pushArg(&tag);
 		return (_obj.callFunction<bool>());
 	};
@@ -71,6 +77,7 @@ public:
 	// void wxHtmlTagHandler::SetParser(wxHtmlParser * parser)
 	void SetParser(wxHtmlParser * parser) {
 		if(_obj.pushFunction("SetParser")) {
+			_obj.pushArg((wxHtmlWinTagHandler*)this);
 			_obj.pushArg(parser);
 			return (_obj.callFunction<void>());
 		}
@@ -122,7 +129,7 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_ParseInner",_bind_public_ParseInner},
+		{"ParseInner",_bind_public_ParseInner},
 		{NULL,NULL}
 		};
 

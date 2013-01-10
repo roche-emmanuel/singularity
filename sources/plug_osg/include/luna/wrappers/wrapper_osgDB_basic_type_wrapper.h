@@ -16,11 +16,19 @@ public:
 	~wrapper_osgDB_basic_type_wrapper() {
 		logDEBUG3("Calling delete function for wrapper osgDB_basic_type_wrapper");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::basic_type_wrapper*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_basic_type_wrapper(lua_State* L, lua_Table* dum) : osgDB::basic_type_wrapper(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_basic_type_wrapper(lua_State* L, lua_Table* dum) 
+		: osgDB::basic_type_wrapper(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::basic_type_wrapper*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// bool osgDB::basic_type_wrapper::matches(const osg::Object * proto) const
 	bool matches(const osg::Object * proto) const {
 		THROW_IF(!_obj.pushFunction("matches"),"No implementation for abstract function osgDB::basic_type_wrapper::matches");
+		_obj.pushArg((osgDB::basic_type_wrapper*)this);
 		_obj.pushArg(proto);
 		return (_obj.callFunction<bool>());
 	};

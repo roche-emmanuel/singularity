@@ -16,13 +16,35 @@ public:
 	~wrapper_osgUtil_LineSegmentIntersector() {
 		logDEBUG3("Calling delete function for wrapper osgUtil_LineSegmentIntersector");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::LineSegmentIntersector*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, const osg::Vec3d & start, const osg::Vec3d & end) : osgUtil::LineSegmentIntersector(start, end), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, const osg::Vec3d & start, const osg::Vec3d & end) : osgUtil::LineSegmentIntersector(cf, start, end), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, double x, double y) : osgUtil::LineSegmentIntersector(cf, x, y), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, const osg::Vec3d & start, const osg::Vec3d & end) 
+		: osgUtil::LineSegmentIntersector(start, end), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, const osg::Vec3d & start, const osg::Vec3d & end) 
+		: osgUtil::LineSegmentIntersector(cf, start, end), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, double x, double y) 
+		: osgUtil::LineSegmentIntersector(cf, x, y), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -33,6 +55,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -43,6 +66,7 @@ public:
 	// osgUtil::Intersector * osgUtil::LineSegmentIntersector::clone(osgUtil::IntersectionVisitor & iv)
 	osgUtil::Intersector * clone(osgUtil::IntersectionVisitor & iv) {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
 			_obj.pushArg(&iv);
 			return (_obj.callFunction<osgUtil::Intersector*>());
 		}
@@ -53,6 +77,7 @@ public:
 	// bool osgUtil::LineSegmentIntersector::enter(const osg::Node & node)
 	bool enter(const osg::Node & node) {
 		if(_obj.pushFunction("enter")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<bool>());
 		}
@@ -63,6 +88,7 @@ public:
 	// void osgUtil::LineSegmentIntersector::leave()
 	void leave() {
 		if(_obj.pushFunction("leave")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -72,6 +98,7 @@ public:
 	// void osgUtil::LineSegmentIntersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)
 	void intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable) {
 		if(_obj.pushFunction("intersect")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
 			_obj.pushArg(&iv);
 			_obj.pushArg(drawable);
 			return (_obj.callFunction<void>());
@@ -83,6 +110,7 @@ public:
 	// void osgUtil::LineSegmentIntersector::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -92,6 +120,7 @@ public:
 	// bool osgUtil::LineSegmentIntersector::containsIntersections()
 	bool containsIntersections() {
 		if(_obj.pushFunction("containsIntersections")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -253,10 +282,10 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_intersects",_bind_public_intersects},
-		{"protected_intersectAndClip",_bind_public_intersectAndClip},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"intersects",_bind_public_intersects},
+		{"intersectAndClip",_bind_public_intersectAndClip},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

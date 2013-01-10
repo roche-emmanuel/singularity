@@ -16,29 +16,40 @@ public:
 	~wrapper_SPK_Renderer() {
 		logDEBUG3("Calling delete function for wrapper SPK_Renderer");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((SPK::Renderer*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_SPK_Renderer(lua_State* L, lua_Table* dum) : SPK::Renderer(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_SPK_Renderer(lua_State* L, lua_Table* dum) 
+		: SPK::Renderer(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((SPK::Renderer*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 private:
 	// Private virtual methods:
 	// void SPK::Registerable::onRegister()
 	void onRegister() {
 		THROW_IF(!_obj.pushFunction("onRegister"),"No implementation for abstract function SPK::Registerable::onRegister");
+		_obj.pushArg((SPK::Renderer*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// void SPK::Registerable::onUnregister()
 	void onUnregister() {
 		THROW_IF(!_obj.pushFunction("onUnregister"),"No implementation for abstract function SPK::Registerable::onUnregister");
+		_obj.pushArg((SPK::Renderer*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// SPK::Registerable * SPK::Registerable::clone(bool createBase) const
 	SPK::Registerable * clone(bool createBase) const {
 		THROW_IF(!_obj.pushFunction("clone"),"No implementation for abstract function SPK::Registerable::clone");
+		_obj.pushArg((SPK::Renderer*)this);
 		_obj.pushArg(createBase);
 		return (_obj.callFunction<SPK::Registerable*>());
 	};
@@ -48,6 +59,7 @@ protected:
 	// void SPK::Registerable::registerChildren(bool registerAll)
 	void registerChildren(bool registerAll) {
 		if(_obj.pushFunction("registerChildren")) {
+			_obj.pushArg((SPK::Renderer*)this);
 			_obj.pushArg(registerAll);
 			return (_obj.callFunction<void>());
 		}
@@ -58,6 +70,7 @@ protected:
 	// void SPK::Registerable::copyChildren(const SPK::Registerable & object, bool createBase)
 	void copyChildren(const SPK::Registerable & object, bool createBase) {
 		if(_obj.pushFunction("copyChildren")) {
+			_obj.pushArg((SPK::Renderer*)this);
 			_obj.pushArg(&object);
 			_obj.pushArg(createBase);
 			return (_obj.callFunction<void>());
@@ -69,6 +82,7 @@ protected:
 	// void SPK::Registerable::destroyChildren(bool keepChildren)
 	void destroyChildren(bool keepChildren) {
 		if(_obj.pushFunction("destroyChildren")) {
+			_obj.pushArg((SPK::Renderer*)this);
 			_obj.pushArg(keepChildren);
 			return (_obj.callFunction<void>());
 		}
@@ -79,6 +93,7 @@ protected:
 	// bool SPK::BufferHandler::checkBuffers(const SPK::Group & group)
 	bool checkBuffers(const SPK::Group & group) {
 		if(_obj.pushFunction("checkBuffers")) {
+			_obj.pushArg((SPK::Renderer*)this);
 			_obj.pushArg(&group);
 			return (_obj.callFunction<bool>());
 		}
@@ -91,12 +106,14 @@ public:
 	// std::string SPK::Registerable::getClassName() const
 	std::string getClassName() const {
 		THROW_IF(!_obj.pushFunction("getClassName"),"No implementation for abstract function SPK::Registerable::getClassName");
+		_obj.pushArg((SPK::Renderer*)this);
 		return (_obj.callFunction<std::string>());
 	};
 
 	// SPK::Registerable * SPK::Registerable::findByName(const std::string & name)
 	SPK::Registerable * findByName(const std::string & name) {
 		if(_obj.pushFunction("findByName")) {
+			_obj.pushArg((SPK::Renderer*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<SPK::Registerable*>());
 		}
@@ -107,6 +124,7 @@ public:
 	// void SPK::BufferHandler::createBuffers(const SPK::Group & group)
 	void createBuffers(const SPK::Group & group) {
 		if(_obj.pushFunction("createBuffers")) {
+			_obj.pushArg((SPK::Renderer*)this);
 			_obj.pushArg(&group);
 			return (_obj.callFunction<void>());
 		}
@@ -117,6 +135,7 @@ public:
 	// void SPK::BufferHandler::destroyBuffers(const SPK::Group & group)
 	void destroyBuffers(const SPK::Group & group) {
 		if(_obj.pushFunction("destroyBuffers")) {
+			_obj.pushArg((SPK::Renderer*)this);
 			_obj.pushArg(&group);
 			return (_obj.callFunction<void>());
 		}
@@ -127,6 +146,7 @@ public:
 	// void SPK::Renderer::setBlending(SPK::BlendingMode blendMode)
 	void setBlending(SPK::BlendingMode blendMode) {
 		THROW_IF(!_obj.pushFunction("setBlending"),"No implementation for abstract function SPK::Renderer::setBlending");
+		_obj.pushArg((SPK::Renderer*)this);
 		_obj.pushArg(blendMode);
 		return (_obj.callFunction<void>());
 	};
@@ -134,6 +154,7 @@ public:
 	// void SPK::Renderer::enableRenderingHint(SPK::RenderingHint renderingHint, bool enable)
 	void enableRenderingHint(SPK::RenderingHint renderingHint, bool enable) {
 		if(_obj.pushFunction("enableRenderingHint")) {
+			_obj.pushArg((SPK::Renderer*)this);
 			_obj.pushArg(renderingHint);
 			_obj.pushArg(enable);
 			return (_obj.callFunction<void>());
@@ -145,6 +166,7 @@ public:
 	// void SPK::Renderer::setAlphaTestThreshold(float alphaThreshold)
 	void setAlphaTestThreshold(float alphaThreshold) {
 		if(_obj.pushFunction("setAlphaTestThreshold")) {
+			_obj.pushArg((SPK::Renderer*)this);
 			_obj.pushArg(alphaThreshold);
 			return (_obj.callFunction<void>());
 		}
@@ -155,6 +177,7 @@ public:
 	// bool SPK::Renderer::isRenderingHintEnabled(SPK::RenderingHint renderingHint) const
 	bool isRenderingHintEnabled(SPK::RenderingHint renderingHint) const {
 		if(_obj.pushFunction("isRenderingHintEnabled")) {
+			_obj.pushArg((SPK::Renderer*)this);
 			_obj.pushArg(renderingHint);
 			return (_obj.callFunction<bool>());
 		}
@@ -165,6 +188,7 @@ public:
 	// void SPK::Renderer::render(const SPK::Group & group)
 	void render(const SPK::Group & group) {
 		THROW_IF(!_obj.pushFunction("render"),"No implementation for abstract function SPK::Renderer::render");
+		_obj.pushArg((SPK::Renderer*)this);
 		_obj.pushArg(&group);
 		return (_obj.callFunction<void>());
 	};
@@ -415,13 +439,13 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_registerChild",_bind_public_registerChild},
-		{"protected_copyChild",_bind_public_copyChild},
-		{"protected_destroyChild",_bind_public_destroyChild},
-		{"protected_incrementChildReference",_bind_public_incrementChildReference},
-		{"protected_decrementChildReference",_bind_public_decrementChildReference},
-		{"protected_registerObject",_bind_public_registerObject},
-		{"protected_prepareBuffers",_bind_public_prepareBuffers},
+		{"registerChild",_bind_public_registerChild},
+		{"copyChild",_bind_public_copyChild},
+		{"destroyChild",_bind_public_destroyChild},
+		{"incrementChildReference",_bind_public_incrementChildReference},
+		{"decrementChildReference",_bind_public_decrementChildReference},
+		{"registerObject",_bind_public_registerObject},
+		{"prepareBuffers",_bind_public_prepareBuffers},
 		{NULL,NULL}
 		};
 

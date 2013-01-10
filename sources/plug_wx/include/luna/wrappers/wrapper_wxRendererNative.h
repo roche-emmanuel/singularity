@@ -16,6 +16,7 @@ public:
 	~wrapper_wxRendererNative() {
 		logDEBUG3("Calling delete function for wrapper wxRendererNative");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxRendererNative*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -30,6 +31,7 @@ public:
 	// void wxRendererNative::DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawCheckBox"),"No implementation for abstract function wxRendererNative::DrawCheckBox");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -40,6 +42,7 @@ public:
 	// void wxRendererNative::DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawComboBoxDropButton"),"No implementation for abstract function wxRendererNative::DrawComboBoxDropButton");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -50,6 +53,7 @@ public:
 	// void wxRendererNative::DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawDropArrow"),"No implementation for abstract function wxRendererNative::DrawDropArrow");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -60,6 +64,7 @@ public:
 	// void wxRendererNative::DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawFocusRect"),"No implementation for abstract function wxRendererNative::DrawFocusRect");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -70,6 +75,7 @@ public:
 	// int wxRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
 	int DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) {
 		THROW_IF(!_obj.pushFunction("DrawHeaderButton"),"No implementation for abstract function wxRendererNative::DrawHeaderButton");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -82,6 +88,7 @@ public:
 	// int wxRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
 	int DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) {
 		THROW_IF(!_obj.pushFunction("DrawHeaderButtonContents"),"No implementation for abstract function wxRendererNative::DrawHeaderButtonContents");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -94,6 +101,7 @@ public:
 	// void wxRendererNative::DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawItemSelectionRect"),"No implementation for abstract function wxRendererNative::DrawItemSelectionRect");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -104,6 +112,7 @@ public:
 	// void wxRendererNative::DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawPushButton"),"No implementation for abstract function wxRendererNative::DrawPushButton");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -114,6 +123,7 @@ public:
 	// void wxRendererNative::DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawSplitterBorder"),"No implementation for abstract function wxRendererNative::DrawSplitterBorder");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -124,6 +134,7 @@ public:
 	// void wxRendererNative::DrawSplitterSash(wxWindow * win, wxDC & dc, const wxSize & size, int position, wxOrientation orient, int flags = 0)
 	void DrawSplitterSash(wxWindow * win, wxDC & dc, const wxSize & size, int position, wxOrientation orient, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawSplitterSash"),"No implementation for abstract function wxRendererNative::DrawSplitterSash");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&size);
@@ -136,6 +147,7 @@ public:
 	// void wxRendererNative::DrawTreeItemButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawTreeItemButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawTreeItemButton"),"No implementation for abstract function wxRendererNative::DrawTreeItemButton");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -146,6 +158,7 @@ public:
 	// void wxRendererNative::DrawChoice(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawChoice(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawChoice"),"No implementation for abstract function wxRendererNative::DrawChoice");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -156,6 +169,7 @@ public:
 	// void wxRendererNative::DrawComboBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawComboBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawComboBox"),"No implementation for abstract function wxRendererNative::DrawComboBox");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -166,6 +180,7 @@ public:
 	// void wxRendererNative::DrawTextCtrl(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawTextCtrl(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawTextCtrl"),"No implementation for abstract function wxRendererNative::DrawTextCtrl");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -176,6 +191,7 @@ public:
 	// void wxRendererNative::DrawRadioBitmap(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawRadioBitmap(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawRadioBitmap"),"No implementation for abstract function wxRendererNative::DrawRadioBitmap");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -186,6 +202,7 @@ public:
 	// void wxRendererNative::DrawTitleBarBitmap(wxWindow * win, wxDC & dc, const wxRect & rect, wxTitleBarButton button, int flags = 0)
 	void DrawTitleBarBitmap(wxWindow * win, wxDC & dc, const wxRect & rect, wxTitleBarButton button, int flags = 0) {
 		THROW_IF(!_obj.pushFunction("DrawTitleBarBitmap"),"No implementation for abstract function wxRendererNative::DrawTitleBarBitmap");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
@@ -197,6 +214,7 @@ public:
 	// wxSize wxRendererNative::GetCheckBoxSize(wxWindow * win)
 	wxSize GetCheckBoxSize(wxWindow * win) {
 		THROW_IF(!_obj.pushFunction("GetCheckBoxSize"),"No implementation for abstract function wxRendererNative::GetCheckBoxSize");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		return *(_obj.callFunction<wxSize*>());
 	};
@@ -204,6 +222,7 @@ public:
 	// int wxRendererNative::GetHeaderButtonHeight(wxWindow * win)
 	int GetHeaderButtonHeight(wxWindow * win) {
 		THROW_IF(!_obj.pushFunction("GetHeaderButtonHeight"),"No implementation for abstract function wxRendererNative::GetHeaderButtonHeight");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		return (_obj.callFunction<int>());
 	};
@@ -211,6 +230,7 @@ public:
 	// int wxRendererNative::GetHeaderButtonMargin(wxWindow * win)
 	int GetHeaderButtonMargin(wxWindow * win) {
 		THROW_IF(!_obj.pushFunction("GetHeaderButtonMargin"),"No implementation for abstract function wxRendererNative::GetHeaderButtonMargin");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		return (_obj.callFunction<int>());
 	};
@@ -218,6 +238,7 @@ public:
 	// wxSplitterRenderParams wxRendererNative::GetSplitterParams(const wxWindow * win)
 	wxSplitterRenderParams GetSplitterParams(const wxWindow * win) {
 		THROW_IF(!_obj.pushFunction("GetSplitterParams"),"No implementation for abstract function wxRendererNative::GetSplitterParams");
+		_obj.pushArg((wxRendererNative*)this);
 		_obj.pushArg(win);
 		return *(_obj.callFunction<wxSplitterRenderParams*>());
 	};
@@ -225,6 +246,7 @@ public:
 	// wxRendererVersion wxRendererNative::GetVersion() const
 	wxRendererVersion GetVersion() const {
 		THROW_IF(!_obj.pushFunction("GetVersion"),"No implementation for abstract function wxRendererNative::GetVersion");
+		_obj.pushArg((wxRendererNative*)this);
 		return *(_obj.callFunction<wxRendererVersion*>());
 	};
 

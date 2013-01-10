@@ -16,12 +16,27 @@ public:
 	~wrapper_osgParticle_OrbitOperator() {
 		logDEBUG3("Calling delete function for wrapper osgParticle_OrbitOperator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgParticle::OrbitOperator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgParticle_OrbitOperator(lua_State* L, lua_Table* dum) : osgParticle::OrbitOperator(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgParticle_OrbitOperator(lua_State* L, lua_Table* dum, const osgParticle::OrbitOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::OrbitOperator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgParticle_OrbitOperator(lua_State* L, lua_Table* dum) 
+		: osgParticle::OrbitOperator(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgParticle_OrbitOperator(lua_State* L, lua_Table* dum, const osgParticle::OrbitOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osgParticle::OrbitOperator(copy, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -32,6 +47,7 @@ public:
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -42,6 +58,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -52,6 +69,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -61,6 +79,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -71,6 +90,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -80,6 +100,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -89,6 +110,7 @@ public:
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -99,6 +121,7 @@ public:
 	// void osgParticle::Operator::operateParticles(osgParticle::ParticleSystem * ps, double dt)
 	void operateParticles(osgParticle::ParticleSystem * ps, double dt) {
 		if(_obj.pushFunction("operateParticles")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			_obj.pushArg(ps);
 			_obj.pushArg(dt);
 			return (_obj.callFunction<void>());
@@ -110,6 +133,7 @@ public:
 	// void osgParticle::Operator::endOperate()
 	void endOperate() {
 		if(_obj.pushFunction("endOperate")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -119,6 +143,7 @@ public:
 	// osg::Object * osgParticle::OrbitOperator::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -128,6 +153,7 @@ public:
 	// osg::Object * osgParticle::OrbitOperator::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -138,6 +164,7 @@ public:
 	// bool osgParticle::OrbitOperator::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -148,6 +175,7 @@ public:
 	// const char * osgParticle::OrbitOperator::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -157,6 +185,7 @@ public:
 	// const char * osgParticle::OrbitOperator::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -166,6 +195,7 @@ public:
 	// void osgParticle::OrbitOperator::operate(osgParticle::Particle * P, double dt)
 	void operate(osgParticle::Particle * P, double dt) {
 		if(_obj.pushFunction("operate")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			_obj.pushArg(P);
 			_obj.pushArg(dt);
 			return (_obj.callFunction<void>());
@@ -177,6 +207,7 @@ public:
 	// void osgParticle::OrbitOperator::beginOperate(osgParticle::Program * prg)
 	void beginOperate(osgParticle::Program * prg) {
 		if(_obj.pushFunction("beginOperate")) {
+			_obj.pushArg((osgParticle::OrbitOperator*)this);
 			_obj.pushArg(prg);
 			return (_obj.callFunction<void>());
 		}
@@ -293,9 +324,9 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_op_assign",_bind_public_op_assign},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"op_assign",_bind_public_op_assign},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

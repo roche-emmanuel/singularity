@@ -16,11 +16,19 @@ public:
 	~wrapper_osgDB_BaseCompressor() {
 		logDEBUG3("Calling delete function for wrapper osgDB_BaseCompressor");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::BaseCompressor*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_BaseCompressor(lua_State* L, lua_Table* dum) : osgDB::BaseCompressor(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_BaseCompressor(lua_State* L, lua_Table* dum) 
+		: osgDB::BaseCompressor(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::BaseCompressor*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::BaseCompressor*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// bool osgDB::BaseCompressor::compress(std::ostream & arg1, const std::string & arg2)
 	bool compress(std::ostream & arg1, const std::string & arg2) {
 		THROW_IF(!_obj.pushFunction("compress"),"No implementation for abstract function osgDB::BaseCompressor::compress");
+		_obj.pushArg((osgDB::BaseCompressor*)this);
 		_obj.pushArg(&arg1);
 		_obj.pushArg(arg2);
 		return (_obj.callFunction<bool>());
@@ -49,6 +59,7 @@ public:
 	// bool osgDB::BaseCompressor::decompress(std::istream & arg1, std::string & arg2)
 	bool decompress(std::istream & arg1, std::string & arg2) {
 		THROW_IF(!_obj.pushFunction("decompress"),"No implementation for abstract function osgDB::BaseCompressor::decompress");
+		_obj.pushArg((osgDB::BaseCompressor*)this);
 		_obj.pushArg(&arg1);
 		_obj.pushArg(arg2);
 		return (_obj.callFunction<bool>());
@@ -125,8 +136,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

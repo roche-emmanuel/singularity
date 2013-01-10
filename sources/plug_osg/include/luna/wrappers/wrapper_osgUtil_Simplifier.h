@@ -16,11 +16,19 @@ public:
 	~wrapper_osgUtil_Simplifier() {
 		logDEBUG3("Calling delete function for wrapper osgUtil_Simplifier");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::Simplifier*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_Simplifier(lua_State* L, lua_Table* dum, double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0) : osgUtil::Simplifier(sampleRatio, maximumError, maximumLength), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_Simplifier(lua_State* L, lua_Table* dum, double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0) 
+		: osgUtil::Simplifier(sampleRatio, maximumError, maximumLength), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::Simplifier*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::Simplifier*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// void osg::NodeVisitor::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osgUtil::Simplifier*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -50,6 +60,7 @@ public:
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
 		if(_obj.pushFunction("getEyePoint")) {
+			_obj.pushArg((osgUtil::Simplifier*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -59,6 +70,7 @@ public:
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {
 		if(_obj.pushFunction("getViewPoint")) {
+			_obj.pushArg((osgUtil::Simplifier*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -68,6 +80,7 @@ public:
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToEyePoint")) {
+			_obj.pushArg((osgUtil::Simplifier*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -79,6 +92,7 @@ public:
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceFromEyePoint")) {
+			_obj.pushArg((osgUtil::Simplifier*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -90,6 +104,7 @@ public:
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToViewPoint")) {
+			_obj.pushArg((osgUtil::Simplifier*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -101,6 +116,7 @@ public:
 	// const char * osgUtil::Simplifier::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgUtil::Simplifier*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -110,6 +126,7 @@ public:
 	// const char * osgUtil::Simplifier::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgUtil::Simplifier*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -119,6 +136,7 @@ public:
 	// bool osgUtil::Simplifier::continueSimplificationImplementation(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const
 	bool continueSimplificationImplementation(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const {
 		if(_obj.pushFunction("continueSimplificationImplementation")) {
+			_obj.pushArg((osgUtil::Simplifier*)this);
 			_obj.pushArg(nextError);
 			_obj.pushArg(numOriginalPrimitives);
 			_obj.pushArg(numRemainingPrimitives);
@@ -131,6 +149,7 @@ public:
 	// void osgUtil::Simplifier::apply(osg::Geode & geode)
 	void apply(osg::Geode & geode) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::Simplifier*)this);
 			_obj.pushArg(&geode);
 			return (_obj.callFunction<void>());
 		}
@@ -209,8 +228,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

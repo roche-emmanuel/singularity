@@ -16,12 +16,27 @@ public:
 	~wrapper_osgUtil_CubeMapGenerator() {
 		logDEBUG3("Calling delete function for wrapper osgUtil_CubeMapGenerator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::CubeMapGenerator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_CubeMapGenerator(lua_State* L, lua_Table* dum, int texture_size = 64) : osgUtil::CubeMapGenerator(texture_size), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_CubeMapGenerator(lua_State* L, lua_Table* dum, const osgUtil::CubeMapGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::CubeMapGenerator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_CubeMapGenerator(lua_State* L, lua_Table* dum, int texture_size = 64) 
+		: osgUtil::CubeMapGenerator(texture_size), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::CubeMapGenerator*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_CubeMapGenerator(lua_State* L, lua_Table* dum, const osgUtil::CubeMapGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osgUtil::CubeMapGenerator(copy, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::CubeMapGenerator*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +45,7 @@ protected:
 	// osg::Vec4f osgUtil::CubeMapGenerator::compute_color(const osg::Vec3f & R) const
 	osg::Vec4f compute_color(const osg::Vec3f & R) const {
 		THROW_IF(!_obj.pushFunction("compute_color"),"No implementation for abstract function osgUtil::CubeMapGenerator::compute_color");
+		_obj.pushArg((osgUtil::CubeMapGenerator*)this);
 		_obj.pushArg(&R);
 		return *(_obj.callFunction<osg::Vec4f*>());
 	};
@@ -39,6 +55,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::CubeMapGenerator*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -235,11 +252,11 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_set_pixel",_bind_public_set_pixel},
-		{"protected_vector_to_color",_bind_public_vector_to_color},
-		{"protected_op_assign",_bind_public_op_assign},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"set_pixel",_bind_public_set_pixel},
+		{"vector_to_color",_bind_public_vector_to_color},
+		{"op_assign",_bind_public_op_assign},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -16,11 +16,19 @@ public:
 	~wrapper_OpenThreads_Barrier() {
 		logDEBUG3("Calling delete function for wrapper OpenThreads_Barrier");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((OpenThreads::Barrier*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_OpenThreads_Barrier(lua_State* L, lua_Table* dum, int numThreads = 0) : OpenThreads::Barrier(numThreads), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_OpenThreads_Barrier(lua_State* L, lua_Table* dum, int numThreads = 0) 
+		: OpenThreads::Barrier(numThreads), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((OpenThreads::Barrier*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void OpenThreads::Barrier::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((OpenThreads::Barrier*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -40,6 +49,7 @@ public:
 	// void OpenThreads::Barrier::block(unsigned int numThreads = 0)
 	void block(unsigned int numThreads = 0) {
 		if(_obj.pushFunction("block")) {
+			_obj.pushArg((OpenThreads::Barrier*)this);
 			_obj.pushArg(numThreads);
 			return (_obj.callFunction<void>());
 		}
@@ -50,6 +60,7 @@ public:
 	// void OpenThreads::Barrier::release()
 	void release() {
 		if(_obj.pushFunction("release")) {
+			_obj.pushArg((OpenThreads::Barrier*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -59,6 +70,7 @@ public:
 	// int OpenThreads::Barrier::numThreadsCurrentlyBlocked()
 	int numThreadsCurrentlyBlocked() {
 		if(_obj.pushFunction("numThreadsCurrentlyBlocked")) {
+			_obj.pushArg((OpenThreads::Barrier*)this);
 			return (_obj.callFunction<int>());
 		}
 

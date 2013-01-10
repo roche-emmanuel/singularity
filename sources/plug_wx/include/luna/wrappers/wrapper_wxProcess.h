@@ -16,12 +16,27 @@ public:
 	~wrapper_wxProcess() {
 		logDEBUG3("Calling delete function for wrapper wxProcess");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxProcess*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxProcess(lua_State* L, lua_Table* dum, wxEvtHandler * parent = NULL, int id = -1) : wxProcess(parent, id), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxProcess(lua_State* L, lua_Table* dum, int flags) : wxProcess(flags), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxProcess(lua_State* L, lua_Table* dum, wxEvtHandler * parent = NULL, int id = -1) 
+		: wxProcess(parent, id), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxProcess*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxProcess(lua_State* L, lua_Table* dum, int flags) 
+		: wxProcess(flags), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxProcess*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +45,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxProcess*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -39,6 +55,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxProcess*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -49,6 +66,7 @@ protected:
 	// bool wxEvtHandler::TryBefore(wxEvent & event)
 	bool TryBefore(wxEvent & event) {
 		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg((wxProcess*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<bool>());
 		}
@@ -59,6 +77,7 @@ protected:
 	// bool wxEvtHandler::TryAfter(wxEvent & event)
 	bool TryAfter(wxEvent & event) {
 		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg((wxProcess*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<bool>());
 		}
@@ -71,6 +90,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxProcess*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -80,6 +100,7 @@ public:
 	// void wxEvtHandler::QueueEvent(wxEvent * event)
 	void QueueEvent(wxEvent * event) {
 		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg((wxProcess*)this);
 			_obj.pushArg(event);
 			return (_obj.callFunction<void>());
 		}
@@ -90,6 +111,7 @@ public:
 	// void wxEvtHandler::AddPendingEvent(const wxEvent & event)
 	void AddPendingEvent(const wxEvent & event) {
 		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg((wxProcess*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<void>());
 		}
@@ -100,6 +122,7 @@ public:
 	// bool wxEvtHandler::ProcessEvent(wxEvent & event)
 	bool ProcessEvent(wxEvent & event) {
 		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg((wxProcess*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<bool>());
 		}
@@ -110,6 +133,7 @@ public:
 	// void wxEvtHandler::SetNextHandler(wxEvtHandler * handler)
 	void SetNextHandler(wxEvtHandler * handler) {
 		if(_obj.pushFunction("SetNextHandler")) {
+			_obj.pushArg((wxProcess*)this);
 			_obj.pushArg(handler);
 			return (_obj.callFunction<void>());
 		}
@@ -120,6 +144,7 @@ public:
 	// void wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler)
 	void SetPreviousHandler(wxEvtHandler * handler) {
 		if(_obj.pushFunction("SetPreviousHandler")) {
+			_obj.pushArg((wxProcess*)this);
 			_obj.pushArg(handler);
 			return (_obj.callFunction<void>());
 		}
@@ -130,6 +155,7 @@ public:
 	// void wxProcess::OnTerminate(int pid, int status)
 	void OnTerminate(int pid, int status) {
 		if(_obj.pushFunction("OnTerminate")) {
+			_obj.pushArg((wxProcess*)this);
 			_obj.pushArg(pid);
 			_obj.pushArg(status);
 			return (_obj.callFunction<void>());

@@ -16,12 +16,27 @@ public:
 	~wrapper_osg_NodeVisitor() {
 		logDEBUG3("Calling delete function for wrapper osg_NodeVisitor");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::NodeVisitor*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_NodeVisitor(lua_State* L, lua_Table* dum, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE) : osg::NodeVisitor(tm), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_NodeVisitor(lua_State* L, lua_Table* dum, osg::NodeVisitor::VisitorType type, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE) : osg::NodeVisitor(type, tm), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_NodeVisitor(lua_State* L, lua_Table* dum, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE) 
+		: osg::NodeVisitor(tm), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_NodeVisitor(lua_State* L, lua_Table* dum, osg::NodeVisitor::VisitorType type, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE) 
+		: osg::NodeVisitor(type, tm), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -32,6 +47,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -42,6 +58,7 @@ public:
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -51,6 +68,7 @@ public:
 	// const char * osg::NodeVisitor::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -60,6 +78,7 @@ public:
 	// void osg::NodeVisitor::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -69,6 +88,7 @@ public:
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
 		if(_obj.pushFunction("getEyePoint")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -78,6 +98,7 @@ public:
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {
 		if(_obj.pushFunction("getViewPoint")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -87,6 +108,7 @@ public:
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToEyePoint")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -98,6 +120,7 @@ public:
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceFromEyePoint")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -109,6 +132,7 @@ public:
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToViewPoint")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -120,6 +144,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::Node & node)
 	void apply(osg::Node & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -130,6 +155,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::Geode & node)
 	void apply(osg::Geode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -140,6 +166,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::Billboard & node)
 	void apply(osg::Billboard & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -150,6 +177,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::Group & node)
 	void apply(osg::Group & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -160,6 +188,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::Projection & node)
 	void apply(osg::Projection & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -170,6 +199,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::CoordinateSystemNode & node)
 	void apply(osg::CoordinateSystemNode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -180,6 +210,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::ClipNode & node)
 	void apply(osg::ClipNode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -190,6 +221,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::TexGenNode & node)
 	void apply(osg::TexGenNode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -200,6 +232,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::LightSource & node)
 	void apply(osg::LightSource & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -210,6 +243,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::Transform & node)
 	void apply(osg::Transform & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -220,6 +254,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::Camera & node)
 	void apply(osg::Camera & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -230,6 +265,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::CameraView & node)
 	void apply(osg::CameraView & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -240,6 +276,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::MatrixTransform & node)
 	void apply(osg::MatrixTransform & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -250,6 +287,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::PositionAttitudeTransform & node)
 	void apply(osg::PositionAttitudeTransform & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -260,6 +298,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::Switch & node)
 	void apply(osg::Switch & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -270,6 +309,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::Sequence & node)
 	void apply(osg::Sequence & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -280,6 +320,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::LOD & node)
 	void apply(osg::LOD & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -290,6 +331,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::PagedLOD & node)
 	void apply(osg::PagedLOD & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -300,6 +342,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::ClearNode & node)
 	void apply(osg::ClearNode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -310,6 +353,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::OccluderNode & node)
 	void apply(osg::OccluderNode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -320,6 +364,7 @@ public:
 	// void osg::NodeVisitor::apply(osg::OcclusionQueryNode & node)
 	void apply(osg::OcclusionQueryNode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::NodeVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -398,8 +443,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

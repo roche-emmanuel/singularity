@@ -16,6 +16,7 @@ public:
 	~wrapper_wxPrintDialog() {
 		logDEBUG3("Calling delete function for wrapper wxPrintDialog");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxPrintDialog*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};

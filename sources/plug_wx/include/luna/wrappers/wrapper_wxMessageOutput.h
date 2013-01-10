@@ -16,6 +16,7 @@ public:
 	~wrapper_wxMessageOutput() {
 		logDEBUG3("Calling delete function for wrapper wxMessageOutput");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxMessageOutput*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -30,6 +31,7 @@ public:
 	// void wxMessageOutput::Output(const wxString & str)
 	void Output(const wxString & str) {
 		THROW_IF(!_obj.pushFunction("Output"),"No implementation for abstract function wxMessageOutput::Output");
+		_obj.pushArg((wxMessageOutput*)this);
 		_obj.pushArg(str);
 		return (_obj.callFunction<void>());
 	};

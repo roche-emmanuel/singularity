@@ -42,6 +42,8 @@ intf:popParent(true)
 
 parent:Layout()
 
+log:info "Running app..."
+
 app:run()
 
 log:info "Cleaning up"

@@ -16,11 +16,19 @@ public:
 	~wrapper_osg_Texture2DArray_SubloadCallback() {
 		logDEBUG3("Calling delete function for wrapper osg_Texture2DArray_SubloadCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::Texture2DArray::SubloadCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_Texture2DArray_SubloadCallback(lua_State* L, lua_Table* dum) : osg::Texture2DArray::SubloadCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Texture2DArray_SubloadCallback(lua_State* L, lua_Table* dum) 
+		: osg::Texture2DArray::SubloadCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Texture2DArray::SubloadCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::Texture2DArray::SubloadCallback*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// void osg::Texture2DArray::SubloadCallback::load(const osg::Texture2DArray & texture, osg::State & state) const
 	void load(const osg::Texture2DArray & texture, osg::State & state) const {
 		THROW_IF(!_obj.pushFunction("load"),"No implementation for abstract function osg::Texture2DArray::SubloadCallback::load");
+		_obj.pushArg((osg::Texture2DArray::SubloadCallback*)this);
 		_obj.pushArg(&texture);
 		_obj.pushArg(&state);
 		return (_obj.callFunction<void>());
@@ -49,6 +59,7 @@ public:
 	// void osg::Texture2DArray::SubloadCallback::subload(const osg::Texture2DArray & texture, osg::State & state) const
 	void subload(const osg::Texture2DArray & texture, osg::State & state) const {
 		THROW_IF(!_obj.pushFunction("subload"),"No implementation for abstract function osg::Texture2DArray::SubloadCallback::subload");
+		_obj.pushArg((osg::Texture2DArray::SubloadCallback*)this);
 		_obj.pushArg(&texture);
 		_obj.pushArg(&state);
 		return (_obj.callFunction<void>());
@@ -125,8 +136,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

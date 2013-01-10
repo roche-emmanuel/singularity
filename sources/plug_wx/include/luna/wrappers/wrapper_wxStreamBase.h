@@ -16,11 +16,19 @@ public:
 	~wrapper_wxStreamBase() {
 		logDEBUG3("Calling delete function for wrapper wxStreamBase");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxStreamBase*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxStreamBase(lua_State* L, lua_Table* dum) : wxStreamBase(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxStreamBase(lua_State* L, lua_Table* dum) 
+		: wxStreamBase(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxStreamBase*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxStreamBase*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -38,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxStreamBase*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -48,6 +58,7 @@ protected:
 	// long long wxStreamBase::OnSysSeek(long long pos, wxSeekMode mode)
 	long long OnSysSeek(long long pos, wxSeekMode mode) {
 		if(_obj.pushFunction("OnSysSeek")) {
+			_obj.pushArg((wxStreamBase*)this);
 			_obj.pushArg(pos);
 			_obj.pushArg(mode);
 			return (_obj.callFunction<long long>());
@@ -59,6 +70,7 @@ protected:
 	// long long wxStreamBase::OnSysTell() const
 	long long OnSysTell() const {
 		if(_obj.pushFunction("OnSysTell")) {
+			_obj.pushArg((wxStreamBase*)this);
 			return (_obj.callFunction<long long>());
 		}
 
@@ -70,6 +82,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxStreamBase*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -79,6 +92,7 @@ public:
 	// long long wxStreamBase::GetLength() const
 	long long GetLength() const {
 		if(_obj.pushFunction("GetLength")) {
+			_obj.pushArg((wxStreamBase*)this);
 			return (_obj.callFunction<long long>());
 		}
 
@@ -88,6 +102,7 @@ public:
 	// size_t wxStreamBase::GetSize() const
 	size_t GetSize() const {
 		if(_obj.pushFunction("GetSize")) {
+			_obj.pushArg((wxStreamBase*)this);
 			return (_obj.callFunction<size_t>());
 		}
 
@@ -97,6 +112,7 @@ public:
 	// bool wxStreamBase::IsOk() const
 	bool IsOk() const {
 		if(_obj.pushFunction("IsOk")) {
+			_obj.pushArg((wxStreamBase*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -106,6 +122,7 @@ public:
 	// bool wxStreamBase::IsSeekable() const
 	bool IsSeekable() const {
 		if(_obj.pushFunction("IsSeekable")) {
+			_obj.pushArg((wxStreamBase*)this);
 			return (_obj.callFunction<bool>());
 		}
 

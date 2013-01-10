@@ -16,12 +16,27 @@ public:
 	~wrapper_osgText_FadeText() {
 		logDEBUG3("Calling delete function for wrapper osgText_FadeText");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgText::FadeText*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgText_FadeText(lua_State* L, lua_Table* dum) : osgText::FadeText(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgText_FadeText(lua_State* L, lua_Table* dum, const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgText::FadeText(text, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgText_FadeText(lua_State* L, lua_Table* dum) 
+		: osgText::FadeText(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgText::FadeText*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgText_FadeText(lua_State* L, lua_Table* dum, const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osgText::FadeText(text, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgText::FadeText*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +45,7 @@ protected:
 	// void osgText::Text::computeGlyphRepresentation()
 	void computeGlyphRepresentation() {
 		if(_obj.pushFunction("computeGlyphRepresentation")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -39,6 +55,7 @@ protected:
 	// void osgText::Text::computePositions(unsigned int contextID) const
 	void computePositions(unsigned int contextID) const {
 		if(_obj.pushFunction("computePositions")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(contextID);
 			return (_obj.callFunction<void>());
 		}
@@ -51,6 +68,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -61,6 +79,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -71,6 +90,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -80,6 +100,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -89,6 +110,7 @@ public:
 	// osg::Geometry * osg::Drawable::asGeometry()
 	osg::Geometry * asGeometry() {
 		if(_obj.pushFunction("asGeometry")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
@@ -98,6 +120,7 @@ public:
 	// const osg::Geometry * osg::Drawable::asGeometry() const
 	const osg::Geometry * asGeometry() const {
 		if(_obj.pushFunction("asGeometry")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
@@ -107,6 +130,7 @@ public:
 	// void osg::Drawable::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -116,6 +140,7 @@ public:
 	// void osg::Drawable::setUseVertexBufferObjects(bool flag)
 	void setUseVertexBufferObjects(bool flag) {
 		if(_obj.pushFunction("setUseVertexBufferObjects")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(flag);
 			return (_obj.callFunction<void>());
 		}
@@ -126,6 +151,7 @@ public:
 	// void osg::Drawable::dirtyDisplayList()
 	void dirtyDisplayList() {
 		if(_obj.pushFunction("dirtyDisplayList")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -135,6 +161,7 @@ public:
 	// unsigned int osg::Drawable::getGLObjectSizeHint() const
 	unsigned int getGLObjectSizeHint() const {
 		if(_obj.pushFunction("getGLObjectSizeHint")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -144,6 +171,7 @@ public:
 	// void osg::Drawable::compileGLObjects(osg::RenderInfo & renderInfo) const
 	void compileGLObjects(osg::RenderInfo & renderInfo) const {
 		if(_obj.pushFunction("compileGLObjects")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(&renderInfo);
 			return (_obj.callFunction<void>());
 		}
@@ -154,6 +182,7 @@ public:
 	// void osg::Drawable::setUpdateCallback(osg::Drawable::UpdateCallback * ac)
 	void setUpdateCallback(osg::Drawable::UpdateCallback * ac) {
 		if(_obj.pushFunction("setUpdateCallback")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(ac);
 			return (_obj.callFunction<void>());
 		}
@@ -164,6 +193,7 @@ public:
 	// void osg::Drawable::setEventCallback(osg::Drawable::EventCallback * ac)
 	void setEventCallback(osg::Drawable::EventCallback * ac) {
 		if(_obj.pushFunction("setEventCallback")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(ac);
 			return (_obj.callFunction<void>());
 		}
@@ -174,6 +204,7 @@ public:
 	// void osg::Drawable::setCullCallback(osg::Drawable::CullCallback * cc)
 	void setCullCallback(osg::Drawable::CullCallback * cc) {
 		if(_obj.pushFunction("setCullCallback")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(cc);
 			return (_obj.callFunction<void>());
 		}
@@ -184,6 +215,7 @@ public:
 	// void osg::Drawable::setDrawCallback(osg::Drawable::DrawCallback * dc)
 	void setDrawCallback(osg::Drawable::DrawCallback * dc) {
 		if(_obj.pushFunction("setDrawCallback")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(dc);
 			return (_obj.callFunction<void>());
 		}
@@ -194,6 +226,7 @@ public:
 	// osg::BoundingBoxd osgText::TextBase::computeBound() const
 	osg::BoundingBoxd computeBound() const {
 		if(_obj.pushFunction("computeBound")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			return *(_obj.callFunction<osg::BoundingBoxd*>());
 		}
 
@@ -203,6 +236,7 @@ public:
 	// void osgText::Text::setFont(osgText::Font * font = 0)
 	void setFont(osgText::Font * font = 0) {
 		if(_obj.pushFunction("setFont")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(font);
 			return (_obj.callFunction<void>());
 		}
@@ -213,6 +247,7 @@ public:
 	// void osgText::Text::setFont(const std::string & fontfile)
 	void setFont(const std::string & fontfile) {
 		if(_obj.pushFunction("setFont")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(fontfile);
 			return (_obj.callFunction<void>());
 		}
@@ -223,6 +258,7 @@ public:
 	// void osgText::Text::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -233,6 +269,7 @@ public:
 	// void osgText::Text::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(state);
 			return (_obj.callFunction<void>());
 		}
@@ -243,6 +280,7 @@ public:
 	// osg::Object * osgText::FadeText::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -252,6 +290,7 @@ public:
 	// osg::Object * osgText::FadeText::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -262,6 +301,7 @@ public:
 	// bool osgText::FadeText::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -272,6 +312,7 @@ public:
 	// const char * osgText::FadeText::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -281,6 +322,7 @@ public:
 	// const char * osgText::FadeText::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -290,6 +332,7 @@ public:
 	// void osgText::FadeText::drawImplementation(osg::RenderInfo & renderInfo) const
 	void drawImplementation(osg::RenderInfo & renderInfo) const {
 		if(_obj.pushFunction("drawImplementation")) {
+			_obj.pushArg((osgText::FadeText*)this);
 			_obj.pushArg(&renderInfo);
 			return (_obj.callFunction<void>());
 		}
@@ -1393,37 +1436,37 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_init",_bind_public_init},
-		{"protected_getActiveFont",_bind_public_getActiveFont},
-		{"protected_computeAverageGlyphWidthAndHeight",_bind_public_computeAverageGlyphWidthAndHeight},
-		{"protected_computeBackdropPositions",_bind_public_computeBackdropPositions},
-		{"protected_computeBackdropBoundingBox",_bind_public_computeBackdropBoundingBox},
-		{"protected_computeBoundingBoxMargin",_bind_public_computeBoundingBoxMargin},
-		{"protected_computeColorGradients",_bind_public_computeColorGradients},
-		{"protected_computeColorGradientsOverall",_bind_public_computeColorGradientsOverall},
-		{"protected_computeColorGradientsPerCharacter",_bind_public_computeColorGradientsPerCharacter},
-		{"protected_drawImplementation",_bind_public_drawImplementation},
-		{"protected_drawForegroundText",_bind_public_drawForegroundText},
-		{"protected_drawTextWithBackdrop",_bind_public_drawTextWithBackdrop},
-		{"protected_renderOnlyForegroundText",_bind_public_renderOnlyForegroundText},
-		{"protected_renderWithPolygonOffset",_bind_public_renderWithPolygonOffset},
-		{"protected_renderWithNoDepthBuffer",_bind_public_renderWithNoDepthBuffer},
-		{"protected_renderWithDepthRange",_bind_public_renderWithDepthRange},
-		{"protected_renderWithStencilBuffer",_bind_public_renderWithStencilBuffer},
-		{"protected_renderWithDelayedDepthWrites",_bind_public_renderWithDelayedDepthWrites},
-		{"protected_bilinearInterpolate",_bind_public_bilinearInterpolate},
-		{"protected_positionCursor",_bind_public_positionCursor},
-		{"protected_computePositions",_bind_public_computePositions},
-		{"protected_setBound",_bind_public_setBound},
-		{"protected_addParent",_bind_public_addParent},
-		{"protected_removeParent",_bind_public_removeParent},
-		{"protected_setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
-		{"protected_getNumChildrenRequiringUpdateTraversal",_bind_public_getNumChildrenRequiringUpdateTraversal},
-		{"protected_setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
-		{"protected_getNumChildrenRequiringEventTraversal",_bind_public_getNumChildrenRequiringEventTraversal},
-		{"protected_op_assign",_bind_public_op_assign},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"init",_bind_public_init},
+		{"getActiveFont",_bind_public_getActiveFont},
+		{"computeAverageGlyphWidthAndHeight",_bind_public_computeAverageGlyphWidthAndHeight},
+		{"computeBackdropPositions",_bind_public_computeBackdropPositions},
+		{"computeBackdropBoundingBox",_bind_public_computeBackdropBoundingBox},
+		{"computeBoundingBoxMargin",_bind_public_computeBoundingBoxMargin},
+		{"computeColorGradients",_bind_public_computeColorGradients},
+		{"computeColorGradientsOverall",_bind_public_computeColorGradientsOverall},
+		{"computeColorGradientsPerCharacter",_bind_public_computeColorGradientsPerCharacter},
+		{"drawImplementation",_bind_public_drawImplementation},
+		{"drawForegroundText",_bind_public_drawForegroundText},
+		{"drawTextWithBackdrop",_bind_public_drawTextWithBackdrop},
+		{"renderOnlyForegroundText",_bind_public_renderOnlyForegroundText},
+		{"renderWithPolygonOffset",_bind_public_renderWithPolygonOffset},
+		{"renderWithNoDepthBuffer",_bind_public_renderWithNoDepthBuffer},
+		{"renderWithDepthRange",_bind_public_renderWithDepthRange},
+		{"renderWithStencilBuffer",_bind_public_renderWithStencilBuffer},
+		{"renderWithDelayedDepthWrites",_bind_public_renderWithDelayedDepthWrites},
+		{"bilinearInterpolate",_bind_public_bilinearInterpolate},
+		{"positionCursor",_bind_public_positionCursor},
+		{"computePositions",_bind_public_computePositions},
+		{"setBound",_bind_public_setBound},
+		{"addParent",_bind_public_addParent},
+		{"removeParent",_bind_public_removeParent},
+		{"setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
+		{"getNumChildrenRequiringUpdateTraversal",_bind_public_getNumChildrenRequiringUpdateTraversal},
+		{"setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
+		{"getNumChildrenRequiringEventTraversal",_bind_public_getNumChildrenRequiringEventTraversal},
+		{"op_assign",_bind_public_op_assign},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

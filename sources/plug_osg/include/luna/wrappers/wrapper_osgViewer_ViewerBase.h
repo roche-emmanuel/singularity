@@ -16,12 +16,27 @@ public:
 	~wrapper_osgViewer_ViewerBase() {
 		logDEBUG3("Calling delete function for wrapper osgViewer_ViewerBase");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgViewer::ViewerBase*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgViewer_ViewerBase(lua_State* L, lua_Table* dum) : osgViewer::ViewerBase(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgViewer_ViewerBase(lua_State* L, lua_Table* dum, const osgViewer::ViewerBase & vb) : osgViewer::ViewerBase(vb), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgViewer_ViewerBase(lua_State* L, lua_Table* dum) 
+		: osgViewer::ViewerBase(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgViewer_ViewerBase(lua_State* L, lua_Table* dum, const osgViewer::ViewerBase & vb) 
+		: osgViewer::ViewerBase(vb), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +45,7 @@ protected:
 	// void osgViewer::ViewerBase::viewerInit()
 	void viewerInit() {
 		THROW_IF(!_obj.pushFunction("viewerInit"),"No implementation for abstract function osgViewer::ViewerBase::viewerInit");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		return (_obj.callFunction<void>());
 	};
 
@@ -38,12 +54,14 @@ public:
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
 		THROW_IF(!_obj.pushFunction("cloneType"),"No implementation for abstract function osg::Object::cloneType");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		return (_obj.callFunction<osg::Object*>());
 	};
 
 	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		THROW_IF(!_obj.pushFunction("clone"),"No implementation for abstract function osg::Object::clone");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		_obj.pushArg(&arg1);
 		return (_obj.callFunction<osg::Object*>());
 	};
@@ -51,6 +69,7 @@ public:
 	// bool osg::Object::isSameKindAs(const osg::Object * arg1) const
 	bool isSameKindAs(const osg::Object * arg1) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<bool>());
 		}
@@ -61,18 +80,21 @@ public:
 	// const char * osg::Object::libraryName() const
 	const char * libraryName() const {
 		THROW_IF(!_obj.pushFunction("libraryName"),"No implementation for abstract function osg::Object::libraryName");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		return (_obj.callFunction<const char*>());
 	};
 
 	// const char * osg::Object::className() const
 	const char * className() const {
 		THROW_IF(!_obj.pushFunction("className"),"No implementation for abstract function osg::Object::className");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		return (_obj.callFunction<const char*>());
 	};
 
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -83,6 +105,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -93,6 +116,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -102,6 +126,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -112,6 +137,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -121,6 +147,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -130,6 +157,7 @@ public:
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -140,6 +168,7 @@ public:
 	// void osgViewer::ViewerBase::setViewerStats(osg::Stats * stats)
 	void setViewerStats(osg::Stats * stats) {
 		THROW_IF(!_obj.pushFunction("setViewerStats"),"No implementation for abstract function osgViewer::ViewerBase::setViewerStats");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		_obj.pushArg(stats);
 		return (_obj.callFunction<void>());
 	};
@@ -147,18 +176,21 @@ public:
 	// osg::Stats * osgViewer::ViewerBase::getViewerStats()
 	osg::Stats * getViewerStats() {
 		THROW_IF(!_obj.pushFunction("getViewerStats"),"No implementation for abstract function osgViewer::ViewerBase::getViewerStats");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		return (_obj.callFunction<osg::Stats*>());
 	};
 
 	// const osg::Stats * osgViewer::ViewerBase::getViewerStats() const
 	const osg::Stats * getViewerStats() const {
 		THROW_IF(!_obj.pushFunction("getViewerStats"),"No implementation for abstract function osgViewer::ViewerBase::getViewerStats");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		return (_obj.callFunction<osg::Stats*>());
 	};
 
 	// bool osgViewer::ViewerBase::readConfiguration(const std::string & filename)
 	bool readConfiguration(const std::string & filename) {
 		THROW_IF(!_obj.pushFunction("readConfiguration"),"No implementation for abstract function osgViewer::ViewerBase::readConfiguration");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		_obj.pushArg(filename);
 		return (_obj.callFunction<bool>());
 	};
@@ -166,18 +198,21 @@ public:
 	// bool osgViewer::ViewerBase::isRealized() const
 	bool isRealized() const {
 		THROW_IF(!_obj.pushFunction("isRealized"),"No implementation for abstract function osgViewer::ViewerBase::isRealized");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// void osgViewer::ViewerBase::realize()
 	void realize() {
 		THROW_IF(!_obj.pushFunction("realize"),"No implementation for abstract function osgViewer::ViewerBase::realize");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// void osgViewer::ViewerBase::setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel)
 	void setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel) {
 		if(_obj.pushFunction("setThreadingModel")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			_obj.pushArg(threadingModel);
 			return (_obj.callFunction<void>());
 		}
@@ -188,6 +223,7 @@ public:
 	// osgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::suggestBestThreadingModel()
 	osgViewer::ViewerBase::ThreadingModel suggestBestThreadingModel() {
 		if(_obj.pushFunction("suggestBestThreadingModel")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			return (osgViewer::ViewerBase::ThreadingModel)(_obj.callFunction<int>());
 		}
 
@@ -197,6 +233,7 @@ public:
 	// void osgViewer::ViewerBase::setUpThreading()
 	void setUpThreading() {
 		if(_obj.pushFunction("setUpThreading")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -206,6 +243,7 @@ public:
 	// void osgViewer::ViewerBase::stopThreading()
 	void stopThreading() {
 		if(_obj.pushFunction("stopThreading")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -215,6 +253,7 @@ public:
 	// void osgViewer::ViewerBase::startThreading()
 	void startThreading() {
 		if(_obj.pushFunction("startThreading")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -224,6 +263,7 @@ public:
 	// int osgViewer::ViewerBase::run()
 	int run() {
 		if(_obj.pushFunction("run")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -233,12 +273,14 @@ public:
 	// bool osgViewer::ViewerBase::checkNeedToDoFrame()
 	bool checkNeedToDoFrame() {
 		THROW_IF(!_obj.pushFunction("checkNeedToDoFrame"),"No implementation for abstract function osgViewer::ViewerBase::checkNeedToDoFrame");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// void osgViewer::ViewerBase::frame(double simulationTime = DBL_MAX)
 	void frame(double simulationTime = DBL_MAX) {
 		if(_obj.pushFunction("frame")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			_obj.pushArg(simulationTime);
 			return (_obj.callFunction<void>());
 		}
@@ -249,6 +291,7 @@ public:
 	// void osgViewer::ViewerBase::advance(double simulationTime = DBL_MAX)
 	void advance(double simulationTime = DBL_MAX) {
 		THROW_IF(!_obj.pushFunction("advance"),"No implementation for abstract function osgViewer::ViewerBase::advance");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		_obj.pushArg(simulationTime);
 		return (_obj.callFunction<void>());
 	};
@@ -256,18 +299,21 @@ public:
 	// void osgViewer::ViewerBase::eventTraversal()
 	void eventTraversal() {
 		THROW_IF(!_obj.pushFunction("eventTraversal"),"No implementation for abstract function osgViewer::ViewerBase::eventTraversal");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// void osgViewer::ViewerBase::updateTraversal()
 	void updateTraversal() {
 		THROW_IF(!_obj.pushFunction("updateTraversal"),"No implementation for abstract function osgViewer::ViewerBase::updateTraversal");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// void osgViewer::ViewerBase::renderingTraversals()
 	void renderingTraversals() {
 		if(_obj.pushFunction("renderingTraversals")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -277,6 +323,7 @@ public:
 	// void osgViewer::ViewerBase::getCameras(osgViewer::ViewerBase::Cameras & cameras, bool onlyActive = true)
 	void getCameras(osgViewer::ViewerBase::Cameras & cameras, bool onlyActive = true) {
 		THROW_IF(!_obj.pushFunction("getCameras"),"No implementation for abstract function osgViewer::ViewerBase::getCameras");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		_obj.pushArg(&cameras);
 		_obj.pushArg(onlyActive);
 		return (_obj.callFunction<void>());
@@ -285,6 +332,7 @@ public:
 	// void osgViewer::ViewerBase::getContexts(osgViewer::ViewerBase::Contexts & contexts, bool onlyValid = true)
 	void getContexts(osgViewer::ViewerBase::Contexts & contexts, bool onlyValid = true) {
 		THROW_IF(!_obj.pushFunction("getContexts"),"No implementation for abstract function osgViewer::ViewerBase::getContexts");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		_obj.pushArg(&contexts);
 		_obj.pushArg(onlyValid);
 		return (_obj.callFunction<void>());
@@ -293,6 +341,7 @@ public:
 	// void osgViewer::ViewerBase::getWindows(osgViewer::ViewerBase::Windows & windows, bool onlyValid = true)
 	void getWindows(osgViewer::ViewerBase::Windows & windows, bool onlyValid = true) {
 		if(_obj.pushFunction("getWindows")) {
+			_obj.pushArg((osgViewer::ViewerBase*)this);
 			_obj.pushArg(&windows);
 			_obj.pushArg(onlyValid);
 			return (_obj.callFunction<void>());
@@ -304,6 +353,7 @@ public:
 	// void osgViewer::ViewerBase::getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true)
 	void getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true) {
 		THROW_IF(!_obj.pushFunction("getAllThreads"),"No implementation for abstract function osgViewer::ViewerBase::getAllThreads");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		_obj.pushArg(&threads);
 		_obj.pushArg(onlyActive);
 		return (_obj.callFunction<void>());
@@ -312,6 +362,7 @@ public:
 	// void osgViewer::ViewerBase::getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true)
 	void getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true) {
 		THROW_IF(!_obj.pushFunction("getOperationThreads"),"No implementation for abstract function osgViewer::ViewerBase::getOperationThreads");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		_obj.pushArg(&threads);
 		_obj.pushArg(onlyActive);
 		return (_obj.callFunction<void>());
@@ -320,6 +371,7 @@ public:
 	// void osgViewer::ViewerBase::getScenes(osgViewer::ViewerBase::Scenes & scenes, bool onlyValid = true)
 	void getScenes(osgViewer::ViewerBase::Scenes & scenes, bool onlyValid = true) {
 		THROW_IF(!_obj.pushFunction("getScenes"),"No implementation for abstract function osgViewer::ViewerBase::getScenes");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		_obj.pushArg(&scenes);
 		_obj.pushArg(onlyValid);
 		return (_obj.callFunction<void>());
@@ -328,6 +380,7 @@ public:
 	// void osgViewer::ViewerBase::getViews(osgViewer::ViewerBase::Views & views, bool onlyValid = true)
 	void getViews(osgViewer::ViewerBase::Views & views, bool onlyValid = true) {
 		THROW_IF(!_obj.pushFunction("getViews"),"No implementation for abstract function osgViewer::ViewerBase::getViews");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		_obj.pushArg(&views);
 		_obj.pushArg(onlyValid);
 		return (_obj.callFunction<void>());
@@ -336,18 +389,21 @@ public:
 	// double osgViewer::ViewerBase::elapsedTime()
 	double elapsedTime() {
 		THROW_IF(!_obj.pushFunction("elapsedTime"),"No implementation for abstract function osgViewer::ViewerBase::elapsedTime");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		return (_obj.callFunction<double>());
 	};
 
 	// osg::FrameStamp * osgViewer::ViewerBase::getViewerFrameStamp()
 	osg::FrameStamp * getViewerFrameStamp() {
 		THROW_IF(!_obj.pushFunction("getViewerFrameStamp"),"No implementation for abstract function osgViewer::ViewerBase::getViewerFrameStamp");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		return (_obj.callFunction<osg::FrameStamp*>());
 	};
 
 	// void osgViewer::ViewerBase::getUsage(osg::ApplicationUsage & usage) const
 	void getUsage(osg::ApplicationUsage & usage) const {
 		THROW_IF(!_obj.pushFunction("getUsage"),"No implementation for abstract function osgViewer::ViewerBase::getUsage");
+		_obj.pushArg((osgViewer::ViewerBase*)this);
 		_obj.pushArg(&usage);
 		return (_obj.callFunction<void>());
 	};
@@ -512,11 +568,11 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_viewerBaseInit",_bind_public_viewerBaseInit},
-		{"protected_makeCurrent",_bind_public_makeCurrent},
-		{"protected_releaseContext",_bind_public_releaseContext},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"viewerBaseInit",_bind_public_viewerBaseInit},
+		{"makeCurrent",_bind_public_makeCurrent},
+		{"releaseContext",_bind_public_releaseContext},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -16,11 +16,19 @@ public:
 	~wrapper_spark_SparkDrawable_SortParticlesOperator() {
 		logDEBUG3("Calling delete function for wrapper spark_SparkDrawable_SortParticlesOperator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((spark::SparkDrawable::SortParticlesOperator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_spark_SparkDrawable_SortParticlesOperator(lua_State* L, lua_Table* dum, const osg::Vec3d & eye) : spark::SparkDrawable::SortParticlesOperator(eye), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_spark_SparkDrawable_SortParticlesOperator(lua_State* L, lua_Table* dum, const osg::Vec3d & eye) 
+		: spark::SparkDrawable::SortParticlesOperator(eye), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((spark::SparkDrawable::SortParticlesOperator*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// bool spark::SparkDrawable::SortParticlesOperator::operator()(SPK::System * lhs, SPK::System * rhs)
 	bool operator()(SPK::System * lhs, SPK::System * rhs) {
 		if(_obj.pushFunction("op_call")) {
+			_obj.pushArg((spark::SparkDrawable::SortParticlesOperator*)this);
 			_obj.pushArg(lhs);
 			_obj.pushArg(rhs);
 			return (_obj.callFunction<bool>());

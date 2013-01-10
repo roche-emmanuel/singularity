@@ -16,11 +16,19 @@ public:
 	~wrapper_wxXmlResourceHandler() {
 		logDEBUG3("Calling delete function for wrapper wxXmlResourceHandler");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxXmlResourceHandler*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxXmlResourceHandler(lua_State* L, lua_Table* dum) : wxXmlResourceHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxXmlResourceHandler(lua_State* L, lua_Table* dum) 
+		: wxXmlResourceHandler(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxXmlResourceHandler*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxXmlResourceHandler*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -38,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxXmlResourceHandler*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -50,6 +60,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxXmlResourceHandler*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -59,12 +70,14 @@ public:
 	// wxObject * wxXmlResourceHandler::DoCreateResource()
 	wxObject * DoCreateResource() {
 		THROW_IF(!_obj.pushFunction("DoCreateResource"),"No implementation for abstract function wxXmlResourceHandler::DoCreateResource");
+		_obj.pushArg((wxXmlResourceHandler*)this);
 		return (_obj.callFunction<wxObject*>());
 	};
 
 	// bool wxXmlResourceHandler::CanHandle(wxXmlNode * node)
 	bool CanHandle(wxXmlNode * node) {
 		THROW_IF(!_obj.pushFunction("CanHandle"),"No implementation for abstract function wxXmlResourceHandler::CanHandle");
+		_obj.pushArg((wxXmlResourceHandler*)this);
 		_obj.pushArg(node);
 		return (_obj.callFunction<bool>());
 	};
@@ -1197,37 +1210,37 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_AddStyle",_bind_public_AddStyle},
-		{"protected_AddWindowStyles",_bind_public_AddWindowStyles},
-		{"protected_CreateChildren",_bind_public_CreateChildren},
-		{"protected_CreateChildrenPrivately",_bind_public_CreateChildrenPrivately},
-		{"protected_CreateResFromNode",_bind_public_CreateResFromNode},
-		{"protected_GetAnimation",_bind_public_GetAnimation},
-		{"protected_GetBitmap",_bind_public_GetBitmap},
-		{"protected_GetBool",_bind_public_GetBool},
-		{"protected_GetColour",_bind_public_GetColour},
-		{"protected_GetCurFileSystem",_bind_public_GetCurFileSystem},
-		{"protected_GetDimension",_bind_public_GetDimension},
-		{"protected_GetDirection",_bind_public_GetDirection},
-		{"protected_GetFont",_bind_public_GetFont},
-		{"protected_GetID",_bind_public_GetID},
-		{"protected_GetIcon",_bind_public_GetIcon},
-		{"protected_GetIconBundle",_bind_public_GetIconBundle},
-		{"protected_GetImageList",_bind_public_GetImageList},
-		{"protected_GetLong",_bind_public_GetLong},
-		{"protected_GetName",_bind_public_GetName},
-		{"protected_GetNodeContent",_bind_public_GetNodeContent},
-		{"protected_GetParamNode",_bind_public_GetParamNode},
-		{"protected_GetParamValue",_bind_public_GetParamValue},
-		{"protected_GetPosition",_bind_public_GetPosition},
-		{"protected_GetSize",_bind_public_GetSize},
-		{"protected_GetStyle",_bind_public_GetStyle},
-		{"protected_GetText",_bind_public_GetText},
-		{"protected_HasParam",_bind_public_HasParam},
-		{"protected_IsOfClass",_bind_public_IsOfClass},
-		{"protected_SetupWindow",_bind_public_SetupWindow},
-		{"protected_ReportError",_bind_public_ReportError},
-		{"protected_ReportParamError",_bind_public_ReportParamError},
+		{"AddStyle",_bind_public_AddStyle},
+		{"AddWindowStyles",_bind_public_AddWindowStyles},
+		{"CreateChildren",_bind_public_CreateChildren},
+		{"CreateChildrenPrivately",_bind_public_CreateChildrenPrivately},
+		{"CreateResFromNode",_bind_public_CreateResFromNode},
+		{"GetAnimation",_bind_public_GetAnimation},
+		{"GetBitmap",_bind_public_GetBitmap},
+		{"GetBool",_bind_public_GetBool},
+		{"GetColour",_bind_public_GetColour},
+		{"GetCurFileSystem",_bind_public_GetCurFileSystem},
+		{"GetDimension",_bind_public_GetDimension},
+		{"GetDirection",_bind_public_GetDirection},
+		{"GetFont",_bind_public_GetFont},
+		{"GetID",_bind_public_GetID},
+		{"GetIcon",_bind_public_GetIcon},
+		{"GetIconBundle",_bind_public_GetIconBundle},
+		{"GetImageList",_bind_public_GetImageList},
+		{"GetLong",_bind_public_GetLong},
+		{"GetName",_bind_public_GetName},
+		{"GetNodeContent",_bind_public_GetNodeContent},
+		{"GetParamNode",_bind_public_GetParamNode},
+		{"GetParamValue",_bind_public_GetParamValue},
+		{"GetPosition",_bind_public_GetPosition},
+		{"GetSize",_bind_public_GetSize},
+		{"GetStyle",_bind_public_GetStyle},
+		{"GetText",_bind_public_GetText},
+		{"HasParam",_bind_public_HasParam},
+		{"IsOfClass",_bind_public_IsOfClass},
+		{"SetupWindow",_bind_public_SetupWindow},
+		{"ReportError",_bind_public_ReportError},
+		{"ReportParamError",_bind_public_ReportParamError},
 		{NULL,NULL}
 		};
 

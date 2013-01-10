@@ -16,11 +16,19 @@ public:
 	~wrapper_osgUtil_Intersector() {
 		logDEBUG3("Calling delete function for wrapper osgUtil_Intersector");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::Intersector*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_Intersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf = osgUtil::Intersector::MODEL) : osgUtil::Intersector(cf), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_Intersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf = osgUtil::Intersector::MODEL) 
+		: osgUtil::Intersector(cf), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::Intersector*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::Intersector*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// osgUtil::Intersector * osgUtil::Intersector::clone(osgUtil::IntersectionVisitor & iv)
 	osgUtil::Intersector * clone(osgUtil::IntersectionVisitor & iv) {
 		THROW_IF(!_obj.pushFunction("clone"),"No implementation for abstract function osgUtil::Intersector::clone");
+		_obj.pushArg((osgUtil::Intersector*)this);
 		_obj.pushArg(&iv);
 		return (_obj.callFunction<osgUtil::Intersector*>());
 	};
@@ -48,6 +58,7 @@ public:
 	// bool osgUtil::Intersector::enter(const osg::Node & node)
 	bool enter(const osg::Node & node) {
 		THROW_IF(!_obj.pushFunction("enter"),"No implementation for abstract function osgUtil::Intersector::enter");
+		_obj.pushArg((osgUtil::Intersector*)this);
 		_obj.pushArg(&node);
 		return (_obj.callFunction<bool>());
 	};
@@ -55,12 +66,14 @@ public:
 	// void osgUtil::Intersector::leave()
 	void leave() {
 		THROW_IF(!_obj.pushFunction("leave"),"No implementation for abstract function osgUtil::Intersector::leave");
+		_obj.pushArg((osgUtil::Intersector*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// void osgUtil::Intersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)
 	void intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable) {
 		THROW_IF(!_obj.pushFunction("intersect"),"No implementation for abstract function osgUtil::Intersector::intersect");
+		_obj.pushArg((osgUtil::Intersector*)this);
 		_obj.pushArg(&iv);
 		_obj.pushArg(drawable);
 		return (_obj.callFunction<void>());
@@ -69,6 +82,7 @@ public:
 	// void osgUtil::Intersector::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osgUtil::Intersector*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -78,6 +92,7 @@ public:
 	// bool osgUtil::Intersector::containsIntersections()
 	bool containsIntersections() {
 		THROW_IF(!_obj.pushFunction("containsIntersections"),"No implementation for abstract function osgUtil::Intersector::containsIntersections");
+		_obj.pushArg((osgUtil::Intersector*)this);
 		return (_obj.callFunction<bool>());
 	};
 
@@ -152,8 +167,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

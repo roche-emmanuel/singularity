@@ -16,12 +16,27 @@ public:
 	~wrapper_osg_StateSet() {
 		logDEBUG3("Calling delete function for wrapper osg_StateSet");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::StateSet*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_StateSet(lua_State* L, lua_Table* dum) : osg::StateSet(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_StateSet(lua_State* L, lua_Table* dum, const osg::StateSet & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::StateSet(arg1, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_StateSet(lua_State* L, lua_Table* dum) 
+		: osg::StateSet(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::StateSet*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_StateSet(lua_State* L, lua_Table* dum, const osg::StateSet & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osg::StateSet(arg1, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::StateSet*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -32,6 +47,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osg::StateSet*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -42,6 +58,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osg::StateSet*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -52,6 +69,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::StateSet*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -61,6 +79,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::StateSet*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -70,6 +89,7 @@ public:
 	// osg::Object * osg::StateSet::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osg::StateSet*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -79,6 +99,7 @@ public:
 	// osg::Object * osg::StateSet::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osg::StateSet*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -89,6 +110,7 @@ public:
 	// bool osg::StateSet::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osg::StateSet*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -99,6 +121,7 @@ public:
 	// const char * osg::StateSet::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osg::StateSet*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -108,6 +131,7 @@ public:
 	// const char * osg::StateSet::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osg::StateSet*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -117,6 +141,7 @@ public:
 	// void osg::StateSet::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osg::StateSet*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -126,6 +151,7 @@ public:
 	// void osg::StateSet::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::StateSet*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -136,6 +162,7 @@ public:
 	// void osg::StateSet::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osg::StateSet*)this);
 			_obj.pushArg(state);
 			return (_obj.callFunction<void>());
 		}
@@ -810,24 +837,24 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_addParent",_bind_public_addParent},
-		{"protected_removeParent",_bind_public_removeParent},
-		{"protected_getOrCreateTextureModeList",_bind_public_getOrCreateTextureModeList},
-		{"protected_getOrCreateTextureAttributeList",_bind_public_getOrCreateTextureAttributeList},
-		{"protected_compareModes",_bind_public_compareModes},
-		{"protected_compareAttributePtrs",_bind_public_compareAttributePtrs},
-		{"protected_compareAttributeContents",_bind_public_compareAttributeContents},
-		{"protected_setMode",_bind_public_setMode},
-		{"protected_setModeToInherit",_bind_public_setModeToInherit},
-		{"protected_getMode",_bind_public_getMode},
-		{"protected_setAttribute",_bind_public_setAttribute},
-		{"protected_getAttribute",_bind_public_getAttribute},
-		{"protected_getAttributePair",_bind_public_getAttributePair},
-		{"protected_setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
-		{"protected_setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
-		{"protected_op_assign",_bind_public_op_assign},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"addParent",_bind_public_addParent},
+		{"removeParent",_bind_public_removeParent},
+		{"getOrCreateTextureModeList",_bind_public_getOrCreateTextureModeList},
+		{"getOrCreateTextureAttributeList",_bind_public_getOrCreateTextureAttributeList},
+		{"compareModes",_bind_public_compareModes},
+		{"compareAttributePtrs",_bind_public_compareAttributePtrs},
+		{"compareAttributeContents",_bind_public_compareAttributeContents},
+		{"setMode",_bind_public_setMode},
+		{"setModeToInherit",_bind_public_setModeToInherit},
+		{"getMode",_bind_public_getMode},
+		{"setAttribute",_bind_public_setAttribute},
+		{"getAttribute",_bind_public_getAttribute},
+		{"getAttributePair",_bind_public_getAttributePair},
+		{"setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
+		{"setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
+		{"op_assign",_bind_public_op_assign},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

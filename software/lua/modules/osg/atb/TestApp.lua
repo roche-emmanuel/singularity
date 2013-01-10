@@ -25,7 +25,7 @@ function Class:initialize(options)
 	
 	local win = context:createWindow("HelloWindow")
 	win:addBool{name="My bool",def="",
-		setValue=function(tt,val) 
+		setValue=function(tt,obj,val) 
 			--self:info("Received value: ",val); 
 			self._val = val; 
 		end,
@@ -38,7 +38,7 @@ function Class:initialize(options)
 	win:addSeparator()
 	
 	win:addDouble{name="MyDouble",def=" step=0.1 ",
-		setValue=function(tt,val) 
+		setValue=function(tt,obj,val) 
 			--self:info("Received value: ",val); 
 			self._val2 = val; 
 		end,
@@ -49,7 +49,7 @@ function Class:initialize(options)
 	}
 	
 	win:addInt{name="My Int",def="",
-		setValue=function(tt,val) 
+		setValue=function(tt,obj,val) 
 			--self:info("Received value: ",val); 
 			self._val3 = val; 
 		end,
@@ -61,7 +61,7 @@ function Class:initialize(options)
 	win:addSeparator()
 
 	win:addColor{name="My Color",def="",
-		setValue=function(tt,val) 
+		setValue=function(tt,obj,val) 
 			--self:info("Received value: ",val); 
 			self._val4:set(val:x(),val:y(),val:z(),val:w()); 
 		end,
@@ -72,18 +72,18 @@ function Class:initialize(options)
 	}
 	
 	win:addString{name="My String",def="",
-		setValue=function(tt,val) 
-			--self:info("Received value: ",val); 
+		setValue=function(tt,obj,val) 
+			-- self:info("Received value: ",val); 
 			self._val5 = val;
 		end,
 		getValue=function(tt) 
-			--self:info("Returning value: ", self._val5); 
+			-- self:info("Returning value: ", self._val5); 
 			return self._val5; 
 		end
 	}
 	
 	win:addQuat{name="My quat",def="",
-		setValue=function(tt,val) 
+		setValue=function(tt,obj,val) 
 			--self:info("Received value: ",val); 
 			self._val6:set(val:x(),val:y(),val:z(),val:w());
 		end,
@@ -94,7 +94,7 @@ function Class:initialize(options)
 	}
 
 	win:addDir{name="My dir",def="",
-		setValue=function(tt,val) 
+		setValue=function(tt,obj,val) 
 			--self:info("Received value: ",val); 
 			self._val7:set(val:x(),val:y(),val:z());
 		end,
@@ -112,7 +112,7 @@ function Class:initialize(options)
 	
 	win:addEnum{name="Enum test",enum="SizeType", def="",
 		values={"small","normal","big","extra","mega"},
-		setValue=function(tt,val) 
+		setValue=function(tt,obj,val) 
 			--self:info("Received value: ",val); 
 			self._val8 = val;
 		end,

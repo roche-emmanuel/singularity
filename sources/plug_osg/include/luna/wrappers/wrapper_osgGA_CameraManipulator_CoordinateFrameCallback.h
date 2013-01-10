@@ -16,11 +16,19 @@ public:
 	~wrapper_osgGA_CameraManipulator_CoordinateFrameCallback() {
 		logDEBUG3("Calling delete function for wrapper osgGA_CameraManipulator_CoordinateFrameCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgGA::CameraManipulator::CoordinateFrameCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgGA_CameraManipulator_CoordinateFrameCallback(lua_State* L, lua_Table* dum) : osgGA::CameraManipulator::CoordinateFrameCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgGA_CameraManipulator_CoordinateFrameCallback(lua_State* L, lua_Table* dum) 
+		: osgGA::CameraManipulator::CoordinateFrameCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgGA::CameraManipulator::CoordinateFrameCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgGA::CameraManipulator::CoordinateFrameCallback*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// osg::Matrixd osgGA::CameraManipulator::CoordinateFrameCallback::getCoordinateFrame(const osg::Vec3d & position) const
 	osg::Matrixd getCoordinateFrame(const osg::Vec3d & position) const {
 		THROW_IF(!_obj.pushFunction("getCoordinateFrame"),"No implementation for abstract function osgGA::CameraManipulator::CoordinateFrameCallback::getCoordinateFrame");
+		_obj.pushArg((osgGA::CameraManipulator::CoordinateFrameCallback*)this);
 		_obj.pushArg(&position);
 		return *(_obj.callFunction<osg::Matrixd*>());
 	};
@@ -116,8 +126,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

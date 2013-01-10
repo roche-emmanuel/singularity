@@ -16,12 +16,27 @@ public:
 	~wrapper_osgGA_GUIEventAdapter() {
 		logDEBUG3("Calling delete function for wrapper osgGA_GUIEventAdapter");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgGA::GUIEventAdapter*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgGA_GUIEventAdapter(lua_State* L, lua_Table* dum) : osgGA::GUIEventAdapter(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgGA_GUIEventAdapter(lua_State* L, lua_Table* dum, const osgGA::GUIEventAdapter & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgGA::GUIEventAdapter(rhs, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgGA_GUIEventAdapter(lua_State* L, lua_Table* dum) 
+		: osgGA::GUIEventAdapter(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgGA_GUIEventAdapter(lua_State* L, lua_Table* dum, const osgGA::GUIEventAdapter & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osgGA::GUIEventAdapter(rhs, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -32,6 +47,7 @@ public:
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -42,6 +58,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -52,6 +69,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -61,6 +79,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -71,6 +90,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -80,6 +100,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -89,6 +110,7 @@ public:
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -99,6 +121,7 @@ public:
 	// osg::Object * osgGA::GUIEventAdapter::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -108,6 +131,7 @@ public:
 	// osg::Object * osgGA::GUIEventAdapter::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -118,6 +142,7 @@ public:
 	// bool osgGA::GUIEventAdapter::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -128,6 +153,7 @@ public:
 	// const char * osgGA::GUIEventAdapter::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -137,6 +163,7 @@ public:
 	// const char * osgGA::GUIEventAdapter::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -146,6 +173,7 @@ public:
 	// osgGA::GUIEventAdapter::EventType osgGA::GUIEventAdapter::getEventType() const
 	osgGA::GUIEventAdapter::EventType getEventType() const {
 		if(_obj.pushFunction("getEventType")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
 			return (osgGA::GUIEventAdapter::EventType)(_obj.callFunction<int>());
 		}
 
@@ -155,6 +183,7 @@ public:
 	// int osgGA::GUIEventAdapter::getKey() const
 	int getKey() const {
 		if(_obj.pushFunction("getKey")) {
+			_obj.pushArg((osgGA::GUIEventAdapter*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -232,8 +261,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

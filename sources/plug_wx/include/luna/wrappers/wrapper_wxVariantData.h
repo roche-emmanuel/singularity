@@ -16,6 +16,7 @@ public:
 	~wrapper_wxVariantData() {
 		logDEBUG3("Calling delete function for wrapper wxVariantData");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxVariantData*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};

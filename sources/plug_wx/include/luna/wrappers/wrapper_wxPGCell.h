@@ -16,13 +16,35 @@ public:
 	~wrapper_wxPGCell() {
 		logDEBUG3("Calling delete function for wrapper wxPGCell");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxPGCell*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxPGCell(lua_State* L, lua_Table* dum) : wxPGCell(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxPGCell(lua_State* L, lua_Table* dum, const wxPGCell & other) : wxPGCell(other), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxPGCell(lua_State* L, lua_Table* dum, const wxString & text, const wxBitmap & bitmap = wxNullBitmap, const wxColour & fgCol = wxNullColour, const wxColour & bgCol = wxNullColour) : wxPGCell(text, bitmap, fgCol, bgCol), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxPGCell(lua_State* L, lua_Table* dum) 
+		: wxPGCell(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxPGCell*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxPGCell(lua_State* L, lua_Table* dum, const wxPGCell & other) 
+		: wxPGCell(other), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxPGCell*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxPGCell(lua_State* L, lua_Table* dum, const wxString & text, const wxBitmap & bitmap = wxNullBitmap, const wxColour & fgCol = wxNullColour, const wxColour & bgCol = wxNullColour) 
+		: wxPGCell(text, bitmap, fgCol, bgCol), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxPGCell*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -33,6 +55,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxPGCell*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 

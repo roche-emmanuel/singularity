@@ -16,12 +16,27 @@ public:
 	~wrapper_wxGridEvent() {
 		logDEBUG3("Calling delete function for wrapper wxGridEvent");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxGridEvent*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxGridEvent(lua_State* L, lua_Table* dum) : wxGridEvent(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxGridEvent(lua_State* L, lua_Table* dum, int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) : wxGridEvent(id, type, obj, row, col, x, y, sel, kbd), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGridEvent(lua_State* L, lua_Table* dum) 
+		: wxGridEvent(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxGridEvent*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxGridEvent(lua_State* L, lua_Table* dum, int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) 
+		: wxGridEvent(id, type, obj, row, col, x, y, sel, kbd), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxGridEvent*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +45,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxGridEvent*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -39,6 +55,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxGridEvent*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -51,6 +68,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxGridEvent*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -60,12 +78,14 @@ public:
 	// wxEvent * wxEvent::Clone() const
 	wxEvent * Clone() const {
 		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxEvent::Clone");
+		_obj.pushArg((wxGridEvent*)this);
 		return (_obj.callFunction<wxEvent*>());
 	};
 
 	// wxEventCategory wxEvent::GetEventCategory() const
 	wxEventCategory GetEventCategory() const {
 		if(_obj.pushFunction("GetEventCategory")) {
+			_obj.pushArg((wxGridEvent*)this);
 			return (wxEventCategory)(_obj.callFunction<int>());
 		}
 
@@ -75,6 +95,7 @@ public:
 	// int wxGridEvent::GetCol()
 	int GetCol() {
 		if(_obj.pushFunction("GetCol")) {
+			_obj.pushArg((wxGridEvent*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -84,6 +105,7 @@ public:
 	// int wxGridEvent::GetRow()
 	int GetRow() {
 		if(_obj.pushFunction("GetRow")) {
+			_obj.pushArg((wxGridEvent*)this);
 			return (_obj.callFunction<int>());
 		}
 

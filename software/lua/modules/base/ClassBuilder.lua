@@ -87,10 +87,12 @@ function Class:__call(options)
 	end
 	
 	function result:release()
+		self:deprecated("release should not be used.")
 		self._wrappers = nil;
 	end
 	
 	function result:getWrapper(index)
+		self:deprecated("getWrapper should not be used.")
 		index = index or 0
 		return self._wrappers and self._wrappers[index+1]
 	end
@@ -118,6 +120,12 @@ function Class:__call(options)
 	end
 	
 	function result:generateWrapping(wrapper,index)
+		result.createInstance = function(options)
+			return wrapper(result(options))
+		end
+		
+		--[[self:deprecated("generateWrapping should not be used.")
+		
 		index = index or 1
 		
 		for name,func in pairs(wrapper) do
@@ -130,10 +138,12 @@ function Class:__call(options)
 					return obj[wname](obj, ...) 
 				end
 			end
-		end			
+		end]]		
 	end
 	
 	function result:createWrapper(wrapper,...) 
+		self:deprecated("createWrapper should not be used.")
+	
 		self._wrappers = self._wrappers or {}
 		local obj = wrapper(self,...)
 		self:check(obj,"Could not create wrapper object.");

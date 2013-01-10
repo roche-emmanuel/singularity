@@ -16,12 +16,27 @@ public:
 	~wrapper_osgDB_FieldReader() {
 		logDEBUG3("Calling delete function for wrapper osgDB_FieldReader");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::FieldReader*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_FieldReader(lua_State* L, lua_Table* dum) : osgDB::FieldReader(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgDB_FieldReader(lua_State* L, lua_Table* dum, const osgDB::FieldReader & ic) : osgDB::FieldReader(ic), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_FieldReader(lua_State* L, lua_Table* dum) 
+		: osgDB::FieldReader(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::FieldReader*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgDB_FieldReader(lua_State* L, lua_Table* dum, const osgDB::FieldReader & ic) 
+		: osgDB::FieldReader(ic), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::FieldReader*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -32,6 +47,7 @@ public:
 	// bool osgDB::FieldReader::eof() const
 	bool eof() const {
 		if(_obj.pushFunction("eof")) {
+			_obj.pushArg((osgDB::FieldReader*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -41,6 +57,7 @@ public:
 	// osgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader & ic)
 	osgDB::FieldReader & operator=(const osgDB::FieldReader & ic) {
 		if(_obj.pushFunction("op_assign")) {
+			_obj.pushArg((osgDB::FieldReader*)this);
 			_obj.pushArg(&ic);
 			return *(_obj.callFunction<osgDB::FieldReader*>());
 		}

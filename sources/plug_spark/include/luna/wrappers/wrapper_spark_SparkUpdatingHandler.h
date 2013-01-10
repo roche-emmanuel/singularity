@@ -16,11 +16,19 @@ public:
 	~wrapper_spark_SparkUpdatingHandler() {
 		logDEBUG3("Calling delete function for wrapper spark_SparkUpdatingHandler");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((spark::SparkUpdatingHandler*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_spark_SparkUpdatingHandler(lua_State* L, lua_Table* dum) : spark::SparkUpdatingHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_spark_SparkUpdatingHandler(lua_State* L, lua_Table* dum) 
+		: spark::SparkUpdatingHandler(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((spark::SparkUpdatingHandler*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// bool spark::SparkUpdatingHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)
 	bool handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa) {
 		if(_obj.pushFunction("handle")) {
+			_obj.pushArg((spark::SparkUpdatingHandler*)this);
 			_obj.pushArg(&ea);
 			_obj.pushArg(&aa);
 			return (_obj.callFunction<bool>());
@@ -85,7 +94,7 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_computeTransformMatrix",_bind_public_computeTransformMatrix},
+		{"computeTransformMatrix",_bind_public_computeTransformMatrix},
 		{NULL,NULL}
 		};
 

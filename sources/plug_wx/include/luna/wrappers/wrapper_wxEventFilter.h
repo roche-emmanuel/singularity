@@ -16,11 +16,19 @@ public:
 	~wrapper_wxEventFilter() {
 		logDEBUG3("Calling delete function for wrapper wxEventFilter");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxEventFilter*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxEventFilter(lua_State* L, lua_Table* dum) : wxEventFilter(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxEventFilter(lua_State* L, lua_Table* dum) 
+		: wxEventFilter(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxEventFilter*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// int wxEventFilter::FilterEvent(wxEvent & event)
 	int FilterEvent(wxEvent & event) {
 		THROW_IF(!_obj.pushFunction("FilterEvent"),"No implementation for abstract function wxEventFilter::FilterEvent");
+		_obj.pushArg((wxEventFilter*)this);
 		_obj.pushArg(&event);
 		return (_obj.callFunction<int>());
 	};

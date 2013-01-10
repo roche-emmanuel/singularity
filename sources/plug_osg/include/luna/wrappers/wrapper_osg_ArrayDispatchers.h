@@ -16,11 +16,19 @@ public:
 	~wrapper_osg_ArrayDispatchers() {
 		logDEBUG3("Calling delete function for wrapper osg_ArrayDispatchers");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::ArrayDispatchers*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_ArrayDispatchers(lua_State* L, lua_Table* dum) : osg::ArrayDispatchers(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_ArrayDispatchers(lua_State* L, lua_Table* dum) 
+		: osg::ArrayDispatchers(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::ArrayDispatchers*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::ArrayDispatchers*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -200,11 +209,11 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_init",_bind_public_init},
-		{"protected_assignTexCoordDispatchers",_bind_public_assignTexCoordDispatchers},
-		{"protected_assignVertexAttribDispatchers",_bind_public_assignVertexAttribDispatchers},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"init",_bind_public_init},
+		{"assignTexCoordDispatchers",_bind_public_assignTexCoordDispatchers},
+		{"assignVertexAttribDispatchers",_bind_public_assignVertexAttribDispatchers},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

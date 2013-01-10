@@ -36,7 +36,6 @@ function Class:onAppClosing()
 	self:info("Stopping registered timers.")
 	for _,timer in self._timers:sequence() do
 		timer:Stop();
-		timer:release(); -- release the wrapper.
 	end
 	self._timers:clear();
 end

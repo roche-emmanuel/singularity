@@ -16,29 +16,40 @@ public:
 	~wrapper_SPK_Collision() {
 		logDEBUG3("Calling delete function for wrapper SPK_Collision");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((SPK::Collision*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_SPK_Collision(lua_State* L, lua_Table* dum, float scale = 1.0f, float elasticity = 1.0f) : SPK::Collision(scale, elasticity), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_SPK_Collision(lua_State* L, lua_Table* dum, float scale = 1.0f, float elasticity = 1.0f) 
+		: SPK::Collision(scale, elasticity), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((SPK::Collision*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 private:
 	// Private virtual methods:
 	// void SPK::Registerable::onRegister()
 	void onRegister() {
 		THROW_IF(!_obj.pushFunction("onRegister"),"No implementation for abstract function SPK::Registerable::onRegister");
+		_obj.pushArg((SPK::Collision*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// void SPK::Registerable::onUnregister()
 	void onUnregister() {
 		THROW_IF(!_obj.pushFunction("onUnregister"),"No implementation for abstract function SPK::Registerable::onUnregister");
+		_obj.pushArg((SPK::Collision*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// void SPK::Modifier::modifyWrongSide(SPK::Particle & particle, bool inside) const
 	void modifyWrongSide(SPK::Particle & particle, bool inside) const {
 		THROW_IF(!_obj.pushFunction("modifyWrongSide"),"No implementation for abstract function SPK::Modifier::modifyWrongSide");
+		_obj.pushArg((SPK::Collision*)this);
 		_obj.pushArg(&particle);
 		_obj.pushArg(inside);
 		return (_obj.callFunction<void>());
@@ -47,6 +58,7 @@ private:
 	// SPK::Collision * SPK::Collision::clone(bool createBase) const
 	SPK::Collision * clone(bool createBase) const {
 		THROW_IF(!_obj.pushFunction("clone"),"No implementation for abstract function SPK::Collision::clone");
+		_obj.pushArg((SPK::Collision*)this);
 		_obj.pushArg(createBase);
 		return (_obj.callFunction<SPK::Collision*>());
 	};
@@ -54,6 +66,7 @@ private:
 	// void SPK::Collision::modify(SPK::Particle & particle, float deltaTime) const
 	void modify(SPK::Particle & particle, float deltaTime) const {
 		THROW_IF(!_obj.pushFunction("modify"),"No implementation for abstract function SPK::Collision::modify");
+		_obj.pushArg((SPK::Collision*)this);
 		_obj.pushArg(&particle);
 		_obj.pushArg(deltaTime);
 		return (_obj.callFunction<void>());
@@ -64,6 +77,7 @@ protected:
 	// void SPK::Transformable::innerUpdateTransform()
 	void innerUpdateTransform() {
 		if(_obj.pushFunction("innerUpdateTransform")) {
+			_obj.pushArg((SPK::Collision*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -73,6 +87,7 @@ protected:
 	// bool SPK::BufferHandler::checkBuffers(const SPK::Group & group)
 	bool checkBuffers(const SPK::Group & group) {
 		if(_obj.pushFunction("checkBuffers")) {
+			_obj.pushArg((SPK::Collision*)this);
 			_obj.pushArg(&group);
 			return (_obj.callFunction<bool>());
 		}
@@ -83,6 +98,7 @@ protected:
 	// void SPK::Modifier::registerChildren(bool registerAll)
 	void registerChildren(bool registerAll) {
 		if(_obj.pushFunction("registerChildren")) {
+			_obj.pushArg((SPK::Collision*)this);
 			_obj.pushArg(registerAll);
 			return (_obj.callFunction<void>());
 		}
@@ -93,6 +109,7 @@ protected:
 	// void SPK::Modifier::copyChildren(const SPK::Registerable & object, bool createBase)
 	void copyChildren(const SPK::Registerable & object, bool createBase) {
 		if(_obj.pushFunction("copyChildren")) {
+			_obj.pushArg((SPK::Collision*)this);
 			_obj.pushArg(&object);
 			_obj.pushArg(createBase);
 			return (_obj.callFunction<void>());
@@ -104,6 +121,7 @@ protected:
 	// void SPK::Modifier::destroyChildren(bool keepChildren)
 	void destroyChildren(bool keepChildren) {
 		if(_obj.pushFunction("destroyChildren")) {
+			_obj.pushArg((SPK::Collision*)this);
 			_obj.pushArg(keepChildren);
 			return (_obj.callFunction<void>());
 		}
@@ -114,6 +132,7 @@ protected:
 	// void SPK::Modifier::propagateUpdateTransform()
 	void propagateUpdateTransform() {
 		if(_obj.pushFunction("propagateUpdateTransform")) {
+			_obj.pushArg((SPK::Collision*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -125,6 +144,7 @@ public:
 	// void SPK::BufferHandler::createBuffers(const SPK::Group & group)
 	void createBuffers(const SPK::Group & group) {
 		if(_obj.pushFunction("createBuffers")) {
+			_obj.pushArg((SPK::Collision*)this);
 			_obj.pushArg(&group);
 			return (_obj.callFunction<void>());
 		}
@@ -135,6 +155,7 @@ public:
 	// void SPK::BufferHandler::destroyBuffers(const SPK::Group & group)
 	void destroyBuffers(const SPK::Group & group) {
 		if(_obj.pushFunction("destroyBuffers")) {
+			_obj.pushArg((SPK::Collision*)this);
 			_obj.pushArg(&group);
 			return (_obj.callFunction<void>());
 		}
@@ -145,6 +166,7 @@ public:
 	// SPK::Registerable * SPK::Modifier::findByName(const std::string & name)
 	SPK::Registerable * findByName(const std::string & name) {
 		if(_obj.pushFunction("findByName")) {
+			_obj.pushArg((SPK::Collision*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<SPK::Registerable*>());
 		}
@@ -155,6 +177,7 @@ public:
 	// std::string SPK::Collision::getClassName() const
 	std::string getClassName() const {
 		if(_obj.pushFunction("getClassName")) {
+			_obj.pushArg((SPK::Collision*)this);
 			return (_obj.callFunction<std::string>());
 		}
 
@@ -580,18 +603,18 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_registerChild",_bind_public_registerChild},
-		{"protected_copyChild",_bind_public_copyChild},
-		{"protected_destroyChild",_bind_public_destroyChild},
-		{"protected_incrementChildReference",_bind_public_incrementChildReference},
-		{"protected_decrementChildReference",_bind_public_decrementChildReference},
-		{"protected_registerObject",_bind_public_registerObject},
-		{"protected_transformPos",_bind_public_transformPos},
-		{"protected_transformDir",_bind_public_transformDir},
-		{"protected_isUpdateNotified",_bind_public_isUpdateNotified},
-		{"protected_notifyForUpdate",_bind_public_notifyForUpdate},
-		{"protected_getParentTransform",_bind_public_getParentTransform},
-		{"protected_prepareBuffers",_bind_public_prepareBuffers},
+		{"registerChild",_bind_public_registerChild},
+		{"copyChild",_bind_public_copyChild},
+		{"destroyChild",_bind_public_destroyChild},
+		{"incrementChildReference",_bind_public_incrementChildReference},
+		{"decrementChildReference",_bind_public_decrementChildReference},
+		{"registerObject",_bind_public_registerObject},
+		{"transformPos",_bind_public_transformPos},
+		{"transformDir",_bind_public_transformDir},
+		{"isUpdateNotified",_bind_public_isUpdateNotified},
+		{"notifyForUpdate",_bind_public_notifyForUpdate},
+		{"getParentTransform",_bind_public_getParentTransform},
+		{"prepareBuffers",_bind_public_prepareBuffers},
 		{NULL,NULL}
 		};
 

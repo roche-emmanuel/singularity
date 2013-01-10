@@ -16,12 +16,27 @@ public:
 	~wrapper_osgUtil_CullVisitor() {
 		logDEBUG3("Calling delete function for wrapper osgUtil_CullVisitor");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::CullVisitor*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_CullVisitor(lua_State* L, lua_Table* dum) : osgUtil::CullVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_CullVisitor(lua_State* L, lua_Table* dum, const osgUtil::CullVisitor & arg1) : osgUtil::CullVisitor(arg1), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_CullVisitor(lua_State* L, lua_Table* dum) 
+		: osgUtil::CullVisitor(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_CullVisitor(lua_State* L, lua_Table* dum, const osgUtil::CullVisitor & arg1) 
+		: osgUtil::CullVisitor(arg1), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -32,6 +47,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -42,6 +58,7 @@ public:
 	// void osg::CullSettings::setDefaults()
 	void setDefaults() {
 		if(_obj.pushFunction("setDefaults")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -51,6 +68,7 @@ public:
 	// void osg::CullSettings::inheritCullSettings(const osg::CullSettings & settings)
 	void inheritCullSettings(const osg::CullSettings & settings) {
 		if(_obj.pushFunction("inheritCullSettings")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&settings);
 			return (_obj.callFunction<void>());
 		}
@@ -61,6 +79,7 @@ public:
 	// void osg::CullSettings::inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)
 	void inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask) {
 		if(_obj.pushFunction("inheritCullSettings")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&settings);
 			_obj.pushArg(inheritanceMask);
 			return (_obj.callFunction<void>());
@@ -72,6 +91,7 @@ public:
 	// const char * osgUtil::CullVisitor::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -81,6 +101,7 @@ public:
 	// const char * osgUtil::CullVisitor::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -90,6 +111,7 @@ public:
 	// osgUtil::CullVisitor * osgUtil::CullVisitor::clone() const
 	osgUtil::CullVisitor * clone() const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			return (_obj.callFunction<osgUtil::CullVisitor*>());
 		}
 
@@ -99,6 +121,7 @@ public:
 	// void osgUtil::CullVisitor::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -108,6 +131,7 @@ public:
 	// osg::Vec3f osgUtil::CullVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
 		if(_obj.pushFunction("getEyePoint")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -117,6 +141,7 @@ public:
 	// osg::Vec3f osgUtil::CullVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {
 		if(_obj.pushFunction("getViewPoint")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -126,6 +151,7 @@ public:
 	// float osgUtil::CullVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToEyePoint")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -137,6 +163,7 @@ public:
 	// float osgUtil::CullVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceFromEyePoint")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -148,6 +175,7 @@ public:
 	// float osgUtil::CullVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToViewPoint")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -159,6 +187,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::Node & arg1)
 	void apply(osg::Node & arg1) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -169,6 +198,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::Geode & node)
 	void apply(osg::Geode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -179,6 +209,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::Billboard & node)
 	void apply(osg::Billboard & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -189,6 +220,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::LightSource & node)
 	void apply(osg::LightSource & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -199,6 +231,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::ClipNode & node)
 	void apply(osg::ClipNode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -209,6 +242,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::TexGenNode & node)
 	void apply(osg::TexGenNode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -219,6 +253,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::Group & node)
 	void apply(osg::Group & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -229,6 +264,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::Transform & node)
 	void apply(osg::Transform & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -239,6 +275,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::Projection & node)
 	void apply(osg::Projection & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -249,6 +286,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::Switch & node)
 	void apply(osg::Switch & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -259,6 +297,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::LOD & node)
 	void apply(osg::LOD & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -269,6 +308,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::ClearNode & node)
 	void apply(osg::ClearNode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -279,6 +319,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::Camera & node)
 	void apply(osg::Camera & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -289,6 +330,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::OccluderNode & node)
 	void apply(osg::OccluderNode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -299,6 +341,7 @@ public:
 	// void osgUtil::CullVisitor::apply(osg::OcclusionQueryNode & node)
 	void apply(osg::OcclusionQueryNode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -309,6 +352,7 @@ public:
 	// void osgUtil::CullVisitor::popProjectionMatrix()
 	void popProjectionMatrix() {
 		if(_obj.pushFunction("popProjectionMatrix")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -318,6 +362,7 @@ public:
 	// bool osgUtil::CullVisitor::clampProjectionMatrixImplementation(osg::Matrixf & projection, double & znear, double & zfar) const
 	bool clampProjectionMatrixImplementation(osg::Matrixf & projection, double & znear, double & zfar) const {
 		if(_obj.pushFunction("clampProjectionMatrixImplementation")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&projection);
 			_obj.pushArg(znear);
 			_obj.pushArg(zfar);
@@ -330,6 +375,7 @@ public:
 	// bool osgUtil::CullVisitor::clampProjectionMatrixImplementation(osg::Matrixd & projection, double & znear, double & zfar) const
 	bool clampProjectionMatrixImplementation(osg::Matrixd & projection, double & znear, double & zfar) const {
 		if(_obj.pushFunction("clampProjectionMatrixImplementation")) {
+			_obj.pushArg((osgUtil::CullVisitor*)this);
 			_obj.pushArg(&projection);
 			_obj.pushArg(znear);
 			_obj.pushArg(zfar);
@@ -630,14 +676,14 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_handle_cull_callbacks_and_traverse",_bind_public_handle_cull_callbacks_and_traverse},
-		{"protected_handle_cull_callbacks_and_accept",_bind_public_handle_cull_callbacks_and_accept},
-		{"protected_createOrReuseRenderLeaf",_bind_public_createOrReuseRenderLeaf},
-		{"protected_op_assign",_bind_public_op_assign},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
-		{"protected_computeFrustumVolume",_bind_public_computeFrustumVolume},
-		{"protected_createOrReuseMatrix",_bind_public_createOrReuseMatrix},
+		{"handle_cull_callbacks_and_traverse",_bind_public_handle_cull_callbacks_and_traverse},
+		{"handle_cull_callbacks_and_accept",_bind_public_handle_cull_callbacks_and_accept},
+		{"createOrReuseRenderLeaf",_bind_public_createOrReuseRenderLeaf},
+		{"op_assign",_bind_public_op_assign},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"computeFrustumVolume",_bind_public_computeFrustumVolume},
+		{"createOrReuseMatrix",_bind_public_createOrReuseMatrix},
 		{NULL,NULL}
 		};
 

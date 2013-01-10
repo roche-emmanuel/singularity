@@ -16,11 +16,19 @@ public:
 	~wrapper_WebViewListener_Download() {
 		logDEBUG3("Calling delete function for wrapper WebViewListener_Download");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((WebViewListener::Download*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_WebViewListener_Download(lua_State* L, lua_Table* dum) : WebViewListener::Download(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_WebViewListener_Download(lua_State* L, lua_Table* dum) 
+		: WebViewListener::Download(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((WebViewListener::Download*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void WebViewListener::Download::OnRequestDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & suggested_filename, const Awesomium::WebString & mime_type)
 	void OnRequestDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & suggested_filename, const Awesomium::WebString & mime_type) {
 		THROW_IF(!_obj.pushFunction("OnRequestDownload"),"No implementation for abstract function WebViewListener::Download::OnRequestDownload");
+		_obj.pushArg((WebViewListener::Download*)this);
 		_obj.pushArg(caller);
 		_obj.pushArg(download_id);
 		_obj.pushArg(&url);
@@ -42,6 +51,7 @@ public:
 	// void WebViewListener::Download::OnUpdateDownload(Awesomium::WebView * caller, int download_id, long long total_bytes, long long received_bytes, long long current_speed)
 	void OnUpdateDownload(Awesomium::WebView * caller, int download_id, long long total_bytes, long long received_bytes, long long current_speed) {
 		THROW_IF(!_obj.pushFunction("OnUpdateDownload"),"No implementation for abstract function WebViewListener::Download::OnUpdateDownload");
+		_obj.pushArg((WebViewListener::Download*)this);
 		_obj.pushArg(caller);
 		_obj.pushArg(download_id);
 		_obj.pushArg(total_bytes);
@@ -53,6 +63,7 @@ public:
 	// void WebViewListener::Download::OnFinishDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & saved_path)
 	void OnFinishDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & saved_path) {
 		THROW_IF(!_obj.pushFunction("OnFinishDownload"),"No implementation for abstract function WebViewListener::Download::OnFinishDownload");
+		_obj.pushArg((WebViewListener::Download*)this);
 		_obj.pushArg(caller);
 		_obj.pushArg(download_id);
 		_obj.pushArg(&url);

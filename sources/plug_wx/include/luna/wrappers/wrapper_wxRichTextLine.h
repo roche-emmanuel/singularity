@@ -16,6 +16,7 @@ public:
 	~wrapper_wxRichTextLine() {
 		logDEBUG3("Calling delete function for wrapper wxRichTextLine");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxRichTextLine*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};

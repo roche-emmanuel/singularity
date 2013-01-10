@@ -16,6 +16,7 @@ public:
 	~wrapper_wxDirTraverser() {
 		logDEBUG3("Calling delete function for wrapper wxDirTraverser");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxDirTraverser*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -30,6 +31,7 @@ public:
 	// wxDirTraverseResult wxDirTraverser::OnDir(const wxString & dirname)
 	wxDirTraverseResult OnDir(const wxString & dirname) {
 		THROW_IF(!_obj.pushFunction("OnDir"),"No implementation for abstract function wxDirTraverser::OnDir");
+		_obj.pushArg((wxDirTraverser*)this);
 		_obj.pushArg(dirname);
 		return (wxDirTraverseResult)(_obj.callFunction<int>());
 	};
@@ -37,6 +39,7 @@ public:
 	// wxDirTraverseResult wxDirTraverser::OnFile(const wxString & filename)
 	wxDirTraverseResult OnFile(const wxString & filename) {
 		THROW_IF(!_obj.pushFunction("OnFile"),"No implementation for abstract function wxDirTraverser::OnFile");
+		_obj.pushArg((wxDirTraverser*)this);
 		_obj.pushArg(filename);
 		return (wxDirTraverseResult)(_obj.callFunction<int>());
 	};
@@ -44,6 +47,7 @@ public:
 	// wxDirTraverseResult wxDirTraverser::OnOpenError(const wxString & openerrorname)
 	wxDirTraverseResult OnOpenError(const wxString & openerrorname) {
 		if(_obj.pushFunction("OnOpenError")) {
+			_obj.pushArg((wxDirTraverser*)this);
 			_obj.pushArg(openerrorname);
 			return (wxDirTraverseResult)(_obj.callFunction<int>());
 		}

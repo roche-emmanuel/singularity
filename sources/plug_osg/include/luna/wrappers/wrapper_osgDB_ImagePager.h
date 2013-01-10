@@ -16,11 +16,19 @@ public:
 	~wrapper_osgDB_ImagePager() {
 		logDEBUG3("Calling delete function for wrapper osgDB_ImagePager");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::ImagePager*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_ImagePager(lua_State* L, lua_Table* dum) : osgDB::ImagePager(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_ImagePager(lua_State* L, lua_Table* dum) 
+		: osgDB::ImagePager(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::ImagePager*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::ImagePager*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// double osgDB::ImagePager::getPreLoadTime() const
 	double getPreLoadTime() const {
 		if(_obj.pushFunction("getPreLoadTime")) {
+			_obj.pushArg((osgDB::ImagePager*)this);
 			return (_obj.callFunction<double>());
 		}
 
@@ -50,6 +60,7 @@ public:
 	// osg::Image * osgDB::ImagePager::readImageFile(const std::string & fileName)
 	osg::Image * readImageFile(const std::string & fileName) {
 		if(_obj.pushFunction("readImageFile")) {
+			_obj.pushArg((osgDB::ImagePager*)this);
 			_obj.pushArg(fileName);
 			return (_obj.callFunction<osg::Image*>());
 		}
@@ -60,6 +71,7 @@ public:
 	// void osgDB::ImagePager::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp)
 	void requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp) {
 		if(_obj.pushFunction("requestImageFile")) {
+			_obj.pushArg((osgDB::ImagePager*)this);
 			_obj.pushArg(fileName);
 			_obj.pushArg(attachmentPoint);
 			_obj.pushArg(attachmentIndex);
@@ -74,6 +86,7 @@ public:
 	// bool osgDB::ImagePager::requiresUpdateSceneGraph() const
 	bool requiresUpdateSceneGraph() const {
 		if(_obj.pushFunction("requiresUpdateSceneGraph")) {
+			_obj.pushArg((osgDB::ImagePager*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -83,6 +96,7 @@ public:
 	// void osgDB::ImagePager::updateSceneGraph(const osg::FrameStamp & frameStamp)
 	void updateSceneGraph(const osg::FrameStamp & frameStamp) {
 		if(_obj.pushFunction("updateSceneGraph")) {
+			_obj.pushArg((osgDB::ImagePager*)this);
 			_obj.pushArg(&frameStamp);
 			return (_obj.callFunction<void>());
 		}
@@ -161,8 +175,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

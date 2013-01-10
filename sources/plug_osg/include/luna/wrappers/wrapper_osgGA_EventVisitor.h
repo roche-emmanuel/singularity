@@ -16,11 +16,19 @@ public:
 	~wrapper_osgGA_EventVisitor() {
 		logDEBUG3("Calling delete function for wrapper osgGA_EventVisitor");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgGA::EventVisitor*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgGA_EventVisitor(lua_State* L, lua_Table* dum) : osgGA::EventVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgGA_EventVisitor(lua_State* L, lua_Table* dum) 
+		: osgGA::EventVisitor(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
 		if(_obj.pushFunction("getEyePoint")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -50,6 +60,7 @@ public:
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {
 		if(_obj.pushFunction("getViewPoint")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -59,6 +70,7 @@ public:
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToEyePoint")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -70,6 +82,7 @@ public:
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceFromEyePoint")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -81,6 +94,7 @@ public:
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToViewPoint")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -92,6 +106,7 @@ public:
 	// const char * osgGA::EventVisitor::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -101,6 +116,7 @@ public:
 	// const char * osgGA::EventVisitor::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -110,6 +126,7 @@ public:
 	// void osgGA::EventVisitor::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -119,6 +136,7 @@ public:
 	// void osgGA::EventVisitor::apply(osg::Node & node)
 	void apply(osg::Node & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -129,6 +147,7 @@ public:
 	// void osgGA::EventVisitor::apply(osg::Geode & node)
 	void apply(osg::Geode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -139,6 +158,7 @@ public:
 	// void osgGA::EventVisitor::apply(osg::Billboard & node)
 	void apply(osg::Billboard & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -149,6 +169,7 @@ public:
 	// void osgGA::EventVisitor::apply(osg::LightSource & node)
 	void apply(osg::LightSource & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -159,6 +180,7 @@ public:
 	// void osgGA::EventVisitor::apply(osg::Group & node)
 	void apply(osg::Group & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -169,6 +191,7 @@ public:
 	// void osgGA::EventVisitor::apply(osg::Transform & node)
 	void apply(osg::Transform & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -179,6 +202,7 @@ public:
 	// void osgGA::EventVisitor::apply(osg::Projection & node)
 	void apply(osg::Projection & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -189,6 +213,7 @@ public:
 	// void osgGA::EventVisitor::apply(osg::Switch & node)
 	void apply(osg::Switch & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -199,6 +224,7 @@ public:
 	// void osgGA::EventVisitor::apply(osg::LOD & node)
 	void apply(osg::LOD & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -209,6 +235,7 @@ public:
 	// void osgGA::EventVisitor::apply(osg::OccluderNode & node)
 	void apply(osg::OccluderNode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgGA::EventVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -461,13 +488,13 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_handle_callbacks",_bind_public_handle_callbacks},
-		{"protected_handle_callbacks_and_traverse",_bind_public_handle_callbacks_and_traverse},
-		{"protected_handle_geode_callbacks",_bind_public_handle_geode_callbacks},
-		{"protected_traverseGeode",_bind_public_traverseGeode},
-		{"protected_op_assign",_bind_public_op_assign},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"handle_callbacks",_bind_public_handle_callbacks},
+		{"handle_callbacks_and_traverse",_bind_public_handle_callbacks_and_traverse},
+		{"handle_geode_callbacks",_bind_public_handle_geode_callbacks},
+		{"traverseGeode",_bind_public_traverseGeode},
+		{"op_assign",_bind_public_op_assign},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -9,6 +9,7 @@ requestedEvents[osgGA.GUIEventAdapter.RELEASE] = true;
 requestedEvents[osgGA.GUIEventAdapter.DRAG] = true;
 requestedEvents[osgGA.GUIEventAdapter.MOVE] = true;
 requestedEvents[osgGA.GUIEventAdapter.KEYDOWN] = true;
+requestedEvents[osgGA.GUIEventAdapter.KEYUP] = true;
 
 function Class:initialize(options)	
 	self:debug2("Creating ATBHandler");
@@ -20,8 +21,8 @@ function Class:initialize(options)
 	self._windows = require("std.Set")()
 	
 	self._eventHandler = osgGA.GUIEventHandler{
-		handle = function(tt,ea,aa)
-			--self:info("I'm in the event handler.")
+		handle = function(tt,obj,ea,aa)
+			-- self:info("I'm in the event handler.")
 			local etype = ea:getEventType()
 			if requestedEvents[etype] then
 				self._events:push_back(ea);
@@ -30,9 +31,8 @@ function Class:initialize(options)
 			if (etype==osgGA.GUIEventAdapter.PUSH or etype==osgGA.GUIEventAdapter.KEYDOWN) then
 				local x = ea:getX();
 				local y = ea:getWindowHeight() - ea:getY();
-				--if etype==osgGA.GUIEventAdapter.KEYDOWN then
-				--	self:info("Checking position: x=",x,", y=",y)
-				--end
+				-- self:info("Checking position: x=",x,", y=",y)
+				
 				self._currentWindow = self:getWindowUnderMouse(x,y)
 			end
 			
@@ -40,20 +40,24 @@ function Class:initialize(options)
 				self._currentWindow = nil
 			end
 			
+			-- self:info("Leaving the event handler.")
 			return self._currentWindow~=nil;
 		end
 	};
 	
 	self._drawCallback = osg.Camera_DrawCallback{
-		op_call = function(tt,renderInfo)
-			--self:info("I'm in the draw callback.")
+		op_call = function(tt,obj,renderInfo)
+			-- self:info("I'm in the draw callback.")
 			local viewport = renderInfo:getCurrentCamera():getViewport();
 			if ( viewport ) then
 				atb.TwWindowSize( viewport:width(), viewport:height() );
 			end
 			
+			-- self:info("Handling events")
 			self:handleEvents();
+			-- self:info("Events handled.")
 			atb.TwDraw();			
+			-- self:info("Leaving draw callback.")
 		end
 	};
 end

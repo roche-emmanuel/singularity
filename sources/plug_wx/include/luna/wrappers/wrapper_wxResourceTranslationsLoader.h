@@ -16,6 +16,7 @@ public:
 	~wrapper_wxResourceTranslationsLoader() {
 		logDEBUG3("Calling delete function for wrapper wxResourceTranslationsLoader");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxResourceTranslationsLoader*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -28,6 +29,7 @@ protected:
 	// wxString wxResourceTranslationsLoader::GetResourceType() const
 	wxString GetResourceType() const {
 		if(_obj.pushFunction("GetResourceType")) {
+			_obj.pushArg((wxResourceTranslationsLoader*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -39,6 +41,7 @@ public:
 	// wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang)
 	wxMsgCatalog * LoadCatalog(const wxString & domain, const wxString & lang) {
 		THROW_IF(!_obj.pushFunction("LoadCatalog"),"No implementation for abstract function wxTranslationsLoader::LoadCatalog");
+		_obj.pushArg((wxResourceTranslationsLoader*)this);
 		_obj.pushArg(domain);
 		_obj.pushArg(lang);
 		return (_obj.callFunction<wxMsgCatalog*>());
@@ -47,6 +50,7 @@ public:
 	// wxArrayString wxTranslationsLoader::GetAvailableTranslations(const wxString & domain) const
 	wxArrayString GetAvailableTranslations(const wxString & domain) const {
 		THROW_IF(!_obj.pushFunction("GetAvailableTranslations"),"No implementation for abstract function wxTranslationsLoader::GetAvailableTranslations");
+		_obj.pushArg((wxResourceTranslationsLoader*)this);
 		_obj.pushArg(domain);
 		return *(_obj.callFunction<wxArrayString*>());
 	};

@@ -16,11 +16,19 @@ public:
 	~wrapper_DirCallback() {
 		logDEBUG3("Calling delete function for wrapper DirCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((DirCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_DirCallback(lua_State* L, lua_Table* dum) : DirCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_DirCallback(lua_State* L, lua_Table* dum) 
+		: DirCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((DirCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void DirCallback::setValue(osg::Vec3d val)
 	void setValue(osg::Vec3d val) {
 		THROW_IF(!_obj.pushFunction("setValue"),"No implementation for abstract function DirCallback::setValue");
+		_obj.pushArg((DirCallback*)this);
 		_obj.pushArg(val);
 		return (_obj.callFunction<void>());
 	};
@@ -38,6 +47,7 @@ public:
 	// osg::Vec3d DirCallback::getValue()
 	osg::Vec3d getValue() {
 		THROW_IF(!_obj.pushFunction("getValue"),"No implementation for abstract function DirCallback::getValue");
+		_obj.pushArg((DirCallback*)this);
 		return (_obj.callFunction<osg::Vec3d>());
 	};
 

@@ -16,11 +16,19 @@ public:
 	~wrapper_osgGA_SphericalManipulator() {
 		logDEBUG3("Calling delete function for wrapper osgGA_SphericalManipulator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgGA::SphericalManipulator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgGA_SphericalManipulator(lua_State* L, lua_Table* dum) : osgGA::SphericalManipulator(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgGA_SphericalManipulator(lua_State* L, lua_Table* dum) 
+		: osgGA::SphericalManipulator(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -51,6 +61,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -60,6 +71,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -70,6 +82,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -79,6 +92,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -88,6 +102,7 @@ public:
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -98,6 +113,7 @@ public:
 	// osg::Object * osgGA::GUIEventHandler::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -107,6 +123,7 @@ public:
 	// osg::Object * osgGA::GUIEventHandler::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -117,6 +134,7 @@ public:
 	// bool osgGA::GUIEventHandler::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -127,6 +145,7 @@ public:
 	// const char * osgGA::GUIEventHandler::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -136,6 +155,7 @@ public:
 	// void osgGA::GUIEventHandler::event(osg::NodeVisitor * nv, osg::Drawable * drawable)
 	void event(osg::NodeVisitor * nv, osg::Drawable * drawable) {
 		if(_obj.pushFunction("event")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(nv);
 			_obj.pushArg(drawable);
 			return (_obj.callFunction<void>());
@@ -147,6 +167,7 @@ public:
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
 	void operator()(osg::Node * node, osg::NodeVisitor * nv) {
 		if(_obj.pushFunction("op_call")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(node);
 			_obj.pushArg(nv);
 			return (_obj.callFunction<void>());
@@ -158,6 +179,7 @@ public:
 	// void osgGA::CameraManipulator::setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)
 	void setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb) {
 		if(_obj.pushFunction("setCoordinateFrameCallback")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(cb);
 			return (_obj.callFunction<void>());
 		}
@@ -168,6 +190,7 @@ public:
 	// void osgGA::CameraManipulator::setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)
 	void setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false) {
 		if(_obj.pushFunction("setHomePosition")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(&eye);
 			_obj.pushArg(&center);
 			_obj.pushArg(&up);
@@ -181,6 +204,7 @@ public:
 	// void osgGA::CameraManipulator::getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
 	void getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const {
 		if(_obj.pushFunction("getHomePosition")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(&eye);
 			_obj.pushArg(&center);
 			_obj.pushArg(&up);
@@ -193,6 +217,7 @@ public:
 	// void osgGA::CameraManipulator::setAutoComputeHomePosition(bool flag)
 	void setAutoComputeHomePosition(bool flag) {
 		if(_obj.pushFunction("setAutoComputeHomePosition")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(flag);
 			return (_obj.callFunction<void>());
 		}
@@ -203,6 +228,7 @@ public:
 	// const char * osgGA::SphericalManipulator::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -212,6 +238,7 @@ public:
 	// void osgGA::SphericalManipulator::setByMatrix(const osg::Matrixd & matrix)
 	void setByMatrix(const osg::Matrixd & matrix) {
 		if(_obj.pushFunction("setByMatrix")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(&matrix);
 			return (_obj.callFunction<void>());
 		}
@@ -222,6 +249,7 @@ public:
 	// void osgGA::SphericalManipulator::setByInverseMatrix(const osg::Matrixd & matrix)
 	void setByInverseMatrix(const osg::Matrixd & matrix) {
 		if(_obj.pushFunction("setByInverseMatrix")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(&matrix);
 			return (_obj.callFunction<void>());
 		}
@@ -232,6 +260,7 @@ public:
 	// osg::Matrixd osgGA::SphericalManipulator::getMatrix() const
 	osg::Matrixd getMatrix() const {
 		if(_obj.pushFunction("getMatrix")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
@@ -241,6 +270,7 @@ public:
 	// osg::Matrixd osgGA::SphericalManipulator::getInverseMatrix() const
 	osg::Matrixd getInverseMatrix() const {
 		if(_obj.pushFunction("getInverseMatrix")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
@@ -250,6 +280,7 @@ public:
 	// osgUtil::SceneView::FusionDistanceMode osgGA::SphericalManipulator::getFusionDistanceMode() const
 	osgUtil::SceneView::FusionDistanceMode getFusionDistanceMode() const {
 		if(_obj.pushFunction("getFusionDistanceMode")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			return (osgUtil::SceneView::FusionDistanceMode)(_obj.callFunction<int>());
 		}
 
@@ -259,6 +290,7 @@ public:
 	// float osgGA::SphericalManipulator::getFusionDistanceValue() const
 	float getFusionDistanceValue() const {
 		if(_obj.pushFunction("getFusionDistanceValue")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			return (_obj.callFunction<float>());
 		}
 
@@ -268,6 +300,7 @@ public:
 	// void osgGA::SphericalManipulator::setNode(osg::Node * arg1)
 	void setNode(osg::Node * arg1) {
 		if(_obj.pushFunction("setNode")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -278,6 +311,7 @@ public:
 	// const osg::Node * osgGA::SphericalManipulator::getNode() const
 	const osg::Node * getNode() const {
 		if(_obj.pushFunction("getNode")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			return (_obj.callFunction<osg::Node*>());
 		}
 
@@ -287,6 +321,7 @@ public:
 	// osg::Node * osgGA::SphericalManipulator::getNode()
 	osg::Node * getNode() {
 		if(_obj.pushFunction("getNode")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			return (_obj.callFunction<osg::Node*>());
 		}
 
@@ -296,6 +331,7 @@ public:
 	// void osgGA::SphericalManipulator::home(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
 	void home(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
 		if(_obj.pushFunction("home")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(&ea);
 			_obj.pushArg(&us);
 			return (_obj.callFunction<void>());
@@ -307,6 +343,7 @@ public:
 	// void osgGA::SphericalManipulator::home(double arg1)
 	void home(double arg1) {
 		if(_obj.pushFunction("home")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -317,6 +354,7 @@ public:
 	// void osgGA::SphericalManipulator::init(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
 	void init(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
 		if(_obj.pushFunction("init")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(&ea);
 			_obj.pushArg(&us);
 			return (_obj.callFunction<void>());
@@ -328,6 +366,7 @@ public:
 	// bool osgGA::SphericalManipulator::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
 	bool handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
 		if(_obj.pushFunction("handle")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(&ea);
 			_obj.pushArg(&us);
 			return (_obj.callFunction<bool>());
@@ -339,6 +378,7 @@ public:
 	// void osgGA::SphericalManipulator::computeHomePosition()
 	void computeHomePosition() {
 		if(_obj.pushFunction("computeHomePosition")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -348,6 +388,7 @@ public:
 	// void osgGA::SphericalManipulator::getUsage(osg::ApplicationUsage & usage) const
 	void getUsage(osg::ApplicationUsage & usage) const {
 		if(_obj.pushFunction("getUsage")) {
+			_obj.pushArg((osgGA::SphericalManipulator*)this);
 			_obj.pushArg(&usage);
 			return (_obj.callFunction<void>());
 		}
@@ -580,13 +621,13 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_flushMouseEventStack",_bind_public_flushMouseEventStack},
-		{"protected_addMouseEvent",_bind_public_addMouseEvent},
-		{"protected_calcMovement",_bind_public_calcMovement},
-		{"protected_isMouseMoving",_bind_public_isMouseMoving},
-		{"protected_getManipulatorName",_bind_public_getManipulatorName},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"flushMouseEventStack",_bind_public_flushMouseEventStack},
+		{"addMouseEvent",_bind_public_addMouseEvent},
+		{"calcMovement",_bind_public_calcMovement},
+		{"isMouseMoving",_bind_public_isMouseMoving},
+		{"getManipulatorName",_bind_public_getManipulatorName},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

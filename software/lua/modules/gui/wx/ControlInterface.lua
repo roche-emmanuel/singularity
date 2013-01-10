@@ -430,26 +430,29 @@ end
 function Class:addOSGCtrl(options)
 	--self:check(options.root,"a valid 'root' entry is needed to build an OSGCtrl")
 	
-	options.intf = options.intf or self
-	options.flags = options.flags or wx.wxALL+wx.wxEXPAND
-	options.prop = options.prop or 1
+	--options.intf = options.intf or self
+	options.parent = self:getCurrentParent();
 	
-	local canvas = require("gui.wx.OSGCanvas")(options)
+	local canvas = require("gui.wx.OSGCanvas")(options)	
 	local win = canvas:getWindow()
 	self:check(win,"Invalid OSG window object.")
+
+	options.flags = options.flags or wx.wxALL+wx.wxEXPAND
+	options.prop = options.prop or 1
 	
 	return self:addControl(win,options), canvas
 end
 
 function Class:addOutputPanel(options)
 	--self:check(options.root,"a valid 'root' entry is needed to build an OSGCtrl")
-	
-	options.intf = options.intf or self
-	options.flags = options.flags or wx.wxALL+wx.wxEXPAND
-	options.prop = options.prop or 1
+	options.parent = self:getCurrentParent();
 	
 	local panel = require("gui.wx.OutputPanel")(options)
 
+	--options.intf = options.intf or self
+	options.flags = options.flags or wx.wxALL+wx.wxEXPAND
+	options.prop = options.prop or 1
+	
 	return panel:getWindow(), panel
 end
 

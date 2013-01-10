@@ -16,11 +16,19 @@ public:
 	~wrapper_ButtonCallback() {
 		logDEBUG3("Calling delete function for wrapper ButtonCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((ButtonCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_ButtonCallback(lua_State* L, lua_Table* dum) : ButtonCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_ButtonCallback(lua_State* L, lua_Table* dum) 
+		: ButtonCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((ButtonCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void ButtonCallback::execute()
 	void execute() {
 		THROW_IF(!_obj.pushFunction("execute"),"No implementation for abstract function ButtonCallback::execute");
+		_obj.pushArg((ButtonCallback*)this);
 		return (_obj.callFunction<void>());
 	};
 

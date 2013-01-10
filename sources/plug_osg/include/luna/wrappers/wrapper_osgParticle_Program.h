@@ -16,12 +16,27 @@ public:
 	~wrapper_osgParticle_Program() {
 		logDEBUG3("Calling delete function for wrapper osgParticle_Program");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgParticle::Program*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgParticle_Program(lua_State* L, lua_Table* dum) : osgParticle::Program(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgParticle_Program(lua_State* L, lua_Table* dum, const osgParticle::Program & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::Program(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgParticle_Program(lua_State* L, lua_Table* dum) 
+		: osgParticle::Program(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgParticle::Program*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgParticle_Program(lua_State* L, lua_Table* dum, const osgParticle::Program & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osgParticle::Program(copy, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgParticle::Program*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +45,7 @@ protected:
 	// void osgParticle::Program::process(double dt)
 	void process(double dt) {
 		if(_obj.pushFunction("process")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			_obj.pushArg(dt);
 			return (_obj.callFunction<void>());
 		}
@@ -40,6 +56,7 @@ protected:
 	// void osgParticle::Program::execute(double dt)
 	void execute(double dt) {
 		THROW_IF(!_obj.pushFunction("execute"),"No implementation for abstract function osgParticle::Program::execute");
+		_obj.pushArg((osgParticle::Program*)this);
 		_obj.pushArg(dt);
 		return (_obj.callFunction<void>());
 	};
@@ -49,6 +66,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -59,6 +77,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -68,6 +87,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -78,6 +98,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -87,6 +108,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -96,6 +118,7 @@ public:
 	// osg::Object * osg::Node::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -105,6 +128,7 @@ public:
 	// osg::Object * osg::Node::clone(const osg::CopyOp & copyop) const
 	osg::Object * clone(const osg::CopyOp & copyop) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			_obj.pushArg(&copyop);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -115,6 +139,7 @@ public:
 	// osg::Group * osg::Node::asGroup()
 	osg::Group * asGroup() {
 		if(_obj.pushFunction("asGroup")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return (_obj.callFunction<osg::Group*>());
 		}
 
@@ -124,6 +149,7 @@ public:
 	// const osg::Group * osg::Node::asGroup() const
 	const osg::Group * asGroup() const {
 		if(_obj.pushFunction("asGroup")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return (_obj.callFunction<osg::Group*>());
 		}
 
@@ -133,6 +159,7 @@ public:
 	// osg::Transform * osg::Node::asTransform()
 	osg::Transform * asTransform() {
 		if(_obj.pushFunction("asTransform")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
@@ -142,6 +169,7 @@ public:
 	// const osg::Transform * osg::Node::asTransform() const
 	const osg::Transform * asTransform() const {
 		if(_obj.pushFunction("asTransform")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
@@ -151,6 +179,7 @@ public:
 	// osg::Switch * osg::Node::asSwitch()
 	osg::Switch * asSwitch() {
 		if(_obj.pushFunction("asSwitch")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
@@ -160,6 +189,7 @@ public:
 	// const osg::Switch * osg::Node::asSwitch() const
 	const osg::Switch * asSwitch() const {
 		if(_obj.pushFunction("asSwitch")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
@@ -169,6 +199,7 @@ public:
 	// osg::Geode * osg::Node::asGeode()
 	osg::Geode * asGeode() {
 		if(_obj.pushFunction("asGeode")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
@@ -178,6 +209,7 @@ public:
 	// const osg::Geode * osg::Node::asGeode() const
 	const osg::Geode * asGeode() const {
 		if(_obj.pushFunction("asGeode")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
@@ -187,6 +219,7 @@ public:
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
 	void ascend(osg::NodeVisitor & nv) {
 		if(_obj.pushFunction("ascend")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			_obj.pushArg(&nv);
 			return (_obj.callFunction<void>());
 		}
@@ -197,6 +230,7 @@ public:
 	// void osg::Node::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -207,6 +241,7 @@ public:
 	// void osg::Node::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -217,6 +252,7 @@ public:
 	// void osgParticle::ParticleProcessor::traverse(osg::NodeVisitor & arg1)
 	void traverse(osg::NodeVisitor & arg1) {
 		if(_obj.pushFunction("traverse")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -227,6 +263,7 @@ public:
 	// osg::BoundingSphered osgParticle::ParticleProcessor::computeBound() const
 	osg::BoundingSphered computeBound() const {
 		if(_obj.pushFunction("computeBound")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
@@ -236,6 +273,7 @@ public:
 	// const char * osgParticle::Program::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -245,6 +283,7 @@ public:
 	// const char * osgParticle::Program::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -254,6 +293,7 @@ public:
 	// bool osgParticle::Program::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -264,6 +304,7 @@ public:
 	// void osgParticle::Program::accept(osg::NodeVisitor & nv)
 	void accept(osg::NodeVisitor & nv) {
 		if(_obj.pushFunction("accept")) {
+			_obj.pushArg((osgParticle::Program*)this);
 			_obj.pushArg(&nv);
 			return (_obj.callFunction<void>());
 		}
@@ -566,15 +607,15 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_op_assign",_bind_public_op_assign},
-		{"protected_addParent",_bind_public_addParent},
-		{"protected_removeParent",_bind_public_removeParent},
-		{"protected_setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
-		{"protected_setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
-		{"protected_setNumChildrenWithCullingDisabled",_bind_public_setNumChildrenWithCullingDisabled},
-		{"protected_setNumChildrenWithOccluderNodes",_bind_public_setNumChildrenWithOccluderNodes},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"op_assign",_bind_public_op_assign},
+		{"addParent",_bind_public_addParent},
+		{"removeParent",_bind_public_removeParent},
+		{"setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
+		{"setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
+		{"setNumChildrenWithCullingDisabled",_bind_public_setNumChildrenWithCullingDisabled},
+		{"setNumChildrenWithOccluderNodes",_bind_public_setNumChildrenWithOccluderNodes},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

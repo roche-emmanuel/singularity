@@ -16,12 +16,27 @@ public:
 	~wrapper_wxPGProperty() {
 		logDEBUG3("Calling delete function for wrapper wxPGProperty");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxPGProperty*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxPGProperty(lua_State* L, lua_Table* dum) : wxPGProperty(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxPGProperty(lua_State* L, lua_Table* dum, const wxString & label, const wxString & name) : wxPGProperty(label, name), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxPGProperty(lua_State* L, lua_Table* dum) 
+		: wxPGProperty(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxPGProperty*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxPGProperty(lua_State* L, lua_Table* dum, const wxString & label, const wxString & name) 
+		: wxPGProperty(label, name), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxPGProperty*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +45,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxPGProperty*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -39,6 +55,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxPGProperty*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -51,6 +68,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxPGProperty*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -60,6 +78,7 @@ public:
 	// void wxPGProperty::OnSetValue()
 	void OnSetValue() {
 		if(_obj.pushFunction("OnSetValue")) {
+			_obj.pushArg((wxPGProperty*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -69,6 +88,7 @@ public:
 	// wxSize wxPGProperty::OnMeasureImage(int item = -1) const
 	wxSize OnMeasureImage(int item = -1) const {
 		if(_obj.pushFunction("OnMeasureImage")) {
+			_obj.pushArg((wxPGProperty*)this);
 			_obj.pushArg(item);
 			return *(_obj.callFunction<wxSize*>());
 		}
@@ -79,6 +99,7 @@ public:
 	// bool wxPGProperty::OnEvent(wxPropertyGrid * propgrid, wxWindow * wnd_primary, wxEvent & event)
 	bool OnEvent(wxPropertyGrid * propgrid, wxWindow * wnd_primary, wxEvent & event) {
 		if(_obj.pushFunction("OnEvent")) {
+			_obj.pushArg((wxPGProperty*)this);
 			_obj.pushArg(propgrid);
 			_obj.pushArg(wnd_primary);
 			_obj.pushArg(&event);
@@ -91,6 +112,7 @@ public:
 	// const wxPGEditor * wxPGProperty::DoGetEditorClass() const
 	const wxPGEditor * DoGetEditorClass() const {
 		if(_obj.pushFunction("DoGetEditorClass")) {
+			_obj.pushArg((wxPGProperty*)this);
 			return (_obj.callFunction<wxPGEditor*>());
 		}
 
@@ -100,6 +122,7 @@ public:
 	// wxValidator * wxPGProperty::DoGetValidator() const
 	wxValidator * DoGetValidator() const {
 		if(_obj.pushFunction("DoGetValidator")) {
+			_obj.pushArg((wxPGProperty*)this);
 			return (_obj.callFunction<wxValidator*>());
 		}
 
@@ -109,6 +132,7 @@ public:
 	// int wxPGProperty::GetChoiceSelection() const
 	int GetChoiceSelection() const {
 		if(_obj.pushFunction("GetChoiceSelection")) {
+			_obj.pushArg((wxPGProperty*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -118,6 +142,7 @@ public:
 	// void wxPGProperty::RefreshChildren()
 	void RefreshChildren() {
 		if(_obj.pushFunction("RefreshChildren")) {
+			_obj.pushArg((wxPGProperty*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -127,6 +152,7 @@ public:
 	// wxString wxPGProperty::GetValueAsString(int argFlags = 0) const
 	wxString GetValueAsString(int argFlags = 0) const {
 		if(_obj.pushFunction("GetValueAsString")) {
+			_obj.pushArg((wxPGProperty*)this);
 			_obj.pushArg(argFlags);
 			return *(_obj.callFunction<wxString*>());
 		}

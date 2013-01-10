@@ -16,6 +16,7 @@ public:
 	~wrapper_osg_ValueObject_GetValueVisitor() {
 		logDEBUG3("Calling delete function for wrapper osg_ValueObject_GetValueVisitor");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::ValueObject::GetValueVisitor*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};

@@ -16,12 +16,27 @@ public:
 	~wrapper_osgUtil_SceneView() {
 		logDEBUG3("Calling delete function for wrapper osgUtil_SceneView");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::SceneView*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, osg::DisplaySettings * ds = NULL) : osgUtil::SceneView(ds), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, const osgUtil::SceneView & sceneview, const osg::CopyOp & copyop = osg::CopyOp ()) : osgUtil::SceneView(sceneview, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, osg::DisplaySettings * ds = NULL) 
+		: osgUtil::SceneView(ds), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, const osgUtil::SceneView & sceneview, const osg::CopyOp & copyop = osg::CopyOp ()) 
+		: osgUtil::SceneView(sceneview, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +45,7 @@ protected:
 	// bool osgUtil::SceneView::cullStage(const osg::Matrixd & projection, const osg::Matrixd & modelview, osgUtil::CullVisitor * cullVisitor, osgUtil::StateGraph * rendergraph, osgUtil::RenderStage * renderStage, osg::Viewport * viewport)
 	bool cullStage(const osg::Matrixd & projection, const osg::Matrixd & modelview, osgUtil::CullVisitor * cullVisitor, osgUtil::StateGraph * rendergraph, osgUtil::RenderStage * renderStage, osg::Viewport * viewport) {
 		if(_obj.pushFunction("cullStage")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(&projection);
 			_obj.pushArg(&modelview);
 			_obj.pushArg(cullVisitor);
@@ -47,6 +63,7 @@ public:
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -57,6 +74,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -67,6 +85,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -76,6 +95,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -86,6 +106,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -95,6 +116,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -104,6 +126,7 @@ public:
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -114,6 +137,7 @@ public:
 	// osg::Object * osgUtil::SceneView::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -123,6 +147,7 @@ public:
 	// osg::Object * osgUtil::SceneView::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -133,6 +158,7 @@ public:
 	// bool osgUtil::SceneView::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -143,6 +169,7 @@ public:
 	// const char * osgUtil::SceneView::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -152,6 +179,7 @@ public:
 	// const char * osgUtil::SceneView::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -161,6 +189,7 @@ public:
 	// void osgUtil::SceneView::setDefaults()
 	void setDefaults() {
 		if(_obj.pushFunction("setDefaults")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -170,6 +199,7 @@ public:
 	// void osgUtil::SceneView::setDefaults(unsigned int options)
 	void setDefaults(unsigned int options) {
 		if(_obj.pushFunction("setDefaults")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(options);
 			return (_obj.callFunction<void>());
 		}
@@ -180,6 +210,7 @@ public:
 	// osg::Matrixd osgUtil::SceneView::computeLeftEyeProjectionImplementation(const osg::Matrixd & projection) const
 	osg::Matrixd computeLeftEyeProjectionImplementation(const osg::Matrixd & projection) const {
 		if(_obj.pushFunction("computeLeftEyeProjectionImplementation")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(&projection);
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
@@ -190,6 +221,7 @@ public:
 	// osg::Matrixd osgUtil::SceneView::computeLeftEyeViewImplementation(const osg::Matrixd & view) const
 	osg::Matrixd computeLeftEyeViewImplementation(const osg::Matrixd & view) const {
 		if(_obj.pushFunction("computeLeftEyeViewImplementation")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(&view);
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
@@ -200,6 +232,7 @@ public:
 	// osg::Matrixd osgUtil::SceneView::computeRightEyeProjectionImplementation(const osg::Matrixd & projection) const
 	osg::Matrixd computeRightEyeProjectionImplementation(const osg::Matrixd & projection) const {
 		if(_obj.pushFunction("computeRightEyeProjectionImplementation")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(&projection);
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
@@ -210,6 +243,7 @@ public:
 	// osg::Matrixd osgUtil::SceneView::computeRightEyeViewImplementation(const osg::Matrixd & view) const
 	osg::Matrixd computeRightEyeViewImplementation(const osg::Matrixd & view) const {
 		if(_obj.pushFunction("computeRightEyeViewImplementation")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(&view);
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
@@ -220,6 +254,7 @@ public:
 	// void osgUtil::SceneView::inheritCullSettings(const osg::CullSettings & settings)
 	void inheritCullSettings(const osg::CullSettings & settings) {
 		if(_obj.pushFunction("inheritCullSettings")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(&settings);
 			return (_obj.callFunction<void>());
 		}
@@ -230,6 +265,7 @@ public:
 	// void osgUtil::SceneView::inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)
 	void inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask) {
 		if(_obj.pushFunction("inheritCullSettings")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(&settings);
 			_obj.pushArg(inheritanceMask);
 			return (_obj.callFunction<void>());
@@ -241,6 +277,7 @@ public:
 	// void osgUtil::SceneView::init()
 	void init() {
 		if(_obj.pushFunction("init")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -250,6 +287,7 @@ public:
 	// void osgUtil::SceneView::update()
 	void update() {
 		if(_obj.pushFunction("update")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -259,6 +297,7 @@ public:
 	// void osgUtil::SceneView::cull()
 	void cull() {
 		if(_obj.pushFunction("cull")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -268,6 +307,7 @@ public:
 	// void osgUtil::SceneView::draw()
 	void draw() {
 		if(_obj.pushFunction("draw")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -277,6 +317,7 @@ public:
 	// void osgUtil::SceneView::releaseAllGLObjects()
 	void releaseAllGLObjects() {
 		if(_obj.pushFunction("releaseAllGLObjects")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -286,6 +327,7 @@ public:
 	// void osgUtil::SceneView::flushAllDeletedGLObjects()
 	void flushAllDeletedGLObjects() {
 		if(_obj.pushFunction("flushAllDeletedGLObjects")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -295,6 +337,7 @@ public:
 	// void osgUtil::SceneView::flushDeletedGLObjects(double & availableTime)
 	void flushDeletedGLObjects(double & availableTime) {
 		if(_obj.pushFunction("flushDeletedGLObjects")) {
+			_obj.pushArg((osgUtil::SceneView*)this);
 			_obj.pushArg(availableTime);
 			return (_obj.callFunction<void>());
 		}
@@ -511,12 +554,12 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_computeLeftEyeViewport",_bind_public_computeLeftEyeViewport},
-		{"protected_computeRightEyeViewport",_bind_public_computeRightEyeViewport},
-		{"protected_computeMVPW",_bind_public_computeMVPW},
-		{"protected_clearArea",_bind_public_clearArea},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"computeLeftEyeViewport",_bind_public_computeLeftEyeViewport},
+		{"computeRightEyeViewport",_bind_public_computeRightEyeViewport},
+		{"computeMVPW",_bind_public_computeMVPW},
+		{"clearArea",_bind_public_clearArea},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

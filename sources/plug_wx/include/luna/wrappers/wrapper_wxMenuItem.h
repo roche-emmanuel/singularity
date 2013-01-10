@@ -16,11 +16,19 @@ public:
 	~wrapper_wxMenuItem() {
 		logDEBUG3("Calling delete function for wrapper wxMenuItem");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxMenuItem*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxMenuItem(lua_State* L, lua_Table* dum, wxMenu * parentMenu = NULL, int id = ::wxID_SEPARATOR, const wxString & text = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL, wxMenu * subMenu = NULL) : wxMenuItem(parentMenu, id, text, helpString, kind, subMenu), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxMenuItem(lua_State* L, lua_Table* dum, wxMenu * parentMenu = NULL, int id = ::wxID_SEPARATOR, const wxString & text = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL, wxMenu * subMenu = NULL) 
+		: wxMenuItem(parentMenu, id, text, helpString, kind, subMenu), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxMenuItem*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxMenuItem*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -38,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxMenuItem*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -50,6 +60,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxMenuItem*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -59,6 +70,7 @@ public:
 	// void wxMenuItem::Check(bool check = true)
 	void Check(bool check = true) {
 		if(_obj.pushFunction("Check")) {
+			_obj.pushArg((wxMenuItem*)this);
 			_obj.pushArg(check);
 			return (_obj.callFunction<void>());
 		}
@@ -69,6 +81,7 @@ public:
 	// void wxMenuItem::Enable(bool enable = true)
 	void Enable(bool enable = true) {
 		if(_obj.pushFunction("Enable")) {
+			_obj.pushArg((wxMenuItem*)this);
 			_obj.pushArg(enable);
 			return (_obj.callFunction<void>());
 		}
@@ -79,6 +92,7 @@ public:
 	// const wxBitmap & wxMenuItem::GetBitmap() const
 	const wxBitmap & GetBitmap() const {
 		if(_obj.pushFunction("GetBitmap")) {
+			_obj.pushArg((wxMenuItem*)this);
 			return *(_obj.callFunction<wxBitmap*>());
 		}
 
@@ -88,6 +102,7 @@ public:
 	// wxString wxMenuItem::GetItemLabel() const
 	wxString GetItemLabel() const {
 		if(_obj.pushFunction("GetItemLabel")) {
+			_obj.pushArg((wxMenuItem*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -97,6 +112,7 @@ public:
 	// wxString wxMenuItem::GetItemLabelText() const
 	wxString GetItemLabelText() const {
 		if(_obj.pushFunction("GetItemLabelText")) {
+			_obj.pushArg((wxMenuItem*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -106,6 +122,7 @@ public:
 	// bool wxMenuItem::IsChecked() const
 	bool IsChecked() const {
 		if(_obj.pushFunction("IsChecked")) {
+			_obj.pushArg((wxMenuItem*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -115,6 +132,7 @@ public:
 	// bool wxMenuItem::IsEnabled() const
 	bool IsEnabled() const {
 		if(_obj.pushFunction("IsEnabled")) {
+			_obj.pushArg((wxMenuItem*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -124,6 +142,7 @@ public:
 	// void wxMenuItem::SetBitmap(const wxBitmap & bmp, bool checked = true)
 	void SetBitmap(const wxBitmap & bmp, bool checked = true) {
 		if(_obj.pushFunction("SetBitmap")) {
+			_obj.pushArg((wxMenuItem*)this);
 			_obj.pushArg(&bmp);
 			_obj.pushArg(checked);
 			return (_obj.callFunction<void>());
@@ -135,6 +154,7 @@ public:
 	// void wxMenuItem::SetItemLabel(const wxString & label)
 	void SetItemLabel(const wxString & label) {
 		if(_obj.pushFunction("SetItemLabel")) {
+			_obj.pushArg((wxMenuItem*)this);
 			_obj.pushArg(label);
 			return (_obj.callFunction<void>());
 		}
@@ -145,6 +165,7 @@ public:
 	// void wxMenuItem::SetText(const wxString & text)
 	void SetText(const wxString & text) {
 		if(_obj.pushFunction("SetText")) {
+			_obj.pushArg((wxMenuItem*)this);
 			_obj.pushArg(text);
 			return (_obj.callFunction<void>());
 		}

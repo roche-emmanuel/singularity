@@ -16,11 +16,19 @@ public:
 	~wrapper_wxDialogLayoutAdapter() {
 		logDEBUG3("Calling delete function for wrapper wxDialogLayoutAdapter");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxDialogLayoutAdapter*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxDialogLayoutAdapter(lua_State* L, lua_Table* dum) : wxDialogLayoutAdapter(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxDialogLayoutAdapter(lua_State* L, lua_Table* dum) 
+		: wxDialogLayoutAdapter(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxDialogLayoutAdapter*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// bool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog * dialog)
 	bool CanDoLayoutAdaptation(wxDialog * dialog) {
 		THROW_IF(!_obj.pushFunction("CanDoLayoutAdaptation"),"No implementation for abstract function wxDialogLayoutAdapter::CanDoLayoutAdaptation");
+		_obj.pushArg((wxDialogLayoutAdapter*)this);
 		_obj.pushArg(dialog);
 		return (_obj.callFunction<bool>());
 	};
@@ -38,6 +47,7 @@ public:
 	// bool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog * dialog)
 	bool DoLayoutAdaptation(wxDialog * dialog) {
 		THROW_IF(!_obj.pushFunction("DoLayoutAdaptation"),"No implementation for abstract function wxDialogLayoutAdapter::DoLayoutAdaptation");
+		_obj.pushArg((wxDialogLayoutAdapter*)this);
 		_obj.pushArg(dialog);
 		return (_obj.callFunction<bool>());
 	};

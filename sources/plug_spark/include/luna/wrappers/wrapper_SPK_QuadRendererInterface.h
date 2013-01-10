@@ -16,11 +16,19 @@ public:
 	~wrapper_SPK_QuadRendererInterface() {
 		logDEBUG3("Calling delete function for wrapper SPK_QuadRendererInterface");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((SPK::QuadRendererInterface*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_SPK_QuadRendererInterface(lua_State* L, lua_Table* dum, float scaleX = 1.0f, float scaleY = 1.0f) : SPK::QuadRendererInterface(scaleX, scaleY), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_SPK_QuadRendererInterface(lua_State* L, lua_Table* dum, float scaleX = 1.0f, float scaleY = 1.0f) 
+		: SPK::QuadRendererInterface(scaleX, scaleY), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((SPK::QuadRendererInterface*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// bool SPK::QuadRendererInterface::setTexturingMode(SPK::TexturingMode mode)
 	bool setTexturingMode(SPK::TexturingMode mode) {
 		if(_obj.pushFunction("setTexturingMode")) {
+			_obj.pushArg((SPK::QuadRendererInterface*)this);
 			_obj.pushArg(mode);
 			return (_obj.callFunction<bool>());
 		}
@@ -202,11 +211,11 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_computeAtlasCoordinates",_bind_public_computeAtlasCoordinates},
-		{"protected_textureAtlasU0",_bind_public_textureAtlasU0},
-		{"protected_textureAtlasU1",_bind_public_textureAtlasU1},
-		{"protected_textureAtlasV0",_bind_public_textureAtlasV0},
-		{"protected_textureAtlasV1",_bind_public_textureAtlasV1},
+		{"computeAtlasCoordinates",_bind_public_computeAtlasCoordinates},
+		{"textureAtlasU0",_bind_public_textureAtlasU0},
+		{"textureAtlasU1",_bind_public_textureAtlasU1},
+		{"textureAtlasV0",_bind_public_textureAtlasV0},
+		{"textureAtlasV1",_bind_public_textureAtlasV1},
 		{NULL,NULL}
 		};
 

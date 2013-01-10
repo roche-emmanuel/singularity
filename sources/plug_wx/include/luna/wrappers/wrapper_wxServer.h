@@ -16,11 +16,19 @@ public:
 	~wrapper_wxServer() {
 		logDEBUG3("Calling delete function for wrapper wxServer");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxServer*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxServer(lua_State* L, lua_Table* dum) : wxServer(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxServer(lua_State* L, lua_Table* dum) 
+		: wxServer(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxServer*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// wxConnectionBase * wxServer::OnAcceptConnection(const wxString & topic)
 	wxConnectionBase * OnAcceptConnection(const wxString & topic) {
 		if(_obj.pushFunction("OnAcceptConnection")) {
+			_obj.pushArg((wxServer*)this);
 			_obj.pushArg(topic);
 			return (_obj.callFunction<wxConnectionBase*>());
 		}

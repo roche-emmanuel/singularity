@@ -16,12 +16,27 @@ public:
 	~wrapper_osgUtil_TangentSpaceGenerator() {
 		logDEBUG3("Calling delete function for wrapper osgUtil_TangentSpaceGenerator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::TangentSpaceGenerator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_TangentSpaceGenerator(lua_State* L, lua_Table* dum) : osgUtil::TangentSpaceGenerator(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_TangentSpaceGenerator(lua_State* L, lua_Table* dum, const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::TangentSpaceGenerator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_TangentSpaceGenerator(lua_State* L, lua_Table* dum) 
+		: osgUtil::TangentSpaceGenerator(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::TangentSpaceGenerator*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_TangentSpaceGenerator(lua_State* L, lua_Table* dum, const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osgUtil::TangentSpaceGenerator(copy, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::TangentSpaceGenerator*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -32,6 +47,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::TangentSpaceGenerator*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -191,10 +207,10 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_compute",_bind_public_compute},
-		{"protected_op_assign",_bind_public_op_assign},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"compute",_bind_public_compute},
+		{"op_assign",_bind_public_op_assign},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

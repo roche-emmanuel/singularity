@@ -16,11 +16,19 @@ public:
 	~wrapper_wxHtmlHelpController() {
 		logDEBUG3("Calling delete function for wrapper wxHtmlHelpController");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxHtmlHelpController*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxHtmlHelpController(lua_State* L, lua_Table* dum, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL) : wxHtmlHelpController(style, parentWindow), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxHtmlHelpController(lua_State* L, lua_Table* dum, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL) 
+		: wxHtmlHelpController(style, parentWindow), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxHtmlHelpController*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +37,7 @@ protected:
 	// wxHtmlHelpDialog * wxHtmlHelpController::CreateHelpDialog(wxHtmlHelpData * data)
 	wxHtmlHelpDialog * CreateHelpDialog(wxHtmlHelpData * data) {
 		if(_obj.pushFunction("CreateHelpDialog")) {
+			_obj.pushArg((wxHtmlHelpController*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxHtmlHelpDialog*>());
 		}
@@ -39,6 +48,7 @@ protected:
 	// wxHtmlHelpFrame * wxHtmlHelpController::CreateHelpFrame(wxHtmlHelpData * data)
 	wxHtmlHelpFrame * CreateHelpFrame(wxHtmlHelpData * data) {
 		if(_obj.pushFunction("CreateHelpFrame")) {
+			_obj.pushArg((wxHtmlHelpController*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxHtmlHelpFrame*>());
 		}
@@ -51,6 +61,7 @@ public:
 	// bool wxHtmlHelpController::DisplayContents()
 	bool DisplayContents() {
 		if(_obj.pushFunction("DisplayContents")) {
+			_obj.pushArg((wxHtmlHelpController*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -60,6 +71,7 @@ public:
 	// bool wxHtmlHelpController::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)
 	bool KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL) {
 		if(_obj.pushFunction("KeywordSearch")) {
+			_obj.pushArg((wxHtmlHelpController*)this);
 			_obj.pushArg(keyword);
 			_obj.pushArg(mode);
 			return (_obj.callFunction<bool>());
@@ -71,6 +83,7 @@ public:
 	// void wxHtmlHelpController::ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)
 	void ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString) {
 		if(_obj.pushFunction("ReadCustomization")) {
+			_obj.pushArg((wxHtmlHelpController*)this);
 			_obj.pushArg(cfg);
 			_obj.pushArg(path);
 			return (_obj.callFunction<void>());
@@ -82,6 +95,7 @@ public:
 	// void wxHtmlHelpController::WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)
 	void WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString) {
 		if(_obj.pushFunction("WriteCustomization")) {
+			_obj.pushArg((wxHtmlHelpController*)this);
 			_obj.pushArg(cfg);
 			_obj.pushArg(path);
 			return (_obj.callFunction<void>());

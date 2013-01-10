@@ -16,12 +16,27 @@ public:
 	~wrapper_osg_ApplicationUsage() {
 		logDEBUG3("Calling delete function for wrapper osg_ApplicationUsage");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::ApplicationUsage*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_ApplicationUsage(lua_State* L, lua_Table* dum) : osg::ApplicationUsage(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_ApplicationUsage(lua_State* L, lua_Table* dum, const std::string & commandLineUsage) : osg::ApplicationUsage(commandLineUsage), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_ApplicationUsage(lua_State* L, lua_Table* dum) 
+		: osg::ApplicationUsage(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::ApplicationUsage*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_ApplicationUsage(lua_State* L, lua_Table* dum, const std::string & commandLineUsage) 
+		: osg::ApplicationUsage(commandLineUsage), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::ApplicationUsage*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -32,6 +47,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::ApplicationUsage*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -110,8 +126,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

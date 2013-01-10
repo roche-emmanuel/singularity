@@ -16,11 +16,19 @@ public:
 	~wrapper_wxWithImages() {
 		logDEBUG3("Calling delete function for wrapper wxWithImages");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxWithImages*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxWithImages(lua_State* L, lua_Table* dum) : wxWithImages(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxWithImages(lua_State* L, lua_Table* dum) 
+		: wxWithImages(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxWithImages*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void wxWithImages::SetImageList(wxImageList * imageList)
 	void SetImageList(wxImageList * imageList) {
 		if(_obj.pushFunction("SetImageList")) {
+			_obj.pushArg((wxWithImages*)this);
 			_obj.pushArg(imageList);
 			return (_obj.callFunction<void>());
 		}
@@ -112,8 +121,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_HasImageList",_bind_public_HasImageList},
-		{"protected_GetImage",_bind_public_GetImage},
+		{"HasImageList",_bind_public_HasImageList},
+		{"GetImage",_bind_public_GetImage},
 		{NULL,NULL}
 		};
 

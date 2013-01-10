@@ -16,29 +16,40 @@ public:
 	~wrapper_SPK_AABox() {
 		logDEBUG3("Calling delete function for wrapper SPK_AABox");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((SPK::AABox*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_SPK_AABox(lua_State* L, lua_Table* dum, const SPK::Vector3D & position = SPK::Vector3D (0.0f, 0.0f, 0.0f), const SPK::Vector3D & dimension = SPK::Vector3D (0.0f, 0.0f, 0.0f)) : SPK::AABox(position, dimension), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_SPK_AABox(lua_State* L, lua_Table* dum, const SPK::Vector3D & position = SPK::Vector3D (0.0f, 0.0f, 0.0f), const SPK::Vector3D & dimension = SPK::Vector3D (0.0f, 0.0f, 0.0f)) 
+		: SPK::AABox(position, dimension), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((SPK::AABox*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 private:
 	// Private virtual methods:
 	// void SPK::Registerable::onRegister()
 	void onRegister() {
 		THROW_IF(!_obj.pushFunction("onRegister"),"No implementation for abstract function SPK::Registerable::onRegister");
+		_obj.pushArg((SPK::AABox*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// void SPK::Registerable::onUnregister()
 	void onUnregister() {
 		THROW_IF(!_obj.pushFunction("onUnregister"),"No implementation for abstract function SPK::Registerable::onUnregister");
+		_obj.pushArg((SPK::AABox*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// SPK::AABox * SPK::AABox::clone(bool createBase) const
 	SPK::AABox * clone(bool createBase) const {
 		THROW_IF(!_obj.pushFunction("clone"),"No implementation for abstract function SPK::AABox::clone");
+		_obj.pushArg((SPK::AABox*)this);
 		_obj.pushArg(createBase);
 		return (_obj.callFunction<SPK::AABox*>());
 	};
@@ -48,6 +59,7 @@ protected:
 	// void SPK::Registerable::registerChildren(bool registerAll)
 	void registerChildren(bool registerAll) {
 		if(_obj.pushFunction("registerChildren")) {
+			_obj.pushArg((SPK::AABox*)this);
 			_obj.pushArg(registerAll);
 			return (_obj.callFunction<void>());
 		}
@@ -58,6 +70,7 @@ protected:
 	// void SPK::Registerable::copyChildren(const SPK::Registerable & object, bool createBase)
 	void copyChildren(const SPK::Registerable & object, bool createBase) {
 		if(_obj.pushFunction("copyChildren")) {
+			_obj.pushArg((SPK::AABox*)this);
 			_obj.pushArg(&object);
 			_obj.pushArg(createBase);
 			return (_obj.callFunction<void>());
@@ -69,6 +82,7 @@ protected:
 	// void SPK::Registerable::destroyChildren(bool keepChildren)
 	void destroyChildren(bool keepChildren) {
 		if(_obj.pushFunction("destroyChildren")) {
+			_obj.pushArg((SPK::AABox*)this);
 			_obj.pushArg(keepChildren);
 			return (_obj.callFunction<void>());
 		}
@@ -79,6 +93,7 @@ protected:
 	// void SPK::Transformable::propagateUpdateTransform()
 	void propagateUpdateTransform() {
 		if(_obj.pushFunction("propagateUpdateTransform")) {
+			_obj.pushArg((SPK::AABox*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -88,6 +103,7 @@ protected:
 	// void SPK::Zone::innerUpdateTransform()
 	void innerUpdateTransform() {
 		if(_obj.pushFunction("innerUpdateTransform")) {
+			_obj.pushArg((SPK::AABox*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -99,6 +115,7 @@ public:
 	// SPK::Registerable * SPK::Registerable::findByName(const std::string & name)
 	SPK::Registerable * findByName(const std::string & name) {
 		if(_obj.pushFunction("findByName")) {
+			_obj.pushArg((SPK::AABox*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<SPK::Registerable*>());
 		}
@@ -109,6 +126,7 @@ public:
 	// void SPK::Zone::setPosition(const SPK::Vector3D & v)
 	void setPosition(const SPK::Vector3D & v) {
 		if(_obj.pushFunction("setPosition")) {
+			_obj.pushArg((SPK::AABox*)this);
 			_obj.pushArg(&v);
 			return (_obj.callFunction<void>());
 		}
@@ -119,6 +137,7 @@ public:
 	// std::string SPK::AABox::getClassName() const
 	std::string getClassName() const {
 		if(_obj.pushFunction("getClassName")) {
+			_obj.pushArg((SPK::AABox*)this);
 			return (_obj.callFunction<std::string>());
 		}
 
@@ -128,6 +147,7 @@ public:
 	// void SPK::AABox::generatePosition(SPK::Particle & particle, bool full) const
 	void generatePosition(SPK::Particle & particle, bool full) const {
 		if(_obj.pushFunction("generatePosition")) {
+			_obj.pushArg((SPK::AABox*)this);
 			_obj.pushArg(&particle);
 			_obj.pushArg(full);
 			return (_obj.callFunction<void>());
@@ -139,6 +159,7 @@ public:
 	// bool SPK::AABox::contains(const SPK::Vector3D & point) const
 	bool contains(const SPK::Vector3D & point) const {
 		if(_obj.pushFunction("contains")) {
+			_obj.pushArg((SPK::AABox*)this);
 			_obj.pushArg(&point);
 			return (_obj.callFunction<bool>());
 		}
@@ -149,6 +170,7 @@ public:
 	// bool SPK::AABox::intersects(const SPK::Vector3D & v0, const SPK::Vector3D & v1, SPK::Vector3D * intersection, SPK::Vector3D * normal) const
 	bool intersects(const SPK::Vector3D & v0, const SPK::Vector3D & v1, SPK::Vector3D * intersection, SPK::Vector3D * normal) const {
 		if(_obj.pushFunction("intersects")) {
+			_obj.pushArg((SPK::AABox*)this);
 			_obj.pushArg(&v0);
 			_obj.pushArg(&v1);
 			_obj.pushArg(intersection);
@@ -162,6 +184,7 @@ public:
 	// void SPK::AABox::moveAtBorder(SPK::Vector3D & point, bool inside) const
 	void moveAtBorder(SPK::Vector3D & point, bool inside) const {
 		if(_obj.pushFunction("moveAtBorder")) {
+			_obj.pushArg((SPK::AABox*)this);
 			_obj.pushArg(&point);
 			_obj.pushArg(inside);
 			return (_obj.callFunction<void>());
@@ -173,6 +196,7 @@ public:
 	// SPK::Vector3D SPK::AABox::computeNormal(const SPK::Vector3D & point) const
 	SPK::Vector3D computeNormal(const SPK::Vector3D & point) const {
 		if(_obj.pushFunction("computeNormal")) {
+			_obj.pushArg((SPK::AABox*)this);
 			_obj.pushArg(&point);
 			return *(_obj.callFunction<SPK::Vector3D*>());
 		}
@@ -598,18 +622,18 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_normalizeOrRandomize",_bind_public_normalizeOrRandomize},
-		{"protected_registerChild",_bind_public_registerChild},
-		{"protected_copyChild",_bind_public_copyChild},
-		{"protected_destroyChild",_bind_public_destroyChild},
-		{"protected_incrementChildReference",_bind_public_incrementChildReference},
-		{"protected_decrementChildReference",_bind_public_decrementChildReference},
-		{"protected_registerObject",_bind_public_registerObject},
-		{"protected_transformPos",_bind_public_transformPos},
-		{"protected_transformDir",_bind_public_transformDir},
-		{"protected_isUpdateNotified",_bind_public_isUpdateNotified},
-		{"protected_notifyForUpdate",_bind_public_notifyForUpdate},
-		{"protected_getParentTransform",_bind_public_getParentTransform},
+		{"normalizeOrRandomize",_bind_public_normalizeOrRandomize},
+		{"registerChild",_bind_public_registerChild},
+		{"copyChild",_bind_public_copyChild},
+		{"destroyChild",_bind_public_destroyChild},
+		{"incrementChildReference",_bind_public_incrementChildReference},
+		{"decrementChildReference",_bind_public_decrementChildReference},
+		{"registerObject",_bind_public_registerObject},
+		{"transformPos",_bind_public_transformPos},
+		{"transformDir",_bind_public_transformDir},
+		{"isUpdateNotified",_bind_public_isUpdateNotified},
+		{"notifyForUpdate",_bind_public_notifyForUpdate},
+		{"getParentTransform",_bind_public_getParentTransform},
 		{NULL,NULL}
 		};
 

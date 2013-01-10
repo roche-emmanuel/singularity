@@ -16,16 +16,59 @@ public:
 	~wrapper_wxDragImage() {
 		logDEBUG3("Calling delete function for wrapper wxDragImage");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxDragImage*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxDragImage(lua_State* L, lua_Table* dum) : wxDragImage(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxBitmap & image, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) : wxDragImage(image, cursor, cursorHotspot), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxIcon & image, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) : wxDragImage(image, cursor, cursorHotspot), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxString & text, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) : wxDragImage(text, cursor, cursorHotspot), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxTreeCtrl & treeCtrl, wxTreeItemId & id) : wxDragImage(treeCtrl, id), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxListCtrl & listCtrl, long id) : wxDragImage(listCtrl, id), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxDragImage(lua_State* L, lua_Table* dum) 
+		: wxDragImage(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxDragImage*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxBitmap & image, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) 
+		: wxDragImage(image, cursor, cursorHotspot), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxDragImage*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxIcon & image, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) 
+		: wxDragImage(image, cursor, cursorHotspot), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxDragImage*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxString & text, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) 
+		: wxDragImage(text, cursor, cursorHotspot), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxDragImage*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxTreeCtrl & treeCtrl, wxTreeItemId & id) 
+		: wxDragImage(treeCtrl, id), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxDragImage*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxDragImage(lua_State* L, lua_Table* dum, const wxListCtrl & listCtrl, long id) 
+		: wxDragImage(listCtrl, id), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxDragImage*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -34,6 +77,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxDragImage*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -43,6 +87,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxDragImage*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -55,6 +100,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxDragImage*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 

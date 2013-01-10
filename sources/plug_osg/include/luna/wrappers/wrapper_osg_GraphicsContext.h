@@ -16,12 +16,27 @@ public:
 	~wrapper_osg_GraphicsContext() {
 		logDEBUG3("Calling delete function for wrapper osg_GraphicsContext");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::GraphicsContext*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_GraphicsContext(lua_State* L, lua_Table* dum) : osg::GraphicsContext(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_GraphicsContext(lua_State* L, lua_Table* dum, const osg::GraphicsContext & arg1, const osg::CopyOp & arg2) : osg::GraphicsContext(arg1, arg2), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_GraphicsContext(lua_State* L, lua_Table* dum) 
+		: osg::GraphicsContext(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_GraphicsContext(lua_State* L, lua_Table* dum, const osg::GraphicsContext & arg1, const osg::CopyOp & arg2) 
+		: osg::GraphicsContext(arg1, arg2), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +45,7 @@ protected:
 	// osg::Object * osg::GraphicsContext::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -39,6 +55,7 @@ protected:
 	// osg::Object * osg::GraphicsContext::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -51,6 +68,7 @@ public:
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -61,6 +79,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -71,6 +90,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -80,6 +100,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -90,6 +111,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -99,6 +121,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -108,6 +131,7 @@ public:
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -118,12 +142,14 @@ public:
 	// bool osg::GraphicsContext::valid() const
 	bool valid() const {
 		THROW_IF(!_obj.pushFunction("valid"),"No implementation for abstract function osg::GraphicsContext::valid");
+		_obj.pushArg((osg::GraphicsContext*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// void osg::GraphicsContext::clear()
 	void clear() {
 		if(_obj.pushFunction("clear")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -133,30 +159,35 @@ public:
 	// bool osg::GraphicsContext::realizeImplementation()
 	bool realizeImplementation() {
 		THROW_IF(!_obj.pushFunction("realizeImplementation"),"No implementation for abstract function osg::GraphicsContext::realizeImplementation");
+		_obj.pushArg((osg::GraphicsContext*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// bool osg::GraphicsContext::isRealizedImplementation() const
 	bool isRealizedImplementation() const {
 		THROW_IF(!_obj.pushFunction("isRealizedImplementation"),"No implementation for abstract function osg::GraphicsContext::isRealizedImplementation");
+		_obj.pushArg((osg::GraphicsContext*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// void osg::GraphicsContext::closeImplementation()
 	void closeImplementation() {
 		THROW_IF(!_obj.pushFunction("closeImplementation"),"No implementation for abstract function osg::GraphicsContext::closeImplementation");
+		_obj.pushArg((osg::GraphicsContext*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// bool osg::GraphicsContext::makeCurrentImplementation()
 	bool makeCurrentImplementation() {
 		THROW_IF(!_obj.pushFunction("makeCurrentImplementation"),"No implementation for abstract function osg::GraphicsContext::makeCurrentImplementation");
+		_obj.pushArg((osg::GraphicsContext*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// bool osg::GraphicsContext::makeContextCurrentImplementation(osg::GraphicsContext * readContext)
 	bool makeContextCurrentImplementation(osg::GraphicsContext * readContext) {
 		THROW_IF(!_obj.pushFunction("makeContextCurrentImplementation"),"No implementation for abstract function osg::GraphicsContext::makeContextCurrentImplementation");
+		_obj.pushArg((osg::GraphicsContext*)this);
 		_obj.pushArg(readContext);
 		return (_obj.callFunction<bool>());
 	};
@@ -164,12 +195,14 @@ public:
 	// bool osg::GraphicsContext::releaseContextImplementation()
 	bool releaseContextImplementation() {
 		THROW_IF(!_obj.pushFunction("releaseContextImplementation"),"No implementation for abstract function osg::GraphicsContext::releaseContextImplementation");
+		_obj.pushArg((osg::GraphicsContext*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// void osg::GraphicsContext::bindPBufferToTextureImplementation(unsigned int buffer)
 	void bindPBufferToTextureImplementation(unsigned int buffer) {
 		THROW_IF(!_obj.pushFunction("bindPBufferToTextureImplementation"),"No implementation for abstract function osg::GraphicsContext::bindPBufferToTextureImplementation");
+		_obj.pushArg((osg::GraphicsContext*)this);
 		_obj.pushArg(buffer);
 		return (_obj.callFunction<void>());
 	};
@@ -177,12 +210,14 @@ public:
 	// void osg::GraphicsContext::swapBuffersImplementation()
 	void swapBuffersImplementation() {
 		THROW_IF(!_obj.pushFunction("swapBuffersImplementation"),"No implementation for abstract function osg::GraphicsContext::swapBuffersImplementation");
+		_obj.pushArg((osg::GraphicsContext*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// void osg::GraphicsContext::resizedImplementation(int x, int y, int width, int height)
 	void resizedImplementation(int x, int y, int width, int height) {
 		if(_obj.pushFunction("resizedImplementation")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
 			_obj.pushArg(x);
 			_obj.pushArg(y);
 			_obj.pushArg(width);
@@ -196,6 +231,7 @@ public:
 	// bool osg::GraphicsContext::isSameKindAs(const osg::Object * object) const
 	bool isSameKindAs(const osg::Object * object) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
 			_obj.pushArg(object);
 			return (_obj.callFunction<bool>());
 		}
@@ -206,6 +242,7 @@ public:
 	// const char * osg::GraphicsContext::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -215,6 +252,7 @@ public:
 	// const char * osg::GraphicsContext::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -416,12 +454,12 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_addCamera",_bind_public_addCamera},
-		{"protected_removeCamera",_bind_public_removeCamera},
-		{"protected_registerGraphicsContext",_bind_public_registerGraphicsContext},
-		{"protected_unregisterGraphicsContext",_bind_public_unregisterGraphicsContext},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"addCamera",_bind_public_addCamera},
+		{"removeCamera",_bind_public_removeCamera},
+		{"registerGraphicsContext",_bind_public_registerGraphicsContext},
+		{"unregisterGraphicsContext",_bind_public_unregisterGraphicsContext},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

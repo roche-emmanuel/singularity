@@ -16,30 +16,48 @@ public:
 	~wrapper_SPK_Model() {
 		logDEBUG3("Calling delete function for wrapper SPK_Model");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((SPK::Model*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_SPK_Model(lua_State* L, lua_Table* dum, int enableFlag = SPK::FLAG_RED | SPK::FLAG_GREEN | SPK::FLAG_BLUE, int mutableFlag = SPK::FLAG_NONE, int randomFlag = SPK::FLAG_NONE, int interpolatedFlag = SPK::FLAG_NONE) : SPK::Model(enableFlag, mutableFlag, randomFlag, interpolatedFlag), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_SPK_Model(lua_State* L, lua_Table* dum, const SPK::Model & model) : SPK::Model(model), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_SPK_Model(lua_State* L, lua_Table* dum, int enableFlag = SPK::FLAG_RED | SPK::FLAG_GREEN | SPK::FLAG_BLUE, int mutableFlag = SPK::FLAG_NONE, int randomFlag = SPK::FLAG_NONE, int interpolatedFlag = SPK::FLAG_NONE) 
+		: SPK::Model(enableFlag, mutableFlag, randomFlag, interpolatedFlag), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((SPK::Model*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_SPK_Model(lua_State* L, lua_Table* dum, const SPK::Model & model) 
+		: SPK::Model(model), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((SPK::Model*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 private:
 	// Private virtual methods:
 	// void SPK::Registerable::onRegister()
 	void onRegister() {
 		THROW_IF(!_obj.pushFunction("onRegister"),"No implementation for abstract function SPK::Registerable::onRegister");
+		_obj.pushArg((SPK::Model*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// void SPK::Registerable::onUnregister()
 	void onUnregister() {
 		THROW_IF(!_obj.pushFunction("onUnregister"),"No implementation for abstract function SPK::Registerable::onUnregister");
+		_obj.pushArg((SPK::Model*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// SPK::Model * SPK::Model::clone(bool createBase) const
 	SPK::Model * clone(bool createBase) const {
 		THROW_IF(!_obj.pushFunction("clone"),"No implementation for abstract function SPK::Model::clone");
+		_obj.pushArg((SPK::Model*)this);
 		_obj.pushArg(createBase);
 		return (_obj.callFunction<SPK::Model*>());
 	};
@@ -49,6 +67,7 @@ protected:
 	// void SPK::Registerable::registerChildren(bool registerAll)
 	void registerChildren(bool registerAll) {
 		if(_obj.pushFunction("registerChildren")) {
+			_obj.pushArg((SPK::Model*)this);
 			_obj.pushArg(registerAll);
 			return (_obj.callFunction<void>());
 		}
@@ -59,6 +78,7 @@ protected:
 	// void SPK::Registerable::copyChildren(const SPK::Registerable & object, bool createBase)
 	void copyChildren(const SPK::Registerable & object, bool createBase) {
 		if(_obj.pushFunction("copyChildren")) {
+			_obj.pushArg((SPK::Model*)this);
 			_obj.pushArg(&object);
 			_obj.pushArg(createBase);
 			return (_obj.callFunction<void>());
@@ -70,6 +90,7 @@ protected:
 	// void SPK::Registerable::destroyChildren(bool keepChildren)
 	void destroyChildren(bool keepChildren) {
 		if(_obj.pushFunction("destroyChildren")) {
+			_obj.pushArg((SPK::Model*)this);
 			_obj.pushArg(keepChildren);
 			return (_obj.callFunction<void>());
 		}
@@ -82,6 +103,7 @@ public:
 	// SPK::Registerable * SPK::Registerable::findByName(const std::string & name)
 	SPK::Registerable * findByName(const std::string & name) {
 		if(_obj.pushFunction("findByName")) {
+			_obj.pushArg((SPK::Model*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<SPK::Registerable*>());
 		}
@@ -92,6 +114,7 @@ public:
 	// std::string SPK::Model::getClassName() const
 	std::string getClassName() const {
 		if(_obj.pushFunction("getClassName")) {
+			_obj.pushArg((SPK::Model*)this);
 			return (_obj.callFunction<std::string>());
 		}
 
@@ -308,12 +331,12 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_registerChild",_bind_public_registerChild},
-		{"protected_copyChild",_bind_public_copyChild},
-		{"protected_destroyChild",_bind_public_destroyChild},
-		{"protected_incrementChildReference",_bind_public_incrementChildReference},
-		{"protected_decrementChildReference",_bind_public_decrementChildReference},
-		{"protected_registerObject",_bind_public_registerObject},
+		{"registerChild",_bind_public_registerChild},
+		{"copyChild",_bind_public_copyChild},
+		{"destroyChild",_bind_public_destroyChild},
+		{"incrementChildReference",_bind_public_incrementChildReference},
+		{"decrementChildReference",_bind_public_decrementChildReference},
+		{"registerObject",_bind_public_registerObject},
 		{NULL,NULL}
 		};
 

@@ -16,11 +16,19 @@ public:
 	~wrapper_Awesomium_DataPakSource() {
 		logDEBUG3("Calling delete function for wrapper Awesomium_DataPakSource");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((Awesomium::DataPakSource*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_Awesomium_DataPakSource(lua_State* L, lua_Table* dum, const Awesomium::WebString & pak_path) : Awesomium::DataPakSource(pak_path), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_Awesomium_DataPakSource(lua_State* L, lua_Table* dum, const Awesomium::WebString & pak_path) 
+		: Awesomium::DataPakSource(pak_path), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((Awesomium::DataPakSource*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void Awesomium::DataPakSource::OnRequest(int request_id, const Awesomium::WebString & path)
 	void OnRequest(int request_id, const Awesomium::WebString & path) {
 		if(_obj.pushFunction("OnRequest")) {
+			_obj.pushArg((Awesomium::DataPakSource*)this);
 			_obj.pushArg(request_id);
 			_obj.pushArg(&path);
 			return (_obj.callFunction<void>());
@@ -81,7 +90,7 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_set_session",_bind_public_set_session},
+		{"set_session",_bind_public_set_session},
 		{NULL,NULL}
 		};
 

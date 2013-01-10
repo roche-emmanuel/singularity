@@ -16,11 +16,19 @@ public:
 	~wrapper_OpenThreads_Condition() {
 		logDEBUG3("Calling delete function for wrapper OpenThreads_Condition");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((OpenThreads::Condition*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_OpenThreads_Condition(lua_State* L, lua_Table* dum) : OpenThreads::Condition(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_OpenThreads_Condition(lua_State* L, lua_Table* dum) 
+		: OpenThreads::Condition(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((OpenThreads::Condition*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// int OpenThreads::Condition::signal()
 	int signal() {
 		if(_obj.pushFunction("signal")) {
+			_obj.pushArg((OpenThreads::Condition*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -40,6 +49,7 @@ public:
 	// int OpenThreads::Condition::broadcast()
 	int broadcast() {
 		if(_obj.pushFunction("broadcast")) {
+			_obj.pushArg((OpenThreads::Condition*)this);
 			return (_obj.callFunction<int>());
 		}
 

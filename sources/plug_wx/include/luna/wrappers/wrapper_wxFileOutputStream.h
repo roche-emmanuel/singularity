@@ -16,13 +16,35 @@ public:
 	~wrapper_wxFileOutputStream() {
 		logDEBUG3("Calling delete function for wrapper wxFileOutputStream");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxFileOutputStream*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, const wxString & ofileName) : wxFileOutputStream(ofileName), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, wxFile & file) : wxFileOutputStream(file), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, int fd) : wxFileOutputStream(fd), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, const wxString & ofileName) 
+		: wxFileOutputStream(ofileName), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxFileOutputStream*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, wxFile & file) 
+		: wxFileOutputStream(file), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxFileOutputStream*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, int fd) 
+		: wxFileOutputStream(fd), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxFileOutputStream*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +53,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxFileOutputStream*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -40,6 +63,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxFileOutputStream*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -50,6 +74,7 @@ protected:
 	// long long wxStreamBase::OnSysSeek(long long pos, wxSeekMode mode)
 	long long OnSysSeek(long long pos, wxSeekMode mode) {
 		if(_obj.pushFunction("OnSysSeek")) {
+			_obj.pushArg((wxFileOutputStream*)this);
 			_obj.pushArg(pos);
 			_obj.pushArg(mode);
 			return (_obj.callFunction<long long>());
@@ -61,6 +86,7 @@ protected:
 	// long long wxStreamBase::OnSysTell() const
 	long long OnSysTell() const {
 		if(_obj.pushFunction("OnSysTell")) {
+			_obj.pushArg((wxFileOutputStream*)this);
 			return (_obj.callFunction<long long>());
 		}
 
@@ -72,6 +98,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxFileOutputStream*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -81,6 +108,7 @@ public:
 	// long long wxStreamBase::GetLength() const
 	long long GetLength() const {
 		if(_obj.pushFunction("GetLength")) {
+			_obj.pushArg((wxFileOutputStream*)this);
 			return (_obj.callFunction<long long>());
 		}
 
@@ -90,6 +118,7 @@ public:
 	// size_t wxStreamBase::GetSize() const
 	size_t GetSize() const {
 		if(_obj.pushFunction("GetSize")) {
+			_obj.pushArg((wxFileOutputStream*)this);
 			return (_obj.callFunction<size_t>());
 		}
 
@@ -99,6 +128,7 @@ public:
 	// bool wxStreamBase::IsSeekable() const
 	bool IsSeekable() const {
 		if(_obj.pushFunction("IsSeekable")) {
+			_obj.pushArg((wxFileOutputStream*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -108,6 +138,7 @@ public:
 	// bool wxOutputStream::Close()
 	bool Close() {
 		if(_obj.pushFunction("Close")) {
+			_obj.pushArg((wxFileOutputStream*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -117,6 +148,7 @@ public:
 	// size_t wxOutputStream::LastWrite() const
 	size_t LastWrite() const {
 		if(_obj.pushFunction("LastWrite")) {
+			_obj.pushArg((wxFileOutputStream*)this);
 			return (_obj.callFunction<size_t>());
 		}
 
@@ -126,6 +158,7 @@ public:
 	// long long wxOutputStream::SeekO(long long pos, wxSeekMode mode = ::wxFromStart)
 	long long SeekO(long long pos, wxSeekMode mode = ::wxFromStart) {
 		if(_obj.pushFunction("SeekO")) {
+			_obj.pushArg((wxFileOutputStream*)this);
 			_obj.pushArg(pos);
 			_obj.pushArg(mode);
 			return (_obj.callFunction<long long>());
@@ -137,6 +170,7 @@ public:
 	// long long wxOutputStream::TellO() const
 	long long TellO() const {
 		if(_obj.pushFunction("TellO")) {
+			_obj.pushArg((wxFileOutputStream*)this);
 			return (_obj.callFunction<long long>());
 		}
 
@@ -146,6 +180,7 @@ public:
 	// wxOutputStream & wxOutputStream::Write(const void * buffer, size_t size)
 	wxOutputStream & Write(const void * buffer, size_t size) {
 		if(_obj.pushFunction("Write")) {
+			_obj.pushArg((wxFileOutputStream*)this);
 			_obj.pushArg(buffer);
 			_obj.pushArg(size);
 			return *(_obj.callFunction<wxOutputStream*>());
@@ -157,6 +192,7 @@ public:
 	// bool wxFileOutputStream::IsOk() const
 	bool IsOk() const {
 		if(_obj.pushFunction("IsOk")) {
+			_obj.pushArg((wxFileOutputStream*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -206,7 +242,7 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_OnSysWrite",_bind_public_OnSysWrite},
+		{"OnSysWrite",_bind_public_OnSysWrite},
 		{NULL,NULL}
 		};
 

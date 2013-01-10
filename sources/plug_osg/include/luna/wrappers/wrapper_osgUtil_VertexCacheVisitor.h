@@ -16,11 +16,19 @@ public:
 	~wrapper_osgUtil_VertexCacheVisitor() {
 		logDEBUG3("Calling delete function for wrapper osgUtil_VertexCacheVisitor");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::VertexCacheVisitor*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_VertexCacheVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer = 0) : osgUtil::VertexCacheVisitor(optimizer), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_VertexCacheVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer = 0) 
+		: osgUtil::VertexCacheVisitor(optimizer), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::VertexCacheVisitor*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::VertexCacheVisitor*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +50,7 @@ public:
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgUtil::VertexCacheVisitor*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -50,6 +60,7 @@ public:
 	// const char * osg::NodeVisitor::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgUtil::VertexCacheVisitor*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -59,6 +70,7 @@ public:
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
 		if(_obj.pushFunction("getEyePoint")) {
+			_obj.pushArg((osgUtil::VertexCacheVisitor*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -68,6 +80,7 @@ public:
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {
 		if(_obj.pushFunction("getViewPoint")) {
+			_obj.pushArg((osgUtil::VertexCacheVisitor*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -77,6 +90,7 @@ public:
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToEyePoint")) {
+			_obj.pushArg((osgUtil::VertexCacheVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -88,6 +102,7 @@ public:
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceFromEyePoint")) {
+			_obj.pushArg((osgUtil::VertexCacheVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -99,6 +114,7 @@ public:
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToViewPoint")) {
+			_obj.pushArg((osgUtil::VertexCacheVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -110,6 +126,7 @@ public:
 	// void osgUtil::GeometryCollector::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osgUtil::VertexCacheVisitor*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -119,6 +136,7 @@ public:
 	// void osgUtil::GeometryCollector::apply(osg::Geode & geode)
 	void apply(osg::Geode & geode) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::VertexCacheVisitor*)this);
 			_obj.pushArg(&geode);
 			return (_obj.callFunction<void>());
 		}
@@ -197,8 +215,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

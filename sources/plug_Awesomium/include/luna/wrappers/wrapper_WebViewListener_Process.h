@@ -16,11 +16,19 @@ public:
 	~wrapper_WebViewListener_Process() {
 		logDEBUG3("Calling delete function for wrapper WebViewListener_Process");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((WebViewListener::Process*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_WebViewListener_Process(lua_State* L, lua_Table* dum) : WebViewListener::Process(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_WebViewListener_Process(lua_State* L, lua_Table* dum) 
+		: WebViewListener::Process(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((WebViewListener::Process*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +39,7 @@ public:
 	// void WebViewListener::Process::OnUnresponsive(Awesomium::WebView * caller)
 	void OnUnresponsive(Awesomium::WebView * caller) {
 		THROW_IF(!_obj.pushFunction("OnUnresponsive"),"No implementation for abstract function WebViewListener::Process::OnUnresponsive");
+		_obj.pushArg((WebViewListener::Process*)this);
 		_obj.pushArg(caller);
 		return (_obj.callFunction<void>());
 	};
@@ -38,6 +47,7 @@ public:
 	// void WebViewListener::Process::OnResponsive(Awesomium::WebView * caller)
 	void OnResponsive(Awesomium::WebView * caller) {
 		THROW_IF(!_obj.pushFunction("OnResponsive"),"No implementation for abstract function WebViewListener::Process::OnResponsive");
+		_obj.pushArg((WebViewListener::Process*)this);
 		_obj.pushArg(caller);
 		return (_obj.callFunction<void>());
 	};
@@ -45,6 +55,7 @@ public:
 	// void WebViewListener::Process::OnCrashed(Awesomium::WebView * caller, Awesomium::TerminationStatus status)
 	void OnCrashed(Awesomium::WebView * caller, Awesomium::TerminationStatus status) {
 		THROW_IF(!_obj.pushFunction("OnCrashed"),"No implementation for abstract function WebViewListener::Process::OnCrashed");
+		_obj.pushArg((WebViewListener::Process*)this);
 		_obj.pushArg(caller);
 		_obj.pushArg(status);
 		return (_obj.callFunction<void>());
