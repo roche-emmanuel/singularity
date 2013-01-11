@@ -57,11 +57,11 @@ public:
 };
 
 wxHtmlRenderingState* LunaTraits< wxHtmlRenderingState >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return NULL; //Type destructor explicitly removed.
 }
 
 void LunaTraits< wxHtmlRenderingState >::_bind_dtor(wxHtmlRenderingState* obj) {
-	//delete obj; // do not delete by default.
+	//Type destructor explicitly removed.
 }
 
 const char LunaTraits< wxHtmlRenderingState >::className[] = "wxHtmlRenderingState";

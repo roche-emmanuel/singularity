@@ -259,7 +259,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::KdTree::BuildOptions >::Register(L);
 	Luna< osg::KdTree::KdNode >::Register(L);
 	Luna< osg::KdTree::LineSegmentIntersection >::Register(L);
-	Luna< std::vector< double > >::Register(L);
 	Luna< osg::KdTree::Triangle >::Register(L);
 	Luna< osg::KdTreeBuilder >::Register(L);
 	Luna< osg::Light >::Register(L);
@@ -356,7 +355,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::TriangleMesh >::Register(L);
 	Luna< osg::ConvexHull >::Register(L);
 	Luna< osg::HeightField >::Register(L);
-	Luna< std::vector< float > >::Register(L);
 	Luna< osg::CompositeShape >::Register(L);
 	Luna< std::vector< osg::ref_ptr< osg::Shape > > >::Register(L);
 	Luna< osg::TessellationHints >::Register(L);
@@ -724,7 +722,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osgUtil::IntersectionVisitor >::Register(L);
 	Luna< osgUtil::IntersectionVisitor::ReadCallback >::Register(L);
 	Luna< osgUtil::Hit >::Register(L);
-	Luna< std::vector< int > >::Register(L);
 	Luna< osgUtil::IntersectVisitor >::Register(L);
 	Luna< osgUtil::PickVisitor >::Register(L);
 	Luna< osgUtil::LineSegmentIntersector >::Register(L);

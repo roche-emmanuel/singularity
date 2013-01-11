@@ -57,11 +57,11 @@ public:
 };
 
 std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > >* LunaTraits< std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > >();
 }
 
 void LunaTraits< std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > > >::_bind_dtor(std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > > >::className[] = "std_map_std_string_osg_ref_ptr_osgDB_BaseCompressor";

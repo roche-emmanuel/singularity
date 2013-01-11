@@ -12,8 +12,10 @@ function Class:initialize(options)
 	local hh = options.height or 800;
 	
 	-- create a webview for this tile:
-	self._webView = webman:createWebView{width=ww,height=hh};
-
+	self._webView = options.webView or webman:createWebView{width=ww,height=hh};
+	webman:registerWebView(self._webView)
+	self._webView:Resize(ww,hh)
+	
 	-- create the corresponding image:
 	self._image = osg.Image();
 	self._image:setAllocationMode(osg.Image.USE_NEW_DELETE)

@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osgUtil::StateGraph * >* LunaTraits< std::vector< osgUtil::StateGraph * > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osgUtil::StateGraph * >();
 }
 
 void LunaTraits< std::vector< osgUtil::StateGraph * > >::_bind_dtor(std::vector< osgUtil::StateGraph * >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osgUtil::StateGraph * > >::className[] = "std_vector_osgUtil_StateGraph_ptr";

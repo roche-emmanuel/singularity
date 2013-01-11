@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osg::Geometry::ArrayData >* LunaTraits< std::vector< osg::Geometry::ArrayData > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osg::Geometry::ArrayData >();
 }
 
 void LunaTraits< std::vector< osg::Geometry::ArrayData > >::_bind_dtor(std::vector< osg::Geometry::ArrayData >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osg::Geometry::ArrayData > >::className[] = "std_vector_osg_Geometry_ArrayData";

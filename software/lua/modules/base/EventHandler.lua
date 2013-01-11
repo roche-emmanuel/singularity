@@ -79,7 +79,8 @@ function Class:fireEvent(eventName,...)
 		--end
 		
 		-- call the callback:
-		cb{handler=self,event=eventName,args={...}};
+		--cb{handler=self,event=eventName,args={...}};
+		cb(self,eventName,...);
 		
 		if cb:isOneShot() then
 			self._markedForRemoval:push_back(cb)

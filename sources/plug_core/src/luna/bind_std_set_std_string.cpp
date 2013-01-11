@@ -57,11 +57,11 @@ public:
 };
 
 std::set< std::string >* LunaTraits< std::set< std::string > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::set< std::string >();
 }
 
 void LunaTraits< std::set< std::string > >::_bind_dtor(std::set< std::string >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::set< std::string > >::className[] = "std_set_std_string";

@@ -225,6 +225,30 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setFieldsCountVector(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,92299338)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setStatusWidthsVector(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,92299338)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setStatusStylesVector(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,92299338)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -1374,6 +1398,51 @@ public:
 			luaL_error(L, "Invalid object in function call void wxStatusBar::SetStatusWidths(int, const int *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		self->SetStatusWidths(n, &widths_field);
+
+		return 0;
+	}
+
+	// void wxStatusBar::setFieldsCountVector(wxStatusBar * bar, std::vector< int > * widths)
+	static int _bind_setFieldsCountVector(lua_State *L) {
+		if (!_lg_typecheck_setFieldsCountVector(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxStatusBar::setFieldsCountVector(wxStatusBar * bar, std::vector< int > * widths) function, expected prototype:\nvoid wxStatusBar::setFieldsCountVector(wxStatusBar * bar, std::vector< int > * widths)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = [unknown]\n");
+		}
+
+		wxStatusBar* bar=(Luna< wxObject >::checkSubType< wxStatusBar >(L,1));
+		std::vector< int >* widths=(Luna< std::vector< int > >::check(L,2));
+
+		setFieldsCountVector(bar, widths);
+
+		return 0;
+	}
+
+	// void wxStatusBar::setStatusWidthsVector(wxStatusBar * bar, std::vector< int > * widths)
+	static int _bind_setStatusWidthsVector(lua_State *L) {
+		if (!_lg_typecheck_setStatusWidthsVector(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxStatusBar::setStatusWidthsVector(wxStatusBar * bar, std::vector< int > * widths) function, expected prototype:\nvoid wxStatusBar::setStatusWidthsVector(wxStatusBar * bar, std::vector< int > * widths)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = [unknown]\n");
+		}
+
+		wxStatusBar* bar=(Luna< wxObject >::checkSubType< wxStatusBar >(L,1));
+		std::vector< int >* widths=(Luna< std::vector< int > >::check(L,2));
+
+		setStatusWidthsVector(bar, widths);
+
+		return 0;
+	}
+
+	// void wxStatusBar::setStatusStylesVector(wxStatusBar * bar, std::vector< int > * styles)
+	static int _bind_setStatusStylesVector(lua_State *L) {
+		if (!_lg_typecheck_setStatusStylesVector(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxStatusBar::setStatusStylesVector(wxStatusBar * bar, std::vector< int > * styles) function, expected prototype:\nvoid wxStatusBar::setStatusStylesVector(wxStatusBar * bar, std::vector< int > * styles)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = [unknown]\n");
+		}
+
+		wxStatusBar* bar=(Luna< wxObject >::checkSubType< wxStatusBar >(L,1));
+		std::vector< int >* styles=(Luna< std::vector< int > >::check(L,2));
+
+		setStatusStylesVector(bar, styles);
 
 		return 0;
 	}
@@ -3660,6 +3729,9 @@ luna_RegType LunaTraits< wxStatusBar >::methods[] = {
 	{"SetStatusStyles", &luna_wrapper_wxStatusBar::_bind_SetStatusStyles},
 	{"SetStatusText", &luna_wrapper_wxStatusBar::_bind_SetStatusText},
 	{"SetStatusWidths", &luna_wrapper_wxStatusBar::_bind_SetStatusWidths},
+	{"setFieldsCountVector", &luna_wrapper_wxStatusBar::_bind_setFieldsCountVector},
+	{"setStatusWidthsVector", &luna_wrapper_wxStatusBar::_bind_setStatusWidthsVector},
+	{"setStatusStylesVector", &luna_wrapper_wxStatusBar::_bind_setStatusStylesVector},
 	{"base_GetClassInfo", &luna_wrapper_wxStatusBar::_bind_base_GetClassInfo},
 	{"base_AcceptsFocus", &luna_wrapper_wxStatusBar::_bind_base_AcceptsFocus},
 	{"base_AcceptsFocusFromKeyboard", &luna_wrapper_wxStatusBar::_bind_base_AcceptsFocusFromKeyboard},

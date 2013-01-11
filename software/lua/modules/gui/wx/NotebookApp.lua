@@ -22,6 +22,10 @@ function Class:initialize(options)
 end
 
 function Class:buildInterface(intf,options)
+	-- Add a status bar to the frame:
+	local statusBar = self:getFrame():CreateStatusBar(3);
+	statusBar:SetFieldsCount{-2,-1,100}
+	
 	local mgr = winman:getAuiManager()
 	mgr:SetManagedWindow(self:getFrame());
 	
@@ -38,12 +42,23 @@ function Class:buildInterface(intf,options)
 	
 	mgr:AddPane(self._book, wx.wxAuiPaneInfo():Name("mainbook"):Show():CentrePane():Layer(0):MinSize(400,300));
 	mgr:Update();
-	
+		
 	self:getWindowManager():getMainFrame():SetSize(options.size or wx.wxSize(1280,720))	
 end
 
 function Class:getMainBook()
 	return self._book
+end
+
+function Class:setPageCaption(window,caption)
+	self:check(window,"Invalid window object.")
+	local index = self._book:GetPageIndex(window)
+	if index == wx.wxNOT_FOUND then
+		self:notice("Could not find the page for the window ", window, " to set caption ", caption)
+		return;
+	end
+	
+	self._book:SetPageText(index,caption)
 end
 
 function Class:addPage(options)

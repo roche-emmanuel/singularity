@@ -57,11 +57,11 @@ public:
 };
 
 std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > >* LunaTraits< std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > >();
 }
 
 void LunaTraits< std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > > >::_bind_dtor(std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > > >::className[] = "std_map_const_osg_StateSet_ptr_osg_ref_ptr_osgUtil_StateGraph";

@@ -21,4 +21,34 @@ unsigned int map_uint_get(std::map< std::string, unsigned int >* data, const std
 
 void setEnv(const std::string& var, const std::string& value);
 
+/** LUNA_CLASS_EXTENSION */
+inline void push_back(std::vector<int>* vec, int val) {
+	vec->push_back(val);
+}
+
+/** LUNA_CLASS_EXTENSION LUNA_RENAME get */
+inline unsigned int size(std::vector<int>* vec) {
+	return vec->size();
+}
+
+/** LUNA_CLASS_EXTENSION */
+inline void push_back(std::vector<float>* vec, float val) {
+	vec->push_back(val);
+}
+
+/** LUNA_CLASS_EXTENSION */
+inline unsigned int size(std::vector<float>* vec) {
+	return vec->size();
+}
+
+/** LUNA_CLASS_EXTENSION */
+inline void push_back(std::vector<double>* vec, double val) {
+	vec->push_back(val);
+}
+
+/** LUNA_CLASS_EXTENSION */
+inline unsigned int size(std::vector<double>* vec) {
+	return vec->size();
+}
+
 #endif

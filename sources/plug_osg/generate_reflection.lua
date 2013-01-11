@@ -21,6 +21,8 @@ local tm = require "bindings.TypeManager"
 tm:registerDeleter("osg::Referenced","osg::ref_ptr<osg::Referenced> refptr = ${1};")
 tm:registerExternals(sgt_path .. "sources/plug_core/classes.luna")
 tm:registerExternalFunctions(sgt_path .. "sources/plug_core/functions.luna")
+tm:setTypeConstructor("OpenThreads::ScopedLock< OpenThreads::Mutex >","NULL;")
+tm:setTypeDestructor("osg::Template","//Type destructor explicitly removed.")
 
 local corr = require "bindings.TextCorrector"
 corr:addCorrector("type_name","(OSG_EXPORT )","")

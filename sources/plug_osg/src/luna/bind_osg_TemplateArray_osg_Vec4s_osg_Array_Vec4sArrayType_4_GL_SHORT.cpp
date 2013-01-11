@@ -57,11 +57,11 @@ public:
 };
 
 osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT >* LunaTraits< osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT >();
 }
 
 void LunaTraits< osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT > >::_bind_dtor(osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT >* obj) {
-	//delete obj; // do not delete by default.
+	//Type destructor explicitly removed.
 }
 
 const char LunaTraits< osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT > >::className[] = "osg_TemplateArray_osg_Vec4s_osg_Array_Vec4sArrayType_4_GL_SHORT";

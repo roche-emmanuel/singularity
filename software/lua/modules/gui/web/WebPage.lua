@@ -3,7 +3,7 @@ local Class = require("classBuilder"){name="WebPage",bases="gui.wx.BasicWindow"}
 function Class:new(options)
 	self:info("Calling new for WebTestApp.")
 	local WebTile = require "gui.web.WebTile"
-	self._tile = WebTile()
+	self._tile = WebTile(options)
 end
 
 function Class:initialize(options)
@@ -15,17 +15,30 @@ function Class:initialize(options)
 	local intf = Interface{root=self._window}
 	
 	self:buildInterface(intf,options)
-	
+		
 	self:getRoot():addChild( osg.Node(self._tile))
+end
+
+function Class:getWebTile()
+	return self._tile
 end
 
 function Class:buildInterface(intf, options)
 	intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
+	self._addressBar = intf:addTextCtrl{prop=0,flags=wx.wxALL+wx.wxEXPAND,style=0}
 	local ctrl, canvas = intf:addOSGCtrl{prop=1}
 	intf:popParent(true)
 	self._canvas = canvas;	
 	
 	self:setupEventHandlers()
+	self:setupListeners()
+end
+
+function Class:setupListeners()
+	self._tile:addListener{event="onChangeAddressBar",func=function(handler,event,caller,url)
+		self._addressBar:ChangeValue(url:spec())
+		self._addressBar:SelectAll()
+	end}
 end
 
 function Class:setupEventHandlers()

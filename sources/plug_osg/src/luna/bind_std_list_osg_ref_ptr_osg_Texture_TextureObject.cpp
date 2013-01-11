@@ -57,11 +57,11 @@ public:
 };
 
 std::list< osg::ref_ptr< osg::Texture::TextureObject > >* LunaTraits< std::list< osg::ref_ptr< osg::Texture::TextureObject > > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::list< osg::ref_ptr< osg::Texture::TextureObject > >();
 }
 
 void LunaTraits< std::list< osg::ref_ptr< osg::Texture::TextureObject > > >::_bind_dtor(std::list< osg::ref_ptr< osg::Texture::TextureObject > >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::list< osg::ref_ptr< osg::Texture::TextureObject > > >::className[] = "std_list_osg_ref_ptr_osg_Texture_TextureObject";

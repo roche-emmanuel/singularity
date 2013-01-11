@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osgViewer::Scene * >* LunaTraits< std::vector< osgViewer::Scene * > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osgViewer::Scene * >();
 }
 
 void LunaTraits< std::vector< osgViewer::Scene * > >::_bind_dtor(std::vector< osgViewer::Scene * >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osgViewer::Scene * > >::className[] = "std_vector_osgViewer_Scene_ptr";

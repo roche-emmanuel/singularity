@@ -1342,7 +1342,49 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 6 valid operators)
+	inline static bool _lg_typecheck_op_write_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_write_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// wxTextCtrl::wxTextCtrl()
@@ -5029,6 +5071,151 @@ public:
 
 
 	// Operator binds:
+	// wxTextCtrl & wxTextCtrl::operator<<(const wxString & s)
+	static int _bind_op_write_overload_1(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextCtrl & wxTextCtrl::operator<<(const wxString & s) function, expected prototype:\nwxTextCtrl & wxTextCtrl::operator<<(const wxString & s)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString s(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxTextCtrl* self=Luna< wxObject >::checkSubType< wxTextCtrl >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextCtrl & wxTextCtrl::operator<<(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxTextCtrl* lret = &self->operator<<(s);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextCtrl >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextCtrl & wxTextCtrl::operator<<(int i)
+	static int _bind_op_write_overload_2(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextCtrl & wxTextCtrl::operator<<(int i) function, expected prototype:\nwxTextCtrl & wxTextCtrl::operator<<(int i)\nClass arguments details:\n");
+		}
+
+		int i=(int)lua_tointeger(L,2);
+
+		wxTextCtrl* self=Luna< wxObject >::checkSubType< wxTextCtrl >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextCtrl & wxTextCtrl::operator<<(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxTextCtrl* lret = &self->operator<<(i);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextCtrl >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextCtrl & wxTextCtrl::operator<<(long i)
+	static int _bind_op_write_overload_3(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextCtrl & wxTextCtrl::operator<<(long i) function, expected prototype:\nwxTextCtrl & wxTextCtrl::operator<<(long i)\nClass arguments details:\n");
+		}
+
+		long i=(long)lua_tointeger(L,2);
+
+		wxTextCtrl* self=Luna< wxObject >::checkSubType< wxTextCtrl >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextCtrl & wxTextCtrl::operator<<(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxTextCtrl* lret = &self->operator<<(i);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextCtrl >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextCtrl & wxTextCtrl::operator<<(float f)
+	static int _bind_op_write_overload_4(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextCtrl & wxTextCtrl::operator<<(float f) function, expected prototype:\nwxTextCtrl & wxTextCtrl::operator<<(float f)\nClass arguments details:\n");
+		}
+
+		float f=(float)lua_tonumber(L,2);
+
+		wxTextCtrl* self=Luna< wxObject >::checkSubType< wxTextCtrl >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextCtrl & wxTextCtrl::operator<<(float). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxTextCtrl* lret = &self->operator<<(f);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextCtrl >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextCtrl & wxTextCtrl::operator<<(double d)
+	static int _bind_op_write_overload_5(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextCtrl & wxTextCtrl::operator<<(double d) function, expected prototype:\nwxTextCtrl & wxTextCtrl::operator<<(double d)\nClass arguments details:\n");
+		}
+
+		double d=(double)lua_tonumber(L,2);
+
+		wxTextCtrl* self=Luna< wxObject >::checkSubType< wxTextCtrl >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextCtrl & wxTextCtrl::operator<<(double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxTextCtrl* lret = &self->operator<<(d);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextCtrl >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextCtrl & wxTextCtrl::operator<<(char c)
+	static int _bind_op_write_overload_6(lua_State *L) {
+		if (!_lg_typecheck_op_write_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextCtrl & wxTextCtrl::operator<<(char c) function, expected prototype:\nwxTextCtrl & wxTextCtrl::operator<<(char c)\nClass arguments details:\n");
+		}
+
+		char c=(char)lua_tointeger(L,2);
+
+		wxTextCtrl* self=Luna< wxObject >::checkSubType< wxTextCtrl >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextCtrl & wxTextCtrl::operator<<(char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxTextCtrl* lret = &self->operator<<(c);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextCtrl >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for wxTextCtrl::operator<<
+	static int _bind_op_write(lua_State *L) {
+		if (_lg_typecheck_op_write_overload_1(L)) return _bind_op_write_overload_1(L);
+		if (_lg_typecheck_op_write_overload_2(L)) return _bind_op_write_overload_2(L);
+		if (_lg_typecheck_op_write_overload_3(L)) return _bind_op_write_overload_3(L);
+		if (_lg_typecheck_op_write_overload_4(L)) return _bind_op_write_overload_4(L);
+		if (_lg_typecheck_op_write_overload_5(L)) return _bind_op_write_overload_5(L);
+		if (_lg_typecheck_op_write_overload_6(L)) return _bind_op_write_overload_6(L);
+
+		luaL_error(L, "error in function operator<<, cannot match any of the overloads for function operator<<:\n  operator<<(const wxString &)\n  operator<<(int)\n  operator<<(long)\n  operator<<(float)\n  operator<<(double)\n  operator<<(char)\n");
+		return 0;
+	}
+
 
 	inline static bool _lg_typecheck_baseCast_wxTextEntry(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -5247,6 +5434,7 @@ luna_RegType LunaTraits< wxTextCtrl >::methods[] = {
 	{"base_SetStyle", &luna_wrapper_wxTextCtrl::_bind_base_SetStyle},
 	{"base_ShowPosition", &luna_wrapper_wxTextCtrl::_bind_base_ShowPosition},
 	{"base_XYToPosition", &luna_wrapper_wxTextCtrl::_bind_base_XYToPosition},
+	{"op_write", &luna_wrapper_wxTextCtrl::_bind_op_write},
 	{"__eq", &luna_wrapper_wxTextCtrl::_bind___eq},
 	{"getTable", &luna_wrapper_wxTextCtrl::_bind_getTable},
 	{"aswxTextEntry", &luna_wrapper_wxTextCtrl::_bind_baseCast_wxTextEntry},

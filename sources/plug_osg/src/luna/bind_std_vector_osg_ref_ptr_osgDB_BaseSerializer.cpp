@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osg::ref_ptr< osgDB::BaseSerializer > >* LunaTraits< std::vector< osg::ref_ptr< osgDB::BaseSerializer > > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osg::ref_ptr< osgDB::BaseSerializer > >();
 }
 
 void LunaTraits< std::vector< osg::ref_ptr< osgDB::BaseSerializer > > >::_bind_dtor(std::vector< osg::ref_ptr< osgDB::BaseSerializer > >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osg::ref_ptr< osgDB::BaseSerializer > > >::className[] = "std_vector_osg_ref_ptr_osgDB_BaseSerializer";

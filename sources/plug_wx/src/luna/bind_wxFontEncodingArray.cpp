@@ -57,11 +57,11 @@ public:
 };
 
 wxFontEncodingArray* LunaTraits< wxFontEncodingArray >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return NULL; //Type destructor explicitly removed.
 }
 
 void LunaTraits< wxFontEncodingArray >::_bind_dtor(wxFontEncodingArray* obj) {
-	//delete obj; // do not delete by default.
+	//Type destructor explicitly removed.
 }
 
 const char LunaTraits< wxFontEncodingArray >::className[] = "wxFontEncodingArray";

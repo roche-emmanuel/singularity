@@ -57,11 +57,11 @@ public:
 };
 
 std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >* LunaTraits< std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >();
 }
 
 void LunaTraits< std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > >::_bind_dtor(std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > >::className[] = "std_set_osg_ref_ptr_osgUtil_EdgeCollector_Triangle";

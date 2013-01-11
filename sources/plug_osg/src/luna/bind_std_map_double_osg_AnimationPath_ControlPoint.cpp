@@ -57,11 +57,11 @@ public:
 };
 
 std::map< double, osg::AnimationPath::ControlPoint >* LunaTraits< std::map< double, osg::AnimationPath::ControlPoint > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< double, osg::AnimationPath::ControlPoint >();
 }
 
 void LunaTraits< std::map< double, osg::AnimationPath::ControlPoint > >::_bind_dtor(std::map< double, osg::AnimationPath::ControlPoint >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< double, osg::AnimationPath::ControlPoint > >::className[] = "std_map_double_osg_AnimationPath_ControlPoint";

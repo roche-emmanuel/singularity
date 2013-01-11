@@ -57,11 +57,11 @@ public:
 };
 
 wxRibbonToolBarToolBase* LunaTraits< wxRibbonToolBarToolBase >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return NULL; //Type destructor explicitly removed.
 }
 
 void LunaTraits< wxRibbonToolBarToolBase >::_bind_dtor(wxRibbonToolBarToolBase* obj) {
-	//delete obj; // do not delete by default.
+	//Type destructor explicitly removed.
 }
 
 const char LunaTraits< wxRibbonToolBarToolBase >::className[] = "wxRibbonToolBarToolBase";

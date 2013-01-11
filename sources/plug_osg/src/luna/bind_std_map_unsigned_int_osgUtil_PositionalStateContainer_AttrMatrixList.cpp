@@ -57,11 +57,11 @@ public:
 };
 
 std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList >* LunaTraits< std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList >();
 }
 
 void LunaTraits< std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList > >::_bind_dtor(std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList > >::className[] = "std_map_unsigned_int_osgUtil_PositionalStateContainer_AttrMatrixList";

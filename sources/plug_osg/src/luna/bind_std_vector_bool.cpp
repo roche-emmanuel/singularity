@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< bool >* LunaTraits< std::vector< bool > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< bool >();
 }
 
 void LunaTraits< std::vector< bool > >::_bind_dtor(std::vector< bool >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< bool > >::className[] = "std_vector_bool";

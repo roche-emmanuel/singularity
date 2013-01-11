@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > >* LunaTraits< std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > >();
 }
 
 void LunaTraits< std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > > >::_bind_dtor(std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > > >::className[] = "std_vector_osg_ref_ptr_osgUtil_EdgeCollector_Point";

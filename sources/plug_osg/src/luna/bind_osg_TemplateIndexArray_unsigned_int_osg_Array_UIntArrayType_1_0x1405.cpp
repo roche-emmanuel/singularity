@@ -57,11 +57,11 @@ public:
 };
 
 osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 >* LunaTraits< osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 >();
 }
 
 void LunaTraits< osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 > >::_bind_dtor(osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 >* obj) {
-	//delete obj; // do not delete by default.
+	//Type destructor explicitly removed.
 }
 
 const char LunaTraits< osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 > >::className[] = "osg_TemplateIndexArray_unsigned_int_osg_Array_UIntArrayType_1_0x1405";

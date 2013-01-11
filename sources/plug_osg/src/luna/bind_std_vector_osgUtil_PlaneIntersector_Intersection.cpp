@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osgUtil::PlaneIntersector::Intersection >* LunaTraits< std::vector< osgUtil::PlaneIntersector::Intersection > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osgUtil::PlaneIntersector::Intersection >();
 }
 
 void LunaTraits< std::vector< osgUtil::PlaneIntersector::Intersection > >::_bind_dtor(std::vector< osgUtil::PlaneIntersector::Intersection >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osgUtil::PlaneIntersector::Intersection > >::className[] = "std_vector_osgUtil_PlaneIntersector_Intersection";

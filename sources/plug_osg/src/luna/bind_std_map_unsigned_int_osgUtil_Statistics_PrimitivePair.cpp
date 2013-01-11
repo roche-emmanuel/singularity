@@ -57,11 +57,11 @@ public:
 };
 
 std::map< unsigned int, osgUtil::Statistics::PrimitivePair >* LunaTraits< std::map< unsigned int, osgUtil::Statistics::PrimitivePair > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< unsigned int, osgUtil::Statistics::PrimitivePair >();
 }
 
 void LunaTraits< std::map< unsigned int, osgUtil::Statistics::PrimitivePair > >::_bind_dtor(std::map< unsigned int, osgUtil::Statistics::PrimitivePair >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< unsigned int, osgUtil::Statistics::PrimitivePair > >::className[] = "std_map_unsigned_int_osgUtil_Statistics_PrimitivePair";

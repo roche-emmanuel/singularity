@@ -57,11 +57,11 @@ public:
 };
 
 std::list< osg::ref_ptr< osgDB::DatabaseRevisions > >* LunaTraits< std::list< osg::ref_ptr< osgDB::DatabaseRevisions > > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::list< osg::ref_ptr< osgDB::DatabaseRevisions > >();
 }
 
 void LunaTraits< std::list< osg::ref_ptr< osgDB::DatabaseRevisions > > >::_bind_dtor(std::list< osg::ref_ptr< osgDB::DatabaseRevisions > >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::list< osg::ref_ptr< osgDB::DatabaseRevisions > > >::className[] = "std_list_osg_ref_ptr_osgDB_DatabaseRevisions";

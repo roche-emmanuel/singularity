@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osg::ref_ptr< osg::AudioStream > >* LunaTraits< std::vector< osg::ref_ptr< osg::AudioStream > > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osg::ref_ptr< osg::AudioStream > >();
 }
 
 void LunaTraits< std::vector< osg::ref_ptr< osg::AudioStream > > >::_bind_dtor(std::vector< osg::ref_ptr< osg::AudioStream > >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osg::ref_ptr< osg::AudioStream > > >::className[] = "std_vector_osg_ref_ptr_osg_AudioStream";

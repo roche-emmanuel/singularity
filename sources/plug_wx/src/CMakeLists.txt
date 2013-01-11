@@ -22,6 +22,7 @@ FILE(GLOB_RECURSE SOURCE_FILES "*.cpp" )
 
 ADD_MSVC_PRECOMPILED_HEADER("plug_common.h" "plug_common.cpp" SOURCE_FILES)
 
+
 # ADD_LUNA_FILES(SOURCE_FILES) # Add the Luna files after adding precompiled header.
 
 # IF(WIN32)

@@ -25,11 +25,18 @@ function Class:initialize(options)
 	self:getEventManager():addListener{event=Event.APP_CLOSING,object=self}
 end
 
+function Class:registerWebView(view)
+	self._webViewList:push_back(view)
+end
+
+function Class:unregisterWebView(view)
+	self._webViewList:eraseItem(view)
+end
+
 function Class:createWebView(options)
 	self:check(options and options.width,"Invalid webview width.")
 	self:check(options and options.height,"Invalid webview height.")
 	local view = self._core:CreateWebView(options.width, options.height, self._session);
-	self._webViewList:push_back(view)
 	
 	return view;
 end

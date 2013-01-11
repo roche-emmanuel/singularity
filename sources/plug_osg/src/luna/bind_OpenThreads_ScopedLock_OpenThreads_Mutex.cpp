@@ -57,11 +57,11 @@ public:
 };
 
 OpenThreads::ScopedLock< OpenThreads::Mutex >* LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return NULL;
 }
 
 void LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::_bind_dtor(OpenThreads::ScopedLock< OpenThreads::Mutex >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::className[] = "OpenThreads_ScopedLock_OpenThreads_Mutex";

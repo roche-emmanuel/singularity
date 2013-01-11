@@ -57,11 +57,11 @@ public:
 };
 
 OpenThreads::Mutex* LunaTraits< OpenThreads::Mutex >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new OpenThreads::Mutex();
 }
 
 void LunaTraits< OpenThreads::Mutex >::_bind_dtor(OpenThreads::Mutex* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< OpenThreads::Mutex >::className[] = "OpenThreads_Mutex";

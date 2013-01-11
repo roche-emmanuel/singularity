@@ -57,11 +57,11 @@ public:
 };
 
 std::map< int, std::string >* LunaTraits< std::map< int, std::string > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< int, std::string >();
 }
 
 void LunaTraits< std::map< int, std::string > >::_bind_dtor(std::map< int, std::string >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< int, std::string > >::className[] = "std_map_int_std_string";

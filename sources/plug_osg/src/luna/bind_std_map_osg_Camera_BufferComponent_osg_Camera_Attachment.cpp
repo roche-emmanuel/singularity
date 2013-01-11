@@ -57,11 +57,11 @@ public:
 };
 
 std::map< osg::Camera::BufferComponent, osg::Camera::Attachment >* LunaTraits< std::map< osg::Camera::BufferComponent, osg::Camera::Attachment > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< osg::Camera::BufferComponent, osg::Camera::Attachment >();
 }
 
 void LunaTraits< std::map< osg::Camera::BufferComponent, osg::Camera::Attachment > >::_bind_dtor(std::map< osg::Camera::BufferComponent, osg::Camera::Attachment >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< osg::Camera::BufferComponent, osg::Camera::Attachment > >::className[] = "std_map_osg_Camera_BufferComponent_osg_Camera_Attachment";

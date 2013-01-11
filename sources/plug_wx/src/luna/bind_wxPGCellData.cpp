@@ -57,11 +57,11 @@ public:
 };
 
 wxPGCellData* LunaTraits< wxPGCellData >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return NULL; //Type destructor explicitly removed.
 }
 
 void LunaTraits< wxPGCellData >::_bind_dtor(wxPGCellData* obj) {
-	//delete obj; // do not delete by default.
+	//Type destructor explicitly removed.
 }
 
 const char LunaTraits< wxPGCellData >::className[] = "wxPGCellData";

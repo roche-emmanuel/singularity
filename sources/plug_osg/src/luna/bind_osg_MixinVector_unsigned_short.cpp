@@ -57,11 +57,11 @@ public:
 };
 
 osg::MixinVector< unsigned short >* LunaTraits< osg::MixinVector< unsigned short > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new osg::MixinVector< unsigned short >();
 }
 
 void LunaTraits< osg::MixinVector< unsigned short > >::_bind_dtor(osg::MixinVector< unsigned short >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< osg::MixinVector< unsigned short > >::className[] = "osg_MixinVector_unsigned_short";

@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="WebTile",bases="osg.BasicNode"};
+local Class = require("classBuilder"){name="WebTile",bases={"osg.BasicNode","base.EventHandler"}};
 
 local Event = require "base.Event"
 local webman = require "gui.web.WebManager"
@@ -22,7 +22,7 @@ hScrollMap[osgGA.GUIEventAdapter.SCROLL_RIGHT] = scrollScale
 
 function Class:initialize(options)
 	-- create a webview for this tile:
-	self._webImage = webman:createWebImage();
+	self._webImage = webman:createWebImage(options);
 	self._webView = self._webImage:getWebView();
 	
 	-- Also create the screen quad where to apply the image:
@@ -35,11 +35,13 @@ function Class:initialize(options)
 	
 	self._viewListener = awe.View{
 		OnChangeTitle = function(tt, obj, caller, title) -- title: WebString
-			self:info("In OnChangeTile(), title=",title);
+			--self:info("In OnChangeTile(), title=",title);
+			self:fireEvent("onChangeTitle",caller,title);
 		end,
 		
 		OnChangeAddressBar = function (tt, obj, caller, url) -- url: WebURL
-			self:info("In OnChangeAddressBar(), url=",url:spec());
+			--self:info("In OnChangeAddressBar(), url=",url:spec());
+			self:fireEvent("onChangeAddressBar",caller,url);
 		end,
 		
 		OnChangeTooltip = function(tt, obj, caller, tooltip) -- tooltip: WebString
@@ -47,7 +49,8 @@ function Class:initialize(options)
 		end,
 		
 		OnChangeTargetURL = function(tt, obj, caller, url) -- url: WebURL
-			self:info("In OnChangeTargetURL(), url='",url:spec(),"'");
+			--self:info("In OnChangeTargetURL(), url='",url:spec(),"'");
+			self:fireEvent("onChangeTargetURL",caller,url);
 		end,
 		
 		OnChangeCursor = function(tt, obj, caller, cursor)
@@ -59,7 +62,8 @@ function Class:initialize(options)
 		end,
 		
 		OnShowCreatedWebView = function(tt, obj, caller, new_view, opener_url, target_url, initial_pos, is_popup)
-			self:info("In OnShowCreatedWebView()");
+			self:info("In OnShowCreatedWebView(), opener_url=",opener_url:spec(),", target_url=",target_url:spec(),", is_popup=",is_popup);
+			self:fireEvent("onShowCreatedWebView",caller, new_view, opener_url, target_url, initial_pos, is_popup);
 		end,
 	};
 	
@@ -95,6 +99,10 @@ function Class:initialize(options)
 	};
 	
 	self._webView:set_view_listener(self._viewListener)
+end
+
+function Class:setChangeTitleCallback(cb)
+
 end
 
 function Class:buildInstance(obj)

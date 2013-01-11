@@ -48,3 +48,5 @@
 - Refactored virtual wrappers model to avoid circular dependencies.
 - Fixed issue with ATB variable callbacks not taking wrapper into account in argument list.
 - Added tool class for wx module.
+- Added support for type construction/destruction manual definition.
+- Added webview child page creation support.

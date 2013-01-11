@@ -24,11 +24,23 @@ const char LunaTraits< osg::Object >::moduleName[] = "osg";
 const int LunaTraits< osg::Object >::hash = 58481028;
 const int LunaTraits< osg::Object >::uniqueIDs[] = {50169651,0};
 
+const char LunaTraits< osg::KdTree::LineSegmentIntersection::RatioList >::className[] = "std_vector_double";
+const char LunaTraits< std::vector< double > >::fullName[] = "std::vector< double >";
+const char LunaTraits< osg::KdTree::LineSegmentIntersection::RatioList >::moduleName[] = "sgt";
+const int LunaTraits< osg::KdTree::LineSegmentIntersection::RatioList >::hash = 14271479;
+const int LunaTraits< osg::KdTree::LineSegmentIntersection::RatioList >::uniqueIDs[] = {4564820,0};
+
 const char LunaTraits< osg::Program::AttribBindingList >::className[] = "std_map_std_string_unsigned_int";
 const char LunaTraits< std::map< std::string, unsigned int > >::fullName[] = "std::map< std::string, unsigned int >";
 const char LunaTraits< osg::Program::AttribBindingList >::moduleName[] = "sgt";
 const int LunaTraits< osg::Program::AttribBindingList >::hash = 65712176;
 const int LunaTraits< osg::Program::AttribBindingList >::uniqueIDs[] = {72783721,0};
+
+const char LunaTraits< osg::HeightField::HeightList >::className[] = "std_vector_float";
+const char LunaTraits< std::vector< float > >::fullName[] = "std::vector< float >";
+const char LunaTraits< osg::HeightField::HeightList >::moduleName[] = "sgt";
+const int LunaTraits< osg::HeightField::HeightList >::hash = 93979646;
+const int LunaTraits< osg::HeightField::HeightList >::uniqueIDs[] = {77249888,0};
 
 const char LunaTraits< osgDB::FileList::FileNames >::className[] = "std_set_std_string";
 const char LunaTraits< std::set< std::string > >::fullName[] = "std::set< std::string >";
@@ -41,6 +53,12 @@ const char LunaTraits< std::map< std::string, int > >::fullName[] = "std::map< s
 const char LunaTraits< osgDB::IntLookup::StringToValue >::moduleName[] = "sgt";
 const int LunaTraits< osgDB::IntLookup::StringToValue >::hash = 34334607;
 const int LunaTraits< osgDB::IntLookup::StringToValue >::uniqueIDs[] = {27704170,0};
+
+const char LunaTraits< osgUtil::Hit::VecIndexList >::className[] = "std_vector_int";
+const char LunaTraits< std::vector< int > >::fullName[] = "std::vector< int >";
+const char LunaTraits< osgUtil::Hit::VecIndexList >::moduleName[] = "sgt";
+const int LunaTraits< osgUtil::Hit::VecIndexList >::hash = 26842661;
+const int LunaTraits< osgUtil::Hit::VecIndexList >::uniqueIDs[] = {92299338,0};
 
 const char LunaTraits< std::istream >::className[] = "istream";
 const char LunaTraits< std::istream >::fullName[] = "std::istream";

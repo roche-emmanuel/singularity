@@ -57,11 +57,11 @@ public:
 };
 
 std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope >* LunaTraits< std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope >();
 }
 
 void LunaTraits< std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope > >::_bind_dtor(std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope > >::className[] = "std_pair_osg_ref_ptr_osg_StateSet_osg_Polytope";

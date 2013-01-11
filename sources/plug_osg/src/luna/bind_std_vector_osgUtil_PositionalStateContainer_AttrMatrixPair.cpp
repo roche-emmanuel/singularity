@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair >* LunaTraits< std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair >();
 }
 
 void LunaTraits< std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair > >::_bind_dtor(std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair > >::className[] = "std_vector_osgUtil_PositionalStateContainer_AttrMatrixPair";

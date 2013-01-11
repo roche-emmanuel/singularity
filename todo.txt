@@ -7,8 +7,10 @@
 
 * Add minimal notebook app.
 * Implement all listeners for webview
+* Remove "<" as a ignoring function pattern (in wx module at least) ?
 
 * add getter and setters for public class variables.
+
 * improve subclass registration to add class access in parent class (like osg.Drawable.CullCallback = osg.Drawable_CullCallback)
 * add type auto-registration in wrapper writer when pushing args and results.
 * add support for int variables in namespaces (like const in AK_KEY_1 = 0x89;)

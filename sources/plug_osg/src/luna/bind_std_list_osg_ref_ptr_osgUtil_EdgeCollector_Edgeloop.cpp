@@ -57,11 +57,11 @@ public:
 };
 
 std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > >* LunaTraits< std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > >();
 }
 
 void LunaTraits< std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > > >::_bind_dtor(std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > > >::className[] = "std_list_osg_ref_ptr_osgUtil_EdgeCollector_Edgeloop";

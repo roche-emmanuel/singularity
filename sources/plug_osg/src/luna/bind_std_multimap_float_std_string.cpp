@@ -57,11 +57,11 @@ public:
 };
 
 std::multimap< float, std::string >* LunaTraits< std::multimap< float, std::string > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::multimap< float, std::string >();
 }
 
 void LunaTraits< std::multimap< float, std::string > >::_bind_dtor(std::multimap< float, std::string >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::multimap< float, std::string > >::className[] = "std_multimap_float_std_string";

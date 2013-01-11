@@ -19,6 +19,12 @@ package.path = package.path..";".. root_path .. "lua/modules/?.lua;".. root_path
 
 local ReflectionGenerator = require "bindings.LunaReflectionGenerator"
 
+local tm = require "bindings.TypeManager"
+tm:registerExternals(sgt_path .. "sources/plug_core/classes.luna")
+tm:registerExternalFunctions(sgt_path .. "sources/plug_core/functions.luna")
+tm:setTypeConstructor(".","NULL; //Type destructor explicitly removed.")
+tm:setTypeDestructor(".","//Type destructor explicitly removed.")
+
 ReflectionGenerator.generate{
 	xmlpath=xml_path,
 	modName="wx",
@@ -46,7 +52,7 @@ ReflectionGenerator.generate{
 		"wxStrn",
 		"wchar_t",
 		"wxDataViewListModel",
-		"<",
+		--"<",
 		"wxPrint",
 		"wxDllType",
 		"wxMBConv",

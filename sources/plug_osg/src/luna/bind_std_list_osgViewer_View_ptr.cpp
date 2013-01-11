@@ -57,11 +57,11 @@ public:
 };
 
 std::list< osgViewer::View * >* LunaTraits< std::list< osgViewer::View * > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::list< osgViewer::View * >();
 }
 
 void LunaTraits< std::list< osgViewer::View * > >::_bind_dtor(std::list< osgViewer::View * >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::list< osgViewer::View * > >::className[] = "std_list_osgViewer_View_ptr";

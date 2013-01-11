@@ -57,11 +57,11 @@ public:
 };
 
 osg::fast_back_stack< unsigned int >* LunaTraits< osg::fast_back_stack< unsigned int > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new osg::fast_back_stack< unsigned int >();
 }
 
 void LunaTraits< osg::fast_back_stack< unsigned int > >::_bind_dtor(osg::fast_back_stack< unsigned int >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< osg::fast_back_stack< unsigned int > >::className[] = "osg_fast_back_stack_unsigned_int";

@@ -57,11 +57,11 @@ public:
 };
 
 std::map< std::string, osg::StateSet::RefUniformPair >* LunaTraits< std::map< std::string, osg::StateSet::RefUniformPair > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< std::string, osg::StateSet::RefUniformPair >();
 }
 
 void LunaTraits< std::map< std::string, osg::StateSet::RefUniformPair > >::_bind_dtor(std::map< std::string, osg::StateSet::RefUniformPair >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< std::string, osg::StateSet::RefUniformPair > >::className[] = "std_map_std_string_osg_StateSet_RefUniformPair";

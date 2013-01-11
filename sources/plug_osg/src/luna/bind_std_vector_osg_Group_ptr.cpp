@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osg::Group * >* LunaTraits< std::vector< osg::Group * > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osg::Group * >();
 }
 
 void LunaTraits< std::vector< osg::Group * > >::_bind_dtor(std::vector< osg::Group * >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osg::Group * > >::className[] = "std_vector_osg_Group_ptr";

@@ -17999,13 +17999,6 @@ public:
 };
 
 template<>
-class LunaType< 4564820 > {
-public:
-	typedef std::vector< double > type;
-	
-};
-
-template<>
 class LunaType< 3653432 > {
 public:
 	typedef std::pair< float, float > type;
@@ -18100,13 +18093,6 @@ template<>
 class LunaType< 14490510 > {
 public:
 	typedef std::vector< osg::Polytope > type;
-	
-};
-
-template<>
-class LunaType< 77249888 > {
-public:
-	typedef std::vector< float > type;
 	
 };
 
@@ -18611,13 +18597,6 @@ template<>
 class LunaType< 65377831 > {
 public:
 	typedef std::vector< osg::ref_ptr< osgUtil::Intersector > > type;
-	
-};
-
-template<>
-class LunaType< 92299338 > {
-public:
-	typedef std::vector< int > type;
 	
 };
 

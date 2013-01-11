@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< OpenThreads::Thread * >* LunaTraits< std::vector< OpenThreads::Thread * > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< OpenThreads::Thread * >();
 }
 
 void LunaTraits< std::vector< OpenThreads::Thread * > >::_bind_dtor(std::vector< OpenThreads::Thread * >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< OpenThreads::Thread * > >::className[] = "std_vector_OpenThreads_Thread_ptr";

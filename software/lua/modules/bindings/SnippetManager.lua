@@ -267,11 +267,11 @@ function Class:getTypeCodeP2(tname)
 	local str = [[};
 
 ${1}* LunaTraits< ${1} >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return ${5}
 }
 
 void LunaTraits< ${1} >::_bind_dtor(${1}* obj) {
-	//delete obj; // do not delete by default.
+	${6}
 }
 
 const char LunaTraits< ${1} >::className[] = "${2}";
@@ -288,8 +288,10 @@ luna_RegType LunaTraits< ${1} >::methods[] = {
 	
 	local wname = corr:correct("filename",tname)
 	local hash = utils.getHash(tname);
+	local construct = tm:getTypeConstructor(tname) or ("new " ..tname.."();")
+	local dtor = tm:getTypeDestructor(tname) or "delete obj;"
 	
-	return utils.subLine(str,tname,wname,hash,rm:getDefaultModuleName(),declarations or "",binds or "")	
+	return utils.subLine(str,tname,wname,hash,rm:getDefaultModuleName(),construct,dtor)	
 end
 	
 function Class:getTypeCodeP3(tname)

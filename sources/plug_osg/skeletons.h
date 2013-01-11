@@ -778,9 +778,6 @@ namespace osg {
 			class IndexList {
 			};
 
-			class RatioList {
-			};
-
 		};
 
 		class Triangle {
@@ -1124,9 +1121,6 @@ namespace osg {
 
 	class HeightField: public osg::Shape {
 	public:
-		class HeightList {
-		};
-
 	};
 
 	class CompositeShape: public osg::Shape {
@@ -2611,9 +2605,6 @@ namespace osgUtil {
 
 	class Hit {
 	public:
-		class VecIndexList {
-		};
-
 	};
 
 	class IntersectVisitor: public osg::NodeVisitor {
@@ -2650,9 +2641,6 @@ namespace osgUtil {
 		class Intersection {
 		public:
 			class IndexList {
-			};
-
-			class RatioList {
 			};
 
 		};
@@ -2810,9 +2798,6 @@ namespace osgUtil {
 		class Intersection {
 		public:
 			class Polyline {
-			};
-
-			class Attributes {
 			};
 
 		};

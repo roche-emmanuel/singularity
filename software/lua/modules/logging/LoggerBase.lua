@@ -1,6 +1,7 @@
 local oo = require "loop.base"
 
 require "core"
+require "extensions.core"
 
 --local sgt = require "core" -- load the core library.
 
