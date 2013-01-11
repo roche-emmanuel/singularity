@@ -47,3 +47,4 @@
 - Changed default size for OSG Test apps.
 - Refactored virtual wrappers model to avoid circular dependencies.
 - Fixed issue with ATB variable callbacks not taking wrapper into account in argument list.
+- Added tool class for wx module.

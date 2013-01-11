@@ -10,18 +10,18 @@ function Class:initialize(options)
 	-- we may use self._intf and self._parent when building our content.
 	local Interface = require "gui.wx.ControlInterface"
 	
-	self._window = self:createPanel(self._parent) -- we assume that the parent is valid.
-	
+	self._window = self:createPanel{parent=self._parent} -- we assume that the parent is valid and we do not add this window to the parent sizer.
+		
 	local intf = Interface{root=self._window}
 	
 	self:buildInterface(intf,options)
 	
-	self:getRoot():addChild(self._tile:getWrapper())
+	self:getRoot():addChild( osg.Node(self._tile))
 end
 
 function Class:buildInterface(intf, options)
 	intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
-	local ctrl, canvas = intf:addOSGCtrl{prop=1,handlers=options.handlers}
+	local ctrl, canvas = intf:addOSGCtrl{prop=1}
 	intf:popParent(true)
 	self._canvas = canvas;	
 	
@@ -46,6 +46,10 @@ end
 
 function Class:getCanvas()
 	return self._canvas
+end
+
+function Class:loadURL(url)
+	self._tile:loadURL(url)
 end
 
 return Class

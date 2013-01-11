@@ -30,43 +30,41 @@ function Class:initialize(options)
 	
 	-- Register the update callback for this WebTile:
 	self:getEventManager():addListener{event=Event.FRAME,object=self}
-	
-	self:setCullingActive(false);
 
 	self:info("DOne creating webtile.")
 	
 	self._viewListener = awe.View{
-		OnChangeTitle = function(tt, caller, title) -- title: WebString
+		OnChangeTitle = function(tt, obj, caller, title) -- title: WebString
 			self:info("In OnChangeTile(), title=",title);
 		end,
 		
-		OnChangeAddressBar = function (tt, caller, url) -- url: WebURL
+		OnChangeAddressBar = function (tt, obj, caller, url) -- url: WebURL
 			self:info("In OnChangeAddressBar(), url=",url:spec());
 		end,
 		
-		OnChangeTooltip = function(tt, caller, tooltip) -- tooltip: WebString
+		OnChangeTooltip = function(tt, obj, caller, tooltip) -- tooltip: WebString
 			self:info("In OnChangeTooltip(), tooltip=",tooltip);
 		end,
 		
-		OnChangeTargetURL = function(tt, caller, url) -- url: WebURL
+		OnChangeTargetURL = function(tt, obj, caller, url) -- url: WebURL
 			self:info("In OnChangeTargetURL(), url='",url:spec(),"'");
 		end,
 		
-		OnChangeCursor = function(tt, caller, cursor)
+		OnChangeCursor = function(tt, obj, caller, cursor)
 			self:info("In OnChangeCursor(), cursor=",cursor);
 		end,
 		
-		OnChangeFocus = function(tt, caller, focused_type)
+		OnChangeFocus = function(tt, obj, caller, focused_type)
 			self:info("In OnChangeFocus(), focused=",focused_type);
 		end,
 		
-		OnShowCreatedWebView = function(tt, caller, new_view, opener_url, target_url, initial_pos, is_popup)
+		OnShowCreatedWebView = function(tt, obj, caller, new_view, opener_url, target_url, initial_pos, is_popup)
 			self:info("In OnShowCreatedWebView()");
 		end,
 	};
 	
 	self._eventHandler = osgGA.GUIEventHandler{
-		handle = function(tt,ea,aa)
+		handle = function(tt,obj,ea,aa)
 			local etype = ea:getEventType();
 			local xratio = self._webImage:getWidth()/ea:getWindowWidth()
 			local yratio = self._webImage:getHeight()/ea:getWindowHeight()
@@ -97,6 +95,10 @@ function Class:initialize(options)
 	};
 	
 	self._webView:set_view_listener(self._viewListener)
+end
+
+function Class:buildInstance(obj)
+	obj:setCullingActive(false);
 end
 
 function Class:getModifiers(modkey)
@@ -202,26 +204,26 @@ function Class:onFrame()
 end
 
 -- definition of the needed methods to traverse this node a kind of group:
-function Class:traverse(nv)
+function Class:traverse(obj,nv)
 	self._quad:accept(nv);
 end
 
-function Class:computeBound()
+function Class:computeBound(obj)
 	return self._quad:computeBound()
 end
 
-function Class:setThreadSafeRefUnref(threadSafe)
-    self:base_setThreadSafeRefUnref(threadSafe);
+function Class:setThreadSafeRefUnref(obj,threadSafe)
+    obj:base_setThreadSafeRefUnref(threadSafe);
 	self._quad:setThreadSafeRefUnref(threadSafe);
 end
 
-function Class:resizeGLObjectBuffers(maxSize)
-    self:base_resizeGLObjectBuffers(maxSize);
+function Class:resizeGLObjectBuffers(obj,maxSize)
+    obj:base_resizeGLObjectBuffers(maxSize);
 	self._quad:resizeGLObjectBuffers(maxSize);
 end
 
-function Class:releaseGLObjects(state)
-    self:base_releaseGLObjects(state);
+function Class:releaseGLObjects(obj,state)
+    obj:base_releaseGLObjects(state);
 	self._quad:releaseGLObjects(state);
 end
 

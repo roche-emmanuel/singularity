@@ -9,7 +9,7 @@ function Class:initialize(options)
 	self:debug2("Creating NotificationHandler object");
 	
 	self._handler = osg.NotifyHandler{
-		notify = function(tt, severity, message)
+		notify = function(tt, obj, severity, message)
 			message = message:sub(1,message:len()-1) -- remove the ending \n character.
 			
 			if severity == osg.ALWAYS then
