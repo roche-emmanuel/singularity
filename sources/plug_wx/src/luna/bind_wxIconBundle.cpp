@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxObject,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -233,7 +233,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// wxIconBundle::wxIconBundle()
@@ -662,6 +669,32 @@ public:
 
 
 	// Operator binds:
+	// wxIconBundle & wxIconBundle::operator=(const wxIconBundle & ic)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIconBundle & wxIconBundle::operator=(const wxIconBundle & ic) function, expected prototype:\nwxIconBundle & wxIconBundle::operator=(const wxIconBundle & ic)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxIconBundle* ic_ptr=(Luna< wxObject >::checkSubType< wxIconBundle >(L,2));
+		if( !ic_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg ic in wxIconBundle::operator= function");
+		}
+		const wxIconBundle & ic=*ic_ptr;
+
+		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxIconBundle & wxIconBundle::operator=(const wxIconBundle &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxIconBundle* lret = &self->operator=(ic);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxIconBundle >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -690,6 +723,7 @@ luna_RegType LunaTraits< wxIconBundle >::methods[] = {
 	{"GetIconByIndex", &luna_wrapper_wxIconBundle::_bind_GetIconByIndex},
 	{"IsEmpty", &luna_wrapper_wxIconBundle::_bind_IsEmpty},
 	{"base_GetClassInfo", &luna_wrapper_wxIconBundle::_bind_base_GetClassInfo},
+	{"op_assign", &luna_wrapper_wxIconBundle::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxIconBundle::_bind___eq},
 	{"getTable", &luna_wrapper_wxIconBundle::_bind_getTable},
 	{0,0}

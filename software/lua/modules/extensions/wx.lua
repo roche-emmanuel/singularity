@@ -27,3 +27,20 @@ wx.wxTRANSPARENT_PEN = wx.wxPen(wx.wxWHITE,1,wx.wxPENSTYLE_TRANSPARENT)
 
 wx.wxTRANSPARENT_BRUSH = wx.wxBrush(wx.wxWHITE,wx.wxBRUSHSTYLE_TRANSPARENT)
 
+wx.wxStatusBar.SetFieldsCount = function(self,widths)
+	-- widths is passed here as a table.concat
+	local vec = sgt.IntVector.fromTable(widths)
+	self:setFieldsCountVector(vec)
+end
+
+wx.wxStatusBar.SetStatusWidths = function(self,widths)
+	-- widths is passed here as a table.concat
+	local vec = sgt.IntVector.fromTable(widths)
+	self:setStatusWidthsVector(vec)
+end
+
+wx.wxStatusBar.SetStatusStyles = function(self,styles)
+	-- widths is passed here as a table.concat
+	local vec = sgt.IntVector.fromTable(styles)
+	self:setStatusStylesVector(vec)
+end

@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<SPK::Registerable,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -695,7 +695,7 @@ public:
 			luaL_error(L, "Invalid object in function call baseCast(...)");
 		}
 		
-		SPK::QuadRendererInterface* res = dynamic_cast<SPK::QuadRendererInterface*>(self);
+		SPK::QuadRendererInterface* res = luna_caster<SPK::Registerable,SPK::QuadRendererInterface>::cast(self); // dynamic_cast<SPK::QuadRendererInterface*>(self);
 		if(!res)
 			return 0;
 			
@@ -721,7 +721,7 @@ public:
 			luaL_error(L, "Invalid object in function call baseCast(...)");
 		}
 		
-		SPK::Oriented3DRendererInterface* res = dynamic_cast<SPK::Oriented3DRendererInterface*>(self);
+		SPK::Oriented3DRendererInterface* res = luna_caster<SPK::Registerable,SPK::Oriented3DRendererInterface>::cast(self); // dynamic_cast<SPK::Oriented3DRendererInterface*>(self);
 		if(!res)
 			return 0;
 			
@@ -747,7 +747,7 @@ public:
 			luaL_error(L, "Invalid object in function call baseCast(...)");
 		}
 		
-		GL::GLExtHandler* res = dynamic_cast<GL::GLExtHandler*>(self);
+		GL::GLExtHandler* res = luna_caster<SPK::Registerable,GL::GLExtHandler>::cast(self); // dynamic_cast<GL::GLExtHandler*>(self);
 		if(!res)
 			return 0;
 			

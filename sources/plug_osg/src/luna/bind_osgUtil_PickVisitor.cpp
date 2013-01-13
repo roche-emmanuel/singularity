@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -123,6 +123,13 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		if( (!(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -348,6 +355,25 @@ public:
 		if (_lg_typecheck_apply_overload_2(L)) return _bind_apply_overload_2(L);
 
 		luaL_error(L, "error in function apply, cannot match any of the overloads for function apply:\n  apply(osg::Projection &)\n  apply(osg::Camera &)\n");
+		return 0;
+	}
+
+	// void osgUtil::PickVisitor::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::PickVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::PickVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgUtil::PickVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PickVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::PickVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->PickVisitor::setThreadSafeRefUnref(threadSafe);
+
 		return 0;
 	}
 
@@ -606,6 +632,7 @@ const int LunaTraits< osgUtil::PickVisitor >::uniqueIDs[] = {50169651,0};
 luna_RegType LunaTraits< osgUtil::PickVisitor >::methods[] = {
 	{"runNestedPickVisitor", &luna_wrapper_osgUtil_PickVisitor::_bind_runNestedPickVisitor},
 	{"apply", &luna_wrapper_osgUtil_PickVisitor::_bind_apply},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_PickVisitor::_bind_base_setThreadSafeRefUnref},
 	{"base_getViewPoint", &luna_wrapper_osgUtil_PickVisitor::_bind_base_getViewPoint},
 	{"base_getDistanceFromEyePoint", &luna_wrapper_osgUtil_PickVisitor::_bind_base_getDistanceFromEyePoint},
 	{"base_getDistanceToViewPoint", &luna_wrapper_osgUtil_PickVisitor::_bind_base_getDistanceToViewPoint},

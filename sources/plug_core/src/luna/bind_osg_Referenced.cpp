@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -237,7 +237,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::Referenced::Referenced()
@@ -643,6 +650,32 @@ public:
 
 
 	// Operator binds:
+	// osg::Referenced & osg::Referenced::operator=(const osg::Referenced & arg1)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Referenced & osg::Referenced::operator=(const osg::Referenced & arg1) function, expected prototype:\nosg::Referenced & osg::Referenced::operator=(const osg::Referenced & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Referenced* _arg1_ptr=(Luna< osg::Referenced >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Referenced::operator= function");
+		}
+		const osg::Referenced & _arg1=*_arg1_ptr;
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Referenced & osg::Referenced::operator=(const osg::Referenced &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Referenced* lret = &self->operator=(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Referenced >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -681,6 +714,7 @@ luna_RegType LunaTraits< osg::Referenced >::methods[] = {
 	{"setDeleteHandler", &luna_wrapper_osg_Referenced::_bind_setDeleteHandler},
 	{"getDeleteHandler", &luna_wrapper_osg_Referenced::_bind_getDeleteHandler},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_Referenced::_bind_base_setThreadSafeRefUnref},
+	{"op_assign", &luna_wrapper_osg_Referenced::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_Referenced::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_Referenced::_bind___eq},
 	{"getTable", &luna_wrapper_osg_Referenced::_bind_getTable},

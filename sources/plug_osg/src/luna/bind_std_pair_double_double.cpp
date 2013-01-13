@@ -57,11 +57,11 @@ public:
 };
 
 std::pair< double, double >* LunaTraits< std::pair< double, double > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::pair< double, double >();
 }
 
 void LunaTraits< std::pair< double, double > >::_bind_dtor(std::pair< double, double >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::pair< double, double > >::className[] = "std_pair_double_double";

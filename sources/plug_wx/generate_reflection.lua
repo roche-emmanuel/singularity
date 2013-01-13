@@ -19,6 +19,12 @@ package.path = package.path..";".. root_path .. "lua/modules/?.lua;".. root_path
 
 local ReflectionGenerator = require "bindings.LunaReflectionGenerator"
 
+local tm = require "bindings.TypeManager"
+tm:registerExternals(sgt_path .. "sources/plug_core/classes.luna")
+tm:registerExternalFunctions(sgt_path .. "sources/plug_core/functions.luna")
+tm:setTypeConstructor(".","NULL; //Type destructor explicitly removed.")
+tm:setTypeDestructor(".","//Type destructor explicitly removed.")
+
 ReflectionGenerator.generate{
 	xmlpath=xml_path,
 	modName="wx",
@@ -46,7 +52,7 @@ ReflectionGenerator.generate{
 		"wxStrn",
 		"wchar_t",
 		"wxDataViewListModel",
-		"<",
+		--"<",
 		"wxPrint",
 		"wxDllType",
 		"wxMBConv",
@@ -249,6 +255,19 @@ ReflectionGenerator.generate{
 		"AllocExclusive",
 		
 		"WaitForThread",
+		
+		-- protected variables declared public in interface:
+		"wxDocChildFrame::m_childDocument",
+		"wxDocChildFrame::m_childView",
+		"wxDocTemplate::m_",
+		"wxExecuteEnv::env",
+		"wxGridSizesInfo::m_customSizes",
+		"wxPropertyGridHitTestResult::column",
+		"wxPropertyGridHitTestResult::splitter",
+		"wxPropertyGridHitTestResult::splitterHitOffset",
+		"wxView::m_viewDocument",
+		"wxView::m_viewTypeName",
+		"wxView::m_viewFrame",
 	},
 	ignoreWrappers={
 		"wxBitmapComboBox::IsEmpty",

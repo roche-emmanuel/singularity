@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -297,6 +297,13 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,85302998) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1302,6 +1309,25 @@ public:
 			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::init(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->init(_arg1, _arg2);
+
+		return 0;
+	}
+
+	// void osgGA::FirstPersonManipulator::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::FirstPersonManipulator::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgGA::FirstPersonManipulator::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgGA::FirstPersonManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FirstPersonManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::FirstPersonManipulator::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->FirstPersonManipulator::setThreadSafeRefUnref(threadSafe);
 
 		return 0;
 	}
@@ -2366,6 +2392,7 @@ luna_RegType LunaTraits< osgGA::FirstPersonManipulator >::methods[] = {
 	{"getWheelMovement", &luna_wrapper_osgGA_FirstPersonManipulator::_bind_getWheelMovement},
 	{"home", &luna_wrapper_osgGA_FirstPersonManipulator::_bind_home},
 	{"init", &luna_wrapper_osgGA_FirstPersonManipulator::_bind_init},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgGA_FirstPersonManipulator::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osgGA_FirstPersonManipulator::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgGA_FirstPersonManipulator::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osgGA_FirstPersonManipulator::_bind_base_setUserData},

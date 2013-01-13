@@ -150,6 +150,32 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getM_width(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_height(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_width(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,25580455) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_height(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,25580455) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 1 valid operators)
@@ -549,6 +575,94 @@ public:
 		return 0;
 	}
 
+	// wxTextAttrDimension wxTextAttrSize::m_width()
+	static int _bind_getM_width(lua_State *L) {
+		if (!_lg_typecheck_getM_width(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextAttrDimension wxTextAttrSize::m_width() function, expected prototype:\nwxTextAttrDimension wxTextAttrSize::m_width()\nClass arguments details:\n");
+		}
+
+
+		wxTextAttrSize* self=(Luna< wxTextAttrSize >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension wxTextAttrSize::m_width(). Got : '%s'",typeid(Luna< wxTextAttrSize >::check(L,1)).name());
+		}
+		const wxTextAttrDimension* lret = &self->m_width;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextAttrDimension >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextAttrDimension wxTextAttrSize::m_height()
+	static int _bind_getM_height(lua_State *L) {
+		if (!_lg_typecheck_getM_height(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextAttrDimension wxTextAttrSize::m_height() function, expected prototype:\nwxTextAttrDimension wxTextAttrSize::m_height()\nClass arguments details:\n");
+		}
+
+
+		wxTextAttrSize* self=(Luna< wxTextAttrSize >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension wxTextAttrSize::m_height(). Got : '%s'",typeid(Luna< wxTextAttrSize >::check(L,1)).name());
+		}
+		const wxTextAttrDimension* lret = &self->m_height;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextAttrDimension >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxTextAttrSize::m_width(wxTextAttrDimension value)
+	static int _bind_setM_width(lua_State *L) {
+		if (!_lg_typecheck_setM_width(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextAttrSize::m_width(wxTextAttrDimension value) function, expected prototype:\nvoid wxTextAttrSize::m_width(wxTextAttrDimension value)\nClass arguments details:\narg 1 ID = 25580455\n");
+		}
+
+		wxTextAttrDimension* value_ptr=(Luna< wxTextAttrDimension >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxTextAttrSize::m_width function");
+		}
+		wxTextAttrDimension value=*value_ptr;
+
+		wxTextAttrSize* self=(Luna< wxTextAttrSize >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextAttrSize::m_width(wxTextAttrDimension). Got : '%s'",typeid(Luna< wxTextAttrSize >::check(L,1)).name());
+		}
+		self->m_width = value;
+
+		return 0;
+	}
+
+	// void wxTextAttrSize::m_height(wxTextAttrDimension value)
+	static int _bind_setM_height(lua_State *L) {
+		if (!_lg_typecheck_setM_height(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextAttrSize::m_height(wxTextAttrDimension value) function, expected prototype:\nvoid wxTextAttrSize::m_height(wxTextAttrDimension value)\nClass arguments details:\narg 1 ID = 25580455\n");
+		}
+
+		wxTextAttrDimension* value_ptr=(Luna< wxTextAttrDimension >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxTextAttrSize::m_height function");
+		}
+		wxTextAttrDimension value=*value_ptr;
+
+		wxTextAttrSize* self=(Luna< wxTextAttrSize >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextAttrSize::m_height(wxTextAttrDimension). Got : '%s'",typeid(Luna< wxTextAttrSize >::check(L,1)).name());
+		}
+		self->m_height = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// bool wxTextAttrSize::operator==(const wxTextAttrSize & size) const
@@ -605,6 +719,10 @@ luna_RegType LunaTraits< wxTextAttrSize >::methods[] = {
 	{"SetWidth", &luna_wrapper_wxTextAttrSize::_bind_SetWidth},
 	{"GetHeight", &luna_wrapper_wxTextAttrSize::_bind_GetHeight},
 	{"SetHeight", &luna_wrapper_wxTextAttrSize::_bind_SetHeight},
+	{"getM_width", &luna_wrapper_wxTextAttrSize::_bind_getM_width},
+	{"getM_height", &luna_wrapper_wxTextAttrSize::_bind_getM_height},
+	{"setM_width", &luna_wrapper_wxTextAttrSize::_bind_setM_width},
+	{"setM_height", &luna_wrapper_wxTextAttrSize::_bind_setM_height},
 	{"__eq", &luna_wrapper_wxTextAttrSize::_bind___eq},
 	{"dynCast", &luna_wrapper_wxTextAttrSize::_bind_dynCast},
 	{0,0}

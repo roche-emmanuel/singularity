@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -161,7 +161,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,41227270) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -211,7 +211,7 @@ public:
 	inline static bool _lg_typecheck_setClipPlaneList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,73670266) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,53517213) ) return false;
 		return true;
 	}
 
@@ -379,6 +379,13 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -696,7 +703,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::ClipNode::createClipBox function");
 		}
@@ -861,7 +868,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ClipNode::setClipPlaneList(const osg::ClipNode::ClipPlaneList & cpl) function, expected prototype:\nvoid osg::ClipNode::setClipPlaneList(const osg::ClipNode::ClipPlaneList & cpl)\nClass arguments details:\narg 1 ID = 73670266\n");
 		}
 
-		const osg::ClipNode::ClipPlaneList* cpl_ptr=(Luna< osg::ClipNode::ClipPlaneList >::check(L,2));
+		const osg::ClipNode::ClipPlaneList* cpl_ptr=(Luna< std::vector< osg::ref_ptr< osg::ClipPlane > > >::checkSubType< osg::ClipNode::ClipPlaneList >(L,2));
 		if( !cpl_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cpl in osg::ClipNode::setClipPlaneList function");
 		}
@@ -1456,6 +1463,25 @@ public:
 		return 1;
 	}
 
+	// void osg::ClipNode::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::ClipNode::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::ClipNode::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::ClipNode* self=Luna< osg::Referenced >::checkSubType< osg::ClipNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::ClipNode::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->ClipNode::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osg::ClipNode::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
@@ -1683,6 +1709,7 @@ luna_RegType LunaTraits< osg::ClipNode >::methods[] = {
 	{"base_removeChildren", &luna_wrapper_osg_ClipNode::_bind_base_removeChildren},
 	{"base_replaceChild", &luna_wrapper_osg_ClipNode::_bind_base_replaceChild},
 	{"base_setChild", &luna_wrapper_osg_ClipNode::_bind_base_setChild},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_ClipNode::_bind_base_setThreadSafeRefUnref},
 	{"base_releaseGLObjects", &luna_wrapper_osg_ClipNode::_bind_base_releaseGLObjects},
 	{"base_cloneType", &luna_wrapper_osg_ClipNode::_bind_base_cloneType},
 	{"base_clone", &luna_wrapper_osg_ClipNode::_bind_base_clone},

@@ -239,10 +239,23 @@ function Class:getProtectedFunctions()
 	funcs:append(self:getFunctions{"Operator","Protected","NonVirtual"})	
 	
 	for _,v in self:getBases():sequence() do
-		funcs:append(v:getProtectedFunctions()) 
+		funcs:append(v:getProtectedFunctions());
 	end
 	
-	return funcs
+	local result = ItemSet()
+	local names = Set()
+	
+	for _, func in funcs:sequence() do
+		local name = func:getLuaName()
+		if names:contains(name) then
+			self:warn("Ignoring protected function ",func:getFullName()," in class ", self:getFullName(), " as masked by previous function with same name.");
+		else
+			names:push_back(name)
+			result:push_back(func)
+		end
+	end
+	
+	return result
 end
 
 --- Check if this class should be ignored.
@@ -325,6 +338,60 @@ function Class:addDefaultConstructor()
 		func:setStatic(false)
 	
 		self:addFunction(func)
+	end
+end
+
+function Class:addVariableGetters()
+	local allvars = self:getVariables{"Public","Valid"}
+	for _,var in allvars:sequence() do
+		-- add default public constructor:
+		
+		local func = Function()
+		func:setName(var:getName())
+		func:setArgsString("()")
+		func:setSection("public")
+		func:setConstness(false)
+		func:setStatic(false)
+		func:setReturnType(var:getType())
+		func:setIsGetter(true)
+		
+		self:addFunction(func)
+	end
+end
+
+function Class:addVariableSetters()
+
+	local Type = require "reflection.Type"
+	local Vector = require "std.Vector"
+	local ItemLink = require "reflection.ItemLink"
+	local Parameter = require "reflection.Parameter"
+	
+	local link = ItemLink("void")
+	local links = Vector()
+	links:push_back(link)
+			
+	local rtype = Type{links=links}
+	rtype:parse();
+	
+	local allvars = self:getVariables{"Public","Valid"}
+	for _,var in allvars:sequence() do
+		-- add default public constructor:
+		local vtype = var:getType()
+		if not vtype:isConst() then
+			local param = Parameter{type=vtype,name="value"};
+			
+			local func = Function()
+			func:getParameters():push_front(param)
+			func:setName(var:getName())
+			func:setArgsString("(" .. vtype:getName() .. " value)")
+			func:setSection("public")
+			func:setConstness(false)
+			func:setStatic(false)
+			func:setReturnType(rtype)
+			func:setIsSetter(true)
+			
+			self:addFunction(func)
+		end
 	end
 end
 

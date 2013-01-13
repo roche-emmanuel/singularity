@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -83,6 +83,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -128,6 +135,25 @@ public:
 		return 1;
 	}
 
+	// void osgGA::CameraManipulator::CoordinateFrameCallback::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::CameraManipulator::CoordinateFrameCallback::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgGA::CameraManipulator::CoordinateFrameCallback::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgGA::CameraManipulator::CoordinateFrameCallback* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraManipulator::CoordinateFrameCallback >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::CameraManipulator::CoordinateFrameCallback::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->CoordinateFrameCallback::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -153,6 +179,7 @@ const int LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::uniqu
 
 luna_RegType LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::methods[] = {
 	{"getCoordinateFrame", &luna_wrapper_osgGA_CameraManipulator_CoordinateFrameCallback::_bind_getCoordinateFrame},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgGA_CameraManipulator_CoordinateFrameCallback::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osgGA_CameraManipulator_CoordinateFrameCallback::_bind___eq},
 	{"getTable", &luna_wrapper_osgGA_CameraManipulator_CoordinateFrameCallback::_bind_getTable},
 	{0,0}

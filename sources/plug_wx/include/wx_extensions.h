@@ -3,6 +3,7 @@
 
 #include "luna/luna.h"
 #include "LuaEventHandler.h"
+#include <wx/statusbr.h>
 
 /** LUNA_CLASS_EXTENSION */
 int GetX(wxPoint* point);
@@ -37,5 +38,20 @@ enum ImageCorner {
 
 /** LUNA_CLASS_EXTENSION */
 void composeWith(wxImage* mainImg, wxImage* subImg, int corner = CORNER_BOTTOM_RIGHT);
+
+/** LUNA_CLASS_EXTENSION */
+inline void setFieldsCountVector(wxStatusBar* bar, std::vector<int>* widths) {
+	bar->SetFieldsCount(widths->size(),&(*widths)[0]);
+};
+
+/** LUNA_CLASS_EXTENSION */
+inline void setStatusWidthsVector(wxStatusBar* bar, std::vector<int>* widths) {
+	bar->SetStatusWidths(widths->size(),&(*widths)[0]);
+};
+
+/** LUNA_CLASS_EXTENSION */
+inline void setStatusStylesVector(wxStatusBar* bar, std::vector<int>* styles) {
+	bar->SetStatusStyles(styles->size(),&(*styles)[0]);
+};
 
 #endif

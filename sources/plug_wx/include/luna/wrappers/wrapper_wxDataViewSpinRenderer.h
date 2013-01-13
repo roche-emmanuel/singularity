@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_wxDataViewSpinRenderer() {
+		logDEBUG3("Calling delete function for wrapper wxDataViewSpinRenderer");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxDataViewSpinRenderer*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxDataViewSpinRenderer(lua_State* L, lua_Table* dum, int min, int max, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_EDITABLE, int align = -1) : wxDataViewSpinRenderer(min, max, mode, align), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxDataViewSpinRenderer(lua_State* L, lua_Table* dum, int min, int max, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_EDITABLE, int align = -1) 
+		: wxDataViewSpinRenderer(min, max, mode, align), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxDataViewSpinRenderer*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxDataViewSpinRenderer*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -37,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxDataViewSpinRenderer*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -49,6 +60,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxDataViewSpinRenderer*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -58,6 +70,7 @@ public:
 	// int wxDataViewRenderer::GetAlignment() const
 	int GetAlignment() const {
 		if(_obj.pushFunction("GetAlignment")) {
+			_obj.pushArg((wxDataViewSpinRenderer*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -67,6 +80,7 @@ public:
 	// wxDataViewCellMode wxDataViewRenderer::GetMode() const
 	wxDataViewCellMode GetMode() const {
 		if(_obj.pushFunction("GetMode")) {
+			_obj.pushArg((wxDataViewSpinRenderer*)this);
 			return (wxDataViewCellMode)(_obj.callFunction<int>());
 		}
 
@@ -76,6 +90,7 @@ public:
 	// void wxDataViewRenderer::SetAlignment(int align)
 	void SetAlignment(int align) {
 		if(_obj.pushFunction("SetAlignment")) {
+			_obj.pushArg((wxDataViewSpinRenderer*)this);
 			_obj.pushArg(align);
 			return (_obj.callFunction<void>());
 		}
@@ -86,12 +101,14 @@ public:
 	// wxSize wxDataViewCustomRenderer::GetSize() const
 	wxSize GetSize() const {
 		THROW_IF(!_obj.pushFunction("GetSize"),"No implementation for abstract function wxDataViewCustomRenderer::GetSize");
+		_obj.pushArg((wxDataViewSpinRenderer*)this);
 		return *(_obj.callFunction<wxSize*>());
 	};
 
 	// bool wxDataViewCustomRenderer::ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent)
 	bool ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent) {
 		if(_obj.pushFunction("ActivateCell")) {
+			_obj.pushArg((wxDataViewSpinRenderer*)this);
 			_obj.pushArg(&cell);
 			_obj.pushArg(model);
 			_obj.pushArg(&item);
@@ -106,6 +123,7 @@ public:
 	// bool wxDataViewCustomRenderer::HasEditorCtrl() const
 	bool HasEditorCtrl() const {
 		if(_obj.pushFunction("HasEditorCtrl")) {
+			_obj.pushArg((wxDataViewSpinRenderer*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -115,6 +133,7 @@ public:
 	// bool wxDataViewCustomRenderer::LeftClick(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)
 	bool LeftClick(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col) {
 		if(_obj.pushFunction("LeftClick")) {
+			_obj.pushArg((wxDataViewSpinRenderer*)this);
 			_obj.pushArg(&cursor);
 			_obj.pushArg(&cell);
 			_obj.pushArg(model);
@@ -129,6 +148,7 @@ public:
 	// bool wxDataViewCustomRenderer::Render(wxRect cell, wxDC * dc, int state)
 	bool Render(wxRect cell, wxDC * dc, int state) {
 		THROW_IF(!_obj.pushFunction("Render"),"No implementation for abstract function wxDataViewCustomRenderer::Render");
+		_obj.pushArg((wxDataViewSpinRenderer*)this);
 		_obj.pushArg(cell);
 		_obj.pushArg(dc);
 		_obj.pushArg(state);
@@ -138,6 +158,7 @@ public:
 	// bool wxDataViewCustomRenderer::StartDrag(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)
 	bool StartDrag(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col) {
 		if(_obj.pushFunction("StartDrag")) {
+			_obj.pushArg((wxDataViewSpinRenderer*)this);
 			_obj.pushArg(&cursor);
 			_obj.pushArg(&cell);
 			_obj.pushArg(model);

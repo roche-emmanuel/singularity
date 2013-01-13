@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osg::CullingSet::StateFrustumPair >* LunaTraits< std::vector< osg::CullingSet::StateFrustumPair > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osg::CullingSet::StateFrustumPair >();
 }
 
 void LunaTraits< std::vector< osg::CullingSet::StateFrustumPair > >::_bind_dtor(std::vector< osg::CullingSet::StateFrustumPair >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osg::CullingSet::StateFrustumPair > >::className[] = "std_vector_osg_CullingSet_StateFrustumPair";

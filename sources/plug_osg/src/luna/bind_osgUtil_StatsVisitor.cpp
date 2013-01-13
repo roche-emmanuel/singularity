@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -166,6 +166,273 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_numInstancedGroup(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_numInstancedSwitch(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_numInstancedLOD(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_numInstancedTransform(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_numInstancedGeode(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_numInstancedDrawable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_numInstancedGeometry(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_numInstancedFastGeometry(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_numInstancedStateSet(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_groupSet(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_transformSet(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_lodSet(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_switchSet(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_geodeSet(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_drawableSet(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_geometrySet(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_fastGeometrySet(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_statesetSet(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_uniqueStats(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_instancedStats(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_numInstancedGroup(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_numInstancedSwitch(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_numInstancedLOD(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_numInstancedTransform(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_numInstancedGeode(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_numInstancedDrawable(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_numInstancedGeometry(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_numInstancedFastGeometry(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_numInstancedStateSet(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_groupSet(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,73927809) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_transformSet(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,73927809) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_lodSet(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,73927809) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_switchSet(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,73927809) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_geodeSet(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,73927809) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_drawableSet(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,76374875) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_geometrySet(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,76374875) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_fastGeometrySet(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,76374875) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_statesetSet(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,97002577) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_uniqueStats(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,95996950) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_instancedStats(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,95996950) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -581,6 +848,851 @@ public:
 		return 0;
 	}
 
+	// unsigned int osgUtil::StatsVisitor::_numInstancedGroup()
+	static int _bind_get_numInstancedGroup(lua_State *L) {
+		if (!_lg_typecheck_get_numInstancedGroup(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedGroup() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedGroup()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::StatsVisitor::_numInstancedGroup(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_numInstancedGroup;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osgUtil::StatsVisitor::_numInstancedSwitch()
+	static int _bind_get_numInstancedSwitch(lua_State *L) {
+		if (!_lg_typecheck_get_numInstancedSwitch(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedSwitch() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedSwitch()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::StatsVisitor::_numInstancedSwitch(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_numInstancedSwitch;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osgUtil::StatsVisitor::_numInstancedLOD()
+	static int _bind_get_numInstancedLOD(lua_State *L) {
+		if (!_lg_typecheck_get_numInstancedLOD(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedLOD() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedLOD()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::StatsVisitor::_numInstancedLOD(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_numInstancedLOD;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osgUtil::StatsVisitor::_numInstancedTransform()
+	static int _bind_get_numInstancedTransform(lua_State *L) {
+		if (!_lg_typecheck_get_numInstancedTransform(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedTransform() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedTransform()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::StatsVisitor::_numInstancedTransform(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_numInstancedTransform;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osgUtil::StatsVisitor::_numInstancedGeode()
+	static int _bind_get_numInstancedGeode(lua_State *L) {
+		if (!_lg_typecheck_get_numInstancedGeode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedGeode() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedGeode()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::StatsVisitor::_numInstancedGeode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_numInstancedGeode;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osgUtil::StatsVisitor::_numInstancedDrawable()
+	static int _bind_get_numInstancedDrawable(lua_State *L) {
+		if (!_lg_typecheck_get_numInstancedDrawable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedDrawable() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedDrawable()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::StatsVisitor::_numInstancedDrawable(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_numInstancedDrawable;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osgUtil::StatsVisitor::_numInstancedGeometry()
+	static int _bind_get_numInstancedGeometry(lua_State *L) {
+		if (!_lg_typecheck_get_numInstancedGeometry(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedGeometry() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedGeometry()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::StatsVisitor::_numInstancedGeometry(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_numInstancedGeometry;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osgUtil::StatsVisitor::_numInstancedFastGeometry()
+	static int _bind_get_numInstancedFastGeometry(lua_State *L) {
+		if (!_lg_typecheck_get_numInstancedFastGeometry(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedFastGeometry() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedFastGeometry()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::StatsVisitor::_numInstancedFastGeometry(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_numInstancedFastGeometry;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osgUtil::StatsVisitor::_numInstancedStateSet()
+	static int _bind_get_numInstancedStateSet(lua_State *L) {
+		if (!_lg_typecheck_get_numInstancedStateSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedStateSet() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedStateSet()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::StatsVisitor::_numInstancedStateSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_numInstancedStateSet;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_groupSet()
+	static int _bind_get_groupSet(lua_State *L) {
+		if (!_lg_typecheck_get_groupSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_groupSet() function, expected prototype:\nosgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_groupSet()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_groupSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::StatsVisitor::NodeSet* lret = &self->_groupSet;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StatsVisitor::NodeSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_transformSet()
+	static int _bind_get_transformSet(lua_State *L) {
+		if (!_lg_typecheck_get_transformSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_transformSet() function, expected prototype:\nosgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_transformSet()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_transformSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::StatsVisitor::NodeSet* lret = &self->_transformSet;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StatsVisitor::NodeSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_lodSet()
+	static int _bind_get_lodSet(lua_State *L) {
+		if (!_lg_typecheck_get_lodSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_lodSet() function, expected prototype:\nosgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_lodSet()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_lodSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::StatsVisitor::NodeSet* lret = &self->_lodSet;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StatsVisitor::NodeSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_switchSet()
+	static int _bind_get_switchSet(lua_State *L) {
+		if (!_lg_typecheck_get_switchSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_switchSet() function, expected prototype:\nosgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_switchSet()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_switchSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::StatsVisitor::NodeSet* lret = &self->_switchSet;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StatsVisitor::NodeSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_geodeSet()
+	static int _bind_get_geodeSet(lua_State *L) {
+		if (!_lg_typecheck_get_geodeSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_geodeSet() function, expected prototype:\nosgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_geodeSet()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_geodeSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::StatsVisitor::NodeSet* lret = &self->_geodeSet;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StatsVisitor::NodeSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_drawableSet()
+	static int _bind_get_drawableSet(lua_State *L) {
+		if (!_lg_typecheck_get_drawableSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_drawableSet() function, expected prototype:\nosgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_drawableSet()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_drawableSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::StatsVisitor::DrawableSet* lret = &self->_drawableSet;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StatsVisitor::DrawableSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_geometrySet()
+	static int _bind_get_geometrySet(lua_State *L) {
+		if (!_lg_typecheck_get_geometrySet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_geometrySet() function, expected prototype:\nosgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_geometrySet()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_geometrySet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::StatsVisitor::DrawableSet* lret = &self->_geometrySet;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StatsVisitor::DrawableSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_fastGeometrySet()
+	static int _bind_get_fastGeometrySet(lua_State *L) {
+		if (!_lg_typecheck_get_fastGeometrySet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_fastGeometrySet() function, expected prototype:\nosgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_fastGeometrySet()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_fastGeometrySet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::StatsVisitor::DrawableSet* lret = &self->_fastGeometrySet;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StatsVisitor::DrawableSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgUtil::StatsVisitor::StateSetSet osgUtil::StatsVisitor::_statesetSet()
+	static int _bind_get_statesetSet(lua_State *L) {
+		if (!_lg_typecheck_get_statesetSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::StateSetSet osgUtil::StatsVisitor::_statesetSet() function, expected prototype:\nosgUtil::StatsVisitor::StateSetSet osgUtil::StatsVisitor::_statesetSet()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StatsVisitor::StateSetSet osgUtil::StatsVisitor::_statesetSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::StatsVisitor::StateSetSet* lret = &self->_statesetSet;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StatsVisitor::StateSetSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgUtil::Statistics osgUtil::StatsVisitor::_uniqueStats()
+	static int _bind_get_uniqueStats(lua_State *L) {
+		if (!_lg_typecheck_get_uniqueStats(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::Statistics osgUtil::StatsVisitor::_uniqueStats() function, expected prototype:\nosgUtil::Statistics osgUtil::StatsVisitor::_uniqueStats()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::Statistics osgUtil::StatsVisitor::_uniqueStats(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::Statistics* lret = &self->_uniqueStats;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::Statistics >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgUtil::Statistics osgUtil::StatsVisitor::_instancedStats()
+	static int _bind_get_instancedStats(lua_State *L) {
+		if (!_lg_typecheck_get_instancedStats(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::Statistics osgUtil::StatsVisitor::_instancedStats() function, expected prototype:\nosgUtil::Statistics osgUtil::StatsVisitor::_instancedStats()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::Statistics osgUtil::StatsVisitor::_instancedStats(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::Statistics* lret = &self->_instancedStats;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::Statistics >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void osgUtil::StatsVisitor::_numInstancedGroup(unsigned int value)
+	static int _bind_set_numInstancedGroup(lua_State *L) {
+		if (!_lg_typecheck_set_numInstancedGroup(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedGroup(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedGroup(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_numInstancedGroup(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_numInstancedGroup = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_numInstancedSwitch(unsigned int value)
+	static int _bind_set_numInstancedSwitch(lua_State *L) {
+		if (!_lg_typecheck_set_numInstancedSwitch(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedSwitch(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedSwitch(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_numInstancedSwitch(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_numInstancedSwitch = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_numInstancedLOD(unsigned int value)
+	static int _bind_set_numInstancedLOD(lua_State *L) {
+		if (!_lg_typecheck_set_numInstancedLOD(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedLOD(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedLOD(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_numInstancedLOD(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_numInstancedLOD = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_numInstancedTransform(unsigned int value)
+	static int _bind_set_numInstancedTransform(lua_State *L) {
+		if (!_lg_typecheck_set_numInstancedTransform(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedTransform(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedTransform(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_numInstancedTransform(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_numInstancedTransform = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_numInstancedGeode(unsigned int value)
+	static int _bind_set_numInstancedGeode(lua_State *L) {
+		if (!_lg_typecheck_set_numInstancedGeode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedGeode(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedGeode(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_numInstancedGeode(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_numInstancedGeode = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_numInstancedDrawable(unsigned int value)
+	static int _bind_set_numInstancedDrawable(lua_State *L) {
+		if (!_lg_typecheck_set_numInstancedDrawable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedDrawable(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedDrawable(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_numInstancedDrawable(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_numInstancedDrawable = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_numInstancedGeometry(unsigned int value)
+	static int _bind_set_numInstancedGeometry(lua_State *L) {
+		if (!_lg_typecheck_set_numInstancedGeometry(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedGeometry(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedGeometry(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_numInstancedGeometry(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_numInstancedGeometry = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_numInstancedFastGeometry(unsigned int value)
+	static int _bind_set_numInstancedFastGeometry(lua_State *L) {
+		if (!_lg_typecheck_set_numInstancedFastGeometry(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedFastGeometry(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedFastGeometry(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_numInstancedFastGeometry(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_numInstancedFastGeometry = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_numInstancedStateSet(unsigned int value)
+	static int _bind_set_numInstancedStateSet(lua_State *L) {
+		if (!_lg_typecheck_set_numInstancedStateSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedStateSet(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedStateSet(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_numInstancedStateSet(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_numInstancedStateSet = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_groupSet(osgUtil::StatsVisitor::NodeSet value)
+	static int _bind_set_groupSet(lua_State *L) {
+		if (!_lg_typecheck_set_groupSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_groupSet(osgUtil::StatsVisitor::NodeSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_groupSet(osgUtil::StatsVisitor::NodeSet value)\nClass arguments details:\narg 1 ID = 22793184\n");
+		}
+
+		osgUtil::StatsVisitor::NodeSet* value_ptr=(Luna< std::set< osg::Node * > >::checkSubType< osgUtil::StatsVisitor::NodeSet >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StatsVisitor::_groupSet function");
+		}
+		osgUtil::StatsVisitor::NodeSet value=*value_ptr;
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_groupSet(osgUtil::StatsVisitor::NodeSet). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_groupSet = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_transformSet(osgUtil::StatsVisitor::NodeSet value)
+	static int _bind_set_transformSet(lua_State *L) {
+		if (!_lg_typecheck_set_transformSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_transformSet(osgUtil::StatsVisitor::NodeSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_transformSet(osgUtil::StatsVisitor::NodeSet value)\nClass arguments details:\narg 1 ID = 22793184\n");
+		}
+
+		osgUtil::StatsVisitor::NodeSet* value_ptr=(Luna< std::set< osg::Node * > >::checkSubType< osgUtil::StatsVisitor::NodeSet >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StatsVisitor::_transformSet function");
+		}
+		osgUtil::StatsVisitor::NodeSet value=*value_ptr;
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_transformSet(osgUtil::StatsVisitor::NodeSet). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_transformSet = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_lodSet(osgUtil::StatsVisitor::NodeSet value)
+	static int _bind_set_lodSet(lua_State *L) {
+		if (!_lg_typecheck_set_lodSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_lodSet(osgUtil::StatsVisitor::NodeSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_lodSet(osgUtil::StatsVisitor::NodeSet value)\nClass arguments details:\narg 1 ID = 22793184\n");
+		}
+
+		osgUtil::StatsVisitor::NodeSet* value_ptr=(Luna< std::set< osg::Node * > >::checkSubType< osgUtil::StatsVisitor::NodeSet >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StatsVisitor::_lodSet function");
+		}
+		osgUtil::StatsVisitor::NodeSet value=*value_ptr;
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_lodSet(osgUtil::StatsVisitor::NodeSet). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_lodSet = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_switchSet(osgUtil::StatsVisitor::NodeSet value)
+	static int _bind_set_switchSet(lua_State *L) {
+		if (!_lg_typecheck_set_switchSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_switchSet(osgUtil::StatsVisitor::NodeSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_switchSet(osgUtil::StatsVisitor::NodeSet value)\nClass arguments details:\narg 1 ID = 22793184\n");
+		}
+
+		osgUtil::StatsVisitor::NodeSet* value_ptr=(Luna< std::set< osg::Node * > >::checkSubType< osgUtil::StatsVisitor::NodeSet >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StatsVisitor::_switchSet function");
+		}
+		osgUtil::StatsVisitor::NodeSet value=*value_ptr;
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_switchSet(osgUtil::StatsVisitor::NodeSet). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_switchSet = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_geodeSet(osgUtil::StatsVisitor::NodeSet value)
+	static int _bind_set_geodeSet(lua_State *L) {
+		if (!_lg_typecheck_set_geodeSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_geodeSet(osgUtil::StatsVisitor::NodeSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_geodeSet(osgUtil::StatsVisitor::NodeSet value)\nClass arguments details:\narg 1 ID = 22793184\n");
+		}
+
+		osgUtil::StatsVisitor::NodeSet* value_ptr=(Luna< std::set< osg::Node * > >::checkSubType< osgUtil::StatsVisitor::NodeSet >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StatsVisitor::_geodeSet function");
+		}
+		osgUtil::StatsVisitor::NodeSet value=*value_ptr;
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_geodeSet(osgUtil::StatsVisitor::NodeSet). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_geodeSet = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_drawableSet(osgUtil::StatsVisitor::DrawableSet value)
+	static int _bind_set_drawableSet(lua_State *L) {
+		if (!_lg_typecheck_set_drawableSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_drawableSet(osgUtil::StatsVisitor::DrawableSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_drawableSet(osgUtil::StatsVisitor::DrawableSet value)\nClass arguments details:\narg 1 ID = 41381585\n");
+		}
+
+		osgUtil::StatsVisitor::DrawableSet* value_ptr=(Luna< std::set< osg::Drawable * > >::checkSubType< osgUtil::StatsVisitor::DrawableSet >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StatsVisitor::_drawableSet function");
+		}
+		osgUtil::StatsVisitor::DrawableSet value=*value_ptr;
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_drawableSet(osgUtil::StatsVisitor::DrawableSet). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_drawableSet = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_geometrySet(osgUtil::StatsVisitor::DrawableSet value)
+	static int _bind_set_geometrySet(lua_State *L) {
+		if (!_lg_typecheck_set_geometrySet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_geometrySet(osgUtil::StatsVisitor::DrawableSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_geometrySet(osgUtil::StatsVisitor::DrawableSet value)\nClass arguments details:\narg 1 ID = 41381585\n");
+		}
+
+		osgUtil::StatsVisitor::DrawableSet* value_ptr=(Luna< std::set< osg::Drawable * > >::checkSubType< osgUtil::StatsVisitor::DrawableSet >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StatsVisitor::_geometrySet function");
+		}
+		osgUtil::StatsVisitor::DrawableSet value=*value_ptr;
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_geometrySet(osgUtil::StatsVisitor::DrawableSet). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_geometrySet = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_fastGeometrySet(osgUtil::StatsVisitor::DrawableSet value)
+	static int _bind_set_fastGeometrySet(lua_State *L) {
+		if (!_lg_typecheck_set_fastGeometrySet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_fastGeometrySet(osgUtil::StatsVisitor::DrawableSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_fastGeometrySet(osgUtil::StatsVisitor::DrawableSet value)\nClass arguments details:\narg 1 ID = 41381585\n");
+		}
+
+		osgUtil::StatsVisitor::DrawableSet* value_ptr=(Luna< std::set< osg::Drawable * > >::checkSubType< osgUtil::StatsVisitor::DrawableSet >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StatsVisitor::_fastGeometrySet function");
+		}
+		osgUtil::StatsVisitor::DrawableSet value=*value_ptr;
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_fastGeometrySet(osgUtil::StatsVisitor::DrawableSet). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_fastGeometrySet = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_statesetSet(osgUtil::StatsVisitor::StateSetSet value)
+	static int _bind_set_statesetSet(lua_State *L) {
+		if (!_lg_typecheck_set_statesetSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_statesetSet(osgUtil::StatsVisitor::StateSetSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_statesetSet(osgUtil::StatsVisitor::StateSetSet value)\nClass arguments details:\narg 1 ID = 77774778\n");
+		}
+
+		osgUtil::StatsVisitor::StateSetSet* value_ptr=(Luna< std::set< osg::StateSet * > >::checkSubType< osgUtil::StatsVisitor::StateSetSet >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StatsVisitor::_statesetSet function");
+		}
+		osgUtil::StatsVisitor::StateSetSet value=*value_ptr;
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_statesetSet(osgUtil::StatsVisitor::StateSetSet). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_statesetSet = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_uniqueStats(osgUtil::Statistics value)
+	static int _bind_set_uniqueStats(lua_State *L) {
+		if (!_lg_typecheck_set_uniqueStats(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_uniqueStats(osgUtil::Statistics value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_uniqueStats(osgUtil::Statistics value)\nClass arguments details:\narg 1 ID = 95996950\n");
+		}
+
+		osgUtil::Statistics* value_ptr=(Luna< osgUtil::Statistics >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StatsVisitor::_uniqueStats function");
+		}
+		osgUtil::Statistics value=*value_ptr;
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_uniqueStats(osgUtil::Statistics). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_uniqueStats = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::_instancedStats(osgUtil::Statistics value)
+	static int _bind_set_instancedStats(lua_State *L) {
+		if (!_lg_typecheck_set_instancedStats(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_instancedStats(osgUtil::Statistics value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_instancedStats(osgUtil::Statistics value)\nClass arguments details:\narg 1 ID = 95996950\n");
+		}
+
+		osgUtil::Statistics* value_ptr=(Luna< osgUtil::Statistics >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StatsVisitor::_instancedStats function");
+		}
+		osgUtil::Statistics value=*value_ptr;
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::_instancedStats(osgUtil::Statistics). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_instancedStats = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StatsVisitor::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::StatsVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->StatsVisitor::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// osg::Vec3f osgUtil::StatsVisitor::base_getEyePoint() const
 	static int _bind_base_getEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getEyePoint(L)) {
@@ -936,6 +2048,47 @@ luna_RegType LunaTraits< osgUtil::StatsVisitor >::methods[] = {
 	{"apply", &luna_wrapper_osgUtil_StatsVisitor::_bind_apply},
 	{"totalUpStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_totalUpStats},
 	{"print", &luna_wrapper_osgUtil_StatsVisitor::_bind_print},
+	{"get_numInstancedGroup", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedGroup},
+	{"get_numInstancedSwitch", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedSwitch},
+	{"get_numInstancedLOD", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedLOD},
+	{"get_numInstancedTransform", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedTransform},
+	{"get_numInstancedGeode", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedGeode},
+	{"get_numInstancedDrawable", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedDrawable},
+	{"get_numInstancedGeometry", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedGeometry},
+	{"get_numInstancedFastGeometry", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedFastGeometry},
+	{"get_numInstancedStateSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedStateSet},
+	{"get_groupSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_groupSet},
+	{"get_transformSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_transformSet},
+	{"get_lodSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_lodSet},
+	{"get_switchSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_switchSet},
+	{"get_geodeSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_geodeSet},
+	{"get_drawableSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_drawableSet},
+	{"get_geometrySet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_geometrySet},
+	{"get_fastGeometrySet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_fastGeometrySet},
+	{"get_statesetSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_statesetSet},
+	{"get_uniqueStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_uniqueStats},
+	{"get_instancedStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_instancedStats},
+	{"set_numInstancedGroup", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedGroup},
+	{"set_numInstancedSwitch", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedSwitch},
+	{"set_numInstancedLOD", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedLOD},
+	{"set_numInstancedTransform", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedTransform},
+	{"set_numInstancedGeode", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedGeode},
+	{"set_numInstancedDrawable", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedDrawable},
+	{"set_numInstancedGeometry", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedGeometry},
+	{"set_numInstancedFastGeometry", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedFastGeometry},
+	{"set_numInstancedStateSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedStateSet},
+	{"set_groupSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_groupSet},
+	{"set_transformSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_transformSet},
+	{"set_lodSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_lodSet},
+	{"set_switchSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_switchSet},
+	{"set_geodeSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_geodeSet},
+	{"set_drawableSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_drawableSet},
+	{"set_geometrySet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_geometrySet},
+	{"set_fastGeometrySet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_fastGeometrySet},
+	{"set_statesetSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_statesetSet},
+	{"set_uniqueStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_uniqueStats},
+	{"set_instancedStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_instancedStats},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_StatsVisitor::_bind_base_setThreadSafeRefUnref},
 	{"base_getEyePoint", &luna_wrapper_osgUtil_StatsVisitor::_bind_base_getEyePoint},
 	{"base_getViewPoint", &luna_wrapper_osgUtil_StatsVisitor::_bind_base_getViewPoint},
 	{"base_getDistanceToEyePoint", &luna_wrapper_osgUtil_StatsVisitor::_bind_base_getDistanceToEyePoint},

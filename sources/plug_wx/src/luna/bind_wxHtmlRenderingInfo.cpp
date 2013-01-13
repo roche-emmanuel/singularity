@@ -152,10 +152,10 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxHtmlRenderingState & wxHtmlRenderingInfo::GetState(). Got : '%s'",typeid(Luna< wxHtmlRenderingInfo >::check(L,1)).name());
 		}
-		wxHtmlRenderingState & lret = self->GetState();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxHtmlRenderingState &'
-		////////////////////////////////////////////////////////////////////
+		const wxHtmlRenderingState* lret = &self->GetState();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxHtmlRenderingState >::push(L,lret,false);
 
 		return 1;
 	}

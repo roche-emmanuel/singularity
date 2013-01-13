@@ -57,11 +57,11 @@ public:
 };
 
 std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList >* LunaTraits< std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList >();
 }
 
 void LunaTraits< std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList > >::_bind_dtor(std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList > >::className[] = "std_map_osg_GraphicsContext_ptr_osgUtil_IncrementalCompileOperation_CompileList";

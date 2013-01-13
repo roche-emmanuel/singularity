@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -612,9 +612,23 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::DisplaySettings::DisplaySettings()
@@ -2173,8 +2187,53 @@ public:
 		return 1;
 	}
 
+	// void osg::DisplaySettings::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::DisplaySettings::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->DisplaySettings::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 
 	// Operator binds:
+	// osg::DisplaySettings & osg::DisplaySettings::operator=(const osg::DisplaySettings & vs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings & osg::DisplaySettings::operator=(const osg::DisplaySettings & vs) function, expected prototype:\nosg::DisplaySettings & osg::DisplaySettings::operator=(const osg::DisplaySettings & vs)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::DisplaySettings* vs_ptr=(Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,2));
+		if( !vs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg vs in osg::DisplaySettings::operator= function");
+		}
+		const osg::DisplaySettings & vs=*vs_ptr;
+
+		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::DisplaySettings & osg::DisplaySettings::operator=(const osg::DisplaySettings &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::DisplaySettings* lret = &self->operator=(vs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::DisplaySettings >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -2272,6 +2331,8 @@ luna_RegType LunaTraits< osg::DisplaySettings >::methods[] = {
 	{"getGLContextFlags", &luna_wrapper_osg_DisplaySettings::_bind_getGLContextFlags},
 	{"setGLContextProfileMask", &luna_wrapper_osg_DisplaySettings::_bind_setGLContextProfileMask},
 	{"getGLContextProfileMask", &luna_wrapper_osg_DisplaySettings::_bind_getGLContextProfileMask},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_DisplaySettings::_bind_base_setThreadSafeRefUnref},
+	{"op_assign", &luna_wrapper_osg_DisplaySettings::_bind_op_assign},
 	{"__eq", &luna_wrapper_osg_DisplaySettings::_bind___eq},
 	{"getTable", &luna_wrapper_osg_DisplaySettings::_bind_getTable},
 	{0,0}

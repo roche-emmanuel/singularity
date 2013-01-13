@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_wxHeaderColumnSimple() {
+		logDEBUG3("Calling delete function for wrapper wxHeaderColumnSimple");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxHeaderColumnSimple*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxHeaderColumnSimple(lua_State* L, lua_Table* dum, const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS) : wxHeaderColumnSimple(title, width, align, flags), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxHeaderColumnSimple(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS) : wxHeaderColumnSimple(bitmap, width, align, flags), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxHeaderColumnSimple(lua_State* L, lua_Table* dum, const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS) 
+		: wxHeaderColumnSimple(title, width, align, flags), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxHeaderColumnSimple(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS) 
+		: wxHeaderColumnSimple(bitmap, width, align, flags), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +47,7 @@ public:
 	// bool wxHeaderColumn::IsResizeable() const
 	bool IsResizeable() const {
 		if(_obj.pushFunction("IsResizeable")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -40,6 +57,7 @@ public:
 	// bool wxHeaderColumn::IsSortable() const
 	bool IsSortable() const {
 		if(_obj.pushFunction("IsSortable")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -49,6 +67,7 @@ public:
 	// bool wxHeaderColumn::IsReorderable() const
 	bool IsReorderable() const {
 		if(_obj.pushFunction("IsReorderable")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -58,6 +77,7 @@ public:
 	// bool wxHeaderColumn::IsHidden() const
 	bool IsHidden() const {
 		if(_obj.pushFunction("IsHidden")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -67,6 +87,7 @@ public:
 	// void wxSettableHeaderColumn::SetResizeable(bool resizable)
 	void SetResizeable(bool resizable) {
 		if(_obj.pushFunction("SetResizeable")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			_obj.pushArg(resizable);
 			return (_obj.callFunction<void>());
 		}
@@ -77,6 +98,7 @@ public:
 	// void wxSettableHeaderColumn::SetSortable(bool sortable)
 	void SetSortable(bool sortable) {
 		if(_obj.pushFunction("SetSortable")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			_obj.pushArg(sortable);
 			return (_obj.callFunction<void>());
 		}
@@ -87,6 +109,7 @@ public:
 	// void wxSettableHeaderColumn::SetReorderable(bool reorderable)
 	void SetReorderable(bool reorderable) {
 		if(_obj.pushFunction("SetReorderable")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			_obj.pushArg(reorderable);
 			return (_obj.callFunction<void>());
 		}
@@ -97,6 +120,7 @@ public:
 	// void wxSettableHeaderColumn::SetHidden(bool hidden)
 	void SetHidden(bool hidden) {
 		if(_obj.pushFunction("SetHidden")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			_obj.pushArg(hidden);
 			return (_obj.callFunction<void>());
 		}
@@ -107,6 +131,7 @@ public:
 	// void wxHeaderColumnSimple::SetTitle(const wxString & title)
 	void SetTitle(const wxString & title) {
 		if(_obj.pushFunction("SetTitle")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			_obj.pushArg(title);
 			return (_obj.callFunction<void>());
 		}
@@ -117,6 +142,7 @@ public:
 	// wxString wxHeaderColumnSimple::GetTitle() const
 	wxString GetTitle() const {
 		if(_obj.pushFunction("GetTitle")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -126,6 +152,7 @@ public:
 	// void wxHeaderColumnSimple::SetBitmap(const wxBitmap & bitmap)
 	void SetBitmap(const wxBitmap & bitmap) {
 		if(_obj.pushFunction("SetBitmap")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			_obj.pushArg(&bitmap);
 			return (_obj.callFunction<void>());
 		}
@@ -136,6 +163,7 @@ public:
 	// wxBitmap wxHeaderColumnSimple::GetBitmap() const
 	wxBitmap GetBitmap() const {
 		if(_obj.pushFunction("GetBitmap")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			return *(_obj.callFunction<wxBitmap*>());
 		}
 
@@ -145,6 +173,7 @@ public:
 	// void wxHeaderColumnSimple::SetWidth(int width)
 	void SetWidth(int width) {
 		if(_obj.pushFunction("SetWidth")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			_obj.pushArg(width);
 			return (_obj.callFunction<void>());
 		}
@@ -155,6 +184,7 @@ public:
 	// int wxHeaderColumnSimple::GetWidth() const
 	int GetWidth() const {
 		if(_obj.pushFunction("GetWidth")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -164,6 +194,7 @@ public:
 	// void wxHeaderColumnSimple::SetMinWidth(int minWidth)
 	void SetMinWidth(int minWidth) {
 		if(_obj.pushFunction("SetMinWidth")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			_obj.pushArg(minWidth);
 			return (_obj.callFunction<void>());
 		}
@@ -174,6 +205,7 @@ public:
 	// int wxHeaderColumnSimple::GetMinWidth() const
 	int GetMinWidth() const {
 		if(_obj.pushFunction("GetMinWidth")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -183,6 +215,7 @@ public:
 	// void wxHeaderColumnSimple::SetAlignment(wxAlignment align)
 	void SetAlignment(wxAlignment align) {
 		if(_obj.pushFunction("SetAlignment")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			_obj.pushArg(align);
 			return (_obj.callFunction<void>());
 		}
@@ -193,6 +226,7 @@ public:
 	// wxAlignment wxHeaderColumnSimple::GetAlignment() const
 	wxAlignment GetAlignment() const {
 		if(_obj.pushFunction("GetAlignment")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			return (wxAlignment)(_obj.callFunction<int>());
 		}
 
@@ -202,6 +236,7 @@ public:
 	// void wxHeaderColumnSimple::SetFlags(int flags)
 	void SetFlags(int flags) {
 		if(_obj.pushFunction("SetFlags")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			_obj.pushArg(flags);
 			return (_obj.callFunction<void>());
 		}
@@ -212,6 +247,7 @@ public:
 	// int wxHeaderColumnSimple::GetFlags() const
 	int GetFlags() const {
 		if(_obj.pushFunction("GetFlags")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -221,6 +257,7 @@ public:
 	// bool wxHeaderColumnSimple::IsSortKey() const
 	bool IsSortKey() const {
 		if(_obj.pushFunction("IsSortKey")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -230,6 +267,7 @@ public:
 	// void wxHeaderColumnSimple::SetSortOrder(bool ascending)
 	void SetSortOrder(bool ascending) {
 		if(_obj.pushFunction("SetSortOrder")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			_obj.pushArg(ascending);
 			return (_obj.callFunction<void>());
 		}
@@ -240,6 +278,7 @@ public:
 	// bool wxHeaderColumnSimple::IsSortOrderAscending() const
 	bool IsSortOrderAscending() const {
 		if(_obj.pushFunction("IsSortOrderAscending")) {
+			_obj.pushArg((wxHeaderColumnSimple*)this);
 			return (_obj.callFunction<bool>());
 		}
 

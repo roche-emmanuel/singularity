@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgUtil_Simplifier_ContinueSimplificationCallback() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_Simplifier_ContinueSimplificationCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::Simplifier::ContinueSimplificationCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_Simplifier_ContinueSimplificationCallback(lua_State* L, lua_Table* dum) : osgUtil::Simplifier::ContinueSimplificationCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_Simplifier_ContinueSimplificationCallback(lua_State* L, lua_Table* dum) 
+		: osgUtil::Simplifier::ContinueSimplificationCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::Simplifier::ContinueSimplificationCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,9 +36,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::Simplifier::ContinueSimplificationCallback*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ContinueSimplificationCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// bool osgUtil::Simplifier::ContinueSimplificationCallback::continueSimplification(const osgUtil::Simplifier & simplifier, float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const
 	bool continueSimplification(const osgUtil::Simplifier & simplifier, float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const {
 		if(_obj.pushFunction("continueSimplification")) {
+			_obj.pushArg((osgUtil::Simplifier::ContinueSimplificationCallback*)this);
 			_obj.pushArg(&simplifier);
 			_obj.pushArg(nextError);
 			_obj.pushArg(numOriginalPrimitives);
@@ -111,8 +132,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

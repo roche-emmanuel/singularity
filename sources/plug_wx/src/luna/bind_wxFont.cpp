@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxObject,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -620,7 +620,7 @@ public:
 
 
 	// Operator checkers:
-	// (found 2 valid operators)
+	// (found 3 valid operators)
 	inline static bool _lg_typecheck_op_neq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -629,6 +629,13 @@ public:
 	}
 
 	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
@@ -2240,6 +2247,32 @@ public:
 		return 1;
 	}
 
+	// wxFont & wxFont::operator=(const wxFont & font)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFont & wxFont::operator=(const wxFont & font) function, expected prototype:\nwxFont & wxFont::operator=(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
+		if( !font_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg font in wxFont::operator= function");
+		}
+		const wxFont & font=*font_ptr;
+
+		wxFont* self=Luna< wxObject >::checkSubType< wxFont >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxFont & wxFont::operator=(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxFont* lret = &self->operator=(font);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxFont >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -2322,6 +2355,7 @@ luna_RegType LunaTraits< wxFont >::methods[] = {
 	{"base_SetWeight", &luna_wrapper_wxFont::_bind_base_SetWeight},
 	{"op_neq", &luna_wrapper_wxFont::_bind_op_neq},
 	{"__eq", &luna_wrapper_wxFont::_bind___eq},
+	{"op_assign", &luna_wrapper_wxFont::_bind_op_assign},
 	{"getTable", &luna_wrapper_wxFont::_bind_getTable},
 	{0,0}
 };

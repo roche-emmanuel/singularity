@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgDB_InputIterator() {
+		logDEBUG3("Calling delete function for wrapper osgDB_InputIterator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::InputIterator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_InputIterator(lua_State* L, lua_Table* dum) : osgDB::InputIterator(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_InputIterator(lua_State* L, lua_Table* dum) 
+		: osgDB::InputIterator(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::InputIterator*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,15 +36,28 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::InputIterator*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return InputIterator::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// bool osgDB::InputIterator::isBinary() const
 	bool isBinary() const {
 		THROW_IF(!_obj.pushFunction("isBinary"),"No implementation for abstract function osgDB::InputIterator::isBinary");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// void osgDB::InputIterator::readBool(bool & b)
 	void readBool(bool & b) {
 		THROW_IF(!_obj.pushFunction("readBool"),"No implementation for abstract function osgDB::InputIterator::readBool");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(b);
 		return (_obj.callFunction<void>());
 	};
@@ -43,6 +65,7 @@ public:
 	// void osgDB::InputIterator::readChar(char & c)
 	void readChar(char & c) {
 		THROW_IF(!_obj.pushFunction("readChar"),"No implementation for abstract function osgDB::InputIterator::readChar");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(c);
 		return (_obj.callFunction<void>());
 	};
@@ -50,6 +73,7 @@ public:
 	// void osgDB::InputIterator::readSChar(signed char & c)
 	void readSChar(signed char & c) {
 		THROW_IF(!_obj.pushFunction("readSChar"),"No implementation for abstract function osgDB::InputIterator::readSChar");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(c);
 		return (_obj.callFunction<void>());
 	};
@@ -57,6 +81,7 @@ public:
 	// void osgDB::InputIterator::readUChar(unsigned char & c)
 	void readUChar(unsigned char & c) {
 		THROW_IF(!_obj.pushFunction("readUChar"),"No implementation for abstract function osgDB::InputIterator::readUChar");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(c);
 		return (_obj.callFunction<void>());
 	};
@@ -64,6 +89,7 @@ public:
 	// void osgDB::InputIterator::readShort(short & s)
 	void readShort(short & s) {
 		THROW_IF(!_obj.pushFunction("readShort"),"No implementation for abstract function osgDB::InputIterator::readShort");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(s);
 		return (_obj.callFunction<void>());
 	};
@@ -71,6 +97,7 @@ public:
 	// void osgDB::InputIterator::readUShort(unsigned short & s)
 	void readUShort(unsigned short & s) {
 		THROW_IF(!_obj.pushFunction("readUShort"),"No implementation for abstract function osgDB::InputIterator::readUShort");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(s);
 		return (_obj.callFunction<void>());
 	};
@@ -78,6 +105,7 @@ public:
 	// void osgDB::InputIterator::readInt(int & i)
 	void readInt(int & i) {
 		THROW_IF(!_obj.pushFunction("readInt"),"No implementation for abstract function osgDB::InputIterator::readInt");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(i);
 		return (_obj.callFunction<void>());
 	};
@@ -85,6 +113,7 @@ public:
 	// void osgDB::InputIterator::readUInt(unsigned int & i)
 	void readUInt(unsigned int & i) {
 		THROW_IF(!_obj.pushFunction("readUInt"),"No implementation for abstract function osgDB::InputIterator::readUInt");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(i);
 		return (_obj.callFunction<void>());
 	};
@@ -92,6 +121,7 @@ public:
 	// void osgDB::InputIterator::readLong(long & l)
 	void readLong(long & l) {
 		THROW_IF(!_obj.pushFunction("readLong"),"No implementation for abstract function osgDB::InputIterator::readLong");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(l);
 		return (_obj.callFunction<void>());
 	};
@@ -99,6 +129,7 @@ public:
 	// void osgDB::InputIterator::readULong(unsigned long & l)
 	void readULong(unsigned long & l) {
 		THROW_IF(!_obj.pushFunction("readULong"),"No implementation for abstract function osgDB::InputIterator::readULong");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(l);
 		return (_obj.callFunction<void>());
 	};
@@ -106,6 +137,7 @@ public:
 	// void osgDB::InputIterator::readFloat(float & f)
 	void readFloat(float & f) {
 		THROW_IF(!_obj.pushFunction("readFloat"),"No implementation for abstract function osgDB::InputIterator::readFloat");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(f);
 		return (_obj.callFunction<void>());
 	};
@@ -113,6 +145,7 @@ public:
 	// void osgDB::InputIterator::readDouble(double & d)
 	void readDouble(double & d) {
 		THROW_IF(!_obj.pushFunction("readDouble"),"No implementation for abstract function osgDB::InputIterator::readDouble");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(d);
 		return (_obj.callFunction<void>());
 	};
@@ -120,6 +153,7 @@ public:
 	// void osgDB::InputIterator::readString(std::string & s)
 	void readString(std::string & s) {
 		THROW_IF(!_obj.pushFunction("readString"),"No implementation for abstract function osgDB::InputIterator::readString");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(s);
 		return (_obj.callFunction<void>());
 	};
@@ -127,6 +161,7 @@ public:
 	// void osgDB::InputIterator::readGLenum(osgDB::ObjectGLenum & value)
 	void readGLenum(osgDB::ObjectGLenum & value) {
 		THROW_IF(!_obj.pushFunction("readGLenum"),"No implementation for abstract function osgDB::InputIterator::readGLenum");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(&value);
 		return (_obj.callFunction<void>());
 	};
@@ -134,6 +169,7 @@ public:
 	// void osgDB::InputIterator::readProperty(osgDB::ObjectProperty & prop)
 	void readProperty(osgDB::ObjectProperty & prop) {
 		THROW_IF(!_obj.pushFunction("readProperty"),"No implementation for abstract function osgDB::InputIterator::readProperty");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(&prop);
 		return (_obj.callFunction<void>());
 	};
@@ -141,6 +177,7 @@ public:
 	// void osgDB::InputIterator::readMark(osgDB::ObjectMark & mark)
 	void readMark(osgDB::ObjectMark & mark) {
 		THROW_IF(!_obj.pushFunction("readMark"),"No implementation for abstract function osgDB::InputIterator::readMark");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(&mark);
 		return (_obj.callFunction<void>());
 	};
@@ -148,6 +185,7 @@ public:
 	// void osgDB::InputIterator::readCharArray(char * s, unsigned int size)
 	void readCharArray(char * s, unsigned int size) {
 		THROW_IF(!_obj.pushFunction("readCharArray"),"No implementation for abstract function osgDB::InputIterator::readCharArray");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(s);
 		_obj.pushArg(size);
 		return (_obj.callFunction<void>());
@@ -156,6 +194,7 @@ public:
 	// void osgDB::InputIterator::readWrappedString(std::string & str)
 	void readWrappedString(std::string & str) {
 		THROW_IF(!_obj.pushFunction("readWrappedString"),"No implementation for abstract function osgDB::InputIterator::readWrappedString");
+		_obj.pushArg((osgDB::InputIterator*)this);
 		_obj.pushArg(str);
 		return (_obj.callFunction<void>());
 	};
@@ -163,6 +202,7 @@ public:
 	// bool osgDB::InputIterator::matchString(const std::string & arg1)
 	bool matchString(const std::string & arg1) {
 		if(_obj.pushFunction("matchString")) {
+			_obj.pushArg((osgDB::InputIterator*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<bool>());
 		}
@@ -173,6 +213,7 @@ public:
 	// void osgDB::InputIterator::advanceToCurrentEndBracket()
 	void advanceToCurrentEndBracket() {
 		if(_obj.pushFunction("advanceToCurrentEndBracket")) {
+			_obj.pushArg((osgDB::InputIterator*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -250,8 +291,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

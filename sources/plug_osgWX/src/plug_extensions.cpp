@@ -28,7 +28,7 @@ wxGLCanvas* createGLCanvas(wxWindow *parent, wxWindowID id, lua_Table *attribLis
 	CHECK_RET(wxGLCanvas::IsDisplaySupported((const int*)&attribs[0]),NULL,"GL Canvas attribute list not supported.");
 
 	// create the canvas:
-	wxGLCanvas* canvas = new wxGLCanvas(parent,id,&attribs[0]);
+	wxGLCanvas* canvas = new wxGLCanvas(parent,id,&attribs[0],wxDefaultPosition,wxDefaultSize,wxWANTS_CHARS);
 
 	return canvas;
 }

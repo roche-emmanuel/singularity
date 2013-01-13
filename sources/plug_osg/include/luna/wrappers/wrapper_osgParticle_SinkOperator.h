@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_osgParticle_SinkOperator() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_SinkOperator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgParticle::SinkOperator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgParticle_SinkOperator(lua_State* L, lua_Table* dum) : osgParticle::SinkOperator(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgParticle_SinkOperator(lua_State* L, lua_Table* dum, const osgParticle::SinkOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::SinkOperator(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgParticle_SinkOperator(lua_State* L, lua_Table* dum) 
+		: osgParticle::SinkOperator(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgParticle_SinkOperator(lua_State* L, lua_Table* dum, const osgParticle::SinkOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osgParticle::SinkOperator(copy, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +45,7 @@ protected:
 	// void osgParticle::SinkOperator::handlePoint(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
 	void handlePoint(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
 		if(_obj.pushFunction("handlePoint")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(&domain);
 			_obj.pushArg(P);
 			_obj.pushArg(dt);
@@ -41,6 +58,7 @@ protected:
 	// void osgParticle::SinkOperator::handleLineSegment(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
 	void handleLineSegment(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
 		if(_obj.pushFunction("handleLineSegment")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(&domain);
 			_obj.pushArg(P);
 			_obj.pushArg(dt);
@@ -53,6 +71,7 @@ protected:
 	// void osgParticle::SinkOperator::handleTriangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
 	void handleTriangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
 		if(_obj.pushFunction("handleTriangle")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(&domain);
 			_obj.pushArg(P);
 			_obj.pushArg(dt);
@@ -65,6 +84,7 @@ protected:
 	// void osgParticle::SinkOperator::handleRectangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
 	void handleRectangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
 		if(_obj.pushFunction("handleRectangle")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(&domain);
 			_obj.pushArg(P);
 			_obj.pushArg(dt);
@@ -77,6 +97,7 @@ protected:
 	// void osgParticle::SinkOperator::handlePlane(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
 	void handlePlane(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
 		if(_obj.pushFunction("handlePlane")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(&domain);
 			_obj.pushArg(P);
 			_obj.pushArg(dt);
@@ -89,6 +110,7 @@ protected:
 	// void osgParticle::SinkOperator::handleSphere(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
 	void handleSphere(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
 		if(_obj.pushFunction("handleSphere")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(&domain);
 			_obj.pushArg(P);
 			_obj.pushArg(dt);
@@ -101,6 +123,7 @@ protected:
 	// void osgParticle::SinkOperator::handleBox(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
 	void handleBox(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
 		if(_obj.pushFunction("handleBox")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(&domain);
 			_obj.pushArg(P);
 			_obj.pushArg(dt);
@@ -113,6 +136,7 @@ protected:
 	// void osgParticle::SinkOperator::handleDisk(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
 	void handleDisk(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
 		if(_obj.pushFunction("handleDisk")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(&domain);
 			_obj.pushArg(P);
 			_obj.pushArg(dt);
@@ -124,9 +148,21 @@ protected:
 
 public:
 	// Public virtual methods:
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return SinkOperator::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -137,6 +173,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -146,6 +183,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -156,6 +194,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -165,6 +204,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -174,6 +214,7 @@ public:
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -184,6 +225,7 @@ public:
 	// void osgParticle::Operator::operateParticles(osgParticle::ParticleSystem * ps, double dt)
 	void operateParticles(osgParticle::ParticleSystem * ps, double dt) {
 		if(_obj.pushFunction("operateParticles")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(ps);
 			_obj.pushArg(dt);
 			return (_obj.callFunction<void>());
@@ -195,6 +237,7 @@ public:
 	// void osgParticle::DomainOperator::operate(osgParticle::Particle * P, double dt)
 	void operate(osgParticle::Particle * P, double dt) {
 		if(_obj.pushFunction("operate")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(P);
 			_obj.pushArg(dt);
 			return (_obj.callFunction<void>());
@@ -206,6 +249,7 @@ public:
 	// void osgParticle::DomainOperator::endOperate()
 	void endOperate() {
 		if(_obj.pushFunction("endOperate")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -215,6 +259,7 @@ public:
 	// osg::Object * osgParticle::SinkOperator::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -224,6 +269,7 @@ public:
 	// osg::Object * osgParticle::SinkOperator::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -234,6 +280,7 @@ public:
 	// bool osgParticle::SinkOperator::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -244,6 +291,7 @@ public:
 	// const char * osgParticle::SinkOperator::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -253,6 +301,7 @@ public:
 	// const char * osgParticle::SinkOperator::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -262,6 +311,7 @@ public:
 	// void osgParticle::SinkOperator::beginOperate(osgParticle::Program * prg)
 	void beginOperate(osgParticle::Program * prg) {
 		if(_obj.pushFunction("beginOperate")) {
+			_obj.pushArg((osgParticle::SinkOperator*)this);
 			_obj.pushArg(prg);
 			return (_obj.callFunction<void>());
 		}
@@ -279,6 +329,11 @@ public:
 	// void osgParticle::SinkOperator::kill(osgParticle::Particle * P, bool insideDomain)
 	void public_kill(osgParticle::Particle * P, bool insideDomain) {
 		return osgParticle::SinkOperator::kill(P, insideDomain);
+	};
+
+	// osgParticle::SinkOperator & osgParticle::SinkOperator::operator=(const osgParticle::SinkOperator & arg1)
+	osgParticle::SinkOperator & public_op_assign(const osgParticle::SinkOperator & arg1) {
+		return osgParticle::SinkOperator::operator=(arg1);
 	};
 
 	// void osgParticle::DomainOperator::computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4)
@@ -315,6 +370,13 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,81629555)) ) return false;
 		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		return true;
 	}
 
@@ -391,6 +453,32 @@ public:
 		self->public_kill(P, insideDomain);
 
 		return 0;
+	}
+
+	// osgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator & arg1) function, expected prototype:\nosgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osgParticle::SinkOperator* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgParticle::SinkOperator >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgParticle::SinkOperator::public_op_assign function");
+		}
+		const osgParticle::SinkOperator & _arg1=*_arg1_ptr;
+
+		wrapper_osgParticle_SinkOperator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_SinkOperator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgParticle::SinkOperator & osgParticle::SinkOperator::public_op_assign(const osgParticle::SinkOperator &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgParticle::SinkOperator* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgParticle::SinkOperator >::push(L,lret,false);
+
+		return 1;
 	}
 
 	// void osgParticle::DomainOperator::public_computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4)
@@ -491,12 +579,13 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_getValue",_bind_public_getValue},
-		{"protected_kill",_bind_public_kill},
-		{"protected_computeNewBasis",_bind_public_computeNewBasis},
-		{"protected_ignore",_bind_public_ignore},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"getValue",_bind_public_getValue},
+		{"kill",_bind_public_kill},
+		{"op_assign",_bind_public_op_assign},
+		{"computeNewBasis",_bind_public_computeNewBasis},
+		{"ignore",_bind_public_ignore},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

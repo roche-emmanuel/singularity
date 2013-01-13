@@ -62,6 +62,84 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getHeight(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getAscent(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getDescent(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getInternalLeading(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getExternalLeading(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getAverageWidth(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setHeight(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setAscent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setDescent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setInternalLeading(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setExternalLeading(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setAverageWidth(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -80,6 +158,234 @@ public:
 
 
 	// Function binds:
+	// int wxFontMetrics::height()
+	static int _bind_getHeight(lua_State *L) {
+		if (!_lg_typecheck_getHeight(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxFontMetrics::height() function, expected prototype:\nint wxFontMetrics::height()\nClass arguments details:\n");
+		}
+
+
+		wxFontMetrics* self=(Luna< wxFontMetrics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxFontMetrics::height(). Got : '%s'",typeid(Luna< wxFontMetrics >::check(L,1)).name());
+		}
+		int lret = self->height;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxFontMetrics::ascent()
+	static int _bind_getAscent(lua_State *L) {
+		if (!_lg_typecheck_getAscent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxFontMetrics::ascent() function, expected prototype:\nint wxFontMetrics::ascent()\nClass arguments details:\n");
+		}
+
+
+		wxFontMetrics* self=(Luna< wxFontMetrics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxFontMetrics::ascent(). Got : '%s'",typeid(Luna< wxFontMetrics >::check(L,1)).name());
+		}
+		int lret = self->ascent;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxFontMetrics::descent()
+	static int _bind_getDescent(lua_State *L) {
+		if (!_lg_typecheck_getDescent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxFontMetrics::descent() function, expected prototype:\nint wxFontMetrics::descent()\nClass arguments details:\n");
+		}
+
+
+		wxFontMetrics* self=(Luna< wxFontMetrics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxFontMetrics::descent(). Got : '%s'",typeid(Luna< wxFontMetrics >::check(L,1)).name());
+		}
+		int lret = self->descent;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxFontMetrics::internalLeading()
+	static int _bind_getInternalLeading(lua_State *L) {
+		if (!_lg_typecheck_getInternalLeading(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxFontMetrics::internalLeading() function, expected prototype:\nint wxFontMetrics::internalLeading()\nClass arguments details:\n");
+		}
+
+
+		wxFontMetrics* self=(Luna< wxFontMetrics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxFontMetrics::internalLeading(). Got : '%s'",typeid(Luna< wxFontMetrics >::check(L,1)).name());
+		}
+		int lret = self->internalLeading;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxFontMetrics::externalLeading()
+	static int _bind_getExternalLeading(lua_State *L) {
+		if (!_lg_typecheck_getExternalLeading(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxFontMetrics::externalLeading() function, expected prototype:\nint wxFontMetrics::externalLeading()\nClass arguments details:\n");
+		}
+
+
+		wxFontMetrics* self=(Luna< wxFontMetrics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxFontMetrics::externalLeading(). Got : '%s'",typeid(Luna< wxFontMetrics >::check(L,1)).name());
+		}
+		int lret = self->externalLeading;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxFontMetrics::averageWidth()
+	static int _bind_getAverageWidth(lua_State *L) {
+		if (!_lg_typecheck_getAverageWidth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxFontMetrics::averageWidth() function, expected prototype:\nint wxFontMetrics::averageWidth()\nClass arguments details:\n");
+		}
+
+
+		wxFontMetrics* self=(Luna< wxFontMetrics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxFontMetrics::averageWidth(). Got : '%s'",typeid(Luna< wxFontMetrics >::check(L,1)).name());
+		}
+		int lret = self->averageWidth;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxFontMetrics::height(int value)
+	static int _bind_setHeight(lua_State *L) {
+		if (!_lg_typecheck_setHeight(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFontMetrics::height(int value) function, expected prototype:\nvoid wxFontMetrics::height(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxFontMetrics* self=(Luna< wxFontMetrics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFontMetrics::height(int). Got : '%s'",typeid(Luna< wxFontMetrics >::check(L,1)).name());
+		}
+		self->height = value;
+
+		return 0;
+	}
+
+	// void wxFontMetrics::ascent(int value)
+	static int _bind_setAscent(lua_State *L) {
+		if (!_lg_typecheck_setAscent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFontMetrics::ascent(int value) function, expected prototype:\nvoid wxFontMetrics::ascent(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxFontMetrics* self=(Luna< wxFontMetrics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFontMetrics::ascent(int). Got : '%s'",typeid(Luna< wxFontMetrics >::check(L,1)).name());
+		}
+		self->ascent = value;
+
+		return 0;
+	}
+
+	// void wxFontMetrics::descent(int value)
+	static int _bind_setDescent(lua_State *L) {
+		if (!_lg_typecheck_setDescent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFontMetrics::descent(int value) function, expected prototype:\nvoid wxFontMetrics::descent(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxFontMetrics* self=(Luna< wxFontMetrics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFontMetrics::descent(int). Got : '%s'",typeid(Luna< wxFontMetrics >::check(L,1)).name());
+		}
+		self->descent = value;
+
+		return 0;
+	}
+
+	// void wxFontMetrics::internalLeading(int value)
+	static int _bind_setInternalLeading(lua_State *L) {
+		if (!_lg_typecheck_setInternalLeading(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFontMetrics::internalLeading(int value) function, expected prototype:\nvoid wxFontMetrics::internalLeading(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxFontMetrics* self=(Luna< wxFontMetrics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFontMetrics::internalLeading(int). Got : '%s'",typeid(Luna< wxFontMetrics >::check(L,1)).name());
+		}
+		self->internalLeading = value;
+
+		return 0;
+	}
+
+	// void wxFontMetrics::externalLeading(int value)
+	static int _bind_setExternalLeading(lua_State *L) {
+		if (!_lg_typecheck_setExternalLeading(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFontMetrics::externalLeading(int value) function, expected prototype:\nvoid wxFontMetrics::externalLeading(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxFontMetrics* self=(Luna< wxFontMetrics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFontMetrics::externalLeading(int). Got : '%s'",typeid(Luna< wxFontMetrics >::check(L,1)).name());
+		}
+		self->externalLeading = value;
+
+		return 0;
+	}
+
+	// void wxFontMetrics::averageWidth(int value)
+	static int _bind_setAverageWidth(lua_State *L) {
+		if (!_lg_typecheck_setAverageWidth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFontMetrics::averageWidth(int value) function, expected prototype:\nvoid wxFontMetrics::averageWidth(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxFontMetrics* self=(Luna< wxFontMetrics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFontMetrics::averageWidth(int). Got : '%s'",typeid(Luna< wxFontMetrics >::check(L,1)).name());
+		}
+		self->averageWidth = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -103,6 +409,18 @@ const int LunaTraits< wxFontMetrics >::hash = 63990346;
 const int LunaTraits< wxFontMetrics >::uniqueIDs[] = {63990346,0};
 
 luna_RegType LunaTraits< wxFontMetrics >::methods[] = {
+	{"getHeight", &luna_wrapper_wxFontMetrics::_bind_getHeight},
+	{"getAscent", &luna_wrapper_wxFontMetrics::_bind_getAscent},
+	{"getDescent", &luna_wrapper_wxFontMetrics::_bind_getDescent},
+	{"getInternalLeading", &luna_wrapper_wxFontMetrics::_bind_getInternalLeading},
+	{"getExternalLeading", &luna_wrapper_wxFontMetrics::_bind_getExternalLeading},
+	{"getAverageWidth", &luna_wrapper_wxFontMetrics::_bind_getAverageWidth},
+	{"setHeight", &luna_wrapper_wxFontMetrics::_bind_setHeight},
+	{"setAscent", &luna_wrapper_wxFontMetrics::_bind_setAscent},
+	{"setDescent", &luna_wrapper_wxFontMetrics::_bind_setDescent},
+	{"setInternalLeading", &luna_wrapper_wxFontMetrics::_bind_setInternalLeading},
+	{"setExternalLeading", &luna_wrapper_wxFontMetrics::_bind_setExternalLeading},
+	{"setAverageWidth", &luna_wrapper_wxFontMetrics::_bind_setAverageWidth},
 	{"dynCast", &luna_wrapper_wxFontMetrics::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxFontMetrics::_bind___eq},
 	{0,0}

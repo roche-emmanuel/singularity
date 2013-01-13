@@ -14,18 +14,28 @@ public:
 		
 
 	~wrapper_SPK_Buffer() {
+		logDEBUG3("Calling delete function for wrapper SPK_Buffer");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((SPK::Buffer*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_SPK_Buffer(lua_State* L, lua_Table* dum) : SPK::Buffer(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_SPK_Buffer(lua_State* L, lua_Table* dum) 
+		: SPK::Buffer(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((SPK::Buffer*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 private:
 	// Private virtual methods:
 	// void SPK::Buffer::swap(size_t index0, size_t index1)
 	void swap(size_t index0, size_t index1) {
 		THROW_IF(!_obj.pushFunction("swap"),"No implementation for abstract function SPK::Buffer::swap");
+		_obj.pushArg((SPK::Buffer*)this);
 		_obj.pushArg(index0);
 		_obj.pushArg(index1);
 		return (_obj.callFunction<void>());

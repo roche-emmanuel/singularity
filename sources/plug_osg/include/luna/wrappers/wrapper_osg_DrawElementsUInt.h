@@ -14,15 +14,45 @@ public:
 		
 
 	~wrapper_osg_DrawElementsUInt() {
+		logDEBUG3("Calling delete function for wrapper osg_DrawElementsUInt");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::DrawElementsUInt*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_DrawElementsUInt(lua_State* L, lua_Table* dum, unsigned int mode = 0) : osg::DrawElementsUInt(mode), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_DrawElementsUInt(lua_State* L, lua_Table* dum, const osg::DrawElementsUInt & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawElementsUInt(array, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_DrawElementsUInt(lua_State* L, lua_Table* dum, unsigned int mode, unsigned int no, const unsigned int * ptr, int numInstances = 0) : osg::DrawElementsUInt(mode, no, ptr, numInstances), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_DrawElementsUInt(lua_State* L, lua_Table* dum, unsigned int mode, unsigned int no) : osg::DrawElementsUInt(mode, no), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_DrawElementsUInt(lua_State* L, lua_Table* dum, unsigned int mode = 0) 
+		: osg::DrawElementsUInt(mode), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_DrawElementsUInt(lua_State* L, lua_Table* dum, const osg::DrawElementsUInt & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osg::DrawElementsUInt(array, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_DrawElementsUInt(lua_State* L, lua_Table* dum, unsigned int mode, unsigned int no, const unsigned int * ptr, int numInstances = 0) 
+		: osg::DrawElementsUInt(mode, no, ptr, numInstances), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_DrawElementsUInt(lua_State* L, lua_Table* dum, unsigned int mode, unsigned int no) 
+		: osg::DrawElementsUInt(mode, no), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,9 +60,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return DrawElementsUInt::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -43,6 +85,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -52,6 +95,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -62,6 +106,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -71,6 +116,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -80,6 +126,7 @@ public:
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			_obj.pushArg(state);
 			return (_obj.callFunction<void>());
 		}
@@ -90,6 +137,7 @@ public:
 	// unsigned int osg::PrimitiveSet::getNumPrimitives() const
 	unsigned int getNumPrimitives() const {
 		if(_obj.pushFunction("getNumPrimitives")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -99,6 +147,7 @@ public:
 	// void osg::PrimitiveSet::computeRange() const
 	void computeRange() const {
 		if(_obj.pushFunction("computeRange")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -108,6 +157,7 @@ public:
 	// osg::DrawElements * osg::DrawElements::getDrawElements()
 	osg::DrawElements * getDrawElements() {
 		if(_obj.pushFunction("getDrawElements")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			return (_obj.callFunction<osg::DrawElements*>());
 		}
 
@@ -117,6 +167,7 @@ public:
 	// const osg::DrawElements * osg::DrawElements::getDrawElements() const
 	const osg::DrawElements * getDrawElements() const {
 		if(_obj.pushFunction("getDrawElements")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			return (_obj.callFunction<osg::DrawElements*>());
 		}
 
@@ -126,6 +177,7 @@ public:
 	// osg::Object * osg::DrawElementsUInt::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -135,6 +187,7 @@ public:
 	// osg::Object * osg::DrawElementsUInt::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -145,6 +198,7 @@ public:
 	// bool osg::DrawElementsUInt::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -155,6 +209,7 @@ public:
 	// const char * osg::DrawElementsUInt::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -164,6 +219,7 @@ public:
 	// const char * osg::DrawElementsUInt::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -173,6 +229,7 @@ public:
 	// const void * osg::DrawElementsUInt::getDataPointer() const
 	const void * getDataPointer() const {
 		if(_obj.pushFunction("getDataPointer")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			return (_obj.callFunction<void*>());
 		}
 
@@ -182,6 +239,7 @@ public:
 	// unsigned int osg::DrawElementsUInt::getTotalDataSize() const
 	unsigned int getTotalDataSize() const {
 		if(_obj.pushFunction("getTotalDataSize")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -191,6 +249,7 @@ public:
 	// bool osg::DrawElementsUInt::supportsBufferObject() const
 	bool supportsBufferObject() const {
 		if(_obj.pushFunction("supportsBufferObject")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -200,6 +259,7 @@ public:
 	// void osg::DrawElementsUInt::draw(osg::State & state, bool useVertexBufferObjects) const
 	void draw(osg::State & state, bool useVertexBufferObjects) const {
 		if(_obj.pushFunction("draw")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			_obj.pushArg(&state);
 			_obj.pushArg(useVertexBufferObjects);
 			return (_obj.callFunction<void>());
@@ -211,6 +271,7 @@ public:
 	// unsigned int osg::DrawElementsUInt::getNumIndices() const
 	unsigned int getNumIndices() const {
 		if(_obj.pushFunction("getNumIndices")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -220,6 +281,7 @@ public:
 	// unsigned int osg::DrawElementsUInt::index(unsigned int pos) const
 	unsigned int index(unsigned int pos) const {
 		if(_obj.pushFunction("index")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			_obj.pushArg(pos);
 			return (_obj.callFunction<unsigned int>());
 		}
@@ -230,6 +292,7 @@ public:
 	// void osg::DrawElementsUInt::offsetIndices(int offset)
 	void offsetIndices(int offset) {
 		if(_obj.pushFunction("offsetIndices")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			_obj.pushArg(offset);
 			return (_obj.callFunction<void>());
 		}
@@ -240,6 +303,7 @@ public:
 	// void osg::DrawElementsUInt::reserveElements(unsigned int numIndices)
 	void reserveElements(unsigned int numIndices) {
 		if(_obj.pushFunction("reserveElements")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			_obj.pushArg(numIndices);
 			return (_obj.callFunction<void>());
 		}
@@ -250,6 +314,7 @@ public:
 	// void osg::DrawElementsUInt::setElement(unsigned int i, unsigned int v)
 	void setElement(unsigned int i, unsigned int v) {
 		if(_obj.pushFunction("setElement")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			_obj.pushArg(i);
 			_obj.pushArg(v);
 			return (_obj.callFunction<void>());
@@ -261,6 +326,7 @@ public:
 	// unsigned int osg::DrawElementsUInt::getElement(unsigned int i)
 	unsigned int getElement(unsigned int i) {
 		if(_obj.pushFunction("getElement")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			_obj.pushArg(i);
 			return (_obj.callFunction<unsigned int>());
 		}
@@ -271,6 +337,7 @@ public:
 	// void osg::DrawElementsUInt::addElement(unsigned int v)
 	void addElement(unsigned int v) {
 		if(_obj.pushFunction("addElement")) {
+			_obj.pushArg((osg::DrawElementsUInt*)this);
 			_obj.pushArg(v);
 			return (_obj.callFunction<void>());
 		}
@@ -349,8 +416,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

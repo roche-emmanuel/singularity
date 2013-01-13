@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgUtil_IntersectionVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_IntersectionVisitor");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::IntersectionVisitor*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_IntersectionVisitor(lua_State* L, lua_Table* dum, osgUtil::Intersector * intersector = 0, osgUtil::IntersectionVisitor::ReadCallback * readCallback = 0) : osgUtil::IntersectionVisitor(intersector, readCallback), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_IntersectionVisitor(lua_State* L, lua_Table* dum, osgUtil::Intersector * intersector = 0, osgUtil::IntersectionVisitor::ReadCallback * readCallback = 0) 
+		: osgUtil::IntersectionVisitor(intersector, readCallback), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,9 +36,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return IntersectionVisitor::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {
 		if(_obj.pushFunction("getViewPoint")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -39,6 +60,7 @@ public:
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceFromEyePoint")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -50,6 +72,7 @@ public:
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToViewPoint")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -61,6 +84,7 @@ public:
 	// const char * osgUtil::IntersectionVisitor::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -70,6 +94,7 @@ public:
 	// const char * osgUtil::IntersectionVisitor::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -79,6 +104,7 @@ public:
 	// void osgUtil::IntersectionVisitor::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -88,6 +114,7 @@ public:
 	// osg::Vec3f osgUtil::IntersectionVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
 		if(_obj.pushFunction("getEyePoint")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -97,6 +124,7 @@ public:
 	// float osgUtil::IntersectionVisitor::getDistanceToEyePoint(const osg::Vec3f & pos, bool withLODScale) const
 	float getDistanceToEyePoint(const osg::Vec3f & pos, bool withLODScale) const {
 		if(_obj.pushFunction("getDistanceToEyePoint")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			_obj.pushArg(&pos);
 			_obj.pushArg(withLODScale);
 			return (_obj.callFunction<float>());
@@ -108,6 +136,7 @@ public:
 	// void osgUtil::IntersectionVisitor::apply(osg::Node & node)
 	void apply(osg::Node & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -118,6 +147,7 @@ public:
 	// void osgUtil::IntersectionVisitor::apply(osg::Geode & geode)
 	void apply(osg::Geode & geode) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			_obj.pushArg(&geode);
 			return (_obj.callFunction<void>());
 		}
@@ -128,6 +158,7 @@ public:
 	// void osgUtil::IntersectionVisitor::apply(osg::Billboard & geode)
 	void apply(osg::Billboard & geode) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			_obj.pushArg(&geode);
 			return (_obj.callFunction<void>());
 		}
@@ -138,6 +169,7 @@ public:
 	// void osgUtil::IntersectionVisitor::apply(osg::Group & group)
 	void apply(osg::Group & group) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			_obj.pushArg(&group);
 			return (_obj.callFunction<void>());
 		}
@@ -148,6 +180,7 @@ public:
 	// void osgUtil::IntersectionVisitor::apply(osg::LOD & lod)
 	void apply(osg::LOD & lod) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			_obj.pushArg(&lod);
 			return (_obj.callFunction<void>());
 		}
@@ -158,6 +191,7 @@ public:
 	// void osgUtil::IntersectionVisitor::apply(osg::PagedLOD & lod)
 	void apply(osg::PagedLOD & lod) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			_obj.pushArg(&lod);
 			return (_obj.callFunction<void>());
 		}
@@ -168,6 +202,7 @@ public:
 	// void osgUtil::IntersectionVisitor::apply(osg::Transform & transform)
 	void apply(osg::Transform & transform) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			_obj.pushArg(&transform);
 			return (_obj.callFunction<void>());
 		}
@@ -178,6 +213,7 @@ public:
 	// void osgUtil::IntersectionVisitor::apply(osg::Projection & projection)
 	void apply(osg::Projection & projection) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			_obj.pushArg(&projection);
 			return (_obj.callFunction<void>());
 		}
@@ -188,6 +224,7 @@ public:
 	// void osgUtil::IntersectionVisitor::apply(osg::Camera & camera)
 	void apply(osg::Camera & camera) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::IntersectionVisitor*)this);
 			_obj.pushArg(&camera);
 			return (_obj.callFunction<void>());
 		}
@@ -420,13 +457,13 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_enter",_bind_public_enter},
-		{"protected_leave",_bind_public_leave},
-		{"protected_intersect",_bind_public_intersect},
-		{"protected_push_clone",_bind_public_push_clone},
-		{"protected_pop_clone",_bind_public_pop_clone},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"enter",_bind_public_enter},
+		{"leave",_bind_public_leave},
+		{"intersect",_bind_public_intersect},
+		{"push_clone",_bind_public_push_clone},
+		{"pop_clone",_bind_public_pop_clone},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

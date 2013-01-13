@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -103,6 +103,39 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getMisses(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getTriangles(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setMisses(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setTriangles(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -271,6 +304,101 @@ public:
 			luaL_error(L, "Invalid object in function call void osgUtil::VertexCacheMissVisitor::doGeometry(osg::Geometry &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->doGeometry(geom);
+
+		return 0;
+	}
+
+	// unsigned int osgUtil::VertexCacheMissVisitor::misses()
+	static int _bind_getMisses(lua_State *L) {
+		if (!_lg_typecheck_getMisses(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::VertexCacheMissVisitor::misses() function, expected prototype:\nunsigned int osgUtil::VertexCacheMissVisitor::misses()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::VertexCacheMissVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexCacheMissVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::VertexCacheMissVisitor::misses(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->misses;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osgUtil::VertexCacheMissVisitor::triangles()
+	static int _bind_getTriangles(lua_State *L) {
+		if (!_lg_typecheck_getTriangles(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::VertexCacheMissVisitor::triangles() function, expected prototype:\nunsigned int osgUtil::VertexCacheMissVisitor::triangles()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::VertexCacheMissVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexCacheMissVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::VertexCacheMissVisitor::triangles(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->triangles;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgUtil::VertexCacheMissVisitor::misses(unsigned int value)
+	static int _bind_setMisses(lua_State *L) {
+		if (!_lg_typecheck_setMisses(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::VertexCacheMissVisitor::misses(unsigned int value) function, expected prototype:\nvoid osgUtil::VertexCacheMissVisitor::misses(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned value=(unsigned)lua_tointeger(L,2);
+
+		osgUtil::VertexCacheMissVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexCacheMissVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::VertexCacheMissVisitor::misses(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->misses = value;
+
+		return 0;
+	}
+
+	// void osgUtil::VertexCacheMissVisitor::triangles(unsigned int value)
+	static int _bind_setTriangles(lua_State *L) {
+		if (!_lg_typecheck_setTriangles(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::VertexCacheMissVisitor::triangles(unsigned int value) function, expected prototype:\nvoid osgUtil::VertexCacheMissVisitor::triangles(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned value=(unsigned)lua_tointeger(L,2);
+
+		osgUtil::VertexCacheMissVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexCacheMissVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::VertexCacheMissVisitor::triangles(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->triangles = value;
+
+		return 0;
+	}
+
+	// void osgUtil::VertexCacheMissVisitor::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::VertexCacheMissVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::VertexCacheMissVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgUtil::VertexCacheMissVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::VertexCacheMissVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::VertexCacheMissVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->VertexCacheMissVisitor::setThreadSafeRefUnref(threadSafe);
 
 		return 0;
 	}
@@ -499,6 +627,11 @@ luna_RegType LunaTraits< osgUtil::VertexCacheMissVisitor >::methods[] = {
 	{"reset", &luna_wrapper_osgUtil_VertexCacheMissVisitor::_bind_reset},
 	{"apply", &luna_wrapper_osgUtil_VertexCacheMissVisitor::_bind_apply},
 	{"doGeometry", &luna_wrapper_osgUtil_VertexCacheMissVisitor::_bind_doGeometry},
+	{"getMisses", &luna_wrapper_osgUtil_VertexCacheMissVisitor::_bind_getMisses},
+	{"getTriangles", &luna_wrapper_osgUtil_VertexCacheMissVisitor::_bind_getTriangles},
+	{"setMisses", &luna_wrapper_osgUtil_VertexCacheMissVisitor::_bind_setMisses},
+	{"setTriangles", &luna_wrapper_osgUtil_VertexCacheMissVisitor::_bind_setTriangles},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_VertexCacheMissVisitor::_bind_base_setThreadSafeRefUnref},
 	{"base_libraryName", &luna_wrapper_osgUtil_VertexCacheMissVisitor::_bind_base_libraryName},
 	{"base_className", &luna_wrapper_osgUtil_VertexCacheMissVisitor::_bind_base_className},
 	{"base_getEyePoint", &luna_wrapper_osgUtil_VertexCacheMissVisitor::_bind_base_getEyePoint},

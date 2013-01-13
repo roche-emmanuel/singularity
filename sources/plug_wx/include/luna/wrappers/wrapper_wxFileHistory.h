@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxFileHistory() {
+		logDEBUG3("Calling delete function for wrapper wxFileHistory");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxFileHistory*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -27,6 +29,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxFileHistory*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -36,6 +39,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxFileHistory*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -48,6 +52,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxFileHistory*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -57,6 +62,7 @@ public:
 	// void wxFileHistory::AddFileToHistory(const wxString & filename)
 	void AddFileToHistory(const wxString & filename) {
 		if(_obj.pushFunction("AddFileToHistory")) {
+			_obj.pushArg((wxFileHistory*)this);
 			_obj.pushArg(filename);
 			return (_obj.callFunction<void>());
 		}
@@ -67,6 +73,7 @@ public:
 	// void wxFileHistory::AddFilesToMenu()
 	void AddFilesToMenu() {
 		if(_obj.pushFunction("AddFilesToMenu")) {
+			_obj.pushArg((wxFileHistory*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -76,6 +83,7 @@ public:
 	// void wxFileHistory::AddFilesToMenu(wxMenu * menu)
 	void AddFilesToMenu(wxMenu * menu) {
 		if(_obj.pushFunction("AddFilesToMenu")) {
+			_obj.pushArg((wxFileHistory*)this);
 			_obj.pushArg(menu);
 			return (_obj.callFunction<void>());
 		}
@@ -86,6 +94,7 @@ public:
 	// size_t wxFileHistory::GetCount() const
 	size_t GetCount() const {
 		if(_obj.pushFunction("GetCount")) {
+			_obj.pushArg((wxFileHistory*)this);
 			return (_obj.callFunction<size_t>());
 		}
 
@@ -95,6 +104,7 @@ public:
 	// wxString wxFileHistory::GetHistoryFile(size_t index) const
 	wxString GetHistoryFile(size_t index) const {
 		if(_obj.pushFunction("GetHistoryFile")) {
+			_obj.pushArg((wxFileHistory*)this);
 			_obj.pushArg(index);
 			return *(_obj.callFunction<wxString*>());
 		}
@@ -105,6 +115,7 @@ public:
 	// int wxFileHistory::GetMaxFiles() const
 	int GetMaxFiles() const {
 		if(_obj.pushFunction("GetMaxFiles")) {
+			_obj.pushArg((wxFileHistory*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -114,6 +125,7 @@ public:
 	// void wxFileHistory::Load(const wxConfigBase & config)
 	void Load(const wxConfigBase & config) {
 		if(_obj.pushFunction("Load")) {
+			_obj.pushArg((wxFileHistory*)this);
 			_obj.pushArg(&config);
 			return (_obj.callFunction<void>());
 		}
@@ -124,6 +136,7 @@ public:
 	// void wxFileHistory::RemoveFileFromHistory(size_t i)
 	void RemoveFileFromHistory(size_t i) {
 		if(_obj.pushFunction("RemoveFileFromHistory")) {
+			_obj.pushArg((wxFileHistory*)this);
 			_obj.pushArg(i);
 			return (_obj.callFunction<void>());
 		}
@@ -134,6 +147,7 @@ public:
 	// void wxFileHistory::RemoveMenu(wxMenu * menu)
 	void RemoveMenu(wxMenu * menu) {
 		if(_obj.pushFunction("RemoveMenu")) {
+			_obj.pushArg((wxFileHistory*)this);
 			_obj.pushArg(menu);
 			return (_obj.callFunction<void>());
 		}
@@ -144,6 +158,7 @@ public:
 	// void wxFileHistory::Save(wxConfigBase & config)
 	void Save(wxConfigBase & config) {
 		if(_obj.pushFunction("Save")) {
+			_obj.pushArg((wxFileHistory*)this);
 			_obj.pushArg(&config);
 			return (_obj.callFunction<void>());
 		}
@@ -154,6 +169,7 @@ public:
 	// void wxFileHistory::UseMenu(wxMenu * menu)
 	void UseMenu(wxMenu * menu) {
 		if(_obj.pushFunction("UseMenu")) {
+			_obj.pushArg((wxFileHistory*)this);
 			_obj.pushArg(menu);
 			return (_obj.callFunction<void>());
 		}

@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxEventLoopBase() {
+		logDEBUG3("Calling delete function for wrapper wxEventLoopBase");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxEventLoopBase*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -27,6 +29,7 @@ protected:
 	// void wxEventLoopBase::OnExit()
 	void OnExit() {
 		if(_obj.pushFunction("OnExit")) {
+			_obj.pushArg((wxEventLoopBase*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -38,12 +41,14 @@ public:
 	// int wxEventLoopBase::Run()
 	int Run() {
 		THROW_IF(!_obj.pushFunction("Run"),"No implementation for abstract function wxEventLoopBase::Run");
+		_obj.pushArg((wxEventLoopBase*)this);
 		return (_obj.callFunction<int>());
 	};
 
 	// bool wxEventLoopBase::IsOk() const
 	bool IsOk() const {
 		if(_obj.pushFunction("IsOk")) {
+			_obj.pushArg((wxEventLoopBase*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -53,6 +58,7 @@ public:
 	// void wxEventLoopBase::Exit(int rc = 0)
 	void Exit(int rc = 0) {
 		THROW_IF(!_obj.pushFunction("Exit"),"No implementation for abstract function wxEventLoopBase::Exit");
+		_obj.pushArg((wxEventLoopBase*)this);
 		_obj.pushArg(rc);
 		return (_obj.callFunction<void>());
 	};
@@ -60,18 +66,21 @@ public:
 	// bool wxEventLoopBase::Pending() const
 	bool Pending() const {
 		THROW_IF(!_obj.pushFunction("Pending"),"No implementation for abstract function wxEventLoopBase::Pending");
+		_obj.pushArg((wxEventLoopBase*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// bool wxEventLoopBase::Dispatch()
 	bool Dispatch() {
 		THROW_IF(!_obj.pushFunction("Dispatch"),"No implementation for abstract function wxEventLoopBase::Dispatch");
+		_obj.pushArg((wxEventLoopBase*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// int wxEventLoopBase::DispatchTimeout(unsigned long timeout)
 	int DispatchTimeout(unsigned long timeout) {
 		THROW_IF(!_obj.pushFunction("DispatchTimeout"),"No implementation for abstract function wxEventLoopBase::DispatchTimeout");
+		_obj.pushArg((wxEventLoopBase*)this);
 		_obj.pushArg(timeout);
 		return (_obj.callFunction<int>());
 	};
@@ -79,12 +88,14 @@ public:
 	// void wxEventLoopBase::WakeUp()
 	void WakeUp() {
 		THROW_IF(!_obj.pushFunction("WakeUp"),"No implementation for abstract function wxEventLoopBase::WakeUp");
+		_obj.pushArg((wxEventLoopBase*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// void wxEventLoopBase::WakeUpIdle()
 	void WakeUpIdle() {
 		if(_obj.pushFunction("WakeUpIdle")) {
+			_obj.pushArg((wxEventLoopBase*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -94,6 +105,7 @@ public:
 	// bool wxEventLoopBase::ProcessIdle()
 	bool ProcessIdle() {
 		if(_obj.pushFunction("ProcessIdle")) {
+			_obj.pushArg((wxEventLoopBase*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -103,6 +115,7 @@ public:
 	// bool wxEventLoopBase::IsYielding() const
 	bool IsYielding() const {
 		if(_obj.pushFunction("IsYielding")) {
+			_obj.pushArg((wxEventLoopBase*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -112,6 +125,7 @@ public:
 	// bool wxEventLoopBase::IsEventAllowedInsideYield(wxEventCategory cat) const
 	bool IsEventAllowedInsideYield(wxEventCategory cat) const {
 		if(_obj.pushFunction("IsEventAllowedInsideYield")) {
+			_obj.pushArg((wxEventLoopBase*)this);
 			_obj.pushArg(cat);
 			return (_obj.callFunction<bool>());
 		}

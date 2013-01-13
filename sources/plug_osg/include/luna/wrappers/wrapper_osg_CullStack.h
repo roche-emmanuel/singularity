@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_osg_CullStack() {
+		logDEBUG3("Calling delete function for wrapper osg_CullStack");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::CullStack*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_CullStack(lua_State* L, lua_Table* dum) : osg::CullStack(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_CullStack(lua_State* L, lua_Table* dum, const osg::CullStack & cs) : osg::CullStack(cs), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_CullStack(lua_State* L, lua_Table* dum) 
+		: osg::CullStack(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::CullStack*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_CullStack(lua_State* L, lua_Table* dum, const osg::CullStack & cs) 
+		: osg::CullStack(cs), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::CullStack*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +47,7 @@ public:
 	// void osg::CullSettings::setDefaults()
 	void setDefaults() {
 		if(_obj.pushFunction("setDefaults")) {
+			_obj.pushArg((osg::CullStack*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -40,6 +57,7 @@ public:
 	// void osg::CullSettings::inheritCullSettings(const osg::CullSettings & settings)
 	void inheritCullSettings(const osg::CullSettings & settings) {
 		if(_obj.pushFunction("inheritCullSettings")) {
+			_obj.pushArg((osg::CullStack*)this);
 			_obj.pushArg(&settings);
 			return (_obj.callFunction<void>());
 		}
@@ -50,6 +68,7 @@ public:
 	// void osg::CullSettings::inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)
 	void inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask) {
 		if(_obj.pushFunction("inheritCullSettings")) {
+			_obj.pushArg((osg::CullStack*)this);
 			_obj.pushArg(&settings);
 			_obj.pushArg(inheritanceMask);
 			return (_obj.callFunction<void>());
@@ -134,8 +153,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_computeFrustumVolume",_bind_public_computeFrustumVolume},
-		{"protected_createOrReuseMatrix",_bind_public_createOrReuseMatrix},
+		{"computeFrustumVolume",_bind_public_computeFrustumVolume},
+		{"createOrReuseMatrix",_bind_public_createOrReuseMatrix},
 		{NULL,NULL}
 		};
 

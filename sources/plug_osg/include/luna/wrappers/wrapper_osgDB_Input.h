@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgDB_Input() {
+		logDEBUG3("Calling delete function for wrapper osgDB_Input");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::Input*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_Input(lua_State* L, lua_Table* dum) : osgDB::Input(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_Input(lua_State* L, lua_Table* dum) 
+		: osgDB::Input(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::Input*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +39,7 @@ public:
 	// bool osgDB::FieldReaderIterator::eof() const
 	bool eof() const {
 		if(_obj.pushFunction("eof")) {
+			_obj.pushArg((osgDB::Input*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -39,6 +49,7 @@ public:
 	// osg::Object * osgDB::Input::readObjectOfType(const osg::Object & compObj)
 	osg::Object * readObjectOfType(const osg::Object & compObj) {
 		if(_obj.pushFunction("readObjectOfType")) {
+			_obj.pushArg((osgDB::Input*)this);
 			_obj.pushArg(&compObj);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -49,6 +60,7 @@ public:
 	// osg::Object * osgDB::Input::readObjectOfType(const osgDB::basic_type_wrapper & btw)
 	osg::Object * readObjectOfType(const osgDB::basic_type_wrapper & btw) {
 		if(_obj.pushFunction("readObjectOfType")) {
+			_obj.pushArg((osgDB::Input*)this);
 			_obj.pushArg(&btw);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -59,6 +71,7 @@ public:
 	// osg::Object * osgDB::Input::readObject()
 	osg::Object * readObject() {
 		if(_obj.pushFunction("readObject")) {
+			_obj.pushArg((osgDB::Input*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -68,6 +81,7 @@ public:
 	// osg::Image * osgDB::Input::readImage()
 	osg::Image * readImage() {
 		if(_obj.pushFunction("readImage")) {
+			_obj.pushArg((osgDB::Input*)this);
 			return (_obj.callFunction<osg::Image*>());
 		}
 
@@ -77,6 +91,7 @@ public:
 	// osg::Drawable * osgDB::Input::readDrawable()
 	osg::Drawable * readDrawable() {
 		if(_obj.pushFunction("readDrawable")) {
+			_obj.pushArg((osgDB::Input*)this);
 			return (_obj.callFunction<osg::Drawable*>());
 		}
 
@@ -86,6 +101,7 @@ public:
 	// osg::StateAttribute * osgDB::Input::readStateAttribute()
 	osg::StateAttribute * readStateAttribute() {
 		if(_obj.pushFunction("readStateAttribute")) {
+			_obj.pushArg((osgDB::Input*)this);
 			return (_obj.callFunction<osg::StateAttribute*>());
 		}
 
@@ -95,6 +111,7 @@ public:
 	// osg::Uniform * osgDB::Input::readUniform()
 	osg::Uniform * readUniform() {
 		if(_obj.pushFunction("readUniform")) {
+			_obj.pushArg((osgDB::Input*)this);
 			return (_obj.callFunction<osg::Uniform*>());
 		}
 
@@ -104,6 +121,7 @@ public:
 	// osg::Node * osgDB::Input::readNode()
 	osg::Node * readNode() {
 		if(_obj.pushFunction("readNode")) {
+			_obj.pushArg((osgDB::Input*)this);
 			return (_obj.callFunction<osg::Node*>());
 		}
 
@@ -113,6 +131,7 @@ public:
 	// osg::Shader * osgDB::Input::readShader()
 	osg::Shader * readShader() {
 		if(_obj.pushFunction("readShader")) {
+			_obj.pushArg((osgDB::Input*)this);
 			return (_obj.callFunction<osg::Shader*>());
 		}
 
@@ -122,6 +141,7 @@ public:
 	// osg::Object * osgDB::Input::readObject(const std::string & fileName)
 	osg::Object * readObject(const std::string & fileName) {
 		if(_obj.pushFunction("readObject")) {
+			_obj.pushArg((osgDB::Input*)this);
 			_obj.pushArg(fileName);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -132,6 +152,7 @@ public:
 	// osg::Image * osgDB::Input::readImage(const std::string & fileName)
 	osg::Image * readImage(const std::string & fileName) {
 		if(_obj.pushFunction("readImage")) {
+			_obj.pushArg((osgDB::Input*)this);
 			_obj.pushArg(fileName);
 			return (_obj.callFunction<osg::Image*>());
 		}
@@ -142,6 +163,7 @@ public:
 	// osg::Node * osgDB::Input::readNode(const std::string & fileName)
 	osg::Node * readNode(const std::string & fileName) {
 		if(_obj.pushFunction("readNode")) {
+			_obj.pushArg((osgDB::Input*)this);
 			_obj.pushArg(fileName);
 			return (_obj.callFunction<osg::Node*>());
 		}
@@ -152,6 +174,7 @@ public:
 	// osg::Shader * osgDB::Input::readShader(const std::string & fileName)
 	osg::Shader * readShader(const std::string & fileName) {
 		if(_obj.pushFunction("readShader")) {
+			_obj.pushArg((osgDB::Input*)this);
 			_obj.pushArg(fileName);
 			return (_obj.callFunction<osg::Shader*>());
 		}
@@ -162,6 +185,7 @@ public:
 	// osg::Object * osgDB::Input::getObjectForUniqueID(const std::string & uniqueID)
 	osg::Object * getObjectForUniqueID(const std::string & uniqueID) {
 		if(_obj.pushFunction("getObjectForUniqueID")) {
+			_obj.pushArg((osgDB::Input*)this);
 			_obj.pushArg(uniqueID);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -172,6 +196,7 @@ public:
 	// void osgDB::Input::registerUniqueIDForObject(const std::string & uniqueID, osg::Object * obj)
 	void registerUniqueIDForObject(const std::string & uniqueID, osg::Object * obj) {
 		if(_obj.pushFunction("registerUniqueIDForObject")) {
+			_obj.pushArg((osgDB::Input*)this);
 			_obj.pushArg(uniqueID);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());

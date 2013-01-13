@@ -57,11 +57,11 @@ public:
 };
 
 std::map< unsigned int, osg::ref_ptr< osg::Object > >* LunaTraits< std::map< unsigned int, osg::ref_ptr< osg::Object > > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< unsigned int, osg::ref_ptr< osg::Object > >();
 }
 
 void LunaTraits< std::map< unsigned int, osg::ref_ptr< osg::Object > > >::_bind_dtor(std::map< unsigned int, osg::ref_ptr< osg::Object > >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< unsigned int, osg::ref_ptr< osg::Object > > >::className[] = "std_map_unsigned_int_osg_ref_ptr_osg_Object";

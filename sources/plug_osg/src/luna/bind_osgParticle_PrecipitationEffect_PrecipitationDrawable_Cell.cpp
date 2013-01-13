@@ -65,6 +65,45 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getI(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getJ(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getK(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setI(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setJ(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setK(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 1 valid operators)
@@ -93,6 +132,120 @@ public:
 
 
 	// Function binds:
+	// int osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::i()
+	static int _bind_getI(lua_State *L) {
+		if (!_lg_typecheck_getI(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::i() function, expected prototype:\nint osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::i()\nClass arguments details:\n");
+		}
+
+
+		osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::i(). Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::check(L,1)).name());
+		}
+		int lret = self->i;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::j()
+	static int _bind_getJ(lua_State *L) {
+		if (!_lg_typecheck_getJ(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::j() function, expected prototype:\nint osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::j()\nClass arguments details:\n");
+		}
+
+
+		osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::j(). Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::check(L,1)).name());
+		}
+		int lret = self->j;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::k()
+	static int _bind_getK(lua_State *L) {
+		if (!_lg_typecheck_getK(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::k() function, expected prototype:\nint osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::k()\nClass arguments details:\n");
+		}
+
+
+		osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::k(). Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::check(L,1)).name());
+		}
+		int lret = self->k;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::i(int value)
+	static int _bind_setI(lua_State *L) {
+		if (!_lg_typecheck_setI(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::i(int value) function, expected prototype:\nvoid osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::i(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::i(int). Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::check(L,1)).name());
+		}
+		self->i = value;
+
+		return 0;
+	}
+
+	// void osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::j(int value)
+	static int _bind_setJ(lua_State *L) {
+		if (!_lg_typecheck_setJ(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::j(int value) function, expected prototype:\nvoid osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::j(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::j(int). Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::check(L,1)).name());
+		}
+		self->j = value;
+
+		return 0;
+	}
+
+	// void osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::k(int value)
+	static int _bind_setK(lua_State *L) {
+		if (!_lg_typecheck_setK(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::k(int value) function, expected prototype:\nvoid osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::k(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell* self=(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::k(int). Got : '%s'",typeid(Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::check(L,1)).name());
+		}
+		self->k = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// bool osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell::operator<(const osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell & rhs) const
@@ -140,6 +293,12 @@ const int LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::C
 const int LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::uniqueIDs[] = {4475636,0};
 
 luna_RegType LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::methods[] = {
+	{"getI", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable_Cell::_bind_getI},
+	{"getJ", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable_Cell::_bind_getJ},
+	{"getK", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable_Cell::_bind_getK},
+	{"setI", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable_Cell::_bind_setI},
+	{"setJ", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable_Cell::_bind_setJ},
+	{"setK", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable_Cell::_bind_setK},
 	{"__lt", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable_Cell::_bind___lt},
 	{"dynCast", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable_Cell::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable_Cell::_bind___eq},

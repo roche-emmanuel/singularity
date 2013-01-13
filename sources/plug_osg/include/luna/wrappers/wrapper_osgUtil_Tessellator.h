@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgUtil_Tessellator() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_Tessellator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::Tessellator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_Tessellator(lua_State* L, lua_Table* dum) : osgUtil::Tessellator(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_Tessellator(lua_State* L, lua_Table* dum) 
+		: osgUtil::Tessellator(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::Tessellator*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,6 +36,17 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::Tessellator*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Tessellator::setThreadSafeRefUnref(threadSafe);
+	};
+
 
 	// Protected non-virtual methods:
 	// void osgUtil::Tessellator::reduceArray(osg::Array * cold, const unsigned int nnu)
@@ -42,11 +62,6 @@ public:
 	// void osgUtil::Tessellator::addContour(unsigned int mode, unsigned int first, unsigned int last, osg::Vec3Array * vertices)
 	void public_addContour(unsigned int mode, unsigned int first, unsigned int last, osg::Vec3Array * vertices) {
 		return osgUtil::Tessellator::addContour(mode, first, last, vertices);
-	};
-
-	// void osgUtil::Tessellator::addContour(osg::PrimitiveSet * primitive, osg::Vec3Array * vertices)
-	void public_addContour(osg::PrimitiveSet * primitive, osg::Vec3Array * vertices) {
-		return osgUtil::Tessellator::addContour(primitive, vertices);
 	};
 
 	// void osgUtil::Tessellator::begin(unsigned int mode)
@@ -117,24 +132,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_public_addContour_overload_1(lua_State *L) {
+	inline static bool _lg_typecheck_public_addContour(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,50169651)) ) return false;
-		if( (lua_isnil(L,5)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,5)) ) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_addContour_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=3 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,2)) ) ) return false;
-		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -257,8 +261,8 @@ public:
 	}
 
 	// void osgUtil::Tessellator::public_addContour(unsigned int mode, unsigned int first, unsigned int last, osg::Vec3Array * vertices)
-	static int _bind_public_addContour_overload_1(lua_State *L) {
-		if (!_lg_typecheck_public_addContour_overload_1(L)) {
+	static int _bind_public_addContour(lua_State *L) {
+		if (!_lg_typecheck_public_addContour(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_addContour(unsigned int mode, unsigned int first, unsigned int last, osg::Vec3Array * vertices) function, expected prototype:\nvoid osgUtil::Tessellator::public_addContour(unsigned int mode, unsigned int first, unsigned int last, osg::Vec3Array * vertices)\nClass arguments details:\narg 4 ID = 50169651\n");
 		}
@@ -275,35 +279,6 @@ public:
 		}
 		self->public_addContour(mode, first, last, vertices);
 
-		return 0;
-	}
-
-	// void osgUtil::Tessellator::public_addContour(osg::PrimitiveSet * primitive, osg::Vec3Array * vertices)
-	static int _bind_public_addContour_overload_2(lua_State *L) {
-		if (!_lg_typecheck_public_addContour_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::public_addContour(osg::PrimitiveSet * primitive, osg::Vec3Array * vertices) function, expected prototype:\nvoid osgUtil::Tessellator::public_addContour(osg::PrimitiveSet * primitive, osg::Vec3Array * vertices)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
-		}
-
-		osg::PrimitiveSet* primitive=(Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,2));
-		osg::Vec3Array* vertices=(Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,3));
-
-		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::public_addContour(osg::PrimitiveSet *, osg::Vec3Array *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->public_addContour(primitive, vertices);
-
-		return 0;
-	}
-
-	// Overload binder for osgUtil::Tessellator::public_addContour
-	static int _bind_public_addContour(lua_State *L) {
-		if (_lg_typecheck_public_addContour_overload_1(L)) return _bind_public_addContour_overload_1(L);
-		if (_lg_typecheck_public_addContour_overload_2(L)) return _bind_public_addContour_overload_2(L);
-
-		luaL_error(L, "error in function public_addContour, cannot match any of the overloads for function public_addContour:\n  public_addContour(unsigned int, unsigned int, unsigned int, osg::Vec3Array *)\n  public_addContour(osg::PrimitiveSet *, osg::Vec3Array *)\n");
 		return 0;
 	}
 
@@ -502,20 +477,19 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_reduceArray",_bind_public_reduceArray},
-		{"protected_collectTessellation",_bind_public_collectTessellation},
-		{"protected_addContour",_bind_public_addContour},
-		{"protected_addContour",_bind_public_addContour},
-		{"protected_begin",_bind_public_begin},
-		{"protected_vertex",_bind_public_vertex},
-		{"protected_end",_bind_public_end},
-		{"protected_error",_bind_public_error},
-		{"protected_beginCallback",_bind_public_beginCallback},
-		{"protected_vertexCallback",_bind_public_vertexCallback},
-		{"protected_endCallback",_bind_public_endCallback},
-		{"protected_errorCallback",_bind_public_errorCallback},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"reduceArray",_bind_public_reduceArray},
+		{"collectTessellation",_bind_public_collectTessellation},
+		{"addContour",_bind_public_addContour},
+		{"begin",_bind_public_begin},
+		{"vertex",_bind_public_vertex},
+		{"end",_bind_public_end},
+		{"error",_bind_public_error},
+		{"beginCallback",_bind_public_beginCallback},
+		{"vertexCallback",_bind_public_vertexCallback},
+		{"endCallback",_bind_public_endCallback},
+		{"errorCallback",_bind_public_errorCallback},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

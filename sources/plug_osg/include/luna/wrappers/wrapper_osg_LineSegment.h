@@ -14,14 +14,37 @@ public:
 		
 
 	~wrapper_osg_LineSegment() {
+		logDEBUG3("Calling delete function for wrapper osg_LineSegment");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::LineSegment*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum) : osg::LineSegment(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum, const osg::LineSegment & seg) : osg::LineSegment(seg), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum, const osg::Vec3d & s, const osg::Vec3d & e) : osg::LineSegment(s, e), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum) 
+		: osg::LineSegment(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::LineSegment*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum, const osg::LineSegment & seg) 
+		: osg::LineSegment(seg), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::LineSegment*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum, const osg::Vec3d & s, const osg::Vec3d & e) 
+		: osg::LineSegment(s, e), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::LineSegment*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +52,17 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::LineSegment*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return LineSegment::setThreadSafeRefUnref(threadSafe);
+	};
+
 
 	// Protected non-virtual methods:
 	// static bool osg::LineSegment::intersectAndClip(osg::Vec3d & s, osg::Vec3d & e, const osg::BoundingBoxd & bb)
@@ -53,7 +87,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,92303202) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,82744897) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,41227270) ) return false;
 		return true;
 	}
 
@@ -90,7 +124,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg e in osg::LineSegment::public_intersectAndClip function");
 		}
 		osg::Vec3d & e=*e_ptr;
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,3));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,3));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::LineSegment::public_intersectAndClip function");
 		}
@@ -148,9 +182,9 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_intersectAndClip",_bind_public_intersectAndClip},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"intersectAndClip",_bind_public_intersectAndClip},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

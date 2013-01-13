@@ -139,7 +139,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 2 valid operators)
+	// (found 3 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,18109170) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_op_index_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -218,7 +225,7 @@ public:
 		Awesomium::JSArray* self=(Luna< Awesomium::JSArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int Awesomium::JSArray::size() const");
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::JSArray::size() const. Got : '%s'",typeid(Luna< Awesomium::JSArray >::check(L,1)).name());
 		}
 		unsigned int lret = self->size();
 		lua_pushnumber(L,lret);
@@ -237,7 +244,7 @@ public:
 		Awesomium::JSArray* self=(Luna< Awesomium::JSArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int Awesomium::JSArray::capacity() const");
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::JSArray::capacity() const. Got : '%s'",typeid(Luna< Awesomium::JSArray >::check(L,1)).name());
 		}
 		unsigned int lret = self->capacity();
 		lua_pushnumber(L,lret);
@@ -257,7 +264,7 @@ public:
 		Awesomium::JSArray* self=(Luna< Awesomium::JSArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSValue & Awesomium::JSArray::At(unsigned int)");
+			luaL_error(L, "Invalid object in function call Awesomium::JSValue & Awesomium::JSArray::At(unsigned int). Got : '%s'",typeid(Luna< Awesomium::JSArray >::check(L,1)).name());
 		}
 		const Awesomium::JSValue* lret = &self->At(idx);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -279,7 +286,7 @@ public:
 		Awesomium::JSArray* self=(Luna< Awesomium::JSArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const Awesomium::JSValue & Awesomium::JSArray::At(unsigned int) const");
+			luaL_error(L, "Invalid object in function call const Awesomium::JSValue & Awesomium::JSArray::At(unsigned int) const. Got : '%s'",typeid(Luna< Awesomium::JSArray >::check(L,1)).name());
 		}
 		const Awesomium::JSValue* lret = &self->At(idx);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -314,7 +321,7 @@ public:
 		Awesomium::JSArray* self=(Luna< Awesomium::JSArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::JSArray::Push(const Awesomium::JSValue &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::JSArray::Push(const Awesomium::JSValue &). Got : '%s'",typeid(Luna< Awesomium::JSArray >::check(L,1)).name());
 		}
 		self->Push(item);
 
@@ -332,7 +339,7 @@ public:
 		Awesomium::JSArray* self=(Luna< Awesomium::JSArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::JSArray::Pop()");
+			luaL_error(L, "Invalid object in function call void Awesomium::JSArray::Pop(). Got : '%s'",typeid(Luna< Awesomium::JSArray >::check(L,1)).name());
 		}
 		self->Pop();
 
@@ -356,7 +363,7 @@ public:
 		Awesomium::JSArray* self=(Luna< Awesomium::JSArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::JSArray::Insert(const Awesomium::JSValue &, unsigned int)");
+			luaL_error(L, "Invalid object in function call void Awesomium::JSArray::Insert(const Awesomium::JSValue &, unsigned int). Got : '%s'",typeid(Luna< Awesomium::JSArray >::check(L,1)).name());
 		}
 		self->Insert(item, idx);
 
@@ -375,7 +382,7 @@ public:
 		Awesomium::JSArray* self=(Luna< Awesomium::JSArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::JSArray::Erase(unsigned int)");
+			luaL_error(L, "Invalid object in function call void Awesomium::JSArray::Erase(unsigned int). Got : '%s'",typeid(Luna< Awesomium::JSArray >::check(L,1)).name());
 		}
 		self->Erase(idx);
 
@@ -393,7 +400,7 @@ public:
 		Awesomium::JSArray* self=(Luna< Awesomium::JSArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::JSArray::Clear()");
+			luaL_error(L, "Invalid object in function call void Awesomium::JSArray::Clear(). Got : '%s'",typeid(Luna< Awesomium::JSArray >::check(L,1)).name());
 		}
 		self->Clear();
 
@@ -402,6 +409,32 @@ public:
 
 
 	// Operator binds:
+	// Awesomium::JSArray & Awesomium::JSArray::operator=(const Awesomium::JSArray & rhs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in Awesomium::JSArray & Awesomium::JSArray::operator=(const Awesomium::JSArray & rhs) function, expected prototype:\nAwesomium::JSArray & Awesomium::JSArray::operator=(const Awesomium::JSArray & rhs)\nClass arguments details:\narg 1 ID = 18109170\n");
+		}
+
+		const Awesomium::JSArray* rhs_ptr=(Luna< Awesomium::JSArray >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in Awesomium::JSArray::operator= function");
+		}
+		const Awesomium::JSArray & rhs=*rhs_ptr;
+
+		Awesomium::JSArray* self=(Luna< Awesomium::JSArray >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call Awesomium::JSArray & Awesomium::JSArray::operator=(const Awesomium::JSArray &). Got : '%s'",typeid(Luna< Awesomium::JSArray >::check(L,1)).name());
+		}
+		const Awesomium::JSArray* lret = &self->operator=(rhs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< Awesomium::JSArray >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// Awesomium::JSValue & Awesomium::JSArray::operator[](unsigned int idx)
 	static int _bind_op_index_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_1(L)) {
@@ -414,7 +447,7 @@ public:
 		Awesomium::JSArray* self=(Luna< Awesomium::JSArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSValue & Awesomium::JSArray::operator[](unsigned int)");
+			luaL_error(L, "Invalid object in function call Awesomium::JSValue & Awesomium::JSArray::operator[](unsigned int). Got : '%s'",typeid(Luna< Awesomium::JSArray >::check(L,1)).name());
 		}
 		const Awesomium::JSValue* lret = &self->operator[](idx);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -436,7 +469,7 @@ public:
 		Awesomium::JSArray* self=(Luna< Awesomium::JSArray >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const Awesomium::JSValue & Awesomium::JSArray::operator[](unsigned int) const");
+			luaL_error(L, "Invalid object in function call const Awesomium::JSValue & Awesomium::JSArray::operator[](unsigned int) const. Got : '%s'",typeid(Luna< Awesomium::JSArray >::check(L,1)).name());
 		}
 		const Awesomium::JSValue* lret = &self->operator[](idx);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -484,6 +517,7 @@ luna_RegType LunaTraits< Awesomium::JSArray >::methods[] = {
 	{"Insert", &luna_wrapper_Awesomium_JSArray::_bind_Insert},
 	{"Erase", &luna_wrapper_Awesomium_JSArray::_bind_Erase},
 	{"Clear", &luna_wrapper_Awesomium_JSArray::_bind_Clear},
+	{"op_assign", &luna_wrapper_Awesomium_JSArray::_bind_op_assign},
 	{"op_index", &luna_wrapper_Awesomium_JSArray::_bind_op_index},
 	{"dynCast", &luna_wrapper_Awesomium_JSArray::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_JSArray::_bind___eq},

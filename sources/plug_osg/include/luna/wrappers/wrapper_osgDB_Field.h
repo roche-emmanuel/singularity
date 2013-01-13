@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_osgDB_Field() {
+		logDEBUG3("Calling delete function for wrapper osgDB_Field");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::Field*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_Field(lua_State* L, lua_Table* dum) : osgDB::Field(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgDB_Field(lua_State* L, lua_Table* dum, const osgDB::Field & field) : osgDB::Field(field), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_Field(lua_State* L, lua_Table* dum) 
+		: osgDB::Field(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::Field*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgDB_Field(lua_State* L, lua_Table* dum, const osgDB::Field & field) 
+		: osgDB::Field(field), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::Field*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,6 +44,17 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// osgDB::Field & osgDB::Field::operator=(const osgDB::Field & ic)
+	osgDB::Field & operator=(const osgDB::Field & ic) {
+		if(_obj.pushFunction("op_assign")) {
+			_obj.pushArg((osgDB::Field*)this);
+			_obj.pushArg(&ic);
+			return *(_obj.callFunction<osgDB::Field*>());
+		}
+
+		return Field::operator=(ic);
+	};
+
 
 	// Protected non-virtual methods:
 	// void osgDB::Field::_init()
@@ -130,9 +157,9 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected__init",_bind_public__init},
-		{"protected__free",_bind_public__free},
-		{"protected__copy",_bind_public__copy},
+		{"_init",_bind_public__init},
+		{"_free",_bind_public__free},
+		{"_copy",_bind_public__copy},
 		{NULL,NULL}
 		};
 

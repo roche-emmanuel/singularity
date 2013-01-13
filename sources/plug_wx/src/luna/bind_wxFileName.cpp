@@ -832,7 +832,7 @@ public:
 
 
 	// Operator checkers:
-	// (found 4 valid operators)
+	// (found 6 valid operators)
 	inline static bool _lg_typecheck_op_neq_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -857,6 +857,21 @@ public:
 	}
 
 	inline static bool _lg_typecheck___eq_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,53530938) ) return false;
+		if( (!(Luna< wxFileName >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
@@ -3079,6 +3094,63 @@ public:
 		return 0;
 	}
 
+	// wxFileName & wxFileName::operator=(const wxFileName & filename)
+	static int _bind_op_assign_overload_1(lua_State *L) {
+		if (!_lg_typecheck_op_assign_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFileName & wxFileName::operator=(const wxFileName & filename) function, expected prototype:\nwxFileName & wxFileName::operator=(const wxFileName & filename)\nClass arguments details:\narg 1 ID = 53530938\n");
+		}
+
+		const wxFileName* filename_ptr=(Luna< wxFileName >::check(L,2));
+		if( !filename_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg filename in wxFileName::operator= function");
+		}
+		const wxFileName & filename=*filename_ptr;
+
+		wxFileName* self=(Luna< wxFileName >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxFileName & wxFileName::operator=(const wxFileName &). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
+		}
+		const wxFileName* lret = &self->operator=(filename);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxFileName >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxFileName & wxFileName::operator=(const wxString & filename)
+	static int _bind_op_assign_overload_2(lua_State *L) {
+		if (!_lg_typecheck_op_assign_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFileName & wxFileName::operator=(const wxString & filename) function, expected prototype:\nwxFileName & wxFileName::operator=(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxFileName* self=(Luna< wxFileName >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxFileName & wxFileName::operator=(const wxString &). Got : '%s'",typeid(Luna< wxFileName >::check(L,1)).name());
+		}
+		const wxFileName* lret = &self->operator=(filename);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxFileName >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for wxFileName::operator=
+	static int _bind_op_assign(lua_State *L) {
+		if (_lg_typecheck_op_assign_overload_1(L)) return _bind_op_assign_overload_1(L);
+		if (_lg_typecheck_op_assign_overload_2(L)) return _bind_op_assign_overload_2(L);
+
+		luaL_error(L, "error in function operator=, cannot match any of the overloads for function operator=:\n  operator=(const wxFileName &)\n  operator=(const wxString &)\n");
+		return 0;
+	}
+
 
 };
 
@@ -3177,6 +3249,7 @@ luna_RegType LunaTraits< wxFileName >::methods[] = {
 	{"StripExtension", &luna_wrapper_wxFileName::_bind_StripExtension},
 	{"op_neq", &luna_wrapper_wxFileName::_bind_op_neq},
 	{"__eq", &luna_wrapper_wxFileName::_bind___eq},
+	{"op_assign", &luna_wrapper_wxFileName::_bind_op_assign},
 	{"dynCast", &luna_wrapper_wxFileName::_bind_dynCast},
 	{0,0}
 };

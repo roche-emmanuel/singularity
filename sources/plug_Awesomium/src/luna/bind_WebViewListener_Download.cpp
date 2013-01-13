@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<WebViewListener::Download,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -161,7 +161,7 @@ public:
 		WebViewListener::Download* self=(Luna< WebViewListener::Download >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Download::OnRequestDownload(Awesomium::WebView *, int, const Awesomium::WebURL &, const Awesomium::WebString &, const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Download::OnRequestDownload(Awesomium::WebView *, int, const Awesomium::WebURL &, const Awesomium::WebString &, const Awesomium::WebString &). Got : '%s'",typeid(Luna< WebViewListener::Download >::check(L,1)).name());
 		}
 		self->OnRequestDownload(caller, download_id, url, suggested_filename, mime_type);
 
@@ -184,7 +184,7 @@ public:
 		WebViewListener::Download* self=(Luna< WebViewListener::Download >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Download::OnUpdateDownload(Awesomium::WebView *, int, long long, long long, long long)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Download::OnUpdateDownload(Awesomium::WebView *, int, long long, long long, long long). Got : '%s'",typeid(Luna< WebViewListener::Download >::check(L,1)).name());
 		}
 		self->OnUpdateDownload(caller, download_id, total_bytes, received_bytes, current_speed);
 
@@ -211,7 +211,7 @@ public:
 		WebViewListener::Download* self=(Luna< WebViewListener::Download >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Download::OnFinishDownload(Awesomium::WebView *, int, const Awesomium::WebURL &, const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Download::OnFinishDownload(Awesomium::WebView *, int, const Awesomium::WebURL &, const Awesomium::WebString &). Got : '%s'",typeid(Luna< WebViewListener::Download >::check(L,1)).name());
 		}
 		self->OnFinishDownload(caller, download_id, url, saved_path);
 

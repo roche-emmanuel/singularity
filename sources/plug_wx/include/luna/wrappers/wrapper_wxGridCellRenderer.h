@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxGridCellRenderer() {
+		logDEBUG3("Calling delete function for wrapper wxGridCellRenderer");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxGridCellRenderer*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -29,12 +31,14 @@ public:
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	wxGridCellRenderer * Clone() const {
 		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxGridCellRenderer::Clone");
+		_obj.pushArg((wxGridCellRenderer*)this);
 		return (_obj.callFunction<wxGridCellRenderer*>());
 	};
 
 	// void wxGridCellRenderer::Draw(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, const wxRect & rect, int row, int col, bool isSelected)
 	void Draw(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, const wxRect & rect, int row, int col, bool isSelected) {
 		THROW_IF(!_obj.pushFunction("Draw"),"No implementation for abstract function wxGridCellRenderer::Draw");
+		_obj.pushArg((wxGridCellRenderer*)this);
 		_obj.pushArg(&grid);
 		_obj.pushArg(&attr);
 		_obj.pushArg(&dc);
@@ -48,6 +52,7 @@ public:
 	// wxSize wxGridCellRenderer::GetBestSize(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, int row, int col)
 	wxSize GetBestSize(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, int row, int col) {
 		THROW_IF(!_obj.pushFunction("GetBestSize"),"No implementation for abstract function wxGridCellRenderer::GetBestSize");
+		_obj.pushArg((wxGridCellRenderer*)this);
 		_obj.pushArg(&grid);
 		_obj.pushArg(&attr);
 		_obj.pushArg(&dc);

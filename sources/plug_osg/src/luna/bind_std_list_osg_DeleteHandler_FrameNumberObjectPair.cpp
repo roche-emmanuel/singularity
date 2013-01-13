@@ -57,11 +57,11 @@ public:
 };
 
 std::list< osg::DeleteHandler::FrameNumberObjectPair >* LunaTraits< std::list< osg::DeleteHandler::FrameNumberObjectPair > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::list< osg::DeleteHandler::FrameNumberObjectPair >();
 }
 
 void LunaTraits< std::list< osg::DeleteHandler::FrameNumberObjectPair > >::_bind_dtor(std::list< osg::DeleteHandler::FrameNumberObjectPair >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::list< osg::DeleteHandler::FrameNumberObjectPair > >::className[] = "std_list_osg_DeleteHandler_FrameNumberObjectPair";

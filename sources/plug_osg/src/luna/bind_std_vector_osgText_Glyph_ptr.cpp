@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osgText::Glyph * >* LunaTraits< std::vector< osgText::Glyph * > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osgText::Glyph * >();
 }
 
 void LunaTraits< std::vector< osgText::Glyph * > >::_bind_dtor(std::vector< osgText::Glyph * >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osgText::Glyph * > >::className[] = "std_vector_osgText_Glyph_ptr";

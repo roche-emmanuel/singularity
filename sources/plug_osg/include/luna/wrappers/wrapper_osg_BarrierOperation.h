@@ -14,11 +14,21 @@ public:
 		
 
 	~wrapper_osg_BarrierOperation() {
+		logDEBUG3("Calling delete function for wrapper osg_BarrierOperation");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::BarrierOperation*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
+	wrapper_osg_BarrierOperation(lua_State* L, lua_Table* dum, int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true) 
+		: osg::BarrierOperation(numThreads, op, keep), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::BarrierOperation*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -26,9 +36,52 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::BarrierOperation*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return BarrierOperation::setThreadSafeRefUnref(threadSafe);
+	};
+
+	// void OpenThreads::Barrier::reset()
+	void reset() {
+		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osg::BarrierOperation*)this);
+			return (_obj.callFunction<void>());
+		}
+
+		return BarrierOperation::reset();
+	};
+
+	// void OpenThreads::Barrier::block(unsigned int numThreads = 0)
+	void block(unsigned int numThreads = 0) {
+		if(_obj.pushFunction("block")) {
+			_obj.pushArg((osg::BarrierOperation*)this);
+			_obj.pushArg(numThreads);
+			return (_obj.callFunction<void>());
+		}
+
+		return BarrierOperation::block(numThreads);
+	};
+
+	// int OpenThreads::Barrier::numThreadsCurrentlyBlocked()
+	int numThreadsCurrentlyBlocked() {
+		if(_obj.pushFunction("numThreadsCurrentlyBlocked")) {
+			_obj.pushArg((osg::BarrierOperation*)this);
+			return (_obj.callFunction<int>());
+		}
+
+		return BarrierOperation::numThreadsCurrentlyBlocked();
+	};
+
 	// void osg::BarrierOperation::release()
 	void release() {
 		if(_obj.pushFunction("release")) {
+			_obj.pushArg((osg::BarrierOperation*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -38,6 +91,7 @@ public:
 	// void osg::BarrierOperation::operator()(osg::Object * arg1)
 	void operator()(osg::Object * arg1) {
 		if(_obj.pushFunction("op_call")) {
+			_obj.pushArg((osg::BarrierOperation*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -116,8 +170,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgUtil_StatsVisitor() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_StatsVisitor");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::StatsVisitor*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_StatsVisitor(lua_State* L, lua_Table* dum) : osgUtil::StatsVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_StatsVisitor(lua_State* L, lua_Table* dum) 
+		: osgUtil::StatsVisitor(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,9 +36,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return StatsVisitor::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {
 		if(_obj.pushFunction("getEyePoint")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -39,6 +60,7 @@ public:
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {
 		if(_obj.pushFunction("getViewPoint")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
@@ -48,6 +70,7 @@ public:
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToEyePoint")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -59,6 +82,7 @@ public:
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceFromEyePoint")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -70,6 +94,7 @@ public:
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	float getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const {
 		if(_obj.pushFunction("getDistanceToViewPoint")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<float>());
@@ -81,6 +106,7 @@ public:
 	// const char * osgUtil::StatsVisitor::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -90,6 +116,7 @@ public:
 	// const char * osgUtil::StatsVisitor::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -99,6 +126,7 @@ public:
 	// void osgUtil::StatsVisitor::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -108,6 +136,7 @@ public:
 	// void osgUtil::StatsVisitor::apply(osg::Node & node)
 	void apply(osg::Node & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -118,6 +147,7 @@ public:
 	// void osgUtil::StatsVisitor::apply(osg::Group & node)
 	void apply(osg::Group & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -128,6 +158,7 @@ public:
 	// void osgUtil::StatsVisitor::apply(osg::Transform & node)
 	void apply(osg::Transform & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -138,6 +169,7 @@ public:
 	// void osgUtil::StatsVisitor::apply(osg::LOD & node)
 	void apply(osg::LOD & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -148,6 +180,7 @@ public:
 	// void osgUtil::StatsVisitor::apply(osg::Switch & node)
 	void apply(osg::Switch & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -158,6 +191,7 @@ public:
 	// void osgUtil::StatsVisitor::apply(osg::Geode & node)
 	void apply(osg::Geode & node) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<void>());
 		}
@@ -236,8 +270,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

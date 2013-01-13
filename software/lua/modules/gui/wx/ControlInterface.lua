@@ -9,7 +9,8 @@ local winman = require "gui.wx.WindowManager"
 
 -- This class provides functions to add wx controls.
 function Class:initialize(options)
-	 
+	self:info("Executing initialize for ControlInterface...")
+
 end
 
 function Class:close()
@@ -429,26 +430,29 @@ end
 function Class:addOSGCtrl(options)
 	--self:check(options.root,"a valid 'root' entry is needed to build an OSGCtrl")
 	
-	options.intf = options.intf or self
-	options.flags = options.flags or wx.wxALL+wx.wxEXPAND
-	options.prop = options.prop or 1
+	--options.intf = options.intf or self
+	options.parent = self:getCurrentParent();
 	
-	local canvas = require("gui.wx.OSGCanvas")(options)
+	local canvas = require("gui.wx.OSGCanvas")(options)	
 	local win = canvas:getWindow()
 	self:check(win,"Invalid OSG window object.")
+
+	options.flags = options.flags or wx.wxALL+wx.wxEXPAND
+	options.prop = options.prop or 1
 	
 	return self:addControl(win,options), canvas
 end
 
 function Class:addOutputPanel(options)
 	--self:check(options.root,"a valid 'root' entry is needed to build an OSGCtrl")
-	
-	options.intf = options.intf or self
-	options.flags = options.flags or wx.wxALL+wx.wxEXPAND
-	options.prop = options.prop or 1
+	options.parent = self:getCurrentParent();
 	
 	local panel = require("gui.wx.OutputPanel")(options)
 
+	--options.intf = options.intf or self
+	options.flags = options.flags or wx.wxALL+wx.wxEXPAND
+	options.prop = options.prop or 1
+	
 	return panel:getWindow(), panel
 end
 
@@ -460,6 +464,16 @@ function Class:addTimePickerCtrl(options)
     end  
     return self:addControl(ctrl,options)
 end
+
+--[[
+function Class:addAuiNotebook(options)
+    local ctrl = wx.wxAuiNotebook:new(self:getCurrentParent(),options.id or wx.wxID_ANY,wx.wxDefaultDateTime,wx.wxDefaultPosition,options.style or wx.wxAUI_NB_DEFAULT_STYLE)
+	
+    options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
+
+    return self:addControl(ctrl,options)
+end
+]]
 
 function Class:addSTCCtrl(options)
 	local ctrl = wx.wxStyledTextCtrl:new(self:getCurrentParent(),wx.wxID_ANY,wx.wxDefaultPosition, wx.wxDefaultSize, options.style or 0);

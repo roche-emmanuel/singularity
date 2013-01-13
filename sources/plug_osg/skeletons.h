@@ -4,6 +4,54 @@
 class GLUtesselator {
 };
 
+namespace OpenThreads {
+	class Atomic {
+	};
+
+	class AtomicPtr {
+	};
+
+	class Barrier {
+	};
+
+	class Block {
+	};
+
+	class BlockCount {
+	};
+
+	class Condition {
+	};
+
+	class ReadWriteMutex {
+	};
+
+	class ScopedReadLock {
+	};
+
+	class ScopedWriteLock {
+	};
+
+	class ReentrantMutex: public OpenThreads::Mutex {
+	};
+
+	class ScopedLock {
+	};
+
+	class ReverseScopedLock {
+	};
+
+	class ScopedPointerLock {
+	};
+
+	class ReverseScopedPointerLock {
+	};
+
+	class Thread {
+	};
+
+};
+
 namespace osg {
 	class ByteArray {
 	};
@@ -657,13 +705,13 @@ namespace osg {
 	class SwapBuffersOperation: public osg::GraphicsOperation {
 	};
 
-	class BarrierOperation: public osg::Operation {
+	class BarrierOperation: public osg::Operation, public OpenThreads::Barrier {
 	};
 
 	class ReleaseContext_Block_MakeCurrentOperation: public osg::GraphicsOperation, public osg::RefBlock {
 	};
 
-	class BlockAndFlushOperation: public osg::GraphicsOperation {
+	class BlockAndFlushOperation: public osg::GraphicsOperation, public OpenThreads::Block {
 	};
 
 	class FlushDeletedGLObjectsOperation: public osg::GraphicsOperation {
@@ -672,7 +720,7 @@ namespace osg {
 	class RunOperations: public osg::GraphicsOperation {
 	};
 
-	class EndOfDynamicDrawBlock: public osg::State::DynamicObjectRenderingCompletedCallback {
+	class EndOfDynamicDrawBlock: public OpenThreads::BlockCount, public osg::State::DynamicObjectRenderingCompletedCallback {
 	};
 
 	class Group: public osg::Node {
@@ -728,9 +776,6 @@ namespace osg {
 		class LineSegmentIntersection {
 		public:
 			class IndexList {
-			};
-
-			class RatioList {
 			};
 
 		};
@@ -868,10 +913,10 @@ namespace osg {
 	class OcclusionQueryNode: public osg::Group {
 	};
 
-	class RefBlock: public osg::Referenced {
+	class RefBlock: public osg::Referenced, public OpenThreads::Block {
 	};
 
-	class RefBlockCount: public osg::Referenced {
+	class RefBlockCount: public osg::Referenced, public OpenThreads::BlockCount {
 	};
 
 	class Operation: public osg::Referenced {
@@ -884,7 +929,7 @@ namespace osg {
 
 	};
 
-	class OperationThread: public osg::Referenced {
+	class OperationThread: public osg::Referenced, public OpenThreads::Thread {
 	};
 
 	class PagedLOD: public osg::LOD {
@@ -1076,9 +1121,6 @@ namespace osg {
 
 	class HeightField: public osg::Shape {
 	public:
-		class HeightList {
-		};
-
 	};
 
 	class CompositeShape: public osg::Shape {
@@ -1507,6 +1549,15 @@ namespace osg {
 	class Viewport: public osg::StateAttribute {
 	};
 
+	class ref_ptr< osg::Array > {
+	};
+
+	class ref_ptr< osg::Image > {
+	};
+
+	class ref_ptr< osg::PrimitiveSet > {
+	};
+
 	class Vec2Array: public osg::Array {
 	};
 
@@ -1569,7 +1620,7 @@ namespace osgDB {
 		class DatabaseRequest: public osg::Referenced {
 		};
 
-		class DatabaseThread: public osg::Referenced {
+		class DatabaseThread: public osg::Referenced, public OpenThreads::Thread {
 		};
 
 		class PagedLODList: public osg::Referenced {
@@ -1678,7 +1729,7 @@ namespace osgDB {
 		class ImageRequest: public osg::Referenced {
 		};
 
-		class ImageThread: public osg::Referenced {
+		class ImageThread: public osg::Referenced, public OpenThreads::Thread {
 		};
 
 		class ReadQueue: public osgDB::ImagePager::RequestQueue {
@@ -2554,9 +2605,6 @@ namespace osgUtil {
 
 	class Hit {
 	public:
-		class VecIndexList {
-		};
-
 	};
 
 	class IntersectVisitor: public osg::NodeVisitor {
@@ -2593,9 +2641,6 @@ namespace osgUtil {
 		class Intersection {
 		public:
 			class IndexList {
-			};
-
-			class RatioList {
 			};
 
 		};
@@ -2753,9 +2798,6 @@ namespace osgUtil {
 		class Intersection {
 		public:
 			class Polyline {
-			};
-
-			class Attributes {
 			};
 
 		};

@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -158,7 +158,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,91252552) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,63704215) ) return false;
 		return true;
 	}
 
@@ -238,6 +238,13 @@ public:
 	inline static bool _lg_typecheck_getTriangles_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -334,7 +341,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,91252552) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,63704215) ) return false;
 		return true;
 	}
 
@@ -601,7 +608,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg end in osg::KdTree::intersect function");
 		}
 		const osg::Vec3d & end=*end_ptr;
-		osg::KdTree::LineSegmentIntersections* intersections_ptr=(Luna< osg::KdTree::LineSegmentIntersections >::check(L,4));
+		osg::KdTree::LineSegmentIntersections* intersections_ptr=(Luna< std::vector< osg::KdTree::LineSegmentIntersection > >::checkSubType< osg::KdTree::LineSegmentIntersections >(L,4));
 		if( !intersections_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg intersections in osg::KdTree::intersect function");
 		}
@@ -914,6 +921,25 @@ public:
 		return 0;
 	}
 
+	// void osg::KdTree::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::KdTree::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::KdTree* self=Luna< osg::Referenced >::checkSubType< osg::KdTree >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTree::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->KdTree::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osg::KdTree::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
@@ -1219,7 +1245,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg end in osg::KdTree::base_intersect function");
 		}
 		const osg::Vec3d & end=*end_ptr;
-		osg::KdTree::LineSegmentIntersections* intersections_ptr=(Luna< osg::KdTree::LineSegmentIntersections >::check(L,4));
+		osg::KdTree::LineSegmentIntersections* intersections_ptr=(Luna< std::vector< osg::KdTree::LineSegmentIntersection > >::checkSubType< osg::KdTree::LineSegmentIntersections >(L,4));
 		if( !intersections_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg intersections in osg::KdTree::base_intersect function");
 		}
@@ -1274,6 +1300,7 @@ luna_RegType LunaTraits< osg::KdTree >::methods[] = {
 	{"addTriangle", &luna_wrapper_osg_KdTree::_bind_addTriangle},
 	{"getTriangle", &luna_wrapper_osg_KdTree::_bind_getTriangle},
 	{"getTriangles", &luna_wrapper_osg_KdTree::_bind_getTriangles},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_KdTree::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osg_KdTree::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_KdTree::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_KdTree::_bind_base_setUserData},

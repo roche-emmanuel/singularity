@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgDB_ReadFileCallback() {
+		logDEBUG3("Calling delete function for wrapper osgDB_ReadFileCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::ReadFileCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_ReadFileCallback(lua_State* L, lua_Table* dum) : osgDB::ReadFileCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_ReadFileCallback(lua_State* L, lua_Table* dum) 
+		: osgDB::ReadFileCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::ReadFileCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,9 +36,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::ReadFileCallback*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ReadFileCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint, const osgDB::Options * useObjectCache)
 	osgDB::ReaderWriter::ReadResult openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint, const osgDB::Options * useObjectCache) {
 		if(_obj.pushFunction("openArchive")) {
+			_obj.pushArg((osgDB::ReadFileCallback*)this);
 			_obj.pushArg(filename);
 			_obj.pushArg(status);
 			_obj.pushArg(indexBlockSizeHint);
@@ -43,6 +64,7 @@ public:
 	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readObject(const std::string & filename, const osgDB::Options * options)
 	osgDB::ReaderWriter::ReadResult readObject(const std::string & filename, const osgDB::Options * options) {
 		if(_obj.pushFunction("readObject")) {
+			_obj.pushArg((osgDB::ReadFileCallback*)this);
 			_obj.pushArg(filename);
 			_obj.pushArg(options);
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
@@ -54,6 +76,7 @@ public:
 	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readImage(const std::string & filename, const osgDB::Options * options)
 	osgDB::ReaderWriter::ReadResult readImage(const std::string & filename, const osgDB::Options * options) {
 		if(_obj.pushFunction("readImage")) {
+			_obj.pushArg((osgDB::ReadFileCallback*)this);
 			_obj.pushArg(filename);
 			_obj.pushArg(options);
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
@@ -65,6 +88,7 @@ public:
 	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readHeightField(const std::string & filename, const osgDB::Options * options)
 	osgDB::ReaderWriter::ReadResult readHeightField(const std::string & filename, const osgDB::Options * options) {
 		if(_obj.pushFunction("readHeightField")) {
+			_obj.pushArg((osgDB::ReadFileCallback*)this);
 			_obj.pushArg(filename);
 			_obj.pushArg(options);
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
@@ -76,6 +100,7 @@ public:
 	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readNode(const std::string & filename, const osgDB::Options * options)
 	osgDB::ReaderWriter::ReadResult readNode(const std::string & filename, const osgDB::Options * options) {
 		if(_obj.pushFunction("readNode")) {
+			_obj.pushArg((osgDB::ReadFileCallback*)this);
 			_obj.pushArg(filename);
 			_obj.pushArg(options);
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
@@ -87,6 +112,7 @@ public:
 	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readShader(const std::string & filename, const osgDB::Options * options)
 	osgDB::ReaderWriter::ReadResult readShader(const std::string & filename, const osgDB::Options * options) {
 		if(_obj.pushFunction("readShader")) {
+			_obj.pushArg((osgDB::ReadFileCallback*)this);
 			_obj.pushArg(filename);
 			_obj.pushArg(options);
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
@@ -166,8 +192,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

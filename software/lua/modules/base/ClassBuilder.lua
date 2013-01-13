@@ -5,6 +5,7 @@ require("logger"):debug0_v("Generating class ",className)
 local oo = require "loop.cached"
 
 local Object = require "base.Object"
+local log = require "logger"
 
 local Class = oo.class({},Object)
 Class.CLASS_NAME = className
@@ -42,8 +43,6 @@ function Class:__call(options)
 		table.insert(bases,type(base)=="string" and require(base) or base)
 	end
 	
-
-	
 	self:debug0_v("Generating class for ",options.name)
 	local result = oo.class({},unpack(bases))
 	result.CLASS_NAME = options.name -- kept for backward compatibility (see binding modules for instance)
@@ -59,20 +58,41 @@ function Class:__call(options)
 		
 		obj =  oo.rawnew(self,obj)
 		obj._TRACE_ = options.name
-				
-		-- Call the initialize function if any:
-		if obj.initialize then
-			obj:initialize(opt)
+		
+		if result.new then
+			result.new(obj,opt)
 		end
-				
+		
+		if not instance then
+			obj:doInitialize(opt)
+		end
+		
 		return obj 
+	end
+
+	function result:doInitialize(opt,class)
+		class = class or oo.classof(self)
+		
+		for _,base in oo.supers(class) do
+			if base.doInitialize then
+				base.doInitialize(self,opt,base)
+			end
+		end
+		
+		--log:info("Calling doInitialize for class ", class._CLASSNAME_ or "[unnamed]")
+
+		if class.initialize then
+			class.initialize(self,opt)
+		end
 	end
 	
 	function result:release()
+		self:deprecated("release should not be used.")
 		self._wrappers = nil;
 	end
 	
 	function result:getWrapper(index)
+		self:deprecated("getWrapper should not be used.")
 		index = index or 0
 		return self._wrappers and self._wrappers[index+1]
 	end
@@ -100,6 +120,12 @@ function Class:__call(options)
 	end
 	
 	function result:generateWrapping(wrapper,index)
+		result.createInstance = function(options)
+			return wrapper(result(options))
+		end
+		
+		--[[self:deprecated("generateWrapping should not be used.")
+		
 		index = index or 1
 		
 		for name,func in pairs(wrapper) do
@@ -107,14 +133,17 @@ function Class:__call(options)
 				--self:info("Adding auto wrapped function: ",name)
 				local wname = (name:sub(1,5)=="base_" and name) or (wrapper["base_"..name] and "base_"..name) or name -- force rediction to the base function call to avoid infinite looping.
 				result[name] = function(self, ...) 
+					--log:info("Calling method ",wname,"...")
 					local obj = self._wrappers[index]
 					return obj[wname](obj, ...) 
 				end
 			end
-		end			
+		end]]		
 	end
 	
 	function result:createWrapper(wrapper,...) 
+		self:deprecated("createWrapper should not be used.")
+	
 		self._wrappers = self._wrappers or {}
 		local obj = wrapper(self,...)
 		self:check(obj,"Could not create wrapper object.");
@@ -134,6 +163,10 @@ function Class:__call(options)
 		end			
 	end
 	
+	function result:delete()
+		self:debug2_v("Deleting ",self._CLASSNAME_," object.")
+	end
+
 	-- return the resulting class:
 	return result;
 end

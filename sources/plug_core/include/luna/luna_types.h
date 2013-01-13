@@ -521,6 +521,60 @@ public:
 };
 
 template<>
+class LunaTraits< std::vector< int > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< int >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< int >* obj);
+	typedef std::vector< int > parent_t;
+	typedef std::vector< int > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< float > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< float >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< float >* obj);
+	typedef std::vector< float > parent_t;
+	typedef std::vector< float > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< double > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< double >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< double >* obj);
+	typedef std::vector< double > parent_t;
+	typedef std::vector< double > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
 class LunaTraits< OpenThreads::Mutex > {
 public:
 	static const char className[];
@@ -655,6 +709,27 @@ template<>
 class LunaType< 72783721 > {
 public:
 	typedef std::map< std::string, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 92299338 > {
+public:
+	typedef std::vector< int > type;
+	
+};
+
+template<>
+class LunaType< 77249888 > {
+public:
+	typedef std::vector< float > type;
+	
+};
+
+template<>
+class LunaType< 4564820 > {
+public:
+	typedef std::vector< double > type;
 	
 };
 

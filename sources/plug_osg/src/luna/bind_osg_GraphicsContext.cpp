@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -329,6 +329,31 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_createGraphicsThread(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setGraphicsThread(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getGraphicsThread_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getGraphicsThread_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_realizeImplementation(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -484,6 +509,13 @@ public:
 	inline static bool _lg_typecheck_className(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1323,6 +1355,94 @@ public:
 		return 0;
 	}
 
+	// void osg::GraphicsContext::createGraphicsThread()
+	static int _bind_createGraphicsThread(lua_State *L) {
+		if (!_lg_typecheck_createGraphicsThread(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::createGraphicsThread() function, expected prototype:\nvoid osg::GraphicsContext::createGraphicsThread()\nClass arguments details:\n");
+		}
+
+
+		osg::GraphicsContext* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::createGraphicsThread(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->createGraphicsThread();
+
+		return 0;
+	}
+
+	// void osg::GraphicsContext::setGraphicsThread(osg::GraphicsThread * gt)
+	static int _bind_setGraphicsThread(lua_State *L) {
+		if (!_lg_typecheck_setGraphicsThread(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::setGraphicsThread(osg::GraphicsThread * gt) function, expected prototype:\nvoid osg::GraphicsContext::setGraphicsThread(osg::GraphicsThread * gt)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::GraphicsThread* gt=(Luna< osg::Referenced >::checkSubType< osg::GraphicsThread >(L,2));
+
+		osg::GraphicsContext* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::setGraphicsThread(osg::GraphicsThread *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setGraphicsThread(gt);
+
+		return 0;
+	}
+
+	// osg::GraphicsThread * osg::GraphicsContext::getGraphicsThread()
+	static int _bind_getGraphicsThread_overload_1(lua_State *L) {
+		if (!_lg_typecheck_getGraphicsThread_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::GraphicsThread * osg::GraphicsContext::getGraphicsThread() function, expected prototype:\nosg::GraphicsThread * osg::GraphicsContext::getGraphicsThread()\nClass arguments details:\n");
+		}
+
+
+		osg::GraphicsContext* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::GraphicsThread * osg::GraphicsContext::getGraphicsThread(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::GraphicsThread * lret = self->getGraphicsThread();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::GraphicsThread >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::GraphicsThread * osg::GraphicsContext::getGraphicsThread() const
+	static int _bind_getGraphicsThread_overload_2(lua_State *L) {
+		if (!_lg_typecheck_getGraphicsThread_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::GraphicsThread * osg::GraphicsContext::getGraphicsThread() const function, expected prototype:\nconst osg::GraphicsThread * osg::GraphicsContext::getGraphicsThread() const\nClass arguments details:\n");
+		}
+
+
+		osg::GraphicsContext* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::GraphicsThread * osg::GraphicsContext::getGraphicsThread() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::GraphicsThread * lret = self->getGraphicsThread();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::GraphicsThread >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::GraphicsContext::getGraphicsThread
+	static int _bind_getGraphicsThread(lua_State *L) {
+		if (_lg_typecheck_getGraphicsThread_overload_1(L)) return _bind_getGraphicsThread_overload_1(L);
+		if (_lg_typecheck_getGraphicsThread_overload_2(L)) return _bind_getGraphicsThread_overload_2(L);
+
+		luaL_error(L, "error in function getGraphicsThread, cannot match any of the overloads for function getGraphicsThread:\n  getGraphicsThread()\n  getGraphicsThread()\n");
+		return 0;
+	}
+
 	// bool osg::GraphicsContext::realizeImplementation()
 	static int _bind_realizeImplementation(lua_State *L) {
 		if (!_lg_typecheck_realizeImplementation(L)) {
@@ -1823,6 +1943,25 @@ public:
 		return 1;
 	}
 
+	// void osg::GraphicsContext::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::GraphicsContext::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::GraphicsContext* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->GraphicsContext::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osg::GraphicsContext::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
@@ -2119,6 +2258,9 @@ luna_RegType LunaTraits< osg::GraphicsContext >::methods[] = {
 	{"releaseContext", &luna_wrapper_osg_GraphicsContext::_bind_releaseContext},
 	{"isCurrent", &luna_wrapper_osg_GraphicsContext::_bind_isCurrent},
 	{"bindPBufferToTexture", &luna_wrapper_osg_GraphicsContext::_bind_bindPBufferToTexture},
+	{"createGraphicsThread", &luna_wrapper_osg_GraphicsContext::_bind_createGraphicsThread},
+	{"setGraphicsThread", &luna_wrapper_osg_GraphicsContext::_bind_setGraphicsThread},
+	{"getGraphicsThread", &luna_wrapper_osg_GraphicsContext::_bind_getGraphicsThread},
 	{"realizeImplementation", &luna_wrapper_osg_GraphicsContext::_bind_realizeImplementation},
 	{"isRealizedImplementation", &luna_wrapper_osg_GraphicsContext::_bind_isRealizedImplementation},
 	{"closeImplementation", &luna_wrapper_osg_GraphicsContext::_bind_closeImplementation},
@@ -2140,6 +2282,7 @@ luna_RegType LunaTraits< osg::GraphicsContext >::methods[] = {
 	{"isSameKindAs", &luna_wrapper_osg_GraphicsContext::_bind_isSameKindAs},
 	{"libraryName", &luna_wrapper_osg_GraphicsContext::_bind_libraryName},
 	{"className", &luna_wrapper_osg_GraphicsContext::_bind_className},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_GraphicsContext::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osg_GraphicsContext::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_GraphicsContext::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_GraphicsContext::_bind_base_setUserData},

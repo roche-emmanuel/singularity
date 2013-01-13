@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -81,6 +81,13 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -146,6 +153,25 @@ public:
 		Luna< osgDB::AuthenticationDetails >::push(L,lret,false);
 
 		return 1;
+	}
+
+	// void osgDB::AuthenticationMap::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::AuthenticationMap::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::AuthenticationMap::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgDB::AuthenticationMap* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationMap >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::AuthenticationMap::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->AuthenticationMap::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
 	}
 
 	// void osgDB::AuthenticationMap::base_addAuthenticationDetails(const std::string & path, osgDB::AuthenticationDetails * details)
@@ -215,6 +241,7 @@ const int LunaTraits< osgDB::AuthenticationMap >::uniqueIDs[] = {50169651,0};
 luna_RegType LunaTraits< osgDB::AuthenticationMap >::methods[] = {
 	{"addAuthenticationDetails", &luna_wrapper_osgDB_AuthenticationMap::_bind_addAuthenticationDetails},
 	{"getAuthenticationDetails", &luna_wrapper_osgDB_AuthenticationMap::_bind_getAuthenticationDetails},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgDB_AuthenticationMap::_bind_base_setThreadSafeRefUnref},
 	{"base_addAuthenticationDetails", &luna_wrapper_osgDB_AuthenticationMap::_bind_base_addAuthenticationDetails},
 	{"base_getAuthenticationDetails", &luna_wrapper_osgDB_AuthenticationMap::_bind_base_getAuthenticationDetails},
 	{"__eq", &luna_wrapper_osgDB_AuthenticationMap::_bind___eq},

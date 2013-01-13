@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osg_State() {
+		logDEBUG3("Calling delete function for wrapper osg_State");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::State*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_State(lua_State* L, lua_Table* dum) : osg::State(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_State(lua_State* L, lua_Table* dum) 
+		: osg::State(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::State*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,9 +36,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::State*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return State::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::State::objectDeleted(void * arg1)
 	void objectDeleted(void * arg1) {
 		if(_obj.pushFunction("objectDeleted")) {
+			_obj.pushArg((osg::State*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -40,6 +61,7 @@ public:
 	// void osg::State::frameCompleted()
 	void frameCompleted() {
 		if(_obj.pushFunction("frameCompleted")) {
+			_obj.pushArg((osg::State*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -279,13 +301,13 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_setUpVertexAttribAlias",_bind_public_setUpVertexAttribAlias},
-		{"protected_loadModelViewMatrix",_bind_public_loadModelViewMatrix},
-		{"protected_computeSecondaryColorSupported",_bind_public_computeSecondaryColorSupported},
-		{"protected_computeFogCoordSupported",_bind_public_computeFogCoordSupported},
-		{"protected_computeVertexBufferObjectSupported",_bind_public_computeVertexBufferObjectSupported},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"setUpVertexAttribAlias",_bind_public_setUpVertexAttribAlias},
+		{"loadModelViewMatrix",_bind_public_loadModelViewMatrix},
+		{"computeSecondaryColorSupported",_bind_public_computeSecondaryColorSupported},
+		{"computeFogCoordSupported",_bind_public_computeFogCoordSupported},
+		{"computeVertexBufferObjectSupported",_bind_public_computeVertexBufferObjectSupported},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

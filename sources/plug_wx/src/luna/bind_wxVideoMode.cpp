@@ -76,6 +76,58 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getW(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getH(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getBpp(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getRefresh(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setW(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setH(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setBpp(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setRefresh(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 2 valid operators)
@@ -214,6 +266,158 @@ public:
 		return 1;
 	}
 
+	// int wxVideoMode::w()
+	static int _bind_getW(lua_State *L) {
+		if (!_lg_typecheck_getW(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxVideoMode::w() function, expected prototype:\nint wxVideoMode::w()\nClass arguments details:\n");
+		}
+
+
+		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxVideoMode::w(). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+		}
+		int lret = self->w;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxVideoMode::h()
+	static int _bind_getH(lua_State *L) {
+		if (!_lg_typecheck_getH(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxVideoMode::h() function, expected prototype:\nint wxVideoMode::h()\nClass arguments details:\n");
+		}
+
+
+		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxVideoMode::h(). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+		}
+		int lret = self->h;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxVideoMode::bpp()
+	static int _bind_getBpp(lua_State *L) {
+		if (!_lg_typecheck_getBpp(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxVideoMode::bpp() function, expected prototype:\nint wxVideoMode::bpp()\nClass arguments details:\n");
+		}
+
+
+		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxVideoMode::bpp(). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+		}
+		int lret = self->bpp;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxVideoMode::refresh()
+	static int _bind_getRefresh(lua_State *L) {
+		if (!_lg_typecheck_getRefresh(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxVideoMode::refresh() function, expected prototype:\nint wxVideoMode::refresh()\nClass arguments details:\n");
+		}
+
+
+		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxVideoMode::refresh(). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+		}
+		int lret = self->refresh;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxVideoMode::w(int value)
+	static int _bind_setW(lua_State *L) {
+		if (!_lg_typecheck_setW(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxVideoMode::w(int value) function, expected prototype:\nvoid wxVideoMode::w(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxVideoMode::w(int). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+		}
+		self->w = value;
+
+		return 0;
+	}
+
+	// void wxVideoMode::h(int value)
+	static int _bind_setH(lua_State *L) {
+		if (!_lg_typecheck_setH(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxVideoMode::h(int value) function, expected prototype:\nvoid wxVideoMode::h(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxVideoMode::h(int). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+		}
+		self->h = value;
+
+		return 0;
+	}
+
+	// void wxVideoMode::bpp(int value)
+	static int _bind_setBpp(lua_State *L) {
+		if (!_lg_typecheck_setBpp(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxVideoMode::bpp(int value) function, expected prototype:\nvoid wxVideoMode::bpp(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxVideoMode::bpp(int). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+		}
+		self->bpp = value;
+
+		return 0;
+	}
+
+	// void wxVideoMode::refresh(int value)
+	static int _bind_setRefresh(lua_State *L) {
+		if (!_lg_typecheck_setRefresh(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxVideoMode::refresh(int value) function, expected prototype:\nvoid wxVideoMode::refresh(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxVideoMode* self=(Luna< wxVideoMode >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxVideoMode::refresh(int). Got : '%s'",typeid(Luna< wxVideoMode >::check(L,1)).name());
+		}
+		self->refresh = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// bool wxVideoMode::operator==(const wxVideoMode & m) const
@@ -290,6 +494,14 @@ luna_RegType LunaTraits< wxVideoMode >::methods[] = {
 	{"GetHeight", &luna_wrapper_wxVideoMode::_bind_GetHeight},
 	{"GetDepth", &luna_wrapper_wxVideoMode::_bind_GetDepth},
 	{"IsOk", &luna_wrapper_wxVideoMode::_bind_IsOk},
+	{"getW", &luna_wrapper_wxVideoMode::_bind_getW},
+	{"getH", &luna_wrapper_wxVideoMode::_bind_getH},
+	{"getBpp", &luna_wrapper_wxVideoMode::_bind_getBpp},
+	{"getRefresh", &luna_wrapper_wxVideoMode::_bind_getRefresh},
+	{"setW", &luna_wrapper_wxVideoMode::_bind_setW},
+	{"setH", &luna_wrapper_wxVideoMode::_bind_setH},
+	{"setBpp", &luna_wrapper_wxVideoMode::_bind_setBpp},
+	{"setRefresh", &luna_wrapper_wxVideoMode::_bind_setRefresh},
 	{"__eq", &luna_wrapper_wxVideoMode::_bind___eq},
 	{"op_neq", &luna_wrapper_wxVideoMode::_bind_op_neq},
 	{"dynCast", &luna_wrapper_wxVideoMode::_bind_dynCast},

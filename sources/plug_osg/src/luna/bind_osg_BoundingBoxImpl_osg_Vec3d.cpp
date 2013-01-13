@@ -57,11 +57,11 @@ public:
 };
 
 osg::BoundingBoxImpl< osg::Vec3d >* LunaTraits< osg::BoundingBoxImpl< osg::Vec3d > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new osg::BoundingBoxImpl< osg::Vec3d >();
 }
 
 void LunaTraits< osg::BoundingBoxImpl< osg::Vec3d > >::_bind_dtor(osg::BoundingBoxImpl< osg::Vec3d >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< osg::BoundingBoxImpl< osg::Vec3d > >::className[] = "osg_BoundingBoxImpl_osg_Vec3d";

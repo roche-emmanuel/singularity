@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -114,8 +114,8 @@ public:
 	inline static bool _lg_typecheck_setXRange_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
-		if( (!(Luna< osgParticle::rangef >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,42175463) ) return false;
+		if( (!(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2))) ) return false;
 		return true;
 	}
 
@@ -136,8 +136,8 @@ public:
 	inline static bool _lg_typecheck_setYRange_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
-		if( (!(Luna< osgParticle::rangef >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,42175463) ) return false;
+		if( (!(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2))) ) return false;
 		return true;
 	}
 
@@ -158,8 +158,8 @@ public:
 	inline static bool _lg_typecheck_setZRange_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
-		if( (!(Luna< osgParticle::rangef >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,42175463) ) return false;
+		if( (!(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2))) ) return false;
 		return true;
 	}
 
@@ -219,6 +219,13 @@ public:
 	inline static bool _lg_typecheck_getControlPosition(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -427,7 +434,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::BoxPlacer::setXRange(const osgParticle::rangef & r) function, expected prototype:\nvoid osgParticle::BoxPlacer::setXRange(const osgParticle::rangef & r)\nClass arguments details:\narg 1 ID = 13510606\n");
 		}
 
-		const osgParticle::rangef* r_ptr=(Luna< osgParticle::rangef >::check(L,2));
+		const osgParticle::rangef* r_ptr=(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::BoxPlacer::setXRange function");
 		}
@@ -500,7 +507,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::BoxPlacer::setYRange(const osgParticle::rangef & r) function, expected prototype:\nvoid osgParticle::BoxPlacer::setYRange(const osgParticle::rangef & r)\nClass arguments details:\narg 1 ID = 13510606\n");
 		}
 
-		const osgParticle::rangef* r_ptr=(Luna< osgParticle::rangef >::check(L,2));
+		const osgParticle::rangef* r_ptr=(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::BoxPlacer::setYRange function");
 		}
@@ -573,7 +580,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::BoxPlacer::setZRange(const osgParticle::rangef & r) function, expected prototype:\nvoid osgParticle::BoxPlacer::setZRange(const osgParticle::rangef & r)\nClass arguments details:\narg 1 ID = 13510606\n");
 		}
 
-		const osgParticle::rangef* r_ptr=(Luna< osgParticle::rangef >::check(L,2));
+		const osgParticle::rangef* r_ptr=(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::BoxPlacer::setZRange function");
 		}
@@ -781,6 +788,25 @@ public:
 		Luna< osg::Vec3f >::push(L,lret,true);
 
 		return 1;
+	}
+
+	// void osgParticle::BoxPlacer::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgParticle::BoxPlacer::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgParticle::BoxPlacer::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgParticle::BoxPlacer* self=Luna< osg::Referenced >::checkSubType< osgParticle::BoxPlacer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgParticle::BoxPlacer::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->BoxPlacer::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
 	}
 
 	// void osgParticle::BoxPlacer::base_setName(const std::string & name)
@@ -1113,6 +1139,7 @@ luna_RegType LunaTraits< osgParticle::BoxPlacer >::methods[] = {
 	{"place", &luna_wrapper_osgParticle_BoxPlacer::_bind_place},
 	{"volume", &luna_wrapper_osgParticle_BoxPlacer::_bind_volume},
 	{"getControlPosition", &luna_wrapper_osgParticle_BoxPlacer::_bind_getControlPosition},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgParticle_BoxPlacer::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osgParticle_BoxPlacer::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgParticle_BoxPlacer::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osgParticle_BoxPlacer::_bind_base_setUserData},

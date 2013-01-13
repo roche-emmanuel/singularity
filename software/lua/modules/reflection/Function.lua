@@ -33,9 +33,9 @@ opmap["operator/="] = "op_div"
 opmap["operator^"] = "op_pow"
 opmap["operator[]"] = "op_index"
 opmap["operator()"] = "op_call"
--- opmap["operator>>"] = "op_read"
--- opmap["operator<<"] = "op_write"
-opmap["operator="] = "" -- ignored
+opmap["operator>>"] = "op_read"
+opmap["operator<<"] = "op_write"
+opmap["operator="] = "op_assign"
 opmap["operator delete"] = "" -- ignored
 opmap["operator new"] = "" -- ignored
 
@@ -60,6 +60,14 @@ function Class:getLuaName()
 			end
 		end
 		
+		return lname
+	elseif self._isGetter then
+		local lname = self:getName()
+		lname = "get" .. lname:sub(1,1):upper() .. lname:sub(2)
+		return lname
+	elseif self._isSetter then
+		local lname = self:getName()
+		lname = "set" .. lname:sub(1,1):upper() .. lname:sub(2)
 		return lname
 	else
 		return self:getName()
@@ -236,7 +244,7 @@ end
 
 --- Check if function contains at least one pointer on pointer declaration.
 function Class:containsPointerOnPointer()
-    return self.argsString:find("%*%*")~=nil
+    return self.argsString:find("%*%*")~=nil or (self.returnType and self.returnType:getName():find("%*%*"))
     --local proto = self:getPrototype()
     --return proto:find("%[[0-9]*%]")~=nil
 end
@@ -432,6 +440,22 @@ end
 
 function Class:isVirtual()
 	return self:isAbstract() or self._isVirtual
+end
+
+function Class:setIsGetter(getter)
+	self._isGetter = getter
+end
+
+function Class:isGetter()
+	return self._isGetter
+end
+
+function Class:setIsSetter(setter)
+	self._isSetter = setter
+end
+
+function Class:isSetter()
+	return self._isSetter
 end
 
 function Class:clone()

@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -117,6 +117,13 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -472,6 +479,25 @@ public:
 		if (_lg_typecheck_isOperationPermissibleForObject_overload_4(L)) return _bind_isOperationPermissibleForObject_overload_4(L);
 
 		luaL_error(L, "error in function isOperationPermissibleForObject, cannot match any of the overloads for function isOperationPermissibleForObject:\n  isOperationPermissibleForObject(const osg::StateSet *)\n  isOperationPermissibleForObject(const osg::StateAttribute *)\n  isOperationPermissibleForObject(const osg::Drawable *)\n  isOperationPermissibleForObject(const osg::Node *)\n");
+		return 0;
+	}
+
+	// void osgUtil::BaseOptimizerVisitor::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::BaseOptimizerVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::BaseOptimizerVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgUtil::BaseOptimizerVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::BaseOptimizerVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::BaseOptimizerVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->BaseOptimizerVisitor::setThreadSafeRefUnref(threadSafe);
+
 		return 0;
 	}
 
@@ -1185,6 +1211,7 @@ const int LunaTraits< osgUtil::BaseOptimizerVisitor >::uniqueIDs[] = {50169651,0
 
 luna_RegType LunaTraits< osgUtil::BaseOptimizerVisitor >::methods[] = {
 	{"isOperationPermissibleForObject", &luna_wrapper_osgUtil_BaseOptimizerVisitor::_bind_isOperationPermissibleForObject},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_BaseOptimizerVisitor::_bind_base_setThreadSafeRefUnref},
 	{"base_libraryName", &luna_wrapper_osgUtil_BaseOptimizerVisitor::_bind_base_libraryName},
 	{"base_className", &luna_wrapper_osgUtil_BaseOptimizerVisitor::_bind_base_className},
 	{"base_reset", &luna_wrapper_osgUtil_BaseOptimizerVisitor::_bind_base_reset},

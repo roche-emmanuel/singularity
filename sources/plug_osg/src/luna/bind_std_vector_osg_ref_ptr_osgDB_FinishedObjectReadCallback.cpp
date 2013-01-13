@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > >* LunaTraits< std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > >();
 }
 
 void LunaTraits< std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > > >::_bind_dtor(std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > > >::className[] = "std_vector_osg_ref_ptr_osgDB_FinishedObjectReadCallback";

@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -143,6 +143,13 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -338,6 +345,13 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -560,6 +574,25 @@ public:
 			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::apply(osg::State &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(state);
+
+		return 0;
+	}
+
+	// void osgText::GlyphTexture::setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::GlyphTexture::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setThreadSafeRefUnref(threadSafe);
 
 		return 0;
 	}
@@ -1212,6 +1245,25 @@ public:
 		return 0;
 	}
 
+	// void osgText::GlyphTexture::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphTexture::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::GlyphTexture::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgText::GlyphTexture* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphTexture >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgText::GlyphTexture::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->GlyphTexture::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -1244,6 +1296,7 @@ luna_RegType LunaTraits< osgText::GlyphTexture >::methods[] = {
 	{"getSpaceForGlyph", &luna_wrapper_osgText_GlyphTexture::_bind_getSpaceForGlyph},
 	{"addGlyph", &luna_wrapper_osgText_GlyphTexture::_bind_addGlyph},
 	{"apply", &luna_wrapper_osgText_GlyphTexture::_bind_apply},
+	{"setThreadSafeRefUnref", &luna_wrapper_osgText_GlyphTexture::_bind_setThreadSafeRefUnref},
 	{"createImage", &luna_wrapper_osgText_GlyphTexture::_bind_createImage},
 	{"base_setName", &luna_wrapper_osgText_GlyphTexture::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgText_GlyphTexture::_bind_base_computeDataVariance},
@@ -1271,6 +1324,7 @@ luna_RegType LunaTraits< osgText::GlyphTexture >::methods[] = {
 	{"base_className", &luna_wrapper_osgText_GlyphTexture::_bind_base_className},
 	{"base_compare", &luna_wrapper_osgText_GlyphTexture::_bind_base_compare},
 	{"base_apply", &luna_wrapper_osgText_GlyphTexture::_bind_base_apply},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgText_GlyphTexture::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osgText_GlyphTexture::_bind___eq},
 	{"getTable", &luna_wrapper_osgText_GlyphTexture::_bind_getTable},
 	{0,0}

@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_wxSizerXmlHandler() {
+		logDEBUG3("Calling delete function for wrapper wxSizerXmlHandler");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxSizerXmlHandler*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxSizerXmlHandler(lua_State* L, lua_Table* dum) : wxSizerXmlHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxSizerXmlHandler(lua_State* L, lua_Table* dum) 
+		: wxSizerXmlHandler(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxSizerXmlHandler*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxSizerXmlHandler*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -37,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxSizerXmlHandler*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -47,6 +58,7 @@ protected:
 	// wxSizer * wxSizerXmlHandler::DoCreateSizer(const wxString & name)
 	wxSizer * DoCreateSizer(const wxString & name) {
 		if(_obj.pushFunction("DoCreateSizer")) {
+			_obj.pushArg((wxSizerXmlHandler*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<wxSizer*>());
 		}
@@ -57,6 +69,7 @@ protected:
 	// bool wxSizerXmlHandler::IsSizerNode(wxXmlNode * node) const
 	bool IsSizerNode(wxXmlNode * node) const {
 		if(_obj.pushFunction("IsSizerNode")) {
+			_obj.pushArg((wxSizerXmlHandler*)this);
 			_obj.pushArg(node);
 			return (_obj.callFunction<bool>());
 		}
@@ -69,6 +82,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxSizerXmlHandler*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -78,6 +92,7 @@ public:
 	// wxObject * wxSizerXmlHandler::DoCreateResource()
 	wxObject * DoCreateResource() {
 		if(_obj.pushFunction("DoCreateResource")) {
+			_obj.pushArg((wxSizerXmlHandler*)this);
 			return (_obj.callFunction<wxObject*>());
 		}
 
@@ -87,6 +102,7 @@ public:
 	// bool wxSizerXmlHandler::CanHandle(wxXmlNode * node)
 	bool CanHandle(wxXmlNode * node) {
 		if(_obj.pushFunction("CanHandle")) {
+			_obj.pushArg((wxSizerXmlHandler*)this);
 			_obj.pushArg(node);
 			return (_obj.callFunction<bool>());
 		}
@@ -131,11 +147,6 @@ public:
 		return wxXmlResourceHandler::GetBitmap(param, defaultArtClient, size);
 	};
 
-	// wxBitmap wxXmlResourceHandler::GetBitmap(const wxXmlNode * node, const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
-	wxBitmap public_GetBitmap(const wxXmlNode * node, const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) {
-		return wxXmlResourceHandler::GetBitmap(node, defaultArtClient, size);
-	};
-
 	// bool wxXmlResourceHandler::GetBool(const wxString & param, bool defaultv = false)
 	bool public_GetBool(const wxString & param, bool defaultv = false) {
 		return wxXmlResourceHandler::GetBool(param, defaultv);
@@ -176,11 +187,6 @@ public:
 		return wxXmlResourceHandler::GetIcon(param, defaultArtClient, size);
 	};
 
-	// wxIcon wxXmlResourceHandler::GetIcon(const wxXmlNode * node, const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
-	wxIcon public_GetIcon(const wxXmlNode * node, const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) {
-		return wxXmlResourceHandler::GetIcon(node, defaultArtClient, size);
-	};
-
 	// wxIconBundle wxXmlResourceHandler::GetIconBundle(const wxString & param, const class wxString & defaultArtClient = wxART_OTHER)
 	wxIconBundle public_GetIconBundle(const wxString & param, const class wxString & defaultArtClient = wxART_OTHER) {
 		return wxXmlResourceHandler::GetIconBundle(param, defaultArtClient);
@@ -214,11 +220,6 @@ public:
 	// wxString wxXmlResourceHandler::GetParamValue(const wxString & param)
 	wxString public_GetParamValue(const wxString & param) {
 		return wxXmlResourceHandler::GetParamValue(param);
-	};
-
-	// wxString wxXmlResourceHandler::GetParamValue(const wxXmlNode * node)
-	wxString public_GetParamValue(const wxXmlNode * node) {
-		return wxXmlResourceHandler::GetParamValue(node);
 	};
 
 	// wxPoint wxXmlResourceHandler::GetPosition(const wxString & param = "pos")
@@ -259,11 +260,6 @@ public:
 	// void wxXmlResourceHandler::ReportError(wxXmlNode * context, const wxString & message)
 	void public_ReportError(wxXmlNode * context, const wxString & message) {
 		return wxXmlResourceHandler::ReportError(context, message);
-	};
-
-	// void wxXmlResourceHandler::ReportError(const wxString & message)
-	void public_ReportError(const wxString & message) {
-		return wxXmlResourceHandler::ReportError(message);
 	};
 
 	// void wxXmlResourceHandler::ReportParamError(const wxString & param, const wxString & message)
@@ -323,28 +319,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_public_GetBitmap_overload_1(lua_State *L) {
+	inline static bool _lg_typecheck_public_GetBitmap(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>4 ) return false;
 
 		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,88196105) ) return false;
-		if( luatop>2 && (!(Luna< wxString >::check(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
-		if( luatop>3 && (!(Luna< wxSize >::check(L,4))) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_GetBitmap_overload_2(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<2 || luatop>4 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,64848530)) ) return false;
-		if( (lua_isnil(L,2)==0 && !(Luna< wxXmlNode >::check(L,2)) ) ) return false;
-		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,88196105) ) return false;
-		if( luatop>2 && (!(Luna< wxString >::check(L,3))) ) return false;
-		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
-		if( luatop>3 && (!(Luna< wxSize >::check(L,4))) ) return false;
 		return true;
 	}
 
@@ -405,28 +386,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_public_GetIcon_overload_1(lua_State *L) {
+	inline static bool _lg_typecheck_public_GetIcon(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>4 ) return false;
 
 		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,88196105) ) return false;
-		if( luatop>2 && (!(Luna< wxString >::check(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
-		if( luatop>3 && (!(Luna< wxSize >::check(L,4))) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_GetIcon_overload_2(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<2 || luatop>4 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,64848530)) ) return false;
-		if( (lua_isnil(L,2)==0 && !(Luna< wxXmlNode >::check(L,2)) ) ) return false;
-		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,88196105) ) return false;
-		if( luatop>2 && (!(Luna< wxString >::check(L,3))) ) return false;
-		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
-		if( luatop>3 && (!(Luna< wxSize >::check(L,4))) ) return false;
 		return true;
 	}
 
@@ -476,18 +442,10 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_public_GetParamValue_overload_1(lua_State *L) {
+	inline static bool _lg_typecheck_public_GetParamValue(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_GetParamValue_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,64848530)) ) return false;
-		if( (lua_isnil(L,2)==0 && !(Luna< wxXmlNode >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -548,19 +506,11 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_public_ReportError_overload_1(lua_State *L) {
+	inline static bool _lg_typecheck_public_ReportError(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,64848530)) ) return false;
-		if( (lua_isnil(L,2)==0 && !(Luna< wxXmlNode >::check(L,2)) ) ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_ReportError_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -708,8 +658,8 @@ public:
 	}
 
 	// wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString & param = "bitmap", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
-	static int _bind_public_GetBitmap_overload_1(lua_State *L) {
-		if (!_lg_typecheck_public_GetBitmap_overload_1(L)) {
+	static int _bind_public_GetBitmap(lua_State *L) {
+		if (!_lg_typecheck_public_GetBitmap(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString & param = \"bitmap\", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) function, expected prototype:\nwxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString & param = \"bitmap\", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 20268751\n");
 		}
@@ -736,46 +686,6 @@ public:
 		Luna< wxBitmap >::push(L,lret,true);
 
 		return 1;
-	}
-
-	// wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxXmlNode * node, const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
-	static int _bind_public_GetBitmap_overload_2(lua_State *L) {
-		if (!_lg_typecheck_public_GetBitmap_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxXmlNode * node, const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) function, expected prototype:\nwxBitmap wxXmlResourceHandler::public_GetBitmap(const wxXmlNode * node, const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 88196105\narg 3 ID = 20268751\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		const wxXmlNode* node=(Luna< wxXmlNode >::check(L,2));
-		wxString defaultArtClient(lua_tostring(L,3),lua_objlen(L,3));
-		wxSize* size_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
-		if( luatop>3 && !size_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg size in wxXmlResourceHandler::public_GetBitmap function");
-		}
-		wxSize size=luatop>3 ? *size_ptr : wxDefaultSize;
-
-		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxXmlNode *, const class wxString &, wxSize). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
-		}
-		wxBitmap stack_lret = self->public_GetBitmap(node, defaultArtClient, size);
-		wxBitmap* lret = new wxBitmap(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< wxBitmap >::push(L,lret,true);
-
-		return 1;
-	}
-
-	// Overload binder for wxXmlResourceHandler::public_GetBitmap
-	static int _bind_public_GetBitmap(lua_State *L) {
-		if (_lg_typecheck_public_GetBitmap_overload_1(L)) return _bind_public_GetBitmap_overload_1(L);
-		if (_lg_typecheck_public_GetBitmap_overload_2(L)) return _bind_public_GetBitmap_overload_2(L);
-
-		luaL_error(L, "error in function public_GetBitmap, cannot match any of the overloads for function public_GetBitmap:\n  public_GetBitmap(const wxString &, const class wxString &, wxSize)\n  public_GetBitmap(const wxXmlNode *, const class wxString &, wxSize)\n");
-		return 0;
 	}
 
 	// bool wxXmlResourceHandler::public_GetBool(const wxString & param, bool defaultv = false)
@@ -944,8 +854,8 @@ public:
 	}
 
 	// wxIcon wxXmlResourceHandler::public_GetIcon(const wxString & param = "icon", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
-	static int _bind_public_GetIcon_overload_1(lua_State *L) {
-		if (!_lg_typecheck_public_GetIcon_overload_1(L)) {
+	static int _bind_public_GetIcon(lua_State *L) {
+		if (!_lg_typecheck_public_GetIcon(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxIcon wxXmlResourceHandler::public_GetIcon(const wxString & param = \"icon\", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) function, expected prototype:\nwxIcon wxXmlResourceHandler::public_GetIcon(const wxString & param = \"icon\", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 20268751\n");
 		}
@@ -972,46 +882,6 @@ public:
 		Luna< wxIcon >::push(L,lret,true);
 
 		return 1;
-	}
-
-	// wxIcon wxXmlResourceHandler::public_GetIcon(const wxXmlNode * node, const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
-	static int _bind_public_GetIcon_overload_2(lua_State *L) {
-		if (!_lg_typecheck_public_GetIcon_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIcon wxXmlResourceHandler::public_GetIcon(const wxXmlNode * node, const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) function, expected prototype:\nwxIcon wxXmlResourceHandler::public_GetIcon(const wxXmlNode * node, const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 88196105\narg 3 ID = 20268751\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		const wxXmlNode* node=(Luna< wxXmlNode >::check(L,2));
-		wxString defaultArtClient(lua_tostring(L,3),lua_objlen(L,3));
-		wxSize* size_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
-		if( luatop>3 && !size_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg size in wxXmlResourceHandler::public_GetIcon function");
-		}
-		wxSize size=luatop>3 ? *size_ptr : wxDefaultSize;
-
-		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIcon wxXmlResourceHandler::public_GetIcon(const wxXmlNode *, const class wxString &, wxSize). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
-		}
-		wxIcon stack_lret = self->public_GetIcon(node, defaultArtClient, size);
-		wxIcon* lret = new wxIcon(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< wxIcon >::push(L,lret,true);
-
-		return 1;
-	}
-
-	// Overload binder for wxXmlResourceHandler::public_GetIcon
-	static int _bind_public_GetIcon(lua_State *L) {
-		if (_lg_typecheck_public_GetIcon_overload_1(L)) return _bind_public_GetIcon_overload_1(L);
-		if (_lg_typecheck_public_GetIcon_overload_2(L)) return _bind_public_GetIcon_overload_2(L);
-
-		luaL_error(L, "error in function public_GetIcon, cannot match any of the overloads for function public_GetIcon:\n  public_GetIcon(const wxString &, const class wxString &, wxSize)\n  public_GetIcon(const wxXmlNode *, const class wxString &, wxSize)\n");
-		return 0;
 	}
 
 	// wxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString & param, const class wxString & defaultArtClient = wxART_OTHER)
@@ -1149,8 +1019,8 @@ public:
 	}
 
 	// wxString wxXmlResourceHandler::public_GetParamValue(const wxString & param)
-	static int _bind_public_GetParamValue_overload_1(lua_State *L) {
-		if (!_lg_typecheck_public_GetParamValue_overload_1(L)) {
+	static int _bind_public_GetParamValue(lua_State *L) {
+		if (!_lg_typecheck_public_GetParamValue(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxString wxXmlResourceHandler::public_GetParamValue(const wxString & param) function, expected prototype:\nwxString wxXmlResourceHandler::public_GetParamValue(const wxString & param)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
@@ -1166,35 +1036,6 @@ public:
 		lua_pushlstring(L,lret.data(),lret.size());
 
 		return 1;
-	}
-
-	// wxString wxXmlResourceHandler::public_GetParamValue(const wxXmlNode * node)
-	static int _bind_public_GetParamValue_overload_2(lua_State *L) {
-		if (!_lg_typecheck_public_GetParamValue_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxXmlResourceHandler::public_GetParamValue(const wxXmlNode * node) function, expected prototype:\nwxString wxXmlResourceHandler::public_GetParamValue(const wxXmlNode * node)\nClass arguments details:\narg 1 ID = 64848530\n");
-		}
-
-		const wxXmlNode* node=(Luna< wxXmlNode >::check(L,2));
-
-		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxXmlResourceHandler::public_GetParamValue(const wxXmlNode *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
-		}
-		wxString lret = self->public_GetParamValue(node);
-		lua_pushlstring(L,lret.data(),lret.size());
-
-		return 1;
-	}
-
-	// Overload binder for wxXmlResourceHandler::public_GetParamValue
-	static int _bind_public_GetParamValue(lua_State *L) {
-		if (_lg_typecheck_public_GetParamValue_overload_1(L)) return _bind_public_GetParamValue_overload_1(L);
-		if (_lg_typecheck_public_GetParamValue_overload_2(L)) return _bind_public_GetParamValue_overload_2(L);
-
-		luaL_error(L, "error in function public_GetParamValue, cannot match any of the overloads for function public_GetParamValue:\n  public_GetParamValue(const wxString &)\n  public_GetParamValue(const wxXmlNode *)\n");
-		return 0;
 	}
 
 	// wxPoint wxXmlResourceHandler::public_GetPosition(const wxString & param = "pos")
@@ -1355,8 +1196,8 @@ public:
 	}
 
 	// void wxXmlResourceHandler::public_ReportError(wxXmlNode * context, const wxString & message)
-	static int _bind_public_ReportError_overload_1(lua_State *L) {
-		if (!_lg_typecheck_public_ReportError_overload_1(L)) {
+	static int _bind_public_ReportError(lua_State *L) {
+		if (!_lg_typecheck_public_ReportError(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_ReportError(wxXmlNode * context, const wxString & message) function, expected prototype:\nvoid wxXmlResourceHandler::public_ReportError(wxXmlNode * context, const wxString & message)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 88196105\n");
 		}
@@ -1371,34 +1212,6 @@ public:
 		}
 		self->public_ReportError(context, message);
 
-		return 0;
-	}
-
-	// void wxXmlResourceHandler::public_ReportError(const wxString & message)
-	static int _bind_public_ReportError_overload_2(lua_State *L) {
-		if (!_lg_typecheck_public_ReportError_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_ReportError(const wxString & message) function, expected prototype:\nvoid wxXmlResourceHandler::public_ReportError(const wxString & message)\nClass arguments details:\narg 1 ID = 88196105\n");
-		}
-
-		wxString message(lua_tostring(L,2),lua_objlen(L,2));
-
-		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_ReportError(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
-		}
-		self->public_ReportError(message);
-
-		return 0;
-	}
-
-	// Overload binder for wxXmlResourceHandler::public_ReportError
-	static int _bind_public_ReportError(lua_State *L) {
-		if (_lg_typecheck_public_ReportError_overload_1(L)) return _bind_public_ReportError_overload_1(L);
-		if (_lg_typecheck_public_ReportError_overload_2(L)) return _bind_public_ReportError_overload_2(L);
-
-		luaL_error(L, "error in function public_ReportError, cannot match any of the overloads for function public_ReportError:\n  public_ReportError(wxXmlNode *, const wxString &)\n  public_ReportError(const wxString &)\n");
 		return 0;
 	}
 
@@ -1425,41 +1238,37 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_AddStyle",_bind_public_AddStyle},
-		{"protected_AddWindowStyles",_bind_public_AddWindowStyles},
-		{"protected_CreateChildren",_bind_public_CreateChildren},
-		{"protected_CreateChildrenPrivately",_bind_public_CreateChildrenPrivately},
-		{"protected_CreateResFromNode",_bind_public_CreateResFromNode},
-		{"protected_GetAnimation",_bind_public_GetAnimation},
-		{"protected_GetBitmap",_bind_public_GetBitmap},
-		{"protected_GetBitmap",_bind_public_GetBitmap},
-		{"protected_GetBool",_bind_public_GetBool},
-		{"protected_GetColour",_bind_public_GetColour},
-		{"protected_GetCurFileSystem",_bind_public_GetCurFileSystem},
-		{"protected_GetDimension",_bind_public_GetDimension},
-		{"protected_GetDirection",_bind_public_GetDirection},
-		{"protected_GetFont",_bind_public_GetFont},
-		{"protected_GetID",_bind_public_GetID},
-		{"protected_GetIcon",_bind_public_GetIcon},
-		{"protected_GetIcon",_bind_public_GetIcon},
-		{"protected_GetIconBundle",_bind_public_GetIconBundle},
-		{"protected_GetImageList",_bind_public_GetImageList},
-		{"protected_GetLong",_bind_public_GetLong},
-		{"protected_GetName",_bind_public_GetName},
-		{"protected_GetNodeContent",_bind_public_GetNodeContent},
-		{"protected_GetParamNode",_bind_public_GetParamNode},
-		{"protected_GetParamValue",_bind_public_GetParamValue},
-		{"protected_GetParamValue",_bind_public_GetParamValue},
-		{"protected_GetPosition",_bind_public_GetPosition},
-		{"protected_GetSize",_bind_public_GetSize},
-		{"protected_GetStyle",_bind_public_GetStyle},
-		{"protected_GetText",_bind_public_GetText},
-		{"protected_HasParam",_bind_public_HasParam},
-		{"protected_IsOfClass",_bind_public_IsOfClass},
-		{"protected_SetupWindow",_bind_public_SetupWindow},
-		{"protected_ReportError",_bind_public_ReportError},
-		{"protected_ReportError",_bind_public_ReportError},
-		{"protected_ReportParamError",_bind_public_ReportParamError},
+		{"AddStyle",_bind_public_AddStyle},
+		{"AddWindowStyles",_bind_public_AddWindowStyles},
+		{"CreateChildren",_bind_public_CreateChildren},
+		{"CreateChildrenPrivately",_bind_public_CreateChildrenPrivately},
+		{"CreateResFromNode",_bind_public_CreateResFromNode},
+		{"GetAnimation",_bind_public_GetAnimation},
+		{"GetBitmap",_bind_public_GetBitmap},
+		{"GetBool",_bind_public_GetBool},
+		{"GetColour",_bind_public_GetColour},
+		{"GetCurFileSystem",_bind_public_GetCurFileSystem},
+		{"GetDimension",_bind_public_GetDimension},
+		{"GetDirection",_bind_public_GetDirection},
+		{"GetFont",_bind_public_GetFont},
+		{"GetID",_bind_public_GetID},
+		{"GetIcon",_bind_public_GetIcon},
+		{"GetIconBundle",_bind_public_GetIconBundle},
+		{"GetImageList",_bind_public_GetImageList},
+		{"GetLong",_bind_public_GetLong},
+		{"GetName",_bind_public_GetName},
+		{"GetNodeContent",_bind_public_GetNodeContent},
+		{"GetParamNode",_bind_public_GetParamNode},
+		{"GetParamValue",_bind_public_GetParamValue},
+		{"GetPosition",_bind_public_GetPosition},
+		{"GetSize",_bind_public_GetSize},
+		{"GetStyle",_bind_public_GetStyle},
+		{"GetText",_bind_public_GetText},
+		{"HasParam",_bind_public_HasParam},
+		{"IsOfClass",_bind_public_IsOfClass},
+		{"SetupWindow",_bind_public_SetupWindow},
+		{"ReportError",_bind_public_ReportError},
+		{"ReportParamError",_bind_public_ReportParamError},
 		{NULL,NULL}
 		};
 

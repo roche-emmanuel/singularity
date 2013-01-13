@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint >* LunaTraits< std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint >();
 }
 
 void LunaTraits< std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint > >::_bind_dtor(std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint > >::className[] = "std_vector_osgGA_GUIEventAdapter_TouchData_TouchPoint";

@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_SPK_Transformable() {
+		logDEBUG3("Calling delete function for wrapper SPK_Transformable");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((SPK::Transformable*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_SPK_Transformable(lua_State* L, lua_Table* dum) : SPK::Transformable(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_SPK_Transformable(lua_State* L, lua_Table* dum, const SPK::Transformable & transformable) : SPK::Transformable(transformable), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_SPK_Transformable(lua_State* L, lua_Table* dum) 
+		: SPK::Transformable(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((SPK::Transformable*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_SPK_Transformable(lua_State* L, lua_Table* dum, const SPK::Transformable & transformable) 
+		: SPK::Transformable(transformable), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((SPK::Transformable*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +45,7 @@ protected:
 	// void SPK::Transformable::innerUpdateTransform()
 	void innerUpdateTransform() {
 		if(_obj.pushFunction("innerUpdateTransform")) {
+			_obj.pushArg((SPK::Transformable*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -38,6 +55,7 @@ protected:
 	// void SPK::Transformable::propagateUpdateTransform()
 	void propagateUpdateTransform() {
 		if(_obj.pushFunction("propagateUpdateTransform")) {
+			_obj.pushArg((SPK::Transformable*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -228,11 +246,11 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_transformPos",_bind_public_transformPos},
-		{"protected_transformDir",_bind_public_transformDir},
-		{"protected_isUpdateNotified",_bind_public_isUpdateNotified},
-		{"protected_notifyForUpdate",_bind_public_notifyForUpdate},
-		{"protected_getParentTransform",_bind_public_getParentTransform},
+		{"transformPos",_bind_public_transformPos},
+		{"transformDir",_bind_public_transformDir},
+		{"isUpdateNotified",_bind_public_isUpdateNotified},
+		{"notifyForUpdate",_bind_public_notifyForUpdate},
+		{"getParentTransform",_bind_public_getParentTransform},
 		{NULL,NULL}
 		};
 

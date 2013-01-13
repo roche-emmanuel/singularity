@@ -3,19 +3,27 @@ local Class = require("classBuilder"){name="OSGTestApp",bases="gui.wx.SimpleApp"
 local tools = require "osg.Tools"
 local fs = require "base.FileSystem"
 
-function Class:initialize()
+function Class:initialize(options)
 	local Interface = require "gui.wx.ControlInterface"
 	local im = require "gui.wx.ImageManager"
 
 	local intf = Interface{root=self:getFrame()}
 
-	intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
-	local ctrl, canvas = intf:addOSGCtrl{prop=2}
-	--intf:addOutputPanel{}
-	intf:popParent(true)
-
+	self:buildInterface(intf,options)
+	
 	self:getFrame():Layout()
+
+	self:setupEventHandlers()
+end
+
+function Class:buildInterface(intf, options)
+	intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
+	local ctrl, canvas = intf:addOSGCtrl{prop=3,handlers=options.handlers}
+	intf:addOutputPanel{}
+	intf:popParent(true)
 	self._canvas = canvas;
+	
+	self:getWindowManager():getMainFrame():SetSize(1280,720)
 end
 
 function Class:loadModel(filename)
@@ -28,6 +36,7 @@ function Class:loadModel(filename)
 	self._canvas:home()
 	return mt
 end
+
 
 function Class:home()
 	self._canvas:home()
@@ -78,6 +87,16 @@ end
 
 function Class:getViewer()
 	return self._canvas:getViewer()
+end
+
+function Class:getCanvas()
+	return self._canvas
+end
+
+function Class:setupEventHandlers()
+	self:info("Setting up event handlers from OSG app.")
+	self:getViewer():addEventHandler( osgViewer.StatsHandler() )	
+	self:getViewer():addEventHandler( osgViewer.WindowSizeHandler() )
 end
 
 return Class -- return class instance.

@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_spark_SparkDrawable() {
+		logDEBUG3("Calling delete function for wrapper spark_SparkDrawable");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((spark::SparkDrawable*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_spark_SparkDrawable(lua_State* L, lua_Table* dum) : spark::SparkDrawable(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_spark_SparkDrawable(lua_State* L, lua_Table* dum, const spark::SparkDrawable & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : spark::SparkDrawable(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_spark_SparkDrawable(lua_State* L, lua_Table* dum) 
+		: spark::SparkDrawable(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((spark::SparkDrawable*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_spark_SparkDrawable(lua_State* L, lua_Table* dum, const spark::SparkDrawable & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: spark::SparkDrawable(copy, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((spark::SparkDrawable*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +47,7 @@ public:
 	// osg::Object * spark::SparkDrawable::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((spark::SparkDrawable*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -40,6 +57,7 @@ public:
 	// osg::Object * spark::SparkDrawable::clone(const osg::CopyOp & copyop) const
 	osg::Object * clone(const osg::CopyOp & copyop) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((spark::SparkDrawable*)this);
 			_obj.pushArg(&copyop);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -50,6 +68,7 @@ public:
 	// bool spark::SparkDrawable::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((spark::SparkDrawable*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -60,6 +79,7 @@ public:
 	// const char * spark::SparkDrawable::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((spark::SparkDrawable*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -69,6 +89,7 @@ public:
 	// const char * spark::SparkDrawable::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((spark::SparkDrawable*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -78,6 +99,7 @@ public:
 	// bool spark::SparkDrawable::update(double currentTime, const osg::Vec3d & eye)
 	bool update(double currentTime, const osg::Vec3d & eye) {
 		if(_obj.pushFunction("update")) {
+			_obj.pushArg((spark::SparkDrawable*)this);
 			_obj.pushArg(currentTime);
 			_obj.pushArg(&eye);
 			return (_obj.callFunction<bool>());
@@ -89,6 +111,7 @@ public:
 	// osg::BoundingBox spark::SparkDrawable::computeBound() const
 	osg::BoundingBox computeBound() const {
 		if(_obj.pushFunction("computeBound")) {
+			_obj.pushArg((spark::SparkDrawable*)this);
 			return (_obj.callFunction<osg::BoundingBox>());
 		}
 
@@ -98,6 +121,7 @@ public:
 	// void spark::SparkDrawable::drawImplementation(osg::RenderInfo & renderInfo) const
 	void drawImplementation(osg::RenderInfo & renderInfo) const {
 		if(_obj.pushFunction("drawImplementation")) {
+			_obj.pushArg((spark::SparkDrawable*)this);
 			_obj.pushArg(&renderInfo);
 			return (_obj.callFunction<void>());
 		}
@@ -233,9 +257,9 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_createParticleSystem",_bind_public_createParticleSystem},
-		{"protected_compileInternalTexture",_bind_public_compileInternalTexture},
-		{"protected_convertData",_bind_public_convertData},
+		{"createParticleSystem",_bind_public_createParticleSystem},
+		{"compileInternalTexture",_bind_public_compileInternalTexture},
+		{"convertData",_bind_public_convertData},
 		{NULL,NULL}
 		};
 

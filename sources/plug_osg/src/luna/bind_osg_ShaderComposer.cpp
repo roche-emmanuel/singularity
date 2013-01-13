@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -140,7 +140,14 @@ public:
 	inline static bool _lg_typecheck_getOrCreateProgram(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,73063359) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,17530095) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -219,7 +226,7 @@ public:
 	inline static bool _lg_typecheck_base_getOrCreateProgram(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,73063359) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,17530095) ) return false;
 		return true;
 	}
 
@@ -421,7 +428,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Program * osg::ShaderComposer::getOrCreateProgram(const osg::ShaderComponents & shaderComponents) function, expected prototype:\nosg::Program * osg::ShaderComposer::getOrCreateProgram(const osg::ShaderComponents & shaderComponents)\nClass arguments details:\narg 1 ID = 73063359\n");
 		}
 
-		const osg::ShaderComponents* shaderComponents_ptr=(Luna< osg::ShaderComponents >::check(L,2));
+		const osg::ShaderComponents* shaderComponents_ptr=(Luna< std::vector< osg::ShaderComponent * > >::checkSubType< osg::ShaderComponents >(L,2));
 		if( !shaderComponents_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg shaderComponents in osg::ShaderComposer::getOrCreateProgram function");
 		}
@@ -438,6 +445,25 @@ public:
 		Luna< osg::Program >::push(L,lret,false);
 
 		return 1;
+	}
+
+	// void osg::ShaderComposer::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::ShaderComposer::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::ShaderComposer::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::ShaderComposer* self=Luna< osg::Referenced >::checkSubType< osg::ShaderComposer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::ShaderComposer::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->ShaderComposer::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
 	}
 
 	// void osg::ShaderComposer::base_setName(const std::string & name)
@@ -680,7 +706,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Program * osg::ShaderComposer::base_getOrCreateProgram(const osg::ShaderComponents & shaderComponents) function, expected prototype:\nosg::Program * osg::ShaderComposer::base_getOrCreateProgram(const osg::ShaderComponents & shaderComponents)\nClass arguments details:\narg 1 ID = 73063359\n");
 		}
 
-		const osg::ShaderComponents* shaderComponents_ptr=(Luna< osg::ShaderComponents >::check(L,2));
+		const osg::ShaderComponents* shaderComponents_ptr=(Luna< std::vector< osg::ShaderComponent * > >::checkSubType< osg::ShaderComponents >(L,2));
 		if( !shaderComponents_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg shaderComponents in osg::ShaderComposer::base_getOrCreateProgram function");
 		}
@@ -728,6 +754,7 @@ luna_RegType LunaTraits< osg::ShaderComposer >::methods[] = {
 	{"libraryName", &luna_wrapper_osg_ShaderComposer::_bind_libraryName},
 	{"className", &luna_wrapper_osg_ShaderComposer::_bind_className},
 	{"getOrCreateProgram", &luna_wrapper_osg_ShaderComposer::_bind_getOrCreateProgram},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_ShaderComposer::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osg_ShaderComposer::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_ShaderComposer::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_ShaderComposer::_bind_base_setUserData},

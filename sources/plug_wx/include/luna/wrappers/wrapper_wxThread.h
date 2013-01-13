@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxThread() {
+		logDEBUG3("Calling delete function for wrapper wxThread");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxThread*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};

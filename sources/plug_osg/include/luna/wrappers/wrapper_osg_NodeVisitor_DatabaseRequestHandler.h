@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osg_NodeVisitor_DatabaseRequestHandler() {
+		logDEBUG3("Calling delete function for wrapper osg_NodeVisitor_DatabaseRequestHandler");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::NodeVisitor::DatabaseRequestHandler*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_NodeVisitor_DatabaseRequestHandler(lua_State* L, lua_Table* dum) : osg::NodeVisitor::DatabaseRequestHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_NodeVisitor_DatabaseRequestHandler(lua_State* L, lua_Table* dum) 
+		: osg::NodeVisitor::DatabaseRequestHandler(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::NodeVisitor::DatabaseRequestHandler*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,9 +36,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::NodeVisitor::DatabaseRequestHandler*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return DatabaseRequestHandler::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::NodeVisitor::DatabaseRequestHandler::requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options = 0)
 	void requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options = 0) {
 		THROW_IF(!_obj.pushFunction("requestNodeFile"),"No implementation for abstract function osg::NodeVisitor::DatabaseRequestHandler::requestNodeFile");
+		_obj.pushArg((osg::NodeVisitor::DatabaseRequestHandler*)this);
 		_obj.pushArg(fileName);
 		_obj.pushArg(&nodePath);
 		_obj.pushArg(priority);
@@ -110,8 +131,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

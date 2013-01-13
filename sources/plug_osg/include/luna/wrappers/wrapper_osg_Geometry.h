@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_osg_Geometry() {
+		logDEBUG3("Calling delete function for wrapper osg_Geometry");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::Geometry*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_Geometry(lua_State* L, lua_Table* dum) : osg::Geometry(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_Geometry(lua_State* L, lua_Table* dum, const osg::Geometry & geometry, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Geometry(geometry, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Geometry(lua_State* L, lua_Table* dum) 
+		: osg::Geometry(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Geometry*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Geometry(lua_State* L, lua_Table* dum, const osg::Geometry & geometry, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osg::Geometry(geometry, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Geometry*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +47,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osg::Geometry*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +58,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osg::Geometry*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -51,6 +69,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::Geometry*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -60,6 +79,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::Geometry*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -69,6 +89,7 @@ public:
 	// void osg::Drawable::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osg::Geometry*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -78,15 +99,28 @@ public:
 	// osg::BoundingBoxd osg::Drawable::computeBound() const
 	osg::BoundingBoxd computeBound() const {
 		if(_obj.pushFunction("computeBound")) {
+			_obj.pushArg((osg::Geometry*)this);
 			return *(_obj.callFunction<osg::BoundingBoxd*>());
 		}
 
 		return Geometry::computeBound();
 	};
 
+	// void osg::Drawable::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::Geometry*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Geometry::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Drawable::setUpdateCallback(osg::Drawable::UpdateCallback * ac)
 	void setUpdateCallback(osg::Drawable::UpdateCallback * ac) {
 		if(_obj.pushFunction("setUpdateCallback")) {
+			_obj.pushArg((osg::Geometry*)this);
 			_obj.pushArg(ac);
 			return (_obj.callFunction<void>());
 		}
@@ -97,6 +131,7 @@ public:
 	// void osg::Drawable::setEventCallback(osg::Drawable::EventCallback * ac)
 	void setEventCallback(osg::Drawable::EventCallback * ac) {
 		if(_obj.pushFunction("setEventCallback")) {
+			_obj.pushArg((osg::Geometry*)this);
 			_obj.pushArg(ac);
 			return (_obj.callFunction<void>());
 		}
@@ -107,6 +142,7 @@ public:
 	// void osg::Drawable::setCullCallback(osg::Drawable::CullCallback * cc)
 	void setCullCallback(osg::Drawable::CullCallback * cc) {
 		if(_obj.pushFunction("setCullCallback")) {
+			_obj.pushArg((osg::Geometry*)this);
 			_obj.pushArg(cc);
 			return (_obj.callFunction<void>());
 		}
@@ -117,6 +153,7 @@ public:
 	// void osg::Drawable::setDrawCallback(osg::Drawable::DrawCallback * dc)
 	void setDrawCallback(osg::Drawable::DrawCallback * dc) {
 		if(_obj.pushFunction("setDrawCallback")) {
+			_obj.pushArg((osg::Geometry*)this);
 			_obj.pushArg(dc);
 			return (_obj.callFunction<void>());
 		}
@@ -127,6 +164,7 @@ public:
 	// osg::Object * osg::Geometry::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osg::Geometry*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -136,6 +174,7 @@ public:
 	// osg::Object * osg::Geometry::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osg::Geometry*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -146,6 +185,7 @@ public:
 	// bool osg::Geometry::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osg::Geometry*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -156,6 +196,7 @@ public:
 	// const char * osg::Geometry::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osg::Geometry*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -165,6 +206,7 @@ public:
 	// const char * osg::Geometry::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osg::Geometry*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -174,6 +216,7 @@ public:
 	// osg::Geometry * osg::Geometry::asGeometry()
 	osg::Geometry * asGeometry() {
 		if(_obj.pushFunction("asGeometry")) {
+			_obj.pushArg((osg::Geometry*)this);
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
@@ -183,6 +226,7 @@ public:
 	// const osg::Geometry * osg::Geometry::asGeometry() const
 	const osg::Geometry * asGeometry() const {
 		if(_obj.pushFunction("asGeometry")) {
+			_obj.pushArg((osg::Geometry*)this);
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
@@ -192,6 +236,7 @@ public:
 	// void osg::Geometry::setUseVertexBufferObjects(bool flag)
 	void setUseVertexBufferObjects(bool flag) {
 		if(_obj.pushFunction("setUseVertexBufferObjects")) {
+			_obj.pushArg((osg::Geometry*)this);
 			_obj.pushArg(flag);
 			return (_obj.callFunction<void>());
 		}
@@ -202,6 +247,7 @@ public:
 	// void osg::Geometry::dirtyDisplayList()
 	void dirtyDisplayList() {
 		if(_obj.pushFunction("dirtyDisplayList")) {
+			_obj.pushArg((osg::Geometry*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -211,6 +257,7 @@ public:
 	// void osg::Geometry::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osg::Geometry*)this);
 			_obj.pushArg(state);
 			return (_obj.callFunction<void>());
 		}
@@ -221,6 +268,7 @@ public:
 	// unsigned int osg::Geometry::getGLObjectSizeHint() const
 	unsigned int getGLObjectSizeHint() const {
 		if(_obj.pushFunction("getGLObjectSizeHint")) {
+			_obj.pushArg((osg::Geometry*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -230,6 +278,7 @@ public:
 	// void osg::Geometry::compileGLObjects(osg::RenderInfo & renderInfo) const
 	void compileGLObjects(osg::RenderInfo & renderInfo) const {
 		if(_obj.pushFunction("compileGLObjects")) {
+			_obj.pushArg((osg::Geometry*)this);
 			_obj.pushArg(&renderInfo);
 			return (_obj.callFunction<void>());
 		}
@@ -240,6 +289,7 @@ public:
 	// void osg::Geometry::drawImplementation(osg::RenderInfo & renderInfo) const
 	void drawImplementation(osg::RenderInfo & renderInfo) const {
 		if(_obj.pushFunction("drawImplementation")) {
+			_obj.pushArg((osg::Geometry*)this);
 			_obj.pushArg(&renderInfo);
 			return (_obj.callFunction<void>());
 		}
@@ -254,18 +304,8 @@ public:
 		return osg::Geometry::verifyBindings(arrayData);
 	};
 
-	// bool osg::Geometry::verifyBindings(const osg::Geometry::Vec3ArrayData & arrayData) const
-	bool public_verifyBindings(const osg::Geometry::Vec3ArrayData & arrayData) const {
-		return osg::Geometry::verifyBindings(arrayData);
-	};
-
 	// void osg::Geometry::computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData & arrayData, const char * arrayName)
 	void public_computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData & arrayData, const char * arrayName) {
-		return osg::Geometry::computeCorrectBindingsAndArraySizes(arrayData, arrayName);
-	};
-
-	// void osg::Geometry::computeCorrectBindingsAndArraySizes(osg::Geometry::Vec3ArrayData & arrayData, const char * arrayName)
-	void public_computeCorrectBindingsAndArraySizes(osg::Geometry::Vec3ArrayData & arrayData, const char * arrayName) {
 		return osg::Geometry::computeCorrectBindingsAndArraySizes(arrayData, arrayName);
 	};
 
@@ -277,6 +317,11 @@ public:
 	// void osg::Geometry::addElementBufferObjectIfRequired(osg::PrimitiveSet * primitiveSet)
 	void public_addElementBufferObjectIfRequired(osg::PrimitiveSet * primitiveSet) {
 		return osg::Geometry::addElementBufferObjectIfRequired(primitiveSet);
+	};
+
+	// osg::Geometry & osg::Geometry::operator=(const osg::Geometry & arg1)
+	osg::Geometry & public_op_assign(const osg::Geometry & arg1) {
+		return osg::Geometry::operator=(arg1);
 	};
 
 	// void osg::Drawable::setBound(const osg::BoundingBoxd & bb) const
@@ -326,36 +371,17 @@ public:
 
 
 	// Protected non-virtual checkers:
-	inline static bool _lg_typecheck_public_verifyBindings_overload_1(lua_State *L) {
+	inline static bool _lg_typecheck_public_verifyBindings(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,26680564) ) return false;
-		if( (!(Luna< osg::Geometry::ArrayData >::check(L,2))) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_public_verifyBindings_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,80248523) ) return false;
-		if( (!(Luna< osg::Geometry::Vec3ArrayData >::check(L,2))) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_computeCorrectBindingsAndArraySizes_overload_1(lua_State *L) {
+	inline static bool _lg_typecheck_public_computeCorrectBindingsAndArraySizes(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,26680564) ) return false;
-		if( (!(Luna< osg::Geometry::ArrayData >::check(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_computeCorrectBindingsAndArraySizes_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=3 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,80248523) ) return false;
-		if( (!(Luna< osg::Geometry::Vec3ArrayData >::check(L,2))) ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		return true;
 	}
@@ -374,10 +400,17 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_public_setBound(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,41227270) ) return false;
 		return true;
 	}
 
@@ -438,8 +471,8 @@ public:
 
 	// Protected non-virtual function binds:
 	// bool osg::Geometry::public_verifyBindings(const osg::Geometry::ArrayData & arrayData) const
-	static int _bind_public_verifyBindings_overload_1(lua_State *L) {
-		if (!_lg_typecheck_public_verifyBindings_overload_1(L)) {
+	static int _bind_public_verifyBindings(lua_State *L) {
+		if (!_lg_typecheck_public_verifyBindings(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool osg::Geometry::public_verifyBindings(const osg::Geometry::ArrayData & arrayData) const function, expected prototype:\nbool osg::Geometry::public_verifyBindings(const osg::Geometry::ArrayData & arrayData) const\nClass arguments details:\narg 1 ID = 26680564\n");
 		}
@@ -461,42 +494,9 @@ public:
 		return 1;
 	}
 
-	// bool osg::Geometry::public_verifyBindings(const osg::Geometry::Vec3ArrayData & arrayData) const
-	static int _bind_public_verifyBindings_overload_2(lua_State *L) {
-		if (!_lg_typecheck_public_verifyBindings_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Geometry::public_verifyBindings(const osg::Geometry::Vec3ArrayData & arrayData) const function, expected prototype:\nbool osg::Geometry::public_verifyBindings(const osg::Geometry::Vec3ArrayData & arrayData) const\nClass arguments details:\narg 1 ID = 80248523\n");
-		}
-
-		const osg::Geometry::Vec3ArrayData* arrayData_ptr=(Luna< osg::Geometry::Vec3ArrayData >::check(L,2));
-		if( !arrayData_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg arrayData in osg::Geometry::public_verifyBindings function");
-		}
-		const osg::Geometry::Vec3ArrayData & arrayData=*arrayData_ptr;
-
-		wrapper_osg_Geometry* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Geometry >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Geometry::public_verifyBindings(const osg::Geometry::Vec3ArrayData &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		bool lret = self->public_verifyBindings(arrayData);
-		lua_pushboolean(L,lret?1:0);
-
-		return 1;
-	}
-
-	// Overload binder for osg::Geometry::public_verifyBindings
-	static int _bind_public_verifyBindings(lua_State *L) {
-		if (_lg_typecheck_public_verifyBindings_overload_1(L)) return _bind_public_verifyBindings_overload_1(L);
-		if (_lg_typecheck_public_verifyBindings_overload_2(L)) return _bind_public_verifyBindings_overload_2(L);
-
-		luaL_error(L, "error in function public_verifyBindings, cannot match any of the overloads for function public_verifyBindings:\n  public_verifyBindings(const osg::Geometry::ArrayData &)\n  public_verifyBindings(const osg::Geometry::Vec3ArrayData &)\n");
-		return 0;
-	}
-
 	// void osg::Geometry::public_computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData & arrayData, const char * arrayName)
-	static int _bind_public_computeCorrectBindingsAndArraySizes_overload_1(lua_State *L) {
-		if (!_lg_typecheck_public_computeCorrectBindingsAndArraySizes_overload_1(L)) {
+	static int _bind_public_computeCorrectBindingsAndArraySizes(lua_State *L) {
+		if (!_lg_typecheck_public_computeCorrectBindingsAndArraySizes(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Geometry::public_computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData & arrayData, const char * arrayName) function, expected prototype:\nvoid osg::Geometry::public_computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData & arrayData, const char * arrayName)\nClass arguments details:\narg 1 ID = 26680564\n");
 		}
@@ -515,39 +515,6 @@ public:
 		}
 		self->public_computeCorrectBindingsAndArraySizes(arrayData, arrayName);
 
-		return 0;
-	}
-
-	// void osg::Geometry::public_computeCorrectBindingsAndArraySizes(osg::Geometry::Vec3ArrayData & arrayData, const char * arrayName)
-	static int _bind_public_computeCorrectBindingsAndArraySizes_overload_2(lua_State *L) {
-		if (!_lg_typecheck_public_computeCorrectBindingsAndArraySizes_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Geometry::public_computeCorrectBindingsAndArraySizes(osg::Geometry::Vec3ArrayData & arrayData, const char * arrayName) function, expected prototype:\nvoid osg::Geometry::public_computeCorrectBindingsAndArraySizes(osg::Geometry::Vec3ArrayData & arrayData, const char * arrayName)\nClass arguments details:\narg 1 ID = 80248523\n");
-		}
-
-		osg::Geometry::Vec3ArrayData* arrayData_ptr=(Luna< osg::Geometry::Vec3ArrayData >::check(L,2));
-		if( !arrayData_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg arrayData in osg::Geometry::public_computeCorrectBindingsAndArraySizes function");
-		}
-		osg::Geometry::Vec3ArrayData & arrayData=*arrayData_ptr;
-		const char * arrayName=(const char *)lua_tostring(L,3);
-
-		wrapper_osg_Geometry* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Geometry >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geometry::public_computeCorrectBindingsAndArraySizes(osg::Geometry::Vec3ArrayData &, const char *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->public_computeCorrectBindingsAndArraySizes(arrayData, arrayName);
-
-		return 0;
-	}
-
-	// Overload binder for osg::Geometry::public_computeCorrectBindingsAndArraySizes
-	static int _bind_public_computeCorrectBindingsAndArraySizes(lua_State *L) {
-		if (_lg_typecheck_public_computeCorrectBindingsAndArraySizes_overload_1(L)) return _bind_public_computeCorrectBindingsAndArraySizes_overload_1(L);
-		if (_lg_typecheck_public_computeCorrectBindingsAndArraySizes_overload_2(L)) return _bind_public_computeCorrectBindingsAndArraySizes_overload_2(L);
-
-		luaL_error(L, "error in function public_computeCorrectBindingsAndArraySizes, cannot match any of the overloads for function public_computeCorrectBindingsAndArraySizes:\n  public_computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData &, const char *)\n  public_computeCorrectBindingsAndArraySizes(osg::Geometry::Vec3ArrayData &, const char *)\n");
 		return 0;
 	}
 
@@ -589,6 +556,32 @@ public:
 		return 0;
 	}
 
+	// osg::Geometry & osg::Geometry::public_op_assign(const osg::Geometry & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Geometry & osg::Geometry::public_op_assign(const osg::Geometry & arg1) function, expected prototype:\nosg::Geometry & osg::Geometry::public_op_assign(const osg::Geometry & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Geometry* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Geometry::public_op_assign function");
+		}
+		const osg::Geometry & _arg1=*_arg1_ptr;
+
+		wrapper_osg_Geometry* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Geometry & osg::Geometry::public_op_assign(const osg::Geometry &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Geometry* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Geometry >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const
 	static int _bind_public_setBound(lua_State *L) {
 		if (!_lg_typecheck_public_setBound(L)) {
@@ -596,7 +589,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const function, expected prototype:\nvoid osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::Drawable::public_setBound function");
 		}
@@ -767,21 +760,20 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_verifyBindings",_bind_public_verifyBindings},
-		{"protected_verifyBindings",_bind_public_verifyBindings},
-		{"protected_computeCorrectBindingsAndArraySizes",_bind_public_computeCorrectBindingsAndArraySizes},
-		{"protected_computeCorrectBindingsAndArraySizes",_bind_public_computeCorrectBindingsAndArraySizes},
-		{"protected_addVertexBufferObjectIfRequired",_bind_public_addVertexBufferObjectIfRequired},
-		{"protected_addElementBufferObjectIfRequired",_bind_public_addElementBufferObjectIfRequired},
-		{"protected_setBound",_bind_public_setBound},
-		{"protected_addParent",_bind_public_addParent},
-		{"protected_removeParent",_bind_public_removeParent},
-		{"protected_setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
-		{"protected_getNumChildrenRequiringUpdateTraversal",_bind_public_getNumChildrenRequiringUpdateTraversal},
-		{"protected_setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
-		{"protected_getNumChildrenRequiringEventTraversal",_bind_public_getNumChildrenRequiringEventTraversal},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"verifyBindings",_bind_public_verifyBindings},
+		{"computeCorrectBindingsAndArraySizes",_bind_public_computeCorrectBindingsAndArraySizes},
+		{"addVertexBufferObjectIfRequired",_bind_public_addVertexBufferObjectIfRequired},
+		{"addElementBufferObjectIfRequired",_bind_public_addElementBufferObjectIfRequired},
+		{"op_assign",_bind_public_op_assign},
+		{"setBound",_bind_public_setBound},
+		{"addParent",_bind_public_addParent},
+		{"removeParent",_bind_public_removeParent},
+		{"setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
+		{"getNumChildrenRequiringUpdateTraversal",_bind_public_getNumChildrenRequiringUpdateTraversal},
+		{"setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
+		{"getNumChildrenRequiringEventTraversal",_bind_public_getNumChildrenRequiringEventTraversal},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

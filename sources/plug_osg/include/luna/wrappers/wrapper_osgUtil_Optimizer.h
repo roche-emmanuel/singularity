@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgUtil_Optimizer() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_Optimizer");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::Optimizer*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_Optimizer(lua_State* L, lua_Table* dum) : osgUtil::Optimizer(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_Optimizer(lua_State* L, lua_Table* dum) 
+		: osgUtil::Optimizer(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::Optimizer*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +39,7 @@ public:
 	// void osgUtil::Optimizer::optimize(osg::Node * node, unsigned int options)
 	void optimize(osg::Node * node, unsigned int options) {
 		if(_obj.pushFunction("optimize")) {
+			_obj.pushArg((osgUtil::Optimizer*)this);
 			_obj.pushArg(node);
 			_obj.pushArg(options);
 			return (_obj.callFunction<void>());

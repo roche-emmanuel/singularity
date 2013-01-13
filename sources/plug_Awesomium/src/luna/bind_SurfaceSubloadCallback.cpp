@@ -119,7 +119,7 @@ public:
 		SurfaceSubloadCallback* self=(Luna< SurfaceSubloadCallback >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SurfaceSubloadCallback::load(const osg::Texture2D &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void SurfaceSubloadCallback::load(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< SurfaceSubloadCallback >::check(L,1)).name());
 		}
 		self->load(texture, state);
 
@@ -147,7 +147,7 @@ public:
 		SurfaceSubloadCallback* self=(Luna< SurfaceSubloadCallback >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SurfaceSubloadCallback::subload(const osg::Texture2D &, osg::State &) const");
+			luaL_error(L, "Invalid object in function call void SurfaceSubloadCallback::subload(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< SurfaceSubloadCallback >::check(L,1)).name());
 		}
 		self->subload(texture, state);
 

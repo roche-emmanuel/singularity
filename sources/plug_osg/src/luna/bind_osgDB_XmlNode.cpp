@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -94,6 +94,78 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
 		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getType(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getContents(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getProperties(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getChildren(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setType(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setName(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setContents(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setProperties(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,29293820) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setChildren(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,42497827) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -181,6 +253,227 @@ public:
 		return 1;
 	}
 
+	// osgDB::XmlNode::NodeType osgDB::XmlNode::type()
+	static int _bind_getType(lua_State *L) {
+		if (!_lg_typecheck_getType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::XmlNode::NodeType osgDB::XmlNode::type() function, expected prototype:\nosgDB::XmlNode::NodeType osgDB::XmlNode::type()\nClass arguments details:\n");
+		}
+
+
+		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::XmlNode::NodeType osgDB::XmlNode::type(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osgDB::XmlNode::NodeType lret = self->type;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// std::string osgDB::XmlNode::name()
+	static int _bind_getName(lua_State *L) {
+		if (!_lg_typecheck_getName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osgDB::XmlNode::name() function, expected prototype:\nstd::string osgDB::XmlNode::name()\nClass arguments details:\n");
+		}
+
+
+		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osgDB::XmlNode::name(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		std::string lret = self->name;
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// std::string osgDB::XmlNode::contents()
+	static int _bind_getContents(lua_State *L) {
+		if (!_lg_typecheck_getContents(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osgDB::XmlNode::contents() function, expected prototype:\nstd::string osgDB::XmlNode::contents()\nClass arguments details:\n");
+		}
+
+
+		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osgDB::XmlNode::contents(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		std::string lret = self->contents;
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// osgDB::XmlNode::Properties osgDB::XmlNode::properties()
+	static int _bind_getProperties(lua_State *L) {
+		if (!_lg_typecheck_getProperties(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::XmlNode::Properties osgDB::XmlNode::properties() function, expected prototype:\nosgDB::XmlNode::Properties osgDB::XmlNode::properties()\nClass arguments details:\n");
+		}
+
+
+		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::XmlNode::Properties osgDB::XmlNode::properties(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::XmlNode::Properties* lret = &self->properties;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::XmlNode::Properties >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::XmlNode::Children osgDB::XmlNode::children()
+	static int _bind_getChildren(lua_State *L) {
+		if (!_lg_typecheck_getChildren(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::XmlNode::Children osgDB::XmlNode::children() function, expected prototype:\nosgDB::XmlNode::Children osgDB::XmlNode::children()\nClass arguments details:\n");
+		}
+
+
+		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::XmlNode::Children osgDB::XmlNode::children(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::XmlNode::Children* lret = &self->children;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::XmlNode::Children >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void osgDB::XmlNode::type(osgDB::XmlNode::NodeType value)
+	static int _bind_setType(lua_State *L) {
+		if (!_lg_typecheck_setType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::type(osgDB::XmlNode::NodeType value) function, expected prototype:\nvoid osgDB::XmlNode::type(osgDB::XmlNode::NodeType value)\nClass arguments details:\n");
+		}
+
+		osgDB::XmlNode::NodeType value=(osgDB::XmlNode::NodeType)lua_tointeger(L,2);
+
+		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::type(osgDB::XmlNode::NodeType). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->type = value;
+
+		return 0;
+	}
+
+	// void osgDB::XmlNode::name(std::string value)
+	static int _bind_setName(lua_State *L) {
+		if (!_lg_typecheck_setName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::name(std::string value) function, expected prototype:\nvoid osgDB::XmlNode::name(std::string value)\nClass arguments details:\n");
+		}
+
+		std::string value(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::name(std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->name = value;
+
+		return 0;
+	}
+
+	// void osgDB::XmlNode::contents(std::string value)
+	static int _bind_setContents(lua_State *L) {
+		if (!_lg_typecheck_setContents(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::contents(std::string value) function, expected prototype:\nvoid osgDB::XmlNode::contents(std::string value)\nClass arguments details:\n");
+		}
+
+		std::string value(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::contents(std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->contents = value;
+
+		return 0;
+	}
+
+	// void osgDB::XmlNode::properties(osgDB::XmlNode::Properties value)
+	static int _bind_setProperties(lua_State *L) {
+		if (!_lg_typecheck_setProperties(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::properties(osgDB::XmlNode::Properties value) function, expected prototype:\nvoid osgDB::XmlNode::properties(osgDB::XmlNode::Properties value)\nClass arguments details:\narg 1 ID = 73311934\n");
+		}
+
+		osgDB::XmlNode::Properties* value_ptr=(Luna< std::map< std::string, std::string > >::checkSubType< osgDB::XmlNode::Properties >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgDB::XmlNode::properties function");
+		}
+		osgDB::XmlNode::Properties value=*value_ptr;
+
+		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::properties(osgDB::XmlNode::Properties). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->properties = value;
+
+		return 0;
+	}
+
+	// void osgDB::XmlNode::children(osgDB::XmlNode::Children value)
+	static int _bind_setChildren(lua_State *L) {
+		if (!_lg_typecheck_setChildren(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::children(osgDB::XmlNode::Children value) function, expected prototype:\nvoid osgDB::XmlNode::children(osgDB::XmlNode::Children value)\nClass arguments details:\narg 1 ID = 5928633\n");
+		}
+
+		osgDB::XmlNode::Children* value_ptr=(Luna< std::vector< osg::ref_ptr< osgDB::XmlNode > > >::checkSubType< osgDB::XmlNode::Children >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgDB::XmlNode::children function");
+		}
+		osgDB::XmlNode::Children value=*value_ptr;
+
+		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::children(osgDB::XmlNode::Children). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->children = value;
+
+		return 0;
+	}
+
+	// void osgDB::XmlNode::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::XmlNode::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::XmlNode::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::XmlNode::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->XmlNode::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -206,6 +499,17 @@ const int LunaTraits< osgDB::XmlNode >::uniqueIDs[] = {50169651,0};
 luna_RegType LunaTraits< osgDB::XmlNode >::methods[] = {
 	{"getTrimmedContents", &luna_wrapper_osgDB_XmlNode::_bind_getTrimmedContents},
 	{"write", &luna_wrapper_osgDB_XmlNode::_bind_write},
+	{"getType", &luna_wrapper_osgDB_XmlNode::_bind_getType},
+	{"getName", &luna_wrapper_osgDB_XmlNode::_bind_getName},
+	{"getContents", &luna_wrapper_osgDB_XmlNode::_bind_getContents},
+	{"getProperties", &luna_wrapper_osgDB_XmlNode::_bind_getProperties},
+	{"getChildren", &luna_wrapper_osgDB_XmlNode::_bind_getChildren},
+	{"setType", &luna_wrapper_osgDB_XmlNode::_bind_setType},
+	{"setName", &luna_wrapper_osgDB_XmlNode::_bind_setName},
+	{"setContents", &luna_wrapper_osgDB_XmlNode::_bind_setContents},
+	{"setProperties", &luna_wrapper_osgDB_XmlNode::_bind_setProperties},
+	{"setChildren", &luna_wrapper_osgDB_XmlNode::_bind_setChildren},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgDB_XmlNode::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osgDB_XmlNode::_bind___eq},
 	{"getTable", &luna_wrapper_osgDB_XmlNode::_bind_getTable},
 	{0,0}

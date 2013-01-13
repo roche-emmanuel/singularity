@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -256,7 +256,7 @@ public:
 	inline static bool _lg_typecheck_setAudioStreams(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,83757031) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,64675596) ) return false;
 		return true;
 	}
 
@@ -269,6 +269,13 @@ public:
 	inline static bool _lg_typecheck_getAudioStreams_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1118,7 +1125,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setAudioStreams(const osg::ImageStream::AudioStreams & asl) function, expected prototype:\nvoid osg::ImageStream::setAudioStreams(const osg::ImageStream::AudioStreams & asl)\nClass arguments details:\narg 1 ID = 83757031\n");
 		}
 
-		const osg::ImageStream::AudioStreams* asl_ptr=(Luna< osg::ImageStream::AudioStreams >::check(L,2));
+		const osg::ImageStream::AudioStreams* asl_ptr=(Luna< std::vector< osg::ref_ptr< osg::AudioStream > > >::checkSubType< osg::ImageStream::AudioStreams >(L,2));
 		if( !asl_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg asl in osg::ImageStream::setAudioStreams function");
 		}
@@ -1182,6 +1189,25 @@ public:
 		if (_lg_typecheck_getAudioStreams_overload_2(L)) return _bind_getAudioStreams_overload_2(L);
 
 		luaL_error(L, "error in function getAudioStreams, cannot match any of the overloads for function getAudioStreams:\n  getAudioStreams()\n  getAudioStreams()\n");
+		return 0;
+	}
+
+	// void osg::ImageStream::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::ImageStream::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->ImageStream::setThreadSafeRefUnref(threadSafe);
+
 		return 0;
 	}
 
@@ -2080,6 +2106,7 @@ luna_RegType LunaTraits< osg::ImageStream >::methods[] = {
 	{"getVolume", &luna_wrapper_osg_ImageStream::_bind_getVolume},
 	{"setAudioStreams", &luna_wrapper_osg_ImageStream::_bind_setAudioStreams},
 	{"getAudioStreams", &luna_wrapper_osg_ImageStream::_bind_getAudioStreams},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_ImageStream::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osg_ImageStream::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_ImageStream::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_ImageStream::_bind_base_setUserData},

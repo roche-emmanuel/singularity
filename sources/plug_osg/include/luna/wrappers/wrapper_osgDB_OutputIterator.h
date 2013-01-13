@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgDB_OutputIterator() {
+		logDEBUG3("Calling delete function for wrapper osgDB_OutputIterator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::OutputIterator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_OutputIterator(lua_State* L, lua_Table* dum) : osgDB::OutputIterator(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_OutputIterator(lua_State* L, lua_Table* dum) 
+		: osgDB::OutputIterator(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::OutputIterator*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,15 +36,28 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::OutputIterator*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return OutputIterator::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// bool osgDB::OutputIterator::isBinary() const
 	bool isBinary() const {
 		THROW_IF(!_obj.pushFunction("isBinary"),"No implementation for abstract function osgDB::OutputIterator::isBinary");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// void osgDB::OutputIterator::writeBool(bool b)
 	void writeBool(bool b) {
 		THROW_IF(!_obj.pushFunction("writeBool"),"No implementation for abstract function osgDB::OutputIterator::writeBool");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(b);
 		return (_obj.callFunction<void>());
 	};
@@ -43,6 +65,7 @@ public:
 	// void osgDB::OutputIterator::writeChar(char c)
 	void writeChar(char c) {
 		THROW_IF(!_obj.pushFunction("writeChar"),"No implementation for abstract function osgDB::OutputIterator::writeChar");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(c);
 		return (_obj.callFunction<void>());
 	};
@@ -50,6 +73,7 @@ public:
 	// void osgDB::OutputIterator::writeUChar(unsigned char c)
 	void writeUChar(unsigned char c) {
 		THROW_IF(!_obj.pushFunction("writeUChar"),"No implementation for abstract function osgDB::OutputIterator::writeUChar");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(c);
 		return (_obj.callFunction<void>());
 	};
@@ -57,6 +81,7 @@ public:
 	// void osgDB::OutputIterator::writeShort(short s)
 	void writeShort(short s) {
 		THROW_IF(!_obj.pushFunction("writeShort"),"No implementation for abstract function osgDB::OutputIterator::writeShort");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(s);
 		return (_obj.callFunction<void>());
 	};
@@ -64,6 +89,7 @@ public:
 	// void osgDB::OutputIterator::writeUShort(unsigned short s)
 	void writeUShort(unsigned short s) {
 		THROW_IF(!_obj.pushFunction("writeUShort"),"No implementation for abstract function osgDB::OutputIterator::writeUShort");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(s);
 		return (_obj.callFunction<void>());
 	};
@@ -71,6 +97,7 @@ public:
 	// void osgDB::OutputIterator::writeInt(int i)
 	void writeInt(int i) {
 		THROW_IF(!_obj.pushFunction("writeInt"),"No implementation for abstract function osgDB::OutputIterator::writeInt");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(i);
 		return (_obj.callFunction<void>());
 	};
@@ -78,6 +105,7 @@ public:
 	// void osgDB::OutputIterator::writeUInt(unsigned int i)
 	void writeUInt(unsigned int i) {
 		THROW_IF(!_obj.pushFunction("writeUInt"),"No implementation for abstract function osgDB::OutputIterator::writeUInt");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(i);
 		return (_obj.callFunction<void>());
 	};
@@ -85,6 +113,7 @@ public:
 	// void osgDB::OutputIterator::writeLong(long l)
 	void writeLong(long l) {
 		THROW_IF(!_obj.pushFunction("writeLong"),"No implementation for abstract function osgDB::OutputIterator::writeLong");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(l);
 		return (_obj.callFunction<void>());
 	};
@@ -92,6 +121,7 @@ public:
 	// void osgDB::OutputIterator::writeULong(unsigned long l)
 	void writeULong(unsigned long l) {
 		THROW_IF(!_obj.pushFunction("writeULong"),"No implementation for abstract function osgDB::OutputIterator::writeULong");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(l);
 		return (_obj.callFunction<void>());
 	};
@@ -99,6 +129,7 @@ public:
 	// void osgDB::OutputIterator::writeFloat(float f)
 	void writeFloat(float f) {
 		THROW_IF(!_obj.pushFunction("writeFloat"),"No implementation for abstract function osgDB::OutputIterator::writeFloat");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(f);
 		return (_obj.callFunction<void>());
 	};
@@ -106,6 +137,7 @@ public:
 	// void osgDB::OutputIterator::writeDouble(double d)
 	void writeDouble(double d) {
 		THROW_IF(!_obj.pushFunction("writeDouble"),"No implementation for abstract function osgDB::OutputIterator::writeDouble");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(d);
 		return (_obj.callFunction<void>());
 	};
@@ -113,6 +145,7 @@ public:
 	// void osgDB::OutputIterator::writeString(const std::string & s)
 	void writeString(const std::string & s) {
 		THROW_IF(!_obj.pushFunction("writeString"),"No implementation for abstract function osgDB::OutputIterator::writeString");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(s);
 		return (_obj.callFunction<void>());
 	};
@@ -120,6 +153,7 @@ public:
 	// void osgDB::OutputIterator::writeGLenum(const osgDB::ObjectGLenum & value)
 	void writeGLenum(const osgDB::ObjectGLenum & value) {
 		THROW_IF(!_obj.pushFunction("writeGLenum"),"No implementation for abstract function osgDB::OutputIterator::writeGLenum");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(&value);
 		return (_obj.callFunction<void>());
 	};
@@ -127,6 +161,7 @@ public:
 	// void osgDB::OutputIterator::writeProperty(const osgDB::ObjectProperty & prop)
 	void writeProperty(const osgDB::ObjectProperty & prop) {
 		THROW_IF(!_obj.pushFunction("writeProperty"),"No implementation for abstract function osgDB::OutputIterator::writeProperty");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(&prop);
 		return (_obj.callFunction<void>());
 	};
@@ -134,6 +169,7 @@ public:
 	// void osgDB::OutputIterator::writeMark(const osgDB::ObjectMark & mark)
 	void writeMark(const osgDB::ObjectMark & mark) {
 		THROW_IF(!_obj.pushFunction("writeMark"),"No implementation for abstract function osgDB::OutputIterator::writeMark");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(&mark);
 		return (_obj.callFunction<void>());
 	};
@@ -141,6 +177,7 @@ public:
 	// void osgDB::OutputIterator::writeCharArray(const char * s, unsigned int size)
 	void writeCharArray(const char * s, unsigned int size) {
 		THROW_IF(!_obj.pushFunction("writeCharArray"),"No implementation for abstract function osgDB::OutputIterator::writeCharArray");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(s);
 		_obj.pushArg(size);
 		return (_obj.callFunction<void>());
@@ -149,6 +186,7 @@ public:
 	// void osgDB::OutputIterator::writeWrappedString(const std::string & str)
 	void writeWrappedString(const std::string & str) {
 		THROW_IF(!_obj.pushFunction("writeWrappedString"),"No implementation for abstract function osgDB::OutputIterator::writeWrappedString");
+		_obj.pushArg((osgDB::OutputIterator*)this);
 		_obj.pushArg(str);
 		return (_obj.callFunction<void>());
 	};
@@ -156,6 +194,7 @@ public:
 	// void osgDB::OutputIterator::flush()
 	void flush() {
 		if(_obj.pushFunction("flush")) {
+			_obj.pushArg((osgDB::OutputIterator*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -233,8 +272,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

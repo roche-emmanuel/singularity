@@ -22,7 +22,11 @@ function Class:addListener(desc,cb,oneShot)
 	local cb = EventCallback(desc);
 	
 	-- register a callback into the current mapping:
-	self._listeners:getOrCreate(desc.event,Set):push_back(cb)
+	if desc.front then
+		self._listeners:getOrCreate(desc.event,Set):push_front(cb)	
+	else
+		self._listeners:getOrCreate(desc.event,Set):push_back(cb)
+	end
 	return cb
 end
 
@@ -75,7 +79,8 @@ function Class:fireEvent(eventName,...)
 		--end
 		
 		-- call the callback:
-		cb{handler=self,event=eventName,args={...}};
+		--cb{handler=self,event=eventName,args={...}};
+		cb(self,eventName,...);
 		
 		if cb:isOneShot() then
 			self._markedForRemoval:push_back(cb)

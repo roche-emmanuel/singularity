@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_wxHtmlFilter() {
+		logDEBUG3("Calling delete function for wrapper wxHtmlFilter");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxHtmlFilter*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxHtmlFilter(lua_State* L, lua_Table* dum) : wxHtmlFilter(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxHtmlFilter(lua_State* L, lua_Table* dum) 
+		: wxHtmlFilter(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxHtmlFilter*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxHtmlFilter*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -37,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxHtmlFilter*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -49,6 +60,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxHtmlFilter*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -58,6 +70,7 @@ public:
 	// bool wxHtmlFilter::CanRead(const wxFSFile & file) const
 	bool CanRead(const wxFSFile & file) const {
 		THROW_IF(!_obj.pushFunction("CanRead"),"No implementation for abstract function wxHtmlFilter::CanRead");
+		_obj.pushArg((wxHtmlFilter*)this);
 		_obj.pushArg(&file);
 		return (_obj.callFunction<bool>());
 	};
@@ -65,6 +78,7 @@ public:
 	// wxString wxHtmlFilter::ReadFile(const wxFSFile & file) const
 	wxString ReadFile(const wxFSFile & file) const {
 		THROW_IF(!_obj.pushFunction("ReadFile"),"No implementation for abstract function wxHtmlFilter::ReadFile");
+		_obj.pushArg((wxHtmlFilter*)this);
 		_obj.pushArg(&file);
 		return *(_obj.callFunction<wxString*>());
 	};

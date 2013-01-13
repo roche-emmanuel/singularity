@@ -14,18 +14,69 @@ public:
 		
 
 	~wrapper_wxBitmap() {
+		logDEBUG3("Calling delete function for wrapper wxBitmap");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxBitmap*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum) : wxBitmap(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxBitmap & bitmap) : wxBitmap(bitmap), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, int width, int height, int depth = (-1)) : wxBitmap(width, height, depth), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxSize & sz, int depth = (-1)) : wxBitmap(sz, depth), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const char *const * bits) : wxBitmap(bits), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE) : wxBitmap(name, type), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxImage & img, int depth = (-1)) : wxBitmap(img, depth), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum) 
+		: wxBitmap(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxBitmap*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxBitmap & bitmap) 
+		: wxBitmap(bitmap), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxBitmap*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, int width, int height, int depth = (-1)) 
+		: wxBitmap(width, height, depth), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxBitmap*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxSize & sz, int depth = (-1)) 
+		: wxBitmap(sz, depth), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxBitmap*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const char *const * bits) 
+		: wxBitmap(bits), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxBitmap*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE) 
+		: wxBitmap(name, type), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxBitmap*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxImage & img, int depth = (-1)) 
+		: wxBitmap(img, depth), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxBitmap*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -34,6 +85,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxBitmap*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -43,6 +95,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxBitmap*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -55,6 +108,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxBitmap*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -64,6 +118,7 @@ public:
 	// wxImage wxBitmap::ConvertToImage() const
 	wxImage ConvertToImage() const {
 		if(_obj.pushFunction("ConvertToImage")) {
+			_obj.pushArg((wxBitmap*)this);
 			return *(_obj.callFunction<wxImage*>());
 		}
 
@@ -73,6 +128,7 @@ public:
 	// bool wxBitmap::CopyFromIcon(const wxIcon & icon)
 	bool CopyFromIcon(const wxIcon & icon) {
 		if(_obj.pushFunction("CopyFromIcon")) {
+			_obj.pushArg((wxBitmap*)this);
 			_obj.pushArg(&icon);
 			return (_obj.callFunction<bool>());
 		}
@@ -83,6 +139,7 @@ public:
 	// bool wxBitmap::Create(int width, int height, int depth = (-1))
 	bool Create(int width, int height, int depth = (-1)) {
 		if(_obj.pushFunction("Create")) {
+			_obj.pushArg((wxBitmap*)this);
 			_obj.pushArg(width);
 			_obj.pushArg(height);
 			_obj.pushArg(depth);
@@ -95,6 +152,7 @@ public:
 	// bool wxBitmap::Create(const wxSize & sz, int depth = (-1))
 	bool Create(const wxSize & sz, int depth = (-1)) {
 		if(_obj.pushFunction("Create")) {
+			_obj.pushArg((wxBitmap*)this);
 			_obj.pushArg(&sz);
 			_obj.pushArg(depth);
 			return (_obj.callFunction<bool>());
@@ -106,6 +164,7 @@ public:
 	// int wxBitmap::GetDepth() const
 	int GetDepth() const {
 		if(_obj.pushFunction("GetDepth")) {
+			_obj.pushArg((wxBitmap*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -115,6 +174,7 @@ public:
 	// int wxBitmap::GetHeight() const
 	int GetHeight() const {
 		if(_obj.pushFunction("GetHeight")) {
+			_obj.pushArg((wxBitmap*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -124,6 +184,7 @@ public:
 	// wxMask * wxBitmap::GetMask() const
 	wxMask * GetMask() const {
 		if(_obj.pushFunction("GetMask")) {
+			_obj.pushArg((wxBitmap*)this);
 			return (_obj.callFunction<wxMask*>());
 		}
 
@@ -133,6 +194,7 @@ public:
 	// wxPalette * wxBitmap::GetPalette() const
 	wxPalette * GetPalette() const {
 		if(_obj.pushFunction("GetPalette")) {
+			_obj.pushArg((wxBitmap*)this);
 			return (_obj.callFunction<wxPalette*>());
 		}
 
@@ -142,6 +204,7 @@ public:
 	// wxBitmap wxBitmap::GetSubBitmap(const wxRect & rect) const
 	wxBitmap GetSubBitmap(const wxRect & rect) const {
 		if(_obj.pushFunction("GetSubBitmap")) {
+			_obj.pushArg((wxBitmap*)this);
 			_obj.pushArg(&rect);
 			return *(_obj.callFunction<wxBitmap*>());
 		}
@@ -152,6 +215,7 @@ public:
 	// int wxBitmap::GetWidth() const
 	int GetWidth() const {
 		if(_obj.pushFunction("GetWidth")) {
+			_obj.pushArg((wxBitmap*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -161,6 +225,7 @@ public:
 	// bool wxBitmap::IsOk() const
 	bool IsOk() const {
 		if(_obj.pushFunction("IsOk")) {
+			_obj.pushArg((wxBitmap*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -170,6 +235,7 @@ public:
 	// bool wxBitmap::LoadFile(const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE)
 	bool LoadFile(const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE) {
 		if(_obj.pushFunction("LoadFile")) {
+			_obj.pushArg((wxBitmap*)this);
 			_obj.pushArg(name);
 			_obj.pushArg(type);
 			return (_obj.callFunction<bool>());
@@ -181,6 +247,7 @@ public:
 	// bool wxBitmap::SaveFile(const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const
 	bool SaveFile(const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const {
 		if(_obj.pushFunction("SaveFile")) {
+			_obj.pushArg((wxBitmap*)this);
 			_obj.pushArg(name);
 			_obj.pushArg(type);
 			_obj.pushArg(palette);
@@ -193,6 +260,7 @@ public:
 	// void wxBitmap::SetDepth(int depth)
 	void SetDepth(int depth) {
 		if(_obj.pushFunction("SetDepth")) {
+			_obj.pushArg((wxBitmap*)this);
 			_obj.pushArg(depth);
 			return (_obj.callFunction<void>());
 		}
@@ -203,6 +271,7 @@ public:
 	// void wxBitmap::SetHeight(int height)
 	void SetHeight(int height) {
 		if(_obj.pushFunction("SetHeight")) {
+			_obj.pushArg((wxBitmap*)this);
 			_obj.pushArg(height);
 			return (_obj.callFunction<void>());
 		}
@@ -213,6 +282,7 @@ public:
 	// void wxBitmap::SetMask(wxMask * mask)
 	void SetMask(wxMask * mask) {
 		if(_obj.pushFunction("SetMask")) {
+			_obj.pushArg((wxBitmap*)this);
 			_obj.pushArg(mask);
 			return (_obj.callFunction<void>());
 		}
@@ -223,6 +293,7 @@ public:
 	// void wxBitmap::SetPalette(const wxPalette & palette)
 	void SetPalette(const wxPalette & palette) {
 		if(_obj.pushFunction("SetPalette")) {
+			_obj.pushArg((wxBitmap*)this);
 			_obj.pushArg(&palette);
 			return (_obj.callFunction<void>());
 		}
@@ -233,6 +304,7 @@ public:
 	// void wxBitmap::SetWidth(int width)
 	void SetWidth(int width) {
 		if(_obj.pushFunction("SetWidth")) {
+			_obj.pushArg((wxBitmap*)this);
 			_obj.pushArg(width);
 			return (_obj.callFunction<void>());
 		}

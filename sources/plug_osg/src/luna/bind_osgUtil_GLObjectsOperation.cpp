@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -107,6 +107,13 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_release(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -196,6 +203,25 @@ public:
 
 
 	// Function binds:
+	// void osgUtil::GLObjectsOperation::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::GLObjectsOperation::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::GLObjectsOperation::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgUtil::GLObjectsOperation* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsOperation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsOperation::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->GLObjectsOperation::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osgUtil::GLObjectsOperation::base_release()
 	static int _bind_base_release(lua_State *L) {
 		if (!_lg_typecheck_base_release(L)) {
@@ -256,6 +282,7 @@ const int LunaTraits< osgUtil::GLObjectsOperation >::hash = 41072322;
 const int LunaTraits< osgUtil::GLObjectsOperation >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osgUtil::GLObjectsOperation >::methods[] = {
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_GLObjectsOperation::_bind_base_setThreadSafeRefUnref},
 	{"base_release", &luna_wrapper_osgUtil_GLObjectsOperation::_bind_base_release},
 	{"op_call", &luna_wrapper_osgUtil_GLObjectsOperation::_bind_op_call},
 	{"__eq", &luna_wrapper_osgUtil_GLObjectsOperation::_bind___eq},

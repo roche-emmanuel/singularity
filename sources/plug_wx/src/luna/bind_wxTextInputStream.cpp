@@ -201,10 +201,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call signed short wxTextInputStream::Read16S(int). Got : '%s'",typeid(Luna< wxTextInputStream >::check(L,1)).name());
 		}
-		signed short lret = self->Read16S(base);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'signed short'
-		////////////////////////////////////////////////////////////////////
+		signed short stack_lret = self->Read16S(base);
+		signed short* lret = new signed short(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< signed short >::push(L,lret,true);
 
 		return 1;
 	}

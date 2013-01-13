@@ -57,11 +57,11 @@ public:
 };
 
 osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE >* LunaTraits< osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE >();
 }
 
 void LunaTraits< osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE > >::_bind_dtor(osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE >* obj) {
-	//delete obj; // do not delete by default.
+	//Type destructor explicitly removed.
 }
 
 const char LunaTraits< osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE > >::className[] = "osg_TemplateIndexArray_signed_char_osg_Array_ByteArrayType_1_GL_BYTE";

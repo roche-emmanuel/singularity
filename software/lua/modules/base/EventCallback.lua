@@ -49,7 +49,11 @@ end
 
 function Class:__call(...)
 	if self._isValid then
-		return self._func(unpack(self._args),...)		
+		if #self._args > 0 then
+			return self._func(unpack(self._args),...)		
+		else
+			return self._func(...)		
+		end
 	end
 end
 

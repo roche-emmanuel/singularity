@@ -57,11 +57,11 @@ public:
 };
 
 std::set< osgUtil::PolytopeIntersector::Intersection >* LunaTraits< std::set< osgUtil::PolytopeIntersector::Intersection > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::set< osgUtil::PolytopeIntersector::Intersection >();
 }
 
 void LunaTraits< std::set< osgUtil::PolytopeIntersector::Intersection > >::_bind_dtor(std::set< osgUtil::PolytopeIntersector::Intersection >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::set< osgUtil::PolytopeIntersector::Intersection > >::className[] = "std_set_osgUtil_PolytopeIntersector_Intersection";

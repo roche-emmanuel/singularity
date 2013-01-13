@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osg_Observer() {
+		logDEBUG3("Calling delete function for wrapper osg_Observer");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::Observer*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_Observer(lua_State* L, lua_Table* dum) : osg::Observer(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Observer(lua_State* L, lua_Table* dum) 
+		: osg::Observer(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Observer*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +39,7 @@ public:
 	// void osg::Observer::objectDeleted(void * arg1)
 	void objectDeleted(void * arg1) {
 		if(_obj.pushFunction("objectDeleted")) {
+			_obj.pushArg((osg::Observer*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}

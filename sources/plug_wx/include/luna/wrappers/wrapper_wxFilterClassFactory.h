@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxFilterClassFactory() {
+		logDEBUG3("Calling delete function for wrapper wxFilterClassFactory");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxFilterClassFactory*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -27,6 +29,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxFilterClassFactory*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -36,6 +39,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxFilterClassFactory*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -48,6 +52,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxFilterClassFactory*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -57,6 +62,7 @@ public:
 	// wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream & stream) const
 	wxFilterInputStream * NewStream(wxInputStream & stream) const {
 		THROW_IF(!_obj.pushFunction("NewStream"),"No implementation for abstract function wxFilterClassFactory::NewStream");
+		_obj.pushArg((wxFilterClassFactory*)this);
 		_obj.pushArg(&stream);
 		return (_obj.callFunction<wxFilterInputStream*>());
 	};
@@ -64,6 +70,7 @@ public:
 	// wxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream & stream) const
 	wxFilterOutputStream * NewStream(wxOutputStream & stream) const {
 		THROW_IF(!_obj.pushFunction("NewStream"),"No implementation for abstract function wxFilterClassFactory::NewStream");
+		_obj.pushArg((wxFilterClassFactory*)this);
 		_obj.pushArg(&stream);
 		return (_obj.callFunction<wxFilterOutputStream*>());
 	};
@@ -71,6 +78,7 @@ public:
 	// wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream * stream) const
 	wxFilterInputStream * NewStream(wxInputStream * stream) const {
 		THROW_IF(!_obj.pushFunction("NewStream"),"No implementation for abstract function wxFilterClassFactory::NewStream");
+		_obj.pushArg((wxFilterClassFactory*)this);
 		_obj.pushArg(stream);
 		return (_obj.callFunction<wxFilterInputStream*>());
 	};
@@ -78,6 +86,7 @@ public:
 	// wxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream * stream) const
 	wxFilterOutputStream * NewStream(wxOutputStream * stream) const {
 		THROW_IF(!_obj.pushFunction("NewStream"),"No implementation for abstract function wxFilterClassFactory::NewStream");
+		_obj.pushArg((wxFilterClassFactory*)this);
 		_obj.pushArg(stream);
 		return (_obj.callFunction<wxFilterOutputStream*>());
 	};

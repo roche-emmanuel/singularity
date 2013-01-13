@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxObject,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -176,7 +176,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// wxFontData::wxFontData()
@@ -503,6 +510,32 @@ public:
 
 
 	// Operator binds:
+	// wxFontData & wxFontData::operator=(const wxFontData & data)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFontData & wxFontData::operator=(const wxFontData & data) function, expected prototype:\nwxFontData & wxFontData::operator=(const wxFontData & data)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxFontData* data_ptr=(Luna< wxObject >::checkSubType< wxFontData >(L,2));
+		if( !data_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg data in wxFontData::operator= function");
+		}
+		const wxFontData & data=*data_ptr;
+
+		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxFontData & wxFontData::operator=(const wxFontData &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxFontData* lret = &self->operator=(data);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxFontData >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -538,6 +571,7 @@ luna_RegType LunaTraits< wxFontData >::methods[] = {
 	{"SetRange", &luna_wrapper_wxFontData::_bind_SetRange},
 	{"SetShowHelp", &luna_wrapper_wxFontData::_bind_SetShowHelp},
 	{"base_GetClassInfo", &luna_wrapper_wxFontData::_bind_base_GetClassInfo},
+	{"op_assign", &luna_wrapper_wxFontData::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxFontData::_bind___eq},
 	{"getTable", &luna_wrapper_wxFontData::_bind_getTable},
 	{0,0}

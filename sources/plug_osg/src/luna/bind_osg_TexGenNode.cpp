@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -203,6 +203,13 @@ public:
 	inline static bool _lg_typecheck_getTexGen_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -389,6 +396,13 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -775,6 +789,25 @@ public:
 		if (_lg_typecheck_getTexGen_overload_2(L)) return _bind_getTexGen_overload_2(L);
 
 		luaL_error(L, "error in function getTexGen, cannot match any of the overloads for function getTexGen:\n  getTexGen()\n  getTexGen()\n");
+		return 0;
+	}
+
+	// void osg::TexGenNode::setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TexGenNode::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::TexGenNode::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TexGenNode::setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setThreadSafeRefUnref(threadSafe);
+
 		return 0;
 	}
 
@@ -1410,6 +1443,25 @@ public:
 		return 0;
 	}
 
+	// void osg::TexGenNode::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TexGenNode::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::TexGenNode::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::TexGenNode* self=Luna< osg::Referenced >::checkSubType< osg::TexGenNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TexGenNode::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->TexGenNode::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -1445,6 +1497,7 @@ luna_RegType LunaTraits< osg::TexGenNode >::methods[] = {
 	{"getTextureUnit", &luna_wrapper_osg_TexGenNode::_bind_getTextureUnit},
 	{"setTexGen", &luna_wrapper_osg_TexGenNode::_bind_setTexGen},
 	{"getTexGen", &luna_wrapper_osg_TexGenNode::_bind_getTexGen},
+	{"setThreadSafeRefUnref", &luna_wrapper_osg_TexGenNode::_bind_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osg_TexGenNode::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_TexGenNode::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_TexGenNode::_bind_base_setUserData},
@@ -1468,6 +1521,7 @@ luna_RegType LunaTraits< osg::TexGenNode >::methods[] = {
 	{"base_className", &luna_wrapper_osg_TexGenNode::_bind_base_className},
 	{"base_libraryName", &luna_wrapper_osg_TexGenNode::_bind_base_libraryName},
 	{"base_accept", &luna_wrapper_osg_TexGenNode::_bind_base_accept},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_TexGenNode::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osg_TexGenNode::_bind___eq},
 	{"getTable", &luna_wrapper_osg_TexGenNode::_bind_getTable},
 	{0,0}

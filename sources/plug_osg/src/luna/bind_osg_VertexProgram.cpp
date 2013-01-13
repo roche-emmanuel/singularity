@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -195,7 +195,7 @@ public:
 	inline static bool _lg_typecheck_setLocalParameters(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,77412943) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,83621066) ) return false;
 		return true;
 	}
 
@@ -222,7 +222,7 @@ public:
 	inline static bool _lg_typecheck_setMatrices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,89639670) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,60758143) ) return false;
 		return true;
 	}
 
@@ -303,6 +303,13 @@ public:
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -818,7 +825,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::VertexProgram::setLocalParameters(const osg::VertexProgram::LocalParamList & lpl) function, expected prototype:\nvoid osg::VertexProgram::setLocalParameters(const osg::VertexProgram::LocalParamList & lpl)\nClass arguments details:\narg 1 ID = 77412943\n");
 		}
 
-		const osg::VertexProgram::LocalParamList* lpl_ptr=(Luna< osg::VertexProgram::LocalParamList >::check(L,2));
+		const osg::VertexProgram::LocalParamList* lpl_ptr=(Luna< std::map< unsigned int, osg::Vec4f > >::checkSubType< osg::VertexProgram::LocalParamList >(L,2));
 		if( !lpl_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg lpl in osg::VertexProgram::setLocalParameters function");
 		}
@@ -916,7 +923,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::VertexProgram::setMatrices(const osg::VertexProgram::MatrixList & matrices) function, expected prototype:\nvoid osg::VertexProgram::setMatrices(const osg::VertexProgram::MatrixList & matrices)\nClass arguments details:\narg 1 ID = 89639670\n");
 		}
 
-		const osg::VertexProgram::MatrixList* matrices_ptr=(Luna< osg::VertexProgram::MatrixList >::check(L,2));
+		const osg::VertexProgram::MatrixList* matrices_ptr=(Luna< std::map< unsigned int, osg::Matrixd > >::checkSubType< osg::VertexProgram::MatrixList >(L,2));
 		if( !matrices_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg matrices in osg::VertexProgram::setMatrices function");
 		}
@@ -1142,6 +1149,25 @@ public:
 		osg::VertexProgram::Extensions* extensions=(Luna< osg::Referenced >::checkSubType< osg::VertexProgram::Extensions >(L,2));
 
 		osg::VertexProgram::setExtensions(contextID, extensions);
+
+		return 0;
+	}
+
+	// void osg::VertexProgram::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::VertexProgram::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::VertexProgram::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::VertexProgram* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::VertexProgram::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->VertexProgram::setThreadSafeRefUnref(threadSafe);
 
 		return 0;
 	}
@@ -1654,6 +1680,7 @@ luna_RegType LunaTraits< osg::VertexProgram >::methods[] = {
 	{"discardDeletedVertexProgramObjects", &luna_wrapper_osg_VertexProgram::_bind_discardDeletedVertexProgramObjects},
 	{"getExtensions", &luna_wrapper_osg_VertexProgram::_bind_getExtensions},
 	{"setExtensions", &luna_wrapper_osg_VertexProgram::_bind_setExtensions},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_VertexProgram::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osg_VertexProgram::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_VertexProgram::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_VertexProgram::_bind_base_setUserData},

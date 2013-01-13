@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxGrid,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -5448,10 +5448,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGridCellCoordsArray wxGrid::GetSelectedCells() const. Got : '%s'",typeid(Luna< wxGrid >::check(L,1)).name());
 		}
-		wxGridCellCoordsArray lret = self->GetSelectedCells();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxGridCellCoordsArray'
-		////////////////////////////////////////////////////////////////////
+		wxGridCellCoordsArray stack_lret = self->GetSelectedCells();
+		wxGridCellCoordsArray* lret = new wxGridCellCoordsArray(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxGridCellCoordsArray >::push(L,lret,true);
 
 		return 1;
 	}
@@ -5535,10 +5536,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGridCellCoordsArray wxGrid::GetSelectionBlockBottomRight() const. Got : '%s'",typeid(Luna< wxGrid >::check(L,1)).name());
 		}
-		wxGridCellCoordsArray lret = self->GetSelectionBlockBottomRight();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxGridCellCoordsArray'
-		////////////////////////////////////////////////////////////////////
+		wxGridCellCoordsArray stack_lret = self->GetSelectionBlockBottomRight();
+		wxGridCellCoordsArray* lret = new wxGridCellCoordsArray(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxGridCellCoordsArray >::push(L,lret,true);
 
 		return 1;
 	}
@@ -5556,10 +5558,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGridCellCoordsArray wxGrid::GetSelectionBlockTopLeft() const. Got : '%s'",typeid(Luna< wxGrid >::check(L,1)).name());
 		}
-		wxGridCellCoordsArray lret = self->GetSelectionBlockTopLeft();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxGridCellCoordsArray'
-		////////////////////////////////////////////////////////////////////
+		wxGridCellCoordsArray stack_lret = self->GetSelectionBlockTopLeft();
+		wxGridCellCoordsArray* lret = new wxGridCellCoordsArray(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxGridCellCoordsArray >::push(L,lret,true);
 
 		return 1;
 	}

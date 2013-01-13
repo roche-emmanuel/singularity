@@ -14,14 +14,37 @@ public:
 		
 
 	~wrapper_wxPalette() {
+		logDEBUG3("Calling delete function for wrapper wxPalette");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxPalette*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxPalette(lua_State* L, lua_Table* dum) : wxPalette(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxPalette(lua_State* L, lua_Table* dum, const wxPalette & palette) : wxPalette(palette), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxPalette(lua_State* L, lua_Table* dum, int n, unsigned char * red, unsigned char * green, unsigned char * blue) : wxPalette(n, red, green, blue), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxPalette(lua_State* L, lua_Table* dum) 
+		: wxPalette(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxPalette*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxPalette(lua_State* L, lua_Table* dum, const wxPalette & palette) 
+		: wxPalette(palette), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxPalette*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxPalette(lua_State* L, lua_Table* dum, int n, unsigned char * red, unsigned char * green, unsigned char * blue) 
+		: wxPalette(n, red, green, blue), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxPalette*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +53,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxPalette*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -39,6 +63,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxPalette*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -51,6 +76,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxPalette*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -60,6 +86,7 @@ public:
 	// int wxPalette::GetColoursCount() const
 	int GetColoursCount() const {
 		if(_obj.pushFunction("GetColoursCount")) {
+			_obj.pushArg((wxPalette*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -69,6 +96,7 @@ public:
 	// bool wxPalette::IsOk() const
 	bool IsOk() const {
 		if(_obj.pushFunction("IsOk")) {
+			_obj.pushArg((wxPalette*)this);
 			return (_obj.callFunction<bool>());
 		}
 

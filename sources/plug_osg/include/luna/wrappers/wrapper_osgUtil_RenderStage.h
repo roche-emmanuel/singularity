@@ -14,14 +14,37 @@ public:
 		
 
 	~wrapper_osgUtil_RenderStage() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_RenderStage");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::RenderStage*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_RenderStage(lua_State* L, lua_Table* dum) : osgUtil::RenderStage(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_RenderStage(lua_State* L, lua_Table* dum, osgUtil::RenderBin::SortMode mode) : osgUtil::RenderStage(mode), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_RenderStage(lua_State* L, lua_Table* dum, const osgUtil::RenderStage & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::RenderStage(rhs, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_RenderStage(lua_State* L, lua_Table* dum) 
+		: osgUtil::RenderStage(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_RenderStage(lua_State* L, lua_Table* dum, osgUtil::RenderBin::SortMode mode) 
+		: osgUtil::RenderStage(mode), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_RenderStage(lua_State* L, lua_Table* dum, const osgUtil::RenderStage & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osgUtil::RenderStage(rhs, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,9 +52,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return RenderStage::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -42,6 +77,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -51,6 +87,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -61,6 +98,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -70,6 +108,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -79,6 +118,7 @@ public:
 	// const char * osgUtil::RenderBin::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -88,6 +128,7 @@ public:
 	// void osgUtil::RenderBin::sortImplementation()
 	void sortImplementation() {
 		if(_obj.pushFunction("sortImplementation")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -97,6 +138,7 @@ public:
 	// void osgUtil::RenderBin::sortByState()
 	void sortByState() {
 		if(_obj.pushFunction("sortByState")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -106,6 +148,7 @@ public:
 	// void osgUtil::RenderBin::sortByStateThenFrontToBack()
 	void sortByStateThenFrontToBack() {
 		if(_obj.pushFunction("sortByStateThenFrontToBack")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -115,6 +158,7 @@ public:
 	// void osgUtil::RenderBin::sortFrontToBack()
 	void sortFrontToBack() {
 		if(_obj.pushFunction("sortFrontToBack")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -124,6 +168,7 @@ public:
 	// void osgUtil::RenderBin::sortBackToFront()
 	void sortBackToFront() {
 		if(_obj.pushFunction("sortBackToFront")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -133,6 +178,7 @@ public:
 	// void osgUtil::RenderBin::sortTraversalOrder()
 	void sortTraversalOrder() {
 		if(_obj.pushFunction("sortTraversalOrder")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -142,6 +188,7 @@ public:
 	// osg::Object * osgUtil::RenderStage::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -151,6 +198,7 @@ public:
 	// osg::Object * osgUtil::RenderStage::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -161,6 +209,7 @@ public:
 	// bool osgUtil::RenderStage::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -171,6 +220,7 @@ public:
 	// const char * osgUtil::RenderStage::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -180,6 +230,7 @@ public:
 	// void osgUtil::RenderStage::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -189,6 +240,7 @@ public:
 	// void osgUtil::RenderStage::addPositionedAttribute(osg::RefMatrixd * matrix, const osg::StateAttribute * attr)
 	void addPositionedAttribute(osg::RefMatrixd * matrix, const osg::StateAttribute * attr) {
 		if(_obj.pushFunction("addPositionedAttribute")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			_obj.pushArg(matrix);
 			_obj.pushArg(attr);
 			return (_obj.callFunction<void>());
@@ -200,6 +252,7 @@ public:
 	// void osgUtil::RenderStage::addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr)
 	void addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr) {
 		if(_obj.pushFunction("addPositionedTextureAttribute")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			_obj.pushArg(textureUnit);
 			_obj.pushArg(matrix);
 			_obj.pushArg(attr);
@@ -212,6 +265,7 @@ public:
 	// void osgUtil::RenderStage::sort()
 	void sort() {
 		if(_obj.pushFunction("sort")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -221,6 +275,7 @@ public:
 	// void osgUtil::RenderStage::drawPreRenderStages(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
 	void drawPreRenderStages(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) {
 		if(_obj.pushFunction("drawPreRenderStages")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			_obj.pushArg(&renderInfo);
 			_obj.pushArg(previous);
 			return (_obj.callFunction<void>());
@@ -232,6 +287,7 @@ public:
 	// void osgUtil::RenderStage::draw(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
 	void draw(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) {
 		if(_obj.pushFunction("draw")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			_obj.pushArg(&renderInfo);
 			_obj.pushArg(previous);
 			return (_obj.callFunction<void>());
@@ -243,6 +299,7 @@ public:
 	// void osgUtil::RenderStage::drawInner(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous, bool & doCopyTexture)
 	void drawInner(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous, bool & doCopyTexture) {
 		if(_obj.pushFunction("drawInner")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			_obj.pushArg(&renderInfo);
 			_obj.pushArg(previous);
 			_obj.pushArg(doCopyTexture);
@@ -255,6 +312,7 @@ public:
 	// void osgUtil::RenderStage::drawPostRenderStages(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
 	void drawPostRenderStages(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) {
 		if(_obj.pushFunction("drawPostRenderStages")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			_obj.pushArg(&renderInfo);
 			_obj.pushArg(previous);
 			return (_obj.callFunction<void>());
@@ -266,6 +324,7 @@ public:
 	// void osgUtil::RenderStage::drawImplementation(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
 	void drawImplementation(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) {
 		if(_obj.pushFunction("drawImplementation")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			_obj.pushArg(&renderInfo);
 			_obj.pushArg(previous);
 			return (_obj.callFunction<void>());
@@ -277,6 +336,7 @@ public:
 	// unsigned int osgUtil::RenderStage::computeNumberOfDynamicRenderLeaves() const
 	unsigned int computeNumberOfDynamicRenderLeaves() const {
 		if(_obj.pushFunction("computeNumberOfDynamicRenderLeaves")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -286,6 +346,7 @@ public:
 	// void osgUtil::RenderStage::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osgUtil::RenderStage*)this);
 			_obj.pushArg(state);
 			return (_obj.callFunction<void>());
 		}
@@ -364,8 +425,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

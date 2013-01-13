@@ -598,7 +598,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,42930508) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// wxAuiPaneInfo::wxAuiPaneInfo()
@@ -2345,6 +2352,32 @@ public:
 
 
 	// Operator binds:
+	// wxAuiPaneInfo & wxAuiPaneInfo::operator=(const wxAuiPaneInfo & c)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAuiPaneInfo & wxAuiPaneInfo::operator=(const wxAuiPaneInfo & c) function, expected prototype:\nwxAuiPaneInfo & wxAuiPaneInfo::operator=(const wxAuiPaneInfo & c)\nClass arguments details:\narg 1 ID = 42930508\n");
+		}
+
+		const wxAuiPaneInfo* c_ptr=(Luna< wxAuiPaneInfo >::check(L,2));
+		if( !c_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg c in wxAuiPaneInfo::operator= function");
+		}
+		const wxAuiPaneInfo & c=*c_ptr;
+
+		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiPaneInfo::operator=(const wxAuiPaneInfo &). Got : '%s'",typeid(Luna< wxAuiPaneInfo >::check(L,1)).name());
+		}
+		const wxAuiPaneInfo* lret = &self->operator=(c);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxAuiPaneInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -2437,6 +2470,7 @@ luna_RegType LunaTraits< wxAuiPaneInfo >::methods[] = {
 	{"Top", &luna_wrapper_wxAuiPaneInfo::_bind_Top},
 	{"TopDockable", &luna_wrapper_wxAuiPaneInfo::_bind_TopDockable},
 	{"Window", &luna_wrapper_wxAuiPaneInfo::_bind_Window},
+	{"op_assign", &luna_wrapper_wxAuiPaneInfo::_bind_op_assign},
 	{"dynCast", &luna_wrapper_wxAuiPaneInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxAuiPaneInfo::_bind___eq},
 	{0,0}

@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< unsigned int >* LunaTraits< std::vector< unsigned int > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< unsigned int >();
 }
 
 void LunaTraits< std::vector< unsigned int > >::_bind_dtor(std::vector< unsigned int >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< unsigned int > >::className[] = "std_vector_unsigned_int";

@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgDB_Registry() {
+		logDEBUG3("Calling delete function for wrapper osgDB_Registry");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::Registry*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_Registry(lua_State* L, lua_Table* dum) : osgDB::Registry(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_Registry(lua_State* L, lua_Table* dum) 
+		: osgDB::Registry(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::Registry*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,6 +36,17 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::Registry*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Registry::setThreadSafeRefUnref(threadSafe);
+	};
+
 
 	// Protected non-virtual methods:
 	// void osgDB::Registry::destruct()
@@ -159,10 +179,10 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_destruct",_bind_public_destruct},
-		{"protected_trim",_bind_public_trim},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"destruct",_bind_public_destruct},
+		{"trim",_bind_public_trim},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

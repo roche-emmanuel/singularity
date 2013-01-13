@@ -24,4 +24,7 @@ cfg.mainframe_menus_enabled = true
 -- Master framerate given in Hz.
 cfg.master_framerate = 30;
 
+cfg.osg_log_level = "NOTICE"
+
+
 return cfg

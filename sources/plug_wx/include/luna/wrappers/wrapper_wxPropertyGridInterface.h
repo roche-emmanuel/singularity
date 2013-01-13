@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxPropertyGridInterface() {
+		logDEBUG3("Calling delete function for wrapper wxPropertyGridInterface");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxPropertyGridInterface*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -29,6 +31,7 @@ public:
 	// void wxPropertyGridInterface::Clear()
 	void Clear() {
 		THROW_IF(!_obj.pushFunction("Clear"),"No implementation for abstract function wxPropertyGridInterface::Clear");
+		_obj.pushArg((wxPropertyGridInterface*)this);
 		return (_obj.callFunction<void>());
 	};
 

@@ -13673,7 +13673,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static wxScrolled< wxWindow >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(wxScrolled< wxWindow >* obj);
-	typedef wxScrolledCanvas parent_t;
+	typedef wxScrolled< wxWindow > parent_t;
 	typedef wxScrolled< wxWindow > base_t;
 	static luna_ConverterType converters[];
 };
@@ -13691,11 +13691,425 @@ public:
 	static luna_RegEnumType enumValues[];
 	static wxVector< wxTreeListItem >* _bind_ctor(lua_State *L);
 	static void _bind_dtor(wxVector< wxTreeListItem >* obj);
-	typedef wxTreeListItems parent_t;
+	typedef wxVector< wxTreeListItem > parent_t;
 	typedef wxVector< wxTreeListItem > base_t;
 	static luna_ConverterType converters[];
 };
 
+
+template<>
+class LunaTraits< wxWindowList > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxWindowList* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxWindowList* obj);
+	typedef wxWindowList parent_t;
+	typedef wxWindowList base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< WXWidget > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static WXWidget* _bind_ctor(lua_State *L);
+	static void _bind_dtor(WXWidget* obj);
+	typedef WXWidget parent_t;
+	typedef WXWidget base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxTimerImpl > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxTimerImpl* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxTimerImpl* obj);
+	typedef wxTimerImpl parent_t;
+	typedef wxTimerImpl base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxSizerItemList > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxSizerItemList* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxSizerItemList* obj);
+	typedef wxSizerItemList parent_t;
+	typedef wxSizerItemList base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxArrayVideoModes > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxArrayVideoModes* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxArrayVideoModes* obj);
+	typedef wxArrayVideoModes parent_t;
+	typedef wxArrayVideoModes base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxMDIClientWindowBase > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxMDIClientWindowBase* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxMDIClientWindowBase* obj);
+	typedef wxMDIClientWindowBase parent_t;
+	typedef wxMDIClientWindowBase base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxDynamicLibraryDetailsArray > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxDynamicLibraryDetailsArray* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxDynamicLibraryDetailsArray* obj);
+	typedef wxDynamicLibraryDetailsArray parent_t;
+	typedef wxDynamicLibraryDetailsArray base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxFontEncodingArray > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxFontEncodingArray* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxFontEncodingArray* obj);
+	typedef wxFontEncodingArray parent_t;
+	typedef wxFontEncodingArray base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxDirFilterListCtrl > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxDirFilterListCtrl* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxDirFilterListCtrl* obj);
+	typedef wxDirFilterListCtrl parent_t;
+	typedef wxDirFilterListCtrl base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxGridCellCoordsArray > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxGridCellCoordsArray* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxGridCellCoordsArray* obj);
+	typedef wxGridCellCoordsArray parent_t;
+	typedef wxGridCellCoordsArray base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxHtmlBookRecArray > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxHtmlBookRecArray* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxHtmlBookRecArray* obj);
+	typedef wxHtmlBookRecArray parent_t;
+	typedef wxHtmlBookRecArray base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxHtmlHelpDataItems > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxHtmlHelpDataItems* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxHtmlHelpDataItems* obj);
+	typedef wxHtmlHelpDataItems parent_t;
+	typedef wxHtmlHelpDataItems base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxHtmlRenderingState > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxHtmlRenderingState* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxHtmlRenderingState* obj);
+	typedef wxHtmlRenderingState parent_t;
+	typedef wxHtmlRenderingState base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< sockaddr > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sockaddr* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sockaddr* obj);
+	typedef sockaddr parent_t;
+	typedef sockaddr base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxMenuItemList > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxMenuItemList* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxMenuItemList* obj);
+	typedef wxMenuItemList parent_t;
+	typedef wxMenuItemList base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxPGCellData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxPGCellData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxPGCellData* obj);
+	typedef wxPGCellData parent_t;
+	typedef wxPGCellData base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxPGWindowList > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxPGWindowList* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxPGWindowList* obj);
+	typedef wxPGWindowList parent_t;
+	typedef wxPGWindowList base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxPGCellRenderer > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxPGCellRenderer* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxPGCellRenderer* obj);
+	typedef wxPGCellRenderer parent_t;
+	typedef wxPGCellRenderer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxPGEditorDialogAdapter > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxPGEditorDialogAdapter* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxPGEditorDialogAdapter* obj);
+	typedef wxPGEditorDialogAdapter parent_t;
+	typedef wxPGEditorDialogAdapter base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxRibbonToolBarToolBase > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxRibbonToolBarToolBase* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxRibbonToolBarToolBase* obj);
+	typedef wxRibbonToolBarToolBase parent_t;
+	typedef wxRibbonToolBarToolBase base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxSplashScreenWindow > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxSplashScreenWindow* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxSplashScreenWindow* obj);
+	typedef wxSplashScreenWindow parent_t;
+	typedef wxSplashScreenWindow base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< signed short > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static signed short* _bind_ctor(lua_State *L);
+	static void _bind_dtor(signed short* obj);
+	typedef signed short parent_t;
+	typedef signed short base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< wxToolBarBase > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxToolBarBase* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxToolBarBase* obj);
+	typedef wxToolBarBase parent_t;
+	typedef wxToolBarBase base_t;
+	static luna_ConverterType converters[];
+};
 
 
 template<>
@@ -15417,6 +15831,167 @@ template<>
 class LunaType< 5676023 > {
 public:
 	typedef wxVector< wxTreeListItem > type;
+	
+};
+
+template<>
+class LunaType< 85025491 > {
+public:
+	typedef wxWindowList type;
+	
+};
+
+template<>
+class LunaType< 88389584 > {
+public:
+	typedef WXWidget type;
+	
+};
+
+template<>
+class LunaType< 53064125 > {
+public:
+	typedef wxTimerImpl type;
+	
+};
+
+template<>
+class LunaType< 82729955 > {
+public:
+	typedef wxSizerItemList type;
+	
+};
+
+template<>
+class LunaType< 4284904 > {
+public:
+	typedef wxArrayVideoModes type;
+	
+};
+
+template<>
+class LunaType< 44808876 > {
+public:
+	typedef wxMDIClientWindowBase type;
+	
+};
+
+template<>
+class LunaType< 75547918 > {
+public:
+	typedef wxDynamicLibraryDetailsArray type;
+	
+};
+
+template<>
+class LunaType< 713228 > {
+public:
+	typedef wxFontEncodingArray type;
+	
+};
+
+template<>
+class LunaType< 63024827 > {
+public:
+	typedef wxDirFilterListCtrl type;
+	
+};
+
+template<>
+class LunaType< 30821760 > {
+public:
+	typedef wxGridCellCoordsArray type;
+	
+};
+
+template<>
+class LunaType< 30920503 > {
+public:
+	typedef wxHtmlBookRecArray type;
+	
+};
+
+template<>
+class LunaType< 74292895 > {
+public:
+	typedef wxHtmlHelpDataItems type;
+	
+};
+
+template<>
+class LunaType< 40987827 > {
+public:
+	typedef wxHtmlRenderingState type;
+	
+};
+
+template<>
+class LunaType< 99456016 > {
+public:
+	typedef sockaddr type;
+	
+};
+
+template<>
+class LunaType< 4556242 > {
+public:
+	typedef wxMenuItemList type;
+	
+};
+
+template<>
+class LunaType< 966244 > {
+public:
+	typedef wxPGCellData type;
+	
+};
+
+template<>
+class LunaType< 58315813 > {
+public:
+	typedef wxPGWindowList type;
+	
+};
+
+template<>
+class LunaType< 7175101 > {
+public:
+	typedef wxPGCellRenderer type;
+	
+};
+
+template<>
+class LunaType< 86435384 > {
+public:
+	typedef wxPGEditorDialogAdapter type;
+	
+};
+
+template<>
+class LunaType< 53514976 > {
+public:
+	typedef wxRibbonToolBarToolBase type;
+	
+};
+
+template<>
+class LunaType< 86566893 > {
+public:
+	typedef wxSplashScreenWindow type;
+	
+};
+
+template<>
+class LunaType< 86307368 > {
+public:
+	typedef signed short type;
+	
+};
+
+template<>
+class LunaType< 72996730 > {
+public:
+	typedef wxToolBarBase type;
 	
 };
 

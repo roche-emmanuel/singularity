@@ -1,0 +1,14 @@
+
+** libusb Driver installation
+
+There are two parts to libfreenect -- the low-level libusb-based device driver and libfreenect itself, the library that talks to the driver. You only need to install the driver once.
+
+- Windows 7: step-by-step walkthrough (should also work with Windows XP!)
+
+1. Plug in your Kinect. Windows will warn that no device driver was found for the plugged device (the LED of Kinect will not turn on). If Windows presents a dialog asking to search for drivers, simply cancel it.
+2. Open the Device Manager: Start >> Control Panel >> System and Security >> System >> Device Manager
+A device called "Xbox NUI Motor" should be somewhere there (most probably be under "Other devices") with a small yellow warning symbol "!" on top of its icon. Right click on it, and select "Update Driver Software...", then click on "Browse my computer for driver software".
+3. "Browse" and select the folder where the "XBox_NUI_Motor.inf" is located (/platform/windows/inf inside your libfreenect source folder). Click "Next" and if warned by Windows that a non-certified driver is about to be installed, just order it to install it anyway.
+4. After that, the Kinect LED should start blinking green. Now there will be two additional devices in the Device Manager list: "Xbox NUI Camera" and "Xbox NUI Audio". Repeat the above instructions for them as well.
+
+You are now ready to configure libfreenect before building...

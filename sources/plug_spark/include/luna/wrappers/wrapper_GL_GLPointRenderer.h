@@ -14,30 +14,42 @@ public:
 		
 
 	~wrapper_GL_GLPointRenderer() {
+		logDEBUG3("Calling delete function for wrapper GL_GLPointRenderer");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((GL::GLPointRenderer*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_GL_GLPointRenderer(lua_State* L, lua_Table* dum, float size = 1.0f) : GL::GLPointRenderer(size), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_GL_GLPointRenderer(lua_State* L, lua_Table* dum, float size = 1.0f) 
+		: GL::GLPointRenderer(size), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 private:
 	// Private virtual methods:
 	// void SPK::Registerable::onRegister()
 	void onRegister() {
 		THROW_IF(!_obj.pushFunction("onRegister"),"No implementation for abstract function SPK::Registerable::onRegister");
+		_obj.pushArg((GL::GLPointRenderer*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// void SPK::Registerable::onUnregister()
 	void onUnregister() {
 		THROW_IF(!_obj.pushFunction("onUnregister"),"No implementation for abstract function SPK::Registerable::onUnregister");
+		_obj.pushArg((GL::GLPointRenderer*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// GL::GLPointRenderer * GL::GLPointRenderer::clone(bool createBase) const
 	GL::GLPointRenderer * clone(bool createBase) const {
 		THROW_IF(!_obj.pushFunction("clone"),"No implementation for abstract function GL::GLPointRenderer::clone");
+		_obj.pushArg((GL::GLPointRenderer*)this);
 		_obj.pushArg(createBase);
 		return (_obj.callFunction<GL::GLPointRenderer*>());
 	};
@@ -47,6 +59,7 @@ protected:
 	// void SPK::Registerable::registerChildren(bool registerAll)
 	void registerChildren(bool registerAll) {
 		if(_obj.pushFunction("registerChildren")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(registerAll);
 			return (_obj.callFunction<void>());
 		}
@@ -57,6 +70,7 @@ protected:
 	// void SPK::Registerable::copyChildren(const SPK::Registerable & object, bool createBase)
 	void copyChildren(const SPK::Registerable & object, bool createBase) {
 		if(_obj.pushFunction("copyChildren")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(&object);
 			_obj.pushArg(createBase);
 			return (_obj.callFunction<void>());
@@ -68,6 +82,7 @@ protected:
 	// void SPK::Registerable::destroyChildren(bool keepChildren)
 	void destroyChildren(bool keepChildren) {
 		if(_obj.pushFunction("destroyChildren")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(keepChildren);
 			return (_obj.callFunction<void>());
 		}
@@ -78,6 +93,7 @@ protected:
 	// bool SPK::BufferHandler::checkBuffers(const SPK::Group & group)
 	bool checkBuffers(const SPK::Group & group) {
 		if(_obj.pushFunction("checkBuffers")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(&group);
 			return (_obj.callFunction<bool>());
 		}
@@ -90,6 +106,7 @@ public:
 	// SPK::Registerable * SPK::Registerable::findByName(const std::string & name)
 	SPK::Registerable * findByName(const std::string & name) {
 		if(_obj.pushFunction("findByName")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<SPK::Registerable*>());
 		}
@@ -100,6 +117,7 @@ public:
 	// void SPK::BufferHandler::createBuffers(const SPK::Group & group)
 	void createBuffers(const SPK::Group & group) {
 		if(_obj.pushFunction("createBuffers")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(&group);
 			return (_obj.callFunction<void>());
 		}
@@ -110,6 +128,7 @@ public:
 	// void SPK::BufferHandler::destroyBuffers(const SPK::Group & group)
 	void destroyBuffers(const SPK::Group & group) {
 		if(_obj.pushFunction("destroyBuffers")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(&group);
 			return (_obj.callFunction<void>());
 		}
@@ -120,6 +139,7 @@ public:
 	// void SPK::Renderer::enableRenderingHint(SPK::RenderingHint renderingHint, bool enable)
 	void enableRenderingHint(SPK::RenderingHint renderingHint, bool enable) {
 		if(_obj.pushFunction("enableRenderingHint")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(renderingHint);
 			_obj.pushArg(enable);
 			return (_obj.callFunction<void>());
@@ -131,6 +151,7 @@ public:
 	// void SPK::Renderer::setAlphaTestThreshold(float alphaThreshold)
 	void setAlphaTestThreshold(float alphaThreshold) {
 		if(_obj.pushFunction("setAlphaTestThreshold")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(alphaThreshold);
 			return (_obj.callFunction<void>());
 		}
@@ -141,6 +162,7 @@ public:
 	// bool SPK::Renderer::isRenderingHintEnabled(SPK::RenderingHint renderingHint) const
 	bool isRenderingHintEnabled(SPK::RenderingHint renderingHint) const {
 		if(_obj.pushFunction("isRenderingHintEnabled")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(renderingHint);
 			return (_obj.callFunction<bool>());
 		}
@@ -151,6 +173,7 @@ public:
 	// void GL::GLRenderer::enableBlending(bool blendingEnabled)
 	void enableBlending(bool blendingEnabled) {
 		if(_obj.pushFunction("enableBlending")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(blendingEnabled);
 			return (_obj.callFunction<void>());
 		}
@@ -161,6 +184,7 @@ public:
 	// void GL::GLRenderer::setBlending(SPK::BlendingMode blendMode)
 	void setBlending(SPK::BlendingMode blendMode) {
 		if(_obj.pushFunction("setBlending")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(blendMode);
 			return (_obj.callFunction<void>());
 		}
@@ -171,6 +195,7 @@ public:
 	// void SPK::PointRendererInterface::setSize(float size)
 	void setSize(float size) {
 		if(_obj.pushFunction("setSize")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(size);
 			return (_obj.callFunction<void>());
 		}
@@ -181,6 +206,7 @@ public:
 	// std::string GL::GLPointRenderer::getClassName() const
 	std::string getClassName() const {
 		if(_obj.pushFunction("getClassName")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			return (_obj.callFunction<std::string>());
 		}
 
@@ -190,6 +216,7 @@ public:
 	// bool GL::GLPointRenderer::setType(SPK::PointType type)
 	bool setType(SPK::PointType type) {
 		if(_obj.pushFunction("setType")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(type);
 			return (_obj.callFunction<bool>());
 		}
@@ -200,6 +227,7 @@ public:
 	// void GL::GLPointRenderer::render(const SPK::Group & group)
 	void render(const SPK::Group & group) {
 		if(_obj.pushFunction("render")) {
+			_obj.pushArg((GL::GLPointRenderer*)this);
 			_obj.pushArg(&group);
 			return (_obj.callFunction<void>());
 		}
@@ -785,24 +813,24 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_initBlending",_bind_public_initBlending},
-		{"protected_initRenderingHints",_bind_public_initRenderingHints},
-		{"protected_registerChild",_bind_public_registerChild},
-		{"protected_copyChild",_bind_public_copyChild},
-		{"protected_destroyChild",_bind_public_destroyChild},
-		{"protected_incrementChildReference",_bind_public_incrementChildReference},
-		{"protected_decrementChildReference",_bind_public_decrementChildReference},
-		{"protected_registerObject",_bind_public_registerObject},
-		{"protected_prepareBuffers",_bind_public_prepareBuffers},
-		{"protected_glGetProcAddress",_bind_public_glGetProcAddress},
-		{"protected_getPointSpriteGLExt",_bind_public_getPointSpriteGLExt},
-		{"protected_enablePointSpriteGLExt",_bind_public_enablePointSpriteGLExt},
-		{"protected_disablePointSpriteGLExt",_bind_public_disablePointSpriteGLExt},
-		{"protected_getPointParameterGLExt",_bind_public_getPointParameterGLExt},
-		{"protected_enablePointParameterGLExt",_bind_public_enablePointParameterGLExt},
-		{"protected_disablePointParameterGLExt",_bind_public_disablePointParameterGLExt},
-		{"protected_getTexture3DGLExt",_bind_public_getTexture3DGLExt},
-		{"protected_getShaderGLExt",_bind_public_getShaderGLExt},
+		{"initBlending",_bind_public_initBlending},
+		{"initRenderingHints",_bind_public_initRenderingHints},
+		{"registerChild",_bind_public_registerChild},
+		{"copyChild",_bind_public_copyChild},
+		{"destroyChild",_bind_public_destroyChild},
+		{"incrementChildReference",_bind_public_incrementChildReference},
+		{"decrementChildReference",_bind_public_decrementChildReference},
+		{"registerObject",_bind_public_registerObject},
+		{"prepareBuffers",_bind_public_prepareBuffers},
+		{"glGetProcAddress",_bind_public_glGetProcAddress},
+		{"getPointSpriteGLExt",_bind_public_getPointSpriteGLExt},
+		{"enablePointSpriteGLExt",_bind_public_enablePointSpriteGLExt},
+		{"disablePointSpriteGLExt",_bind_public_disablePointSpriteGLExt},
+		{"getPointParameterGLExt",_bind_public_getPointParameterGLExt},
+		{"enablePointParameterGLExt",_bind_public_enablePointParameterGLExt},
+		{"disablePointParameterGLExt",_bind_public_disablePointParameterGLExt},
+		{"getTexture3DGLExt",_bind_public_getTexture3DGLExt},
+		{"getShaderGLExt",_bind_public_getShaderGLExt},
 		{NULL,NULL}
 		};
 

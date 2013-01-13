@@ -129,6 +129,9 @@ public:
 	/** Remove a LogSnk by name. */
 	bool removeSink(const std::string& name);
 
+	/** Remove all the sinks registered in the logmanager. */
+	bool removeAllSinks();
+
 	/** Retrieve a LogSink by name. */
 	LogSink* getSink(const std::string& name);
 

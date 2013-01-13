@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<WebViewListener::Process,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -141,7 +141,7 @@ public:
 		WebViewListener::Process* self=(Luna< WebViewListener::Process >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Process::OnUnresponsive(Awesomium::WebView *)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Process::OnUnresponsive(Awesomium::WebView *). Got : '%s'",typeid(Luna< WebViewListener::Process >::check(L,1)).name());
 		}
 		self->OnUnresponsive(caller);
 
@@ -160,7 +160,7 @@ public:
 		WebViewListener::Process* self=(Luna< WebViewListener::Process >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Process::OnResponsive(Awesomium::WebView *)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Process::OnResponsive(Awesomium::WebView *). Got : '%s'",typeid(Luna< WebViewListener::Process >::check(L,1)).name());
 		}
 		self->OnResponsive(caller);
 
@@ -180,7 +180,7 @@ public:
 		WebViewListener::Process* self=(Luna< WebViewListener::Process >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Process::OnCrashed(Awesomium::WebView *, Awesomium::TerminationStatus)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Process::OnCrashed(Awesomium::WebView *, Awesomium::TerminationStatus). Got : '%s'",typeid(Luna< WebViewListener::Process >::check(L,1)).name());
 		}
 		self->OnCrashed(caller, status);
 

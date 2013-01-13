@@ -14,14 +14,37 @@ public:
 		
 
 	~wrapper_osgViewer_CompositeViewer() {
+		logDEBUG3("Calling delete function for wrapper osgViewer_CompositeViewer");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgViewer::CompositeViewer*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum) : osgViewer::CompositeViewer(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum, const osgViewer::CompositeViewer & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgViewer::CompositeViewer(arg1, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osgViewer::CompositeViewer(arguments), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum) 
+		: osgViewer::CompositeViewer(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum, const osgViewer::CompositeViewer & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osgViewer::CompositeViewer(arg1, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) 
+		: osgViewer::CompositeViewer(arguments), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +53,7 @@ protected:
 	// void osgViewer::CompositeViewer::viewerInit()
 	void viewerInit() {
 		if(_obj.pushFunction("viewerInit")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -38,9 +62,21 @@ protected:
 
 public:
 	// Public virtual methods:
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -51,6 +87,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -60,6 +97,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -70,6 +108,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -79,6 +118,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -88,6 +128,7 @@ public:
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -95,9 +136,61 @@ public:
 		return CompositeViewer::releaseGLObjects(arg1);
 	};
 
+	// void osgViewer::ViewerBase::setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel)
+	void setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel) {
+		if(_obj.pushFunction("setThreadingModel")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
+			_obj.pushArg(threadingModel);
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::setThreadingModel(threadingModel);
+	};
+
+	// osgViewer::ViewerBase::ThreadingModel osgViewer::ViewerBase::suggestBestThreadingModel()
+	osgViewer::ViewerBase::ThreadingModel suggestBestThreadingModel() {
+		if(_obj.pushFunction("suggestBestThreadingModel")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
+			return (osgViewer::ViewerBase::ThreadingModel)(_obj.callFunction<int>());
+		}
+
+		return CompositeViewer::suggestBestThreadingModel();
+	};
+
+	// void osgViewer::ViewerBase::setUpThreading()
+	void setUpThreading() {
+		if(_obj.pushFunction("setUpThreading")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::setUpThreading();
+	};
+
+	// void osgViewer::ViewerBase::stopThreading()
+	void stopThreading() {
+		if(_obj.pushFunction("stopThreading")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::stopThreading();
+	};
+
+	// void osgViewer::ViewerBase::startThreading()
+	void startThreading() {
+		if(_obj.pushFunction("startThreading")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::startThreading();
+	};
+
 	// void osgViewer::ViewerBase::frame(double simulationTime = DBL_MAX)
 	void frame(double simulationTime = DBL_MAX) {
 		if(_obj.pushFunction("frame")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(simulationTime);
 			return (_obj.callFunction<void>());
 		}
@@ -108,6 +201,7 @@ public:
 	// void osgViewer::ViewerBase::renderingTraversals()
 	void renderingTraversals() {
 		if(_obj.pushFunction("renderingTraversals")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -117,6 +211,7 @@ public:
 	// void osgViewer::ViewerBase::getWindows(osgViewer::ViewerBase::Windows & windows, bool onlyValid = true)
 	void getWindows(osgViewer::ViewerBase::Windows & windows, bool onlyValid = true) {
 		if(_obj.pushFunction("getWindows")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(&windows);
 			_obj.pushArg(onlyValid);
 			return (_obj.callFunction<void>());
@@ -128,6 +223,7 @@ public:
 	// osg::Object * osgViewer::CompositeViewer::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -137,6 +233,7 @@ public:
 	// osg::Object * osgViewer::CompositeViewer::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -147,6 +244,7 @@ public:
 	// bool osgViewer::CompositeViewer::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -157,6 +255,7 @@ public:
 	// const char * osgViewer::CompositeViewer::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -166,6 +265,7 @@ public:
 	// const char * osgViewer::CompositeViewer::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -175,6 +275,7 @@ public:
 	// bool osgViewer::CompositeViewer::readConfiguration(const std::string & filename)
 	bool readConfiguration(const std::string & filename) {
 		if(_obj.pushFunction("readConfiguration")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(filename);
 			return (_obj.callFunction<bool>());
 		}
@@ -185,6 +286,7 @@ public:
 	// void osgViewer::CompositeViewer::setViewerStats(osg::Stats * stats)
 	void setViewerStats(osg::Stats * stats) {
 		if(_obj.pushFunction("setViewerStats")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(stats);
 			return (_obj.callFunction<void>());
 		}
@@ -195,6 +297,7 @@ public:
 	// osg::Stats * osgViewer::CompositeViewer::getViewerStats()
 	osg::Stats * getViewerStats() {
 		if(_obj.pushFunction("getViewerStats")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<osg::Stats*>());
 		}
 
@@ -204,6 +307,7 @@ public:
 	// const osg::Stats * osgViewer::CompositeViewer::getViewerStats() const
 	const osg::Stats * getViewerStats() const {
 		if(_obj.pushFunction("getViewerStats")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<osg::Stats*>());
 		}
 
@@ -213,6 +317,7 @@ public:
 	// bool osgViewer::CompositeViewer::isRealized() const
 	bool isRealized() const {
 		if(_obj.pushFunction("isRealized")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -222,6 +327,7 @@ public:
 	// void osgViewer::CompositeViewer::realize()
 	void realize() {
 		if(_obj.pushFunction("realize")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -231,6 +337,7 @@ public:
 	// void osgViewer::CompositeViewer::setStartTick(__int64 tick)
 	void setStartTick(__int64 tick) {
 		if(_obj.pushFunction("setStartTick")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(tick);
 			return (_obj.callFunction<void>());
 		}
@@ -241,6 +348,7 @@ public:
 	// double osgViewer::CompositeViewer::elapsedTime()
 	double elapsedTime() {
 		if(_obj.pushFunction("elapsedTime")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<double>());
 		}
 
@@ -250,6 +358,7 @@ public:
 	// osg::FrameStamp * osgViewer::CompositeViewer::getViewerFrameStamp()
 	osg::FrameStamp * getViewerFrameStamp() {
 		if(_obj.pushFunction("getViewerFrameStamp")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<osg::FrameStamp*>());
 		}
 
@@ -259,6 +368,7 @@ public:
 	// int osgViewer::CompositeViewer::run()
 	int run() {
 		if(_obj.pushFunction("run")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -268,6 +378,7 @@ public:
 	// bool osgViewer::CompositeViewer::checkNeedToDoFrame()
 	bool checkNeedToDoFrame() {
 		if(_obj.pushFunction("checkNeedToDoFrame")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -277,6 +388,7 @@ public:
 	// void osgViewer::CompositeViewer::advance(double simulationTime = DBL_MAX)
 	void advance(double simulationTime = DBL_MAX) {
 		if(_obj.pushFunction("advance")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(simulationTime);
 			return (_obj.callFunction<void>());
 		}
@@ -287,6 +399,7 @@ public:
 	// void osgViewer::CompositeViewer::eventTraversal()
 	void eventTraversal() {
 		if(_obj.pushFunction("eventTraversal")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -296,6 +409,7 @@ public:
 	// void osgViewer::CompositeViewer::updateTraversal()
 	void updateTraversal() {
 		if(_obj.pushFunction("updateTraversal")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -305,6 +419,7 @@ public:
 	// void osgViewer::CompositeViewer::getCameras(osgViewer::ViewerBase::Cameras & cameras, bool onlyActive = true)
 	void getCameras(osgViewer::ViewerBase::Cameras & cameras, bool onlyActive = true) {
 		if(_obj.pushFunction("getCameras")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(&cameras);
 			_obj.pushArg(onlyActive);
 			return (_obj.callFunction<void>());
@@ -316,6 +431,7 @@ public:
 	// void osgViewer::CompositeViewer::getContexts(osgViewer::ViewerBase::Contexts & contexts, bool onlyValid = true)
 	void getContexts(osgViewer::ViewerBase::Contexts & contexts, bool onlyValid = true) {
 		if(_obj.pushFunction("getContexts")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(&contexts);
 			_obj.pushArg(onlyValid);
 			return (_obj.callFunction<void>());
@@ -324,9 +440,34 @@ public:
 		return CompositeViewer::getContexts(contexts, onlyValid);
 	};
 
+	// void osgViewer::CompositeViewer::getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true)
+	void getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true) {
+		if(_obj.pushFunction("getAllThreads")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
+			_obj.pushArg(&threads);
+			_obj.pushArg(onlyActive);
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::getAllThreads(threads, onlyActive);
+	};
+
+	// void osgViewer::CompositeViewer::getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true)
+	void getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true) {
+		if(_obj.pushFunction("getOperationThreads")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
+			_obj.pushArg(&threads);
+			_obj.pushArg(onlyActive);
+			return (_obj.callFunction<void>());
+		}
+
+		return CompositeViewer::getOperationThreads(threads, onlyActive);
+	};
+
 	// void osgViewer::CompositeViewer::getScenes(osgViewer::ViewerBase::Scenes & scenes, bool onlyValid = true)
 	void getScenes(osgViewer::ViewerBase::Scenes & scenes, bool onlyValid = true) {
 		if(_obj.pushFunction("getScenes")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(&scenes);
 			_obj.pushArg(onlyValid);
 			return (_obj.callFunction<void>());
@@ -338,6 +479,7 @@ public:
 	// void osgViewer::CompositeViewer::getViews(osgViewer::ViewerBase::Views & views, bool onlyValid = true)
 	void getViews(osgViewer::ViewerBase::Views & views, bool onlyValid = true) {
 		if(_obj.pushFunction("getViews")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(&views);
 			_obj.pushArg(onlyValid);
 			return (_obj.callFunction<void>());
@@ -349,6 +491,7 @@ public:
 	// void osgViewer::CompositeViewer::getUsage(osg::ApplicationUsage & usage) const
 	void getUsage(osg::ApplicationUsage & usage) const {
 		if(_obj.pushFunction("getUsage")) {
+			_obj.pushArg((osgViewer::CompositeViewer*)this);
 			_obj.pushArg(&usage);
 			return (_obj.callFunction<void>());
 		}
@@ -545,12 +688,12 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_constructorInit",_bind_public_constructorInit},
-		{"protected_viewerBaseInit",_bind_public_viewerBaseInit},
-		{"protected_makeCurrent",_bind_public_makeCurrent},
-		{"protected_releaseContext",_bind_public_releaseContext},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"constructorInit",_bind_public_constructorInit},
+		{"viewerBaseInit",_bind_public_viewerBaseInit},
+		{"makeCurrent",_bind_public_makeCurrent},
+		{"releaseContext",_bind_public_releaseContext},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

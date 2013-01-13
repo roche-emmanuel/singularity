@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_Awesomium_BitmapSurfaceFactory() {
+		logDEBUG3("Calling delete function for wrapper Awesomium_BitmapSurfaceFactory");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((Awesomium::BitmapSurfaceFactory*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_Awesomium_BitmapSurfaceFactory(lua_State* L, lua_Table* dum) : Awesomium::BitmapSurfaceFactory(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_Awesomium_BitmapSurfaceFactory(lua_State* L, lua_Table* dum) 
+		: Awesomium::BitmapSurfaceFactory(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((Awesomium::BitmapSurfaceFactory*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +39,7 @@ public:
 	// Awesomium::Surface * Awesomium::BitmapSurfaceFactory::CreateSurface(Awesomium::WebView * view, int width, int height)
 	Awesomium::Surface * CreateSurface(Awesomium::WebView * view, int width, int height) {
 		if(_obj.pushFunction("CreateSurface")) {
+			_obj.pushArg((Awesomium::BitmapSurfaceFactory*)this);
 			_obj.pushArg(view);
 			_obj.pushArg(width);
 			_obj.pushArg(height);
@@ -42,6 +52,7 @@ public:
 	// void Awesomium::BitmapSurfaceFactory::DestroySurface(Awesomium::Surface * surface)
 	void DestroySurface(Awesomium::Surface * surface) {
 		if(_obj.pushFunction("DestroySurface")) {
+			_obj.pushArg((Awesomium::BitmapSurfaceFactory*)this);
 			_obj.pushArg(surface);
 			return (_obj.callFunction<void>());
 		}

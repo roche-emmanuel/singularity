@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -87,6 +87,13 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -156,6 +163,25 @@ public:
 		return 0;
 	}
 
+	// void osg::StandardNotifyHandler::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::StandardNotifyHandler::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::StandardNotifyHandler::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::StandardNotifyHandler* self=Luna< osg::Referenced >::checkSubType< osg::StandardNotifyHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::StandardNotifyHandler::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->StandardNotifyHandler::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osg::StandardNotifyHandler::base_notify(osg::NotifySeverity severity, const char * message)
 	static int _bind_base_notify(lua_State *L) {
 		if (!_lg_typecheck_base_notify(L)) {
@@ -200,6 +226,7 @@ const int LunaTraits< osg::StandardNotifyHandler >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osg::StandardNotifyHandler >::methods[] = {
 	{"notify", &luna_wrapper_osg_StandardNotifyHandler::_bind_notify},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_StandardNotifyHandler::_bind_base_setThreadSafeRefUnref},
 	{"base_notify", &luna_wrapper_osg_StandardNotifyHandler::_bind_base_notify},
 	{"__eq", &luna_wrapper_osg_StandardNotifyHandler::_bind___eq},
 	{"getTable", &luna_wrapper_osg_StandardNotifyHandler::_bind_getTable},

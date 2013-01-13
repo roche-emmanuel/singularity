@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osg::StateSet const * >* LunaTraits< std::vector< osg::StateSet const * > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osg::StateSet const * >();
 }
 
 void LunaTraits< std::vector< osg::StateSet const * > >::_bind_dtor(std::vector< osg::StateSet const * >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osg::StateSet const * > >::className[] = "std_vector_osg_StateSet_const_ptr";

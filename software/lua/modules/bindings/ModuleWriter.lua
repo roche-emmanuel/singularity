@@ -131,6 +131,10 @@ function Class:writeFile()
 		buf:newLine()
 	end
 	
+	--buf:writeSubLine('int res = luaL_dostring(L,"registerExtension(\\"${1}\\");");',mname)
+	--buf:writeSubLine('if(res!=0) luaL_error(L,"Error while requiring extensions for module ${1}.");',mname)
+	--buf:newLine()
+	
 	buf:writeSubLine('luna_pushModule(L,"${1}");',mname) -- load the default module.
 	buf:writeLine("return 1;")
 	buf:popIndent()

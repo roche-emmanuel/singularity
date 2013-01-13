@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osg::GraphicsContext::ScreenSettings >* LunaTraits< std::vector< osg::GraphicsContext::ScreenSettings > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osg::GraphicsContext::ScreenSettings >();
 }
 
 void LunaTraits< std::vector< osg::GraphicsContext::ScreenSettings > >::_bind_dtor(std::vector< osg::GraphicsContext::ScreenSettings >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osg::GraphicsContext::ScreenSettings > >::className[] = "std_vector_osg_GraphicsContext_ScreenSettings";

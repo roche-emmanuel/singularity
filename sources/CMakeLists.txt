@@ -38,7 +38,13 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_FANN)
 # ADD_SUBDIRECTORY(plug_awesomium)
 # ADD_SUBDIRECTORY(plug_spark)
-ADD_SUBDIRECTORY(plug_tuio)
+# ADD_SUBDIRECTORY(plug_tuio)
+# ADD_SUBDIRECTORY(plug_vlc)
+# ADD_SUBDIRECTORY(plug_atb)
+ADD_SUBDIRECTORY(plug_kinect)
+
+# ToDo:
+# ADD_SUBDIRECTORY(plug_freenect)
 
 
 ADD_SUBDIRECTORY(sgt_launcher)

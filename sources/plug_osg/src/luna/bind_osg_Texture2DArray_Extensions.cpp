@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -232,6 +232,13 @@ public:
 		if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 		if( (lua_isnumber(L,11)==0 || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
 		if( (lua_isnil(L,12)==0 && !Luna<void>::has_uniqueid(L,12,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -624,6 +631,25 @@ public:
 		return 0;
 	}
 
+	// void osg::Texture2DArray::Extensions::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::Extensions::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Texture2DArray::Extensions::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::Extensions::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->Extensions::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -663,6 +689,7 @@ luna_RegType LunaTraits< osg::Texture2DArray::Extensions >::methods[] = {
 	{"glCompressedTexImage3D", &luna_wrapper_osg_Texture2DArray_Extensions::_bind_glCompressedTexImage3D},
 	{"isCompressedTexSubImage3DSupported", &luna_wrapper_osg_Texture2DArray_Extensions::_bind_isCompressedTexSubImage3DSupported},
 	{"glCompressedTexSubImage3D", &luna_wrapper_osg_Texture2DArray_Extensions::_bind_glCompressedTexSubImage3D},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_Texture2DArray_Extensions::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osg_Texture2DArray_Extensions::_bind___eq},
 	{"getTable", &luna_wrapper_osg_Texture2DArray_Extensions::_bind_getTable},
 	{0,0}

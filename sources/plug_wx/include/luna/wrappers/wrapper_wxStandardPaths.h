@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxStandardPaths() {
+		logDEBUG3("Calling delete function for wrapper wxStandardPaths");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxStandardPaths*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -29,6 +31,7 @@ public:
 	// wxString wxStandardPaths::GetAppDocumentsDir() const
 	wxString GetAppDocumentsDir() const {
 		if(_obj.pushFunction("GetAppDocumentsDir")) {
+			_obj.pushArg((wxStandardPaths*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -38,6 +41,7 @@ public:
 	// wxString wxStandardPaths::GetConfigDir() const
 	wxString GetConfigDir() const {
 		if(_obj.pushFunction("GetConfigDir")) {
+			_obj.pushArg((wxStandardPaths*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -47,6 +51,7 @@ public:
 	// wxString wxStandardPaths::GetDataDir() const
 	wxString GetDataDir() const {
 		if(_obj.pushFunction("GetDataDir")) {
+			_obj.pushArg((wxStandardPaths*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -56,6 +61,7 @@ public:
 	// wxString wxStandardPaths::GetDocumentsDir() const
 	wxString GetDocumentsDir() const {
 		if(_obj.pushFunction("GetDocumentsDir")) {
+			_obj.pushArg((wxStandardPaths*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -65,6 +71,7 @@ public:
 	// wxString wxStandardPaths::GetExecutablePath() const
 	wxString GetExecutablePath() const {
 		if(_obj.pushFunction("GetExecutablePath")) {
+			_obj.pushArg((wxStandardPaths*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -74,6 +81,7 @@ public:
 	// wxString wxStandardPaths::GetLocalDataDir() const
 	wxString GetLocalDataDir() const {
 		if(_obj.pushFunction("GetLocalDataDir")) {
+			_obj.pushArg((wxStandardPaths*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -83,6 +91,7 @@ public:
 	// wxString wxStandardPaths::GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const
 	wxString GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const {
 		if(_obj.pushFunction("GetLocalizedResourcesDir")) {
+			_obj.pushArg((wxStandardPaths*)this);
 			_obj.pushArg(lang);
 			_obj.pushArg(category);
 			return *(_obj.callFunction<wxString*>());
@@ -94,6 +103,7 @@ public:
 	// wxString wxStandardPaths::GetPluginsDir() const
 	wxString GetPluginsDir() const {
 		if(_obj.pushFunction("GetPluginsDir")) {
+			_obj.pushArg((wxStandardPaths*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -103,6 +113,7 @@ public:
 	// wxString wxStandardPaths::GetResourcesDir() const
 	wxString GetResourcesDir() const {
 		if(_obj.pushFunction("GetResourcesDir")) {
+			_obj.pushArg((wxStandardPaths*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -112,6 +123,7 @@ public:
 	// wxString wxStandardPaths::GetTempDir() const
 	wxString GetTempDir() const {
 		if(_obj.pushFunction("GetTempDir")) {
+			_obj.pushArg((wxStandardPaths*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -121,6 +133,7 @@ public:
 	// wxString wxStandardPaths::GetUserConfigDir() const
 	wxString GetUserConfigDir() const {
 		if(_obj.pushFunction("GetUserConfigDir")) {
+			_obj.pushArg((wxStandardPaths*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -130,6 +143,7 @@ public:
 	// wxString wxStandardPaths::GetUserDataDir() const
 	wxString GetUserDataDir() const {
 		if(_obj.pushFunction("GetUserDataDir")) {
+			_obj.pushArg((wxStandardPaths*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -139,6 +153,7 @@ public:
 	// wxString wxStandardPaths::GetUserLocalDataDir() const
 	wxString GetUserLocalDataDir() const {
 		if(_obj.pushFunction("GetUserLocalDataDir")) {
+			_obj.pushArg((wxStandardPaths*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 

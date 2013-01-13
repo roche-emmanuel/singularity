@@ -1,5 +1,9 @@
 local Class = require("classBuilder"){name="SimpleSerializer",bases="serialization.BasicSerializer"};
 
+function Class.createInstance(options)
+	return osgDB.BaseSerializer(Class(options))
+end
+
 function Class:initialize(options)
 	self:check(options and options.type,"Invalid SimpleSerializer type.");
 	
@@ -12,7 +16,7 @@ function Class:initialize(options)
 		or (options.type=="Bool" and false) -- this should be the last one in this listing.
 end
 
-function Class:read(is, obj)
+function Class:read(wrapper, is, obj)
 	local instance = obj:getTable() --dynCast(self._className)
 	self:check(instance,"Invalid instance for ",self._name);
 	local value;
@@ -36,7 +40,7 @@ function Class:read(is, obj)
 	return true;
 end
 
-function Class:write(out, obj)
+function Class:write(wrapper, out, obj)
 	local instance = obj:getTable()
 	self:check(instance,"Invalid instance for ",self._name);
 	

@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxLogStream() {
+		logDEBUG3("Calling delete function for wrapper wxLogStream");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxLogStream*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -27,6 +29,7 @@ protected:
 	// void wxLog::DoLogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info)
 	void DoLogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info) {
 		if(_obj.pushFunction("DoLogRecord")) {
+			_obj.pushArg((wxLogStream*)this);
 			_obj.pushArg(level);
 			_obj.pushArg(msg);
 			_obj.pushArg(&info);
@@ -39,6 +42,7 @@ protected:
 	// void wxLog::DoLogTextAtLevel(unsigned long level, const wxString & msg)
 	void DoLogTextAtLevel(unsigned long level, const wxString & msg) {
 		if(_obj.pushFunction("DoLogTextAtLevel")) {
+			_obj.pushArg((wxLogStream*)this);
 			_obj.pushArg(level);
 			_obj.pushArg(msg);
 			return (_obj.callFunction<void>());
@@ -50,6 +54,7 @@ protected:
 	// void wxLog::DoLogText(const wxString & msg)
 	void DoLogText(const wxString & msg) {
 		if(_obj.pushFunction("DoLogText")) {
+			_obj.pushArg((wxLogStream*)this);
 			_obj.pushArg(msg);
 			return (_obj.callFunction<void>());
 		}
@@ -62,6 +67,7 @@ public:
 	// void wxLog::Flush()
 	void Flush() {
 		if(_obj.pushFunction("Flush")) {
+			_obj.pushArg((wxLogStream*)this);
 			return (_obj.callFunction<void>());
 		}
 

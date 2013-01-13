@@ -14,15 +14,45 @@ public:
 		
 
 	~wrapper_osgViewer_InteractiveImageHandler() {
+		logDEBUG3("Calling delete function for wrapper osgViewer_InteractiveImageHandler");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgViewer::InteractiveImageHandler*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, osg::Image * image) : osgViewer::InteractiveImageHandler(image), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, osg::Image * image, osg::Texture2D * texture, osg::Camera * camera) : osgViewer::InteractiveImageHandler(image, texture, camera), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum) : osgViewer::InteractiveImageHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, const osgViewer::InteractiveImageHandler & arg1, const osg::CopyOp & arg2 = osg::CopyOp::SHALLOW_COPY) : osgViewer::InteractiveImageHandler(arg1, arg2), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, osg::Image * image) 
+		: osgViewer::InteractiveImageHandler(image), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, osg::Image * image, osg::Texture2D * texture, osg::Camera * camera) 
+		: osgViewer::InteractiveImageHandler(image, texture, camera), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum) 
+		: osgViewer::InteractiveImageHandler(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, const osgViewer::InteractiveImageHandler & arg1, const osg::CopyOp & arg2 = osg::CopyOp::SHALLOW_COPY) 
+		: osgViewer::InteractiveImageHandler(arg1, arg2), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,9 +60,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return InteractiveImageHandler::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -43,6 +85,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -52,6 +95,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -62,6 +106,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -71,6 +116,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -80,6 +126,7 @@ public:
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -90,6 +137,7 @@ public:
 	// void osgGA::GUIEventHandler::event(osg::NodeVisitor * nv, osg::Drawable * drawable)
 	void event(osg::NodeVisitor * nv, osg::Drawable * drawable) {
 		if(_obj.pushFunction("event")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			_obj.pushArg(nv);
 			_obj.pushArg(drawable);
 			return (_obj.callFunction<void>());
@@ -101,6 +149,7 @@ public:
 	// void osgGA::GUIEventHandler::getUsage(osg::ApplicationUsage & arg1) const
 	void getUsage(osg::ApplicationUsage & arg1) const {
 		if(_obj.pushFunction("getUsage")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -111,6 +160,7 @@ public:
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
 	void operator()(osg::Node * node, osg::NodeVisitor * nv) {
 		if(_obj.pushFunction("op_call")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			_obj.pushArg(node);
 			_obj.pushArg(nv);
 			return (_obj.callFunction<void>());
@@ -122,6 +172,7 @@ public:
 	// osg::Object * osgViewer::InteractiveImageHandler::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -131,6 +182,7 @@ public:
 	// osg::Object * osgViewer::InteractiveImageHandler::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -141,6 +193,7 @@ public:
 	// bool osgViewer::InteractiveImageHandler::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -151,6 +204,7 @@ public:
 	// const char * osgViewer::InteractiveImageHandler::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -160,6 +214,7 @@ public:
 	// const char * osgViewer::InteractiveImageHandler::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -169,6 +224,7 @@ public:
 	// bool osgViewer::InteractiveImageHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * arg3, osg::NodeVisitor * arg4)
 	bool handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * arg3, osg::NodeVisitor * arg4) {
 		if(_obj.pushFunction("handle")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			_obj.pushArg(&ea);
 			_obj.pushArg(&aa);
 			_obj.pushArg(arg3);
@@ -182,6 +238,7 @@ public:
 	// bool osgViewer::InteractiveImageHandler::cull(osg::NodeVisitor * nv, osg::Drawable * drawable, osg::RenderInfo * renderInfo) const
 	bool cull(osg::NodeVisitor * nv, osg::Drawable * drawable, osg::RenderInfo * renderInfo) const {
 		if(_obj.pushFunction("cull")) {
+			_obj.pushArg((osgViewer::InteractiveImageHandler*)this);
 			_obj.pushArg(nv);
 			_obj.pushArg(drawable);
 			_obj.pushArg(renderInfo);
@@ -238,8 +295,8 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,5,52841328) ) return false;
-		if( !Luna<void>::has_uniqueid(L,6,19574398) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,83725871) ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,9645394) ) return false;
 		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		return true;
 	}
@@ -308,12 +365,12 @@ public:
 		osgViewer::View* view=(Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,2));
 		float x=(float)lua_tonumber(L,3);
 		float y=(float)lua_tonumber(L,4);
-		const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,5));
+		const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,5));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osgViewer::InteractiveImageHandler::public_computeIntersections function");
 		}
 		const osg::NodePath & nodePath=*nodePath_ptr;
-		osgUtil::LineSegmentIntersector::Intersections* intersections_ptr=(Luna< osgUtil::LineSegmentIntersector::Intersections >::check(L,6));
+		osgUtil::LineSegmentIntersector::Intersections* intersections_ptr=(Luna< std::multiset< osgUtil::LineSegmentIntersector::Intersection > >::checkSubType< osgUtil::LineSegmentIntersector::Intersections >(L,6));
 		if( !intersections_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg intersections in osgViewer::InteractiveImageHandler::public_computeIntersections function");
 		}
@@ -392,11 +449,11 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_mousePosition",_bind_public_mousePosition},
-		{"protected_computeIntersections",_bind_public_computeIntersections},
-		{"protected_resize",_bind_public_resize},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"mousePosition",_bind_public_mousePosition},
+		{"computeIntersections",_bind_public_computeIntersections},
+		{"resize",_bind_public_resize},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

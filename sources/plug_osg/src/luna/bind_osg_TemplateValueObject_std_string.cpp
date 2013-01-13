@@ -57,11 +57,11 @@ public:
 };
 
 osg::TemplateValueObject< std::string >* LunaTraits< osg::TemplateValueObject< std::string > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new osg::TemplateValueObject< std::string >();
 }
 
 void LunaTraits< osg::TemplateValueObject< std::string > >::_bind_dtor(osg::TemplateValueObject< std::string >* obj) {
-	//delete obj; // do not delete by default.
+	//Type destructor explicitly removed.
 }
 
 const char LunaTraits< osg::TemplateValueObject< std::string > >::className[] = "osg_TemplateValueObject_std_string";

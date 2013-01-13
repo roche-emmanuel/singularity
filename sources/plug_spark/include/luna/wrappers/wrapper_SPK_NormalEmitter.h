@@ -14,30 +14,42 @@ public:
 		
 
 	~wrapper_SPK_NormalEmitter() {
+		logDEBUG3("Calling delete function for wrapper SPK_NormalEmitter");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((SPK::NormalEmitter*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_SPK_NormalEmitter(lua_State* L, lua_Table* dum, SPK::Zone * normalZone = NULL, bool inverted = false) : SPK::NormalEmitter(normalZone, inverted), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_SPK_NormalEmitter(lua_State* L, lua_Table* dum, SPK::Zone * normalZone = NULL, bool inverted = false) 
+		: SPK::NormalEmitter(normalZone, inverted), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((SPK::NormalEmitter*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 private:
 	// Private virtual methods:
 	// void SPK::Registerable::onRegister()
 	void onRegister() {
 		THROW_IF(!_obj.pushFunction("onRegister"),"No implementation for abstract function SPK::Registerable::onRegister");
+		_obj.pushArg((SPK::NormalEmitter*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// void SPK::Registerable::onUnregister()
 	void onUnregister() {
 		THROW_IF(!_obj.pushFunction("onUnregister"),"No implementation for abstract function SPK::Registerable::onUnregister");
+		_obj.pushArg((SPK::NormalEmitter*)this);
 		return (_obj.callFunction<void>());
 	};
 
 	// SPK::NormalEmitter * SPK::NormalEmitter::clone(bool createBase) const
 	SPK::NormalEmitter * clone(bool createBase) const {
 		THROW_IF(!_obj.pushFunction("clone"),"No implementation for abstract function SPK::NormalEmitter::clone");
+		_obj.pushArg((SPK::NormalEmitter*)this);
 		_obj.pushArg(createBase);
 		return (_obj.callFunction<SPK::NormalEmitter*>());
 	};
@@ -45,6 +57,7 @@ private:
 	// void SPK::NormalEmitter::generateVelocity(SPK::Particle & particle, float speed) const
 	void generateVelocity(SPK::Particle & particle, float speed) const {
 		THROW_IF(!_obj.pushFunction("generateVelocity"),"No implementation for abstract function SPK::NormalEmitter::generateVelocity");
+		_obj.pushArg((SPK::NormalEmitter*)this);
 		_obj.pushArg(&particle);
 		_obj.pushArg(speed);
 		return (_obj.callFunction<void>());
@@ -55,6 +68,7 @@ protected:
 	// void SPK::Transformable::innerUpdateTransform()
 	void innerUpdateTransform() {
 		if(_obj.pushFunction("innerUpdateTransform")) {
+			_obj.pushArg((SPK::NormalEmitter*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -64,6 +78,7 @@ protected:
 	// void SPK::Emitter::propagateUpdateTransform()
 	void propagateUpdateTransform() {
 		if(_obj.pushFunction("propagateUpdateTransform")) {
+			_obj.pushArg((SPK::NormalEmitter*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -73,6 +88,7 @@ protected:
 	// void SPK::NormalEmitter::registerChildren(bool registerAll)
 	void registerChildren(bool registerAll) {
 		if(_obj.pushFunction("registerChildren")) {
+			_obj.pushArg((SPK::NormalEmitter*)this);
 			_obj.pushArg(registerAll);
 			return (_obj.callFunction<void>());
 		}
@@ -83,6 +99,7 @@ protected:
 	// void SPK::NormalEmitter::copyChildren(const SPK::Registerable & object, bool createBase)
 	void copyChildren(const SPK::Registerable & object, bool createBase) {
 		if(_obj.pushFunction("copyChildren")) {
+			_obj.pushArg((SPK::NormalEmitter*)this);
 			_obj.pushArg(&object);
 			_obj.pushArg(createBase);
 			return (_obj.callFunction<void>());
@@ -94,6 +111,7 @@ protected:
 	// void SPK::NormalEmitter::destroyChildren(bool keepChildren)
 	void destroyChildren(bool keepChildren) {
 		if(_obj.pushFunction("destroyChildren")) {
+			_obj.pushArg((SPK::NormalEmitter*)this);
 			_obj.pushArg(keepChildren);
 			return (_obj.callFunction<void>());
 		}
@@ -106,6 +124,7 @@ public:
 	// std::string SPK::NormalEmitter::getClassName() const
 	std::string getClassName() const {
 		if(_obj.pushFunction("getClassName")) {
+			_obj.pushArg((SPK::NormalEmitter*)this);
 			return (_obj.callFunction<std::string>());
 		}
 
@@ -115,6 +134,7 @@ public:
 	// SPK::Registerable * SPK::NormalEmitter::findByName(const std::string & name)
 	SPK::Registerable * findByName(const std::string & name) {
 		if(_obj.pushFunction("findByName")) {
+			_obj.pushArg((SPK::NormalEmitter*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<SPK::Registerable*>());
 		}
@@ -505,17 +525,17 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_registerChild",_bind_public_registerChild},
-		{"protected_copyChild",_bind_public_copyChild},
-		{"protected_destroyChild",_bind_public_destroyChild},
-		{"protected_incrementChildReference",_bind_public_incrementChildReference},
-		{"protected_decrementChildReference",_bind_public_decrementChildReference},
-		{"protected_registerObject",_bind_public_registerObject},
-		{"protected_transformPos",_bind_public_transformPos},
-		{"protected_transformDir",_bind_public_transformDir},
-		{"protected_isUpdateNotified",_bind_public_isUpdateNotified},
-		{"protected_notifyForUpdate",_bind_public_notifyForUpdate},
-		{"protected_getParentTransform",_bind_public_getParentTransform},
+		{"registerChild",_bind_public_registerChild},
+		{"copyChild",_bind_public_copyChild},
+		{"destroyChild",_bind_public_destroyChild},
+		{"incrementChildReference",_bind_public_incrementChildReference},
+		{"decrementChildReference",_bind_public_decrementChildReference},
+		{"registerObject",_bind_public_registerObject},
+		{"transformPos",_bind_public_transformPos},
+		{"transformDir",_bind_public_transformDir},
+		{"isUpdateNotified",_bind_public_isUpdateNotified},
+		{"notifyForUpdate",_bind_public_notifyForUpdate},
+		{"getParentTransform",_bind_public_getParentTransform},
 		{NULL,NULL}
 		};
 

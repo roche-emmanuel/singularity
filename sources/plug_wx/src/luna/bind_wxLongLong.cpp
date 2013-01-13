@@ -127,7 +127,7 @@ public:
 
 
 	// Operator checkers:
-	// (found 5 valid operators)
+	// (found 8 valid operators)
 	inline static bool _lg_typecheck___add_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -163,6 +163,28 @@ public:
 	inline static bool _lg_typecheck___unm(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,888873) ) return false;
+		if( (!(Luna< wxULongLong >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -540,6 +562,86 @@ public:
 		return 1;
 	}
 
+	// wxLongLong & wxLongLong::operator=(const wxULongLong & ll)
+	static int _bind_op_assign_overload_1(lua_State *L) {
+		if (!_lg_typecheck_op_assign_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxLongLong & wxLongLong::operator=(const wxULongLong & ll) function, expected prototype:\nwxLongLong & wxLongLong::operator=(const wxULongLong & ll)\nClass arguments details:\narg 1 ID = 888873\n");
+		}
+
+		const wxULongLong* ll_ptr=(Luna< wxULongLong >::check(L,2));
+		if( !ll_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg ll in wxLongLong::operator= function");
+		}
+		const wxULongLong & ll=*ll_ptr;
+
+		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxLongLong & wxLongLong::operator=(const wxULongLong &). Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
+		}
+		const wxLongLong* lret = &self->operator=(ll);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxLongLong >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxLongLong & wxLongLong::operator=(long l)
+	static int _bind_op_assign_overload_2(lua_State *L) {
+		if (!_lg_typecheck_op_assign_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxLongLong & wxLongLong::operator=(long l) function, expected prototype:\nwxLongLong & wxLongLong::operator=(long l)\nClass arguments details:\n");
+		}
+
+		long l=(long)lua_tointeger(L,2);
+
+		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxLongLong & wxLongLong::operator=(long). Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
+		}
+		const wxLongLong* lret = &self->operator=(l);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxLongLong >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxLongLong & wxLongLong::operator=(unsigned long l)
+	static int _bind_op_assign_overload_3(lua_State *L) {
+		if (!_lg_typecheck_op_assign_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxLongLong & wxLongLong::operator=(unsigned long l) function, expected prototype:\nwxLongLong & wxLongLong::operator=(unsigned long l)\nClass arguments details:\n");
+		}
+
+		unsigned long l=(unsigned long)lua_tointeger(L,2);
+
+		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxLongLong & wxLongLong::operator=(unsigned long). Got : '%s'",typeid(Luna< wxLongLong >::check(L,1)).name());
+		}
+		const wxLongLong* lret = &self->operator=(l);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxLongLong >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for wxLongLong::operator=
+	static int _bind_op_assign(lua_State *L) {
+		if (_lg_typecheck_op_assign_overload_1(L)) return _bind_op_assign_overload_1(L);
+		if (_lg_typecheck_op_assign_overload_2(L)) return _bind_op_assign_overload_2(L);
+		if (_lg_typecheck_op_assign_overload_3(L)) return _bind_op_assign_overload_3(L);
+
+		luaL_error(L, "error in function operator=, cannot match any of the overloads for function operator=:\n  operator=(const wxULongLong &)\n  operator=(long)\n  operator=(unsigned long)\n");
+		return 0;
+	}
+
 
 };
 
@@ -572,6 +674,7 @@ luna_RegType LunaTraits< wxLongLong >::methods[] = {
 	{"__add", &luna_wrapper_wxLongLong::_bind___add},
 	{"__sub", &luna_wrapper_wxLongLong::_bind___sub},
 	{"__unm", &luna_wrapper_wxLongLong::_bind___unm},
+	{"op_assign", &luna_wrapper_wxLongLong::_bind_op_assign},
 	{"dynCast", &luna_wrapper_wxLongLong::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxLongLong::_bind___eq},
 	{0,0}

@@ -57,11 +57,11 @@ public:
 };
 
 osgParticle::range< osg::Vec2f >* LunaTraits< osgParticle::range< osg::Vec2f > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new osgParticle::range< osg::Vec2f >();
 }
 
 void LunaTraits< osgParticle::range< osg::Vec2f > >::_bind_dtor(osgParticle::range< osg::Vec2f >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< osgParticle::range< osg::Vec2f > >::className[] = "osgParticle_range_osg_Vec2f";

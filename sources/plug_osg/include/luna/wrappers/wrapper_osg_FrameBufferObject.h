@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_osg_FrameBufferObject() {
+		logDEBUG3("Calling delete function for wrapper osg_FrameBufferObject");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::FrameBufferObject*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_FrameBufferObject(lua_State* L, lua_Table* dum) : osg::FrameBufferObject(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_FrameBufferObject(lua_State* L, lua_Table* dum, const osg::FrameBufferObject & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::FrameBufferObject(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_FrameBufferObject(lua_State* L, lua_Table* dum) 
+		: osg::FrameBufferObject(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_FrameBufferObject(lua_State* L, lua_Table* dum, const osg::FrameBufferObject & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osg::FrameBufferObject(copy, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,9 +44,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return FrameBufferObject::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +69,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -50,6 +79,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -60,6 +90,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -69,6 +100,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -78,6 +110,7 @@ public:
 	// osg::Texture * osg::StateAttribute::asTexture()
 	osg::Texture * asTexture() {
 		if(_obj.pushFunction("asTexture")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
@@ -87,6 +120,7 @@ public:
 	// const osg::Texture * osg::StateAttribute::asTexture() const
 	const osg::Texture * asTexture() const {
 		if(_obj.pushFunction("asTexture")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
@@ -96,6 +130,7 @@ public:
 	// unsigned int osg::StateAttribute::getMember() const
 	unsigned int getMember() const {
 		if(_obj.pushFunction("getMember")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -105,6 +140,7 @@ public:
 	// bool osg::StateAttribute::isTextureAttribute() const
 	bool isTextureAttribute() const {
 		if(_obj.pushFunction("isTextureAttribute")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -114,6 +150,7 @@ public:
 	// bool osg::StateAttribute::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	bool getModeUsage(osg::StateAttribute::ModeUsage & arg1) const {
 		if(_obj.pushFunction("getModeUsage")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<bool>());
 		}
@@ -124,6 +161,7 @@ public:
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
 	bool checkValidityOfAssociatedModes(osg::State & arg1) const {
 		if(_obj.pushFunction("checkValidityOfAssociatedModes")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<bool>());
 		}
@@ -134,6 +172,7 @@ public:
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
 	void compileGLObjects(osg::State & arg1) const {
 		if(_obj.pushFunction("compileGLObjects")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -144,6 +183,7 @@ public:
 	// osg::Object * osg::FrameBufferObject::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -153,6 +193,7 @@ public:
 	// osg::Object * osg::FrameBufferObject::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -163,6 +204,7 @@ public:
 	// bool osg::FrameBufferObject::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -173,6 +215,7 @@ public:
 	// const char * osg::FrameBufferObject::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -182,6 +225,7 @@ public:
 	// const char * osg::FrameBufferObject::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -191,6 +235,7 @@ public:
 	// osg::StateAttribute::Type osg::FrameBufferObject::getType() const
 	osg::StateAttribute::Type getType() const {
 		if(_obj.pushFunction("getType")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
@@ -200,6 +245,7 @@ public:
 	// int osg::FrameBufferObject::compare(const osg::StateAttribute & sa) const
 	int compare(const osg::StateAttribute & sa) const {
 		if(_obj.pushFunction("compare")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			_obj.pushArg(&sa);
 			return (_obj.callFunction<int>());
 		}
@@ -210,6 +256,7 @@ public:
 	// void osg::FrameBufferObject::apply(osg::State & arg1) const
 	void apply(osg::State & arg1) const {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -220,6 +267,7 @@ public:
 	// void osg::FrameBufferObject::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osg::FrameBufferObject*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -242,6 +290,11 @@ public:
 	// unsigned int osg::FrameBufferObject::convertBufferComponentToGLenum(osg::Camera::BufferComponent attachment_point) const
 	unsigned int public_convertBufferComponentToGLenum(osg::Camera::BufferComponent attachment_point) const {
 		return osg::FrameBufferObject::convertBufferComponentToGLenum(attachment_point);
+	};
+
+	// osg::FrameBufferObject & osg::FrameBufferObject::operator=(const osg::FrameBufferObject & arg1)
+	osg::FrameBufferObject & public_op_assign(const osg::FrameBufferObject & arg1) {
+		return osg::FrameBufferObject::operator=(arg1);
 	};
 
 	// void osg::StateAttribute::addParent(osg::StateSet * object)
@@ -282,6 +335,13 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		return true;
 	}
 
@@ -371,6 +431,32 @@ public:
 		return 1;
 	}
 
+	// osg::FrameBufferObject & osg::FrameBufferObject::public_op_assign(const osg::FrameBufferObject & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::FrameBufferObject & osg::FrameBufferObject::public_op_assign(const osg::FrameBufferObject & arg1) function, expected prototype:\nosg::FrameBufferObject & osg::FrameBufferObject::public_op_assign(const osg::FrameBufferObject & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::FrameBufferObject* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::FrameBufferObject >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::FrameBufferObject::public_op_assign function");
+		}
+		const osg::FrameBufferObject & _arg1=*_arg1_ptr;
+
+		wrapper_osg_FrameBufferObject* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_FrameBufferObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::FrameBufferObject & osg::FrameBufferObject::public_op_assign(const osg::FrameBufferObject &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::FrameBufferObject* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::FrameBufferObject >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osg::StateAttribute::public_addParent(osg::StateSet * object)
 	static int _bind_public_addParent(lua_State *L) {
 		if (!_lg_typecheck_public_addParent(L)) {
@@ -450,13 +536,14 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_updateDrawBuffers",_bind_public_updateDrawBuffers},
-		{"protected_dirtyAll",_bind_public_dirtyAll},
-		{"protected_convertBufferComponentToGLenum",_bind_public_convertBufferComponentToGLenum},
-		{"protected_addParent",_bind_public_addParent},
-		{"protected_removeParent",_bind_public_removeParent},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"updateDrawBuffers",_bind_public_updateDrawBuffers},
+		{"dirtyAll",_bind_public_dirtyAll},
+		{"convertBufferComponentToGLenum",_bind_public_convertBufferComponentToGLenum},
+		{"op_assign",_bind_public_op_assign},
+		{"addParent",_bind_public_addParent},
+		{"removeParent",_bind_public_removeParent},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_sgt_LogSink() {
+		logDEBUG3("Calling delete function for wrapper sgt_LogSink");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((sgt::LogSink*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_sgt_LogSink(lua_State* L, lua_Table* dum, const std::string & name = "") : sgt::LogSink(name), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_sgt_LogSink(lua_State* L, lua_Table* dum, const std::string & name = "") 
+		: sgt::LogSink(name), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((sgt::LogSink*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +39,7 @@ public:
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((sgt::LogSink*)this);
 			_obj.pushArg(threadSafe);
 			return (_obj.callFunction<void>());
 		}
@@ -40,6 +50,7 @@ public:
 	// void sgt::LogSink::output(int level, std::string trace, std::string msg)
 	void output(int level, std::string trace, std::string msg) {
 		THROW_IF(!_obj.pushFunction("output"),"No implementation for abstract function sgt::LogSink::output");
+		_obj.pushArg((sgt::LogSink*)this);
 		_obj.pushArg(level);
 		_obj.pushArg(trace);
 		_obj.pushArg(msg);
@@ -49,6 +60,7 @@ public:
 	// void sgt::LogSink::process(int level, std::string trace, std::string msg)
 	void process(int level, std::string trace, std::string msg) {
 		if(_obj.pushFunction("process")) {
+			_obj.pushArg((sgt::LogSink*)this);
 			_obj.pushArg(level);
 			_obj.pushArg(trace);
 			_obj.pushArg(msg);
@@ -129,8 +141,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

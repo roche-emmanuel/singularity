@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -332,7 +332,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,18740017) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,26989213) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -341,7 +341,25 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,48105087) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,81169401) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getAllThreads(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,9185441) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getOperationThreads(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,51846713) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -350,7 +368,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,98997480) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,36779322) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -359,7 +377,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,2917259) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,21902908) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -368,6 +386,13 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -411,6 +436,37 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_setThreadingModel(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_suggestBestThreadingModel(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setUpThreading(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_stopThreading(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_startThreading(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_frame(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
@@ -429,7 +485,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,98734151) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,20911347) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -559,7 +615,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,18740017) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,26989213) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -568,7 +624,25 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,48105087) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,81169401) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getAllThreads(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,9185441) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getOperationThreads(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,51846713) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -577,7 +651,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,98997480) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,36779322) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -586,7 +660,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,2917259) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,21902908) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -1420,7 +1494,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Cameras* cameras_ptr=(Luna< osgViewer::ViewerBase::Cameras >::check(L,2));
+		osgViewer::ViewerBase::Cameras* cameras_ptr=(Luna< std::vector< osg::Camera * > >::checkSubType< osgViewer::ViewerBase::Cameras >(L,2));
 		if( !cameras_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cameras in osgViewer::CompositeViewer::getCameras function");
 		}
@@ -1446,7 +1520,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Contexts* contexts_ptr=(Luna< osgViewer::ViewerBase::Contexts >::check(L,2));
+		osgViewer::ViewerBase::Contexts* contexts_ptr=(Luna< std::vector< osg::GraphicsContext * > >::checkSubType< osgViewer::ViewerBase::Contexts >(L,2));
 		if( !contexts_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg contexts in osgViewer::CompositeViewer::getContexts function");
 		}
@@ -1463,6 +1537,58 @@ public:
 		return 0;
 	}
 
+	// void osgViewer::CompositeViewer::getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true)
+	static int _bind_getAllThreads(lua_State *L) {
+		if (!_lg_typecheck_getAllThreads(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::CompositeViewer::getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true) function, expected prototype:\nvoid osgViewer::CompositeViewer::getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true)\nClass arguments details:\narg 1 ID = 11304538\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osgViewer::ViewerBase::Threads* threads_ptr=(Luna< std::vector< OpenThreads::Thread * > >::checkSubType< osgViewer::ViewerBase::Threads >(L,2));
+		if( !threads_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg threads in osgViewer::CompositeViewer::getAllThreads function");
+		}
+		osgViewer::ViewerBase::Threads & threads=*threads_ptr;
+		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+
+		osgViewer::CompositeViewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::CompositeViewer::getAllThreads(osgViewer::ViewerBase::Threads &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->getAllThreads(threads, onlyActive);
+
+		return 0;
+	}
+
+	// void osgViewer::CompositeViewer::getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true)
+	static int _bind_getOperationThreads(lua_State *L) {
+		if (!_lg_typecheck_getOperationThreads(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::CompositeViewer::getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true) function, expected prototype:\nvoid osgViewer::CompositeViewer::getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true)\nClass arguments details:\narg 1 ID = 32227808\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osgViewer::ViewerBase::OperationThreads* threads_ptr=(Luna< std::vector< osg::OperationThread * > >::checkSubType< osgViewer::ViewerBase::OperationThreads >(L,2));
+		if( !threads_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg threads in osgViewer::CompositeViewer::getOperationThreads function");
+		}
+		osgViewer::ViewerBase::OperationThreads & threads=*threads_ptr;
+		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+
+		osgViewer::CompositeViewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::CompositeViewer::getOperationThreads(osgViewer::ViewerBase::OperationThreads &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->getOperationThreads(threads, onlyActive);
+
+		return 0;
+	}
+
 	// void osgViewer::CompositeViewer::getScenes(osgViewer::ViewerBase::Scenes & scenes, bool onlyValid = true)
 	static int _bind_getScenes(lua_State *L) {
 		if (!_lg_typecheck_getScenes(L)) {
@@ -1472,7 +1598,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Scenes* scenes_ptr=(Luna< osgViewer::ViewerBase::Scenes >::check(L,2));
+		osgViewer::ViewerBase::Scenes* scenes_ptr=(Luna< std::vector< osgViewer::Scene * > >::checkSubType< osgViewer::ViewerBase::Scenes >(L,2));
 		if( !scenes_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg scenes in osgViewer::CompositeViewer::getScenes function");
 		}
@@ -1498,7 +1624,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Views* views_ptr=(Luna< osgViewer::ViewerBase::Views >::check(L,2));
+		osgViewer::ViewerBase::Views* views_ptr=(Luna< std::vector< osgViewer::View * > >::checkSubType< osgViewer::ViewerBase::Views >(L,2));
 		if( !views_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg views in osgViewer::CompositeViewer::getViews function");
 		}
@@ -1534,6 +1660,25 @@ public:
 			luaL_error(L, "Invalid object in function call void osgViewer::CompositeViewer::getUsage(osg::ApplicationUsage &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->getUsage(usage);
+
+		return 0;
+	}
+
+	// void osgViewer::CompositeViewer::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::CompositeViewer::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgViewer::CompositeViewer::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgViewer::CompositeViewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::CompositeViewer::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->CompositeViewer::setThreadSafeRefUnref(threadSafe);
 
 		return 0;
 	}
@@ -1666,6 +1811,98 @@ public:
 		return 0;
 	}
 
+	// void osgViewer::CompositeViewer::base_setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel)
+	static int _bind_base_setThreadingModel(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadingModel(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::CompositeViewer::base_setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel) function, expected prototype:\nvoid osgViewer::CompositeViewer::base_setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel)\nClass arguments details:\n");
+		}
+
+		osgViewer::ViewerBase::ThreadingModel threadingModel=(osgViewer::ViewerBase::ThreadingModel)lua_tointeger(L,2);
+
+		osgViewer::CompositeViewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::CompositeViewer::base_setThreadingModel(osgViewer::ViewerBase::ThreadingModel). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->CompositeViewer::setThreadingModel(threadingModel);
+
+		return 0;
+	}
+
+	// osgViewer::ViewerBase::ThreadingModel osgViewer::CompositeViewer::base_suggestBestThreadingModel()
+	static int _bind_base_suggestBestThreadingModel(lua_State *L) {
+		if (!_lg_typecheck_base_suggestBestThreadingModel(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::ViewerBase::ThreadingModel osgViewer::CompositeViewer::base_suggestBestThreadingModel() function, expected prototype:\nosgViewer::ViewerBase::ThreadingModel osgViewer::CompositeViewer::base_suggestBestThreadingModel()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::CompositeViewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgViewer::ViewerBase::ThreadingModel osgViewer::CompositeViewer::base_suggestBestThreadingModel(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osgViewer::ViewerBase::ThreadingModel lret = self->CompositeViewer::suggestBestThreadingModel();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgViewer::CompositeViewer::base_setUpThreading()
+	static int _bind_base_setUpThreading(lua_State *L) {
+		if (!_lg_typecheck_base_setUpThreading(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::CompositeViewer::base_setUpThreading() function, expected prototype:\nvoid osgViewer::CompositeViewer::base_setUpThreading()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::CompositeViewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::CompositeViewer::base_setUpThreading(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->CompositeViewer::setUpThreading();
+
+		return 0;
+	}
+
+	// void osgViewer::CompositeViewer::base_stopThreading()
+	static int _bind_base_stopThreading(lua_State *L) {
+		if (!_lg_typecheck_base_stopThreading(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::CompositeViewer::base_stopThreading() function, expected prototype:\nvoid osgViewer::CompositeViewer::base_stopThreading()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::CompositeViewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::CompositeViewer::base_stopThreading(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->CompositeViewer::stopThreading();
+
+		return 0;
+	}
+
+	// void osgViewer::CompositeViewer::base_startThreading()
+	static int _bind_base_startThreading(lua_State *L) {
+		if (!_lg_typecheck_base_startThreading(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::CompositeViewer::base_startThreading() function, expected prototype:\nvoid osgViewer::CompositeViewer::base_startThreading()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::CompositeViewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::CompositeViewer::base_startThreading(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->CompositeViewer::startThreading();
+
+		return 0;
+	}
+
 	// void osgViewer::CompositeViewer::base_frame(double simulationTime = DBL_MAX)
 	static int _bind_base_frame(lua_State *L) {
 		if (!_lg_typecheck_base_frame(L)) {
@@ -1714,7 +1951,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Windows* windows_ptr=(Luna< osgViewer::ViewerBase::Windows >::check(L,2));
+		osgViewer::ViewerBase::Windows* windows_ptr=(Luna< std::vector< osgViewer::GraphicsWindow * > >::checkSubType< osgViewer::ViewerBase::Windows >(L,2));
 		if( !windows_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg windows in osgViewer::CompositeViewer::base_getWindows function");
 		}
@@ -2130,7 +2367,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Cameras* cameras_ptr=(Luna< osgViewer::ViewerBase::Cameras >::check(L,2));
+		osgViewer::ViewerBase::Cameras* cameras_ptr=(Luna< std::vector< osg::Camera * > >::checkSubType< osgViewer::ViewerBase::Cameras >(L,2));
 		if( !cameras_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cameras in osgViewer::CompositeViewer::base_getCameras function");
 		}
@@ -2156,7 +2393,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Contexts* contexts_ptr=(Luna< osgViewer::ViewerBase::Contexts >::check(L,2));
+		osgViewer::ViewerBase::Contexts* contexts_ptr=(Luna< std::vector< osg::GraphicsContext * > >::checkSubType< osgViewer::ViewerBase::Contexts >(L,2));
 		if( !contexts_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg contexts in osgViewer::CompositeViewer::base_getContexts function");
 		}
@@ -2173,6 +2410,58 @@ public:
 		return 0;
 	}
 
+	// void osgViewer::CompositeViewer::base_getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true)
+	static int _bind_base_getAllThreads(lua_State *L) {
+		if (!_lg_typecheck_base_getAllThreads(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::CompositeViewer::base_getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true) function, expected prototype:\nvoid osgViewer::CompositeViewer::base_getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true)\nClass arguments details:\narg 1 ID = 11304538\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osgViewer::ViewerBase::Threads* threads_ptr=(Luna< std::vector< OpenThreads::Thread * > >::checkSubType< osgViewer::ViewerBase::Threads >(L,2));
+		if( !threads_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg threads in osgViewer::CompositeViewer::base_getAllThreads function");
+		}
+		osgViewer::ViewerBase::Threads & threads=*threads_ptr;
+		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+
+		osgViewer::CompositeViewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::CompositeViewer::base_getAllThreads(osgViewer::ViewerBase::Threads &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->CompositeViewer::getAllThreads(threads, onlyActive);
+
+		return 0;
+	}
+
+	// void osgViewer::CompositeViewer::base_getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true)
+	static int _bind_base_getOperationThreads(lua_State *L) {
+		if (!_lg_typecheck_base_getOperationThreads(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::CompositeViewer::base_getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true) function, expected prototype:\nvoid osgViewer::CompositeViewer::base_getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true)\nClass arguments details:\narg 1 ID = 32227808\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osgViewer::ViewerBase::OperationThreads* threads_ptr=(Luna< std::vector< osg::OperationThread * > >::checkSubType< osgViewer::ViewerBase::OperationThreads >(L,2));
+		if( !threads_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg threads in osgViewer::CompositeViewer::base_getOperationThreads function");
+		}
+		osgViewer::ViewerBase::OperationThreads & threads=*threads_ptr;
+		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+
+		osgViewer::CompositeViewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::CompositeViewer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::CompositeViewer::base_getOperationThreads(osgViewer::ViewerBase::OperationThreads &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->CompositeViewer::getOperationThreads(threads, onlyActive);
+
+		return 0;
+	}
+
 	// void osgViewer::CompositeViewer::base_getScenes(osgViewer::ViewerBase::Scenes & scenes, bool onlyValid = true)
 	static int _bind_base_getScenes(lua_State *L) {
 		if (!_lg_typecheck_base_getScenes(L)) {
@@ -2182,7 +2471,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Scenes* scenes_ptr=(Luna< osgViewer::ViewerBase::Scenes >::check(L,2));
+		osgViewer::ViewerBase::Scenes* scenes_ptr=(Luna< std::vector< osgViewer::Scene * > >::checkSubType< osgViewer::ViewerBase::Scenes >(L,2));
 		if( !scenes_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg scenes in osgViewer::CompositeViewer::base_getScenes function");
 		}
@@ -2208,7 +2497,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Views* views_ptr=(Luna< osgViewer::ViewerBase::Views >::check(L,2));
+		osgViewer::ViewerBase::Views* views_ptr=(Luna< std::vector< osgViewer::View * > >::checkSubType< osgViewer::ViewerBase::Views >(L,2));
 		if( !views_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg views in osgViewer::CompositeViewer::base_getViews function");
 		}
@@ -2300,14 +2589,22 @@ luna_RegType LunaTraits< osgViewer::CompositeViewer >::methods[] = {
 	{"getViewWithFocus", &luna_wrapper_osgViewer_CompositeViewer::_bind_getViewWithFocus},
 	{"getCameras", &luna_wrapper_osgViewer_CompositeViewer::_bind_getCameras},
 	{"getContexts", &luna_wrapper_osgViewer_CompositeViewer::_bind_getContexts},
+	{"getAllThreads", &luna_wrapper_osgViewer_CompositeViewer::_bind_getAllThreads},
+	{"getOperationThreads", &luna_wrapper_osgViewer_CompositeViewer::_bind_getOperationThreads},
 	{"getScenes", &luna_wrapper_osgViewer_CompositeViewer::_bind_getScenes},
 	{"getViews", &luna_wrapper_osgViewer_CompositeViewer::_bind_getViews},
 	{"getUsage", &luna_wrapper_osgViewer_CompositeViewer::_bind_getUsage},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_getUserData},
 	{"base_releaseGLObjects", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_releaseGLObjects},
+	{"base_setThreadingModel", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_setThreadingModel},
+	{"base_suggestBestThreadingModel", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_suggestBestThreadingModel},
+	{"base_setUpThreading", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_setUpThreading},
+	{"base_stopThreading", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_stopThreading},
+	{"base_startThreading", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_startThreading},
 	{"base_frame", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_frame},
 	{"base_renderingTraversals", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_renderingTraversals},
 	{"base_getWindows", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_getWindows},
@@ -2331,6 +2628,8 @@ luna_RegType LunaTraits< osgViewer::CompositeViewer >::methods[] = {
 	{"base_updateTraversal", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_updateTraversal},
 	{"base_getCameras", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_getCameras},
 	{"base_getContexts", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_getContexts},
+	{"base_getAllThreads", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_getAllThreads},
+	{"base_getOperationThreads", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_getOperationThreads},
 	{"base_getScenes", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_getScenes},
 	{"base_getViews", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_getViews},
 	{"base_getUsage", &luna_wrapper_osgViewer_CompositeViewer::_bind_base_getUsage},

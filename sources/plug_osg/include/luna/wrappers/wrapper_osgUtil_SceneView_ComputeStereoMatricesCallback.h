@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_SceneView_ComputeStereoMatricesCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::SceneView::ComputeStereoMatricesCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback(lua_State* L, lua_Table* dum) : osgUtil::SceneView::ComputeStereoMatricesCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback(lua_State* L, lua_Table* dum) 
+		: osgUtil::SceneView::ComputeStereoMatricesCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::SceneView::ComputeStereoMatricesCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,9 +36,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::SceneView::ComputeStereoMatricesCallback*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ComputeStereoMatricesCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osg::Matrixd osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeProjection(const osg::Matrixd & projection) const
 	osg::Matrixd computeLeftEyeProjection(const osg::Matrixd & projection) const {
 		THROW_IF(!_obj.pushFunction("computeLeftEyeProjection"),"No implementation for abstract function osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeProjection");
+		_obj.pushArg((osgUtil::SceneView::ComputeStereoMatricesCallback*)this);
 		_obj.pushArg(&projection);
 		return *(_obj.callFunction<osg::Matrixd*>());
 	};
@@ -37,6 +58,7 @@ public:
 	// osg::Matrixd osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeView(const osg::Matrixd & view) const
 	osg::Matrixd computeLeftEyeView(const osg::Matrixd & view) const {
 		THROW_IF(!_obj.pushFunction("computeLeftEyeView"),"No implementation for abstract function osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeView");
+		_obj.pushArg((osgUtil::SceneView::ComputeStereoMatricesCallback*)this);
 		_obj.pushArg(&view);
 		return *(_obj.callFunction<osg::Matrixd*>());
 	};
@@ -44,6 +66,7 @@ public:
 	// osg::Matrixd osgUtil::SceneView::ComputeStereoMatricesCallback::computeRightEyeProjection(const osg::Matrixd & projection) const
 	osg::Matrixd computeRightEyeProjection(const osg::Matrixd & projection) const {
 		THROW_IF(!_obj.pushFunction("computeRightEyeProjection"),"No implementation for abstract function osgUtil::SceneView::ComputeStereoMatricesCallback::computeRightEyeProjection");
+		_obj.pushArg((osgUtil::SceneView::ComputeStereoMatricesCallback*)this);
 		_obj.pushArg(&projection);
 		return *(_obj.callFunction<osg::Matrixd*>());
 	};
@@ -51,6 +74,7 @@ public:
 	// osg::Matrixd osgUtil::SceneView::ComputeStereoMatricesCallback::computeRightEyeView(const osg::Matrixd & view) const
 	osg::Matrixd computeRightEyeView(const osg::Matrixd & view) const {
 		THROW_IF(!_obj.pushFunction("computeRightEyeView"),"No implementation for abstract function osgUtil::SceneView::ComputeStereoMatricesCallback::computeRightEyeView");
+		_obj.pushArg((osgUtil::SceneView::ComputeStereoMatricesCallback*)this);
 		_obj.pushArg(&view);
 		return *(_obj.callFunction<osg::Matrixd*>());
 	};
@@ -126,8 +150,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -551,6 +551,149 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getM_flags(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_margins(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_padding(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_position(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_size(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_border(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_outline(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_floatMode(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_clearMode(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_collapseMode(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_verticalAlignment(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_flags(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_margins(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92994080) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_padding(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92994080) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_position(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92994080) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_size(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,81312281) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_border(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50697174) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_outline(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50697174) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_floatMode(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_clearMode(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_collapseMode(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_verticalAlignment(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 1 valid operators)
@@ -2539,6 +2682,460 @@ public:
 		return 0;
 	}
 
+	// int wxTextBoxAttr::m_flags()
+	static int _bind_getM_flags(lua_State *L) {
+		if (!_lg_typecheck_getM_flags(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxTextBoxAttr::m_flags() function, expected prototype:\nint wxTextBoxAttr::m_flags()\nClass arguments details:\n");
+		}
+
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxTextBoxAttr::m_flags(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		int lret = self->m_flags;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxTextAttrDimensions wxTextBoxAttr::m_margins()
+	static int _bind_getM_margins(lua_State *L) {
+		if (!_lg_typecheck_getM_margins(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextAttrDimensions wxTextBoxAttr::m_margins() function, expected prototype:\nwxTextAttrDimensions wxTextBoxAttr::m_margins()\nClass arguments details:\n");
+		}
+
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextAttrDimensions wxTextBoxAttr::m_margins(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		const wxTextAttrDimensions* lret = &self->m_margins;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextAttrDimensions >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextAttrDimensions wxTextBoxAttr::m_padding()
+	static int _bind_getM_padding(lua_State *L) {
+		if (!_lg_typecheck_getM_padding(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextAttrDimensions wxTextBoxAttr::m_padding() function, expected prototype:\nwxTextAttrDimensions wxTextBoxAttr::m_padding()\nClass arguments details:\n");
+		}
+
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextAttrDimensions wxTextBoxAttr::m_padding(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		const wxTextAttrDimensions* lret = &self->m_padding;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextAttrDimensions >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextAttrDimensions wxTextBoxAttr::m_position()
+	static int _bind_getM_position(lua_State *L) {
+		if (!_lg_typecheck_getM_position(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextAttrDimensions wxTextBoxAttr::m_position() function, expected prototype:\nwxTextAttrDimensions wxTextBoxAttr::m_position()\nClass arguments details:\n");
+		}
+
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextAttrDimensions wxTextBoxAttr::m_position(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		const wxTextAttrDimensions* lret = &self->m_position;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextAttrDimensions >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextAttrSize wxTextBoxAttr::m_size()
+	static int _bind_getM_size(lua_State *L) {
+		if (!_lg_typecheck_getM_size(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextAttrSize wxTextBoxAttr::m_size() function, expected prototype:\nwxTextAttrSize wxTextBoxAttr::m_size()\nClass arguments details:\n");
+		}
+
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextAttrSize wxTextBoxAttr::m_size(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		const wxTextAttrSize* lret = &self->m_size;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextAttrSize >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextAttrBorders wxTextBoxAttr::m_border()
+	static int _bind_getM_border(lua_State *L) {
+		if (!_lg_typecheck_getM_border(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextAttrBorders wxTextBoxAttr::m_border() function, expected prototype:\nwxTextAttrBorders wxTextBoxAttr::m_border()\nClass arguments details:\n");
+		}
+
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextAttrBorders wxTextBoxAttr::m_border(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		const wxTextAttrBorders* lret = &self->m_border;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextAttrBorders >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextAttrBorders wxTextBoxAttr::m_outline()
+	static int _bind_getM_outline(lua_State *L) {
+		if (!_lg_typecheck_getM_outline(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextAttrBorders wxTextBoxAttr::m_outline() function, expected prototype:\nwxTextAttrBorders wxTextBoxAttr::m_outline()\nClass arguments details:\n");
+		}
+
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextAttrBorders wxTextBoxAttr::m_outline(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		const wxTextAttrBorders* lret = &self->m_outline;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextAttrBorders >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextBoxAttrFloatStyle wxTextBoxAttr::m_floatMode()
+	static int _bind_getM_floatMode(lua_State *L) {
+		if (!_lg_typecheck_getM_floatMode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextBoxAttrFloatStyle wxTextBoxAttr::m_floatMode() function, expected prototype:\nwxTextBoxAttrFloatStyle wxTextBoxAttr::m_floatMode()\nClass arguments details:\n");
+		}
+
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextBoxAttrFloatStyle wxTextBoxAttr::m_floatMode(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		wxTextBoxAttrFloatStyle lret = self->m_floatMode;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxTextBoxAttrClearStyle wxTextBoxAttr::m_clearMode()
+	static int _bind_getM_clearMode(lua_State *L) {
+		if (!_lg_typecheck_getM_clearMode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextBoxAttrClearStyle wxTextBoxAttr::m_clearMode() function, expected prototype:\nwxTextBoxAttrClearStyle wxTextBoxAttr::m_clearMode()\nClass arguments details:\n");
+		}
+
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextBoxAttrClearStyle wxTextBoxAttr::m_clearMode(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		wxTextBoxAttrClearStyle lret = self->m_clearMode;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxTextBoxAttrCollapseMode wxTextBoxAttr::m_collapseMode()
+	static int _bind_getM_collapseMode(lua_State *L) {
+		if (!_lg_typecheck_getM_collapseMode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextBoxAttrCollapseMode wxTextBoxAttr::m_collapseMode() function, expected prototype:\nwxTextBoxAttrCollapseMode wxTextBoxAttr::m_collapseMode()\nClass arguments details:\n");
+		}
+
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextBoxAttrCollapseMode wxTextBoxAttr::m_collapseMode(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		wxTextBoxAttrCollapseMode lret = self->m_collapseMode;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxTextBoxAttrVerticalAlignment wxTextBoxAttr::m_verticalAlignment()
+	static int _bind_getM_verticalAlignment(lua_State *L) {
+		if (!_lg_typecheck_getM_verticalAlignment(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextBoxAttrVerticalAlignment wxTextBoxAttr::m_verticalAlignment() function, expected prototype:\nwxTextBoxAttrVerticalAlignment wxTextBoxAttr::m_verticalAlignment()\nClass arguments details:\n");
+		}
+
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextBoxAttrVerticalAlignment wxTextBoxAttr::m_verticalAlignment(). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		wxTextBoxAttrVerticalAlignment lret = self->m_verticalAlignment;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxTextBoxAttr::m_flags(int value)
+	static int _bind_setM_flags(lua_State *L) {
+		if (!_lg_typecheck_setM_flags(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextBoxAttr::m_flags(int value) function, expected prototype:\nvoid wxTextBoxAttr::m_flags(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::m_flags(int). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		self->m_flags = value;
+
+		return 0;
+	}
+
+	// void wxTextBoxAttr::m_margins(wxTextAttrDimensions value)
+	static int _bind_setM_margins(lua_State *L) {
+		if (!_lg_typecheck_setM_margins(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextBoxAttr::m_margins(wxTextAttrDimensions value) function, expected prototype:\nvoid wxTextBoxAttr::m_margins(wxTextAttrDimensions value)\nClass arguments details:\narg 1 ID = 92994080\n");
+		}
+
+		wxTextAttrDimensions* value_ptr=(Luna< wxTextAttrDimensions >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxTextBoxAttr::m_margins function");
+		}
+		wxTextAttrDimensions value=*value_ptr;
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::m_margins(wxTextAttrDimensions). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		self->m_margins = value;
+
+		return 0;
+	}
+
+	// void wxTextBoxAttr::m_padding(wxTextAttrDimensions value)
+	static int _bind_setM_padding(lua_State *L) {
+		if (!_lg_typecheck_setM_padding(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextBoxAttr::m_padding(wxTextAttrDimensions value) function, expected prototype:\nvoid wxTextBoxAttr::m_padding(wxTextAttrDimensions value)\nClass arguments details:\narg 1 ID = 92994080\n");
+		}
+
+		wxTextAttrDimensions* value_ptr=(Luna< wxTextAttrDimensions >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxTextBoxAttr::m_padding function");
+		}
+		wxTextAttrDimensions value=*value_ptr;
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::m_padding(wxTextAttrDimensions). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		self->m_padding = value;
+
+		return 0;
+	}
+
+	// void wxTextBoxAttr::m_position(wxTextAttrDimensions value)
+	static int _bind_setM_position(lua_State *L) {
+		if (!_lg_typecheck_setM_position(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextBoxAttr::m_position(wxTextAttrDimensions value) function, expected prototype:\nvoid wxTextBoxAttr::m_position(wxTextAttrDimensions value)\nClass arguments details:\narg 1 ID = 92994080\n");
+		}
+
+		wxTextAttrDimensions* value_ptr=(Luna< wxTextAttrDimensions >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxTextBoxAttr::m_position function");
+		}
+		wxTextAttrDimensions value=*value_ptr;
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::m_position(wxTextAttrDimensions). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		self->m_position = value;
+
+		return 0;
+	}
+
+	// void wxTextBoxAttr::m_size(wxTextAttrSize value)
+	static int _bind_setM_size(lua_State *L) {
+		if (!_lg_typecheck_setM_size(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextBoxAttr::m_size(wxTextAttrSize value) function, expected prototype:\nvoid wxTextBoxAttr::m_size(wxTextAttrSize value)\nClass arguments details:\narg 1 ID = 81312281\n");
+		}
+
+		wxTextAttrSize* value_ptr=(Luna< wxTextAttrSize >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxTextBoxAttr::m_size function");
+		}
+		wxTextAttrSize value=*value_ptr;
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::m_size(wxTextAttrSize). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		self->m_size = value;
+
+		return 0;
+	}
+
+	// void wxTextBoxAttr::m_border(wxTextAttrBorders value)
+	static int _bind_setM_border(lua_State *L) {
+		if (!_lg_typecheck_setM_border(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextBoxAttr::m_border(wxTextAttrBorders value) function, expected prototype:\nvoid wxTextBoxAttr::m_border(wxTextAttrBorders value)\nClass arguments details:\narg 1 ID = 50697174\n");
+		}
+
+		wxTextAttrBorders* value_ptr=(Luna< wxTextAttrBorders >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxTextBoxAttr::m_border function");
+		}
+		wxTextAttrBorders value=*value_ptr;
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::m_border(wxTextAttrBorders). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		self->m_border = value;
+
+		return 0;
+	}
+
+	// void wxTextBoxAttr::m_outline(wxTextAttrBorders value)
+	static int _bind_setM_outline(lua_State *L) {
+		if (!_lg_typecheck_setM_outline(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextBoxAttr::m_outline(wxTextAttrBorders value) function, expected prototype:\nvoid wxTextBoxAttr::m_outline(wxTextAttrBorders value)\nClass arguments details:\narg 1 ID = 50697174\n");
+		}
+
+		wxTextAttrBorders* value_ptr=(Luna< wxTextAttrBorders >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxTextBoxAttr::m_outline function");
+		}
+		wxTextAttrBorders value=*value_ptr;
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::m_outline(wxTextAttrBorders). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		self->m_outline = value;
+
+		return 0;
+	}
+
+	// void wxTextBoxAttr::m_floatMode(wxTextBoxAttrFloatStyle value)
+	static int _bind_setM_floatMode(lua_State *L) {
+		if (!_lg_typecheck_setM_floatMode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextBoxAttr::m_floatMode(wxTextBoxAttrFloatStyle value) function, expected prototype:\nvoid wxTextBoxAttr::m_floatMode(wxTextBoxAttrFloatStyle value)\nClass arguments details:\n");
+		}
+
+		wxTextBoxAttrFloatStyle value=(wxTextBoxAttrFloatStyle)lua_tointeger(L,2);
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::m_floatMode(wxTextBoxAttrFloatStyle). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		self->m_floatMode = value;
+
+		return 0;
+	}
+
+	// void wxTextBoxAttr::m_clearMode(wxTextBoxAttrClearStyle value)
+	static int _bind_setM_clearMode(lua_State *L) {
+		if (!_lg_typecheck_setM_clearMode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextBoxAttr::m_clearMode(wxTextBoxAttrClearStyle value) function, expected prototype:\nvoid wxTextBoxAttr::m_clearMode(wxTextBoxAttrClearStyle value)\nClass arguments details:\n");
+		}
+
+		wxTextBoxAttrClearStyle value=(wxTextBoxAttrClearStyle)lua_tointeger(L,2);
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::m_clearMode(wxTextBoxAttrClearStyle). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		self->m_clearMode = value;
+
+		return 0;
+	}
+
+	// void wxTextBoxAttr::m_collapseMode(wxTextBoxAttrCollapseMode value)
+	static int _bind_setM_collapseMode(lua_State *L) {
+		if (!_lg_typecheck_setM_collapseMode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextBoxAttr::m_collapseMode(wxTextBoxAttrCollapseMode value) function, expected prototype:\nvoid wxTextBoxAttr::m_collapseMode(wxTextBoxAttrCollapseMode value)\nClass arguments details:\n");
+		}
+
+		wxTextBoxAttrCollapseMode value=(wxTextBoxAttrCollapseMode)lua_tointeger(L,2);
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::m_collapseMode(wxTextBoxAttrCollapseMode). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		self->m_collapseMode = value;
+
+		return 0;
+	}
+
+	// void wxTextBoxAttr::m_verticalAlignment(wxTextBoxAttrVerticalAlignment value)
+	static int _bind_setM_verticalAlignment(lua_State *L) {
+		if (!_lg_typecheck_setM_verticalAlignment(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextBoxAttr::m_verticalAlignment(wxTextBoxAttrVerticalAlignment value) function, expected prototype:\nvoid wxTextBoxAttr::m_verticalAlignment(wxTextBoxAttrVerticalAlignment value)\nClass arguments details:\n");
+		}
+
+		wxTextBoxAttrVerticalAlignment value=(wxTextBoxAttrVerticalAlignment)lua_tointeger(L,2);
+
+		wxTextBoxAttr* self=(Luna< wxTextBoxAttr >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextBoxAttr::m_verticalAlignment(wxTextBoxAttrVerticalAlignment). Got : '%s'",typeid(Luna< wxTextBoxAttr >::check(L,1)).name());
+		}
+		self->m_verticalAlignment = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// bool wxTextBoxAttr::operator==(const wxTextBoxAttr & attr) const
@@ -2639,6 +3236,28 @@ luna_RegType LunaTraits< wxTextBoxAttr >::methods[] = {
 	{"SetSize", &luna_wrapper_wxTextBoxAttr::_bind_SetSize},
 	{"GetWidth", &luna_wrapper_wxTextBoxAttr::_bind_GetWidth},
 	{"GetHeight", &luna_wrapper_wxTextBoxAttr::_bind_GetHeight},
+	{"getM_flags", &luna_wrapper_wxTextBoxAttr::_bind_getM_flags},
+	{"getM_margins", &luna_wrapper_wxTextBoxAttr::_bind_getM_margins},
+	{"getM_padding", &luna_wrapper_wxTextBoxAttr::_bind_getM_padding},
+	{"getM_position", &luna_wrapper_wxTextBoxAttr::_bind_getM_position},
+	{"getM_size", &luna_wrapper_wxTextBoxAttr::_bind_getM_size},
+	{"getM_border", &luna_wrapper_wxTextBoxAttr::_bind_getM_border},
+	{"getM_outline", &luna_wrapper_wxTextBoxAttr::_bind_getM_outline},
+	{"getM_floatMode", &luna_wrapper_wxTextBoxAttr::_bind_getM_floatMode},
+	{"getM_clearMode", &luna_wrapper_wxTextBoxAttr::_bind_getM_clearMode},
+	{"getM_collapseMode", &luna_wrapper_wxTextBoxAttr::_bind_getM_collapseMode},
+	{"getM_verticalAlignment", &luna_wrapper_wxTextBoxAttr::_bind_getM_verticalAlignment},
+	{"setM_flags", &luna_wrapper_wxTextBoxAttr::_bind_setM_flags},
+	{"setM_margins", &luna_wrapper_wxTextBoxAttr::_bind_setM_margins},
+	{"setM_padding", &luna_wrapper_wxTextBoxAttr::_bind_setM_padding},
+	{"setM_position", &luna_wrapper_wxTextBoxAttr::_bind_setM_position},
+	{"setM_size", &luna_wrapper_wxTextBoxAttr::_bind_setM_size},
+	{"setM_border", &luna_wrapper_wxTextBoxAttr::_bind_setM_border},
+	{"setM_outline", &luna_wrapper_wxTextBoxAttr::_bind_setM_outline},
+	{"setM_floatMode", &luna_wrapper_wxTextBoxAttr::_bind_setM_floatMode},
+	{"setM_clearMode", &luna_wrapper_wxTextBoxAttr::_bind_setM_clearMode},
+	{"setM_collapseMode", &luna_wrapper_wxTextBoxAttr::_bind_setM_collapseMode},
+	{"setM_verticalAlignment", &luna_wrapper_wxTextBoxAttr::_bind_setM_verticalAlignment},
 	{"__eq", &luna_wrapper_wxTextBoxAttr::_bind___eq},
 	{"dynCast", &luna_wrapper_wxTextBoxAttr::_bind_dynCast},
 	{0,0}

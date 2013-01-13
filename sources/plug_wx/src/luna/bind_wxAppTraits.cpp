@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxAppTraits,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -478,9 +478,9 @@ public:
 			luaL_error(L, "Invalid object in function call wxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer *). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
 		wxTimerImpl * lret = self->CreateTimerImpl(_arg1);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxTimerImpl *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTimerImpl >::push(L,lret,false);
 
 		return 1;
 	}

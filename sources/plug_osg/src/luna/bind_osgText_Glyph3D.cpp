@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -187,13 +187,20 @@ public:
 	inline static bool _lg_typecheck_setBoundingBox(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,41227270) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getBoundingBox(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -220,6 +227,13 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -582,7 +596,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgText::Glyph3D::setBoundingBox(osg::BoundingBoxd & bb) function, expected prototype:\nvoid osgText::Glyph3D::setBoundingBox(osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
+		osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osgText::Glyph3D::setBoundingBox function");
 		}
@@ -617,6 +631,25 @@ public:
 		Luna< osg::BoundingBoxd >::push(L,lret,false);
 
 		return 1;
+	}
+
+	// void osgText::Glyph3D::setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgText::Glyph3D::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::Glyph3D::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setThreadSafeRefUnref(threadSafe);
+
+		return 0;
 	}
 
 	// void osgText::Glyph3D::setRawVertexArray(osg::Vec3Array * vertices)
@@ -711,6 +744,25 @@ public:
 		return 1;
 	}
 
+	// void osgText::Glyph3D::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgText::Glyph3D::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgText::Glyph3D::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->Glyph3D::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -750,9 +802,11 @@ luna_RegType LunaTraits< osgText::Glyph3D >::methods[] = {
 	{"getVerticalAdvance", &luna_wrapper_osgText_Glyph3D::_bind_getVerticalAdvance},
 	{"setBoundingBox", &luna_wrapper_osgText_Glyph3D::_bind_setBoundingBox},
 	{"getBoundingBox", &luna_wrapper_osgText_Glyph3D::_bind_getBoundingBox},
+	{"setThreadSafeRefUnref", &luna_wrapper_osgText_Glyph3D::_bind_setThreadSafeRefUnref},
 	{"setRawVertexArray", &luna_wrapper_osgText_Glyph3D::_bind_setRawVertexArray},
 	{"getRawVertexArray", &luna_wrapper_osgText_Glyph3D::_bind_getRawVertexArray},
 	{"getGlyphGeometry", &luna_wrapper_osgText_Glyph3D::_bind_getGlyphGeometry},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgText_Glyph3D::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osgText_Glyph3D::_bind___eq},
 	{"getTable", &luna_wrapper_osgText_Glyph3D::_bind_getTable},
 	{0,0}

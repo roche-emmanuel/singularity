@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxObject,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -1067,9 +1067,9 @@ public:
 			luaL_error(L, "Invalid object in function call wxRibbonToolBarToolBase * wxRibbonToolBar::AddTool(int, const wxBitmap &, const wxString &, wxRibbonButtonKind). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRibbonToolBarToolBase * lret = self->AddTool(tool_id, bitmap, help_string, kind);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxRibbonToolBarToolBase *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxRibbonToolBarToolBase >::push(L,lret,false);
 
 		return 1;
 	}
@@ -1104,9 +1104,9 @@ public:
 			luaL_error(L, "Invalid object in function call wxRibbonToolBarToolBase * wxRibbonToolBar::AddTool(int, const wxBitmap &, const wxBitmap &, const wxString &, wxRibbonButtonKind, wxObject *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRibbonToolBarToolBase * lret = self->AddTool(tool_id, bitmap, bitmap_disabled, help_string, kind, client_data);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxRibbonToolBarToolBase *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxRibbonToolBarToolBase >::push(L,lret,false);
 
 		return 1;
 	}
@@ -1143,9 +1143,9 @@ public:
 			luaL_error(L, "Invalid object in function call wxRibbonToolBarToolBase * wxRibbonToolBar::AddDropdownTool(int, const wxBitmap &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRibbonToolBarToolBase * lret = self->AddDropdownTool(tool_id, bitmap, help_string);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxRibbonToolBarToolBase *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxRibbonToolBarToolBase >::push(L,lret,false);
 
 		return 1;
 	}
@@ -1173,9 +1173,9 @@ public:
 			luaL_error(L, "Invalid object in function call wxRibbonToolBarToolBase * wxRibbonToolBar::AddHybridTool(int, const wxBitmap &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRibbonToolBarToolBase * lret = self->AddHybridTool(tool_id, bitmap, help_string);
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxRibbonToolBarToolBase *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxRibbonToolBarToolBase >::push(L,lret,false);
 
 		return 1;
 	}
@@ -1194,9 +1194,9 @@ public:
 			luaL_error(L, "Invalid object in function call wxRibbonToolBarToolBase * wxRibbonToolBar::AddSeparator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxRibbonToolBarToolBase * lret = self->AddSeparator();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxRibbonToolBarToolBase *'
-		////////////////////////////////////////////////////////////////////
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxRibbonToolBarToolBase >::push(L,lret,false);
 
 		return 1;
 	}

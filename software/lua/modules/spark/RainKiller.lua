@@ -5,8 +5,7 @@ Class:generateWrapping(spark.GroupCustomUpdate)
 
 function Class:initialize(options)	
 	self:debug2("Creating RainKiller");
-	
-	self:createWrapper(spark.GroupCustomUpdate)	
+
 	self._func = options.func
 end
 

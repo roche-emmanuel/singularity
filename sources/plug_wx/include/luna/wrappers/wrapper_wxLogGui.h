@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_wxLogGui() {
+		logDEBUG3("Calling delete function for wrapper wxLogGui");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxLogGui*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxLogGui(lua_State* L, lua_Table* dum) : wxLogGui(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxLogGui(lua_State* L, lua_Table* dum) 
+		: wxLogGui(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxLogGui*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,6 +37,7 @@ protected:
 	// void wxLog::DoLogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info)
 	void DoLogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info) {
 		if(_obj.pushFunction("DoLogRecord")) {
+			_obj.pushArg((wxLogGui*)this);
 			_obj.pushArg(level);
 			_obj.pushArg(msg);
 			_obj.pushArg(&info);
@@ -40,6 +50,7 @@ protected:
 	// void wxLog::DoLogTextAtLevel(unsigned long level, const wxString & msg)
 	void DoLogTextAtLevel(unsigned long level, const wxString & msg) {
 		if(_obj.pushFunction("DoLogTextAtLevel")) {
+			_obj.pushArg((wxLogGui*)this);
 			_obj.pushArg(level);
 			_obj.pushArg(msg);
 			return (_obj.callFunction<void>());
@@ -51,6 +62,7 @@ protected:
 	// void wxLog::DoLogText(const wxString & msg)
 	void DoLogText(const wxString & msg) {
 		if(_obj.pushFunction("DoLogText")) {
+			_obj.pushArg((wxLogGui*)this);
 			_obj.pushArg(msg);
 			return (_obj.callFunction<void>());
 		}
@@ -63,6 +75,7 @@ public:
 	// void wxLogGui::Flush()
 	void Flush() {
 		if(_obj.pushFunction("Flush")) {
+			_obj.pushArg((wxLogGui*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -167,9 +180,9 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_GetTitle",_bind_public_GetTitle},
-		{"protected_GetSeverityIcon",_bind_public_GetSeverityIcon},
-		{"protected_Clear",_bind_public_Clear},
+		{"GetTitle",_bind_public_GetTitle},
+		{"GetSeverityIcon",_bind_public_GetSeverityIcon},
+		{"Clear",_bind_public_Clear},
 		{NULL,NULL}
 		};
 

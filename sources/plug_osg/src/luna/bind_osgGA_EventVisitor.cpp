@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -143,7 +143,7 @@ public:
 	inline static bool _lg_typecheck_setEvents(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,42735238) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1490680) ) return false;
 		return true;
 	}
 
@@ -242,6 +242,13 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		if( (!(Luna< osg::Referenced >::checkSubType< osg::OccluderNode >(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -608,7 +615,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::EventVisitor::setEvents(const osgGA::EventQueue::Events & events) function, expected prototype:\nvoid osgGA::EventVisitor::setEvents(const osgGA::EventQueue::Events & events)\nClass arguments details:\narg 1 ID = 42735238\n");
 		}
 
-		const osgGA::EventQueue::Events* events_ptr=(Luna< osgGA::EventQueue::Events >::check(L,2));
+		const osgGA::EventQueue::Events* events_ptr=(Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::checkSubType< osgGA::EventQueue::Events >(L,2));
 		if( !events_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg events in osgGA::EventVisitor::setEvents function");
 		}
@@ -937,6 +944,25 @@ public:
 		if (_lg_typecheck_apply_overload_10(L)) return _bind_apply_overload_10(L);
 
 		luaL_error(L, "error in function apply, cannot match any of the overloads for function apply:\n  apply(osg::Node &)\n  apply(osg::Geode &)\n  apply(osg::Billboard &)\n  apply(osg::LightSource &)\n  apply(osg::Group &)\n  apply(osg::Transform &)\n  apply(osg::Projection &)\n  apply(osg::Switch &)\n  apply(osg::LOD &)\n  apply(osg::OccluderNode &)\n");
+		return 0;
+	}
+
+	// void osgGA::EventVisitor::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::EventVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgGA::EventVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgGA::EventVisitor* self=Luna< osg::Referenced >::checkSubType< osgGA::EventVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::EventVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->EventVisitor::setThreadSafeRefUnref(threadSafe);
+
 		return 0;
 	}
 
@@ -1397,6 +1423,7 @@ luna_RegType LunaTraits< osgGA::EventVisitor >::methods[] = {
 	{"getEvents", &luna_wrapper_osgGA_EventVisitor::_bind_getEvents},
 	{"reset", &luna_wrapper_osgGA_EventVisitor::_bind_reset},
 	{"apply", &luna_wrapper_osgGA_EventVisitor::_bind_apply},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgGA_EventVisitor::_bind_base_setThreadSafeRefUnref},
 	{"base_getEyePoint", &luna_wrapper_osgGA_EventVisitor::_bind_base_getEyePoint},
 	{"base_getViewPoint", &luna_wrapper_osgGA_EventVisitor::_bind_base_getViewPoint},
 	{"base_getDistanceToEyePoint", &luna_wrapper_osgGA_EventVisitor::_bind_base_getDistanceToEyePoint},

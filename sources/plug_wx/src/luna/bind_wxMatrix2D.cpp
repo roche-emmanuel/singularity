@@ -67,6 +67,58 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getM_11(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_12(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_21(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_22(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_11(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_12(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_21(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_22(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -91,6 +143,158 @@ public:
 
 
 	// Function binds:
+	// double wxMatrix2D::m_11()
+	static int _bind_getM_11(lua_State *L) {
+		if (!_lg_typecheck_getM_11(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double wxMatrix2D::m_11() function, expected prototype:\ndouble wxMatrix2D::m_11()\nClass arguments details:\n");
+		}
+
+
+		wxMatrix2D* self=(Luna< wxMatrix2D >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double wxMatrix2D::m_11(). Got : '%s'",typeid(Luna< wxMatrix2D >::check(L,1)).name());
+		}
+		double lret = self->m_11;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// double wxMatrix2D::m_12()
+	static int _bind_getM_12(lua_State *L) {
+		if (!_lg_typecheck_getM_12(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double wxMatrix2D::m_12() function, expected prototype:\ndouble wxMatrix2D::m_12()\nClass arguments details:\n");
+		}
+
+
+		wxMatrix2D* self=(Luna< wxMatrix2D >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double wxMatrix2D::m_12(). Got : '%s'",typeid(Luna< wxMatrix2D >::check(L,1)).name());
+		}
+		double lret = self->m_12;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// double wxMatrix2D::m_21()
+	static int _bind_getM_21(lua_State *L) {
+		if (!_lg_typecheck_getM_21(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double wxMatrix2D::m_21() function, expected prototype:\ndouble wxMatrix2D::m_21()\nClass arguments details:\n");
+		}
+
+
+		wxMatrix2D* self=(Luna< wxMatrix2D >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double wxMatrix2D::m_21(). Got : '%s'",typeid(Luna< wxMatrix2D >::check(L,1)).name());
+		}
+		double lret = self->m_21;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// double wxMatrix2D::m_22()
+	static int _bind_getM_22(lua_State *L) {
+		if (!_lg_typecheck_getM_22(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double wxMatrix2D::m_22() function, expected prototype:\ndouble wxMatrix2D::m_22()\nClass arguments details:\n");
+		}
+
+
+		wxMatrix2D* self=(Luna< wxMatrix2D >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double wxMatrix2D::m_22(). Got : '%s'",typeid(Luna< wxMatrix2D >::check(L,1)).name());
+		}
+		double lret = self->m_22;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxMatrix2D::m_11(double value)
+	static int _bind_setM_11(lua_State *L) {
+		if (!_lg_typecheck_setM_11(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxMatrix2D::m_11(double value) function, expected prototype:\nvoid wxMatrix2D::m_11(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		wxMatrix2D* self=(Luna< wxMatrix2D >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxMatrix2D::m_11(double). Got : '%s'",typeid(Luna< wxMatrix2D >::check(L,1)).name());
+		}
+		self->m_11 = value;
+
+		return 0;
+	}
+
+	// void wxMatrix2D::m_12(double value)
+	static int _bind_setM_12(lua_State *L) {
+		if (!_lg_typecheck_setM_12(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxMatrix2D::m_12(double value) function, expected prototype:\nvoid wxMatrix2D::m_12(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		wxMatrix2D* self=(Luna< wxMatrix2D >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxMatrix2D::m_12(double). Got : '%s'",typeid(Luna< wxMatrix2D >::check(L,1)).name());
+		}
+		self->m_12 = value;
+
+		return 0;
+	}
+
+	// void wxMatrix2D::m_21(double value)
+	static int _bind_setM_21(lua_State *L) {
+		if (!_lg_typecheck_setM_21(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxMatrix2D::m_21(double value) function, expected prototype:\nvoid wxMatrix2D::m_21(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		wxMatrix2D* self=(Luna< wxMatrix2D >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxMatrix2D::m_21(double). Got : '%s'",typeid(Luna< wxMatrix2D >::check(L,1)).name());
+		}
+		self->m_21 = value;
+
+		return 0;
+	}
+
+	// void wxMatrix2D::m_22(double value)
+	static int _bind_setM_22(lua_State *L) {
+		if (!_lg_typecheck_setM_22(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxMatrix2D::m_22(double value) function, expected prototype:\nvoid wxMatrix2D::m_22(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		wxMatrix2D* self=(Luna< wxMatrix2D >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxMatrix2D::m_22(double). Got : '%s'",typeid(Luna< wxMatrix2D >::check(L,1)).name());
+		}
+		self->m_22 = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -114,6 +318,14 @@ const int LunaTraits< wxMatrix2D >::hash = 83648097;
 const int LunaTraits< wxMatrix2D >::uniqueIDs[] = {83648097,0};
 
 luna_RegType LunaTraits< wxMatrix2D >::methods[] = {
+	{"getM_11", &luna_wrapper_wxMatrix2D::_bind_getM_11},
+	{"getM_12", &luna_wrapper_wxMatrix2D::_bind_getM_12},
+	{"getM_21", &luna_wrapper_wxMatrix2D::_bind_getM_21},
+	{"getM_22", &luna_wrapper_wxMatrix2D::_bind_getM_22},
+	{"setM_11", &luna_wrapper_wxMatrix2D::_bind_setM_11},
+	{"setM_12", &luna_wrapper_wxMatrix2D::_bind_setM_12},
+	{"setM_21", &luna_wrapper_wxMatrix2D::_bind_setM_21},
+	{"setM_22", &luna_wrapper_wxMatrix2D::_bind_setM_22},
 	{"dynCast", &luna_wrapper_wxMatrix2D::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxMatrix2D::_bind___eq},
 	{0,0}

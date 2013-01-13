@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_osg_ShaderComponent() {
+		logDEBUG3("Calling delete function for wrapper osg_ShaderComponent");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::ShaderComponent*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_ShaderComponent(lua_State* L, lua_Table* dum) : osg::ShaderComponent(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_ShaderComponent(lua_State* L, lua_Table* dum, const osg::ShaderComponent & sc, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ShaderComponent(sc, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_ShaderComponent(lua_State* L, lua_Table* dum) 
+		: osg::ShaderComponent(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_ShaderComponent(lua_State* L, lua_Table* dum, const osg::ShaderComponent & sc, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osg::ShaderComponent(sc, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,9 +44,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ShaderComponent::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +69,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -50,6 +79,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -60,6 +90,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -69,6 +100,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -78,6 +110,7 @@ public:
 	// osg::Object * osg::ShaderComponent::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -87,6 +120,7 @@ public:
 	// osg::Object * osg::ShaderComponent::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -97,6 +131,7 @@ public:
 	// bool osg::ShaderComponent::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -107,6 +142,7 @@ public:
 	// const char * osg::ShaderComponent::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -116,6 +152,7 @@ public:
 	// const char * osg::ShaderComponent::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -125,6 +162,7 @@ public:
 	// void osg::ShaderComponent::compileGLObjects(osg::State & state) const
 	void compileGLObjects(osg::State & state) const {
 		if(_obj.pushFunction("compileGLObjects")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
 			_obj.pushArg(&state);
 			return (_obj.callFunction<void>());
 		}
@@ -135,6 +173,7 @@ public:
 	// void osg::ShaderComponent::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osg::ShaderComponent*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -213,8 +252,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<WebViewListener::InputMethodEditor,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -148,7 +148,7 @@ public:
 		WebViewListener::InputMethodEditor* self=(Luna< WebViewListener::InputMethodEditor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::InputMethodEditor::OnUpdateIME(Awesomium::WebView *, Awesomium::TextInputType, int, int)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::InputMethodEditor::OnUpdateIME(Awesomium::WebView *, Awesomium::TextInputType, int, int). Got : '%s'",typeid(Luna< WebViewListener::InputMethodEditor >::check(L,1)).name());
 		}
 		self->OnUpdateIME(caller, type, caret_x, caret_y);
 
@@ -167,7 +167,7 @@ public:
 		WebViewListener::InputMethodEditor* self=(Luna< WebViewListener::InputMethodEditor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::InputMethodEditor::OnCancelIME(Awesomium::WebView *)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::InputMethodEditor::OnCancelIME(Awesomium::WebView *). Got : '%s'",typeid(Luna< WebViewListener::InputMethodEditor >::check(L,1)).name());
 		}
 		self->OnCancelIME(caller);
 
@@ -188,7 +188,7 @@ public:
 		WebViewListener::InputMethodEditor* self=(Luna< WebViewListener::InputMethodEditor >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::InputMethodEditor::OnChangeIMERange(Awesomium::WebView *, unsigned int, unsigned int)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::InputMethodEditor::OnChangeIMERange(Awesomium::WebView *, unsigned int, unsigned int). Got : '%s'",typeid(Luna< WebViewListener::InputMethodEditor >::check(L,1)).name());
 		}
 		self->OnChangeIMERange(caller, start, end);
 

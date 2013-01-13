@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_osgParticle_ConnectedParticleSystem() {
+		logDEBUG3("Calling delete function for wrapper osgParticle_ConnectedParticleSystem");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgParticle::ConnectedParticleSystem*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgParticle_ConnectedParticleSystem(lua_State* L, lua_Table* dum) : osgParticle::ConnectedParticleSystem(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgParticle_ConnectedParticleSystem(lua_State* L, lua_Table* dum, const osgParticle::ConnectedParticleSystem & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ConnectedParticleSystem(copy, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgParticle_ConnectedParticleSystem(lua_State* L, lua_Table* dum) 
+		: osgParticle::ConnectedParticleSystem(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgParticle_ConnectedParticleSystem(lua_State* L, lua_Table* dum, const osgParticle::ConnectedParticleSystem & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osgParticle::ConnectedParticleSystem(copy, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -31,6 +47,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +58,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -51,6 +69,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -60,6 +79,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -69,6 +89,7 @@ public:
 	// osg::Geometry * osg::Drawable::asGeometry()
 	osg::Geometry * asGeometry() {
 		if(_obj.pushFunction("asGeometry")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
@@ -78,6 +99,7 @@ public:
 	// const osg::Geometry * osg::Drawable::asGeometry() const
 	const osg::Geometry * asGeometry() const {
 		if(_obj.pushFunction("asGeometry")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
@@ -87,6 +109,7 @@ public:
 	// void osg::Drawable::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -96,6 +119,7 @@ public:
 	// void osg::Drawable::setUseVertexBufferObjects(bool flag)
 	void setUseVertexBufferObjects(bool flag) {
 		if(_obj.pushFunction("setUseVertexBufferObjects")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(flag);
 			return (_obj.callFunction<void>());
 		}
@@ -106,6 +130,7 @@ public:
 	// void osg::Drawable::dirtyDisplayList()
 	void dirtyDisplayList() {
 		if(_obj.pushFunction("dirtyDisplayList")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -115,6 +140,7 @@ public:
 	// unsigned int osg::Drawable::getGLObjectSizeHint() const
 	unsigned int getGLObjectSizeHint() const {
 		if(_obj.pushFunction("getGLObjectSizeHint")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -124,6 +150,7 @@ public:
 	// void osg::Drawable::compileGLObjects(osg::RenderInfo & renderInfo) const
 	void compileGLObjects(osg::RenderInfo & renderInfo) const {
 		if(_obj.pushFunction("compileGLObjects")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(&renderInfo);
 			return (_obj.callFunction<void>());
 		}
@@ -131,9 +158,21 @@ public:
 		return ConnectedParticleSystem::compileGLObjects(renderInfo);
 	};
 
+	// void osg::Drawable::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ConnectedParticleSystem::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Drawable::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(state);
 			return (_obj.callFunction<void>());
 		}
@@ -144,6 +183,7 @@ public:
 	// void osg::Drawable::setUpdateCallback(osg::Drawable::UpdateCallback * ac)
 	void setUpdateCallback(osg::Drawable::UpdateCallback * ac) {
 		if(_obj.pushFunction("setUpdateCallback")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(ac);
 			return (_obj.callFunction<void>());
 		}
@@ -154,6 +194,7 @@ public:
 	// void osg::Drawable::setEventCallback(osg::Drawable::EventCallback * ac)
 	void setEventCallback(osg::Drawable::EventCallback * ac) {
 		if(_obj.pushFunction("setEventCallback")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(ac);
 			return (_obj.callFunction<void>());
 		}
@@ -164,6 +205,7 @@ public:
 	// void osg::Drawable::setCullCallback(osg::Drawable::CullCallback * cc)
 	void setCullCallback(osg::Drawable::CullCallback * cc) {
 		if(_obj.pushFunction("setCullCallback")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(cc);
 			return (_obj.callFunction<void>());
 		}
@@ -174,6 +216,7 @@ public:
 	// void osg::Drawable::setDrawCallback(osg::Drawable::DrawCallback * dc)
 	void setDrawCallback(osg::Drawable::DrawCallback * dc) {
 		if(_obj.pushFunction("setDrawCallback")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(dc);
 			return (_obj.callFunction<void>());
 		}
@@ -184,6 +227,7 @@ public:
 	// void osgParticle::ParticleSystem::destroyParticle(int i)
 	void destroyParticle(int i) {
 		if(_obj.pushFunction("destroyParticle")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(i);
 			return (_obj.callFunction<void>());
 		}
@@ -194,6 +238,7 @@ public:
 	// void osgParticle::ParticleSystem::update(double dt, osg::NodeVisitor & nv)
 	void update(double dt, osg::NodeVisitor & nv) {
 		if(_obj.pushFunction("update")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(dt);
 			_obj.pushArg(&nv);
 			return (_obj.callFunction<void>());
@@ -205,6 +250,7 @@ public:
 	// osg::BoundingBoxd osgParticle::ParticleSystem::computeBound() const
 	osg::BoundingBoxd computeBound() const {
 		if(_obj.pushFunction("computeBound")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			return *(_obj.callFunction<osg::BoundingBoxd*>());
 		}
 
@@ -214,6 +260,7 @@ public:
 	// osg::Object * osgParticle::ConnectedParticleSystem::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -223,6 +270,7 @@ public:
 	// osg::Object * osgParticle::ConnectedParticleSystem::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -233,6 +281,7 @@ public:
 	// bool osgParticle::ConnectedParticleSystem::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -243,6 +292,7 @@ public:
 	// const char * osgParticle::ConnectedParticleSystem::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -252,6 +302,7 @@ public:
 	// const char * osgParticle::ConnectedParticleSystem::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -261,6 +312,7 @@ public:
 	// osgParticle::Particle * osgParticle::ConnectedParticleSystem::createParticle(const osgParticle::Particle * ptemplate)
 	osgParticle::Particle * createParticle(const osgParticle::Particle * ptemplate) {
 		if(_obj.pushFunction("createParticle")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(ptemplate);
 			return (_obj.callFunction<osgParticle::Particle*>());
 		}
@@ -271,6 +323,7 @@ public:
 	// void osgParticle::ConnectedParticleSystem::reuseParticle(int i)
 	void reuseParticle(int i) {
 		if(_obj.pushFunction("reuseParticle")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(i);
 			return (_obj.callFunction<void>());
 		}
@@ -281,6 +334,7 @@ public:
 	// void osgParticle::ConnectedParticleSystem::drawImplementation(osg::RenderInfo & renderInfo) const
 	void drawImplementation(osg::RenderInfo & renderInfo) const {
 		if(_obj.pushFunction("drawImplementation")) {
+			_obj.pushArg((osgParticle::ConnectedParticleSystem*)this);
 			_obj.pushArg(&renderInfo);
 			return (_obj.callFunction<void>());
 		}
@@ -290,6 +344,11 @@ public:
 
 
 	// Protected non-virtual methods:
+	// osgParticle::ConnectedParticleSystem & osgParticle::ConnectedParticleSystem::operator=(const osgParticle::ConnectedParticleSystem & arg1)
+	osgParticle::ConnectedParticleSystem & public_op_assign(const osgParticle::ConnectedParticleSystem & arg1) {
+		return osgParticle::ConnectedParticleSystem::operator=(arg1);
+	};
+
 	// void osgParticle::ParticleSystem::update_bounds(const osg::Vec3f & p, float r)
 	void public_update_bounds(const osg::Vec3f & p, float r) {
 		return osgParticle::ParticleSystem::update_bounds(p, r);
@@ -352,6 +411,13 @@ public:
 
 
 	// Protected non-virtual checkers:
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_public_update_bounds(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
@@ -378,7 +444,7 @@ public:
 	inline static bool _lg_typecheck_public_setBound(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,41227270) ) return false;
 		return true;
 	}
 
@@ -438,6 +504,32 @@ public:
 
 
 	// Protected non-virtual function binds:
+	// osgParticle::ConnectedParticleSystem & osgParticle::ConnectedParticleSystem::public_op_assign(const osgParticle::ConnectedParticleSystem & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::ConnectedParticleSystem & osgParticle::ConnectedParticleSystem::public_op_assign(const osgParticle::ConnectedParticleSystem & arg1) function, expected prototype:\nosgParticle::ConnectedParticleSystem & osgParticle::ConnectedParticleSystem::public_op_assign(const osgParticle::ConnectedParticleSystem & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osgParticle::ConnectedParticleSystem* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgParticle::ConnectedParticleSystem >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgParticle::ConnectedParticleSystem::public_op_assign function");
+		}
+		const osgParticle::ConnectedParticleSystem & _arg1=*_arg1_ptr;
+
+		wrapper_osgParticle_ConnectedParticleSystem* self=Luna< osg::Referenced >::checkSubType< wrapper_osgParticle_ConnectedParticleSystem >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgParticle::ConnectedParticleSystem & osgParticle::ConnectedParticleSystem::public_op_assign(const osgParticle::ConnectedParticleSystem &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgParticle::ConnectedParticleSystem* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgParticle::ConnectedParticleSystem >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osgParticle::ParticleSystem::public_update_bounds(const osg::Vec3f & p, float r)
 	static int _bind_public_update_bounds(lua_State *L) {
 		if (!_lg_typecheck_public_update_bounds(L)) {
@@ -520,7 +612,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const function, expected prototype:\nvoid osg::Drawable::public_setBound(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::Drawable::public_setBound function");
 		}
@@ -691,18 +783,19 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_update_bounds",_bind_public_update_bounds},
-		{"protected_single_pass_render",_bind_public_single_pass_render},
-		{"protected_render_vertex_array",_bind_public_render_vertex_array},
-		{"protected_setBound",_bind_public_setBound},
-		{"protected_addParent",_bind_public_addParent},
-		{"protected_removeParent",_bind_public_removeParent},
-		{"protected_setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
-		{"protected_getNumChildrenRequiringUpdateTraversal",_bind_public_getNumChildrenRequiringUpdateTraversal},
-		{"protected_setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
-		{"protected_getNumChildrenRequiringEventTraversal",_bind_public_getNumChildrenRequiringEventTraversal},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"op_assign",_bind_public_op_assign},
+		{"update_bounds",_bind_public_update_bounds},
+		{"single_pass_render",_bind_public_single_pass_render},
+		{"render_vertex_array",_bind_public_render_vertex_array},
+		{"setBound",_bind_public_setBound},
+		{"addParent",_bind_public_addParent},
+		{"removeParent",_bind_public_removeParent},
+		{"setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
+		{"getNumChildrenRequiringUpdateTraversal",_bind_public_getNumChildrenRequiringUpdateTraversal},
+		{"setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
+		{"getNumChildrenRequiringEventTraversal",_bind_public_getNumChildrenRequiringEventTraversal},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

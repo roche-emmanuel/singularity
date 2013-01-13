@@ -326,7 +326,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,95634835) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// wxAuiToolBarItem::wxAuiToolBarItem()
@@ -1142,6 +1149,32 @@ public:
 
 
 	// Operator binds:
+	// wxAuiToolBarItem & wxAuiToolBarItem::operator=(const wxAuiToolBarItem & c)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAuiToolBarItem & wxAuiToolBarItem::operator=(const wxAuiToolBarItem & c) function, expected prototype:\nwxAuiToolBarItem & wxAuiToolBarItem::operator=(const wxAuiToolBarItem & c)\nClass arguments details:\narg 1 ID = 95634835\n");
+		}
+
+		const wxAuiToolBarItem* c_ptr=(Luna< wxAuiToolBarItem >::check(L,2));
+		if( !c_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg c in wxAuiToolBarItem::operator= function");
+		}
+		const wxAuiToolBarItem & c=*c_ptr;
+
+		wxAuiToolBarItem* self=(Luna< wxAuiToolBarItem >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxAuiToolBarItem & wxAuiToolBarItem::operator=(const wxAuiToolBarItem &). Got : '%s'",typeid(Luna< wxAuiToolBarItem >::check(L,1)).name());
+		}
+		const wxAuiToolBarItem* lret = &self->operator=(c);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxAuiToolBarItem >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -1202,6 +1235,7 @@ luna_RegType LunaTraits< wxAuiToolBarItem >::methods[] = {
 	{"GetUserData", &luna_wrapper_wxAuiToolBarItem::_bind_GetUserData},
 	{"SetAlignment", &luna_wrapper_wxAuiToolBarItem::_bind_SetAlignment},
 	{"GetAlignment", &luna_wrapper_wxAuiToolBarItem::_bind_GetAlignment},
+	{"op_assign", &luna_wrapper_wxAuiToolBarItem::_bind_op_assign},
 	{"dynCast", &luna_wrapper_wxAuiToolBarItem::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxAuiToolBarItem::_bind___eq},
 	{0,0}

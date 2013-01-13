@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -81,11 +81,18 @@ public:
 		if( luatop<6 || luatop>7 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,52841328) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,83725871) ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,50169651)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,84922662) ) return false;
 		if( luatop>6 && (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -117,7 +124,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
-		osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,3));
+		osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,3));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::NodeVisitor::DatabaseRequestHandler::requestNodeFile function");
 		}
@@ -133,6 +140,25 @@ public:
 			luaL_error(L, "Invalid object in function call void osg::NodeVisitor::DatabaseRequestHandler::requestNodeFile(const std::string &, osg::NodePath &, float, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->requestNodeFile(fileName, nodePath, priority, framestamp, databaseRequest, options);
+
+		return 0;
+	}
+
+	// void osg::NodeVisitor::DatabaseRequestHandler::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::DatabaseRequestHandler::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::NodeVisitor::DatabaseRequestHandler::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::NodeVisitor::DatabaseRequestHandler* self=Luna< osg::Referenced >::checkSubType< osg::NodeVisitor::DatabaseRequestHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::NodeVisitor::DatabaseRequestHandler::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->DatabaseRequestHandler::setThreadSafeRefUnref(threadSafe);
 
 		return 0;
 	}
@@ -162,6 +188,7 @@ const int LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::uniqueIDs[] = 
 
 luna_RegType LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::methods[] = {
 	{"requestNodeFile", &luna_wrapper_osg_NodeVisitor_DatabaseRequestHandler::_bind_requestNodeFile},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_NodeVisitor_DatabaseRequestHandler::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osg_NodeVisitor_DatabaseRequestHandler::_bind___eq},
 	{"getTable", &luna_wrapper_osg_NodeVisitor_DatabaseRequestHandler::_bind_getTable},
 	{0,0}

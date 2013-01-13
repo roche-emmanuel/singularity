@@ -1,6 +1,7 @@
 local oo = require "loop.base"
 
 require "core"
+require "extensions.core"
 
 --local sgt = require "core" -- load the core library.
 
@@ -92,6 +93,8 @@ function LoggerBase:writeItem(item)
 	if type(item) == "table" then
 		-- concatenate table:
 		return self:writeTable(item)
+	elseif item==false then
+		return "false";
 	else
 		-- simple concatenation:
 		return tostring(item);
@@ -107,7 +110,7 @@ function LoggerBase:write(...)
 	local num = select('#', ...)
 	for i=1,num do
 		local v = select(i, ...)
-		msg = msg .. (v and self:writeItem(v) or "nil")
+		msg = msg .. (v~=nil and self:writeItem(v) or "nil")
 	end
 	
 	--for _,v in ipairs({...}) do

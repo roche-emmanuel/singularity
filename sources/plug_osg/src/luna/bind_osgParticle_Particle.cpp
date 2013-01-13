@@ -241,21 +241,21 @@ public:
 	inline static bool _lg_typecheck_setSizeRange(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,42175463) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAlphaRange(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,42175463) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setColorRange(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,18829254) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,67820122) ) return false;
 		return true;
 	}
 
@@ -1105,7 +1105,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::Particle::setSizeRange(const osgParticle::rangef & r) function, expected prototype:\nvoid osgParticle::Particle::setSizeRange(const osgParticle::rangef & r)\nClass arguments details:\narg 1 ID = 13510606\n");
 		}
 
-		const osgParticle::rangef* r_ptr=(Luna< osgParticle::rangef >::check(L,2));
+		const osgParticle::rangef* r_ptr=(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::Particle::setSizeRange function");
 		}
@@ -1128,7 +1128,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::Particle::setAlphaRange(const osgParticle::rangef & r) function, expected prototype:\nvoid osgParticle::Particle::setAlphaRange(const osgParticle::rangef & r)\nClass arguments details:\narg 1 ID = 13510606\n");
 		}
 
-		const osgParticle::rangef* r_ptr=(Luna< osgParticle::rangef >::check(L,2));
+		const osgParticle::rangef* r_ptr=(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::Particle::setAlphaRange function");
 		}
@@ -1151,7 +1151,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::Particle::setColorRange(const osgParticle::rangev4 & r) function, expected prototype:\nvoid osgParticle::Particle::setColorRange(const osgParticle::rangev4 & r)\nClass arguments details:\narg 1 ID = 18829254\n");
 		}
 
-		const osgParticle::rangev4* r_ptr=(Luna< osgParticle::rangev4 >::check(L,2));
+		const osgParticle::rangev4* r_ptr=(Luna< osgParticle::range< osg::Vec4f > >::checkSubType< osgParticle::rangev4 >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::Particle::setColorRange function");
 		}

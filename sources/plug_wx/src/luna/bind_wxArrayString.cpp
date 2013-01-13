@@ -161,8 +161,15 @@ public:
 
 
 	// Operator checkers:
-	// (found 3 valid operators)
+	// (found 4 valid operators)
 	inline static bool _lg_typecheck_op_neq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,59507769) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,59507769) ) return false;
@@ -545,6 +552,32 @@ public:
 		return 1;
 	}
 
+	// wxArrayString & wxArrayString::operator=(const wxArrayString & arg1)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxArrayString & wxArrayString::operator=(const wxArrayString & arg1) function, expected prototype:\nwxArrayString & wxArrayString::operator=(const wxArrayString & arg1)\nClass arguments details:\narg 1 ID = 59507769\n");
+		}
+
+		const wxArrayString* _arg1_ptr=(Luna< wxArrayString >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in wxArrayString::operator= function");
+		}
+		const wxArrayString & _arg1=*_arg1_ptr;
+
+		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxArrayString & wxArrayString::operator=(const wxArrayString &). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+		}
+		const wxArrayString* lret = &self->operator=(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxArrayString >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// bool wxArrayString::operator==(const wxArrayString & array) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
@@ -625,6 +658,7 @@ luna_RegType LunaTraits< wxArrayString >::methods[] = {
 	{"Shrink", &luna_wrapper_wxArrayString::_bind_Shrink},
 	{"Sort", &luna_wrapper_wxArrayString::_bind_Sort},
 	{"op_neq", &luna_wrapper_wxArrayString::_bind_op_neq},
+	{"op_assign", &luna_wrapper_wxArrayString::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxArrayString::_bind___eq},
 	{"op_index", &luna_wrapper_wxArrayString::_bind_op_index},
 	{"dynCast", &luna_wrapper_wxArrayString::_bind_dynCast},

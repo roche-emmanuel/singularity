@@ -57,11 +57,11 @@ public:
 };
 
 std::set< osg::Drawable * >* LunaTraits< std::set< osg::Drawable * > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::set< osg::Drawable * >();
 }
 
 void LunaTraits< std::set< osg::Drawable * > >::_bind_dtor(std::set< osg::Drawable * >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::set< osg::Drawable * > >::className[] = "std_set_osg_Drawable_ptr";

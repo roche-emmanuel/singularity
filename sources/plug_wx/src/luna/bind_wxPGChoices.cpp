@@ -230,7 +230,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 2 valid operators)
+	// (found 3 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,69274883) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_op_index_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -779,6 +786,29 @@ public:
 
 
 	// Operator binds:
+	// void wxPGChoices::operator=(const wxPGChoices & a)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxPGChoices::operator=(const wxPGChoices & a) function, expected prototype:\nvoid wxPGChoices::operator=(const wxPGChoices & a)\nClass arguments details:\narg 1 ID = 69274883\n");
+		}
+
+		const wxPGChoices* a_ptr=(Luna< wxPGChoices >::check(L,2));
+		if( !a_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg a in wxPGChoices::operator= function");
+		}
+		const wxPGChoices & a=*a_ptr;
+
+		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxPGChoices::operator=(const wxPGChoices &). Got : '%s'",typeid(Luna< wxPGChoices >::check(L,1)).name());
+		}
+		self->operator=(a);
+
+		return 0;
+	}
+
 	// wxPGChoiceEntry & wxPGChoices::operator[](unsigned int i)
 	static int _bind_op_index_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_1(L)) {
@@ -869,6 +899,7 @@ luna_RegType LunaTraits< wxPGChoices >::methods[] = {
 	{"RemoveAt", &luna_wrapper_wxPGChoices::_bind_RemoveAt},
 	{"Set", &luna_wrapper_wxPGChoices::_bind_Set},
 	{"GetLabels", &luna_wrapper_wxPGChoices::_bind_GetLabels},
+	{"op_assign", &luna_wrapper_wxPGChoices::_bind_op_assign},
 	{"op_index", &luna_wrapper_wxPGChoices::_bind_op_index},
 	{"dynCast", &luna_wrapper_wxPGChoices::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxPGChoices::_bind___eq},

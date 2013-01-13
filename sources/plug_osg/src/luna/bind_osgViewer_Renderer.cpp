@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -113,6 +113,19 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setGraphicsThreadDoesCull(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getGraphicsThreadDoesCull(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_cull(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -166,6 +179,13 @@ public:
 	inline static bool _lg_typecheck_getCameraRequiresSetUp(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -346,6 +366,44 @@ public:
 		return 1;
 	}
 
+	// void osgViewer::Renderer::setGraphicsThreadDoesCull(bool flag)
+	static int _bind_setGraphicsThreadDoesCull(lua_State *L) {
+		if (!_lg_typecheck_setGraphicsThreadDoesCull(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::Renderer::setGraphicsThreadDoesCull(bool flag) function, expected prototype:\nvoid osgViewer::Renderer::setGraphicsThreadDoesCull(bool flag)\nClass arguments details:\n");
+		}
+
+		bool flag=(bool)(lua_toboolean(L,2)==1);
+
+		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::setGraphicsThreadDoesCull(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setGraphicsThreadDoesCull(flag);
+
+		return 0;
+	}
+
+	// bool osgViewer::Renderer::getGraphicsThreadDoesCull() const
+	static int _bind_getGraphicsThreadDoesCull(lua_State *L) {
+		if (!_lg_typecheck_getGraphicsThreadDoesCull(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgViewer::Renderer::getGraphicsThreadDoesCull() const function, expected prototype:\nbool osgViewer::Renderer::getGraphicsThreadDoesCull() const\nClass arguments details:\n");
+		}
+
+
+		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgViewer::Renderer::getGraphicsThreadDoesCull() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->getGraphicsThreadDoesCull();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// void osgViewer::Renderer::cull()
 	static int _bind_cull(lua_State *L) {
 		if (!_lg_typecheck_cull(L)) {
@@ -512,6 +570,25 @@ public:
 		return 1;
 	}
 
+	// void osgViewer::Renderer::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::Renderer::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgViewer::Renderer::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->Renderer::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osgViewer::Renderer::base_cull()
 	static int _bind_base_cull(lua_State *L) {
 		if (!_lg_typecheck_base_cull(L)) {
@@ -675,6 +752,8 @@ luna_RegType LunaTraits< osgViewer::Renderer >::methods[] = {
 	{"getSceneView", &luna_wrapper_osgViewer_Renderer::_bind_getSceneView},
 	{"setDone", &luna_wrapper_osgViewer_Renderer::_bind_setDone},
 	{"getDone", &luna_wrapper_osgViewer_Renderer::_bind_getDone},
+	{"setGraphicsThreadDoesCull", &luna_wrapper_osgViewer_Renderer::_bind_setGraphicsThreadDoesCull},
+	{"getGraphicsThreadDoesCull", &luna_wrapper_osgViewer_Renderer::_bind_getGraphicsThreadDoesCull},
 	{"cull", &luna_wrapper_osgViewer_Renderer::_bind_cull},
 	{"draw", &luna_wrapper_osgViewer_Renderer::_bind_draw},
 	{"cull_draw", &luna_wrapper_osgViewer_Renderer::_bind_cull_draw},
@@ -684,6 +763,7 @@ luna_RegType LunaTraits< osgViewer::Renderer >::methods[] = {
 	{"release", &luna_wrapper_osgViewer_Renderer::_bind_release},
 	{"setCameraRequiresSetUp", &luna_wrapper_osgViewer_Renderer::_bind_setCameraRequiresSetUp},
 	{"getCameraRequiresSetUp", &luna_wrapper_osgViewer_Renderer::_bind_getCameraRequiresSetUp},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgViewer_Renderer::_bind_base_setThreadSafeRefUnref},
 	{"base_cull", &luna_wrapper_osgViewer_Renderer::_bind_base_cull},
 	{"base_draw", &luna_wrapper_osgViewer_Renderer::_bind_base_draw},
 	{"base_cull_draw", &luna_wrapper_osgViewer_Renderer::_bind_base_cull_draw},

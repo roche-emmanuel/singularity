@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_wxWindowModalDialogEvent() {
+		logDEBUG3("Calling delete function for wrapper wxWindowModalDialogEvent");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxWindowModalDialogEvent*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxWindowModalDialogEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int id = 0) : wxWindowModalDialogEvent(commandType, id), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxWindowModalDialogEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int id = 0) 
+		: wxWindowModalDialogEvent(commandType, id), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxWindowModalDialogEvent*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxWindowModalDialogEvent*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -37,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxWindowModalDialogEvent*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -49,6 +60,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxWindowModalDialogEvent*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -58,6 +70,7 @@ public:
 	// wxEventCategory wxEvent::GetEventCategory() const
 	wxEventCategory GetEventCategory() const {
 		if(_obj.pushFunction("GetEventCategory")) {
+			_obj.pushArg((wxWindowModalDialogEvent*)this);
 			return (wxEventCategory)(_obj.callFunction<int>());
 		}
 
@@ -67,6 +80,7 @@ public:
 	// wxEvent * wxWindowModalDialogEvent::Clone() const
 	wxEvent * Clone() const {
 		if(_obj.pushFunction("Clone")) {
+			_obj.pushArg((wxWindowModalDialogEvent*)this);
 			return (_obj.callFunction<wxEvent*>());
 		}
 

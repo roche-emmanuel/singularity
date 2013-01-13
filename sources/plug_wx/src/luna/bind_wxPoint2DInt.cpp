@@ -140,12 +140,45 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getM_x(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_y(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_x(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_y(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
-	// (found 5 valid operators)
+	// (found 6 valid operators)
 	inline static bool _lg_typecheck___unm(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,81619599) ) return false;
 		return true;
 	}
 
@@ -478,6 +511,82 @@ public:
 		return 1;
 	}
 
+	// int wxPoint2DInt::m_x()
+	static int _bind_getM_x(lua_State *L) {
+		if (!_lg_typecheck_getM_x(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxPoint2DInt::m_x() function, expected prototype:\nint wxPoint2DInt::m_x()\nClass arguments details:\n");
+		}
+
+
+		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxPoint2DInt::m_x(). Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
+		}
+		int lret = self->m_x;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxPoint2DInt::m_y()
+	static int _bind_getM_y(lua_State *L) {
+		if (!_lg_typecheck_getM_y(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxPoint2DInt::m_y() function, expected prototype:\nint wxPoint2DInt::m_y()\nClass arguments details:\n");
+		}
+
+
+		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxPoint2DInt::m_y(). Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
+		}
+		int lret = self->m_y;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxPoint2DInt::m_x(int value)
+	static int _bind_setM_x(lua_State *L) {
+		if (!_lg_typecheck_setM_x(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxPoint2DInt::m_x(int value) function, expected prototype:\nvoid wxPoint2DInt::m_x(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxPoint2DInt::m_x(int). Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
+		}
+		self->m_x = value;
+
+		return 0;
+	}
+
+	// void wxPoint2DInt::m_y(int value)
+	static int _bind_setM_y(lua_State *L) {
+		if (!_lg_typecheck_setM_y(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxPoint2DInt::m_y(int value) function, expected prototype:\nvoid wxPoint2DInt::m_y(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxPoint2DInt::m_y(int). Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
+		}
+		self->m_y = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// wxPoint2DInt wxPoint2DInt::operator-()
@@ -498,6 +607,32 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxPoint2DInt >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxPoint2DInt & wxPoint2DInt::operator=(const wxPoint2DInt & pt)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPoint2DInt & wxPoint2DInt::operator=(const wxPoint2DInt & pt) function, expected prototype:\nwxPoint2DInt & wxPoint2DInt::operator=(const wxPoint2DInt & pt)\nClass arguments details:\narg 1 ID = 81619599\n");
+		}
+
+		const wxPoint2DInt* pt_ptr=(Luna< wxPoint2DInt >::check(L,2));
+		if( !pt_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pt in wxPoint2DInt::operator= function");
+		}
+		const wxPoint2DInt & pt=*pt_ptr;
+
+		wxPoint2DInt* self=(Luna< wxPoint2DInt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxPoint2DInt & wxPoint2DInt::operator=(const wxPoint2DInt &). Got : '%s'",typeid(Luna< wxPoint2DInt >::check(L,1)).name());
+		}
+		const wxPoint2DInt* lret = &self->operator=(pt);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPoint2DInt >::push(L,lret,false);
 
 		return 1;
 	}
@@ -634,7 +769,12 @@ luna_RegType LunaTraits< wxPoint2DInt >::methods[] = {
 	{"GetDistanceSquare", &luna_wrapper_wxPoint2DInt::_bind_GetDistanceSquare},
 	{"GetDotProduct", &luna_wrapper_wxPoint2DInt::_bind_GetDotProduct},
 	{"GetCrossProduct", &luna_wrapper_wxPoint2DInt::_bind_GetCrossProduct},
+	{"getM_x", &luna_wrapper_wxPoint2DInt::_bind_getM_x},
+	{"getM_y", &luna_wrapper_wxPoint2DInt::_bind_getM_y},
+	{"setM_x", &luna_wrapper_wxPoint2DInt::_bind_setM_x},
+	{"setM_y", &luna_wrapper_wxPoint2DInt::_bind_setM_y},
 	{"__unm", &luna_wrapper_wxPoint2DInt::_bind___unm},
+	{"op_assign", &luna_wrapper_wxPoint2DInt::_bind_op_assign},
 	{"op_add", &luna_wrapper_wxPoint2DInt::_bind_op_add},
 	{"op_sub", &luna_wrapper_wxPoint2DInt::_bind_op_sub},
 	{"__eq", &luna_wrapper_wxPoint2DInt::_bind___eq},

@@ -57,11 +57,11 @@ public:
 };
 
 osgParticle::range< float >* LunaTraits< osgParticle::range< float > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new osgParticle::range< float >();
 }
 
 void LunaTraits< osgParticle::range< float > >::_bind_dtor(osgParticle::range< float >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< osgParticle::range< float > >::className[] = "osgParticle_range_float";

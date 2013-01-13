@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< const osg::Shader * >* LunaTraits< std::vector< const osg::Shader * > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< const osg::Shader * >();
 }
 
 void LunaTraits< std::vector< const osg::Shader * > >::_bind_dtor(std::vector< const osg::Shader * >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< const osg::Shader * > >::className[] = "std_vector_const_osg_Shader_ptr";

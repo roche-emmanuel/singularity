@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -443,7 +443,7 @@ public:
 	inline static bool _lg_typecheck_setDescriptions(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,27507650) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,95416160) ) return false;
 		return true;
 	}
 
@@ -489,7 +489,7 @@ public:
 	inline static bool _lg_typecheck_setInitialBound(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,65870735) ) return false;
 		return true;
 	}
 
@@ -533,6 +533,13 @@ public:
 	inline static bool _lg_typecheck_getComputeBoundingSphereCallback_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -680,6 +687,13 @@ public:
 	inline static bool _lg_typecheck_base_computeBound(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1941,7 +1955,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Node::setDescriptions(const osg::Node::DescriptionList & descriptions) function, expected prototype:\nvoid osg::Node::setDescriptions(const osg::Node::DescriptionList & descriptions)\nClass arguments details:\narg 1 ID = 27507650\n");
 		}
 
-		const osg::Node::DescriptionList* descriptions_ptr=(Luna< osg::Node::DescriptionList >::check(L,2));
+		const osg::Node::DescriptionList* descriptions_ptr=(Luna< std::vector< std::string > >::checkSubType< osg::Node::DescriptionList >(L,2));
 		if( !descriptions_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg descriptions in osg::Node::setDescriptions function");
 		}
@@ -2102,7 +2116,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Node::setInitialBound(const osg::BoundingSphered & bsphere) function, expected prototype:\nvoid osg::Node::setInitialBound(const osg::BoundingSphered & bsphere)\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSphered* bsphere_ptr=(Luna< osg::BoundingSphered >::check(L,2));
+		const osg::BoundingSphered* bsphere_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
 		if( !bsphere_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bsphere in osg::Node::setInitialBound function");
 		}
@@ -2267,6 +2281,25 @@ public:
 		if (_lg_typecheck_getComputeBoundingSphereCallback_overload_2(L)) return _bind_getComputeBoundingSphereCallback_overload_2(L);
 
 		luaL_error(L, "error in function getComputeBoundingSphereCallback, cannot match any of the overloads for function getComputeBoundingSphereCallback:\n  getComputeBoundingSphereCallback()\n  getComputeBoundingSphereCallback()\n");
+		return 0;
+	}
+
+	// void osg::Node::setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Node::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Node::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::Node* self=Luna< osg::Referenced >::checkSubType< osg::Node >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Node::setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setThreadSafeRefUnref(threadSafe);
+
 		return 0;
 	}
 
@@ -2798,6 +2831,25 @@ public:
 		return 1;
 	}
 
+	// void osg::Node::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Node::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Node::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::Node* self=Luna< osg::Referenced >::checkSubType< osg::Node >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Node::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->Node::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osg::Node::base_releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
@@ -2896,6 +2948,7 @@ luna_RegType LunaTraits< osg::Node >::methods[] = {
 	{"computeBound", &luna_wrapper_osg_Node::_bind_computeBound},
 	{"setComputeBoundingSphereCallback", &luna_wrapper_osg_Node::_bind_setComputeBoundingSphereCallback},
 	{"getComputeBoundingSphereCallback", &luna_wrapper_osg_Node::_bind_getComputeBoundingSphereCallback},
+	{"setThreadSafeRefUnref", &luna_wrapper_osg_Node::_bind_setThreadSafeRefUnref},
 	{"releaseGLObjects", &luna_wrapper_osg_Node::_bind_releaseGLObjects},
 	{"base_setName", &luna_wrapper_osg_Node::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_Node::_bind_base_computeDataVariance},
@@ -2914,6 +2967,7 @@ luna_RegType LunaTraits< osg::Node >::methods[] = {
 	{"base_ascend", &luna_wrapper_osg_Node::_bind_base_ascend},
 	{"base_traverse", &luna_wrapper_osg_Node::_bind_base_traverse},
 	{"base_computeBound", &luna_wrapper_osg_Node::_bind_base_computeBound},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_Node::_bind_base_setThreadSafeRefUnref},
 	{"base_releaseGLObjects", &luna_wrapper_osg_Node::_bind_base_releaseGLObjects},
 	{"__eq", &luna_wrapper_osg_Node::_bind___eq},
 	{"getTable", &luna_wrapper_osg_Node::_bind_getTable},

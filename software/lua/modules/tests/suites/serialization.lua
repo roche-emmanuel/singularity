@@ -139,17 +139,17 @@ function test_basicnode_serialization()
 	
 	local BasicNode = require "osg.BasicNodeTest"
 	
-	local child1 = BasicNode();
+	local child1 = BasicNode.createInstance();
 	--child1:setMyValue(234.8);
 	
-	grp:addChild(child1:getWrapper())
+	grp:addChild(child1)
 	
-	local child2 = BasicNode();
-	child2:setDoubleValue(234.8);
-	child2:setBoolValue(true);
+	local child2 = BasicNode.createInstance();
+	child2:getTable():setDoubleValue(234.8);
+	child2:getTable():setBoolValue(true);
 	child2:setName("My child 2");
 	
-	grp:addChild(child2:getWrapper())
+	grp:addChild(child2)
 
 	local file = fs:getRootPath(true).."tests/basicnode.osgt"
 	local file2 = fs:getRootPath(true).."tests/basicnode.osgx"

@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_Awesomium_ResourceInterceptor() {
+		logDEBUG3("Calling delete function for wrapper Awesomium_ResourceInterceptor");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((Awesomium::ResourceInterceptor*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_Awesomium_ResourceInterceptor(lua_State* L, lua_Table* dum) : Awesomium::ResourceInterceptor(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_Awesomium_ResourceInterceptor(lua_State* L, lua_Table* dum) 
+		: Awesomium::ResourceInterceptor(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((Awesomium::ResourceInterceptor*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +39,7 @@ public:
 	// Awesomium::ResourceResponse * Awesomium::ResourceInterceptor::OnRequest(Awesomium::ResourceRequest * request)
 	Awesomium::ResourceResponse * OnRequest(Awesomium::ResourceRequest * request) {
 		if(_obj.pushFunction("OnRequest")) {
+			_obj.pushArg((Awesomium::ResourceInterceptor*)this);
 			_obj.pushArg(request);
 			return (_obj.callFunction<Awesomium::ResourceResponse*>());
 		}

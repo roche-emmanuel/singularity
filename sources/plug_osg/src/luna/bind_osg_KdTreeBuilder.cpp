@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -121,6 +121,39 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_buildOptions(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_kdTreePrototype(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_buildOptions(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,4714115) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_kdTreePrototype(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,58004536) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -341,6 +374,107 @@ public:
 			luaL_error(L, "Invalid object in function call void osg::KdTreeBuilder::apply(osg::Geode &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->apply(geode);
+
+		return 0;
+	}
+
+	// osg::KdTree::BuildOptions osg::KdTreeBuilder::_buildOptions()
+	static int _bind_get_buildOptions(lua_State *L) {
+		if (!_lg_typecheck_get_buildOptions(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::KdTree::BuildOptions osg::KdTreeBuilder::_buildOptions() function, expected prototype:\nosg::KdTree::BuildOptions osg::KdTreeBuilder::_buildOptions()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::KdTree::BuildOptions osg::KdTreeBuilder::_buildOptions(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::KdTree::BuildOptions* lret = &self->_buildOptions;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::KdTree::BuildOptions >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osg::ref_ptr< osg::KdTree > osg::KdTreeBuilder::_kdTreePrototype()
+	static int _bind_get_kdTreePrototype(lua_State *L) {
+		if (!_lg_typecheck_get_kdTreePrototype(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::KdTree > osg::KdTreeBuilder::_kdTreePrototype() function, expected prototype:\nosg::ref_ptr< osg::KdTree > osg::KdTreeBuilder::_kdTreePrototype()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::KdTree > osg::KdTreeBuilder::_kdTreePrototype(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::ref_ptr< osg::KdTree > lret = self->_kdTreePrototype;
+		Luna< osg::KdTree >::push(L,lret.get(),false);
+
+		return 1;
+	}
+
+	// void osg::KdTreeBuilder::_buildOptions(osg::KdTree::BuildOptions value)
+	static int _bind_set_buildOptions(lua_State *L) {
+		if (!_lg_typecheck_set_buildOptions(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTreeBuilder::_buildOptions(osg::KdTree::BuildOptions value) function, expected prototype:\nvoid osg::KdTreeBuilder::_buildOptions(osg::KdTree::BuildOptions value)\nClass arguments details:\narg 1 ID = 4714115\n");
+		}
+
+		osg::KdTree::BuildOptions* value_ptr=(Luna< osg::KdTree::BuildOptions >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osg::KdTreeBuilder::_buildOptions function");
+		}
+		osg::KdTree::BuildOptions value=*value_ptr;
+
+		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTreeBuilder::_buildOptions(osg::KdTree::BuildOptions). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_buildOptions = value;
+
+		return 0;
+	}
+
+	// void osg::KdTreeBuilder::_kdTreePrototype(osg::ref_ptr< osg::KdTree > value)
+	static int _bind_set_kdTreePrototype(lua_State *L) {
+		if (!_lg_typecheck_set_kdTreePrototype(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTreeBuilder::_kdTreePrototype(osg::ref_ptr< osg::KdTree > value) function, expected prototype:\nvoid osg::KdTreeBuilder::_kdTreePrototype(osg::ref_ptr< osg::KdTree > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::KdTree > value = dynamic_cast< osg::KdTree* >(Luna< osg::Referenced >::check(L,2));
+
+		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTreeBuilder::_kdTreePrototype(osg::ref_ptr< osg::KdTree >). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_kdTreePrototype = value;
+
+		return 0;
+	}
+
+	// void osg::KdTreeBuilder::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTreeBuilder::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::KdTreeBuilder::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::KdTreeBuilder* self=Luna< osg::Referenced >::checkSubType< osg::KdTreeBuilder >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTreeBuilder::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->KdTreeBuilder::setThreadSafeRefUnref(threadSafe);
 
 		return 0;
 	}
@@ -591,6 +725,11 @@ luna_RegType LunaTraits< osg::KdTreeBuilder >::methods[] = {
 	{"className", &luna_wrapper_osg_KdTreeBuilder::_bind_className},
 	{"clone", &luna_wrapper_osg_KdTreeBuilder::_bind_clone},
 	{"apply", &luna_wrapper_osg_KdTreeBuilder::_bind_apply},
+	{"get_buildOptions", &luna_wrapper_osg_KdTreeBuilder::_bind_get_buildOptions},
+	{"get_kdTreePrototype", &luna_wrapper_osg_KdTreeBuilder::_bind_get_kdTreePrototype},
+	{"set_buildOptions", &luna_wrapper_osg_KdTreeBuilder::_bind_set_buildOptions},
+	{"set_kdTreePrototype", &luna_wrapper_osg_KdTreeBuilder::_bind_set_kdTreePrototype},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_KdTreeBuilder::_bind_base_setThreadSafeRefUnref},
 	{"base_reset", &luna_wrapper_osg_KdTreeBuilder::_bind_base_reset},
 	{"base_getEyePoint", &luna_wrapper_osg_KdTreeBuilder::_bind_base_getEyePoint},
 	{"base_getViewPoint", &luna_wrapper_osg_KdTreeBuilder::_bind_base_getViewPoint},

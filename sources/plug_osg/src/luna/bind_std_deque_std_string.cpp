@@ -57,11 +57,11 @@ public:
 };
 
 std::deque< std::string >* LunaTraits< std::deque< std::string > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::deque< std::string >();
 }
 
 void LunaTraits< std::deque< std::string > >::_bind_dtor(std::deque< std::string >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::deque< std::string > >::className[] = "std_deque_std_string";

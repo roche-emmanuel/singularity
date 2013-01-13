@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxGraphicsPen() {
+		logDEBUG3("Calling delete function for wrapper wxGraphicsPen");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxGraphicsPen*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -27,6 +29,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxGraphicsPen*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -36,6 +39,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxGraphicsPen*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -48,6 +52,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxGraphicsPen*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 

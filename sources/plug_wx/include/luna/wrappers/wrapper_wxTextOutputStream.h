@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxTextOutputStream() {
+		logDEBUG3("Calling delete function for wrapper wxTextOutputStream");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxTextOutputStream*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -29,6 +31,7 @@ public:
 	// void wxTextOutputStream::WriteDouble(double f)
 	void WriteDouble(double f) {
 		if(_obj.pushFunction("WriteDouble")) {
+			_obj.pushArg((wxTextOutputStream*)this);
 			_obj.pushArg(f);
 			return (_obj.callFunction<void>());
 		}
@@ -39,6 +42,7 @@ public:
 	// void wxTextOutputStream::WriteString(const wxString & string)
 	void WriteString(const wxString & string) {
 		if(_obj.pushFunction("WriteString")) {
+			_obj.pushArg((wxTextOutputStream*)this);
 			_obj.pushArg(string);
 			return (_obj.callFunction<void>());
 		}

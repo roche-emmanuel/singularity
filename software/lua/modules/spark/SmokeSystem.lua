@@ -5,11 +5,9 @@ Class:generateWrapping(spark.SparkDrawable_BaseSystemCreator)
 
 function Class:initialize(options)	
 	self:debug2("Creating SimpleSystem");
-	
-	self:createWrapper(spark.SparkDrawable_BaseSystemCreator)	
 end
 
-function Class:op_call(textureIDMap, screenWidth, screenHeight)
+function Class:op_call(obj,textureIDMap, screenWidth, screenHeight)
     local textureParticle = textureIDMap:get("smoke");
     
     local particleRenderer = spark.GLQuadRenderer.create();

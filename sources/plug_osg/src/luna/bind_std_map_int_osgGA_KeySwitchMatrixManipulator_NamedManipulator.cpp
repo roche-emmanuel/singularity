@@ -57,11 +57,11 @@ public:
 };
 
 std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator >* LunaTraits< std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator >();
 }
 
 void LunaTraits< std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator > >::_bind_dtor(std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator > >::className[] = "std_map_int_osgGA_KeySwitchMatrixManipulator_NamedManipulator";

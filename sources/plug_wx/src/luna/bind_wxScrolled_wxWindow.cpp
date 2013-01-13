@@ -57,11 +57,11 @@ public:
 };
 
 wxScrolled< wxWindow >* LunaTraits< wxScrolled< wxWindow > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return NULL; //Type destructor explicitly removed.
 }
 
 void LunaTraits< wxScrolled< wxWindow > >::_bind_dtor(wxScrolled< wxWindow >* obj) {
-	//delete obj; // do not delete by default.
+	//Type destructor explicitly removed.
 }
 
 const char LunaTraits< wxScrolled< wxWindow > >::className[] = "wxScrolled_wxWindow";

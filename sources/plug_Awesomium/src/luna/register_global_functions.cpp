@@ -121,11 +121,9 @@ static int _bind_ToWebString(lua_State *L) {
 
 	std::string str(lua_tostring(L,1),lua_objlen(L,1));
 
-	Awesomium::WebString stack_lret = ToWebString(str);
-	Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-	if(!lret) return 0; // Do not write NULL pointers.
-
-	Luna< Awesomium::WebString >::push(L,lret,true);
+	Awesomium::WebString lret = ToWebString(str);
+	std::string lret_str = Awesomium::ToString(lret);
+	lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 	return 1;
 }
@@ -139,15 +137,17 @@ static int _bind_WSLit(lua_State *L) {
 
 	const char * string_literal=(const char *)lua_tostring(L,1);
 
-	Awesomium::WebString stack_lret = WSLit(string_literal);
-	Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-	if(!lret) return 0; // Do not write NULL pointers.
-
-	Luna< Awesomium::WebString >::push(L,lret,true);
+	Awesomium::WebString lret = WSLit(string_literal);
+	std::string lret_str = Awesomium::ToString(lret);
+	lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 	return 1;
 }
 
+
+// Function checkers:
+
+// Function binds:
 
 // Function checkers:
 

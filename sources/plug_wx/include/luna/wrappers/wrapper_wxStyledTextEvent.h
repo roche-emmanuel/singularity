@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_wxStyledTextEvent() {
+		logDEBUG3("Calling delete function for wrapper wxStyledTextEvent");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxStyledTextEvent*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxStyledTextEvent(lua_State* L, lua_Table* dum, int commandType = 0, int id = 0) : wxStyledTextEvent(commandType, id), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxStyledTextEvent(lua_State* L, lua_Table* dum, const wxStyledTextEvent & event) : wxStyledTextEvent(event), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxStyledTextEvent(lua_State* L, lua_Table* dum, int commandType = 0, int id = 0) 
+		: wxStyledTextEvent(commandType, id), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxStyledTextEvent*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxStyledTextEvent(lua_State* L, lua_Table* dum, const wxStyledTextEvent & event) 
+		: wxStyledTextEvent(event), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxStyledTextEvent*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +45,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxStyledTextEvent*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -38,6 +55,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxStyledTextEvent*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -50,6 +68,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxStyledTextEvent*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -59,12 +78,14 @@ public:
 	// wxEvent * wxEvent::Clone() const
 	wxEvent * Clone() const {
 		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxEvent::Clone");
+		_obj.pushArg((wxStyledTextEvent*)this);
 		return (_obj.callFunction<wxEvent*>());
 	};
 
 	// wxEventCategory wxEvent::GetEventCategory() const
 	wxEventCategory GetEventCategory() const {
 		if(_obj.pushFunction("GetEventCategory")) {
+			_obj.pushArg((wxStyledTextEvent*)this);
 			return (wxEventCategory)(_obj.callFunction<int>());
 		}
 

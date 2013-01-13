@@ -63,6 +63,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getAge(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getVersion(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -85,6 +97,44 @@ public:
 
 		bool lret = wxRendererVersion::IsCompatible(ver);
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// const int wxRendererVersion::age()
+	static int _bind_getAge(lua_State *L) {
+		if (!_lg_typecheck_getAge(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const int wxRendererVersion::age() function, expected prototype:\nconst int wxRendererVersion::age()\nClass arguments details:\n");
+		}
+
+
+		wxRendererVersion* self=(Luna< wxRendererVersion >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const int wxRendererVersion::age(). Got : '%s'",typeid(Luna< wxRendererVersion >::check(L,1)).name());
+		}
+		const int lret = self->age;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// const int wxRendererVersion::version()
+	static int _bind_getVersion(lua_State *L) {
+		if (!_lg_typecheck_getVersion(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const int wxRendererVersion::version() function, expected prototype:\nconst int wxRendererVersion::version()\nClass arguments details:\n");
+		}
+
+
+		wxRendererVersion* self=(Luna< wxRendererVersion >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const int wxRendererVersion::version(). Got : '%s'",typeid(Luna< wxRendererVersion >::check(L,1)).name());
+		}
+		const int lret = self->version;
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -113,6 +163,8 @@ const int LunaTraits< wxRendererVersion >::uniqueIDs[] = {83336883,0};
 
 luna_RegType LunaTraits< wxRendererVersion >::methods[] = {
 	{"IsCompatible", &luna_wrapper_wxRendererVersion::_bind_IsCompatible},
+	{"getAge", &luna_wrapper_wxRendererVersion::_bind_getAge},
+	{"getVersion", &luna_wrapper_wxRendererVersion::_bind_getVersion},
 	{"dynCast", &luna_wrapper_wxRendererVersion::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxRendererVersion::_bind___eq},
 	{0,0}

@@ -7,6 +7,7 @@ local tm = require "bindings.TypeManager"
 
 local utils = require "utils"
 
+local Vector = require "std.Vector"
 local Set = require "std.Set"
 
 function Class:initialize(options)
@@ -21,9 +22,23 @@ function Class:writeConstructor(cons)
 	local wname = corr:correct("filename",cname)
 	
 	if cons:getNumParameters()>0 then
-		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum, ${3}) : ${2}(${4}), luna_wrapper_base(L) { register_protected_methods(L); };",wname,cname,cons:getArgumentsPrototype(true),cons:getArgumentNames())
+		buf:writeSubLine([[wrapper_${1}(lua_State* L, lua_Table* dum, ${3}) 
+		: ${2}(${4}), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((${2}*)this);
+			_obj.callFunction<void>();
+		}
+	};]],wname,cname,cons:getArgumentsPrototype(true),cons:getArgumentNames())
 	else
-		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum) : ${2}(), luna_wrapper_base(L) { register_protected_methods(L); };",wname,cname)			
+		buf:writeSubLine([[wrapper_${1}(lua_State* L, lua_Table* dum) 
+		: ${2}(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((${2}*)this);
+			_obj.callFunction<void>();
+		}
+	};]],wname,cname)			
 	end	
 end
 
@@ -55,6 +70,9 @@ end
 
 function Class:writeFunctionCall2(func)
 	local params = func:getParameters()
+	
+	-- push this wrapper:
+	self:writeSubLine("_obj.pushArg((${1}*)this);",self._class:getFullName())
 	
 	for k,param in params:sequence() do
 		self:pushParam(param,k)
@@ -176,14 +194,16 @@ function Class:writeHeader()
 	buf:pushIndent()
 	
 	local str = [[~wrapper_${1}() {
+		logDEBUG3("Calling delete function for wrapper ${1}");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((${2}*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	]]
 	local destructor = class:getDestructor()
 	if not destructor or not destructor:isPrivate() then
-		buf:writeSubLine(str,wname)
+		buf:writeSubLine(str,wname,self._class:getFullName())
 	end
 	
 	for _,cons in constructors:sequence() do
@@ -239,8 +259,10 @@ function Class:writeHeader()
 	end
 	buf:newLine()
 	
+	local origNames = Vector();
 	for _,func in notVirtualFuncs:sequence() do
-		func:setName("public_" .. func:getName())
+		origNames:push_back(func:getName());
+		func:setName("public_" .. func:getLuaName())
 	end
 	
 	buf:writeLine("// Protected non-virtual checkers:")
@@ -251,8 +273,9 @@ function Class:writeHeader()
 	buf:writeForAll(notVirtualFuncs,self._writeBind,self._writeOverloadBind)
 	buf:newLine()
 	
-	for _,func in notVirtualFuncs:sequence() do
-		func:setName(func:getName():sub(8))
+	for k,func in notVirtualFuncs:sequence() do
+		-- func:setName(func:getName():sub(8))
+		func:setName(origNames[k])
 	end
 	
 	-- Now write the registeration table:
@@ -261,7 +284,7 @@ function Class:writeHeader()
 	if not notVirtualFuncs:empty() then
 		buf:writeSubLine("static const luaL_Reg wrapper_lib[] = {")
 		for _,func in notVirtualFuncs:sequence() do
-			buf:writeSubLine('{"protected_${1}",_bind_public_${1}},',func:getName())
+			buf:writeSubLine('{"${1}",_bind_public_${1}},',func:getLuaName())
 		end
 		buf:writeSubLine("{NULL,NULL}")
 		buf:writeSubLine("};")

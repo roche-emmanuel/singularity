@@ -57,11 +57,11 @@ public:
 };
 
 std::list< std::string >* LunaTraits< std::list< std::string > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::list< std::string >();
 }
 
 void LunaTraits< std::list< std::string > >::_bind_dtor(std::list< std::string >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::list< std::string > >::className[] = "std_list_std_string";

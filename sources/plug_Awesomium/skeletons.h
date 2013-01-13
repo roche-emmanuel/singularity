@@ -136,6 +136,9 @@ namespace WebViewListener {
 
 };
 
+namespace KeyCodes {
+};
+
 namespace osg {
 };
 

@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgDB_BaseSerializer() {
+		logDEBUG3("Calling delete function for wrapper osgDB_BaseSerializer");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::BaseSerializer*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_BaseSerializer(lua_State* L, lua_Table* dum) : osgDB::BaseSerializer(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_BaseSerializer(lua_State* L, lua_Table* dum) 
+		: osgDB::BaseSerializer(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::BaseSerializer*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,9 +36,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::BaseSerializer*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return BaseSerializer::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// bool osgDB::BaseSerializer::read(osgDB::InputStream & arg1, osg::Object & arg2)
 	bool read(osgDB::InputStream & arg1, osg::Object & arg2) {
 		THROW_IF(!_obj.pushFunction("read"),"No implementation for abstract function osgDB::BaseSerializer::read");
+		_obj.pushArg((osgDB::BaseSerializer*)this);
 		_obj.pushArg(&arg1);
 		_obj.pushArg(&arg2);
 		return (_obj.callFunction<bool>());
@@ -38,6 +59,7 @@ public:
 	// bool osgDB::BaseSerializer::write(osgDB::OutputStream & arg1, const osg::Object & arg2)
 	bool write(osgDB::OutputStream & arg1, const osg::Object & arg2) {
 		THROW_IF(!_obj.pushFunction("write"),"No implementation for abstract function osgDB::BaseSerializer::write");
+		_obj.pushArg((osgDB::BaseSerializer*)this);
 		_obj.pushArg(&arg1);
 		_obj.pushArg(&arg2);
 		return (_obj.callFunction<bool>());
@@ -46,6 +68,7 @@ public:
 	// const std::string & osgDB::BaseSerializer::getName() const
 	const std::string & getName() const {
 		THROW_IF(!_obj.pushFunction("getName"),"No implementation for abstract function osgDB::BaseSerializer::getName");
+		_obj.pushArg((osgDB::BaseSerializer*)this);
 		return (_obj.callFunction<std::string>());
 	};
 
@@ -120,8 +143,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

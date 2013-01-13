@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxGridCornerHeaderRendererDefault() {
+		logDEBUG3("Calling delete function for wrapper wxGridCornerHeaderRendererDefault");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxGridCornerHeaderRendererDefault*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -29,6 +31,7 @@ public:
 	// void wxGridCornerHeaderRendererDefault::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const
 	void DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const {
 		if(_obj.pushFunction("DrawBorder")) {
+			_obj.pushArg((wxGridCornerHeaderRendererDefault*)this);
 			_obj.pushArg(&grid);
 			_obj.pushArg(&dc);
 			_obj.pushArg(&rect);

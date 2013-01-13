@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -147,6 +147,19 @@ public:
 	inline static bool _lg_typecheck_releaseOperationsBlock(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getOperationThreads(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -389,6 +402,46 @@ public:
 		return 0;
 	}
 
+	// const osg::OperationQueue::OperationThreads & osg::OperationQueue::getOperationThreads() const
+	static int _bind_getOperationThreads(lua_State *L) {
+		if (!_lg_typecheck_getOperationThreads(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::OperationQueue::OperationThreads & osg::OperationQueue::getOperationThreads() const function, expected prototype:\nconst osg::OperationQueue::OperationThreads & osg::OperationQueue::getOperationThreads() const\nClass arguments details:\n");
+		}
+
+
+		osg::OperationQueue* self=Luna< osg::Referenced >::checkSubType< osg::OperationQueue >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::OperationQueue::OperationThreads & osg::OperationQueue::getOperationThreads() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::OperationQueue::OperationThreads* lret = &self->getOperationThreads();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::OperationQueue::OperationThreads >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void osg::OperationQueue::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::OperationQueue::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::OperationQueue::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::OperationQueue* self=Luna< osg::Referenced >::checkSubType< osg::OperationQueue >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::OperationQueue::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->OperationQueue::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -421,6 +474,8 @@ luna_RegType LunaTraits< osg::OperationQueue >::methods[] = {
 	{"runOperations", &luna_wrapper_osg_OperationQueue::_bind_runOperations},
 	{"releaseAllOperations", &luna_wrapper_osg_OperationQueue::_bind_releaseAllOperations},
 	{"releaseOperationsBlock", &luna_wrapper_osg_OperationQueue::_bind_releaseOperationsBlock},
+	{"getOperationThreads", &luna_wrapper_osg_OperationQueue::_bind_getOperationThreads},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_OperationQueue::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osg_OperationQueue::_bind___eq},
 	{"getTable", &luna_wrapper_osg_OperationQueue::_bind_getTable},
 	{0,0}

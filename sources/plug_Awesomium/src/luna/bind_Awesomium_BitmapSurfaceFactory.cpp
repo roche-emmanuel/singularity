@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<Awesomium::SurfaceFactory,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -166,7 +166,7 @@ public:
 		Awesomium::BitmapSurfaceFactory* self=Luna< Awesomium::SurfaceFactory >::checkSubType< Awesomium::BitmapSurfaceFactory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::Surface * Awesomium::BitmapSurfaceFactory::CreateSurface(Awesomium::WebView *, int, int)");
+			luaL_error(L, "Invalid object in function call Awesomium::Surface * Awesomium::BitmapSurfaceFactory::CreateSurface(Awesomium::WebView *, int, int). Got : '%s'",typeid(Luna< Awesomium::SurfaceFactory >::check(L,1)).name());
 		}
 		Awesomium::Surface * lret = self->CreateSurface(view, width, height);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -188,7 +188,7 @@ public:
 		Awesomium::BitmapSurfaceFactory* self=Luna< Awesomium::SurfaceFactory >::checkSubType< Awesomium::BitmapSurfaceFactory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurfaceFactory::DestroySurface(Awesomium::Surface *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurfaceFactory::DestroySurface(Awesomium::Surface *). Got : '%s'",typeid(Luna< Awesomium::SurfaceFactory >::check(L,1)).name());
 		}
 		self->DestroySurface(surface);
 
@@ -209,7 +209,7 @@ public:
 		Awesomium::BitmapSurfaceFactory* self=Luna< Awesomium::SurfaceFactory >::checkSubType< Awesomium::BitmapSurfaceFactory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::Surface * Awesomium::BitmapSurfaceFactory::base_CreateSurface(Awesomium::WebView *, int, int)");
+			luaL_error(L, "Invalid object in function call Awesomium::Surface * Awesomium::BitmapSurfaceFactory::base_CreateSurface(Awesomium::WebView *, int, int). Got : '%s'",typeid(Luna< Awesomium::SurfaceFactory >::check(L,1)).name());
 		}
 		Awesomium::Surface * lret = self->BitmapSurfaceFactory::CreateSurface(view, width, height);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -231,7 +231,7 @@ public:
 		Awesomium::BitmapSurfaceFactory* self=Luna< Awesomium::SurfaceFactory >::checkSubType< Awesomium::BitmapSurfaceFactory >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurfaceFactory::base_DestroySurface(Awesomium::Surface *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurfaceFactory::base_DestroySurface(Awesomium::Surface *). Got : '%s'",typeid(Luna< Awesomium::SurfaceFactory >::check(L,1)).name());
 		}
 		self->BitmapSurfaceFactory::DestroySurface(surface);
 

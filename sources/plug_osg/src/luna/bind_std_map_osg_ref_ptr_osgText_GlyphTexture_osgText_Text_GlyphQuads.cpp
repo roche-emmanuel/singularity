@@ -57,11 +57,11 @@ public:
 };
 
 std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads >* LunaTraits< std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads >();
 }
 
 void LunaTraits< std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads > >::_bind_dtor(std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads > >::className[] = "std_map_osg_ref_ptr_osgText_GlyphTexture_osgText_Text_GlyphQuads";

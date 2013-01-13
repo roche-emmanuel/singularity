@@ -63,3 +63,14 @@ __luna.copyAllParents = function(mod) --__luna.copyAllParents or
 end
 
 _G.__luna = __luna
+
+_G.requireExtension = function(modName)
+	log:notice("Requiring extensions for module: ", modName)
+	local fs = require "base.FileSystem"
+	
+	if fs:isFile(fs:getRootPath(true).. "lua/modules/extensions/" .. modName .. ".lua") then
+		require("extensions."..modName)
+	else	
+		log:info("No extensions found for module ",modName)
+	end
+end

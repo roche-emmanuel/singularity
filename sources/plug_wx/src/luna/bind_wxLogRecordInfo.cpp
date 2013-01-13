@@ -56,6 +56,31 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getFilename(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getLine(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getFunc(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setLine(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -63,6 +88,82 @@ public:
 	// Constructor binds:
 
 	// Function binds:
+	// const char * wxLogRecordInfo::filename()
+	static int _bind_getFilename(lua_State *L) {
+		if (!_lg_typecheck_getFilename(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * wxLogRecordInfo::filename() function, expected prototype:\nconst char * wxLogRecordInfo::filename()\nClass arguments details:\n");
+		}
+
+
+		wxLogRecordInfo* self=(Luna< wxLogRecordInfo >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * wxLogRecordInfo::filename(). Got : '%s'",typeid(Luna< wxLogRecordInfo >::check(L,1)).name());
+		}
+		const char * lret = self->filename;
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// int wxLogRecordInfo::line()
+	static int _bind_getLine(lua_State *L) {
+		if (!_lg_typecheck_getLine(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxLogRecordInfo::line() function, expected prototype:\nint wxLogRecordInfo::line()\nClass arguments details:\n");
+		}
+
+
+		wxLogRecordInfo* self=(Luna< wxLogRecordInfo >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxLogRecordInfo::line(). Got : '%s'",typeid(Luna< wxLogRecordInfo >::check(L,1)).name());
+		}
+		int lret = self->line;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// const char * wxLogRecordInfo::func()
+	static int _bind_getFunc(lua_State *L) {
+		if (!_lg_typecheck_getFunc(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * wxLogRecordInfo::func() function, expected prototype:\nconst char * wxLogRecordInfo::func()\nClass arguments details:\n");
+		}
+
+
+		wxLogRecordInfo* self=(Luna< wxLogRecordInfo >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * wxLogRecordInfo::func(). Got : '%s'",typeid(Luna< wxLogRecordInfo >::check(L,1)).name());
+		}
+		const char * lret = self->func;
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// void wxLogRecordInfo::line(int value)
+	static int _bind_setLine(lua_State *L) {
+		if (!_lg_typecheck_setLine(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxLogRecordInfo::line(int value) function, expected prototype:\nvoid wxLogRecordInfo::line(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxLogRecordInfo* self=(Luna< wxLogRecordInfo >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxLogRecordInfo::line(int). Got : '%s'",typeid(Luna< wxLogRecordInfo >::check(L,1)).name());
+		}
+		self->line = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -86,6 +187,10 @@ const int LunaTraits< wxLogRecordInfo >::hash = 82105951;
 const int LunaTraits< wxLogRecordInfo >::uniqueIDs[] = {82105951,0};
 
 luna_RegType LunaTraits< wxLogRecordInfo >::methods[] = {
+	{"getFilename", &luna_wrapper_wxLogRecordInfo::_bind_getFilename},
+	{"getLine", &luna_wrapper_wxLogRecordInfo::_bind_getLine},
+	{"getFunc", &luna_wrapper_wxLogRecordInfo::_bind_getFunc},
+	{"setLine", &luna_wrapper_wxLogRecordInfo::_bind_setLine},
 	{"dynCast", &luna_wrapper_wxLogRecordInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxLogRecordInfo::_bind___eq},
 	{0,0}

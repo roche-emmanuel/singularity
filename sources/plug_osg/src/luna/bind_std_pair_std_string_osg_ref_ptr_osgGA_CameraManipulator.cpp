@@ -57,11 +57,11 @@ public:
 };
 
 std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > >* LunaTraits< std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > >();
 }
 
 void LunaTraits< std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > > >::_bind_dtor(std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > > >::className[] = "std_pair_std_string_osg_ref_ptr_osgGA_CameraManipulator";

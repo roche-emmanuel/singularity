@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -155,6 +155,143 @@ public:
 	inline static bool _lg_typecheck_init(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_sourceImageSamplingMode(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_sourceImageWindowMode(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_sourceRatioWindow(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_sourcePixelWindow(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_destinationImage(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_destinationImageWindowMode(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_destinationRatioWindow(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_destinationPixelWindow(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_destinationDataType(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_destinationPixelFormat(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_sourceImageSamplingMode(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_sourceImageWindowMode(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_sourceRatioWindow(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,44466488) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_sourcePixelWindow(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,68659525) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_destinationImage(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,15557275) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_destinationImageWindowMode(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_destinationRatioWindow(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,44466488) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_destinationPixelWindow(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,68659525) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_destinationDataType(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_destinationPixelFormat(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -465,6 +602,429 @@ public:
 		return 0;
 	}
 
+	// osgDB::ImageOptions::ImageSamplingMode osgDB::ImageOptions::_sourceImageSamplingMode()
+	static int _bind_get_sourceImageSamplingMode(lua_State *L) {
+		if (!_lg_typecheck_get_sourceImageSamplingMode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::ImageSamplingMode osgDB::ImageOptions::_sourceImageSamplingMode() function, expected prototype:\nosgDB::ImageOptions::ImageSamplingMode osgDB::ImageOptions::_sourceImageSamplingMode()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ImageOptions::ImageSamplingMode osgDB::ImageOptions::_sourceImageSamplingMode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osgDB::ImageOptions::ImageSamplingMode lret = self->_sourceImageSamplingMode;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// osgDB::ImageOptions::ImageWindowMode osgDB::ImageOptions::_sourceImageWindowMode()
+	static int _bind_get_sourceImageWindowMode(lua_State *L) {
+		if (!_lg_typecheck_get_sourceImageWindowMode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::ImageWindowMode osgDB::ImageOptions::_sourceImageWindowMode() function, expected prototype:\nosgDB::ImageOptions::ImageWindowMode osgDB::ImageOptions::_sourceImageWindowMode()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ImageOptions::ImageWindowMode osgDB::ImageOptions::_sourceImageWindowMode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osgDB::ImageOptions::ImageWindowMode lret = self->_sourceImageWindowMode;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// osgDB::ImageOptions::RatioWindow osgDB::ImageOptions::_sourceRatioWindow()
+	static int _bind_get_sourceRatioWindow(lua_State *L) {
+		if (!_lg_typecheck_get_sourceRatioWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::RatioWindow osgDB::ImageOptions::_sourceRatioWindow() function, expected prototype:\nosgDB::ImageOptions::RatioWindow osgDB::ImageOptions::_sourceRatioWindow()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ImageOptions::RatioWindow osgDB::ImageOptions::_sourceRatioWindow(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::ImageOptions::RatioWindow* lret = &self->_sourceRatioWindow;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ImageOptions::RatioWindow >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::ImageOptions::PixelWindow osgDB::ImageOptions::_sourcePixelWindow()
+	static int _bind_get_sourcePixelWindow(lua_State *L) {
+		if (!_lg_typecheck_get_sourcePixelWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::PixelWindow osgDB::ImageOptions::_sourcePixelWindow() function, expected prototype:\nosgDB::ImageOptions::PixelWindow osgDB::ImageOptions::_sourcePixelWindow()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ImageOptions::PixelWindow osgDB::ImageOptions::_sourcePixelWindow(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::ImageOptions::PixelWindow* lret = &self->_sourcePixelWindow;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ImageOptions::PixelWindow >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osg::ref_ptr< osg::Image > osgDB::ImageOptions::_destinationImage()
+	static int _bind_get_destinationImage(lua_State *L) {
+		if (!_lg_typecheck_get_destinationImage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Image > osgDB::ImageOptions::_destinationImage() function, expected prototype:\nosg::ref_ptr< osg::Image > osgDB::ImageOptions::_destinationImage()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Image > osgDB::ImageOptions::_destinationImage(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::ref_ptr< osg::Image > lret = self->_destinationImage;
+		Luna< osg::Image >::push(L,lret.get(),false);
+
+		return 1;
+	}
+
+	// osgDB::ImageOptions::ImageWindowMode osgDB::ImageOptions::_destinationImageWindowMode()
+	static int _bind_get_destinationImageWindowMode(lua_State *L) {
+		if (!_lg_typecheck_get_destinationImageWindowMode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::ImageWindowMode osgDB::ImageOptions::_destinationImageWindowMode() function, expected prototype:\nosgDB::ImageOptions::ImageWindowMode osgDB::ImageOptions::_destinationImageWindowMode()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ImageOptions::ImageWindowMode osgDB::ImageOptions::_destinationImageWindowMode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osgDB::ImageOptions::ImageWindowMode lret = self->_destinationImageWindowMode;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// osgDB::ImageOptions::RatioWindow osgDB::ImageOptions::_destinationRatioWindow()
+	static int _bind_get_destinationRatioWindow(lua_State *L) {
+		if (!_lg_typecheck_get_destinationRatioWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::RatioWindow osgDB::ImageOptions::_destinationRatioWindow() function, expected prototype:\nosgDB::ImageOptions::RatioWindow osgDB::ImageOptions::_destinationRatioWindow()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ImageOptions::RatioWindow osgDB::ImageOptions::_destinationRatioWindow(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::ImageOptions::RatioWindow* lret = &self->_destinationRatioWindow;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ImageOptions::RatioWindow >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::ImageOptions::PixelWindow osgDB::ImageOptions::_destinationPixelWindow()
+	static int _bind_get_destinationPixelWindow(lua_State *L) {
+		if (!_lg_typecheck_get_destinationPixelWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::PixelWindow osgDB::ImageOptions::_destinationPixelWindow() function, expected prototype:\nosgDB::ImageOptions::PixelWindow osgDB::ImageOptions::_destinationPixelWindow()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ImageOptions::PixelWindow osgDB::ImageOptions::_destinationPixelWindow(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::ImageOptions::PixelWindow* lret = &self->_destinationPixelWindow;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ImageOptions::PixelWindow >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// unsigned int osgDB::ImageOptions::_destinationDataType()
+	static int _bind_get_destinationDataType(lua_State *L) {
+		if (!_lg_typecheck_get_destinationDataType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ImageOptions::_destinationDataType() function, expected prototype:\nunsigned int osgDB::ImageOptions::_destinationDataType()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::ImageOptions::_destinationDataType(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_destinationDataType;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osgDB::ImageOptions::_destinationPixelFormat()
+	static int _bind_get_destinationPixelFormat(lua_State *L) {
+		if (!_lg_typecheck_get_destinationPixelFormat(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ImageOptions::_destinationPixelFormat() function, expected prototype:\nunsigned int osgDB::ImageOptions::_destinationPixelFormat()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::ImageOptions::_destinationPixelFormat(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_destinationPixelFormat;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgDB::ImageOptions::_sourceImageSamplingMode(osgDB::ImageOptions::ImageSamplingMode value)
+	static int _bind_set_sourceImageSamplingMode(lua_State *L) {
+		if (!_lg_typecheck_set_sourceImageSamplingMode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_sourceImageSamplingMode(osgDB::ImageOptions::ImageSamplingMode value) function, expected prototype:\nvoid osgDB::ImageOptions::_sourceImageSamplingMode(osgDB::ImageOptions::ImageSamplingMode value)\nClass arguments details:\n");
+		}
+
+		osgDB::ImageOptions::ImageSamplingMode value=(osgDB::ImageOptions::ImageSamplingMode)lua_tointeger(L,2);
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::_sourceImageSamplingMode(osgDB::ImageOptions::ImageSamplingMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_sourceImageSamplingMode = value;
+
+		return 0;
+	}
+
+	// void osgDB::ImageOptions::_sourceImageWindowMode(osgDB::ImageOptions::ImageWindowMode value)
+	static int _bind_set_sourceImageWindowMode(lua_State *L) {
+		if (!_lg_typecheck_set_sourceImageWindowMode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_sourceImageWindowMode(osgDB::ImageOptions::ImageWindowMode value) function, expected prototype:\nvoid osgDB::ImageOptions::_sourceImageWindowMode(osgDB::ImageOptions::ImageWindowMode value)\nClass arguments details:\n");
+		}
+
+		osgDB::ImageOptions::ImageWindowMode value=(osgDB::ImageOptions::ImageWindowMode)lua_tointeger(L,2);
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::_sourceImageWindowMode(osgDB::ImageOptions::ImageWindowMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_sourceImageWindowMode = value;
+
+		return 0;
+	}
+
+	// void osgDB::ImageOptions::_sourceRatioWindow(osgDB::ImageOptions::RatioWindow value)
+	static int _bind_set_sourceRatioWindow(lua_State *L) {
+		if (!_lg_typecheck_set_sourceRatioWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_sourceRatioWindow(osgDB::ImageOptions::RatioWindow value) function, expected prototype:\nvoid osgDB::ImageOptions::_sourceRatioWindow(osgDB::ImageOptions::RatioWindow value)\nClass arguments details:\narg 1 ID = 44466488\n");
+		}
+
+		osgDB::ImageOptions::RatioWindow* value_ptr=(Luna< osgDB::ImageOptions::RatioWindow >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgDB::ImageOptions::_sourceRatioWindow function");
+		}
+		osgDB::ImageOptions::RatioWindow value=*value_ptr;
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::_sourceRatioWindow(osgDB::ImageOptions::RatioWindow). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_sourceRatioWindow = value;
+
+		return 0;
+	}
+
+	// void osgDB::ImageOptions::_sourcePixelWindow(osgDB::ImageOptions::PixelWindow value)
+	static int _bind_set_sourcePixelWindow(lua_State *L) {
+		if (!_lg_typecheck_set_sourcePixelWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_sourcePixelWindow(osgDB::ImageOptions::PixelWindow value) function, expected prototype:\nvoid osgDB::ImageOptions::_sourcePixelWindow(osgDB::ImageOptions::PixelWindow value)\nClass arguments details:\narg 1 ID = 68659525\n");
+		}
+
+		osgDB::ImageOptions::PixelWindow* value_ptr=(Luna< osgDB::ImageOptions::PixelWindow >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgDB::ImageOptions::_sourcePixelWindow function");
+		}
+		osgDB::ImageOptions::PixelWindow value=*value_ptr;
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::_sourcePixelWindow(osgDB::ImageOptions::PixelWindow). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_sourcePixelWindow = value;
+
+		return 0;
+	}
+
+	// void osgDB::ImageOptions::_destinationImage(osg::ref_ptr< osg::Image > value)
+	static int _bind_set_destinationImage(lua_State *L) {
+		if (!_lg_typecheck_set_destinationImage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_destinationImage(osg::ref_ptr< osg::Image > value) function, expected prototype:\nvoid osgDB::ImageOptions::_destinationImage(osg::ref_ptr< osg::Image > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::Image > value = dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::_destinationImage(osg::ref_ptr< osg::Image >). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_destinationImage = value;
+
+		return 0;
+	}
+
+	// void osgDB::ImageOptions::_destinationImageWindowMode(osgDB::ImageOptions::ImageWindowMode value)
+	static int _bind_set_destinationImageWindowMode(lua_State *L) {
+		if (!_lg_typecheck_set_destinationImageWindowMode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_destinationImageWindowMode(osgDB::ImageOptions::ImageWindowMode value) function, expected prototype:\nvoid osgDB::ImageOptions::_destinationImageWindowMode(osgDB::ImageOptions::ImageWindowMode value)\nClass arguments details:\n");
+		}
+
+		osgDB::ImageOptions::ImageWindowMode value=(osgDB::ImageOptions::ImageWindowMode)lua_tointeger(L,2);
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::_destinationImageWindowMode(osgDB::ImageOptions::ImageWindowMode). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_destinationImageWindowMode = value;
+
+		return 0;
+	}
+
+	// void osgDB::ImageOptions::_destinationRatioWindow(osgDB::ImageOptions::RatioWindow value)
+	static int _bind_set_destinationRatioWindow(lua_State *L) {
+		if (!_lg_typecheck_set_destinationRatioWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_destinationRatioWindow(osgDB::ImageOptions::RatioWindow value) function, expected prototype:\nvoid osgDB::ImageOptions::_destinationRatioWindow(osgDB::ImageOptions::RatioWindow value)\nClass arguments details:\narg 1 ID = 44466488\n");
+		}
+
+		osgDB::ImageOptions::RatioWindow* value_ptr=(Luna< osgDB::ImageOptions::RatioWindow >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgDB::ImageOptions::_destinationRatioWindow function");
+		}
+		osgDB::ImageOptions::RatioWindow value=*value_ptr;
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::_destinationRatioWindow(osgDB::ImageOptions::RatioWindow). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_destinationRatioWindow = value;
+
+		return 0;
+	}
+
+	// void osgDB::ImageOptions::_destinationPixelWindow(osgDB::ImageOptions::PixelWindow value)
+	static int _bind_set_destinationPixelWindow(lua_State *L) {
+		if (!_lg_typecheck_set_destinationPixelWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_destinationPixelWindow(osgDB::ImageOptions::PixelWindow value) function, expected prototype:\nvoid osgDB::ImageOptions::_destinationPixelWindow(osgDB::ImageOptions::PixelWindow value)\nClass arguments details:\narg 1 ID = 68659525\n");
+		}
+
+		osgDB::ImageOptions::PixelWindow* value_ptr=(Luna< osgDB::ImageOptions::PixelWindow >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgDB::ImageOptions::_destinationPixelWindow function");
+		}
+		osgDB::ImageOptions::PixelWindow value=*value_ptr;
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::_destinationPixelWindow(osgDB::ImageOptions::PixelWindow). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_destinationPixelWindow = value;
+
+		return 0;
+	}
+
+	// void osgDB::ImageOptions::_destinationDataType(unsigned int value)
+	static int _bind_set_destinationDataType(lua_State *L) {
+		if (!_lg_typecheck_set_destinationDataType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_destinationDataType(unsigned int value) function, expected prototype:\nvoid osgDB::ImageOptions::_destinationDataType(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::_destinationDataType(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_destinationDataType = value;
+
+		return 0;
+	}
+
+	// void osgDB::ImageOptions::_destinationPixelFormat(unsigned int value)
+	static int _bind_set_destinationPixelFormat(lua_State *L) {
+		if (!_lg_typecheck_set_destinationPixelFormat(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_destinationPixelFormat(unsigned int value) function, expected prototype:\nvoid osgDB::ImageOptions::_destinationPixelFormat(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::_destinationPixelFormat(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_destinationPixelFormat = value;
+
+		return 0;
+	}
+
+	// void osgDB::ImageOptions::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::ImageOptions::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgDB::ImageOptions* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->ImageOptions::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osgDB::ImageOptions::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
@@ -727,6 +1287,27 @@ luna_RegType LunaTraits< osgDB::ImageOptions >::methods[] = {
 	{"libraryName", &luna_wrapper_osgDB_ImageOptions::_bind_libraryName},
 	{"className", &luna_wrapper_osgDB_ImageOptions::_bind_className},
 	{"init", &luna_wrapper_osgDB_ImageOptions::_bind_init},
+	{"get_sourceImageSamplingMode", &luna_wrapper_osgDB_ImageOptions::_bind_get_sourceImageSamplingMode},
+	{"get_sourceImageWindowMode", &luna_wrapper_osgDB_ImageOptions::_bind_get_sourceImageWindowMode},
+	{"get_sourceRatioWindow", &luna_wrapper_osgDB_ImageOptions::_bind_get_sourceRatioWindow},
+	{"get_sourcePixelWindow", &luna_wrapper_osgDB_ImageOptions::_bind_get_sourcePixelWindow},
+	{"get_destinationImage", &luna_wrapper_osgDB_ImageOptions::_bind_get_destinationImage},
+	{"get_destinationImageWindowMode", &luna_wrapper_osgDB_ImageOptions::_bind_get_destinationImageWindowMode},
+	{"get_destinationRatioWindow", &luna_wrapper_osgDB_ImageOptions::_bind_get_destinationRatioWindow},
+	{"get_destinationPixelWindow", &luna_wrapper_osgDB_ImageOptions::_bind_get_destinationPixelWindow},
+	{"get_destinationDataType", &luna_wrapper_osgDB_ImageOptions::_bind_get_destinationDataType},
+	{"get_destinationPixelFormat", &luna_wrapper_osgDB_ImageOptions::_bind_get_destinationPixelFormat},
+	{"set_sourceImageSamplingMode", &luna_wrapper_osgDB_ImageOptions::_bind_set_sourceImageSamplingMode},
+	{"set_sourceImageWindowMode", &luna_wrapper_osgDB_ImageOptions::_bind_set_sourceImageWindowMode},
+	{"set_sourceRatioWindow", &luna_wrapper_osgDB_ImageOptions::_bind_set_sourceRatioWindow},
+	{"set_sourcePixelWindow", &luna_wrapper_osgDB_ImageOptions::_bind_set_sourcePixelWindow},
+	{"set_destinationImage", &luna_wrapper_osgDB_ImageOptions::_bind_set_destinationImage},
+	{"set_destinationImageWindowMode", &luna_wrapper_osgDB_ImageOptions::_bind_set_destinationImageWindowMode},
+	{"set_destinationRatioWindow", &luna_wrapper_osgDB_ImageOptions::_bind_set_destinationRatioWindow},
+	{"set_destinationPixelWindow", &luna_wrapper_osgDB_ImageOptions::_bind_set_destinationPixelWindow},
+	{"set_destinationDataType", &luna_wrapper_osgDB_ImageOptions::_bind_set_destinationDataType},
+	{"set_destinationPixelFormat", &luna_wrapper_osgDB_ImageOptions::_bind_set_destinationPixelFormat},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgDB_ImageOptions::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osgDB_ImageOptions::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgDB_ImageOptions::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osgDB_ImageOptions::_bind_base_setUserData},

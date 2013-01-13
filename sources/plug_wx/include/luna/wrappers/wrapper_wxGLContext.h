@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_wxGLContext() {
+		logDEBUG3("Calling delete function for wrapper wxGLContext");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxGLContext*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxGLContext(lua_State* L, lua_Table* dum, wxGLCanvas * win, const wxGLContext * other = NULL) : wxGLContext(win, other), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxGLContext(lua_State* L, lua_Table* dum, wxGLCanvas * win, const wxGLContext * other = NULL) 
+		: wxGLContext(win, other), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxGLContext*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxGLContext*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -37,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxGLContext*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -49,6 +60,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxGLContext*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -58,6 +70,7 @@ public:
 	// bool wxGLContext::SetCurrent(const wxGLCanvas & win) const
 	bool SetCurrent(const wxGLCanvas & win) const {
 		if(_obj.pushFunction("SetCurrent")) {
+			_obj.pushArg((wxGLContext*)this);
 			_obj.pushArg(&win);
 			return (_obj.callFunction<bool>());
 		}

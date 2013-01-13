@@ -122,7 +122,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,67360031) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::ArgumentParser::Parameter::Parameter(bool & value)
@@ -271,6 +278,32 @@ public:
 
 
 	// Operator binds:
+	// osg::ArgumentParser::Parameter & osg::ArgumentParser::Parameter::operator=(const osg::ArgumentParser::Parameter & param)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ArgumentParser::Parameter & osg::ArgumentParser::Parameter::operator=(const osg::ArgumentParser::Parameter & param) function, expected prototype:\nosg::ArgumentParser::Parameter & osg::ArgumentParser::Parameter::operator=(const osg::ArgumentParser::Parameter & param)\nClass arguments details:\narg 1 ID = 67360031\n");
+		}
+
+		const osg::ArgumentParser::Parameter* param_ptr=(Luna< osg::ArgumentParser::Parameter >::check(L,2));
+		if( !param_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg param in osg::ArgumentParser::Parameter::operator= function");
+		}
+		const osg::ArgumentParser::Parameter & param=*param_ptr;
+
+		osg::ArgumentParser::Parameter* self=(Luna< osg::ArgumentParser::Parameter >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ArgumentParser::Parameter & osg::ArgumentParser::Parameter::operator=(const osg::ArgumentParser::Parameter &). Got : '%s'",typeid(Luna< osg::ArgumentParser::Parameter >::check(L,1)).name());
+		}
+		const osg::ArgumentParser::Parameter* lret = &self->operator=(param);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::ArgumentParser::Parameter >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -294,6 +327,7 @@ const int LunaTraits< osg::ArgumentParser::Parameter >::uniqueIDs[] = {67360031,
 luna_RegType LunaTraits< osg::ArgumentParser::Parameter >::methods[] = {
 	{"valid", &luna_wrapper_osg_ArgumentParser_Parameter::_bind_valid},
 	{"assign", &luna_wrapper_osg_ArgumentParser_Parameter::_bind_assign},
+	{"op_assign", &luna_wrapper_osg_ArgumentParser_Parameter::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_ArgumentParser_Parameter::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_ArgumentParser_Parameter::_bind___eq},
 	{0,0}

@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_wxHTTP() {
+		logDEBUG3("Calling delete function for wrapper wxHTTP");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxHTTP*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxHTTP(lua_State* L, lua_Table* dum) : wxHTTP(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxHTTP(lua_State* L, lua_Table* dum) 
+		: wxHTTP(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxHTTP*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxHTTP*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -37,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxHTTP*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -49,6 +60,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxHTTP*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -58,6 +70,7 @@ public:
 	// bool wxSocketBase::GetLocal(wxSockAddress & addr) const
 	bool GetLocal(wxSockAddress & addr) const {
 		if(_obj.pushFunction("GetLocal")) {
+			_obj.pushArg((wxHTTP*)this);
 			_obj.pushArg(&addr);
 			return (_obj.callFunction<bool>());
 		}
@@ -68,6 +81,7 @@ public:
 	// bool wxSocketBase::GetPeer(wxSockAddress & addr) const
 	bool GetPeer(wxSockAddress & addr) const {
 		if(_obj.pushFunction("GetPeer")) {
+			_obj.pushArg((wxHTTP*)this);
 			_obj.pushArg(&addr);
 			return (_obj.callFunction<bool>());
 		}
@@ -78,6 +92,7 @@ public:
 	// bool wxSocketBase::Close()
 	bool Close() {
 		if(_obj.pushFunction("Close")) {
+			_obj.pushArg((wxHTTP*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -87,6 +102,7 @@ public:
 	// bool wxSocketBase::SetLocal(const wxIPV4address & local)
 	bool SetLocal(const wxIPV4address & local) {
 		if(_obj.pushFunction("SetLocal")) {
+			_obj.pushArg((wxHTTP*)this);
 			_obj.pushArg(&local);
 			return (_obj.callFunction<bool>());
 		}
@@ -97,18 +113,21 @@ public:
 	// bool wxProtocol::Abort()
 	bool Abort() {
 		THROW_IF(!_obj.pushFunction("Abort"),"No implementation for abstract function wxProtocol::Abort");
+		_obj.pushArg((wxHTTP*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// wxString wxProtocol::GetContentType() const
 	wxString GetContentType() const {
 		THROW_IF(!_obj.pushFunction("GetContentType"),"No implementation for abstract function wxProtocol::GetContentType");
+		_obj.pushArg((wxHTTP*)this);
 		return *(_obj.callFunction<wxString*>());
 	};
 
 	// wxProtocolError wxProtocol::GetError() const
 	wxProtocolError GetError() const {
 		if(_obj.pushFunction("GetError")) {
+			_obj.pushArg((wxHTTP*)this);
 			return (wxProtocolError)(_obj.callFunction<int>());
 		}
 
@@ -118,6 +137,7 @@ public:
 	// void wxProtocol::SetPassword(const wxString & user)
 	void SetPassword(const wxString & user) {
 		if(_obj.pushFunction("SetPassword")) {
+			_obj.pushArg((wxHTTP*)this);
 			_obj.pushArg(user);
 			return (_obj.callFunction<void>());
 		}
@@ -128,6 +148,7 @@ public:
 	// void wxProtocol::SetUser(const wxString & user)
 	void SetUser(const wxString & user) {
 		if(_obj.pushFunction("SetUser")) {
+			_obj.pushArg((wxHTTP*)this);
 			_obj.pushArg(user);
 			return (_obj.callFunction<void>());
 		}
@@ -138,6 +159,7 @@ public:
 	// bool wxHTTP::Connect(const wxString & host)
 	bool Connect(const wxString & host) {
 		if(_obj.pushFunction("Connect")) {
+			_obj.pushArg((wxHTTP*)this);
 			_obj.pushArg(host);
 			return (_obj.callFunction<bool>());
 		}
@@ -148,6 +170,7 @@ public:
 	// bool wxHTTP::Connect(const wxString & host, unsigned short port)
 	bool Connect(const wxString & host, unsigned short port) {
 		if(_obj.pushFunction("Connect")) {
+			_obj.pushArg((wxHTTP*)this);
 			_obj.pushArg(host);
 			_obj.pushArg(port);
 			return (_obj.callFunction<bool>());
@@ -159,6 +182,7 @@ public:
 	// bool wxHTTP::Connect(const wxSockAddress & address, bool wait)
 	bool Connect(const wxSockAddress & address, bool wait) {
 		if(_obj.pushFunction("Connect")) {
+			_obj.pushArg((wxHTTP*)this);
 			_obj.pushArg(&address);
 			_obj.pushArg(wait);
 			return (_obj.callFunction<bool>());
@@ -170,6 +194,7 @@ public:
 	// wxInputStream * wxHTTP::GetInputStream(const wxString & path)
 	wxInputStream * GetInputStream(const wxString & path) {
 		if(_obj.pushFunction("GetInputStream")) {
+			_obj.pushArg((wxHTTP*)this);
 			_obj.pushArg(path);
 			return (_obj.callFunction<wxInputStream*>());
 		}

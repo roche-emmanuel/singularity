@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -391,7 +391,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,33161232) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,5512969) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,50169651) ) return false;
 		return true;
 	}
@@ -401,8 +401,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
 		if( (!(Luna< osg::Matrixd >::check(L,2))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,82744897) ) return false;
-		if( (!(Luna< osg::BoundingBoxd >::check(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,41227270) ) return false;
+		if( (!(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,3))) ) return false;
 		return true;
 	}
 
@@ -559,6 +559,13 @@ public:
 	inline static bool _lg_typecheck_create(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1734,7 +1741,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg matrix in osgUtil::CullVisitor::computeNearestPointInFrustum function");
 		}
 		const osg::Matrixd & matrix=*matrix_ptr;
-		const osg::Polytope::PlaneList* planes_ptr=(Luna< osg::Polytope::PlaneList >::check(L,3));
+		const osg::Polytope::PlaneList* planes_ptr=(Luna< std::vector< osg::Plane > >::checkSubType< osg::Polytope::PlaneList >(L,3));
 		if( !planes_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg planes in osgUtil::CullVisitor::computeNearestPointInFrustum function");
 		}
@@ -1768,7 +1775,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg matrix in osgUtil::CullVisitor::updateCalculatedNearFar function");
 		}
 		const osg::Matrixd & matrix=*matrix_ptr;
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,3));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,3));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osgUtil::CullVisitor::updateCalculatedNearFar function");
 		}
@@ -2262,6 +2269,25 @@ public:
 		Luna< osgUtil::CullVisitor >::push(L,lret,false);
 
 		return 1;
+	}
+
+	// void osgUtil::CullVisitor::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::CullVisitor::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::CullVisitor::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgUtil::CullVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::CullVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::CullVisitor::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->CullVisitor::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
 	}
 
 	// void osgUtil::CullVisitor::base_setDefaults()
@@ -3000,7 +3026,7 @@ public:
 			luaL_error(L, "Invalid object in function call baseCast(...)");
 		}
 		
-		osg::CullSettings* res = dynamic_cast<osg::CullSettings*>(self);
+		osg::CullSettings* res = luna_caster<osg::Referenced,osg::CullSettings>::cast(self); // dynamic_cast<osg::CullSettings*>(self);
 		if(!res)
 			return 0;
 			
@@ -3070,6 +3096,7 @@ luna_RegType LunaTraits< osgUtil::CullVisitor >::methods[] = {
 	{"getRenderInfo", &luna_wrapper_osgUtil_CullVisitor::_bind_getRenderInfo},
 	{"prototype", &luna_wrapper_osgUtil_CullVisitor::_bind_prototype},
 	{"create", &luna_wrapper_osgUtil_CullVisitor::_bind_create},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_CullVisitor::_bind_base_setThreadSafeRefUnref},
 	{"base_setDefaults", &luna_wrapper_osgUtil_CullVisitor::_bind_base_setDefaults},
 	{"base_inheritCullSettings", &luna_wrapper_osgUtil_CullVisitor::_bind_base_inheritCullSettings},
 	{"base_libraryName", &luna_wrapper_osgUtil_CullVisitor::_bind_base_libraryName},

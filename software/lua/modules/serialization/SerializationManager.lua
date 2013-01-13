@@ -55,7 +55,6 @@ function Class:uninitialize()
 	local owm = osgDB.Registry.instance():getObjectWrapperManager()
 	for _,wrapper in self._wrapperList:sequence() do
 		owm:removeWrapper( wrapper:getWrapper() );
-		wrapper:release()
 	end
 end
 

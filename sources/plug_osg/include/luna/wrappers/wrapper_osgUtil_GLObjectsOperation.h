@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_osgUtil_GLObjectsOperation() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_GLObjectsOperation");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::GLObjectsOperation*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_GLObjectsOperation(lua_State* L, lua_Table* dum, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES) : osgUtil::GLObjectsOperation(mode), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_GLObjectsOperation(lua_State* L, lua_Table* dum, osg::Node * subgraph, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES) : osgUtil::GLObjectsOperation(subgraph, mode), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_GLObjectsOperation(lua_State* L, lua_Table* dum, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES) 
+		: osgUtil::GLObjectsOperation(mode), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::GLObjectsOperation*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_GLObjectsOperation(lua_State* L, lua_Table* dum, osg::Node * subgraph, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES) 
+		: osgUtil::GLObjectsOperation(subgraph, mode), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::GLObjectsOperation*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,9 +44,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::GLObjectsOperation*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return GLObjectsOperation::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Operation::release()
 	void release() {
 		if(_obj.pushFunction("release")) {
+			_obj.pushArg((osgUtil::GLObjectsOperation*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -40,6 +68,7 @@ public:
 	// void osgUtil::GLObjectsOperation::operator()(osg::GraphicsContext * context)
 	void operator()(osg::GraphicsContext * context) {
 		if(_obj.pushFunction("op_call")) {
+			_obj.pushArg((osgUtil::GLObjectsOperation*)this);
 			_obj.pushArg(context);
 			return (_obj.callFunction<void>());
 		}
@@ -118,8 +147,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

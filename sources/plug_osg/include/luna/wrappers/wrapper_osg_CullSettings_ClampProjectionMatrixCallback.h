@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osg_CullSettings_ClampProjectionMatrixCallback() {
+		logDEBUG3("Calling delete function for wrapper osg_CullSettings_ClampProjectionMatrixCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::CullSettings::ClampProjectionMatrixCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_CullSettings_ClampProjectionMatrixCallback(lua_State* L, lua_Table* dum) : osg::CullSettings::ClampProjectionMatrixCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_CullSettings_ClampProjectionMatrixCallback(lua_State* L, lua_Table* dum) 
+		: osg::CullSettings::ClampProjectionMatrixCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::CullSettings::ClampProjectionMatrixCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,9 +36,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::CullSettings::ClampProjectionMatrixCallback*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ClampProjectionMatrixCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixf & projection, double & znear, double & zfar) const
 	bool clampProjectionMatrixImplementation(osg::Matrixf & projection, double & znear, double & zfar) const {
 		THROW_IF(!_obj.pushFunction("clampProjectionMatrixImplementation"),"No implementation for abstract function osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation");
+		_obj.pushArg((osg::CullSettings::ClampProjectionMatrixCallback*)this);
 		_obj.pushArg(&projection);
 		_obj.pushArg(znear);
 		_obj.pushArg(zfar);
@@ -39,6 +60,7 @@ public:
 	// bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixd & projection, double & znear, double & zfar) const
 	bool clampProjectionMatrixImplementation(osg::Matrixd & projection, double & znear, double & zfar) const {
 		THROW_IF(!_obj.pushFunction("clampProjectionMatrixImplementation"),"No implementation for abstract function osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation");
+		_obj.pushArg((osg::CullSettings::ClampProjectionMatrixCallback*)this);
 		_obj.pushArg(&projection);
 		_obj.pushArg(znear);
 		_obj.pushArg(zfar);
@@ -116,8 +138,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

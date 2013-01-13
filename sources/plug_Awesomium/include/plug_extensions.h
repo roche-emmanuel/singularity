@@ -6,6 +6,7 @@
 #include <Awesomium/BitmapSurface.h>
 #include <Awesomium/WebConfig.h>
 #include <Awesomium/WebPreferences.h>
+#include <Awesomium/WebKeyboardEvent.h>
 #include <osg/Image>
 #include <osg/Texture2D>
 
@@ -17,6 +18,37 @@ void addAdditionalOption(Awesomium::WebConfig* config, std::string& option);
 
 /** LUNA_CLASS_EXTENSION */
 void useWebGL(Awesomium::WebPreferences* prefs, bool enabled);
+
+/** LUNA_CLASS_EXTENSION */
+inline void setType(Awesomium::WebKeyboardEvent* ke, int type) {
+	ke->type = (WebKeyboardEvent::Type)type;
+};
+
+/** LUNA_CLASS_EXTENSION */
+inline void setModifiers(Awesomium::WebKeyboardEvent* ke, int mod) {
+	ke->modifiers = mod;
+};
+
+/** LUNA_CLASS_EXTENSION */
+inline std::string setVirtualKeyCode(Awesomium::WebKeyboardEvent* ke, int code) {
+	ke->virtual_key_code = code;
+	char* buf = new char[20];
+	Awesomium::GetKeyIdentifierFromVirtualKeyCode(code,&buf);
+	strcpy(ke->key_identifier, buf);
+	delete[] buf;	
+	return ke->key_identifier ? std::string(ke->key_identifier) : "NULL";
+};
+
+/** LUNA_CLASS_EXTENSION */
+inline void setNativeKeyCode(Awesomium::WebKeyboardEvent* ke, int code) {
+	ke->native_key_code = code;
+};
+
+/** LUNA_CLASS_EXTENSION */
+inline void setText(Awesomium::WebKeyboardEvent* ke, int character) {
+	ke->text[0] = character;
+	ke->unmodified_text[0] = character;
+};
 
 
 class SurfaceSubloadCallback : public osg::Texture2D::SubloadCallback {

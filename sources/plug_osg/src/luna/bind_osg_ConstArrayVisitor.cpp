@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::ConstArrayVisitor,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -106,64 +106,64 @@ public:
 	inline static bool _lg_typecheck_apply_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,59587824) ) return false;
-		if( (!(Luna< osg::ByteArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,46527738) ) return false;
+		if( (!(Luna< osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE > >::checkSubType< osg::ByteArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,17157487) ) return false;
-		if( (!(Luna< osg::ShortArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,72312551) ) return false;
+		if( (!(Luna< osg::TemplateIndexArray< short, osg::Array::ShortArrayType, 1, GL_SHORT > >::checkSubType< osg::ShortArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,28130065) ) return false;
-		if( (!(Luna< osg::IntArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,77568465) ) return false;
+		if( (!(Luna< osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 > >::checkSubType< osg::IntArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_5(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,72202494) ) return false;
-		if( (!(Luna< osg::UByteArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76345736) ) return false;
+		if( (!(Luna< osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE > >::checkSubType< osg::UByteArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_6(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,4787198) ) return false;
-		if( (!(Luna< osg::UShortArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,59968751) ) return false;
+		if( (!(Luna< osg::TemplateIndexArray< unsigned short, osg::Array::UShortArrayType, 1, GL_UNSIGNED_SHORT > >::checkSubType< osg::UShortArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_7(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,86600648) ) return false;
-		if( (!(Luna< osg::UIntArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,14674410) ) return false;
+		if( (!(Luna< osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 > >::checkSubType< osg::UIntArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_8(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,43730923) ) return false;
-		if( (!(Luna< osg::FloatArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,66705573) ) return false;
+		if( (!(Luna< osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT > >::checkSubType< osg::FloatArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_9(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,50192637) ) return false;
-		if( (!(Luna< osg::DoubleArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,14704447) ) return false;
+		if( (!(Luna< osg::TemplateArray< double, osg::Array::DoubleArrayType, 1, 0x140A > >::checkSubType< osg::DoubleArray >(L,2))) ) return false;
 		return true;
 	}
 
@@ -194,88 +194,88 @@ public:
 	inline static bool _lg_typecheck_apply_overload_13(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,83703711) ) return false;
-		if( (!(Luna< osg::Vec4ubArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,40646071) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec4ub, osg::Array::Vec4ubArrayType, 4, GL_UNSIGNED_BYTE > >::checkSubType< osg::Vec4ubArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_14(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,35367467) ) return false;
-		if( (!(Luna< osg::Vec2bArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,66655983) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec2b, osg::Array::Vec2bArrayType, 2, GL_BYTE > >::checkSubType< osg::Vec2bArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_15(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,22871013) ) return false;
-		if( (!(Luna< osg::Vec3bArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,49027762) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec3b, osg::Array::Vec3bArrayType, 3, GL_BYTE > >::checkSubType< osg::Vec3bArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_16(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,10374559) ) return false;
-		if( (!(Luna< osg::Vec4bArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,75159211) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec4b, osg::Array::Vec4bArrayType, 4, GL_BYTE > >::checkSubType< osg::Vec4bArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_17(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,22062959) ) return false;
-		if( (!(Luna< osg::Vec2sArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,38996958) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec2s, osg::Array::Vec2sArrayType, 2, GL_SHORT > >::checkSubType< osg::Vec2sArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_18(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,9566505) ) return false;
-		if( (!(Luna< osg::Vec3sArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,16762640) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec3s, osg::Array::Vec3sArrayType, 3, GL_SHORT > >::checkSubType< osg::Vec3sArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_19(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,97070066) ) return false;
-		if( (!(Luna< osg::Vec4sArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,18397997) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT > >::checkSubType< osg::Vec4sArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_20(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92625769) ) return false;
-		if( (!(Luna< osg::Vec2dArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,88202160) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec2d, osg::Array::Vec2dArrayType, 2, 0x140A > >::checkSubType< osg::Vec2dArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_21(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,80129315) ) return false;
-		if( (!(Luna< osg::Vec3dArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,18847939) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec3d, osg::Array::Vec3dArrayType, 3, 0x140A > >::checkSubType< osg::Vec3dArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_22(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,67632861) ) return false;
-		if( (!(Luna< osg::Vec4dArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,21777619) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec4d, osg::Array::Vec4dArrayType, 4, 0x140A > >::checkSubType< osg::Vec4dArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_apply_overload_23(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82206572) ) return false;
-		if( (!(Luna< osg::MatrixfArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76760649) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Matrixf, osg::Array::MatrixArrayType, 16, GL_FLOAT > >::checkSubType< osg::MatrixfArray >(L,2))) ) return false;
 		return true;
 	}
 
@@ -290,64 +290,64 @@ public:
 	inline static bool _lg_typecheck_base_apply_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,59587824) ) return false;
-		if( (!(Luna< osg::ByteArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,46527738) ) return false;
+		if( (!(Luna< osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE > >::checkSubType< osg::ByteArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,17157487) ) return false;
-		if( (!(Luna< osg::ShortArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,72312551) ) return false;
+		if( (!(Luna< osg::TemplateIndexArray< short, osg::Array::ShortArrayType, 1, GL_SHORT > >::checkSubType< osg::ShortArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,28130065) ) return false;
-		if( (!(Luna< osg::IntArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,77568465) ) return false;
+		if( (!(Luna< osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 > >::checkSubType< osg::IntArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_5(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,72202494) ) return false;
-		if( (!(Luna< osg::UByteArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76345736) ) return false;
+		if( (!(Luna< osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE > >::checkSubType< osg::UByteArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_6(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,4787198) ) return false;
-		if( (!(Luna< osg::UShortArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,59968751) ) return false;
+		if( (!(Luna< osg::TemplateIndexArray< unsigned short, osg::Array::UShortArrayType, 1, GL_UNSIGNED_SHORT > >::checkSubType< osg::UShortArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_7(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,86600648) ) return false;
-		if( (!(Luna< osg::UIntArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,14674410) ) return false;
+		if( (!(Luna< osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 > >::checkSubType< osg::UIntArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_8(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,43730923) ) return false;
-		if( (!(Luna< osg::FloatArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,66705573) ) return false;
+		if( (!(Luna< osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT > >::checkSubType< osg::FloatArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_9(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,50192637) ) return false;
-		if( (!(Luna< osg::DoubleArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,14704447) ) return false;
+		if( (!(Luna< osg::TemplateArray< double, osg::Array::DoubleArrayType, 1, 0x140A > >::checkSubType< osg::DoubleArray >(L,2))) ) return false;
 		return true;
 	}
 
@@ -378,88 +378,88 @@ public:
 	inline static bool _lg_typecheck_base_apply_overload_13(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,83703711) ) return false;
-		if( (!(Luna< osg::Vec4ubArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,40646071) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec4ub, osg::Array::Vec4ubArrayType, 4, GL_UNSIGNED_BYTE > >::checkSubType< osg::Vec4ubArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_14(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,35367467) ) return false;
-		if( (!(Luna< osg::Vec2bArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,66655983) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec2b, osg::Array::Vec2bArrayType, 2, GL_BYTE > >::checkSubType< osg::Vec2bArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_15(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,22871013) ) return false;
-		if( (!(Luna< osg::Vec3bArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,49027762) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec3b, osg::Array::Vec3bArrayType, 3, GL_BYTE > >::checkSubType< osg::Vec3bArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_16(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,10374559) ) return false;
-		if( (!(Luna< osg::Vec4bArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,75159211) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec4b, osg::Array::Vec4bArrayType, 4, GL_BYTE > >::checkSubType< osg::Vec4bArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_17(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,22062959) ) return false;
-		if( (!(Luna< osg::Vec2sArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,38996958) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec2s, osg::Array::Vec2sArrayType, 2, GL_SHORT > >::checkSubType< osg::Vec2sArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_18(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,9566505) ) return false;
-		if( (!(Luna< osg::Vec3sArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,16762640) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec3s, osg::Array::Vec3sArrayType, 3, GL_SHORT > >::checkSubType< osg::Vec3sArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_19(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,97070066) ) return false;
-		if( (!(Luna< osg::Vec4sArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,18397997) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT > >::checkSubType< osg::Vec4sArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_20(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92625769) ) return false;
-		if( (!(Luna< osg::Vec2dArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,88202160) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec2d, osg::Array::Vec2dArrayType, 2, 0x140A > >::checkSubType< osg::Vec2dArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_21(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,80129315) ) return false;
-		if( (!(Luna< osg::Vec3dArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,18847939) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec3d, osg::Array::Vec3dArrayType, 3, 0x140A > >::checkSubType< osg::Vec3dArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_22(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,67632861) ) return false;
-		if( (!(Luna< osg::Vec4dArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,21777619) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Vec4d, osg::Array::Vec4dArrayType, 4, 0x140A > >::checkSubType< osg::Vec4dArray >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_apply_overload_23(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82206572) ) return false;
-		if( (!(Luna< osg::MatrixfArray >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,76760649) ) return false;
+		if( (!(Luna< osg::TemplateArray< osg::Matrixf, osg::Array::MatrixArrayType, 16, GL_FLOAT > >::checkSubType< osg::MatrixfArray >(L,2))) ) return false;
 		return true;
 	}
 
@@ -531,7 +531,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::ByteArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::ByteArray & arg1)\nClass arguments details:\narg 1 ID = 59587824\n");
 		}
 
-		const osg::ByteArray* _arg1_ptr=(Luna< osg::ByteArray >::check(L,2));
+		const osg::ByteArray* _arg1_ptr=(Luna< osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE > >::checkSubType< osg::ByteArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -554,7 +554,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::ShortArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::ShortArray & arg1)\nClass arguments details:\narg 1 ID = 17157487\n");
 		}
 
-		const osg::ShortArray* _arg1_ptr=(Luna< osg::ShortArray >::check(L,2));
+		const osg::ShortArray* _arg1_ptr=(Luna< osg::TemplateIndexArray< short, osg::Array::ShortArrayType, 1, GL_SHORT > >::checkSubType< osg::ShortArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -577,7 +577,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::IntArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::IntArray & arg1)\nClass arguments details:\narg 1 ID = 28130065\n");
 		}
 
-		const osg::IntArray* _arg1_ptr=(Luna< osg::IntArray >::check(L,2));
+		const osg::IntArray* _arg1_ptr=(Luna< osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 > >::checkSubType< osg::IntArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -600,7 +600,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::UByteArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::UByteArray & arg1)\nClass arguments details:\narg 1 ID = 72202494\n");
 		}
 
-		const osg::UByteArray* _arg1_ptr=(Luna< osg::UByteArray >::check(L,2));
+		const osg::UByteArray* _arg1_ptr=(Luna< osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE > >::checkSubType< osg::UByteArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -623,7 +623,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::UShortArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::UShortArray & arg1)\nClass arguments details:\narg 1 ID = 4787198\n");
 		}
 
-		const osg::UShortArray* _arg1_ptr=(Luna< osg::UShortArray >::check(L,2));
+		const osg::UShortArray* _arg1_ptr=(Luna< osg::TemplateIndexArray< unsigned short, osg::Array::UShortArrayType, 1, GL_UNSIGNED_SHORT > >::checkSubType< osg::UShortArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -646,7 +646,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::UIntArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::UIntArray & arg1)\nClass arguments details:\narg 1 ID = 86600648\n");
 		}
 
-		const osg::UIntArray* _arg1_ptr=(Luna< osg::UIntArray >::check(L,2));
+		const osg::UIntArray* _arg1_ptr=(Luna< osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 > >::checkSubType< osg::UIntArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -669,7 +669,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::FloatArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::FloatArray & arg1)\nClass arguments details:\narg 1 ID = 43730923\n");
 		}
 
-		const osg::FloatArray* _arg1_ptr=(Luna< osg::FloatArray >::check(L,2));
+		const osg::FloatArray* _arg1_ptr=(Luna< osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT > >::checkSubType< osg::FloatArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -692,7 +692,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::DoubleArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::DoubleArray & arg1)\nClass arguments details:\narg 1 ID = 50192637\n");
 		}
 
-		const osg::DoubleArray* _arg1_ptr=(Luna< osg::DoubleArray >::check(L,2));
+		const osg::DoubleArray* _arg1_ptr=(Luna< osg::TemplateArray< double, osg::Array::DoubleArrayType, 1, 0x140A > >::checkSubType< osg::DoubleArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -784,7 +784,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec4ubArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec4ubArray & arg1)\nClass arguments details:\narg 1 ID = 83703711\n");
 		}
 
-		const osg::Vec4ubArray* _arg1_ptr=(Luna< osg::Vec4ubArray >::check(L,2));
+		const osg::Vec4ubArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec4ub, osg::Array::Vec4ubArrayType, 4, GL_UNSIGNED_BYTE > >::checkSubType< osg::Vec4ubArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -807,7 +807,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec2bArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec2bArray & arg1)\nClass arguments details:\narg 1 ID = 35367467\n");
 		}
 
-		const osg::Vec2bArray* _arg1_ptr=(Luna< osg::Vec2bArray >::check(L,2));
+		const osg::Vec2bArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec2b, osg::Array::Vec2bArrayType, 2, GL_BYTE > >::checkSubType< osg::Vec2bArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -830,7 +830,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec3bArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec3bArray & arg1)\nClass arguments details:\narg 1 ID = 22871013\n");
 		}
 
-		const osg::Vec3bArray* _arg1_ptr=(Luna< osg::Vec3bArray >::check(L,2));
+		const osg::Vec3bArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec3b, osg::Array::Vec3bArrayType, 3, GL_BYTE > >::checkSubType< osg::Vec3bArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -853,7 +853,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec4bArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec4bArray & arg1)\nClass arguments details:\narg 1 ID = 10374559\n");
 		}
 
-		const osg::Vec4bArray* _arg1_ptr=(Luna< osg::Vec4bArray >::check(L,2));
+		const osg::Vec4bArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec4b, osg::Array::Vec4bArrayType, 4, GL_BYTE > >::checkSubType< osg::Vec4bArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -876,7 +876,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec2sArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec2sArray & arg1)\nClass arguments details:\narg 1 ID = 22062959\n");
 		}
 
-		const osg::Vec2sArray* _arg1_ptr=(Luna< osg::Vec2sArray >::check(L,2));
+		const osg::Vec2sArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec2s, osg::Array::Vec2sArrayType, 2, GL_SHORT > >::checkSubType< osg::Vec2sArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -899,7 +899,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec3sArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec3sArray & arg1)\nClass arguments details:\narg 1 ID = 9566505\n");
 		}
 
-		const osg::Vec3sArray* _arg1_ptr=(Luna< osg::Vec3sArray >::check(L,2));
+		const osg::Vec3sArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec3s, osg::Array::Vec3sArrayType, 3, GL_SHORT > >::checkSubType< osg::Vec3sArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -922,7 +922,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec4sArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec4sArray & arg1)\nClass arguments details:\narg 1 ID = 97070066\n");
 		}
 
-		const osg::Vec4sArray* _arg1_ptr=(Luna< osg::Vec4sArray >::check(L,2));
+		const osg::Vec4sArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT > >::checkSubType< osg::Vec4sArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -945,7 +945,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec2dArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec2dArray & arg1)\nClass arguments details:\narg 1 ID = 92625769\n");
 		}
 
-		const osg::Vec2dArray* _arg1_ptr=(Luna< osg::Vec2dArray >::check(L,2));
+		const osg::Vec2dArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec2d, osg::Array::Vec2dArrayType, 2, 0x140A > >::checkSubType< osg::Vec2dArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -968,7 +968,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec3dArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec3dArray & arg1)\nClass arguments details:\narg 1 ID = 80129315\n");
 		}
 
-		const osg::Vec3dArray* _arg1_ptr=(Luna< osg::Vec3dArray >::check(L,2));
+		const osg::Vec3dArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec3d, osg::Array::Vec3dArrayType, 3, 0x140A > >::checkSubType< osg::Vec3dArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -991,7 +991,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec4dArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec4dArray & arg1)\nClass arguments details:\narg 1 ID = 67632861\n");
 		}
 
-		const osg::Vec4dArray* _arg1_ptr=(Luna< osg::Vec4dArray >::check(L,2));
+		const osg::Vec4dArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec4d, osg::Array::Vec4dArrayType, 4, 0x140A > >::checkSubType< osg::Vec4dArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -1014,7 +1014,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::MatrixfArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::MatrixfArray & arg1)\nClass arguments details:\narg 1 ID = 82206572\n");
 		}
 
-		const osg::MatrixfArray* _arg1_ptr=(Luna< osg::MatrixfArray >::check(L,2));
+		const osg::MatrixfArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Matrixf, osg::Array::MatrixArrayType, 16, GL_FLOAT > >::checkSubType< osg::MatrixfArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::apply function");
 		}
@@ -1090,7 +1090,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::ByteArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::ByteArray & arg1)\nClass arguments details:\narg 1 ID = 59587824\n");
 		}
 
-		const osg::ByteArray* _arg1_ptr=(Luna< osg::ByteArray >::check(L,2));
+		const osg::ByteArray* _arg1_ptr=(Luna< osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE > >::checkSubType< osg::ByteArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1113,7 +1113,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::ShortArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::ShortArray & arg1)\nClass arguments details:\narg 1 ID = 17157487\n");
 		}
 
-		const osg::ShortArray* _arg1_ptr=(Luna< osg::ShortArray >::check(L,2));
+		const osg::ShortArray* _arg1_ptr=(Luna< osg::TemplateIndexArray< short, osg::Array::ShortArrayType, 1, GL_SHORT > >::checkSubType< osg::ShortArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1136,7 +1136,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::IntArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::IntArray & arg1)\nClass arguments details:\narg 1 ID = 28130065\n");
 		}
 
-		const osg::IntArray* _arg1_ptr=(Luna< osg::IntArray >::check(L,2));
+		const osg::IntArray* _arg1_ptr=(Luna< osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 > >::checkSubType< osg::IntArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1159,7 +1159,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::UByteArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::UByteArray & arg1)\nClass arguments details:\narg 1 ID = 72202494\n");
 		}
 
-		const osg::UByteArray* _arg1_ptr=(Luna< osg::UByteArray >::check(L,2));
+		const osg::UByteArray* _arg1_ptr=(Luna< osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE > >::checkSubType< osg::UByteArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1182,7 +1182,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::UShortArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::UShortArray & arg1)\nClass arguments details:\narg 1 ID = 4787198\n");
 		}
 
-		const osg::UShortArray* _arg1_ptr=(Luna< osg::UShortArray >::check(L,2));
+		const osg::UShortArray* _arg1_ptr=(Luna< osg::TemplateIndexArray< unsigned short, osg::Array::UShortArrayType, 1, GL_UNSIGNED_SHORT > >::checkSubType< osg::UShortArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1205,7 +1205,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::UIntArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::UIntArray & arg1)\nClass arguments details:\narg 1 ID = 86600648\n");
 		}
 
-		const osg::UIntArray* _arg1_ptr=(Luna< osg::UIntArray >::check(L,2));
+		const osg::UIntArray* _arg1_ptr=(Luna< osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 > >::checkSubType< osg::UIntArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1228,7 +1228,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::FloatArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::FloatArray & arg1)\nClass arguments details:\narg 1 ID = 43730923\n");
 		}
 
-		const osg::FloatArray* _arg1_ptr=(Luna< osg::FloatArray >::check(L,2));
+		const osg::FloatArray* _arg1_ptr=(Luna< osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT > >::checkSubType< osg::FloatArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1251,7 +1251,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::DoubleArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::DoubleArray & arg1)\nClass arguments details:\narg 1 ID = 50192637\n");
 		}
 
-		const osg::DoubleArray* _arg1_ptr=(Luna< osg::DoubleArray >::check(L,2));
+		const osg::DoubleArray* _arg1_ptr=(Luna< osg::TemplateArray< double, osg::Array::DoubleArrayType, 1, 0x140A > >::checkSubType< osg::DoubleArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1343,7 +1343,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::Vec4ubArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::Vec4ubArray & arg1)\nClass arguments details:\narg 1 ID = 83703711\n");
 		}
 
-		const osg::Vec4ubArray* _arg1_ptr=(Luna< osg::Vec4ubArray >::check(L,2));
+		const osg::Vec4ubArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec4ub, osg::Array::Vec4ubArrayType, 4, GL_UNSIGNED_BYTE > >::checkSubType< osg::Vec4ubArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1366,7 +1366,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::Vec2bArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::Vec2bArray & arg1)\nClass arguments details:\narg 1 ID = 35367467\n");
 		}
 
-		const osg::Vec2bArray* _arg1_ptr=(Luna< osg::Vec2bArray >::check(L,2));
+		const osg::Vec2bArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec2b, osg::Array::Vec2bArrayType, 2, GL_BYTE > >::checkSubType< osg::Vec2bArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1389,7 +1389,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::Vec3bArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::Vec3bArray & arg1)\nClass arguments details:\narg 1 ID = 22871013\n");
 		}
 
-		const osg::Vec3bArray* _arg1_ptr=(Luna< osg::Vec3bArray >::check(L,2));
+		const osg::Vec3bArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec3b, osg::Array::Vec3bArrayType, 3, GL_BYTE > >::checkSubType< osg::Vec3bArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1412,7 +1412,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::Vec4bArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::Vec4bArray & arg1)\nClass arguments details:\narg 1 ID = 10374559\n");
 		}
 
-		const osg::Vec4bArray* _arg1_ptr=(Luna< osg::Vec4bArray >::check(L,2));
+		const osg::Vec4bArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec4b, osg::Array::Vec4bArrayType, 4, GL_BYTE > >::checkSubType< osg::Vec4bArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1435,7 +1435,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::Vec2sArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::Vec2sArray & arg1)\nClass arguments details:\narg 1 ID = 22062959\n");
 		}
 
-		const osg::Vec2sArray* _arg1_ptr=(Luna< osg::Vec2sArray >::check(L,2));
+		const osg::Vec2sArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec2s, osg::Array::Vec2sArrayType, 2, GL_SHORT > >::checkSubType< osg::Vec2sArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1458,7 +1458,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::Vec3sArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::Vec3sArray & arg1)\nClass arguments details:\narg 1 ID = 9566505\n");
 		}
 
-		const osg::Vec3sArray* _arg1_ptr=(Luna< osg::Vec3sArray >::check(L,2));
+		const osg::Vec3sArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec3s, osg::Array::Vec3sArrayType, 3, GL_SHORT > >::checkSubType< osg::Vec3sArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1481,7 +1481,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::Vec4sArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::Vec4sArray & arg1)\nClass arguments details:\narg 1 ID = 97070066\n");
 		}
 
-		const osg::Vec4sArray* _arg1_ptr=(Luna< osg::Vec4sArray >::check(L,2));
+		const osg::Vec4sArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT > >::checkSubType< osg::Vec4sArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1504,7 +1504,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::Vec2dArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::Vec2dArray & arg1)\nClass arguments details:\narg 1 ID = 92625769\n");
 		}
 
-		const osg::Vec2dArray* _arg1_ptr=(Luna< osg::Vec2dArray >::check(L,2));
+		const osg::Vec2dArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec2d, osg::Array::Vec2dArrayType, 2, 0x140A > >::checkSubType< osg::Vec2dArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1527,7 +1527,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::Vec3dArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::Vec3dArray & arg1)\nClass arguments details:\narg 1 ID = 80129315\n");
 		}
 
-		const osg::Vec3dArray* _arg1_ptr=(Luna< osg::Vec3dArray >::check(L,2));
+		const osg::Vec3dArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec3d, osg::Array::Vec3dArrayType, 3, 0x140A > >::checkSubType< osg::Vec3dArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1550,7 +1550,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::Vec4dArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::Vec4dArray & arg1)\nClass arguments details:\narg 1 ID = 67632861\n");
 		}
 
-		const osg::Vec4dArray* _arg1_ptr=(Luna< osg::Vec4dArray >::check(L,2));
+		const osg::Vec4dArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Vec4d, osg::Array::Vec4dArrayType, 4, 0x140A > >::checkSubType< osg::Vec4dArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}
@@ -1573,7 +1573,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::base_apply(const osg::MatrixfArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::base_apply(const osg::MatrixfArray & arg1)\nClass arguments details:\narg 1 ID = 82206572\n");
 		}
 
-		const osg::MatrixfArray* _arg1_ptr=(Luna< osg::MatrixfArray >::check(L,2));
+		const osg::MatrixfArray* _arg1_ptr=(Luna< osg::TemplateArray< osg::Matrixf, osg::Array::MatrixArrayType, 16, GL_FLOAT > >::checkSubType< osg::MatrixfArray >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ConstArrayVisitor::base_apply function");
 		}

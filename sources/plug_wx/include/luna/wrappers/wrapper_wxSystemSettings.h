@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxSystemSettings() {
+		logDEBUG3("Calling delete function for wrapper wxSystemSettings");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxSystemSettings*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};

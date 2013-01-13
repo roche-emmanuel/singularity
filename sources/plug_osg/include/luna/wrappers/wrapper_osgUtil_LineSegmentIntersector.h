@@ -14,14 +14,37 @@ public:
 		
 
 	~wrapper_osgUtil_LineSegmentIntersector() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_LineSegmentIntersector");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::LineSegmentIntersector*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, const osg::Vec3d & start, const osg::Vec3d & end) : osgUtil::LineSegmentIntersector(start, end), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, const osg::Vec3d & start, const osg::Vec3d & end) : osgUtil::LineSegmentIntersector(cf, start, end), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, double x, double y) : osgUtil::LineSegmentIntersector(cf, x, y), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, const osg::Vec3d & start, const osg::Vec3d & end) 
+		: osgUtil::LineSegmentIntersector(start, end), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, const osg::Vec3d & start, const osg::Vec3d & end) 
+		: osgUtil::LineSegmentIntersector(cf, start, end), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, double x, double y) 
+		: osgUtil::LineSegmentIntersector(cf, x, y), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,9 +52,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return LineSegmentIntersector::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osgUtil::Intersector * osgUtil::LineSegmentIntersector::clone(osgUtil::IntersectionVisitor & iv)
 	osgUtil::Intersector * clone(osgUtil::IntersectionVisitor & iv) {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
 			_obj.pushArg(&iv);
 			return (_obj.callFunction<osgUtil::Intersector*>());
 		}
@@ -42,6 +77,7 @@ public:
 	// bool osgUtil::LineSegmentIntersector::enter(const osg::Node & node)
 	bool enter(const osg::Node & node) {
 		if(_obj.pushFunction("enter")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<bool>());
 		}
@@ -52,6 +88,7 @@ public:
 	// void osgUtil::LineSegmentIntersector::leave()
 	void leave() {
 		if(_obj.pushFunction("leave")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -61,6 +98,7 @@ public:
 	// void osgUtil::LineSegmentIntersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)
 	void intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable) {
 		if(_obj.pushFunction("intersect")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
 			_obj.pushArg(&iv);
 			_obj.pushArg(drawable);
 			return (_obj.callFunction<void>());
@@ -72,6 +110,7 @@ public:
 	// void osgUtil::LineSegmentIntersector::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -81,6 +120,7 @@ public:
 	// bool osgUtil::LineSegmentIntersector::containsIntersections()
 	bool containsIntersections() {
 		if(_obj.pushFunction("containsIntersections")) {
+			_obj.pushArg((osgUtil::LineSegmentIntersector*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -114,7 +154,7 @@ public:
 	inline static bool _lg_typecheck_public_intersects(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,65870735) ) return false;
 		return true;
 	}
 
@@ -123,7 +163,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,82744897) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,41227270) ) return false;
 		return true;
 	}
 
@@ -150,7 +190,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgUtil::LineSegmentIntersector::public_intersects(const osg::BoundingSphered & bs) function, expected prototype:\nbool osgUtil::LineSegmentIntersector::public_intersects(const osg::BoundingSphered & bs)\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphered >::check(L,2));
+		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
 		if( !bs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bs in osgUtil::LineSegmentIntersector::public_intersects function");
 		}
@@ -184,7 +224,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg e in osgUtil::LineSegmentIntersector::public_intersectAndClip function");
 		}
 		osg::Vec3d & e=*e_ptr;
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,4));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,4));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osgUtil::LineSegmentIntersector::public_intersectAndClip function");
 		}
@@ -242,10 +282,10 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_intersects",_bind_public_intersects},
-		{"protected_intersectAndClip",_bind_public_intersectAndClip},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"intersects",_bind_public_intersects},
+		{"intersectAndClip",_bind_public_intersectAndClip},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

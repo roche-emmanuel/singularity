@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxZipEntry() {
+		logDEBUG3("Calling delete function for wrapper wxZipEntry");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxZipEntry*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};

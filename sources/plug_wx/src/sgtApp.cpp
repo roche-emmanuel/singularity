@@ -33,6 +33,7 @@ public:
     }
     
     ~AppInstance() {
+		std::cout << "(cout) Destroying wx module." << std::endl;
         logDEBUG0_V("Destroying wx module.");
     }
 };

@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxObject,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -467,6 +467,12 @@ public:
 	}
 
 	inline static bool _lg_typecheck_GetDataView(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getNO_IMAGE(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -2358,6 +2364,25 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxDataViewCtrl >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const int wxTreeListCtrl::NO_IMAGE()
+	static int _bind_getNO_IMAGE(lua_State *L) {
+		if (!_lg_typecheck_getNO_IMAGE(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const int wxTreeListCtrl::NO_IMAGE() function, expected prototype:\nconst int wxTreeListCtrl::NO_IMAGE()\nClass arguments details:\n");
+		}
+
+
+		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const int wxTreeListCtrl::NO_IMAGE(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const int lret = self->NO_IMAGE;
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -4501,6 +4526,7 @@ luna_RegType LunaTraits< wxTreeListCtrl >::methods[] = {
 	{"SetItemComparator", &luna_wrapper_wxTreeListCtrl::_bind_SetItemComparator},
 	{"GetView", &luna_wrapper_wxTreeListCtrl::_bind_GetView},
 	{"GetDataView", &luna_wrapper_wxTreeListCtrl::_bind_GetDataView},
+	{"getNO_IMAGE", &luna_wrapper_wxTreeListCtrl::_bind_getNO_IMAGE},
 	{"base_GetClassInfo", &luna_wrapper_wxTreeListCtrl::_bind_base_GetClassInfo},
 	{"base_AcceptsFocus", &luna_wrapper_wxTreeListCtrl::_bind_base_AcceptsFocus},
 	{"base_AcceptsFocusFromKeyboard", &luna_wrapper_wxTreeListCtrl::_bind_base_AcceptsFocusFromKeyboard},

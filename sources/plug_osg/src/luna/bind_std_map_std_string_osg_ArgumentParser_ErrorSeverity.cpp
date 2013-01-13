@@ -57,11 +57,11 @@ public:
 };
 
 std::map< std::string, osg::ArgumentParser::ErrorSeverity >* LunaTraits< std::map< std::string, osg::ArgumentParser::ErrorSeverity > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< std::string, osg::ArgumentParser::ErrorSeverity >();
 }
 
 void LunaTraits< std::map< std::string, osg::ArgumentParser::ErrorSeverity > >::_bind_dtor(std::map< std::string, osg::ArgumentParser::ErrorSeverity >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< std::string, osg::ArgumentParser::ErrorSeverity > >::className[] = "std_map_std_string_osg_ArgumentParser_ErrorSeverity";

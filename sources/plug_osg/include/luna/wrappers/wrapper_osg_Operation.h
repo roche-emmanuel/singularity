@@ -14,14 +14,37 @@ public:
 		
 
 	~wrapper_osg_Operation() {
+		logDEBUG3("Calling delete function for wrapper osg_Operation");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::Operation*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_Operation(lua_State* L, lua_Table* dum, const std::string & name, bool keep) : osg::Operation(name, keep), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_Operation(lua_State* L, lua_Table* dum) : osg::Operation(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_Operation(lua_State* L, lua_Table* dum, const osg::Operation & op) : osg::Operation(op), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Operation(lua_State* L, lua_Table* dum, const std::string & name, bool keep) 
+		: osg::Operation(name, keep), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Operation*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Operation(lua_State* L, lua_Table* dum) 
+		: osg::Operation(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Operation*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Operation(lua_State* L, lua_Table* dum, const osg::Operation & op) 
+		: osg::Operation(op), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Operation*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,9 +52,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::Operation*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Operation::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Operation::release()
 	void release() {
 		if(_obj.pushFunction("release")) {
+			_obj.pushArg((osg::Operation*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -41,6 +76,7 @@ public:
 	// void osg::Operation::operator()(osg::Object * arg1)
 	void operator()(osg::Object * arg1) {
 		THROW_IF(!_obj.pushFunction("op_call"),"No implementation for abstract function osg::Operation::operator()");
+		_obj.pushArg((osg::Operation*)this);
 		_obj.pushArg(arg1);
 		return (_obj.callFunction<void>());
 	};
@@ -116,8 +152,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

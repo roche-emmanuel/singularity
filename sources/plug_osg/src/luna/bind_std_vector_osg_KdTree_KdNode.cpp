@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< osg::KdTree::KdNode >* LunaTraits< std::vector< osg::KdTree::KdNode > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< osg::KdTree::KdNode >();
 }
 
 void LunaTraits< std::vector< osg::KdTree::KdNode > >::_bind_dtor(std::vector< osg::KdTree::KdNode >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< osg::KdTree::KdNode > >::className[] = "std_vector_osg_KdTree_KdNode";

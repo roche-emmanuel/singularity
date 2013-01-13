@@ -56,6 +56,14 @@ SET(MYSQL_INC_DIR 	${DEP_MYSQL}/include)
 SET(MYSQL_LIB_DIR 	${DEP_MYSQL}/lib)
 SET(MYSQL_LIBS 		mysqlclient)
 
+SET(FREENECT_INC_DIR 	${DEP_FREENECT}/include)
+SET(FREENECT_LIB_DIR 	${DEP_FREENECT}/lib)
+SET(FREENECT_LIBS 		freenect)
+
+SET(KINECT_INC_DIR 		${DEP_KINECT}/include)
+SET(KINECT_LIB_DIR 		${DEP_KINECT}/lib/x86)
+SET(KINECT_LIBS 		Kinect10)
+
 SET(OPENSSL_INC_DIR 	${DEP_OPENSSL}/include)
 SET(OPENSSL_LIB_DIR 	${DEP_OPENSSL}/lib)
 SET(OPENSSL_LIBS 		libeay32.lib ssleay32.lib)
@@ -90,6 +98,13 @@ SET(SPICE_INC_DIR 	${DEP_SPICE}/include)
 SET(SPICE_LIB_DIR 	${DEP_SPICE}/lib)
 SET(SPICE_LIBS 		cspice csupport)
 
+SET(VLC_INC_DIR 	${DEP_VLC}/include)
+SET(VLC_LIB_DIR 	${DEP_VLC}/lib)
+SET(VLC_LIBS 		libvlc libvlccore)
+
+SET(ATB_INC_DIR 	${DEP_ATB}/include)
+SET(ATB_LIB_DIR 	${DEP_ATB}/lib)
+SET(ATB_LIBS 		AntTweakBar.lib)
 
 # SET(WXWEBKIT_INC_DIR 	${DEP_WXWEBKIT}/Source/WebKit/wx)
 # SET(WXWEBKIT_LIB_DIR 	${DEP_WXWEBKIT}/WebKitBuild/Release)

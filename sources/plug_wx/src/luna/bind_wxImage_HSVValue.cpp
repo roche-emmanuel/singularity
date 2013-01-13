@@ -66,6 +66,45 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getHue(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getSaturation(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getValue(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setHue(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setSaturation(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setValue(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -89,6 +128,120 @@ public:
 
 
 	// Function binds:
+	// double wxImage::HSVValue::hue()
+	static int _bind_getHue(lua_State *L) {
+		if (!_lg_typecheck_getHue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double wxImage::HSVValue::hue() function, expected prototype:\ndouble wxImage::HSVValue::hue()\nClass arguments details:\n");
+		}
+
+
+		wxImage::HSVValue* self=(Luna< wxImage::HSVValue >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double wxImage::HSVValue::hue(). Got : '%s'",typeid(Luna< wxImage::HSVValue >::check(L,1)).name());
+		}
+		double lret = self->hue;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// double wxImage::HSVValue::saturation()
+	static int _bind_getSaturation(lua_State *L) {
+		if (!_lg_typecheck_getSaturation(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double wxImage::HSVValue::saturation() function, expected prototype:\ndouble wxImage::HSVValue::saturation()\nClass arguments details:\n");
+		}
+
+
+		wxImage::HSVValue* self=(Luna< wxImage::HSVValue >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double wxImage::HSVValue::saturation(). Got : '%s'",typeid(Luna< wxImage::HSVValue >::check(L,1)).name());
+		}
+		double lret = self->saturation;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// double wxImage::HSVValue::value()
+	static int _bind_getValue(lua_State *L) {
+		if (!_lg_typecheck_getValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double wxImage::HSVValue::value() function, expected prototype:\ndouble wxImage::HSVValue::value()\nClass arguments details:\n");
+		}
+
+
+		wxImage::HSVValue* self=(Luna< wxImage::HSVValue >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double wxImage::HSVValue::value(). Got : '%s'",typeid(Luna< wxImage::HSVValue >::check(L,1)).name());
+		}
+		double lret = self->value;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxImage::HSVValue::hue(double value)
+	static int _bind_setHue(lua_State *L) {
+		if (!_lg_typecheck_setHue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxImage::HSVValue::hue(double value) function, expected prototype:\nvoid wxImage::HSVValue::hue(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		wxImage::HSVValue* self=(Luna< wxImage::HSVValue >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxImage::HSVValue::hue(double). Got : '%s'",typeid(Luna< wxImage::HSVValue >::check(L,1)).name());
+		}
+		self->hue = value;
+
+		return 0;
+	}
+
+	// void wxImage::HSVValue::saturation(double value)
+	static int _bind_setSaturation(lua_State *L) {
+		if (!_lg_typecheck_setSaturation(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxImage::HSVValue::saturation(double value) function, expected prototype:\nvoid wxImage::HSVValue::saturation(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		wxImage::HSVValue* self=(Luna< wxImage::HSVValue >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxImage::HSVValue::saturation(double). Got : '%s'",typeid(Luna< wxImage::HSVValue >::check(L,1)).name());
+		}
+		self->saturation = value;
+
+		return 0;
+	}
+
+	// void wxImage::HSVValue::value(double value)
+	static int _bind_setValue(lua_State *L) {
+		if (!_lg_typecheck_setValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxImage::HSVValue::value(double value) function, expected prototype:\nvoid wxImage::HSVValue::value(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		wxImage::HSVValue* self=(Luna< wxImage::HSVValue >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxImage::HSVValue::value(double). Got : '%s'",typeid(Luna< wxImage::HSVValue >::check(L,1)).name());
+		}
+		self->value = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -112,6 +265,12 @@ const int LunaTraits< wxImage::HSVValue >::hash = 41631892;
 const int LunaTraits< wxImage::HSVValue >::uniqueIDs[] = {41631892,0};
 
 luna_RegType LunaTraits< wxImage::HSVValue >::methods[] = {
+	{"getHue", &luna_wrapper_wxImage_HSVValue::_bind_getHue},
+	{"getSaturation", &luna_wrapper_wxImage_HSVValue::_bind_getSaturation},
+	{"getValue", &luna_wrapper_wxImage_HSVValue::_bind_getValue},
+	{"setHue", &luna_wrapper_wxImage_HSVValue::_bind_setHue},
+	{"setSaturation", &luna_wrapper_wxImage_HSVValue::_bind_setSaturation},
+	{"setValue", &luna_wrapper_wxImage_HSVValue::_bind_setValue},
 	{"dynCast", &luna_wrapper_wxImage_HSVValue::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxImage_HSVValue::_bind___eq},
 	{0,0}

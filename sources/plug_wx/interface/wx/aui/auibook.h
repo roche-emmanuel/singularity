@@ -75,12 +75,17 @@
 */
 class wxAuiNotebook : public wxBookCtrlBase
 {
+protected:
+	wxWindow * DoRemovePage(size_t arg1);
+	
 public:
     /**
         Default ctor.
     */
     wxAuiNotebook();
 
+	int GetPageImage(size_t nPage) const;
+	
     /**
         Constructor. Creates a wxAuiNotebok control.
     */

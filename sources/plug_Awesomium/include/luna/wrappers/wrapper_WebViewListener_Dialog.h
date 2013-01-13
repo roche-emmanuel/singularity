@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_WebViewListener_Dialog() {
+		logDEBUG3("Calling delete function for wrapper WebViewListener_Dialog");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((WebViewListener::Dialog*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_WebViewListener_Dialog(lua_State* L, lua_Table* dum) : WebViewListener::Dialog(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_WebViewListener_Dialog(lua_State* L, lua_Table* dum) 
+		: WebViewListener::Dialog(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((WebViewListener::Dialog*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +39,7 @@ public:
 	// void WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info)
 	void OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info) {
 		THROW_IF(!_obj.pushFunction("OnShowFileChooser"),"No implementation for abstract function WebViewListener::Dialog::OnShowFileChooser");
+		_obj.pushArg((WebViewListener::Dialog*)this);
 		_obj.pushArg(caller);
 		_obj.pushArg(&chooser_info);
 		return (_obj.callFunction<void>());
@@ -38,6 +48,7 @@ public:
 	// void WebViewListener::Dialog::OnShowLoginDialog(Awesomium::WebView * caller, const Awesomium::WebLoginDialogInfo & dialog_info)
 	void OnShowLoginDialog(Awesomium::WebView * caller, const Awesomium::WebLoginDialogInfo & dialog_info) {
 		THROW_IF(!_obj.pushFunction("OnShowLoginDialog"),"No implementation for abstract function WebViewListener::Dialog::OnShowLoginDialog");
+		_obj.pushArg((WebViewListener::Dialog*)this);
 		_obj.pushArg(caller);
 		_obj.pushArg(&dialog_info);
 		return (_obj.callFunction<void>());

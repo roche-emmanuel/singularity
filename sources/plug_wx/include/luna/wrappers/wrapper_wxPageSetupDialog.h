@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_wxPageSetupDialog() {
+		logDEBUG3("Calling delete function for wrapper wxPageSetupDialog");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxPageSetupDialog*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxPageSetupDialog(lua_State* L, lua_Table* dum, wxWindow * parent, wxPageSetupDialogData * data = NULL) : wxPageSetupDialog(parent, data), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxPageSetupDialog(lua_State* L, lua_Table* dum, wxWindow * parent, wxPageSetupDialogData * data = NULL) 
+		: wxPageSetupDialog(parent, data), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxPageSetupDialog*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:

@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_osg_ClearNode() {
+		logDEBUG3("Calling delete function for wrapper osg_ClearNode");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::ClearNode*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_ClearNode(lua_State* L, lua_Table* dum) : osg::ClearNode(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_ClearNode(lua_State* L, lua_Table* dum, const osg::ClearNode & cs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ClearNode(cs, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_ClearNode(lua_State* L, lua_Table* dum) 
+		: osg::ClearNode(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::ClearNode*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_ClearNode(lua_State* L, lua_Table* dum, const osg::ClearNode & cs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osg::ClearNode(cs, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::ClearNode*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +45,7 @@ protected:
 	// void osg::Group::childRemoved(unsigned int arg1, unsigned int arg2)
 	void childRemoved(unsigned int arg1, unsigned int arg2) {
 		if(_obj.pushFunction("childRemoved")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<void>());
@@ -40,6 +57,7 @@ protected:
 	// void osg::Group::childInserted(unsigned int arg1)
 	void childInserted(unsigned int arg1) {
 		if(_obj.pushFunction("childInserted")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -52,6 +70,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -62,6 +81,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -71,6 +91,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -81,6 +102,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -90,6 +112,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -99,6 +122,7 @@ public:
 	// osg::Transform * osg::Node::asTransform()
 	osg::Transform * asTransform() {
 		if(_obj.pushFunction("asTransform")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
@@ -108,6 +132,7 @@ public:
 	// const osg::Transform * osg::Node::asTransform() const
 	const osg::Transform * asTransform() const {
 		if(_obj.pushFunction("asTransform")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
@@ -117,6 +142,7 @@ public:
 	// osg::Switch * osg::Node::asSwitch()
 	osg::Switch * asSwitch() {
 		if(_obj.pushFunction("asSwitch")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
@@ -126,6 +152,7 @@ public:
 	// const osg::Switch * osg::Node::asSwitch() const
 	const osg::Switch * asSwitch() const {
 		if(_obj.pushFunction("asSwitch")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
@@ -135,6 +162,7 @@ public:
 	// osg::Geode * osg::Node::asGeode()
 	osg::Geode * asGeode() {
 		if(_obj.pushFunction("asGeode")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
@@ -144,6 +172,7 @@ public:
 	// const osg::Geode * osg::Node::asGeode() const
 	const osg::Geode * asGeode() const {
 		if(_obj.pushFunction("asGeode")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
@@ -153,6 +182,7 @@ public:
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
 	void ascend(osg::NodeVisitor & nv) {
 		if(_obj.pushFunction("ascend")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(&nv);
 			return (_obj.callFunction<void>());
 		}
@@ -163,6 +193,7 @@ public:
 	// osg::Group * osg::Group::asGroup()
 	osg::Group * asGroup() {
 		if(_obj.pushFunction("asGroup")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return (_obj.callFunction<osg::Group*>());
 		}
 
@@ -172,6 +203,7 @@ public:
 	// const osg::Group * osg::Group::asGroup() const
 	const osg::Group * asGroup() const {
 		if(_obj.pushFunction("asGroup")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return (_obj.callFunction<osg::Group*>());
 		}
 
@@ -181,6 +213,7 @@ public:
 	// void osg::Group::traverse(osg::NodeVisitor & arg1)
 	void traverse(osg::NodeVisitor & arg1) {
 		if(_obj.pushFunction("traverse")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -191,6 +224,7 @@ public:
 	// bool osg::Group::addChild(osg::Node * child)
 	bool addChild(osg::Node * child) {
 		if(_obj.pushFunction("addChild")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(child);
 			return (_obj.callFunction<bool>());
 		}
@@ -201,6 +235,7 @@ public:
 	// bool osg::Group::insertChild(unsigned int index, osg::Node * child)
 	bool insertChild(unsigned int index, osg::Node * child) {
 		if(_obj.pushFunction("insertChild")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(index);
 			_obj.pushArg(child);
 			return (_obj.callFunction<bool>());
@@ -212,6 +247,7 @@ public:
 	// bool osg::Group::removeChildren(unsigned int pos, unsigned int numChildrenToRemove)
 	bool removeChildren(unsigned int pos, unsigned int numChildrenToRemove) {
 		if(_obj.pushFunction("removeChildren")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(pos);
 			_obj.pushArg(numChildrenToRemove);
 			return (_obj.callFunction<bool>());
@@ -223,6 +259,7 @@ public:
 	// bool osg::Group::replaceChild(osg::Node * origChild, osg::Node * newChild)
 	bool replaceChild(osg::Node * origChild, osg::Node * newChild) {
 		if(_obj.pushFunction("replaceChild")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(origChild);
 			_obj.pushArg(newChild);
 			return (_obj.callFunction<bool>());
@@ -234,6 +271,7 @@ public:
 	// bool osg::Group::setChild(unsigned int i, osg::Node * node)
 	bool setChild(unsigned int i, osg::Node * node) {
 		if(_obj.pushFunction("setChild")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(i);
 			_obj.pushArg(node);
 			return (_obj.callFunction<bool>());
@@ -242,9 +280,21 @@ public:
 		return ClearNode::setChild(i, node);
 	};
 
+	// void osg::Group::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::ClearNode*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ClearNode::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Group::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -255,6 +305,7 @@ public:
 	// osg::BoundingSphered osg::Group::computeBound() const
 	osg::BoundingSphered computeBound() const {
 		if(_obj.pushFunction("computeBound")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
@@ -264,6 +315,7 @@ public:
 	// osg::Object * osg::ClearNode::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -273,6 +325,7 @@ public:
 	// osg::Object * osg::ClearNode::clone(const osg::CopyOp & copyop) const
 	osg::Object * clone(const osg::CopyOp & copyop) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(&copyop);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -283,6 +336,7 @@ public:
 	// bool osg::ClearNode::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -293,6 +347,7 @@ public:
 	// const char * osg::ClearNode::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -302,6 +357,7 @@ public:
 	// const char * osg::ClearNode::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -311,6 +367,7 @@ public:
 	// void osg::ClearNode::accept(osg::NodeVisitor & nv)
 	void accept(osg::NodeVisitor & nv) {
 		if(_obj.pushFunction("accept")) {
+			_obj.pushArg((osg::ClearNode*)this);
 			_obj.pushArg(&nv);
 			return (_obj.callFunction<void>());
 		}
@@ -575,14 +632,14 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_addParent",_bind_public_addParent},
-		{"protected_removeParent",_bind_public_removeParent},
-		{"protected_setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
-		{"protected_setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
-		{"protected_setNumChildrenWithCullingDisabled",_bind_public_setNumChildrenWithCullingDisabled},
-		{"protected_setNumChildrenWithOccluderNodes",_bind_public_setNumChildrenWithOccluderNodes},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"addParent",_bind_public_addParent},
+		{"removeParent",_bind_public_removeParent},
+		{"setNumChildrenRequiringUpdateTraversal",_bind_public_setNumChildrenRequiringUpdateTraversal},
+		{"setNumChildrenRequiringEventTraversal",_bind_public_setNumChildrenRequiringEventTraversal},
+		{"setNumChildrenWithCullingDisabled",_bind_public_setNumChildrenWithCullingDisabled},
+		{"setNumChildrenWithOccluderNodes",_bind_public_setNumChildrenWithOccluderNodes},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -137,6 +137,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_setUserData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -220,7 +227,7 @@ public:
 	inline static bool _lg_typecheck_setDescriptions(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13881074) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,95416160) ) return false;
 		return true;
 	}
 
@@ -299,6 +306,13 @@ public:
 	inline static bool _lg_typecheck_base_className(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -385,7 +399,7 @@ public:
 	inline static bool _lg_typecheck_base_setDescriptions(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13881074) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,95416160) ) return false;
 		return true;
 	}
 
@@ -603,6 +617,25 @@ public:
 		lua_pushstring(L,lret);
 
 		return 1;
+	}
+
+	// void osg::DefaultUserDataContainer::setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::DefaultUserDataContainer::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::DefaultUserDataContainer::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::DefaultUserDataContainer* self=Luna< osg::Referenced >::checkSubType< osg::DefaultUserDataContainer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::DefaultUserDataContainer::setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setThreadSafeRefUnref(threadSafe);
+
+		return 0;
 	}
 
 	// void osg::DefaultUserDataContainer::setUserData(osg::Referenced * obj)
@@ -868,7 +901,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::DefaultUserDataContainer::setDescriptions(const osg::UserDataContainer::DescriptionList & descriptions) function, expected prototype:\nvoid osg::DefaultUserDataContainer::setDescriptions(const osg::UserDataContainer::DescriptionList & descriptions)\nClass arguments details:\narg 1 ID = 13881074\n");
 		}
 
-		const osg::UserDataContainer::DescriptionList* descriptions_ptr=(Luna< osg::UserDataContainer::DescriptionList >::check(L,2));
+		const osg::UserDataContainer::DescriptionList* descriptions_ptr=(Luna< std::vector< std::string > >::checkSubType< osg::UserDataContainer::DescriptionList >(L,2));
 		if( !descriptions_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg descriptions in osg::DefaultUserDataContainer::setDescriptions function");
 		}
@@ -1136,6 +1169,25 @@ public:
 		return 1;
 	}
 
+	// void osg::DefaultUserDataContainer::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::DefaultUserDataContainer::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::DefaultUserDataContainer::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::DefaultUserDataContainer* self=Luna< osg::Referenced >::checkSubType< osg::DefaultUserDataContainer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::DefaultUserDataContainer::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->DefaultUserDataContainer::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osg::DefaultUserDataContainer::base_setUserData(osg::Referenced * obj)
 	static int _bind_base_setUserData(lua_State *L) {
 		if (!_lg_typecheck_base_setUserData(L)) {
@@ -1399,7 +1451,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::DefaultUserDataContainer::base_setDescriptions(const osg::UserDataContainer::DescriptionList & descriptions) function, expected prototype:\nvoid osg::DefaultUserDataContainer::base_setDescriptions(const osg::UserDataContainer::DescriptionList & descriptions)\nClass arguments details:\narg 1 ID = 13881074\n");
 		}
 
-		const osg::UserDataContainer::DescriptionList* descriptions_ptr=(Luna< osg::UserDataContainer::DescriptionList >::check(L,2));
+		const osg::UserDataContainer::DescriptionList* descriptions_ptr=(Luna< std::vector< std::string > >::checkSubType< osg::UserDataContainer::DescriptionList >(L,2));
 		if( !descriptions_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg descriptions in osg::DefaultUserDataContainer::base_setDescriptions function");
 		}
@@ -1532,6 +1584,7 @@ luna_RegType LunaTraits< osg::DefaultUserDataContainer >::methods[] = {
 	{"isSameKindAs", &luna_wrapper_osg_DefaultUserDataContainer::_bind_isSameKindAs},
 	{"libraryName", &luna_wrapper_osg_DefaultUserDataContainer::_bind_libraryName},
 	{"className", &luna_wrapper_osg_DefaultUserDataContainer::_bind_className},
+	{"setThreadSafeRefUnref", &luna_wrapper_osg_DefaultUserDataContainer::_bind_setThreadSafeRefUnref},
 	{"setUserData", &luna_wrapper_osg_DefaultUserDataContainer::_bind_setUserData},
 	{"getUserData", &luna_wrapper_osg_DefaultUserDataContainer::_bind_getUserData},
 	{"addUserObject", &luna_wrapper_osg_DefaultUserDataContainer::_bind_addUserObject},
@@ -1552,6 +1605,7 @@ luna_RegType LunaTraits< osg::DefaultUserDataContainer >::methods[] = {
 	{"base_isSameKindAs", &luna_wrapper_osg_DefaultUserDataContainer::_bind_base_isSameKindAs},
 	{"base_libraryName", &luna_wrapper_osg_DefaultUserDataContainer::_bind_base_libraryName},
 	{"base_className", &luna_wrapper_osg_DefaultUserDataContainer::_bind_base_className},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_DefaultUserDataContainer::_bind_base_setThreadSafeRefUnref},
 	{"base_setUserData", &luna_wrapper_osg_DefaultUserDataContainer::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osg_DefaultUserDataContainer::_bind_base_getUserData},
 	{"base_addUserObject", &luna_wrapper_osg_DefaultUserDataContainer::_bind_base_addUserObject},

@@ -5,32 +5,37 @@ local wx = require "wx"
 local Event = require "base.Event"
 local prof = require "debugging.Profiler"
 
-Class:generateWrapping(sgt.LogSink)
-
 --- Create an Output panel:
 function Class:initialize(options)
 	self:debug4("Initializing OutputPanel.")
 
-	self:createWrapper(sgt.LogSink)
-	
-	sgt.LogManager.instance():addSink(self:getWrapper())
+	self._sink = sgt.LogSink{
+		output = function(tt,obj,level,trace,msg)
+			self._tc:SetDefaultStyle(self._styles[level] or self._defaultStyle);
 
+			self._tc:AppendText(msg);
+			self._tc:ShowPosition(self._tc:GetLastPosition());
+		end	
+	};
+		
 	self:getEventManager():addListener{event=Event.APP_CLOSING,object=self}
 	
 	self:create()
-		
+
+	sgt.LogManager.instance():addSink(self._sink)
 	self:debug4("OutputPanel initialization done.")
 end
 
 function Class:onAppClosing()
 	-- release all the images:
 	self:info("Removing OutputPanel Sink.")
-	sgt.LogManager.instance():removeSink(self:getWrapper());
-	self:release()
+	sgt.LogManager.instance():removeSink(self._sink);
 end
 
 function Class:create()
-	local intf = self._intf
+	local Interface = require "gui.wx.ControlInterface"
+	local intf = Interface{root=self._parent}
+	
 	self._window = intf:addTextCtrl{prop=1,flags=wx.wxALL+wx.wxEXPAND,style=bit.bor(wx.wxTE_MULTILINE,wx.wxTE_READONLY,wx.wxTE_BESTWRAP,wx.wxTE_RICH2)}
 	self._tc = self._window
 	
@@ -42,13 +47,6 @@ function Class:create()
 	self._styles[sgt.LogManager.FATAL] = wx.wxTextAttr(wx.wxPURPLE, wx.wxWHITE)
 	
 	self._defaultStyle = wx.wxTextAttr(wx.wxBLACK, wx.wxWHITE)
-end
-
-function Class:output(level,trace,msg)
-	self._tc:SetDefaultStyle(self._styles[level] or self._defaultStyle);
-
-	self._tc:AppendText(msg);
-	self._tc:ShowPosition(self._tc:GetLastPosition());
 end
 
 return Class

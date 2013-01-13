@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -272,7 +272,7 @@ public:
 	inline static bool _lg_typecheck_setValueList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,23153681) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,61721661) ) return false;
 		return true;
 	}
 
@@ -376,6 +376,13 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1089,7 +1096,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Switch::setValueList(const osg::Switch::ValueList & values) function, expected prototype:\nvoid osg::Switch::setValueList(const osg::Switch::ValueList & values)\nClass arguments details:\narg 1 ID = 23153681\n");
 		}
 
-		const osg::Switch::ValueList* values_ptr=(Luna< osg::Switch::ValueList >::check(L,2));
+		const osg::Switch::ValueList* values_ptr=(Luna< std::vector< bool > >::checkSubType< osg::Switch::ValueList >(L,2));
 		if( !values_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg values in osg::Switch::setValueList function");
 		}
@@ -1471,6 +1478,25 @@ public:
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
+	}
+
+	// void osg::Switch::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Switch::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Switch::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::Switch* self=Luna< osg::Referenced >::checkSubType< osg::Switch >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Switch::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->Switch::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
 	}
 
 	// void osg::Switch::base_releaseGLObjects(osg::State * arg1 = 0) const
@@ -1897,6 +1923,7 @@ luna_RegType LunaTraits< osg::Switch >::methods[] = {
 	{"base_asGroup", &luna_wrapper_osg_Switch::_bind_base_asGroup},
 	{"base_replaceChild", &luna_wrapper_osg_Switch::_bind_base_replaceChild},
 	{"base_setChild", &luna_wrapper_osg_Switch::_bind_base_setChild},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_Switch::_bind_base_setThreadSafeRefUnref},
 	{"base_releaseGLObjects", &luna_wrapper_osg_Switch::_bind_base_releaseGLObjects},
 	{"base_asSwitch", &luna_wrapper_osg_Switch::_bind_base_asSwitch},
 	{"base_cloneType", &luna_wrapper_osg_Switch::_bind_base_cloneType},

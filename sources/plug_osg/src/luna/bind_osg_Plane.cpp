@@ -275,16 +275,16 @@ public:
 	inline static bool _lg_typecheck_intersect_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
-		if( (!(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,65870735) ) return false;
+		if( (!(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_intersect_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
-		if( (!(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,41227270) ) return false;
+		if( (!(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2))) ) return false;
 		return true;
 	}
 
@@ -304,7 +304,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 5 valid operators)
+	// (found 6 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,86970521) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1039,7 +1046,7 @@ public:
 			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const osg::BoundingSphered & bs) const function, expected prototype:\nint osg::Plane::intersect(const osg::BoundingSphered & bs) const\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphered >::check(L,2));
+		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
 		if( !bs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bs in osg::Plane::intersect function");
 		}
@@ -1063,7 +1070,7 @@ public:
 			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const osg::BoundingBoxd & bb) const function, expected prototype:\nint osg::Plane::intersect(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::Plane::intersect function");
 		}
@@ -1139,6 +1146,32 @@ public:
 
 
 	// Operator binds:
+	// osg::Plane & osg::Plane::operator=(const osg::Plane & pl)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Plane & osg::Plane::operator=(const osg::Plane & pl) function, expected prototype:\nosg::Plane & osg::Plane::operator=(const osg::Plane & pl)\nClass arguments details:\narg 1 ID = 86970521\n");
+		}
+
+		const osg::Plane* pl_ptr=(Luna< osg::Plane >::check(L,2));
+		if( !pl_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pl in osg::Plane::operator= function");
+		}
+		const osg::Plane & pl=*pl_ptr;
+
+		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Plane & osg::Plane::operator=(const osg::Plane &). Got : '%s'",typeid(Luna< osg::Plane >::check(L,1)).name());
+		}
+		const osg::Plane* lret = &self->operator=(pl);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Plane >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// bool osg::Plane::operator==(const osg::Plane & plane) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
@@ -1295,6 +1328,7 @@ luna_RegType LunaTraits< osg::Plane >::methods[] = {
 	{"intersect", &luna_wrapper_osg_Plane::_bind_intersect},
 	{"transform", &luna_wrapper_osg_Plane::_bind_transform},
 	{"transformProvidingInverse", &luna_wrapper_osg_Plane::_bind_transformProvidingInverse},
+	{"op_assign", &luna_wrapper_osg_Plane::_bind_op_assign},
 	{"__eq", &luna_wrapper_osg_Plane::_bind___eq},
 	{"op_neq", &luna_wrapper_osg_Plane::_bind_op_neq},
 	{"__lt", &luna_wrapper_osg_Plane::_bind___lt},

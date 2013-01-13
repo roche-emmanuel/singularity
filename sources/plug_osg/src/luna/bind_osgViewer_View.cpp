@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -325,7 +325,7 @@ public:
 	inline static bool _lg_typecheck_setCoordinateSystemNodePath(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,52841328) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,83725871) ) return false;
 		return true;
 	}
 
@@ -485,8 +485,8 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,19574398) ) return false;
-		if( (!(Luna< osgUtil::LineSegmentIntersector::Intersections >::check(L,4))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,9645394) ) return false;
+		if( (!(Luna< std::multiset< osgUtil::LineSegmentIntersector::Intersection > >::checkSubType< osgUtil::LineSegmentIntersector::Intersections >(L,4))) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
@@ -497,10 +497,10 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,52841328) ) return false;
-		if( (!(Luna< osg::NodePath >::check(L,4))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,5,19574398) ) return false;
-		if( (!(Luna< osgUtil::LineSegmentIntersector::Intersections >::check(L,5))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,83725871) ) return false;
+		if( (!(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,4))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,9645394) ) return false;
+		if( (!(Luna< std::multiset< osgUtil::LineSegmentIntersector::Intersection > >::checkSubType< osgUtil::LineSegmentIntersector::Intersections >(L,5))) ) return false;
 		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		return true;
 	}
@@ -536,6 +536,13 @@ public:
 	inline static bool _lg_typecheck_init(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1479,7 +1486,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgViewer::View::setCoordinateSystemNodePath(const osg::NodePath & nodePath) function, expected prototype:\nvoid osgViewer::View::setCoordinateSystemNodePath(const osg::NodePath & nodePath)\nClass arguments details:\narg 1 ID = 52841328\n");
 		}
 
-		const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,2));
+		const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osgViewer::View::setCoordinateSystemNodePath function");
 		}
@@ -1914,7 +1921,7 @@ public:
 
 		float x=(float)lua_tonumber(L,2);
 		float y=(float)lua_tonumber(L,3);
-		osgUtil::LineSegmentIntersector::Intersections* intersections_ptr=(Luna< osgUtil::LineSegmentIntersector::Intersections >::check(L,4));
+		osgUtil::LineSegmentIntersector::Intersections* intersections_ptr=(Luna< std::multiset< osgUtil::LineSegmentIntersector::Intersection > >::checkSubType< osgUtil::LineSegmentIntersector::Intersections >(L,4));
 		if( !intersections_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg intersections in osgViewer::View::computeIntersections function");
 		}
@@ -1943,12 +1950,12 @@ public:
 
 		float x=(float)lua_tonumber(L,2);
 		float y=(float)lua_tonumber(L,3);
-		const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,4));
+		const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,4));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osgViewer::View::computeIntersections function");
 		}
 		const osg::NodePath & nodePath=*nodePath_ptr;
-		osgUtil::LineSegmentIntersector::Intersections* intersections_ptr=(Luna< osgUtil::LineSegmentIntersector::Intersections >::check(L,5));
+		osgUtil::LineSegmentIntersector::Intersections* intersections_ptr=(Luna< std::multiset< osgUtil::LineSegmentIntersector::Intersection > >::checkSubType< osgUtil::LineSegmentIntersector::Intersections >(L,5));
 		if( !intersections_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg intersections in osgViewer::View::computeIntersections function");
 		}
@@ -2066,6 +2073,25 @@ public:
 			luaL_error(L, "Invalid object in function call void osgViewer::View::init(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->init();
+
+		return 0;
+	}
+
+	// void osgViewer::View::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::View::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgViewer::View::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::View::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->View::setThreadSafeRefUnref(threadSafe);
 
 		return 0;
 	}
@@ -2468,7 +2494,7 @@ public:
 			luaL_error(L, "Invalid object in function call baseCast(...)");
 		}
 		
-		osgGA::GUIActionAdapter* res = dynamic_cast<osgGA::GUIActionAdapter*>(self);
+		osgGA::GUIActionAdapter* res = luna_caster<osg::Referenced,osgGA::GUIActionAdapter>::cast(self); // dynamic_cast<osgGA::GUIActionAdapter*>(self);
 		if(!res)
 			return 0;
 			
@@ -2546,6 +2572,7 @@ luna_RegType LunaTraits< osgViewer::View >::methods[] = {
 	{"requestWarpPointer", &luna_wrapper_osgViewer_View::_bind_requestWarpPointer},
 	{"assignSceneDataToCameras", &luna_wrapper_osgViewer_View::_bind_assignSceneDataToCameras},
 	{"init", &luna_wrapper_osgViewer_View::_bind_init},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgViewer_View::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osgViewer_View::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgViewer_View::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osgViewer_View::_bind_base_setUserData},

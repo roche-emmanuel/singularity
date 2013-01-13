@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osg_ShapeVisitor() {
+		logDEBUG3("Calling delete function for wrapper osg_ShapeVisitor");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::ShapeVisitor*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_ShapeVisitor(lua_State* L, lua_Table* dum) : osg::ShapeVisitor(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_ShapeVisitor(lua_State* L, lua_Table* dum) 
+		: osg::ShapeVisitor(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::ShapeVisitor*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +39,7 @@ public:
 	// void osg::ShapeVisitor::apply(osg::Shape & arg1)
 	void apply(osg::Shape & arg1) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::ShapeVisitor*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -40,6 +50,7 @@ public:
 	// void osg::ShapeVisitor::apply(osg::Sphere & arg1)
 	void apply(osg::Sphere & arg1) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::ShapeVisitor*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -50,6 +61,7 @@ public:
 	// void osg::ShapeVisitor::apply(osg::Box & arg1)
 	void apply(osg::Box & arg1) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::ShapeVisitor*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -60,6 +72,7 @@ public:
 	// void osg::ShapeVisitor::apply(osg::Cone & arg1)
 	void apply(osg::Cone & arg1) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::ShapeVisitor*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -70,6 +83,7 @@ public:
 	// void osg::ShapeVisitor::apply(osg::Cylinder & arg1)
 	void apply(osg::Cylinder & arg1) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::ShapeVisitor*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -80,6 +94,7 @@ public:
 	// void osg::ShapeVisitor::apply(osg::Capsule & arg1)
 	void apply(osg::Capsule & arg1) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::ShapeVisitor*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -90,6 +105,7 @@ public:
 	// void osg::ShapeVisitor::apply(osg::InfinitePlane & arg1)
 	void apply(osg::InfinitePlane & arg1) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::ShapeVisitor*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -100,6 +116,7 @@ public:
 	// void osg::ShapeVisitor::apply(osg::TriangleMesh & arg1)
 	void apply(osg::TriangleMesh & arg1) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::ShapeVisitor*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -110,6 +127,7 @@ public:
 	// void osg::ShapeVisitor::apply(osg::ConvexHull & arg1)
 	void apply(osg::ConvexHull & arg1) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::ShapeVisitor*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -120,6 +138,7 @@ public:
 	// void osg::ShapeVisitor::apply(osg::HeightField & arg1)
 	void apply(osg::HeightField & arg1) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::ShapeVisitor*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -130,6 +149,7 @@ public:
 	// void osg::ShapeVisitor::apply(osg::CompositeShape & arg1)
 	void apply(osg::CompositeShape & arg1) {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::ShapeVisitor*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}

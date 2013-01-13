@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxXmlResource() {
+		logDEBUG3("Calling delete function for wrapper wxXmlResource");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxXmlResource*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -27,6 +29,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxXmlResource*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -36,6 +39,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxXmlResource*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -46,6 +50,7 @@ protected:
 	// void wxXmlResource::DoReportError(const wxString & xrcFile, const wxXmlNode * position, const wxString & message)
 	void DoReportError(const wxString & xrcFile, const wxXmlNode * position, const wxString & message) {
 		if(_obj.pushFunction("DoReportError")) {
+			_obj.pushArg((wxXmlResource*)this);
 			_obj.pushArg(xrcFile);
 			_obj.pushArg(position);
 			_obj.pushArg(message);
@@ -60,6 +65,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxXmlResource*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -108,7 +114,7 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_ReportError",_bind_public_ReportError},
+		{"ReportError",_bind_public_ReportError},
 		{NULL,NULL}
 		};
 

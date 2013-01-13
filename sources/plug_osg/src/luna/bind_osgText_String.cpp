@@ -108,7 +108,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,42086333) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osgText::String::String()
@@ -245,6 +252,32 @@ public:
 
 
 	// Operator binds:
+	// osgText::String & osgText::String::operator=(const osgText::String & str)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::String & osgText::String::operator=(const osgText::String & str) function, expected prototype:\nosgText::String & osgText::String::operator=(const osgText::String & str)\nClass arguments details:\narg 1 ID = 42086333\n");
+		}
+
+		const osgText::String* str_ptr=(Luna< osgText::String >::check(L,2));
+		if( !str_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg str in osgText::String::operator= function");
+		}
+		const osgText::String & str=*str_ptr;
+
+		osgText::String* self=(Luna< osgText::String >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgText::String & osgText::String::operator=(const osgText::String &). Got : '%s'",typeid(Luna< osgText::String >::check(L,1)).name());
+		}
+		const osgText::String* lret = &self->operator=(str);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgText::String >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -268,6 +301,7 @@ const int LunaTraits< osgText::String >::uniqueIDs[] = {42086333,0};
 luna_RegType LunaTraits< osgText::String >::methods[] = {
 	{"set", &luna_wrapper_osgText_String::_bind_set},
 	{"createUTF8EncodedString", &luna_wrapper_osgText_String::_bind_createUTF8EncodedString},
+	{"op_assign", &luna_wrapper_osgText_String::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osgText_String::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgText_String::_bind___eq},
 	{0,0}

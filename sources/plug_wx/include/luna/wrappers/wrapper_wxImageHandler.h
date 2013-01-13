@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_wxImageHandler() {
+		logDEBUG3("Calling delete function for wrapper wxImageHandler");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxImageHandler*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxImageHandler(lua_State* L, lua_Table* dum) : wxImageHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxImageHandler(lua_State* L, lua_Table* dum) 
+		: wxImageHandler(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxImageHandler*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxImageHandler*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -37,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxImageHandler*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -47,6 +58,7 @@ protected:
 	// bool wxImageHandler::DoCanRead(wxInputStream & arg1)
 	bool DoCanRead(wxInputStream & arg1) {
 		THROW_IF(!_obj.pushFunction("DoCanRead"),"No implementation for abstract function wxImageHandler::DoCanRead");
+		_obj.pushArg((wxImageHandler*)this);
 		_obj.pushArg(&arg1);
 		return (_obj.callFunction<bool>());
 	};
@@ -56,6 +68,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxImageHandler*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -65,6 +78,7 @@ public:
 	// int wxImageHandler::GetImageCount(wxInputStream & stream)
 	int GetImageCount(wxInputStream & stream) {
 		THROW_IF(!_obj.pushFunction("GetImageCount"),"No implementation for abstract function wxImageHandler::GetImageCount");
+		_obj.pushArg((wxImageHandler*)this);
 		_obj.pushArg(&stream);
 		return (_obj.callFunction<int>());
 	};
@@ -72,6 +86,7 @@ public:
 	// bool wxImageHandler::LoadFile(wxImage * image, wxInputStream & stream, bool verbose = true, int index = -1)
 	bool LoadFile(wxImage * image, wxInputStream & stream, bool verbose = true, int index = -1) {
 		if(_obj.pushFunction("LoadFile")) {
+			_obj.pushArg((wxImageHandler*)this);
 			_obj.pushArg(image);
 			_obj.pushArg(&stream);
 			_obj.pushArg(verbose);
@@ -85,6 +100,7 @@ public:
 	// bool wxImageHandler::SaveFile(wxImage * image, wxOutputStream & stream, bool verbose = true)
 	bool SaveFile(wxImage * image, wxOutputStream & stream, bool verbose = true) {
 		if(_obj.pushFunction("SaveFile")) {
+			_obj.pushArg((wxImageHandler*)this);
 			_obj.pushArg(image);
 			_obj.pushArg(&stream);
 			_obj.pushArg(verbose);

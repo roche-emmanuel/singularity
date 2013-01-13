@@ -57,11 +57,11 @@ public:
 };
 
 std::pair< unsigned int, const osg::Referenced * >* LunaTraits< std::pair< unsigned int, const osg::Referenced * > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::pair< unsigned int, const osg::Referenced * >();
 }
 
 void LunaTraits< std::pair< unsigned int, const osg::Referenced * > >::_bind_dtor(std::pair< unsigned int, const osg::Referenced * >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::pair< unsigned int, const osg::Referenced * > >::className[] = "std_pair_unsigned_int_const_osg_Referenced_ptr";

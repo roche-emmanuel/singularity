@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<Awesomium::JSMethodHandler,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -147,7 +147,7 @@ public:
 		Awesomium::JSMethodHandler* self=(Luna< Awesomium::JSMethodHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::JSMethodHandler::OnMethodCall(Awesomium::WebView *, unsigned int, const Awesomium::WebString &, const Awesomium::JSArray &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::JSMethodHandler::OnMethodCall(Awesomium::WebView *, unsigned int, const Awesomium::WebString &, const Awesomium::JSArray &). Got : '%s'",typeid(Luna< Awesomium::JSMethodHandler >::check(L,1)).name());
 		}
 		self->OnMethodCall(caller, remote_object_id, method_name, args);
 
@@ -174,7 +174,7 @@ public:
 		Awesomium::JSMethodHandler* self=(Luna< Awesomium::JSMethodHandler >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSValue Awesomium::JSMethodHandler::OnMethodCallWithReturnValue(Awesomium::WebView *, unsigned int, const Awesomium::WebString &, const Awesomium::JSArray &)");
+			luaL_error(L, "Invalid object in function call Awesomium::JSValue Awesomium::JSMethodHandler::OnMethodCallWithReturnValue(Awesomium::WebView *, unsigned int, const Awesomium::WebString &, const Awesomium::JSArray &). Got : '%s'",typeid(Luna< Awesomium::JSMethodHandler >::check(L,1)).name());
 		}
 		Awesomium::JSValue stack_lret = self->OnMethodCallWithReturnValue(caller, remote_object_id, method_name, args);
 		Awesomium::JSValue* lret = new Awesomium::JSValue(stack_lret);

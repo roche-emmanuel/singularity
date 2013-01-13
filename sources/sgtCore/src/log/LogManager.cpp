@@ -108,6 +108,11 @@ bool LogManager::removeSink(const std::string& name) {
 	return false;
 }
 
+bool LogManager::removeAllSinks() {
+	_sinks.clear();
+	return true;
+};
+
 LogSink* LogManager::getSink(const std::string& name) {
 	for(SinkVector::iterator it = _sinks.begin(); it != _sinks.end(); ++it) {
 		if((*it)->getName() == name) {

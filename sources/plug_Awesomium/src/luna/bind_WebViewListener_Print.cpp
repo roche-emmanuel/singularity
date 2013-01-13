@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<WebViewListener::Print,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -143,7 +143,7 @@ public:
 		WebViewListener::Print* self=(Luna< WebViewListener::Print >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Print::OnRequestPrint(Awesomium::WebView *)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Print::OnRequestPrint(Awesomium::WebView *). Got : '%s'",typeid(Luna< WebViewListener::Print >::check(L,1)).name());
 		}
 		self->OnRequestPrint(caller);
 
@@ -163,7 +163,7 @@ public:
 		WebViewListener::Print* self=(Luna< WebViewListener::Print >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Print::OnFailPrint(Awesomium::WebView *, int)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Print::OnFailPrint(Awesomium::WebView *, int). Got : '%s'",typeid(Luna< WebViewListener::Print >::check(L,1)).name());
 		}
 		self->OnFailPrint(caller, request_id);
 
@@ -188,7 +188,7 @@ public:
 		WebViewListener::Print* self=(Luna< WebViewListener::Print >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Print::OnFinishPrint(Awesomium::WebView *, int, const Awesomium::WebStringArray &)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Print::OnFinishPrint(Awesomium::WebView *, int, const Awesomium::WebStringArray &). Got : '%s'",typeid(Luna< WebViewListener::Print >::check(L,1)).name());
 		}
 		self->OnFinishPrint(caller, request_id, file_list);
 

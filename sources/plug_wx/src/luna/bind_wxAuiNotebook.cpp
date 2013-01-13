@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxObject,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -80,13 +80,34 @@ public:
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>5 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,1)) ) ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,25723480) ) return false;
+		if( luatop>2 && (!(Luna< wxPoint >::check(L,3))) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
+		if( luatop>3 && (!(Luna< wxSize >::check(L,4))) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>6 ) return false;
 
@@ -104,6 +125,13 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_GetPageImage(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_AddPage_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>5 ) return false;
@@ -1078,6 +1106,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetPageImage(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_AddPage(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
@@ -1203,9 +1238,46 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxAuiNotebook::wxAuiNotebook(lua_Table * data)
+	// wxAuiNotebook::wxAuiNotebook()
 	static wxAuiNotebook* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAuiNotebook::wxAuiNotebook() function, expected prototype:\nwxAuiNotebook::wxAuiNotebook()\nClass arguments details:\n");
+		}
+
+
+		return new wxAuiNotebook();
+	}
+
+	// wxAuiNotebook::wxAuiNotebook(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE)
+	static wxAuiNotebook* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAuiNotebook::wxAuiNotebook(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE) function, expected prototype:\nwxAuiNotebook::wxAuiNotebook(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_ANY;
+		const wxPoint* pos_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
+		if( luatop>2 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxAuiNotebook::wxAuiNotebook function");
+		}
+		const wxPoint & pos=luatop>2 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
+		if( luatop>3 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxAuiNotebook::wxAuiNotebook function");
+		}
+		const wxSize & size=luatop>3 ? *size_ptr : wxDefaultSize;
+		long style=luatop>4 ? (long)lua_tointeger(L,5) : ::wxAUI_NB_DEFAULT_STYLE;
+
+		return new wxAuiNotebook(parent, id, pos, size, style);
+	}
+
+	// wxAuiNotebook::wxAuiNotebook(lua_Table * data)
+	static wxAuiNotebook* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxAuiNotebook::wxAuiNotebook(lua_Table * data) function, expected prototype:\nwxAuiNotebook::wxAuiNotebook(lua_Table * data)\nClass arguments details:\n");
 		}
@@ -1215,8 +1287,8 @@ public:
 	}
 
 	// wxAuiNotebook::wxAuiNotebook(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE)
-	static wxAuiNotebook* _bind_ctor_overload_2(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_2(L)) {
+	static wxAuiNotebook* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxAuiNotebook::wxAuiNotebook(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE) function, expected prototype:\nwxAuiNotebook::wxAuiNotebook(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\n");
 		}
@@ -1244,13 +1316,35 @@ public:
 	static wxAuiNotebook* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxAuiNotebook, cannot match any of the overloads for function wxAuiNotebook:\n  wxAuiNotebook(lua_Table *)\n  wxAuiNotebook(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, long)\n");
+		luaL_error(L, "error in function wxAuiNotebook, cannot match any of the overloads for function wxAuiNotebook:\n  wxAuiNotebook()\n  wxAuiNotebook(wxWindow *, int, const wxPoint &, const wxSize &, long)\n  wxAuiNotebook(lua_Table *)\n  wxAuiNotebook(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, long)\n");
 		return NULL;
 	}
 
 
 	// Function binds:
+	// int wxAuiNotebook::GetPageImage(size_t nPage) const
+	static int _bind_GetPageImage(lua_State *L) {
+		if (!_lg_typecheck_GetPageImage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::GetPageImage(size_t nPage) const function, expected prototype:\nint wxAuiNotebook::GetPageImage(size_t nPage) const\nClass arguments details:\n");
+		}
+
+		size_t nPage=(size_t)lua_tointeger(L,2);
+
+		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetPageImage(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		int lret = self->GetPageImage(nPage);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 	// bool wxAuiNotebook::AddPage(wxWindow * page, const wxString & caption, bool select = false, const wxBitmap & bitmap = wxNullBitmap)
 	static int _bind_AddPage_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AddPage_overload_1(L)) {
@@ -4134,6 +4228,26 @@ public:
 		return 1;
 	}
 
+	// int wxAuiNotebook::base_GetPageImage(size_t nPage) const
+	static int _bind_base_GetPageImage(lua_State *L) {
+		if (!_lg_typecheck_base_GetPageImage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetPageImage(size_t nPage) const function, expected prototype:\nint wxAuiNotebook::base_GetPageImage(size_t nPage) const\nClass arguments details:\n");
+		}
+
+		size_t nPage=(size_t)lua_tointeger(L,2);
+
+		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetPageImage(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		int lret = self->wxAuiNotebook::GetPageImage(nPage);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 	// bool wxAuiNotebook::base_AddPage(wxWindow * page, const wxString & text, bool select, int imageId)
 	static int _bind_base_AddPage(lua_State *L) {
 		if (!_lg_typecheck_base_AddPage(L)) {
@@ -4477,8 +4591,6 @@ wxAuiNotebook* LunaTraits< wxAuiNotebook >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxAuiNotebook::_bind_ctor(L);
 	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
-	// int wxBookCtrlBase::GetPageImage(size_t nPage) const
-	// wxWindow * wxBookCtrlBase::DoRemovePage(size_t arg1)
 }
 
 void LunaTraits< wxAuiNotebook >::_bind_dtor(wxAuiNotebook* obj) {
@@ -4493,6 +4605,7 @@ const int LunaTraits< wxAuiNotebook >::hash = 15278854;
 const int LunaTraits< wxAuiNotebook >::uniqueIDs[] = {56813631, 53506535, 14187710,0};
 
 luna_RegType LunaTraits< wxAuiNotebook >::methods[] = {
+	{"GetPageImage", &luna_wrapper_wxAuiNotebook::_bind_GetPageImage},
 	{"AddPage", &luna_wrapper_wxAuiNotebook::_bind_AddPage},
 	{"AdvanceSelection", &luna_wrapper_wxAuiNotebook::_bind_AdvanceSelection},
 	{"ChangeSelection", &luna_wrapper_wxAuiNotebook::_bind_ChangeSelection},
@@ -4626,6 +4739,7 @@ luna_RegType LunaTraits< wxAuiNotebook >::methods[] = {
 	{"base_SetImageList", &luna_wrapper_wxAuiNotebook::_bind_base_SetImageList},
 	{"base_SetPageSize", &luna_wrapper_wxAuiNotebook::_bind_base_SetPageSize},
 	{"base_HitTest", &luna_wrapper_wxAuiNotebook::_bind_base_HitTest},
+	{"base_GetPageImage", &luna_wrapper_wxAuiNotebook::_bind_base_GetPageImage},
 	{"base_AddPage", &luna_wrapper_wxAuiNotebook::_bind_base_AddPage},
 	{"base_ChangeSelection", &luna_wrapper_wxAuiNotebook::_bind_base_ChangeSelection},
 	{"base_DeleteAllPages", &luna_wrapper_wxAuiNotebook::_bind_base_DeleteAllPages},

@@ -5,8 +5,6 @@ Class:generateWrapping(spark.SparkDrawable_BaseSystemCreator)
 
 function Class:initialize(options)	
 	self:debug2("Creating RainSystem");
-	
-	self:createWrapper(spark.SparkDrawable_BaseSystemCreator)	
 	self._ratio = 0.9;
 end
 
@@ -14,7 +12,7 @@ function Class:rain_param(mini,maxi)
 	return mini + (maxi - mini)*self._ratio
 end
 
-function Class:op_call(textureIDMap, screenWidth, screenHeight)
+function Class:op_call(obj,textureIDMap, screenWidth, screenHeight)
 
     local textureSplash = textureIDMap:get("waterdrops");
     

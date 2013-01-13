@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgDB_FindFileCallback() {
+		logDEBUG3("Calling delete function for wrapper osgDB_FindFileCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::FindFileCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_FindFileCallback(lua_State* L, lua_Table* dum) : osgDB::FindFileCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_FindFileCallback(lua_State* L, lua_Table* dum) 
+		: osgDB::FindFileCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::FindFileCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,9 +36,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::FindFileCallback*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return FindFileCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// std::string osgDB::FindFileCallback::findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity)
 	std::string findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity) {
 		if(_obj.pushFunction("findDataFile")) {
+			_obj.pushArg((osgDB::FindFileCallback*)this);
 			_obj.pushArg(filename);
 			_obj.pushArg(options);
 			_obj.pushArg(caseSensitivity);
@@ -42,6 +63,7 @@ public:
 	// std::string osgDB::FindFileCallback::findLibraryFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity)
 	std::string findLibraryFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity) {
 		if(_obj.pushFunction("findLibraryFile")) {
+			_obj.pushArg((osgDB::FindFileCallback*)this);
 			_obj.pushArg(filename);
 			_obj.pushArg(options);
 			_obj.pushArg(caseSensitivity);
@@ -122,8 +144,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -14,14 +14,37 @@ public:
 		
 
 	~wrapper_osg_Texture_TextureObject() {
+		logDEBUG3("Calling delete function for wrapper osg_Texture_TextureObject");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::Texture::TextureObject*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_Texture_TextureObject(lua_State* L, lua_Table* dum, osg::Texture * texture, unsigned int id, unsigned int target) : osg::Texture::TextureObject(texture, id, target), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_Texture_TextureObject(lua_State* L, lua_Table* dum, osg::Texture * texture, unsigned int id, const osg::Texture::TextureProfile & profile) : osg::Texture::TextureObject(texture, id, profile), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_Texture_TextureObject(lua_State* L, lua_Table* dum, osg::Texture * texture, unsigned int id, unsigned int target, int numMipmapLevels, unsigned int internalFormat, int width, int height, int depth, int border) : osg::Texture::TextureObject(texture, id, target, numMipmapLevels, internalFormat, width, height, depth, border), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Texture_TextureObject(lua_State* L, lua_Table* dum, osg::Texture * texture, unsigned int id, unsigned int target) 
+		: osg::Texture::TextureObject(texture, id, target), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Texture::TextureObject*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Texture_TextureObject(lua_State* L, lua_Table* dum, osg::Texture * texture, unsigned int id, const osg::Texture::TextureProfile & profile) 
+		: osg::Texture::TextureObject(texture, id, profile), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Texture::TextureObject*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Texture_TextureObject(lua_State* L, lua_Table* dum, osg::Texture * texture, unsigned int id, unsigned int target, int numMipmapLevels, unsigned int internalFormat, int width, int height, int depth, int border) 
+		: osg::Texture::TextureObject(texture, id, target, numMipmapLevels, internalFormat, width, height, depth, border), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Texture::TextureObject*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +52,17 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::Texture::TextureObject*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return TextureObject::setThreadSafeRefUnref(threadSafe);
+	};
+
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
@@ -100,8 +134,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

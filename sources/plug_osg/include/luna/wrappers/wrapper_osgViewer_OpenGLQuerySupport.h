@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgViewer_OpenGLQuerySupport() {
+		logDEBUG3("Calling delete function for wrapper osgViewer_OpenGLQuerySupport");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgViewer::OpenGLQuerySupport*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgViewer_OpenGLQuerySupport(lua_State* L, lua_Table* dum) : osgViewer::OpenGLQuerySupport(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgViewer_OpenGLQuerySupport(lua_State* L, lua_Table* dum) 
+		: osgViewer::OpenGLQuerySupport(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgViewer::OpenGLQuerySupport*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,9 +36,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgViewer::OpenGLQuerySupport*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return OpenGLQuerySupport::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osgViewer::OpenGLQuerySupport::checkQuery(osg::Stats * stats, osg::State * state, __int64 startTick)
 	void checkQuery(osg::Stats * stats, osg::State * state, __int64 startTick) {
 		THROW_IF(!_obj.pushFunction("checkQuery"),"No implementation for abstract function osgViewer::OpenGLQuerySupport::checkQuery");
+		_obj.pushArg((osgViewer::OpenGLQuerySupport*)this);
 		_obj.pushArg(stats);
 		_obj.pushArg(state);
 		_obj.pushArg(startTick);
@@ -39,6 +60,7 @@ public:
 	// void osgViewer::OpenGLQuerySupport::beginQuery(unsigned int frameNumber, osg::State * state)
 	void beginQuery(unsigned int frameNumber, osg::State * state) {
 		THROW_IF(!_obj.pushFunction("beginQuery"),"No implementation for abstract function osgViewer::OpenGLQuerySupport::beginQuery");
+		_obj.pushArg((osgViewer::OpenGLQuerySupport*)this);
 		_obj.pushArg(frameNumber);
 		_obj.pushArg(state);
 		return (_obj.callFunction<void>());
@@ -47,6 +69,7 @@ public:
 	// void osgViewer::OpenGLQuerySupport::endQuery(osg::State * state)
 	void endQuery(osg::State * state) {
 		THROW_IF(!_obj.pushFunction("endQuery"),"No implementation for abstract function osgViewer::OpenGLQuerySupport::endQuery");
+		_obj.pushArg((osgViewer::OpenGLQuerySupport*)this);
 		_obj.pushArg(state);
 		return (_obj.callFunction<void>());
 	};
@@ -54,6 +77,7 @@ public:
 	// void osgViewer::OpenGLQuerySupport::initialize(osg::State * state, __int64 startTick)
 	void initialize(osg::State * state, __int64 startTick) {
 		if(_obj.pushFunction("initialize")) {
+			_obj.pushArg((osgViewer::OpenGLQuerySupport*)this);
 			_obj.pushArg(state);
 			_obj.pushArg(startTick);
 			return (_obj.callFunction<void>());
@@ -133,8 +157,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

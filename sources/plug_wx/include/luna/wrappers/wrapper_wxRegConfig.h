@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxRegConfig() {
+		logDEBUG3("Calling delete function for wrapper wxRegConfig");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxRegConfig*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -27,6 +29,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxRegConfig*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -36,6 +39,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxRegConfig*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -48,6 +52,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxRegConfig*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -57,12 +62,14 @@ public:
 	// const wxString & wxConfigBase::GetPath() const
 	const wxString & GetPath() const {
 		THROW_IF(!_obj.pushFunction("GetPath"),"No implementation for abstract function wxConfigBase::GetPath");
+		_obj.pushArg((wxRegConfig*)this);
 		return *(_obj.callFunction<wxString*>());
 	};
 
 	// void wxConfigBase::SetPath(const wxString & strPath)
 	void SetPath(const wxString & strPath) {
 		THROW_IF(!_obj.pushFunction("SetPath"),"No implementation for abstract function wxConfigBase::SetPath");
+		_obj.pushArg((wxRegConfig*)this);
 		_obj.pushArg(strPath);
 		return (_obj.callFunction<void>());
 	};
@@ -70,6 +77,7 @@ public:
 	// bool wxConfigBase::GetFirstEntry(wxString & str, long & index) const
 	bool GetFirstEntry(wxString & str, long & index) const {
 		THROW_IF(!_obj.pushFunction("GetFirstEntry"),"No implementation for abstract function wxConfigBase::GetFirstEntry");
+		_obj.pushArg((wxRegConfig*)this);
 		_obj.pushArg(str);
 		_obj.pushArg(index);
 		return (_obj.callFunction<bool>());
@@ -78,6 +86,7 @@ public:
 	// bool wxConfigBase::GetFirstGroup(wxString & str, long & index) const
 	bool GetFirstGroup(wxString & str, long & index) const {
 		THROW_IF(!_obj.pushFunction("GetFirstGroup"),"No implementation for abstract function wxConfigBase::GetFirstGroup");
+		_obj.pushArg((wxRegConfig*)this);
 		_obj.pushArg(str);
 		_obj.pushArg(index);
 		return (_obj.callFunction<bool>());
@@ -86,6 +95,7 @@ public:
 	// bool wxConfigBase::GetNextEntry(wxString & str, long & index) const
 	bool GetNextEntry(wxString & str, long & index) const {
 		THROW_IF(!_obj.pushFunction("GetNextEntry"),"No implementation for abstract function wxConfigBase::GetNextEntry");
+		_obj.pushArg((wxRegConfig*)this);
 		_obj.pushArg(str);
 		_obj.pushArg(index);
 		return (_obj.callFunction<bool>());
@@ -94,6 +104,7 @@ public:
 	// bool wxConfigBase::GetNextGroup(wxString & str, long & index) const
 	bool GetNextGroup(wxString & str, long & index) const {
 		THROW_IF(!_obj.pushFunction("GetNextGroup"),"No implementation for abstract function wxConfigBase::GetNextGroup");
+		_obj.pushArg((wxRegConfig*)this);
 		_obj.pushArg(str);
 		_obj.pushArg(index);
 		return (_obj.callFunction<bool>());
@@ -102,6 +113,7 @@ public:
 	// size_t wxConfigBase::GetNumberOfEntries(bool bRecursive = false) const
 	size_t GetNumberOfEntries(bool bRecursive = false) const {
 		THROW_IF(!_obj.pushFunction("GetNumberOfEntries"),"No implementation for abstract function wxConfigBase::GetNumberOfEntries");
+		_obj.pushArg((wxRegConfig*)this);
 		_obj.pushArg(bRecursive);
 		return (_obj.callFunction<size_t>());
 	};
@@ -109,6 +121,7 @@ public:
 	// size_t wxConfigBase::GetNumberOfGroups(bool bRecursive = false) const
 	size_t GetNumberOfGroups(bool bRecursive = false) const {
 		THROW_IF(!_obj.pushFunction("GetNumberOfGroups"),"No implementation for abstract function wxConfigBase::GetNumberOfGroups");
+		_obj.pushArg((wxRegConfig*)this);
 		_obj.pushArg(bRecursive);
 		return (_obj.callFunction<size_t>());
 	};
@@ -116,6 +129,7 @@ public:
 	// wxConfigBase::EntryType wxConfigBase::GetEntryType(const wxString & name) const
 	wxConfigBase::EntryType GetEntryType(const wxString & name) const {
 		if(_obj.pushFunction("GetEntryType")) {
+			_obj.pushArg((wxRegConfig*)this);
 			_obj.pushArg(name);
 			return (wxConfigBase::EntryType)(_obj.callFunction<int>());
 		}
@@ -126,6 +140,7 @@ public:
 	// bool wxConfigBase::HasEntry(const wxString & strName) const
 	bool HasEntry(const wxString & strName) const {
 		THROW_IF(!_obj.pushFunction("HasEntry"),"No implementation for abstract function wxConfigBase::HasEntry");
+		_obj.pushArg((wxRegConfig*)this);
 		_obj.pushArg(strName);
 		return (_obj.callFunction<bool>());
 	};
@@ -133,6 +148,7 @@ public:
 	// bool wxConfigBase::HasGroup(const wxString & strName) const
 	bool HasGroup(const wxString & strName) const {
 		THROW_IF(!_obj.pushFunction("HasGroup"),"No implementation for abstract function wxConfigBase::HasGroup");
+		_obj.pushArg((wxRegConfig*)this);
 		_obj.pushArg(strName);
 		return (_obj.callFunction<bool>());
 	};
@@ -140,6 +156,7 @@ public:
 	// bool wxConfigBase::Flush(bool bCurrentOnly = false)
 	bool Flush(bool bCurrentOnly = false) {
 		THROW_IF(!_obj.pushFunction("Flush"),"No implementation for abstract function wxConfigBase::Flush");
+		_obj.pushArg((wxRegConfig*)this);
 		_obj.pushArg(bCurrentOnly);
 		return (_obj.callFunction<bool>());
 	};
@@ -147,6 +164,7 @@ public:
 	// bool wxConfigBase::RenameEntry(const wxString & oldName, const wxString & newName)
 	bool RenameEntry(const wxString & oldName, const wxString & newName) {
 		THROW_IF(!_obj.pushFunction("RenameEntry"),"No implementation for abstract function wxConfigBase::RenameEntry");
+		_obj.pushArg((wxRegConfig*)this);
 		_obj.pushArg(oldName);
 		_obj.pushArg(newName);
 		return (_obj.callFunction<bool>());
@@ -155,6 +173,7 @@ public:
 	// bool wxConfigBase::RenameGroup(const wxString & oldName, const wxString & newName)
 	bool RenameGroup(const wxString & oldName, const wxString & newName) {
 		THROW_IF(!_obj.pushFunction("RenameGroup"),"No implementation for abstract function wxConfigBase::RenameGroup");
+		_obj.pushArg((wxRegConfig*)this);
 		_obj.pushArg(oldName);
 		_obj.pushArg(newName);
 		return (_obj.callFunction<bool>());
@@ -163,12 +182,14 @@ public:
 	// bool wxConfigBase::DeleteAll()
 	bool DeleteAll() {
 		THROW_IF(!_obj.pushFunction("DeleteAll"),"No implementation for abstract function wxConfigBase::DeleteAll");
+		_obj.pushArg((wxRegConfig*)this);
 		return (_obj.callFunction<bool>());
 	};
 
 	// bool wxConfigBase::DeleteEntry(const wxString & key, bool bDeleteGroupIfEmpty = true)
 	bool DeleteEntry(const wxString & key, bool bDeleteGroupIfEmpty = true) {
 		THROW_IF(!_obj.pushFunction("DeleteEntry"),"No implementation for abstract function wxConfigBase::DeleteEntry");
+		_obj.pushArg((wxRegConfig*)this);
 		_obj.pushArg(key);
 		_obj.pushArg(bDeleteGroupIfEmpty);
 		return (_obj.callFunction<bool>());
@@ -177,6 +198,7 @@ public:
 	// bool wxConfigBase::DeleteGroup(const wxString & key)
 	bool DeleteGroup(const wxString & key) {
 		THROW_IF(!_obj.pushFunction("DeleteGroup"),"No implementation for abstract function wxConfigBase::DeleteGroup");
+		_obj.pushArg((wxRegConfig*)this);
 		_obj.pushArg(key);
 		return (_obj.callFunction<bool>());
 	};

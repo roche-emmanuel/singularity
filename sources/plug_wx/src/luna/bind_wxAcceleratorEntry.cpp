@@ -110,7 +110,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 2 valid operators)
+	// (found 3 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,8554277) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -333,6 +340,32 @@ public:
 
 
 	// Operator binds:
+	// wxAcceleratorEntry & wxAcceleratorEntry::operator=(const wxAcceleratorEntry & entry)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAcceleratorEntry & wxAcceleratorEntry::operator=(const wxAcceleratorEntry & entry) function, expected prototype:\nwxAcceleratorEntry & wxAcceleratorEntry::operator=(const wxAcceleratorEntry & entry)\nClass arguments details:\narg 1 ID = 8554277\n");
+		}
+
+		const wxAcceleratorEntry* entry_ptr=(Luna< wxAcceleratorEntry >::check(L,2));
+		if( !entry_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg entry in wxAcceleratorEntry::operator= function");
+		}
+		const wxAcceleratorEntry & entry=*entry_ptr;
+
+		wxAcceleratorEntry* self=(Luna< wxAcceleratorEntry >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxAcceleratorEntry & wxAcceleratorEntry::operator=(const wxAcceleratorEntry &). Got : '%s'",typeid(Luna< wxAcceleratorEntry >::check(L,1)).name());
+		}
+		const wxAcceleratorEntry* lret = &self->operator=(entry);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxAcceleratorEntry >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// bool wxAcceleratorEntry::operator==(const wxAcceleratorEntry & entry) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
@@ -410,6 +443,7 @@ luna_RegType LunaTraits< wxAcceleratorEntry >::methods[] = {
 	{"IsOk", &luna_wrapper_wxAcceleratorEntry::_bind_IsOk},
 	{"ToString", &luna_wrapper_wxAcceleratorEntry::_bind_ToString},
 	{"FromString", &luna_wrapper_wxAcceleratorEntry::_bind_FromString},
+	{"op_assign", &luna_wrapper_wxAcceleratorEntry::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxAcceleratorEntry::_bind___eq},
 	{"op_neq", &luna_wrapper_wxAcceleratorEntry::_bind_op_neq},
 	{"dynCast", &luna_wrapper_wxAcceleratorEntry::_bind_dynCast},

@@ -14,14 +14,37 @@ public:
 		
 
 	~wrapper_osg_Texture3D() {
+		logDEBUG3("Calling delete function for wrapper osg_Texture3D");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::Texture3D*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_Texture3D(lua_State* L, lua_Table* dum) : osg::Texture3D(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_Texture3D(lua_State* L, lua_Table* dum, osg::Image * image) : osg::Texture3D(image), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_Texture3D(lua_State* L, lua_Table* dum, const osg::Texture3D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Texture3D(text, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_Texture3D(lua_State* L, lua_Table* dum) 
+		: osg::Texture3D(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Texture3D*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Texture3D(lua_State* L, lua_Table* dum, osg::Image * image) 
+		: osg::Texture3D(image), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Texture3D*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Texture3D(lua_State* L, lua_Table* dum, const osg::Texture3D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osg::Texture3D(text, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Texture3D*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +53,7 @@ protected:
 	// void osg::Texture3D::computeInternalFormat() const
 	void computeInternalFormat() const {
 		if(_obj.pushFunction("computeInternalFormat")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -39,6 +63,7 @@ protected:
 	// void osg::Texture3D::allocateMipmap(osg::State & state) const
 	void allocateMipmap(osg::State & state) const {
 		if(_obj.pushFunction("allocateMipmap")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			_obj.pushArg(&state);
 			return (_obj.callFunction<void>());
 		}
@@ -48,9 +73,21 @@ protected:
 
 public:
 	// Public virtual methods:
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::Texture3D*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Texture3D::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -61,6 +98,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -70,6 +108,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -80,6 +119,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -89,6 +129,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -98,6 +139,7 @@ public:
 	// unsigned int osg::StateAttribute::getMember() const
 	unsigned int getMember() const {
 		if(_obj.pushFunction("getMember")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -107,6 +149,7 @@ public:
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
 	bool checkValidityOfAssociatedModes(osg::State & arg1) const {
 		if(_obj.pushFunction("checkValidityOfAssociatedModes")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<bool>());
 		}
@@ -117,6 +160,7 @@ public:
 	// osg::Texture * osg::Texture::asTexture()
 	osg::Texture * asTexture() {
 		if(_obj.pushFunction("asTexture")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
@@ -126,6 +170,7 @@ public:
 	// const osg::Texture * osg::Texture::asTexture() const
 	const osg::Texture * asTexture() const {
 		if(_obj.pushFunction("asTexture")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
@@ -135,6 +180,7 @@ public:
 	// bool osg::Texture::isTextureAttribute() const
 	bool isTextureAttribute() const {
 		if(_obj.pushFunction("isTextureAttribute")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -144,6 +190,7 @@ public:
 	// bool osg::Texture::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	bool getModeUsage(osg::StateAttribute::ModeUsage & arg1) const {
 		if(_obj.pushFunction("getModeUsage")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<bool>());
 		}
@@ -154,6 +201,7 @@ public:
 	// void osg::Texture::compileGLObjects(osg::State & state) const
 	void compileGLObjects(osg::State & state) const {
 		if(_obj.pushFunction("compileGLObjects")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			_obj.pushArg(&state);
 			return (_obj.callFunction<void>());
 		}
@@ -164,6 +212,7 @@ public:
 	// void osg::Texture::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			_obj.pushArg(state);
 			return (_obj.callFunction<void>());
 		}
@@ -174,6 +223,7 @@ public:
 	// osg::Object * osg::Texture3D::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -183,6 +233,7 @@ public:
 	// osg::Object * osg::Texture3D::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -193,6 +244,7 @@ public:
 	// bool osg::Texture3D::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -203,6 +255,7 @@ public:
 	// const char * osg::Texture3D::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -212,6 +265,7 @@ public:
 	// const char * osg::Texture3D::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -221,6 +275,7 @@ public:
 	// osg::StateAttribute::Type osg::Texture3D::getType() const
 	osg::StateAttribute::Type getType() const {
 		if(_obj.pushFunction("getType")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
@@ -230,6 +285,7 @@ public:
 	// int osg::Texture3D::compare(const osg::StateAttribute & rhs) const
 	int compare(const osg::StateAttribute & rhs) const {
 		if(_obj.pushFunction("compare")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			_obj.pushArg(&rhs);
 			return (_obj.callFunction<int>());
 		}
@@ -240,6 +296,7 @@ public:
 	// unsigned int osg::Texture3D::getTextureTarget() const
 	unsigned int getTextureTarget() const {
 		if(_obj.pushFunction("getTextureTarget")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -249,6 +306,7 @@ public:
 	// void osg::Texture3D::setImage(unsigned int arg1, osg::Image * image)
 	void setImage(unsigned int arg1, osg::Image * image) {
 		if(_obj.pushFunction("setImage")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			_obj.pushArg(arg1);
 			_obj.pushArg(image);
 			return (_obj.callFunction<void>());
@@ -260,6 +318,7 @@ public:
 	// osg::Image * osg::Texture3D::getImage(unsigned int arg1)
 	osg::Image * getImage(unsigned int arg1) {
 		if(_obj.pushFunction("getImage")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<osg::Image*>());
 		}
@@ -270,6 +329,7 @@ public:
 	// const osg::Image * osg::Texture3D::getImage(unsigned int arg1) const
 	const osg::Image * getImage(unsigned int arg1) const {
 		if(_obj.pushFunction("getImage")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<osg::Image*>());
 		}
@@ -280,6 +340,7 @@ public:
 	// unsigned int osg::Texture3D::getNumImages() const
 	unsigned int getNumImages() const {
 		if(_obj.pushFunction("getNumImages")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -289,6 +350,7 @@ public:
 	// int osg::Texture3D::getTextureWidth() const
 	int getTextureWidth() const {
 		if(_obj.pushFunction("getTextureWidth")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -298,6 +360,7 @@ public:
 	// int osg::Texture3D::getTextureHeight() const
 	int getTextureHeight() const {
 		if(_obj.pushFunction("getTextureHeight")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -307,6 +370,7 @@ public:
 	// int osg::Texture3D::getTextureDepth() const
 	int getTextureDepth() const {
 		if(_obj.pushFunction("getTextureDepth")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -316,6 +380,7 @@ public:
 	// void osg::Texture3D::apply(osg::State & state) const
 	void apply(osg::State & state) const {
 		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osg::Texture3D*)this);
 			_obj.pushArg(&state);
 			return (_obj.callFunction<void>());
 		}
@@ -333,11 +398,6 @@ public:
 	// void osg::Texture::computeInternalFormatWithImage(const osg::Image & image) const
 	void public_computeInternalFormatWithImage(const osg::Image & image) const {
 		return osg::Texture::computeInternalFormatWithImage(image);
-	};
-
-	// void osg::Texture::computeRequiredTextureDimensions(osg::State & state, const osg::Image & image, int & width, int & height, int & numMipmapLevels) const
-	void public_computeRequiredTextureDimensions(osg::State & state, const osg::Image & image, int & width, int & height, int & numMipmapLevels) const {
-		return osg::Texture::computeRequiredTextureDimensions(state, image, width, height, numMipmapLevels);
 	};
 
 	// void osg::Texture::computeInternalFormatType() const
@@ -424,17 +484,6 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_public_computeRequiredTextureDimensions(lua_State *L) {
-		if( lua_gettop(L)!=6 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,50169651) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		return true;
 	}
 
@@ -581,37 +630,6 @@ public:
 			luaL_error(L, "Invalid object in function call void osg::Texture::public_computeInternalFormatWithImage(const osg::Image &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_computeInternalFormatWithImage(image);
-
-		return 0;
-	}
-
-	// void osg::Texture::public_computeRequiredTextureDimensions(osg::State & state, const osg::Image & image, int & width, int & height, int & numMipmapLevels) const
-	static int _bind_public_computeRequiredTextureDimensions(lua_State *L) {
-		if (!_lg_typecheck_public_computeRequiredTextureDimensions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture::public_computeRequiredTextureDimensions(osg::State & state, const osg::Image & image, int & width, int & height, int & numMipmapLevels) const function, expected prototype:\nvoid osg::Texture::public_computeRequiredTextureDimensions(osg::State & state, const osg::Image & image, int & width, int & height, int & numMipmapLevels) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
-		}
-
-		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
-		if( !state_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::Texture::public_computeRequiredTextureDimensions function");
-		}
-		osg::State & state=*state_ptr;
-		const osg::Image* image_ptr=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,3));
-		if( !image_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg image in osg::Texture::public_computeRequiredTextureDimensions function");
-		}
-		const osg::Image & image=*image_ptr;
-		int width=(int)lua_tointeger(L,4);
-		int height=(int)lua_tointeger(L,5);
-		int numMipmapLevels=(int)lua_tointeger(L,6);
-
-		wrapper_osg_Texture3D* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_Texture3D >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::public_computeRequiredTextureDimensions(osg::State &, const osg::Image &, int &, int &, int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->public_computeRequiredTextureDimensions(state, image, width, height, numMipmapLevels);
 
 		return 0;
 	}
@@ -905,22 +923,21 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_applyTexImage3D",_bind_public_applyTexImage3D},
-		{"protected_computeInternalFormatWithImage",_bind_public_computeInternalFormatWithImage},
-		{"protected_computeRequiredTextureDimensions",_bind_public_computeRequiredTextureDimensions},
-		{"protected_computeInternalFormatType",_bind_public_computeInternalFormatType},
-		{"protected_applyTexParameters",_bind_public_applyTexParameters},
-		{"protected_isHardwareMipmapGenerationEnabled",_bind_public_isHardwareMipmapGenerationEnabled},
-		{"protected_isSafeToUnrefImageData",_bind_public_isSafeToUnrefImageData},
-		{"protected_mipmapBeforeTexImage",_bind_public_mipmapBeforeTexImage},
-		{"protected_mipmapAfterTexImage",_bind_public_mipmapAfterTexImage},
-		{"protected_generateMipmap",_bind_public_generateMipmap},
-		{"protected_compareTexture",_bind_public_compareTexture},
-		{"protected_compareTextureObjects",_bind_public_compareTextureObjects},
-		{"protected_addParent",_bind_public_addParent},
-		{"protected_removeParent",_bind_public_removeParent},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"applyTexImage3D",_bind_public_applyTexImage3D},
+		{"computeInternalFormatWithImage",_bind_public_computeInternalFormatWithImage},
+		{"computeInternalFormatType",_bind_public_computeInternalFormatType},
+		{"applyTexParameters",_bind_public_applyTexParameters},
+		{"isHardwareMipmapGenerationEnabled",_bind_public_isHardwareMipmapGenerationEnabled},
+		{"isSafeToUnrefImageData",_bind_public_isSafeToUnrefImageData},
+		{"mipmapBeforeTexImage",_bind_public_mipmapBeforeTexImage},
+		{"mipmapAfterTexImage",_bind_public_mipmapAfterTexImage},
+		{"generateMipmap",_bind_public_generateMipmap},
+		{"compareTexture",_bind_public_compareTexture},
+		{"compareTextureObjects",_bind_public_compareTextureObjects},
+		{"addParent",_bind_public_addParent},
+		{"removeParent",_bind_public_removeParent},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

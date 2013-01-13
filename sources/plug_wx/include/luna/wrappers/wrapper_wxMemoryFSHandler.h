@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_wxMemoryFSHandler() {
+		logDEBUG3("Calling delete function for wrapper wxMemoryFSHandler");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxMemoryFSHandler*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxMemoryFSHandler(lua_State* L, lua_Table* dum) : wxMemoryFSHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxMemoryFSHandler(lua_State* L, lua_Table* dum) 
+		: wxMemoryFSHandler(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxMemoryFSHandler*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,6 +37,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxMemoryFSHandler*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -37,6 +47,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxMemoryFSHandler*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -49,6 +60,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxMemoryFSHandler*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -58,6 +70,7 @@ public:
 	// bool wxFileSystemHandler::CanOpen(const wxString & location)
 	bool CanOpen(const wxString & location) {
 		THROW_IF(!_obj.pushFunction("CanOpen"),"No implementation for abstract function wxFileSystemHandler::CanOpen");
+		_obj.pushArg((wxMemoryFSHandler*)this);
 		_obj.pushArg(location);
 		return (_obj.callFunction<bool>());
 	};
@@ -65,6 +78,7 @@ public:
 	// wxString wxFileSystemHandler::FindFirst(const wxString & wildcard, int flags = 0)
 	wxString FindFirst(const wxString & wildcard, int flags = 0) {
 		if(_obj.pushFunction("FindFirst")) {
+			_obj.pushArg((wxMemoryFSHandler*)this);
 			_obj.pushArg(wildcard);
 			_obj.pushArg(flags);
 			return *(_obj.callFunction<wxString*>());
@@ -76,6 +90,7 @@ public:
 	// wxString wxFileSystemHandler::FindNext()
 	wxString FindNext() {
 		if(_obj.pushFunction("FindNext")) {
+			_obj.pushArg((wxMemoryFSHandler*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -85,6 +100,7 @@ public:
 	// wxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem & fs, const wxString & location)
 	wxFSFile * OpenFile(wxFileSystem & fs, const wxString & location) {
 		THROW_IF(!_obj.pushFunction("OpenFile"),"No implementation for abstract function wxFileSystemHandler::OpenFile");
+		_obj.pushArg((wxMemoryFSHandler*)this);
 		_obj.pushArg(&fs);
 		_obj.pushArg(location);
 		return (_obj.callFunction<wxFSFile*>());
@@ -227,10 +243,10 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_GetAnchor",_bind_public_GetAnchor},
-		{"protected_GetLeftLocation",_bind_public_GetLeftLocation},
-		{"protected_GetProtocol",_bind_public_GetProtocol},
-		{"protected_GetRightLocation",_bind_public_GetRightLocation},
+		{"GetAnchor",_bind_public_GetAnchor},
+		{"GetLeftLocation",_bind_public_GetLeftLocation},
+		{"GetProtocol",_bind_public_GetProtocol},
+		{"GetRightLocation",_bind_public_GetRightLocation},
 		{NULL,NULL}
 		};
 

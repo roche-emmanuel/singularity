@@ -57,11 +57,11 @@ public:
 };
 
 std::set< osg::ShadowVolumeOccluder >* LunaTraits< std::set< osg::ShadowVolumeOccluder > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::set< osg::ShadowVolumeOccluder >();
 }
 
 void LunaTraits< std::set< osg::ShadowVolumeOccluder > >::_bind_dtor(std::set< osg::ShadowVolumeOccluder >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::set< osg::ShadowVolumeOccluder > >::className[] = "std_set_osg_ShadowVolumeOccluder";

@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_osgDB_AuthenticationMap() {
+		logDEBUG3("Calling delete function for wrapper osgDB_AuthenticationMap");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::AuthenticationMap*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -26,9 +28,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::AuthenticationMap*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return AuthenticationMap::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osgDB::AuthenticationMap::addAuthenticationDetails(const std::string & path, osgDB::AuthenticationDetails * details)
 	void addAuthenticationDetails(const std::string & path, osgDB::AuthenticationDetails * details) {
 		if(_obj.pushFunction("addAuthenticationDetails")) {
+			_obj.pushArg((osgDB::AuthenticationMap*)this);
 			_obj.pushArg(path);
 			_obj.pushArg(details);
 			return (_obj.callFunction<void>());
@@ -40,6 +54,7 @@ public:
 	// const osgDB::AuthenticationDetails * osgDB::AuthenticationMap::getAuthenticationDetails(const std::string & path) const
 	const osgDB::AuthenticationDetails * getAuthenticationDetails(const std::string & path) const {
 		if(_obj.pushFunction("getAuthenticationDetails")) {
+			_obj.pushArg((osgDB::AuthenticationMap*)this);
 			_obj.pushArg(path);
 			return (_obj.callFunction<osgDB::AuthenticationDetails*>());
 		}
@@ -118,8 +133,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

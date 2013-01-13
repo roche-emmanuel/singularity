@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -89,6 +89,13 @@ public:
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -167,6 +174,25 @@ public:
 		return 1;
 	}
 
+	// void osgUtil::Simplifier::ContinueSimplificationCallback::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Simplifier::ContinueSimplificationCallback::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::Simplifier::ContinueSimplificationCallback::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgUtil::Simplifier::ContinueSimplificationCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::Simplifier::ContinueSimplificationCallback >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Simplifier::ContinueSimplificationCallback::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->ContinueSimplificationCallback::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// bool osgUtil::Simplifier::ContinueSimplificationCallback::base_continueSimplification(const osgUtil::Simplifier & simplifier, float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const
 	static int _bind_base_continueSimplification(lua_State *L) {
 		if (!_lg_typecheck_base_continueSimplification(L)) {
@@ -218,6 +244,7 @@ const int LunaTraits< osgUtil::Simplifier::ContinueSimplificationCallback >::uni
 
 luna_RegType LunaTraits< osgUtil::Simplifier::ContinueSimplificationCallback >::methods[] = {
 	{"continueSimplification", &luna_wrapper_osgUtil_Simplifier_ContinueSimplificationCallback::_bind_continueSimplification},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_Simplifier_ContinueSimplificationCallback::_bind_base_setThreadSafeRefUnref},
 	{"base_continueSimplification", &luna_wrapper_osgUtil_Simplifier_ContinueSimplificationCallback::_bind_base_continueSimplification},
 	{"__eq", &luna_wrapper_osgUtil_Simplifier_ContinueSimplificationCallback::_bind___eq},
 	{"getTable", &luna_wrapper_osgUtil_Simplifier_ContinueSimplificationCallback::_bind_getTable},

@@ -387,7 +387,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 20 valid operators)
+	// (found 21 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,80263306) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1567,6 +1574,32 @@ public:
 
 
 	// Operator binds:
+	// osg::Quat & osg::Quat::operator=(const osg::Quat & v)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Quat & osg::Quat::operator=(const osg::Quat & v) function, expected prototype:\nosg::Quat & osg::Quat::operator=(const osg::Quat & v)\nClass arguments details:\narg 1 ID = 80263306\n");
+		}
+
+		const osg::Quat* v_ptr=(Luna< osg::Quat >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in osg::Quat::operator= function");
+		}
+		const osg::Quat & v=*v_ptr;
+
+		osg::Quat* self=(Luna< osg::Quat >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Quat & osg::Quat::operator=(const osg::Quat &). Got : '%s'",typeid(Luna< osg::Quat >::check(L,1)).name());
+		}
+		const osg::Quat* lret = &self->operator=(v);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Quat >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// bool osg::Quat::operator==(const osg::Quat & v) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
@@ -2142,6 +2175,7 @@ luna_RegType LunaTraits< osg::Quat >::methods[] = {
 	{"makeRotate_original", &luna_wrapper_osg_Quat::_bind_makeRotate_original},
 	{"getRotate", &luna_wrapper_osg_Quat::_bind_getRotate},
 	{"slerp", &luna_wrapper_osg_Quat::_bind_slerp},
+	{"op_assign", &luna_wrapper_osg_Quat::_bind_op_assign},
 	{"__eq", &luna_wrapper_osg_Quat::_bind___eq},
 	{"op_neq", &luna_wrapper_osg_Quat::_bind_op_neq},
 	{"__lt", &luna_wrapper_osg_Quat::_bind___lt},

@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -166,7 +166,7 @@ public:
 	inline static bool _lg_typecheck_setHoleList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,25393619) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,35991211) ) return false;
 		return true;
 	}
 
@@ -179,6 +179,13 @@ public:
 	inline static bool _lg_typecheck_getHoleList_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -549,7 +556,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConvexPlanarOccluder::setHoleList(const osg::ConvexPlanarOccluder::HoleList & holeList) function, expected prototype:\nvoid osg::ConvexPlanarOccluder::setHoleList(const osg::ConvexPlanarOccluder::HoleList & holeList)\nClass arguments details:\narg 1 ID = 25393619\n");
 		}
 
-		const osg::ConvexPlanarOccluder::HoleList* holeList_ptr=(Luna< osg::ConvexPlanarOccluder::HoleList >::check(L,2));
+		const osg::ConvexPlanarOccluder::HoleList* holeList_ptr=(Luna< std::vector< osg::ConvexPlanarPolygon > >::checkSubType< osg::ConvexPlanarOccluder::HoleList >(L,2));
 		if( !holeList_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg holeList in osg::ConvexPlanarOccluder::setHoleList function");
 		}
@@ -613,6 +620,25 @@ public:
 		if (_lg_typecheck_getHoleList_overload_2(L)) return _bind_getHoleList_overload_2(L);
 
 		luaL_error(L, "error in function getHoleList, cannot match any of the overloads for function getHoleList:\n  getHoleList()\n  getHoleList()\n");
+		return 0;
+	}
+
+	// void osg::ConvexPlanarOccluder::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::ConvexPlanarOccluder::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::ConvexPlanarOccluder::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::ConvexPlanarOccluder* self=Luna< osg::Referenced >::checkSubType< osg::ConvexPlanarOccluder >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::ConvexPlanarOccluder::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->ConvexPlanarOccluder::setThreadSafeRefUnref(threadSafe);
+
 		return 0;
 	}
 
@@ -882,6 +908,7 @@ luna_RegType LunaTraits< osg::ConvexPlanarOccluder >::methods[] = {
 	{"addHole", &luna_wrapper_osg_ConvexPlanarOccluder::_bind_addHole},
 	{"setHoleList", &luna_wrapper_osg_ConvexPlanarOccluder::_bind_setHoleList},
 	{"getHoleList", &luna_wrapper_osg_ConvexPlanarOccluder::_bind_getHoleList},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_ConvexPlanarOccluder::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osg_ConvexPlanarOccluder::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_ConvexPlanarOccluder::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_ConvexPlanarOccluder::_bind_base_setUserData},

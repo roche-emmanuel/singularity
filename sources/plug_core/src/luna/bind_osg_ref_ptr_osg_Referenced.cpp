@@ -57,11 +57,11 @@ public:
 };
 
 osg::ref_ptr< osg::Referenced >* LunaTraits< osg::ref_ptr< osg::Referenced > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new osg::ref_ptr< osg::Referenced >();
 }
 
 void LunaTraits< osg::ref_ptr< osg::Referenced > >::_bind_dtor(osg::ref_ptr< osg::Referenced >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< osg::ref_ptr< osg::Referenced > >::className[] = "osg_ref_ptr_osg_Referenced";

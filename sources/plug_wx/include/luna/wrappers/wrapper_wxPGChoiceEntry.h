@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_wxPGChoiceEntry() {
+		logDEBUG3("Calling delete function for wrapper wxPGChoiceEntry");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxPGChoiceEntry*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxPGChoiceEntry(lua_State* L, lua_Table* dum) : wxPGChoiceEntry(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxPGChoiceEntry(lua_State* L, lua_Table* dum) 
+		: wxPGChoiceEntry(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxPGChoiceEntry*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +39,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxPGChoiceEntry*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 

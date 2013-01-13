@@ -57,11 +57,11 @@ public:
 };
 
 std::list< osg::Camera * >* LunaTraits< std::list< osg::Camera * > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::list< osg::Camera * >();
 }
 
 void LunaTraits< std::list< osg::Camera * > >::_bind_dtor(std::list< osg::Camera * >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::list< osg::Camera * > >::className[] = "std_list_osg_Camera_ptr";

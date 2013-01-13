@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_osgUtil_PlaneIntersector() {
+		logDEBUG3("Calling delete function for wrapper osgUtil_PlaneIntersector");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgUtil::PlaneIntersector*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgUtil_PlaneIntersector(lua_State* L, lua_Table* dum, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ()) : osgUtil::PlaneIntersector(plane, boundingPolytope), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osgUtil_PlaneIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ()) : osgUtil::PlaneIntersector(cf, plane, boundingPolytope), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgUtil_PlaneIntersector(lua_State* L, lua_Table* dum, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ()) 
+		: osgUtil::PlaneIntersector(plane, boundingPolytope), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::PlaneIntersector*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osgUtil_PlaneIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ()) 
+		: osgUtil::PlaneIntersector(cf, plane, boundingPolytope), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgUtil::PlaneIntersector*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,9 +44,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgUtil::PlaneIntersector*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return PlaneIntersector::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// osgUtil::Intersector * osgUtil::PlaneIntersector::clone(osgUtil::IntersectionVisitor & iv)
 	osgUtil::Intersector * clone(osgUtil::IntersectionVisitor & iv) {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osgUtil::PlaneIntersector*)this);
 			_obj.pushArg(&iv);
 			return (_obj.callFunction<osgUtil::Intersector*>());
 		}
@@ -41,6 +69,7 @@ public:
 	// bool osgUtil::PlaneIntersector::enter(const osg::Node & node)
 	bool enter(const osg::Node & node) {
 		if(_obj.pushFunction("enter")) {
+			_obj.pushArg((osgUtil::PlaneIntersector*)this);
 			_obj.pushArg(&node);
 			return (_obj.callFunction<bool>());
 		}
@@ -51,6 +80,7 @@ public:
 	// void osgUtil::PlaneIntersector::leave()
 	void leave() {
 		if(_obj.pushFunction("leave")) {
+			_obj.pushArg((osgUtil::PlaneIntersector*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -60,6 +90,7 @@ public:
 	// void osgUtil::PlaneIntersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)
 	void intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable) {
 		if(_obj.pushFunction("intersect")) {
+			_obj.pushArg((osgUtil::PlaneIntersector*)this);
 			_obj.pushArg(&iv);
 			_obj.pushArg(drawable);
 			return (_obj.callFunction<void>());
@@ -71,6 +102,7 @@ public:
 	// void osgUtil::PlaneIntersector::reset()
 	void reset() {
 		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osgUtil::PlaneIntersector*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -80,6 +112,7 @@ public:
 	// bool osgUtil::PlaneIntersector::containsIntersections()
 	bool containsIntersections() {
 		if(_obj.pushFunction("containsIntersections")) {
+			_obj.pushArg((osgUtil::PlaneIntersector*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -157,8 +190,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

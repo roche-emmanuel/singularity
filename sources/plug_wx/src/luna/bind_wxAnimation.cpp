@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxObject,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -213,7 +213,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// wxAnimation::wxAnimation(const wxAnimation & anim)
@@ -620,6 +627,32 @@ public:
 
 
 	// Operator binds:
+	// wxAnimation & wxAnimation::operator=(const wxAnimation & brush)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAnimation & wxAnimation::operator=(const wxAnimation & brush) function, expected prototype:\nwxAnimation & wxAnimation::operator=(const wxAnimation & brush)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxAnimation* brush_ptr=(Luna< wxObject >::checkSubType< wxAnimation >(L,2));
+		if( !brush_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg brush in wxAnimation::operator= function");
+		}
+		const wxAnimation & brush=*brush_ptr;
+
+		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxAnimation & wxAnimation::operator=(const wxAnimation &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxAnimation* lret = &self->operator=(brush);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxAnimation >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -656,6 +689,7 @@ luna_RegType LunaTraits< wxAnimation >::methods[] = {
 	{"base_IsOk", &luna_wrapper_wxAnimation::_bind_base_IsOk},
 	{"base_Load", &luna_wrapper_wxAnimation::_bind_base_Load},
 	{"base_LoadFile", &luna_wrapper_wxAnimation::_bind_base_LoadFile},
+	{"op_assign", &luna_wrapper_wxAnimation::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxAnimation::_bind___eq},
 	{"getTable", &luna_wrapper_wxAnimation::_bind_getTable},
 	{0,0}

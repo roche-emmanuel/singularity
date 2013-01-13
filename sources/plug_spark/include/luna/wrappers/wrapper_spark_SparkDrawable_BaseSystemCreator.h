@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_spark_SparkDrawable_BaseSystemCreator() {
+		logDEBUG3("Calling delete function for wrapper spark_SparkDrawable_BaseSystemCreator");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((spark::SparkDrawable::BaseSystemCreator*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_spark_SparkDrawable_BaseSystemCreator(lua_State* L, lua_Table* dum) : spark::SparkDrawable::BaseSystemCreator(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_spark_SparkDrawable_BaseSystemCreator(lua_State* L, lua_Table* dum) 
+		: spark::SparkDrawable::BaseSystemCreator(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((spark::SparkDrawable::BaseSystemCreator*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -30,6 +39,7 @@ public:
 	// unsigned long spark::SparkDrawable::BaseSystemCreator::operator()(const spark::SparkDrawable::TextureIDMap & arg1, int width, int height)
 	unsigned long operator()(const spark::SparkDrawable::TextureIDMap & arg1, int width, int height) {
 		THROW_IF(!_obj.pushFunction("op_call"),"No implementation for abstract function spark::SparkDrawable::BaseSystemCreator::operator()");
+		_obj.pushArg((spark::SparkDrawable::BaseSystemCreator*)this);
 		_obj.pushArg(&arg1);
 		_obj.pushArg(width);
 		_obj.pushArg(height);

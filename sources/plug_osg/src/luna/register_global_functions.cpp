@@ -1,6 +1,7 @@
 #include <plug_common.h>
 
 #include <osg/GL>
+#include <OpenThreads/Version>
 #include <osg/Version>
 #include <osgDB/Version>
 #include <osgGA/Version>
@@ -8,6 +9,7 @@
 #include <osgText/Version>
 #include <osgUtil/Version>
 #include <osgViewer/Version>
+#include <OpenThreads/Thread>
 #include <osg/Endian>
 #include <osg/Geometry>
 #include <osg/GLExtensions>
@@ -67,6 +69,24 @@ inline static bool _lg_typecheck_glMultMatrix_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
 	if( lua_isnumber(L,1)==0 ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_OpenThreadsGetVersion(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_OpenThreadsGetSOVersion(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_OpenThreadsGetLibraryName(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
 	return true;
 }
 
@@ -234,6 +254,48 @@ static int _bind_glMultMatrix(lua_State *L) {
 
 	luaL_error(L, "error in function glMultMatrix, cannot match any of the overloads for function glMultMatrix:\n  glMultMatrix(const float *)\n  glMultMatrix(const double *)\n");
 	return 0;
+}
+
+// const char * OpenThreadsGetVersion()
+static int _bind_OpenThreadsGetVersion(lua_State *L) {
+	if (!_lg_typecheck_OpenThreadsGetVersion(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in const char * OpenThreadsGetVersion() function, expected prototype:\nconst char * OpenThreadsGetVersion()\nClass arguments details:\n");
+	}
+
+
+	const char * lret = OpenThreadsGetVersion();
+	lua_pushstring(L,lret);
+
+	return 1;
+}
+
+// const char * OpenThreadsGetSOVersion()
+static int _bind_OpenThreadsGetSOVersion(lua_State *L) {
+	if (!_lg_typecheck_OpenThreadsGetSOVersion(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in const char * OpenThreadsGetSOVersion() function, expected prototype:\nconst char * OpenThreadsGetSOVersion()\nClass arguments details:\n");
+	}
+
+
+	const char * lret = OpenThreadsGetSOVersion();
+	lua_pushstring(L,lret);
+
+	return 1;
+}
+
+// const char * OpenThreadsGetLibraryName()
+static int _bind_OpenThreadsGetLibraryName(lua_State *L) {
+	if (!_lg_typecheck_OpenThreadsGetLibraryName(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in const char * OpenThreadsGetLibraryName() function, expected prototype:\nconst char * OpenThreadsGetLibraryName()\nClass arguments details:\n");
+	}
+
+
+	const char * lret = OpenThreadsGetLibraryName();
+	lua_pushstring(L,lret);
+
+	return 1;
 }
 
 // const char * osgGetVersion()
@@ -442,6 +504,52 @@ static int _bind_osgViewerGetLibraryName(lua_State *L) {
 
 	const char * lret = osgViewerGetLibraryName();
 	lua_pushstring(L,lret);
+
+	return 1;
+}
+
+
+// Function checkers:
+inline static bool _lg_typecheck_GetNumberOfProcessors(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_SetProcessorAffinityOfCurrentThread(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	return true;
+}
+
+
+// Function binds:
+// int OpenThreads::GetNumberOfProcessors()
+static int _bind_GetNumberOfProcessors(lua_State *L) {
+	if (!_lg_typecheck_GetNumberOfProcessors(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in int OpenThreads::GetNumberOfProcessors() function, expected prototype:\nint OpenThreads::GetNumberOfProcessors()\nClass arguments details:\n");
+	}
+
+
+	int lret = GetNumberOfProcessors();
+	lua_pushnumber(L,lret);
+
+	return 1;
+}
+
+// int OpenThreads::SetProcessorAffinityOfCurrentThread(unsigned int cpunum)
+static int _bind_SetProcessorAffinityOfCurrentThread(lua_State *L) {
+	if (!_lg_typecheck_SetProcessorAffinityOfCurrentThread(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in int OpenThreads::SetProcessorAffinityOfCurrentThread(unsigned int cpunum) function, expected prototype:\nint OpenThreads::SetProcessorAffinityOfCurrentThread(unsigned int cpunum)\nClass arguments details:\n");
+	}
+
+	unsigned int cpunum=(unsigned int)lua_tointeger(L,1);
+
+	int lret = SetProcessorAffinityOfCurrentThread(cpunum);
+	lua_pushnumber(L,lret);
 
 	return 1;
 }
@@ -859,7 +967,7 @@ inline static bool _lg_typecheck_clearImageToColor(lua_State *L) {
 inline static bool _lg_typecheck_maximimNumOfComponents(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( !Luna<void>::has_uniqueid(L,1,71630045) ) return false;
+	if( !Luna<void>::has_uniqueid(L,1,35913554) ) return false;
 	return true;
 }
 
@@ -867,7 +975,7 @@ inline static bool _lg_typecheck_createImage3D(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<2 || luatop>6 ) return false;
 
-	if( !Luna<void>::has_uniqueid(L,1,71630045) ) return false;
+	if( !Luna<void>::has_uniqueid(L,1,35913554) ) return false;
 	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
@@ -880,7 +988,7 @@ inline static bool _lg_typecheck_createImage3DWithAlpha(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>5 ) return false;
 
-	if( !Luna<void>::has_uniqueid(L,1,71630045) ) return false;
+	if( !Luna<void>::has_uniqueid(L,1,35913554) ) return false;
 	if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
@@ -1069,7 +1177,7 @@ inline static bool _lg_typecheck_computeLocalToWorld(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( !Luna<void>::has_uniqueid(L,1,52841328) ) return false;
+	if( !Luna<void>::has_uniqueid(L,1,83725871) ) return false;
 	if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
 	return true;
 }
@@ -1078,7 +1186,7 @@ inline static bool _lg_typecheck_computeWorldToLocal(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( !Luna<void>::has_uniqueid(L,1,52841328) ) return false;
+	if( !Luna<void>::has_uniqueid(L,1,83725871) ) return false;
 	if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
 	return true;
 }
@@ -1088,7 +1196,7 @@ inline static bool _lg_typecheck_computeLocalToEye(lua_State *L) {
 	if( luatop<2 || luatop>3 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,18903838) ) return false;
-	if( !Luna<void>::has_uniqueid(L,2,52841328) ) return false;
+	if( !Luna<void>::has_uniqueid(L,2,83725871) ) return false;
 	if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 	return true;
 }
@@ -1098,7 +1206,7 @@ inline static bool _lg_typecheck_computeEyeToLocal(lua_State *L) {
 	if( luatop<2 || luatop>3 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,18903838) ) return false;
-	if( !Luna<void>::has_uniqueid(L,2,52841328) ) return false;
+	if( !Luna<void>::has_uniqueid(L,2,83725871) ) return false;
 	if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 	return true;
 }
@@ -2123,7 +2231,7 @@ static int _bind_maximimNumOfComponents(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in unsigned int osg::maximimNumOfComponents(const osg::ImageList & imageList) function, expected prototype:\nunsigned int osg::maximimNumOfComponents(const osg::ImageList & imageList)\nClass arguments details:\narg 1 ID = 71630045\n");
 	}
 
-	const osg::ImageList* imageList_ptr=(Luna< osg::ImageList >::check(L,1));
+	const osg::ImageList* imageList_ptr=(Luna< std::vector< osg::ref_ptr< osg::Image > > >::checkSubType< osg::ImageList >(L,1));
 	if( !imageList_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg imageList in osg::maximimNumOfComponents function");
 	}
@@ -2144,7 +2252,7 @@ static int _bind_createImage3D(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	const osg::ImageList* imageList_ptr=(Luna< osg::ImageList >::check(L,1));
+	const osg::ImageList* imageList_ptr=(Luna< std::vector< osg::ref_ptr< osg::Image > > >::checkSubType< osg::ImageList >(L,1));
 	if( !imageList_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg imageList in osg::createImage3D function");
 	}
@@ -2172,7 +2280,7 @@ static int _bind_createImage3DWithAlpha(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	const osg::ImageList* imageList_ptr=(Luna< osg::ImageList >::check(L,1));
+	const osg::ImageList* imageList_ptr=(Luna< std::vector< osg::ref_ptr< osg::Image > > >::checkSubType< osg::ImageList >(L,1));
 	if( !imageList_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg imageList in osg::createImage3DWithAlpha function");
 	}
@@ -2645,7 +2753,7 @@ static int _bind_computeLocalToWorld(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,1));
+	const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,1));
 	if( !nodePath_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::computeLocalToWorld function");
 	}
@@ -2670,7 +2778,7 @@ static int _bind_computeWorldToLocal(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,1));
+	const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,1));
 	if( !nodePath_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::computeWorldToLocal function");
 	}
@@ -2700,7 +2808,7 @@ static int _bind_computeLocalToEye(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg modelview in osg::computeLocalToEye function");
 	}
 	const osg::Matrixd & modelview=*modelview_ptr;
-	const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,2));
+	const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2));
 	if( !nodePath_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::computeLocalToEye function");
 	}
@@ -2730,7 +2838,7 @@ static int _bind_computeEyeToLocal(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg modelview in osg::computeEyeToLocal function");
 	}
 	const osg::Matrixd & modelview=*modelview_ptr;
-	const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,2));
+	const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2));
 	if( !nodePath_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::computeEyeToLocal function");
 	}
@@ -3548,7 +3656,7 @@ inline static bool _lg_typecheck_findFileInPath(lua_State *L) {
 	if( luatop<2 || luatop>3 ) return false;
 
 	if( lua_isstring(L,1)==0 ) return false;
-	if( !Luna<void>::has_uniqueid(L,2,54591957) ) return false;
+	if( !Luna<void>::has_uniqueid(L,2,79889541) ) return false;
 	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
@@ -3588,8 +3696,8 @@ inline static bool _lg_typecheck_copyFile(lua_State *L) {
 inline static bool _lg_typecheck_setDataFilePathList_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( !Luna<void>::has_uniqueid(L,1,54591957) ) return false;
-	if( (!(Luna< osgDB::FilePathList >::check(L,1))) ) return false;
+	if( !Luna<void>::has_uniqueid(L,1,79889541) ) return false;
+	if( (!(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,1))) ) return false;
 	return true;
 }
 
@@ -3629,8 +3737,8 @@ inline static bool _lg_typecheck_findDataFile_overload_2(lua_State *L) {
 inline static bool _lg_typecheck_setLibraryFilePathList_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( !Luna<void>::has_uniqueid(L,1,54591957) ) return false;
-	if( (!(Luna< osgDB::FilePathList >::check(L,1))) ) return false;
+	if( !Luna<void>::has_uniqueid(L,1,79889541) ) return false;
+	if( (!(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,1))) ) return false;
 	return true;
 }
 
@@ -3660,21 +3768,21 @@ inline static bool _lg_typecheck_convertStringPathIntoFilePathList(lua_State *L)
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( lua_isstring(L,1)==0 ) return false;
-	if( !Luna<void>::has_uniqueid(L,2,54591957) ) return false;
+	if( !Luna<void>::has_uniqueid(L,2,79889541) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_appendPlatformSpecificLibraryFilePaths(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( !Luna<void>::has_uniqueid(L,1,54591957) ) return false;
+	if( !Luna<void>::has_uniqueid(L,1,79889541) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_appendPlatformSpecificResourceFilePaths(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( !Luna<void>::has_uniqueid(L,1,54591957) ) return false;
+	if( !Luna<void>::has_uniqueid(L,1,79889541) ) return false;
 	return true;
 }
 
@@ -3683,7 +3791,7 @@ inline static bool _lg_typecheck_split(lua_State *L) {
 	if( luatop<2 || luatop>3 ) return false;
 
 	if( lua_isstring(L,1)==0 ) return false;
-	if( !Luna<void>::has_uniqueid(L,2,26072480) ) return false;
+	if( !Luna<void>::has_uniqueid(L,2,95416160) ) return false;
 	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
@@ -3698,7 +3806,7 @@ inline static bool _lg_typecheck_queryPlugin(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( lua_isstring(L,1)==0 ) return false;
-	if( !Luna<void>::has_uniqueid(L,2,75164642) ) return false;
+	if( !Luna<void>::has_uniqueid(L,2,14972349) ) return false;
 	return true;
 }
 
@@ -4660,7 +4768,7 @@ static int _bind_findFileInPath(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::FilePathList* filePath_ptr=(Luna< osgDB::FilePathList >::check(L,2));
+	const osgDB::FilePathList* filePath_ptr=(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,2));
 	if( !filePath_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg filePath in osgDB::findFileInPath function");
 	}
@@ -4751,7 +4859,7 @@ static int _bind_setDataFilePathList_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void osgDB::setDataFilePathList(const osgDB::FilePathList & filepath) function, expected prototype:\nvoid osgDB::setDataFilePathList(const osgDB::FilePathList & filepath)\nClass arguments details:\narg 1 ID = 54591957\n");
 	}
 
-	const osgDB::FilePathList* filepath_ptr=(Luna< osgDB::FilePathList >::check(L,1));
+	const osgDB::FilePathList* filepath_ptr=(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,1));
 	if( !filepath_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg filepath in osgDB::setDataFilePathList function");
 	}
@@ -4854,7 +4962,7 @@ static int _bind_setLibraryFilePathList_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void osgDB::setLibraryFilePathList(const osgDB::FilePathList & filepaths) function, expected prototype:\nvoid osgDB::setLibraryFilePathList(const osgDB::FilePathList & filepaths)\nClass arguments details:\narg 1 ID = 54591957\n");
 	}
 
-	const osgDB::FilePathList* filepaths_ptr=(Luna< osgDB::FilePathList >::check(L,1));
+	const osgDB::FilePathList* filepaths_ptr=(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,1));
 	if( !filepaths_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg filepaths in osgDB::setLibraryFilePathList function");
 	}
@@ -4930,7 +5038,7 @@ static int _bind_convertStringPathIntoFilePathList(lua_State *L) {
 	}
 
 	std::string paths(lua_tostring(L,1),lua_objlen(L,1));
-	osgDB::FilePathList* filepath_ptr=(Luna< osgDB::FilePathList >::check(L,2));
+	osgDB::FilePathList* filepath_ptr=(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,2));
 	if( !filepath_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg filepath in osgDB::convertStringPathIntoFilePathList function");
 	}
@@ -4948,7 +5056,7 @@ static int _bind_appendPlatformSpecificLibraryFilePaths(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void osgDB::appendPlatformSpecificLibraryFilePaths(osgDB::FilePathList & filepath) function, expected prototype:\nvoid osgDB::appendPlatformSpecificLibraryFilePaths(osgDB::FilePathList & filepath)\nClass arguments details:\narg 1 ID = 54591957\n");
 	}
 
-	osgDB::FilePathList* filepath_ptr=(Luna< osgDB::FilePathList >::check(L,1));
+	osgDB::FilePathList* filepath_ptr=(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,1));
 	if( !filepath_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg filepath in osgDB::appendPlatformSpecificLibraryFilePaths function");
 	}
@@ -4966,7 +5074,7 @@ static int _bind_appendPlatformSpecificResourceFilePaths(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void osgDB::appendPlatformSpecificResourceFilePaths(osgDB::FilePathList & filepath) function, expected prototype:\nvoid osgDB::appendPlatformSpecificResourceFilePaths(osgDB::FilePathList & filepath)\nClass arguments details:\narg 1 ID = 54591957\n");
 	}
 
-	osgDB::FilePathList* filepath_ptr=(Luna< osgDB::FilePathList >::check(L,1));
+	osgDB::FilePathList* filepath_ptr=(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,1));
 	if( !filepath_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg filepath in osgDB::appendPlatformSpecificResourceFilePaths function");
 	}
@@ -4987,7 +5095,7 @@ static int _bind_split(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	std::string src(lua_tostring(L,1),lua_objlen(L,1));
-	osgDB::StringList* list_ptr=(Luna< osgDB::StringList >::check(L,2));
+	osgDB::StringList* list_ptr=(Luna< std::vector< std::string > >::checkSubType< osgDB::StringList >(L,2));
 	if( !list_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg list in osgDB::split function");
 	}
@@ -5024,7 +5132,7 @@ static int _bind_queryPlugin(lua_State *L) {
 	}
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
-	osgDB::ReaderWriterInfoList* infoList_ptr=(Luna< osgDB::ReaderWriterInfoList >::check(L,2));
+	osgDB::ReaderWriterInfoList* infoList_ptr=(Luna< std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > > >::checkSubType< osgDB::ReaderWriterInfoList >(L,2));
 	if( !infoList_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg infoList in osgDB::queryPlugin function");
 	}
@@ -6168,6 +6276,9 @@ void register_global_functions(lua_State* L) {
 	luna_pushModule(L,"osg");
 	lua_pushcfunction(L, _bind_glLoadMatrix); lua_setfield(L,-2,"glLoadMatrix");
 	lua_pushcfunction(L, _bind_glMultMatrix); lua_setfield(L,-2,"glMultMatrix");
+	lua_pushcfunction(L, _bind_OpenThreadsGetVersion); lua_setfield(L,-2,"OpenThreadsGetVersion");
+	lua_pushcfunction(L, _bind_OpenThreadsGetSOVersion); lua_setfield(L,-2,"OpenThreadsGetSOVersion");
+	lua_pushcfunction(L, _bind_OpenThreadsGetLibraryName); lua_setfield(L,-2,"OpenThreadsGetLibraryName");
 	lua_pushcfunction(L, _bind_osgGetVersion); lua_setfield(L,-2,"osgGetVersion");
 	lua_pushcfunction(L, _bind_osgGetSOVersion); lua_setfield(L,-2,"osgGetSOVersion");
 	lua_pushcfunction(L, _bind_osgGetLibraryName); lua_setfield(L,-2,"osgGetLibraryName");
@@ -6183,6 +6294,12 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_osgUtilGetLibraryName); lua_setfield(L,-2,"osgUtilGetLibraryName");
 	lua_pushcfunction(L, _bind_osgViewerGetVersion); lua_setfield(L,-2,"osgViewerGetVersion");
 	lua_pushcfunction(L, _bind_osgViewerGetLibraryName); lua_setfield(L,-2,"osgViewerGetLibraryName");
+	luna_popModule(L);
+	luna_pushModule(L,"OpenThreads");
+	lua_pushcfunction(L, _bind_GetNumberOfProcessors); lua_setfield(L,-2,"GetNumberOfProcessors");
+	lua_pushcfunction(L, _bind_SetProcessorAffinityOfCurrentThread); lua_setfield(L,-2,"SetProcessorAffinityOfCurrentThread");
+	luna_popModule(L);
+	luna_pushModule(L,"osg");
 	lua_pushcfunction(L, _bind_getCpuByteOrder); lua_setfield(L,-2,"getCpuByteOrder");
 	lua_pushcfunction(L, _bind_swapBytes); lua_setfield(L,-2,"swapBytes");
 	lua_pushcfunction(L, _bind_swapBytes2); lua_setfield(L,-2,"swapBytes2");

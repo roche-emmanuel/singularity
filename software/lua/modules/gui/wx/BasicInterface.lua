@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="BasicInterface", bases={"base.EventHandler"}};
+local Class = require("classBuilder"){name="BasicInterface", bases={"base.EventHandler","gui.wx.HandlerConnector"}};
 
 local wx = require "wx"
 
@@ -13,11 +13,12 @@ wx.wxInitAllImageHandlers() -- init all image handlers.
 
 -- This class provides functions to add wx controls.
 function Class:initialize(options)
+	self:info("Executing initialize for BasicInterface...")
+	
 	self._sizerStack = Vector() -- stack of sizers.
 	self._parentStack = Vector() -- stack of parent windows.
 	self._licensedObjects = Vector() 
 	self._root =  options.root
-	self._connectedHandlers = Vector()
 	self._isToolbar = false;
 	
 	if self._root then
@@ -41,13 +42,6 @@ end
 
 function Class:onAppClosing()
 	self:close();
-end
-
-function Class:disconnectHandlers()
-	for _,connection in self._connectedHandlers:sequence() do
-		--self:info("Disconnecting handler with id=",connection.id," eventType=",connection.eventType)
-		connection.ctrl:disconnect(connection.id,connection.id,connection.eventType)
-	end
 end
 
 function Class:close()
@@ -189,30 +183,6 @@ function Class:pushParent(parent,sizer)
     if sizer then
         self:pushSizerObject(sizer)
     end
-end
-
-function Class:connectHandler(ctrl,eventType,func,id,data)
-    self:check(ctrl,"Invalid control in connectHandler")
-    self:check(eventType,"Invalid event type in connectHandler")
-    self:check(func,"Invalid event handler in connectHandler")
-    
-    --self:warn("Connecting event handler...")
-    
-    ctrl:connect(id or wx.wxID_ANY,eventType,function(event) 
-    	prof:start("Event handlers")
-		local className = event:GetClassInfo():GetClassName()
-    	--self:info("Casting event to class: ",className)
-    	prof:start("Event dyncat")
-		event = event:dynCast(className)
-		prof:stop()
-    	self:check(event,"Invalid event after cast to ",className)
-    	func(self,event,data) 
-		prof:stop()
-	end)
-	
-	-- register a connection item:
-	local connection = {ctrl=ctrl,id=id or wx.wxID_ANY,eventType=eventType}
-	self._connectedHandlers:push_back(connection)
 end
 
 function Class:addSpacer(options)

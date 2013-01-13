@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgDB_ObjectWrapperManager() {
+		logDEBUG3("Calling delete function for wrapper osgDB_ObjectWrapperManager");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgDB::ObjectWrapperManager*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgDB_ObjectWrapperManager(lua_State* L, lua_Table* dum) : osgDB::ObjectWrapperManager(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgDB_ObjectWrapperManager(lua_State* L, lua_Table* dum) 
+		: osgDB::ObjectWrapperManager(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgDB::ObjectWrapperManager*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,6 +36,17 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgDB::ObjectWrapperManager*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ObjectWrapperManager::setThreadSafeRefUnref(threadSafe);
+	};
+
 
 	// Protected non-virtual methods:
 	// osgDB::IntLookup & osgDB::ObjectWrapperManager::findLookup(const std::string & group)
@@ -132,9 +152,9 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_findLookup",_bind_public_findLookup},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"findLookup",_bind_public_findLookup},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

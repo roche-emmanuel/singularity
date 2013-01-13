@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_wxTreeCtrl() {
+		logDEBUG3("Calling delete function for wrapper wxTreeCtrl");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxTreeCtrl*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxTreeCtrl(lua_State* L, lua_Table* dum) : wxTreeCtrl(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxTreeCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxTR_DEFAULT_STYLE, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxTreeCtrlNameStr) : wxTreeCtrl(parent, id, pos, size, style, validator, name), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxTreeCtrl(lua_State* L, lua_Table* dum) 
+		: wxTreeCtrl(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxTreeCtrl*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxTreeCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxTR_DEFAULT_STYLE, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxTreeCtrlNameStr) 
+		: wxTreeCtrl(parent, id, pos, size, style, validator, name), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxTreeCtrl*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +45,7 @@ protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
 	wxObjectRefData * CreateRefData() const {
 		if(_obj.pushFunction("CreateRefData")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
 
@@ -38,6 +55,7 @@ protected:
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
 		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(data);
 			return (_obj.callFunction<wxObjectRefData*>());
 		}
@@ -48,6 +66,7 @@ protected:
 	// bool wxEvtHandler::TryBefore(wxEvent & event)
 	bool TryBefore(wxEvent & event) {
 		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<bool>());
 		}
@@ -58,6 +77,7 @@ protected:
 	// bool wxEvtHandler::TryAfter(wxEvent & event)
 	bool TryAfter(wxEvent & event) {
 		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<bool>());
 		}
@@ -68,6 +88,7 @@ protected:
 	// void wxWindow::DoCentre(int direction)
 	void DoCentre(int direction) {
 		if(_obj.pushFunction("DoCentre")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(direction);
 			return (_obj.callFunction<void>());
 		}
@@ -78,6 +99,7 @@ protected:
 	// wxSize wxWindow::DoGetBestSize() const
 	wxSize DoGetBestSize() const {
 		if(_obj.pushFunction("DoGetBestSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxSize*>());
 		}
 
@@ -87,6 +109,7 @@ protected:
 	// void wxWindow::SetInitialBestSize(const wxSize & size)
 	void SetInitialBestSize(const wxSize & size) {
 		if(_obj.pushFunction("SetInitialBestSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&size);
 			return (_obj.callFunction<void>());
 		}
@@ -97,6 +120,7 @@ protected:
 	// bool wxWindow::ProcessEvent(wxEvent & event)
 	bool ProcessEvent(wxEvent & event) {
 		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<bool>());
 		}
@@ -107,6 +131,7 @@ protected:
 	// void wxWindow::QueueEvent(wxEvent * event)
 	void QueueEvent(wxEvent * event) {
 		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(event);
 			return (_obj.callFunction<void>());
 		}
@@ -117,6 +142,7 @@ protected:
 	// void wxWindow::AddPendingEvent(const wxEvent & event)
 	void AddPendingEvent(const wxEvent & event) {
 		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<void>());
 		}
@@ -129,6 +155,7 @@ public:
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
 		if(_obj.pushFunction("GetClassInfo")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
@@ -138,6 +165,7 @@ public:
 	// bool wxWindow::AcceptsFocus() const
 	bool AcceptsFocus() const {
 		if(_obj.pushFunction("AcceptsFocus")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -147,6 +175,7 @@ public:
 	// bool wxWindow::AcceptsFocusFromKeyboard() const
 	bool AcceptsFocusFromKeyboard() const {
 		if(_obj.pushFunction("AcceptsFocusFromKeyboard")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -156,6 +185,7 @@ public:
 	// bool wxWindow::AcceptsFocusRecursively() const
 	bool AcceptsFocusRecursively() const {
 		if(_obj.pushFunction("AcceptsFocusRecursively")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -165,6 +195,7 @@ public:
 	// bool wxWindow::HasFocus() const
 	bool HasFocus() const {
 		if(_obj.pushFunction("HasFocus")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -174,6 +205,7 @@ public:
 	// void wxWindow::SetCanFocus(bool canFocus)
 	void SetCanFocus(bool canFocus) {
 		if(_obj.pushFunction("SetCanFocus")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(canFocus);
 			return (_obj.callFunction<void>());
 		}
@@ -184,6 +216,7 @@ public:
 	// void wxWindow::SetFocus()
 	void SetFocus() {
 		if(_obj.pushFunction("SetFocus")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -193,6 +226,7 @@ public:
 	// void wxWindow::SetFocusFromKbd()
 	void SetFocusFromKbd() {
 		if(_obj.pushFunction("SetFocusFromKbd")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -202,6 +236,7 @@ public:
 	// void wxWindow::AddChild(wxWindow * child)
 	void AddChild(wxWindow * child) {
 		if(_obj.pushFunction("AddChild")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(child);
 			return (_obj.callFunction<void>());
 		}
@@ -212,6 +247,7 @@ public:
 	// void wxWindow::RemoveChild(wxWindow * child)
 	void RemoveChild(wxWindow * child) {
 		if(_obj.pushFunction("RemoveChild")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(child);
 			return (_obj.callFunction<void>());
 		}
@@ -222,6 +258,7 @@ public:
 	// bool wxWindow::Reparent(wxWindow * newParent)
 	bool Reparent(wxWindow * newParent) {
 		if(_obj.pushFunction("Reparent")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(newParent);
 			return (_obj.callFunction<bool>());
 		}
@@ -232,6 +269,7 @@ public:
 	// void wxWindow::AlwaysShowScrollbars(bool hflag = true, bool vflag = true)
 	void AlwaysShowScrollbars(bool hflag = true, bool vflag = true) {
 		if(_obj.pushFunction("AlwaysShowScrollbars")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(hflag);
 			_obj.pushArg(vflag);
 			return (_obj.callFunction<void>());
@@ -243,6 +281,7 @@ public:
 	// int wxWindow::GetScrollPos(int orientation) const
 	int GetScrollPos(int orientation) const {
 		if(_obj.pushFunction("GetScrollPos")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(orientation);
 			return (_obj.callFunction<int>());
 		}
@@ -253,6 +292,7 @@ public:
 	// int wxWindow::GetScrollRange(int orientation) const
 	int GetScrollRange(int orientation) const {
 		if(_obj.pushFunction("GetScrollRange")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(orientation);
 			return (_obj.callFunction<int>());
 		}
@@ -263,6 +303,7 @@ public:
 	// int wxWindow::GetScrollThumb(int orientation) const
 	int GetScrollThumb(int orientation) const {
 		if(_obj.pushFunction("GetScrollThumb")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(orientation);
 			return (_obj.callFunction<int>());
 		}
@@ -273,6 +314,7 @@ public:
 	// bool wxWindow::IsScrollbarAlwaysShown(int orient) const
 	bool IsScrollbarAlwaysShown(int orient) const {
 		if(_obj.pushFunction("IsScrollbarAlwaysShown")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(orient);
 			return (_obj.callFunction<bool>());
 		}
@@ -283,6 +325,7 @@ public:
 	// bool wxWindow::ScrollLines(int lines)
 	bool ScrollLines(int lines) {
 		if(_obj.pushFunction("ScrollLines")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(lines);
 			return (_obj.callFunction<bool>());
 		}
@@ -293,6 +336,7 @@ public:
 	// bool wxWindow::ScrollPages(int pages)
 	bool ScrollPages(int pages) {
 		if(_obj.pushFunction("ScrollPages")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(pages);
 			return (_obj.callFunction<bool>());
 		}
@@ -303,6 +347,7 @@ public:
 	// void wxWindow::ScrollWindow(int dx, int dy, const wxRect * rect = NULL)
 	void ScrollWindow(int dx, int dy, const wxRect * rect = NULL) {
 		if(_obj.pushFunction("ScrollWindow")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(dx);
 			_obj.pushArg(dy);
 			_obj.pushArg(rect);
@@ -315,6 +360,7 @@ public:
 	// void wxWindow::SetScrollPos(int orientation, int pos, bool refresh = true)
 	void SetScrollPos(int orientation, int pos, bool refresh = true) {
 		if(_obj.pushFunction("SetScrollPos")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(orientation);
 			_obj.pushArg(pos);
 			_obj.pushArg(refresh);
@@ -327,6 +373,7 @@ public:
 	// void wxWindow::SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)
 	void SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true) {
 		if(_obj.pushFunction("SetScrollbar")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(orientation);
 			_obj.pushArg(position);
 			_obj.pushArg(thumbSize);
@@ -341,6 +388,7 @@ public:
 	// wxSize wxWindow::ClientToWindowSize(const wxSize & size) const
 	wxSize ClientToWindowSize(const wxSize & size) const {
 		if(_obj.pushFunction("ClientToWindowSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&size);
 			return *(_obj.callFunction<wxSize*>());
 		}
@@ -351,6 +399,7 @@ public:
 	// wxSize wxWindow::WindowToClientSize(const wxSize & size) const
 	wxSize WindowToClientSize(const wxSize & size) const {
 		if(_obj.pushFunction("WindowToClientSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&size);
 			return *(_obj.callFunction<wxSize*>());
 		}
@@ -361,6 +410,7 @@ public:
 	// void wxWindow::Fit()
 	void Fit() {
 		if(_obj.pushFunction("Fit")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -370,6 +420,7 @@ public:
 	// void wxWindow::FitInside()
 	void FitInside() {
 		if(_obj.pushFunction("FitInside")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -379,6 +430,7 @@ public:
 	// wxSize wxWindow::GetEffectiveMinSize() const
 	wxSize GetEffectiveMinSize() const {
 		if(_obj.pushFunction("GetEffectiveMinSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxSize*>());
 		}
 
@@ -388,6 +440,7 @@ public:
 	// wxSize wxWindow::GetMaxClientSize() const
 	wxSize GetMaxClientSize() const {
 		if(_obj.pushFunction("GetMaxClientSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxSize*>());
 		}
 
@@ -397,6 +450,7 @@ public:
 	// wxSize wxWindow::GetMaxSize() const
 	wxSize GetMaxSize() const {
 		if(_obj.pushFunction("GetMaxSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxSize*>());
 		}
 
@@ -406,6 +460,7 @@ public:
 	// wxSize wxWindow::GetMinClientSize() const
 	wxSize GetMinClientSize() const {
 		if(_obj.pushFunction("GetMinClientSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxSize*>());
 		}
 
@@ -415,6 +470,7 @@ public:
 	// wxSize wxWindow::GetMinSize() const
 	wxSize GetMinSize() const {
 		if(_obj.pushFunction("GetMinSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxSize*>());
 		}
 
@@ -424,6 +480,7 @@ public:
 	// wxSize wxWindow::GetBestVirtualSize() const
 	wxSize GetBestVirtualSize() const {
 		if(_obj.pushFunction("GetBestVirtualSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxSize*>());
 		}
 
@@ -433,6 +490,7 @@ public:
 	// wxSize wxWindow::GetWindowBorderSize() const
 	wxSize GetWindowBorderSize() const {
 		if(_obj.pushFunction("GetWindowBorderSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxSize*>());
 		}
 
@@ -442,6 +500,7 @@ public:
 	// bool wxWindow::InformFirstDirection(int direction, int size, int availableOtherDir)
 	bool InformFirstDirection(int direction, int size, int availableOtherDir) {
 		if(_obj.pushFunction("InformFirstDirection")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(direction);
 			_obj.pushArg(size);
 			_obj.pushArg(availableOtherDir);
@@ -454,6 +513,7 @@ public:
 	// void wxWindow::SendSizeEvent(int flags = 0)
 	void SendSizeEvent(int flags = 0) {
 		if(_obj.pushFunction("SendSizeEvent")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(flags);
 			return (_obj.callFunction<void>());
 		}
@@ -464,6 +524,7 @@ public:
 	// void wxWindow::SetMaxClientSize(const wxSize & size)
 	void SetMaxClientSize(const wxSize & size) {
 		if(_obj.pushFunction("SetMaxClientSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&size);
 			return (_obj.callFunction<void>());
 		}
@@ -474,6 +535,7 @@ public:
 	// void wxWindow::SetMaxSize(const wxSize & size)
 	void SetMaxSize(const wxSize & size) {
 		if(_obj.pushFunction("SetMaxSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&size);
 			return (_obj.callFunction<void>());
 		}
@@ -484,6 +546,7 @@ public:
 	// void wxWindow::SetMinClientSize(const wxSize & size)
 	void SetMinClientSize(const wxSize & size) {
 		if(_obj.pushFunction("SetMinClientSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&size);
 			return (_obj.callFunction<void>());
 		}
@@ -494,6 +557,7 @@ public:
 	// void wxWindow::SetMinSize(const wxSize & size)
 	void SetMinSize(const wxSize & size) {
 		if(_obj.pushFunction("SetMinSize")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&size);
 			return (_obj.callFunction<void>());
 		}
@@ -504,6 +568,7 @@ public:
 	// void wxWindow::SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)
 	void SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize) {
 		if(_obj.pushFunction("SetSizeHints")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&minSize);
 			_obj.pushArg(&maxSize);
 			_obj.pushArg(&incSize);
@@ -516,6 +581,7 @@ public:
 	// void wxWindow::SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)
 	void SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1) {
 		if(_obj.pushFunction("SetSizeHints")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(minW);
 			_obj.pushArg(minH);
 			_obj.pushArg(maxW);
@@ -531,6 +597,7 @@ public:
 	// wxPoint wxWindow::GetClientAreaOrigin() const
 	wxPoint GetClientAreaOrigin() const {
 		if(_obj.pushFunction("GetClientAreaOrigin")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxPoint*>());
 		}
 
@@ -540,6 +607,7 @@ public:
 	// void wxWindow::ClearBackground()
 	void ClearBackground() {
 		if(_obj.pushFunction("ClearBackground")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -549,6 +617,7 @@ public:
 	// wxBackgroundStyle wxWindow::GetBackgroundStyle() const
 	wxBackgroundStyle GetBackgroundStyle() const {
 		if(_obj.pushFunction("GetBackgroundStyle")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (wxBackgroundStyle)(_obj.callFunction<int>());
 		}
 
@@ -558,6 +627,7 @@ public:
 	// int wxWindow::GetCharHeight() const
 	int GetCharHeight() const {
 		if(_obj.pushFunction("GetCharHeight")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -567,6 +637,7 @@ public:
 	// int wxWindow::GetCharWidth() const
 	int GetCharWidth() const {
 		if(_obj.pushFunction("GetCharWidth")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<int>());
 		}
 
@@ -576,6 +647,7 @@ public:
 	// wxVisualAttributes wxWindow::GetDefaultAttributes() const
 	wxVisualAttributes GetDefaultAttributes() const {
 		if(_obj.pushFunction("GetDefaultAttributes")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxVisualAttributes*>());
 		}
 
@@ -585,6 +657,7 @@ public:
 	// void wxWindow::Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
 	void Refresh(bool eraseBackground = true, const wxRect * rect = NULL) {
 		if(_obj.pushFunction("Refresh")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(eraseBackground);
 			_obj.pushArg(rect);
 			return (_obj.callFunction<void>());
@@ -596,6 +669,7 @@ public:
 	// void wxWindow::Update()
 	void Update() {
 		if(_obj.pushFunction("Update")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -605,6 +679,7 @@ public:
 	// bool wxWindow::SetBackgroundStyle(wxBackgroundStyle style)
 	bool SetBackgroundStyle(wxBackgroundStyle style) {
 		if(_obj.pushFunction("SetBackgroundStyle")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(style);
 			return (_obj.callFunction<bool>());
 		}
@@ -615,6 +690,7 @@ public:
 	// bool wxWindow::SetFont(const wxFont & font)
 	bool SetFont(const wxFont & font) {
 		if(_obj.pushFunction("SetFont")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&font);
 			return (_obj.callFunction<bool>());
 		}
@@ -625,6 +701,7 @@ public:
 	// bool wxWindow::ShouldInheritColours() const
 	bool ShouldInheritColours() const {
 		if(_obj.pushFunction("ShouldInheritColours")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -634,6 +711,7 @@ public:
 	// void wxWindow::SetThemeEnabled(bool enable)
 	void SetThemeEnabled(bool enable) {
 		if(_obj.pushFunction("SetThemeEnabled")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(enable);
 			return (_obj.callFunction<void>());
 		}
@@ -644,6 +722,7 @@ public:
 	// bool wxWindow::GetThemeEnabled() const
 	bool GetThemeEnabled() const {
 		if(_obj.pushFunction("GetThemeEnabled")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -653,6 +732,7 @@ public:
 	// bool wxWindow::CanSetTransparent()
 	bool CanSetTransparent() {
 		if(_obj.pushFunction("CanSetTransparent")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -662,6 +742,7 @@ public:
 	// bool wxWindow::SetTransparent(unsigned char alpha)
 	bool SetTransparent(unsigned char alpha) {
 		if(_obj.pushFunction("SetTransparent")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(alpha);
 			return (_obj.callFunction<bool>());
 		}
@@ -672,6 +753,7 @@ public:
 	// void wxWindow::SetNextHandler(wxEvtHandler * handler)
 	void SetNextHandler(wxEvtHandler * handler) {
 		if(_obj.pushFunction("SetNextHandler")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(handler);
 			return (_obj.callFunction<void>());
 		}
@@ -682,6 +764,7 @@ public:
 	// void wxWindow::SetPreviousHandler(wxEvtHandler * handler)
 	void SetPreviousHandler(wxEvtHandler * handler) {
 		if(_obj.pushFunction("SetPreviousHandler")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(handler);
 			return (_obj.callFunction<void>());
 		}
@@ -692,6 +775,7 @@ public:
 	// long wxWindow::GetWindowStyleFlag() const
 	long GetWindowStyleFlag() const {
 		if(_obj.pushFunction("GetWindowStyleFlag")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<long>());
 		}
 
@@ -701,6 +785,7 @@ public:
 	// void wxWindow::SetExtraStyle(long exStyle)
 	void SetExtraStyle(long exStyle) {
 		if(_obj.pushFunction("SetExtraStyle")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(exStyle);
 			return (_obj.callFunction<void>());
 		}
@@ -711,6 +796,7 @@ public:
 	// void wxWindow::SetWindowStyleFlag(long style)
 	void SetWindowStyleFlag(long style) {
 		if(_obj.pushFunction("SetWindowStyleFlag")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(style);
 			return (_obj.callFunction<void>());
 		}
@@ -721,6 +807,7 @@ public:
 	// void wxWindow::Lower()
 	void Lower() {
 		if(_obj.pushFunction("Lower")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -730,6 +817,7 @@ public:
 	// void wxWindow::Raise()
 	void Raise() {
 		if(_obj.pushFunction("Raise")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -739,6 +827,7 @@ public:
 	// bool wxWindow::HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)
 	bool HideWithEffect(wxShowEffect effect, unsigned int timeout = 0) {
 		if(_obj.pushFunction("HideWithEffect")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(effect);
 			_obj.pushArg(timeout);
 			return (_obj.callFunction<bool>());
@@ -750,6 +839,7 @@ public:
 	// bool wxWindow::IsShown() const
 	bool IsShown() const {
 		if(_obj.pushFunction("IsShown")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -759,6 +849,7 @@ public:
 	// bool wxWindow::IsShownOnScreen() const
 	bool IsShownOnScreen() const {
 		if(_obj.pushFunction("IsShownOnScreen")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -768,6 +859,7 @@ public:
 	// bool wxWindow::Enable(bool enable = true)
 	bool Enable(bool enable = true) {
 		if(_obj.pushFunction("Enable")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(enable);
 			return (_obj.callFunction<bool>());
 		}
@@ -778,6 +870,7 @@ public:
 	// bool wxWindow::Show(bool show = true)
 	bool Show(bool show = true) {
 		if(_obj.pushFunction("Show")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(show);
 			return (_obj.callFunction<bool>());
 		}
@@ -788,6 +881,7 @@ public:
 	// bool wxWindow::ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)
 	bool ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0) {
 		if(_obj.pushFunction("ShowWithEffect")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(effect);
 			_obj.pushArg(timeout);
 			return (_obj.callFunction<bool>());
@@ -799,6 +893,7 @@ public:
 	// wxString wxWindow::GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const
 	wxString GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const {
 		if(_obj.pushFunction("GetHelpTextAtPoint")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&point);
 			_obj.pushArg(origin);
 			return *(_obj.callFunction<wxString*>());
@@ -810,6 +905,7 @@ public:
 	// wxValidator * wxWindow::GetValidator()
 	wxValidator * GetValidator() {
 		if(_obj.pushFunction("GetValidator")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<wxValidator*>());
 		}
 
@@ -819,6 +915,7 @@ public:
 	// void wxWindow::SetValidator(const wxValidator & validator)
 	void SetValidator(const wxValidator & validator) {
 		if(_obj.pushFunction("SetValidator")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&validator);
 			return (_obj.callFunction<void>());
 		}
@@ -829,6 +926,7 @@ public:
 	// bool wxWindow::TransferDataFromWindow()
 	bool TransferDataFromWindow() {
 		if(_obj.pushFunction("TransferDataFromWindow")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -838,6 +936,7 @@ public:
 	// bool wxWindow::TransferDataToWindow()
 	bool TransferDataToWindow() {
 		if(_obj.pushFunction("TransferDataToWindow")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -847,6 +946,7 @@ public:
 	// bool wxWindow::Validate()
 	bool Validate() {
 		if(_obj.pushFunction("Validate")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -856,6 +956,7 @@ public:
 	// wxLayoutDirection wxWindow::GetLayoutDirection() const
 	wxLayoutDirection GetLayoutDirection() const {
 		if(_obj.pushFunction("GetLayoutDirection")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (wxLayoutDirection)(_obj.callFunction<int>());
 		}
 
@@ -865,6 +966,7 @@ public:
 	// wxString wxWindow::GetName() const
 	wxString GetName() const {
 		if(_obj.pushFunction("GetName")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -874,6 +976,7 @@ public:
 	// void wxWindow::SetLayoutDirection(wxLayoutDirection dir)
 	void SetLayoutDirection(wxLayoutDirection dir) {
 		if(_obj.pushFunction("SetLayoutDirection")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(dir);
 			return (_obj.callFunction<void>());
 		}
@@ -884,6 +987,7 @@ public:
 	// void wxWindow::SetName(const wxString & name)
 	void SetName(const wxString & name) {
 		if(_obj.pushFunction("SetName")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -894,6 +998,7 @@ public:
 	// void wxWindow::SetAcceleratorTable(const wxAcceleratorTable & accel)
 	void SetAcceleratorTable(const wxAcceleratorTable & accel) {
 		if(_obj.pushFunction("SetAcceleratorTable")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&accel);
 			return (_obj.callFunction<void>());
 		}
@@ -904,6 +1009,7 @@ public:
 	// bool wxWindow::Destroy()
 	bool Destroy() {
 		if(_obj.pushFunction("Destroy")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -913,6 +1019,7 @@ public:
 	// wxDropTarget * wxWindow::GetDropTarget() const
 	wxDropTarget * GetDropTarget() const {
 		if(_obj.pushFunction("GetDropTarget")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<wxDropTarget*>());
 		}
 
@@ -922,6 +1029,7 @@ public:
 	// void wxWindow::SetDropTarget(wxDropTarget * target)
 	void SetDropTarget(wxDropTarget * target) {
 		if(_obj.pushFunction("SetDropTarget")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(target);
 			return (_obj.callFunction<void>());
 		}
@@ -932,6 +1040,7 @@ public:
 	// void wxWindow::DragAcceptFiles(bool accept)
 	void DragAcceptFiles(bool accept) {
 		if(_obj.pushFunction("DragAcceptFiles")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(accept);
 			return (_obj.callFunction<void>());
 		}
@@ -942,6 +1051,7 @@ public:
 	// bool wxWindow::Layout()
 	bool Layout() {
 		if(_obj.pushFunction("Layout")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -951,6 +1061,7 @@ public:
 	// bool wxWindow::HasCapture() const
 	bool HasCapture() const {
 		if(_obj.pushFunction("HasCapture")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -960,6 +1071,7 @@ public:
 	// bool wxWindow::SetCursor(const wxCursor & cursor)
 	bool SetCursor(const wxCursor & cursor) {
 		if(_obj.pushFunction("SetCursor")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&cursor);
 			return (_obj.callFunction<bool>());
 		}
@@ -970,6 +1082,7 @@ public:
 	// void wxWindow::WarpPointer(int x, int y)
 	void WarpPointer(int x, int y) {
 		if(_obj.pushFunction("WarpPointer")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(x);
 			_obj.pushArg(y);
 			return (_obj.callFunction<void>());
@@ -981,6 +1094,7 @@ public:
 	// void wxWindow::DoUpdateWindowUI(wxUpdateUIEvent & event)
 	void DoUpdateWindowUI(wxUpdateUIEvent & event) {
 		if(_obj.pushFunction("DoUpdateWindowUI")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<void>());
 		}
@@ -991,6 +1105,7 @@ public:
 	// bool wxWindow::HasMultiplePages() const
 	bool HasMultiplePages() const {
 		if(_obj.pushFunction("HasMultiplePages")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -1000,6 +1115,7 @@ public:
 	// void wxWindow::InheritAttributes()
 	void InheritAttributes() {
 		if(_obj.pushFunction("InheritAttributes")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -1009,6 +1125,7 @@ public:
 	// void wxWindow::InitDialog()
 	void InitDialog() {
 		if(_obj.pushFunction("InitDialog")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -1018,6 +1135,7 @@ public:
 	// bool wxWindow::IsRetained() const
 	bool IsRetained() const {
 		if(_obj.pushFunction("IsRetained")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -1027,6 +1145,7 @@ public:
 	// bool wxWindow::IsTopLevel() const
 	bool IsTopLevel() const {
 		if(_obj.pushFunction("IsTopLevel")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -1036,6 +1155,7 @@ public:
 	// void wxWindow::MakeModal(bool modal = true)
 	void MakeModal(bool modal = true) {
 		if(_obj.pushFunction("MakeModal")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(modal);
 			return (_obj.callFunction<void>());
 		}
@@ -1046,6 +1166,7 @@ public:
 	// void wxWindow::OnInternalIdle()
 	void OnInternalIdle() {
 		if(_obj.pushFunction("OnInternalIdle")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -1055,6 +1176,7 @@ public:
 	// bool wxWindow::RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)
 	bool RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode) {
 		if(_obj.pushFunction("RegisterHotKey")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(hotkeyId);
 			_obj.pushArg(modifiers);
 			_obj.pushArg(virtualKeyCode);
@@ -1067,6 +1189,7 @@ public:
 	// bool wxWindow::UnregisterHotKey(int hotkeyId)
 	bool UnregisterHotKey(int hotkeyId) {
 		if(_obj.pushFunction("UnregisterHotKey")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(hotkeyId);
 			return (_obj.callFunction<bool>());
 		}
@@ -1077,6 +1200,7 @@ public:
 	// void wxWindow::UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)
 	void UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE) {
 		if(_obj.pushFunction("UpdateWindowUI")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(flags);
 			return (_obj.callFunction<void>());
 		}
@@ -1087,6 +1211,7 @@ public:
 	// void wxControl::Command(wxCommandEvent & event)
 	void Command(wxCommandEvent & event) {
 		if(_obj.pushFunction("Command")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&event);
 			return (_obj.callFunction<void>());
 		}
@@ -1097,6 +1222,7 @@ public:
 	// wxString wxControl::GetLabel() const
 	wxString GetLabel() const {
 		if(_obj.pushFunction("GetLabel")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -1106,6 +1232,7 @@ public:
 	// void wxControl::SetLabel(const wxString & label)
 	void SetLabel(const wxString & label) {
 		if(_obj.pushFunction("SetLabel")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(label);
 			return (_obj.callFunction<void>());
 		}
@@ -1116,6 +1243,7 @@ public:
 	// wxTreeItemId wxTreeCtrl::AddRoot(const wxString & text, int image = -1, int selImage = -1, wxTreeItemData * data = NULL)
 	wxTreeItemId AddRoot(const wxString & text, int image = -1, int selImage = -1, wxTreeItemData * data = NULL) {
 		if(_obj.pushFunction("AddRoot")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(text);
 			_obj.pushArg(image);
 			_obj.pushArg(selImage);
@@ -1129,6 +1257,7 @@ public:
 	// void wxTreeCtrl::Collapse(const wxTreeItemId & item)
 	void Collapse(const wxTreeItemId & item) {
 		if(_obj.pushFunction("Collapse")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<void>());
 		}
@@ -1139,6 +1268,7 @@ public:
 	// void wxTreeCtrl::CollapseAndReset(const wxTreeItemId & item)
 	void CollapseAndReset(const wxTreeItemId & item) {
 		if(_obj.pushFunction("CollapseAndReset")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<void>());
 		}
@@ -1149,6 +1279,7 @@ public:
 	// void wxTreeCtrl::Delete(const wxTreeItemId & item)
 	void Delete(const wxTreeItemId & item) {
 		if(_obj.pushFunction("Delete")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<void>());
 		}
@@ -1159,6 +1290,7 @@ public:
 	// void wxTreeCtrl::DeleteAllItems()
 	void DeleteAllItems() {
 		if(_obj.pushFunction("DeleteAllItems")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -1168,6 +1300,7 @@ public:
 	// void wxTreeCtrl::DeleteChildren(const wxTreeItemId & item)
 	void DeleteChildren(const wxTreeItemId & item) {
 		if(_obj.pushFunction("DeleteChildren")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<void>());
 		}
@@ -1178,6 +1311,7 @@ public:
 	// wxTextCtrl * wxTreeCtrl::EditLabel(const wxTreeItemId & item, wxClassInfo * textCtrlClass = wxCLASSINFO ( wxTextCtrl ))
 	wxTextCtrl * EditLabel(const wxTreeItemId & item, wxClassInfo * textCtrlClass = wxCLASSINFO ( wxTextCtrl )) {
 		if(_obj.pushFunction("EditLabel")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(textCtrlClass);
 			return (_obj.callFunction<wxTextCtrl*>());
@@ -1189,6 +1323,7 @@ public:
 	// void wxTreeCtrl::EndEditLabel(const wxTreeItemId & item, bool discardChanges = false)
 	void EndEditLabel(const wxTreeItemId & item, bool discardChanges = false) {
 		if(_obj.pushFunction("EndEditLabel")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(discardChanges);
 			return (_obj.callFunction<void>());
@@ -1200,6 +1335,7 @@ public:
 	// void wxTreeCtrl::EnsureVisible(const wxTreeItemId & item)
 	void EnsureVisible(const wxTreeItemId & item) {
 		if(_obj.pushFunction("EnsureVisible")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<void>());
 		}
@@ -1210,6 +1346,7 @@ public:
 	// void wxTreeCtrl::Expand(const wxTreeItemId & item)
 	void Expand(const wxTreeItemId & item) {
 		if(_obj.pushFunction("Expand")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<void>());
 		}
@@ -1220,6 +1357,7 @@ public:
 	// bool wxTreeCtrl::GetBoundingRect(const wxTreeItemId & item, wxRect & rect, bool textOnly = false) const
 	bool GetBoundingRect(const wxTreeItemId & item, wxRect & rect, bool textOnly = false) const {
 		if(_obj.pushFunction("GetBoundingRect")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(&rect);
 			_obj.pushArg(textOnly);
@@ -1232,6 +1370,7 @@ public:
 	// size_t wxTreeCtrl::GetChildrenCount(const wxTreeItemId & item, bool recursively = true) const
 	size_t GetChildrenCount(const wxTreeItemId & item, bool recursively = true) const {
 		if(_obj.pushFunction("GetChildrenCount")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(recursively);
 			return (_obj.callFunction<size_t>());
@@ -1243,6 +1382,7 @@ public:
 	// unsigned int wxTreeCtrl::GetCount() const
 	unsigned int GetCount() const {
 		if(_obj.pushFunction("GetCount")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -1252,6 +1392,7 @@ public:
 	// wxTextCtrl * wxTreeCtrl::GetEditControl() const
 	wxTextCtrl * GetEditControl() const {
 		if(_obj.pushFunction("GetEditControl")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<wxTextCtrl*>());
 		}
 
@@ -1261,6 +1402,7 @@ public:
 	// wxTreeItemId wxTreeCtrl::GetFirstChild(const wxTreeItemId & item, wxTreeItemIdValue & cookie) const
 	wxTreeItemId GetFirstChild(const wxTreeItemId & item, wxTreeItemIdValue & cookie) const {
 		if(_obj.pushFunction("GetFirstChild")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(&cookie);
 			return *(_obj.callFunction<wxTreeItemId*>());
@@ -1272,6 +1414,7 @@ public:
 	// wxTreeItemId wxTreeCtrl::GetFirstVisibleItem() const
 	wxTreeItemId GetFirstVisibleItem() const {
 		if(_obj.pushFunction("GetFirstVisibleItem")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxTreeItemId*>());
 		}
 
@@ -1281,6 +1424,7 @@ public:
 	// wxTreeItemId wxTreeCtrl::GetFocusedItem() const
 	wxTreeItemId GetFocusedItem() const {
 		if(_obj.pushFunction("GetFocusedItem")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxTreeItemId*>());
 		}
 
@@ -1290,6 +1434,7 @@ public:
 	// void wxTreeCtrl::ClearFocusedItem()
 	void ClearFocusedItem() {
 		if(_obj.pushFunction("ClearFocusedItem")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -1299,6 +1444,7 @@ public:
 	// void wxTreeCtrl::SetFocusedItem(const wxTreeItemId & item)
 	void SetFocusedItem(const wxTreeItemId & item) {
 		if(_obj.pushFunction("SetFocusedItem")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<void>());
 		}
@@ -1309,6 +1455,7 @@ public:
 	// unsigned int wxTreeCtrl::GetIndent() const
 	unsigned int GetIndent() const {
 		if(_obj.pushFunction("GetIndent")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -1318,6 +1465,7 @@ public:
 	// wxColour wxTreeCtrl::GetItemBackgroundColour(const wxTreeItemId & item) const
 	wxColour GetItemBackgroundColour(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("GetItemBackgroundColour")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return *(_obj.callFunction<wxColour*>());
 		}
@@ -1328,6 +1476,7 @@ public:
 	// wxTreeItemData * wxTreeCtrl::GetItemData(const wxTreeItemId & item) const
 	wxTreeItemData * GetItemData(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("GetItemData")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<wxTreeItemData*>());
 		}
@@ -1338,6 +1487,7 @@ public:
 	// wxFont wxTreeCtrl::GetItemFont(const wxTreeItemId & item) const
 	wxFont GetItemFont(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("GetItemFont")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return *(_obj.callFunction<wxFont*>());
 		}
@@ -1348,6 +1498,7 @@ public:
 	// int wxTreeCtrl::GetItemImage(const wxTreeItemId & item, wxTreeItemIcon which = ::wxTreeItemIcon_Normal) const
 	int GetItemImage(const wxTreeItemId & item, wxTreeItemIcon which = ::wxTreeItemIcon_Normal) const {
 		if(_obj.pushFunction("GetItemImage")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(which);
 			return (_obj.callFunction<int>());
@@ -1359,6 +1510,7 @@ public:
 	// wxTreeItemId wxTreeCtrl::GetItemParent(const wxTreeItemId & item) const
 	wxTreeItemId GetItemParent(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("GetItemParent")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return *(_obj.callFunction<wxTreeItemId*>());
 		}
@@ -1369,6 +1521,7 @@ public:
 	// wxString wxTreeCtrl::GetItemText(const wxTreeItemId & item) const
 	wxString GetItemText(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("GetItemText")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return *(_obj.callFunction<wxString*>());
 		}
@@ -1379,6 +1532,7 @@ public:
 	// wxColour wxTreeCtrl::GetItemTextColour(const wxTreeItemId & item) const
 	wxColour GetItemTextColour(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("GetItemTextColour")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return *(_obj.callFunction<wxColour*>());
 		}
@@ -1389,6 +1543,7 @@ public:
 	// wxTreeItemId wxTreeCtrl::GetLastChild(const wxTreeItemId & item) const
 	wxTreeItemId GetLastChild(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("GetLastChild")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return *(_obj.callFunction<wxTreeItemId*>());
 		}
@@ -1399,6 +1554,7 @@ public:
 	// wxTreeItemId wxTreeCtrl::GetNextChild(const wxTreeItemId & item, wxTreeItemIdValue & cookie) const
 	wxTreeItemId GetNextChild(const wxTreeItemId & item, wxTreeItemIdValue & cookie) const {
 		if(_obj.pushFunction("GetNextChild")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(&cookie);
 			return *(_obj.callFunction<wxTreeItemId*>());
@@ -1410,6 +1566,7 @@ public:
 	// wxTreeItemId wxTreeCtrl::GetNextSibling(const wxTreeItemId & item) const
 	wxTreeItemId GetNextSibling(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("GetNextSibling")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return *(_obj.callFunction<wxTreeItemId*>());
 		}
@@ -1420,6 +1577,7 @@ public:
 	// wxTreeItemId wxTreeCtrl::GetNextVisible(const wxTreeItemId & item) const
 	wxTreeItemId GetNextVisible(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("GetNextVisible")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return *(_obj.callFunction<wxTreeItemId*>());
 		}
@@ -1430,6 +1588,7 @@ public:
 	// wxTreeItemId wxTreeCtrl::GetPrevSibling(const wxTreeItemId & item) const
 	wxTreeItemId GetPrevSibling(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("GetPrevSibling")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return *(_obj.callFunction<wxTreeItemId*>());
 		}
@@ -1440,6 +1599,7 @@ public:
 	// wxTreeItemId wxTreeCtrl::GetPrevVisible(const wxTreeItemId & item) const
 	wxTreeItemId GetPrevVisible(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("GetPrevVisible")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return *(_obj.callFunction<wxTreeItemId*>());
 		}
@@ -1450,6 +1610,7 @@ public:
 	// wxTreeItemId wxTreeCtrl::GetRootItem() const
 	wxTreeItemId GetRootItem() const {
 		if(_obj.pushFunction("GetRootItem")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxTreeItemId*>());
 		}
 
@@ -1459,6 +1620,7 @@ public:
 	// wxTreeItemId wxTreeCtrl::GetSelection() const
 	wxTreeItemId GetSelection() const {
 		if(_obj.pushFunction("GetSelection")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return *(_obj.callFunction<wxTreeItemId*>());
 		}
 
@@ -1468,6 +1630,7 @@ public:
 	// size_t wxTreeCtrl::GetSelections(wxArrayTreeItemIds & selection) const
 	size_t GetSelections(wxArrayTreeItemIds & selection) const {
 		if(_obj.pushFunction("GetSelections")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&selection);
 			return (_obj.callFunction<size_t>());
 		}
@@ -1478,6 +1641,7 @@ public:
 	// bool wxTreeCtrl::IsBold(const wxTreeItemId & item) const
 	bool IsBold(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("IsBold")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<bool>());
 		}
@@ -1488,6 +1652,7 @@ public:
 	// bool wxTreeCtrl::IsExpanded(const wxTreeItemId & item) const
 	bool IsExpanded(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("IsExpanded")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<bool>());
 		}
@@ -1498,6 +1663,7 @@ public:
 	// bool wxTreeCtrl::IsSelected(const wxTreeItemId & item) const
 	bool IsSelected(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("IsSelected")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<bool>());
 		}
@@ -1508,6 +1674,7 @@ public:
 	// bool wxTreeCtrl::IsVisible(const wxTreeItemId & item) const
 	bool IsVisible(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("IsVisible")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<bool>());
 		}
@@ -1518,6 +1685,7 @@ public:
 	// bool wxTreeCtrl::ItemHasChildren(const wxTreeItemId & item) const
 	bool ItemHasChildren(const wxTreeItemId & item) const {
 		if(_obj.pushFunction("ItemHasChildren")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<bool>());
 		}
@@ -1528,6 +1696,7 @@ public:
 	// int wxTreeCtrl::OnCompareItems(const wxTreeItemId & item1, const wxTreeItemId & item2)
 	int OnCompareItems(const wxTreeItemId & item1, const wxTreeItemId & item2) {
 		if(_obj.pushFunction("OnCompareItems")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item1);
 			_obj.pushArg(&item2);
 			return (_obj.callFunction<int>());
@@ -1539,6 +1708,7 @@ public:
 	// void wxTreeCtrl::ScrollTo(const wxTreeItemId & item)
 	void ScrollTo(const wxTreeItemId & item) {
 		if(_obj.pushFunction("ScrollTo")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<void>());
 		}
@@ -1549,6 +1719,7 @@ public:
 	// void wxTreeCtrl::SelectItem(const wxTreeItemId & item, bool select = true)
 	void SelectItem(const wxTreeItemId & item, bool select = true) {
 		if(_obj.pushFunction("SelectItem")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(select);
 			return (_obj.callFunction<void>());
@@ -1560,6 +1731,7 @@ public:
 	// void wxTreeCtrl::SetImageList(wxImageList * imageList)
 	void SetImageList(wxImageList * imageList) {
 		if(_obj.pushFunction("SetImageList")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(imageList);
 			return (_obj.callFunction<void>());
 		}
@@ -1570,6 +1742,7 @@ public:
 	// void wxTreeCtrl::SetIndent(unsigned int indent)
 	void SetIndent(unsigned int indent) {
 		if(_obj.pushFunction("SetIndent")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(indent);
 			return (_obj.callFunction<void>());
 		}
@@ -1580,6 +1753,7 @@ public:
 	// void wxTreeCtrl::SetItemBackgroundColour(const wxTreeItemId & item, const wxColour & col)
 	void SetItemBackgroundColour(const wxTreeItemId & item, const wxColour & col) {
 		if(_obj.pushFunction("SetItemBackgroundColour")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(&col);
 			return (_obj.callFunction<void>());
@@ -1591,6 +1765,7 @@ public:
 	// void wxTreeCtrl::SetItemBold(const wxTreeItemId & item, bool bold = true)
 	void SetItemBold(const wxTreeItemId & item, bool bold = true) {
 		if(_obj.pushFunction("SetItemBold")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(bold);
 			return (_obj.callFunction<void>());
@@ -1602,6 +1777,7 @@ public:
 	// void wxTreeCtrl::SetItemData(const wxTreeItemId & item, wxTreeItemData * data)
 	void SetItemData(const wxTreeItemId & item, wxTreeItemData * data) {
 		if(_obj.pushFunction("SetItemData")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(data);
 			return (_obj.callFunction<void>());
@@ -1613,6 +1789,7 @@ public:
 	// void wxTreeCtrl::SetItemDropHighlight(const wxTreeItemId & item, bool highlight = true)
 	void SetItemDropHighlight(const wxTreeItemId & item, bool highlight = true) {
 		if(_obj.pushFunction("SetItemDropHighlight")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(highlight);
 			return (_obj.callFunction<void>());
@@ -1624,6 +1801,7 @@ public:
 	// void wxTreeCtrl::SetItemFont(const wxTreeItemId & item, const wxFont & font)
 	void SetItemFont(const wxTreeItemId & item, const wxFont & font) {
 		if(_obj.pushFunction("SetItemFont")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(&font);
 			return (_obj.callFunction<void>());
@@ -1635,6 +1813,7 @@ public:
 	// void wxTreeCtrl::SetItemHasChildren(const wxTreeItemId & item, bool hasChildren = true)
 	void SetItemHasChildren(const wxTreeItemId & item, bool hasChildren = true) {
 		if(_obj.pushFunction("SetItemHasChildren")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(hasChildren);
 			return (_obj.callFunction<void>());
@@ -1646,6 +1825,7 @@ public:
 	// void wxTreeCtrl::SetItemImage(const wxTreeItemId & item, int image, wxTreeItemIcon which = ::wxTreeItemIcon_Normal)
 	void SetItemImage(const wxTreeItemId & item, int image, wxTreeItemIcon which = ::wxTreeItemIcon_Normal) {
 		if(_obj.pushFunction("SetItemImage")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(image);
 			_obj.pushArg(which);
@@ -1658,6 +1838,7 @@ public:
 	// void wxTreeCtrl::SetItemText(const wxTreeItemId & item, const wxString & text)
 	void SetItemText(const wxTreeItemId & item, const wxString & text) {
 		if(_obj.pushFunction("SetItemText")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(text);
 			return (_obj.callFunction<void>());
@@ -1669,6 +1850,7 @@ public:
 	// void wxTreeCtrl::SetItemTextColour(const wxTreeItemId & item, const wxColour & col)
 	void SetItemTextColour(const wxTreeItemId & item, const wxColour & col) {
 		if(_obj.pushFunction("SetItemTextColour")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			_obj.pushArg(&col);
 			return (_obj.callFunction<void>());
@@ -1680,6 +1862,7 @@ public:
 	// void wxTreeCtrl::SetStateImageList(wxImageList * imageList)
 	void SetStateImageList(wxImageList * imageList) {
 		if(_obj.pushFunction("SetStateImageList")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(imageList);
 			return (_obj.callFunction<void>());
 		}
@@ -1690,6 +1873,7 @@ public:
 	// void wxTreeCtrl::SortChildren(const wxTreeItemId & item)
 	void SortChildren(const wxTreeItemId & item) {
 		if(_obj.pushFunction("SortChildren")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<void>());
 		}
@@ -1700,6 +1884,7 @@ public:
 	// void wxTreeCtrl::Toggle(const wxTreeItemId & item)
 	void Toggle(const wxTreeItemId & item) {
 		if(_obj.pushFunction("Toggle")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&item);
 			return (_obj.callFunction<void>());
 		}
@@ -1710,6 +1895,7 @@ public:
 	// void wxTreeCtrl::Unselect()
 	void Unselect() {
 		if(_obj.pushFunction("Unselect")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -1719,6 +1905,7 @@ public:
 	// void wxTreeCtrl::UnselectAll()
 	void UnselectAll() {
 		if(_obj.pushFunction("UnselectAll")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -1728,6 +1915,7 @@ public:
 	// void wxTreeCtrl::SelectChildren(const wxTreeItemId & parent)
 	void SelectChildren(const wxTreeItemId & parent) {
 		if(_obj.pushFunction("SelectChildren")) {
+			_obj.pushArg((wxTreeCtrl*)this);
 			_obj.pushArg(&parent);
 			return (_obj.callFunction<void>());
 		}

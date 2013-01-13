@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -115,11 +115,18 @@ public:
 		if( lua_gettop(L)!=7 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,52841328) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,83725871) ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,50169651)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,84922662) ) return false;
 		if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setSchedulePriority(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -136,6 +143,28 @@ public:
 	}
 
 	inline static bool _lg_typecheck_clear(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUpThreads(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setDatabasePagerThreadPause(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getDatabasePagerThreadPause(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -339,6 +368,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_className(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -355,7 +391,7 @@ public:
 		if( lua_gettop(L)!=7 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,52841328) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,83725871) ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,50169651)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,84922662) ) return false;
@@ -530,7 +566,7 @@ public:
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
-		osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,3));
+		osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,3));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osgDB::DatabasePager::requestNodeFile function");
 		}
@@ -548,6 +584,26 @@ public:
 		self->requestNodeFile(fileName, nodePath, priority, framestamp, databaseRequest, options);
 
 		return 0;
+	}
+
+	// int osgDB::DatabasePager::setSchedulePriority(OpenThreads::Thread::ThreadPriority priority)
+	static int _bind_setSchedulePriority(lua_State *L) {
+		if (!_lg_typecheck_setSchedulePriority(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osgDB::DatabasePager::setSchedulePriority(OpenThreads::Thread::ThreadPriority priority) function, expected prototype:\nint osgDB::DatabasePager::setSchedulePriority(OpenThreads::Thread::ThreadPriority priority)\nClass arguments details:\n");
+		}
+
+		OpenThreads::Thread::ThreadPriority priority=(OpenThreads::Thread::ThreadPriority)lua_tointeger(L,2);
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osgDB::DatabasePager::setSchedulePriority(OpenThreads::Thread::ThreadPriority). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		int lret = self->setSchedulePriority(priority);
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 	// int osgDB::DatabasePager::cancel()
@@ -604,6 +660,66 @@ public:
 		self->clear();
 
 		return 0;
+	}
+
+	// void osgDB::DatabasePager::setUpThreads(unsigned int totalNumThreads = 2, unsigned int numHttpThreads = 1)
+	static int _bind_setUpThreads(lua_State *L) {
+		if (!_lg_typecheck_setUpThreads(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setUpThreads(unsigned int totalNumThreads = 2, unsigned int numHttpThreads = 1) function, expected prototype:\nvoid osgDB::DatabasePager::setUpThreads(unsigned int totalNumThreads = 2, unsigned int numHttpThreads = 1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int totalNumThreads=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 2;
+		unsigned int numHttpThreads=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 1;
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setUpThreads(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setUpThreads(totalNumThreads, numHttpThreads);
+
+		return 0;
+	}
+
+	// void osgDB::DatabasePager::setDatabasePagerThreadPause(bool pause)
+	static int _bind_setDatabasePagerThreadPause(lua_State *L) {
+		if (!_lg_typecheck_setDatabasePagerThreadPause(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::setDatabasePagerThreadPause(bool pause) function, expected prototype:\nvoid osgDB::DatabasePager::setDatabasePagerThreadPause(bool pause)\nClass arguments details:\n");
+		}
+
+		bool pause=(bool)(lua_toboolean(L,2)==1);
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setDatabasePagerThreadPause(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setDatabasePagerThreadPause(pause);
+
+		return 0;
+	}
+
+	// bool osgDB::DatabasePager::getDatabasePagerThreadPause() const
+	static int _bind_getDatabasePagerThreadPause(lua_State *L) {
+		if (!_lg_typecheck_getDatabasePagerThreadPause(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::getDatabasePagerThreadPause() const function, expected prototype:\nbool osgDB::DatabasePager::getDatabasePagerThreadPause() const\nClass arguments details:\n");
+		}
+
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getDatabasePagerThreadPause() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->getDatabasePagerThreadPause();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
 	}
 
 	// void osgDB::DatabasePager::setAcceptNewDatabaseRequests(bool acceptNewRequests)
@@ -1177,6 +1293,25 @@ public:
 		return 1;
 	}
 
+	// void osgDB::DatabasePager::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::DatabasePager::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->DatabasePager::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// const char * osgDB::DatabasePager::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
@@ -1225,7 +1360,7 @@ public:
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
-		osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,3));
+		osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,3));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osgDB::DatabasePager::base_requestNodeFile function");
 		}
@@ -1409,9 +1544,13 @@ luna_RegType LunaTraits< osgDB::DatabasePager >::methods[] = {
 	{"className", &luna_wrapper_osgDB_DatabasePager::_bind_className},
 	{"clone", &luna_wrapper_osgDB_DatabasePager::_bind_clone},
 	{"requestNodeFile", &luna_wrapper_osgDB_DatabasePager::_bind_requestNodeFile},
+	{"setSchedulePriority", &luna_wrapper_osgDB_DatabasePager::_bind_setSchedulePriority},
 	{"cancel", &luna_wrapper_osgDB_DatabasePager::_bind_cancel},
 	{"isRunning", &luna_wrapper_osgDB_DatabasePager::_bind_isRunning},
 	{"clear", &luna_wrapper_osgDB_DatabasePager::_bind_clear},
+	{"setUpThreads", &luna_wrapper_osgDB_DatabasePager::_bind_setUpThreads},
+	{"setDatabasePagerThreadPause", &luna_wrapper_osgDB_DatabasePager::_bind_setDatabasePagerThreadPause},
+	{"getDatabasePagerThreadPause", &luna_wrapper_osgDB_DatabasePager::_bind_getDatabasePagerThreadPause},
 	{"setAcceptNewDatabaseRequests", &luna_wrapper_osgDB_DatabasePager::_bind_setAcceptNewDatabaseRequests},
 	{"getAcceptNewDatabaseRequests", &luna_wrapper_osgDB_DatabasePager::_bind_getAcceptNewDatabaseRequests},
 	{"getNumFramesActive", &luna_wrapper_osgDB_DatabasePager::_bind_getNumFramesActive},
@@ -1442,6 +1581,7 @@ luna_RegType LunaTraits< osgDB::DatabasePager >::methods[] = {
 	{"resetStats", &luna_wrapper_osgDB_DatabasePager::_bind_resetStats},
 	{"prototype", &luna_wrapper_osgDB_DatabasePager::_bind_prototype},
 	{"create", &luna_wrapper_osgDB_DatabasePager::_bind_create},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgDB_DatabasePager::_bind_base_setThreadSafeRefUnref},
 	{"base_className", &luna_wrapper_osgDB_DatabasePager::_bind_base_className},
 	{"base_clone", &luna_wrapper_osgDB_DatabasePager::_bind_base_clone},
 	{"base_requestNodeFile", &luna_wrapper_osgDB_DatabasePager::_bind_base_requestNodeFile},

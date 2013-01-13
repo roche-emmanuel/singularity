@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_SPK_BufferHandler() {
+		logDEBUG3("Calling delete function for wrapper SPK_BufferHandler");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((SPK::BufferHandler*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_SPK_BufferHandler(lua_State* L, lua_Table* dum) : SPK::BufferHandler(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_SPK_BufferHandler(lua_State* L, lua_Table* dum) 
+		: SPK::BufferHandler(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((SPK::BufferHandler*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,6 +37,7 @@ protected:
 	// bool SPK::BufferHandler::checkBuffers(const SPK::Group & group)
 	bool checkBuffers(const SPK::Group & group) {
 		if(_obj.pushFunction("checkBuffers")) {
+			_obj.pushArg((SPK::BufferHandler*)this);
 			_obj.pushArg(&group);
 			return (_obj.callFunction<bool>());
 		}
@@ -40,6 +50,7 @@ public:
 	// void SPK::BufferHandler::createBuffers(const SPK::Group & group)
 	void createBuffers(const SPK::Group & group) {
 		if(_obj.pushFunction("createBuffers")) {
+			_obj.pushArg((SPK::BufferHandler*)this);
 			_obj.pushArg(&group);
 			return (_obj.callFunction<void>());
 		}
@@ -50,6 +61,7 @@ public:
 	// void SPK::BufferHandler::destroyBuffers(const SPK::Group & group)
 	void destroyBuffers(const SPK::Group & group) {
 		if(_obj.pushFunction("destroyBuffers")) {
+			_obj.pushArg((SPK::BufferHandler*)this);
 			_obj.pushArg(&group);
 			return (_obj.callFunction<void>());
 		}
@@ -102,7 +114,7 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_prepareBuffers",_bind_public_prepareBuffers},
+		{"prepareBuffers",_bind_public_prepareBuffers},
 		{NULL,NULL}
 		};
 

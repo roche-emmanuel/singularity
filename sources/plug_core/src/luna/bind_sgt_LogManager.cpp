@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -156,6 +156,12 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_removeAllSinks(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -485,6 +491,25 @@ public:
 		return 0;
 	}
 
+	// bool sgt::LogManager::removeAllSinks()
+	static int _bind_removeAllSinks(lua_State *L) {
+		if (!_lg_typecheck_removeAllSinks(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool sgt::LogManager::removeAllSinks() function, expected prototype:\nbool sgt::LogManager::removeAllSinks()\nClass arguments details:\n");
+		}
+
+
+		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool sgt::LogManager::removeAllSinks(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->removeAllSinks();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// sgt::LogSink * sgt::LogManager::getSink(const std::string & name)
 	static int _bind_getSink(lua_State *L) {
 		if (!_lg_typecheck_getSink(L)) {
@@ -740,6 +765,7 @@ luna_RegType LunaTraits< sgt::LogManager >::methods[] = {
 	{"setTraceFlags", &luna_wrapper_sgt_LogManager::_bind_setTraceFlags},
 	{"addSink", &luna_wrapper_sgt_LogManager::_bind_addSink},
 	{"removeSink", &luna_wrapper_sgt_LogManager::_bind_removeSink},
+	{"removeAllSinks", &luna_wrapper_sgt_LogManager::_bind_removeAllSinks},
 	{"getSink", &luna_wrapper_sgt_LogManager::_bind_getSink},
 	{"getNotifyLevel", &luna_wrapper_sgt_LogManager::_bind_getNotifyLevel},
 	{"setNotifyLevel", &luna_wrapper_sgt_LogManager::_bind_setNotifyLevel},

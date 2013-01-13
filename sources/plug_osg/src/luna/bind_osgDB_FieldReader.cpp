@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osgDB::FieldReader,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -158,7 +158,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,53806078) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osgDB::FieldReader::FieldReader()
@@ -366,6 +373,32 @@ public:
 
 
 	// Operator binds:
+	// osgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader & ic)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader & ic) function, expected prototype:\nosgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader & ic)\nClass arguments details:\narg 1 ID = 53806078\n");
+		}
+
+		const osgDB::FieldReader* ic_ptr=(Luna< osgDB::FieldReader >::check(L,2));
+		if( !ic_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg ic in osgDB::FieldReader::operator= function");
+		}
+		const osgDB::FieldReader & ic=*ic_ptr;
+
+		osgDB::FieldReader* self=(Luna< osgDB::FieldReader >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader &). Got : '%s'",typeid(Luna< osgDB::FieldReader >::check(L,1)).name());
+		}
+		const osgDB::FieldReader* lret = &self->operator=(ic);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::FieldReader >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -394,6 +427,7 @@ luna_RegType LunaTraits< osgDB::FieldReader >::methods[] = {
 	{"ignoreField", &luna_wrapper_osgDB_FieldReader::_bind_ignoreField},
 	{"getNoNestedBrackets", &luna_wrapper_osgDB_FieldReader::_bind_getNoNestedBrackets},
 	{"base_eof", &luna_wrapper_osgDB_FieldReader::_bind_base_eof},
+	{"op_assign", &luna_wrapper_osgDB_FieldReader::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osgDB_FieldReader::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgDB_FieldReader::_bind___eq},
 	{"getTable", &luna_wrapper_osgDB_FieldReader::_bind_getTable},

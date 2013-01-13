@@ -1,5 +1,6 @@
 #include <plug_common.h>
 
+#include <plug_extensions.h>
 #include <osg/Referenced>
 
 // Function checkers:
@@ -34,6 +35,14 @@ inline static bool _lg_typecheck_doTraceV(lua_State *L) {
 	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_setEnv(lua_State *L) {
+	if( lua_gettop(L)!=2 ) return false;
+
+	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_isstring(L,2)==0 ) return false;
 	return true;
 }
 
@@ -101,6 +110,21 @@ static int _bind_doTraceV(lua_State *L) {
 	return 0;
 }
 
+// void setEnv(const std::string & var, const std::string & value)
+static int _bind_setEnv(lua_State *L) {
+	if (!_lg_typecheck_setEnv(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in void setEnv(const std::string & var, const std::string & value) function, expected prototype:\nvoid setEnv(const std::string & var, const std::string & value)\nClass arguments details:\n");
+	}
+
+	std::string var(lua_tostring(L,1),lua_objlen(L,1));
+	std::string value(lua_tostring(L,2),lua_objlen(L,2));
+
+	setEnv(var, value);
+
+	return 0;
+}
+
 
 // Function checkers:
 inline static bool _lg_typecheck_intrusive_ptr_add_ref(lua_State *L) {
@@ -158,6 +182,7 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_doLogV); lua_setfield(L,-2,"doLogV");
 	lua_pushcfunction(L, _bind_doTrace); lua_setfield(L,-2,"doTrace");
 	lua_pushcfunction(L, _bind_doTraceV); lua_setfield(L,-2,"doTraceV");
+	lua_pushcfunction(L, _bind_setEnv); lua_setfield(L,-2,"setEnv");
 	luna_popModule(L);
 	luna_pushModule(L,"osg");
 	lua_pushcfunction(L, _bind_intrusive_ptr_add_ref); lua_setfield(L,-2,"intrusive_ptr_add_ref");

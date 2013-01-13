@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -88,6 +88,26 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_get_availableTime(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_availableTime(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_release(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -147,6 +167,63 @@ public:
 
 
 	// Function binds:
+	// double osg::FlushDeletedGLObjectsOperation::_availableTime()
+	static int _bind_get_availableTime(lua_State *L) {
+		if (!_lg_typecheck_get_availableTime(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double osg::FlushDeletedGLObjectsOperation::_availableTime() function, expected prototype:\ndouble osg::FlushDeletedGLObjectsOperation::_availableTime()\nClass arguments details:\n");
+		}
+
+
+		osg::FlushDeletedGLObjectsOperation* self=Luna< osg::Referenced >::checkSubType< osg::FlushDeletedGLObjectsOperation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double osg::FlushDeletedGLObjectsOperation::_availableTime(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		double lret = self->_availableTime;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::FlushDeletedGLObjectsOperation::_availableTime(double value)
+	static int _bind_set_availableTime(lua_State *L) {
+		if (!_lg_typecheck_set_availableTime(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::FlushDeletedGLObjectsOperation::_availableTime(double value) function, expected prototype:\nvoid osg::FlushDeletedGLObjectsOperation::_availableTime(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		osg::FlushDeletedGLObjectsOperation* self=Luna< osg::Referenced >::checkSubType< osg::FlushDeletedGLObjectsOperation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::FlushDeletedGLObjectsOperation::_availableTime(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_availableTime = value;
+
+		return 0;
+	}
+
+	// void osg::FlushDeletedGLObjectsOperation::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::FlushDeletedGLObjectsOperation::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::FlushDeletedGLObjectsOperation::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::FlushDeletedGLObjectsOperation* self=Luna< osg::Referenced >::checkSubType< osg::FlushDeletedGLObjectsOperation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::FlushDeletedGLObjectsOperation::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->FlushDeletedGLObjectsOperation::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osg::FlushDeletedGLObjectsOperation::base_release()
 	static int _bind_base_release(lua_State *L) {
 		if (!_lg_typecheck_base_release(L)) {
@@ -207,6 +284,9 @@ const int LunaTraits< osg::FlushDeletedGLObjectsOperation >::hash = 15266697;
 const int LunaTraits< osg::FlushDeletedGLObjectsOperation >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osg::FlushDeletedGLObjectsOperation >::methods[] = {
+	{"get_availableTime", &luna_wrapper_osg_FlushDeletedGLObjectsOperation::_bind_get_availableTime},
+	{"set_availableTime", &luna_wrapper_osg_FlushDeletedGLObjectsOperation::_bind_set_availableTime},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_FlushDeletedGLObjectsOperation::_bind_base_setThreadSafeRefUnref},
 	{"base_release", &luna_wrapper_osg_FlushDeletedGLObjectsOperation::_bind_base_release},
 	{"op_call", &luna_wrapper_osg_FlushDeletedGLObjectsOperation::_bind_op_call},
 	{"__eq", &luna_wrapper_osg_FlushDeletedGLObjectsOperation::_bind___eq},

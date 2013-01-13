@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgViewer_Renderer() {
+		logDEBUG3("Calling delete function for wrapper osgViewer_Renderer");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgViewer::Renderer*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgViewer_Renderer(lua_State* L, lua_Table* dum, osg::Camera * camera) : osgViewer::Renderer(camera), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgViewer_Renderer(lua_State* L, lua_Table* dum, osg::Camera * camera) 
+		: osgViewer::Renderer(camera), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgViewer::Renderer*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -28,6 +37,7 @@ protected:
 	// void osgViewer::Renderer::updateSceneView(osgUtil::SceneView * sceneView)
 	void updateSceneView(osgUtil::SceneView * sceneView) {
 		if(_obj.pushFunction("updateSceneView")) {
+			_obj.pushArg((osgViewer::Renderer*)this);
 			_obj.pushArg(sceneView);
 			return (_obj.callFunction<void>());
 		}
@@ -37,9 +47,21 @@ protected:
 
 public:
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgViewer::Renderer*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return Renderer::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osgViewer::Renderer::cull()
 	void cull() {
 		if(_obj.pushFunction("cull")) {
+			_obj.pushArg((osgViewer::Renderer*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -49,6 +71,7 @@ public:
 	// void osgViewer::Renderer::draw()
 	void draw() {
 		if(_obj.pushFunction("draw")) {
+			_obj.pushArg((osgViewer::Renderer*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -58,6 +81,7 @@ public:
 	// void osgViewer::Renderer::cull_draw()
 	void cull_draw() {
 		if(_obj.pushFunction("cull_draw")) {
+			_obj.pushArg((osgViewer::Renderer*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -67,6 +91,7 @@ public:
 	// void osgViewer::Renderer::compile()
 	void compile() {
 		if(_obj.pushFunction("compile")) {
+			_obj.pushArg((osgViewer::Renderer*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -76,6 +101,7 @@ public:
 	// void osgViewer::Renderer::release()
 	void release() {
 		if(_obj.pushFunction("release")) {
+			_obj.pushArg((osgViewer::Renderer*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -85,6 +111,7 @@ public:
 	// void osgViewer::Renderer::operator()(osg::Object * object)
 	void operator()(osg::Object * object) {
 		if(_obj.pushFunction("op_call")) {
+			_obj.pushArg((osgViewer::Renderer*)this);
 			_obj.pushArg(object);
 			return (_obj.callFunction<void>());
 		}
@@ -95,6 +122,7 @@ public:
 	// void osgViewer::Renderer::operator()(osg::GraphicsContext * context)
 	void operator()(osg::GraphicsContext * context) {
 		if(_obj.pushFunction("op_call")) {
+			_obj.pushArg((osgViewer::Renderer*)this);
 			_obj.pushArg(context);
 			return (_obj.callFunction<void>());
 		}
@@ -204,9 +232,9 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_initialize",_bind_public_initialize},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"initialize",_bind_public_initialize},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

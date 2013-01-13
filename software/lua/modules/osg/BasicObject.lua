@@ -1,5 +1,9 @@
 local Class = require("classBuilder"){name="BasicObject",bases="base.Object"};
 
+function Class.createInstance()
+	return osg.Object(Class())
+end
+
 function Class:initialize(options)	
 	local Vector = require "std.Vector"
 	self._associates = Vector()
@@ -12,7 +16,7 @@ end
 
 function Class:registerObjectWrapper()	
 	local wrapper = require("serialization.BasicWrapper")()
-	wrapper:create{proto=self,associates=self._associates:concat(" ")}
+	wrapper:create{proto=self.createInstance(),associates=self._associates:concat(" ")}
 	
 	self:buildObjectWrapper(wrapper)
 	
@@ -23,14 +27,15 @@ end
 function Class:buildObjectWrapper(wrapper)
 end
 
-function Class:cloneType()
+function Class:cloneType(obj)
 	self:info("in cloneType")
-	return self:getClassOf()():getWrapper()
+	
+	return self:getClassOf().createInstance()
 end
 
-function Class:clone(copyop)
+function Class:clone(obj,copyop)
 	self:info("in clone")
-	return self:getClassOf()():getWrapper()
+	return self:getClassOf().createInstance()
 end
 
 function Class:libraryName()
@@ -43,9 +48,9 @@ function Class:className()
 	return self._CLASSNAME_;
 end
 
-function Class:isSameKindAs(obj)
+function Class:isSameKindAs(obj,rhs)
 	self:info("in isSameKingAs")
-	return self:isInstanceOf(self:getClassOf(),obj:getTable())
+	return self:isInstanceOf(self:getClassOf(),rhs:getTable())
 end
 
 return Class

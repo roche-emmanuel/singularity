@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -130,7 +130,7 @@ public:
 	inline static bool _lg_typecheck_getFileNames(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,1372978) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,95416160) ) return false;
 		return true;
 	}
 
@@ -233,6 +233,13 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -548,7 +555,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgDB::Archive::getFileNames(osgDB::DirectoryContents & fileNames) const function, expected prototype:\nbool osgDB::Archive::getFileNames(osgDB::DirectoryContents & fileNames) const\nClass arguments details:\narg 1 ID = 1372978\n");
 		}
 
-		osgDB::DirectoryContents* fileNames_ptr=(Luna< osgDB::DirectoryContents >::check(L,2));
+		osgDB::DirectoryContents* fileNames_ptr=(Luna< std::vector< std::string > >::checkSubType< osgDB::DirectoryContents >(L,2));
 		if( !fileNames_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fileNames in osgDB::Archive::getFileNames function");
 		}
@@ -871,6 +878,25 @@ public:
 		Luna< osgDB::ReaderWriter::WriteResult >::push(L,lret,true);
 
 		return 1;
+	}
+
+	// void osgDB::Archive::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::Archive::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgDB::Archive::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgDB::Archive* self=Luna< osg::Referenced >::checkSubType< osgDB::Archive >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::Archive::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->Archive::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
 	}
 
 	// void osgDB::Archive::base_setName(const std::string & name)
@@ -1357,6 +1383,7 @@ luna_RegType LunaTraits< osgDB::Archive >::methods[] = {
 	{"writeHeightField", &luna_wrapper_osgDB_Archive::_bind_writeHeightField},
 	{"writeNode", &luna_wrapper_osgDB_Archive::_bind_writeNode},
 	{"writeShader", &luna_wrapper_osgDB_Archive::_bind_writeShader},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgDB_Archive::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osgDB_Archive::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgDB_Archive::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osgDB_Archive::_bind_base_setUserData},

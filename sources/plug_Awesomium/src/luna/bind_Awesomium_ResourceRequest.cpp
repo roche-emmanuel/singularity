@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<Awesomium::ResourceRequest,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -217,7 +217,7 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::Cancel()");
+			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::Cancel(). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
 		self->Cancel();
 
@@ -235,7 +235,7 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::ResourceRequest::origin_process_id()");
+			luaL_error(L, "Invalid object in function call int Awesomium::ResourceRequest::origin_process_id(). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
 		int lret = self->origin_process_id();
 		lua_pushnumber(L,lret);
@@ -254,7 +254,7 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebURL Awesomium::ResourceRequest::url()");
+			luaL_error(L, "Invalid object in function call Awesomium::WebURL Awesomium::ResourceRequest::url(). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
 		Awesomium::WebURL stack_lret = self->url();
 		Awesomium::WebURL* lret = new Awesomium::WebURL(stack_lret);
@@ -276,13 +276,11 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::ResourceRequest::method()");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::ResourceRequest::method(). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->method();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->method();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -300,7 +298,7 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::set_method(const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::set_method(const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
 		self->set_method(method);
 
@@ -318,13 +316,11 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::ResourceRequest::referrer()");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::ResourceRequest::referrer(). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->referrer();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->referrer();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -342,7 +338,7 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::set_referrer(const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::set_referrer(const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
 		self->set_referrer(referrer);
 
@@ -360,13 +356,11 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::ResourceRequest::extra_headers()");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::ResourceRequest::extra_headers(). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->extra_headers();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->extra_headers();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -384,7 +378,7 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::set_extra_headers(const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::set_extra_headers(const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
 		self->set_extra_headers(headers);
 
@@ -406,7 +400,7 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::AppendExtraHeader(const Awesomium::WebString &, const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::AppendExtraHeader(const Awesomium::WebString &, const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
 		self->AppendExtraHeader(name, value);
 
@@ -424,7 +418,7 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int Awesomium::ResourceRequest::num_upload_elements()");
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::ResourceRequest::num_upload_elements(). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
 		unsigned int lret = self->num_upload_elements();
 		lua_pushnumber(L,lret);
@@ -444,7 +438,7 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const Awesomium::UploadElement * Awesomium::ResourceRequest::GetUploadElement(unsigned int)");
+			luaL_error(L, "Invalid object in function call const Awesomium::UploadElement * Awesomium::ResourceRequest::GetUploadElement(unsigned int). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
 		const Awesomium::UploadElement * lret = self->GetUploadElement(idx);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -465,7 +459,7 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::ClearUploadElements()");
+			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::ClearUploadElements(). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
 		self->ClearUploadElements();
 
@@ -485,7 +479,7 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::AppendUploadFilePath(const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::AppendUploadFilePath(const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
 		self->AppendUploadFilePath(path);
 
@@ -505,7 +499,7 @@ public:
 		Awesomium::ResourceRequest* self=(Luna< Awesomium::ResourceRequest >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::AppendUploadBytes(const char *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void Awesomium::ResourceRequest::AppendUploadBytes(const char *, unsigned int). Got : '%s'",typeid(Luna< Awesomium::ResourceRequest >::check(L,1)).name());
 		}
 		self->AppendUploadBytes(bytes, num_bytes);
 

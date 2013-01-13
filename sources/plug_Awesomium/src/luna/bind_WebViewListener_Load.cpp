@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<WebViewListener::Load,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -168,7 +168,7 @@ public:
 		WebViewListener::Load* self=(Luna< WebViewListener::Load >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView *, long long, bool, const Awesomium::WebURL &, bool)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView *, long long, bool, const Awesomium::WebURL &, bool). Got : '%s'",typeid(Luna< WebViewListener::Load >::check(L,1)).name());
 		}
 		self->OnBeginLoadingFrame(caller, frame_id, is_main_frame, url, is_error_page);
 
@@ -197,7 +197,7 @@ public:
 		WebViewListener::Load* self=(Luna< WebViewListener::Load >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Load::OnFailLoadingFrame(Awesomium::WebView *, long long, bool, const Awesomium::WebURL &, int, const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Load::OnFailLoadingFrame(Awesomium::WebView *, long long, bool, const Awesomium::WebURL &, int, const Awesomium::WebString &). Got : '%s'",typeid(Luna< WebViewListener::Load >::check(L,1)).name());
 		}
 		self->OnFailLoadingFrame(caller, frame_id, is_main_frame, url, error_code, error_desc);
 
@@ -223,7 +223,7 @@ public:
 		WebViewListener::Load* self=(Luna< WebViewListener::Load >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Load::OnFinishLoadingFrame(Awesomium::WebView *, long long, bool, const Awesomium::WebURL &)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Load::OnFinishLoadingFrame(Awesomium::WebView *, long long, bool, const Awesomium::WebURL &). Got : '%s'",typeid(Luna< WebViewListener::Load >::check(L,1)).name());
 		}
 		self->OnFinishLoadingFrame(caller, frame_id, is_main_frame, url);
 
@@ -247,7 +247,7 @@ public:
 		WebViewListener::Load* self=(Luna< WebViewListener::Load >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void WebViewListener::Load::OnDocumentReady(Awesomium::WebView *, const Awesomium::WebURL &)");
+			luaL_error(L, "Invalid object in function call void WebViewListener::Load::OnDocumentReady(Awesomium::WebView *, const Awesomium::WebURL &). Got : '%s'",typeid(Luna< WebViewListener::Load >::check(L,1)).name());
 		}
 		self->OnDocumentReady(caller, url);
 

@@ -14,14 +14,37 @@ public:
 		
 
 	~wrapper_wxCaret() {
+		logDEBUG3("Calling delete function for wrapper wxCaret");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxCaret*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_wxCaret(lua_State* L, lua_Table* dum) : wxCaret(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxCaret(lua_State* L, lua_Table* dum, wxWindow * window, int width, int height) : wxCaret(window, width, height), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_wxCaret(lua_State* L, lua_Table* dum, wxWindow * window, const wxSize & size) : wxCaret(window, size), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_wxCaret(lua_State* L, lua_Table* dum) 
+		: wxCaret(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxCaret*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxCaret(lua_State* L, lua_Table* dum, wxWindow * window, int width, int height) 
+		: wxCaret(window, width, height), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxCaret*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_wxCaret(lua_State* L, lua_Table* dum, wxWindow * window, const wxSize & size) 
+		: wxCaret(window, size), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((wxCaret*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -32,6 +55,7 @@ public:
 	// void wxCaret::Hide()
 	void Hide() {
 		if(_obj.pushFunction("Hide")) {
+			_obj.pushArg((wxCaret*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -41,6 +65,7 @@ public:
 	// void wxCaret::Show(bool show = true)
 	void Show(bool show = true) {
 		if(_obj.pushFunction("Show")) {
+			_obj.pushArg((wxCaret*)this);
 			_obj.pushArg(show);
 			return (_obj.callFunction<void>());
 		}

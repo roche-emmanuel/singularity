@@ -14,7 +14,9 @@ public:
 		
 
 	~wrapper_wxExtHelpController() {
+		logDEBUG3("Calling delete function for wrapper wxExtHelpController");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((wxExtHelpController*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
@@ -29,6 +31,7 @@ public:
 	// bool wxHelpController::DisplayContextPopup(int contextId)
 	bool DisplayContextPopup(int contextId) {
 		if(_obj.pushFunction("DisplayContextPopup")) {
+			_obj.pushArg((wxExtHelpController*)this);
 			_obj.pushArg(contextId);
 			return (_obj.callFunction<bool>());
 		}
@@ -39,6 +42,7 @@ public:
 	// bool wxHelpController::DisplayTextPopup(const wxString & text, const wxPoint & pos)
 	bool DisplayTextPopup(const wxString & text, const wxPoint & pos) {
 		if(_obj.pushFunction("DisplayTextPopup")) {
+			_obj.pushArg((wxExtHelpController*)this);
 			_obj.pushArg(text);
 			_obj.pushArg(&pos);
 			return (_obj.callFunction<bool>());
@@ -50,6 +54,7 @@ public:
 	// wxWindow * wxHelpController::GetParentWindow() const
 	wxWindow * GetParentWindow() const {
 		if(_obj.pushFunction("GetParentWindow")) {
+			_obj.pushArg((wxExtHelpController*)this);
 			return (_obj.callFunction<wxWindow*>());
 		}
 
@@ -59,6 +64,7 @@ public:
 	// void wxHelpController::SetParentWindow(wxWindow * parentWindow)
 	void SetParentWindow(wxWindow * parentWindow) {
 		if(_obj.pushFunction("SetParentWindow")) {
+			_obj.pushArg((wxExtHelpController*)this);
 			_obj.pushArg(parentWindow);
 			return (_obj.callFunction<void>());
 		}

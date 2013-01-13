@@ -57,11 +57,11 @@ public:
 };
 
 std::list< osg::ref_ptr< osgGA::GUIEventAdapter > >* LunaTraits< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::list< osg::ref_ptr< osgGA::GUIEventAdapter > >();
 }
 
 void LunaTraits< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::_bind_dtor(std::list< osg::ref_ptr< osgGA::GUIEventAdapter > >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::className[] = "std_list_osg_ref_ptr_osgGA_GUIEventAdapter";

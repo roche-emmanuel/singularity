@@ -19,6 +19,21 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 
 	luna_pushModule(L,"osg");
 	Luna< GLUtesselator >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"OpenThreads");
+	Luna< OpenThreads::Atomic >::Register(L);
+	Luna< OpenThreads::AtomicPtr >::Register(L);
+	Luna< OpenThreads::Barrier >::Register(L);
+	Luna< OpenThreads::Block >::Register(L);
+	Luna< OpenThreads::BlockCount >::Register(L);
+	Luna< OpenThreads::Condition >::Register(L);
+	Luna< OpenThreads::ReadWriteMutex >::Register(L);
+	Luna< OpenThreads::ScopedReadLock >::Register(L);
+	Luna< OpenThreads::ScopedWriteLock >::Register(L);
+	Luna< OpenThreads::ReentrantMutex >::Register(L);
+	Luna< OpenThreads::Thread >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"osg");
 	Luna< osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE > >::Register(L);
 	Luna< osg::TemplateIndexArray< short, osg::Array::ShortArrayType, 1, GL_SHORT > >::Register(L);
 	Luna< osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 > >::Register(L);
@@ -244,7 +259,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::KdTree::BuildOptions >::Register(L);
 	Luna< osg::KdTree::KdNode >::Register(L);
 	Luna< osg::KdTree::LineSegmentIntersection >::Register(L);
-	Luna< std::vector< double > >::Register(L);
 	Luna< osg::KdTree::Triangle >::Register(L);
 	Luna< osg::KdTreeBuilder >::Register(L);
 	Luna< osg::Light >::Register(L);
@@ -341,7 +355,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::TriangleMesh >::Register(L);
 	Luna< osg::ConvexHull >::Register(L);
 	Luna< osg::HeightField >::Register(L);
-	Luna< std::vector< float > >::Register(L);
 	Luna< osg::CompositeShape >::Register(L);
 	Luna< std::vector< osg::ref_ptr< osg::Shape > > >::Register(L);
 	Luna< osg::TessellationHints >::Register(L);
@@ -453,6 +466,9 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::View::Slave >::Register(L);
 	Luna< osg::View::Slave::UpdateSlaveCallback >::Register(L);
 	Luna< osg::Viewport >::Register(L);
+	Luna< osg::ref_ptr< osg::Array > >::Register(L);
+	Luna< osg::ref_ptr< osg::Image > >::Register(L);
+	Luna< osg::ref_ptr< osg::PrimitiveSet > >::Register(L);
 	Luna< osg::Vec2Array >::Register(L);
 	Luna< osg::Vec3Array >::Register(L);
 	Luna< osg::Vec4Array >::Register(L);
@@ -706,7 +722,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osgUtil::IntersectionVisitor >::Register(L);
 	Luna< osgUtil::IntersectionVisitor::ReadCallback >::Register(L);
 	Luna< osgUtil::Hit >::Register(L);
-	Luna< std::vector< int > >::Register(L);
 	Luna< osgUtil::IntersectVisitor >::Register(L);
 	Luna< osgUtil::PickVisitor >::Register(L);
 	Luna< osgUtil::LineSegmentIntersector >::Register(L);
@@ -809,6 +824,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	register_global_functions(L);
 
 	luna_copyParents(L,"osg");
+	luna_copyParents(L,"OpenThreads");
 	luna_copyParents(L,"osgDB");
 	luna_copyParents(L,"osgGA");
 	luna_copyParents(L,"osgParticle");

@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -1365,24 +1365,24 @@ public:
 	inline static bool _lg_typecheck_setArray_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,43730923)) ) return false;
-		if( (lua_isnil(L,2)==0 && !(Luna< osg::FloatArray >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,66705573)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT > >::checkSubType< osg::FloatArray >(L,2)) ) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setArray_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,28130065)) ) return false;
-		if( (lua_isnil(L,2)==0 && !(Luna< osg::IntArray >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,77568465)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 > >::checkSubType< osg::IntArray >(L,2)) ) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setArray_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,86600648)) ) return false;
-		if( (lua_isnil(L,2)==0 && !(Luna< osg::UIntArray >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,14674410)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 > >::checkSubType< osg::UIntArray >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -1504,6 +1504,13 @@ public:
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
 		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -4898,7 +4905,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Uniform::setArray(osg::FloatArray * array) function, expected prototype:\nbool osg::Uniform::setArray(osg::FloatArray * array)\nClass arguments details:\narg 1 ID = 43730923\n");
 		}
 
-		osg::FloatArray* array=(Luna< osg::FloatArray >::check(L,2));
+		osg::FloatArray* array=(Luna< osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT > >::checkSubType< osg::FloatArray >(L,2));
 
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
@@ -4918,7 +4925,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Uniform::setArray(osg::IntArray * array) function, expected prototype:\nbool osg::Uniform::setArray(osg::IntArray * array)\nClass arguments details:\narg 1 ID = 28130065\n");
 		}
 
-		osg::IntArray* array=(Luna< osg::IntArray >::check(L,2));
+		osg::IntArray* array=(Luna< osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, 0x1404 > >::checkSubType< osg::IntArray >(L,2));
 
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
@@ -4938,7 +4945,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Uniform::setArray(osg::UIntArray * array) function, expected prototype:\nbool osg::Uniform::setArray(osg::UIntArray * array)\nClass arguments details:\narg 1 ID = 86600648\n");
 		}
 
-		osg::UIntArray* array=(Luna< osg::UIntArray >::check(L,2));
+		osg::UIntArray* array=(Luna< osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, 0x1405 > >::checkSubType< osg::UIntArray >(L,2));
 
 		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
 		if(!self) {
@@ -5316,6 +5323,25 @@ public:
 		float val=(float)lua_tonumber(L,2);
 
 		setFloat(unif, val);
+
+		return 0;
+	}
+
+	// void osg::Uniform::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Uniform::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Uniform::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osg::Uniform* self=Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Uniform::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->Uniform::setThreadSafeRefUnref(threadSafe);
 
 		return 0;
 	}
@@ -5737,6 +5763,7 @@ luna_RegType LunaTraits< osg::Uniform >::methods[] = {
 	{"getInternalArrayType", &luna_wrapper_osg_Uniform::_bind_getInternalArrayType},
 	{"setInt", &luna_wrapper_osg_Uniform::_bind_setInt},
 	{"setFloat", &luna_wrapper_osg_Uniform::_bind_setFloat},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_Uniform::_bind_base_setThreadSafeRefUnref},
 	{"base_computeDataVariance", &luna_wrapper_osg_Uniform::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_Uniform::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osg_Uniform::_bind_base_getUserData},

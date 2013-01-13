@@ -57,11 +57,11 @@ public:
 };
 
 std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData >* LunaTraits< std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData >();
 }
 
 void LunaTraits< std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData > >::_bind_dtor(std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData > >::className[] = "std_map_const_osg_Object_ptr_osgDB_ExternalFileWriter_ObjectData";

@@ -18,6 +18,11 @@ osg.Vec4f.toColour = function(self)
 					   math.floor(self:w()*255.0))
 end
 
+-- Vec2d extensions:
+osg.Vec2d.__tostring = function(self)
+	return "("..self:x()..", "..self:y()..")"
+end
+
 -- Vec3d extensions:
 osg.Vec3d.__tostring = function(self)
 	return "("..self:x()..", "..self:y()..", "..self:z()..")"
@@ -34,3 +39,5 @@ osg.ZAXIS = osg.Vec3d(0.0,0.0,1.0)
 osg.Vec2 = osg.Vec2f
 osg.Vec3 = osg.Vec3f
 osg.Vec4 = osg.Vec4f
+
+osg.BoundingSphere = osg.osg_BoundingSphereImpl_osg_Vec3d

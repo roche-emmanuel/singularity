@@ -103,9 +103,68 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getArray(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getIndices(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getBinding(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getNormalize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setArray(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,74215671) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setIndices(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,7615640) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setBinding(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setNormalize(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,26680564) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::Geometry::ArrayData::ArrayData()
@@ -207,8 +266,186 @@ public:
 		return 1;
 	}
 
+	// osg::ref_ptr< osg::Array > osg::Geometry::ArrayData::array()
+	static int _bind_getArray(lua_State *L) {
+		if (!_lg_typecheck_getArray(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Array > osg::Geometry::ArrayData::array() function, expected prototype:\nosg::ref_ptr< osg::Array > osg::Geometry::ArrayData::array()\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry::ArrayData* self=(Luna< osg::Geometry::ArrayData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Array > osg::Geometry::ArrayData::array(). Got : '%s'",typeid(Luna< osg::Geometry::ArrayData >::check(L,1)).name());
+		}
+		osg::ref_ptr< osg::Array > lret = self->array;
+		Luna< osg::Array >::push(L,lret.get(),false);
+
+		return 1;
+	}
+
+	// osg::ref_ptr< osg::IndexArray > osg::Geometry::ArrayData::indices()
+	static int _bind_getIndices(lua_State *L) {
+		if (!_lg_typecheck_getIndices(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::IndexArray > osg::Geometry::ArrayData::indices() function, expected prototype:\nosg::ref_ptr< osg::IndexArray > osg::Geometry::ArrayData::indices()\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry::ArrayData* self=(Luna< osg::Geometry::ArrayData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::IndexArray > osg::Geometry::ArrayData::indices(). Got : '%s'",typeid(Luna< osg::Geometry::ArrayData >::check(L,1)).name());
+		}
+		osg::ref_ptr< osg::IndexArray > lret = self->indices;
+		Luna< osg::IndexArray >::push(L,lret.get(),false);
+
+		return 1;
+	}
+
+	// osg::Geometry::AttributeBinding osg::Geometry::ArrayData::binding()
+	static int _bind_getBinding(lua_State *L) {
+		if (!_lg_typecheck_getBinding(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Geometry::AttributeBinding osg::Geometry::ArrayData::binding() function, expected prototype:\nosg::Geometry::AttributeBinding osg::Geometry::ArrayData::binding()\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry::ArrayData* self=(Luna< osg::Geometry::ArrayData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Geometry::AttributeBinding osg::Geometry::ArrayData::binding(). Got : '%s'",typeid(Luna< osg::Geometry::ArrayData >::check(L,1)).name());
+		}
+		osg::Geometry::AttributeBinding lret = self->binding;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned char osg::Geometry::ArrayData::normalize()
+	static int _bind_getNormalize(lua_State *L) {
+		if (!_lg_typecheck_getNormalize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char osg::Geometry::ArrayData::normalize() function, expected prototype:\nunsigned char osg::Geometry::ArrayData::normalize()\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry::ArrayData* self=(Luna< osg::Geometry::ArrayData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char osg::Geometry::ArrayData::normalize(). Got : '%s'",typeid(Luna< osg::Geometry::ArrayData >::check(L,1)).name());
+		}
+		unsigned char lret = self->normalize;
+		lua_pushnumber(L,(int)lret);
+
+		return 1;
+	}
+
+	// void osg::Geometry::ArrayData::array(osg::ref_ptr< osg::Array > value)
+	static int _bind_setArray(lua_State *L) {
+		if (!_lg_typecheck_setArray(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::ArrayData::array(osg::ref_ptr< osg::Array > value) function, expected prototype:\nvoid osg::Geometry::ArrayData::array(osg::ref_ptr< osg::Array > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::Array > value = dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2));
+
+		osg::Geometry::ArrayData* self=(Luna< osg::Geometry::ArrayData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::ArrayData::array(osg::ref_ptr< osg::Array >). Got : '%s'",typeid(Luna< osg::Geometry::ArrayData >::check(L,1)).name());
+		}
+		self->array = value;
+
+		return 0;
+	}
+
+	// void osg::Geometry::ArrayData::indices(osg::ref_ptr< osg::IndexArray > value)
+	static int _bind_setIndices(lua_State *L) {
+		if (!_lg_typecheck_setIndices(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::ArrayData::indices(osg::ref_ptr< osg::IndexArray > value) function, expected prototype:\nvoid osg::Geometry::ArrayData::indices(osg::ref_ptr< osg::IndexArray > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::IndexArray > value = dynamic_cast< osg::IndexArray* >(Luna< osg::Referenced >::check(L,2));
+
+		osg::Geometry::ArrayData* self=(Luna< osg::Geometry::ArrayData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::ArrayData::indices(osg::ref_ptr< osg::IndexArray >). Got : '%s'",typeid(Luna< osg::Geometry::ArrayData >::check(L,1)).name());
+		}
+		self->indices = value;
+
+		return 0;
+	}
+
+	// void osg::Geometry::ArrayData::binding(osg::Geometry::AttributeBinding value)
+	static int _bind_setBinding(lua_State *L) {
+		if (!_lg_typecheck_setBinding(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::ArrayData::binding(osg::Geometry::AttributeBinding value) function, expected prototype:\nvoid osg::Geometry::ArrayData::binding(osg::Geometry::AttributeBinding value)\nClass arguments details:\n");
+		}
+
+		osg::Geometry::AttributeBinding value=(osg::Geometry::AttributeBinding)lua_tointeger(L,2);
+
+		osg::Geometry::ArrayData* self=(Luna< osg::Geometry::ArrayData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::ArrayData::binding(osg::Geometry::AttributeBinding). Got : '%s'",typeid(Luna< osg::Geometry::ArrayData >::check(L,1)).name());
+		}
+		self->binding = value;
+
+		return 0;
+	}
+
+	// void osg::Geometry::ArrayData::normalize(unsigned char value)
+	static int _bind_setNormalize(lua_State *L) {
+		if (!_lg_typecheck_setNormalize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::ArrayData::normalize(unsigned char value) function, expected prototype:\nvoid osg::Geometry::ArrayData::normalize(unsigned char value)\nClass arguments details:\n");
+		}
+
+		unsigned char value = (unsigned char)(lua_tointeger(L,2));
+
+		osg::Geometry::ArrayData* self=(Luna< osg::Geometry::ArrayData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::ArrayData::normalize(unsigned char). Got : '%s'",typeid(Luna< osg::Geometry::ArrayData >::check(L,1)).name());
+		}
+		self->normalize = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
+	// osg::Geometry::ArrayData & osg::Geometry::ArrayData::operator=(const osg::Geometry::ArrayData & rhs)
+	static int _bind_op_assign(lua_State *L) {
+		if (!_lg_typecheck_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Geometry::ArrayData & osg::Geometry::ArrayData::operator=(const osg::Geometry::ArrayData & rhs) function, expected prototype:\nosg::Geometry::ArrayData & osg::Geometry::ArrayData::operator=(const osg::Geometry::ArrayData & rhs)\nClass arguments details:\narg 1 ID = 26680564\n");
+		}
+
+		const osg::Geometry::ArrayData* rhs_ptr=(Luna< osg::Geometry::ArrayData >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::Geometry::ArrayData::operator= function");
+		}
+		const osg::Geometry::ArrayData & rhs=*rhs_ptr;
+
+		osg::Geometry::ArrayData* self=(Luna< osg::Geometry::ArrayData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Geometry::ArrayData & osg::Geometry::ArrayData::operator=(const osg::Geometry::ArrayData &). Got : '%s'",typeid(Luna< osg::Geometry::ArrayData >::check(L,1)).name());
+		}
+		const osg::Geometry::ArrayData* lret = &self->operator=(rhs);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Geometry::ArrayData >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -231,6 +468,15 @@ const int LunaTraits< osg::Geometry::ArrayData >::uniqueIDs[] = {26680564,0};
 
 luna_RegType LunaTraits< osg::Geometry::ArrayData >::methods[] = {
 	{"empty", &luna_wrapper_osg_Geometry_ArrayData::_bind_empty},
+	{"getArray", &luna_wrapper_osg_Geometry_ArrayData::_bind_getArray},
+	{"getIndices", &luna_wrapper_osg_Geometry_ArrayData::_bind_getIndices},
+	{"getBinding", &luna_wrapper_osg_Geometry_ArrayData::_bind_getBinding},
+	{"getNormalize", &luna_wrapper_osg_Geometry_ArrayData::_bind_getNormalize},
+	{"setArray", &luna_wrapper_osg_Geometry_ArrayData::_bind_setArray},
+	{"setIndices", &luna_wrapper_osg_Geometry_ArrayData::_bind_setIndices},
+	{"setBinding", &luna_wrapper_osg_Geometry_ArrayData::_bind_setBinding},
+	{"setNormalize", &luna_wrapper_osg_Geometry_ArrayData::_bind_setNormalize},
+	{"op_assign", &luna_wrapper_osg_Geometry_ArrayData::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_Geometry_ArrayData::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_Geometry_ArrayData::_bind___eq},
 	{0,0}

@@ -21,13 +21,15 @@ local tm = require "bindings.TypeManager"
 tm:registerDeleter("osg::Referenced","osg::ref_ptr<osg::Referenced> refptr = ${1};")
 tm:registerExternals(sgt_path .. "sources/plug_core/classes.luna")
 tm:registerExternalFunctions(sgt_path .. "sources/plug_core/functions.luna")
+tm:setTypeConstructor("OpenThreads::ScopedLock< OpenThreads::Mutex >","NULL;")
+tm:setTypeDestructor("osg::Template","//Type destructor explicitly removed.")
 
 local corr = require "bindings.TextCorrector"
 corr:addCorrector("type_name","(OSG_EXPORT )","")
 corr:addCorrector("type_name","(GL_APIENTRY%s*)","")
 
 local injector = require "bindings.CodeInjector"
-injector:addFragment("after_headers","using namespace osg;\nusing namespace osgUtil;\nusing namespace osgDB;\nusing namespace osgText;\nusing namespace osgParticle;\n")
+injector:addFragment("after_headers","using namespace osg;\nusing namespace osgUtil;\nusing namespace osgDB;\nusing namespace osgText;\nusing namespace osgParticle;\nusing namespace OpenThreads;\n")
 
 local ReflectionGenerator = require "bindings.LunaReflectionGenerator"
 
@@ -96,7 +98,7 @@ ReflectionGenerator.generate{
 		"wstring",
 		"wchar_t",
 		"BEGIN_BRACKET",
-		"Thread",
+		--"Thread",
 
 		-- for osgViewer:
 		"GraphicsWindow::makeContextCurrentImplementation",
@@ -119,6 +121,12 @@ ReflectionGenerator.generate{
 		"AttributeStack",
 		"AttributeMap",
 		"ModeMap",
+		
+		"DatabaseThread",
+		"ImageThread",
+		"DeleteHandler::operator=",
+		"buffered_object",
+		"StateGraph::_stateset",
 	},
 	ignoreWrappers={
 		"StateSetManipulator::clone",

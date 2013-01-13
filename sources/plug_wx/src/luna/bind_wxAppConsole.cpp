@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxObject,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -323,6 +323,19 @@ public:
 	inline static bool _lg_typecheck_IsMainLoopRunning(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getArgc(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setArgc(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -1212,6 +1225,44 @@ public:
 		return 1;
 	}
 
+	// int wxAppConsole::argc()
+	static int _bind_getArgc(lua_State *L) {
+		if (!_lg_typecheck_getArgc(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxAppConsole::argc() function, expected prototype:\nint wxAppConsole::argc()\nClass arguments details:\n");
+		}
+
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxAppConsole::argc(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		int lret = self->argc;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxAppConsole::argc(int value)
+	static int _bind_setArgc(lua_State *L) {
+		if (!_lg_typecheck_setArgc(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAppConsole::argc(int value) function, expected prototype:\nvoid wxAppConsole::argc(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAppConsole::argc(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		self->argc = value;
+
+		return 0;
+	}
+
 	// wxClassInfo * wxAppConsole::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
@@ -1682,7 +1733,7 @@ public:
 			luaL_error(L, "Invalid object in function call baseCast(...)");
 		}
 		
-		wxEventFilter* res = dynamic_cast<wxEventFilter*>(self);
+		wxEventFilter* res = luna_caster<wxObject,wxEventFilter>::cast(self); // dynamic_cast<wxEventFilter*>(self);
 		if(!res)
 			return 0;
 			
@@ -1749,6 +1800,8 @@ luna_RegType LunaTraits< wxAppConsole >::methods[] = {
 	{"SetInstance", &luna_wrapper_wxAppConsole::_bind_SetInstance},
 	{"GetInstance", &luna_wrapper_wxAppConsole::_bind_GetInstance},
 	{"IsMainLoopRunning", &luna_wrapper_wxAppConsole::_bind_IsMainLoopRunning},
+	{"getArgc", &luna_wrapper_wxAppConsole::_bind_getArgc},
+	{"setArgc", &luna_wrapper_wxAppConsole::_bind_setArgc},
 	{"base_GetClassInfo", &luna_wrapper_wxAppConsole::_bind_base_GetClassInfo},
 	{"base_QueueEvent", &luna_wrapper_wxAppConsole::_bind_base_QueueEvent},
 	{"base_AddPendingEvent", &luna_wrapper_wxAppConsole::_bind_base_AddPendingEvent},

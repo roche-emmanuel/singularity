@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<wxObject,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -1327,10 +1327,10 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItemList & wxSizer::GetChildren(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		wxSizerItemList & lret = self->GetChildren();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxSizerItemList &'
-		////////////////////////////////////////////////////////////////////
+		const wxSizerItemList* lret = &self->GetChildren();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSizerItemList >::push(L,lret,false);
 
 		return 1;
 	}
@@ -1348,10 +1348,10 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxSizerItemList & wxSizer::GetChildren() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		const wxSizerItemList & lret = self->GetChildren();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'const wxSizerItemList &'
-		////////////////////////////////////////////////////////////////////
+		const wxSizerItemList* lret = &self->GetChildren();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSizerItemList >::push(L,lret,false);
 
 		return 1;
 	}

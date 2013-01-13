@@ -14,12 +14,21 @@ public:
 		
 
 	~wrapper_osgGA_AnimationPathManipulator_AnimationCompletedCallback() {
+		logDEBUG3("Calling delete function for wrapper osgGA_AnimationPathManipulator_AnimationCompletedCallback");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osgGA::AnimationPathManipulator::AnimationCompletedCallback*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osgGA_AnimationPathManipulator_AnimationCompletedCallback(lua_State* L, lua_Table* dum) : osgGA::AnimationPathManipulator::AnimationCompletedCallback(), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osgGA_AnimationPathManipulator_AnimationCompletedCallback(lua_State* L, lua_Table* dum) 
+		: osgGA::AnimationPathManipulator::AnimationCompletedCallback(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osgGA::AnimationPathManipulator::AnimationCompletedCallback*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -27,9 +36,21 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osgGA::AnimationPathManipulator::AnimationCompletedCallback*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return AnimationCompletedCallback::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed(const osgGA::AnimationPathManipulator * apm)
 	void completed(const osgGA::AnimationPathManipulator * apm) {
 		THROW_IF(!_obj.pushFunction("completed"),"No implementation for abstract function osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed");
+		_obj.pushArg((osgGA::AnimationPathManipulator::AnimationCompletedCallback*)this);
 		_obj.pushArg(apm);
 		return (_obj.callFunction<void>());
 	};
@@ -105,8 +126,8 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

@@ -14,13 +14,29 @@ public:
 		
 
 	~wrapper_osg_ImageStream() {
+		logDEBUG3("Calling delete function for wrapper osg_ImageStream");
 		if(_obj.pushFunction("delete")) {
+			//_obj.pushArg((osg::ImageStream*)this); // No this argument or the object will be referenced again!
 			_obj.callFunction<void>();
 		}
 	};
 	
-	wrapper_osg_ImageStream(lua_State* L, lua_Table* dum) : osg::ImageStream(), luna_wrapper_base(L) { register_protected_methods(L); };
-	wrapper_osg_ImageStream(lua_State* L, lua_Table* dum, const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ImageStream(image, copyop), luna_wrapper_base(L) { register_protected_methods(L); };
+	wrapper_osg_ImageStream(lua_State* L, lua_Table* dum) 
+		: osg::ImageStream(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::ImageStream*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_ImageStream(lua_State* L, lua_Table* dum, const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osg::ImageStream(image, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::ImageStream*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:
@@ -29,6 +45,7 @@ protected:
 	// void osg::ImageStream::applyLoopingMode()
 	void applyLoopingMode() {
 		if(_obj.pushFunction("applyLoopingMode")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -37,9 +54,21 @@ protected:
 
 public:
 	// Public virtual methods:
+	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	void setThreadSafeRefUnref(bool threadSafe) {
+		if(_obj.pushFunction("setThreadSafeRefUnref")) {
+			_obj.pushArg((osg::ImageStream*)this);
+			_obj.pushArg(threadSafe);
+			return (_obj.callFunction<void>());
+		}
+
+		return ImageStream::setThreadSafeRefUnref(threadSafe);
+	};
+
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
@@ -50,6 +79,7 @@ public:
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {
 		if(_obj.pushFunction("computeDataVariance")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -59,6 +89,7 @@ public:
 	// void osg::Object::setUserData(osg::Referenced * obj)
 	void setUserData(osg::Referenced * obj) {
 		if(_obj.pushFunction("setUserData")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<void>());
 		}
@@ -69,6 +100,7 @@ public:
 	// osg::Referenced * osg::Object::getUserData()
 	osg::Referenced * getUserData() {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -78,6 +110,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
@@ -87,6 +120,7 @@ public:
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(state);
 			return (_obj.callFunction<void>());
 		}
@@ -97,6 +131,7 @@ public:
 	// const void * osg::Image::getDataPointer() const
 	const void * getDataPointer() const {
 		if(_obj.pushFunction("getDataPointer")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<void*>());
 		}
 
@@ -106,6 +141,7 @@ public:
 	// unsigned int osg::Image::getTotalDataSize() const
 	unsigned int getTotalDataSize() const {
 		if(_obj.pushFunction("getTotalDataSize")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<unsigned int>());
 		}
 
@@ -115,6 +151,7 @@ public:
 	// void osg::Image::allocateImage(int s, int t, int r, unsigned int pixelFormat, unsigned int type, int packing = 1)
 	void allocateImage(int s, int t, int r, unsigned int pixelFormat, unsigned int type, int packing = 1) {
 		if(_obj.pushFunction("allocateImage")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(s);
 			_obj.pushArg(t);
 			_obj.pushArg(r);
@@ -130,6 +167,7 @@ public:
 	// void osg::Image::setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1)
 	void setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1) {
 		if(_obj.pushFunction("setImage")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(s);
 			_obj.pushArg(t);
 			_obj.pushArg(r);
@@ -148,6 +186,7 @@ public:
 	// void osg::Image::readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type)
 	void readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type) {
 		if(_obj.pushFunction("readPixels")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(x);
 			_obj.pushArg(y);
 			_obj.pushArg(width);
@@ -163,6 +202,7 @@ public:
 	// void osg::Image::readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE)
 	void readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE) {
 		if(_obj.pushFunction("readImageFromCurrentTexture")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(contextID);
 			_obj.pushArg(copyMipMapsIfAvailable);
 			_obj.pushArg(type);
@@ -175,6 +215,7 @@ public:
 	// void osg::Image::scaleImage(int s, int t, int r, unsigned int newDataType)
 	void scaleImage(int s, int t, int r, unsigned int newDataType) {
 		if(_obj.pushFunction("scaleImage")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(s);
 			_obj.pushArg(t);
 			_obj.pushArg(r);
@@ -188,6 +229,7 @@ public:
 	// void osg::Image::copySubImage(int s_offset, int t_offset, int r_offset, const osg::Image * source)
 	void copySubImage(int s_offset, int t_offset, int r_offset, const osg::Image * source) {
 		if(_obj.pushFunction("copySubImage")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(s_offset);
 			_obj.pushArg(t_offset);
 			_obj.pushArg(r_offset);
@@ -201,6 +243,7 @@ public:
 	// bool osg::Image::isImageTranslucent() const
 	bool isImageTranslucent() const {
 		if(_obj.pushFunction("isImageTranslucent")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -210,6 +253,7 @@ public:
 	// bool osg::Image::requiresUpdateCall() const
 	bool requiresUpdateCall() const {
 		if(_obj.pushFunction("requiresUpdateCall")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -219,6 +263,7 @@ public:
 	// void osg::Image::update(osg::NodeVisitor * arg1)
 	void update(osg::NodeVisitor * arg1) {
 		if(_obj.pushFunction("update")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -229,6 +274,7 @@ public:
 	// bool osg::Image::sendFocusHint(bool arg1)
 	bool sendFocusHint(bool arg1) {
 		if(_obj.pushFunction("sendFocusHint")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<bool>());
 		}
@@ -239,6 +285,7 @@ public:
 	// bool osg::Image::sendPointerEvent(int arg1, int arg2, int arg3)
 	bool sendPointerEvent(int arg1, int arg2, int arg3) {
 		if(_obj.pushFunction("sendPointerEvent")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(arg1);
 			_obj.pushArg(arg2);
 			_obj.pushArg(arg3);
@@ -251,6 +298,7 @@ public:
 	// bool osg::Image::sendKeyEvent(int arg1, bool arg2)
 	bool sendKeyEvent(int arg1, bool arg2) {
 		if(_obj.pushFunction("sendKeyEvent")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<bool>());
@@ -262,6 +310,7 @@ public:
 	// void osg::Image::setFrameLastRendered(const osg::FrameStamp * arg1)
 	void setFrameLastRendered(const osg::FrameStamp * arg1) {
 		if(_obj.pushFunction("setFrameLastRendered")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -272,6 +321,7 @@ public:
 	// osg::Object * osg::ImageStream::cloneType() const
 	osg::Object * cloneType() const {
 		if(_obj.pushFunction("cloneType")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<osg::Object*>());
 		}
 
@@ -281,6 +331,7 @@ public:
 	// osg::Object * osg::ImageStream::clone(const osg::CopyOp & arg1) const
 	osg::Object * clone(const osg::CopyOp & arg1) const {
 		if(_obj.pushFunction("clone")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -291,6 +342,7 @@ public:
 	// bool osg::ImageStream::isSameKindAs(const osg::Object * obj) const
 	bool isSameKindAs(const osg::Object * obj) const {
 		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(obj);
 			return (_obj.callFunction<bool>());
 		}
@@ -301,6 +353,7 @@ public:
 	// const char * osg::ImageStream::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -310,6 +363,7 @@ public:
 	// const char * osg::ImageStream::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<const char*>());
 		}
 
@@ -319,6 +373,7 @@ public:
 	// int osg::ImageStream::compare(const osg::Image & rhs) const
 	int compare(const osg::Image & rhs) const {
 		if(_obj.pushFunction("compare")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(&rhs);
 			return (_obj.callFunction<int>());
 		}
@@ -329,6 +384,7 @@ public:
 	// void osg::ImageStream::seek(double arg1)
 	void seek(double arg1) {
 		if(_obj.pushFunction("seek")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -339,6 +395,7 @@ public:
 	// void osg::ImageStream::play()
 	void play() {
 		if(_obj.pushFunction("play")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -348,6 +405,7 @@ public:
 	// void osg::ImageStream::pause()
 	void pause() {
 		if(_obj.pushFunction("pause")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -357,6 +415,7 @@ public:
 	// void osg::ImageStream::rewind()
 	void rewind() {
 		if(_obj.pushFunction("rewind")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<void>());
 		}
 
@@ -366,6 +425,7 @@ public:
 	// void osg::ImageStream::quit(bool arg1 = true)
 	void quit(bool arg1 = true) {
 		if(_obj.pushFunction("quit")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -376,6 +436,7 @@ public:
 	// double osg::ImageStream::getCreationTime() const
 	double getCreationTime() const {
 		if(_obj.pushFunction("getCreationTime")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<double>());
 		}
 
@@ -385,6 +446,7 @@ public:
 	// double osg::ImageStream::getLength() const
 	double getLength() const {
 		if(_obj.pushFunction("getLength")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<double>());
 		}
 
@@ -394,6 +456,7 @@ public:
 	// double osg::ImageStream::getFrameRate() const
 	double getFrameRate() const {
 		if(_obj.pushFunction("getFrameRate")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<double>());
 		}
 
@@ -403,6 +466,7 @@ public:
 	// void osg::ImageStream::setReferenceTime(double arg1)
 	void setReferenceTime(double arg1) {
 		if(_obj.pushFunction("setReferenceTime")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -413,6 +477,7 @@ public:
 	// double osg::ImageStream::getReferenceTime() const
 	double getReferenceTime() const {
 		if(_obj.pushFunction("getReferenceTime")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<double>());
 		}
 
@@ -422,6 +487,7 @@ public:
 	// void osg::ImageStream::setTimeMultiplier(double arg1)
 	void setTimeMultiplier(double arg1) {
 		if(_obj.pushFunction("setTimeMultiplier")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -432,6 +498,7 @@ public:
 	// double osg::ImageStream::getTimeMultiplier() const
 	double getTimeMultiplier() const {
 		if(_obj.pushFunction("getTimeMultiplier")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<double>());
 		}
 
@@ -441,6 +508,7 @@ public:
 	// void osg::ImageStream::setVolume(float arg1)
 	void setVolume(float arg1) {
 		if(_obj.pushFunction("setVolume")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -451,6 +519,7 @@ public:
 	// float osg::ImageStream::getVolume() const
 	float getVolume() const {
 		if(_obj.pushFunction("getVolume")) {
+			_obj.pushArg((osg::ImageStream*)this);
 			return (_obj.callFunction<float>());
 		}
 
@@ -467,6 +536,11 @@ public:
 	// void osg::Image::setData(unsigned char * data, osg::Image::AllocationMode allocationMode)
 	void public_setData(unsigned char * data, osg::Image::AllocationMode allocationMode) {
 		return osg::Image::setData(data, allocationMode);
+	};
+
+	// osg::Image & osg::Image::operator=(const osg::Image & arg1)
+	osg::Image & public_op_assign(const osg::Image & arg1) {
+		return osg::Image::operator=(arg1);
 	};
 
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
@@ -492,6 +566,13 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_op_assign(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		return true;
 	}
 
@@ -549,6 +630,32 @@ public:
 		return 0;
 	}
 
+	// osg::Image & osg::Image::public_op_assign(const osg::Image & arg1)
+	static int _bind_public_op_assign(lua_State *L) {
+		if (!_lg_typecheck_public_op_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Image & osg::Image::public_op_assign(const osg::Image & arg1) function, expected prototype:\nosg::Image & osg::Image::public_op_assign(const osg::Image & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Image* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Image::public_op_assign function");
+		}
+		const osg::Image & _arg1=*_arg1_ptr;
+
+		wrapper_osg_ImageStream* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Image & osg::Image::public_op_assign(const osg::Image &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Image* lret = &self->public_op_assign(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Image >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osg::Referenced::public_signalObserversAndDelete(bool signalDelete, bool doDelete) const
 	static int _bind_public_signalObserversAndDelete(lua_State *L) {
 		if (!_lg_typecheck_public_signalObserversAndDelete(L)) {
@@ -590,10 +697,11 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"protected_deallocateData",_bind_public_deallocateData},
-		{"protected_setData",_bind_public_setData},
-		{"protected_signalObserversAndDelete",_bind_public_signalObserversAndDelete},
-		{"protected_deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
+		{"deallocateData",_bind_public_deallocateData},
+		{"setData",_bind_public_setData},
+		{"op_assign",_bind_public_op_assign},
+		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
+		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},
 		{NULL,NULL}
 		};
 

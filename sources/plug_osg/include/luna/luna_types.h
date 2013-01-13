@@ -3,6 +3,14 @@
 
 #include <plug_common.h>
 
+#include <OpenThreads/Atomic>
+#include <OpenThreads/Barrier>
+#include <OpenThreads/Block>
+#include <OpenThreads/Condition>
+#include <OpenThreads/Mutex>
+#include <OpenThreads/ReadWriteMutex>
+#include <OpenThreads/ReentrantMutex>
+#include <OpenThreads/Thread>
 #include <osg/Array>
 #include <osg/BoundingBox>
 #include <osg/BoundingSphere>
@@ -312,6 +320,7 @@ using namespace osgUtil;
 using namespace osgDB;
 using namespace osgText;
 using namespace osgParticle;
+using namespace OpenThreads;
 
 template<>
 class LunaTraits< __int64 > {
@@ -346,6 +355,222 @@ public:
 	static void _bind_dtor(GLUtesselator* obj);
 	typedef GLUtesselator parent_t;
 	typedef GLUtesselator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< OpenThreads::Atomic > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::Atomic* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::Atomic* obj);
+	typedef OpenThreads::Atomic parent_t;
+	typedef OpenThreads::Atomic base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< OpenThreads::AtomicPtr > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::AtomicPtr* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::AtomicPtr* obj);
+	typedef OpenThreads::AtomicPtr parent_t;
+	typedef OpenThreads::AtomicPtr base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< OpenThreads::Barrier > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::Barrier* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::Barrier* obj);
+	typedef OpenThreads::Barrier parent_t;
+	typedef OpenThreads::Barrier base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< OpenThreads::Block > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::Block* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::Block* obj);
+	typedef OpenThreads::Block parent_t;
+	typedef OpenThreads::Block base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< OpenThreads::BlockCount > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::BlockCount* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::BlockCount* obj);
+	typedef OpenThreads::BlockCount parent_t;
+	typedef OpenThreads::BlockCount base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< OpenThreads::Condition > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::Condition* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::Condition* obj);
+	typedef OpenThreads::Condition parent_t;
+	typedef OpenThreads::Condition base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< OpenThreads::Mutex > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::Mutex* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::Mutex* obj);
+	typedef OpenThreads::Mutex parent_t;
+	typedef OpenThreads::Mutex base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< OpenThreads::ReadWriteMutex > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::ReadWriteMutex* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::ReadWriteMutex* obj);
+	typedef OpenThreads::ReadWriteMutex parent_t;
+	typedef OpenThreads::ReadWriteMutex base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< OpenThreads::ScopedReadLock > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::ScopedReadLock* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::ScopedReadLock* obj);
+	typedef OpenThreads::ScopedReadLock parent_t;
+	typedef OpenThreads::ScopedReadLock base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< OpenThreads::ScopedWriteLock > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::ScopedWriteLock* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::ScopedWriteLock* obj);
+	typedef OpenThreads::ScopedWriteLock parent_t;
+	typedef OpenThreads::ScopedWriteLock base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< OpenThreads::ReentrantMutex > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::ReentrantMutex* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::ReentrantMutex* obj);
+	typedef OpenThreads::Mutex parent_t;
+	typedef OpenThreads::ReentrantMutex base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< OpenThreads::Thread > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::Thread* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::Thread* obj);
+	typedef OpenThreads::Thread parent_t;
+	typedef OpenThreads::Thread base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -4142,7 +4367,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osg::EndOfDynamicDrawBlock* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osg::EndOfDynamicDrawBlock* obj);
-	typedef osg::Referenced parent_t;
+	typedef OpenThreads::BlockCount parent_t;
 	typedef osg::EndOfDynamicDrawBlock base_t;
 	static luna_ConverterType converters[];
 };
@@ -8212,6 +8437,60 @@ public:
 	static void _bind_dtor(osg::Viewport* obj);
 	typedef osg::Referenced parent_t;
 	typedef osg::Viewport base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::ref_ptr< osg::Array > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::ref_ptr< osg::Array >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::ref_ptr< osg::Array >* obj);
+	typedef osg::ref_ptr< osg::Array > parent_t;
+	typedef osg::ref_ptr< osg::Array > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::ref_ptr< osg::Image > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::ref_ptr< osg::Image >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::ref_ptr< osg::Image >* obj);
+	typedef osg::ref_ptr< osg::Image > parent_t;
+	typedef osg::ref_ptr< osg::Image > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::ref_ptr< osg::PrimitiveSet > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::ref_ptr< osg::PrimitiveSet >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::ref_ptr< osg::PrimitiveSet >* obj);
+	typedef osg::ref_ptr< osg::PrimitiveSet > parent_t;
+	typedef osg::ref_ptr< osg::PrimitiveSet > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -14262,6 +14541,83 @@ public:
 };
 
 template<>
+class LunaType< 53605181 > {
+public:
+	typedef OpenThreads::Atomic type;
+	
+};
+
+template<>
+class LunaType< 51707784 > {
+public:
+	typedef OpenThreads::AtomicPtr type;
+	
+};
+
+template<>
+class LunaType< 8229717 > {
+public:
+	typedef OpenThreads::Barrier type;
+	
+};
+
+template<>
+class LunaType< 92736679 > {
+public:
+	typedef OpenThreads::Block type;
+	
+};
+
+template<>
+class LunaType< 46486281 > {
+public:
+	typedef OpenThreads::BlockCount type;
+	
+};
+
+template<>
+class LunaType< 25792444 > {
+public:
+	typedef OpenThreads::Condition type;
+	
+};
+
+template<>
+class LunaType< 3168391 > {
+public:
+	typedef OpenThreads::Mutex type;
+	
+};
+
+template<>
+class LunaType< 72295452 > {
+public:
+	typedef OpenThreads::ReadWriteMutex type;
+	
+};
+
+template<>
+class LunaType< 10551303 > {
+public:
+	typedef OpenThreads::ScopedReadLock type;
+	
+};
+
+template<>
+class LunaType< 25239438 > {
+public:
+	typedef OpenThreads::ScopedWriteLock type;
+	
+};
+
+template<>
+class LunaType< 86558172 > {
+public:
+	typedef OpenThreads::Thread type;
+	
+};
+
+template<>
 class LunaType< 59587824 > {
 public:
 	typedef osg::ByteArray type;
@@ -15861,6 +16217,27 @@ template<>
 class LunaType< 94812983 > {
 public:
 	typedef osg::View::Slave type;
+	
+};
+
+template<>
+class LunaType< 74215671 > {
+public:
+	typedef osg::ref_ptr< osg::Array > type;
+	
+};
+
+template<>
+class LunaType< 15557275 > {
+public:
+	typedef osg::ref_ptr< osg::Image > type;
+	
+};
+
+template<>
+class LunaType< 88770621 > {
+public:
+	typedef osg::ref_ptr< osg::PrimitiveSet > type;
 	
 };
 
@@ -17622,13 +17999,6 @@ public:
 };
 
 template<>
-class LunaType< 4564820 > {
-public:
-	typedef std::vector< double > type;
-	
-};
-
-template<>
 class LunaType< 3653432 > {
 public:
 	typedef std::pair< float, float > type;
@@ -17727,13 +18097,6 @@ public:
 };
 
 template<>
-class LunaType< 77249888 > {
-public:
-	typedef std::vector< float > type;
-	
-};
-
-template<>
 class LunaType< 37696109 > {
 public:
 	typedef std::vector< osg::ref_ptr< osg::Shape > > type;
@@ -17755,13 +18118,6 @@ public:
 };
 
 template<>
-class LunaType< 57488909 > {
-public:
-	typedef std::vector< osg::Object * > type;
-	
-};
-
-template<>
 class LunaType< 50375310 > {
 public:
 	typedef std::map< unsigned int, unsigned int > type;
@@ -17769,16 +18125,23 @@ public:
 };
 
 template<>
-class LunaType< 36696863 > {
+class LunaType< 94158825 > {
 public:
-	typedef std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int > type;
+	typedef std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > type;
 	
 };
 
 template<>
-class LunaType< 94158825 > {
+class LunaType< 57488909 > {
 public:
-	typedef std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > type;
+	typedef std::vector< osg::Object * > type;
+	
+};
+
+template<>
+class LunaType< 36696863 > {
+public:
+	typedef std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int > type;
 	
 };
 
@@ -18234,13 +18597,6 @@ template<>
 class LunaType< 65377831 > {
 public:
 	typedef std::vector< osg::ref_ptr< osgUtil::Intersector > > type;
-	
-};
-
-template<>
-class LunaType< 92299338 > {
-public:
-	typedef std::vector< int > type;
 	
 };
 

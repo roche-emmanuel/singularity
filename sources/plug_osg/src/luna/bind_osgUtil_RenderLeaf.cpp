@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -129,6 +129,104 @@ public:
 	inline static bool _lg_typecheck_getDrawable(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_parent(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_drawable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_projection(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_modelview(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_depth(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_dynamic(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_traversalNumber(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_parent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_drawable(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,91334477) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_projection(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,24622227) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_modelview(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,24622227) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_depth(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_dynamic(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_traversalNumber(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -280,6 +378,293 @@ public:
 		return 1;
 	}
 
+	// osgUtil::StateGraph * osgUtil::RenderLeaf::_parent()
+	static int _bind_get_parent(lua_State *L) {
+		if (!_lg_typecheck_get_parent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StateGraph * osgUtil::RenderLeaf::_parent() function, expected prototype:\nosgUtil::StateGraph * osgUtil::RenderLeaf::_parent()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StateGraph * osgUtil::RenderLeaf::_parent(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osgUtil::StateGraph * lret = self->_parent;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StateGraph >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osg::ref_ptr< osg::Drawable > osgUtil::RenderLeaf::_drawable()
+	static int _bind_get_drawable(lua_State *L) {
+		if (!_lg_typecheck_get_drawable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Drawable > osgUtil::RenderLeaf::_drawable() function, expected prototype:\nosg::ref_ptr< osg::Drawable > osgUtil::RenderLeaf::_drawable()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Drawable > osgUtil::RenderLeaf::_drawable(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::ref_ptr< osg::Drawable > lret = self->_drawable;
+		Luna< osg::Drawable >::push(L,lret.get(),false);
+
+		return 1;
+	}
+
+	// osg::ref_ptr< osg::RefMatrixd > osgUtil::RenderLeaf::_projection()
+	static int _bind_get_projection(lua_State *L) {
+		if (!_lg_typecheck_get_projection(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::RefMatrixd > osgUtil::RenderLeaf::_projection() function, expected prototype:\nosg::ref_ptr< osg::RefMatrixd > osgUtil::RenderLeaf::_projection()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::RefMatrixd > osgUtil::RenderLeaf::_projection(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::ref_ptr< osg::RefMatrixd > lret = self->_projection;
+		Luna< osg::RefMatrixd >::push(L,lret.get(),false);
+
+		return 1;
+	}
+
+	// osg::ref_ptr< osg::RefMatrixd > osgUtil::RenderLeaf::_modelview()
+	static int _bind_get_modelview(lua_State *L) {
+		if (!_lg_typecheck_get_modelview(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::RefMatrixd > osgUtil::RenderLeaf::_modelview() function, expected prototype:\nosg::ref_ptr< osg::RefMatrixd > osgUtil::RenderLeaf::_modelview()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::RefMatrixd > osgUtil::RenderLeaf::_modelview(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::ref_ptr< osg::RefMatrixd > lret = self->_modelview;
+		Luna< osg::RefMatrixd >::push(L,lret.get(),false);
+
+		return 1;
+	}
+
+	// float osgUtil::RenderLeaf::_depth()
+	static int _bind_get_depth(lua_State *L) {
+		if (!_lg_typecheck_get_depth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osgUtil::RenderLeaf::_depth() function, expected prototype:\nfloat osgUtil::RenderLeaf::_depth()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osgUtil::RenderLeaf::_depth(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		float lret = self->_depth;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool osgUtil::RenderLeaf::_dynamic()
+	static int _bind_get_dynamic(lua_State *L) {
+		if (!_lg_typecheck_get_dynamic(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgUtil::RenderLeaf::_dynamic() function, expected prototype:\nbool osgUtil::RenderLeaf::_dynamic()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgUtil::RenderLeaf::_dynamic(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->_dynamic;
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// unsigned int osgUtil::RenderLeaf::_traversalNumber()
+	static int _bind_get_traversalNumber(lua_State *L) {
+		if (!_lg_typecheck_get_traversalNumber(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::RenderLeaf::_traversalNumber() function, expected prototype:\nunsigned int osgUtil::RenderLeaf::_traversalNumber()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::RenderLeaf::_traversalNumber(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_traversalNumber;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgUtil::RenderLeaf::_parent(osgUtil::StateGraph * value)
+	static int _bind_set_parent(lua_State *L) {
+		if (!_lg_typecheck_set_parent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::_parent(osgUtil::StateGraph * value) function, expected prototype:\nvoid osgUtil::RenderLeaf::_parent(osgUtil::StateGraph * value)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osgUtil::StateGraph* value=(Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,2));
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::_parent(osgUtil::StateGraph *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_parent = value;
+
+		return 0;
+	}
+
+	// void osgUtil::RenderLeaf::_drawable(osg::ref_ptr< osg::Drawable > value)
+	static int _bind_set_drawable(lua_State *L) {
+		if (!_lg_typecheck_set_drawable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::_drawable(osg::ref_ptr< osg::Drawable > value) function, expected prototype:\nvoid osgUtil::RenderLeaf::_drawable(osg::ref_ptr< osg::Drawable > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::Drawable > value = dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,2));
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::_drawable(osg::ref_ptr< osg::Drawable >). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_drawable = value;
+
+		return 0;
+	}
+
+	// void osgUtil::RenderLeaf::_projection(osg::ref_ptr< osg::RefMatrixd > value)
+	static int _bind_set_projection(lua_State *L) {
+		if (!_lg_typecheck_set_projection(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::_projection(osg::ref_ptr< osg::RefMatrixd > value) function, expected prototype:\nvoid osgUtil::RenderLeaf::_projection(osg::ref_ptr< osg::RefMatrixd > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::RefMatrixd > value = dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2));
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::_projection(osg::ref_ptr< osg::RefMatrixd >). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_projection = value;
+
+		return 0;
+	}
+
+	// void osgUtil::RenderLeaf::_modelview(osg::ref_ptr< osg::RefMatrixd > value)
+	static int _bind_set_modelview(lua_State *L) {
+		if (!_lg_typecheck_set_modelview(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::_modelview(osg::ref_ptr< osg::RefMatrixd > value) function, expected prototype:\nvoid osgUtil::RenderLeaf::_modelview(osg::ref_ptr< osg::RefMatrixd > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::RefMatrixd > value = dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2));
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::_modelview(osg::ref_ptr< osg::RefMatrixd >). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_modelview = value;
+
+		return 0;
+	}
+
+	// void osgUtil::RenderLeaf::_depth(float value)
+	static int _bind_set_depth(lua_State *L) {
+		if (!_lg_typecheck_set_depth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::_depth(float value) function, expected prototype:\nvoid osgUtil::RenderLeaf::_depth(float value)\nClass arguments details:\n");
+		}
+
+		float value=(float)lua_tonumber(L,2);
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::_depth(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_depth = value;
+
+		return 0;
+	}
+
+	// void osgUtil::RenderLeaf::_dynamic(bool value)
+	static int _bind_set_dynamic(lua_State *L) {
+		if (!_lg_typecheck_set_dynamic(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::_dynamic(bool value) function, expected prototype:\nvoid osgUtil::RenderLeaf::_dynamic(bool value)\nClass arguments details:\n");
+		}
+
+		bool value=(bool)(lua_toboolean(L,2)==1);
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::_dynamic(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_dynamic = value;
+
+		return 0;
+	}
+
+	// void osgUtil::RenderLeaf::_traversalNumber(unsigned int value)
+	static int _bind_set_traversalNumber(lua_State *L) {
+		if (!_lg_typecheck_set_traversalNumber(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::_traversalNumber(unsigned int value) function, expected prototype:\nvoid osgUtil::RenderLeaf::_traversalNumber(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::_traversalNumber(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_traversalNumber = value;
+
+		return 0;
+	}
+
+	// void osgUtil::RenderLeaf::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osgUtil::RenderLeaf::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::base_setThreadSafeRefUnref(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->RenderLeaf::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
 	// void osgUtil::RenderLeaf::base_render(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf * previous)
 	static int _bind_base_render(lua_State *L) {
 		if (!_lg_typecheck_base_render(L)) {
@@ -331,6 +716,21 @@ luna_RegType LunaTraits< osgUtil::RenderLeaf >::methods[] = {
 	{"reset", &luna_wrapper_osgUtil_RenderLeaf::_bind_reset},
 	{"render", &luna_wrapper_osgUtil_RenderLeaf::_bind_render},
 	{"getDrawable", &luna_wrapper_osgUtil_RenderLeaf::_bind_getDrawable},
+	{"get_parent", &luna_wrapper_osgUtil_RenderLeaf::_bind_get_parent},
+	{"get_drawable", &luna_wrapper_osgUtil_RenderLeaf::_bind_get_drawable},
+	{"get_projection", &luna_wrapper_osgUtil_RenderLeaf::_bind_get_projection},
+	{"get_modelview", &luna_wrapper_osgUtil_RenderLeaf::_bind_get_modelview},
+	{"get_depth", &luna_wrapper_osgUtil_RenderLeaf::_bind_get_depth},
+	{"get_dynamic", &luna_wrapper_osgUtil_RenderLeaf::_bind_get_dynamic},
+	{"get_traversalNumber", &luna_wrapper_osgUtil_RenderLeaf::_bind_get_traversalNumber},
+	{"set_parent", &luna_wrapper_osgUtil_RenderLeaf::_bind_set_parent},
+	{"set_drawable", &luna_wrapper_osgUtil_RenderLeaf::_bind_set_drawable},
+	{"set_projection", &luna_wrapper_osgUtil_RenderLeaf::_bind_set_projection},
+	{"set_modelview", &luna_wrapper_osgUtil_RenderLeaf::_bind_set_modelview},
+	{"set_depth", &luna_wrapper_osgUtil_RenderLeaf::_bind_set_depth},
+	{"set_dynamic", &luna_wrapper_osgUtil_RenderLeaf::_bind_set_dynamic},
+	{"set_traversalNumber", &luna_wrapper_osgUtil_RenderLeaf::_bind_set_traversalNumber},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_RenderLeaf::_bind_base_setThreadSafeRefUnref},
 	{"base_render", &luna_wrapper_osgUtil_RenderLeaf::_bind_base_render},
 	{"__eq", &luna_wrapper_osgUtil_RenderLeaf::_bind___eq},
 	{"getTable", &luna_wrapper_osgUtil_RenderLeaf::_bind_getTable},

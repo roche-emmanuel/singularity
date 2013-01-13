@@ -22,7 +22,7 @@ public:
 			luaL_error(L, "Invalid object in function call getTable()");
 		}
 		
-		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		luna_wrapper_base* wrapper = luna_caster<Awesomium::WebView,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
 		if(wrapper) {
 			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
 			return 1;
@@ -102,12 +102,6 @@ public:
 	}
 
 	inline static bool _lg_typecheck_process_id(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_process_handle(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -610,7 +604,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Destroy()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Destroy(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->Destroy();
 
@@ -628,7 +622,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebViewType Awesomium::WebView::type()");
+			luaL_error(L, "Invalid object in function call Awesomium::WebViewType Awesomium::WebView::type(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		Awesomium::WebViewType lret = self->type();
 		lua_pushnumber(L,lret);
@@ -647,31 +641,10 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebView::process_id()");
+			luaL_error(L, "Invalid object in function call int Awesomium::WebView::process_id(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		int lret = self->process_id();
 		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
-	// ProcessHandle Awesomium::WebView::process_handle()
-	static int _bind_process_handle(lua_State *L) {
-		if (!_lg_typecheck_process_handle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ProcessHandle Awesomium::WebView::process_handle() function, expected prototype:\nProcessHandle Awesomium::WebView::process_handle()\nClass arguments details:\n");
-		}
-
-
-		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ProcessHandle Awesomium::WebView::process_handle()");
-		}
-		ProcessHandle lret = self->process_handle();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'ProcessHandle'
-		////////////////////////////////////////////////////////////////////
 
 		return 1;
 	}
@@ -688,7 +661,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_view_listener(WebViewListener::View *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_view_listener(WebViewListener::View *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_view_listener(listener);
 
@@ -707,7 +680,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_load_listener(WebViewListener::Load *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_load_listener(WebViewListener::Load *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_load_listener(listener);
 
@@ -726,7 +699,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_process_listener(WebViewListener::Process *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_process_listener(WebViewListener::Process *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_process_listener(listener);
 
@@ -745,7 +718,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_menu_listener(WebViewListener::Menu *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_menu_listener(WebViewListener::Menu *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_menu_listener(listener);
 
@@ -764,7 +737,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_dialog_listener(WebViewListener::Dialog *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_dialog_listener(WebViewListener::Dialog *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_dialog_listener(listener);
 
@@ -783,7 +756,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_print_listener(WebViewListener::Print *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_print_listener(WebViewListener::Print *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_print_listener(listener);
 
@@ -802,7 +775,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_download_listener(WebViewListener::Download *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_download_listener(WebViewListener::Download *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_download_listener(listener);
 
@@ -821,7 +794,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_input_method_editor_listener(WebViewListener::InputMethodEditor *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_input_method_editor_listener(WebViewListener::InputMethodEditor *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_input_method_editor_listener(listener);
 
@@ -839,7 +812,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::View * Awesomium::WebView::view_listener()");
+			luaL_error(L, "Invalid object in function call WebViewListener::View * Awesomium::WebView::view_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		WebViewListener::View * lret = self->view_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -860,7 +833,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::Load * Awesomium::WebView::load_listener()");
+			luaL_error(L, "Invalid object in function call WebViewListener::Load * Awesomium::WebView::load_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		WebViewListener::Load * lret = self->load_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -881,7 +854,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::Process * Awesomium::WebView::process_listener()");
+			luaL_error(L, "Invalid object in function call WebViewListener::Process * Awesomium::WebView::process_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		WebViewListener::Process * lret = self->process_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -902,7 +875,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::Menu * Awesomium::WebView::menu_listener()");
+			luaL_error(L, "Invalid object in function call WebViewListener::Menu * Awesomium::WebView::menu_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		WebViewListener::Menu * lret = self->menu_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -923,7 +896,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::Dialog * Awesomium::WebView::dialog_listener()");
+			luaL_error(L, "Invalid object in function call WebViewListener::Dialog * Awesomium::WebView::dialog_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		WebViewListener::Dialog * lret = self->dialog_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -944,7 +917,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::Print * Awesomium::WebView::print_listener()");
+			luaL_error(L, "Invalid object in function call WebViewListener::Print * Awesomium::WebView::print_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		WebViewListener::Print * lret = self->print_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -965,7 +938,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::Download * Awesomium::WebView::download_listener()");
+			luaL_error(L, "Invalid object in function call WebViewListener::Download * Awesomium::WebView::download_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		WebViewListener::Download * lret = self->download_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -986,7 +959,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::InputMethodEditor * Awesomium::WebView::input_method_editor_listener()");
+			luaL_error(L, "Invalid object in function call WebViewListener::InputMethodEditor * Awesomium::WebView::input_method_editor_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		WebViewListener::InputMethodEditor * lret = self->input_method_editor_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1012,7 +985,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::LoadURL(const Awesomium::WebURL &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::LoadURL(const Awesomium::WebURL &). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->LoadURL(url);
 
@@ -1030,7 +1003,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::GoBack()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::GoBack(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->GoBack();
 
@@ -1048,7 +1021,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::GoForward()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::GoForward(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->GoForward();
 
@@ -1067,7 +1040,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::GoToHistoryOffset(int)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::GoToHistoryOffset(int). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->GoToHistoryOffset(offset);
 
@@ -1085,7 +1058,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Stop()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Stop(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->Stop();
 
@@ -1104,7 +1077,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Reload(bool)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Reload(bool). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->Reload(ignore_cache);
 
@@ -1122,7 +1095,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::WebView::CanGoBack()");
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebView::CanGoBack(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		bool lret = self->CanGoBack();
 		lua_pushboolean(L,lret?1:0);
@@ -1141,7 +1114,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::WebView::CanGoForward()");
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebView::CanGoForward(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		bool lret = self->CanGoForward();
 		lua_pushboolean(L,lret?1:0);
@@ -1160,7 +1133,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::Surface * Awesomium::WebView::surface()");
+			luaL_error(L, "Invalid object in function call Awesomium::Surface * Awesomium::WebView::surface(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		Awesomium::Surface * lret = self->surface();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1181,7 +1154,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebURL Awesomium::WebView::url()");
+			luaL_error(L, "Invalid object in function call Awesomium::WebURL Awesomium::WebView::url(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		Awesomium::WebURL stack_lret = self->url();
 		Awesomium::WebURL* lret = new Awesomium::WebURL(stack_lret);
@@ -1203,13 +1176,11 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebView::title()");
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebView::title(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
-		Awesomium::WebString stack_lret = self->title();
-		Awesomium::WebString* lret = new Awesomium::WebString(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< Awesomium::WebString >::push(L,lret,true);
+		Awesomium::WebString lret = self->title();
+		std::string lret_str = Awesomium::ToString(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -1225,7 +1196,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebSession * Awesomium::WebView::session()");
+			luaL_error(L, "Invalid object in function call Awesomium::WebSession * Awesomium::WebView::session(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		Awesomium::WebSession * lret = self->session();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1246,7 +1217,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::WebView::IsLoading()");
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebView::IsLoading(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		bool lret = self->IsLoading();
 		lua_pushboolean(L,lret?1:0);
@@ -1265,7 +1236,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::WebView::IsCrashed()");
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebView::IsCrashed(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		bool lret = self->IsCrashed();
 		lua_pushboolean(L,lret?1:0);
@@ -1286,7 +1257,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Resize(int, int)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Resize(int, int). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->Resize(width, height);
 
@@ -1305,7 +1276,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::SetTransparent(bool)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::SetTransparent(bool). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->SetTransparent(is_transparent);
 
@@ -1323,7 +1294,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::WebView::IsTransparent()");
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebView::IsTransparent(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		bool lret = self->IsTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -1342,7 +1313,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::PauseRendering()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::PauseRendering(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->PauseRendering();
 
@@ -1360,7 +1331,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::ResumeRendering()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::ResumeRendering(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->ResumeRendering();
 
@@ -1378,7 +1349,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Focus()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Focus(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->Focus();
 
@@ -1396,7 +1367,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Unfocus()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Unfocus(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->Unfocus();
 
@@ -1414,7 +1385,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::FocusedElementType Awesomium::WebView::focused_element_type()");
+			luaL_error(L, "Invalid object in function call Awesomium::FocusedElementType Awesomium::WebView::focused_element_type(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		Awesomium::FocusedElementType lret = self->focused_element_type();
 		lua_pushnumber(L,lret);
@@ -1435,7 +1406,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::InjectMouseMove(int, int)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::InjectMouseMove(int, int). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->InjectMouseMove(x, y);
 
@@ -1454,7 +1425,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::InjectMouseDown(Awesomium::MouseButton)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::InjectMouseDown(Awesomium::MouseButton). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->InjectMouseDown(button);
 
@@ -1473,7 +1444,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::InjectMouseUp(Awesomium::MouseButton)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::InjectMouseUp(Awesomium::MouseButton). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->InjectMouseUp(button);
 
@@ -1493,7 +1464,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::InjectMouseWheel(int, int)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::InjectMouseWheel(int, int). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->InjectMouseWheel(scroll_vert, scroll_horz);
 
@@ -1516,7 +1487,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::InjectKeyboardEvent(const Awesomium::WebKeyboardEvent &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::InjectKeyboardEvent(const Awesomium::WebKeyboardEvent &). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->InjectKeyboardEvent(key_event);
 
@@ -1539,7 +1510,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::InjectTouchEvent(const Awesomium::WebTouchEvent &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::InjectTouchEvent(const Awesomium::WebTouchEvent &). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->InjectTouchEvent(touch_event);
 
@@ -1558,7 +1529,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::ActivateIME(bool)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::ActivateIME(bool). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->ActivateIME(activate);
 
@@ -1581,7 +1552,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::SetIMEComposition(const Awesomium::WebString &, int, int, int)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::SetIMEComposition(const Awesomium::WebString &, int, int, int). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->SetIMEComposition(input_string, cursor_pos, target_start, target_end);
 
@@ -1601,7 +1572,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::ConfirmIMEComposition(const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::ConfirmIMEComposition(const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->ConfirmIMEComposition(input_string);
 
@@ -1619,7 +1590,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::CancelIMEComposition()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::CancelIMEComposition(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->CancelIMEComposition();
 
@@ -1637,7 +1608,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Undo()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Undo(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->Undo();
 
@@ -1655,7 +1626,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Redo()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Redo(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->Redo();
 
@@ -1673,7 +1644,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Cut()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Cut(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->Cut();
 
@@ -1691,7 +1662,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Copy()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Copy(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->Copy();
 
@@ -1711,7 +1682,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::CopyImageAt(int, int)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::CopyImageAt(int, int). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->CopyImageAt(x, y);
 
@@ -1729,7 +1700,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Paste()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::Paste(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->Paste();
 
@@ -1747,7 +1718,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::PasteAndMatchStyle()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::PasteAndMatchStyle(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->PasteAndMatchStyle();
 
@@ -1765,7 +1736,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::SelectAll()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::SelectAll(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->SelectAll();
 
@@ -1790,7 +1761,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebView::PrintToFile(const Awesomium::WebString &, const Awesomium::PrintConfig &)");
+			luaL_error(L, "Invalid object in function call int Awesomium::WebView::PrintToFile(const Awesomium::WebString &, const Awesomium::PrintConfig &). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		int lret = self->PrintToFile(output_directory, config);
 		lua_pushnumber(L,lret);
@@ -1809,7 +1780,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::Error Awesomium::WebView::last_error() const");
+			luaL_error(L, "Invalid object in function call Awesomium::Error Awesomium::WebView::last_error() const. Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		Awesomium::Error lret = self->last_error();
 		lua_pushnumber(L,lret);
@@ -1830,7 +1801,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSValue Awesomium::WebView::CreateGlobalJavascriptObject(const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call Awesomium::JSValue Awesomium::WebView::CreateGlobalJavascriptObject(const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		Awesomium::JSValue stack_lret = self->CreateGlobalJavascriptObject(name);
 		Awesomium::JSValue* lret = new Awesomium::JSValue(stack_lret);
@@ -1856,7 +1827,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::ExecuteJavascript(const Awesomium::WebString &, const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::ExecuteJavascript(const Awesomium::WebString &, const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->ExecuteJavascript(script, frame_xpath);
 
@@ -1878,7 +1849,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSValue Awesomium::WebView::ExecuteJavascriptWithResult(const Awesomium::WebString &, const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call Awesomium::JSValue Awesomium::WebView::ExecuteJavascriptWithResult(const Awesomium::WebString &, const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		Awesomium::JSValue stack_lret = self->ExecuteJavascriptWithResult(script, frame_xpath);
 		Awesomium::JSValue* lret = new Awesomium::JSValue(stack_lret);
@@ -1901,7 +1872,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_js_method_handler(Awesomium::JSMethodHandler *)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_js_method_handler(Awesomium::JSMethodHandler *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_js_method_handler(handler);
 
@@ -1919,7 +1890,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSMethodHandler * Awesomium::WebView::js_method_handler()");
+			luaL_error(L, "Invalid object in function call Awesomium::JSMethodHandler * Awesomium::WebView::js_method_handler(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		Awesomium::JSMethodHandler * lret = self->js_method_handler();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1941,7 +1912,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::DidSelectPopupMenuItem(int)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::DidSelectPopupMenuItem(int). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->DidSelectPopupMenuItem(item_index);
 
@@ -1959,7 +1930,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::DidCancelPopupMenu()");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::DidCancelPopupMenu(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->DidCancelPopupMenu();
 
@@ -1983,7 +1954,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::DidChooseFiles(const Awesomium::WebStringArray &, bool)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::DidChooseFiles(const Awesomium::WebStringArray &, bool). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->DidChooseFiles(files, should_write_files);
 
@@ -2006,7 +1977,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::DidLogin(int, const Awesomium::WebString &, const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::DidLogin(int, const Awesomium::WebString &, const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->DidLogin(request_id, username, password);
 
@@ -2025,7 +1996,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::DidCancelLogin(int)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::DidCancelLogin(int). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->DidCancelLogin(request_id);
 
@@ -2046,7 +2017,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::DidChooseDownloadPath(int, const Awesomium::WebString &)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::DidChooseDownloadPath(int, const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->DidChooseDownloadPath(download_id, path);
 
@@ -2065,7 +2036,7 @@ public:
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::DidCancelDownload(int)");
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::DidCancelDownload(int). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->DidCancelDownload(download_id);
 
@@ -2175,7 +2146,6 @@ luna_RegType LunaTraits< Awesomium::WebView >::methods[] = {
 	{"Destroy", &luna_wrapper_Awesomium_WebView::_bind_Destroy},
 	{"type", &luna_wrapper_Awesomium_WebView::_bind_type},
 	{"process_id", &luna_wrapper_Awesomium_WebView::_bind_process_id},
-	{"process_handle", &luna_wrapper_Awesomium_WebView::_bind_process_handle},
 	{"set_view_listener", &luna_wrapper_Awesomium_WebView::_bind_set_view_listener},
 	{"set_load_listener", &luna_wrapper_Awesomium_WebView::_bind_set_load_listener},
 	{"set_process_listener", &luna_wrapper_Awesomium_WebView::_bind_set_process_listener},

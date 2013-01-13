@@ -1,0 +1,14 @@
+module=atb
+BasicVariableCallback => osg::Referenced
+BoolCallback => osg::Referenced
+ButtonCallback => osg::Referenced
+ColorCallback => osg::Referenced
+DirCallback => osg::Referenced
+DoubleCallback => osg::Referenced
+EnumCallback => osg::Referenced
+IntCallback => osg::Referenced
+QuatCallback => osg::Referenced
+StringCallback => osg::Referenced
+TwBar => TwBar
+TwEnumVal => TwEnumVal
+TwStructMember => TwStructMember
