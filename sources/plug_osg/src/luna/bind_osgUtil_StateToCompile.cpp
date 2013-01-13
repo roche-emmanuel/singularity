@@ -130,6 +130,110 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_get_drawablesHandled(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_statesetsHandled(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_mode(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_drawables(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_textures(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_programs(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_assignPBOToImages(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_pbo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_drawablesHandled(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,76374875) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_statesetsHandled(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,97002577) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_mode(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_drawables(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,76374875) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_textures(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,55546203) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_programs(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,89238351) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_assignPBOToImages(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_pbo(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,84032264) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -414,6 +518,340 @@ public:
 		if (_lg_typecheck_apply_overload_5(L)) return _bind_apply_overload_5(L);
 
 		luaL_error(L, "error in function apply, cannot match any of the overloads for function apply:\n  apply(osg::Node &)\n  apply(osg::Geode &)\n  apply(osg::Drawable &)\n  apply(osg::StateSet &)\n  apply(osg::Texture &)\n");
+		return 0;
+	}
+
+	// osgUtil::StateToCompile::DrawableSet osgUtil::StateToCompile::_drawablesHandled()
+	static int _bind_get_drawablesHandled(lua_State *L) {
+		if (!_lg_typecheck_get_drawablesHandled(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StateToCompile::DrawableSet osgUtil::StateToCompile::_drawablesHandled() function, expected prototype:\nosgUtil::StateToCompile::DrawableSet osgUtil::StateToCompile::_drawablesHandled()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StateToCompile::DrawableSet osgUtil::StateToCompile::_drawablesHandled(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::StateToCompile::DrawableSet* lret = &self->_drawablesHandled;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StateToCompile::DrawableSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgUtil::StateToCompile::StateSetSet osgUtil::StateToCompile::_statesetsHandled()
+	static int _bind_get_statesetsHandled(lua_State *L) {
+		if (!_lg_typecheck_get_statesetsHandled(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StateToCompile::StateSetSet osgUtil::StateToCompile::_statesetsHandled() function, expected prototype:\nosgUtil::StateToCompile::StateSetSet osgUtil::StateToCompile::_statesetsHandled()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StateToCompile::StateSetSet osgUtil::StateToCompile::_statesetsHandled(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::StateToCompile::StateSetSet* lret = &self->_statesetsHandled;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StateToCompile::StateSetSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// unsigned int osgUtil::StateToCompile::_mode()
+	static int _bind_get_mode(lua_State *L) {
+		if (!_lg_typecheck_get_mode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StateToCompile::_mode() function, expected prototype:\nunsigned int osgUtil::StateToCompile::_mode()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgUtil::StateToCompile::_mode(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_mode;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// osgUtil::StateToCompile::DrawableSet osgUtil::StateToCompile::_drawables()
+	static int _bind_get_drawables(lua_State *L) {
+		if (!_lg_typecheck_get_drawables(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StateToCompile::DrawableSet osgUtil::StateToCompile::_drawables() function, expected prototype:\nosgUtil::StateToCompile::DrawableSet osgUtil::StateToCompile::_drawables()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StateToCompile::DrawableSet osgUtil::StateToCompile::_drawables(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::StateToCompile::DrawableSet* lret = &self->_drawables;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StateToCompile::DrawableSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgUtil::StateToCompile::TextureSet osgUtil::StateToCompile::_textures()
+	static int _bind_get_textures(lua_State *L) {
+		if (!_lg_typecheck_get_textures(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StateToCompile::TextureSet osgUtil::StateToCompile::_textures() function, expected prototype:\nosgUtil::StateToCompile::TextureSet osgUtil::StateToCompile::_textures()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StateToCompile::TextureSet osgUtil::StateToCompile::_textures(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::StateToCompile::TextureSet* lret = &self->_textures;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StateToCompile::TextureSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgUtil::StateToCompile::ProgramSet osgUtil::StateToCompile::_programs()
+	static int _bind_get_programs(lua_State *L) {
+		if (!_lg_typecheck_get_programs(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StateToCompile::ProgramSet osgUtil::StateToCompile::_programs() function, expected prototype:\nosgUtil::StateToCompile::ProgramSet osgUtil::StateToCompile::_programs()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::StateToCompile::ProgramSet osgUtil::StateToCompile::_programs(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::StateToCompile::ProgramSet* lret = &self->_programs;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::StateToCompile::ProgramSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool osgUtil::StateToCompile::_assignPBOToImages()
+	static int _bind_get_assignPBOToImages(lua_State *L) {
+		if (!_lg_typecheck_get_assignPBOToImages(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgUtil::StateToCompile::_assignPBOToImages() function, expected prototype:\nbool osgUtil::StateToCompile::_assignPBOToImages()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgUtil::StateToCompile::_assignPBOToImages(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->_assignPBOToImages;
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// osg::ref_ptr< osg::PixelBufferObject > osgUtil::StateToCompile::_pbo()
+	static int _bind_get_pbo(lua_State *L) {
+		if (!_lg_typecheck_get_pbo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::PixelBufferObject > osgUtil::StateToCompile::_pbo() function, expected prototype:\nosg::ref_ptr< osg::PixelBufferObject > osgUtil::StateToCompile::_pbo()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::PixelBufferObject > osgUtil::StateToCompile::_pbo(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::ref_ptr< osg::PixelBufferObject > lret = self->_pbo;
+		Luna< osg::PixelBufferObject >::push(L,lret.get(),false);
+
+		return 1;
+	}
+
+	// void osgUtil::StateToCompile::_drawablesHandled(osgUtil::StateToCompile::DrawableSet value)
+	static int _bind_set_drawablesHandled(lua_State *L) {
+		if (!_lg_typecheck_set_drawablesHandled(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_drawablesHandled(osgUtil::StateToCompile::DrawableSet value) function, expected prototype:\nvoid osgUtil::StateToCompile::_drawablesHandled(osgUtil::StateToCompile::DrawableSet value)\nClass arguments details:\narg 1 ID = 70884799\n");
+		}
+
+		osgUtil::StateToCompile::DrawableSet* value_ptr=(Luna< std::set< osg::Drawable * > >::checkSubType< osgUtil::StateToCompile::DrawableSet >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StateToCompile::_drawablesHandled function");
+		}
+		osgUtil::StateToCompile::DrawableSet value=*value_ptr;
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::_drawablesHandled(osgUtil::StateToCompile::DrawableSet). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_drawablesHandled = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StateToCompile::_statesetsHandled(osgUtil::StateToCompile::StateSetSet value)
+	static int _bind_set_statesetsHandled(lua_State *L) {
+		if (!_lg_typecheck_set_statesetsHandled(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_statesetsHandled(osgUtil::StateToCompile::StateSetSet value) function, expected prototype:\nvoid osgUtil::StateToCompile::_statesetsHandled(osgUtil::StateToCompile::StateSetSet value)\nClass arguments details:\narg 1 ID = 88961844\n");
+		}
+
+		osgUtil::StateToCompile::StateSetSet* value_ptr=(Luna< std::set< osg::StateSet * > >::checkSubType< osgUtil::StateToCompile::StateSetSet >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StateToCompile::_statesetsHandled function");
+		}
+		osgUtil::StateToCompile::StateSetSet value=*value_ptr;
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::_statesetsHandled(osgUtil::StateToCompile::StateSetSet). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_statesetsHandled = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StateToCompile::_mode(unsigned int value)
+	static int _bind_set_mode(lua_State *L) {
+		if (!_lg_typecheck_set_mode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_mode(unsigned int value) function, expected prototype:\nvoid osgUtil::StateToCompile::_mode(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::_mode(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_mode = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StateToCompile::_drawables(osgUtil::StateToCompile::DrawableSet value)
+	static int _bind_set_drawables(lua_State *L) {
+		if (!_lg_typecheck_set_drawables(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_drawables(osgUtil::StateToCompile::DrawableSet value) function, expected prototype:\nvoid osgUtil::StateToCompile::_drawables(osgUtil::StateToCompile::DrawableSet value)\nClass arguments details:\narg 1 ID = 70884799\n");
+		}
+
+		osgUtil::StateToCompile::DrawableSet* value_ptr=(Luna< std::set< osg::Drawable * > >::checkSubType< osgUtil::StateToCompile::DrawableSet >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StateToCompile::_drawables function");
+		}
+		osgUtil::StateToCompile::DrawableSet value=*value_ptr;
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::_drawables(osgUtil::StateToCompile::DrawableSet). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_drawables = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StateToCompile::_textures(osgUtil::StateToCompile::TextureSet value)
+	static int _bind_set_textures(lua_State *L) {
+		if (!_lg_typecheck_set_textures(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_textures(osgUtil::StateToCompile::TextureSet value) function, expected prototype:\nvoid osgUtil::StateToCompile::_textures(osgUtil::StateToCompile::TextureSet value)\nClass arguments details:\narg 1 ID = 41341545\n");
+		}
+
+		osgUtil::StateToCompile::TextureSet* value_ptr=(Luna< std::set< osg::Texture * > >::checkSubType< osgUtil::StateToCompile::TextureSet >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StateToCompile::_textures function");
+		}
+		osgUtil::StateToCompile::TextureSet value=*value_ptr;
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::_textures(osgUtil::StateToCompile::TextureSet). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_textures = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StateToCompile::_programs(osgUtil::StateToCompile::ProgramSet value)
+	static int _bind_set_programs(lua_State *L) {
+		if (!_lg_typecheck_set_programs(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_programs(osgUtil::StateToCompile::ProgramSet value) function, expected prototype:\nvoid osgUtil::StateToCompile::_programs(osgUtil::StateToCompile::ProgramSet value)\nClass arguments details:\narg 1 ID = 13242464\n");
+		}
+
+		osgUtil::StateToCompile::ProgramSet* value_ptr=(Luna< std::set< osg::Program * > >::checkSubType< osgUtil::StateToCompile::ProgramSet >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::StateToCompile::_programs function");
+		}
+		osgUtil::StateToCompile::ProgramSet value=*value_ptr;
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::_programs(osgUtil::StateToCompile::ProgramSet). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_programs = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StateToCompile::_assignPBOToImages(bool value)
+	static int _bind_set_assignPBOToImages(lua_State *L) {
+		if (!_lg_typecheck_set_assignPBOToImages(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_assignPBOToImages(bool value) function, expected prototype:\nvoid osgUtil::StateToCompile::_assignPBOToImages(bool value)\nClass arguments details:\n");
+		}
+
+		bool value=(bool)(lua_toboolean(L,2)==1);
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::_assignPBOToImages(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_assignPBOToImages = value;
+
+		return 0;
+	}
+
+	// void osgUtil::StateToCompile::_pbo(osg::ref_ptr< osg::PixelBufferObject > value)
+	static int _bind_set_pbo(lua_State *L) {
+		if (!_lg_typecheck_set_pbo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_pbo(osg::ref_ptr< osg::PixelBufferObject > value) function, expected prototype:\nvoid osgUtil::StateToCompile::_pbo(osg::ref_ptr< osg::PixelBufferObject > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::PixelBufferObject > value = dynamic_cast< osg::PixelBufferObject* >(Luna< osg::Referenced >::check(L,2));
+
+		osgUtil::StateToCompile* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateToCompile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StateToCompile::_pbo(osg::ref_ptr< osg::PixelBufferObject >). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_pbo = value;
+
 		return 0;
 	}
 
@@ -763,6 +1201,22 @@ const int LunaTraits< osgUtil::StateToCompile >::uniqueIDs[] = {50169651,0};
 luna_RegType LunaTraits< osgUtil::StateToCompile >::methods[] = {
 	{"empty", &luna_wrapper_osgUtil_StateToCompile::_bind_empty},
 	{"apply", &luna_wrapper_osgUtil_StateToCompile::_bind_apply},
+	{"get_drawablesHandled", &luna_wrapper_osgUtil_StateToCompile::_bind_get_drawablesHandled},
+	{"get_statesetsHandled", &luna_wrapper_osgUtil_StateToCompile::_bind_get_statesetsHandled},
+	{"get_mode", &luna_wrapper_osgUtil_StateToCompile::_bind_get_mode},
+	{"get_drawables", &luna_wrapper_osgUtil_StateToCompile::_bind_get_drawables},
+	{"get_textures", &luna_wrapper_osgUtil_StateToCompile::_bind_get_textures},
+	{"get_programs", &luna_wrapper_osgUtil_StateToCompile::_bind_get_programs},
+	{"get_assignPBOToImages", &luna_wrapper_osgUtil_StateToCompile::_bind_get_assignPBOToImages},
+	{"get_pbo", &luna_wrapper_osgUtil_StateToCompile::_bind_get_pbo},
+	{"set_drawablesHandled", &luna_wrapper_osgUtil_StateToCompile::_bind_set_drawablesHandled},
+	{"set_statesetsHandled", &luna_wrapper_osgUtil_StateToCompile::_bind_set_statesetsHandled},
+	{"set_mode", &luna_wrapper_osgUtil_StateToCompile::_bind_set_mode},
+	{"set_drawables", &luna_wrapper_osgUtil_StateToCompile::_bind_set_drawables},
+	{"set_textures", &luna_wrapper_osgUtil_StateToCompile::_bind_set_textures},
+	{"set_programs", &luna_wrapper_osgUtil_StateToCompile::_bind_set_programs},
+	{"set_assignPBOToImages", &luna_wrapper_osgUtil_StateToCompile::_bind_set_assignPBOToImages},
+	{"set_pbo", &luna_wrapper_osgUtil_StateToCompile::_bind_set_pbo},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_StateToCompile::_bind_base_setThreadSafeRefUnref},
 	{"base_libraryName", &luna_wrapper_osgUtil_StateToCompile::_bind_base_libraryName},
 	{"base_className", &luna_wrapper_osgUtil_StateToCompile::_bind_base_className},

@@ -166,7 +166,7 @@ public:
 	inline static bool _lg_typecheck_setHoleList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,25393619) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,35991211) ) return false;
 		return true;
 	}
 
@@ -556,7 +556,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConvexPlanarOccluder::setHoleList(const osg::ConvexPlanarOccluder::HoleList & holeList) function, expected prototype:\nvoid osg::ConvexPlanarOccluder::setHoleList(const osg::ConvexPlanarOccluder::HoleList & holeList)\nClass arguments details:\narg 1 ID = 25393619\n");
 		}
 
-		const osg::ConvexPlanarOccluder::HoleList* holeList_ptr=(Luna< osg::ConvexPlanarOccluder::HoleList >::check(L,2));
+		const osg::ConvexPlanarOccluder::HoleList* holeList_ptr=(Luna< std::vector< osg::ConvexPlanarPolygon > >::checkSubType< osg::ConvexPlanarOccluder::HoleList >(L,2));
 		if( !holeList_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg holeList in osg::ConvexPlanarOccluder::setHoleList function");
 		}

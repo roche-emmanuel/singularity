@@ -39,3 +39,5 @@ osg.ZAXIS = osg.Vec3d(0.0,0.0,1.0)
 osg.Vec2 = osg.Vec2f
 osg.Vec3 = osg.Vec3f
 osg.Vec4 = osg.Vec4f
+
+osg.BoundingSphere = osg.osg_BoundingSphereImpl_osg_Vec3d

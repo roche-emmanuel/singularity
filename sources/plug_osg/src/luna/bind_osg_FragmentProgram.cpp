@@ -195,7 +195,7 @@ public:
 	inline static bool _lg_typecheck_setLocalParameters(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13846292) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,83621066) ) return false;
 		return true;
 	}
 
@@ -222,7 +222,7 @@ public:
 	inline static bool _lg_typecheck_setMatrices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,4745759) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,60758143) ) return false;
 		return true;
 	}
 
@@ -825,7 +825,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::setLocalParameters(const osg::FragmentProgram::LocalParamList & lpl) function, expected prototype:\nvoid osg::FragmentProgram::setLocalParameters(const osg::FragmentProgram::LocalParamList & lpl)\nClass arguments details:\narg 1 ID = 13846292\n");
 		}
 
-		const osg::FragmentProgram::LocalParamList* lpl_ptr=(Luna< osg::FragmentProgram::LocalParamList >::check(L,2));
+		const osg::FragmentProgram::LocalParamList* lpl_ptr=(Luna< std::map< unsigned int, osg::Vec4f > >::checkSubType< osg::FragmentProgram::LocalParamList >(L,2));
 		if( !lpl_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg lpl in osg::FragmentProgram::setLocalParameters function");
 		}
@@ -923,7 +923,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::FragmentProgram::setMatrices(const osg::FragmentProgram::MatrixList & matrices) function, expected prototype:\nvoid osg::FragmentProgram::setMatrices(const osg::FragmentProgram::MatrixList & matrices)\nClass arguments details:\narg 1 ID = 4745759\n");
 		}
 
-		const osg::FragmentProgram::MatrixList* matrices_ptr=(Luna< osg::FragmentProgram::MatrixList >::check(L,2));
+		const osg::FragmentProgram::MatrixList* matrices_ptr=(Luna< std::map< unsigned int, osg::Matrixd > >::checkSubType< osg::FragmentProgram::MatrixList >(L,2));
 		if( !matrices_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg matrices in osg::FragmentProgram::setMatrices function");
 		}

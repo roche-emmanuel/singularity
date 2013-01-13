@@ -255,6 +255,19 @@ ReflectionGenerator.generate{
 		"AllocExclusive",
 		
 		"WaitForThread",
+		
+		-- protected variables declared public in interface:
+		"wxDocChildFrame::m_childDocument",
+		"wxDocChildFrame::m_childView",
+		"wxDocTemplate::m_",
+		"wxExecuteEnv::env",
+		"wxGridSizesInfo::m_customSizes",
+		"wxPropertyGridHitTestResult::column",
+		"wxPropertyGridHitTestResult::splitter",
+		"wxPropertyGridHitTestResult::splitterHitOffset",
+		"wxView::m_viewDocument",
+		"wxView::m_viewTypeName",
+		"wxView::m_viewFrame",
 	},
 	ignoreWrappers={
 		"wxBitmapComboBox::IsEmpty",

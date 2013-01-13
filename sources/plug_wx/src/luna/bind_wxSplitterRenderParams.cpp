@@ -65,6 +65,24 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getBorder(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getIsHotSensitive(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getWidthSash(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -86,6 +104,63 @@ public:
 
 
 	// Function binds:
+	// const int wxSplitterRenderParams::border()
+	static int _bind_getBorder(lua_State *L) {
+		if (!_lg_typecheck_getBorder(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const int wxSplitterRenderParams::border() function, expected prototype:\nconst int wxSplitterRenderParams::border()\nClass arguments details:\n");
+		}
+
+
+		wxSplitterRenderParams* self=(Luna< wxSplitterRenderParams >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const int wxSplitterRenderParams::border(). Got : '%s'",typeid(Luna< wxSplitterRenderParams >::check(L,1)).name());
+		}
+		const int lret = self->border;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// const bool wxSplitterRenderParams::isHotSensitive()
+	static int _bind_getIsHotSensitive(lua_State *L) {
+		if (!_lg_typecheck_getIsHotSensitive(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const bool wxSplitterRenderParams::isHotSensitive() function, expected prototype:\nconst bool wxSplitterRenderParams::isHotSensitive()\nClass arguments details:\n");
+		}
+
+
+		wxSplitterRenderParams* self=(Luna< wxSplitterRenderParams >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const bool wxSplitterRenderParams::isHotSensitive(). Got : '%s'",typeid(Luna< wxSplitterRenderParams >::check(L,1)).name());
+		}
+		const bool lret = self->isHotSensitive;
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// const int wxSplitterRenderParams::widthSash()
+	static int _bind_getWidthSash(lua_State *L) {
+		if (!_lg_typecheck_getWidthSash(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const int wxSplitterRenderParams::widthSash() function, expected prototype:\nconst int wxSplitterRenderParams::widthSash()\nClass arguments details:\n");
+		}
+
+
+		wxSplitterRenderParams* self=(Luna< wxSplitterRenderParams >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const int wxSplitterRenderParams::widthSash(). Got : '%s'",typeid(Luna< wxSplitterRenderParams >::check(L,1)).name());
+		}
+		const int lret = self->widthSash;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -109,6 +184,9 @@ const int LunaTraits< wxSplitterRenderParams >::hash = 3273090;
 const int LunaTraits< wxSplitterRenderParams >::uniqueIDs[] = {3273090,0};
 
 luna_RegType LunaTraits< wxSplitterRenderParams >::methods[] = {
+	{"getBorder", &luna_wrapper_wxSplitterRenderParams::_bind_getBorder},
+	{"getIsHotSensitive", &luna_wrapper_wxSplitterRenderParams::_bind_getIsHotSensitive},
+	{"getWidthSash", &luna_wrapper_wxSplitterRenderParams::_bind_getWidthSash},
 	{"dynCast", &luna_wrapper_wxSplitterRenderParams::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxSplitterRenderParams::_bind___eq},
 	{0,0}

@@ -443,7 +443,7 @@ public:
 	inline static bool _lg_typecheck_setDescriptions(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,27507650) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,95416160) ) return false;
 		return true;
 	}
 
@@ -489,7 +489,7 @@ public:
 	inline static bool _lg_typecheck_setInitialBound(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,65870735) ) return false;
 		return true;
 	}
 
@@ -1955,7 +1955,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Node::setDescriptions(const osg::Node::DescriptionList & descriptions) function, expected prototype:\nvoid osg::Node::setDescriptions(const osg::Node::DescriptionList & descriptions)\nClass arguments details:\narg 1 ID = 27507650\n");
 		}
 
-		const osg::Node::DescriptionList* descriptions_ptr=(Luna< osg::Node::DescriptionList >::check(L,2));
+		const osg::Node::DescriptionList* descriptions_ptr=(Luna< std::vector< std::string > >::checkSubType< osg::Node::DescriptionList >(L,2));
 		if( !descriptions_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg descriptions in osg::Node::setDescriptions function");
 		}
@@ -2116,7 +2116,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Node::setInitialBound(const osg::BoundingSphered & bsphere) function, expected prototype:\nvoid osg::Node::setInitialBound(const osg::BoundingSphered & bsphere)\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSphered* bsphere_ptr=(Luna< osg::BoundingSphered >::check(L,2));
+		const osg::BoundingSphered* bsphere_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
 		if( !bsphere_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bsphere in osg::Node::setInitialBound function");
 		}

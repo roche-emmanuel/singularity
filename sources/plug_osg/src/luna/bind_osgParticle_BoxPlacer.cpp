@@ -114,8 +114,8 @@ public:
 	inline static bool _lg_typecheck_setXRange_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
-		if( (!(Luna< osgParticle::rangef >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,42175463) ) return false;
+		if( (!(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2))) ) return false;
 		return true;
 	}
 
@@ -136,8 +136,8 @@ public:
 	inline static bool _lg_typecheck_setYRange_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
-		if( (!(Luna< osgParticle::rangef >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,42175463) ) return false;
+		if( (!(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2))) ) return false;
 		return true;
 	}
 
@@ -158,8 +158,8 @@ public:
 	inline static bool _lg_typecheck_setZRange_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
-		if( (!(Luna< osgParticle::rangef >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,42175463) ) return false;
+		if( (!(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2))) ) return false;
 		return true;
 	}
 
@@ -434,7 +434,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::BoxPlacer::setXRange(const osgParticle::rangef & r) function, expected prototype:\nvoid osgParticle::BoxPlacer::setXRange(const osgParticle::rangef & r)\nClass arguments details:\narg 1 ID = 13510606\n");
 		}
 
-		const osgParticle::rangef* r_ptr=(Luna< osgParticle::rangef >::check(L,2));
+		const osgParticle::rangef* r_ptr=(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::BoxPlacer::setXRange function");
 		}
@@ -507,7 +507,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::BoxPlacer::setYRange(const osgParticle::rangef & r) function, expected prototype:\nvoid osgParticle::BoxPlacer::setYRange(const osgParticle::rangef & r)\nClass arguments details:\narg 1 ID = 13510606\n");
 		}
 
-		const osgParticle::rangef* r_ptr=(Luna< osgParticle::rangef >::check(L,2));
+		const osgParticle::rangef* r_ptr=(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::BoxPlacer::setYRange function");
 		}
@@ -580,7 +580,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::BoxPlacer::setZRange(const osgParticle::rangef & r) function, expected prototype:\nvoid osgParticle::BoxPlacer::setZRange(const osgParticle::rangef & r)\nClass arguments details:\narg 1 ID = 13510606\n");
 		}
 
-		const osgParticle::rangef* r_ptr=(Luna< osgParticle::rangef >::check(L,2));
+		const osgParticle::rangef* r_ptr=(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::BoxPlacer::setZRange function");
 		}

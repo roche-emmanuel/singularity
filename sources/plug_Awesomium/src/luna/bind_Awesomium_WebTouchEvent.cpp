@@ -62,6 +62,58 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getType(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getTouches_length(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getChanged_touches_length(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getTarget_touches_length(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setType(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setTouches_length(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setChanged_touches_length(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setTarget_touches_length(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -80,6 +132,158 @@ public:
 
 
 	// Function binds:
+	// Awesomium::WebTouchEventType Awesomium::WebTouchEvent::type()
+	static int _bind_getType(lua_State *L) {
+		if (!_lg_typecheck_getType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in Awesomium::WebTouchEventType Awesomium::WebTouchEvent::type() function, expected prototype:\nAwesomium::WebTouchEventType Awesomium::WebTouchEvent::type()\nClass arguments details:\n");
+		}
+
+
+		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call Awesomium::WebTouchEventType Awesomium::WebTouchEvent::type(). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+		}
+		Awesomium::WebTouchEventType lret = self->type;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int Awesomium::WebTouchEvent::touches_length()
+	static int _bind_getTouches_length(lua_State *L) {
+		if (!_lg_typecheck_getTouches_length(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::WebTouchEvent::touches_length() function, expected prototype:\nunsigned int Awesomium::WebTouchEvent::touches_length()\nClass arguments details:\n");
+		}
+
+
+		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebTouchEvent::touches_length(). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+		}
+		unsigned int lret = self->touches_length;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int Awesomium::WebTouchEvent::changed_touches_length()
+	static int _bind_getChanged_touches_length(lua_State *L) {
+		if (!_lg_typecheck_getChanged_touches_length(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::WebTouchEvent::changed_touches_length() function, expected prototype:\nunsigned int Awesomium::WebTouchEvent::changed_touches_length()\nClass arguments details:\n");
+		}
+
+
+		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebTouchEvent::changed_touches_length(). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+		}
+		unsigned int lret = self->changed_touches_length;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int Awesomium::WebTouchEvent::target_touches_length()
+	static int _bind_getTarget_touches_length(lua_State *L) {
+		if (!_lg_typecheck_getTarget_touches_length(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::WebTouchEvent::target_touches_length() function, expected prototype:\nunsigned int Awesomium::WebTouchEvent::target_touches_length()\nClass arguments details:\n");
+		}
+
+
+		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebTouchEvent::target_touches_length(). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+		}
+		unsigned int lret = self->target_touches_length;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void Awesomium::WebTouchEvent::type(Awesomium::WebTouchEventType value)
+	static int _bind_setType(lua_State *L) {
+		if (!_lg_typecheck_setType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchEvent::type(Awesomium::WebTouchEventType value) function, expected prototype:\nvoid Awesomium::WebTouchEvent::type(Awesomium::WebTouchEventType value)\nClass arguments details:\n");
+		}
+
+		Awesomium::WebTouchEventType value=(Awesomium::WebTouchEventType)lua_tointeger(L,2);
+
+		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchEvent::type(Awesomium::WebTouchEventType). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+		}
+		self->type = value;
+
+		return 0;
+	}
+
+	// void Awesomium::WebTouchEvent::touches_length(unsigned int value)
+	static int _bind_setTouches_length(lua_State *L) {
+		if (!_lg_typecheck_setTouches_length(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchEvent::touches_length(unsigned int value) function, expected prototype:\nvoid Awesomium::WebTouchEvent::touches_length(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchEvent::touches_length(unsigned int). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+		}
+		self->touches_length = value;
+
+		return 0;
+	}
+
+	// void Awesomium::WebTouchEvent::changed_touches_length(unsigned int value)
+	static int _bind_setChanged_touches_length(lua_State *L) {
+		if (!_lg_typecheck_setChanged_touches_length(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchEvent::changed_touches_length(unsigned int value) function, expected prototype:\nvoid Awesomium::WebTouchEvent::changed_touches_length(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchEvent::changed_touches_length(unsigned int). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+		}
+		self->changed_touches_length = value;
+
+		return 0;
+	}
+
+	// void Awesomium::WebTouchEvent::target_touches_length(unsigned int value)
+	static int _bind_setTarget_touches_length(lua_State *L) {
+		if (!_lg_typecheck_setTarget_touches_length(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchEvent::target_touches_length(unsigned int value) function, expected prototype:\nvoid Awesomium::WebTouchEvent::target_touches_length(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchEvent::target_touches_length(unsigned int). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+		}
+		self->target_touches_length = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -103,6 +307,14 @@ const int LunaTraits< Awesomium::WebTouchEvent >::hash = 93381335;
 const int LunaTraits< Awesomium::WebTouchEvent >::uniqueIDs[] = {93381335,0};
 
 luna_RegType LunaTraits< Awesomium::WebTouchEvent >::methods[] = {
+	{"getType", &luna_wrapper_Awesomium_WebTouchEvent::_bind_getType},
+	{"getTouches_length", &luna_wrapper_Awesomium_WebTouchEvent::_bind_getTouches_length},
+	{"getChanged_touches_length", &luna_wrapper_Awesomium_WebTouchEvent::_bind_getChanged_touches_length},
+	{"getTarget_touches_length", &luna_wrapper_Awesomium_WebTouchEvent::_bind_getTarget_touches_length},
+	{"setType", &luna_wrapper_Awesomium_WebTouchEvent::_bind_setType},
+	{"setTouches_length", &luna_wrapper_Awesomium_WebTouchEvent::_bind_setTouches_length},
+	{"setChanged_touches_length", &luna_wrapper_Awesomium_WebTouchEvent::_bind_setChanged_touches_length},
+	{"setTarget_touches_length", &luna_wrapper_Awesomium_WebTouchEvent::_bind_setTarget_touches_length},
 	{"dynCast", &luna_wrapper_Awesomium_WebTouchEvent::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_WebTouchEvent::_bind___eq},
 	{0,0}

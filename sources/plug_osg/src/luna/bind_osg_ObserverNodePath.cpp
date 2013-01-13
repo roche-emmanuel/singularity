@@ -71,8 +71,8 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,1,52841328) ) return false;
-		if( (!(Luna< osg::NodePath >::check(L,1))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,1,83725871) ) return false;
+		if( (!(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,1))) ) return false;
 		return true;
 	}
 
@@ -88,16 +88,16 @@ public:
 	inline static bool _lg_typecheck_setNodePath_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,65202791) ) return false;
-		if( (!(Luna< osg::RefNodePath >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,88937738) ) return false;
+		if( (!(Luna< std::vector< osg::ref_ptr< osg::Node > > >::checkSubType< osg::RefNodePath >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setNodePath_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,52841328) ) return false;
-		if( (!(Luna< osg::NodePath >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,83725871) ) return false;
+		if( (!(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2))) ) return false;
 		return true;
 	}
 
@@ -110,14 +110,14 @@ public:
 	inline static bool _lg_typecheck_getRefNodePath(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,65202791) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,88937738) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getNodePath(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,52841328) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,83725871) ) return false;
 		return true;
 	}
 
@@ -173,7 +173,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::ObserverNodePath::ObserverNodePath(const osg::NodePath & nodePath) function, expected prototype:\nosg::ObserverNodePath::ObserverNodePath(const osg::NodePath & nodePath)\nClass arguments details:\narg 1 ID = 52841328\n");
 		}
 
-		const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,1));
+		const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,1));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::ObserverNodePath::ObserverNodePath function");
 		}
@@ -220,7 +220,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ObserverNodePath::setNodePath(const osg::RefNodePath & nodePath) function, expected prototype:\nvoid osg::ObserverNodePath::setNodePath(const osg::RefNodePath & nodePath)\nClass arguments details:\narg 1 ID = 65202791\n");
 		}
 
-		const osg::RefNodePath* nodePath_ptr=(Luna< osg::RefNodePath >::check(L,2));
+		const osg::RefNodePath* nodePath_ptr=(Luna< std::vector< osg::ref_ptr< osg::Node > > >::checkSubType< osg::RefNodePath >(L,2));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::ObserverNodePath::setNodePath function");
 		}
@@ -243,7 +243,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ObserverNodePath::setNodePath(const osg::NodePath & nodePath) function, expected prototype:\nvoid osg::ObserverNodePath::setNodePath(const osg::NodePath & nodePath)\nClass arguments details:\narg 1 ID = 52841328\n");
 		}
 
-		const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,2));
+		const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::ObserverNodePath::setNodePath function");
 		}
@@ -293,7 +293,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::ObserverNodePath::getRefNodePath(osg::RefNodePath & refNodePath) const function, expected prototype:\nbool osg::ObserverNodePath::getRefNodePath(osg::RefNodePath & refNodePath) const\nClass arguments details:\narg 1 ID = 65202791\n");
 		}
 
-		osg::RefNodePath* refNodePath_ptr=(Luna< osg::RefNodePath >::check(L,2));
+		osg::RefNodePath* refNodePath_ptr=(Luna< std::vector< osg::ref_ptr< osg::Node > > >::checkSubType< osg::RefNodePath >(L,2));
 		if( !refNodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg refNodePath in osg::ObserverNodePath::getRefNodePath function");
 		}
@@ -317,7 +317,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::ObserverNodePath::getNodePath(osg::NodePath & nodePath) const function, expected prototype:\nbool osg::ObserverNodePath::getNodePath(osg::NodePath & nodePath) const\nClass arguments details:\narg 1 ID = 52841328\n");
 		}
 
-		osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,2));
+		osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::ObserverNodePath::getNodePath function");
 		}

@@ -332,7 +332,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,18740017) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,26989213) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -341,7 +341,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,48105087) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,81169401) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -350,7 +350,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,11304538) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,9185441) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -359,7 +359,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,32227808) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,51846713) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -368,7 +368,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,98997480) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,36779322) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -377,7 +377,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,2917259) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,21902908) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -485,7 +485,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,98734151) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,20911347) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -615,7 +615,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,18740017) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,26989213) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -624,7 +624,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,48105087) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,81169401) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -633,7 +633,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,11304538) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,9185441) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -642,7 +642,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,32227808) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,51846713) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -651,7 +651,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,98997480) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,36779322) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -660,7 +660,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,2917259) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,21902908) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -1494,7 +1494,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Cameras* cameras_ptr=(Luna< osgViewer::ViewerBase::Cameras >::check(L,2));
+		osgViewer::ViewerBase::Cameras* cameras_ptr=(Luna< std::vector< osg::Camera * > >::checkSubType< osgViewer::ViewerBase::Cameras >(L,2));
 		if( !cameras_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cameras in osgViewer::CompositeViewer::getCameras function");
 		}
@@ -1520,7 +1520,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Contexts* contexts_ptr=(Luna< osgViewer::ViewerBase::Contexts >::check(L,2));
+		osgViewer::ViewerBase::Contexts* contexts_ptr=(Luna< std::vector< osg::GraphicsContext * > >::checkSubType< osgViewer::ViewerBase::Contexts >(L,2));
 		if( !contexts_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg contexts in osgViewer::CompositeViewer::getContexts function");
 		}
@@ -1546,7 +1546,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Threads* threads_ptr=(Luna< osgViewer::ViewerBase::Threads >::check(L,2));
+		osgViewer::ViewerBase::Threads* threads_ptr=(Luna< std::vector< OpenThreads::Thread * > >::checkSubType< osgViewer::ViewerBase::Threads >(L,2));
 		if( !threads_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg threads in osgViewer::CompositeViewer::getAllThreads function");
 		}
@@ -1572,7 +1572,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::OperationThreads* threads_ptr=(Luna< osgViewer::ViewerBase::OperationThreads >::check(L,2));
+		osgViewer::ViewerBase::OperationThreads* threads_ptr=(Luna< std::vector< osg::OperationThread * > >::checkSubType< osgViewer::ViewerBase::OperationThreads >(L,2));
 		if( !threads_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg threads in osgViewer::CompositeViewer::getOperationThreads function");
 		}
@@ -1598,7 +1598,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Scenes* scenes_ptr=(Luna< osgViewer::ViewerBase::Scenes >::check(L,2));
+		osgViewer::ViewerBase::Scenes* scenes_ptr=(Luna< std::vector< osgViewer::Scene * > >::checkSubType< osgViewer::ViewerBase::Scenes >(L,2));
 		if( !scenes_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg scenes in osgViewer::CompositeViewer::getScenes function");
 		}
@@ -1624,7 +1624,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Views* views_ptr=(Luna< osgViewer::ViewerBase::Views >::check(L,2));
+		osgViewer::ViewerBase::Views* views_ptr=(Luna< std::vector< osgViewer::View * > >::checkSubType< osgViewer::ViewerBase::Views >(L,2));
 		if( !views_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg views in osgViewer::CompositeViewer::getViews function");
 		}
@@ -1951,7 +1951,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Windows* windows_ptr=(Luna< osgViewer::ViewerBase::Windows >::check(L,2));
+		osgViewer::ViewerBase::Windows* windows_ptr=(Luna< std::vector< osgViewer::GraphicsWindow * > >::checkSubType< osgViewer::ViewerBase::Windows >(L,2));
 		if( !windows_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg windows in osgViewer::CompositeViewer::base_getWindows function");
 		}
@@ -2367,7 +2367,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Cameras* cameras_ptr=(Luna< osgViewer::ViewerBase::Cameras >::check(L,2));
+		osgViewer::ViewerBase::Cameras* cameras_ptr=(Luna< std::vector< osg::Camera * > >::checkSubType< osgViewer::ViewerBase::Cameras >(L,2));
 		if( !cameras_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cameras in osgViewer::CompositeViewer::base_getCameras function");
 		}
@@ -2393,7 +2393,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Contexts* contexts_ptr=(Luna< osgViewer::ViewerBase::Contexts >::check(L,2));
+		osgViewer::ViewerBase::Contexts* contexts_ptr=(Luna< std::vector< osg::GraphicsContext * > >::checkSubType< osgViewer::ViewerBase::Contexts >(L,2));
 		if( !contexts_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg contexts in osgViewer::CompositeViewer::base_getContexts function");
 		}
@@ -2419,7 +2419,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Threads* threads_ptr=(Luna< osgViewer::ViewerBase::Threads >::check(L,2));
+		osgViewer::ViewerBase::Threads* threads_ptr=(Luna< std::vector< OpenThreads::Thread * > >::checkSubType< osgViewer::ViewerBase::Threads >(L,2));
 		if( !threads_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg threads in osgViewer::CompositeViewer::base_getAllThreads function");
 		}
@@ -2445,7 +2445,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::OperationThreads* threads_ptr=(Luna< osgViewer::ViewerBase::OperationThreads >::check(L,2));
+		osgViewer::ViewerBase::OperationThreads* threads_ptr=(Luna< std::vector< osg::OperationThread * > >::checkSubType< osgViewer::ViewerBase::OperationThreads >(L,2));
 		if( !threads_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg threads in osgViewer::CompositeViewer::base_getOperationThreads function");
 		}
@@ -2471,7 +2471,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Scenes* scenes_ptr=(Luna< osgViewer::ViewerBase::Scenes >::check(L,2));
+		osgViewer::ViewerBase::Scenes* scenes_ptr=(Luna< std::vector< osgViewer::Scene * > >::checkSubType< osgViewer::ViewerBase::Scenes >(L,2));
 		if( !scenes_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg scenes in osgViewer::CompositeViewer::base_getScenes function");
 		}
@@ -2497,7 +2497,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::ViewerBase::Views* views_ptr=(Luna< osgViewer::ViewerBase::Views >::check(L,2));
+		osgViewer::ViewerBase::Views* views_ptr=(Luna< std::vector< osgViewer::View * > >::checkSubType< osgViewer::ViewerBase::Views >(L,2));
 		if( !views_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg views in osgViewer::CompositeViewer::base_getViews function");
 		}

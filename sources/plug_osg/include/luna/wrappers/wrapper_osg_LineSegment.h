@@ -87,7 +87,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,92303202) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,82744897) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,41227270) ) return false;
 		return true;
 	}
 
@@ -124,7 +124,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg e in osg::LineSegment::public_intersectAndClip function");
 		}
 		osg::Vec3d & e=*e_ptr;
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,3));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,3));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::LineSegment::public_intersectAndClip function");
 		}

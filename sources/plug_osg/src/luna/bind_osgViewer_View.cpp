@@ -325,7 +325,7 @@ public:
 	inline static bool _lg_typecheck_setCoordinateSystemNodePath(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,52841328) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,83725871) ) return false;
 		return true;
 	}
 
@@ -485,8 +485,8 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,19574398) ) return false;
-		if( (!(Luna< osgUtil::LineSegmentIntersector::Intersections >::check(L,4))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,9645394) ) return false;
+		if( (!(Luna< std::multiset< osgUtil::LineSegmentIntersector::Intersection > >::checkSubType< osgUtil::LineSegmentIntersector::Intersections >(L,4))) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
@@ -497,10 +497,10 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,52841328) ) return false;
-		if( (!(Luna< osg::NodePath >::check(L,4))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,5,19574398) ) return false;
-		if( (!(Luna< osgUtil::LineSegmentIntersector::Intersections >::check(L,5))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,83725871) ) return false;
+		if( (!(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,4))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,9645394) ) return false;
+		if( (!(Luna< std::multiset< osgUtil::LineSegmentIntersector::Intersection > >::checkSubType< osgUtil::LineSegmentIntersector::Intersections >(L,5))) ) return false;
 		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		return true;
 	}
@@ -1486,7 +1486,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgViewer::View::setCoordinateSystemNodePath(const osg::NodePath & nodePath) function, expected prototype:\nvoid osgViewer::View::setCoordinateSystemNodePath(const osg::NodePath & nodePath)\nClass arguments details:\narg 1 ID = 52841328\n");
 		}
 
-		const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,2));
+		const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osgViewer::View::setCoordinateSystemNodePath function");
 		}
@@ -1921,7 +1921,7 @@ public:
 
 		float x=(float)lua_tonumber(L,2);
 		float y=(float)lua_tonumber(L,3);
-		osgUtil::LineSegmentIntersector::Intersections* intersections_ptr=(Luna< osgUtil::LineSegmentIntersector::Intersections >::check(L,4));
+		osgUtil::LineSegmentIntersector::Intersections* intersections_ptr=(Luna< std::multiset< osgUtil::LineSegmentIntersector::Intersection > >::checkSubType< osgUtil::LineSegmentIntersector::Intersections >(L,4));
 		if( !intersections_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg intersections in osgViewer::View::computeIntersections function");
 		}
@@ -1950,12 +1950,12 @@ public:
 
 		float x=(float)lua_tonumber(L,2);
 		float y=(float)lua_tonumber(L,3);
-		const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,4));
+		const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,4));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osgViewer::View::computeIntersections function");
 		}
 		const osg::NodePath & nodePath=*nodePath_ptr;
-		osgUtil::LineSegmentIntersector::Intersections* intersections_ptr=(Luna< osgUtil::LineSegmentIntersector::Intersections >::check(L,5));
+		osgUtil::LineSegmentIntersector::Intersections* intersections_ptr=(Luna< std::multiset< osgUtil::LineSegmentIntersector::Intersection > >::checkSubType< osgUtil::LineSegmentIntersector::Intersections >(L,5));
 		if( !intersections_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg intersections in osgViewer::View::computeIntersections function");
 		}

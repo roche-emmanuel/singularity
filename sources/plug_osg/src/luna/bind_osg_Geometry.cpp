@@ -773,14 +773,14 @@ public:
 	inline static bool _lg_typecheck_getArrayList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,26926568) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,44000933) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getDrawElementsList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,9739566) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,66006148) ) return false;
 		return true;
 	}
 
@@ -913,6 +913,12 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,2286263) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getS_InvalidArrayData(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -3465,7 +3471,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Geometry::getArrayList(osg::Geometry::ArrayList & arrayList) const function, expected prototype:\nbool osg::Geometry::getArrayList(osg::Geometry::ArrayList & arrayList) const\nClass arguments details:\narg 1 ID = 26926568\n");
 		}
 
-		osg::Geometry::ArrayList* arrayList_ptr=(Luna< osg::Geometry::ArrayList >::check(L,2));
+		osg::Geometry::ArrayList* arrayList_ptr=(Luna< std::vector< osg::Array * > >::checkSubType< osg::Geometry::ArrayList >(L,2));
 		if( !arrayList_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg arrayList in osg::Geometry::getArrayList function");
 		}
@@ -3489,7 +3495,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Geometry::getDrawElementsList(osg::Geometry::DrawElementsList & drawElementsList) const function, expected prototype:\nbool osg::Geometry::getDrawElementsList(osg::Geometry::DrawElementsList & drawElementsList) const\nClass arguments details:\narg 1 ID = 9739566\n");
 		}
 
-		osg::Geometry::DrawElementsList* drawElementsList_ptr=(Luna< osg::Geometry::DrawElementsList >::check(L,2));
+		osg::Geometry::DrawElementsList* drawElementsList_ptr=(Luna< std::vector< osg::DrawElements * > >::checkSubType< osg::Geometry::DrawElementsList >(L,2));
 		if( !drawElementsList_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg drawElementsList in osg::Geometry::getDrawElementsList function");
 		}
@@ -3933,6 +3939,27 @@ public:
 		self->drawImplementation(renderInfo);
 
 		return 0;
+	}
+
+	// const osg::Geometry::ArrayData osg::Geometry::s_InvalidArrayData()
+	static int _bind_getS_InvalidArrayData(lua_State *L) {
+		if (!_lg_typecheck_getS_InvalidArrayData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Geometry::ArrayData osg::Geometry::s_InvalidArrayData() function, expected prototype:\nconst osg::Geometry::ArrayData osg::Geometry::s_InvalidArrayData()\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Geometry::ArrayData osg::Geometry::s_InvalidArrayData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Geometry::ArrayData* lret = &self->s_InvalidArrayData;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Geometry::ArrayData >::push(L,lret,false);
+
+		return 1;
 	}
 
 	// void osg::Geometry::base_setName(const std::string & name)
@@ -4558,6 +4585,7 @@ luna_RegType LunaTraits< osg::Geometry >::methods[] = {
 	{"getGLObjectSizeHint", &luna_wrapper_osg_Geometry::_bind_getGLObjectSizeHint},
 	{"compileGLObjects", &luna_wrapper_osg_Geometry::_bind_compileGLObjects},
 	{"drawImplementation", &luna_wrapper_osg_Geometry::_bind_drawImplementation},
+	{"getS_InvalidArrayData", &luna_wrapper_osg_Geometry::_bind_getS_InvalidArrayData},
 	{"base_setName", &luna_wrapper_osg_Geometry::_bind_base_setName},
 	{"base_setUserData", &luna_wrapper_osg_Geometry::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osg_Geometry::_bind_base_getUserData},

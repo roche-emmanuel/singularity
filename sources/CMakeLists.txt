@@ -28,7 +28,7 @@ ENDIF()
 ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_doxmlparser)
 IF(MSVC)
-	ADD_SUBDIRECTORY(plug_wx)
+	# ADD_SUBDIRECTORY(plug_wx)
 ENDIF()
 
 # ADD_SUBDIRECTORY(plug_osg)
@@ -41,6 +41,10 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_tuio)
 # ADD_SUBDIRECTORY(plug_vlc)
 # ADD_SUBDIRECTORY(plug_atb)
+ADD_SUBDIRECTORY(plug_kinect)
+
+# ToDo:
+# ADD_SUBDIRECTORY(plug_freenect)
 
 
 ADD_SUBDIRECTORY(sgt_launcher)

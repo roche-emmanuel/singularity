@@ -452,6 +452,9 @@ function ReflectionGenerator:generateItemLinks(lti,count,tname)
                 		else
 	                		log:info("Reading sub item links for member ".. mem:name():latin1() .. " in compound " .. comp:name():latin1())
 	                		subtypes = self:generateItemLinks(mem:type(),count+1,mem:name():latin1());
+							if mem:argsstring():latin1() ~= "" then
+								subtypes:push_back(ItemLink(mem:argsstring():latin1()))
+							end
                 		end
                 	else
                     	object = self:getOrCreateMember(mem)
@@ -801,7 +804,10 @@ function ReflectionGenerator:processMembers(sec)
             -- is an attribute
             -- only add public attributes:
             local var = self:getOrCreateObject(mem,Variable)
-            var:setName(mem:name():latin1())
+            var:setName(mem:name():latin1() .. mem:argsstring():latin1())
+			local typevec = self:generateItemLinks(mem:type())
+			var:setType(Type{links=typevec})
+			var:setSection(mem:protection():latin1())
             scope:addVariable(var)
         elseif(mem:kind()==dxp.IMember.Enum) and self:isPublic(mem) then
             log:info ("   - public enum ".. mem:name():latin1());

@@ -56,6 +56,9 @@ function Class:writeFile()
 		local bname = tm:getExternalBase(bclass:getFullName()) or tm:getBaseTypeMapping(bclass:getFullName())
 		local hash = utils.getHash(bname)
 		
+		class:addVariableGetters()
+		class:addVariableSetters()
+		
 		if isVirtual then 
 			buf:writeLine("#include <luna/wrappers/wrapper_".. wname ..".h>")
 			buf:newLine()
@@ -158,6 +161,17 @@ function Class:writeFile()
 		for _,val in absoluteBases:sequence() do
 			buf:writeLine(snippets:getBaseCasterCode(fbname,val[1]))
 		end
+		
+		-- Write list of public variables:
+		--[[buf:writeLine("// public variables:")
+		local vars = class:getVariables{"Public"}
+		for _,var in vars:sequence() do
+			if var:getType() then
+				self:writeSubLine("// ${1} ${2};",var:getType():getName(),var:getName());
+			end
+		end	
+		buf:newLine()
+		]]
 		
 		buf:popIndent()
 		buf:writeLine("};")

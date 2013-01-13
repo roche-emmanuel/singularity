@@ -72,7 +72,7 @@ public:
 	inline static bool _lg_typecheck_setVertexList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,66044715) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,30220088) ) return false;
 		return true;
 	}
 
@@ -136,7 +136,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConvexPlanarPolygon::setVertexList(const osg::ConvexPlanarPolygon::VertexList & vertexList) function, expected prototype:\nvoid osg::ConvexPlanarPolygon::setVertexList(const osg::ConvexPlanarPolygon::VertexList & vertexList)\nClass arguments details:\narg 1 ID = 66044715\n");
 		}
 
-		const osg::ConvexPlanarPolygon::VertexList* vertexList_ptr=(Luna< osg::ConvexPlanarPolygon::VertexList >::check(L,2));
+		const osg::ConvexPlanarPolygon::VertexList* vertexList_ptr=(Luna< std::vector< osg::Vec3f > >::checkSubType< osg::ConvexPlanarPolygon::VertexList >(L,2));
 		if( !vertexList_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg vertexList in osg::ConvexPlanarPolygon::setVertexList function");
 		}

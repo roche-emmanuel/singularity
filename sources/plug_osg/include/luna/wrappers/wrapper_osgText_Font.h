@@ -240,7 +240,7 @@ public:
 	inline static bool _lg_typecheck_public_addGlyph(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,17799265) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,52265949) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,50169651)) ) return false;
 		return true;
@@ -269,7 +269,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgText::Font::public_addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph) function, expected prototype:\nvoid osgText::Font::public_addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph)\nClass arguments details:\narg 1 ID = 17799265\narg 3 ID = 50169651\n");
 		}
 
-		const osgText::FontResolution* fontRes_ptr=(Luna< osgText::FontResolution >::check(L,2));
+		const osgText::FontResolution* fontRes_ptr=(Luna< std::pair< unsigned int, unsigned int > >::checkSubType< osgText::FontResolution >(L,2));
 		if( !fontRes_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fontRes in osgText::Font::public_addGlyph function");
 		}

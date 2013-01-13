@@ -56,6 +56,19 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getCwd(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setCwd(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -63,6 +76,44 @@ public:
 	// Constructor binds:
 
 	// Function binds:
+	// wxString wxExecuteEnv::cwd()
+	static int _bind_getCwd(lua_State *L) {
+		if (!_lg_typecheck_getCwd(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxExecuteEnv::cwd() function, expected prototype:\nwxString wxExecuteEnv::cwd()\nClass arguments details:\n");
+		}
+
+
+		wxExecuteEnv* self=(Luna< wxExecuteEnv >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxExecuteEnv::cwd(). Got : '%s'",typeid(Luna< wxExecuteEnv >::check(L,1)).name());
+		}
+		wxString lret = self->cwd;
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// void wxExecuteEnv::cwd(wxString value)
+	static int _bind_setCwd(lua_State *L) {
+		if (!_lg_typecheck_setCwd(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxExecuteEnv::cwd(wxString value) function, expected prototype:\nvoid wxExecuteEnv::cwd(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString value(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxExecuteEnv* self=(Luna< wxExecuteEnv >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxExecuteEnv::cwd(wxString). Got : '%s'",typeid(Luna< wxExecuteEnv >::check(L,1)).name());
+		}
+		self->cwd = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -86,6 +137,8 @@ const int LunaTraits< wxExecuteEnv >::hash = 57480074;
 const int LunaTraits< wxExecuteEnv >::uniqueIDs[] = {57480074,0};
 
 luna_RegType LunaTraits< wxExecuteEnv >::methods[] = {
+	{"getCwd", &luna_wrapper_wxExecuteEnv::_bind_getCwd},
+	{"setCwd", &luna_wrapper_wxExecuteEnv::_bind_setCwd},
 	{"dynCast", &luna_wrapper_wxExecuteEnv::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxExecuteEnv::_bind___eq},
 	{0,0}

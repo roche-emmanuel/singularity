@@ -78,6 +78,19 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getM_sizeDefault(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_sizeDefault(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -142,6 +155,44 @@ public:
 		return 1;
 	}
 
+	// int wxGridSizesInfo::m_sizeDefault()
+	static int _bind_getM_sizeDefault(lua_State *L) {
+		if (!_lg_typecheck_getM_sizeDefault(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxGridSizesInfo::m_sizeDefault() function, expected prototype:\nint wxGridSizesInfo::m_sizeDefault()\nClass arguments details:\n");
+		}
+
+
+		wxGridSizesInfo* self=(Luna< wxGridSizesInfo >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxGridSizesInfo::m_sizeDefault(). Got : '%s'",typeid(Luna< wxGridSizesInfo >::check(L,1)).name());
+		}
+		int lret = self->m_sizeDefault;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxGridSizesInfo::m_sizeDefault(int value)
+	static int _bind_setM_sizeDefault(lua_State *L) {
+		if (!_lg_typecheck_setM_sizeDefault(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridSizesInfo::m_sizeDefault(int value) function, expected prototype:\nvoid wxGridSizesInfo::m_sizeDefault(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxGridSizesInfo* self=(Luna< wxGridSizesInfo >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridSizesInfo::m_sizeDefault(int). Got : '%s'",typeid(Luna< wxGridSizesInfo >::check(L,1)).name());
+		}
+		self->m_sizeDefault = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -166,6 +217,8 @@ const int LunaTraits< wxGridSizesInfo >::uniqueIDs[] = {73467241,0};
 
 luna_RegType LunaTraits< wxGridSizesInfo >::methods[] = {
 	{"GetSize", &luna_wrapper_wxGridSizesInfo::_bind_GetSize},
+	{"getM_sizeDefault", &luna_wrapper_wxGridSizesInfo::_bind_getM_sizeDefault},
+	{"setM_sizeDefault", &luna_wrapper_wxGridSizesInfo::_bind_setM_sizeDefault},
 	{"dynCast", &luna_wrapper_wxGridSizesInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxGridSizesInfo::_bind___eq},
 	{0,0}

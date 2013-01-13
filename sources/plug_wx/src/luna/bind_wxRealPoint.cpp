@@ -78,6 +78,32 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getX(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getY(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setX(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setY(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 5 valid operators)
@@ -174,6 +200,82 @@ public:
 
 
 	// Function binds:
+	// double wxRealPoint::x()
+	static int _bind_getX(lua_State *L) {
+		if (!_lg_typecheck_getX(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double wxRealPoint::x() function, expected prototype:\ndouble wxRealPoint::x()\nClass arguments details:\n");
+		}
+
+
+		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double wxRealPoint::x(). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
+		}
+		double lret = self->x;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// double wxRealPoint::y()
+	static int _bind_getY(lua_State *L) {
+		if (!_lg_typecheck_getY(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double wxRealPoint::y() function, expected prototype:\ndouble wxRealPoint::y()\nClass arguments details:\n");
+		}
+
+
+		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double wxRealPoint::y(). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
+		}
+		double lret = self->y;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxRealPoint::x(double value)
+	static int _bind_setX(lua_State *L) {
+		if (!_lg_typecheck_setX(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxRealPoint::x(double value) function, expected prototype:\nvoid wxRealPoint::x(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxRealPoint::x(double). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
+		}
+		self->x = value;
+
+		return 0;
+	}
+
+	// void wxRealPoint::y(double value)
+	static int _bind_setY(lua_State *L) {
+		if (!_lg_typecheck_setY(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxRealPoint::y(double value) function, expected prototype:\nvoid wxRealPoint::y(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxRealPoint::y(double). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
+		}
+		self->y = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// wxRealPoint & wxRealPoint::operator=(const wxRealPoint & pt)
@@ -345,6 +447,10 @@ const int LunaTraits< wxRealPoint >::hash = 40755714;
 const int LunaTraits< wxRealPoint >::uniqueIDs[] = {40755714,0};
 
 luna_RegType LunaTraits< wxRealPoint >::methods[] = {
+	{"getX", &luna_wrapper_wxRealPoint::_bind_getX},
+	{"getY", &luna_wrapper_wxRealPoint::_bind_getY},
+	{"setX", &luna_wrapper_wxRealPoint::_bind_setX},
+	{"setY", &luna_wrapper_wxRealPoint::_bind_setY},
 	{"op_assign", &luna_wrapper_wxRealPoint::_bind_op_assign},
 	{"op_add", &luna_wrapper_wxRealPoint::_bind_op_add},
 	{"op_sub", &luna_wrapper_wxRealPoint::_bind_op_sub},

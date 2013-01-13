@@ -1,8 +1,6 @@
 #!/bin/sgt
 
 
--- NOTE: Need to disable the win7 firewall for this example to work.
-
 require "luna"
  
 --require("mobdebug").start()

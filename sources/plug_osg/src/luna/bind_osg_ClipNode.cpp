@@ -161,7 +161,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,41227270) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -211,7 +211,7 @@ public:
 	inline static bool _lg_typecheck_setClipPlaneList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,73670266) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,53517213) ) return false;
 		return true;
 	}
 
@@ -703,7 +703,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::ClipNode::createClipBox function");
 		}
@@ -868,7 +868,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ClipNode::setClipPlaneList(const osg::ClipNode::ClipPlaneList & cpl) function, expected prototype:\nvoid osg::ClipNode::setClipPlaneList(const osg::ClipNode::ClipPlaneList & cpl)\nClass arguments details:\narg 1 ID = 73670266\n");
 		}
 
-		const osg::ClipNode::ClipPlaneList* cpl_ptr=(Luna< osg::ClipNode::ClipPlaneList >::check(L,2));
+		const osg::ClipNode::ClipPlaneList* cpl_ptr=(Luna< std::vector< osg::ref_ptr< osg::ClipPlane > > >::checkSubType< osg::ClipNode::ClipPlaneList >(L,2));
 		if( !cpl_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cpl in osg::ClipNode::setClipPlaneList function");
 		}

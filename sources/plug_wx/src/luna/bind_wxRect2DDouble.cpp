@@ -409,6 +409,58 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getM_x(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_y(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_width(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_height(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_x(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_y(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_width(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_height(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 3 valid operators)
@@ -1615,6 +1667,158 @@ public:
 		return 0;
 	}
 
+	// double wxRect2DDouble::m_x()
+	static int _bind_getM_x(lua_State *L) {
+		if (!_lg_typecheck_getM_x(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_x() function, expected prototype:\ndouble wxRect2DDouble::m_x()\nClass arguments details:\n");
+		}
+
+
+		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double wxRect2DDouble::m_x(). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+		}
+		double lret = self->m_x;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// double wxRect2DDouble::m_y()
+	static int _bind_getM_y(lua_State *L) {
+		if (!_lg_typecheck_getM_y(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_y() function, expected prototype:\ndouble wxRect2DDouble::m_y()\nClass arguments details:\n");
+		}
+
+
+		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double wxRect2DDouble::m_y(). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+		}
+		double lret = self->m_y;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// double wxRect2DDouble::m_width()
+	static int _bind_getM_width(lua_State *L) {
+		if (!_lg_typecheck_getM_width(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_width() function, expected prototype:\ndouble wxRect2DDouble::m_width()\nClass arguments details:\n");
+		}
+
+
+		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double wxRect2DDouble::m_width(). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+		}
+		double lret = self->m_width;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// double wxRect2DDouble::m_height()
+	static int _bind_getM_height(lua_State *L) {
+		if (!_lg_typecheck_getM_height(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_height() function, expected prototype:\ndouble wxRect2DDouble::m_height()\nClass arguments details:\n");
+		}
+
+
+		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double wxRect2DDouble::m_height(). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+		}
+		double lret = self->m_height;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxRect2DDouble::m_x(double value)
+	static int _bind_setM_x(lua_State *L) {
+		if (!_lg_typecheck_setM_x(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_x(double value) function, expected prototype:\nvoid wxRect2DDouble::m_x(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::m_x(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+		}
+		self->m_x = value;
+
+		return 0;
+	}
+
+	// void wxRect2DDouble::m_y(double value)
+	static int _bind_setM_y(lua_State *L) {
+		if (!_lg_typecheck_setM_y(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_y(double value) function, expected prototype:\nvoid wxRect2DDouble::m_y(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::m_y(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+		}
+		self->m_y = value;
+
+		return 0;
+	}
+
+	// void wxRect2DDouble::m_width(double value)
+	static int _bind_setM_width(lua_State *L) {
+		if (!_lg_typecheck_setM_width(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_width(double value) function, expected prototype:\nvoid wxRect2DDouble::m_width(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::m_width(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+		}
+		self->m_width = value;
+
+		return 0;
+	}
+
+	// void wxRect2DDouble::m_height(double value)
+	static int _bind_setM_height(lua_State *L) {
+		if (!_lg_typecheck_setM_height(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_height(double value) function, expected prototype:\nvoid wxRect2DDouble::m_height(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		wxRect2DDouble* self=(Luna< wxRect2DDouble >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxRect2DDouble::m_height(double). Got : '%s'",typeid(Luna< wxRect2DDouble >::check(L,1)).name());
+		}
+		self->m_height = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// wxRect2DDouble & wxRect2DDouble::operator=(const wxRect2DDouble & rect)
@@ -1756,6 +1960,14 @@ luna_RegType LunaTraits< wxRect2DDouble >::methods[] = {
 	{"Union", &luna_wrapper_wxRect2DDouble::_bind_Union},
 	{"CreateUnion", &luna_wrapper_wxRect2DDouble::_bind_CreateUnion},
 	{"Scale", &luna_wrapper_wxRect2DDouble::_bind_Scale},
+	{"getM_x", &luna_wrapper_wxRect2DDouble::_bind_getM_x},
+	{"getM_y", &luna_wrapper_wxRect2DDouble::_bind_getM_y},
+	{"getM_width", &luna_wrapper_wxRect2DDouble::_bind_getM_width},
+	{"getM_height", &luna_wrapper_wxRect2DDouble::_bind_getM_height},
+	{"setM_x", &luna_wrapper_wxRect2DDouble::_bind_setM_x},
+	{"setM_y", &luna_wrapper_wxRect2DDouble::_bind_setM_y},
+	{"setM_width", &luna_wrapper_wxRect2DDouble::_bind_setM_width},
+	{"setM_height", &luna_wrapper_wxRect2DDouble::_bind_setM_height},
 	{"op_assign", &luna_wrapper_wxRect2DDouble::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxRect2DDouble::_bind___eq},
 	{"op_neq", &luna_wrapper_wxRect2DDouble::_bind_op_neq},

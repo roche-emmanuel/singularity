@@ -505,7 +505,7 @@ public:
 	inline static bool _lg_typecheck_setMipmapLevels(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,63715389) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,27834872) ) return false;
 		return true;
 	}
 
@@ -2140,7 +2140,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Image::setMipmapLevels(const osg::Image::MipmapDataType & mipmapDataVector) function, expected prototype:\nvoid osg::Image::setMipmapLevels(const osg::Image::MipmapDataType & mipmapDataVector)\nClass arguments details:\narg 1 ID = 63715389\n");
 		}
 
-		const osg::Image::MipmapDataType* mipmapDataVector_ptr=(Luna< osg::Image::MipmapDataType >::check(L,2));
+		const osg::Image::MipmapDataType* mipmapDataVector_ptr=(Luna< std::vector< unsigned int > >::checkSubType< osg::Image::MipmapDataType >(L,2));
 		if( !mipmapDataVector_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg mipmapDataVector in osg::Image::setMipmapLevels function");
 		}

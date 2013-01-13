@@ -341,6 +341,60 @@ function Class:addDefaultConstructor()
 	end
 end
 
+function Class:addVariableGetters()
+	local allvars = self:getVariables{"Public","Valid"}
+	for _,var in allvars:sequence() do
+		-- add default public constructor:
+		
+		local func = Function()
+		func:setName(var:getName())
+		func:setArgsString("()")
+		func:setSection("public")
+		func:setConstness(false)
+		func:setStatic(false)
+		func:setReturnType(var:getType())
+		func:setIsGetter(true)
+		
+		self:addFunction(func)
+	end
+end
+
+function Class:addVariableSetters()
+
+	local Type = require "reflection.Type"
+	local Vector = require "std.Vector"
+	local ItemLink = require "reflection.ItemLink"
+	local Parameter = require "reflection.Parameter"
+	
+	local link = ItemLink("void")
+	local links = Vector()
+	links:push_back(link)
+			
+	local rtype = Type{links=links}
+	rtype:parse();
+	
+	local allvars = self:getVariables{"Public","Valid"}
+	for _,var in allvars:sequence() do
+		-- add default public constructor:
+		local vtype = var:getType()
+		if not vtype:isConst() then
+			local param = Parameter{type=vtype,name="value"};
+			
+			local func = Function()
+			func:getParameters():push_front(param)
+			func:setName(var:getName())
+			func:setArgsString("(" .. vtype:getName() .. " value)")
+			func:setSection("public")
+			func:setConstness(false)
+			func:setStatic(false)
+			func:setReturnType(rtype)
+			func:setIsSetter(true)
+			
+			self:addFunction(func)
+		end
+	end
+end
+
 function Class:addWrapperConstructors()
 	self:check(self._wrappersLoaded==nil,"Wrappers were already loaded.");
 	

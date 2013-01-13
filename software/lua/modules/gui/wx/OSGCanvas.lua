@@ -46,6 +46,8 @@ function Class:buildInstance()
 			self:disconnectHandlers()
 			self:info("Removing graphics context from osg canvas.");
 			self._viewer:getCamera():setGraphicsContext(nil); -- this is needed to avoid wxWidgets resource access after deletion.
+			self:info("Releasing scene...")
+			self._root:removeChildren(0,self._root:getNumChildren())
 		end
 	}};
 	

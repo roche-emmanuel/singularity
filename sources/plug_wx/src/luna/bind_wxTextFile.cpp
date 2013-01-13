@@ -207,6 +207,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getTypeDefault(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 1 valid operators)
@@ -670,6 +676,25 @@ public:
 		return 0;
 	}
 
+	// const wxTextFileType wxTextFile::typeDefault()
+	static int _bind_getTypeDefault(lua_State *L) {
+		if (!_lg_typecheck_getTypeDefault(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const wxTextFileType wxTextFile::typeDefault() function, expected prototype:\nconst wxTextFileType wxTextFile::typeDefault()\nClass arguments details:\n");
+		}
+
+
+		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const wxTextFileType wxTextFile::typeDefault(). Got : '%s'",typeid(Luna< wxTextFile >::check(L,1)).name());
+		}
+		const wxTextFileType lret = self->typeDefault;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 	// wxString & wxTextFile::operator[](size_t n) const
@@ -733,6 +758,7 @@ luna_RegType LunaTraits< wxTextFile >::methods[] = {
 	{"InsertLine", &luna_wrapper_wxTextFile::_bind_InsertLine},
 	{"IsOpened", &luna_wrapper_wxTextFile::_bind_IsOpened},
 	{"RemoveLine", &luna_wrapper_wxTextFile::_bind_RemoveLine},
+	{"getTypeDefault", &luna_wrapper_wxTextFile::_bind_getTypeDefault},
 	{"op_index", &luna_wrapper_wxTextFile::_bind_op_index},
 	{"dynCast", &luna_wrapper_wxTextFile::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxTextFile::_bind___eq},

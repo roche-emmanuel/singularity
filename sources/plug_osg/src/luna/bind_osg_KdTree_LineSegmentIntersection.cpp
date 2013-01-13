@@ -62,6 +62,136 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getRatio(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getIntersectionPoint(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getIntersectionNormal(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getP0(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getP1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getP2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getR0(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getR1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getR2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getPrimitiveIndex(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setRatio(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setIntersectionPoint(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setIntersectionNormal(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setP0(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setP1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setP2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setR0(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setR1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setR2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setPrimitiveIndex(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 1 valid operators)
@@ -87,6 +217,398 @@ public:
 
 
 	// Function binds:
+	// double osg::KdTree::LineSegmentIntersection::ratio()
+	static int _bind_getRatio(lua_State *L) {
+		if (!_lg_typecheck_getRatio(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double osg::KdTree::LineSegmentIntersection::ratio() function, expected prototype:\ndouble osg::KdTree::LineSegmentIntersection::ratio()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double osg::KdTree::LineSegmentIntersection::ratio(). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		double lret = self->ratio;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// osg::Vec3d osg::KdTree::LineSegmentIntersection::intersectionPoint()
+	static int _bind_getIntersectionPoint(lua_State *L) {
+		if (!_lg_typecheck_getIntersectionPoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::KdTree::LineSegmentIntersection::intersectionPoint() function, expected prototype:\nosg::Vec3d osg::KdTree::LineSegmentIntersection::intersectionPoint()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Vec3d osg::KdTree::LineSegmentIntersection::intersectionPoint(). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		const osg::Vec3d* lret = &self->intersectionPoint;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec3d >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osg::Vec3f osg::KdTree::LineSegmentIntersection::intersectionNormal()
+	static int _bind_getIntersectionNormal(lua_State *L) {
+		if (!_lg_typecheck_getIntersectionNormal(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osg::KdTree::LineSegmentIntersection::intersectionNormal() function, expected prototype:\nosg::Vec3f osg::KdTree::LineSegmentIntersection::intersectionNormal()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Vec3f osg::KdTree::LineSegmentIntersection::intersectionNormal(). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		const osg::Vec3f* lret = &self->intersectionNormal;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec3f >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// unsigned int osg::KdTree::LineSegmentIntersection::p0()
+	static int _bind_getP0(lua_State *L) {
+		if (!_lg_typecheck_getP0(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::LineSegmentIntersection::p0() function, expected prototype:\nunsigned int osg::KdTree::LineSegmentIntersection::p0()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::LineSegmentIntersection::p0(). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		unsigned int lret = self->p0;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osg::KdTree::LineSegmentIntersection::p1()
+	static int _bind_getP1(lua_State *L) {
+		if (!_lg_typecheck_getP1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::LineSegmentIntersection::p1() function, expected prototype:\nunsigned int osg::KdTree::LineSegmentIntersection::p1()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::LineSegmentIntersection::p1(). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		unsigned int lret = self->p1;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osg::KdTree::LineSegmentIntersection::p2()
+	static int _bind_getP2(lua_State *L) {
+		if (!_lg_typecheck_getP2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::LineSegmentIntersection::p2() function, expected prototype:\nunsigned int osg::KdTree::LineSegmentIntersection::p2()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::LineSegmentIntersection::p2(). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		unsigned int lret = self->p2;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// float osg::KdTree::LineSegmentIntersection::r0()
+	static int _bind_getR0(lua_State *L) {
+		if (!_lg_typecheck_getR0(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osg::KdTree::LineSegmentIntersection::r0() function, expected prototype:\nfloat osg::KdTree::LineSegmentIntersection::r0()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osg::KdTree::LineSegmentIntersection::r0(). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		float lret = self->r0;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// float osg::KdTree::LineSegmentIntersection::r1()
+	static int _bind_getR1(lua_State *L) {
+		if (!_lg_typecheck_getR1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osg::KdTree::LineSegmentIntersection::r1() function, expected prototype:\nfloat osg::KdTree::LineSegmentIntersection::r1()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osg::KdTree::LineSegmentIntersection::r1(). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		float lret = self->r1;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// float osg::KdTree::LineSegmentIntersection::r2()
+	static int _bind_getR2(lua_State *L) {
+		if (!_lg_typecheck_getR2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osg::KdTree::LineSegmentIntersection::r2() function, expected prototype:\nfloat osg::KdTree::LineSegmentIntersection::r2()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osg::KdTree::LineSegmentIntersection::r2(). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		float lret = self->r2;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osg::KdTree::LineSegmentIntersection::primitiveIndex()
+	static int _bind_getPrimitiveIndex(lua_State *L) {
+		if (!_lg_typecheck_getPrimitiveIndex(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::LineSegmentIntersection::primitiveIndex() function, expected prototype:\nunsigned int osg::KdTree::LineSegmentIntersection::primitiveIndex()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::LineSegmentIntersection::primitiveIndex(). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		unsigned int lret = self->primitiveIndex;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::KdTree::LineSegmentIntersection::ratio(double value)
+	static int _bind_setRatio(lua_State *L) {
+		if (!_lg_typecheck_setRatio(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::LineSegmentIntersection::ratio(double value) function, expected prototype:\nvoid osg::KdTree::LineSegmentIntersection::ratio(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTree::LineSegmentIntersection::ratio(double). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		self->ratio = value;
+
+		return 0;
+	}
+
+	// void osg::KdTree::LineSegmentIntersection::intersectionPoint(osg::Vec3d value)
+	static int _bind_setIntersectionPoint(lua_State *L) {
+		if (!_lg_typecheck_setIntersectionPoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::LineSegmentIntersection::intersectionPoint(osg::Vec3d value) function, expected prototype:\nvoid osg::KdTree::LineSegmentIntersection::intersectionPoint(osg::Vec3d value)\nClass arguments details:\narg 1 ID = 92303202\n");
+		}
+
+		osg::Vec3d* value_ptr=(Luna< osg::Vec3d >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osg::KdTree::LineSegmentIntersection::intersectionPoint function");
+		}
+		osg::Vec3d value=*value_ptr;
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTree::LineSegmentIntersection::intersectionPoint(osg::Vec3d). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		self->intersectionPoint = value;
+
+		return 0;
+	}
+
+	// void osg::KdTree::LineSegmentIntersection::intersectionNormal(osg::Vec3f value)
+	static int _bind_setIntersectionNormal(lua_State *L) {
+		if (!_lg_typecheck_setIntersectionNormal(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::LineSegmentIntersection::intersectionNormal(osg::Vec3f value) function, expected prototype:\nvoid osg::KdTree::LineSegmentIntersection::intersectionNormal(osg::Vec3f value)\nClass arguments details:\narg 1 ID = 92303204\n");
+		}
+
+		osg::Vec3f* value_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osg::KdTree::LineSegmentIntersection::intersectionNormal function");
+		}
+		osg::Vec3f value=*value_ptr;
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTree::LineSegmentIntersection::intersectionNormal(osg::Vec3f). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		self->intersectionNormal = value;
+
+		return 0;
+	}
+
+	// void osg::KdTree::LineSegmentIntersection::p0(unsigned int value)
+	static int _bind_setP0(lua_State *L) {
+		if (!_lg_typecheck_setP0(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::LineSegmentIntersection::p0(unsigned int value) function, expected prototype:\nvoid osg::KdTree::LineSegmentIntersection::p0(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTree::LineSegmentIntersection::p0(unsigned int). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		self->p0 = value;
+
+		return 0;
+	}
+
+	// void osg::KdTree::LineSegmentIntersection::p1(unsigned int value)
+	static int _bind_setP1(lua_State *L) {
+		if (!_lg_typecheck_setP1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::LineSegmentIntersection::p1(unsigned int value) function, expected prototype:\nvoid osg::KdTree::LineSegmentIntersection::p1(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTree::LineSegmentIntersection::p1(unsigned int). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		self->p1 = value;
+
+		return 0;
+	}
+
+	// void osg::KdTree::LineSegmentIntersection::p2(unsigned int value)
+	static int _bind_setP2(lua_State *L) {
+		if (!_lg_typecheck_setP2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::LineSegmentIntersection::p2(unsigned int value) function, expected prototype:\nvoid osg::KdTree::LineSegmentIntersection::p2(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTree::LineSegmentIntersection::p2(unsigned int). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		self->p2 = value;
+
+		return 0;
+	}
+
+	// void osg::KdTree::LineSegmentIntersection::r0(float value)
+	static int _bind_setR0(lua_State *L) {
+		if (!_lg_typecheck_setR0(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::LineSegmentIntersection::r0(float value) function, expected prototype:\nvoid osg::KdTree::LineSegmentIntersection::r0(float value)\nClass arguments details:\n");
+		}
+
+		float value=(float)lua_tonumber(L,2);
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTree::LineSegmentIntersection::r0(float). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		self->r0 = value;
+
+		return 0;
+	}
+
+	// void osg::KdTree::LineSegmentIntersection::r1(float value)
+	static int _bind_setR1(lua_State *L) {
+		if (!_lg_typecheck_setR1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::LineSegmentIntersection::r1(float value) function, expected prototype:\nvoid osg::KdTree::LineSegmentIntersection::r1(float value)\nClass arguments details:\n");
+		}
+
+		float value=(float)lua_tonumber(L,2);
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTree::LineSegmentIntersection::r1(float). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		self->r1 = value;
+
+		return 0;
+	}
+
+	// void osg::KdTree::LineSegmentIntersection::r2(float value)
+	static int _bind_setR2(lua_State *L) {
+		if (!_lg_typecheck_setR2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::LineSegmentIntersection::r2(float value) function, expected prototype:\nvoid osg::KdTree::LineSegmentIntersection::r2(float value)\nClass arguments details:\n");
+		}
+
+		float value=(float)lua_tonumber(L,2);
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTree::LineSegmentIntersection::r2(float). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		self->r2 = value;
+
+		return 0;
+	}
+
+	// void osg::KdTree::LineSegmentIntersection::primitiveIndex(unsigned int value)
+	static int _bind_setPrimitiveIndex(lua_State *L) {
+		if (!_lg_typecheck_setPrimitiveIndex(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::LineSegmentIntersection::primitiveIndex(unsigned int value) function, expected prototype:\nvoid osg::KdTree::LineSegmentIntersection::primitiveIndex(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osg::KdTree::LineSegmentIntersection* self=(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTree::LineSegmentIntersection::primitiveIndex(unsigned int). Got : '%s'",typeid(Luna< osg::KdTree::LineSegmentIntersection >::check(L,1)).name());
+		}
+		self->primitiveIndex = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// bool osg::KdTree::LineSegmentIntersection::operator<(const osg::KdTree::LineSegmentIntersection & rhs) const
@@ -134,6 +656,26 @@ const int LunaTraits< osg::KdTree::LineSegmentIntersection >::hash = 2943627;
 const int LunaTraits< osg::KdTree::LineSegmentIntersection >::uniqueIDs[] = {2943627,0};
 
 luna_RegType LunaTraits< osg::KdTree::LineSegmentIntersection >::methods[] = {
+	{"getRatio", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_getRatio},
+	{"getIntersectionPoint", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_getIntersectionPoint},
+	{"getIntersectionNormal", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_getIntersectionNormal},
+	{"getP0", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_getP0},
+	{"getP1", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_getP1},
+	{"getP2", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_getP2},
+	{"getR0", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_getR0},
+	{"getR1", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_getR1},
+	{"getR2", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_getR2},
+	{"getPrimitiveIndex", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_getPrimitiveIndex},
+	{"setRatio", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_setRatio},
+	{"setIntersectionPoint", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_setIntersectionPoint},
+	{"setIntersectionNormal", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_setIntersectionNormal},
+	{"setP0", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_setP0},
+	{"setP1", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_setP1},
+	{"setP2", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_setP2},
+	{"setR0", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_setR0},
+	{"setR1", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_setR1},
+	{"setR2", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_setR2},
+	{"setPrimitiveIndex", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_setPrimitiveIndex},
 	{"__lt", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind___lt},
 	{"dynCast", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_KdTree_LineSegmentIntersection::_bind___eq},

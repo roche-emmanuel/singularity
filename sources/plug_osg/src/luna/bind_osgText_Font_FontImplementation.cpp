@@ -91,7 +91,7 @@ public:
 	inline static bool _lg_typecheck_getGlyph(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,17799265) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,52265949) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -121,9 +121,22 @@ public:
 	inline static bool _lg_typecheck_addGlyph(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,17799265) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,52265949) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_facade(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_facade(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
@@ -197,7 +210,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osgText::Glyph * osgText::Font::FontImplementation::getGlyph(const osgText::FontResolution & fontRes, unsigned int charcode) function, expected prototype:\nosgText::Glyph * osgText::Font::FontImplementation::getGlyph(const osgText::FontResolution & fontRes, unsigned int charcode)\nClass arguments details:\narg 1 ID = 17799265\n");
 		}
 
-		const osgText::FontResolution* fontRes_ptr=(Luna< osgText::FontResolution >::check(L,2));
+		const osgText::FontResolution* fontRes_ptr=(Luna< std::pair< unsigned int, unsigned int > >::checkSubType< osgText::FontResolution >(L,2));
 		if( !fontRes_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fontRes in osgText::Font::FontImplementation::getGlyph function");
 		}
@@ -290,7 +303,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgText::Font::FontImplementation::addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph) function, expected prototype:\nvoid osgText::Font::FontImplementation::addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph)\nClass arguments details:\narg 1 ID = 17799265\narg 3 ID = 50169651\n");
 		}
 
-		const osgText::FontResolution* fontRes_ptr=(Luna< osgText::FontResolution >::check(L,2));
+		const osgText::FontResolution* fontRes_ptr=(Luna< std::pair< unsigned int, unsigned int > >::checkSubType< osgText::FontResolution >(L,2));
 		if( !fontRes_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fontRes in osgText::Font::FontImplementation::addGlyph function");
 		}
@@ -304,6 +317,46 @@ public:
 			luaL_error(L, "Invalid object in function call void osgText::Font::FontImplementation::addGlyph(const osgText::FontResolution &, unsigned int, osgText::Glyph *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->addGlyph(fontRes, charcode, glyph);
+
+		return 0;
+	}
+
+	// osgText::Font * osgText::Font::FontImplementation::_facade()
+	static int _bind_get_facade(lua_State *L) {
+		if (!_lg_typecheck_get_facade(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::Font * osgText::Font::FontImplementation::_facade() function, expected prototype:\nosgText::Font * osgText::Font::FontImplementation::_facade()\nClass arguments details:\n");
+		}
+
+
+		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgText::Font * osgText::Font::FontImplementation::_facade(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osgText::Font * lret = self->_facade;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgText::Font >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void osgText::Font::FontImplementation::_facade(osgText::Font * value)
+	static int _bind_set_facade(lua_State *L) {
+		if (!_lg_typecheck_set_facade(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgText::Font::FontImplementation::_facade(osgText::Font * value) function, expected prototype:\nvoid osgText::Font::FontImplementation::_facade(osgText::Font * value)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osgText::Font* value=(Luna< osg::Referenced >::checkSubType< osgText::Font >(L,2));
+
+		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgText::Font::FontImplementation::_facade(osgText::Font *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_facade = value;
 
 		return 0;
 	}
@@ -363,6 +416,8 @@ luna_RegType LunaTraits< osgText::Font::FontImplementation >::methods[] = {
 	{"getKerning", &luna_wrapper_osgText_Font_FontImplementation::_bind_getKerning},
 	{"hasVertical", &luna_wrapper_osgText_Font_FontImplementation::_bind_hasVertical},
 	{"addGlyph", &luna_wrapper_osgText_Font_FontImplementation::_bind_addGlyph},
+	{"get_facade", &luna_wrapper_osgText_Font_FontImplementation::_bind_get_facade},
+	{"set_facade", &luna_wrapper_osgText_Font_FontImplementation::_bind_set_facade},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgText_Font_FontImplementation::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osgText_Font_FontImplementation::_bind___eq},
 	{"getTable", &luna_wrapper_osgText_Font_FontImplementation::_bind_getTable},

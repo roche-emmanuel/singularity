@@ -1,0 +1,5 @@
+module=kinect
+KinectHandler => osgGA::GUIEventHandler
+KinectDataDrawer => osgGA::GUIEventHandler
+NUI_IMAGE_FRAME => NUI_IMAGE_FRAME
+NUI_SKELETON_DATA => NUI_SKELETON_DATA

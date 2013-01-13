@@ -224,8 +224,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		if( (!(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,12058436) ) return false;
-		if( (!(Luna< osgUtil::Simplifier::IndexList >::check(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,27834872) ) return false;
+		if( (!(Luna< std::vector< unsigned int > >::checkSubType< osgUtil::Simplifier::IndexList >(L,3))) ) return false;
 		return true;
 	}
 
@@ -754,7 +754,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg geometry in osgUtil::Simplifier::simplify function");
 		}
 		osg::Geometry & geometry=*geometry_ptr;
-		const osgUtil::Simplifier::IndexList* protectedPoints_ptr=(Luna< osgUtil::Simplifier::IndexList >::check(L,3));
+		const osgUtil::Simplifier::IndexList* protectedPoints_ptr=(Luna< std::vector< unsigned int > >::checkSubType< osgUtil::Simplifier::IndexList >(L,3));
 		if( !protectedPoints_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg protectedPoints in osgUtil::Simplifier::simplify function");
 		}

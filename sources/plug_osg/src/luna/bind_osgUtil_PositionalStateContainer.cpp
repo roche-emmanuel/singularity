@@ -153,6 +153,19 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_get_attrList(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_attrList(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,94794184) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -511,6 +524,50 @@ public:
 			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::draw(osg::State &, osgUtil::RenderLeaf *&, const osg::Matrixd *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->draw(state, previous, postMultMatrix);
+
+		return 0;
+	}
+
+	// osgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList()
+	static int _bind_get_attrList(lua_State *L) {
+		if (!_lg_typecheck_get_attrList(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList() function, expected prototype:\nosgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::PositionalStateContainer::AttrMatrixList* lret = &self->_attrList;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::PositionalStateContainer::AttrMatrixList >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value)
+	static int _bind_set_attrList(lua_State *L) {
+		if (!_lg_typecheck_set_attrList(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value)\nClass arguments details:\narg 1 ID = 92516775\n");
+		}
+
+		osgUtil::PositionalStateContainer::AttrMatrixList* value_ptr=(Luna< std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair > >::checkSubType< osgUtil::PositionalStateContainer::AttrMatrixList >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::PositionalStateContainer::_attrList function");
+		}
+		osgUtil::PositionalStateContainer::AttrMatrixList value=*value_ptr;
+
+		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_attrList = value;
 
 		return 0;
 	}
@@ -886,6 +943,8 @@ luna_RegType LunaTraits< osgUtil::PositionalStateContainer >::methods[] = {
 	{"addPositionedAttribute", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_addPositionedAttribute},
 	{"addPositionedTextureAttribute", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_addPositionedTextureAttribute},
 	{"draw", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_draw},
+	{"get_attrList", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_get_attrList},
+	{"set_attrList", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_set_attrList},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_base_computeDataVariance},

@@ -71,6 +71,45 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getP0(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getP1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getP2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setP0(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setP1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setP2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 1 valid operators)
@@ -119,6 +158,120 @@ public:
 
 
 	// Function binds:
+	// unsigned int osg::KdTree::Triangle::p0()
+	static int _bind_getP0(lua_State *L) {
+		if (!_lg_typecheck_getP0(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::Triangle::p0() function, expected prototype:\nunsigned int osg::KdTree::Triangle::p0()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTree::Triangle* self=(Luna< osg::KdTree::Triangle >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::Triangle::p0(). Got : '%s'",typeid(Luna< osg::KdTree::Triangle >::check(L,1)).name());
+		}
+		unsigned int lret = self->p0;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osg::KdTree::Triangle::p1()
+	static int _bind_getP1(lua_State *L) {
+		if (!_lg_typecheck_getP1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::Triangle::p1() function, expected prototype:\nunsigned int osg::KdTree::Triangle::p1()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTree::Triangle* self=(Luna< osg::KdTree::Triangle >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::Triangle::p1(). Got : '%s'",typeid(Luna< osg::KdTree::Triangle >::check(L,1)).name());
+		}
+		unsigned int lret = self->p1;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osg::KdTree::Triangle::p2()
+	static int _bind_getP2(lua_State *L) {
+		if (!_lg_typecheck_getP2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::Triangle::p2() function, expected prototype:\nunsigned int osg::KdTree::Triangle::p2()\nClass arguments details:\n");
+		}
+
+
+		osg::KdTree::Triangle* self=(Luna< osg::KdTree::Triangle >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::KdTree::Triangle::p2(). Got : '%s'",typeid(Luna< osg::KdTree::Triangle >::check(L,1)).name());
+		}
+		unsigned int lret = self->p2;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::KdTree::Triangle::p0(unsigned int value)
+	static int _bind_setP0(lua_State *L) {
+		if (!_lg_typecheck_setP0(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::Triangle::p0(unsigned int value) function, expected prototype:\nvoid osg::KdTree::Triangle::p0(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osg::KdTree::Triangle* self=(Luna< osg::KdTree::Triangle >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTree::Triangle::p0(unsigned int). Got : '%s'",typeid(Luna< osg::KdTree::Triangle >::check(L,1)).name());
+		}
+		self->p0 = value;
+
+		return 0;
+	}
+
+	// void osg::KdTree::Triangle::p1(unsigned int value)
+	static int _bind_setP1(lua_State *L) {
+		if (!_lg_typecheck_setP1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::Triangle::p1(unsigned int value) function, expected prototype:\nvoid osg::KdTree::Triangle::p1(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osg::KdTree::Triangle* self=(Luna< osg::KdTree::Triangle >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTree::Triangle::p1(unsigned int). Got : '%s'",typeid(Luna< osg::KdTree::Triangle >::check(L,1)).name());
+		}
+		self->p1 = value;
+
+		return 0;
+	}
+
+	// void osg::KdTree::Triangle::p2(unsigned int value)
+	static int _bind_setP2(lua_State *L) {
+		if (!_lg_typecheck_setP2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::KdTree::Triangle::p2(unsigned int value) function, expected prototype:\nvoid osg::KdTree::Triangle::p2(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osg::KdTree::Triangle* self=(Luna< osg::KdTree::Triangle >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::KdTree::Triangle::p2(unsigned int). Got : '%s'",typeid(Luna< osg::KdTree::Triangle >::check(L,1)).name());
+		}
+		self->p2 = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// bool osg::KdTree::Triangle::operator<(const osg::KdTree::Triangle & rhs) const
@@ -166,6 +319,12 @@ const int LunaTraits< osg::KdTree::Triangle >::hash = 43117328;
 const int LunaTraits< osg::KdTree::Triangle >::uniqueIDs[] = {43117328,0};
 
 luna_RegType LunaTraits< osg::KdTree::Triangle >::methods[] = {
+	{"getP0", &luna_wrapper_osg_KdTree_Triangle::_bind_getP0},
+	{"getP1", &luna_wrapper_osg_KdTree_Triangle::_bind_getP1},
+	{"getP2", &luna_wrapper_osg_KdTree_Triangle::_bind_getP2},
+	{"setP0", &luna_wrapper_osg_KdTree_Triangle::_bind_setP0},
+	{"setP1", &luna_wrapper_osg_KdTree_Triangle::_bind_setP1},
+	{"setP2", &luna_wrapper_osg_KdTree_Triangle::_bind_setP2},
 	{"__lt", &luna_wrapper_osg_KdTree_Triangle::_bind___lt},
 	{"dynCast", &luna_wrapper_osg_KdTree_Triangle::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_KdTree_Triangle::_bind___eq},

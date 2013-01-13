@@ -85,6 +85,19 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_get_value(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_value(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -169,6 +182,44 @@ public:
 		return 1;
 	}
 
+	// unsigned int osgDB::ObjectGLenum::_value()
+	static int _bind_get_value(lua_State *L) {
+		if (!_lg_typecheck_get_value(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ObjectGLenum::_value() function, expected prototype:\nunsigned int osgDB::ObjectGLenum::_value()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ObjectGLenum* self=(Luna< osgDB::ObjectGLenum >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgDB::ObjectGLenum::_value(). Got : '%s'",typeid(Luna< osgDB::ObjectGLenum >::check(L,1)).name());
+		}
+		unsigned int lret = self->_value;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgDB::ObjectGLenum::_value(unsigned int value)
+	static int _bind_set_value(lua_State *L) {
+		if (!_lg_typecheck_set_value(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectGLenum::_value(unsigned int value) function, expected prototype:\nvoid osgDB::ObjectGLenum::_value(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgDB::ObjectGLenum* self=(Luna< osgDB::ObjectGLenum >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectGLenum::_value(unsigned int). Got : '%s'",typeid(Luna< osgDB::ObjectGLenum >::check(L,1)).name());
+		}
+		self->_value = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -194,6 +245,8 @@ const int LunaTraits< osgDB::ObjectGLenum >::uniqueIDs[] = {32567652,0};
 luna_RegType LunaTraits< osgDB::ObjectGLenum >::methods[] = {
 	{"set", &luna_wrapper_osgDB_ObjectGLenum::_bind_set},
 	{"get", &luna_wrapper_osgDB_ObjectGLenum::_bind_get},
+	{"get_value", &luna_wrapper_osgDB_ObjectGLenum::_bind_get_value},
+	{"set_value", &luna_wrapper_osgDB_ObjectGLenum::_bind_set_value},
 	{"dynCast", &luna_wrapper_osgDB_ObjectGLenum::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgDB_ObjectGLenum::_bind___eq},
 	{0,0}

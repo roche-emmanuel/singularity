@@ -197,7 +197,7 @@ public:
 	inline static bool _lg_typecheck_assign(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,93067344) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,55588956) ) return false;
 		return true;
 	}
 
@@ -658,7 +658,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::TransferFunction1D::assign(const osg::TransferFunction1D::ColorMap & vcm) function, expected prototype:\nvoid osg::TransferFunction1D::assign(const osg::TransferFunction1D::ColorMap & vcm)\nClass arguments details:\narg 1 ID = 93067344\n");
 		}
 
-		const osg::TransferFunction1D::ColorMap* vcm_ptr=(Luna< osg::TransferFunction1D::ColorMap >::check(L,2));
+		const osg::TransferFunction1D::ColorMap* vcm_ptr=(Luna< std::map< float, osg::Vec4f > >::checkSubType< osg::TransferFunction1D::ColorMap >(L,2));
 		if( !vcm_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg vcm in osg::TransferFunction1D::assign function");
 		}

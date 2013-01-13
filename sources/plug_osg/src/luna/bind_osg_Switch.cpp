@@ -272,7 +272,7 @@ public:
 	inline static bool _lg_typecheck_setValueList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,23153681) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,61721661) ) return false;
 		return true;
 	}
 
@@ -1096,7 +1096,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Switch::setValueList(const osg::Switch::ValueList & values) function, expected prototype:\nvoid osg::Switch::setValueList(const osg::Switch::ValueList & values)\nClass arguments details:\narg 1 ID = 23153681\n");
 		}
 
-		const osg::Switch::ValueList* values_ptr=(Luna< osg::Switch::ValueList >::check(L,2));
+		const osg::Switch::ValueList* values_ptr=(Luna< std::vector< bool > >::checkSubType< osg::Switch::ValueList >(L,2));
 		if( !values_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg values in osg::Switch::setValueList function");
 		}

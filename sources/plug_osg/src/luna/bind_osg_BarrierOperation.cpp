@@ -108,6 +108,19 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_get_preBlockOp(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_preBlockOp(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -210,6 +223,44 @@ public:
 			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::release(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->release();
+
+		return 0;
+	}
+
+	// osg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp()
+	static int _bind_get_preBlockOp(lua_State *L) {
+		if (!_lg_typecheck_get_preBlockOp(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp() function, expected prototype:\nosg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp()\nClass arguments details:\n");
+		}
+
+
+		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::BarrierOperation::PreBlockOp lret = self->_preBlockOp;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp value)
+	static int _bind_set_preBlockOp(lua_State *L) {
+		if (!_lg_typecheck_set_preBlockOp(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp value) function, expected prototype:\nvoid osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp value)\nClass arguments details:\n");
+		}
+
+		osg::BarrierOperation::PreBlockOp value=(osg::BarrierOperation::PreBlockOp)lua_tointeger(L,2);
+
+		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_preBlockOp = value;
 
 		return 0;
 	}
@@ -378,6 +429,8 @@ const int LunaTraits< osg::BarrierOperation >::uniqueIDs[] = {50169651, 8229717,
 
 luna_RegType LunaTraits< osg::BarrierOperation >::methods[] = {
 	{"release", &luna_wrapper_osg_BarrierOperation::_bind_release},
+	{"get_preBlockOp", &luna_wrapper_osg_BarrierOperation::_bind_get_preBlockOp},
+	{"set_preBlockOp", &luna_wrapper_osg_BarrierOperation::_bind_set_preBlockOp},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_BarrierOperation::_bind_base_setThreadSafeRefUnref},
 	{"base_reset", &luna_wrapper_osg_BarrierOperation::_bind_base_reset},
 	{"base_block", &luna_wrapper_osg_BarrierOperation::_bind_base_block},

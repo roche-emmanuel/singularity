@@ -96,6 +96,110 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getLeft(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getTop(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getRight(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getBottom(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getWidth(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getHeight(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getCentreX(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getCentreY(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setLeft(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setTop(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setRight(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setBottom(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setWidth(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setHeight(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setCentreX(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setCentreY(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -180,6 +284,358 @@ public:
 		return 1;
 	}
 
+	// wxIndividualLayoutConstraint wxLayoutConstraints::left()
+	static int _bind_getLeft(lua_State *L) {
+		if (!_lg_typecheck_getLeft(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIndividualLayoutConstraint wxLayoutConstraints::left() function, expected prototype:\nwxIndividualLayoutConstraint wxLayoutConstraints::left()\nClass arguments details:\n");
+		}
+
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxIndividualLayoutConstraint wxLayoutConstraints::left(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxIndividualLayoutConstraint* lret = &self->left;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxIndividualLayoutConstraint >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxIndividualLayoutConstraint wxLayoutConstraints::top()
+	static int _bind_getTop(lua_State *L) {
+		if (!_lg_typecheck_getTop(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIndividualLayoutConstraint wxLayoutConstraints::top() function, expected prototype:\nwxIndividualLayoutConstraint wxLayoutConstraints::top()\nClass arguments details:\n");
+		}
+
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxIndividualLayoutConstraint wxLayoutConstraints::top(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxIndividualLayoutConstraint* lret = &self->top;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxIndividualLayoutConstraint >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxIndividualLayoutConstraint wxLayoutConstraints::right()
+	static int _bind_getRight(lua_State *L) {
+		if (!_lg_typecheck_getRight(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIndividualLayoutConstraint wxLayoutConstraints::right() function, expected prototype:\nwxIndividualLayoutConstraint wxLayoutConstraints::right()\nClass arguments details:\n");
+		}
+
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxIndividualLayoutConstraint wxLayoutConstraints::right(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxIndividualLayoutConstraint* lret = &self->right;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxIndividualLayoutConstraint >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxIndividualLayoutConstraint wxLayoutConstraints::bottom()
+	static int _bind_getBottom(lua_State *L) {
+		if (!_lg_typecheck_getBottom(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIndividualLayoutConstraint wxLayoutConstraints::bottom() function, expected prototype:\nwxIndividualLayoutConstraint wxLayoutConstraints::bottom()\nClass arguments details:\n");
+		}
+
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxIndividualLayoutConstraint wxLayoutConstraints::bottom(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxIndividualLayoutConstraint* lret = &self->bottom;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxIndividualLayoutConstraint >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxIndividualLayoutConstraint wxLayoutConstraints::width()
+	static int _bind_getWidth(lua_State *L) {
+		if (!_lg_typecheck_getWidth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIndividualLayoutConstraint wxLayoutConstraints::width() function, expected prototype:\nwxIndividualLayoutConstraint wxLayoutConstraints::width()\nClass arguments details:\n");
+		}
+
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxIndividualLayoutConstraint wxLayoutConstraints::width(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxIndividualLayoutConstraint* lret = &self->width;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxIndividualLayoutConstraint >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxIndividualLayoutConstraint wxLayoutConstraints::height()
+	static int _bind_getHeight(lua_State *L) {
+		if (!_lg_typecheck_getHeight(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIndividualLayoutConstraint wxLayoutConstraints::height() function, expected prototype:\nwxIndividualLayoutConstraint wxLayoutConstraints::height()\nClass arguments details:\n");
+		}
+
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxIndividualLayoutConstraint wxLayoutConstraints::height(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxIndividualLayoutConstraint* lret = &self->height;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxIndividualLayoutConstraint >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxIndividualLayoutConstraint wxLayoutConstraints::centreX()
+	static int _bind_getCentreX(lua_State *L) {
+		if (!_lg_typecheck_getCentreX(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIndividualLayoutConstraint wxLayoutConstraints::centreX() function, expected prototype:\nwxIndividualLayoutConstraint wxLayoutConstraints::centreX()\nClass arguments details:\n");
+		}
+
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxIndividualLayoutConstraint wxLayoutConstraints::centreX(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxIndividualLayoutConstraint* lret = &self->centreX;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxIndividualLayoutConstraint >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxIndividualLayoutConstraint wxLayoutConstraints::centreY()
+	static int _bind_getCentreY(lua_State *L) {
+		if (!_lg_typecheck_getCentreY(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIndividualLayoutConstraint wxLayoutConstraints::centreY() function, expected prototype:\nwxIndividualLayoutConstraint wxLayoutConstraints::centreY()\nClass arguments details:\n");
+		}
+
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxIndividualLayoutConstraint wxLayoutConstraints::centreY(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		const wxIndividualLayoutConstraint* lret = &self->centreY;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxIndividualLayoutConstraint >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxLayoutConstraints::left(wxIndividualLayoutConstraint value)
+	static int _bind_setLeft(lua_State *L) {
+		if (!_lg_typecheck_setLeft(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxLayoutConstraints::left(wxIndividualLayoutConstraint value) function, expected prototype:\nvoid wxLayoutConstraints::left(wxIndividualLayoutConstraint value)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxIndividualLayoutConstraint* value_ptr=(Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxLayoutConstraints::left function");
+		}
+		wxIndividualLayoutConstraint value=*value_ptr;
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxLayoutConstraints::left(wxIndividualLayoutConstraint). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		self->left = value;
+
+		return 0;
+	}
+
+	// void wxLayoutConstraints::top(wxIndividualLayoutConstraint value)
+	static int _bind_setTop(lua_State *L) {
+		if (!_lg_typecheck_setTop(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxLayoutConstraints::top(wxIndividualLayoutConstraint value) function, expected prototype:\nvoid wxLayoutConstraints::top(wxIndividualLayoutConstraint value)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxIndividualLayoutConstraint* value_ptr=(Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxLayoutConstraints::top function");
+		}
+		wxIndividualLayoutConstraint value=*value_ptr;
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxLayoutConstraints::top(wxIndividualLayoutConstraint). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		self->top = value;
+
+		return 0;
+	}
+
+	// void wxLayoutConstraints::right(wxIndividualLayoutConstraint value)
+	static int _bind_setRight(lua_State *L) {
+		if (!_lg_typecheck_setRight(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxLayoutConstraints::right(wxIndividualLayoutConstraint value) function, expected prototype:\nvoid wxLayoutConstraints::right(wxIndividualLayoutConstraint value)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxIndividualLayoutConstraint* value_ptr=(Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxLayoutConstraints::right function");
+		}
+		wxIndividualLayoutConstraint value=*value_ptr;
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxLayoutConstraints::right(wxIndividualLayoutConstraint). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		self->right = value;
+
+		return 0;
+	}
+
+	// void wxLayoutConstraints::bottom(wxIndividualLayoutConstraint value)
+	static int _bind_setBottom(lua_State *L) {
+		if (!_lg_typecheck_setBottom(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxLayoutConstraints::bottom(wxIndividualLayoutConstraint value) function, expected prototype:\nvoid wxLayoutConstraints::bottom(wxIndividualLayoutConstraint value)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxIndividualLayoutConstraint* value_ptr=(Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxLayoutConstraints::bottom function");
+		}
+		wxIndividualLayoutConstraint value=*value_ptr;
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxLayoutConstraints::bottom(wxIndividualLayoutConstraint). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		self->bottom = value;
+
+		return 0;
+	}
+
+	// void wxLayoutConstraints::width(wxIndividualLayoutConstraint value)
+	static int _bind_setWidth(lua_State *L) {
+		if (!_lg_typecheck_setWidth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxLayoutConstraints::width(wxIndividualLayoutConstraint value) function, expected prototype:\nvoid wxLayoutConstraints::width(wxIndividualLayoutConstraint value)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxIndividualLayoutConstraint* value_ptr=(Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxLayoutConstraints::width function");
+		}
+		wxIndividualLayoutConstraint value=*value_ptr;
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxLayoutConstraints::width(wxIndividualLayoutConstraint). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		self->width = value;
+
+		return 0;
+	}
+
+	// void wxLayoutConstraints::height(wxIndividualLayoutConstraint value)
+	static int _bind_setHeight(lua_State *L) {
+		if (!_lg_typecheck_setHeight(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxLayoutConstraints::height(wxIndividualLayoutConstraint value) function, expected prototype:\nvoid wxLayoutConstraints::height(wxIndividualLayoutConstraint value)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxIndividualLayoutConstraint* value_ptr=(Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxLayoutConstraints::height function");
+		}
+		wxIndividualLayoutConstraint value=*value_ptr;
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxLayoutConstraints::height(wxIndividualLayoutConstraint). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		self->height = value;
+
+		return 0;
+	}
+
+	// void wxLayoutConstraints::centreX(wxIndividualLayoutConstraint value)
+	static int _bind_setCentreX(lua_State *L) {
+		if (!_lg_typecheck_setCentreX(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxLayoutConstraints::centreX(wxIndividualLayoutConstraint value) function, expected prototype:\nvoid wxLayoutConstraints::centreX(wxIndividualLayoutConstraint value)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxIndividualLayoutConstraint* value_ptr=(Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxLayoutConstraints::centreX function");
+		}
+		wxIndividualLayoutConstraint value=*value_ptr;
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxLayoutConstraints::centreX(wxIndividualLayoutConstraint). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		self->centreX = value;
+
+		return 0;
+	}
+
+	// void wxLayoutConstraints::centreY(wxIndividualLayoutConstraint value)
+	static int _bind_setCentreY(lua_State *L) {
+		if (!_lg_typecheck_setCentreY(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxLayoutConstraints::centreY(wxIndividualLayoutConstraint value) function, expected prototype:\nvoid wxLayoutConstraints::centreY(wxIndividualLayoutConstraint value)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxIndividualLayoutConstraint* value_ptr=(Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxLayoutConstraints::centreY function");
+		}
+		wxIndividualLayoutConstraint value=*value_ptr;
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxLayoutConstraints::centreY(wxIndividualLayoutConstraint). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		self->centreY = value;
+
+		return 0;
+	}
+
 	// wxClassInfo * wxLayoutConstraints::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
@@ -226,6 +682,22 @@ const int LunaTraits< wxLayoutConstraints >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxLayoutConstraints >::methods[] = {
 	{"SatisfyConstraints", &luna_wrapper_wxLayoutConstraints::_bind_SatisfyConstraints},
 	{"AreSatisfied", &luna_wrapper_wxLayoutConstraints::_bind_AreSatisfied},
+	{"getLeft", &luna_wrapper_wxLayoutConstraints::_bind_getLeft},
+	{"getTop", &luna_wrapper_wxLayoutConstraints::_bind_getTop},
+	{"getRight", &luna_wrapper_wxLayoutConstraints::_bind_getRight},
+	{"getBottom", &luna_wrapper_wxLayoutConstraints::_bind_getBottom},
+	{"getWidth", &luna_wrapper_wxLayoutConstraints::_bind_getWidth},
+	{"getHeight", &luna_wrapper_wxLayoutConstraints::_bind_getHeight},
+	{"getCentreX", &luna_wrapper_wxLayoutConstraints::_bind_getCentreX},
+	{"getCentreY", &luna_wrapper_wxLayoutConstraints::_bind_getCentreY},
+	{"setLeft", &luna_wrapper_wxLayoutConstraints::_bind_setLeft},
+	{"setTop", &luna_wrapper_wxLayoutConstraints::_bind_setTop},
+	{"setRight", &luna_wrapper_wxLayoutConstraints::_bind_setRight},
+	{"setBottom", &luna_wrapper_wxLayoutConstraints::_bind_setBottom},
+	{"setWidth", &luna_wrapper_wxLayoutConstraints::_bind_setWidth},
+	{"setHeight", &luna_wrapper_wxLayoutConstraints::_bind_setHeight},
+	{"setCentreX", &luna_wrapper_wxLayoutConstraints::_bind_setCentreX},
+	{"setCentreY", &luna_wrapper_wxLayoutConstraints::_bind_setCentreY},
 	{"base_GetClassInfo", &luna_wrapper_wxLayoutConstraints::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxLayoutConstraints::_bind___eq},
 	{"getTable", &luna_wrapper_wxLayoutConstraints::_bind_getTable},

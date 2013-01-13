@@ -164,7 +164,7 @@ public:
 	inline static bool _lg_typecheck_readSchema(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,26072480) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,95416160) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92299338) ) return false;
 		return true;
 	}
@@ -172,7 +172,7 @@ public:
 	inline static bool _lg_typecheck_writeSchema(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,26072480) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,95416160) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92299338) ) return false;
 		return true;
 	}
@@ -461,7 +461,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgDB::ObjectWrapper::readSchema(const osgDB::StringList & properties, const std::vector< int > & types) function, expected prototype:\nbool osgDB::ObjectWrapper::readSchema(const osgDB::StringList & properties, const std::vector< int > & types)\nClass arguments details:\narg 1 ID = 26072480\narg 2 ID = [unknown]\n");
 		}
 
-		const osgDB::StringList* properties_ptr=(Luna< osgDB::StringList >::check(L,2));
+		const osgDB::StringList* properties_ptr=(Luna< std::vector< std::string > >::checkSubType< osgDB::StringList >(L,2));
 		if( !properties_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg properties in osgDB::ObjectWrapper::readSchema function");
 		}
@@ -490,7 +490,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgDB::ObjectWrapper::writeSchema(osgDB::StringList & properties, std::vector< int > & types) function, expected prototype:\nvoid osgDB::ObjectWrapper::writeSchema(osgDB::StringList & properties, std::vector< int > & types)\nClass arguments details:\narg 1 ID = 26072480\narg 2 ID = [unknown]\n");
 		}
 
-		osgDB::StringList* properties_ptr=(Luna< osgDB::StringList >::check(L,2));
+		osgDB::StringList* properties_ptr=(Luna< std::vector< std::string > >::checkSubType< osgDB::StringList >(L,2));
 		if( !properties_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg properties in osgDB::ObjectWrapper::writeSchema function");
 		}

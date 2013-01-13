@@ -195,7 +195,7 @@ public:
 	inline static bool _lg_typecheck_setLocalParameters(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,77412943) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,83621066) ) return false;
 		return true;
 	}
 
@@ -222,7 +222,7 @@ public:
 	inline static bool _lg_typecheck_setMatrices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,89639670) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,60758143) ) return false;
 		return true;
 	}
 
@@ -825,7 +825,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::VertexProgram::setLocalParameters(const osg::VertexProgram::LocalParamList & lpl) function, expected prototype:\nvoid osg::VertexProgram::setLocalParameters(const osg::VertexProgram::LocalParamList & lpl)\nClass arguments details:\narg 1 ID = 77412943\n");
 		}
 
-		const osg::VertexProgram::LocalParamList* lpl_ptr=(Luna< osg::VertexProgram::LocalParamList >::check(L,2));
+		const osg::VertexProgram::LocalParamList* lpl_ptr=(Luna< std::map< unsigned int, osg::Vec4f > >::checkSubType< osg::VertexProgram::LocalParamList >(L,2));
 		if( !lpl_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg lpl in osg::VertexProgram::setLocalParameters function");
 		}
@@ -923,7 +923,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::VertexProgram::setMatrices(const osg::VertexProgram::MatrixList & matrices) function, expected prototype:\nvoid osg::VertexProgram::setMatrices(const osg::VertexProgram::MatrixList & matrices)\nClass arguments details:\narg 1 ID = 89639670\n");
 		}
 
-		const osg::VertexProgram::MatrixList* matrices_ptr=(Luna< osg::VertexProgram::MatrixList >::check(L,2));
+		const osg::VertexProgram::MatrixList* matrices_ptr=(Luna< std::map< unsigned int, osg::Matrixd > >::checkSubType< osg::VertexProgram::MatrixList >(L,2));
 		if( !matrices_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg matrices in osg::VertexProgram::setMatrices function");
 		}

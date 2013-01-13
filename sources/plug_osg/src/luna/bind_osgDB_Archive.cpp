@@ -130,7 +130,7 @@ public:
 	inline static bool _lg_typecheck_getFileNames(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,1372978) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,95416160) ) return false;
 		return true;
 	}
 
@@ -555,7 +555,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgDB::Archive::getFileNames(osgDB::DirectoryContents & fileNames) const function, expected prototype:\nbool osgDB::Archive::getFileNames(osgDB::DirectoryContents & fileNames) const\nClass arguments details:\narg 1 ID = 1372978\n");
 		}
 
-		osgDB::DirectoryContents* fileNames_ptr=(Luna< osgDB::DirectoryContents >::check(L,2));
+		osgDB::DirectoryContents* fileNames_ptr=(Luna< std::vector< std::string > >::checkSubType< osgDB::DirectoryContents >(L,2));
 		if( !fileNames_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fileNames in osgDB::Archive::getFileNames function");
 		}

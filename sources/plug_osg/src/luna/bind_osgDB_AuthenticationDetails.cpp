@@ -90,6 +90,45 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getUsername(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getPassword(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getHttpAuthentication(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUsername(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setPassword(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setHttpAuthentication(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -145,6 +184,120 @@ public:
 
 
 	// Function binds:
+	// std::string osgDB::AuthenticationDetails::username()
+	static int _bind_getUsername(lua_State *L) {
+		if (!_lg_typecheck_getUsername(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osgDB::AuthenticationDetails::username() function, expected prototype:\nstd::string osgDB::AuthenticationDetails::username()\nClass arguments details:\n");
+		}
+
+
+		osgDB::AuthenticationDetails* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationDetails >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osgDB::AuthenticationDetails::username(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		std::string lret = self->username;
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// std::string osgDB::AuthenticationDetails::password()
+	static int _bind_getPassword(lua_State *L) {
+		if (!_lg_typecheck_getPassword(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osgDB::AuthenticationDetails::password() function, expected prototype:\nstd::string osgDB::AuthenticationDetails::password()\nClass arguments details:\n");
+		}
+
+
+		osgDB::AuthenticationDetails* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationDetails >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osgDB::AuthenticationDetails::password(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		std::string lret = self->password;
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// osgDB::AuthenticationDetails::HttpAuthentication osgDB::AuthenticationDetails::httpAuthentication()
+	static int _bind_getHttpAuthentication(lua_State *L) {
+		if (!_lg_typecheck_getHttpAuthentication(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::AuthenticationDetails::HttpAuthentication osgDB::AuthenticationDetails::httpAuthentication() function, expected prototype:\nosgDB::AuthenticationDetails::HttpAuthentication osgDB::AuthenticationDetails::httpAuthentication()\nClass arguments details:\n");
+		}
+
+
+		osgDB::AuthenticationDetails* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationDetails >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::AuthenticationDetails::HttpAuthentication osgDB::AuthenticationDetails::httpAuthentication(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osgDB::AuthenticationDetails::HttpAuthentication lret = self->httpAuthentication;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgDB::AuthenticationDetails::username(std::string value)
+	static int _bind_setUsername(lua_State *L) {
+		if (!_lg_typecheck_setUsername(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::AuthenticationDetails::username(std::string value) function, expected prototype:\nvoid osgDB::AuthenticationDetails::username(std::string value)\nClass arguments details:\n");
+		}
+
+		std::string value(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::AuthenticationDetails* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationDetails >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::AuthenticationDetails::username(std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->username = value;
+
+		return 0;
+	}
+
+	// void osgDB::AuthenticationDetails::password(std::string value)
+	static int _bind_setPassword(lua_State *L) {
+		if (!_lg_typecheck_setPassword(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::AuthenticationDetails::password(std::string value) function, expected prototype:\nvoid osgDB::AuthenticationDetails::password(std::string value)\nClass arguments details:\n");
+		}
+
+		std::string value(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::AuthenticationDetails* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationDetails >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::AuthenticationDetails::password(std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->password = value;
+
+		return 0;
+	}
+
+	// void osgDB::AuthenticationDetails::httpAuthentication(osgDB::AuthenticationDetails::HttpAuthentication value)
+	static int _bind_setHttpAuthentication(lua_State *L) {
+		if (!_lg_typecheck_setHttpAuthentication(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::AuthenticationDetails::httpAuthentication(osgDB::AuthenticationDetails::HttpAuthentication value) function, expected prototype:\nvoid osgDB::AuthenticationDetails::httpAuthentication(osgDB::AuthenticationDetails::HttpAuthentication value)\nClass arguments details:\n");
+		}
+
+		osgDB::AuthenticationDetails::HttpAuthentication value=(osgDB::AuthenticationDetails::HttpAuthentication)lua_tointeger(L,2);
+
+		osgDB::AuthenticationDetails* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationDetails >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::AuthenticationDetails::httpAuthentication(osgDB::AuthenticationDetails::HttpAuthentication). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->httpAuthentication = value;
+
+		return 0;
+	}
+
 	// void osgDB::AuthenticationDetails::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
@@ -187,6 +340,12 @@ const int LunaTraits< osgDB::AuthenticationDetails >::hash = 16438336;
 const int LunaTraits< osgDB::AuthenticationDetails >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osgDB::AuthenticationDetails >::methods[] = {
+	{"getUsername", &luna_wrapper_osgDB_AuthenticationDetails::_bind_getUsername},
+	{"getPassword", &luna_wrapper_osgDB_AuthenticationDetails::_bind_getPassword},
+	{"getHttpAuthentication", &luna_wrapper_osgDB_AuthenticationDetails::_bind_getHttpAuthentication},
+	{"setUsername", &luna_wrapper_osgDB_AuthenticationDetails::_bind_setUsername},
+	{"setPassword", &luna_wrapper_osgDB_AuthenticationDetails::_bind_setPassword},
+	{"setHttpAuthentication", &luna_wrapper_osgDB_AuthenticationDetails::_bind_setHttpAuthentication},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgDB_AuthenticationDetails::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osgDB_AuthenticationDetails::_bind___eq},
 	{"getTable", &luna_wrapper_osgDB_AuthenticationDetails::_bind_getTable},

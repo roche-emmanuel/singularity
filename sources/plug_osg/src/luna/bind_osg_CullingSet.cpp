@@ -187,8 +187,8 @@ public:
 	inline static bool _lg_typecheck_getStateFrustumList_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,87204151) ) return false;
-		if( (!(Luna< osg::CullingSet::StateFrustumList >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,42640190) ) return false;
+		if( (!(Luna< std::vector< osg::CullingSet::StateFrustumPair > >::checkSubType< osg::CullingSet::StateFrustumList >(L,2))) ) return false;
 		return true;
 	}
 
@@ -255,8 +255,8 @@ public:
 	inline static bool _lg_typecheck_pixelSize_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
-		if( (!(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,65870735) ) return false;
+		if( (!(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2))) ) return false;
 		return true;
 	}
 
@@ -272,8 +272,8 @@ public:
 	inline static bool _lg_typecheck_clampedPixelSize_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
-		if( (!(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,65870735) ) return false;
+		if( (!(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2))) ) return false;
 		return true;
 	}
 
@@ -288,16 +288,16 @@ public:
 	inline static bool _lg_typecheck_isCulled_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
-		if( (!(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,41227270) ) return false;
+		if( (!(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_isCulled_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
-		if( (!(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,65870735) ) return false;
+		if( (!(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2))) ) return false;
 		return true;
 	}
 
@@ -316,14 +316,14 @@ public:
 	inline static bool _lg_typecheck_disableAndPushOccludersCurrentMask(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,52841328) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,83725871) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_popOccludersCurrentMask(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,52841328) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,83725871) ) return false;
 		return true;
 	}
 
@@ -684,7 +684,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::CullingSet::getStateFrustumList(osg::CullingSet::StateFrustumList & sfl) function, expected prototype:\nvoid osg::CullingSet::getStateFrustumList(osg::CullingSet::StateFrustumList & sfl)\nClass arguments details:\narg 1 ID = 87204151\n");
 		}
 
-		osg::CullingSet::StateFrustumList* sfl_ptr=(Luna< osg::CullingSet::StateFrustumList >::check(L,2));
+		osg::CullingSet::StateFrustumList* sfl_ptr=(Luna< std::vector< osg::CullingSet::StateFrustumPair > >::checkSubType< osg::CullingSet::StateFrustumList >(L,2));
 		if( !sfl_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg sfl in osg::CullingSet::getStateFrustumList function");
 		}
@@ -925,7 +925,7 @@ public:
 			luaL_error(L, "luna typecheck failed in float osg::CullingSet::pixelSize(const osg::BoundingSphered & bs) const function, expected prototype:\nfloat osg::CullingSet::pixelSize(const osg::BoundingSphered & bs) const\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphered >::check(L,2));
+		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
 		if( !bs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bs in osg::CullingSet::pixelSize function");
 		}
@@ -983,7 +983,7 @@ public:
 			luaL_error(L, "luna typecheck failed in float osg::CullingSet::clampedPixelSize(const osg::BoundingSphered & bs) const function, expected prototype:\nfloat osg::CullingSet::clampedPixelSize(const osg::BoundingSphered & bs) const\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphered >::check(L,2));
+		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
 		if( !bs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bs in osg::CullingSet::clampedPixelSize function");
 		}
@@ -1040,7 +1040,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::CullingSet::isCulled(const osg::BoundingBoxd & bb) function, expected prototype:\nbool osg::CullingSet::isCulled(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::CullingSet::isCulled function");
 		}
@@ -1064,7 +1064,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::CullingSet::isCulled(const osg::BoundingSphered & bs) function, expected prototype:\nbool osg::CullingSet::isCulled(const osg::BoundingSphered & bs)\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphered >::check(L,2));
+		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
 		if( !bs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bs in osg::CullingSet::isCulled function");
 		}
@@ -1134,7 +1134,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::CullingSet::disableAndPushOccludersCurrentMask(osg::NodePath & nodePath) function, expected prototype:\nvoid osg::CullingSet::disableAndPushOccludersCurrentMask(osg::NodePath & nodePath)\nClass arguments details:\narg 1 ID = 52841328\n");
 		}
 
-		osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,2));
+		osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::CullingSet::disableAndPushOccludersCurrentMask function");
 		}
@@ -1157,7 +1157,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::CullingSet::popOccludersCurrentMask(osg::NodePath & nodePath) function, expected prototype:\nvoid osg::CullingSet::popOccludersCurrentMask(osg::NodePath & nodePath)\nClass arguments details:\narg 1 ID = 52841328\n");
 		}
 
-		osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,2));
+		osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::CullingSet::popOccludersCurrentMask function");
 		}

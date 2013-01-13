@@ -905,6 +905,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getFACE_CONTROLLED_BY_GEOMETRY_SHADER(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_setName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -3725,6 +3731,25 @@ public:
 		return 0;
 	}
 
+	// const unsigned int osg::Camera::FACE_CONTROLLED_BY_GEOMETRY_SHADER()
+	static int _bind_getFACE_CONTROLLED_BY_GEOMETRY_SHADER(lua_State *L) {
+		if (!_lg_typecheck_getFACE_CONTROLLED_BY_GEOMETRY_SHADER(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const unsigned int osg::Camera::FACE_CONTROLLED_BY_GEOMETRY_SHADER() function, expected prototype:\nconst unsigned int osg::Camera::FACE_CONTROLLED_BY_GEOMETRY_SHADER()\nClass arguments details:\n");
+		}
+
+
+		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const unsigned int osg::Camera::FACE_CONTROLLED_BY_GEOMETRY_SHADER(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const unsigned int lret = self->FACE_CONTROLLED_BY_GEOMETRY_SHADER;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 	// void osg::Camera::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
@@ -4704,6 +4729,7 @@ luna_RegType LunaTraits< osg::Camera >::methods[] = {
 	{"computeLocalToWorldMatrix", &luna_wrapper_osg_Camera::_bind_computeLocalToWorldMatrix},
 	{"computeWorldToLocalMatrix", &luna_wrapper_osg_Camera::_bind_computeWorldToLocalMatrix},
 	{"inheritCullSettings", &luna_wrapper_osg_Camera::_bind_inheritCullSettings},
+	{"getFACE_CONTROLLED_BY_GEOMETRY_SHADER", &luna_wrapper_osg_Camera::_bind_getFACE_CONTROLLED_BY_GEOMETRY_SHADER},
 	{"base_setName", &luna_wrapper_osg_Camera::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_Camera::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_Camera::_bind_base_setUserData},

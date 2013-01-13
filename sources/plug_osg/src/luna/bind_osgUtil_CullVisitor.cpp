@@ -391,7 +391,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,33161232) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,5512969) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,50169651) ) return false;
 		return true;
 	}
@@ -401,8 +401,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
 		if( (!(Luna< osg::Matrixd >::check(L,2))) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,82744897) ) return false;
-		if( (!(Luna< osg::BoundingBoxd >::check(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,41227270) ) return false;
+		if( (!(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,3))) ) return false;
 		return true;
 	}
 
@@ -1741,7 +1741,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg matrix in osgUtil::CullVisitor::computeNearestPointInFrustum function");
 		}
 		const osg::Matrixd & matrix=*matrix_ptr;
-		const osg::Polytope::PlaneList* planes_ptr=(Luna< osg::Polytope::PlaneList >::check(L,3));
+		const osg::Polytope::PlaneList* planes_ptr=(Luna< std::vector< osg::Plane > >::checkSubType< osg::Polytope::PlaneList >(L,3));
 		if( !planes_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg planes in osgUtil::CullVisitor::computeNearestPointInFrustum function");
 		}
@@ -1775,7 +1775,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg matrix in osgUtil::CullVisitor::updateCalculatedNearFar function");
 		}
 		const osg::Matrixd & matrix=*matrix_ptr;
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,3));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,3));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osgUtil::CullVisitor::updateCalculatedNearFar function");
 		}

@@ -61,6 +61,14 @@ function Class:getLuaName()
 		end
 		
 		return lname
+	elseif self._isGetter then
+		local lname = self:getName()
+		lname = "get" .. lname:sub(1,1):upper() .. lname:sub(2)
+		return lname
+	elseif self._isSetter then
+		local lname = self:getName()
+		lname = "set" .. lname:sub(1,1):upper() .. lname:sub(2)
+		return lname
 	else
 		return self:getName()
 	end
@@ -432,6 +440,22 @@ end
 
 function Class:isVirtual()
 	return self:isAbstract() or self._isVirtual
+end
+
+function Class:setIsGetter(getter)
+	self._isGetter = getter
+end
+
+function Class:isGetter()
+	return self._isGetter
+end
+
+function Class:setIsSetter(setter)
+	self._isSetter = setter
+end
+
+function Class:isSetter()
+	return self._isSetter
 end
 
 function Class:clone()

@@ -73,6 +73,71 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getId(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getPhase(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getX(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getY(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getTapCount(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setId(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setPhase(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setX(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setY(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setTapCount(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -116,6 +181,196 @@ public:
 
 
 	// Function binds:
+	// unsigned int osgGA::GUIEventAdapter::TouchData::TouchPoint::id()
+	static int _bind_getId(lua_State *L) {
+		if (!_lg_typecheck_getId(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgGA::GUIEventAdapter::TouchData::TouchPoint::id() function, expected prototype:\nunsigned int osgGA::GUIEventAdapter::TouchData::TouchPoint::id()\nClass arguments details:\n");
+		}
+
+
+		osgGA::GUIEventAdapter::TouchData::TouchPoint* self=(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgGA::GUIEventAdapter::TouchData::TouchPoint::id(). Got : '%s'",typeid(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1)).name());
+		}
+		unsigned int lret = self->id;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// osgGA::GUIEventAdapter::TouchPhase osgGA::GUIEventAdapter::TouchData::TouchPoint::phase()
+	static int _bind_getPhase(lua_State *L) {
+		if (!_lg_typecheck_getPhase(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter::TouchPhase osgGA::GUIEventAdapter::TouchData::TouchPoint::phase() function, expected prototype:\nosgGA::GUIEventAdapter::TouchPhase osgGA::GUIEventAdapter::TouchData::TouchPoint::phase()\nClass arguments details:\n");
+		}
+
+
+		osgGA::GUIEventAdapter::TouchData::TouchPoint* self=(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter::TouchPhase osgGA::GUIEventAdapter::TouchData::TouchPoint::phase(). Got : '%s'",typeid(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1)).name());
+		}
+		osgGA::GUIEventAdapter::TouchPhase lret = self->phase;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// float osgGA::GUIEventAdapter::TouchData::TouchPoint::x()
+	static int _bind_getX(lua_State *L) {
+		if (!_lg_typecheck_getX(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osgGA::GUIEventAdapter::TouchData::TouchPoint::x() function, expected prototype:\nfloat osgGA::GUIEventAdapter::TouchData::TouchPoint::x()\nClass arguments details:\n");
+		}
+
+
+		osgGA::GUIEventAdapter::TouchData::TouchPoint* self=(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osgGA::GUIEventAdapter::TouchData::TouchPoint::x(). Got : '%s'",typeid(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1)).name());
+		}
+		float lret = self->x;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// float osgGA::GUIEventAdapter::TouchData::TouchPoint::y()
+	static int _bind_getY(lua_State *L) {
+		if (!_lg_typecheck_getY(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osgGA::GUIEventAdapter::TouchData::TouchPoint::y() function, expected prototype:\nfloat osgGA::GUIEventAdapter::TouchData::TouchPoint::y()\nClass arguments details:\n");
+		}
+
+
+		osgGA::GUIEventAdapter::TouchData::TouchPoint* self=(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osgGA::GUIEventAdapter::TouchData::TouchPoint::y(). Got : '%s'",typeid(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1)).name());
+		}
+		float lret = self->y;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osgGA::GUIEventAdapter::TouchData::TouchPoint::tapCount()
+	static int _bind_getTapCount(lua_State *L) {
+		if (!_lg_typecheck_getTapCount(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osgGA::GUIEventAdapter::TouchData::TouchPoint::tapCount() function, expected prototype:\nunsigned int osgGA::GUIEventAdapter::TouchData::TouchPoint::tapCount()\nClass arguments details:\n");
+		}
+
+
+		osgGA::GUIEventAdapter::TouchData::TouchPoint* self=(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osgGA::GUIEventAdapter::TouchData::TouchPoint::tapCount(). Got : '%s'",typeid(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1)).name());
+		}
+		unsigned int lret = self->tapCount;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgGA::GUIEventAdapter::TouchData::TouchPoint::id(unsigned int value)
+	static int _bind_setId(lua_State *L) {
+		if (!_lg_typecheck_setId(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::TouchPoint::id(unsigned int value) function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::TouchPoint::id(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgGA::GUIEventAdapter::TouchData::TouchPoint* self=(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::TouchPoint::id(unsigned int). Got : '%s'",typeid(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1)).name());
+		}
+		self->id = value;
+
+		return 0;
+	}
+
+	// void osgGA::GUIEventAdapter::TouchData::TouchPoint::phase(osgGA::GUIEventAdapter::TouchPhase value)
+	static int _bind_setPhase(lua_State *L) {
+		if (!_lg_typecheck_setPhase(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::TouchPoint::phase(osgGA::GUIEventAdapter::TouchPhase value) function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::TouchPoint::phase(osgGA::GUIEventAdapter::TouchPhase value)\nClass arguments details:\n");
+		}
+
+		osgGA::GUIEventAdapter::TouchPhase value=(osgGA::GUIEventAdapter::TouchPhase)lua_tointeger(L,2);
+
+		osgGA::GUIEventAdapter::TouchData::TouchPoint* self=(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::TouchPoint::phase(osgGA::GUIEventAdapter::TouchPhase). Got : '%s'",typeid(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1)).name());
+		}
+		self->phase = value;
+
+		return 0;
+	}
+
+	// void osgGA::GUIEventAdapter::TouchData::TouchPoint::x(float value)
+	static int _bind_setX(lua_State *L) {
+		if (!_lg_typecheck_setX(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::TouchPoint::x(float value) function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::TouchPoint::x(float value)\nClass arguments details:\n");
+		}
+
+		float value=(float)lua_tonumber(L,2);
+
+		osgGA::GUIEventAdapter::TouchData::TouchPoint* self=(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::TouchPoint::x(float). Got : '%s'",typeid(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1)).name());
+		}
+		self->x = value;
+
+		return 0;
+	}
+
+	// void osgGA::GUIEventAdapter::TouchData::TouchPoint::y(float value)
+	static int _bind_setY(lua_State *L) {
+		if (!_lg_typecheck_setY(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::TouchPoint::y(float value) function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::TouchPoint::y(float value)\nClass arguments details:\n");
+		}
+
+		float value=(float)lua_tonumber(L,2);
+
+		osgGA::GUIEventAdapter::TouchData::TouchPoint* self=(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::TouchPoint::y(float). Got : '%s'",typeid(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1)).name());
+		}
+		self->y = value;
+
+		return 0;
+	}
+
+	// void osgGA::GUIEventAdapter::TouchData::TouchPoint::tapCount(unsigned int value)
+	static int _bind_setTapCount(lua_State *L) {
+		if (!_lg_typecheck_setTapCount(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::TouchData::TouchPoint::tapCount(unsigned int value) function, expected prototype:\nvoid osgGA::GUIEventAdapter::TouchData::TouchPoint::tapCount(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osgGA::GUIEventAdapter::TouchData::TouchPoint* self=(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::TouchData::TouchPoint::tapCount(unsigned int). Got : '%s'",typeid(Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::check(L,1)).name());
+		}
+		self->tapCount = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -139,6 +394,16 @@ const int LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchPoint >::hash = 88
 const int LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchPoint >::uniqueIDs[] = {88052401,0};
 
 luna_RegType LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchPoint >::methods[] = {
+	{"getId", &luna_wrapper_osgGA_GUIEventAdapter_TouchData_TouchPoint::_bind_getId},
+	{"getPhase", &luna_wrapper_osgGA_GUIEventAdapter_TouchData_TouchPoint::_bind_getPhase},
+	{"getX", &luna_wrapper_osgGA_GUIEventAdapter_TouchData_TouchPoint::_bind_getX},
+	{"getY", &luna_wrapper_osgGA_GUIEventAdapter_TouchData_TouchPoint::_bind_getY},
+	{"getTapCount", &luna_wrapper_osgGA_GUIEventAdapter_TouchData_TouchPoint::_bind_getTapCount},
+	{"setId", &luna_wrapper_osgGA_GUIEventAdapter_TouchData_TouchPoint::_bind_setId},
+	{"setPhase", &luna_wrapper_osgGA_GUIEventAdapter_TouchData_TouchPoint::_bind_setPhase},
+	{"setX", &luna_wrapper_osgGA_GUIEventAdapter_TouchData_TouchPoint::_bind_setX},
+	{"setY", &luna_wrapper_osgGA_GUIEventAdapter_TouchData_TouchPoint::_bind_setY},
+	{"setTapCount", &luna_wrapper_osgGA_GUIEventAdapter_TouchData_TouchPoint::_bind_setTapCount},
 	{"dynCast", &luna_wrapper_osgGA_GUIEventAdapter_TouchData_TouchPoint::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgGA_GUIEventAdapter_TouchData_TouchPoint::_bind___eq},
 	{0,0}

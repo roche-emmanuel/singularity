@@ -201,7 +201,7 @@ public:
 	inline static bool _lg_typecheck_setPositionList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,75373010) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,30220088) ) return false;
 		return true;
 	}
 
@@ -854,7 +854,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Billboard::setPositionList(osg::Billboard::PositionList & pl) function, expected prototype:\nvoid osg::Billboard::setPositionList(osg::Billboard::PositionList & pl)\nClass arguments details:\narg 1 ID = 75373010\n");
 		}
 
-		osg::Billboard::PositionList* pl_ptr=(Luna< osg::Billboard::PositionList >::check(L,2));
+		osg::Billboard::PositionList* pl_ptr=(Luna< std::vector< osg::Vec3f > >::checkSubType< osg::Billboard::PositionList >(L,2));
 		if( !pl_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pl in osg::Billboard::setPositionList function");
 		}

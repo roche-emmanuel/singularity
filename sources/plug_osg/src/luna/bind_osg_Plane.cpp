@@ -275,16 +275,16 @@ public:
 	inline static bool _lg_typecheck_intersect_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
-		if( (!(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,65870735) ) return false;
+		if( (!(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_intersect_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
-		if( (!(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,41227270) ) return false;
+		if( (!(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2))) ) return false;
 		return true;
 	}
 
@@ -1046,7 +1046,7 @@ public:
 			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const osg::BoundingSphered & bs) const function, expected prototype:\nint osg::Plane::intersect(const osg::BoundingSphered & bs) const\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphered >::check(L,2));
+		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
 		if( !bs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bs in osg::Plane::intersect function");
 		}
@@ -1070,7 +1070,7 @@ public:
 			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const osg::BoundingBoxd & bb) const function, expected prototype:\nint osg::Plane::intersect(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::Plane::intersect function");
 		}

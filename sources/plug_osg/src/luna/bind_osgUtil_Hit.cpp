@@ -172,6 +172,162 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_get_ratio(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_originalLineSegment(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_localLineSegment(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_nodePath(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_geode(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_drawable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_matrix(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_inverse(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_vecIndexList(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_primitiveIndex(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_intersectPoint(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_intersectNormal(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_ratio(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_originalLineSegment(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,67800054) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_localLineSegment(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,67800054) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_nodePath(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,83725871) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_geode(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,24357146) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_drawable(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,91334477) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_matrix(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,24622227) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_inverse(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,24622227) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_vecIndexList(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92299338) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_primitiveIndex(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_intersectPoint(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_intersectNormal(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 2 valid operators)
@@ -611,6 +767,486 @@ public:
 		return 1;
 	}
 
+	// float osgUtil::Hit::_ratio()
+	static int _bind_get_ratio(lua_State *L) {
+		if (!_lg_typecheck_get_ratio(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osgUtil::Hit::_ratio() function, expected prototype:\nfloat osgUtil::Hit::_ratio()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osgUtil::Hit::_ratio(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		float lret = self->_ratio;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// osg::ref_ptr< osg::LineSegment > osgUtil::Hit::_originalLineSegment()
+	static int _bind_get_originalLineSegment(lua_State *L) {
+		if (!_lg_typecheck_get_originalLineSegment(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::LineSegment > osgUtil::Hit::_originalLineSegment() function, expected prototype:\nosg::ref_ptr< osg::LineSegment > osgUtil::Hit::_originalLineSegment()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::LineSegment > osgUtil::Hit::_originalLineSegment(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		osg::ref_ptr< osg::LineSegment > lret = self->_originalLineSegment;
+		Luna< osg::LineSegment >::push(L,lret.get(),false);
+
+		return 1;
+	}
+
+	// osg::ref_ptr< osg::LineSegment > osgUtil::Hit::_localLineSegment()
+	static int _bind_get_localLineSegment(lua_State *L) {
+		if (!_lg_typecheck_get_localLineSegment(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::LineSegment > osgUtil::Hit::_localLineSegment() function, expected prototype:\nosg::ref_ptr< osg::LineSegment > osgUtil::Hit::_localLineSegment()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::LineSegment > osgUtil::Hit::_localLineSegment(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		osg::ref_ptr< osg::LineSegment > lret = self->_localLineSegment;
+		Luna< osg::LineSegment >::push(L,lret.get(),false);
+
+		return 1;
+	}
+
+	// osg::NodePath osgUtil::Hit::_nodePath()
+	static int _bind_get_nodePath(lua_State *L) {
+		if (!_lg_typecheck_get_nodePath(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::NodePath osgUtil::Hit::_nodePath() function, expected prototype:\nosg::NodePath osgUtil::Hit::_nodePath()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::NodePath osgUtil::Hit::_nodePath(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		const osg::NodePath* lret = &self->_nodePath;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::NodePath >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osg::ref_ptr< osg::Geode > osgUtil::Hit::_geode()
+	static int _bind_get_geode(lua_State *L) {
+		if (!_lg_typecheck_get_geode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Geode > osgUtil::Hit::_geode() function, expected prototype:\nosg::ref_ptr< osg::Geode > osgUtil::Hit::_geode()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Geode > osgUtil::Hit::_geode(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		osg::ref_ptr< osg::Geode > lret = self->_geode;
+		Luna< osg::Geode >::push(L,lret.get(),false);
+
+		return 1;
+	}
+
+	// osg::ref_ptr< osg::Drawable > osgUtil::Hit::_drawable()
+	static int _bind_get_drawable(lua_State *L) {
+		if (!_lg_typecheck_get_drawable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Drawable > osgUtil::Hit::_drawable() function, expected prototype:\nosg::ref_ptr< osg::Drawable > osgUtil::Hit::_drawable()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Drawable > osgUtil::Hit::_drawable(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		osg::ref_ptr< osg::Drawable > lret = self->_drawable;
+		Luna< osg::Drawable >::push(L,lret.get(),false);
+
+		return 1;
+	}
+
+	// osg::ref_ptr< osg::RefMatrixd > osgUtil::Hit::_matrix()
+	static int _bind_get_matrix(lua_State *L) {
+		if (!_lg_typecheck_get_matrix(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::RefMatrixd > osgUtil::Hit::_matrix() function, expected prototype:\nosg::ref_ptr< osg::RefMatrixd > osgUtil::Hit::_matrix()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::RefMatrixd > osgUtil::Hit::_matrix(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		osg::ref_ptr< osg::RefMatrixd > lret = self->_matrix;
+		Luna< osg::RefMatrixd >::push(L,lret.get(),false);
+
+		return 1;
+	}
+
+	// osg::ref_ptr< osg::RefMatrixd > osgUtil::Hit::_inverse()
+	static int _bind_get_inverse(lua_State *L) {
+		if (!_lg_typecheck_get_inverse(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::RefMatrixd > osgUtil::Hit::_inverse() function, expected prototype:\nosg::ref_ptr< osg::RefMatrixd > osgUtil::Hit::_inverse()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::RefMatrixd > osgUtil::Hit::_inverse(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		osg::ref_ptr< osg::RefMatrixd > lret = self->_inverse;
+		Luna< osg::RefMatrixd >::push(L,lret.get(),false);
+
+		return 1;
+	}
+
+	// osgUtil::Hit::VecIndexList osgUtil::Hit::_vecIndexList()
+	static int _bind_get_vecIndexList(lua_State *L) {
+		if (!_lg_typecheck_get_vecIndexList(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::Hit::VecIndexList osgUtil::Hit::_vecIndexList() function, expected prototype:\nosgUtil::Hit::VecIndexList osgUtil::Hit::_vecIndexList()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::Hit::VecIndexList osgUtil::Hit::_vecIndexList(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		const osgUtil::Hit::VecIndexList* lret = &self->_vecIndexList;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::Hit::VecIndexList >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// int osgUtil::Hit::_primitiveIndex()
+	static int _bind_get_primitiveIndex(lua_State *L) {
+		if (!_lg_typecheck_get_primitiveIndex(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osgUtil::Hit::_primitiveIndex() function, expected prototype:\nint osgUtil::Hit::_primitiveIndex()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osgUtil::Hit::_primitiveIndex(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		int lret = self->_primitiveIndex;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// osg::Vec3f osgUtil::Hit::_intersectPoint()
+	static int _bind_get_intersectPoint(lua_State *L) {
+		if (!_lg_typecheck_get_intersectPoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::Hit::_intersectPoint() function, expected prototype:\nosg::Vec3f osgUtil::Hit::_intersectPoint()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::Hit::_intersectPoint(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		const osg::Vec3f* lret = &self->_intersectPoint;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec3f >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osg::Vec3f osgUtil::Hit::_intersectNormal()
+	static int _bind_get_intersectNormal(lua_State *L) {
+		if (!_lg_typecheck_get_intersectNormal(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::Hit::_intersectNormal() function, expected prototype:\nosg::Vec3f osgUtil::Hit::_intersectNormal()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::Hit::_intersectNormal(). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		const osg::Vec3f* lret = &self->_intersectNormal;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec3f >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void osgUtil::Hit::_ratio(float value)
+	static int _bind_set_ratio(lua_State *L) {
+		if (!_lg_typecheck_set_ratio(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Hit::_ratio(float value) function, expected prototype:\nvoid osgUtil::Hit::_ratio(float value)\nClass arguments details:\n");
+		}
+
+		float value=(float)lua_tonumber(L,2);
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Hit::_ratio(float). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		self->_ratio = value;
+
+		return 0;
+	}
+
+	// void osgUtil::Hit::_originalLineSegment(osg::ref_ptr< osg::LineSegment > value)
+	static int _bind_set_originalLineSegment(lua_State *L) {
+		if (!_lg_typecheck_set_originalLineSegment(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Hit::_originalLineSegment(osg::ref_ptr< osg::LineSegment > value) function, expected prototype:\nvoid osgUtil::Hit::_originalLineSegment(osg::ref_ptr< osg::LineSegment > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::LineSegment > value = dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,2));
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Hit::_originalLineSegment(osg::ref_ptr< osg::LineSegment >). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		self->_originalLineSegment = value;
+
+		return 0;
+	}
+
+	// void osgUtil::Hit::_localLineSegment(osg::ref_ptr< osg::LineSegment > value)
+	static int _bind_set_localLineSegment(lua_State *L) {
+		if (!_lg_typecheck_set_localLineSegment(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Hit::_localLineSegment(osg::ref_ptr< osg::LineSegment > value) function, expected prototype:\nvoid osgUtil::Hit::_localLineSegment(osg::ref_ptr< osg::LineSegment > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::LineSegment > value = dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,2));
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Hit::_localLineSegment(osg::ref_ptr< osg::LineSegment >). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		self->_localLineSegment = value;
+
+		return 0;
+	}
+
+	// void osgUtil::Hit::_nodePath(osg::NodePath value)
+	static int _bind_set_nodePath(lua_State *L) {
+		if (!_lg_typecheck_set_nodePath(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Hit::_nodePath(osg::NodePath value) function, expected prototype:\nvoid osgUtil::Hit::_nodePath(osg::NodePath value)\nClass arguments details:\narg 1 ID = 52841328\n");
+		}
+
+		osg::NodePath* value_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::Hit::_nodePath function");
+		}
+		osg::NodePath value=*value_ptr;
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Hit::_nodePath(osg::NodePath). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		self->_nodePath = value;
+
+		return 0;
+	}
+
+	// void osgUtil::Hit::_geode(osg::ref_ptr< osg::Geode > value)
+	static int _bind_set_geode(lua_State *L) {
+		if (!_lg_typecheck_set_geode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Hit::_geode(osg::ref_ptr< osg::Geode > value) function, expected prototype:\nvoid osgUtil::Hit::_geode(osg::ref_ptr< osg::Geode > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::Geode > value = dynamic_cast< osg::Geode* >(Luna< osg::Referenced >::check(L,2));
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Hit::_geode(osg::ref_ptr< osg::Geode >). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		self->_geode = value;
+
+		return 0;
+	}
+
+	// void osgUtil::Hit::_drawable(osg::ref_ptr< osg::Drawable > value)
+	static int _bind_set_drawable(lua_State *L) {
+		if (!_lg_typecheck_set_drawable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Hit::_drawable(osg::ref_ptr< osg::Drawable > value) function, expected prototype:\nvoid osgUtil::Hit::_drawable(osg::ref_ptr< osg::Drawable > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::Drawable > value = dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,2));
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Hit::_drawable(osg::ref_ptr< osg::Drawable >). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		self->_drawable = value;
+
+		return 0;
+	}
+
+	// void osgUtil::Hit::_matrix(osg::ref_ptr< osg::RefMatrixd > value)
+	static int _bind_set_matrix(lua_State *L) {
+		if (!_lg_typecheck_set_matrix(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Hit::_matrix(osg::ref_ptr< osg::RefMatrixd > value) function, expected prototype:\nvoid osgUtil::Hit::_matrix(osg::ref_ptr< osg::RefMatrixd > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::RefMatrixd > value = dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2));
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Hit::_matrix(osg::ref_ptr< osg::RefMatrixd >). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		self->_matrix = value;
+
+		return 0;
+	}
+
+	// void osgUtil::Hit::_inverse(osg::ref_ptr< osg::RefMatrixd > value)
+	static int _bind_set_inverse(lua_State *L) {
+		if (!_lg_typecheck_set_inverse(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Hit::_inverse(osg::ref_ptr< osg::RefMatrixd > value) function, expected prototype:\nvoid osgUtil::Hit::_inverse(osg::ref_ptr< osg::RefMatrixd > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::ref_ptr< osg::RefMatrixd > value = dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2));
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Hit::_inverse(osg::ref_ptr< osg::RefMatrixd >). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		self->_inverse = value;
+
+		return 0;
+	}
+
+	// void osgUtil::Hit::_vecIndexList(osgUtil::Hit::VecIndexList value)
+	static int _bind_set_vecIndexList(lua_State *L) {
+		if (!_lg_typecheck_set_vecIndexList(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Hit::_vecIndexList(osgUtil::Hit::VecIndexList value) function, expected prototype:\nvoid osgUtil::Hit::_vecIndexList(osgUtil::Hit::VecIndexList value)\nClass arguments details:\narg 1 ID = 92299338\n");
+		}
+
+		osgUtil::Hit::VecIndexList* value_ptr=(Luna< std::vector< int > >::checkSubType< osgUtil::Hit::VecIndexList >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::Hit::_vecIndexList function");
+		}
+		osgUtil::Hit::VecIndexList value=*value_ptr;
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Hit::_vecIndexList(osgUtil::Hit::VecIndexList). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		self->_vecIndexList = value;
+
+		return 0;
+	}
+
+	// void osgUtil::Hit::_primitiveIndex(int value)
+	static int _bind_set_primitiveIndex(lua_State *L) {
+		if (!_lg_typecheck_set_primitiveIndex(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Hit::_primitiveIndex(int value) function, expected prototype:\nvoid osgUtil::Hit::_primitiveIndex(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Hit::_primitiveIndex(int). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		self->_primitiveIndex = value;
+
+		return 0;
+	}
+
+	// void osgUtil::Hit::_intersectPoint(osg::Vec3f value)
+	static int _bind_set_intersectPoint(lua_State *L) {
+		if (!_lg_typecheck_set_intersectPoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Hit::_intersectPoint(osg::Vec3f value) function, expected prototype:\nvoid osgUtil::Hit::_intersectPoint(osg::Vec3f value)\nClass arguments details:\narg 1 ID = 92303204\n");
+		}
+
+		osg::Vec3f* value_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::Hit::_intersectPoint function");
+		}
+		osg::Vec3f value=*value_ptr;
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Hit::_intersectPoint(osg::Vec3f). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		self->_intersectPoint = value;
+
+		return 0;
+	}
+
+	// void osgUtil::Hit::_intersectNormal(osg::Vec3f value)
+	static int _bind_set_intersectNormal(lua_State *L) {
+		if (!_lg_typecheck_set_intersectNormal(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Hit::_intersectNormal(osg::Vec3f value) function, expected prototype:\nvoid osgUtil::Hit::_intersectNormal(osg::Vec3f value)\nClass arguments details:\narg 1 ID = 92303204\n");
+		}
+
+		osg::Vec3f* value_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::Hit::_intersectNormal function");
+		}
+		osg::Vec3f value=*value_ptr;
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Hit::_intersectNormal(osg::Vec3f). Got : '%s'",typeid(Luna< osgUtil::Hit >::check(L,1)).name());
+		}
+		self->_intersectNormal = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// osgUtil::Hit & osgUtil::Hit::operator=(const osgUtil::Hit & hit)
@@ -698,6 +1334,30 @@ luna_RegType LunaTraits< osgUtil::Hit >::methods[] = {
 	{"getInverseMatrix", &luna_wrapper_osgUtil_Hit::_bind_getInverseMatrix},
 	{"getVecIndexList", &luna_wrapper_osgUtil_Hit::_bind_getVecIndexList},
 	{"getPrimitiveIndex", &luna_wrapper_osgUtil_Hit::_bind_getPrimitiveIndex},
+	{"get_ratio", &luna_wrapper_osgUtil_Hit::_bind_get_ratio},
+	{"get_originalLineSegment", &luna_wrapper_osgUtil_Hit::_bind_get_originalLineSegment},
+	{"get_localLineSegment", &luna_wrapper_osgUtil_Hit::_bind_get_localLineSegment},
+	{"get_nodePath", &luna_wrapper_osgUtil_Hit::_bind_get_nodePath},
+	{"get_geode", &luna_wrapper_osgUtil_Hit::_bind_get_geode},
+	{"get_drawable", &luna_wrapper_osgUtil_Hit::_bind_get_drawable},
+	{"get_matrix", &luna_wrapper_osgUtil_Hit::_bind_get_matrix},
+	{"get_inverse", &luna_wrapper_osgUtil_Hit::_bind_get_inverse},
+	{"get_vecIndexList", &luna_wrapper_osgUtil_Hit::_bind_get_vecIndexList},
+	{"get_primitiveIndex", &luna_wrapper_osgUtil_Hit::_bind_get_primitiveIndex},
+	{"get_intersectPoint", &luna_wrapper_osgUtil_Hit::_bind_get_intersectPoint},
+	{"get_intersectNormal", &luna_wrapper_osgUtil_Hit::_bind_get_intersectNormal},
+	{"set_ratio", &luna_wrapper_osgUtil_Hit::_bind_set_ratio},
+	{"set_originalLineSegment", &luna_wrapper_osgUtil_Hit::_bind_set_originalLineSegment},
+	{"set_localLineSegment", &luna_wrapper_osgUtil_Hit::_bind_set_localLineSegment},
+	{"set_nodePath", &luna_wrapper_osgUtil_Hit::_bind_set_nodePath},
+	{"set_geode", &luna_wrapper_osgUtil_Hit::_bind_set_geode},
+	{"set_drawable", &luna_wrapper_osgUtil_Hit::_bind_set_drawable},
+	{"set_matrix", &luna_wrapper_osgUtil_Hit::_bind_set_matrix},
+	{"set_inverse", &luna_wrapper_osgUtil_Hit::_bind_set_inverse},
+	{"set_vecIndexList", &luna_wrapper_osgUtil_Hit::_bind_set_vecIndexList},
+	{"set_primitiveIndex", &luna_wrapper_osgUtil_Hit::_bind_set_primitiveIndex},
+	{"set_intersectPoint", &luna_wrapper_osgUtil_Hit::_bind_set_intersectPoint},
+	{"set_intersectNormal", &luna_wrapper_osgUtil_Hit::_bind_set_intersectNormal},
 	{"op_assign", &luna_wrapper_osgUtil_Hit::_bind_op_assign},
 	{"__lt", &luna_wrapper_osgUtil_Hit::_bind___lt},
 	{"dynCast", &luna_wrapper_osgUtil_Hit::_bind_dynCast},

@@ -50,3 +50,6 @@
 - Added tool class for wx module.
 - Added support for type construction/destruction manual definition.
 - Added webview child page creation support.
+- Added support to keep building unrelated targets on error with /K.
+- Added getter and setters for public class variables.
+- Added support for Kinect SDK module with working test.

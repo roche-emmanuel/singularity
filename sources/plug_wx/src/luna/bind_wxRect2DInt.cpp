@@ -445,6 +445,58 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getM_x(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_y(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_width(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_height(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_x(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_y(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_width(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_height(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 3 valid operators)
@@ -1729,6 +1781,158 @@ public:
 		return 0;
 	}
 
+	// int wxRect2DInt::m_x()
+	static int _bind_getM_x(lua_State *L) {
+		if (!_lg_typecheck_getM_x(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxRect2DInt::m_x() function, expected prototype:\nint wxRect2DInt::m_x()\nClass arguments details:\n");
+		}
+
+
+		wxRect2DInt* self=(Luna< wxRect2DInt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxRect2DInt::m_x(). Got : '%s'",typeid(Luna< wxRect2DInt >::check(L,1)).name());
+		}
+		int lret = self->m_x;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxRect2DInt::m_y()
+	static int _bind_getM_y(lua_State *L) {
+		if (!_lg_typecheck_getM_y(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxRect2DInt::m_y() function, expected prototype:\nint wxRect2DInt::m_y()\nClass arguments details:\n");
+		}
+
+
+		wxRect2DInt* self=(Luna< wxRect2DInt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxRect2DInt::m_y(). Got : '%s'",typeid(Luna< wxRect2DInt >::check(L,1)).name());
+		}
+		int lret = self->m_y;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxRect2DInt::m_width()
+	static int _bind_getM_width(lua_State *L) {
+		if (!_lg_typecheck_getM_width(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxRect2DInt::m_width() function, expected prototype:\nint wxRect2DInt::m_width()\nClass arguments details:\n");
+		}
+
+
+		wxRect2DInt* self=(Luna< wxRect2DInt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxRect2DInt::m_width(). Got : '%s'",typeid(Luna< wxRect2DInt >::check(L,1)).name());
+		}
+		int lret = self->m_width;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxRect2DInt::m_height()
+	static int _bind_getM_height(lua_State *L) {
+		if (!_lg_typecheck_getM_height(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxRect2DInt::m_height() function, expected prototype:\nint wxRect2DInt::m_height()\nClass arguments details:\n");
+		}
+
+
+		wxRect2DInt* self=(Luna< wxRect2DInt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxRect2DInt::m_height(). Got : '%s'",typeid(Luna< wxRect2DInt >::check(L,1)).name());
+		}
+		int lret = self->m_height;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxRect2DInt::m_x(int value)
+	static int _bind_setM_x(lua_State *L) {
+		if (!_lg_typecheck_setM_x(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxRect2DInt::m_x(int value) function, expected prototype:\nvoid wxRect2DInt::m_x(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxRect2DInt* self=(Luna< wxRect2DInt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxRect2DInt::m_x(int). Got : '%s'",typeid(Luna< wxRect2DInt >::check(L,1)).name());
+		}
+		self->m_x = value;
+
+		return 0;
+	}
+
+	// void wxRect2DInt::m_y(int value)
+	static int _bind_setM_y(lua_State *L) {
+		if (!_lg_typecheck_setM_y(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxRect2DInt::m_y(int value) function, expected prototype:\nvoid wxRect2DInt::m_y(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxRect2DInt* self=(Luna< wxRect2DInt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxRect2DInt::m_y(int). Got : '%s'",typeid(Luna< wxRect2DInt >::check(L,1)).name());
+		}
+		self->m_y = value;
+
+		return 0;
+	}
+
+	// void wxRect2DInt::m_width(int value)
+	static int _bind_setM_width(lua_State *L) {
+		if (!_lg_typecheck_setM_width(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxRect2DInt::m_width(int value) function, expected prototype:\nvoid wxRect2DInt::m_width(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxRect2DInt* self=(Luna< wxRect2DInt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxRect2DInt::m_width(int). Got : '%s'",typeid(Luna< wxRect2DInt >::check(L,1)).name());
+		}
+		self->m_width = value;
+
+		return 0;
+	}
+
+	// void wxRect2DInt::m_height(int value)
+	static int _bind_setM_height(lua_State *L) {
+		if (!_lg_typecheck_setM_height(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxRect2DInt::m_height(int value) function, expected prototype:\nvoid wxRect2DInt::m_height(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxRect2DInt* self=(Luna< wxRect2DInt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxRect2DInt::m_height(int). Got : '%s'",typeid(Luna< wxRect2DInt >::check(L,1)).name());
+		}
+		self->m_height = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// wxRect2DInt & wxRect2DInt::operator=(const wxRect2DInt & rect)
@@ -1870,6 +2074,14 @@ luna_RegType LunaTraits< wxRect2DInt >::methods[] = {
 	{"Union", &luna_wrapper_wxRect2DInt::_bind_Union},
 	{"CreateUnion", &luna_wrapper_wxRect2DInt::_bind_CreateUnion},
 	{"Scale", &luna_wrapper_wxRect2DInt::_bind_Scale},
+	{"getM_x", &luna_wrapper_wxRect2DInt::_bind_getM_x},
+	{"getM_y", &luna_wrapper_wxRect2DInt::_bind_getM_y},
+	{"getM_width", &luna_wrapper_wxRect2DInt::_bind_getM_width},
+	{"getM_height", &luna_wrapper_wxRect2DInt::_bind_getM_height},
+	{"setM_x", &luna_wrapper_wxRect2DInt::_bind_setM_x},
+	{"setM_y", &luna_wrapper_wxRect2DInt::_bind_setM_y},
+	{"setM_width", &luna_wrapper_wxRect2DInt::_bind_setM_width},
+	{"setM_height", &luna_wrapper_wxRect2DInt::_bind_setM_height},
 	{"op_assign", &luna_wrapper_wxRect2DInt::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxRect2DInt::_bind___eq},
 	{"op_neq", &luna_wrapper_wxRect2DInt::_bind_op_neq},

@@ -295,31 +295,31 @@ public:
 	inline static bool _lg_typecheck_public_compareModes(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,59463386) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,59463386) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50375310) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,50375310) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_compareAttributePtrs(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,84373691) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,84373691) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,94158825) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,94158825) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_compareAttributeContents(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,84373691) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,84373691) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,94158825) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,94158825) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_setMode(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,59463386) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50375310) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
@@ -328,7 +328,7 @@ public:
 	inline static bool _lg_typecheck_public_setModeToInherit(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,59463386) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50375310) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -336,7 +336,7 @@ public:
 	inline static bool _lg_typecheck_public_getMode(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,59463386) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50375310) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -345,7 +345,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,84373691) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,94158825) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
@@ -354,7 +354,7 @@ public:
 	inline static bool _lg_typecheck_public_getAttribute(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,84373691) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,94158825) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
@@ -363,7 +363,7 @@ public:
 	inline static bool _lg_typecheck_public_getAttributePair(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,84373691) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,94158825) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
@@ -495,12 +495,12 @@ public:
 			luaL_error(L, "luna typecheck failed in int osg::StateSet::public_compareModes(const osg::StateSet::ModeList & lhs, const osg::StateSet::ModeList & rhs) function, expected prototype:\nint osg::StateSet::public_compareModes(const osg::StateSet::ModeList & lhs, const osg::StateSet::ModeList & rhs)\nClass arguments details:\narg 1 ID = 59463386\narg 2 ID = 59463386\n");
 		}
 
-		const osg::StateSet::ModeList* lhs_ptr=(Luna< osg::StateSet::ModeList >::check(L,2));
+		const osg::StateSet::ModeList* lhs_ptr=(Luna< std::map< unsigned int, unsigned int > >::checkSubType< osg::StateSet::ModeList >(L,2));
 		if( !lhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg lhs in osg::StateSet::public_compareModes function");
 		}
 		const osg::StateSet::ModeList & lhs=*lhs_ptr;
-		const osg::StateSet::ModeList* rhs_ptr=(Luna< osg::StateSet::ModeList >::check(L,3));
+		const osg::StateSet::ModeList* rhs_ptr=(Luna< std::map< unsigned int, unsigned int > >::checkSubType< osg::StateSet::ModeList >(L,3));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::StateSet::public_compareModes function");
 		}
@@ -524,12 +524,12 @@ public:
 			luaL_error(L, "luna typecheck failed in int osg::StateSet::public_compareAttributePtrs(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs) function, expected prototype:\nint osg::StateSet::public_compareAttributePtrs(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs)\nClass arguments details:\narg 1 ID = 84373691\narg 2 ID = 84373691\n");
 		}
 
-		const osg::StateSet::AttributeList* lhs_ptr=(Luna< osg::StateSet::AttributeList >::check(L,2));
+		const osg::StateSet::AttributeList* lhs_ptr=(Luna< std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > >::checkSubType< osg::StateSet::AttributeList >(L,2));
 		if( !lhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg lhs in osg::StateSet::public_compareAttributePtrs function");
 		}
 		const osg::StateSet::AttributeList & lhs=*lhs_ptr;
-		const osg::StateSet::AttributeList* rhs_ptr=(Luna< osg::StateSet::AttributeList >::check(L,3));
+		const osg::StateSet::AttributeList* rhs_ptr=(Luna< std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > >::checkSubType< osg::StateSet::AttributeList >(L,3));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::StateSet::public_compareAttributePtrs function");
 		}
@@ -553,12 +553,12 @@ public:
 			luaL_error(L, "luna typecheck failed in int osg::StateSet::public_compareAttributeContents(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs) function, expected prototype:\nint osg::StateSet::public_compareAttributeContents(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs)\nClass arguments details:\narg 1 ID = 84373691\narg 2 ID = 84373691\n");
 		}
 
-		const osg::StateSet::AttributeList* lhs_ptr=(Luna< osg::StateSet::AttributeList >::check(L,2));
+		const osg::StateSet::AttributeList* lhs_ptr=(Luna< std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > >::checkSubType< osg::StateSet::AttributeList >(L,2));
 		if( !lhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg lhs in osg::StateSet::public_compareAttributeContents function");
 		}
 		const osg::StateSet::AttributeList & lhs=*lhs_ptr;
-		const osg::StateSet::AttributeList* rhs_ptr=(Luna< osg::StateSet::AttributeList >::check(L,3));
+		const osg::StateSet::AttributeList* rhs_ptr=(Luna< std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > >::checkSubType< osg::StateSet::AttributeList >(L,3));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::StateSet::public_compareAttributeContents function");
 		}
@@ -582,7 +582,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_setMode(osg::StateSet::ModeList & modeList, unsigned int mode, unsigned int value) function, expected prototype:\nvoid osg::StateSet::public_setMode(osg::StateSet::ModeList & modeList, unsigned int mode, unsigned int value)\nClass arguments details:\narg 1 ID = 59463386\n");
 		}
 
-		osg::StateSet::ModeList* modeList_ptr=(Luna< osg::StateSet::ModeList >::check(L,2));
+		osg::StateSet::ModeList* modeList_ptr=(Luna< std::map< unsigned int, unsigned int > >::checkSubType< osg::StateSet::ModeList >(L,2));
 		if( !modeList_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg modeList in osg::StateSet::public_setMode function");
 		}
@@ -607,7 +607,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::StateSet::public_setModeToInherit(osg::StateSet::ModeList & modeList, unsigned int mode) function, expected prototype:\nvoid osg::StateSet::public_setModeToInherit(osg::StateSet::ModeList & modeList, unsigned int mode)\nClass arguments details:\narg 1 ID = 59463386\n");
 		}
 
-		osg::StateSet::ModeList* modeList_ptr=(Luna< osg::StateSet::ModeList >::check(L,2));
+		osg::StateSet::ModeList* modeList_ptr=(Luna< std::map< unsigned int, unsigned int > >::checkSubType< osg::StateSet::ModeList >(L,2));
 		if( !modeList_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg modeList in osg::StateSet::public_setModeToInherit function");
 		}
@@ -631,7 +631,7 @@ public:
 			luaL_error(L, "luna typecheck failed in unsigned int osg::StateSet::public_getMode(const osg::StateSet::ModeList & modeList, unsigned int mode) const function, expected prototype:\nunsigned int osg::StateSet::public_getMode(const osg::StateSet::ModeList & modeList, unsigned int mode) const\nClass arguments details:\narg 1 ID = 59463386\n");
 		}
 
-		const osg::StateSet::ModeList* modeList_ptr=(Luna< osg::StateSet::ModeList >::check(L,2));
+		const osg::StateSet::ModeList* modeList_ptr=(Luna< std::map< unsigned int, unsigned int > >::checkSubType< osg::StateSet::ModeList >(L,2));
 		if( !modeList_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg modeList in osg::StateSet::public_getMode function");
 		}
@@ -658,7 +658,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::StateSet::AttributeList* attributeList_ptr=(Luna< osg::StateSet::AttributeList >::check(L,2));
+		osg::StateSet::AttributeList* attributeList_ptr=(Luna< std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > >::checkSubType< osg::StateSet::AttributeList >(L,2));
 		if( !attributeList_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg attributeList in osg::StateSet::public_setAttribute function");
 		}
@@ -683,7 +683,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::StateAttribute * osg::StateSet::public_getAttribute(osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) function, expected prototype:\nosg::StateAttribute * osg::StateSet::public_getAttribute(osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member)\nClass arguments details:\narg 1 ID = 84373691\n");
 		}
 
-		osg::StateSet::AttributeList* attributeList_ptr=(Luna< osg::StateSet::AttributeList >::check(L,2));
+		osg::StateSet::AttributeList* attributeList_ptr=(Luna< std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > >::checkSubType< osg::StateSet::AttributeList >(L,2));
 		if( !attributeList_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg attributeList in osg::StateSet::public_getAttribute function");
 		}
@@ -711,7 +711,7 @@ public:
 			luaL_error(L, "luna typecheck failed in const osg::StateSet::RefAttributePair * osg::StateSet::public_getAttributePair(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const function, expected prototype:\nconst osg::StateSet::RefAttributePair * osg::StateSet::public_getAttributePair(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const\nClass arguments details:\narg 1 ID = 84373691\n");
 		}
 
-		const osg::StateSet::AttributeList* attributeList_ptr=(Luna< osg::StateSet::AttributeList >::check(L,2));
+		const osg::StateSet::AttributeList* attributeList_ptr=(Luna< std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > >::checkSubType< osg::StateSet::AttributeList >(L,2));
 		if( !attributeList_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg attributeList in osg::StateSet::public_getAttributePair function");
 		}

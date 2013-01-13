@@ -173,7 +173,7 @@ public:
 	inline static bool _lg_typecheck_zoomOn(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,65870735) ) return false;
 		return true;
 	}
 
@@ -194,7 +194,7 @@ public:
 	inline static bool _lg_typecheck_computeViewPosition(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,65870735) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,92303202) ) return false;
@@ -888,7 +888,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::SphericalManipulator::zoomOn(const osg::BoundingSphered & bound) function, expected prototype:\nvoid osgGA::SphericalManipulator::zoomOn(const osg::BoundingSphered & bound)\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSphered* bound_ptr=(Luna< osg::BoundingSphered >::check(L,2));
+		const osg::BoundingSphered* bound_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
 		if( !bound_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bound in osgGA::SphericalManipulator::zoomOn function");
 		}
@@ -958,7 +958,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::SphericalManipulator::computeViewPosition(const osg::BoundingSphered & bound, double & scale, double & distance, osg::Vec3d & center) function, expected prototype:\nvoid osgGA::SphericalManipulator::computeViewPosition(const osg::BoundingSphered & bound, double & scale, double & distance, osg::Vec3d & center)\nClass arguments details:\narg 1 ID = 54337300\narg 4 ID = 92303202\n");
 		}
 
-		const osg::BoundingSphered* bound_ptr=(Luna< osg::BoundingSphered >::check(L,2));
+		const osg::BoundingSphered* bound_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
 		if( !bound_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bound in osgGA::SphericalManipulator::computeViewPosition function");
 		}

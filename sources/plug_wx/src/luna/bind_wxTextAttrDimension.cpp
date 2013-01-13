@@ -182,6 +182,32 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getM_value(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_flags(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_value(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_flags(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 1 valid operators)
@@ -635,6 +661,82 @@ public:
 		return 0;
 	}
 
+	// int wxTextAttrDimension::m_value()
+	static int _bind_getM_value(lua_State *L) {
+		if (!_lg_typecheck_getM_value(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxTextAttrDimension::m_value() function, expected prototype:\nint wxTextAttrDimension::m_value()\nClass arguments details:\n");
+		}
+
+
+		wxTextAttrDimension* self=(Luna< wxTextAttrDimension >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxTextAttrDimension::m_value(). Got : '%s'",typeid(Luna< wxTextAttrDimension >::check(L,1)).name());
+		}
+		int lret = self->m_value;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned short wxTextAttrDimension::m_flags()
+	static int _bind_getM_flags(lua_State *L) {
+		if (!_lg_typecheck_getM_flags(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned short wxTextAttrDimension::m_flags() function, expected prototype:\nunsigned short wxTextAttrDimension::m_flags()\nClass arguments details:\n");
+		}
+
+
+		wxTextAttrDimension* self=(Luna< wxTextAttrDimension >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned short wxTextAttrDimension::m_flags(). Got : '%s'",typeid(Luna< wxTextAttrDimension >::check(L,1)).name());
+		}
+		unsigned short lret = self->m_flags;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxTextAttrDimension::m_value(int value)
+	static int _bind_setM_value(lua_State *L) {
+		if (!_lg_typecheck_setM_value(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextAttrDimension::m_value(int value) function, expected prototype:\nvoid wxTextAttrDimension::m_value(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		wxTextAttrDimension* self=(Luna< wxTextAttrDimension >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextAttrDimension::m_value(int). Got : '%s'",typeid(Luna< wxTextAttrDimension >::check(L,1)).name());
+		}
+		self->m_value = value;
+
+		return 0;
+	}
+
+	// void wxTextAttrDimension::m_flags(unsigned short value)
+	static int _bind_setM_flags(lua_State *L) {
+		if (!_lg_typecheck_setM_flags(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextAttrDimension::m_flags(unsigned short value) function, expected prototype:\nvoid wxTextAttrDimension::m_flags(unsigned short value)\nClass arguments details:\n");
+		}
+
+		unsigned short value=(unsigned short)lua_tointeger(L,2);
+
+		wxTextAttrDimension* self=(Luna< wxTextAttrDimension >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextAttrDimension::m_flags(unsigned short). Got : '%s'",typeid(Luna< wxTextAttrDimension >::check(L,1)).name());
+		}
+		self->m_flags = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// bool wxTextAttrDimension::operator==(const wxTextAttrDimension & dim) const
@@ -698,6 +800,10 @@ luna_RegType LunaTraits< wxTextAttrDimension >::methods[] = {
 	{"SetValid", &luna_wrapper_wxTextAttrDimension::_bind_SetValid},
 	{"GetFlags", &luna_wrapper_wxTextAttrDimension::_bind_GetFlags},
 	{"SetFlags", &luna_wrapper_wxTextAttrDimension::_bind_SetFlags},
+	{"getM_value", &luna_wrapper_wxTextAttrDimension::_bind_getM_value},
+	{"getM_flags", &luna_wrapper_wxTextAttrDimension::_bind_getM_flags},
+	{"setM_value", &luna_wrapper_wxTextAttrDimension::_bind_setM_value},
+	{"setM_flags", &luna_wrapper_wxTextAttrDimension::_bind_setM_flags},
 	{"__eq", &luna_wrapper_wxTextAttrDimension::_bind___eq},
 	{"dynCast", &luna_wrapper_wxTextAttrDimension::_bind_dynCast},
 	{0,0}

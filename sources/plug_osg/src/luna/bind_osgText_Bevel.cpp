@@ -157,7 +157,7 @@ public:
 	inline static bool _lg_typecheck_setVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,78061823) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,30190297) ) return false;
 		return true;
 	}
 
@@ -567,7 +567,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgText::Bevel::setVertices(const osgText::Bevel::Vertices & vertices) function, expected prototype:\nvoid osgText::Bevel::setVertices(const osgText::Bevel::Vertices & vertices)\nClass arguments details:\narg 1 ID = 78061823\n");
 		}
 
-		const osgText::Bevel::Vertices* vertices_ptr=(Luna< osgText::Bevel::Vertices >::check(L,2));
+		const osgText::Bevel::Vertices* vertices_ptr=(Luna< std::vector< osg::Vec2f > >::checkSubType< osgText::Bevel::Vertices >(L,2));
 		if( !vertices_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg vertices in osgText::Bevel::setVertices function");
 		}

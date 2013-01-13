@@ -206,7 +206,7 @@ public:
 	inline static bool _lg_typecheck_setModeList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,59463386) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50375310) ) return false;
 		return true;
 	}
 
@@ -287,7 +287,7 @@ public:
 	inline static bool _lg_typecheck_setAttributeList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,84373691) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,94158825) ) return false;
 		return true;
 	}
 
@@ -331,7 +331,7 @@ public:
 	inline static bool _lg_typecheck_setTextureModeList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,14028616) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,68848182) ) return false;
 		return true;
 	}
 
@@ -417,7 +417,7 @@ public:
 	inline static bool _lg_typecheck_setTextureAttributeList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,35981382) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,27505286) ) return false;
 		return true;
 	}
 
@@ -529,7 +529,7 @@ public:
 	inline static bool _lg_typecheck_setUniformList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,47344864) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,97138515) ) return false;
 		return true;
 	}
 
@@ -1322,7 +1322,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::StateSet::setModeList(osg::StateSet::ModeList & ml) function, expected prototype:\nvoid osg::StateSet::setModeList(osg::StateSet::ModeList & ml)\nClass arguments details:\narg 1 ID = 59463386\n");
 		}
 
-		osg::StateSet::ModeList* ml_ptr=(Luna< osg::StateSet::ModeList >::check(L,2));
+		osg::StateSet::ModeList* ml_ptr=(Luna< std::map< unsigned int, unsigned int > >::checkSubType< osg::StateSet::ModeList >(L,2));
 		if( !ml_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg ml in osg::StateSet::setModeList function");
 		}
@@ -1574,7 +1574,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::StateSet::setAttributeList(osg::StateSet::AttributeList & al) function, expected prototype:\nvoid osg::StateSet::setAttributeList(osg::StateSet::AttributeList & al)\nClass arguments details:\narg 1 ID = 84373691\n");
 		}
 
-		osg::StateSet::AttributeList* al_ptr=(Luna< osg::StateSet::AttributeList >::check(L,2));
+		osg::StateSet::AttributeList* al_ptr=(Luna< std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > >::checkSubType< osg::StateSet::AttributeList >(L,2));
 		if( !al_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg al in osg::StateSet::setAttributeList function");
 		}
@@ -1710,7 +1710,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::StateSet::setTextureModeList(osg::StateSet::TextureModeList & tml) function, expected prototype:\nvoid osg::StateSet::setTextureModeList(osg::StateSet::TextureModeList & tml)\nClass arguments details:\narg 1 ID = 14028616\n");
 		}
 
-		osg::StateSet::TextureModeList* tml_ptr=(Luna< osg::StateSet::TextureModeList >::check(L,2));
+		osg::StateSet::TextureModeList* tml_ptr=(Luna< std::vector< osg::StateSet::ModeList > >::checkSubType< osg::StateSet::TextureModeList >(L,2));
 		if( !tml_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg tml in osg::StateSet::setTextureModeList function");
 		}
@@ -1976,7 +1976,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::StateSet::setTextureAttributeList(osg::StateSet::TextureAttributeList & tal) function, expected prototype:\nvoid osg::StateSet::setTextureAttributeList(osg::StateSet::TextureAttributeList & tal)\nClass arguments details:\narg 1 ID = 35981382\n");
 		}
 
-		osg::StateSet::TextureAttributeList* tal_ptr=(Luna< osg::StateSet::TextureAttributeList >::check(L,2));
+		osg::StateSet::TextureAttributeList* tal_ptr=(Luna< std::vector< osg::StateSet::AttributeList > >::checkSubType< osg::StateSet::TextureAttributeList >(L,2));
 		if( !tal_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg tal in osg::StateSet::setTextureAttributeList function");
 		}
@@ -2319,7 +2319,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::StateSet::setUniformList(osg::StateSet::UniformList & al) function, expected prototype:\nvoid osg::StateSet::setUniformList(osg::StateSet::UniformList & al)\nClass arguments details:\narg 1 ID = 47344864\n");
 		}
 
-		osg::StateSet::UniformList* al_ptr=(Luna< osg::StateSet::UniformList >::check(L,2));
+		osg::StateSet::UniformList* al_ptr=(Luna< std::map< std::string, osg::StateSet::RefUniformPair > >::checkSubType< osg::StateSet::UniformList >(L,2));
 		if( !al_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg al in osg::StateSet::setUniformList function");
 		}

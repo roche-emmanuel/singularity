@@ -89,23 +89,23 @@ public:
 	inline static bool _lg_typecheck_setEvents(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,42735238) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1490680) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_takeEvents_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,42735238) ) return false;
-		if( (!(Luna< osgGA::EventQueue::Events >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1490680) ) return false;
+		if( (!(Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::checkSubType< osgGA::EventQueue::Events >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_takeEvents_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,42735238) ) return false;
-		if( (!(Luna< osgGA::EventQueue::Events >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1490680) ) return false;
+		if( (!(Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::checkSubType< osgGA::EventQueue::Events >(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
@@ -113,14 +113,14 @@ public:
 	inline static bool _lg_typecheck_copyEvents(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,42735238) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1490680) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_appendEvents(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,42735238) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1490680) ) return false;
 		return true;
 	}
 
@@ -602,7 +602,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setEvents(osgGA::EventQueue::Events & events) function, expected prototype:\nvoid osgGA::EventQueue::setEvents(osgGA::EventQueue::Events & events)\nClass arguments details:\narg 1 ID = 42735238\n");
 		}
 
-		osgGA::EventQueue::Events* events_ptr=(Luna< osgGA::EventQueue::Events >::check(L,2));
+		osgGA::EventQueue::Events* events_ptr=(Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::checkSubType< osgGA::EventQueue::Events >(L,2));
 		if( !events_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg events in osgGA::EventQueue::setEvents function");
 		}
@@ -625,7 +625,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events & events) function, expected prototype:\nbool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events & events)\nClass arguments details:\narg 1 ID = 42735238\n");
 		}
 
-		osgGA::EventQueue::Events* events_ptr=(Luna< osgGA::EventQueue::Events >::check(L,2));
+		osgGA::EventQueue::Events* events_ptr=(Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::checkSubType< osgGA::EventQueue::Events >(L,2));
 		if( !events_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg events in osgGA::EventQueue::takeEvents function");
 		}
@@ -649,7 +649,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events & events, double cutOffTime) function, expected prototype:\nbool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events & events, double cutOffTime)\nClass arguments details:\narg 1 ID = 42735238\n");
 		}
 
-		osgGA::EventQueue::Events* events_ptr=(Luna< osgGA::EventQueue::Events >::check(L,2));
+		osgGA::EventQueue::Events* events_ptr=(Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::checkSubType< osgGA::EventQueue::Events >(L,2));
 		if( !events_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg events in osgGA::EventQueue::takeEvents function");
 		}
@@ -683,7 +683,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgGA::EventQueue::copyEvents(osgGA::EventQueue::Events & events) const function, expected prototype:\nbool osgGA::EventQueue::copyEvents(osgGA::EventQueue::Events & events) const\nClass arguments details:\narg 1 ID = 42735238\n");
 		}
 
-		osgGA::EventQueue::Events* events_ptr=(Luna< osgGA::EventQueue::Events >::check(L,2));
+		osgGA::EventQueue::Events* events_ptr=(Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::checkSubType< osgGA::EventQueue::Events >(L,2));
 		if( !events_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg events in osgGA::EventQueue::copyEvents function");
 		}
@@ -707,7 +707,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::appendEvents(osgGA::EventQueue::Events & events) function, expected prototype:\nvoid osgGA::EventQueue::appendEvents(osgGA::EventQueue::Events & events)\nClass arguments details:\narg 1 ID = 42735238\n");
 		}
 
-		osgGA::EventQueue::Events* events_ptr=(Luna< osgGA::EventQueue::Events >::check(L,2));
+		osgGA::EventQueue::Events* events_ptr=(Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::checkSubType< osgGA::EventQueue::Events >(L,2));
 		if( !events_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg events in osgGA::EventQueue::appendEvents function");
 		}

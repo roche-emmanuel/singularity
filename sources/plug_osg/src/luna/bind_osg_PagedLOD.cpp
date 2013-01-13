@@ -387,7 +387,7 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,52729833) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,88937738) ) return false;
 		return true;
 	}
 
@@ -615,7 +615,7 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,52729833) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,88937738) ) return false;
 		return true;
 	}
 
@@ -1533,7 +1533,7 @@ public:
 
 		double expiryTime=(double)lua_tonumber(L,2);
 		unsigned int expiryFrame=(unsigned int)lua_tointeger(L,3);
-		osg::NodeList* removedChildren_ptr=(Luna< osg::NodeList >::check(L,4));
+		osg::NodeList* removedChildren_ptr=(Luna< std::vector< osg::ref_ptr< osg::Node > > >::checkSubType< osg::NodeList >(L,4));
 		if( !removedChildren_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg removedChildren in osg::PagedLOD::removeExpiredChildren function");
 		}
@@ -2271,7 +2271,7 @@ public:
 
 		double expiryTime=(double)lua_tonumber(L,2);
 		unsigned int expiryFrame=(unsigned int)lua_tointeger(L,3);
-		osg::NodeList* removedChildren_ptr=(Luna< osg::NodeList >::check(L,4));
+		osg::NodeList* removedChildren_ptr=(Luna< std::vector< osg::ref_ptr< osg::Node > > >::checkSubType< osg::NodeList >(L,4));
 		if( !removedChildren_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg removedChildren in osg::PagedLOD::base_removeExpiredChildren function");
 		}

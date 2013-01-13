@@ -118,6 +118,71 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_get_glyphs(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_coords(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_texcoords(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_lineNumbers(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_colorCoords(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_glyphs(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,57567263) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_coords(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,30190297) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_texcoords(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,30190297) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_lineNumbers(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,27834872) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_colorCoords(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,30249879) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -384,6 +449,226 @@ public:
 		return 0;
 	}
 
+	// osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::_glyphs()
+	static int _bind_get_glyphs(lua_State *L) {
+		if (!_lg_typecheck_get_glyphs(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::_glyphs() function, expected prototype:\nosgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::_glyphs()\nClass arguments details:\n");
+		}
+
+
+		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::Glyphs osgText::Text::GlyphQuads::_glyphs(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+		}
+		const osgText::Text::GlyphQuads::Glyphs* lret = &self->_glyphs;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgText::Text::GlyphQuads::Glyphs >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgText::Text::GlyphQuads::Coords2 osgText::Text::GlyphQuads::_coords()
+	static int _bind_get_coords(lua_State *L) {
+		if (!_lg_typecheck_get_coords(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::Coords2 osgText::Text::GlyphQuads::_coords() function, expected prototype:\nosgText::Text::GlyphQuads::Coords2 osgText::Text::GlyphQuads::_coords()\nClass arguments details:\n");
+		}
+
+
+		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::Coords2 osgText::Text::GlyphQuads::_coords(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+		}
+		const osgText::Text::GlyphQuads::Coords2* lret = &self->_coords;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgText::Text::GlyphQuads::Coords2 >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgText::Text::GlyphQuads::TexCoords osgText::Text::GlyphQuads::_texcoords()
+	static int _bind_get_texcoords(lua_State *L) {
+		if (!_lg_typecheck_get_texcoords(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::TexCoords osgText::Text::GlyphQuads::_texcoords() function, expected prototype:\nosgText::Text::GlyphQuads::TexCoords osgText::Text::GlyphQuads::_texcoords()\nClass arguments details:\n");
+		}
+
+
+		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::TexCoords osgText::Text::GlyphQuads::_texcoords(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+		}
+		const osgText::Text::GlyphQuads::TexCoords* lret = &self->_texcoords;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgText::Text::GlyphQuads::TexCoords >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgText::Text::GlyphQuads::LineNumbers osgText::Text::GlyphQuads::_lineNumbers()
+	static int _bind_get_lineNumbers(lua_State *L) {
+		if (!_lg_typecheck_get_lineNumbers(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::LineNumbers osgText::Text::GlyphQuads::_lineNumbers() function, expected prototype:\nosgText::Text::GlyphQuads::LineNumbers osgText::Text::GlyphQuads::_lineNumbers()\nClass arguments details:\n");
+		}
+
+
+		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::LineNumbers osgText::Text::GlyphQuads::_lineNumbers(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+		}
+		const osgText::Text::GlyphQuads::LineNumbers* lret = &self->_lineNumbers;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgText::Text::GlyphQuads::LineNumbers >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgText::Text::GlyphQuads::ColorCoords osgText::Text::GlyphQuads::_colorCoords()
+	static int _bind_get_colorCoords(lua_State *L) {
+		if (!_lg_typecheck_get_colorCoords(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::Text::GlyphQuads::ColorCoords osgText::Text::GlyphQuads::_colorCoords() function, expected prototype:\nosgText::Text::GlyphQuads::ColorCoords osgText::Text::GlyphQuads::_colorCoords()\nClass arguments details:\n");
+		}
+
+
+		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgText::Text::GlyphQuads::ColorCoords osgText::Text::GlyphQuads::_colorCoords(). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+		}
+		const osgText::Text::GlyphQuads::ColorCoords* lret = &self->_colorCoords;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgText::Text::GlyphQuads::ColorCoords >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void osgText::Text::GlyphQuads::_glyphs(osgText::Text::GlyphQuads::Glyphs value)
+	static int _bind_set_glyphs(lua_State *L) {
+		if (!_lg_typecheck_set_glyphs(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_glyphs(osgText::Text::GlyphQuads::Glyphs value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_glyphs(osgText::Text::GlyphQuads::Glyphs value)\nClass arguments details:\narg 1 ID = 3878690\n");
+		}
+
+		osgText::Text::GlyphQuads::Glyphs* value_ptr=(Luna< std::vector< osgText::Glyph * > >::checkSubType< osgText::Text::GlyphQuads::Glyphs >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgText::Text::GlyphQuads::_glyphs function");
+		}
+		osgText::Text::GlyphQuads::Glyphs value=*value_ptr;
+
+		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_glyphs(osgText::Text::GlyphQuads::Glyphs). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+		}
+		self->_glyphs = value;
+
+		return 0;
+	}
+
+	// void osgText::Text::GlyphQuads::_coords(osgText::Text::GlyphQuads::Coords2 value)
+	static int _bind_set_coords(lua_State *L) {
+		if (!_lg_typecheck_set_coords(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_coords(osgText::Text::GlyphQuads::Coords2 value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_coords(osgText::Text::GlyphQuads::Coords2 value)\nClass arguments details:\narg 1 ID = 46933791\n");
+		}
+
+		osgText::Text::GlyphQuads::Coords2* value_ptr=(Luna< std::vector< osg::Vec2f > >::checkSubType< osgText::Text::GlyphQuads::Coords2 >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgText::Text::GlyphQuads::_coords function");
+		}
+		osgText::Text::GlyphQuads::Coords2 value=*value_ptr;
+
+		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_coords(osgText::Text::GlyphQuads::Coords2). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+		}
+		self->_coords = value;
+
+		return 0;
+	}
+
+	// void osgText::Text::GlyphQuads::_texcoords(osgText::Text::GlyphQuads::TexCoords value)
+	static int _bind_set_texcoords(lua_State *L) {
+		if (!_lg_typecheck_set_texcoords(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_texcoords(osgText::Text::GlyphQuads::TexCoords value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_texcoords(osgText::Text::GlyphQuads::TexCoords value)\nClass arguments details:\narg 1 ID = 72230542\n");
+		}
+
+		osgText::Text::GlyphQuads::TexCoords* value_ptr=(Luna< std::vector< osg::Vec2f > >::checkSubType< osgText::Text::GlyphQuads::TexCoords >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgText::Text::GlyphQuads::_texcoords function");
+		}
+		osgText::Text::GlyphQuads::TexCoords value=*value_ptr;
+
+		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_texcoords(osgText::Text::GlyphQuads::TexCoords). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+		}
+		self->_texcoords = value;
+
+		return 0;
+	}
+
+	// void osgText::Text::GlyphQuads::_lineNumbers(osgText::Text::GlyphQuads::LineNumbers value)
+	static int _bind_set_lineNumbers(lua_State *L) {
+		if (!_lg_typecheck_set_lineNumbers(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_lineNumbers(osgText::Text::GlyphQuads::LineNumbers value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_lineNumbers(osgText::Text::GlyphQuads::LineNumbers value)\nClass arguments details:\narg 1 ID = 43001465\n");
+		}
+
+		osgText::Text::GlyphQuads::LineNumbers* value_ptr=(Luna< std::vector< unsigned int > >::checkSubType< osgText::Text::GlyphQuads::LineNumbers >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgText::Text::GlyphQuads::_lineNumbers function");
+		}
+		osgText::Text::GlyphQuads::LineNumbers value=*value_ptr;
+
+		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_lineNumbers(osgText::Text::GlyphQuads::LineNumbers). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+		}
+		self->_lineNumbers = value;
+
+		return 0;
+	}
+
+	// void osgText::Text::GlyphQuads::_colorCoords(osgText::Text::GlyphQuads::ColorCoords value)
+	static int _bind_set_colorCoords(lua_State *L) {
+		if (!_lg_typecheck_set_colorCoords(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgText::Text::GlyphQuads::_colorCoords(osgText::Text::GlyphQuads::ColorCoords value) function, expected prototype:\nvoid osgText::Text::GlyphQuads::_colorCoords(osgText::Text::GlyphQuads::ColorCoords value)\nClass arguments details:\narg 1 ID = 26979605\n");
+		}
+
+		osgText::Text::GlyphQuads::ColorCoords* value_ptr=(Luna< std::vector< osg::Vec4f > >::checkSubType< osgText::Text::GlyphQuads::ColorCoords >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgText::Text::GlyphQuads::_colorCoords function");
+		}
+		osgText::Text::GlyphQuads::ColorCoords value=*value_ptr;
+
+		osgText::Text::GlyphQuads* self=(Luna< osgText::Text::GlyphQuads >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgText::Text::GlyphQuads::_colorCoords(osgText::Text::GlyphQuads::ColorCoords). Got : '%s'",typeid(Luna< osgText::Text::GlyphQuads >::check(L,1)).name());
+		}
+		self->_colorCoords = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -412,6 +697,16 @@ luna_RegType LunaTraits< osgText::Text::GlyphQuads >::methods[] = {
 	{"getTransformedCoords", &luna_wrapper_osgText_Text_GlyphQuads::_bind_getTransformedCoords},
 	{"getTexCoords", &luna_wrapper_osgText_Text_GlyphQuads::_bind_getTexCoords},
 	{"getLineNumbers", &luna_wrapper_osgText_Text_GlyphQuads::_bind_getLineNumbers},
+	{"get_glyphs", &luna_wrapper_osgText_Text_GlyphQuads::_bind_get_glyphs},
+	{"get_coords", &luna_wrapper_osgText_Text_GlyphQuads::_bind_get_coords},
+	{"get_texcoords", &luna_wrapper_osgText_Text_GlyphQuads::_bind_get_texcoords},
+	{"get_lineNumbers", &luna_wrapper_osgText_Text_GlyphQuads::_bind_get_lineNumbers},
+	{"get_colorCoords", &luna_wrapper_osgText_Text_GlyphQuads::_bind_get_colorCoords},
+	{"set_glyphs", &luna_wrapper_osgText_Text_GlyphQuads::_bind_set_glyphs},
+	{"set_coords", &luna_wrapper_osgText_Text_GlyphQuads::_bind_set_coords},
+	{"set_texcoords", &luna_wrapper_osgText_Text_GlyphQuads::_bind_set_texcoords},
+	{"set_lineNumbers", &luna_wrapper_osgText_Text_GlyphQuads::_bind_set_lineNumbers},
+	{"set_colorCoords", &luna_wrapper_osgText_Text_GlyphQuads::_bind_set_colorCoords},
 	{"dynCast", &luna_wrapper_osgText_Text_GlyphQuads::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgText_Text_GlyphQuads::_bind___eq},
 	{0,0}

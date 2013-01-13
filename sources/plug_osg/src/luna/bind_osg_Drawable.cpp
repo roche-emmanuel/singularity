@@ -193,7 +193,7 @@ public:
 	inline static bool _lg_typecheck_setInitialBound(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,41227270) ) return false;
 		return true;
 	}
 
@@ -508,6 +508,45 @@ public:
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getS_numberDrawablesReusedLastInLastFrame(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getS_numberNewDrawablesInLastFrame(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getS_numberDeletedDrawablesInLastFrame(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setS_numberDrawablesReusedLastInLastFrame(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setS_numberNewDrawablesInLastFrame(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setS_numberDeletedDrawablesInLastFrame(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -1073,7 +1112,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Drawable::setInitialBound(const osg::BoundingBoxd & bbox) function, expected prototype:\nvoid osg::Drawable::setInitialBound(const osg::BoundingBoxd & bbox)\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxd* bbox_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
+		const osg::BoundingBoxd* bbox_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
 		if( !bbox_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bbox in osg::Drawable::setInitialBound function");
 		}
@@ -2049,6 +2088,120 @@ public:
 		return 0;
 	}
 
+	// unsigned int osg::Drawable::s_numberDrawablesReusedLastInLastFrame()
+	static int _bind_getS_numberDrawablesReusedLastInLastFrame(lua_State *L) {
+		if (!_lg_typecheck_getS_numberDrawablesReusedLastInLastFrame(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::s_numberDrawablesReusedLastInLastFrame() function, expected prototype:\nunsigned int osg::Drawable::s_numberDrawablesReusedLastInLastFrame()\nClass arguments details:\n");
+		}
+
+
+		osg::Drawable* self=Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::s_numberDrawablesReusedLastInLastFrame(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->s_numberDrawablesReusedLastInLastFrame;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osg::Drawable::s_numberNewDrawablesInLastFrame()
+	static int _bind_getS_numberNewDrawablesInLastFrame(lua_State *L) {
+		if (!_lg_typecheck_getS_numberNewDrawablesInLastFrame(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::s_numberNewDrawablesInLastFrame() function, expected prototype:\nunsigned int osg::Drawable::s_numberNewDrawablesInLastFrame()\nClass arguments details:\n");
+		}
+
+
+		osg::Drawable* self=Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::s_numberNewDrawablesInLastFrame(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->s_numberNewDrawablesInLastFrame;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osg::Drawable::s_numberDeletedDrawablesInLastFrame()
+	static int _bind_getS_numberDeletedDrawablesInLastFrame(lua_State *L) {
+		if (!_lg_typecheck_getS_numberDeletedDrawablesInLastFrame(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Drawable::s_numberDeletedDrawablesInLastFrame() function, expected prototype:\nunsigned int osg::Drawable::s_numberDeletedDrawablesInLastFrame()\nClass arguments details:\n");
+		}
+
+
+		osg::Drawable* self=Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::Drawable::s_numberDeletedDrawablesInLastFrame(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->s_numberDeletedDrawablesInLastFrame;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::Drawable::s_numberDrawablesReusedLastInLastFrame(unsigned int value)
+	static int _bind_setS_numberDrawablesReusedLastInLastFrame(lua_State *L) {
+		if (!_lg_typecheck_setS_numberDrawablesReusedLastInLastFrame(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::s_numberDrawablesReusedLastInLastFrame(unsigned int value) function, expected prototype:\nvoid osg::Drawable::s_numberDrawablesReusedLastInLastFrame(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osg::Drawable* self=Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Drawable::s_numberDrawablesReusedLastInLastFrame(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->s_numberDrawablesReusedLastInLastFrame = value;
+
+		return 0;
+	}
+
+	// void osg::Drawable::s_numberNewDrawablesInLastFrame(unsigned int value)
+	static int _bind_setS_numberNewDrawablesInLastFrame(lua_State *L) {
+		if (!_lg_typecheck_setS_numberNewDrawablesInLastFrame(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::s_numberNewDrawablesInLastFrame(unsigned int value) function, expected prototype:\nvoid osg::Drawable::s_numberNewDrawablesInLastFrame(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osg::Drawable* self=Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Drawable::s_numberNewDrawablesInLastFrame(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->s_numberNewDrawablesInLastFrame = value;
+
+		return 0;
+	}
+
+	// void osg::Drawable::s_numberDeletedDrawablesInLastFrame(unsigned int value)
+	static int _bind_setS_numberDeletedDrawablesInLastFrame(lua_State *L) {
+		if (!_lg_typecheck_setS_numberDeletedDrawablesInLastFrame(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::s_numberDeletedDrawablesInLastFrame(unsigned int value) function, expected prototype:\nvoid osg::Drawable::s_numberDeletedDrawablesInLastFrame(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osg::Drawable* self=Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Drawable::s_numberDeletedDrawablesInLastFrame(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->s_numberDeletedDrawablesInLastFrame = value;
+
+		return 0;
+	}
+
 	// void osg::Drawable::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
@@ -2562,6 +2715,12 @@ luna_RegType LunaTraits< osg::Drawable >::methods[] = {
 	{"flushDeletedDisplayLists", &luna_wrapper_osg_Drawable::_bind_flushDeletedDisplayLists},
 	{"getExtensions", &luna_wrapper_osg_Drawable::_bind_getExtensions},
 	{"setExtensions", &luna_wrapper_osg_Drawable::_bind_setExtensions},
+	{"getS_numberDrawablesReusedLastInLastFrame", &luna_wrapper_osg_Drawable::_bind_getS_numberDrawablesReusedLastInLastFrame},
+	{"getS_numberNewDrawablesInLastFrame", &luna_wrapper_osg_Drawable::_bind_getS_numberNewDrawablesInLastFrame},
+	{"getS_numberDeletedDrawablesInLastFrame", &luna_wrapper_osg_Drawable::_bind_getS_numberDeletedDrawablesInLastFrame},
+	{"setS_numberDrawablesReusedLastInLastFrame", &luna_wrapper_osg_Drawable::_bind_setS_numberDrawablesReusedLastInLastFrame},
+	{"setS_numberNewDrawablesInLastFrame", &luna_wrapper_osg_Drawable::_bind_setS_numberNewDrawablesInLastFrame},
+	{"setS_numberDeletedDrawablesInLastFrame", &luna_wrapper_osg_Drawable::_bind_setS_numberDeletedDrawablesInLastFrame},
 	{"base_setName", &luna_wrapper_osg_Drawable::_bind_base_setName},
 	{"base_setUserData", &luna_wrapper_osg_Drawable::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osg_Drawable::_bind_base_getUserData},

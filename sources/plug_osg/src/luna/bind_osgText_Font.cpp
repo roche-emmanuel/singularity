@@ -176,7 +176,7 @@ public:
 	inline static bool _lg_typecheck_getGlyph(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,17799265) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,52265949) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -413,7 +413,7 @@ public:
 	inline static bool _lg_typecheck_base_getGlyph(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,17799265) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,52265949) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -786,7 +786,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osgText::Glyph * osgText::Font::getGlyph(const osgText::FontResolution & fontSize, unsigned int charcode) function, expected prototype:\nosgText::Glyph * osgText::Font::getGlyph(const osgText::FontResolution & fontSize, unsigned int charcode)\nClass arguments details:\narg 1 ID = 17799265\n");
 		}
 
-		const osgText::FontResolution* fontSize_ptr=(Luna< osgText::FontResolution >::check(L,2));
+		const osgText::FontResolution* fontSize_ptr=(Luna< std::pair< unsigned int, unsigned int > >::checkSubType< osgText::FontResolution >(L,2));
 		if( !fontSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fontSize in osgText::Font::getGlyph function");
 		}
@@ -1522,7 +1522,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osgText::Glyph * osgText::Font::base_getGlyph(const osgText::FontResolution & fontSize, unsigned int charcode) function, expected prototype:\nosgText::Glyph * osgText::Font::base_getGlyph(const osgText::FontResolution & fontSize, unsigned int charcode)\nClass arguments details:\narg 1 ID = 17799265\n");
 		}
 
-		const osgText::FontResolution* fontSize_ptr=(Luna< osgText::FontResolution >::check(L,2));
+		const osgText::FontResolution* fontSize_ptr=(Luna< std::pair< unsigned int, unsigned int > >::checkSubType< osgText::FontResolution >(L,2));
 		if( !fontSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fontSize in osgText::Font::base_getGlyph function");
 		}

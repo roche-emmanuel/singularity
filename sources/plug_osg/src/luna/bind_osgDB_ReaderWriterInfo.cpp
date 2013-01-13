@@ -82,6 +82,84 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getPlugin(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getDescription(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getProtocols(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getExtensions(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getOptions(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getFeatures(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setPlugin(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setDescription(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setProtocols(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,29293820) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setExtensions(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,29293820) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setOptions(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,29293820) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setFeatures(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -127,6 +205,252 @@ public:
 
 
 	// Function binds:
+	// std::string osgDB::ReaderWriterInfo::plugin()
+	static int _bind_getPlugin(lua_State *L) {
+		if (!_lg_typecheck_getPlugin(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osgDB::ReaderWriterInfo::plugin() function, expected prototype:\nstd::string osgDB::ReaderWriterInfo::plugin()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ReaderWriterInfo* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriterInfo >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osgDB::ReaderWriterInfo::plugin(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		std::string lret = self->plugin;
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// std::string osgDB::ReaderWriterInfo::description()
+	static int _bind_getDescription(lua_State *L) {
+		if (!_lg_typecheck_getDescription(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osgDB::ReaderWriterInfo::description() function, expected prototype:\nstd::string osgDB::ReaderWriterInfo::description()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ReaderWriterInfo* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriterInfo >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osgDB::ReaderWriterInfo::description(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		std::string lret = self->description;
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// osgDB::ReaderWriter::FormatDescriptionMap osgDB::ReaderWriterInfo::protocols()
+	static int _bind_getProtocols(lua_State *L) {
+		if (!_lg_typecheck_getProtocols(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::FormatDescriptionMap osgDB::ReaderWriterInfo::protocols() function, expected prototype:\nosgDB::ReaderWriter::FormatDescriptionMap osgDB::ReaderWriterInfo::protocols()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ReaderWriterInfo* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriterInfo >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::FormatDescriptionMap osgDB::ReaderWriterInfo::protocols(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::ReaderWriter::FormatDescriptionMap* lret = &self->protocols;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ReaderWriter::FormatDescriptionMap >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::ReaderWriter::FormatDescriptionMap osgDB::ReaderWriterInfo::extensions()
+	static int _bind_getExtensions(lua_State *L) {
+		if (!_lg_typecheck_getExtensions(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::FormatDescriptionMap osgDB::ReaderWriterInfo::extensions() function, expected prototype:\nosgDB::ReaderWriter::FormatDescriptionMap osgDB::ReaderWriterInfo::extensions()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ReaderWriterInfo* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriterInfo >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::FormatDescriptionMap osgDB::ReaderWriterInfo::extensions(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::ReaderWriter::FormatDescriptionMap* lret = &self->extensions;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ReaderWriter::FormatDescriptionMap >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::ReaderWriter::FormatDescriptionMap osgDB::ReaderWriterInfo::options()
+	static int _bind_getOptions(lua_State *L) {
+		if (!_lg_typecheck_getOptions(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::FormatDescriptionMap osgDB::ReaderWriterInfo::options() function, expected prototype:\nosgDB::ReaderWriter::FormatDescriptionMap osgDB::ReaderWriterInfo::options()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ReaderWriterInfo* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriterInfo >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::FormatDescriptionMap osgDB::ReaderWriterInfo::options(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::ReaderWriter::FormatDescriptionMap* lret = &self->options;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ReaderWriter::FormatDescriptionMap >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::ReaderWriter::Features osgDB::ReaderWriterInfo::features()
+	static int _bind_getFeatures(lua_State *L) {
+		if (!_lg_typecheck_getFeatures(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::Features osgDB::ReaderWriterInfo::features() function, expected prototype:\nosgDB::ReaderWriter::Features osgDB::ReaderWriterInfo::features()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ReaderWriterInfo* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriterInfo >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::Features osgDB::ReaderWriterInfo::features(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osgDB::ReaderWriter::Features lret = self->features;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgDB::ReaderWriterInfo::plugin(std::string value)
+	static int _bind_setPlugin(lua_State *L) {
+		if (!_lg_typecheck_setPlugin(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ReaderWriterInfo::plugin(std::string value) function, expected prototype:\nvoid osgDB::ReaderWriterInfo::plugin(std::string value)\nClass arguments details:\n");
+		}
+
+		std::string value(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::ReaderWriterInfo* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriterInfo >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriterInfo::plugin(std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->plugin = value;
+
+		return 0;
+	}
+
+	// void osgDB::ReaderWriterInfo::description(std::string value)
+	static int _bind_setDescription(lua_State *L) {
+		if (!_lg_typecheck_setDescription(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ReaderWriterInfo::description(std::string value) function, expected prototype:\nvoid osgDB::ReaderWriterInfo::description(std::string value)\nClass arguments details:\n");
+		}
+
+		std::string value(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::ReaderWriterInfo* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriterInfo >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriterInfo::description(std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->description = value;
+
+		return 0;
+	}
+
+	// void osgDB::ReaderWriterInfo::protocols(osgDB::ReaderWriter::FormatDescriptionMap value)
+	static int _bind_setProtocols(lua_State *L) {
+		if (!_lg_typecheck_setProtocols(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ReaderWriterInfo::protocols(osgDB::ReaderWriter::FormatDescriptionMap value) function, expected prototype:\nvoid osgDB::ReaderWriterInfo::protocols(osgDB::ReaderWriter::FormatDescriptionMap value)\nClass arguments details:\narg 1 ID = 59830411\n");
+		}
+
+		osgDB::ReaderWriter::FormatDescriptionMap* value_ptr=(Luna< std::map< std::string, std::string > >::checkSubType< osgDB::ReaderWriter::FormatDescriptionMap >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgDB::ReaderWriterInfo::protocols function");
+		}
+		osgDB::ReaderWriter::FormatDescriptionMap value=*value_ptr;
+
+		osgDB::ReaderWriterInfo* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriterInfo >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriterInfo::protocols(osgDB::ReaderWriter::FormatDescriptionMap). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->protocols = value;
+
+		return 0;
+	}
+
+	// void osgDB::ReaderWriterInfo::extensions(osgDB::ReaderWriter::FormatDescriptionMap value)
+	static int _bind_setExtensions(lua_State *L) {
+		if (!_lg_typecheck_setExtensions(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ReaderWriterInfo::extensions(osgDB::ReaderWriter::FormatDescriptionMap value) function, expected prototype:\nvoid osgDB::ReaderWriterInfo::extensions(osgDB::ReaderWriter::FormatDescriptionMap value)\nClass arguments details:\narg 1 ID = 59830411\n");
+		}
+
+		osgDB::ReaderWriter::FormatDescriptionMap* value_ptr=(Luna< std::map< std::string, std::string > >::checkSubType< osgDB::ReaderWriter::FormatDescriptionMap >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgDB::ReaderWriterInfo::extensions function");
+		}
+		osgDB::ReaderWriter::FormatDescriptionMap value=*value_ptr;
+
+		osgDB::ReaderWriterInfo* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriterInfo >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriterInfo::extensions(osgDB::ReaderWriter::FormatDescriptionMap). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->extensions = value;
+
+		return 0;
+	}
+
+	// void osgDB::ReaderWriterInfo::options(osgDB::ReaderWriter::FormatDescriptionMap value)
+	static int _bind_setOptions(lua_State *L) {
+		if (!_lg_typecheck_setOptions(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ReaderWriterInfo::options(osgDB::ReaderWriter::FormatDescriptionMap value) function, expected prototype:\nvoid osgDB::ReaderWriterInfo::options(osgDB::ReaderWriter::FormatDescriptionMap value)\nClass arguments details:\narg 1 ID = 59830411\n");
+		}
+
+		osgDB::ReaderWriter::FormatDescriptionMap* value_ptr=(Luna< std::map< std::string, std::string > >::checkSubType< osgDB::ReaderWriter::FormatDescriptionMap >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgDB::ReaderWriterInfo::options function");
+		}
+		osgDB::ReaderWriter::FormatDescriptionMap value=*value_ptr;
+
+		osgDB::ReaderWriterInfo* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriterInfo >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriterInfo::options(osgDB::ReaderWriter::FormatDescriptionMap). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->options = value;
+
+		return 0;
+	}
+
+	// void osgDB::ReaderWriterInfo::features(osgDB::ReaderWriter::Features value)
+	static int _bind_setFeatures(lua_State *L) {
+		if (!_lg_typecheck_setFeatures(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ReaderWriterInfo::features(osgDB::ReaderWriter::Features value) function, expected prototype:\nvoid osgDB::ReaderWriterInfo::features(osgDB::ReaderWriter::Features value)\nClass arguments details:\n");
+		}
+
+		osgDB::ReaderWriter::Features value=(osgDB::ReaderWriter::Features)lua_tointeger(L,2);
+
+		osgDB::ReaderWriterInfo* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriterInfo >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ReaderWriterInfo::features(osgDB::ReaderWriter::Features). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->features = value;
+
+		return 0;
+	}
+
 	// void osgDB::ReaderWriterInfo::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
@@ -169,6 +493,18 @@ const int LunaTraits< osgDB::ReaderWriterInfo >::hash = 61536756;
 const int LunaTraits< osgDB::ReaderWriterInfo >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osgDB::ReaderWriterInfo >::methods[] = {
+	{"getPlugin", &luna_wrapper_osgDB_ReaderWriterInfo::_bind_getPlugin},
+	{"getDescription", &luna_wrapper_osgDB_ReaderWriterInfo::_bind_getDescription},
+	{"getProtocols", &luna_wrapper_osgDB_ReaderWriterInfo::_bind_getProtocols},
+	{"getExtensions", &luna_wrapper_osgDB_ReaderWriterInfo::_bind_getExtensions},
+	{"getOptions", &luna_wrapper_osgDB_ReaderWriterInfo::_bind_getOptions},
+	{"getFeatures", &luna_wrapper_osgDB_ReaderWriterInfo::_bind_getFeatures},
+	{"setPlugin", &luna_wrapper_osgDB_ReaderWriterInfo::_bind_setPlugin},
+	{"setDescription", &luna_wrapper_osgDB_ReaderWriterInfo::_bind_setDescription},
+	{"setProtocols", &luna_wrapper_osgDB_ReaderWriterInfo::_bind_setProtocols},
+	{"setExtensions", &luna_wrapper_osgDB_ReaderWriterInfo::_bind_setExtensions},
+	{"setOptions", &luna_wrapper_osgDB_ReaderWriterInfo::_bind_setOptions},
+	{"setFeatures", &luna_wrapper_osgDB_ReaderWriterInfo::_bind_setFeatures},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgDB_ReaderWriterInfo::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osgDB_ReaderWriterInfo::_bind___eq},
 	{"getTable", &luna_wrapper_osgDB_ReaderWriterInfo::_bind_getTable},

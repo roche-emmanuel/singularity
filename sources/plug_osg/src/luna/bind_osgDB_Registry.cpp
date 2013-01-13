@@ -627,8 +627,8 @@ public:
 	inline static bool _lg_typecheck_setDataFilePathList_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54591957) ) return false;
-		if( (!(Luna< osgDB::FilePathList >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,79889541) ) return false;
+		if( (!(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,2))) ) return false;
 		return true;
 	}
 
@@ -660,8 +660,8 @@ public:
 	inline static bool _lg_typecheck_setLibraryFilePathList_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54591957) ) return false;
-		if( (!(Luna< osgDB::FilePathList >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,79889541) ) return false;
+		if( (!(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,2))) ) return false;
 		return true;
 	}
 
@@ -2591,7 +2591,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgDB::Registry::setDataFilePathList(const osgDB::FilePathList & filepath) function, expected prototype:\nvoid osgDB::Registry::setDataFilePathList(const osgDB::FilePathList & filepath)\nClass arguments details:\narg 1 ID = 54591957\n");
 		}
 
-		const osgDB::FilePathList* filepath_ptr=(Luna< osgDB::FilePathList >::check(L,2));
+		const osgDB::FilePathList* filepath_ptr=(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,2));
 		if( !filepath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg filepath in osgDB::Registry::setDataFilePathList function");
 		}
@@ -2711,7 +2711,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgDB::Registry::setLibraryFilePathList(const osgDB::FilePathList & filepath) function, expected prototype:\nvoid osgDB::Registry::setLibraryFilePathList(const osgDB::FilePathList & filepath)\nClass arguments details:\narg 1 ID = 54591957\n");
 		}
 
-		const osgDB::FilePathList* filepath_ptr=(Luna< osgDB::FilePathList >::check(L,2));
+		const osgDB::FilePathList* filepath_ptr=(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,2));
 		if( !filepath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg filepath in osgDB::Registry::setLibraryFilePathList function");
 		}

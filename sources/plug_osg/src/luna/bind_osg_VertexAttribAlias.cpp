@@ -80,6 +80,58 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_get_location(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_glName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_osgName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_declaration(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_location(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_glName(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_osgName(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_declaration(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -139,6 +191,158 @@ public:
 
 
 	// Function binds:
+	// unsigned int osg::VertexAttribAlias::_location()
+	static int _bind_get_location(lua_State *L) {
+		if (!_lg_typecheck_get_location(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::VertexAttribAlias::_location() function, expected prototype:\nunsigned int osg::VertexAttribAlias::_location()\nClass arguments details:\n");
+		}
+
+
+		osg::VertexAttribAlias* self=(Luna< osg::VertexAttribAlias >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::VertexAttribAlias::_location(). Got : '%s'",typeid(Luna< osg::VertexAttribAlias >::check(L,1)).name());
+		}
+		unsigned int lret = self->_location;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// std::string osg::VertexAttribAlias::_glName()
+	static int _bind_get_glName(lua_State *L) {
+		if (!_lg_typecheck_get_glName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osg::VertexAttribAlias::_glName() function, expected prototype:\nstd::string osg::VertexAttribAlias::_glName()\nClass arguments details:\n");
+		}
+
+
+		osg::VertexAttribAlias* self=(Luna< osg::VertexAttribAlias >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osg::VertexAttribAlias::_glName(). Got : '%s'",typeid(Luna< osg::VertexAttribAlias >::check(L,1)).name());
+		}
+		std::string lret = self->_glName;
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// std::string osg::VertexAttribAlias::_osgName()
+	static int _bind_get_osgName(lua_State *L) {
+		if (!_lg_typecheck_get_osgName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osg::VertexAttribAlias::_osgName() function, expected prototype:\nstd::string osg::VertexAttribAlias::_osgName()\nClass arguments details:\n");
+		}
+
+
+		osg::VertexAttribAlias* self=(Luna< osg::VertexAttribAlias >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osg::VertexAttribAlias::_osgName(). Got : '%s'",typeid(Luna< osg::VertexAttribAlias >::check(L,1)).name());
+		}
+		std::string lret = self->_osgName;
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// std::string osg::VertexAttribAlias::_declaration()
+	static int _bind_get_declaration(lua_State *L) {
+		if (!_lg_typecheck_get_declaration(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osg::VertexAttribAlias::_declaration() function, expected prototype:\nstd::string osg::VertexAttribAlias::_declaration()\nClass arguments details:\n");
+		}
+
+
+		osg::VertexAttribAlias* self=(Luna< osg::VertexAttribAlias >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osg::VertexAttribAlias::_declaration(). Got : '%s'",typeid(Luna< osg::VertexAttribAlias >::check(L,1)).name());
+		}
+		std::string lret = self->_declaration;
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// void osg::VertexAttribAlias::_location(unsigned int value)
+	static int _bind_set_location(lua_State *L) {
+		if (!_lg_typecheck_set_location(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::VertexAttribAlias::_location(unsigned int value) function, expected prototype:\nvoid osg::VertexAttribAlias::_location(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osg::VertexAttribAlias* self=(Luna< osg::VertexAttribAlias >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::VertexAttribAlias::_location(unsigned int). Got : '%s'",typeid(Luna< osg::VertexAttribAlias >::check(L,1)).name());
+		}
+		self->_location = value;
+
+		return 0;
+	}
+
+	// void osg::VertexAttribAlias::_glName(std::string value)
+	static int _bind_set_glName(lua_State *L) {
+		if (!_lg_typecheck_set_glName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::VertexAttribAlias::_glName(std::string value) function, expected prototype:\nvoid osg::VertexAttribAlias::_glName(std::string value)\nClass arguments details:\n");
+		}
+
+		std::string value(lua_tostring(L,2),lua_objlen(L,2));
+
+		osg::VertexAttribAlias* self=(Luna< osg::VertexAttribAlias >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::VertexAttribAlias::_glName(std::string). Got : '%s'",typeid(Luna< osg::VertexAttribAlias >::check(L,1)).name());
+		}
+		self->_glName = value;
+
+		return 0;
+	}
+
+	// void osg::VertexAttribAlias::_osgName(std::string value)
+	static int _bind_set_osgName(lua_State *L) {
+		if (!_lg_typecheck_set_osgName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::VertexAttribAlias::_osgName(std::string value) function, expected prototype:\nvoid osg::VertexAttribAlias::_osgName(std::string value)\nClass arguments details:\n");
+		}
+
+		std::string value(lua_tostring(L,2),lua_objlen(L,2));
+
+		osg::VertexAttribAlias* self=(Luna< osg::VertexAttribAlias >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::VertexAttribAlias::_osgName(std::string). Got : '%s'",typeid(Luna< osg::VertexAttribAlias >::check(L,1)).name());
+		}
+		self->_osgName = value;
+
+		return 0;
+	}
+
+	// void osg::VertexAttribAlias::_declaration(std::string value)
+	static int _bind_set_declaration(lua_State *L) {
+		if (!_lg_typecheck_set_declaration(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::VertexAttribAlias::_declaration(std::string value) function, expected prototype:\nvoid osg::VertexAttribAlias::_declaration(std::string value)\nClass arguments details:\n");
+		}
+
+		std::string value(lua_tostring(L,2),lua_objlen(L,2));
+
+		osg::VertexAttribAlias* self=(Luna< osg::VertexAttribAlias >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::VertexAttribAlias::_declaration(std::string). Got : '%s'",typeid(Luna< osg::VertexAttribAlias >::check(L,1)).name());
+		}
+		self->_declaration = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -162,6 +366,14 @@ const int LunaTraits< osg::VertexAttribAlias >::hash = 48453816;
 const int LunaTraits< osg::VertexAttribAlias >::uniqueIDs[] = {48453816,0};
 
 luna_RegType LunaTraits< osg::VertexAttribAlias >::methods[] = {
+	{"get_location", &luna_wrapper_osg_VertexAttribAlias::_bind_get_location},
+	{"get_glName", &luna_wrapper_osg_VertexAttribAlias::_bind_get_glName},
+	{"get_osgName", &luna_wrapper_osg_VertexAttribAlias::_bind_get_osgName},
+	{"get_declaration", &luna_wrapper_osg_VertexAttribAlias::_bind_get_declaration},
+	{"set_location", &luna_wrapper_osg_VertexAttribAlias::_bind_set_location},
+	{"set_glName", &luna_wrapper_osg_VertexAttribAlias::_bind_set_glName},
+	{"set_osgName", &luna_wrapper_osg_VertexAttribAlias::_bind_set_osgName},
+	{"set_declaration", &luna_wrapper_osg_VertexAttribAlias::_bind_set_declaration},
 	{"dynCast", &luna_wrapper_osg_VertexAttribAlias::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_VertexAttribAlias::_bind___eq},
 	{0,0}

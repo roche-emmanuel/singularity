@@ -234,7 +234,7 @@ end
 
 function Class:getAbsoluteBaseFullName()
 	if type(self._base) == "table" then
-		return self._base:getFirstAbsoluteBase():getFullName()
+		return self._base:getFirstAbsoluteBase():getTypeName()
 	else
 		return self._base;
 	end

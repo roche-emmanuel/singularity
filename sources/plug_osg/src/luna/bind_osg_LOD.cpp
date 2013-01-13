@@ -223,7 +223,7 @@ public:
 	inline static bool _lg_typecheck_setRangeList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,74660837) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,15056692) ) return false;
 		return true;
 	}
 
@@ -880,7 +880,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::LOD::setRangeList(const osg::LOD::RangeList & rangeList) function, expected prototype:\nvoid osg::LOD::setRangeList(const osg::LOD::RangeList & rangeList)\nClass arguments details:\narg 1 ID = 74660837\n");
 		}
 
-		const osg::LOD::RangeList* rangeList_ptr=(Luna< osg::LOD::RangeList >::check(L,2));
+		const osg::LOD::RangeList* rangeList_ptr=(Luna< std::vector< osg::LOD::MinMaxPair > >::checkSubType< osg::LOD::RangeList >(L,2));
 		if( !rangeList_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rangeList in osg::LOD::setRangeList function");
 		}

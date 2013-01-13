@@ -125,6 +125,8 @@ ReflectionGenerator.generate{
 		"DatabaseThread",
 		"ImageThread",
 		"DeleteHandler::operator=",
+		"buffered_object",
+		"StateGraph::_stateset",
 	},
 	ignoreWrappers={
 		"StateSetManipulator::clone",

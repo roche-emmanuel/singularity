@@ -232,7 +232,7 @@ public:
 	inline static bool _lg_typecheck_setCollectedOccluderSet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,26463029) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,28893306) ) return false;
 		return true;
 	}
 
@@ -854,7 +854,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::CollectOccludersVisitor::setCollectedOccluderSet(const osg::CollectOccludersVisitor::ShadowVolumeOccluderSet & svol) function, expected prototype:\nvoid osg::CollectOccludersVisitor::setCollectedOccluderSet(const osg::CollectOccludersVisitor::ShadowVolumeOccluderSet & svol)\nClass arguments details:\narg 1 ID = 26463029\n");
 		}
 
-		const osg::CollectOccludersVisitor::ShadowVolumeOccluderSet* svol_ptr=(Luna< osg::CollectOccludersVisitor::ShadowVolumeOccluderSet >::check(L,2));
+		const osg::CollectOccludersVisitor::ShadowVolumeOccluderSet* svol_ptr=(Luna< std::set< osg::ShadowVolumeOccluder > >::checkSubType< osg::CollectOccludersVisitor::ShadowVolumeOccluderSet >(L,2));
 		if( !svol_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg svol in osg::CollectOccludersVisitor::setCollectedOccluderSet function");
 		}

@@ -62,18 +62,34 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_setType(lua_State *L) {
+	inline static bool _lg_typecheck_setType_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,95002106)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< Awesomium::WebKeyboardEvent >::check(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setModifiers(lua_State *L) {
+	inline static bool _lg_typecheck_setType_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setModifiers_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,95002106)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< Awesomium::WebKeyboardEvent >::check(L,1)) ) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setModifiers_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
@@ -102,6 +118,57 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getType(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getModifiers(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getVirtual_key_code(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getNative_key_code(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getIs_system_key(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setVirtual_key_code(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setNative_key_code(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setIs_system_key(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -121,8 +188,8 @@ public:
 
 	// Function binds:
 	// void Awesomium::WebKeyboardEvent::setType(Awesomium::WebKeyboardEvent * ke, int type)
-	static int _bind_setType(lua_State *L) {
-		if (!_lg_typecheck_setType(L)) {
+	static int _bind_setType_overload_1(lua_State *L) {
+		if (!_lg_typecheck_setType_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::setType(Awesomium::WebKeyboardEvent * ke, int type) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::setType(Awesomium::WebKeyboardEvent * ke, int type)\nClass arguments details:\narg 1 ID = 95002106\n");
 		}
@@ -135,9 +202,37 @@ public:
 		return 0;
 	}
 
+	// void Awesomium::WebKeyboardEvent::type(Awesomium::WebKeyboardEvent::Type value)
+	static int _bind_setType_overload_2(lua_State *L) {
+		if (!_lg_typecheck_setType_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::type(Awesomium::WebKeyboardEvent::Type value) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::type(Awesomium::WebKeyboardEvent::Type value)\nClass arguments details:\n");
+		}
+
+		Awesomium::WebKeyboardEvent::Type value=(Awesomium::WebKeyboardEvent::Type)lua_tointeger(L,2);
+
+		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void Awesomium::WebKeyboardEvent::type(Awesomium::WebKeyboardEvent::Type). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+		}
+		self->type = value;
+
+		return 0;
+	}
+
+	// Overload binder for Awesomium::WebKeyboardEvent::setType
+	static int _bind_setType(lua_State *L) {
+		if (_lg_typecheck_setType_overload_1(L)) return _bind_setType_overload_1(L);
+		if (_lg_typecheck_setType_overload_2(L)) return _bind_setType_overload_2(L);
+
+		luaL_error(L, "error in function setType, cannot match any of the overloads for function setType:\n  setType(Awesomium::WebKeyboardEvent *, int)\n  setType(Awesomium::WebKeyboardEvent::Type)\n");
+		return 0;
+	}
+
 	// void Awesomium::WebKeyboardEvent::setModifiers(Awesomium::WebKeyboardEvent * ke, int mod)
-	static int _bind_setModifiers(lua_State *L) {
-		if (!_lg_typecheck_setModifiers(L)) {
+	static int _bind_setModifiers_overload_1(lua_State *L) {
+		if (!_lg_typecheck_setModifiers_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::setModifiers(Awesomium::WebKeyboardEvent * ke, int mod) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::setModifiers(Awesomium::WebKeyboardEvent * ke, int mod)\nClass arguments details:\narg 1 ID = 95002106\n");
 		}
@@ -147,6 +242,34 @@ public:
 
 		setModifiers(ke, mod);
 
+		return 0;
+	}
+
+	// void Awesomium::WebKeyboardEvent::modifiers(int value)
+	static int _bind_setModifiers_overload_2(lua_State *L) {
+		if (!_lg_typecheck_setModifiers_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::modifiers(int value) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::modifiers(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void Awesomium::WebKeyboardEvent::modifiers(int). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+		}
+		self->modifiers = value;
+
+		return 0;
+	}
+
+	// Overload binder for Awesomium::WebKeyboardEvent::setModifiers
+	static int _bind_setModifiers(lua_State *L) {
+		if (_lg_typecheck_setModifiers_overload_1(L)) return _bind_setModifiers_overload_1(L);
+		if (_lg_typecheck_setModifiers_overload_2(L)) return _bind_setModifiers_overload_2(L);
+
+		luaL_error(L, "error in function setModifiers, cannot match any of the overloads for function setModifiers:\n  setModifiers(Awesomium::WebKeyboardEvent *, int)\n  setModifiers(int)\n");
 		return 0;
 	}
 
@@ -196,6 +319,158 @@ public:
 		return 0;
 	}
 
+	// Awesomium::WebKeyboardEvent::Type Awesomium::WebKeyboardEvent::type()
+	static int _bind_getType(lua_State *L) {
+		if (!_lg_typecheck_getType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in Awesomium::WebKeyboardEvent::Type Awesomium::WebKeyboardEvent::type() function, expected prototype:\nAwesomium::WebKeyboardEvent::Type Awesomium::WebKeyboardEvent::type()\nClass arguments details:\n");
+		}
+
+
+		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call Awesomium::WebKeyboardEvent::Type Awesomium::WebKeyboardEvent::type(). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+		}
+		Awesomium::WebKeyboardEvent::Type lret = self->type;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int Awesomium::WebKeyboardEvent::modifiers()
+	static int _bind_getModifiers(lua_State *L) {
+		if (!_lg_typecheck_getModifiers(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebKeyboardEvent::modifiers() function, expected prototype:\nint Awesomium::WebKeyboardEvent::modifiers()\nClass arguments details:\n");
+		}
+
+
+		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int Awesomium::WebKeyboardEvent::modifiers(). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+		}
+		int lret = self->modifiers;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int Awesomium::WebKeyboardEvent::virtual_key_code()
+	static int _bind_getVirtual_key_code(lua_State *L) {
+		if (!_lg_typecheck_getVirtual_key_code(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebKeyboardEvent::virtual_key_code() function, expected prototype:\nint Awesomium::WebKeyboardEvent::virtual_key_code()\nClass arguments details:\n");
+		}
+
+
+		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int Awesomium::WebKeyboardEvent::virtual_key_code(). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+		}
+		int lret = self->virtual_key_code;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int Awesomium::WebKeyboardEvent::native_key_code()
+	static int _bind_getNative_key_code(lua_State *L) {
+		if (!_lg_typecheck_getNative_key_code(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebKeyboardEvent::native_key_code() function, expected prototype:\nint Awesomium::WebKeyboardEvent::native_key_code()\nClass arguments details:\n");
+		}
+
+
+		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int Awesomium::WebKeyboardEvent::native_key_code(). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+		}
+		int lret = self->native_key_code;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool Awesomium::WebKeyboardEvent::is_system_key()
+	static int _bind_getIs_system_key(lua_State *L) {
+		if (!_lg_typecheck_getIs_system_key(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool Awesomium::WebKeyboardEvent::is_system_key() function, expected prototype:\nbool Awesomium::WebKeyboardEvent::is_system_key()\nClass arguments details:\n");
+		}
+
+
+		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebKeyboardEvent::is_system_key(). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+		}
+		bool lret = self->is_system_key;
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void Awesomium::WebKeyboardEvent::virtual_key_code(int value)
+	static int _bind_setVirtual_key_code(lua_State *L) {
+		if (!_lg_typecheck_setVirtual_key_code(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::virtual_key_code(int value) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::virtual_key_code(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void Awesomium::WebKeyboardEvent::virtual_key_code(int). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+		}
+		self->virtual_key_code = value;
+
+		return 0;
+	}
+
+	// void Awesomium::WebKeyboardEvent::native_key_code(int value)
+	static int _bind_setNative_key_code(lua_State *L) {
+		if (!_lg_typecheck_setNative_key_code(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::native_key_code(int value) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::native_key_code(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void Awesomium::WebKeyboardEvent::native_key_code(int). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+		}
+		self->native_key_code = value;
+
+		return 0;
+	}
+
+	// void Awesomium::WebKeyboardEvent::is_system_key(bool value)
+	static int _bind_setIs_system_key(lua_State *L) {
+		if (!_lg_typecheck_setIs_system_key(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::is_system_key(bool value) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::is_system_key(bool value)\nClass arguments details:\n");
+		}
+
+		bool value=(bool)(lua_toboolean(L,2)==1);
+
+		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void Awesomium::WebKeyboardEvent::is_system_key(bool). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+		}
+		self->is_system_key = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -224,6 +499,14 @@ luna_RegType LunaTraits< Awesomium::WebKeyboardEvent >::methods[] = {
 	{"setVirtualKeyCode", &luna_wrapper_Awesomium_WebKeyboardEvent::_bind_setVirtualKeyCode},
 	{"setNativeKeyCode", &luna_wrapper_Awesomium_WebKeyboardEvent::_bind_setNativeKeyCode},
 	{"setText", &luna_wrapper_Awesomium_WebKeyboardEvent::_bind_setText},
+	{"getType", &luna_wrapper_Awesomium_WebKeyboardEvent::_bind_getType},
+	{"getModifiers", &luna_wrapper_Awesomium_WebKeyboardEvent::_bind_getModifiers},
+	{"getVirtual_key_code", &luna_wrapper_Awesomium_WebKeyboardEvent::_bind_getVirtual_key_code},
+	{"getNative_key_code", &luna_wrapper_Awesomium_WebKeyboardEvent::_bind_getNative_key_code},
+	{"getIs_system_key", &luna_wrapper_Awesomium_WebKeyboardEvent::_bind_getIs_system_key},
+	{"setVirtual_key_code", &luna_wrapper_Awesomium_WebKeyboardEvent::_bind_setVirtual_key_code},
+	{"setNative_key_code", &luna_wrapper_Awesomium_WebKeyboardEvent::_bind_setNative_key_code},
+	{"setIs_system_key", &luna_wrapper_Awesomium_WebKeyboardEvent::_bind_setIs_system_key},
 	{"dynCast", &luna_wrapper_Awesomium_WebKeyboardEvent::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_WebKeyboardEvent::_bind___eq},
 	{0,0}

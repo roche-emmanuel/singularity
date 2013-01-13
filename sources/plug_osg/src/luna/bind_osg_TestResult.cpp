@@ -82,6 +82,71 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_get_init(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_id(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_contextID(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_active(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_numPixels(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_init(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_id(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_contextID(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_active(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_numPixels(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -127,6 +192,196 @@ public:
 
 
 	// Function binds:
+	// bool osg::TestResult::_init()
+	static int _bind_get_init(lua_State *L) {
+		if (!_lg_typecheck_get_init(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::TestResult::_init() function, expected prototype:\nbool osg::TestResult::_init()\nClass arguments details:\n");
+		}
+
+
+		osg::TestResult* self=Luna< osg::Referenced >::checkSubType< osg::TestResult >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::TestResult::_init(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->_init;
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// unsigned int osg::TestResult::_id()
+	static int _bind_get_id(lua_State *L) {
+		if (!_lg_typecheck_get_id(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::TestResult::_id() function, expected prototype:\nunsigned int osg::TestResult::_id()\nClass arguments details:\n");
+		}
+
+
+		osg::TestResult* self=Luna< osg::Referenced >::checkSubType< osg::TestResult >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::TestResult::_id(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_id;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osg::TestResult::_contextID()
+	static int _bind_get_contextID(lua_State *L) {
+		if (!_lg_typecheck_get_contextID(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::TestResult::_contextID() function, expected prototype:\nunsigned int osg::TestResult::_contextID()\nClass arguments details:\n");
+		}
+
+
+		osg::TestResult* self=Luna< osg::Referenced >::checkSubType< osg::TestResult >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::TestResult::_contextID(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->_contextID;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool osg::TestResult::_active()
+	static int _bind_get_active(lua_State *L) {
+		if (!_lg_typecheck_get_active(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::TestResult::_active() function, expected prototype:\nbool osg::TestResult::_active()\nClass arguments details:\n");
+		}
+
+
+		osg::TestResult* self=Luna< osg::Referenced >::checkSubType< osg::TestResult >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::TestResult::_active(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->_active;
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// int osg::TestResult::_numPixels()
+	static int _bind_get_numPixels(lua_State *L) {
+		if (!_lg_typecheck_get_numPixels(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osg::TestResult::_numPixels() function, expected prototype:\nint osg::TestResult::_numPixels()\nClass arguments details:\n");
+		}
+
+
+		osg::TestResult* self=Luna< osg::Referenced >::checkSubType< osg::TestResult >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osg::TestResult::_numPixels(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		int lret = self->_numPixels;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::TestResult::_init(bool value)
+	static int _bind_set_init(lua_State *L) {
+		if (!_lg_typecheck_set_init(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TestResult::_init(bool value) function, expected prototype:\nvoid osg::TestResult::_init(bool value)\nClass arguments details:\n");
+		}
+
+		bool value=(bool)(lua_toboolean(L,2)==1);
+
+		osg::TestResult* self=Luna< osg::Referenced >::checkSubType< osg::TestResult >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TestResult::_init(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_init = value;
+
+		return 0;
+	}
+
+	// void osg::TestResult::_id(unsigned int value)
+	static int _bind_set_id(lua_State *L) {
+		if (!_lg_typecheck_set_id(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TestResult::_id(unsigned int value) function, expected prototype:\nvoid osg::TestResult::_id(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osg::TestResult* self=Luna< osg::Referenced >::checkSubType< osg::TestResult >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TestResult::_id(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_id = value;
+
+		return 0;
+	}
+
+	// void osg::TestResult::_contextID(unsigned int value)
+	static int _bind_set_contextID(lua_State *L) {
+		if (!_lg_typecheck_set_contextID(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TestResult::_contextID(unsigned int value) function, expected prototype:\nvoid osg::TestResult::_contextID(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osg::TestResult* self=Luna< osg::Referenced >::checkSubType< osg::TestResult >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TestResult::_contextID(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_contextID = value;
+
+		return 0;
+	}
+
+	// void osg::TestResult::_active(bool value)
+	static int _bind_set_active(lua_State *L) {
+		if (!_lg_typecheck_set_active(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TestResult::_active(bool value) function, expected prototype:\nvoid osg::TestResult::_active(bool value)\nClass arguments details:\n");
+		}
+
+		bool value=(bool)(lua_toboolean(L,2)==1);
+
+		osg::TestResult* self=Luna< osg::Referenced >::checkSubType< osg::TestResult >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TestResult::_active(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_active = value;
+
+		return 0;
+	}
+
+	// void osg::TestResult::_numPixels(int value)
+	static int _bind_set_numPixels(lua_State *L) {
+		if (!_lg_typecheck_set_numPixels(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TestResult::_numPixels(int value) function, expected prototype:\nvoid osg::TestResult::_numPixels(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		osg::TestResult* self=Luna< osg::Referenced >::checkSubType< osg::TestResult >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TestResult::_numPixels(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_numPixels = value;
+
+		return 0;
+	}
+
 	// void osg::TestResult::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
@@ -169,6 +424,16 @@ const int LunaTraits< osg::TestResult >::hash = 49600581;
 const int LunaTraits< osg::TestResult >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osg::TestResult >::methods[] = {
+	{"get_init", &luna_wrapper_osg_TestResult::_bind_get_init},
+	{"get_id", &luna_wrapper_osg_TestResult::_bind_get_id},
+	{"get_contextID", &luna_wrapper_osg_TestResult::_bind_get_contextID},
+	{"get_active", &luna_wrapper_osg_TestResult::_bind_get_active},
+	{"get_numPixels", &luna_wrapper_osg_TestResult::_bind_get_numPixels},
+	{"set_init", &luna_wrapper_osg_TestResult::_bind_set_init},
+	{"set_id", &luna_wrapper_osg_TestResult::_bind_set_id},
+	{"set_contextID", &luna_wrapper_osg_TestResult::_bind_set_contextID},
+	{"set_active", &luna_wrapper_osg_TestResult::_bind_set_active},
+	{"set_numPixels", &luna_wrapper_osg_TestResult::_bind_set_numPixels},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_TestResult::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osg_TestResult::_bind___eq},
 	{"getTable", &luna_wrapper_osg_TestResult::_bind_getTable},

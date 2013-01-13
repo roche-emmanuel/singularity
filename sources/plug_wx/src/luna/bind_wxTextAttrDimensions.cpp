@@ -126,6 +126,58 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getM_left(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_top(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_right(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getM_bottom(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_left(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,25580455) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_top(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,25580455) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_right(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,25580455) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setM_bottom(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,25580455) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 1 valid operators)
@@ -481,6 +533,182 @@ public:
 		return 0;
 	}
 
+	// wxTextAttrDimension wxTextAttrDimensions::m_left()
+	static int _bind_getM_left(lua_State *L) {
+		if (!_lg_typecheck_getM_left(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextAttrDimension wxTextAttrDimensions::m_left() function, expected prototype:\nwxTextAttrDimension wxTextAttrDimensions::m_left()\nClass arguments details:\n");
+		}
+
+
+		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension wxTextAttrDimensions::m_left(). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
+		}
+		const wxTextAttrDimension* lret = &self->m_left;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextAttrDimension >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextAttrDimension wxTextAttrDimensions::m_top()
+	static int _bind_getM_top(lua_State *L) {
+		if (!_lg_typecheck_getM_top(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextAttrDimension wxTextAttrDimensions::m_top() function, expected prototype:\nwxTextAttrDimension wxTextAttrDimensions::m_top()\nClass arguments details:\n");
+		}
+
+
+		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension wxTextAttrDimensions::m_top(). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
+		}
+		const wxTextAttrDimension* lret = &self->m_top;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextAttrDimension >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextAttrDimension wxTextAttrDimensions::m_right()
+	static int _bind_getM_right(lua_State *L) {
+		if (!_lg_typecheck_getM_right(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextAttrDimension wxTextAttrDimensions::m_right() function, expected prototype:\nwxTextAttrDimension wxTextAttrDimensions::m_right()\nClass arguments details:\n");
+		}
+
+
+		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension wxTextAttrDimensions::m_right(). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
+		}
+		const wxTextAttrDimension* lret = &self->m_right;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextAttrDimension >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxTextAttrDimension wxTextAttrDimensions::m_bottom()
+	static int _bind_getM_bottom(lua_State *L) {
+		if (!_lg_typecheck_getM_bottom(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextAttrDimension wxTextAttrDimensions::m_bottom() function, expected prototype:\nwxTextAttrDimension wxTextAttrDimensions::m_bottom()\nClass arguments details:\n");
+		}
+
+
+		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxTextAttrDimension wxTextAttrDimensions::m_bottom(). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
+		}
+		const wxTextAttrDimension* lret = &self->m_bottom;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxTextAttrDimension >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxTextAttrDimensions::m_left(wxTextAttrDimension value)
+	static int _bind_setM_left(lua_State *L) {
+		if (!_lg_typecheck_setM_left(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextAttrDimensions::m_left(wxTextAttrDimension value) function, expected prototype:\nvoid wxTextAttrDimensions::m_left(wxTextAttrDimension value)\nClass arguments details:\narg 1 ID = 25580455\n");
+		}
+
+		wxTextAttrDimension* value_ptr=(Luna< wxTextAttrDimension >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxTextAttrDimensions::m_left function");
+		}
+		wxTextAttrDimension value=*value_ptr;
+
+		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextAttrDimensions::m_left(wxTextAttrDimension). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
+		}
+		self->m_left = value;
+
+		return 0;
+	}
+
+	// void wxTextAttrDimensions::m_top(wxTextAttrDimension value)
+	static int _bind_setM_top(lua_State *L) {
+		if (!_lg_typecheck_setM_top(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextAttrDimensions::m_top(wxTextAttrDimension value) function, expected prototype:\nvoid wxTextAttrDimensions::m_top(wxTextAttrDimension value)\nClass arguments details:\narg 1 ID = 25580455\n");
+		}
+
+		wxTextAttrDimension* value_ptr=(Luna< wxTextAttrDimension >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxTextAttrDimensions::m_top function");
+		}
+		wxTextAttrDimension value=*value_ptr;
+
+		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextAttrDimensions::m_top(wxTextAttrDimension). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
+		}
+		self->m_top = value;
+
+		return 0;
+	}
+
+	// void wxTextAttrDimensions::m_right(wxTextAttrDimension value)
+	static int _bind_setM_right(lua_State *L) {
+		if (!_lg_typecheck_setM_right(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextAttrDimensions::m_right(wxTextAttrDimension value) function, expected prototype:\nvoid wxTextAttrDimensions::m_right(wxTextAttrDimension value)\nClass arguments details:\narg 1 ID = 25580455\n");
+		}
+
+		wxTextAttrDimension* value_ptr=(Luna< wxTextAttrDimension >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxTextAttrDimensions::m_right function");
+		}
+		wxTextAttrDimension value=*value_ptr;
+
+		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextAttrDimensions::m_right(wxTextAttrDimension). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
+		}
+		self->m_right = value;
+
+		return 0;
+	}
+
+	// void wxTextAttrDimensions::m_bottom(wxTextAttrDimension value)
+	static int _bind_setM_bottom(lua_State *L) {
+		if (!_lg_typecheck_setM_bottom(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextAttrDimensions::m_bottom(wxTextAttrDimension value) function, expected prototype:\nvoid wxTextAttrDimensions::m_bottom(wxTextAttrDimension value)\nClass arguments details:\narg 1 ID = 25580455\n");
+		}
+
+		wxTextAttrDimension* value_ptr=(Luna< wxTextAttrDimension >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in wxTextAttrDimensions::m_bottom function");
+		}
+		wxTextAttrDimension value=*value_ptr;
+
+		wxTextAttrDimensions* self=(Luna< wxTextAttrDimensions >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextAttrDimensions::m_bottom(wxTextAttrDimension). Got : '%s'",typeid(Luna< wxTextAttrDimensions >::check(L,1)).name());
+		}
+		self->m_bottom = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// bool wxTextAttrDimensions::operator==(const wxTextAttrDimensions & dims) const
@@ -537,6 +765,14 @@ luna_RegType LunaTraits< wxTextAttrDimensions >::methods[] = {
 	{"GetRight", &luna_wrapper_wxTextAttrDimensions::_bind_GetRight},
 	{"GetTop", &luna_wrapper_wxTextAttrDimensions::_bind_GetTop},
 	{"GetBottom", &luna_wrapper_wxTextAttrDimensions::_bind_GetBottom},
+	{"getM_left", &luna_wrapper_wxTextAttrDimensions::_bind_getM_left},
+	{"getM_top", &luna_wrapper_wxTextAttrDimensions::_bind_getM_top},
+	{"getM_right", &luna_wrapper_wxTextAttrDimensions::_bind_getM_right},
+	{"getM_bottom", &luna_wrapper_wxTextAttrDimensions::_bind_getM_bottom},
+	{"setM_left", &luna_wrapper_wxTextAttrDimensions::_bind_setM_left},
+	{"setM_top", &luna_wrapper_wxTextAttrDimensions::_bind_setM_top},
+	{"setM_right", &luna_wrapper_wxTextAttrDimensions::_bind_setM_right},
+	{"setM_bottom", &luna_wrapper_wxTextAttrDimensions::_bind_setM_bottom},
 	{"__eq", &luna_wrapper_wxTextAttrDimensions::_bind___eq},
 	{"dynCast", &luna_wrapper_wxTextAttrDimensions::_bind_dynCast},
 	{0,0}

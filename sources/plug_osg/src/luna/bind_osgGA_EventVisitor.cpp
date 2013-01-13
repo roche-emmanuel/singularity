@@ -143,7 +143,7 @@ public:
 	inline static bool _lg_typecheck_setEvents(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,42735238) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,1490680) ) return false;
 		return true;
 	}
 
@@ -615,7 +615,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::EventVisitor::setEvents(const osgGA::EventQueue::Events & events) function, expected prototype:\nvoid osgGA::EventVisitor::setEvents(const osgGA::EventQueue::Events & events)\nClass arguments details:\narg 1 ID = 42735238\n");
 		}
 
-		const osgGA::EventQueue::Events* events_ptr=(Luna< osgGA::EventQueue::Events >::check(L,2));
+		const osgGA::EventQueue::Events* events_ptr=(Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::checkSubType< osgGA::EventQueue::Events >(L,2));
 		if( !events_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg events in osgGA::EventVisitor::setEvents function");
 		}

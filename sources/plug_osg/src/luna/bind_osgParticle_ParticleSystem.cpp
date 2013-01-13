@@ -206,7 +206,7 @@ public:
 	inline static bool _lg_typecheck_setDefaultBoundingBox(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,41227270) ) return false;
 		return true;
 	}
 
@@ -1045,7 +1045,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::ParticleSystem::setDefaultBoundingBox(const osg::BoundingBoxd & bbox) function, expected prototype:\nvoid osgParticle::ParticleSystem::setDefaultBoundingBox(const osg::BoundingBoxd & bbox)\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxd* bbox_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
+		const osg::BoundingBoxd* bbox_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
 		if( !bbox_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bbox in osgParticle::ParticleSystem::setDefaultBoundingBox function");
 		}

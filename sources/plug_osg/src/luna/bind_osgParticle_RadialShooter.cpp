@@ -146,8 +146,8 @@ public:
 	inline static bool _lg_typecheck_setThetaRange_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
-		if( (!(Luna< osgParticle::rangef >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,42175463) ) return false;
+		if( (!(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2))) ) return false;
 		return true;
 	}
 
@@ -168,8 +168,8 @@ public:
 	inline static bool _lg_typecheck_setPhiRange_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
-		if( (!(Luna< osgParticle::rangef >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,42175463) ) return false;
+		if( (!(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2))) ) return false;
 		return true;
 	}
 
@@ -190,8 +190,8 @@ public:
 	inline static bool _lg_typecheck_setInitialSpeedRange_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
-		if( (!(Luna< osgParticle::rangef >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,42175463) ) return false;
+		if( (!(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2))) ) return false;
 		return true;
 	}
 
@@ -212,8 +212,8 @@ public:
 	inline static bool _lg_typecheck_setInitialRotationalSpeedRange_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,18829253) ) return false;
-		if( (!(Luna< osgParticle::rangev3 >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,67790331) ) return false;
+		if( (!(Luna< osgParticle::range< osg::Vec3f > >::checkSubType< osgParticle::rangev3 >(L,2))) ) return false;
 		return true;
 	}
 
@@ -539,7 +539,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::RadialShooter::setThetaRange(const osgParticle::rangef & r) function, expected prototype:\nvoid osgParticle::RadialShooter::setThetaRange(const osgParticle::rangef & r)\nClass arguments details:\narg 1 ID = 13510606\n");
 		}
 
-		const osgParticle::rangef* r_ptr=(Luna< osgParticle::rangef >::check(L,2));
+		const osgParticle::rangef* r_ptr=(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::RadialShooter::setThetaRange function");
 		}
@@ -612,7 +612,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::RadialShooter::setPhiRange(const osgParticle::rangef & r) function, expected prototype:\nvoid osgParticle::RadialShooter::setPhiRange(const osgParticle::rangef & r)\nClass arguments details:\narg 1 ID = 13510606\n");
 		}
 
-		const osgParticle::rangef* r_ptr=(Luna< osgParticle::rangef >::check(L,2));
+		const osgParticle::rangef* r_ptr=(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::RadialShooter::setPhiRange function");
 		}
@@ -685,7 +685,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::RadialShooter::setInitialSpeedRange(const osgParticle::rangef & r) function, expected prototype:\nvoid osgParticle::RadialShooter::setInitialSpeedRange(const osgParticle::rangef & r)\nClass arguments details:\narg 1 ID = 13510606\n");
 		}
 
-		const osgParticle::rangef* r_ptr=(Luna< osgParticle::rangef >::check(L,2));
+		const osgParticle::rangef* r_ptr=(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::RadialShooter::setInitialSpeedRange function");
 		}
@@ -758,7 +758,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::RadialShooter::setInitialRotationalSpeedRange(const osgParticle::rangev3 & r) function, expected prototype:\nvoid osgParticle::RadialShooter::setInitialRotationalSpeedRange(const osgParticle::rangev3 & r)\nClass arguments details:\narg 1 ID = 18829253\n");
 		}
 
-		const osgParticle::rangev3* r_ptr=(Luna< osgParticle::rangev3 >::check(L,2));
+		const osgParticle::rangev3* r_ptr=(Luna< osgParticle::range< osg::Vec3f > >::checkSubType< osgParticle::rangev3 >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::RadialShooter::setInitialRotationalSpeedRange function");
 		}

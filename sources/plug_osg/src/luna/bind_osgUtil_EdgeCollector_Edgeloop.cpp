@@ -94,6 +94,19 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_get_edgeList(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_edgeList(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,57514973) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -179,6 +192,50 @@ public:
 		return 1;
 	}
 
+	// osgUtil::EdgeCollector::Edgeloop::EdgeList osgUtil::EdgeCollector::Edgeloop::_edgeList()
+	static int _bind_get_edgeList(lua_State *L) {
+		if (!_lg_typecheck_get_edgeList(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Edgeloop::EdgeList osgUtil::EdgeCollector::Edgeloop::_edgeList() function, expected prototype:\nosgUtil::EdgeCollector::Edgeloop::EdgeList osgUtil::EdgeCollector::Edgeloop::_edgeList()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::EdgeCollector::Edgeloop* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edgeloop >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::EdgeCollector::Edgeloop::EdgeList osgUtil::EdgeCollector::Edgeloop::_edgeList(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::EdgeCollector::Edgeloop::EdgeList* lret = &self->_edgeList;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::EdgeCollector::Edgeloop::EdgeList >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void osgUtil::EdgeCollector::Edgeloop::_edgeList(osgUtil::EdgeCollector::Edgeloop::EdgeList value)
+	static int _bind_set_edgeList(lua_State *L) {
+		if (!_lg_typecheck_set_edgeList(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Edgeloop::_edgeList(osgUtil::EdgeCollector::Edgeloop::EdgeList value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Edgeloop::_edgeList(osgUtil::EdgeCollector::Edgeloop::EdgeList value)\nClass arguments details:\narg 1 ID = 72030032\n");
+		}
+
+		osgUtil::EdgeCollector::Edgeloop::EdgeList* value_ptr=(Luna< std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > > >::checkSubType< osgUtil::EdgeCollector::Edgeloop::EdgeList >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::EdgeCollector::Edgeloop::_edgeList function");
+		}
+		osgUtil::EdgeCollector::Edgeloop::EdgeList value=*value_ptr;
+
+		osgUtil::EdgeCollector::Edgeloop* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edgeloop >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::Edgeloop::_edgeList(osgUtil::EdgeCollector::Edgeloop::EdgeList). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_edgeList = value;
+
+		return 0;
+	}
+
 	// void osgUtil::EdgeCollector::Edgeloop::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
@@ -223,6 +280,8 @@ const int LunaTraits< osgUtil::EdgeCollector::Edgeloop >::uniqueIDs[] = {5016965
 luna_RegType LunaTraits< osgUtil::EdgeCollector::Edgeloop >::methods[] = {
 	{"isClosed", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind_isClosed},
 	{"toIndexArray", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind_toIndexArray},
+	{"get_edgeList", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind_get_edgeList},
+	{"set_edgeList", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind_set_edgeList},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind___eq},
 	{"getTable", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind_getTable},

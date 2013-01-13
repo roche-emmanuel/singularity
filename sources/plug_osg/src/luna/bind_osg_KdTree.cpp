@@ -158,7 +158,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,91252552) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,63704215) ) return false;
 		return true;
 	}
 
@@ -341,7 +341,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,91252552) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,63704215) ) return false;
 		return true;
 	}
 
@@ -608,7 +608,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg end in osg::KdTree::intersect function");
 		}
 		const osg::Vec3d & end=*end_ptr;
-		osg::KdTree::LineSegmentIntersections* intersections_ptr=(Luna< osg::KdTree::LineSegmentIntersections >::check(L,4));
+		osg::KdTree::LineSegmentIntersections* intersections_ptr=(Luna< std::vector< osg::KdTree::LineSegmentIntersection > >::checkSubType< osg::KdTree::LineSegmentIntersections >(L,4));
 		if( !intersections_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg intersections in osg::KdTree::intersect function");
 		}
@@ -1245,7 +1245,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg end in osg::KdTree::base_intersect function");
 		}
 		const osg::Vec3d & end=*end_ptr;
-		osg::KdTree::LineSegmentIntersections* intersections_ptr=(Luna< osg::KdTree::LineSegmentIntersections >::check(L,4));
+		osg::KdTree::LineSegmentIntersections* intersections_ptr=(Luna< std::vector< osg::KdTree::LineSegmentIntersection > >::checkSubType< osg::KdTree::LineSegmentIntersections >(L,4));
 		if( !intersections_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg intersections in osg::KdTree::base_intersect function");
 		}

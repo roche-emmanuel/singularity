@@ -303,7 +303,7 @@ public:
 	inline static bool _lg_typecheck_getViews(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,51540588) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,70560566) ) return false;
 		return true;
 	}
 
@@ -1217,7 +1217,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgViewer::GraphicsWindow::getViews(osgViewer::GraphicsWindow::Views & views) function, expected prototype:\nvoid osgViewer::GraphicsWindow::getViews(osgViewer::GraphicsWindow::Views & views)\nClass arguments details:\narg 1 ID = 51540588\n");
 		}
 
-		osgViewer::GraphicsWindow::Views* views_ptr=(Luna< osgViewer::GraphicsWindow::Views >::check(L,2));
+		osgViewer::GraphicsWindow::Views* views_ptr=(Luna< std::list< osgViewer::View * > >::checkSubType< osgViewer::GraphicsWindow::Views >(L,2));
 		if( !views_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg views in osgViewer::GraphicsWindow::getViews function");
 		}

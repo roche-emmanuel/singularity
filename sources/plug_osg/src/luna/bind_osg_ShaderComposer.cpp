@@ -140,7 +140,7 @@ public:
 	inline static bool _lg_typecheck_getOrCreateProgram(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,73063359) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,17530095) ) return false;
 		return true;
 	}
 
@@ -226,7 +226,7 @@ public:
 	inline static bool _lg_typecheck_base_getOrCreateProgram(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,73063359) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,17530095) ) return false;
 		return true;
 	}
 
@@ -428,7 +428,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Program * osg::ShaderComposer::getOrCreateProgram(const osg::ShaderComponents & shaderComponents) function, expected prototype:\nosg::Program * osg::ShaderComposer::getOrCreateProgram(const osg::ShaderComponents & shaderComponents)\nClass arguments details:\narg 1 ID = 73063359\n");
 		}
 
-		const osg::ShaderComponents* shaderComponents_ptr=(Luna< osg::ShaderComponents >::check(L,2));
+		const osg::ShaderComponents* shaderComponents_ptr=(Luna< std::vector< osg::ShaderComponent * > >::checkSubType< osg::ShaderComponents >(L,2));
 		if( !shaderComponents_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg shaderComponents in osg::ShaderComposer::getOrCreateProgram function");
 		}
@@ -706,7 +706,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Program * osg::ShaderComposer::base_getOrCreateProgram(const osg::ShaderComponents & shaderComponents) function, expected prototype:\nosg::Program * osg::ShaderComposer::base_getOrCreateProgram(const osg::ShaderComponents & shaderComponents)\nClass arguments details:\narg 1 ID = 73063359\n");
 		}
 
-		const osg::ShaderComponents* shaderComponents_ptr=(Luna< osg::ShaderComponents >::check(L,2));
+		const osg::ShaderComponents* shaderComponents_ptr=(Luna< std::vector< osg::ShaderComponent * > >::checkSubType< osg::ShaderComponents >(L,2));
 		if( !shaderComponents_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg shaderComponents in osg::ShaderComposer::base_getOrCreateProgram function");
 		}

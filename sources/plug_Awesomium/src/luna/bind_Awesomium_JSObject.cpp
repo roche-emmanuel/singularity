@@ -70,12 +70,6 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_remote_id(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_ref_count(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -220,25 +214,6 @@ public:
 
 
 	// Function binds:
-	// unsigned int Awesomium::JSObject::remote_id() const
-	static int _bind_remote_id(lua_State *L) {
-		if (!_lg_typecheck_remote_id(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::JSObject::remote_id() const function, expected prototype:\nunsigned int Awesomium::JSObject::remote_id() const\nClass arguments details:\n");
-		}
-
-
-		Awesomium::JSObject* self=(Luna< Awesomium::JSObject >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int Awesomium::JSObject::remote_id() const. Got : '%s'",typeid(Luna< Awesomium::JSObject >::check(L,1)).name());
-		}
-		unsigned int lret = self->remote_id();
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
 	// int Awesomium::JSObject::ref_count() const
 	static int _bind_ref_count(lua_State *L) {
 		if (!_lg_typecheck_ref_count(L)) {
@@ -591,7 +566,6 @@ const int LunaTraits< Awesomium::JSObject >::hash = 47180827;
 const int LunaTraits< Awesomium::JSObject >::uniqueIDs[] = {47180827,0};
 
 luna_RegType LunaTraits< Awesomium::JSObject >::methods[] = {
-	{"remote_id", &luna_wrapper_Awesomium_JSObject::_bind_remote_id},
 	{"ref_count", &luna_wrapper_Awesomium_JSObject::_bind_ref_count},
 	{"type", &luna_wrapper_Awesomium_JSObject::_bind_type},
 	{"owner", &luna_wrapper_Awesomium_JSObject::_bind_owner},

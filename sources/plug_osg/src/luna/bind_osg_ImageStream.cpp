@@ -256,7 +256,7 @@ public:
 	inline static bool _lg_typecheck_setAudioStreams(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,83757031) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,64675596) ) return false;
 		return true;
 	}
 
@@ -1125,7 +1125,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setAudioStreams(const osg::ImageStream::AudioStreams & asl) function, expected prototype:\nvoid osg::ImageStream::setAudioStreams(const osg::ImageStream::AudioStreams & asl)\nClass arguments details:\narg 1 ID = 83757031\n");
 		}
 
-		const osg::ImageStream::AudioStreams* asl_ptr=(Luna< osg::ImageStream::AudioStreams >::check(L,2));
+		const osg::ImageStream::AudioStreams* asl_ptr=(Luna< std::vector< osg::ref_ptr< osg::AudioStream > > >::checkSubType< osg::ImageStream::AudioStreams >(L,2));
 		if( !asl_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg asl in osg::ImageStream::setAudioStreams function");
 		}

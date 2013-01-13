@@ -114,8 +114,8 @@ public:
 	inline static bool _lg_typecheck_setRadiusRange_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
-		if( (!(Luna< osgParticle::rangef >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,42175463) ) return false;
+		if( (!(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2))) ) return false;
 		return true;
 	}
 
@@ -136,8 +136,8 @@ public:
 	inline static bool _lg_typecheck_setPhiRange_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
-		if( (!(Luna< osgParticle::rangef >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,42175463) ) return false;
+		if( (!(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2))) ) return false;
 		return true;
 	}
 
@@ -412,7 +412,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::SectorPlacer::setRadiusRange(const osgParticle::rangef & r) function, expected prototype:\nvoid osgParticle::SectorPlacer::setRadiusRange(const osgParticle::rangef & r)\nClass arguments details:\narg 1 ID = 13510606\n");
 		}
 
-		const osgParticle::rangef* r_ptr=(Luna< osgParticle::rangef >::check(L,2));
+		const osgParticle::rangef* r_ptr=(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::SectorPlacer::setRadiusRange function");
 		}
@@ -485,7 +485,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::SectorPlacer::setPhiRange(const osgParticle::rangef & r) function, expected prototype:\nvoid osgParticle::SectorPlacer::setPhiRange(const osgParticle::rangef & r)\nClass arguments details:\narg 1 ID = 13510606\n");
 		}
 
-		const osgParticle::rangef* r_ptr=(Luna< osgParticle::rangef >::check(L,2));
+		const osgParticle::rangef* r_ptr=(Luna< osgParticle::range< float > >::checkSubType< osgParticle::rangef >(L,2));
 		if( !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in osgParticle::SectorPlacer::setPhiRange function");
 		}

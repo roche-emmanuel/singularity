@@ -71,8 +71,8 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,1,33161232) ) return false;
-		if( (!(Luna< osg::Polytope::PlaneList >::check(L,1))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,1,5512969) ) return false;
+		if( (!(Luna< std::vector< osg::Plane > >::checkSubType< osg::Polytope::PlaneList >(L,1))) ) return false;
 		return true;
 	}
 
@@ -96,7 +96,7 @@ public:
 	inline static bool _lg_typecheck_setToBoundingBox(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,41227270) ) return false;
 		return true;
 	}
 
@@ -111,7 +111,7 @@ public:
 	inline static bool _lg_typecheck_set(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,33161232) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,5512969) ) return false;
 		return true;
 	}
 
@@ -143,7 +143,7 @@ public:
 	inline static bool _lg_typecheck_setReferenceVertexList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,71066845) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,30220088) ) return false;
 		return true;
 	}
 
@@ -233,16 +233,16 @@ public:
 	inline static bool _lg_typecheck_contains_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
-		if( (!(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,65870735) ) return false;
+		if( (!(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_contains_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
-		if( (!(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,41227270) ) return false;
+		if( (!(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2))) ) return false;
 		return true;
 	}
 
@@ -257,16 +257,16 @@ public:
 	inline static bool _lg_typecheck_containsAllOf_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
-		if( (!(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,65870735) ) return false;
+		if( (!(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_containsAllOf_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
-		if( (!(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,41227270) ) return false;
+		if( (!(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2))) ) return false;
 		return true;
 	}
 
@@ -330,7 +330,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Polytope::Polytope(const osg::Polytope::PlaneList & pl) function, expected prototype:\nosg::Polytope::Polytope(const osg::Polytope::PlaneList & pl)\nClass arguments details:\narg 1 ID = 33161232\n");
 		}
 
-		const osg::Polytope::PlaneList* pl_ptr=(Luna< osg::Polytope::PlaneList >::check(L,1));
+		const osg::Polytope::PlaneList* pl_ptr=(Luna< std::vector< osg::Plane > >::checkSubType< osg::Polytope::PlaneList >(L,1));
 		if( !pl_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pl in osg::Polytope::Polytope function");
 		}
@@ -398,7 +398,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Polytope::setToBoundingBox(const osg::BoundingBoxd & bb) function, expected prototype:\nvoid osg::Polytope::setToBoundingBox(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::Polytope::setToBoundingBox function");
 		}
@@ -449,7 +449,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Polytope::set(const osg::Polytope::PlaneList & pl) function, expected prototype:\nvoid osg::Polytope::set(const osg::Polytope::PlaneList & pl)\nClass arguments details:\narg 1 ID = 33161232\n");
 		}
 
-		const osg::Polytope::PlaneList* pl_ptr=(Luna< osg::Polytope::PlaneList >::check(L,2));
+		const osg::Polytope::PlaneList* pl_ptr=(Luna< std::vector< osg::Plane > >::checkSubType< osg::Polytope::PlaneList >(L,2));
 		if( !pl_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pl in osg::Polytope::set function");
 		}
@@ -564,7 +564,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Polytope::setReferenceVertexList(osg::Polytope::VertexList & vertices) function, expected prototype:\nvoid osg::Polytope::setReferenceVertexList(osg::Polytope::VertexList & vertices)\nClass arguments details:\narg 1 ID = 71066845\n");
 		}
 
-		osg::Polytope::VertexList* vertices_ptr=(Luna< osg::Polytope::VertexList >::check(L,2));
+		osg::Polytope::VertexList* vertices_ptr=(Luna< std::vector< osg::Vec3f > >::checkSubType< osg::Polytope::VertexList >(L,2));
 		if( !vertices_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg vertices in osg::Polytope::setReferenceVertexList function");
 		}
@@ -876,7 +876,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Polytope::contains(const osg::BoundingSphered & bs) function, expected prototype:\nbool osg::Polytope::contains(const osg::BoundingSphered & bs)\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphered >::check(L,2));
+		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
 		if( !bs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bs in osg::Polytope::contains function");
 		}
@@ -900,7 +900,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Polytope::contains(const osg::BoundingBoxd & bb) function, expected prototype:\nbool osg::Polytope::contains(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::Polytope::contains function");
 		}
@@ -959,7 +959,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Polytope::containsAllOf(const osg::BoundingSphered & bs) function, expected prototype:\nbool osg::Polytope::containsAllOf(const osg::BoundingSphered & bs)\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphered >::check(L,2));
+		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphereImpl< osg::Vec3d > >::checkSubType< osg::BoundingSphered >(L,2));
 		if( !bs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bs in osg::Polytope::containsAllOf function");
 		}
@@ -983,7 +983,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Polytope::containsAllOf(const osg::BoundingBoxd & bb) function, expected prototype:\nbool osg::Polytope::containsAllOf(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxImpl< osg::Vec3d > >::checkSubType< osg::BoundingBoxd >(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::Polytope::containsAllOf function");
 		}
