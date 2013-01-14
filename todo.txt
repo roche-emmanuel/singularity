@@ -14,6 +14,7 @@
 * Create a more versatile loader from AssImp as lua module.
 
 
+* Implement LUA IDE with module parsing support and auto completion/Function help.
 * improve subclass registration to add class access in parent class (like osg.Drawable.CullCallback = osg.Drawable_CullCallback)
 * add type auto-registration in wrapper writer when pushing args and results.
 * add support for int variables in namespaces (like const in AK_KEY_1 = 0x89;)

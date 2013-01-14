@@ -54,3 +54,4 @@
 - Added getter and setters for public class variables.
 - Added support for Kinect SDK module with working test.
 - Added AssImp osgDB plugin.
+- Added FreeImage osgDB plugin.

@@ -178,6 +178,7 @@ varying vec2 coords;
 void main() {
     vec4 color = texture2DRect(tex,vec2(coords.x*%.1f,%s*%.1f));  
     gl_FragColor = color;
+    //gl_FragColor = vec4(color.a > 0.5 ? color.rgb : vec3(0.0,1.0,0.0), 1.0) ;
 }
 	]]):format(options.texture:getTextureWidth(),coordy,options.texture:getTextureHeight()));
 	
