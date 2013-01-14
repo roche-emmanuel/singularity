@@ -29,5 +29,11 @@
 
 #include "lua/LuaObject.h"
 
+template <typename dstType>
+struct luna_caster<b2JointDef,dstType> {
+	static inline dstType* cast(b2JointDef* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
 
 #endif

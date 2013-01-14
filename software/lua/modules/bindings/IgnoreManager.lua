@@ -23,6 +23,9 @@ function IgnoreManager:__init()
     obj._TRACE_ = "IgnoreManager"
     obj._patternsMap = Map()
    
+    obj:addPattern("class","@")
+    obj:addPattern("class_declaration","@")
+	
     return obj
 end
 

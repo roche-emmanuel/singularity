@@ -16,6 +16,8 @@ typedef void GLvoid;
 typedef int DWORD;
 typedef void* LPVOID;
 
+struct b2ContactPositionConstraint {};
+
 namespace osgGA {
 
 class GUIEventHandler {
@@ -31,3 +33,5 @@ class Vec2f {
 typedef Vec2f Vec2;
 
 }
+
+typedef unsigned int b2ContactID;

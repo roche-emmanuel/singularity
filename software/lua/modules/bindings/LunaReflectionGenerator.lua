@@ -803,11 +803,13 @@ function ReflectionGenerator:processMembers(sec)
         elseif(mem:kind()==dxp.IMember.Variable or mem:kind()==dxp.IMember.Property) and self:isPublic(mem) then
             -- is an attribute
             -- only add public attributes:
+			local argstr = mem:argsstring():latin1()
             local var = self:getOrCreateObject(mem,Variable)
-            var:setName(mem:name():latin1() .. mem:argsstring():latin1())
+            var:setName(mem:name():latin1())
 			local typevec = self:generateItemLinks(mem:type())
 			var:setType(Type{links=typevec})
 			var:setSection(mem:protection():latin1())
+			var:setArgsString(argstr)
             scope:addVariable(var)
         elseif(mem:kind()==dxp.IMember.Enum) and self:isPublic(mem) then
             log:info ("   - public enum ".. mem:name():latin1());

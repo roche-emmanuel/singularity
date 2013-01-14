@@ -249,6 +249,10 @@ function Class:containsPointerOnPointer()
     --return proto:find("%[[0-9]*%]")~=nil
 end
 
+function Class:containsArobace()
+    return self.argsString:find("@")~=nil or (self.returnType and self.returnType:getName():find("@"))
+end
+
 function Class:containsFunctionArg()
 	for k,param in self.parameters:sequence() do
 		if param:getType():getName():find("%(") then
@@ -282,6 +286,7 @@ function Class:isValidForWrapping()
     	not self:isVariadic() 
     	and not self:containsArray() 
     	and not self:containsPointerOnPointer() 
+    	and not self:containsArobace() 
     	and not self:isTemplated()
 		and self:getLuaName()
     	and not self:containsFunctionArg()

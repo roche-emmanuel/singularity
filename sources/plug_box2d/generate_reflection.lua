@@ -36,6 +36,10 @@ ReflectionGenerator.generate{
 	mappedModules={
 	},
 	ignoreFunctions={
+		-- "Destroy%(b2Contact %* contact, b2Shape::Type typeA, b2Shape::Type typeB, b2BlockAllocator %* allocator%)",
+		"b2Contact::Destroy",
+		"b2WheelJoint::GetDefinition",
+		"b2ContactID",
 	},
 	ignoreClasses={
 	},

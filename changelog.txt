@@ -57,3 +57,4 @@
 - Added FreeImage osgDB plugin.
 - Fixed issue in external implicit declaration for reflection
 - Added Box2D module and test example.
+- Generated reflection for Box2D library.
