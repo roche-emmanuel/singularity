@@ -12,9 +12,9 @@ LINK_DIRECTORIES (${LUA_LIB_DIR})
 
 # OSG plugins:
 # ADD_SUBDIRECTORY(osgdb_assimp)
-ADD_SUBDIRECTORY(osgdb_freeimage)
+# ADD_SUBDIRECTORY(osgdb_freeimage)
 
-# ADD_SUBDIRECTORY(sgtCore)
+ADD_SUBDIRECTORY(sgtCore)
 
 # ADD_SUBDIRECTORY(plug_lpeg)
 # ADD_SUBDIRECTORY(plug_lfs)
@@ -45,6 +45,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_vlc)
 # ADD_SUBDIRECTORY(plug_atb)
 # ADD_SUBDIRECTORY(plug_kinect)
+ADD_SUBDIRECTORY(plug_box2d)
 
 # ToDo:
 # ADD_SUBDIRECTORY(plug_freenect)
