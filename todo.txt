@@ -8,7 +8,10 @@
 * Add minimal notebook app.
 * Implement all listeners for webview
 * Remove "<" as a ignoring function pattern (in wx module at least) ?
-* Change getter/setter lua names : use "_" separator if already found in name. Ignore "m_"/"_" prefix.
+* Change getter/setter lua names : use "_" separator if already found in name. Ignore "m_"/"mXXX"/"_" prefix.
+* Add support for array public variable access (like float _values[3];)
+* return arguments passed by reference if they are not pointed classes.
+* Create a more versatile loader from AssImp as lua module.
 
 
 * improve subclass registration to add class access in parent class (like osg.Drawable.CullCallback = osg.Drawable_CullCallback)

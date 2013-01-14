@@ -64,6 +64,10 @@ SET(KINECT_INC_DIR 		${DEP_KINECT}/include)
 SET(KINECT_LIB_DIR 		${DEP_KINECT}/lib/x86)
 SET(KINECT_LIBS 		Kinect10)
 
+SET(ASSIMP_INC_DIR 		${DEP_ASSIMP}/include)
+SET(ASSIMP_LIB_DIR 		${DEP_ASSIMP}/lib/assimp_release-dll_win32)
+SET(ASSIMP_LIBS 		assimp)
+
 SET(OPENSSL_INC_DIR 	${DEP_OPENSSL}/include)
 SET(OPENSSL_LIB_DIR 	${DEP_OPENSSL}/lib)
 SET(OPENSSL_LIBS 		libeay32.lib ssleay32.lib)

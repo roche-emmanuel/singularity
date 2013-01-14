@@ -10,8 +10,10 @@ LINK_DIRECTORIES (${OSG_LIB_DIR})
 INCLUDE_DIRECTORIES(${LUA_INC_DIR})
 LINK_DIRECTORIES (${LUA_LIB_DIR})
 
+# OSG plugins:
+ADD_SUBDIRECTORY(osgdb_assimp)
 
-ADD_SUBDIRECTORY(sgtCore)
+# ADD_SUBDIRECTORY(sgtCore)
 
 # ADD_SUBDIRECTORY(plug_lpeg)
 # ADD_SUBDIRECTORY(plug_lfs)
@@ -25,7 +27,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_lanes)
 # ADD_SUBDIRECTORY(plug_ssl)
 
-ADD_SUBDIRECTORY(plug_core)
+# ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_doxmlparser)
 IF(MSVC)
 	# ADD_SUBDIRECTORY(plug_wx)
@@ -41,13 +43,13 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_tuio)
 # ADD_SUBDIRECTORY(plug_vlc)
 # ADD_SUBDIRECTORY(plug_atb)
-ADD_SUBDIRECTORY(plug_kinect)
+# ADD_SUBDIRECTORY(plug_kinect)
 
 # ToDo:
 # ADD_SUBDIRECTORY(plug_freenect)
 
 
-ADD_SUBDIRECTORY(sgt_launcher)
+# ADD_SUBDIRECTORY(sgt_launcher)
 # ADD_SUBDIRECTORY(tests/virtual_base)
 
 # ADD_SUBDIRECTORY(wx)
