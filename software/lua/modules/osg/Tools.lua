@@ -59,6 +59,10 @@ function Class:loadModel(filename)
 	return node
 end
 
+function Class:getModel(file)
+	return self:loadModel(fs:getRootPath(true) .. file)
+end
+
 function Class:loadImage(filename)
 	self:checkString(filename,"Invalid image filename")
 	local image = osgDB.readImageFile(filename)

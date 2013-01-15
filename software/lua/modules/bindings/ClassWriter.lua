@@ -190,13 +190,16 @@ function Class:writeFile()
 				buf:writeSubLine("return luna_wrapper_${1}::_bind_ctor(L);",wname) --cshortname)
 			end
 		--else
-			buf:writeLine("// Note that this class is abstract (only lua wrappers can be created).")
 			
 			-- write the abstract methods:
 			local funcs = class:getAbstractFunctions()
-			buf:writeLine("// Abstract methods:")
-			for _,func in funcs:sequence() do
-				buf:writeLine("// ".. func:getPrototype(true,true,true))
+
+			if not funcs:empty() then
+				buf:writeLine("// Note that this class is abstract (only lua wrappers can be created).")
+				buf:writeLine("// Abstract methods:")
+				for _,func in funcs:sequence() do
+					buf:writeLine("// ".. func:getPrototype(true,true,true))
+				end
 			end
 		--end
 		buf:popIndent()

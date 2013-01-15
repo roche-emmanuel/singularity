@@ -45,7 +45,9 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_vlc)
 # ADD_SUBDIRECTORY(plug_atb)
 # ADD_SUBDIRECTORY(plug_kinect)
-ADD_SUBDIRECTORY(plug_box2d)
+# ADD_SUBDIRECTORY(plug_box2d)
+# ADD_SUBDIRECTORY(plug_bullet)
+ADD_SUBDIRECTORY(plug_gizmo)
 
 # ToDo:
 # ADD_SUBDIRECTORY(plug_freenect)

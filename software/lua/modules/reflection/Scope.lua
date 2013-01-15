@@ -37,7 +37,9 @@ function Class:addSubScope(scope)
 	self:check(self._scopeType~=Class.ENUM,"Enum scope may not contain sub scopes.")
 	self:checkType(scope,require"reflection.Scope")
 
-	scope:setParent(self,true) -- force setting of new parent.
+	local enforce = (self:getName()~="") -- enforce changing the scope if this is not the std namespace.
+	
+	scope:setParent(self,enforce) -- force setting of new parent.
 	-- local prev_parent = scope:setParent(self,true) -- force setting of new parent.
 	-- if prev_parent then
 		-- prev_parent:removeSubScope(scope)

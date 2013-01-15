@@ -68,6 +68,24 @@ SET(ASSIMP_INC_DIR 		${DEP_ASSIMP}/include)
 SET(ASSIMP_LIB_DIR 		${DEP_ASSIMP}/lib/assimp_release-dll_win32)
 SET(ASSIMP_LIBS 		assimp)
 
+SET(BULLET_INC_DIR 		${DEP_BULLET}/include/bullet)
+SET(BULLET_LIB_DIR 		${DEP_BULLET}/lib)
+SET(BULLET_LIBS 		BulletCollision.lib 
+                        BulletDynamics.lib 
+						BulletFileLoader.lib
+						BulletMultiThreaded.lib
+						BulletSoftBody.lib
+						BulletSoftBodySolvers_OpenCL_Mini.lib
+						BulletWorldImporter.lib
+						BulletXmlWorldImporter.lib
+						ConvexDecomposition.lib
+						GIMPACTUtils.lib
+						HACD.lib
+						LinearMath.lib
+						MiniCL.lib
+						OpenGLSupport.lib
+						)
+
 SET(FREEIMAGE_INC_DIR 	${DEP_FREEIMAGE}/include)
 SET(FREEIMAGE_LIB_DIR 	${DEP_FREEIMAGE}/lib)
 SET(FREEIMAGE_LIBS 		FreeImage)

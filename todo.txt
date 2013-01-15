@@ -5,6 +5,8 @@
 
 - Todo:
 
+* Add support for file ignoring in parsinf process.
+
 * Add minimal notebook app.
 * Implement all listeners for webview
 * Remove "<" as a ignoring function pattern (in wx module at least) ?

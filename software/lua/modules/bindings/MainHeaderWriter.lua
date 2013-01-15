@@ -46,6 +46,7 @@ function Class:writeFile()
 		if classname and not im:ignore(classname,"class_declaration") then
 			self:debug0_v("Writing class declaration for ", v:getFullName(), " (typename=",classname,")")
 			local abname = tm:getAbsoluteBaseName(v:getFirstAbsoluteBase()) --:getFullName();
+			buf:writeLine("// Class: "..classname)
 			buf:writeLine(snippets:getLunaTraitsCode(classname,abname,add))
 		else
 			self:notice("Ignoring class declaration for ", v:getFullName(), " (typename=",classname,")")
@@ -65,6 +66,7 @@ function Class:writeFile()
 		
 		if classname and not im:ignore(classname,"class_declaration") then
 			self:debug0_v("Writing class declaration for type ",classname)
+			buf:writeLine("// Mapped type: "..classname)
 			buf:writeLine(snippets:getLunaTraitsCode(classname,classname,add))
 		else
 			self:notice("Ignoring class declaration for type ", classname)
@@ -85,6 +87,7 @@ function Class:writeFile()
 		if classname and not im:ignore(classname,"class_declaration") then
 			self:debug0_v("Writing class declaration for type ",classname)
 			local abname = tm:getExternalBase(classname)
+			buf:writeLine("// Referenced external: "..classname)
 			buf:writeLine(snippets:getLunaTraitsCode(classname,abname,add))
 		else
 			self:notice("Ignoring class declaration for type ", classname)

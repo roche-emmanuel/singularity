@@ -76,7 +76,9 @@ function Class:setParent(parent,force)
 	
 	if self._parent then
 		self:error("Trying to reparent object '",self:getFullName(),"' to parent '",parent:getFullName(),"' previous parent is: '",self._parent:getFullName(),"' and change is not enforced.")
+		return;
 	end
+	
 	self._parent = parent
 end
 

@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="OSGCanvas",bases="gui.wx.BasicWindow"};
+local Class = require("classBuilder"){name="OSGCanvas",bases={"gui.wx.BasicWindow","base.EventHandler"}};
 
 local wx = require "wx"
 
@@ -35,6 +35,10 @@ end
 function Class:getWindow()
 	return self._panel;
 end
+local forcedKeyDownMap = {}
+forcedKeyDownMap[wx.WXK_CONTROL] = osgGA.GUIEventAdapter.KEY_Control_L;
+forcedKeyDownMap[wx.WXK_SHIFT] = osgGA.GUIEventAdapter.KEY_Shift_L;
+forcedKeyDownMap[wx.WXK_ALT] = osgGA.GUIEventAdapter.KEY_Alt_L;
 
 function Class:buildInstance()
 	self:info("Building OSGCanvas instance...")
@@ -48,6 +52,10 @@ function Class:buildInstance()
 			self._viewer:getCamera():setGraphicsContext(nil); -- this is needed to avoid wxWidgets resource access after deletion.
 			self:info("Releasing scene...")
 			self._root:removeChildren(0,self._root:getNumChildren())
+			self:fireEvent("onClose")
+			self._viewer = nil;
+			self._gw = nil;
+			--self:info("Done releasing scene.")
 		end
 	}};
 	
@@ -121,11 +129,16 @@ function Class:buildInstance()
 	end
 	
 	local keyDownHandler = function(intf,event)
-		--self._gw:getEventQueue():keyPress(self:adaptKeyCode(event:GetKeyCode()));
-		event:Skip();
+		if forcedKeyDownMap[event:GetKeyCode()] then
+			-- self:info("Sending keydown:",event:GetKeyCode())
+			self._gw:getEventQueue():keyPress(self:adaptKeyCode(event:GetKeyCode()));
+		else
+			event:Skip();
+		end
 	end
 
 	local charHandler = function(intf,event)
+		-- self:info("Sending char:",event:GetKeyCode())
 		self._gw:getEventQueue():keyPress(self:adaptKeyCode(event:GetKeyCode()));
 		event:Skip();
 	end

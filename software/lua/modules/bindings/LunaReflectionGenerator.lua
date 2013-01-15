@@ -25,6 +25,7 @@ local IteratorHandler = require "bindings.IteratorHandler"
 local SectionHandler = require "bindings.SectionHandler"
 local MemberWriter = require "bindings.MemberWriter"
 local tm = require "bindings.TypeManager"
+local im = require "bindings.IgnoreManager"
 
 local log = require "logger"
 
@@ -97,6 +98,12 @@ end
 function ReflectionGenerator:processFile(comp)
     -- assume the given compound is a class.
     comp = dxp.toFile(comp) --:dynamicCast("IFile")
+	
+	local filename = comp:name():latin1()
+	if im:ignore(filename,"file") then
+		self:notice("Ignoring file ",filename," on user request.")
+		return;
+	end
     
     self:pushScope(self.reflectionMap:getGlobalNamespace())
     self:processSections(comp)
@@ -144,10 +151,9 @@ end
 function ReflectionGenerator:getHeaderFileName(location)
 	for k,prefix in self.locationPrefixes:sequence() do
 		--log:warn("Checking location=",location," against prefix=", prefix)
-		if location:find(prefix) then
-			local loc = location:gsub(prefix,"") 
-			--log:warn("Checking location=",location," against prefix=", prefix," extracted=",loc)
-			return loc
+		local p1, p2 = location:find(prefix)
+		if p2 then
+			location = location:sub(p2+1) 
 		end
 	end
 	
@@ -1159,6 +1165,10 @@ function ReflectionGenerator.generate(options)
 	
 	for k,v in ipairs(options.ignoreFunctions or {}) do
 		im:getIgnoreFunctionsPatterns():push_back(v)
+	end
+	
+	for k,v in ipairs(options.ignoreFiles or {}) do
+		im:addPattern("file",v)
 	end
 	
 	for k,v in ipairs(options.ignoreDefines or {}) do
