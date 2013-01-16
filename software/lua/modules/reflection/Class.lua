@@ -15,6 +15,7 @@ function Class:initialize(options)
     self._scopeType = Scope.CLASS
     self._bases = Set()
     self._templateParameters = Vector()
+	--self._baseSpecs = Map()
 end
 
 function Class:getMappedType()
@@ -123,10 +124,11 @@ end
 -- This function will automatically add this class object as a derivation
 -- of the base.
 -- @param base The base class to add. Should not be nil.
-function Class:addBase(base)
+function Class:addBase(base,spec)
 	self:check(base,"base argument is nil");
 	self:checkType(base,Class,true);	
 	self._bases:push_back(base);
+	--self._baseSpecs:set(base,spec)
 end
 
 --- Check if this class has at least one base class.
@@ -307,7 +309,11 @@ function Class:getTypeName()
 end
 
 function Class:isValidForWrapping()
+	local abase = self:getFirstAbsoluteBase()
 	return not self:isTemplated()
+		and not im:ignore(self:getHeaderFile(),"file")
+		and self:getParent():isValidForWrapping()
+		and (abase==self or abase:isValidForWrapping())
 end
 
 function Class:setModule(modname)
@@ -457,6 +463,16 @@ function Class:addDefaultVirtuals()
 	end
 end
 
-
+function Class:isPolymorphic()
+	for _,base in self:getBases():sequence() do
+		if base:isPolymorphic() then
+			return true;
+		end
+	end
+	
+	-- check if we have at least one virtual function :
+	local funcs = self:getFunctions{"Virtual"}
+	return not funcs:empty()
+end
 
 return Class

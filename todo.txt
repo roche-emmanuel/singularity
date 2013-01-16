@@ -6,6 +6,7 @@
 - Todo:
 
 * Add support for file ignoring in parsinf process.
+* Upgrade version of doxmlparser
 
 * Add minimal notebook app.
 * Implement all listeners for webview

@@ -1,8 +1,92 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_IString.h>
+
 class luna_wrapper_IString {
 public:
 	typedef Luna< IString > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		IString* self=(Luna< IString >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<IString,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,74613221) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IString*)");
+		}
+
+		IString* rhs =(Luna< IString >::check(L,2));
+		IString* self=(Luna< IString >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Base class dynamic cast support:
+	inline static bool _lg_typecheck_dynCast(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+	
+	static int _bind_dynCast(lua_State *L) {
+		if (!_lg_typecheck_dynCast(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		IString* self=(Luna< IString >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call dynCast(...)");
+		}
+		
+		static LunaConverterMap& converters = luna_getConverterMap("IString");
+		
+		return luna_dynamicCast(L,converters,"IString",name);
+	}
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_latin1(lua_State *L) {
@@ -40,17 +124,32 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
+	// Constructor binds:
+	// IString::IString(lua_Table * data)
+	static IString* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in IString::IString(lua_Table * data) function, expected prototype:\nIString::IString(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_IString(L,NULL);
+	}
+
+
 	// Function binds:
+	// const char * IString::latin1() const
 	static int _bind_latin1(lua_State *L) {
 		if (!_lg_typecheck_latin1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in latin1 function, expected prototype:\nlatin1()");
+			luaL_error(L, "luna typecheck failed in const char * IString::latin1() const function, expected prototype:\nconst char * IString::latin1() const\nClass arguments details:\n");
 		}
 
 
 		IString* self=(Luna< IString >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call latin1(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * IString::latin1() const. Got : '%s'",typeid(Luna< IString >::check(L,1)).name());
 		}
 		const char * lret = self->latin1();
 		lua_pushstring(L,lret);
@@ -58,16 +157,18 @@ public:
 		return 1;
 	}
 
+	// const char * IString::utf8() const
 	static int _bind_utf8(lua_State *L) {
 		if (!_lg_typecheck_utf8(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in utf8 function, expected prototype:\nutf8()");
+			luaL_error(L, "luna typecheck failed in const char * IString::utf8() const function, expected prototype:\nconst char * IString::utf8() const\nClass arguments details:\n");
 		}
 
 
 		IString* self=(Luna< IString >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call utf8(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * IString::utf8() const. Got : '%s'",typeid(Luna< IString >::check(L,1)).name());
 		}
 		const char * lret = self->utf8();
 		lua_pushstring(L,lret);
@@ -75,17 +176,19 @@ public:
 		return 1;
 	}
 
+	// unsigned short IString::unicodeCharAt(int index) const
 	static int _bind_unicodeCharAt(lua_State *L) {
 		if (!_lg_typecheck_unicodeCharAt(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unicodeCharAt function, expected prototype:\nunicodeCharAt(int)");
+			luaL_error(L, "luna typecheck failed in unsigned short IString::unicodeCharAt(int index) const function, expected prototype:\nunsigned short IString::unicodeCharAt(int index) const\nClass arguments details:\n");
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		IString* self=(Luna< IString >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call unicodeCharAt(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned short IString::unicodeCharAt(int) const. Got : '%s'",typeid(Luna< IString >::check(L,1)).name());
 		}
 		unsigned short lret = self->unicodeCharAt(index);
 		lua_pushnumber(L,lret);
@@ -93,16 +196,18 @@ public:
 		return 1;
 	}
 
+	// bool IString::isEmpty() const
 	static int _bind_isEmpty(lua_State *L) {
 		if (!_lg_typecheck_isEmpty(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in isEmpty function, expected prototype:\nisEmpty()");
+			luaL_error(L, "luna typecheck failed in bool IString::isEmpty() const function, expected prototype:\nbool IString::isEmpty() const\nClass arguments details:\n");
 		}
 
 
 		IString* self=(Luna< IString >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call isEmpty(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool IString::isEmpty() const. Got : '%s'",typeid(Luna< IString >::check(L,1)).name());
 		}
 		bool lret = self->isEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -110,16 +215,18 @@ public:
 		return 1;
 	}
 
+	// int IString::length() const
 	static int _bind_length(lua_State *L) {
 		if (!_lg_typecheck_length(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in length function, expected prototype:\nlength()");
+			luaL_error(L, "luna typecheck failed in int IString::length() const function, expected prototype:\nint IString::length() const\nClass arguments details:\n");
 		}
 
 
 		IString* self=(Luna< IString >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call length(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int IString::length() const. Got : '%s'",typeid(Luna< IString >::check(L,1)).name());
 		}
 		int lret = self->length();
 		lua_pushnumber(L,lret);
@@ -133,7 +240,14 @@ public:
 };
 
 IString* LunaTraits< IString >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_IString::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// const char * IString::latin1() const
+	// const char * IString::utf8() const
+	// unsigned short IString::unicodeCharAt(int index) const
+	// bool IString::isEmpty() const
+	// int IString::length() const
 }
 
 void LunaTraits< IString >::_bind_dtor(IString* obj) {
@@ -141,8 +255,10 @@ void LunaTraits< IString >::_bind_dtor(IString* obj) {
 }
 
 const char LunaTraits< IString >::className[] = "IString";
+const char LunaTraits< IString >::fullName[] = "IString";
 const char LunaTraits< IString >::moduleName[] = "doxmlparser";
 const char* LunaTraits< IString >::parents[] = {0};
+const int LunaTraits< IString >::hash = 74613221;
 const int LunaTraits< IString >::uniqueIDs[] = {74613221,0};
 
 luna_RegType LunaTraits< IString >::methods[] = {
@@ -151,6 +267,13 @@ luna_RegType LunaTraits< IString >::methods[] = {
 	{"unicodeCharAt", &luna_wrapper_IString::_bind_unicodeCharAt},
 	{"isEmpty", &luna_wrapper_IString::_bind_isEmpty},
 	{"length", &luna_wrapper_IString::_bind_length},
+	{"dynCast", &luna_wrapper_IString::_bind_dynCast},
+	{"__eq", &luna_wrapper_IString::_bind___eq},
+	{"getTable", &luna_wrapper_IString::_bind_getTable},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< IString >::converters[] = {
 	{0,0}
 };
 

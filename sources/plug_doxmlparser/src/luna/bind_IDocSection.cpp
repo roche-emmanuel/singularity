@@ -1,8 +1,79 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_IDocSection.h>
+
 class luna_wrapper_IDocSection {
 public:
 	typedef Luna< IDocSection > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		IDoc* self=(Luna< IDoc >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<IDoc,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,2243631) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IDoc*)");
+		}
+
+		IDoc* rhs =(Luna< IDoc >::check(L,2));
+		IDoc* self=(Luna< IDoc >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Derived class converters:
+	static int _cast_from_IDoc(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		//IDocSection* ptr= dynamic_cast< IDocSection* >(Luna< IDoc >::check(L,1));
+		IDocSection* ptr= luna_caster< IDoc, IDocSection >::cast(Luna< IDoc >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< IDocSection >::push(L,ptr,false);
+		return 1;
+	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_id(lua_State *L) {
@@ -45,17 +116,32 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
-	// Function binds:
-	static int _bind_id(lua_State *L) {
-		if (!_lg_typecheck_id(L)) {
+	// Constructor binds:
+	// IDocSection::IDocSection(lua_Table * data)
+	static IDocSection* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in id function, expected prototype:\nid()");
+			luaL_error(L, "luna typecheck failed in IDocSection::IDocSection(lua_Table * data) function, expected prototype:\nIDocSection::IDocSection(lua_Table * data)\nClass arguments details:\n");
 		}
 
 
-		IDocSection* self=dynamic_cast< IDocSection* >(Luna< IDoc >::check(L,1));
+		return new wrapper_IDocSection(L,NULL);
+	}
+
+
+	// Function binds:
+	// const IString * IDocSection::id() const
+	static int _bind_id(lua_State *L) {
+		if (!_lg_typecheck_id(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const IString * IDocSection::id() const function, expected prototype:\nconst IString * IDocSection::id() const\nClass arguments details:\n");
+		}
+
+
+		IDocSection* self=Luna< IDoc >::checkSubType< IDocSection >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call id(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const IString * IDocSection::id() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		const IString * lret = self->id();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -65,16 +151,18 @@ public:
 		return 1;
 	}
 
+	// int IDocSection::level() const
 	static int _bind_level(lua_State *L) {
 		if (!_lg_typecheck_level(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in level function, expected prototype:\nlevel()");
+			luaL_error(L, "luna typecheck failed in int IDocSection::level() const function, expected prototype:\nint IDocSection::level() const\nClass arguments details:\n");
 		}
 
 
-		IDocSection* self=dynamic_cast< IDocSection* >(Luna< IDoc >::check(L,1));
+		IDocSection* self=Luna< IDoc >::checkSubType< IDocSection >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call level(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int IDocSection::level() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		int lret = self->level();
 		lua_pushnumber(L,lret);
@@ -82,16 +170,18 @@ public:
 		return 1;
 	}
 
+	// IDocTitle * IDocSection::title() const
 	static int _bind_title(lua_State *L) {
 		if (!_lg_typecheck_title(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in title function, expected prototype:\ntitle()");
+			luaL_error(L, "luna typecheck failed in IDocTitle * IDocSection::title() const function, expected prototype:\nIDocTitle * IDocSection::title() const\nClass arguments details:\n");
 		}
 
 
-		IDocSection* self=dynamic_cast< IDocSection* >(Luna< IDoc >::check(L,1));
+		IDocSection* self=Luna< IDoc >::checkSubType< IDocSection >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call title(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IDocTitle * IDocSection::title() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		IDocTitle * lret = self->title();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -101,16 +191,18 @@ public:
 		return 1;
 	}
 
+	// IDocIterator * IDocSection::paragraphs() const
 	static int _bind_paragraphs(lua_State *L) {
 		if (!_lg_typecheck_paragraphs(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in paragraphs function, expected prototype:\nparagraphs()");
+			luaL_error(L, "luna typecheck failed in IDocIterator * IDocSection::paragraphs() const function, expected prototype:\nIDocIterator * IDocSection::paragraphs() const\nClass arguments details:\n");
 		}
 
 
-		IDocSection* self=dynamic_cast< IDocSection* >(Luna< IDoc >::check(L,1));
+		IDocSection* self=Luna< IDoc >::checkSubType< IDocSection >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call paragraphs(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IDocIterator * IDocSection::paragraphs() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		IDocIterator * lret = self->paragraphs();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -120,16 +212,18 @@ public:
 		return 1;
 	}
 
+	// IDocIterator * IDocSection::subSections() const
 	static int _bind_subSections(lua_State *L) {
 		if (!_lg_typecheck_subSections(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in subSections function, expected prototype:\nsubSections()");
+			luaL_error(L, "luna typecheck failed in IDocIterator * IDocSection::subSections() const function, expected prototype:\nIDocIterator * IDocSection::subSections() const\nClass arguments details:\n");
 		}
 
 
-		IDocSection* self=dynamic_cast< IDocSection* >(Luna< IDoc >::check(L,1));
+		IDocSection* self=Luna< IDoc >::checkSubType< IDocSection >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call subSections(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IDocIterator * IDocSection::subSections() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		IDocIterator * lret = self->subSections();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -139,16 +233,18 @@ public:
 		return 1;
 	}
 
+	// IDocInternal * IDocSection::internal() const
 	static int _bind_internal(lua_State *L) {
 		if (!_lg_typecheck_internal(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in internal function, expected prototype:\ninternal()");
+			luaL_error(L, "luna typecheck failed in IDocInternal * IDocSection::internal() const function, expected prototype:\nIDocInternal * IDocSection::internal() const\nClass arguments details:\n");
 		}
 
 
-		IDocSection* self=dynamic_cast< IDocSection* >(Luna< IDoc >::check(L,1));
+		IDocSection* self=Luna< IDoc >::checkSubType< IDocSection >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call internal(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IDocInternal * IDocSection::internal() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		IDocInternal * lret = self->internal();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -164,7 +260,16 @@ public:
 };
 
 IDocSection* LunaTraits< IDocSection >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_IDocSection::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// const IString * IDocSection::id() const
+	// int IDocSection::level() const
+	// IDocTitle * IDocSection::title() const
+	// IDocIterator * IDocSection::paragraphs() const
+	// IDocIterator * IDocSection::subSections() const
+	// IDocInternal * IDocSection::internal() const
+	// IDoc::Kind IDoc::kind() const
 }
 
 void LunaTraits< IDocSection >::_bind_dtor(IDocSection* obj) {
@@ -172,8 +277,10 @@ void LunaTraits< IDocSection >::_bind_dtor(IDocSection* obj) {
 }
 
 const char LunaTraits< IDocSection >::className[] = "IDocSection";
+const char LunaTraits< IDocSection >::fullName[] = "IDocSection";
 const char LunaTraits< IDocSection >::moduleName[] = "doxmlparser";
 const char* LunaTraits< IDocSection >::parents[] = {"doxmlparser.IDoc", 0};
+const int LunaTraits< IDocSection >::hash = 39668651;
 const int LunaTraits< IDocSection >::uniqueIDs[] = {2243631,0};
 
 luna_RegType LunaTraits< IDocSection >::methods[] = {
@@ -183,6 +290,13 @@ luna_RegType LunaTraits< IDocSection >::methods[] = {
 	{"paragraphs", &luna_wrapper_IDocSection::_bind_paragraphs},
 	{"subSections", &luna_wrapper_IDocSection::_bind_subSections},
 	{"internal", &luna_wrapper_IDocSection::_bind_internal},
+	{"__eq", &luna_wrapper_IDocSection::_bind___eq},
+	{"getTable", &luna_wrapper_IDocSection::_bind_getTable},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< IDocSection >::converters[] = {
+	{"IDoc", &luna_wrapper_IDocSection::_cast_from_IDoc},
 	{0,0}
 };
 

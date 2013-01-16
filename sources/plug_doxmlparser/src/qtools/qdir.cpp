@@ -1018,14 +1018,14 @@ QStringList qt_makeFilterList( const QString &filter )
 	sep = QChar( ' ' );
 
     QStringList lst = QStringList::split( sep, filter );
-    QStringList lst2;
+    QStringList lsttmp;
     QStringList::Iterator it = lst.begin();
 
     for ( ; it != lst.end(); ++it ) {
 	QString s = *it;
-	lst2 << s.stripWhiteSpace();
+	lsttmp << s.stripWhiteSpace();
     }
-    return lst2;
+    return lsttmp;
 }
 
 /*!

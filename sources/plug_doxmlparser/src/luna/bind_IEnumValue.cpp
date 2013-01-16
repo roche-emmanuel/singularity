@@ -1,8 +1,79 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_IEnumValue.h>
+
 class luna_wrapper_IEnumValue {
 public:
 	typedef Luna< IEnumValue > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		IMember* self=(Luna< IMember >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<IMember,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,88829564) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IMember*)");
+		}
+
+		IMember* rhs =(Luna< IMember >::check(L,2));
+		IMember* self=(Luna< IMember >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Derived class converters:
+	static int _cast_from_IMember(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		//IEnumValue* ptr= dynamic_cast< IEnumValue* >(Luna< IMember >::check(L,1));
+		IEnumValue* ptr= luna_caster< IMember, IEnumValue >::cast(Luna< IMember >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< IEnumValue >::push(L,ptr,false);
+		return 1;
+	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_name(lua_State *L) {
@@ -15,17 +86,32 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
-	// Function binds:
-	static int _bind_name(lua_State *L) {
-		if (!_lg_typecheck_name(L)) {
+	// Constructor binds:
+	// IEnumValue::IEnumValue(lua_Table * data)
+	static IEnumValue* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in name function, expected prototype:\nname()");
+			luaL_error(L, "luna typecheck failed in IEnumValue::IEnumValue(lua_Table * data) function, expected prototype:\nIEnumValue::IEnumValue(lua_Table * data)\nClass arguments details:\n");
 		}
 
 
-		IEnumValue* self=dynamic_cast< IEnumValue* >(Luna< IMember >::check(L,1));
+		return new wrapper_IEnumValue(L,NULL);
+	}
+
+
+	// Function binds:
+	// const IString * IEnumValue::name() const
+	static int _bind_name(lua_State *L) {
+		if (!_lg_typecheck_name(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const IString * IEnumValue::name() const function, expected prototype:\nconst IString * IEnumValue::name() const\nClass arguments details:\n");
+		}
+
+
+		IEnumValue* self=Luna< IMember >::checkSubType< IEnumValue >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call name(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const IString * IEnumValue::name() const. Got : '%s'",typeid(Luna< IMember >::check(L,1)).name());
 		}
 		const IString * lret = self->name();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -41,7 +127,48 @@ public:
 };
 
 IEnumValue* LunaTraits< IEnumValue >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_IEnumValue::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// const IString * IEnumValue::name() const
+	// ICompound * IMember::compound() const
+	// ISection * IMember::section() const
+	// IMember::MemberKind IMember::kind() const
+	// const IString * IMember::kindString() const
+	// const IString * IMember::id() const
+	// const IString * IMember::protection() const
+	// const IString * IMember::virtualness() const
+	// ILinkedTextIterator * IMember::type() const
+	// const IString * IMember::typeString() const
+	// const IString * IMember::name() const
+	// const IString * IMember::readAccessor() const
+	// const IString * IMember::writeAccessor() const
+	// const IString * IMember::definition() const
+	// const IString * IMember::argsstring() const
+	// bool IMember::isConst() const
+	// bool IMember::isVolatile() const
+	// bool IMember::isStatic() const
+	// bool IMember::isExplicit() const
+	// bool IMember::isInline() const
+	// bool IMember::isMutable() const
+	// bool IMember::isReadable() const
+	// bool IMember::isWritable() const
+	// IParamIterator * IMember::parameters() const
+	// IParamIterator * IMember::templateParameters() const
+	// ILinkedTextIterator * IMember::initializer() const
+	// ILinkedTextIterator * IMember::exceptions() const
+	// IMemberReferenceIterator * IMember::references() const
+	// IMemberReferenceIterator * IMember::referencedBy() const
+	// const IString * IMember::bodyFile() const
+	// int IMember::bodyStart() const
+	// int IMember::bodyEnd() const
+	// const IString * IMember::definitionFile() const
+	// int IMember::definitionLine() const
+	// IMemberReference * IMember::reimplements() const
+	// IMemberReferenceIterator * IMember::reimplementedBy() const
+	// IDocRoot * IMember::briefDescription() const
+	// IDocRoot * IMember::detailedDescription() const
+	// IDocRoot * IMember::inbodyDescription() const
 }
 
 void LunaTraits< IEnumValue >::_bind_dtor(IEnumValue* obj) {
@@ -49,12 +176,21 @@ void LunaTraits< IEnumValue >::_bind_dtor(IEnumValue* obj) {
 }
 
 const char LunaTraits< IEnumValue >::className[] = "IEnumValue";
+const char LunaTraits< IEnumValue >::fullName[] = "IEnumValue";
 const char LunaTraits< IEnumValue >::moduleName[] = "doxmlparser";
 const char* LunaTraits< IEnumValue >::parents[] = {"doxmlparser.IMember", 0};
+const int LunaTraits< IEnumValue >::hash = 7720909;
 const int LunaTraits< IEnumValue >::uniqueIDs[] = {88829564,0};
 
 luna_RegType LunaTraits< IEnumValue >::methods[] = {
 	{"name", &luna_wrapper_IEnumValue::_bind_name},
+	{"__eq", &luna_wrapper_IEnumValue::_bind___eq},
+	{"getTable", &luna_wrapper_IEnumValue::_bind_getTable},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< IEnumValue >::converters[] = {
+	{"IMember", &luna_wrapper_IEnumValue::_cast_from_IMember},
 	{0,0}
 };
 

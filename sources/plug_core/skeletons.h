@@ -5,10 +5,10 @@ class __int64 {
 };
 
 namespace boost {
-};
+	namespace posix_time {
+		class ptime {
+		};
 
-namespace posix_time {
-	class ptime {
 	};
 
 };

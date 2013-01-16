@@ -82,6 +82,10 @@ function Class:setParent(parent,force)
 	self._parent = parent
 end
 
+function Class:isValidForWrapping()
+	return true;
+end
+
 --- Retrieve the full name of that entity.
 -- The full name will take into account the parent scopes if any.
 function Class:getFullName()

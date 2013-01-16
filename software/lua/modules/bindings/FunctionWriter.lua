@@ -117,10 +117,14 @@ function Class:writeArgument(v,k)
 		
 		if not fbname then
 			self:writeArgTypeError(pt)
-		else
+		else		
 			isPointer = pt:isPointer()
 			local strPost = isPointer and defStrPost or defStrPostNull
 			local strPtr = isPointer and "" or "_ptr"
+			
+			if fbname:find("<") then
+				tm:registerMappedType(fbname)			
+			end
 			
 			local syntax = bname == fbname and "${7}${3}* ${1}${8}=${5}(Luna< ${4} >::check(L,${2}))${6};"
 				or "${7}${3}* ${1}${8}=${5}(Luna< ${4} >::checkSubType< ${3} >(L,${2}))${6};"
@@ -292,8 +296,8 @@ function Class:writeFunctionCall(cname,func,args)
 			result_count = 0
 		end			
 	else	
-		if not rt:isClass() then
-			tm:registerMappedType(rt:getBaseName(true))
+		if (not rt:isClass()) or rname:find("<") then
+			tm:registerMappedType(rname)
 		end
 		
 		tm:getExternalBase(rt:getBaseName(true))

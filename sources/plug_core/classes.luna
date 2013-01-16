@@ -1,7 +1,7 @@
 module=sgt
 __int64 => __int64
-module=posix_time
-posix_time::ptime => posix_time::ptime
+module=boost
+boost::posix_time::ptime => boost::posix_time::ptime
 module=osg
 osg::Referenced => osg::Referenced
 osg::Object => osg::Referenced

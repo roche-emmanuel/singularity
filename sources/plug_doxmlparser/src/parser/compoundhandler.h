@@ -152,6 +152,7 @@ class CompoundHandler : public IClass,
     ICompound *toICompound() const;
 
     // ICompound implementation
+	const IString *protection() const { return &m_protection; }
     const IString *name() const { return &m_name; }
     const IString *id()   const { return &m_id;   }
     CompoundKind kind() const { return m_kind; }

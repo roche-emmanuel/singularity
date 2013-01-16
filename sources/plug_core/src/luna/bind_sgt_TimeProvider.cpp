@@ -154,7 +154,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,12269219) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,16567808) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -194,7 +194,7 @@ public:
 	inline static bool _lg_typecheck_setStartTime(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,12269219) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,16567808) ) return false;
 		return true;
 	}
 
@@ -536,48 +536,48 @@ public:
 		return 1;
 	}
 
-	// posix_time::ptime sgt::TimeProvider::getCurrentTime()
+	// boost::posix_time::ptime sgt::TimeProvider::getCurrentTime()
 	static int _bind_getCurrentTime(lua_State *L) {
 		if (!_lg_typecheck_getCurrentTime(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in posix_time::ptime sgt::TimeProvider::getCurrentTime() function, expected prototype:\nposix_time::ptime sgt::TimeProvider::getCurrentTime()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in boost::posix_time::ptime sgt::TimeProvider::getCurrentTime() function, expected prototype:\nboost::posix_time::ptime sgt::TimeProvider::getCurrentTime()\nClass arguments details:\n");
 		}
 
 
 		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call posix_time::ptime sgt::TimeProvider::getCurrentTime(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call boost::posix_time::ptime sgt::TimeProvider::getCurrentTime(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		posix_time::ptime stack_lret = self->getCurrentTime();
-		posix_time::ptime* lret = new posix_time::ptime(stack_lret);
+		boost::posix_time::ptime stack_lret = self->getCurrentTime();
+		boost::posix_time::ptime* lret = new boost::posix_time::ptime(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< posix_time::ptime >::push(L,lret,true);
+		Luna< boost::posix_time::ptime >::push(L,lret,true);
 
 		return 1;
 	}
 
-	// void sgt::TimeProvider::setCurrentTime(const posix_time::ptime & value, bool utc = false)
+	// void sgt::TimeProvider::setCurrentTime(const boost::posix_time::ptime & value, bool utc = false)
 	static int _bind_setCurrentTime(lua_State *L) {
 		if (!_lg_typecheck_setCurrentTime(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::TimeProvider::setCurrentTime(const posix_time::ptime & value, bool utc = false) function, expected prototype:\nvoid sgt::TimeProvider::setCurrentTime(const posix_time::ptime & value, bool utc = false)\nClass arguments details:\narg 1 ID = 12269219\n");
+			luaL_error(L, "luna typecheck failed in void sgt::TimeProvider::setCurrentTime(const boost::posix_time::ptime & value, bool utc = false) function, expected prototype:\nvoid sgt::TimeProvider::setCurrentTime(const boost::posix_time::ptime & value, bool utc = false)\nClass arguments details:\narg 1 ID = 16567808\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		const posix_time::ptime* value_ptr=(Luna< posix_time::ptime >::check(L,2));
+		const boost::posix_time::ptime* value_ptr=(Luna< boost::posix_time::ptime >::check(L,2));
 		if( !value_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg value in sgt::TimeProvider::setCurrentTime function");
 		}
-		const posix_time::ptime & value=*value_ptr;
+		const boost::posix_time::ptime & value=*value_ptr;
 		bool utc=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
 		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::TimeProvider::setCurrentTime(const posix_time::ptime &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::TimeProvider::setCurrentTime(const boost::posix_time::ptime &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setCurrentTime(value, utc);
 
@@ -660,75 +660,75 @@ public:
 		return 1;
 	}
 
-	// const posix_time::ptime & sgt::TimeProvider::getStartTime() const
+	// const boost::posix_time::ptime & sgt::TimeProvider::getStartTime() const
 	static int _bind_getStartTime(lua_State *L) {
 		if (!_lg_typecheck_getStartTime(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const posix_time::ptime & sgt::TimeProvider::getStartTime() const function, expected prototype:\nconst posix_time::ptime & sgt::TimeProvider::getStartTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const boost::posix_time::ptime & sgt::TimeProvider::getStartTime() const function, expected prototype:\nconst boost::posix_time::ptime & sgt::TimeProvider::getStartTime() const\nClass arguments details:\n");
 		}
 
 
 		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const posix_time::ptime & sgt::TimeProvider::getStartTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const boost::posix_time::ptime & sgt::TimeProvider::getStartTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		const posix_time::ptime* lret = &self->getStartTime();
+		const boost::posix_time::ptime* lret = &self->getStartTime();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< posix_time::ptime >::push(L,lret,false);
+		Luna< boost::posix_time::ptime >::push(L,lret,false);
 
 		return 1;
 	}
 
-	// void sgt::TimeProvider::setStartTime(const posix_time::ptime & val)
+	// void sgt::TimeProvider::setStartTime(const boost::posix_time::ptime & val)
 	static int _bind_setStartTime(lua_State *L) {
 		if (!_lg_typecheck_setStartTime(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::TimeProvider::setStartTime(const posix_time::ptime & val) function, expected prototype:\nvoid sgt::TimeProvider::setStartTime(const posix_time::ptime & val)\nClass arguments details:\narg 1 ID = 12269219\n");
+			luaL_error(L, "luna typecheck failed in void sgt::TimeProvider::setStartTime(const boost::posix_time::ptime & val) function, expected prototype:\nvoid sgt::TimeProvider::setStartTime(const boost::posix_time::ptime & val)\nClass arguments details:\narg 1 ID = 16567808\n");
 		}
 
-		const posix_time::ptime* val_ptr=(Luna< posix_time::ptime >::check(L,2));
+		const boost::posix_time::ptime* val_ptr=(Luna< boost::posix_time::ptime >::check(L,2));
 		if( !val_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg val in sgt::TimeProvider::setStartTime function");
 		}
-		const posix_time::ptime & val=*val_ptr;
+		const boost::posix_time::ptime & val=*val_ptr;
 
 		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::TimeProvider::setStartTime(const posix_time::ptime &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::TimeProvider::setStartTime(const boost::posix_time::ptime &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->setStartTime(val);
 
 		return 0;
 	}
 
-	// static posix_time::ptime sgt::TimeProvider::getRealTime(bool utc = false)
+	// static boost::posix_time::ptime sgt::TimeProvider::getRealTime(bool utc = false)
 	static int _bind_getRealTime(lua_State *L) {
 		if (!_lg_typecheck_getRealTime(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static posix_time::ptime sgt::TimeProvider::getRealTime(bool utc = false) function, expected prototype:\nstatic posix_time::ptime sgt::TimeProvider::getRealTime(bool utc = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static boost::posix_time::ptime sgt::TimeProvider::getRealTime(bool utc = false) function, expected prototype:\nstatic boost::posix_time::ptime sgt::TimeProvider::getRealTime(bool utc = false)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		bool utc=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : false;
 
-		posix_time::ptime stack_lret = sgt::TimeProvider::getRealTime(utc);
-		posix_time::ptime* lret = new posix_time::ptime(stack_lret);
+		boost::posix_time::ptime stack_lret = sgt::TimeProvider::getRealTime(utc);
+		boost::posix_time::ptime* lret = new boost::posix_time::ptime(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< posix_time::ptime >::push(L,lret,true);
+		Luna< boost::posix_time::ptime >::push(L,lret,true);
 
 		return 1;
 	}
 
-	// static posix_time::ptime sgt::TimeProvider::getTime(sgt::TimeProvider * provider = NULL, bool utc = false)
+	// static boost::posix_time::ptime sgt::TimeProvider::getTime(sgt::TimeProvider * provider = NULL, bool utc = false)
 	static int _bind_getTime(lua_State *L) {
 		if (!_lg_typecheck_getTime(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static posix_time::ptime sgt::TimeProvider::getTime(sgt::TimeProvider * provider = NULL, bool utc = false) function, expected prototype:\nstatic posix_time::ptime sgt::TimeProvider::getTime(sgt::TimeProvider * provider = NULL, bool utc = false)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in static boost::posix_time::ptime sgt::TimeProvider::getTime(sgt::TimeProvider * provider = NULL, bool utc = false) function, expected prototype:\nstatic boost::posix_time::ptime sgt::TimeProvider::getTime(sgt::TimeProvider * provider = NULL, bool utc = false)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -736,11 +736,11 @@ public:
 		sgt::TimeProvider* provider=luatop>0 ? (Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1)) : (sgt::TimeProvider*)NULL;
 		bool utc=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
 
-		posix_time::ptime stack_lret = sgt::TimeProvider::getTime(provider, utc);
-		posix_time::ptime* lret = new posix_time::ptime(stack_lret);
+		boost::posix_time::ptime stack_lret = sgt::TimeProvider::getTime(provider, utc);
+		boost::posix_time::ptime* lret = new boost::posix_time::ptime(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< posix_time::ptime >::push(L,lret,true);
+		Luna< boost::posix_time::ptime >::push(L,lret,true);
 
 		return 1;
 	}
@@ -1068,8 +1068,6 @@ public:
 
 sgt::TimeProvider* LunaTraits< sgt::TimeProvider >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_sgt_TimeProvider::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< sgt::TimeProvider >::_bind_dtor(sgt::TimeProvider* obj) {

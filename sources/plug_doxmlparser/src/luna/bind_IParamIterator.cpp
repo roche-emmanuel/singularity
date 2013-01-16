@@ -1,8 +1,92 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_IParamIterator.h>
+
 class luna_wrapper_IParamIterator {
 public:
 	typedef Luna< IParamIterator > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		IParamIterator* self=(Luna< IParamIterator >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<IParamIterator,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,14097198) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IParamIterator*)");
+		}
+
+		IParamIterator* rhs =(Luna< IParamIterator >::check(L,2));
+		IParamIterator* self=(Luna< IParamIterator >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Base class dynamic cast support:
+	inline static bool _lg_typecheck_dynCast(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+	
+	static int _bind_dynCast(lua_State *L) {
+		if (!_lg_typecheck_dynCast(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		IParamIterator* self=(Luna< IParamIterator >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call dynCast(...)");
+		}
+		
+		static LunaConverterMap& converters = luna_getConverterMap("IParamIterator");
+		
+		return luna_dynamicCast(L,converters,"IParamIterator",name);
+	}
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_toFirst(lua_State *L) {
@@ -45,17 +129,32 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
+	// Constructor binds:
+	// IParamIterator::IParamIterator(lua_Table * data)
+	static IParamIterator* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in IParamIterator::IParamIterator(lua_Table * data) function, expected prototype:\nIParamIterator::IParamIterator(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_IParamIterator(L,NULL);
+	}
+
+
 	// Function binds:
+	// IParam * IParamIterator::toFirst()
 	static int _bind_toFirst(lua_State *L) {
 		if (!_lg_typecheck_toFirst(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in toFirst function, expected prototype:\ntoFirst()");
+			luaL_error(L, "luna typecheck failed in IParam * IParamIterator::toFirst() function, expected prototype:\nIParam * IParamIterator::toFirst()\nClass arguments details:\n");
 		}
 
 
 		IParamIterator* self=(Luna< IParamIterator >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call toFirst(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IParam * IParamIterator::toFirst(). Got : '%s'",typeid(Luna< IParamIterator >::check(L,1)).name());
 		}
 		IParam * lret = self->toFirst();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -65,16 +164,18 @@ public:
 		return 1;
 	}
 
+	// IParam * IParamIterator::toLast()
 	static int _bind_toLast(lua_State *L) {
 		if (!_lg_typecheck_toLast(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in toLast function, expected prototype:\ntoLast()");
+			luaL_error(L, "luna typecheck failed in IParam * IParamIterator::toLast() function, expected prototype:\nIParam * IParamIterator::toLast()\nClass arguments details:\n");
 		}
 
 
 		IParamIterator* self=(Luna< IParamIterator >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call toLast(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IParam * IParamIterator::toLast(). Got : '%s'",typeid(Luna< IParamIterator >::check(L,1)).name());
 		}
 		IParam * lret = self->toLast();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -84,16 +185,18 @@ public:
 		return 1;
 	}
 
+	// IParam * IParamIterator::toNext()
 	static int _bind_toNext(lua_State *L) {
 		if (!_lg_typecheck_toNext(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in toNext function, expected prototype:\ntoNext()");
+			luaL_error(L, "luna typecheck failed in IParam * IParamIterator::toNext() function, expected prototype:\nIParam * IParamIterator::toNext()\nClass arguments details:\n");
 		}
 
 
 		IParamIterator* self=(Luna< IParamIterator >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call toNext(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IParam * IParamIterator::toNext(). Got : '%s'",typeid(Luna< IParamIterator >::check(L,1)).name());
 		}
 		IParam * lret = self->toNext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -103,16 +206,18 @@ public:
 		return 1;
 	}
 
+	// IParam * IParamIterator::toPrev()
 	static int _bind_toPrev(lua_State *L) {
 		if (!_lg_typecheck_toPrev(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in toPrev function, expected prototype:\ntoPrev()");
+			luaL_error(L, "luna typecheck failed in IParam * IParamIterator::toPrev() function, expected prototype:\nIParam * IParamIterator::toPrev()\nClass arguments details:\n");
 		}
 
 
 		IParamIterator* self=(Luna< IParamIterator >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call toPrev(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IParam * IParamIterator::toPrev(). Got : '%s'",typeid(Luna< IParamIterator >::check(L,1)).name());
 		}
 		IParam * lret = self->toPrev();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -122,16 +227,18 @@ public:
 		return 1;
 	}
 
+	// IParam * IParamIterator::current() const
 	static int _bind_current(lua_State *L) {
 		if (!_lg_typecheck_current(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in current function, expected prototype:\ncurrent()");
+			luaL_error(L, "luna typecheck failed in IParam * IParamIterator::current() const function, expected prototype:\nIParam * IParamIterator::current() const\nClass arguments details:\n");
 		}
 
 
 		IParamIterator* self=(Luna< IParamIterator >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call current(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IParam * IParamIterator::current() const. Got : '%s'",typeid(Luna< IParamIterator >::check(L,1)).name());
 		}
 		IParam * lret = self->current();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -141,16 +248,18 @@ public:
 		return 1;
 	}
 
+	// void IParamIterator::release()
 	static int _bind_release(lua_State *L) {
 		if (!_lg_typecheck_release(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in release function, expected prototype:\nrelease()");
+			luaL_error(L, "luna typecheck failed in void IParamIterator::release() function, expected prototype:\nvoid IParamIterator::release()\nClass arguments details:\n");
 		}
 
 
 		IParamIterator* self=(Luna< IParamIterator >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call release(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void IParamIterator::release(). Got : '%s'",typeid(Luna< IParamIterator >::check(L,1)).name());
 		}
 		self->release();
 
@@ -163,7 +272,15 @@ public:
 };
 
 IParamIterator* LunaTraits< IParamIterator >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_IParamIterator::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// IParam * IParamIterator::toFirst()
+	// IParam * IParamIterator::toLast()
+	// IParam * IParamIterator::toNext()
+	// IParam * IParamIterator::toPrev()
+	// IParam * IParamIterator::current() const
+	// void IParamIterator::release()
 }
 
 void LunaTraits< IParamIterator >::_bind_dtor(IParamIterator* obj) {
@@ -171,8 +288,10 @@ void LunaTraits< IParamIterator >::_bind_dtor(IParamIterator* obj) {
 }
 
 const char LunaTraits< IParamIterator >::className[] = "IParamIterator";
+const char LunaTraits< IParamIterator >::fullName[] = "IParamIterator";
 const char LunaTraits< IParamIterator >::moduleName[] = "doxmlparser";
 const char* LunaTraits< IParamIterator >::parents[] = {0};
+const int LunaTraits< IParamIterator >::hash = 14097198;
 const int LunaTraits< IParamIterator >::uniqueIDs[] = {14097198,0};
 
 luna_RegType LunaTraits< IParamIterator >::methods[] = {
@@ -182,6 +301,13 @@ luna_RegType LunaTraits< IParamIterator >::methods[] = {
 	{"toPrev", &luna_wrapper_IParamIterator::_bind_toPrev},
 	{"current", &luna_wrapper_IParamIterator::_bind_current},
 	{"release", &luna_wrapper_IParamIterator::_bind_release},
+	{"dynCast", &luna_wrapper_IParamIterator::_bind_dynCast},
+	{"__eq", &luna_wrapper_IParamIterator::_bind___eq},
+	{"getTable", &luna_wrapper_IParamIterator::_bind_getTable},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< IParamIterator >::converters[] = {
 	{0,0}
 };
 

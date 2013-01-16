@@ -87,6 +87,7 @@ function ReflectionGenerator:getOrCreateObject(comp,objectClass,...)
     if not obj then
         obj = objectClass(...)
         obj:setName(comp:name():latin1())
+		--obj:setSection(comp:protection:latin1())
         self.compoundMap:set(id,obj)
     end
     
@@ -222,7 +223,8 @@ function ReflectionGenerator:processClass(comp)
             if base:isIgnored() then
                 log:info("Ignoring base class ".. base:getName() .. " on user request.")
             else
-                class:addBase(base)
+				local spec = bcomp:name();
+                class:addBase(base,spec)
                 log:info("Found base ".. base:getName() .. " for class ".. class:getName())            
             end
         end
@@ -286,9 +288,9 @@ function ReflectionGenerator:getOrCreateCompound(comp)
     elseif (comp:kind()==dxp.ICompound.Namespace) then
         return self:getOrCreateObject(comp,Namespace)
     elseif (comp:kind()==dxp.ICompound.Union) then
-    	return self:getOrCreateObject(comp,Class)
-    	--log:error("Ignoring Union " .. comp:name():latin1())
-		--return nil
+    	--return self:getOrCreateObject(comp,Class)
+    	log:error("Ignoring Union " .. comp:name():latin1())
+		return nil
     else
         log:error("Cannot create component mapping for kind: " .. comp:kind())
     end
@@ -895,11 +897,11 @@ function ReflectionGenerator:processCompound(comp)
     
     log:info ("Processing compound " .. comp:name():latin1())
 
-    if (comp:kind()==dxp.CompoundKind.Class or comp:kind()==dxp.CompoundKind.Struct or comp:kind()==dxp.CompoundKind.Interface) then 
+    if (comp:kind()==dxp.ICompound.Class or comp:kind()==dxp.ICompound.Struct or comp:kind()==dxp.ICompound.Interface) then 
         self:processClass(comp)
-    elseif(comp:kind()==dxp.CompoundKind.File) then
+    elseif(comp:kind()==dxp.ICompound.File) then
         self:processFile(comp)
-    elseif (comp:kind()==dxp.CompoundKind.Namespace) then
+    elseif (comp:kind()==dxp.ICompound.Namespace) then
         self:processNamespace(comp)
     end
 end

@@ -70,6 +70,7 @@ function Class:writeBindings()
 	local ClassExporter = require "bindings.ClassListExporter"
 	local FunctionExporter = require "bindings.FunctionListExporter"
 	local MainHeaderWriter = require "bindings.MainHeaderWriter"
+	local CasterWriter = require "bindings.CasterWriter"
 	local ExternalWriter = require "bindings.ExternalWriter"
 	local EnumWriter = require "bindings.EnumWriter"
 	local DefineWriter = require "bindings.DefineWriter"
@@ -79,6 +80,10 @@ function Class:writeBindings()
 	
 	self:writeClassWrappers()
     self:writeClassSources()
+	
+	local gfuncWriter = GlobalFunctionWriter()
+	gfuncWriter:writeFile();
+	
 	self:writeRegisteredTypes()
 	
 	local classExp = ClassExporter();
@@ -90,6 +95,9 @@ function Class:writeBindings()
 	local mainWriter = MainHeaderWriter();
 	mainWriter:writeFile();
 	
+	local casterWriter = CasterWriter();
+	casterWriter:writeFile();
+	
 	local enumWriter = EnumWriter();
 	enumWriter:writeFile();
 	
@@ -98,9 +106,6 @@ function Class:writeBindings()
 	
 	local modWriter = ModuleWriter();
 	modWriter:writeFile();
-	
-	local gfuncWriter = GlobalFunctionWriter()
-	gfuncWriter:writeFile();
 		
 	local skeWriter = ClassSkeletonExporter();
 	skeWriter:writeFile();

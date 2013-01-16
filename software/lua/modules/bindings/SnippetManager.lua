@@ -27,6 +27,18 @@ public:
 	return utils.subLine(str,className,absoluteBaseName,addition);
 end
 
+function Class:getStaticCasterCode(cname)
+	local str = [[template <typename dstType>
+struct luna_caster<${1},dstType> {
+	static inline dstType* cast(${1}* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+]]
+	return utils.subLine(str,cname);
+end
+
+
 function Class:getLunaTypeCode(hash,name)
 	local str = [[template<>
 class LunaType< ${1} > {

@@ -15,6 +15,7 @@
 #include <log/LogRecord.h>
 #include <log/StdLogger.h>
 
+// Class: __int64
 template<>
 class LunaTraits< __int64 > {
 public:
@@ -33,8 +34,9 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: boost::posix_time::ptime
 template<>
-class LunaTraits< posix_time::ptime > {
+class LunaTraits< boost::posix_time::ptime > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -44,13 +46,14 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static posix_time::ptime* _bind_ctor(lua_State *L);
-	static void _bind_dtor(posix_time::ptime* obj);
-	typedef posix_time::ptime parent_t;
-	typedef posix_time::ptime base_t;
+	static boost::posix_time::ptime* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::posix_time::ptime* obj);
+	typedef boost::posix_time::ptime parent_t;
+	typedef boost::posix_time::ptime base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Referenced
 template<>
 class LunaTraits< osg::Referenced > {
 public:
@@ -69,6 +72,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Object
 template<>
 class LunaTraits< osg::Object > {
 public:
@@ -87,6 +91,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::DeleteHandler
 template<>
 class LunaTraits< osg::DeleteHandler > {
 public:
@@ -105,6 +110,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Observer
 template<>
 class LunaTraits< osg::Observer > {
 public:
@@ -123,6 +129,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::ObserverSet
 template<>
 class LunaTraits< osg::ObserverSet > {
 public:
@@ -141,6 +148,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::UserDataContainer
 template<>
 class LunaTraits< osg::UserDataContainer > {
 public:
@@ -159,6 +167,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::CopyOp
 template<>
 class LunaTraits< osg::CopyOp > {
 public:
@@ -177,6 +186,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::State
 template<>
 class LunaTraits< osg::State > {
 public:
@@ -195,6 +205,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::ref_ptr< osg::Referenced >
 template<>
 class LunaTraits< osg::ref_ptr< osg::Referenced > > {
 public:
@@ -213,6 +224,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::Object
 template<>
 class LunaTraits< sgt::Object > {
 public:
@@ -231,6 +243,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::Referenced
 template<>
 class LunaTraits< sgt::Referenced > {
 public:
@@ -249,6 +262,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::TimeProvider
 template<>
 class LunaTraits< sgt::TimeProvider > {
 public:
@@ -267,6 +281,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::TimeManager
 template<>
 class LunaTraits< sgt::TimeManager > {
 public:
@@ -285,6 +300,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::LogSink
 template<>
 class LunaTraits< sgt::LogSink > {
 public:
@@ -303,6 +319,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::FileLogger
 template<>
 class LunaTraits< sgt::FileLogger > {
 public:
@@ -321,6 +338,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::LogManager
 template<>
 class LunaTraits< sgt::LogManager > {
 public:
@@ -339,6 +357,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: std::vector< osg::ref_ptr< sgt::LogSink > >
 template<>
 class LunaTraits< std::vector< osg::ref_ptr< sgt::LogSink > > > {
 public:
@@ -357,6 +376,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: std::map< int, int >
 template<>
 class LunaTraits< std::map< int, int > > {
 public:
@@ -375,6 +395,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: std::map< std::string, int >
 template<>
 class LunaTraits< std::map< std::string, int > > {
 public:
@@ -393,6 +414,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::LogRecord
 template<>
 class LunaTraits< sgt::LogRecord > {
 public:
@@ -411,6 +433,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: std::set< std::string >
 template<>
 class LunaTraits< std::set< std::string > > {
 public:
@@ -429,6 +452,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::StdLogger
 template<>
 class LunaTraits< sgt::StdLogger > {
 public:
@@ -447,6 +471,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::AnyVector
 template<>
 class LunaTraits< sgt::AnyVector > {
 public:
@@ -465,6 +490,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: std::istream
 template<>
 class LunaTraits< std::istream > {
 public:
@@ -483,6 +509,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: std::ostream
 template<>
 class LunaTraits< std::ostream > {
 public:
@@ -502,6 +529,7 @@ public:
 };
 
 
+// Mapped type: std::map< std::string, unsigned int >
 template<>
 class LunaTraits< std::map< std::string, unsigned int > > {
 public:
@@ -520,6 +548,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: std::vector< int >
 template<>
 class LunaTraits< std::vector< int > > {
 public:
@@ -538,6 +567,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: std::vector< float >
 template<>
 class LunaTraits< std::vector< float > > {
 public:
@@ -556,6 +586,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: std::vector< double >
 template<>
 class LunaTraits< std::vector< double > > {
 public:
@@ -574,6 +605,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: OpenThreads::Mutex
 template<>
 class LunaTraits< OpenThreads::Mutex > {
 public:
@@ -601,9 +633,9 @@ public:
 };
 
 template<>
-class LunaType< 12269219 > {
+class LunaType< 16567808 > {
 public:
-	typedef posix_time::ptime type;
+	typedef boost::posix_time::ptime type;
 	
 };
 

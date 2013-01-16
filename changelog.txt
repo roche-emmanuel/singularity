@@ -59,3 +59,4 @@
 - Added Box2D module and test example.
 - Generated reflection for Box2D library.
 - Added Gizmo module and test example.
+- Added support for ICompound protection in doxmlparser module.

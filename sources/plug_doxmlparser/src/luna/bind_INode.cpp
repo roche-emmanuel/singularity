@@ -1,8 +1,92 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_INode.h>
+
 class luna_wrapper_INode {
 public:
 	typedef Luna< INode > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		INode* self=(Luna< INode >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<INode,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,69850603) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(INode*)");
+		}
+
+		INode* rhs =(Luna< INode >::check(L,2));
+		INode* self=(Luna< INode >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Base class dynamic cast support:
+	inline static bool _lg_typecheck_dynCast(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+	
+	static int _bind_dynCast(lua_State *L) {
+		if (!_lg_typecheck_dynCast(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		INode* self=(Luna< INode >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call dynCast(...)");
+		}
+		
+		static LunaConverterMap& converters = luna_getConverterMap("INode");
+		
+		return luna_dynamicCast(L,converters,"INode",name);
+	}
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_id(lua_State *L) {
@@ -33,17 +117,32 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
+	// Constructor binds:
+	// INode::INode(lua_Table * data)
+	static INode* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in INode::INode(lua_Table * data) function, expected prototype:\nINode::INode(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_INode(L,NULL);
+	}
+
+
 	// Function binds:
+	// const IString * INode::id() const
 	static int _bind_id(lua_State *L) {
 		if (!_lg_typecheck_id(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in id function, expected prototype:\nid()");
+			luaL_error(L, "luna typecheck failed in const IString * INode::id() const function, expected prototype:\nconst IString * INode::id() const\nClass arguments details:\n");
 		}
 
 
 		INode* self=(Luna< INode >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call id(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const IString * INode::id() const. Got : '%s'",typeid(Luna< INode >::check(L,1)).name());
 		}
 		const IString * lret = self->id();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -53,16 +152,18 @@ public:
 		return 1;
 	}
 
+	// const IString * INode::label() const
 	static int _bind_label(lua_State *L) {
 		if (!_lg_typecheck_label(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in label function, expected prototype:\nlabel()");
+			luaL_error(L, "luna typecheck failed in const IString * INode::label() const function, expected prototype:\nconst IString * INode::label() const\nClass arguments details:\n");
 		}
 
 
 		INode* self=(Luna< INode >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call label(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const IString * INode::label() const. Got : '%s'",typeid(Luna< INode >::check(L,1)).name());
 		}
 		const IString * lret = self->label();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -72,16 +173,18 @@ public:
 		return 1;
 	}
 
+	// const IString * INode::linkId() const
 	static int _bind_linkId(lua_State *L) {
 		if (!_lg_typecheck_linkId(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in linkId function, expected prototype:\nlinkId()");
+			luaL_error(L, "luna typecheck failed in const IString * INode::linkId() const function, expected prototype:\nconst IString * INode::linkId() const\nClass arguments details:\n");
 		}
 
 
 		INode* self=(Luna< INode >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call linkId(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const IString * INode::linkId() const. Got : '%s'",typeid(Luna< INode >::check(L,1)).name());
 		}
 		const IString * lret = self->linkId();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -91,16 +194,18 @@ public:
 		return 1;
 	}
 
+	// IChildNodeIterator * INode::children() const
 	static int _bind_children(lua_State *L) {
 		if (!_lg_typecheck_children(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in children function, expected prototype:\nchildren()");
+			luaL_error(L, "luna typecheck failed in IChildNodeIterator * INode::children() const function, expected prototype:\nIChildNodeIterator * INode::children() const\nClass arguments details:\n");
 		}
 
 
 		INode* self=(Luna< INode >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call children(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IChildNodeIterator * INode::children() const. Got : '%s'",typeid(Luna< INode >::check(L,1)).name());
 		}
 		IChildNodeIterator * lret = self->children();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -116,7 +221,13 @@ public:
 };
 
 INode* LunaTraits< INode >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_INode::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// const IString * INode::id() const
+	// const IString * INode::label() const
+	// const IString * INode::linkId() const
+	// IChildNodeIterator * INode::children() const
 }
 
 void LunaTraits< INode >::_bind_dtor(INode* obj) {
@@ -124,8 +235,10 @@ void LunaTraits< INode >::_bind_dtor(INode* obj) {
 }
 
 const char LunaTraits< INode >::className[] = "INode";
+const char LunaTraits< INode >::fullName[] = "INode";
 const char LunaTraits< INode >::moduleName[] = "doxmlparser";
 const char* LunaTraits< INode >::parents[] = {0};
+const int LunaTraits< INode >::hash = 69850603;
 const int LunaTraits< INode >::uniqueIDs[] = {69850603,0};
 
 luna_RegType LunaTraits< INode >::methods[] = {
@@ -133,6 +246,13 @@ luna_RegType LunaTraits< INode >::methods[] = {
 	{"label", &luna_wrapper_INode::_bind_label},
 	{"linkId", &luna_wrapper_INode::_bind_linkId},
 	{"children", &luna_wrapper_INode::_bind_children},
+	{"dynCast", &luna_wrapper_INode::_bind_dynCast},
+	{"__eq", &luna_wrapper_INode::_bind___eq},
+	{"getTable", &luna_wrapper_INode::_bind_getTable},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< INode >::converters[] = {
 	{0,0}
 };
 

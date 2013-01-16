@@ -20,8 +20,8 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	luna_pushModule(L,"sgt");
 	Luna< __int64 >::Register(L);
 	luna_popModule(L);
-	luna_pushModule(L,"posix_time");
-	Luna< posix_time::ptime >::Register(L);
+	luna_pushModule(L,"boost");
+	Luna< boost::posix_time::ptime >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"osg");
 	Luna< osg::Referenced >::Register(L);
@@ -67,7 +67,7 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	register_global_functions(L);
 
 	luna_copyParents(L,"sgt");
-	luna_copyParents(L,"posix_time");
+	luna_copyParents(L,"boost");
 	luna_copyParents(L,"osg");
 	luna_copyParents(L,"std");
 

@@ -1,8 +1,92 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_ILinkedText.h>
+
 class luna_wrapper_ILinkedText {
 public:
 	typedef Luna< ILinkedText > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		ILinkedText* self=(Luna< ILinkedText >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<ILinkedText,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,94836970) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(ILinkedText*)");
+		}
+
+		ILinkedText* rhs =(Luna< ILinkedText >::check(L,2));
+		ILinkedText* self=(Luna< ILinkedText >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Base class dynamic cast support:
+	inline static bool _lg_typecheck_dynCast(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+	
+	static int _bind_dynCast(lua_State *L) {
+		if (!_lg_typecheck_dynCast(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		ILinkedText* self=(Luna< ILinkedText >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call dynCast(...)");
+		}
+		
+		static LunaConverterMap& converters = luna_getConverterMap("ILinkedText");
+		
+		return luna_dynamicCast(L,converters,"ILinkedText",name);
+	}
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_kind(lua_State *L) {
@@ -15,17 +99,32 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
+	// Constructor binds:
+	// ILinkedText::ILinkedText(lua_Table * data)
+	static ILinkedText* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in ILinkedText::ILinkedText(lua_Table * data) function, expected prototype:\nILinkedText::ILinkedText(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_ILinkedText(L,NULL);
+	}
+
+
 	// Function binds:
+	// ILinkedText::Kind ILinkedText::kind() const
 	static int _bind_kind(lua_State *L) {
 		if (!_lg_typecheck_kind(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in kind function, expected prototype:\nkind()");
+			luaL_error(L, "luna typecheck failed in ILinkedText::Kind ILinkedText::kind() const function, expected prototype:\nILinkedText::Kind ILinkedText::kind() const\nClass arguments details:\n");
 		}
 
 
 		ILinkedText* self=(Luna< ILinkedText >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call kind(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call ILinkedText::Kind ILinkedText::kind() const. Got : '%s'",typeid(Luna< ILinkedText >::check(L,1)).name());
 		}
 		ILinkedText::Kind lret = self->kind();
 		lua_pushnumber(L,lret);
@@ -39,7 +138,10 @@ public:
 };
 
 ILinkedText* LunaTraits< ILinkedText >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_ILinkedText::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// ILinkedText::Kind ILinkedText::kind() const
 }
 
 void LunaTraits< ILinkedText >::_bind_dtor(ILinkedText* obj) {
@@ -47,12 +149,21 @@ void LunaTraits< ILinkedText >::_bind_dtor(ILinkedText* obj) {
 }
 
 const char LunaTraits< ILinkedText >::className[] = "ILinkedText";
+const char LunaTraits< ILinkedText >::fullName[] = "ILinkedText";
 const char LunaTraits< ILinkedText >::moduleName[] = "doxmlparser";
 const char* LunaTraits< ILinkedText >::parents[] = {0};
+const int LunaTraits< ILinkedText >::hash = 94836970;
 const int LunaTraits< ILinkedText >::uniqueIDs[] = {94836970,0};
 
 luna_RegType LunaTraits< ILinkedText >::methods[] = {
 	{"kind", &luna_wrapper_ILinkedText::_bind_kind},
+	{"dynCast", &luna_wrapper_ILinkedText::_bind_dynCast},
+	{"__eq", &luna_wrapper_ILinkedText::_bind___eq},
+	{"getTable", &luna_wrapper_ILinkedText::_bind_getTable},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< ILinkedText >::converters[] = {
 	{0,0}
 };
 

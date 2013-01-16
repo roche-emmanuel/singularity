@@ -1,8 +1,79 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_IGroup.h>
+
 class luna_wrapper_IGroup {
 public:
 	typedef Luna< IGroup > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		ICompound* self=(Luna< ICompound >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<ICompound,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,27352831) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(ICompound*)");
+		}
+
+		ICompound* rhs =(Luna< ICompound >::check(L,2));
+		ICompound* self=(Luna< ICompound >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Derived class converters:
+	static int _cast_from_ICompound(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		//IGroup* ptr= dynamic_cast< IGroup* >(Luna< ICompound >::check(L,1));
+		IGroup* ptr= luna_caster< ICompound, IGroup >::cast(Luna< ICompound >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< IGroup >::push(L,ptr,false);
+		return 1;
+	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_nestedCompounds(lua_State *L) {
@@ -15,17 +86,32 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
-	// Function binds:
-	static int _bind_nestedCompounds(lua_State *L) {
-		if (!_lg_typecheck_nestedCompounds(L)) {
+	// Constructor binds:
+	// IGroup::IGroup(lua_Table * data)
+	static IGroup* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in nestedCompounds function, expected prototype:\nnestedCompounds()");
+			luaL_error(L, "luna typecheck failed in IGroup::IGroup(lua_Table * data) function, expected prototype:\nIGroup::IGroup(lua_Table * data)\nClass arguments details:\n");
 		}
 
 
-		IGroup* self=dynamic_cast< IGroup* >(Luna< ICompound >::check(L,1));
+		return new wrapper_IGroup(L,NULL);
+	}
+
+
+	// Function binds:
+	// ICompoundIterator * IGroup::nestedCompounds() const
+	static int _bind_nestedCompounds(lua_State *L) {
+		if (!_lg_typecheck_nestedCompounds(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in ICompoundIterator * IGroup::nestedCompounds() const function, expected prototype:\nICompoundIterator * IGroup::nestedCompounds() const\nClass arguments details:\n");
+		}
+
+
+		IGroup* self=Luna< ICompound >::checkSubType< IGroup >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call nestedCompounds(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call ICompoundIterator * IGroup::nestedCompounds() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
 		}
 		ICompoundIterator * lret = self->nestedCompounds();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -41,7 +127,21 @@ public:
 };
 
 IGroup* LunaTraits< IGroup >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_IGroup::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// ICompoundIterator * IGroup::nestedCompounds() const
+	// const IString * ICompound::protection() const
+	// const IString * ICompound::name() const
+	// const IString * ICompound::id() const
+	// ICompound::CompoundKind ICompound::kind() const
+	// const IString * ICompound::kindString() const
+	// ISectionIterator * ICompound::sections() const
+	// IDocRoot * ICompound::briefDescription() const
+	// IDocRoot * ICompound::detailedDescription() const
+	// IMember * ICompound::memberById(const char * id) const
+	// IMemberIterator * ICompound::memberByName(const char * name) const
+	// void ICompound::release()
 }
 
 void LunaTraits< IGroup >::_bind_dtor(IGroup* obj) {
@@ -49,12 +149,21 @@ void LunaTraits< IGroup >::_bind_dtor(IGroup* obj) {
 }
 
 const char LunaTraits< IGroup >::className[] = "IGroup";
+const char LunaTraits< IGroup >::fullName[] = "IGroup";
 const char LunaTraits< IGroup >::moduleName[] = "doxmlparser";
 const char* LunaTraits< IGroup >::parents[] = {"doxmlparser.ICompound", 0};
+const int LunaTraits< IGroup >::hash = 59004472;
 const int LunaTraits< IGroup >::uniqueIDs[] = {27352831,0};
 
 luna_RegType LunaTraits< IGroup >::methods[] = {
 	{"nestedCompounds", &luna_wrapper_IGroup::_bind_nestedCompounds},
+	{"__eq", &luna_wrapper_IGroup::_bind___eq},
+	{"getTable", &luna_wrapper_IGroup::_bind_getTable},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< IGroup >::converters[] = {
+	{"ICompound", &luna_wrapper_IGroup::_cast_from_ICompound},
 	{0,0}
 };
 
