@@ -390,7 +390,7 @@ void LunaTraits< btCollisionWorld::ConvexResultCallback >::_bind_dtor(btCollisio
 
 const char LunaTraits< btCollisionWorld::ConvexResultCallback >::className[] = "btCollisionWorld_ConvexResultCallback";
 const char LunaTraits< btCollisionWorld::ConvexResultCallback >::fullName[] = "btCollisionWorld::ConvexResultCallback";
-const char LunaTraits< btCollisionWorld::ConvexResultCallback >::moduleName[] = "btCollisionWorld";
+const char LunaTraits< btCollisionWorld::ConvexResultCallback >::moduleName[] = "bullet";
 const char* LunaTraits< btCollisionWorld::ConvexResultCallback >::parents[] = {0};
 const int LunaTraits< btCollisionWorld::ConvexResultCallback >::hash = 18279310;
 const int LunaTraits< btCollisionWorld::ConvexResultCallback >::uniqueIDs[] = {18279310,0};

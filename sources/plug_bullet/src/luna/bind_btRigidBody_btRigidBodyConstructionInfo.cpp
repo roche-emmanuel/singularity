@@ -993,7 +993,7 @@ void LunaTraits< btRigidBody::btRigidBodyConstructionInfo >::_bind_dtor(btRigidB
 
 const char LunaTraits< btRigidBody::btRigidBodyConstructionInfo >::className[] = "btRigidBody_btRigidBodyConstructionInfo";
 const char LunaTraits< btRigidBody::btRigidBodyConstructionInfo >::fullName[] = "btRigidBody::btRigidBodyConstructionInfo";
-const char LunaTraits< btRigidBody::btRigidBodyConstructionInfo >::moduleName[] = "btRigidBody";
+const char LunaTraits< btRigidBody::btRigidBodyConstructionInfo >::moduleName[] = "bullet";
 const char* LunaTraits< btRigidBody::btRigidBodyConstructionInfo >::parents[] = {0};
 const int LunaTraits< btRigidBody::btRigidBodyConstructionInfo >::hash = 13789036;
 const int LunaTraits< btRigidBody::btRigidBodyConstructionInfo >::uniqueIDs[] = {13789036,0};

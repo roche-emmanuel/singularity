@@ -209,7 +209,7 @@ void LunaTraits< btConvexHullComputer::Edge >::_bind_dtor(btConvexHullComputer::
 
 const char LunaTraits< btConvexHullComputer::Edge >::className[] = "btConvexHullComputer_Edge";
 const char LunaTraits< btConvexHullComputer::Edge >::fullName[] = "btConvexHullComputer::Edge";
-const char LunaTraits< btConvexHullComputer::Edge >::moduleName[] = "btConvexHullComputer";
+const char LunaTraits< btConvexHullComputer::Edge >::moduleName[] = "bullet";
 const char* LunaTraits< btConvexHullComputer::Edge >::parents[] = {0};
 const int LunaTraits< btConvexHullComputer::Edge >::hash = 45120957;
 const int LunaTraits< btConvexHullComputer::Edge >::uniqueIDs[] = {45120957,0};

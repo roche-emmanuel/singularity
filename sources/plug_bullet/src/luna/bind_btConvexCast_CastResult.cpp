@@ -699,7 +699,7 @@ void LunaTraits< btConvexCast::CastResult >::_bind_dtor(btConvexCast::CastResult
 
 const char LunaTraits< btConvexCast::CastResult >::className[] = "btConvexCast_CastResult";
 const char LunaTraits< btConvexCast::CastResult >::fullName[] = "btConvexCast::CastResult";
-const char LunaTraits< btConvexCast::CastResult >::moduleName[] = "btConvexCast";
+const char LunaTraits< btConvexCast::CastResult >::moduleName[] = "bullet";
 const char* LunaTraits< btConvexCast::CastResult >::parents[] = {0};
 const int LunaTraits< btConvexCast::CastResult >::hash = 12958328;
 const int LunaTraits< btConvexCast::CastResult >::uniqueIDs[] = {12958328,0};

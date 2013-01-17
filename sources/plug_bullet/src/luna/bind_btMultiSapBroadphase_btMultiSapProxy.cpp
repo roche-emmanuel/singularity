@@ -267,7 +267,7 @@ void LunaTraits< btMultiSapBroadphase::btMultiSapProxy >::_bind_dtor(btMultiSapB
 
 const char LunaTraits< btMultiSapBroadphase::btMultiSapProxy >::className[] = "btMultiSapBroadphase_btMultiSapProxy";
 const char LunaTraits< btMultiSapBroadphase::btMultiSapProxy >::fullName[] = "btMultiSapBroadphase::btMultiSapProxy";
-const char LunaTraits< btMultiSapBroadphase::btMultiSapProxy >::moduleName[] = "btMultiSapBroadphase";
+const char LunaTraits< btMultiSapBroadphase::btMultiSapProxy >::moduleName[] = "bullet";
 const char* LunaTraits< btMultiSapBroadphase::btMultiSapProxy >::parents[] = {"bullet.btBroadphaseProxy", 0};
 const int LunaTraits< btMultiSapBroadphase::btMultiSapProxy >::hash = 239210;
 const int LunaTraits< btMultiSapBroadphase::btMultiSapProxy >::uniqueIDs[] = {44086089,0};

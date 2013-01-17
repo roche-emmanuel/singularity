@@ -518,7 +518,7 @@ void LunaTraits< btWheelInfo::RaycastInfo >::_bind_dtor(btWheelInfo::RaycastInfo
 
 const char LunaTraits< btWheelInfo::RaycastInfo >::className[] = "btWheelInfo_RaycastInfo";
 const char LunaTraits< btWheelInfo::RaycastInfo >::fullName[] = "btWheelInfo::RaycastInfo";
-const char LunaTraits< btWheelInfo::RaycastInfo >::moduleName[] = "btWheelInfo";
+const char LunaTraits< btWheelInfo::RaycastInfo >::moduleName[] = "bullet";
 const char* LunaTraits< btWheelInfo::RaycastInfo >::parents[] = {0};
 const int LunaTraits< btWheelInfo::RaycastInfo >::hash = 75375071;
 const int LunaTraits< btWheelInfo::RaycastInfo >::uniqueIDs[] = {75375071,0};

@@ -180,7 +180,7 @@ void LunaTraits< btCollisionWorld::LocalShapeInfo >::_bind_dtor(btCollisionWorld
 
 const char LunaTraits< btCollisionWorld::LocalShapeInfo >::className[] = "btCollisionWorld_LocalShapeInfo";
 const char LunaTraits< btCollisionWorld::LocalShapeInfo >::fullName[] = "btCollisionWorld::LocalShapeInfo";
-const char LunaTraits< btCollisionWorld::LocalShapeInfo >::moduleName[] = "btCollisionWorld";
+const char LunaTraits< btCollisionWorld::LocalShapeInfo >::moduleName[] = "bullet";
 const char* LunaTraits< btCollisionWorld::LocalShapeInfo >::parents[] = {0};
 const int LunaTraits< btCollisionWorld::LocalShapeInfo >::hash = 68696671;
 const int LunaTraits< btCollisionWorld::LocalShapeInfo >::uniqueIDs[] = {68696671,0};

@@ -237,7 +237,7 @@ void LunaTraits< btGjkEpaSolver2::sResults >::_bind_dtor(btGjkEpaSolver2::sResul
 
 const char LunaTraits< btGjkEpaSolver2::sResults >::className[] = "btGjkEpaSolver2_sResults";
 const char LunaTraits< btGjkEpaSolver2::sResults >::fullName[] = "btGjkEpaSolver2::sResults";
-const char LunaTraits< btGjkEpaSolver2::sResults >::moduleName[] = "btGjkEpaSolver2";
+const char LunaTraits< btGjkEpaSolver2::sResults >::moduleName[] = "bullet";
 const char* LunaTraits< btGjkEpaSolver2::sResults >::parents[] = {0};
 const int LunaTraits< btGjkEpaSolver2::sResults >::hash = 71238194;
 const int LunaTraits< btGjkEpaSolver2::sResults >::uniqueIDs[] = {71238194,0};

@@ -221,7 +221,7 @@ void LunaTraits< btDiscreteCollisionDetectorInterface::Result >::_bind_dtor(btDi
 
 const char LunaTraits< btDiscreteCollisionDetectorInterface::Result >::className[] = "btDiscreteCollisionDetectorInterface_Result";
 const char LunaTraits< btDiscreteCollisionDetectorInterface::Result >::fullName[] = "btDiscreteCollisionDetectorInterface::Result";
-const char LunaTraits< btDiscreteCollisionDetectorInterface::Result >::moduleName[] = "btDiscreteCollisionDetectorInterface";
+const char LunaTraits< btDiscreteCollisionDetectorInterface::Result >::moduleName[] = "bullet";
 const char* LunaTraits< btDiscreteCollisionDetectorInterface::Result >::parents[] = {0};
 const int LunaTraits< btDiscreteCollisionDetectorInterface::Result >::hash = 25324514;
 const int LunaTraits< btDiscreteCollisionDetectorInterface::Result >::uniqueIDs[] = {25324514,0};

@@ -16,3 +16,18 @@ typedef void GLvoid;
 typedef int DWORD;
 typedef void* LPVOID;
 
+namespace osgGA {
+
+class GUIEventHandler {
+};
+
+};
+
+namespace osg {
+
+class Vec3f {
+};
+
+typedef Vec3f Vec3;
+
+};

@@ -401,7 +401,7 @@ void LunaTraits< btRaycastVehicle::btVehicleTuning >::_bind_dtor(btRaycastVehicl
 
 const char LunaTraits< btRaycastVehicle::btVehicleTuning >::className[] = "btRaycastVehicle_btVehicleTuning";
 const char LunaTraits< btRaycastVehicle::btVehicleTuning >::fullName[] = "btRaycastVehicle::btVehicleTuning";
-const char LunaTraits< btRaycastVehicle::btVehicleTuning >::moduleName[] = "btRaycastVehicle";
+const char LunaTraits< btRaycastVehicle::btVehicleTuning >::moduleName[] = "bullet";
 const char* LunaTraits< btRaycastVehicle::btVehicleTuning >::parents[] = {0};
 const int LunaTraits< btRaycastVehicle::btVehicleTuning >::hash = 91513369;
 const int LunaTraits< btRaycastVehicle::btVehicleTuning >::uniqueIDs[] = {91513369,0};

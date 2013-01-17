@@ -313,7 +313,7 @@ void LunaTraits< btDiscreteCollisionDetectorInterface::ClosestPointInput >::_bin
 
 const char LunaTraits< btDiscreteCollisionDetectorInterface::ClosestPointInput >::className[] = "btDiscreteCollisionDetectorInterface_ClosestPointInput";
 const char LunaTraits< btDiscreteCollisionDetectorInterface::ClosestPointInput >::fullName[] = "btDiscreteCollisionDetectorInterface::ClosestPointInput";
-const char LunaTraits< btDiscreteCollisionDetectorInterface::ClosestPointInput >::moduleName[] = "btDiscreteCollisionDetectorInterface";
+const char LunaTraits< btDiscreteCollisionDetectorInterface::ClosestPointInput >::moduleName[] = "bullet";
 const char* LunaTraits< btDiscreteCollisionDetectorInterface::ClosestPointInput >::parents[] = {0};
 const int LunaTraits< btDiscreteCollisionDetectorInterface::ClosestPointInput >::hash = 99215612;
 const int LunaTraits< btDiscreteCollisionDetectorInterface::ClosestPointInput >::uniqueIDs[] = {99215612,0};

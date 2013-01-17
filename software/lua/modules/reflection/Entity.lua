@@ -160,6 +160,9 @@ function Class:getRootNamespace()
 		parent = parent:getParent();
 	end
 	
+	if prevParent and prevParent:isClass() then
+		return nil
+	end
 	return prevParent
 end
 

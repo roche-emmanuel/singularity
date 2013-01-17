@@ -219,7 +219,7 @@ void LunaTraits< btDbvt::IWriter >::_bind_dtor(btDbvt::IWriter* obj) {
 
 const char LunaTraits< btDbvt::IWriter >::className[] = "btDbvt_IWriter";
 const char LunaTraits< btDbvt::IWriter >::fullName[] = "btDbvt::IWriter";
-const char LunaTraits< btDbvt::IWriter >::moduleName[] = "btDbvt";
+const char LunaTraits< btDbvt::IWriter >::moduleName[] = "bullet";
 const char* LunaTraits< btDbvt::IWriter >::parents[] = {0};
 const int LunaTraits< btDbvt::IWriter >::hash = 50167833;
 const int LunaTraits< btDbvt::IWriter >::uniqueIDs[] = {50167833,0};

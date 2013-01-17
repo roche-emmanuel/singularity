@@ -448,7 +448,7 @@ void LunaTraits< btDbvt::ICollide >::_bind_dtor(btDbvt::ICollide* obj) {
 
 const char LunaTraits< btDbvt::ICollide >::className[] = "btDbvt_ICollide";
 const char LunaTraits< btDbvt::ICollide >::fullName[] = "btDbvt::ICollide";
-const char LunaTraits< btDbvt::ICollide >::moduleName[] = "btDbvt";
+const char LunaTraits< btDbvt::ICollide >::moduleName[] = "bullet";
 const char* LunaTraits< btDbvt::ICollide >::parents[] = {0};
 const int LunaTraits< btDbvt::ICollide >::hash = 21779918;
 const int LunaTraits< btDbvt::ICollide >::uniqueIDs[] = {21779918,0};

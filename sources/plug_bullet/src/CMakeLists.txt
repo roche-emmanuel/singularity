@@ -34,6 +34,7 @@ SET(INTF_FILES)
 LIST(APPEND INTF_FILES "${CMAKE_CURRENT_SOURCE_DIR}/../interface/bullet")
 ADD_FILES(INTF_FILES "../include/plug_extensions.h")
 ADD_FILES(INTF_FILES "../interface/helpers.h")
+ADD_FILES(INTF_FILES "../include/SampleRigidUpdater.h")
 
 SET_TARGET_PROPERTIES(${TARGET_NAME} PROPERTIES 
 	PREFIX ""

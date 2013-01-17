@@ -511,8 +511,8 @@ void LunaTraits< btCollisionWorld::ClosestConvexResultCallback >::_bind_dtor(btC
 
 const char LunaTraits< btCollisionWorld::ClosestConvexResultCallback >::className[] = "btCollisionWorld_ClosestConvexResultCallback";
 const char LunaTraits< btCollisionWorld::ClosestConvexResultCallback >::fullName[] = "btCollisionWorld::ClosestConvexResultCallback";
-const char LunaTraits< btCollisionWorld::ClosestConvexResultCallback >::moduleName[] = "btCollisionWorld";
-const char* LunaTraits< btCollisionWorld::ClosestConvexResultCallback >::parents[] = {"btCollisionWorld.btCollisionWorld_ConvexResultCallback", 0};
+const char LunaTraits< btCollisionWorld::ClosestConvexResultCallback >::moduleName[] = "bullet";
+const char* LunaTraits< btCollisionWorld::ClosestConvexResultCallback >::parents[] = {"bullet.btCollisionWorld_ConvexResultCallback", 0};
 const int LunaTraits< btCollisionWorld::ClosestConvexResultCallback >::hash = 98235920;
 const int LunaTraits< btCollisionWorld::ClosestConvexResultCallback >::uniqueIDs[] = {18279310,0};
 

@@ -209,7 +209,7 @@ void LunaTraits< btBoxBoxCollisionAlgorithm::CreateFunc >::_bind_dtor(btBoxBoxCo
 
 const char LunaTraits< btBoxBoxCollisionAlgorithm::CreateFunc >::className[] = "btBoxBoxCollisionAlgorithm_CreateFunc";
 const char LunaTraits< btBoxBoxCollisionAlgorithm::CreateFunc >::fullName[] = "btBoxBoxCollisionAlgorithm::CreateFunc";
-const char LunaTraits< btBoxBoxCollisionAlgorithm::CreateFunc >::moduleName[] = "btBoxBoxCollisionAlgorithm";
+const char LunaTraits< btBoxBoxCollisionAlgorithm::CreateFunc >::moduleName[] = "bullet";
 const char* LunaTraits< btBoxBoxCollisionAlgorithm::CreateFunc >::parents[] = {"bullet.btCollisionAlgorithmCreateFunc", 0};
 const int LunaTraits< btBoxBoxCollisionAlgorithm::CreateFunc >::hash = 2170158;
 const int LunaTraits< btBoxBoxCollisionAlgorithm::CreateFunc >::uniqueIDs[] = {67911425,0};

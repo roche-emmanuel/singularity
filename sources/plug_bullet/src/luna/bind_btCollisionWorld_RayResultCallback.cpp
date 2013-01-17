@@ -468,7 +468,7 @@ void LunaTraits< btCollisionWorld::RayResultCallback >::_bind_dtor(btCollisionWo
 
 const char LunaTraits< btCollisionWorld::RayResultCallback >::className[] = "btCollisionWorld_RayResultCallback";
 const char LunaTraits< btCollisionWorld::RayResultCallback >::fullName[] = "btCollisionWorld::RayResultCallback";
-const char LunaTraits< btCollisionWorld::RayResultCallback >::moduleName[] = "btCollisionWorld";
+const char LunaTraits< btCollisionWorld::RayResultCallback >::moduleName[] = "bullet";
 const char* LunaTraits< btCollisionWorld::RayResultCallback >::parents[] = {0};
 const int LunaTraits< btCollisionWorld::RayResultCallback >::hash = 44790882;
 const int LunaTraits< btCollisionWorld::RayResultCallback >::uniqueIDs[] = {44790882,0};

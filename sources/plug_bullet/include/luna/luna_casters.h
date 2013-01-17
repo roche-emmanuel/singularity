@@ -1152,6 +1152,27 @@ struct luna_caster<PHullResult,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<osgGA::GUIEventHandler,dstType> {
+	static inline dstType* cast(osgGA::GUIEventHandler* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<SampleRigidUpdater,dstType> {
+	static inline dstType* cast(SampleRigidUpdater* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Vec3f,dstType> {
+	static inline dstType* cast(osg::Vec3f* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<btAlignedObjectArray< btPersistentManifold * >,dstType> {
 	static inline dstType* cast(btAlignedObjectArray< btPersistentManifold * >* ptr) {
 		return static_cast<dstType*>(ptr);

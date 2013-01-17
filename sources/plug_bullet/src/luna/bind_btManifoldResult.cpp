@@ -694,7 +694,7 @@ void LunaTraits< btManifoldResult >::_bind_dtor(btManifoldResult* obj) {
 const char LunaTraits< btManifoldResult >::className[] = "btManifoldResult";
 const char LunaTraits< btManifoldResult >::fullName[] = "btManifoldResult";
 const char LunaTraits< btManifoldResult >::moduleName[] = "bullet";
-const char* LunaTraits< btManifoldResult >::parents[] = {"btDiscreteCollisionDetectorInterface.btDiscreteCollisionDetectorInterface_Result", 0};
+const char* LunaTraits< btManifoldResult >::parents[] = {"bullet.btDiscreteCollisionDetectorInterface_Result", 0};
 const int LunaTraits< btManifoldResult >::hash = 60759048;
 const int LunaTraits< btManifoldResult >::uniqueIDs[] = {25324514,0};
 

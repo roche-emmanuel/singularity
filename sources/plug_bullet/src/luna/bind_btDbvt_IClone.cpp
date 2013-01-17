@@ -200,7 +200,7 @@ void LunaTraits< btDbvt::IClone >::_bind_dtor(btDbvt::IClone* obj) {
 
 const char LunaTraits< btDbvt::IClone >::className[] = "btDbvt_IClone";
 const char LunaTraits< btDbvt::IClone >::fullName[] = "btDbvt::IClone";
-const char LunaTraits< btDbvt::IClone >::moduleName[] = "btDbvt";
+const char LunaTraits< btDbvt::IClone >::moduleName[] = "bullet";
 const char* LunaTraits< btDbvt::IClone >::parents[] = {0};
 const int LunaTraits< btDbvt::IClone >::hash = 8781183;
 const int LunaTraits< btDbvt::IClone >::uniqueIDs[] = {8781183,0};

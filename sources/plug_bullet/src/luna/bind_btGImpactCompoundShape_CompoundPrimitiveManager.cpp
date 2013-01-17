@@ -510,7 +510,7 @@ void LunaTraits< btGImpactCompoundShape::CompoundPrimitiveManager >::_bind_dtor(
 
 const char LunaTraits< btGImpactCompoundShape::CompoundPrimitiveManager >::className[] = "btGImpactCompoundShape_CompoundPrimitiveManager";
 const char LunaTraits< btGImpactCompoundShape::CompoundPrimitiveManager >::fullName[] = "btGImpactCompoundShape::CompoundPrimitiveManager";
-const char LunaTraits< btGImpactCompoundShape::CompoundPrimitiveManager >::moduleName[] = "btGImpactCompoundShape";
+const char LunaTraits< btGImpactCompoundShape::CompoundPrimitiveManager >::moduleName[] = "bullet";
 const char* LunaTraits< btGImpactCompoundShape::CompoundPrimitiveManager >::parents[] = {"bullet.btPrimitiveManagerBase", 0};
 const int LunaTraits< btGImpactCompoundShape::CompoundPrimitiveManager >::hash = 43562678;
 const int LunaTraits< btGImpactCompoundShape::CompoundPrimitiveManager >::uniqueIDs[] = {85935800,0};

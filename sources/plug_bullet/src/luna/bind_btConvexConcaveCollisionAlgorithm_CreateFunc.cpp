@@ -209,7 +209,7 @@ void LunaTraits< btConvexConcaveCollisionAlgorithm::CreateFunc >::_bind_dtor(btC
 
 const char LunaTraits< btConvexConcaveCollisionAlgorithm::CreateFunc >::className[] = "btConvexConcaveCollisionAlgorithm_CreateFunc";
 const char LunaTraits< btConvexConcaveCollisionAlgorithm::CreateFunc >::fullName[] = "btConvexConcaveCollisionAlgorithm::CreateFunc";
-const char LunaTraits< btConvexConcaveCollisionAlgorithm::CreateFunc >::moduleName[] = "btConvexConcaveCollisionAlgorithm";
+const char LunaTraits< btConvexConcaveCollisionAlgorithm::CreateFunc >::moduleName[] = "bullet";
 const char* LunaTraits< btConvexConcaveCollisionAlgorithm::CreateFunc >::parents[] = {"bullet.btCollisionAlgorithmCreateFunc", 0};
 const int LunaTraits< btConvexConcaveCollisionAlgorithm::CreateFunc >::hash = 51035078;
 const int LunaTraits< btConvexConcaveCollisionAlgorithm::CreateFunc >::uniqueIDs[] = {67911425,0};

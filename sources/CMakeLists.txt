@@ -31,7 +31,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_doxmlparser)
 IF(MSVC)
-	# ADD_SUBDIRECTORY(plug_wx)
+	ADD_SUBDIRECTORY(plug_wx)
 ENDIF()
 
 # ADD_SUBDIRECTORY(plug_osg)
@@ -45,7 +45,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_kinect)
 # ADD_SUBDIRECTORY(plug_box2d)
 # ADD_SUBDIRECTORY(plug_gizmo)
-ADD_SUBDIRECTORY(plug_bullet)
+# ADD_SUBDIRECTORY(plug_bullet)
 
 # ToDo:
 # ADD_SUBDIRECTORY(plug_freenect)

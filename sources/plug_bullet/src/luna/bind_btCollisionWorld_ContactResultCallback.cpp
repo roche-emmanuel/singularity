@@ -324,7 +324,7 @@ void LunaTraits< btCollisionWorld::ContactResultCallback >::_bind_dtor(btCollisi
 
 const char LunaTraits< btCollisionWorld::ContactResultCallback >::className[] = "btCollisionWorld_ContactResultCallback";
 const char LunaTraits< btCollisionWorld::ContactResultCallback >::fullName[] = "btCollisionWorld::ContactResultCallback";
-const char LunaTraits< btCollisionWorld::ContactResultCallback >::moduleName[] = "btCollisionWorld";
+const char LunaTraits< btCollisionWorld::ContactResultCallback >::moduleName[] = "bullet";
 const char* LunaTraits< btCollisionWorld::ContactResultCallback >::parents[] = {0};
 const int LunaTraits< btCollisionWorld::ContactResultCallback >::hash = 79983320;
 const int LunaTraits< btCollisionWorld::ContactResultCallback >::uniqueIDs[] = {79983320,0};

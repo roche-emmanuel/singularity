@@ -125,7 +125,7 @@ void LunaTraits< btSimulationIslandManager::IslandCallback >::_bind_dtor(btSimul
 
 const char LunaTraits< btSimulationIslandManager::IslandCallback >::className[] = "btSimulationIslandManager_IslandCallback";
 const char LunaTraits< btSimulationIslandManager::IslandCallback >::fullName[] = "btSimulationIslandManager::IslandCallback";
-const char LunaTraits< btSimulationIslandManager::IslandCallback >::moduleName[] = "btSimulationIslandManager";
+const char LunaTraits< btSimulationIslandManager::IslandCallback >::moduleName[] = "bullet";
 const char* LunaTraits< btSimulationIslandManager::IslandCallback >::parents[] = {0};
 const int LunaTraits< btSimulationIslandManager::IslandCallback >::hash = 56758259;
 const int LunaTraits< btSimulationIslandManager::IslandCallback >::uniqueIDs[] = {56758259,0};

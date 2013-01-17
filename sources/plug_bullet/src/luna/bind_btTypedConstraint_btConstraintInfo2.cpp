@@ -792,7 +792,7 @@ void LunaTraits< btTypedConstraint::btConstraintInfo2 >::_bind_dtor(btTypedConst
 
 const char LunaTraits< btTypedConstraint::btConstraintInfo2 >::className[] = "btTypedConstraint_btConstraintInfo2";
 const char LunaTraits< btTypedConstraint::btConstraintInfo2 >::fullName[] = "btTypedConstraint::btConstraintInfo2";
-const char LunaTraits< btTypedConstraint::btConstraintInfo2 >::moduleName[] = "btTypedConstraint";
+const char LunaTraits< btTypedConstraint::btConstraintInfo2 >::moduleName[] = "bullet";
 const char* LunaTraits< btTypedConstraint::btConstraintInfo2 >::parents[] = {0};
 const int LunaTraits< btTypedConstraint::btConstraintInfo2 >::hash = 17243936;
 const int LunaTraits< btTypedConstraint::btConstraintInfo2 >::uniqueIDs[] = {17243936,0};

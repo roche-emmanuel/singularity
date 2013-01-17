@@ -151,6 +151,7 @@
 #include <LinearMath/btVector3.h>
 #include <BulletDynamics/Vehicle/btWheelInfo.h>
 #include <BulletCollision/Gimpact/btContactProcessing.h>
+#include <SampleRigidUpdater.h>
 #include <BulletCollision/CollisionDispatch/SphereTriangleDetector.h>
 
 // Class: btBroadphaseInterface
@@ -6442,6 +6443,44 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osgGA::GUIEventHandler
+template<>
+class LunaTraits< osgGA::GUIEventHandler > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osgGA::GUIEventHandler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osgGA::GUIEventHandler* obj);
+	typedef osg::Referenced parent_t;
+	typedef osgGA::GUIEventHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: SampleRigidUpdater
+template<>
+class LunaTraits< SampleRigidUpdater > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static SampleRigidUpdater* _bind_ctor(lua_State *L);
+	static void _bind_dtor(SampleRigidUpdater* obj);
+	typedef osg::Referenced parent_t;
+	typedef SampleRigidUpdater base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: SphereTriangleDetector
 template<>
 class LunaTraits< SphereTriangleDetector > {
@@ -6458,6 +6497,25 @@ public:
 	static void _bind_dtor(SphereTriangleDetector* obj);
 	typedef btDiscreteCollisionDetectorInterface parent_t;
 	typedef SphereTriangleDetector base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Vec3f
+template<>
+class LunaTraits< osg::Vec3f > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec3f* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec3f* obj);
+	typedef osg::Vec3f parent_t;
+	typedef osg::Vec3f base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -6937,6 +6995,120 @@ public:
 	static luna_ConverterType converters[];
 };
 
+
+// Referenced external: osg::Referenced
+template<>
+class LunaTraits< osg::Referenced > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Referenced* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Referenced* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Referenced base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Group
+template<>
+class LunaTraits< osg::Group > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Group* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Group* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Group base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Box
+template<>
+class LunaTraits< osg::Box > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Box* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Box* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Box base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Sphere
+template<>
+class LunaTraits< osg::Sphere > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Sphere* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Sphere* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Sphere base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osgGA::GUIEventAdapter
+template<>
+class LunaTraits< osgGA::GUIEventAdapter > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osgGA::GUIEventAdapter* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osgGA::GUIEventAdapter* obj);
+	typedef osg::Referenced parent_t;
+	typedef osgGA::GUIEventAdapter base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osgGA::GUIActionAdapter
+template<>
+class LunaTraits< osgGA::GUIActionAdapter > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osgGA::GUIActionAdapter* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osgGA::GUIActionAdapter* obj);
+	typedef osgGA::GUIActionAdapter parent_t;
+	typedef osgGA::GUIActionAdapter base_t;
+	static luna_ConverterType converters[];
+};
 
 template<>
 class LunaType< 25261840 > {
@@ -8304,6 +8476,20 @@ public:
 };
 
 template<>
+class LunaType< 29676225 > {
+public:
+	typedef osgGA::GUIEventHandler type;
+	
+};
+
+template<>
+class LunaType< 92303204 > {
+public:
+	typedef osg::Vec3f type;
+	
+};
+
+template<>
 class LunaType< 41484542 > {
 public:
 	typedef btManifoldArray type;
@@ -8573,6 +8759,48 @@ template<>
 class LunaType< 78781161 > {
 public:
 	typedef btAlignedObjectArray< GrahamVector3 > type;
+	
+};
+
+template<>
+class LunaType< 50169651 > {
+public:
+	typedef osg::Referenced type;
+	
+};
+
+template<>
+class LunaType< 78851260 > {
+public:
+	typedef osg::Group type;
+	
+};
+
+template<>
+class LunaType< 67090692 > {
+public:
+	typedef osg::Box type;
+	
+};
+
+template<>
+class LunaType< 85867783 > {
+public:
+	typedef osg::Sphere type;
+	
+};
+
+template<>
+class LunaType< 91398620 > {
+public:
+	typedef osgGA::GUIEventAdapter type;
+	
+};
+
+template<>
+class LunaType< 85302998 > {
+public:
+	typedef osgGA::GUIActionAdapter type;
 	
 };
 

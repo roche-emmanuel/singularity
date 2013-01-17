@@ -1249,7 +1249,7 @@ void LunaTraits< btGImpactMeshShapePart::TrimeshPrimitiveManager >::_bind_dtor(b
 
 const char LunaTraits< btGImpactMeshShapePart::TrimeshPrimitiveManager >::className[] = "btGImpactMeshShapePart_TrimeshPrimitiveManager";
 const char LunaTraits< btGImpactMeshShapePart::TrimeshPrimitiveManager >::fullName[] = "btGImpactMeshShapePart::TrimeshPrimitiveManager";
-const char LunaTraits< btGImpactMeshShapePart::TrimeshPrimitiveManager >::moduleName[] = "btGImpactMeshShapePart";
+const char LunaTraits< btGImpactMeshShapePart::TrimeshPrimitiveManager >::moduleName[] = "bullet";
 const char* LunaTraits< btGImpactMeshShapePart::TrimeshPrimitiveManager >::parents[] = {"bullet.btPrimitiveManagerBase", 0};
 const int LunaTraits< btGImpactMeshShapePart::TrimeshPrimitiveManager >::hash = 7355871;
 const int LunaTraits< btGImpactMeshShapePart::TrimeshPrimitiveManager >::uniqueIDs[] = {85935800,0};

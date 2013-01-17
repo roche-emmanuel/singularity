@@ -280,7 +280,7 @@ void LunaTraits< ConvexH::HalfEdge >::_bind_dtor(ConvexH::HalfEdge* obj) {
 
 const char LunaTraits< ConvexH::HalfEdge >::className[] = "ConvexH_HalfEdge";
 const char LunaTraits< ConvexH::HalfEdge >::fullName[] = "ConvexH::HalfEdge";
-const char LunaTraits< ConvexH::HalfEdge >::moduleName[] = "ConvexH";
+const char LunaTraits< ConvexH::HalfEdge >::moduleName[] = "bullet";
 const char* LunaTraits< ConvexH::HalfEdge >::parents[] = {0};
 const int LunaTraits< ConvexH::HalfEdge >::hash = 71871586;
 const int LunaTraits< ConvexH::HalfEdge >::uniqueIDs[] = {71871586,0};

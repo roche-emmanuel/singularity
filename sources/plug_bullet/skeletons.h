@@ -1080,7 +1080,16 @@ class int4 {
 class PHullResult {
 };
 
+class SampleRigidUpdater: public osgGA::GUIEventHandler {
+};
+
 class SphereTriangleDetector: public btDiscreteCollisionDetectorInterface {
+};
+
+namespace osg {
+};
+
+namespace osgGA {
 };
 
 class btManifoldArray {

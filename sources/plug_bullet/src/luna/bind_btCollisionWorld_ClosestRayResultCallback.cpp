@@ -484,8 +484,8 @@ void LunaTraits< btCollisionWorld::ClosestRayResultCallback >::_bind_dtor(btColl
 
 const char LunaTraits< btCollisionWorld::ClosestRayResultCallback >::className[] = "btCollisionWorld_ClosestRayResultCallback";
 const char LunaTraits< btCollisionWorld::ClosestRayResultCallback >::fullName[] = "btCollisionWorld::ClosestRayResultCallback";
-const char LunaTraits< btCollisionWorld::ClosestRayResultCallback >::moduleName[] = "btCollisionWorld";
-const char* LunaTraits< btCollisionWorld::ClosestRayResultCallback >::parents[] = {"btCollisionWorld.btCollisionWorld_RayResultCallback", 0};
+const char LunaTraits< btCollisionWorld::ClosestRayResultCallback >::moduleName[] = "bullet";
+const char* LunaTraits< btCollisionWorld::ClosestRayResultCallback >::parents[] = {"bullet.btCollisionWorld_RayResultCallback", 0};
 const int LunaTraits< btCollisionWorld::ClosestRayResultCallback >::hash = 12976319;
 const int LunaTraits< btCollisionWorld::ClosestRayResultCallback >::uniqueIDs[] = {44790882,0};
 

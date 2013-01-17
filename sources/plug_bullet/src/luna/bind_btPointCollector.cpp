@@ -540,7 +540,7 @@ void LunaTraits< btPointCollector >::_bind_dtor(btPointCollector* obj) {
 const char LunaTraits< btPointCollector >::className[] = "btPointCollector";
 const char LunaTraits< btPointCollector >::fullName[] = "btPointCollector";
 const char LunaTraits< btPointCollector >::moduleName[] = "bullet";
-const char* LunaTraits< btPointCollector >::parents[] = {"btDiscreteCollisionDetectorInterface.btDiscreteCollisionDetectorInterface_Result", 0};
+const char* LunaTraits< btPointCollector >::parents[] = {"bullet.btDiscreteCollisionDetectorInterface_Result", 0};
 const int LunaTraits< btPointCollector >::hash = 4766288;
 const int LunaTraits< btPointCollector >::uniqueIDs[] = {25324514,0};
 

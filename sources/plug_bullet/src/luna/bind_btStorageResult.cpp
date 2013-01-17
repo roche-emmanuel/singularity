@@ -355,7 +355,7 @@ void LunaTraits< btStorageResult >::_bind_dtor(btStorageResult* obj) {
 const char LunaTraits< btStorageResult >::className[] = "btStorageResult";
 const char LunaTraits< btStorageResult >::fullName[] = "btStorageResult";
 const char LunaTraits< btStorageResult >::moduleName[] = "bullet";
-const char* LunaTraits< btStorageResult >::parents[] = {"btDiscreteCollisionDetectorInterface.btDiscreteCollisionDetectorInterface_Result", 0};
+const char* LunaTraits< btStorageResult >::parents[] = {"bullet.btDiscreteCollisionDetectorInterface_Result", 0};
 const int LunaTraits< btStorageResult >::hash = 56045610;
 const int LunaTraits< btStorageResult >::uniqueIDs[] = {25324514,0};
 

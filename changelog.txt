@@ -62,3 +62,4 @@
 - Added support for ICompound protection in doxmlparser module.
 - Added first part of bullet module support.
 - Added second part of bullet module support.
+- Added bullet sample test.

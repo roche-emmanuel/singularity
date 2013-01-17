@@ -179,7 +179,7 @@ void LunaTraits< btDbvt::sStkCLN >::_bind_dtor(btDbvt::sStkCLN* obj) {
 
 const char LunaTraits< btDbvt::sStkCLN >::className[] = "btDbvt_sStkCLN";
 const char LunaTraits< btDbvt::sStkCLN >::fullName[] = "btDbvt::sStkCLN";
-const char LunaTraits< btDbvt::sStkCLN >::moduleName[] = "btDbvt";
+const char LunaTraits< btDbvt::sStkCLN >::moduleName[] = "bullet";
 const char* LunaTraits< btDbvt::sStkCLN >::parents[] = {0};
 const int LunaTraits< btDbvt::sStkCLN >::hash = 12660308;
 const int LunaTraits< btDbvt::sStkCLN >::uniqueIDs[] = {12660308,0};
