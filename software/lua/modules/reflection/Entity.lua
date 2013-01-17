@@ -93,6 +93,7 @@ function Class:getFullName()
         -- Assume the parent as a getFullName() function:
         local pname = self:getParent():getFullName()
         return (pname=="" and "" or (pname .. "::")) .. self:getName()
+        -- return pname .. "::" .. self:getName()
     else
         return self:getName()
     end

@@ -13,17 +13,23 @@
 #include <BulletCollision/CollisionShapes/btConvexShape.h>
 #include <BulletCollision/BroadphaseCollision/btDbvt.h>
 #include <BulletCollision/BroadphaseCollision/btDbvtBroadphase.h>
+#include <BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.h>
 #include <BulletCollision/Gimpact/btGenericPoolAllocator.h>
 #include <BulletCollision/Gimpact/btGeometryOperations.h>
 #include <BulletCollision/Gimpact/btGImpactCollisionAlgorithm.h>
+#include <BulletDynamics/ConstraintSolver/btHingeConstraint.h>
 #include <LinearMath/btMatrix3x3.h>
 #include <BulletCollision/NarrowPhaseCollision/btPersistentManifold.h>
+#include <BulletDynamics/ConstraintSolver/btPoint2PointConstraint.h>
 #include <BulletCollision/BroadphaseCollision/btQuantizedBvh.h>
 #include <LinearMath/btQuickprof.h>
 #include <LinearMath/btRandom.h>
+#include <BulletDynamics/Dynamics/btRigidBody.h>
 #include <LinearMath/btScalar.h>
 #include <LinearMath/btSerializer.h>
 #include <BulletCollision/NarrowPhaseCollision/btSimplexSolverInterface.h>
+#include <BulletDynamics/ConstraintSolver/btSliderConstraint.h>
+#include <BulletDynamics/ConstraintSolver/btSolverBody.h>
 #include <LinearMath/btTransform.h>
 #include <LinearMath/btTransformUtil.h>
 #include <BulletCollision/CollisionShapes/btTriangleInfoMap.h>
@@ -55,8 +61,10 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,DBVT_BP_PREVENTFALSEUPDATE); lua_setfield(L,-2,"DBVT_BP_PREVENTFALSEUPDATE");
 	lua_pushnumber(L,DBVT_BP_ACCURATESLEEPING); lua_setfield(L,-2,"DBVT_BP_ACCURATESLEEPING");
 	lua_pushnumber(L,DBVT_BP_ENABLE_BENCHMARK); lua_setfield(L,-2,"DBVT_BP_ENABLE_BENCHMARK");
+	lua_pushnumber(L,BT_6DOF_FLAGS_AXIS_SHIFT); lua_setfield(L,-2,"BT_6DOF_FLAGS_AXIS_SHIFT");
 	lua_pushnumber(L,BT_DEFAULT_MAX_POOLS); lua_setfield(L,-2,"BT_DEFAULT_MAX_POOLS");
 	lua_pushnumber(L,GIMPACT_VS_PLANE_COLLISION); lua_setfield(L,-2,"GIMPACT_VS_PLANE_COLLISION");
+	lua_pushnumber(L,_BT_USE_CENTER_LIMIT_); lua_setfield(L,-2,"_BT_USE_CENTER_LIMIT_");
 	lua_pushnumber(L,MANIFOLD_CACHE_SIZE); lua_setfield(L,-2,"MANIFOLD_CACHE_SIZE");
 	lua_pushnumber(L,MAINTAIN_PERSISTENCY); lua_setfield(L,-2,"MAINTAIN_PERSISTENCY");
 	lua_pushnumber(L,MAX_SUBTREE_SIZE_IN_BYTES); lua_setfield(L,-2,"MAX_SUBTREE_SIZE_IN_BYTES");

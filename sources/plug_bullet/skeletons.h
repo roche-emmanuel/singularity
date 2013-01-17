@@ -13,6 +13,9 @@ class BT_QUANTIZED_BVH_NODE {
 class btAABB {
 };
 
+class btActionInterface {
+};
+
 class btActivatingCollisionAlgorithm: public btCollisionAlgorithm {
 };
 
@@ -35,6 +38,9 @@ public:
 };
 
 class btAngleCompareFunc {
+};
+
+class btAngularLimit {
 };
 
 class btAxisSweep3: public btAxisSweep3Internal {
@@ -119,6 +125,9 @@ class btCapsuleShapeX: public btCapsuleShape {
 };
 
 class btCapsuleShapeZ: public btCapsuleShape {
+};
+
+class btCharacterControllerInterface: public btActionInterface {
 };
 
 class btCharIndexTripletData {
@@ -228,10 +237,37 @@ class btConeShapeX: public btConeShape {
 class btConeShapeZ: public btConeShape {
 };
 
+class btConeTwistConstraint: public btTypedConstraint {
+};
+
+class btConeTwistConstraintData {
+};
+
 class btConstraintRow {
 };
 
+class btConstraintSetting {
+};
+
+class btConstraintSolver {
+};
+
 class btContactArray: public btAlignedObjectArray {
+};
+
+class btContactConstraint: public btTypedConstraint {
+};
+
+class btContactSolverInfo: public btContactSolverInfoData {
+};
+
+class btContactSolverInfoData {
+};
+
+class btContactSolverInfoDoubleData {
+};
+
+class btContactSolverInfoFloatData {
 };
 
 class btContinuousConvexCollision: public btConvexCast {
@@ -382,6 +418,9 @@ class btDefaultMotionState: public btMotionState {
 class btDefaultSerializer: public btSerializer {
 };
 
+class btDefaultVehicleRaycaster: public btVehicleRaycaster {
+};
+
 class btDiscreteCollisionDetectorInterface {
 public:
 	class ClosestPointInput {
@@ -392,10 +431,22 @@ public:
 
 };
 
+class btDiscreteDynamicsWorld: public btDynamicsWorld {
+};
+
 class btDispatcher {
 };
 
 class btDispatcherInfo {
+};
+
+class btDynamicsWorld: public btCollisionWorld {
+};
+
+class btDynamicsWorldDoubleData {
+};
+
+class btDynamicsWorldFloatData {
 };
 
 class btElement {
@@ -414,10 +465,25 @@ class btEmptyShape: public btConcaveShape {
 class btFace {
 };
 
+class btGearConstraint: public btTypedConstraint {
+};
+
 class btGEN_Link {
 };
 
 class btGEN_List {
+};
+
+class btGeneric6DofConstraint: public btTypedConstraint {
+};
+
+class btGeneric6DofConstraintData {
+};
+
+class btGeneric6DofSpringConstraint: public btGeneric6DofConstraint {
+};
+
+class btGeneric6DofSpringConstraintData {
 };
 
 class btGenericMemoryPool {
@@ -511,6 +577,18 @@ class btHashString {
 class btHeightfieldTerrainShape: public btConcaveShape {
 };
 
+class btHinge2Constraint: public btGeneric6DofSpringConstraint {
+};
+
+class btHingeConstraint: public btTypedConstraint {
+};
+
+class btHingeConstraintDoubleData {
+};
+
+class btHingeConstraintFloatData {
+};
+
 class btIDebugDraw {
 };
 
@@ -521,6 +599,15 @@ class btInternalTriangleIndexCallback {
 };
 
 class btIntIndexData {
+};
+
+class btJacobianEntry {
+};
+
+class btJointFeedback {
+};
+
+class btKinematicCharacterController: public btCharacterControllerInterface {
 };
 
 class btManifoldPoint {
@@ -617,6 +704,15 @@ class btPersistentManifold: public btTypedObject {
 class btPlane {
 };
 
+class btPoint2PointConstraint: public btTypedConstraint {
+};
+
+class btPoint2PointConstraintDoubleData {
+};
+
+class btPoint2PointConstraintFloatData {
+};
+
 class btPointCollector: public btDiscreteCollisionDetectorInterface::Result {
 };
 
@@ -671,10 +767,36 @@ class btQuantizedBvhTree {
 class btQuaternion: public btQuadWord {
 };
 
+class btRaycastVehicle: public btActionInterface {
+public:
+	class btVehicleTuning {
+	};
+
+};
+
+class btRigidBody: public btCollisionObject {
+public:
+	class btRigidBodyConstructionInfo {
+	};
+
+};
+
+class btRigidBodyDoubleData {
+};
+
+class btRigidBodyFloatData {
+};
+
+class btRotationalLimitMotor {
+};
+
 class btScaledBvhTriangleMeshShape: public btConcaveShape {
 };
 
 class btScaledTriangleMeshShapeData {
+};
+
+class btSequentialImpulseConstraintSolver: public btConstraintSolver {
 };
 
 class btSerializer {
@@ -695,11 +817,29 @@ class btSimpleBroadphase: public btBroadphaseInterface {
 class btSimpleBroadphaseProxy: public btBroadphaseProxy {
 };
 
+class btSimpleDynamicsWorld: public btDynamicsWorld {
+};
+
 class btSimulationIslandManager {
 public:
 	class IslandCallback {
 	};
 
+};
+
+class btSliderConstraint: public btTypedConstraint {
+};
+
+class btSliderConstraintData {
+};
+
+class btSolve2LinearConstraint {
+};
+
+class btSolverBody {
+};
+
+class btSolverConstraint {
 };
 
 class btSortedOverlappingPairCache: public btOverlappingPairCache {
@@ -768,6 +908,9 @@ class btTransformFloatData {
 class btTransformUtil {
 };
 
+class btTranslationalLimitMotor {
+};
+
 class btTriangle {
 };
 
@@ -816,6 +959,19 @@ class btTriangleShape: public btPolyhedralConvexShape {
 class btTriangleShapeEx: public btTriangleShape {
 };
 
+class btTypedConstraint: public btTypedObject {
+public:
+	class btConstraintInfo1 {
+	};
+
+	class btConstraintInfo2 {
+	};
+
+};
+
+class btTypedConstraintData {
+};
+
 class btTypedObject {
 };
 
@@ -823,6 +979,9 @@ class btUniformScalingShape: public btConvexShape {
 };
 
 class btUnionFind {
+};
+
+class btUniversalConstraint: public btGeneric6DofConstraint {
 };
 
 class btUsageBitfield {
@@ -840,7 +999,24 @@ class btVector3FloatData {
 class btVector4: public btVector3 {
 };
 
+class btVehicleRaycaster {
+public:
+	class btVehicleRaycasterResult {
+	};
+
+};
+
 class btVoronoiSimplexSolver {
+};
+
+class btWheelInfo {
+public:
+	class RaycastInfo {
+	};
+
+};
+
+class btWheelInfoConstructionInfo {
 };
 
 class ConvexH {
@@ -935,6 +1111,9 @@ class QuantizedNodeArray {
 };
 
 class BvhSubtreeInfoArray {
+};
+
+class btConstraintArray {
 };
 
 class IndexedMeshArray {

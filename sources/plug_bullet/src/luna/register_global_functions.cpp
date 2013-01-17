@@ -4,6 +4,7 @@
 #include <LinearMath/btAlignedAllocator.h>
 #include <BulletCollision/Gimpact/btBoxCollision.h>
 #include <BulletCollision/Gimpact/btClipPolygon.h>
+#include <BulletDynamics/ConstraintSolver/btContactConstraint.h>
 #include <BulletCollision/BroadphaseCollision/btDbvt.h>
 #include <BulletCollision/Gimpact/btGenericPoolAllocator.h>
 #include <BulletCollision/Gimpact/btGeometryOperations.h>
@@ -17,6 +18,7 @@
 #include <LinearMath/btScalar.h>
 #include <LinearMath/btSerializer.h>
 #include <LinearMath/btTransformUtil.h>
+#include <BulletDynamics/ConstraintSolver/btTypedConstraint.h>
 #include <LinearMath/btVector3.h>
 
 // Function checkers:
@@ -200,6 +202,32 @@ inline static bool _lg_typecheck_bt_plane_clip_triangle(lua_State *L) {
 	if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,91544891)) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_resolveSingleCollision(lua_State *L) {
+	if( lua_gettop(L)!=6 ) return false;
+
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,85758361)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,85758361)) ) return false;
+	if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
+	if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
+	if( !Luna<void>::has_uniqueid(L,5,5410878) ) return false;
+	if( lua_isnumber(L,6)==0 ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_resolveSingleBilateral(lua_State *L) {
+	if( lua_gettop(L)!=8 ) return false;
+
+	if( !Luna<void>::has_uniqueid(L,1,85758361) ) return false;
+	if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
+	if( !Luna<void>::has_uniqueid(L,3,85758361) ) return false;
+	if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
+	if( lua_isnumber(L,5)==0 ) return false;
+	if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
+	if( lua_isnumber(L,7)==0 ) return false;
+	if( lua_isnumber(L,8)==0 ) return false;
 	return true;
 }
 
@@ -763,6 +791,15 @@ inline static bool _lg_typecheck_btAabbSupport(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_btAdjustAngleToLimits(lua_State *L) {
+	if( lua_gettop(L)!=3 ) return false;
+
+	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_isnumber(L,3)==0 ) return false;
 	return true;
 }
 
@@ -1342,6 +1379,79 @@ static int _bind_bt_plane_clip_triangle(lua_State *L) {
 	lua_pushnumber(L,lret);
 
 	return 1;
+}
+
+// float resolveSingleCollision(btRigidBody * body1, class btCollisionObject * colObj2, const btVector3 & contactPositionWorld, const btVector3 & contactNormalOnB, const btContactSolverInfo & solverInfo, float distance)
+static int _bind_resolveSingleCollision(lua_State *L) {
+	if (!_lg_typecheck_resolveSingleCollision(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in float resolveSingleCollision(btRigidBody * body1, class btCollisionObject * colObj2, const btVector3 & contactPositionWorld, const btVector3 & contactNormalOnB, const btContactSolverInfo & solverInfo, float distance) function, expected prototype:\nfloat resolveSingleCollision(btRigidBody * body1, class btCollisionObject * colObj2, const btVector3 & contactPositionWorld, const btVector3 & contactNormalOnB, const btContactSolverInfo & solverInfo, float distance)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 5410878\n");
+	}
+
+	btRigidBody* body1=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,1));
+	btCollisionObject* colObj2=(Luna< btCollisionObject >::check(L,2));
+	const btVector3* contactPositionWorld_ptr=(Luna< btVector3 >::check(L,3));
+	if( !contactPositionWorld_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg contactPositionWorld in resolveSingleCollision function");
+	}
+	const btVector3 & contactPositionWorld=*contactPositionWorld_ptr;
+	const btVector3* contactNormalOnB_ptr=(Luna< btVector3 >::check(L,4));
+	if( !contactNormalOnB_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg contactNormalOnB in resolveSingleCollision function");
+	}
+	const btVector3 & contactNormalOnB=*contactNormalOnB_ptr;
+	const btContactSolverInfo* solverInfo_ptr=(Luna< btContactSolverInfoData >::checkSubType< btContactSolverInfo >(L,5));
+	if( !solverInfo_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg solverInfo in resolveSingleCollision function");
+	}
+	const btContactSolverInfo & solverInfo=*solverInfo_ptr;
+	float distance=(float)lua_tonumber(L,6);
+
+	float lret = resolveSingleCollision(body1, colObj2, contactPositionWorld, contactNormalOnB, solverInfo, distance);
+	lua_pushnumber(L,lret);
+
+	return 1;
+}
+
+// void resolveSingleBilateral(btRigidBody & body1, const btVector3 & pos1, btRigidBody & body2, const btVector3 & pos2, float distance, const btVector3 & normal, float & impulse, float timeStep)
+static int _bind_resolveSingleBilateral(lua_State *L) {
+	if (!_lg_typecheck_resolveSingleBilateral(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in void resolveSingleBilateral(btRigidBody & body1, const btVector3 & pos1, btRigidBody & body2, const btVector3 & pos2, float distance, const btVector3 & normal, float & impulse, float timeStep) function, expected prototype:\nvoid resolveSingleBilateral(btRigidBody & body1, const btVector3 & pos1, btRigidBody & body2, const btVector3 & pos2, float distance, const btVector3 & normal, float & impulse, float timeStep)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 91544891\narg 3 ID = 85758361\narg 4 ID = 91544891\narg 6 ID = 91544891\n");
+	}
+
+	btRigidBody* body1_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,1));
+	if( !body1_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg body1 in resolveSingleBilateral function");
+	}
+	btRigidBody & body1=*body1_ptr;
+	const btVector3* pos1_ptr=(Luna< btVector3 >::check(L,2));
+	if( !pos1_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg pos1 in resolveSingleBilateral function");
+	}
+	const btVector3 & pos1=*pos1_ptr;
+	btRigidBody* body2_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,3));
+	if( !body2_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg body2 in resolveSingleBilateral function");
+	}
+	btRigidBody & body2=*body2_ptr;
+	const btVector3* pos2_ptr=(Luna< btVector3 >::check(L,4));
+	if( !pos2_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg pos2 in resolveSingleBilateral function");
+	}
+	const btVector3 & pos2=*pos2_ptr;
+	float distance=(float)lua_tonumber(L,5);
+	const btVector3* normal_ptr=(Luna< btVector3 >::check(L,6));
+	if( !normal_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg normal in resolveSingleBilateral function");
+	}
+	const btVector3 & normal=*normal_ptr;
+	float impulse=(float)lua_tonumber(L,7);
+	float timeStep=(float)lua_tonumber(L,8);
+
+	resolveSingleBilateral(body1, pos1, body2, pos2, distance, normal, impulse, timeStep);
+
+	return 0;
 }
 
 // bool Intersect(const btDbvtAabbMm & a, const btDbvtAabbMm & b)
@@ -2799,6 +2909,23 @@ static int _bind_btAabbSupport(lua_State *L) {
 	return 1;
 }
 
+// float btAdjustAngleToLimits(float angleInRadians, float angleLowerLimitInRadians, float angleUpperLimitInRadians)
+static int _bind_btAdjustAngleToLimits(lua_State *L) {
+	if (!_lg_typecheck_btAdjustAngleToLimits(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in float btAdjustAngleToLimits(float angleInRadians, float angleLowerLimitInRadians, float angleUpperLimitInRadians) function, expected prototype:\nfloat btAdjustAngleToLimits(float angleInRadians, float angleLowerLimitInRadians, float angleUpperLimitInRadians)\nClass arguments details:\n");
+	}
+
+	float angleInRadians=(float)lua_tonumber(L,1);
+	float angleLowerLimitInRadians=(float)lua_tonumber(L,2);
+	float angleUpperLimitInRadians=(float)lua_tonumber(L,3);
+
+	float lret = btAdjustAngleToLimits(angleInRadians, angleLowerLimitInRadians, angleUpperLimitInRadians);
+	lua_pushnumber(L,lret);
+
+	return 1;
+}
+
 // float btDot(const btVector3 & v1, const btVector3 & v2)
 static int _bind_btDot(lua_State *L) {
 	if (!_lg_typecheck_btDot(L)) {
@@ -3035,6 +3162,8 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_bt_plane_clip_polygon_collect); lua_setfield(L,-2,"bt_plane_clip_polygon_collect");
 	lua_pushcfunction(L, _bind_bt_plane_clip_polygon); lua_setfield(L,-2,"bt_plane_clip_polygon");
 	lua_pushcfunction(L, _bind_bt_plane_clip_triangle); lua_setfield(L,-2,"bt_plane_clip_triangle");
+	lua_pushcfunction(L, _bind_resolveSingleCollision); lua_setfield(L,-2,"resolveSingleCollision");
+	lua_pushcfunction(L, _bind_resolveSingleBilateral); lua_setfield(L,-2,"resolveSingleBilateral");
 	lua_pushcfunction(L, _bind_Intersect); lua_setfield(L,-2,"Intersect");
 	lua_pushcfunction(L, _bind_Proximity); lua_setfield(L,-2,"Proximity");
 	lua_pushcfunction(L, _bind_Select); lua_setfield(L,-2,"Select");
@@ -3097,6 +3226,7 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_btNormalizeAngle); lua_setfield(L,-2,"btNormalizeAngle");
 	lua_pushcfunction(L, _bind_btStrLen); lua_setfield(L,-2,"btStrLen");
 	lua_pushcfunction(L, _bind_btAabbSupport); lua_setfield(L,-2,"btAabbSupport");
+	lua_pushcfunction(L, _bind_btAdjustAngleToLimits); lua_setfield(L,-2,"btAdjustAngleToLimits");
 	lua_pushcfunction(L, _bind_btDot); lua_setfield(L,-2,"btDot");
 	lua_pushcfunction(L, _bind_btDistance2); lua_setfield(L,-2,"btDistance2");
 	lua_pushcfunction(L, _bind_btDistance); lua_setfield(L,-2,"btDistance");

@@ -16,6 +16,8 @@ bt_vec_blend
 bt_plane_clip_polygon_collect
 bt_plane_clip_polygon
 bt_plane_clip_triangle
+resolveSingleCollision
+resolveSingleBilateral
 Intersect
 Proximity
 Select
@@ -78,6 +80,7 @@ btUnswapEndianDouble
 btNormalizeAngle
 btStrLen
 btAabbSupport
+btAdjustAngleToLimits
 btDot
 btDistance2
 btDistance

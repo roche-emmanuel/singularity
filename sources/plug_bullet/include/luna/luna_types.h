@@ -7,9 +7,11 @@
 #include <BulletCollision/BroadphaseCollision/btAxisSweep3.h>
 #include <BulletCollision/Gimpact/btBoxCollision.h>
 #include <BulletCollision/Gimpact/btGImpactQuantizedBvh.h>
+#include <BulletDynamics/Dynamics/btActionInterface.h>
 #include <BulletCollision/BroadphaseCollision/btCollisionAlgorithm.h>
 #include <BulletCollision/CollisionDispatch/btActivatingCollisionAlgorithm.h>
 #include <LinearMath/btGrahamScan2dConvexHull.h>
+#include <BulletDynamics/ConstraintSolver/btTypedConstraint.h>
 #include <BulletCollision/BroadphaseCollision/btBroadphaseProxy.h>
 #include <LinearMath/btStackAlloc.h>
 #include <BulletCollision/CollisionDispatch/btBox2dBox2dCollisionAlgorithm.h>
@@ -30,6 +32,7 @@
 #include <BulletCollision/CollisionShapes/btTriangleMeshShape.h>
 #include <BulletCollision/CollisionShapes/btBvhTriangleMeshShape.h>
 #include <BulletCollision/CollisionShapes/btCapsuleShape.h>
+#include <BulletDynamics/Character/btCharacterControllerInterface.h>
 #include <BulletCollision/CollisionShapes/btStridingMeshInterface.h>
 #include <LinearMath/btSerializer.h>
 #include <LinearMath/btQuickprof.h>
@@ -42,7 +45,13 @@
 #include <BulletCollision/CollisionDispatch/btCompoundCollisionAlgorithm.h>
 #include <BulletCollision/CollisionShapes/btCompoundShape.h>
 #include <BulletCollision/CollisionShapes/btConeShape.h>
+#include <LinearMath/btScalar.h>
+#include <BulletDynamics/ConstraintSolver/btConeTwistConstraint.h>
 #include <BulletCollision/NarrowPhaseCollision/btManifoldPoint.h>
+#include <BulletDynamics/ConstraintSolver/btPoint2PointConstraint.h>
+#include <BulletDynamics/ConstraintSolver/btConstraintSolver.h>
+#include <BulletDynamics/ConstraintSolver/btContactConstraint.h>
+#include <BulletDynamics/ConstraintSolver/btContactSolverInfo.h>
 #include <BulletCollision/NarrowPhaseCollision/btConvexCast.h>
 #include <BulletCollision/NarrowPhaseCollision/btContinuousConvexCollision.h>
 #include <BulletCollision/CollisionDispatch/btConvex2dConvex2dAlgorithm.h>
@@ -64,10 +73,17 @@
 #include <BulletCollision/CollisionDispatch/btDefaultCollisionConfiguration.h>
 #include <LinearMath/btMotionState.h>
 #include <LinearMath/btDefaultMotionState.h>
+#include <BulletDynamics/Vehicle/btVehicleRaycaster.h>
+#include <BulletDynamics/Vehicle/btRaycastVehicle.h>
+#include <BulletDynamics/Dynamics/btDynamicsWorld.h>
+#include <BulletDynamics/Dynamics/btDiscreteDynamicsWorld.h>
 #include <BulletCollision/CollisionDispatch/btUnionFind.h>
 #include <BulletCollision/CollisionDispatch/btEmptyCollisionAlgorithm.h>
 #include <BulletCollision/CollisionShapes/btEmptyShape.h>
+#include <BulletDynamics/ConstraintSolver/btGearConstraint.h>
 #include <LinearMath/btList.h>
+#include <BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.h>
+#include <BulletDynamics/ConstraintSolver/btGeneric6DofSpringConstraint.h>
 #include <BulletCollision/Gimpact/btGenericPoolAllocator.h>
 #include <LinearMath/btGeometryUtil.h>
 #include <BulletCollision/CollisionDispatch/btGhostObject.h>
@@ -81,8 +97,12 @@
 #include <BulletCollision/BroadphaseCollision/btOverlappingPairCache.h>
 #include <LinearMath/btHashMap.h>
 #include <BulletCollision/CollisionShapes/btHeightfieldTerrainShape.h>
+#include <BulletDynamics/ConstraintSolver/btHinge2Constraint.h>
+#include <BulletDynamics/ConstraintSolver/btHingeConstraint.h>
 #include <LinearMath/btIDebugDraw.h>
 #include <BulletCollision/CollisionShapes/btTriangleIndexVertexArray.h>
+#include <BulletDynamics/ConstraintSolver/btJacobianEntry.h>
+#include <BulletDynamics/Character/btKinematicCharacterController.h>
 #include <BulletCollision/CollisionDispatch/btManifoldResult.h>
 #include <BulletCollision/CollisionShapes/btMaterial.h>
 #include <BulletCollision/CollisionShapes/btTriangleIndexVertexMaterialArray.h>
@@ -93,7 +113,6 @@
 #include <BulletCollision/BroadphaseCollision/btMultiSapBroadphase.h>
 #include <BulletCollision/CollisionShapes/btMultiSphereShape.h>
 #include <BulletCollision/CollisionShapes/btOptimizedBvh.h>
-#include <LinearMath/btScalar.h>
 #include <BulletCollision/NarrowPhaseCollision/btPersistentManifold.h>
 #include <LinearMath/btConvexHull.h>
 #include <BulletCollision/NarrowPhaseCollision/btPointCollector.h>
@@ -103,10 +122,17 @@
 #include <BulletCollision/Gimpact/btTriangleShapeEx.h>
 #include <LinearMath/btQuadWord.h>
 #include <LinearMath/btQuaternion.h>
+#include <BulletDynamics/Dynamics/btRigidBody.h>
 #include <BulletCollision/CollisionShapes/btScaledBvhTriangleMeshShape.h>
+#include <BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.h>
 #include <BulletCollision/CollisionShapes/btShapeHull.h>
 #include <BulletCollision/BroadphaseCollision/btSimpleBroadphase.h>
+#include <BulletDynamics/Dynamics/btSimpleDynamicsWorld.h>
 #include <BulletCollision/CollisionDispatch/btSimulationIslandManager.h>
+#include <BulletDynamics/ConstraintSolver/btSliderConstraint.h>
+#include <BulletDynamics/ConstraintSolver/btSolve2LinearConstraint.h>
+#include <BulletDynamics/ConstraintSolver/btSolverBody.h>
+#include <BulletDynamics/ConstraintSolver/btSolverConstraint.h>
 #include <BulletCollision/CollisionDispatch/btSphereBoxCollisionAlgorithm.h>
 #include <BulletCollision/CollisionShapes/btSphereShape.h>
 #include <BulletCollision/CollisionDispatch/btSphereSphereCollisionAlgorithm.h>
@@ -121,7 +147,9 @@
 #include <BulletCollision/CollisionShapes/btTriangleMesh.h>
 #include <BulletCollision/CollisionShapes/btTriangleShape.h>
 #include <BulletCollision/CollisionShapes/btUniformScalingShape.h>
+#include <BulletDynamics/ConstraintSolver/btUniversalConstraint.h>
 #include <LinearMath/btVector3.h>
+#include <BulletDynamics/Vehicle/btWheelInfo.h>
 #include <BulletCollision/Gimpact/btContactProcessing.h>
 #include <BulletCollision/CollisionDispatch/SphereTriangleDetector.h>
 
@@ -220,6 +248,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: btActionInterface
+template<>
+class LunaTraits< btActionInterface > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btActionInterface* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btActionInterface* obj);
+	typedef btActionInterface parent_t;
+	typedef btActionInterface base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: btCollisionAlgorithm
 template<>
 class LunaTraits< btCollisionAlgorithm > {
@@ -274,6 +321,25 @@ public:
 	static void _bind_dtor(btAngleCompareFunc* obj);
 	typedef btAngleCompareFunc parent_t;
 	typedef btAngleCompareFunc base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btAngularLimit
+template<>
+class LunaTraits< btAngularLimit > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btAngularLimit* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btAngularLimit* obj);
+	typedef btAngularLimit parent_t;
+	typedef btAngularLimit base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -885,6 +951,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: btCharacterControllerInterface
+template<>
+class LunaTraits< btCharacterControllerInterface > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btCharacterControllerInterface* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btCharacterControllerInterface* obj);
+	typedef btActionInterface parent_t;
+	typedef btCharacterControllerInterface base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: btCharIndexTripletData
 template<>
 class LunaTraits< btCharIndexTripletData > {
@@ -1493,6 +1578,82 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: btTypedObject
+template<>
+class LunaTraits< btTypedObject > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btTypedObject* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btTypedObject* obj);
+	typedef btTypedObject parent_t;
+	typedef btTypedObject base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btTypedConstraint
+template<>
+class LunaTraits< btTypedConstraint > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btTypedConstraint* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btTypedConstraint* obj);
+	typedef btTypedObject parent_t;
+	typedef btTypedConstraint base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btConeTwistConstraint
+template<>
+class LunaTraits< btConeTwistConstraint > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btConeTwistConstraint* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btConeTwistConstraint* obj);
+	typedef btTypedObject parent_t;
+	typedef btConeTwistConstraint base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btConeTwistConstraintData
+template<>
+class LunaTraits< btConeTwistConstraintData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btConeTwistConstraintData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btConeTwistConstraintData* obj);
+	typedef btConeTwistConstraintData parent_t;
+	typedef btConeTwistConstraintData base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: btConstraintRow
 template<>
 class LunaTraits< btConstraintRow > {
@@ -1509,6 +1670,139 @@ public:
 	static void _bind_dtor(btConstraintRow* obj);
 	typedef btConstraintRow parent_t;
 	typedef btConstraintRow base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btConstraintSetting
+template<>
+class LunaTraits< btConstraintSetting > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btConstraintSetting* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btConstraintSetting* obj);
+	typedef btConstraintSetting parent_t;
+	typedef btConstraintSetting base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btConstraintSolver
+template<>
+class LunaTraits< btConstraintSolver > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btConstraintSolver* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btConstraintSolver* obj);
+	typedef btConstraintSolver parent_t;
+	typedef btConstraintSolver base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btContactConstraint
+template<>
+class LunaTraits< btContactConstraint > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btContactConstraint* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btContactConstraint* obj);
+	typedef btTypedObject parent_t;
+	typedef btContactConstraint base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btContactSolverInfoData
+template<>
+class LunaTraits< btContactSolverInfoData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btContactSolverInfoData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btContactSolverInfoData* obj);
+	typedef btContactSolverInfoData parent_t;
+	typedef btContactSolverInfoData base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btContactSolverInfo
+template<>
+class LunaTraits< btContactSolverInfo > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btContactSolverInfo* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btContactSolverInfo* obj);
+	typedef btContactSolverInfoData parent_t;
+	typedef btContactSolverInfo base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btContactSolverInfoDoubleData
+template<>
+class LunaTraits< btContactSolverInfoDoubleData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btContactSolverInfoDoubleData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btContactSolverInfoDoubleData* obj);
+	typedef btContactSolverInfoDoubleData parent_t;
+	typedef btContactSolverInfoDoubleData base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btContactSolverInfoFloatData
+template<>
+class LunaTraits< btContactSolverInfoFloatData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btContactSolverInfoFloatData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btContactSolverInfoFloatData* obj);
+	typedef btContactSolverInfoFloatData parent_t;
+	typedef btContactSolverInfoFloatData base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -2424,6 +2718,44 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: btVehicleRaycaster
+template<>
+class LunaTraits< btVehicleRaycaster > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btVehicleRaycaster* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btVehicleRaycaster* obj);
+	typedef btVehicleRaycaster parent_t;
+	typedef btVehicleRaycaster base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btDefaultVehicleRaycaster
+template<>
+class LunaTraits< btDefaultVehicleRaycaster > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btDefaultVehicleRaycaster* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btDefaultVehicleRaycaster* obj);
+	typedef btVehicleRaycaster parent_t;
+	typedef btDefaultVehicleRaycaster base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: btDiscreteCollisionDetectorInterface::ClosestPointInput
 template<>
 class LunaTraits< btDiscreteCollisionDetectorInterface::ClosestPointInput > {
@@ -2462,6 +2794,44 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: btDynamicsWorld
+template<>
+class LunaTraits< btDynamicsWorld > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btDynamicsWorld* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btDynamicsWorld* obj);
+	typedef btCollisionWorld parent_t;
+	typedef btDynamicsWorld base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btDiscreteDynamicsWorld
+template<>
+class LunaTraits< btDiscreteDynamicsWorld > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btDiscreteDynamicsWorld* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btDiscreteDynamicsWorld* obj);
+	typedef btCollisionWorld parent_t;
+	typedef btDiscreteDynamicsWorld base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: btDispatcherInfo
 template<>
 class LunaTraits< btDispatcherInfo > {
@@ -2478,6 +2848,44 @@ public:
 	static void _bind_dtor(btDispatcherInfo* obj);
 	typedef btDispatcherInfo parent_t;
 	typedef btDispatcherInfo base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btDynamicsWorldDoubleData
+template<>
+class LunaTraits< btDynamicsWorldDoubleData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btDynamicsWorldDoubleData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btDynamicsWorldDoubleData* obj);
+	typedef btDynamicsWorldDoubleData parent_t;
+	typedef btDynamicsWorldDoubleData base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btDynamicsWorldFloatData
+template<>
+class LunaTraits< btDynamicsWorldFloatData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btDynamicsWorldFloatData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btDynamicsWorldFloatData* obj);
+	typedef btDynamicsWorldFloatData parent_t;
+	typedef btDynamicsWorldFloatData base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -2576,6 +2984,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: btGearConstraint
+template<>
+class LunaTraits< btGearConstraint > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btGearConstraint* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btGearConstraint* obj);
+	typedef btTypedObject parent_t;
+	typedef btGearConstraint base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: btGEN_Link
 template<>
 class LunaTraits< btGEN_Link > {
@@ -2611,6 +3038,82 @@ public:
 	static void _bind_dtor(btGEN_List* obj);
 	typedef btGEN_List parent_t;
 	typedef btGEN_List base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btGeneric6DofConstraint
+template<>
+class LunaTraits< btGeneric6DofConstraint > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btGeneric6DofConstraint* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btGeneric6DofConstraint* obj);
+	typedef btTypedObject parent_t;
+	typedef btGeneric6DofConstraint base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btGeneric6DofConstraintData
+template<>
+class LunaTraits< btGeneric6DofConstraintData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btGeneric6DofConstraintData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btGeneric6DofConstraintData* obj);
+	typedef btGeneric6DofConstraintData parent_t;
+	typedef btGeneric6DofConstraintData base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btGeneric6DofSpringConstraint
+template<>
+class LunaTraits< btGeneric6DofSpringConstraint > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btGeneric6DofSpringConstraint* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btGeneric6DofSpringConstraint* obj);
+	typedef btTypedObject parent_t;
+	typedef btGeneric6DofSpringConstraint base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btGeneric6DofSpringConstraintData
+template<>
+class LunaTraits< btGeneric6DofSpringConstraintData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btGeneric6DofSpringConstraintData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btGeneric6DofSpringConstraintData* obj);
+	typedef btGeneric6DofSpringConstraintData parent_t;
+	typedef btGeneric6DofSpringConstraintData base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -3165,6 +3668,82 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: btHinge2Constraint
+template<>
+class LunaTraits< btHinge2Constraint > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btHinge2Constraint* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btHinge2Constraint* obj);
+	typedef btTypedObject parent_t;
+	typedef btHinge2Constraint base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btHingeConstraint
+template<>
+class LunaTraits< btHingeConstraint > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btHingeConstraint* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btHingeConstraint* obj);
+	typedef btTypedObject parent_t;
+	typedef btHingeConstraint base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btHingeConstraintDoubleData
+template<>
+class LunaTraits< btHingeConstraintDoubleData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btHingeConstraintDoubleData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btHingeConstraintDoubleData* obj);
+	typedef btHingeConstraintDoubleData parent_t;
+	typedef btHingeConstraintDoubleData base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btHingeConstraintFloatData
+template<>
+class LunaTraits< btHingeConstraintFloatData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btHingeConstraintFloatData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btHingeConstraintFloatData* obj);
+	typedef btHingeConstraintFloatData parent_t;
+	typedef btHingeConstraintFloatData base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: btIDebugDraw
 template<>
 class LunaTraits< btIDebugDraw > {
@@ -3238,6 +3817,63 @@ public:
 	static void _bind_dtor(btIntIndexData* obj);
 	typedef btIntIndexData parent_t;
 	typedef btIntIndexData base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btJacobianEntry
+template<>
+class LunaTraits< btJacobianEntry > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btJacobianEntry* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btJacobianEntry* obj);
+	typedef btJacobianEntry parent_t;
+	typedef btJacobianEntry base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btJointFeedback
+template<>
+class LunaTraits< btJointFeedback > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btJointFeedback* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btJointFeedback* obj);
+	typedef btJointFeedback parent_t;
+	typedef btJointFeedback base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btKinematicCharacterController
+template<>
+class LunaTraits< btKinematicCharacterController > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btKinematicCharacterController* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btKinematicCharacterController* obj);
+	typedef btActionInterface parent_t;
+	typedef btKinematicCharacterController base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -3716,25 +4352,6 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Class: btTypedObject
-template<>
-class LunaTraits< btTypedObject > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static btTypedObject* _bind_ctor(lua_State *L);
-	static void _bind_dtor(btTypedObject* obj);
-	typedef btTypedObject parent_t;
-	typedef btTypedObject base_t;
-	static luna_ConverterType converters[];
-};
-
 // Class: btPersistentManifold
 template<>
 class LunaTraits< btPersistentManifold > {
@@ -3770,6 +4387,63 @@ public:
 	static void _bind_dtor(btPlane* obj);
 	typedef btPlane parent_t;
 	typedef btPlane base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btPoint2PointConstraint
+template<>
+class LunaTraits< btPoint2PointConstraint > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btPoint2PointConstraint* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btPoint2PointConstraint* obj);
+	typedef btTypedObject parent_t;
+	typedef btPoint2PointConstraint base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btPoint2PointConstraintDoubleData
+template<>
+class LunaTraits< btPoint2PointConstraintDoubleData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btPoint2PointConstraintDoubleData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btPoint2PointConstraintDoubleData* obj);
+	typedef btPoint2PointConstraintDoubleData parent_t;
+	typedef btPoint2PointConstraintDoubleData base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btPoint2PointConstraintFloatData
+template<>
+class LunaTraits< btPoint2PointConstraintFloatData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btPoint2PointConstraintFloatData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btPoint2PointConstraintFloatData* obj);
+	typedef btPoint2PointConstraintFloatData parent_t;
+	typedef btPoint2PointConstraintFloatData base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -4039,6 +4713,139 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: btRaycastVehicle
+template<>
+class LunaTraits< btRaycastVehicle > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btRaycastVehicle* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btRaycastVehicle* obj);
+	typedef btActionInterface parent_t;
+	typedef btRaycastVehicle base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btRaycastVehicle::btVehicleTuning
+template<>
+class LunaTraits< btRaycastVehicle::btVehicleTuning > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btRaycastVehicle::btVehicleTuning* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btRaycastVehicle::btVehicleTuning* obj);
+	typedef btRaycastVehicle::btVehicleTuning parent_t;
+	typedef btRaycastVehicle::btVehicleTuning base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btRigidBody
+template<>
+class LunaTraits< btRigidBody > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btRigidBody* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btRigidBody* obj);
+	typedef btCollisionObject parent_t;
+	typedef btRigidBody base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btRigidBody::btRigidBodyConstructionInfo
+template<>
+class LunaTraits< btRigidBody::btRigidBodyConstructionInfo > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btRigidBody::btRigidBodyConstructionInfo* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btRigidBody::btRigidBodyConstructionInfo* obj);
+	typedef btRigidBody::btRigidBodyConstructionInfo parent_t;
+	typedef btRigidBody::btRigidBodyConstructionInfo base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btRigidBodyDoubleData
+template<>
+class LunaTraits< btRigidBodyDoubleData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btRigidBodyDoubleData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btRigidBodyDoubleData* obj);
+	typedef btRigidBodyDoubleData parent_t;
+	typedef btRigidBodyDoubleData base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btRigidBodyFloatData
+template<>
+class LunaTraits< btRigidBodyFloatData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btRigidBodyFloatData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btRigidBodyFloatData* obj);
+	typedef btRigidBodyFloatData parent_t;
+	typedef btRigidBodyFloatData base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btRotationalLimitMotor
+template<>
+class LunaTraits< btRotationalLimitMotor > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btRotationalLimitMotor* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btRotationalLimitMotor* obj);
+	typedef btRotationalLimitMotor parent_t;
+	typedef btRotationalLimitMotor base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: btScaledBvhTriangleMeshShape
 template<>
 class LunaTraits< btScaledBvhTriangleMeshShape > {
@@ -4074,6 +4881,25 @@ public:
 	static void _bind_dtor(btScaledTriangleMeshShapeData* obj);
 	typedef btScaledTriangleMeshShapeData parent_t;
 	typedef btScaledTriangleMeshShapeData base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btSequentialImpulseConstraintSolver
+template<>
+class LunaTraits< btSequentialImpulseConstraintSolver > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btSequentialImpulseConstraintSolver* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btSequentialImpulseConstraintSolver* obj);
+	typedef btConstraintSolver parent_t;
+	typedef btSequentialImpulseConstraintSolver base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -4172,6 +4998,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: btSimpleDynamicsWorld
+template<>
+class LunaTraits< btSimpleDynamicsWorld > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btSimpleDynamicsWorld* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btSimpleDynamicsWorld* obj);
+	typedef btCollisionWorld parent_t;
+	typedef btSimpleDynamicsWorld base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: btSimulationIslandManager
 template<>
 class LunaTraits< btSimulationIslandManager > {
@@ -4207,6 +5052,101 @@ public:
 	static void _bind_dtor(btSimulationIslandManager::IslandCallback* obj);
 	typedef btSimulationIslandManager::IslandCallback parent_t;
 	typedef btSimulationIslandManager::IslandCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btSliderConstraint
+template<>
+class LunaTraits< btSliderConstraint > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btSliderConstraint* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btSliderConstraint* obj);
+	typedef btTypedObject parent_t;
+	typedef btSliderConstraint base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btSliderConstraintData
+template<>
+class LunaTraits< btSliderConstraintData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btSliderConstraintData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btSliderConstraintData* obj);
+	typedef btSliderConstraintData parent_t;
+	typedef btSliderConstraintData base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btSolve2LinearConstraint
+template<>
+class LunaTraits< btSolve2LinearConstraint > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btSolve2LinearConstraint* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btSolve2LinearConstraint* obj);
+	typedef btSolve2LinearConstraint parent_t;
+	typedef btSolve2LinearConstraint base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btSolverBody
+template<>
+class LunaTraits< btSolverBody > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btSolverBody* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btSolverBody* obj);
+	typedef btSolverBody parent_t;
+	typedef btSolverBody base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btSolverConstraint
+template<>
+class LunaTraits< btSolverConstraint > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btSolverConstraint* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btSolverConstraint* obj);
+	typedef btSolverConstraint parent_t;
+	typedef btSolverConstraint base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -4609,6 +5549,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: btTranslationalLimitMotor
+template<>
+class LunaTraits< btTranslationalLimitMotor > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btTranslationalLimitMotor* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btTranslationalLimitMotor* obj);
+	typedef btTranslationalLimitMotor parent_t;
+	typedef btTranslationalLimitMotor base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: btTriangle
 template<>
 class LunaTraits< btTriangle > {
@@ -4856,6 +5815,63 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: btTypedConstraint::btConstraintInfo1
+template<>
+class LunaTraits< btTypedConstraint::btConstraintInfo1 > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btTypedConstraint::btConstraintInfo1* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btTypedConstraint::btConstraintInfo1* obj);
+	typedef btTypedConstraint::btConstraintInfo1 parent_t;
+	typedef btTypedConstraint::btConstraintInfo1 base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btTypedConstraint::btConstraintInfo2
+template<>
+class LunaTraits< btTypedConstraint::btConstraintInfo2 > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btTypedConstraint::btConstraintInfo2* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btTypedConstraint::btConstraintInfo2* obj);
+	typedef btTypedConstraint::btConstraintInfo2 parent_t;
+	typedef btTypedConstraint::btConstraintInfo2 base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btTypedConstraintData
+template<>
+class LunaTraits< btTypedConstraintData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btTypedConstraintData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btTypedConstraintData* obj);
+	typedef btTypedConstraintData parent_t;
+	typedef btTypedConstraintData base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: btUniformScalingShape
 template<>
 class LunaTraits< btUniformScalingShape > {
@@ -4891,6 +5907,25 @@ public:
 	static void _bind_dtor(btUnionFind* obj);
 	typedef btUnionFind parent_t;
 	typedef btUnionFind base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btUniversalConstraint
+template<>
+class LunaTraits< btUniversalConstraint > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btUniversalConstraint* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btUniversalConstraint* obj);
+	typedef btTypedObject parent_t;
+	typedef btUniversalConstraint base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -4989,6 +6024,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: btVehicleRaycaster::btVehicleRaycasterResult
+template<>
+class LunaTraits< btVehicleRaycaster::btVehicleRaycasterResult > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btVehicleRaycaster::btVehicleRaycasterResult* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btVehicleRaycaster::btVehicleRaycasterResult* obj);
+	typedef btVehicleRaycaster::btVehicleRaycasterResult parent_t;
+	typedef btVehicleRaycaster::btVehicleRaycasterResult base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: btVoronoiSimplexSolver
 template<>
 class LunaTraits< btVoronoiSimplexSolver > {
@@ -5005,6 +6059,63 @@ public:
 	static void _bind_dtor(btVoronoiSimplexSolver* obj);
 	typedef btVoronoiSimplexSolver parent_t;
 	typedef btVoronoiSimplexSolver base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btWheelInfo
+template<>
+class LunaTraits< btWheelInfo > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btWheelInfo* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btWheelInfo* obj);
+	typedef btWheelInfo parent_t;
+	typedef btWheelInfo base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btWheelInfo::RaycastInfo
+template<>
+class LunaTraits< btWheelInfo::RaycastInfo > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btWheelInfo::RaycastInfo* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btWheelInfo::RaycastInfo* obj);
+	typedef btWheelInfo::RaycastInfo parent_t;
+	typedef btWheelInfo::RaycastInfo base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: btWheelInfoConstructionInfo
+template<>
+class LunaTraits< btWheelInfoConstructionInfo > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btWheelInfoConstructionInfo* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btWheelInfoConstructionInfo* obj);
+	typedef btWheelInfoConstructionInfo parent_t;
+	typedef btWheelInfoConstructionInfo base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -5540,6 +6651,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: btAlignedObjectArray< btSolverConstraint >
+template<>
+class LunaTraits< btAlignedObjectArray< btSolverConstraint > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static btAlignedObjectArray< btSolverConstraint >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(btAlignedObjectArray< btSolverConstraint >* obj);
+	typedef btAlignedObjectArray< btSolverConstraint > parent_t;
+	typedef btAlignedObjectArray< btSolverConstraint > base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: btAlignedObjectArray< btIndexedMesh >
 template<>
 class LunaTraits< btAlignedObjectArray< btIndexedMesh > > {
@@ -5837,6 +6967,13 @@ public:
 };
 
 template<>
+class LunaType< 91159321 > {
+public:
+	typedef btActionInterface type;
+	
+};
+
+template<>
 class LunaType< 17890858 > {
 public:
 	typedef btCollisionAlgorithm type;
@@ -5847,6 +6984,13 @@ template<>
 class LunaType< 86058940 > {
 public:
 	typedef btAngleCompareFunc type;
+	
+};
+
+template<>
+class LunaType< 79899735 > {
+public:
+	typedef btAngularLimit type;
 	
 };
 
@@ -6082,9 +7226,58 @@ public:
 };
 
 template<>
+class LunaType< 66271199 > {
+public:
+	typedef btTypedObject type;
+	
+};
+
+template<>
+class LunaType< 59805690 > {
+public:
+	typedef btConeTwistConstraintData type;
+	
+};
+
+template<>
 class LunaType< 47364139 > {
 public:
 	typedef btConstraintRow type;
+	
+};
+
+template<>
+class LunaType< 71995903 > {
+public:
+	typedef btConstraintSetting type;
+	
+};
+
+template<>
+class LunaType< 53256621 > {
+public:
+	typedef btConstraintSolver type;
+	
+};
+
+template<>
+class LunaType< 5410878 > {
+public:
+	typedef btContactSolverInfoData type;
+	
+};
+
+template<>
+class LunaType< 29375914 > {
+public:
+	typedef btContactSolverInfoDoubleData type;
+	
+};
+
+template<>
+class LunaType< 97541958 > {
+public:
+	typedef btContactSolverInfoFloatData type;
 	
 };
 
@@ -6257,6 +7450,13 @@ public:
 };
 
 template<>
+class LunaType< 79998095 > {
+public:
+	typedef btVehicleRaycaster type;
+	
+};
+
+template<>
 class LunaType< 99215612 > {
 public:
 	typedef btDiscreteCollisionDetectorInterface::ClosestPointInput type;
@@ -6274,6 +7474,20 @@ template<>
 class LunaType< 95201256 > {
 public:
 	typedef btDispatcherInfo type;
+	
+};
+
+template<>
+class LunaType< 73649389 > {
+public:
+	typedef btDynamicsWorldDoubleData type;
+	
+};
+
+template<>
+class LunaType< 53873546 > {
+public:
+	typedef btDynamicsWorldFloatData type;
 	
 };
 
@@ -6302,6 +7516,20 @@ template<>
 class LunaType< 26941501 > {
 public:
 	typedef btGEN_List type;
+	
+};
+
+template<>
+class LunaType< 56103271 > {
+public:
+	typedef btGeneric6DofConstraintData type;
+	
+};
+
+template<>
+class LunaType< 39358732 > {
+public:
+	typedef btGeneric6DofSpringConstraintData type;
 	
 };
 
@@ -6397,6 +7625,20 @@ public:
 };
 
 template<>
+class LunaType< 26872192 > {
+public:
+	typedef btHingeConstraintDoubleData type;
+	
+};
+
+template<>
+class LunaType< 29781387 > {
+public:
+	typedef btHingeConstraintFloatData type;
+	
+};
+
+template<>
 class LunaType< 63441741 > {
 public:
 	typedef btIDebugDraw type;
@@ -6421,6 +7663,20 @@ template<>
 class LunaType< 39554929 > {
 public:
 	typedef btIntIndexData type;
+	
+};
+
+template<>
+class LunaType< 49949186 > {
+public:
+	typedef btJacobianEntry type;
+	
+};
+
+template<>
+class LunaType< 18466422 > {
+public:
+	typedef btJointFeedback type;
 	
 };
 
@@ -6530,16 +7786,23 @@ public:
 };
 
 template<>
-class LunaType< 66271199 > {
+class LunaType< 73532668 > {
 public:
-	typedef btTypedObject type;
+	typedef btPlane type;
 	
 };
 
 template<>
-class LunaType< 73532668 > {
+class LunaType< 21299109 > {
 public:
-	typedef btPlane type;
+	typedef btPoint2PointConstraintDoubleData type;
+	
+};
+
+template<>
+class LunaType< 16600347 > {
+public:
+	typedef btPoint2PointConstraintFloatData type;
 	
 };
 
@@ -6628,6 +7891,41 @@ public:
 };
 
 template<>
+class LunaType< 91513369 > {
+public:
+	typedef btRaycastVehicle::btVehicleTuning type;
+	
+};
+
+template<>
+class LunaType< 13789036 > {
+public:
+	typedef btRigidBody::btRigidBodyConstructionInfo type;
+	
+};
+
+template<>
+class LunaType< 50557776 > {
+public:
+	typedef btRigidBodyDoubleData type;
+	
+};
+
+template<>
+class LunaType< 1580424 > {
+public:
+	typedef btRigidBodyFloatData type;
+	
+};
+
+template<>
+class LunaType< 86737843 > {
+public:
+	typedef btRotationalLimitMotor type;
+	
+};
+
+template<>
 class LunaType< 52810247 > {
 public:
 	typedef btScaledTriangleMeshShapeData type;
@@ -6666,6 +7964,34 @@ template<>
 class LunaType< 56758259 > {
 public:
 	typedef btSimulationIslandManager::IslandCallback type;
+	
+};
+
+template<>
+class LunaType< 62504021 > {
+public:
+	typedef btSliderConstraintData type;
+	
+};
+
+template<>
+class LunaType< 34428590 > {
+public:
+	typedef btSolve2LinearConstraint type;
+	
+};
+
+template<>
+class LunaType< 65712094 > {
+public:
+	typedef btSolverBody type;
+	
+};
+
+template<>
+class LunaType< 67106554 > {
+public:
+	typedef btSolverConstraint type;
 	
 };
 
@@ -6733,6 +8059,13 @@ public:
 };
 
 template<>
+class LunaType< 31464826 > {
+public:
+	typedef btTranslationalLimitMotor type;
+	
+};
+
+template<>
 class LunaType< 4403420 > {
 public:
 	typedef btTriangle type;
@@ -6764,6 +8097,27 @@ template<>
 class LunaType< 3729562 > {
 public:
 	typedef btTriangleMeshShapeData type;
+	
+};
+
+template<>
+class LunaType< 17243935 > {
+public:
+	typedef btTypedConstraint::btConstraintInfo1 type;
+	
+};
+
+template<>
+class LunaType< 17243936 > {
+public:
+	typedef btTypedConstraint::btConstraintInfo2 type;
+	
+};
+
+template<>
+class LunaType< 98838043 > {
+public:
+	typedef btTypedConstraintData type;
 	
 };
 
@@ -6803,9 +8157,37 @@ public:
 };
 
 template<>
+class LunaType< 50443956 > {
+public:
+	typedef btVehicleRaycaster::btVehicleRaycasterResult type;
+	
+};
+
+template<>
 class LunaType< 95428271 > {
 public:
 	typedef btVoronoiSimplexSolver type;
+	
+};
+
+template<>
+class LunaType< 45065223 > {
+public:
+	typedef btWheelInfo type;
+	
+};
+
+template<>
+class LunaType< 75375071 > {
+public:
+	typedef btWheelInfo::RaycastInfo type;
+	
+};
+
+template<>
+class LunaType< 65660504 > {
+public:
+	typedef btWheelInfoConstructionInfo type;
 	
 };
 
@@ -6992,6 +8374,13 @@ public:
 };
 
 template<>
+class LunaType< 1318117 > {
+public:
+	typedef btConstraintArray type;
+	
+};
+
+template<>
 class LunaType< 130016 > {
 public:
 	typedef IndexedMeshArray type;
@@ -7086,6 +8475,13 @@ template<>
 class LunaType< 82300513 > {
 public:
 	typedef btAlignedObjectArray< btBvhSubtreeInfo > type;
+	
+};
+
+template<>
+class LunaType< 36629303 > {
+public:
+	typedef btAlignedObjectArray< btSolverConstraint > type;
 	
 };
 

@@ -47,7 +47,9 @@ ReflectionGenerator.generate{
 		"btGeometryUtil::isInside",
 		"CProfileIterator::Enter_Largest_Child",
 		"btAlignedObjectArray< btBridgeProxy %* >",
-		"btHeightfieldTerrainShape::m_",
+		"btRaycastVehicle::m_wheelInfo",
+		"btHeightfieldTerrainShape::m_", -- union members
+		"btTypedConstraint::m_user", -- union members
 		"btMultiSapBroadphase::quicksort",
 		"btQuantizedBvh::walkRecursiveQuantizedTreeAgainstQuantizedTree",
 	},

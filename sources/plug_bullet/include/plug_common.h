@@ -34,4 +34,11 @@ struct luna_caster<btDbvt::ICollide,dstType> {
 	};
 };
 
+template <>
+struct luna_caster<btTypedObject,luna_wrapper_base> {
+	static inline luna_wrapper_base* cast(btTypedObject* ptr) {
+		return (luna_wrapper_base*)(ptr);
+	};
+};
+
 #endif
