@@ -288,6 +288,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getTRANSFORM_LENGTH(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -940,6 +946,25 @@ public:
 		return 0;
 	}
 
+	// const size_t SPK::Transformable::TRANSFORM_LENGTH()
+	static int _bind_getTRANSFORM_LENGTH(lua_State *L) {
+		if (!_lg_typecheck_getTRANSFORM_LENGTH(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const size_t SPK::Transformable::TRANSFORM_LENGTH() function, expected prototype:\nconst size_t SPK::Transformable::TRANSFORM_LENGTH()\nClass arguments details:\n");
+		}
+
+
+		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const size_t SPK::Transformable::TRANSFORM_LENGTH(). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
+		}
+		const size_t lret = self->TRANSFORM_LENGTH;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -947,8 +972,6 @@ public:
 
 SPK::Transformable* LunaTraits< SPK::Transformable >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_SPK_Transformable::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< SPK::Transformable >::_bind_dtor(SPK::Transformable* obj) {
@@ -989,6 +1012,7 @@ luna_RegType LunaTraits< SPK::Transformable >::methods[] = {
 	{"lookAtLH", &luna_wrapper_SPK_Transformable::_bind_lookAtLH},
 	{"updateTransform", &luna_wrapper_SPK_Transformable::_bind_updateTransform},
 	{"resetTransform", &luna_wrapper_SPK_Transformable::_bind_resetTransform},
+	{"getTRANSFORM_LENGTH", &luna_wrapper_SPK_Transformable::_bind_getTRANSFORM_LENGTH},
 	{"dynCast", &luna_wrapper_SPK_Transformable::_bind_dynCast},
 	{"__eq", &luna_wrapper_SPK_Transformable::_bind___eq},
 	{"getTable", &luna_wrapper_SPK_Transformable::_bind_getTable},

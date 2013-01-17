@@ -45,8 +45,6 @@ public:
 
 wxSortedArrayString* LunaTraits< wxSortedArrayString >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxSortedArrayString >::_bind_dtor(wxSortedArrayString* obj) {

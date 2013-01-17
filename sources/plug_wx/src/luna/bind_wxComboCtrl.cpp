@@ -5482,8 +5482,6 @@ public:
 
 wxComboCtrl* LunaTraits< wxComboCtrl >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxComboCtrl::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxComboCtrl >::_bind_dtor(wxComboCtrl* obj) {

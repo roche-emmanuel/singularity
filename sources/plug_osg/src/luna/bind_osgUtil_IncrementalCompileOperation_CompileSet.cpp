@@ -83,8 +83,6 @@ public:
 
 osgUtil::IncrementalCompileOperation::CompileSet* LunaTraits< osgUtil::IncrementalCompileOperation::CompileSet >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::IncrementalCompileOperation::CompileSet >::_bind_dtor(osgUtil::IncrementalCompileOperation::CompileSet* obj) {

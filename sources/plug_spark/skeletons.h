@@ -1,6 +1,12 @@
 #ifndef _spark_SKELETONS_H_
 #define _spark_SKELETONS_H_
 
+class ParticleData {
+};
+
+class PosAndRotate {
+};
+
 namespace osg {
 };
 
@@ -21,9 +27,6 @@ namespace spark {
 
 		class DeferredSystemHandler: public osg::Drawable::UpdateCallback {
 		public:
-			class PosAndRotate {
-			};
-
 		};
 
 		class ImageAttribute {
@@ -98,9 +101,6 @@ namespace SPK {
 
 	class Particle {
 	public:
-		class ParticleData {
-		};
-
 	};
 
 	class Pool {
@@ -215,25 +215,25 @@ namespace SPK {
 	class Sphere: public SPK::Zone {
 	};
 
-};
+	namespace GL {
+		class GLExtHandler {
+		};
 
-namespace GL {
-	class GLExtHandler {
-	};
+		class GLLineRenderer: public SPK::GL::GLRenderer, public SPK::LineRendererInterface {
+		};
 
-	class GLLineRenderer: public GL::GLRenderer, public SPK::LineRendererInterface {
-	};
+		class GLLineTrailRenderer: public SPK::GL::GLRenderer {
+		};
 
-	class GLLineTrailRenderer: public GL::GLRenderer {
-	};
+		class GLPointRenderer: public SPK::GL::GLRenderer, public SPK::PointRendererInterface, public SPK::GL::GLExtHandler {
+		};
 
-	class GLPointRenderer: public GL::GLRenderer, public SPK::PointRendererInterface, public GL::GLExtHandler {
-	};
+		class GLQuadRenderer: public SPK::GL::GLRenderer, public SPK::QuadRendererInterface, public SPK::Oriented3DRendererInterface, public SPK::GL::GLExtHandler {
+		};
 
-	class GLQuadRenderer: public GL::GLRenderer, public SPK::QuadRendererInterface, public SPK::Oriented3DRendererInterface, public GL::GLExtHandler {
-	};
+		class GLRenderer: public SPK::Renderer {
+		};
 
-	class GLRenderer: public SPK::Renderer {
 	};
 
 };

@@ -99,6 +99,19 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_get_eye(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_eye(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,70092749) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 1 valid operators)
@@ -155,6 +168,50 @@ public:
 
 
 	// Function binds:
+	// SPK::Vector3D spark::SparkDrawable::SortParticlesOperator::_eye()
+	static int _bind_get_eye(lua_State *L) {
+		if (!_lg_typecheck_get_eye(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in SPK::Vector3D spark::SparkDrawable::SortParticlesOperator::_eye() function, expected prototype:\nSPK::Vector3D spark::SparkDrawable::SortParticlesOperator::_eye()\nClass arguments details:\n");
+		}
+
+
+		spark::SparkDrawable::SortParticlesOperator* self=(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call SPK::Vector3D spark::SparkDrawable::SortParticlesOperator::_eye(). Got : '%s'",typeid(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1)).name());
+		}
+		const SPK::Vector3D* lret = &self->_eye;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< SPK::Vector3D >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void spark::SparkDrawable::SortParticlesOperator::_eye(SPK::Vector3D value)
+	static int _bind_set_eye(lua_State *L) {
+		if (!_lg_typecheck_set_eye(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::SortParticlesOperator::_eye(SPK::Vector3D value) function, expected prototype:\nvoid spark::SparkDrawable::SortParticlesOperator::_eye(SPK::Vector3D value)\nClass arguments details:\narg 1 ID = 70092749\n");
+		}
+
+		SPK::Vector3D* value_ptr=(Luna< SPK::Vector3D >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in spark::SparkDrawable::SortParticlesOperator::_eye function");
+		}
+		SPK::Vector3D value=*value_ptr;
+
+		spark::SparkDrawable::SortParticlesOperator* self=(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::SortParticlesOperator::_eye(SPK::Vector3D). Got : '%s'",typeid(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1)).name());
+		}
+		self->_eye = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// bool spark::SparkDrawable::SortParticlesOperator::operator()(SPK::System * lhs, SPK::System * rhs)
@@ -183,8 +240,6 @@ public:
 
 spark::SparkDrawable::SortParticlesOperator* LunaTraits< spark::SparkDrawable::SortParticlesOperator >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_spark_SparkDrawable_SortParticlesOperator::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< spark::SparkDrawable::SortParticlesOperator >::_bind_dtor(spark::SparkDrawable::SortParticlesOperator* obj) {
@@ -199,6 +254,8 @@ const int LunaTraits< spark::SparkDrawable::SortParticlesOperator >::hash = 6889
 const int LunaTraits< spark::SparkDrawable::SortParticlesOperator >::uniqueIDs[] = {68897850,0};
 
 luna_RegType LunaTraits< spark::SparkDrawable::SortParticlesOperator >::methods[] = {
+	{"get_eye", &luna_wrapper_spark_SparkDrawable_SortParticlesOperator::_bind_get_eye},
+	{"set_eye", &luna_wrapper_spark_SparkDrawable_SortParticlesOperator::_bind_set_eye},
 	{"op_call", &luna_wrapper_spark_SparkDrawable_SortParticlesOperator::_bind_op_call},
 	{"dynCast", &luna_wrapper_spark_SparkDrawable_SortParticlesOperator::_bind_dynCast},
 	{"__eq", &luna_wrapper_spark_SparkDrawable_SortParticlesOperator::_bind___eq},

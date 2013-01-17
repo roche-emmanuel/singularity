@@ -1638,8 +1638,6 @@ public:
 
 osg::Material* LunaTraits< osg::Material >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Material::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::Material >::_bind_dtor(osg::Material* obj) {

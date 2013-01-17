@@ -505,6 +505,7 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	Luna< wxPoint >::Register(L);
 	Luna< wxPoint2DDouble >::Register(L);
 	Luna< wxPoint2DInt >::Register(L);
+	Luna< wxPointList >::Register(L);
 	Luna< wxPopupWindow >::Register(L);
 	Luna< wxPopupTransientWindow >::Register(L);
 	Luna< wxPosition >::Register(L);
@@ -791,7 +792,6 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	Luna< wxPGEditorDialogAdapter >::Register(L);
 	Luna< wxRibbonToolBarToolBase >::Register(L);
 	Luna< wxSplashScreenWindow >::Register(L);
-	Luna< signed short >::Register(L);
 	Luna< wxToolBarBase >::Register(L);
 	luna_popModule(L);
 

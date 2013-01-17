@@ -2355,8 +2355,6 @@ public:
 
 osgGA::FirstPersonManipulator* LunaTraits< osgGA::FirstPersonManipulator >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgGA_FirstPersonManipulator::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgGA::FirstPersonManipulator >::_bind_dtor(osgGA::FirstPersonManipulator* obj) {

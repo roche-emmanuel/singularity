@@ -70,8 +70,6 @@ public:
 
 osgUtil::dereference_less* LunaTraits< osgUtil::dereference_less >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::dereference_less >::_bind_dtor(osgUtil::dereference_less* obj) {

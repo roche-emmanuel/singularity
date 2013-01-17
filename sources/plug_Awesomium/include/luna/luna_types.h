@@ -27,6 +27,7 @@
 #include <Awesomium/WebView.h>
 #include <Awesomium/WebViewListener.h>
 
+// Class: SurfaceSubloadCallback
 template<>
 class LunaTraits< SurfaceSubloadCallback > {
 public:
@@ -45,6 +46,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::Surface
 template<>
 class LunaTraits< Awesomium::Surface > {
 public:
@@ -63,6 +65,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::BitmapSurface
 template<>
 class LunaTraits< Awesomium::BitmapSurface > {
 public:
@@ -81,6 +84,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::SurfaceFactory
 template<>
 class LunaTraits< Awesomium::SurfaceFactory > {
 public:
@@ -99,6 +103,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::BitmapSurfaceFactory
 template<>
 class LunaTraits< Awesomium::BitmapSurfaceFactory > {
 public:
@@ -117,6 +122,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::DataSource
 template<>
 class LunaTraits< Awesomium::DataSource > {
 public:
@@ -135,6 +141,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::DataPakSource
 template<>
 class LunaTraits< Awesomium::DataPakSource > {
 public:
@@ -153,6 +160,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::JSArray
 template<>
 class LunaTraits< Awesomium::JSArray > {
 public:
@@ -171,6 +179,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::JSObject
 template<>
 class LunaTraits< Awesomium::JSObject > {
 public:
@@ -189,6 +198,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::JSMethodHandler
 template<>
 class LunaTraits< Awesomium::JSMethodHandler > {
 public:
@@ -207,6 +217,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::JSValue
 template<>
 class LunaTraits< Awesomium::JSValue > {
 public:
@@ -225,6 +236,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::Rect
 template<>
 class LunaTraits< Awesomium::Rect > {
 public:
@@ -243,6 +255,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::PrintConfig
 template<>
 class LunaTraits< Awesomium::PrintConfig > {
 public:
@@ -261,6 +274,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::ResourceInterceptor
 template<>
 class LunaTraits< Awesomium::ResourceInterceptor > {
 public:
@@ -279,6 +293,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::ResourceRequest
 template<>
 class LunaTraits< Awesomium::ResourceRequest > {
 public:
@@ -297,6 +312,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::ResourceResponse
 template<>
 class LunaTraits< Awesomium::ResourceResponse > {
 public:
@@ -315,6 +331,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::UploadElement
 template<>
 class LunaTraits< Awesomium::UploadElement > {
 public:
@@ -333,6 +350,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebConfig
 template<>
 class LunaTraits< Awesomium::WebConfig > {
 public:
@@ -351,6 +369,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebCore
 template<>
 class LunaTraits< Awesomium::WebCore > {
 public:
@@ -369,6 +388,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebKeyboardEvent
 template<>
 class LunaTraits< Awesomium::WebKeyboardEvent > {
 public:
@@ -387,6 +407,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebMenuItem
 template<>
 class LunaTraits< Awesomium::WebMenuItem > {
 public:
@@ -405,6 +426,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebMenuItemArray
 template<>
 class LunaTraits< Awesomium::WebMenuItemArray > {
 public:
@@ -423,6 +445,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebPreferences
 template<>
 class LunaTraits< Awesomium::WebPreferences > {
 public:
@@ -441,6 +464,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebSession
 template<>
 class LunaTraits< Awesomium::WebSession > {
 public:
@@ -459,6 +483,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebString
 template<>
 class LunaTraits< Awesomium::WebString > {
 public:
@@ -477,6 +502,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebStringArray
 template<>
 class LunaTraits< Awesomium::WebStringArray > {
 public:
@@ -495,6 +521,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebTouchPoint
 template<>
 class LunaTraits< Awesomium::WebTouchPoint > {
 public:
@@ -513,6 +540,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebTouchEvent
 template<>
 class LunaTraits< Awesomium::WebTouchEvent > {
 public:
@@ -531,6 +559,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebURL
 template<>
 class LunaTraits< Awesomium::WebURL > {
 public:
@@ -549,6 +578,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebView
 template<>
 class LunaTraits< Awesomium::WebView > {
 public:
@@ -567,6 +597,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebFileChooserInfo
 template<>
 class LunaTraits< Awesomium::WebFileChooserInfo > {
 public:
@@ -585,6 +616,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebPopupMenuInfo
 template<>
 class LunaTraits< Awesomium::WebPopupMenuInfo > {
 public:
@@ -603,6 +635,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebContextMenuInfo
 template<>
 class LunaTraits< Awesomium::WebContextMenuInfo > {
 public:
@@ -621,6 +654,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebLoginDialogInfo
 template<>
 class LunaTraits< Awesomium::WebLoginDialogInfo > {
 public:
@@ -639,8 +673,9 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebViewListener::View
 template<>
-class LunaTraits< WebViewListener::View > {
+class LunaTraits< Awesomium::WebViewListener::View > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -650,15 +685,16 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static WebViewListener::View* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::View* obj);
-	typedef WebViewListener::View parent_t;
-	typedef WebViewListener::View base_t;
+	static Awesomium::WebViewListener::View* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::View* obj);
+	typedef Awesomium::WebViewListener::View parent_t;
+	typedef Awesomium::WebViewListener::View base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebViewListener::Load
 template<>
-class LunaTraits< WebViewListener::Load > {
+class LunaTraits< Awesomium::WebViewListener::Load > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -668,15 +704,16 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static WebViewListener::Load* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::Load* obj);
-	typedef WebViewListener::Load parent_t;
-	typedef WebViewListener::Load base_t;
+	static Awesomium::WebViewListener::Load* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::Load* obj);
+	typedef Awesomium::WebViewListener::Load parent_t;
+	typedef Awesomium::WebViewListener::Load base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebViewListener::Process
 template<>
-class LunaTraits< WebViewListener::Process > {
+class LunaTraits< Awesomium::WebViewListener::Process > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -686,15 +723,16 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static WebViewListener::Process* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::Process* obj);
-	typedef WebViewListener::Process parent_t;
-	typedef WebViewListener::Process base_t;
+	static Awesomium::WebViewListener::Process* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::Process* obj);
+	typedef Awesomium::WebViewListener::Process parent_t;
+	typedef Awesomium::WebViewListener::Process base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebViewListener::Menu
 template<>
-class LunaTraits< WebViewListener::Menu > {
+class LunaTraits< Awesomium::WebViewListener::Menu > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -704,15 +742,16 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static WebViewListener::Menu* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::Menu* obj);
-	typedef WebViewListener::Menu parent_t;
-	typedef WebViewListener::Menu base_t;
+	static Awesomium::WebViewListener::Menu* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::Menu* obj);
+	typedef Awesomium::WebViewListener::Menu parent_t;
+	typedef Awesomium::WebViewListener::Menu base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebViewListener::Dialog
 template<>
-class LunaTraits< WebViewListener::Dialog > {
+class LunaTraits< Awesomium::WebViewListener::Dialog > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -722,15 +761,16 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static WebViewListener::Dialog* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::Dialog* obj);
-	typedef WebViewListener::Dialog parent_t;
-	typedef WebViewListener::Dialog base_t;
+	static Awesomium::WebViewListener::Dialog* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::Dialog* obj);
+	typedef Awesomium::WebViewListener::Dialog parent_t;
+	typedef Awesomium::WebViewListener::Dialog base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebViewListener::Print
 template<>
-class LunaTraits< WebViewListener::Print > {
+class LunaTraits< Awesomium::WebViewListener::Print > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -740,15 +780,16 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static WebViewListener::Print* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::Print* obj);
-	typedef WebViewListener::Print parent_t;
-	typedef WebViewListener::Print base_t;
+	static Awesomium::WebViewListener::Print* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::Print* obj);
+	typedef Awesomium::WebViewListener::Print parent_t;
+	typedef Awesomium::WebViewListener::Print base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebViewListener::Download
 template<>
-class LunaTraits< WebViewListener::Download > {
+class LunaTraits< Awesomium::WebViewListener::Download > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -758,15 +799,16 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static WebViewListener::Download* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::Download* obj);
-	typedef WebViewListener::Download parent_t;
-	typedef WebViewListener::Download base_t;
+	static Awesomium::WebViewListener::Download* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::Download* obj);
+	typedef Awesomium::WebViewListener::Download parent_t;
+	typedef Awesomium::WebViewListener::Download base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: Awesomium::WebViewListener::InputMethodEditor
 template<>
-class LunaTraits< WebViewListener::InputMethodEditor > {
+class LunaTraits< Awesomium::WebViewListener::InputMethodEditor > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -776,13 +818,14 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static WebViewListener::InputMethodEditor* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::InputMethodEditor* obj);
-	typedef WebViewListener::InputMethodEditor parent_t;
-	typedef WebViewListener::InputMethodEditor base_t;
+	static Awesomium::WebViewListener::InputMethodEditor* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::InputMethodEditor* obj);
+	typedef Awesomium::WebViewListener::InputMethodEditor parent_t;
+	typedef Awesomium::WebViewListener::InputMethodEditor base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Referenced
 template<>
 class LunaTraits< osg::Referenced > {
 public:
@@ -801,6 +844,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Image
 template<>
 class LunaTraits< osg::Image > {
 public:
@@ -819,6 +863,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Texture2D
 template<>
 class LunaTraits< osg::Texture2D > {
 public:
@@ -837,6 +882,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::State
 template<>
 class LunaTraits< osg::State > {
 public:
@@ -1075,58 +1121,58 @@ public:
 };
 
 template<>
-class LunaType< 66232947 > {
+class LunaType< 9977401 > {
 public:
-	typedef WebViewListener::View type;
+	typedef Awesomium::WebViewListener::View type;
 	
 };
 
 template<>
-class LunaType< 65940660 > {
+class LunaType< 9685114 > {
 public:
-	typedef WebViewListener::Load type;
+	typedef Awesomium::WebViewListener::Load type;
 	
 };
 
 template<>
-class LunaType< 86671035 > {
+class LunaType< 78037157 > {
 public:
-	typedef WebViewListener::Process type;
+	typedef Awesomium::WebViewListener::Process type;
 	
 };
 
 template<>
-class LunaType< 65961261 > {
+class LunaType< 9705715 > {
 public:
-	typedef WebViewListener::Menu type;
+	typedef Awesomium::WebViewListener::Menu type;
 	
 };
 
 template<>
-class LunaType< 34397265 > {
+class LunaType< 72828454 > {
 public:
-	typedef WebViewListener::Dialog type;
+	typedef Awesomium::WebViewListener::Dialog type;
 	
 };
 
 template<>
-class LunaType< 47951591 > {
+class LunaType< 4030006 > {
 public:
-	typedef WebViewListener::Print type;
+	typedef Awesomium::WebViewListener::Print type;
 	
 };
 
 template<>
-class LunaType< 12394159 > {
+class LunaType< 44749586 > {
 public:
-	typedef WebViewListener::Download type;
+	typedef Awesomium::WebViewListener::Download type;
 	
 };
 
 template<>
-class LunaType< 85723603 > {
+class LunaType< 9490281 > {
 public:
-	typedef WebViewListener::InputMethodEditor type;
+	typedef Awesomium::WebViewListener::InputMethodEditor type;
 	
 };
 

@@ -29,6 +29,10 @@ tm:registerExternalClass("osg","osg::Matrix")
 tm:registerExternalClass("osg","osg::Vec3")
 tm:registerExternalClass("osg","osg::BoundingBox")
 
+tm:setTypeConstructor("SPK::ArrayBufferCreator< float >","NULL;");
+tm:setTypeConstructor("SPK::ArrayBuffer< float >","NULL;");
+tm:setTypeDestructor("SPK::ArrayBuffer< float >","// do nothing");
+
 ReflectionGenerator.generate{
 	xmlpath=xml_path,
 	luaOpenName=project,

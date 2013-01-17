@@ -173,8 +173,6 @@ public:
 
 spark::GroupCustomUpdate* LunaTraits< spark::GroupCustomUpdate >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_spark_GroupCustomUpdate::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< spark::GroupCustomUpdate >::_bind_dtor(spark::GroupCustomUpdate* obj) {

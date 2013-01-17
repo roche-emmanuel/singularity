@@ -1,7 +1,290 @@
 #ifndef _osg_SKELETONS_H_
 #define _osg_SKELETONS_H_
 
+class ControlPoint {
+};
+
+class CoordinateFrameCallback: public osg::Referenced {
+};
+
+class DatabaseRequest: public osg::Referenced {
+};
+
+class DatabaseThread: public osg::Referenced, public OpenThreads::Thread {
+};
+
+class DrawCallback: public osg::Object {
+};
+
+class DrawCallback: public osg::Object {
+};
+
+class Edgeloop: public osg::Referenced {
+public:
+	class EdgeList {
+	};
+
+};
+
+class EventCallback: public osg::Object {
+};
+
+class Extensions: public osg::Referenced {
+};
+
+class Extensions: public osg::Referenced {
+};
+
+class Extensions: public osg::Referenced {
+};
+
+class Extensions: public osg::Referenced {
+};
+
+class Extensions: public osg::Referenced {
+};
+
+class FontImplementation: public osg::Referenced {
+};
+
 class GLUtesselator {
+};
+
+class Identifier: public osg::Referenced {
+};
+
+class ImageRequest: public osg::Referenced {
+};
+
+class ImageThread: public osg::Referenced, public OpenThreads::Thread {
+};
+
+class LineSegmentIntersection {
+public:
+	class IndexList {
+	};
+
+};
+
+class MatrixPlanesDrawables {
+};
+
+class ModifiedCallback: public osg::Object {
+};
+
+class ObjectData {
+};
+
+class PagedLODList: public osg::Referenced {
+};
+
+class Parameter {
+};
+
+class PerRangeData {
+};
+
+class PixelWindow {
+};
+
+class Point: public osg::Referenced {
+};
+
+class ProgramBinary: public osg::Object {
+};
+
+class RatioWindow {
+};
+
+class ReadCallback: public osg::Referenced {
+};
+
+class ReadQueue: public osgDB::DatabasePager::RequestQueue {
+};
+
+class ReadQueue: public osgDB::ImagePager::RequestQueue {
+};
+
+class ReadResult {
+};
+
+class RemoveEmptyNodesVisitor: public osgUtil::BaseOptimizerVisitor {
+public:
+	class NodeList {
+	};
+
+};
+
+class RemoveLoadedProxyNodesVisitor: public osgUtil::BaseOptimizerVisitor {
+public:
+	class NodeList {
+	};
+
+};
+
+class RemoveRedundantNodesVisitor: public osgUtil::BaseOptimizerVisitor {
+public:
+	class NodeList {
+	};
+
+};
+
+class RequestQueue: public osg::Referenced {
+public:
+	class RequestList {
+	};
+
+};
+
+class RequestQueue: public osg::Referenced {
+public:
+	class RequestList {
+	};
+
+};
+
+class ResizedCallback: public osg::Referenced {
+};
+
+class ScreenIdentifier {
+};
+
+class ScreenSettings {
+};
+
+class Scrolling {
+};
+
+class SortCallback: public osg::Referenced {
+};
+
+class Source: public osg::Referenced {
+};
+
+class SpatializeGroupsVisitor: public osgUtil::BaseOptimizerVisitor {
+public:
+	class GroupsToDivideList {
+	};
+
+	class GeodesToDivideList {
+	};
+
+};
+
+class StateVisitor: public osgUtil::BaseOptimizerVisitor {
+};
+
+class StaticObjectDetectionVisitor: public osgUtil::BaseOptimizerVisitor {
+};
+
+class SwapCallback: public osg::Referenced {
+};
+
+class TabletPen {
+};
+
+class TessellateVisitor: public osgUtil::BaseOptimizerVisitor {
+public:
+	class GroupList {
+	};
+
+};
+
+class TexCoordRange: public osg::Referenced {
+};
+
+class TextureAtlasBuilder {
+public:
+	class Atlas: public osg::Referenced {
+	};
+
+	class CompareSrc {
+	};
+
+};
+
+class TextureAtlasVisitor: public osgUtil::BaseOptimizerVisitor {
+};
+
+class TextureObject: public osg::Referenced {
+};
+
+class TextureObjectManager: public osg::Referenced {
+};
+
+class TextureObjectSet: public osg::Referenced {
+};
+
+class TextureProfile {
+};
+
+class TextureVisitor: public osgUtil::BaseOptimizerVisitor {
+};
+
+class ThreadSafeQueue {
+public:
+	class SceneViewList {
+	};
+
+};
+
+class TouchData: public osg::Referenced {
+public:
+	class TouchSet {
+	};
+
+	class TouchPoint {
+	};
+
+};
+
+class Traits: public osg::Referenced, public osg::GraphicsContext::ScreenIdentifier {
+};
+
+class Triangle: public osg::Referenced {
+};
+
+class Triangle {
+};
+
+class UniformBlockInfo {
+};
+
+class UniformStack {
+public:
+	class UniformPair {
+	};
+
+	class UniformVec {
+	};
+
+};
+
+class UpdateCallback: public osg::StateAttributeCallback {
+};
+
+class UpdateCallback: public osg::Object {
+};
+
+class UpdateSlaveCallback: public osg::Referenced {
+};
+
+class UserStatsLine {
+};
+
+class Vec3ArrayData {
+};
+
+class Vec3d {
+};
+
+class WindowingSystemInterface: public osg::Referenced {
+};
+
+class WriteResult {
+};
+
+class WriteToFile: public osgViewer::ScreenCaptureHandler::CaptureOperation {
 };
 
 namespace OpenThreads {
@@ -250,9 +533,6 @@ namespace osg {
 		class TimeControlPointMap {
 		};
 
-		class ControlPoint {
-		};
-
 	};
 
 	class AnimationPathCallback: public osg::NodeCallback {
@@ -271,9 +551,6 @@ namespace osg {
 	class ArgumentParser {
 	public:
 		class ErrorMessageMap {
-		};
-
-		class Parameter {
 		};
 
 	};
@@ -326,23 +603,14 @@ namespace osg {
 
 	class BlendColor: public osg::StateAttribute {
 	public:
-		class Extensions: public osg::Referenced {
-		};
-
 	};
 
 	class BlendEquation: public osg::StateAttribute {
 	public:
-		class Extensions: public osg::Referenced {
-		};
-
 	};
 
 	class BlendFunc: public osg::StateAttribute {
 	public:
-		class Extensions: public osg::Referenced {
-		};
-
 	};
 
 	class BoundingBoxImpl {
@@ -390,9 +658,6 @@ namespace osg {
 
 	class BufferData: public osg::Object {
 	public:
-		class ModifiedCallback: public osg::Object {
-		};
-
 	};
 
 	class VertexBufferObject: public osg::BufferObject {
@@ -418,9 +683,6 @@ namespace osg {
 		class Attachment {
 		};
 
-		class DrawCallback: public osg::Object {
-		};
-
 	};
 
 	class CameraView: public osg::Transform {
@@ -428,9 +690,6 @@ namespace osg {
 
 	class ClampColor: public osg::StateAttribute {
 	public:
-		class Extensions: public osg::Referenced {
-		};
-
 	};
 
 	class ClearNode: public osg::Group {
@@ -548,18 +807,6 @@ namespace osg {
 		class CullCallback: public osg::Object {
 		};
 
-		class DrawCallback: public osg::Object {
-		};
-
-		class EventCallback: public osg::Object {
-		};
-
-		class Extensions: public osg::Referenced {
-		};
-
-		class UpdateCallback: public osg::Object {
-		};
-
 	};
 
 	class DrawPixels: public osg::Drawable {
@@ -633,9 +880,6 @@ namespace osg {
 		class ArrayData {
 		};
 
-		class Vec3ArrayData {
-		};
-
 	};
 
 	class GL2Extensions: public osg::Referenced {
@@ -659,24 +903,6 @@ namespace osg {
 		};
 
 		class Cameras {
-		};
-
-		class ResizedCallback: public osg::Referenced {
-		};
-
-		class ScreenIdentifier {
-		};
-
-		class ScreenSettings {
-		};
-
-		class SwapCallback: public osg::Referenced {
-		};
-
-		class Traits: public osg::Referenced, public osg::GraphicsContext::ScreenIdentifier {
-		};
-
-		class WindowingSystemInterface: public osg::Referenced {
 		};
 
 	};
@@ -734,9 +960,6 @@ namespace osg {
 		class MipmapDataType {
 		};
 
-		class UpdateCallback: public osg::StateAttributeCallback {
-		};
-
 	};
 
 	class ImageSequence: public osg::ImageStream {
@@ -771,16 +994,6 @@ namespace osg {
 		};
 
 		class KdNode {
-		};
-
-		class LineSegmentIntersection {
-		public:
-			class IndexList {
-			};
-
-		};
-
-		class Triangle {
 		};
 
 	};
@@ -937,9 +1150,6 @@ namespace osg {
 		class PerRangeDataList {
 		};
 
-		class PerRangeData {
-		};
-
 	};
 
 	class Plane {
@@ -1016,12 +1226,6 @@ namespace osg {
 		};
 
 		class PerContextProgram: public osg::Referenced {
-		};
-
-		class ProgramBinary: public osg::Object {
-		};
-
-		class UniformBlockInfo {
 		};
 
 	};
@@ -1175,16 +1379,6 @@ namespace osg {
 
 		};
 
-		class UniformStack {
-		public:
-			class UniformPair {
-			};
-
-			class UniformVec {
-			};
-
-		};
-
 	};
 
 	class StateAttribute: public osg::Object {
@@ -1292,18 +1486,6 @@ namespace osg {
 		};
 
 		class Extensions: public osg::Referenced {
-		};
-
-		class TextureObject: public osg::Referenced {
-		};
-
-		class TextureObjectManager: public osg::Referenced {
-		};
-
-		class TextureObjectSet: public osg::Referenced {
-		};
-
-		class TextureProfile {
 		};
 
 	};
@@ -1539,9 +1721,6 @@ namespace osg {
 	public:
 		class Slave {
 		public:
-			class UpdateSlaveCallback: public osg::Referenced {
-			};
-
 		};
 
 	};
@@ -1617,25 +1796,6 @@ namespace osgDB {
 		class ObjectList {
 		};
 
-		class DatabaseRequest: public osg::Referenced {
-		};
-
-		class DatabaseThread: public osg::Referenced, public OpenThreads::Thread {
-		};
-
-		class PagedLODList: public osg::Referenced {
-		};
-
-		class ReadQueue: public osgDB::DatabasePager::RequestQueue {
-		};
-
-		class RequestQueue: public osg::Referenced {
-		public:
-			class RequestList {
-			};
-
-		};
-
 	};
 
 	class FileList: public osg::Object {
@@ -1690,9 +1850,6 @@ namespace osgDB {
 		class ObjectsSet {
 		};
 
-		class ObjectData {
-		};
-
 	};
 
 	class FileCache: public osg::Referenced {
@@ -1713,35 +1870,10 @@ namespace osgDB {
 
 	class ImageOptions: public osgDB::Options {
 	public:
-		class PixelWindow {
-		};
-
-		class RatioWindow {
-		};
-
-		class TexCoordRange: public osg::Referenced {
-		};
-
 	};
 
 	class ImagePager: public osg::NodeVisitor::ImageRequestHandler {
 	public:
-		class ImageRequest: public osg::Referenced {
-		};
-
-		class ImageThread: public osg::Referenced, public OpenThreads::Thread {
-		};
-
-		class ReadQueue: public osgDB::ImagePager::RequestQueue {
-		};
-
-		class RequestQueue: public osg::Referenced {
-		public:
-			class RequestList {
-			};
-
-		};
-
 	};
 
 	class ImageProcessor: public osg::Object {
@@ -1838,12 +1970,6 @@ namespace osgDB {
 		};
 
 		class FeatureList {
-		};
-
-		class ReadResult {
-		};
-
-		class WriteResult {
 		};
 
 	};
@@ -1990,9 +2116,9 @@ namespace osgDB {
 
 	};
 
-};
+	namespace FileOpResult {
+	};
 
-namespace FileOpResult {
 };
 
 namespace osgGA {
@@ -2005,9 +2131,6 @@ namespace osgGA {
 
 	class CameraManipulator: public osgGA::GUIEventHandler {
 	public:
-		class CoordinateFrameCallback: public osg::Referenced {
-		};
-
 	};
 
 	class CameraViewSwitchManipulator: public osgGA::CameraManipulator {
@@ -2049,22 +2172,6 @@ namespace osgGA {
 
 	class GUIEventAdapter: public osg::Object {
 	public:
-		class Scrolling {
-		};
-
-		class TabletPen {
-		};
-
-		class TouchData: public osg::Referenced {
-		public:
-			class TouchSet {
-			};
-
-			class TouchPoint {
-			};
-
-		};
-
 	};
 
 	class GUIEventHandler: public osg::NodeCallback, public osg::Drawable::EventCallback {
@@ -2316,9 +2423,6 @@ namespace osgText {
 		class GlyphTextureList {
 		};
 
-		class FontImplementation: public osg::Referenced {
-		};
-
 	};
 
 	class Glyph: public osg::Image {
@@ -2433,12 +2537,6 @@ namespace osgUtil {
 
 	class CullVisitor: public osg::NodeVisitor, public osg::CullStack {
 	public:
-		class Identifier: public osg::Referenced {
-		};
-
-		class MatrixPlanesDrawables {
-		};
-
 	};
 
 	class DelaunayConstraint: public osg::Geometry {
@@ -2496,19 +2594,6 @@ namespace osgUtil {
 		};
 
 		class Edge: public osg::Referenced {
-		};
-
-		class Edgeloop: public osg::Referenced {
-		public:
-			class EdgeList {
-			};
-
-		};
-
-		class Point: public osg::Referenced {
-		};
-
-		class Triangle: public osg::Referenced {
 		};
 
 	};
@@ -2598,9 +2683,6 @@ namespace osgUtil {
 
 	class IntersectionVisitor: public osg::NodeVisitor {
 	public:
-		class ReadCallback: public osg::Referenced {
-		};
-
 	};
 
 	class Hit {
@@ -2725,69 +2807,6 @@ namespace osgUtil {
 		class MergeGeometryVisitor: public osgUtil::BaseOptimizerVisitor {
 		};
 
-		class RemoveEmptyNodesVisitor: public osgUtil::BaseOptimizerVisitor {
-		public:
-			class NodeList {
-			};
-
-		};
-
-		class RemoveLoadedProxyNodesVisitor: public osgUtil::BaseOptimizerVisitor {
-		public:
-			class NodeList {
-			};
-
-		};
-
-		class RemoveRedundantNodesVisitor: public osgUtil::BaseOptimizerVisitor {
-		public:
-			class NodeList {
-			};
-
-		};
-
-		class SpatializeGroupsVisitor: public osgUtil::BaseOptimizerVisitor {
-		public:
-			class GroupsToDivideList {
-			};
-
-			class GeodesToDivideList {
-			};
-
-		};
-
-		class StateVisitor: public osgUtil::BaseOptimizerVisitor {
-		};
-
-		class StaticObjectDetectionVisitor: public osgUtil::BaseOptimizerVisitor {
-		};
-
-		class TessellateVisitor: public osgUtil::BaseOptimizerVisitor {
-		public:
-			class GroupList {
-			};
-
-		};
-
-		class TextureAtlasBuilder {
-		public:
-			class Atlas: public osg::Referenced {
-			};
-
-			class CompareSrc {
-			};
-
-			class Source: public osg::Referenced {
-			};
-
-		};
-
-		class TextureAtlasVisitor: public osgUtil::BaseOptimizerVisitor {
-		};
-
-		class TextureVisitor: public osgUtil::BaseOptimizerVisitor {
-		};
-
 	};
 
 	class PlaneIntersector: public osgUtil::Intersector {
@@ -2845,9 +2864,6 @@ namespace osgUtil {
 		};
 
 		class DrawCallback: public osg::Referenced {
-		};
-
-		class SortCallback: public osg::Referenced {
 		};
 
 	};
@@ -2956,9 +2972,6 @@ namespace osgUtil {
 
 		};
 
-		class Vec3d {
-		};
-
 	};
 
 	class TransformCallback: public osg::NodeCallback {
@@ -2994,13 +3007,6 @@ namespace osgViewer {
 
 	class Renderer: public osg::GraphicsOperation {
 	public:
-		class ThreadSafeQueue {
-		public:
-			class SceneViewList {
-			};
-
-		};
-
 	};
 
 	class Scene: public osg::Referenced {
@@ -3049,9 +3055,6 @@ namespace osgViewer {
 
 	class StatsHandler: public osgGA::GUIEventHandler {
 	public:
-		class UserStatsLine {
-		};
-
 	};
 
 	class WindowSizeHandler: public osgGA::GUIEventHandler {
@@ -3072,9 +3075,6 @@ namespace osgViewer {
 	class ScreenCaptureHandler: public osgGA::GUIEventHandler {
 	public:
 		class CaptureOperation: public osg::Referenced {
-		};
-
-		class WriteToFile: public osgViewer::ScreenCaptureHandler::CaptureOperation {
 		};
 
 	};

@@ -227,8 +227,6 @@ public:
 
 osgDB::ObjectGLenum* LunaTraits< osgDB::ObjectGLenum >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgDB_ObjectGLenum::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgDB::ObjectGLenum >::_bind_dtor(osgDB::ObjectGLenum* obj) {

@@ -380,8 +380,6 @@ public:
 
 wxListItemAttr* LunaTraits< wxListItemAttr >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxListItemAttr::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxListItemAttr >::_bind_dtor(wxListItemAttr* obj) {

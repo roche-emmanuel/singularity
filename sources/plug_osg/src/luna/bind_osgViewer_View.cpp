@@ -2507,8 +2507,6 @@ public:
 
 osgViewer::View* LunaTraits< osgViewer::View >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgViewer_View::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgViewer::View >::_bind_dtor(osgViewer::View* obj) {

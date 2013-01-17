@@ -100,8 +100,6 @@ public:
 
 osgUtil::DrawElementTypeSimplifier* LunaTraits< osgUtil::DrawElementTypeSimplifier >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::DrawElementTypeSimplifier >::_bind_dtor(osgUtil::DrawElementTypeSimplifier* obj) {

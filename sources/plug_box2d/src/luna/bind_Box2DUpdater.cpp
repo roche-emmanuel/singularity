@@ -242,8 +242,6 @@ public:
 
 Box2DUpdater* LunaTraits< Box2DUpdater >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_Box2DUpdater::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< Box2DUpdater >::_bind_dtor(Box2DUpdater* obj) {

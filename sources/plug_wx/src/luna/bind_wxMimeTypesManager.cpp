@@ -195,8 +195,6 @@ public:
 
 wxMimeTypesManager* LunaTraits< wxMimeTypesManager >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxMimeTypesManager::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxMimeTypesManager >::_bind_dtor(wxMimeTypesManager* obj) {

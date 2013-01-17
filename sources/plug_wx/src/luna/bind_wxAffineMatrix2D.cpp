@@ -556,8 +556,6 @@ public:
 
 wxAffineMatrix2D* LunaTraits< wxAffineMatrix2D >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxAffineMatrix2D::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxAffineMatrix2D >::_bind_dtor(wxAffineMatrix2D* obj) {

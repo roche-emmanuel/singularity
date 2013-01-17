@@ -186,6 +186,8 @@ function Class:writeFile()
 			if class:getValidPublicConstructors():empty() then
 				buf:writeLine("return NULL; // No valid default constructor.")
 				--buf:writeSubLine("return new ${1}(); // No default constructor:",cname)
+			elseif class:onStackOnly() then
+				buf:writeLine("return NULL; // On stack only class.")	
 			else
 				buf:writeSubLine("return luna_wrapper_${1}::_bind_ctor(L);",wname) --cshortname)
 			end
@@ -217,6 +219,8 @@ function Class:writeFile()
 		local deleter = class:getDeleter() -- only check for deleters on the class, not on the mapped types.
 		if type(deleter)=="string" then
 			buf:writeSubLine(deleter,"obj");
+		elseif realclass:onStackOnly() then
+			buf:writeLine("//delete obj; // stack only class.")	
 		elseif not realclass:getDestructor() or realclass:getDestructor():isPublic() then
 			buf:writeLine("delete obj;")
 		else

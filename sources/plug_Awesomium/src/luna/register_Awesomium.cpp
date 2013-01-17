@@ -52,14 +52,14 @@ int PLUG_EXPORT luaopen_Awesomium(lua_State* L) {
 	Luna< Awesomium::WebPopupMenuInfo >::Register(L);
 	Luna< Awesomium::WebContextMenuInfo >::Register(L);
 	Luna< Awesomium::WebLoginDialogInfo >::Register(L);
-	Luna< WebViewListener::View >::Register(L);
-	Luna< WebViewListener::Load >::Register(L);
-	Luna< WebViewListener::Process >::Register(L);
-	Luna< WebViewListener::Menu >::Register(L);
-	Luna< WebViewListener::Dialog >::Register(L);
-	Luna< WebViewListener::Print >::Register(L);
-	Luna< WebViewListener::Download >::Register(L);
-	Luna< WebViewListener::InputMethodEditor >::Register(L);
+	Luna< Awesomium::WebViewListener::View >::Register(L);
+	Luna< Awesomium::WebViewListener::Load >::Register(L);
+	Luna< Awesomium::WebViewListener::Process >::Register(L);
+	Luna< Awesomium::WebViewListener::Menu >::Register(L);
+	Luna< Awesomium::WebViewListener::Dialog >::Register(L);
+	Luna< Awesomium::WebViewListener::Print >::Register(L);
+	Luna< Awesomium::WebViewListener::Download >::Register(L);
+	Luna< Awesomium::WebViewListener::InputMethodEditor >::Register(L);
 	luna_popModule(L);
 
 	luna_pushModule(L,"Awesomium");

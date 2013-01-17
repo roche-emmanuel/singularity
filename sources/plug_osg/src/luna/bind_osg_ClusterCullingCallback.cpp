@@ -1174,8 +1174,6 @@ public:
 
 osg::ClusterCullingCallback* LunaTraits< osg::ClusterCullingCallback >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_ClusterCullingCallback::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::ClusterCullingCallback >::_bind_dtor(osg::ClusterCullingCallback* obj) {

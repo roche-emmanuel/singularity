@@ -191,8 +191,6 @@ public:
 
 Awesomium::DataPakSource* LunaTraits< Awesomium::DataPakSource >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_Awesomium_DataPakSource::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< Awesomium::DataPakSource >::_bind_dtor(Awesomium::DataPakSource* obj) {

@@ -87,7 +87,11 @@ function ReflectionGenerator:getOrCreateObject(comp,objectClass,...)
     if not obj then
         obj = objectClass(...)
         obj:setName(comp:name():latin1())
-		--obj:setSection(comp:protection:latin1())
+		local prot = comp:protection():latin1()
+		if prot ~= "" then
+			self:notice("Found protection ", prot, " for compound ", obj:getName())
+			obj:setSection(comp:protection():latin1())
+		end
         self.compoundMap:set(id,obj)
     end
     

@@ -2002,8 +2002,6 @@ public:
 
 osg::Drawable::Extensions* LunaTraits< osg::Drawable::Extensions >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Drawable_Extensions::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::Drawable::Extensions >::_bind_dtor(osg::Drawable::Extensions* obj) {

@@ -1891,8 +1891,6 @@ public:
 
 osgGA::KeySwitchMatrixManipulator* LunaTraits< osgGA::KeySwitchMatrixManipulator >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgGA::KeySwitchMatrixManipulator >::_bind_dtor(osgGA::KeySwitchMatrixManipulator* obj) {

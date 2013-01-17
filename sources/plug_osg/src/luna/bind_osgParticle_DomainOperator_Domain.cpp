@@ -584,8 +584,6 @@ public:
 
 osgParticle::DomainOperator::Domain* LunaTraits< osgParticle::DomainOperator::Domain >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgParticle_DomainOperator_Domain::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgParticle::DomainOperator::Domain >::_bind_dtor(osgParticle::DomainOperator::Domain* obj) {

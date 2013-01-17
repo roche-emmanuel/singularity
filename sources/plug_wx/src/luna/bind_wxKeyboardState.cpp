@@ -428,8 +428,6 @@ public:
 
 wxKeyboardState* LunaTraits< wxKeyboardState >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxKeyboardState::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxKeyboardState >::_bind_dtor(wxKeyboardState* obj) {

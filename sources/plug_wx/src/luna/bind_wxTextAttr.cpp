@@ -2764,8 +2764,6 @@ public:
 
 wxTextAttr* LunaTraits< wxTextAttr >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxTextAttr::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxTextAttr >::_bind_dtor(wxTextAttr* obj) {

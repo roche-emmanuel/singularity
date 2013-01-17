@@ -228,8 +228,6 @@ public:
 
 wxGBPosition* LunaTraits< wxGBPosition >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxGBPosition::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxGBPosition >::_bind_dtor(wxGBPosition* obj) {

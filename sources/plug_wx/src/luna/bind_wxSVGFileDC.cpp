@@ -629,8 +629,6 @@ public:
 
 wxSVGFileDC* LunaTraits< wxSVGFileDC >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxSVGFileDC::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxSVGFileDC >::_bind_dtor(wxSVGFileDC* obj) {

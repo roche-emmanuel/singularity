@@ -70,8 +70,6 @@ public:
 
 osgDB::XmlNode::ControlMap* LunaTraits< osgDB::XmlNode::ControlMap >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgDB::XmlNode::ControlMap >::_bind_dtor(osgDB::XmlNode::ControlMap* obj) {

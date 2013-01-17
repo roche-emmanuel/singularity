@@ -1809,8 +1809,6 @@ public:
 
 osgGA::UFOManipulator* LunaTraits< osgGA::UFOManipulator >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgGA_UFOManipulator::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgGA::UFOManipulator >::_bind_dtor(osgGA::UFOManipulator* obj) {

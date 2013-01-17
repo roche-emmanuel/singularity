@@ -366,8 +366,6 @@ public:
 
 b2DynamicTree* LunaTraits< b2DynamicTree >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_b2DynamicTree::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< b2DynamicTree >::_bind_dtor(b2DynamicTree* obj) {

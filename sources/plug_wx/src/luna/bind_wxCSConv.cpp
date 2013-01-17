@@ -142,8 +142,6 @@ public:
 
 wxCSConv* LunaTraits< wxCSConv >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxCSConv::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxCSConv >::_bind_dtor(wxCSConv* obj) {

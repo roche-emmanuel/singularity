@@ -194,8 +194,6 @@ public:
 
 osgDB::IntLookup* LunaTraits< osgDB::IntLookup >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgDB_IntLookup::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgDB::IntLookup >::_bind_dtor(osgDB::IntLookup* obj) {

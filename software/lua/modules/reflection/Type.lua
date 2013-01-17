@@ -20,6 +20,8 @@ end
 function Class:isKeyWord(str)
 	return (str:find("%*") 
 		or str:find("&")
+		or str:find("struct%s+")
+		or str:find("enum%s+")
 		or str:find("const") or str:find("class[%s]+"))
 end
 
@@ -32,9 +34,14 @@ function Class:getItemLinks()
 end
 
 function Class:extractBaseType(str)
-	str = str:gsub("^[%s]*const[%s]+","")
-	str = str:gsub("^([^%*]+)%*.*","%1")
-	str = str:gsub("^([^&]+)&.*","%1")
+	-- str = str:gsub("^[%s]*const[%s]+","")
+	-- str = str:gsub("^([^%*]+)%*.*","%1")
+	-- str = str:gsub("^([^&]+)&.*","%1")
+	str = str:gsub("^%s*const%s+(.-)%s*$", "%1")
+	str = str:gsub("^%s*struct%s+(.-)%s*$", "%1")
+	str = str:gsub("^%s*(.-)%s*const%s*$", "%1")
+	str = str:gsub("^%s*(.-)%s*&%s*$", "%1")
+	str = str:gsub("^%s*(.-)%s*%*%s*$", "%1")
 	str = str:gsub("^%s*(.-)%s*$", "%1")
 	--str = str:gsub("^%s*([^%s]%.*)$","%1")
 	--str = str:gsub("^(%.*)%s*$","%1")
@@ -120,7 +127,7 @@ function Class:parse()
 	if not base or str:find("<") then
 		base = self:extractBaseType(str)
 		self:check(base~="","Invalid extracted base name from ", str) 
-		self:info("Extracted base type ",base," from type ", str)
+		self:info("Extracted base type '",base,"' from type '", str,"'")
 	end
 	
 	
@@ -134,13 +141,17 @@ function Class:parse()
 	str = corr:correct("type_name",str);
 	self._fullName = str;
 	
+	-- remove undesired keywords in the typename:
+	self._fullName = self._fullName:gsub("%s+class%s+"," ")
+	self._fullName = self._fullName:gsub("%s+struct%s+"," ")
+	
 	-- parse the type string:
 	self._isConst = (str:find("^[%s]*const[%s]+")~=nil)
-	self._isReference = (str:find("&")~=nil)
-	self._isConstReference = (str:find("&[%s]+const")~=nil)
-	self._isPointer = (str:find("%*")~=nil)
-	self._isConstPointer = (str:find("%*[%s]+const")~=nil)
-	self._isPointerOnPointer = (str:find("%*%*")~=nil)
+	self._isReference = (str:find("&%s*$")~=nil)
+	self._isConstReference = (str:find("&%s*const%s*$")~=nil)
+	self._isPointer = (str:find("%*&?%s*$")~=nil)
+	self._isConstPointer = (str:find("%*&?%s*const%s*$")~=nil)
+	self._isPointerOnPointer = (str:find("%*%*%s*$")~=nil)
 end
 
 function Class:getFirstBase()
@@ -189,18 +200,18 @@ function Class:isInteger()
 	local str = self:getName()
 	return not self:isClass() and 
 		( self:isEnum() 
-		or str:find("^int%s*$") 
-		or str:find("%s+int%s*$") 
+		or str:find("^int%s*[%*&]?%s*$") 
+		or str:find("%s+int%s*[%*&]?%s*$") 
 		or str:find("long") 
 		or str:find("size_t") 
 		or str:find("unsigned char") 
 		or str:find("unsigned short")
 		or str:find("signed short")
-		or str:find("^%s*char%s*[%*&]?$")
-		or str:find("^%s*signed char%s*[%*&]?$")
-		or str:find("^%s*const%s*signed char%s*[%*&]?$")
-		or str:find("^%s*short%s*[%*&]?$")
-		or str:find("^%s*const%s*short%s*[%*&]?$")
+		or str:find("^%s*char%s*[%*&]?%s*$")
+		or str:find("^%s*signed char%s*[%*&]?%s*$")
+		or str:find("^%s*const%s*signed char%s*[%*&]?%s*$")
+		or str:find("^%s*short%s*[%*&]?%s*$")
+		or str:find("^%s*const%s*short%s*[%*&]?%s*$")
 		or str == "unsigned" 
 		or str == "wxChar") 
 end
@@ -263,7 +274,7 @@ function Class:isClass()
 end
 
 function Class:isPointer()
-	return self._isPointer
+	return self._isPointer or self._isConstPointer
 end
 
 function Class:isConstPointer()
@@ -378,6 +389,10 @@ function Class:isNothing()
 	end
 	
 	return false;
+end
+
+function Class:isValidForWrapping()
+	return (not self:isInstanceOf(require"reflection.Class",self._base) or self:getBase():isValidForWrapping()) 
 end
 
 return Class

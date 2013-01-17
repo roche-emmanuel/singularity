@@ -233,8 +233,6 @@ public:
 
 b2SolverData* LunaTraits< b2SolverData >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< b2SolverData >::_bind_dtor(b2SolverData* obj) {

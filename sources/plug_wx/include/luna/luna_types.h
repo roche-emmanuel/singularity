@@ -304,6 +304,7 @@
 #include <wx/zstream.h>
 #include <wx/scrolwin.h>
 
+// Class: wxEventFilter
 template<>
 class LunaTraits< wxEventFilter > {
 public:
@@ -322,6 +323,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxObject
 template<>
 class LunaTraits< wxObject > {
 public:
@@ -340,6 +342,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTrackable
 template<>
 class LunaTraits< wxTrackable > {
 public:
@@ -358,6 +361,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxEvtHandler
 template<>
 class LunaTraits< wxEvtHandler > {
 public:
@@ -376,6 +380,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAppConsole
 template<>
 class LunaTraits< wxAppConsole > {
 public:
@@ -394,6 +399,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxApp
 template<>
 class LunaTraits< wxApp > {
 public:
@@ -412,6 +418,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgtApp
 template<>
 class LunaTraits< sgtApp > {
 public:
@@ -430,6 +437,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAboutDialogInfo
 template<>
 class LunaTraits< wxAboutDialogInfo > {
 public:
@@ -448,6 +456,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAcceleratorEntry
 template<>
 class LunaTraits< wxAcceleratorEntry > {
 public:
@@ -466,6 +475,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAcceleratorTable
 template<>
 class LunaTraits< wxAcceleratorTable > {
 public:
@@ -484,6 +494,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxEvent
 template<>
 class LunaTraits< wxEvent > {
 public:
@@ -502,6 +513,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxActivateEvent
 template<>
 class LunaTraits< wxActivateEvent > {
 public:
@@ -520,6 +532,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAffineMatrix2D
 template<>
 class LunaTraits< wxAffineMatrix2D > {
 public:
@@ -538,6 +551,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAffineMatrix2DBase
 template<>
 class LunaTraits< wxAffineMatrix2DBase > {
 public:
@@ -556,6 +570,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGDIObject
 template<>
 class LunaTraits< wxGDIObject > {
 public:
@@ -574,6 +589,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAnimation
 template<>
 class LunaTraits< wxAnimation > {
 public:
@@ -592,6 +608,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxWindow
 template<>
 class LunaTraits< wxWindow > {
 public:
@@ -610,6 +627,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxControl
 template<>
 class LunaTraits< wxControl > {
 public:
@@ -628,6 +646,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAnimationCtrl
 template<>
 class LunaTraits< wxAnimationCtrl > {
 public:
@@ -646,6 +665,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAnyButton
 template<>
 class LunaTraits< wxAnyButton > {
 public:
@@ -664,6 +684,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAppTraits
 template<>
 class LunaTraits< wxAppTraits > {
 public:
@@ -682,6 +703,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxArrayDouble
 template<>
 class LunaTraits< wxArrayDouble > {
 public:
@@ -700,6 +722,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxArrayInt
 template<>
 class LunaTraits< wxArrayInt > {
 public:
@@ -718,6 +741,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxArrayLong
 template<>
 class LunaTraits< wxArrayLong > {
 public:
@@ -736,6 +760,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxArrayPtrVoid
 template<>
 class LunaTraits< wxArrayPtrVoid > {
 public:
@@ -754,6 +779,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxArrayShort
 template<>
 class LunaTraits< wxArrayShort > {
 public:
@@ -772,6 +798,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxArrayString
 template<>
 class LunaTraits< wxArrayString > {
 public:
@@ -790,6 +817,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxArrayTreeItemIds
 template<>
 class LunaTraits< wxArrayTreeItemIds > {
 public:
@@ -808,6 +836,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxArtProvider
 template<>
 class LunaTraits< wxArtProvider > {
 public:
@@ -826,6 +855,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiToolBarArt
 template<>
 class LunaTraits< wxAuiToolBarArt > {
 public:
@@ -844,6 +874,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiDefaultToolBarArt
 template<>
 class LunaTraits< wxAuiDefaultToolBarArt > {
 public:
@@ -862,6 +893,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiDockArt
 template<>
 class LunaTraits< wxAuiDockArt > {
 public:
@@ -880,6 +912,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiManager
 template<>
 class LunaTraits< wxAuiManager > {
 public:
@@ -898,6 +931,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiManagerEvent
 template<>
 class LunaTraits< wxAuiManagerEvent > {
 public:
@@ -916,6 +950,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxWithImages
 template<>
 class LunaTraits< wxWithImages > {
 public:
@@ -934,6 +969,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxBookCtrlBase
 template<>
 class LunaTraits< wxBookCtrlBase > {
 public:
@@ -952,6 +988,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiNotebook
 template<>
 class LunaTraits< wxAuiNotebook > {
 public:
@@ -970,6 +1007,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCommandEvent
 template<>
 class LunaTraits< wxCommandEvent > {
 public:
@@ -988,6 +1026,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxNotifyEvent
 template<>
 class LunaTraits< wxNotifyEvent > {
 public:
@@ -1006,6 +1045,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxBookCtrlEvent
 template<>
 class LunaTraits< wxBookCtrlEvent > {
 public:
@@ -1024,6 +1064,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiNotebookEvent
 template<>
 class LunaTraits< wxAuiNotebookEvent > {
 public:
@@ -1042,6 +1083,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiNotebookPage
 template<>
 class LunaTraits< wxAuiNotebookPage > {
 public:
@@ -1060,6 +1102,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiNotebookPageArray
 template<>
 class LunaTraits< wxAuiNotebookPageArray > {
 public:
@@ -1078,6 +1121,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiPaneInfo
 template<>
 class LunaTraits< wxAuiPaneInfo > {
 public:
@@ -1096,6 +1140,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiPaneInfoArray
 template<>
 class LunaTraits< wxAuiPaneInfoArray > {
 public:
@@ -1114,6 +1159,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiTabArt
 template<>
 class LunaTraits< wxAuiTabArt > {
 public:
@@ -1132,6 +1178,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiToolBar
 template<>
 class LunaTraits< wxAuiToolBar > {
 public:
@@ -1150,6 +1197,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiToolBarEvent
 template<>
 class LunaTraits< wxAuiToolBarEvent > {
 public:
@@ -1168,6 +1216,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiToolBarItem
 template<>
 class LunaTraits< wxAuiToolBarItem > {
 public:
@@ -1186,6 +1235,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxAuiToolBarItemArray
 template<>
 class LunaTraits< wxAuiToolBarItemArray > {
 public:
@@ -1204,6 +1254,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxBannerWindow
 template<>
 class LunaTraits< wxBannerWindow > {
 public:
@@ -1222,6 +1273,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxBitmap
 template<>
 class LunaTraits< wxBitmap > {
 public:
@@ -1240,6 +1292,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxButton
 template<>
 class LunaTraits< wxButton > {
 public:
@@ -1258,6 +1311,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxBitmapButton
 template<>
 class LunaTraits< wxBitmapButton > {
 public:
@@ -1276,6 +1330,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxItemContainerImmutable
 template<>
 class LunaTraits< wxItemContainerImmutable > {
 public:
@@ -1294,6 +1349,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxItemContainer
 template<>
 class LunaTraits< wxItemContainer > {
 public:
@@ -1312,6 +1368,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextEntry
 template<>
 class LunaTraits< wxTextEntry > {
 public:
@@ -1330,6 +1387,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxComboBox
 template<>
 class LunaTraits< wxComboBox > {
 public:
@@ -1348,6 +1406,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxBitmapComboBox
 template<>
 class LunaTraits< wxBitmapComboBox > {
 public:
@@ -1366,6 +1425,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataObject
 template<>
 class LunaTraits< wxDataObject > {
 public:
@@ -1384,6 +1444,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataObjectSimple
 template<>
 class LunaTraits< wxDataObjectSimple > {
 public:
@@ -1402,6 +1463,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxBitmapDataObject
 template<>
 class LunaTraits< wxBitmapDataObject > {
 public:
@@ -1420,6 +1482,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxBitmapHandler
 template<>
 class LunaTraits< wxBitmapHandler > {
 public:
@@ -1438,6 +1501,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxToggleButton
 template<>
 class LunaTraits< wxToggleButton > {
 public:
@@ -1456,6 +1520,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxBitmapToggleButton
 template<>
 class LunaTraits< wxBitmapToggleButton > {
 public:
@@ -1474,6 +1539,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSizer
 template<>
 class LunaTraits< wxSizer > {
 public:
@@ -1492,6 +1558,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxBoxSizer
 template<>
 class LunaTraits< wxBoxSizer > {
 public:
@@ -1510,6 +1577,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxBrush
 template<>
 class LunaTraits< wxBrush > {
 public:
@@ -1528,6 +1596,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxList
 template<>
 class LunaTraits< wxList > {
 public:
@@ -1546,6 +1615,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxBrushList
 template<>
 class LunaTraits< wxBrushList > {
 public:
@@ -1564,6 +1634,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxBusyCursor
 template<>
 class LunaTraits< wxBusyCursor > {
 public:
@@ -1582,6 +1653,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxBusyInfo
 template<>
 class LunaTraits< wxBusyInfo > {
 public:
@@ -1600,6 +1672,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCalculateLayoutEvent
 template<>
 class LunaTraits< wxCalculateLayoutEvent > {
 public:
@@ -1618,6 +1691,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCalendarCtrl
 template<>
 class LunaTraits< wxCalendarCtrl > {
 public:
@@ -1636,6 +1710,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCalendarDateAttr
 template<>
 class LunaTraits< wxCalendarDateAttr > {
 public:
@@ -1654,6 +1729,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDateEvent
 template<>
 class LunaTraits< wxDateEvent > {
 public:
@@ -1672,6 +1748,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCalendarEvent
 template<>
 class LunaTraits< wxCalendarEvent > {
 public:
@@ -1690,6 +1767,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCaret
 template<>
 class LunaTraits< wxCaret > {
 public:
@@ -1708,6 +1786,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCheckBox
 template<>
 class LunaTraits< wxCheckBox > {
 public:
@@ -1726,6 +1805,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxControlWithItems
 template<>
 class LunaTraits< wxControlWithItems > {
 public:
@@ -1744,6 +1824,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxListBox
 template<>
 class LunaTraits< wxListBox > {
 public:
@@ -1762,6 +1843,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCheckListBox
 template<>
 class LunaTraits< wxCheckListBox > {
 public:
@@ -1780,6 +1862,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxChildFocusEvent
 template<>
 class LunaTraits< wxChildFocusEvent > {
 public:
@@ -1798,6 +1881,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxChoice
 template<>
 class LunaTraits< wxChoice > {
 public:
@@ -1816,6 +1900,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxChoicebook
 template<>
 class LunaTraits< wxChoicebook > {
 public:
@@ -1834,6 +1919,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxClassInfo
 template<>
 class LunaTraits< wxClassInfo > {
 public:
@@ -1852,6 +1938,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxClient
 template<>
 class LunaTraits< wxClient > {
 public:
@@ -1870,6 +1957,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxClientData
 template<>
 class LunaTraits< wxClientData > {
 public:
@@ -1888,6 +1976,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxClientDataContainer
 template<>
 class LunaTraits< wxClientDataContainer > {
 public:
@@ -1906,6 +1995,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDC
 template<>
 class LunaTraits< wxDC > {
 public:
@@ -1924,6 +2014,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxWindowDC
 template<>
 class LunaTraits< wxWindowDC > {
 public:
@@ -1942,6 +2033,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxClientDC
 template<>
 class LunaTraits< wxClientDC > {
 public:
@@ -1960,6 +2052,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxClipboard
 template<>
 class LunaTraits< wxClipboard > {
 public:
@@ -1978,6 +2071,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxClipboardTextEvent
 template<>
 class LunaTraits< wxClipboardTextEvent > {
 public:
@@ -1996,6 +2090,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCloseEvent
 template<>
 class LunaTraits< wxCloseEvent > {
 public:
@@ -2014,6 +2109,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCmdLineEntryDesc
 template<>
 class LunaTraits< wxCmdLineEntryDesc > {
 public:
@@ -2032,6 +2128,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCmdLineParser
 template<>
 class LunaTraits< wxCmdLineParser > {
 public:
@@ -2050,6 +2147,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCollapsiblePane
 template<>
 class LunaTraits< wxCollapsiblePane > {
 public:
@@ -2068,6 +2166,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCollapsiblePaneEvent
 template<>
 class LunaTraits< wxCollapsiblePaneEvent > {
 public:
@@ -2086,6 +2185,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxColour
 template<>
 class LunaTraits< wxColour > {
 public:
@@ -2104,6 +2204,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxColourData
 template<>
 class LunaTraits< wxColourData > {
 public:
@@ -2122,6 +2223,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxColourDatabase
 template<>
 class LunaTraits< wxColourDatabase > {
 public:
@@ -2140,6 +2242,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxNonOwnedWindow
 template<>
 class LunaTraits< wxNonOwnedWindow > {
 public:
@@ -2158,6 +2261,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTopLevelWindow
 template<>
 class LunaTraits< wxTopLevelWindow > {
 public:
@@ -2176,6 +2280,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDialog
 template<>
 class LunaTraits< wxDialog > {
 public:
@@ -2194,6 +2299,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxColourDialog
 template<>
 class LunaTraits< wxColourDialog > {
 public:
@@ -2212,6 +2318,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPickerBase
 template<>
 class LunaTraits< wxPickerBase > {
 public:
@@ -2230,6 +2337,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxColourPickerCtrl
 template<>
 class LunaTraits< wxColourPickerCtrl > {
 public:
@@ -2248,6 +2356,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxColourPickerEvent
 template<>
 class LunaTraits< wxColourPickerEvent > {
 public:
@@ -2266,6 +2375,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxComboCtrl
 template<>
 class LunaTraits< wxComboCtrl > {
 public:
@@ -2284,6 +2394,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxComboCtrlFeatures
 template<>
 class LunaTraits< wxComboCtrlFeatures > {
 public:
@@ -2302,6 +2413,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxComboPopup
 template<>
 class LunaTraits< wxComboPopup > {
 public:
@@ -2320,6 +2432,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCommand
 template<>
 class LunaTraits< wxCommand > {
 public:
@@ -2338,6 +2451,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCommandLinkButton
 template<>
 class LunaTraits< wxCommandLinkButton > {
 public:
@@ -2356,6 +2470,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCommandProcessor
 template<>
 class LunaTraits< wxCommandProcessor > {
 public:
@@ -2374,6 +2489,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCondition
 template<>
 class LunaTraits< wxCondition > {
 public:
@@ -2392,6 +2508,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxConfigBase
 template<>
 class LunaTraits< wxConfigBase > {
 public:
@@ -2410,6 +2527,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxConfigPathChanger
 template<>
 class LunaTraits< wxConfigPathChanger > {
 public:
@@ -2428,6 +2546,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxConnection
 template<>
 class LunaTraits< wxConnection > {
 public:
@@ -2446,6 +2565,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxConnectionBase
 template<>
 class LunaTraits< wxConnectionBase > {
 public:
@@ -2464,6 +2584,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxContextHelp
 template<>
 class LunaTraits< wxContextHelp > {
 public:
@@ -2482,6 +2603,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxContextHelpButton
 template<>
 class LunaTraits< wxContextHelpButton > {
 public:
@@ -2500,6 +2622,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxContextMenuEvent
 template<>
 class LunaTraits< wxContextMenuEvent > {
 public:
@@ -2518,6 +2641,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxConvAuto
 template<>
 class LunaTraits< wxConvAuto > {
 public:
@@ -2536,6 +2660,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStreamBase
 template<>
 class LunaTraits< wxStreamBase > {
 public:
@@ -2554,6 +2679,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxOutputStream
 template<>
 class LunaTraits< wxOutputStream > {
 public:
@@ -2572,6 +2698,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCountingOutputStream
 template<>
 class LunaTraits< wxCountingOutputStream > {
 public:
@@ -2590,6 +2717,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCriticalSection
 template<>
 class LunaTraits< wxCriticalSection > {
 public:
@@ -2608,6 +2736,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCriticalSectionLocker
 template<>
 class LunaTraits< wxCriticalSectionLocker > {
 public:
@@ -2626,6 +2755,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCSConv
 template<>
 class LunaTraits< wxCSConv > {
 public:
@@ -2644,6 +2774,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCursor
 template<>
 class LunaTraits< wxCursor > {
 public:
@@ -2662,6 +2793,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxCustomDataObject
 template<>
 class LunaTraits< wxCustomDataObject > {
 public:
@@ -2680,6 +2812,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataFormat
 template<>
 class LunaTraits< wxDataFormat > {
 public:
@@ -2698,6 +2831,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSocketBase
 template<>
 class LunaTraits< wxSocketBase > {
 public:
@@ -2716,6 +2850,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDatagramSocket
 template<>
 class LunaTraits< wxDatagramSocket > {
 public:
@@ -2734,6 +2869,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataInputStream
 template<>
 class LunaTraits< wxDataInputStream > {
 public:
@@ -2752,6 +2888,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataObjectBase
 template<>
 class LunaTraits< wxDataObjectBase > {
 public:
@@ -2770,6 +2907,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataObjectComposite
 template<>
 class LunaTraits< wxDataObjectComposite > {
 public:
@@ -2788,6 +2926,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataOutputStream
 template<>
 class LunaTraits< wxDataOutputStream > {
 public:
@@ -2806,6 +2945,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewRenderer
 template<>
 class LunaTraits< wxDataViewRenderer > {
 public:
@@ -2824,6 +2964,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewBitmapRenderer
 template<>
 class LunaTraits< wxDataViewBitmapRenderer > {
 public:
@@ -2842,6 +2983,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewChoiceRenderer
 template<>
 class LunaTraits< wxDataViewChoiceRenderer > {
 public:
@@ -2860,6 +3002,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHeaderColumn
 template<>
 class LunaTraits< wxHeaderColumn > {
 public:
@@ -2878,6 +3021,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSettableHeaderColumn
 template<>
 class LunaTraits< wxSettableHeaderColumn > {
 public:
@@ -2896,6 +3040,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewColumn
 template<>
 class LunaTraits< wxDataViewColumn > {
 public:
@@ -2914,6 +3059,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewCtrl
 template<>
 class LunaTraits< wxDataViewCtrl > {
 public:
@@ -2932,6 +3078,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewCustomRenderer
 template<>
 class LunaTraits< wxDataViewCustomRenderer > {
 public:
@@ -2950,6 +3097,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewDateRenderer
 template<>
 class LunaTraits< wxDataViewDateRenderer > {
 public:
@@ -2968,6 +3116,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewEvent
 template<>
 class LunaTraits< wxDataViewEvent > {
 public:
@@ -2986,6 +3135,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewIconText
 template<>
 class LunaTraits< wxDataViewIconText > {
 public:
@@ -3004,6 +3154,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewIconTextRenderer
 template<>
 class LunaTraits< wxDataViewIconTextRenderer > {
 public:
@@ -3022,6 +3173,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewModel
 template<>
 class LunaTraits< wxDataViewModel > {
 public:
@@ -3040,6 +3192,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewListModel
 template<>
 class LunaTraits< wxDataViewListModel > {
 public:
@@ -3058,6 +3211,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewIndexListModel
 template<>
 class LunaTraits< wxDataViewIndexListModel > {
 public:
@@ -3076,6 +3230,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewItem
 template<>
 class LunaTraits< wxDataViewItem > {
 public:
@@ -3094,6 +3249,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewItemArray
 template<>
 class LunaTraits< wxDataViewItemArray > {
 public:
@@ -3112,6 +3268,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewItemAttr
 template<>
 class LunaTraits< wxDataViewItemAttr > {
 public:
@@ -3130,6 +3287,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewListCtrl
 template<>
 class LunaTraits< wxDataViewListCtrl > {
 public:
@@ -3148,6 +3306,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewListStore
 template<>
 class LunaTraits< wxDataViewListStore > {
 public:
@@ -3166,6 +3325,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewModelNotifier
 template<>
 class LunaTraits< wxDataViewModelNotifier > {
 public:
@@ -3184,6 +3344,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewProgressRenderer
 template<>
 class LunaTraits< wxDataViewProgressRenderer > {
 public:
@@ -3202,6 +3363,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewSpinRenderer
 template<>
 class LunaTraits< wxDataViewSpinRenderer > {
 public:
@@ -3220,6 +3382,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewTextRenderer
 template<>
 class LunaTraits< wxDataViewTextRenderer > {
 public:
@@ -3238,6 +3401,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewToggleRenderer
 template<>
 class LunaTraits< wxDataViewToggleRenderer > {
 public:
@@ -3256,6 +3420,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewTreeCtrl
 template<>
 class LunaTraits< wxDataViewTreeCtrl > {
 public:
@@ -3274,6 +3439,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewTreeStore
 template<>
 class LunaTraits< wxDataViewTreeStore > {
 public:
@@ -3292,6 +3458,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDataViewVirtualListModel
 template<>
 class LunaTraits< wxDataViewVirtualListModel > {
 public:
@@ -3310,6 +3477,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDatePickerCtrl
 template<>
 class LunaTraits< wxDatePickerCtrl > {
 public:
@@ -3328,6 +3496,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDateSpan
 template<>
 class LunaTraits< wxDateSpan > {
 public:
@@ -3346,6 +3515,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDateTime
 template<>
 class LunaTraits< wxDateTime > {
 public:
@@ -3364,6 +3534,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDateTime::Tm
 template<>
 class LunaTraits< wxDateTime::Tm > {
 public:
@@ -3382,6 +3553,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDateTimeHolidayAuthority
 template<>
 class LunaTraits< wxDateTimeHolidayAuthority > {
 public:
@@ -3400,6 +3572,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDateTimeWorkDays
 template<>
 class LunaTraits< wxDateTimeWorkDays > {
 public:
@@ -3418,6 +3591,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDCBrushChanger
 template<>
 class LunaTraits< wxDCBrushChanger > {
 public:
@@ -3436,6 +3610,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDCClipper
 template<>
 class LunaTraits< wxDCClipper > {
 public:
@@ -3454,6 +3629,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDCFontChanger
 template<>
 class LunaTraits< wxDCFontChanger > {
 public:
@@ -3472,6 +3648,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDCPenChanger
 template<>
 class LunaTraits< wxDCPenChanger > {
 public:
@@ -3490,6 +3667,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDCTextColourChanger
 template<>
 class LunaTraits< wxDCTextColourChanger > {
 public:
@@ -3508,6 +3686,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRendererNative
 template<>
 class LunaTraits< wxRendererNative > {
 public:
@@ -3526,6 +3705,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDelegateRendererNative
 template<>
 class LunaTraits< wxDelegateRendererNative > {
 public:
@@ -3544,6 +3724,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDialogLayoutAdapter
 template<>
 class LunaTraits< wxDialogLayoutAdapter > {
 public:
@@ -3562,6 +3743,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDialUpEvent
 template<>
 class LunaTraits< wxDialUpEvent > {
 public:
@@ -3580,6 +3762,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDialUpManager
 template<>
 class LunaTraits< wxDialUpManager > {
 public:
@@ -3598,6 +3781,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDir
 template<>
 class LunaTraits< wxDir > {
 public:
@@ -3616,6 +3800,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDirDialog
 template<>
 class LunaTraits< wxDirDialog > {
 public:
@@ -3634,6 +3819,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDirPickerCtrl
 template<>
 class LunaTraits< wxDirPickerCtrl > {
 public:
@@ -3652,6 +3838,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDirTraverser
 template<>
 class LunaTraits< wxDirTraverser > {
 public:
@@ -3670,6 +3857,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDisplay
 template<>
 class LunaTraits< wxDisplay > {
 public:
@@ -3688,6 +3876,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDisplayChangedEvent
 template<>
 class LunaTraits< wxDisplayChangedEvent > {
 public:
@@ -3706,6 +3895,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFrame
 template<>
 class LunaTraits< wxFrame > {
 public:
@@ -3724,6 +3914,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDocChildFrame
 template<>
 class LunaTraits< wxDocChildFrame > {
 public:
@@ -3742,6 +3933,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDocManager
 template<>
 class LunaTraits< wxDocManager > {
 public:
@@ -3760,6 +3952,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMDIChildFrame
 template<>
 class LunaTraits< wxMDIChildFrame > {
 public:
@@ -3778,6 +3971,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDocMDIChildFrame
 template<>
 class LunaTraits< wxDocMDIChildFrame > {
 public:
@@ -3796,6 +3990,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMDIParentFrame
 template<>
 class LunaTraits< wxMDIParentFrame > {
 public:
@@ -3814,6 +4009,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDocMDIParentFrame
 template<>
 class LunaTraits< wxDocMDIParentFrame > {
 public:
@@ -3832,6 +4028,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDocParentFrame
 template<>
 class LunaTraits< wxDocParentFrame > {
 public:
@@ -3850,6 +4047,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDocTemplate
 template<>
 class LunaTraits< wxDocTemplate > {
 public:
@@ -3868,6 +4066,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDocument
 template<>
 class LunaTraits< wxDocument > {
 public:
@@ -3886,6 +4085,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDragImage
 template<>
 class LunaTraits< wxDragImage > {
 public:
@@ -3904,6 +4104,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDropFilesEvent
 template<>
 class LunaTraits< wxDropFilesEvent > {
 public:
@@ -3922,6 +4123,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDropSource
 template<>
 class LunaTraits< wxDropSource > {
 public:
@@ -3940,6 +4142,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDropTarget
 template<>
 class LunaTraits< wxDropTarget > {
 public:
@@ -3958,6 +4161,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDynamicLibrary
 template<>
 class LunaTraits< wxDynamicLibrary > {
 public:
@@ -3976,6 +4180,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxDynamicLibraryDetails
 template<>
 class LunaTraits< wxDynamicLibraryDetails > {
 public:
@@ -3994,6 +4199,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPanel
 template<>
 class LunaTraits< wxPanel > {
 public:
@@ -4012,6 +4218,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxEditableListBox
 template<>
 class LunaTraits< wxEditableListBox > {
 public:
@@ -4030,6 +4237,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxEncodingConverter
 template<>
 class LunaTraits< wxEncodingConverter > {
 public:
@@ -4048,6 +4256,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxEraseEvent
 template<>
 class LunaTraits< wxEraseEvent > {
 public:
@@ -4066,6 +4275,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxEventBlocker
 template<>
 class LunaTraits< wxEventBlocker > {
 public:
@@ -4084,6 +4294,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxEventLoopActivator
 template<>
 class LunaTraits< wxEventLoopActivator > {
 public:
@@ -4102,6 +4313,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxEventLoopBase
 template<>
 class LunaTraits< wxEventLoopBase > {
 public:
@@ -4120,6 +4332,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxExecuteEnv
 template<>
 class LunaTraits< wxExecuteEnv > {
 public:
@@ -4138,6 +4351,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHelpController
 template<>
 class LunaTraits< wxHelpController > {
 public:
@@ -4156,6 +4370,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxExtHelpController
 template<>
 class LunaTraits< wxExtHelpController > {
 public:
@@ -4174,6 +4389,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFFile
 template<>
 class LunaTraits< wxFFile > {
 public:
@@ -4192,6 +4408,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxInputStream
 template<>
 class LunaTraits< wxInputStream > {
 public:
@@ -4210,6 +4427,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFFileInputStream
 template<>
 class LunaTraits< wxFFileInputStream > {
 public:
@@ -4228,6 +4446,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFFileOutputStream
 template<>
 class LunaTraits< wxFFileOutputStream > {
 public:
@@ -4246,6 +4465,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFile
 template<>
 class LunaTraits< wxFile > {
 public:
@@ -4264,6 +4484,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileConfig
 template<>
 class LunaTraits< wxFileConfig > {
 public:
@@ -4282,6 +4503,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileCtrl
 template<>
 class LunaTraits< wxFileCtrl > {
 public:
@@ -4300,6 +4522,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileCtrlEvent
 template<>
 class LunaTraits< wxFileCtrlEvent > {
 public:
@@ -4318,6 +4541,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileDataObject
 template<>
 class LunaTraits< wxFileDataObject > {
 public:
@@ -4336,6 +4560,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileDialog
 template<>
 class LunaTraits< wxFileDialog > {
 public:
@@ -4354,6 +4579,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileDirPickerEvent
 template<>
 class LunaTraits< wxFileDirPickerEvent > {
 public:
@@ -4372,6 +4598,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileDropTarget
 template<>
 class LunaTraits< wxFileDropTarget > {
 public:
@@ -4390,6 +4617,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileHistory
 template<>
 class LunaTraits< wxFileHistory > {
 public:
@@ -4408,6 +4636,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileInputStream
 template<>
 class LunaTraits< wxFileInputStream > {
 public:
@@ -4426,6 +4655,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileName
 template<>
 class LunaTraits< wxFileName > {
 public:
@@ -4444,6 +4674,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileOutputStream
 template<>
 class LunaTraits< wxFileOutputStream > {
 public:
@@ -4462,6 +4693,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFilePickerCtrl
 template<>
 class LunaTraits< wxFilePickerCtrl > {
 public:
@@ -4480,6 +4712,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileSystem
 template<>
 class LunaTraits< wxFileSystem > {
 public:
@@ -4498,6 +4731,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileSystemHandler
 template<>
 class LunaTraits< wxFileSystemHandler > {
 public:
@@ -4516,6 +4750,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileSystemWatcher
 template<>
 class LunaTraits< wxFileSystemWatcher > {
 public:
@@ -4534,6 +4769,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileSystemWatcherEvent
 template<>
 class LunaTraits< wxFileSystemWatcherEvent > {
 public:
@@ -4552,6 +4788,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTranslationsLoader
 template<>
 class LunaTraits< wxTranslationsLoader > {
 public:
@@ -4570,6 +4807,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileTranslationsLoader
 template<>
 class LunaTraits< wxFileTranslationsLoader > {
 public:
@@ -4588,6 +4826,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileType
 template<>
 class LunaTraits< wxFileType > {
 public:
@@ -4606,6 +4845,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFileTypeInfo
 template<>
 class LunaTraits< wxFileTypeInfo > {
 public:
@@ -4624,6 +4864,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFilterClassFactory
 template<>
 class LunaTraits< wxFilterClassFactory > {
 public:
@@ -4642,6 +4883,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFilterInputStream
 template<>
 class LunaTraits< wxFilterInputStream > {
 public:
@@ -4660,6 +4902,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFilterOutputStream
 template<>
 class LunaTraits< wxFilterOutputStream > {
 public:
@@ -4678,6 +4921,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFindReplaceData
 template<>
 class LunaTraits< wxFindReplaceData > {
 public:
@@ -4696,6 +4940,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFindReplaceDialog
 template<>
 class LunaTraits< wxFindReplaceDialog > {
 public:
@@ -4714,6 +4959,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridSizer
 template<>
 class LunaTraits< wxGridSizer > {
 public:
@@ -4732,6 +4978,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFlexGridSizer
 template<>
 class LunaTraits< wxFlexGridSizer > {
 public:
@@ -4750,6 +4997,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxValidator
 template<>
 class LunaTraits< wxValidator > {
 public:
@@ -4768,6 +5016,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFocusEvent
 template<>
 class LunaTraits< wxFocusEvent > {
 public:
@@ -4786,6 +5035,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFont
 template<>
 class LunaTraits< wxFont > {
 public:
@@ -4804,6 +5054,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFontData
 template<>
 class LunaTraits< wxFontData > {
 public:
@@ -4822,6 +5073,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFontDialog
 template<>
 class LunaTraits< wxFontDialog > {
 public:
@@ -4840,6 +5092,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFontEnumerator
 template<>
 class LunaTraits< wxFontEnumerator > {
 public:
@@ -4858,6 +5111,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFontList
 template<>
 class LunaTraits< wxFontList > {
 public:
@@ -4876,6 +5130,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFontMapper
 template<>
 class LunaTraits< wxFontMapper > {
 public:
@@ -4894,6 +5149,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFontMetrics
 template<>
 class LunaTraits< wxFontMetrics > {
 public:
@@ -4912,6 +5168,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFontPickerCtrl
 template<>
 class LunaTraits< wxFontPickerCtrl > {
 public:
@@ -4930,6 +5187,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFontPickerEvent
 template<>
 class LunaTraits< wxFontPickerEvent > {
 public:
@@ -4948,6 +5206,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFSFile
 template<>
 class LunaTraits< wxFSFile > {
 public:
@@ -4966,6 +5225,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFSVolume
 template<>
 class LunaTraits< wxFSVolume > {
 public:
@@ -4984,6 +5244,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSocketClient
 template<>
 class LunaTraits< wxSocketClient > {
 public:
@@ -5002,6 +5263,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxProtocol
 template<>
 class LunaTraits< wxProtocol > {
 public:
@@ -5020,6 +5282,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxFTP
 template<>
 class LunaTraits< wxFTP > {
 public:
@@ -5038,6 +5301,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGauge
 template<>
 class LunaTraits< wxGauge > {
 public:
@@ -5056,6 +5320,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGBPosition
 template<>
 class LunaTraits< wxGBPosition > {
 public:
@@ -5074,6 +5339,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSizerItem
 template<>
 class LunaTraits< wxSizerItem > {
 public:
@@ -5092,6 +5358,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGBSizerItem
 template<>
 class LunaTraits< wxGBSizerItem > {
 public:
@@ -5110,6 +5377,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGBSpan
 template<>
 class LunaTraits< wxGBSpan > {
 public:
@@ -5128,6 +5396,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGCDC
 template<>
 class LunaTraits< wxGCDC > {
 public:
@@ -5146,6 +5415,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGenericDirCtrl
 template<>
 class LunaTraits< wxGenericDirCtrl > {
 public:
@@ -5164,6 +5434,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGenericValidator
 template<>
 class LunaTraits< wxGenericValidator > {
 public:
@@ -5182,6 +5453,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGLCanvas
 template<>
 class LunaTraits< wxGLCanvas > {
 public:
@@ -5200,6 +5472,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGLContext
 template<>
 class LunaTraits< wxGLContext > {
 public:
@@ -5218,6 +5491,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGraphicsObject
 template<>
 class LunaTraits< wxGraphicsObject > {
 public:
@@ -5236,6 +5510,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGraphicsBitmap
 template<>
 class LunaTraits< wxGraphicsBitmap > {
 public:
@@ -5254,6 +5529,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGraphicsBrush
 template<>
 class LunaTraits< wxGraphicsBrush > {
 public:
@@ -5272,6 +5548,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGraphicsContext
 template<>
 class LunaTraits< wxGraphicsContext > {
 public:
@@ -5290,6 +5567,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGraphicsFont
 template<>
 class LunaTraits< wxGraphicsFont > {
 public:
@@ -5308,6 +5586,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGraphicsGradientStop
 template<>
 class LunaTraits< wxGraphicsGradientStop > {
 public:
@@ -5326,6 +5605,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGraphicsGradientStops
 template<>
 class LunaTraits< wxGraphicsGradientStops > {
 public:
@@ -5344,6 +5624,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGraphicsMatrix
 template<>
 class LunaTraits< wxGraphicsMatrix > {
 public:
@@ -5362,6 +5643,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGraphicsPath
 template<>
 class LunaTraits< wxGraphicsPath > {
 public:
@@ -5380,6 +5662,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGraphicsPen
 template<>
 class LunaTraits< wxGraphicsPen > {
 public:
@@ -5398,6 +5681,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGraphicsRenderer
 template<>
 class LunaTraits< wxGraphicsRenderer > {
 public:
@@ -5416,6 +5700,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGrid
 template<>
 class LunaTraits< wxGrid > {
 public:
@@ -5434,6 +5719,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridBagSizer
 template<>
 class LunaTraits< wxGridBagSizer > {
 public:
@@ -5452,6 +5738,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellAttr
 template<>
 class LunaTraits< wxGridCellAttr > {
 public:
@@ -5470,6 +5757,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellAttrProvider
 template<>
 class LunaTraits< wxGridCellAttrProvider > {
 public:
@@ -5488,6 +5776,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellEditor
 template<>
 class LunaTraits< wxGridCellEditor > {
 public:
@@ -5506,6 +5795,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellTextEditor
 template<>
 class LunaTraits< wxGridCellTextEditor > {
 public:
@@ -5524,6 +5814,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellAutoWrapStringEditor
 template<>
 class LunaTraits< wxGridCellAutoWrapStringEditor > {
 public:
@@ -5542,6 +5833,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellRenderer
 template<>
 class LunaTraits< wxGridCellRenderer > {
 public:
@@ -5560,6 +5852,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellStringRenderer
 template<>
 class LunaTraits< wxGridCellStringRenderer > {
 public:
@@ -5578,6 +5871,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellAutoWrapStringRenderer
 template<>
 class LunaTraits< wxGridCellAutoWrapStringRenderer > {
 public:
@@ -5596,6 +5890,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellBoolEditor
 template<>
 class LunaTraits< wxGridCellBoolEditor > {
 public:
@@ -5614,6 +5909,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellBoolRenderer
 template<>
 class LunaTraits< wxGridCellBoolRenderer > {
 public:
@@ -5632,6 +5928,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellChoiceEditor
 template<>
 class LunaTraits< wxGridCellChoiceEditor > {
 public:
@@ -5650,6 +5947,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellCoords
 template<>
 class LunaTraits< wxGridCellCoords > {
 public:
@@ -5668,6 +5966,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellDateTimeRenderer
 template<>
 class LunaTraits< wxGridCellDateTimeRenderer > {
 public:
@@ -5686,6 +5985,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellEnumEditor
 template<>
 class LunaTraits< wxGridCellEnumEditor > {
 public:
@@ -5704,6 +6004,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellEnumRenderer
 template<>
 class LunaTraits< wxGridCellEnumRenderer > {
 public:
@@ -5722,6 +6023,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellFloatEditor
 template<>
 class LunaTraits< wxGridCellFloatEditor > {
 public:
@@ -5740,6 +6042,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellFloatRenderer
 template<>
 class LunaTraits< wxGridCellFloatRenderer > {
 public:
@@ -5758,6 +6061,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellNumberEditor
 template<>
 class LunaTraits< wxGridCellNumberEditor > {
 public:
@@ -5776,6 +6080,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCellNumberRenderer
 template<>
 class LunaTraits< wxGridCellNumberRenderer > {
 public:
@@ -5794,6 +6099,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCornerHeaderRenderer
 template<>
 class LunaTraits< wxGridCornerHeaderRenderer > {
 public:
@@ -5812,6 +6118,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridHeaderLabelsRenderer
 template<>
 class LunaTraits< wxGridHeaderLabelsRenderer > {
 public:
@@ -5830,6 +6137,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridColumnHeaderRenderer
 template<>
 class LunaTraits< wxGridColumnHeaderRenderer > {
 public:
@@ -5848,6 +6156,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridColumnHeaderRendererDefault
 template<>
 class LunaTraits< wxGridColumnHeaderRendererDefault > {
 public:
@@ -5866,6 +6175,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridCornerHeaderRendererDefault
 template<>
 class LunaTraits< wxGridCornerHeaderRendererDefault > {
 public:
@@ -5884,6 +6194,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridEditorCreatedEvent
 template<>
 class LunaTraits< wxGridEditorCreatedEvent > {
 public:
@@ -5902,6 +6213,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridEvent
 template<>
 class LunaTraits< wxGridEvent > {
 public:
@@ -5920,6 +6232,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridRangeSelectEvent
 template<>
 class LunaTraits< wxGridRangeSelectEvent > {
 public:
@@ -5938,6 +6251,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridRowHeaderRenderer
 template<>
 class LunaTraits< wxGridRowHeaderRenderer > {
 public:
@@ -5956,6 +6270,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridRowHeaderRendererDefault
 template<>
 class LunaTraits< wxGridRowHeaderRendererDefault > {
 public:
@@ -5974,6 +6289,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridSizeEvent
 template<>
 class LunaTraits< wxGridSizeEvent > {
 public:
@@ -5992,6 +6308,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridSizesInfo
 template<>
 class LunaTraits< wxGridSizesInfo > {
 public:
@@ -6010,6 +6327,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridTableBase
 template<>
 class LunaTraits< wxGridTableBase > {
 public:
@@ -6028,6 +6346,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxGridUpdateLocker
 template<>
 class LunaTraits< wxGridUpdateLocker > {
 public:
@@ -6046,6 +6365,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHeaderButtonParams
 template<>
 class LunaTraits< wxHeaderButtonParams > {
 public:
@@ -6064,6 +6384,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHeaderColumnSimple
 template<>
 class LunaTraits< wxHeaderColumnSimple > {
 public:
@@ -6082,6 +6403,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHeaderCtrl
 template<>
 class LunaTraits< wxHeaderCtrl > {
 public:
@@ -6100,6 +6422,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHeaderCtrlEvent
 template<>
 class LunaTraits< wxHeaderCtrlEvent > {
 public:
@@ -6118,6 +6441,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHeaderCtrlSimple
 template<>
 class LunaTraits< wxHeaderCtrlSimple > {
 public:
@@ -6136,6 +6460,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHelpProvider
 template<>
 class LunaTraits< wxHelpProvider > {
 public:
@@ -6154,6 +6479,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSimpleHelpProvider
 template<>
 class LunaTraits< wxSimpleHelpProvider > {
 public:
@@ -6172,6 +6498,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHelpControllerHelpProvider
 template<>
 class LunaTraits< wxHelpControllerHelpProvider > {
 public:
@@ -6190,6 +6517,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHelpEvent
 template<>
 class LunaTraits< wxHelpEvent > {
 public:
@@ -6208,6 +6536,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxVarScrollHelperBase
 template<>
 class LunaTraits< wxVarScrollHelperBase > {
 public:
@@ -6226,6 +6555,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxVarHScrollHelper
 template<>
 class LunaTraits< wxVarHScrollHelper > {
 public:
@@ -6244,6 +6574,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHScrolledWindow
 template<>
 class LunaTraits< wxHScrolledWindow > {
 public:
@@ -6262,6 +6593,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlCell
 template<>
 class LunaTraits< wxHtmlCell > {
 public:
@@ -6280,6 +6612,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlCellEvent
 template<>
 class LunaTraits< wxHtmlCellEvent > {
 public:
@@ -6298,6 +6631,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlColourCell
 template<>
 class LunaTraits< wxHtmlColourCell > {
 public:
@@ -6316,6 +6650,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlContainerCell
 template<>
 class LunaTraits< wxHtmlContainerCell > {
 public:
@@ -6334,6 +6669,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlDCRenderer
 template<>
 class LunaTraits< wxHtmlDCRenderer > {
 public:
@@ -6352,6 +6688,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlEasyPrinting
 template<>
 class LunaTraits< wxHtmlEasyPrinting > {
 public:
@@ -6370,6 +6707,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlFilter
 template<>
 class LunaTraits< wxHtmlFilter > {
 public:
@@ -6388,6 +6726,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlHelpController
 template<>
 class LunaTraits< wxHtmlHelpController > {
 public:
@@ -6406,6 +6745,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlHelpData
 template<>
 class LunaTraits< wxHtmlHelpData > {
 public:
@@ -6424,6 +6764,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlHelpDialog
 template<>
 class LunaTraits< wxHtmlHelpDialog > {
 public:
@@ -6442,6 +6783,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlHelpFrame
 template<>
 class LunaTraits< wxHtmlHelpFrame > {
 public:
@@ -6460,6 +6802,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlHelpWindow
 template<>
 class LunaTraits< wxHtmlHelpWindow > {
 public:
@@ -6478,6 +6821,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlLinkEvent
 template<>
 class LunaTraits< wxHtmlLinkEvent > {
 public:
@@ -6496,6 +6840,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlLinkInfo
 template<>
 class LunaTraits< wxHtmlLinkInfo > {
 public:
@@ -6514,6 +6859,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxVarVScrollHelper
 template<>
 class LunaTraits< wxVarVScrollHelper > {
 public:
@@ -6532,6 +6878,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxVScrolledWindow
 template<>
 class LunaTraits< wxVScrolledWindow > {
 public:
@@ -6550,6 +6897,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxVListBox
 template<>
 class LunaTraits< wxVListBox > {
 public:
@@ -6568,6 +6916,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlListBox
 template<>
 class LunaTraits< wxHtmlListBox > {
 public:
@@ -6586,6 +6935,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlModalHelp
 template<>
 class LunaTraits< wxHtmlModalHelp > {
 public:
@@ -6604,6 +6954,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlParser
 template<>
 class LunaTraits< wxHtmlParser > {
 public:
@@ -6622,6 +6973,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPrintout
 template<>
 class LunaTraits< wxPrintout > {
 public:
@@ -6640,6 +6992,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlPrintout
 template<>
 class LunaTraits< wxHtmlPrintout > {
 public:
@@ -6658,6 +7011,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlRenderingInfo
 template<>
 class LunaTraits< wxHtmlRenderingInfo > {
 public:
@@ -6676,6 +7030,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlRenderingStyle
 template<>
 class LunaTraits< wxHtmlRenderingStyle > {
 public:
@@ -6694,6 +7049,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlTag
 template<>
 class LunaTraits< wxHtmlTag > {
 public:
@@ -6712,6 +7068,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlTagHandler
 template<>
 class LunaTraits< wxHtmlTagHandler > {
 public:
@@ -6730,6 +7087,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxModule
 template<>
 class LunaTraits< wxModule > {
 public:
@@ -6748,6 +7106,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlTagsModule
 template<>
 class LunaTraits< wxHtmlTagsModule > {
 public:
@@ -6766,6 +7125,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlWidgetCell
 template<>
 class LunaTraits< wxHtmlWidgetCell > {
 public:
@@ -6784,6 +7144,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlWindow
 template<>
 class LunaTraits< wxHtmlWindow > {
 public:
@@ -6802,6 +7163,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlWinParser
 template<>
 class LunaTraits< wxHtmlWinParser > {
 public:
@@ -6820,6 +7182,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHtmlWinTagHandler
 template<>
 class LunaTraits< wxHtmlWinTagHandler > {
 public:
@@ -6838,6 +7201,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHTTP
 template<>
 class LunaTraits< wxHTTP > {
 public:
@@ -6856,6 +7220,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHVScrolledWindow
 template<>
 class LunaTraits< wxHVScrolledWindow > {
 public:
@@ -6874,6 +7239,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHyperlinkCtrl
 template<>
 class LunaTraits< wxHyperlinkCtrl > {
 public:
@@ -6892,6 +7258,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxHyperlinkEvent
 template<>
 class LunaTraits< wxHyperlinkEvent > {
 public:
@@ -6910,6 +7277,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxIcon
 template<>
 class LunaTraits< wxIcon > {
 public:
@@ -6928,6 +7296,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxIconBundle
 template<>
 class LunaTraits< wxIconBundle > {
 public:
@@ -6946,6 +7315,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxIconizeEvent
 template<>
 class LunaTraits< wxIconizeEvent > {
 public:
@@ -6964,6 +7334,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxIconLocation
 template<>
 class LunaTraits< wxIconLocation > {
 public:
@@ -6982,6 +7353,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxIdleEvent
 template<>
 class LunaTraits< wxIdleEvent > {
 public:
@@ -7000,6 +7372,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxIdManager
 template<>
 class LunaTraits< wxIdManager > {
 public:
@@ -7018,6 +7391,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxImage
 template<>
 class LunaTraits< wxImage > {
 public:
@@ -7036,6 +7410,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxImage::HSVValue
 template<>
 class LunaTraits< wxImage::HSVValue > {
 public:
@@ -7054,6 +7429,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxImage::RGBValue
 template<>
 class LunaTraits< wxImage::RGBValue > {
 public:
@@ -7072,6 +7448,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxImageHandler
 template<>
 class LunaTraits< wxImageHandler > {
 public:
@@ -7090,6 +7467,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxImageHistogram
 template<>
 class LunaTraits< wxImageHistogram > {
 public:
@@ -7108,6 +7486,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxImageList
 template<>
 class LunaTraits< wxImageList > {
 public:
@@ -7126,6 +7505,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxIndividualLayoutConstraint
 template<>
 class LunaTraits< wxIndividualLayoutConstraint > {
 public:
@@ -7144,6 +7524,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxInfoBar
 template<>
 class LunaTraits< wxInfoBar > {
 public:
@@ -7162,6 +7543,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxInitDialogEvent
 template<>
 class LunaTraits< wxInitDialogEvent > {
 public:
@@ -7180,6 +7562,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxInitializer
 template<>
 class LunaTraits< wxInitializer > {
 public:
@@ -7198,6 +7581,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSockAddress
 template<>
 class LunaTraits< wxSockAddress > {
 public:
@@ -7216,6 +7600,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxIPaddress
 template<>
 class LunaTraits< wxIPaddress > {
 public:
@@ -7234,6 +7619,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxIPV4address
 template<>
 class LunaTraits< wxIPV4address > {
 public:
@@ -7252,6 +7638,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxJoystick
 template<>
 class LunaTraits< wxJoystick > {
 public:
@@ -7270,6 +7657,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxJoystickEvent
 template<>
 class LunaTraits< wxJoystickEvent > {
 public:
@@ -7288,6 +7676,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxKeyboardState
 template<>
 class LunaTraits< wxKeyboardState > {
 public:
@@ -7306,6 +7695,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxKeyEvent
 template<>
 class LunaTraits< wxKeyEvent > {
 public:
@@ -7324,6 +7714,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLanguageInfo
 template<>
 class LunaTraits< wxLanguageInfo > {
 public:
@@ -7342,6 +7733,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLayoutAlgorithm
 template<>
 class LunaTraits< wxLayoutAlgorithm > {
 public:
@@ -7360,6 +7752,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLayoutConstraints
 template<>
 class LunaTraits< wxLayoutConstraints > {
 public:
@@ -7378,6 +7771,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLinuxDistributionInfo
 template<>
 class LunaTraits< wxLinuxDistributionInfo > {
 public:
@@ -7396,6 +7790,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxListbook
 template<>
 class LunaTraits< wxListbook > {
 public:
@@ -7414,6 +7809,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxListCtrl
 template<>
 class LunaTraits< wxListCtrl > {
 public:
@@ -7432,6 +7828,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxListEvent
 template<>
 class LunaTraits< wxListEvent > {
 public:
@@ -7450,6 +7847,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxListItem
 template<>
 class LunaTraits< wxListItem > {
 public:
@@ -7468,6 +7866,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxListItemAttr
 template<>
 class LunaTraits< wxListItemAttr > {
 public:
@@ -7486,6 +7885,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxListView
 template<>
 class LunaTraits< wxListView > {
 public:
@@ -7504,6 +7904,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLocale
 template<>
 class LunaTraits< wxLocale > {
 public:
@@ -7522,6 +7923,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLog
 template<>
 class LunaTraits< wxLog > {
 public:
@@ -7540,6 +7942,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLogChain
 template<>
 class LunaTraits< wxLogChain > {
 public:
@@ -7558,6 +7961,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLogGui
 template<>
 class LunaTraits< wxLogGui > {
 public:
@@ -7576,6 +7980,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLogInterposer
 template<>
 class LunaTraits< wxLogInterposer > {
 public:
@@ -7594,6 +7999,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLogInterposerTemp
 template<>
 class LunaTraits< wxLogInterposerTemp > {
 public:
@@ -7612,6 +8018,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLogNull
 template<>
 class LunaTraits< wxLogNull > {
 public:
@@ -7630,6 +8037,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLogRecordInfo
 template<>
 class LunaTraits< wxLogRecordInfo > {
 public:
@@ -7648,6 +8056,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLogStderr
 template<>
 class LunaTraits< wxLogStderr > {
 public:
@@ -7666,6 +8075,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLogStream
 template<>
 class LunaTraits< wxLogStream > {
 public:
@@ -7684,6 +8094,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLogTextCtrl
 template<>
 class LunaTraits< wxLogTextCtrl > {
 public:
@@ -7702,6 +8113,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLogWindow
 template<>
 class LunaTraits< wxLogWindow > {
 public:
@@ -7720,6 +8132,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxLongLong
 template<>
 class LunaTraits< wxLongLong > {
 public:
@@ -7738,6 +8151,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMask
 template<>
 class LunaTraits< wxMask > {
 public:
@@ -7756,6 +8170,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMatrix2D
 template<>
 class LunaTraits< wxMatrix2D > {
 public:
@@ -7774,6 +8189,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMaximizeEvent
 template<>
 class LunaTraits< wxMaximizeEvent > {
 public:
@@ -7792,6 +8208,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMDIClientWindow
 template<>
 class LunaTraits< wxMDIClientWindow > {
 public:
@@ -7810,6 +8227,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMediaCtrl
 template<>
 class LunaTraits< wxMediaCtrl > {
 public:
@@ -7828,6 +8246,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMediaEvent
 template<>
 class LunaTraits< wxMediaEvent > {
 public:
@@ -7846,6 +8265,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMemoryDC
 template<>
 class LunaTraits< wxMemoryDC > {
 public:
@@ -7864,6 +8284,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMemoryFSHandler
 template<>
 class LunaTraits< wxMemoryFSHandler > {
 public:
@@ -7882,6 +8303,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMemoryInputStream
 template<>
 class LunaTraits< wxMemoryInputStream > {
 public:
@@ -7900,6 +8322,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMemoryOutputStream
 template<>
 class LunaTraits< wxMemoryOutputStream > {
 public:
@@ -7918,6 +8341,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMenu
 template<>
 class LunaTraits< wxMenu > {
 public:
@@ -7936,6 +8360,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMenuBar
 template<>
 class LunaTraits< wxMenuBar > {
 public:
@@ -7954,6 +8379,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMenuEvent
 template<>
 class LunaTraits< wxMenuEvent > {
 public:
@@ -7972,6 +8398,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMenuItem
 template<>
 class LunaTraits< wxMenuItem > {
 public:
@@ -7990,6 +8417,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMessageDialog
 template<>
 class LunaTraits< wxMessageDialog > {
 public:
@@ -8008,6 +8436,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMessageOutput
 template<>
 class LunaTraits< wxMessageOutput > {
 public:
@@ -8026,6 +8455,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMessageOutputStderr
 template<>
 class LunaTraits< wxMessageOutputStderr > {
 public:
@@ -8044,6 +8474,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMessageOutputBest
 template<>
 class LunaTraits< wxMessageOutputBest > {
 public:
@@ -8062,6 +8493,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMessageOutputDebug
 template<>
 class LunaTraits< wxMessageOutputDebug > {
 public:
@@ -8080,6 +8512,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMessageOutputMessageBox
 template<>
 class LunaTraits< wxMessageOutputMessageBox > {
 public:
@@ -8098,6 +8531,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMetafile
 template<>
 class LunaTraits< wxMetafile > {
 public:
@@ -8116,6 +8550,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMetafileDC
 template<>
 class LunaTraits< wxMetafileDC > {
 public:
@@ -8134,6 +8569,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMimeTypesManager
 template<>
 class LunaTraits< wxMimeTypesManager > {
 public:
@@ -8152,6 +8588,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMiniFrame
 template<>
 class LunaTraits< wxMiniFrame > {
 public:
@@ -8170,6 +8607,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMirrorDC
 template<>
 class LunaTraits< wxMirrorDC > {
 public:
@@ -8188,6 +8626,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMouseCaptureChangedEvent
 template<>
 class LunaTraits< wxMouseCaptureChangedEvent > {
 public:
@@ -8206,6 +8645,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMouseCaptureLostEvent
 template<>
 class LunaTraits< wxMouseCaptureLostEvent > {
 public:
@@ -8224,6 +8664,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMouseState
 template<>
 class LunaTraits< wxMouseState > {
 public:
@@ -8242,6 +8683,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMouseEvent
 template<>
 class LunaTraits< wxMouseEvent > {
 public:
@@ -8260,6 +8702,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMouseEventsManager
 template<>
 class LunaTraits< wxMouseEventsManager > {
 public:
@@ -8278,6 +8721,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMoveEvent
 template<>
 class LunaTraits< wxMoveEvent > {
 public:
@@ -8296,6 +8740,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMsgCatalog
 template<>
 class LunaTraits< wxMsgCatalog > {
 public:
@@ -8314,6 +8759,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMultiChoiceDialog
 template<>
 class LunaTraits< wxMultiChoiceDialog > {
 public:
@@ -8332,6 +8778,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMutex
 template<>
 class LunaTraits< wxMutex > {
 public:
@@ -8350,6 +8797,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxMutexLocker
 template<>
 class LunaTraits< wxMutexLocker > {
 public:
@@ -8368,6 +8816,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxNativeFontInfo
 template<>
 class LunaTraits< wxNativeFontInfo > {
 public:
@@ -8386,6 +8835,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxNavigationKeyEvent
 template<>
 class LunaTraits< wxNavigationKeyEvent > {
 public:
@@ -8404,6 +8854,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxNotebook
 template<>
 class LunaTraits< wxNotebook > {
 public:
@@ -8422,6 +8873,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxNumberFormatter
 template<>
 class LunaTraits< wxNumberFormatter > {
 public:
@@ -8440,6 +8892,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxObjectRefData
 template<>
 class LunaTraits< wxObjectRefData > {
 public:
@@ -8458,6 +8911,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxOwnerDrawnComboBox
 template<>
 class LunaTraits< wxOwnerDrawnComboBox > {
 public:
@@ -8476,6 +8930,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPageSetupDialog
 template<>
 class LunaTraits< wxPageSetupDialog > {
 public:
@@ -8494,6 +8949,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPageSetupDialogData
 template<>
 class LunaTraits< wxPageSetupDialogData > {
 public:
@@ -8512,6 +8968,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPaintDC
 template<>
 class LunaTraits< wxPaintDC > {
 public:
@@ -8530,6 +8987,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPaintEvent
 template<>
 class LunaTraits< wxPaintEvent > {
 public:
@@ -8548,6 +9006,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPalette
 template<>
 class LunaTraits< wxPalette > {
 public:
@@ -8566,6 +9025,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPaletteChangedEvent
 template<>
 class LunaTraits< wxPaletteChangedEvent > {
 public:
@@ -8584,6 +9044,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextEntryDialog
 template<>
 class LunaTraits< wxTextEntryDialog > {
 public:
@@ -8602,6 +9063,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPasswordEntryDialog
 template<>
 class LunaTraits< wxPasswordEntryDialog > {
 public:
@@ -8620,6 +9082,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPathList
 template<>
 class LunaTraits< wxPathList > {
 public:
@@ -8638,6 +9101,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPen
 template<>
 class LunaTraits< wxPen > {
 public:
@@ -8656,6 +9120,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPenList
 template<>
 class LunaTraits< wxPenList > {
 public:
@@ -8674,6 +9139,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPersistenceManager
 template<>
 class LunaTraits< wxPersistenceManager > {
 public:
@@ -8692,6 +9158,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPersistentObject
 template<>
 class LunaTraits< wxPersistentObject > {
 public:
@@ -8710,6 +9177,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPGCell
 template<>
 class LunaTraits< wxPGCell > {
 public:
@@ -8728,6 +9196,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPGChoiceEntry
 template<>
 class LunaTraits< wxPGChoiceEntry > {
 public:
@@ -8746,6 +9215,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPGChoices
 template<>
 class LunaTraits< wxPGChoices > {
 public:
@@ -8764,6 +9234,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPGChoicesData
 template<>
 class LunaTraits< wxPGChoicesData > {
 public:
@@ -8782,6 +9253,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPGEditor
 template<>
 class LunaTraits< wxPGEditor > {
 public:
@@ -8800,6 +9272,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPGMultiButton
 template<>
 class LunaTraits< wxPGMultiButton > {
 public:
@@ -8818,6 +9291,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPGProperty
 template<>
 class LunaTraits< wxPGProperty > {
 public:
@@ -8836,6 +9310,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPGValidationInfo
 template<>
 class LunaTraits< wxPGValidationInfo > {
 public:
@@ -8854,6 +9329,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPlatformInfo
 template<>
 class LunaTraits< wxPlatformInfo > {
 public:
@@ -8872,6 +9348,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPoint
 template<>
 class LunaTraits< wxPoint > {
 public:
@@ -8890,6 +9367,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPoint2DDouble
 template<>
 class LunaTraits< wxPoint2DDouble > {
 public:
@@ -8908,6 +9386,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPoint2DInt
 template<>
 class LunaTraits< wxPoint2DInt > {
 public:
@@ -8926,6 +9405,26 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPointList
+template<>
+class LunaTraits< wxPointList > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxPointList* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxPointList* obj);
+	typedef wxPointList parent_t;
+	typedef wxPointList base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: wxPopupWindow
 template<>
 class LunaTraits< wxPopupWindow > {
 public:
@@ -8944,6 +9443,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPopupTransientWindow
 template<>
 class LunaTraits< wxPopupTransientWindow > {
 public:
@@ -8962,6 +9462,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPosition
 template<>
 class LunaTraits< wxPosition > {
 public:
@@ -8980,6 +9481,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPowerEvent
 template<>
 class LunaTraits< wxPowerEvent > {
 public:
@@ -8998,6 +9500,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPreviewCanvas
 template<>
 class LunaTraits< wxPreviewCanvas > {
 public:
@@ -9016,6 +9519,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPreviewControlBar
 template<>
 class LunaTraits< wxPreviewControlBar > {
 public:
@@ -9034,6 +9538,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPreviewFrame
 template<>
 class LunaTraits< wxPreviewFrame > {
 public:
@@ -9052,6 +9557,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPrintData
 template<>
 class LunaTraits< wxPrintData > {
 public:
@@ -9070,6 +9576,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPrintDialog
 template<>
 class LunaTraits< wxPrintDialog > {
 public:
@@ -9088,6 +9595,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPrintDialogData
 template<>
 class LunaTraits< wxPrintDialogData > {
 public:
@@ -9106,6 +9614,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPrinter
 template<>
 class LunaTraits< wxPrinter > {
 public:
@@ -9124,6 +9633,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPrinterDC
 template<>
 class LunaTraits< wxPrinterDC > {
 public:
@@ -9142,6 +9652,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPrintPreview
 template<>
 class LunaTraits< wxPrintPreview > {
 public:
@@ -9160,6 +9671,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxProcess
 template<>
 class LunaTraits< wxProcess > {
 public:
@@ -9178,6 +9690,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxProcessEvent
 template<>
 class LunaTraits< wxProcessEvent > {
 public:
@@ -9196,6 +9709,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxProgressDialog
 template<>
 class LunaTraits< wxProgressDialog > {
 public:
@@ -9214,6 +9728,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPropagateOnce
 template<>
 class LunaTraits< wxPropagateOnce > {
 public:
@@ -9232,6 +9747,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPropagationDisabler
 template<>
 class LunaTraits< wxPropagationDisabler > {
 public:
@@ -9250,6 +9766,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPropertyGridInterface
 template<>
 class LunaTraits< wxPropertyGridInterface > {
 public:
@@ -9268,6 +9785,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPropertyGrid
 template<>
 class LunaTraits< wxPropertyGrid > {
 public:
@@ -9286,6 +9804,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPropertyGridEvent
 template<>
 class LunaTraits< wxPropertyGridEvent > {
 public:
@@ -9304,6 +9823,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPropertyGridHitTestResult
 template<>
 class LunaTraits< wxPropertyGridHitTestResult > {
 public:
@@ -9322,6 +9842,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPropertyGridManager
 template<>
 class LunaTraits< wxPropertyGridManager > {
 public:
@@ -9340,6 +9861,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPropertyGridPage
 template<>
 class LunaTraits< wxPropertyGridPage > {
 public:
@@ -9358,6 +9880,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxPropertySheetDialog
 template<>
 class LunaTraits< wxPropertySheetDialog > {
 public:
@@ -9376,6 +9899,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxProtocolLog
 template<>
 class LunaTraits< wxProtocolLog > {
 public:
@@ -9394,6 +9918,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxQuantize
 template<>
 class LunaTraits< wxQuantize > {
 public:
@@ -9412,6 +9937,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxQueryLayoutInfoEvent
 template<>
 class LunaTraits< wxQueryLayoutInfoEvent > {
 public:
@@ -9430,6 +9956,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxQueryNewPaletteEvent
 template<>
 class LunaTraits< wxQueryNewPaletteEvent > {
 public:
@@ -9448,6 +9975,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRadioBox
 template<>
 class LunaTraits< wxRadioBox > {
 public:
@@ -9466,6 +9994,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRadioButton
 template<>
 class LunaTraits< wxRadioButton > {
 public:
@@ -9484,6 +10013,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRealPoint
 template<>
 class LunaTraits< wxRealPoint > {
 public:
@@ -9502,6 +10032,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRearrangeCtrl
 template<>
 class LunaTraits< wxRearrangeCtrl > {
 public:
@@ -9520,6 +10051,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRearrangeDialog
 template<>
 class LunaTraits< wxRearrangeDialog > {
 public:
@@ -9538,6 +10070,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRearrangeList
 template<>
 class LunaTraits< wxRearrangeList > {
 public:
@@ -9556,6 +10089,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRect
 template<>
 class LunaTraits< wxRect > {
 public:
@@ -9574,6 +10108,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRect2DDouble
 template<>
 class LunaTraits< wxRect2DDouble > {
 public:
@@ -9592,6 +10127,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRect2DInt
 template<>
 class LunaTraits< wxRect2DInt > {
 public:
@@ -9610,6 +10146,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRecursionGuard
 template<>
 class LunaTraits< wxRecursionGuard > {
 public:
@@ -9628,6 +10165,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRecursionGuardFlag
 template<>
 class LunaTraits< wxRecursionGuardFlag > {
 public:
@@ -9646,6 +10184,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRegConfig
 template<>
 class LunaTraits< wxRegConfig > {
 public:
@@ -9664,6 +10203,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRegEx
 template<>
 class LunaTraits< wxRegEx > {
 public:
@@ -9682,6 +10222,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRegion
 template<>
 class LunaTraits< wxRegion > {
 public:
@@ -9700,6 +10241,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRegKey
 template<>
 class LunaTraits< wxRegKey > {
 public:
@@ -9718,6 +10260,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRendererVersion
 template<>
 class LunaTraits< wxRendererVersion > {
 public:
@@ -9736,6 +10279,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxResourceTranslationsLoader
 template<>
 class LunaTraits< wxResourceTranslationsLoader > {
 public:
@@ -9754,6 +10298,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonArtProvider
 template<>
 class LunaTraits< wxRibbonArtProvider > {
 public:
@@ -9772,6 +10317,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonControl
 template<>
 class LunaTraits< wxRibbonControl > {
 public:
@@ -9790,6 +10336,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonBar
 template<>
 class LunaTraits< wxRibbonBar > {
 public:
@@ -9808,6 +10355,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonBarEvent
 template<>
 class LunaTraits< wxRibbonBarEvent > {
 public:
@@ -9826,6 +10374,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonButtonBar
 template<>
 class LunaTraits< wxRibbonButtonBar > {
 public:
@@ -9844,6 +10393,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonButtonBarButtonBase
 template<>
 class LunaTraits< wxRibbonButtonBarButtonBase > {
 public:
@@ -9862,6 +10412,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonButtonBarEvent
 template<>
 class LunaTraits< wxRibbonButtonBarEvent > {
 public:
@@ -9880,6 +10431,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonGallery
 template<>
 class LunaTraits< wxRibbonGallery > {
 public:
@@ -9898,6 +10450,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonGalleryEvent
 template<>
 class LunaTraits< wxRibbonGalleryEvent > {
 public:
@@ -9916,6 +10469,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonGalleryItem
 template<>
 class LunaTraits< wxRibbonGalleryItem > {
 public:
@@ -9934,6 +10488,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonPage
 template<>
 class LunaTraits< wxRibbonPage > {
 public:
@@ -9952,6 +10507,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonPageTabInfo
 template<>
 class LunaTraits< wxRibbonPageTabInfo > {
 public:
@@ -9970,6 +10526,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonPageTabInfoArray
 template<>
 class LunaTraits< wxRibbonPageTabInfoArray > {
 public:
@@ -9988,6 +10545,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonPanel
 template<>
 class LunaTraits< wxRibbonPanel > {
 public:
@@ -10006,6 +10564,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRibbonToolBar
 template<>
 class LunaTraits< wxRibbonToolBar > {
 public:
@@ -10024,6 +10583,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichMessageDialog
 template<>
 class LunaTraits< wxRichMessageDialog > {
 public:
@@ -10042,6 +10602,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextAction
 template<>
 class LunaTraits< wxRichTextAction > {
 public:
@@ -10060,6 +10621,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextAttr
 template<>
 class LunaTraits< wxTextAttr > {
 public:
@@ -10078,6 +10640,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextAttr
 template<>
 class LunaTraits< wxRichTextAttr > {
 public:
@@ -10096,6 +10659,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextObject
 template<>
 class LunaTraits< wxRichTextObject > {
 public:
@@ -10114,6 +10678,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextCompositeObject
 template<>
 class LunaTraits< wxRichTextCompositeObject > {
 public:
@@ -10132,6 +10697,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextParagraphLayoutBox
 template<>
 class LunaTraits< wxRichTextParagraphLayoutBox > {
 public:
@@ -10150,6 +10716,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextBox
 template<>
 class LunaTraits< wxRichTextBox > {
 public:
@@ -10168,6 +10735,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextCell
 template<>
 class LunaTraits< wxRichTextCell > {
 public:
@@ -10186,6 +10754,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextStyleDefinition
 template<>
 class LunaTraits< wxRichTextStyleDefinition > {
 public:
@@ -10204,6 +10773,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextCharacterStyleDefinition
 template<>
 class LunaTraits< wxRichTextCharacterStyleDefinition > {
 public:
@@ -10222,6 +10792,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextCommand
 template<>
 class LunaTraits< wxRichTextCommand > {
 public:
@@ -10240,6 +10811,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextContextMenuPropertiesInfo
 template<>
 class LunaTraits< wxRichTextContextMenuPropertiesInfo > {
 public:
@@ -10258,6 +10830,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextCtrl
 template<>
 class LunaTraits< wxRichTextCtrl > {
 public:
@@ -10276,6 +10849,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextEvent
 template<>
 class LunaTraits< wxRichTextEvent > {
 public:
@@ -10294,6 +10868,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextFileHandler
 template<>
 class LunaTraits< wxRichTextFileHandler > {
 public:
@@ -10312,6 +10887,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextFloatCollector
 template<>
 class LunaTraits< wxRichTextFloatCollector > {
 public:
@@ -10330,6 +10906,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextFontTable
 template<>
 class LunaTraits< wxRichTextFontTable > {
 public:
@@ -10348,6 +10925,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextFormattingDialog
 template<>
 class LunaTraits< wxRichTextFormattingDialog > {
 public:
@@ -10366,6 +10944,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextFormattingDialogFactory
 template<>
 class LunaTraits< wxRichTextFormattingDialogFactory > {
 public:
@@ -10384,6 +10963,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextHeaderFooterData
 template<>
 class LunaTraits< wxRichTextHeaderFooterData > {
 public:
@@ -10402,6 +10982,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextHTMLHandler
 template<>
 class LunaTraits< wxRichTextHTMLHandler > {
 public:
@@ -10420,6 +11001,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextImage
 template<>
 class LunaTraits< wxRichTextImage > {
 public:
@@ -10438,6 +11020,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextImageBlock
 template<>
 class LunaTraits< wxRichTextImageBlock > {
 public:
@@ -10456,6 +11039,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextLine
 template<>
 class LunaTraits< wxRichTextLine > {
 public:
@@ -10474,6 +11058,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextParagraphStyleDefinition
 template<>
 class LunaTraits< wxRichTextParagraphStyleDefinition > {
 public:
@@ -10492,6 +11077,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextListStyleDefinition
 template<>
 class LunaTraits< wxRichTextListStyleDefinition > {
 public:
@@ -10510,6 +11096,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextObjectAddress
 template<>
 class LunaTraits< wxRichTextObjectAddress > {
 public:
@@ -10528,6 +11115,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextParagraph
 template<>
 class LunaTraits< wxRichTextParagraph > {
 public:
@@ -10546,6 +11134,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextPlainText
 template<>
 class LunaTraits< wxRichTextPlainText > {
 public:
@@ -10564,6 +11153,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextPlainTextHandler
 template<>
 class LunaTraits< wxRichTextPlainTextHandler > {
 public:
@@ -10582,6 +11172,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextPrinting
 template<>
 class LunaTraits< wxRichTextPrinting > {
 public:
@@ -10600,6 +11191,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextPrintout
 template<>
 class LunaTraits< wxRichTextPrintout > {
 public:
@@ -10618,6 +11210,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextProperties
 template<>
 class LunaTraits< wxRichTextProperties > {
 public:
@@ -10636,6 +11229,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextRange
 template<>
 class LunaTraits< wxRichTextRange > {
 public:
@@ -10654,6 +11248,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextRangeArray
 template<>
 class LunaTraits< wxRichTextRangeArray > {
 public:
@@ -10672,6 +11267,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextRenderer
 template<>
 class LunaTraits< wxRichTextRenderer > {
 public:
@@ -10690,6 +11286,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextSelection
 template<>
 class LunaTraits< wxRichTextSelection > {
 public:
@@ -10708,6 +11305,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextStdRenderer
 template<>
 class LunaTraits< wxRichTextStdRenderer > {
 public:
@@ -10726,6 +11324,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextStyleComboCtrl
 template<>
 class LunaTraits< wxRichTextStyleComboCtrl > {
 public:
@@ -10744,6 +11343,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextStyleListBox
 template<>
 class LunaTraits< wxRichTextStyleListBox > {
 public:
@@ -10762,6 +11362,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextStyleListCtrl
 template<>
 class LunaTraits< wxRichTextStyleListCtrl > {
 public:
@@ -10780,6 +11381,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextStyleOrganiserDialog
 template<>
 class LunaTraits< wxRichTextStyleOrganiserDialog > {
 public:
@@ -10798,6 +11400,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextStyleSheet
 template<>
 class LunaTraits< wxRichTextStyleSheet > {
 public:
@@ -10816,6 +11419,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextTable
 template<>
 class LunaTraits< wxRichTextTable > {
 public:
@@ -10834,6 +11438,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextVariantArray
 template<>
 class LunaTraits< wxRichTextVariantArray > {
 public:
@@ -10852,6 +11457,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichTextXMLHandler
 template<>
 class LunaTraits< wxRichTextXMLHandler > {
 public:
@@ -10870,6 +11476,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxRichToolTip
 template<>
 class LunaTraits< wxRichToolTip > {
 public:
@@ -10888,6 +11495,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSashEvent
 template<>
 class LunaTraits< wxSashEvent > {
 public:
@@ -10906,6 +11514,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSashWindow
 template<>
 class LunaTraits< wxSashWindow > {
 public:
@@ -10924,6 +11533,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSashLayoutWindow
 template<>
 class LunaTraits< wxSashLayoutWindow > {
 public:
@@ -10942,6 +11552,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxScreenDC
 template<>
 class LunaTraits< wxScreenDC > {
 public:
@@ -10960,6 +11571,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxScrollBar
 template<>
 class LunaTraits< wxScrollBar > {
 public:
@@ -10978,6 +11590,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxScrollEvent
 template<>
 class LunaTraits< wxScrollEvent > {
 public:
@@ -10996,6 +11609,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxScrollWinEvent
 template<>
 class LunaTraits< wxScrollWinEvent > {
 public:
@@ -11014,6 +11628,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextCtrl
 template<>
 class LunaTraits< wxTextCtrl > {
 public:
@@ -11032,6 +11647,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSearchCtrl
 template<>
 class LunaTraits< wxSearchCtrl > {
 public:
@@ -11050,6 +11666,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSemaphore
 template<>
 class LunaTraits< wxSemaphore > {
 public:
@@ -11068,6 +11685,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxServer
 template<>
 class LunaTraits< wxServer > {
 public:
@@ -11086,6 +11704,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSetCursorEvent
 template<>
 class LunaTraits< wxSetCursorEvent > {
 public:
@@ -11104,6 +11723,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxShowEvent
 template<>
 class LunaTraits< wxShowEvent > {
 public:
@@ -11122,6 +11742,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSimpleHtmlListBox
 template<>
 class LunaTraits< wxSimpleHtmlListBox > {
 public:
@@ -11140,6 +11761,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSingleChoiceDialog
 template<>
 class LunaTraits< wxSingleChoiceDialog > {
 public:
@@ -11158,6 +11780,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSingleInstanceChecker
 template<>
 class LunaTraits< wxSingleInstanceChecker > {
 public:
@@ -11176,6 +11799,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSize
 template<>
 class LunaTraits< wxSize > {
 public:
@@ -11194,6 +11818,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSizeEvent
 template<>
 class LunaTraits< wxSizeEvent > {
 public:
@@ -11212,6 +11837,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSizerFlags
 template<>
 class LunaTraits< wxSizerFlags > {
 public:
@@ -11230,6 +11856,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxXmlResourceHandler
 template<>
 class LunaTraits< wxXmlResourceHandler > {
 public:
@@ -11248,6 +11875,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSizerXmlHandler
 template<>
 class LunaTraits< wxSizerXmlHandler > {
 public:
@@ -11266,6 +11894,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSlider
 template<>
 class LunaTraits< wxSlider > {
 public:
@@ -11284,6 +11913,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSocketEvent
 template<>
 class LunaTraits< wxSocketEvent > {
 public:
@@ -11302,6 +11932,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSocketInputStream
 template<>
 class LunaTraits< wxSocketInputStream > {
 public:
@@ -11320,6 +11951,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSocketOutputStream
 template<>
 class LunaTraits< wxSocketOutputStream > {
 public:
@@ -11338,6 +11970,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSocketServer
 template<>
 class LunaTraits< wxSocketServer > {
 public:
@@ -11356,6 +11989,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSortedArrayString
 template<>
 class LunaTraits< wxSortedArrayString > {
 public:
@@ -11374,6 +12008,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSound
 template<>
 class LunaTraits< wxSound > {
 public:
@@ -11392,6 +12027,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSpinButton
 template<>
 class LunaTraits< wxSpinButton > {
 public:
@@ -11410,6 +12046,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSpinCtrl
 template<>
 class LunaTraits< wxSpinCtrl > {
 public:
@@ -11428,6 +12065,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSpinCtrlDouble
 template<>
 class LunaTraits< wxSpinCtrlDouble > {
 public:
@@ -11446,6 +12084,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSpinDoubleEvent
 template<>
 class LunaTraits< wxSpinDoubleEvent > {
 public:
@@ -11464,6 +12103,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSpinEvent
 template<>
 class LunaTraits< wxSpinEvent > {
 public:
@@ -11482,6 +12122,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSplashScreen
 template<>
 class LunaTraits< wxSplashScreen > {
 public:
@@ -11500,6 +12141,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSplitterEvent
 template<>
 class LunaTraits< wxSplitterEvent > {
 public:
@@ -11518,6 +12160,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSplitterRenderParams
 template<>
 class LunaTraits< wxSplitterRenderParams > {
 public:
@@ -11536,6 +12179,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSplitterWindow
 template<>
 class LunaTraits< wxSplitterWindow > {
 public:
@@ -11554,6 +12198,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStackFrame
 template<>
 class LunaTraits< wxStackFrame > {
 public:
@@ -11572,6 +12217,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStackWalker
 template<>
 class LunaTraits< wxStackWalker > {
 public:
@@ -11590,6 +12236,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStandardPaths
 template<>
 class LunaTraits< wxStandardPaths > {
 public:
@@ -11608,6 +12255,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStaticBitmap
 template<>
 class LunaTraits< wxStaticBitmap > {
 public:
@@ -11626,6 +12274,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStaticBox
 template<>
 class LunaTraits< wxStaticBox > {
 public:
@@ -11644,6 +12293,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStaticBoxSizer
 template<>
 class LunaTraits< wxStaticBoxSizer > {
 public:
@@ -11662,6 +12312,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStaticLine
 template<>
 class LunaTraits< wxStaticLine > {
 public:
@@ -11680,6 +12331,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStaticText
 template<>
 class LunaTraits< wxStaticText > {
 public:
@@ -11698,6 +12350,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStatusBar
 template<>
 class LunaTraits< wxStatusBar > {
 public:
@@ -11716,6 +12369,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStatusBarPane
 template<>
 class LunaTraits< wxStatusBarPane > {
 public:
@@ -11734,6 +12388,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStdDialogButtonSizer
 template<>
 class LunaTraits< wxStdDialogButtonSizer > {
 public:
@@ -11752,6 +12407,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStdInputStream
 template<>
 class LunaTraits< wxStdInputStream > {
 public:
@@ -11770,6 +12426,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStdOutputStream
 template<>
 class LunaTraits< wxStdOutputStream > {
 public:
@@ -11788,6 +12445,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStopWatch
 template<>
 class LunaTraits< wxStopWatch > {
 public:
@@ -11806,6 +12464,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStreamToTextRedirector
 template<>
 class LunaTraits< wxStreamToTextRedirector > {
 public:
@@ -11824,6 +12483,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxString
 template<>
 class LunaTraits< wxString > {
 public:
@@ -11842,6 +12502,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStringClientData
 template<>
 class LunaTraits< wxStringClientData > {
 public:
@@ -11860,6 +12521,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStringInputStream
 template<>
 class LunaTraits< wxStringInputStream > {
 public:
@@ -11878,6 +12540,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStringOutputStream
 template<>
 class LunaTraits< wxStringOutputStream > {
 public:
@@ -11896,6 +12559,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStringTokenizer
 template<>
 class LunaTraits< wxStringTokenizer > {
 public:
@@ -11914,6 +12578,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStyledTextCtrl
 template<>
 class LunaTraits< wxStyledTextCtrl > {
 public:
@@ -11932,6 +12597,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxStyledTextEvent
 template<>
 class LunaTraits< wxStyledTextEvent > {
 public:
@@ -11950,6 +12616,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSVGFileDC
 template<>
 class LunaTraits< wxSVGFileDC > {
 public:
@@ -11968,6 +12635,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSymbolPickerDialog
 template<>
 class LunaTraits< wxSymbolPickerDialog > {
 public:
@@ -11986,6 +12654,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSysColourChangedEvent
 template<>
 class LunaTraits< wxSysColourChangedEvent > {
 public:
@@ -12004,6 +12673,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSystemOptions
 template<>
 class LunaTraits< wxSystemOptions > {
 public:
@@ -12022,6 +12692,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxSystemSettings
 template<>
 class LunaTraits< wxSystemSettings > {
 public:
@@ -12040,6 +12711,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTarClassFactory
 template<>
 class LunaTraits< wxTarClassFactory > {
 public:
@@ -12058,6 +12730,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTarEntry
 template<>
 class LunaTraits< wxTarEntry > {
 public:
@@ -12076,6 +12749,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTarInputStream
 template<>
 class LunaTraits< wxTarInputStream > {
 public:
@@ -12094,6 +12768,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTarOutputStream
 template<>
 class LunaTraits< wxTarOutputStream > {
 public:
@@ -12112,6 +12787,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTaskBarIcon
 template<>
 class LunaTraits< wxTaskBarIcon > {
 public:
@@ -12130,6 +12806,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTaskBarIconEvent
 template<>
 class LunaTraits< wxTaskBarIconEvent > {
 public:
@@ -12148,6 +12825,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTCPClient
 template<>
 class LunaTraits< wxTCPClient > {
 public:
@@ -12166,6 +12844,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTCPConnection
 template<>
 class LunaTraits< wxTCPConnection > {
 public:
@@ -12184,6 +12863,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTCPServer
 template<>
 class LunaTraits< wxTCPServer > {
 public:
@@ -12202,6 +12882,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTempFile
 template<>
 class LunaTraits< wxTempFile > {
 public:
@@ -12220,6 +12901,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTempFileOutputStream
 template<>
 class LunaTraits< wxTempFileOutputStream > {
 public:
@@ -12238,6 +12920,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextAttrBorder
 template<>
 class LunaTraits< wxTextAttrBorder > {
 public:
@@ -12256,6 +12939,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextAttrBorders
 template<>
 class LunaTraits< wxTextAttrBorders > {
 public:
@@ -12274,6 +12958,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextAttrDimension
 template<>
 class LunaTraits< wxTextAttrDimension > {
 public:
@@ -12292,6 +12977,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextAttrDimensionConverter
 template<>
 class LunaTraits< wxTextAttrDimensionConverter > {
 public:
@@ -12310,6 +12996,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextAttrDimensions
 template<>
 class LunaTraits< wxTextAttrDimensions > {
 public:
@@ -12328,6 +13015,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextAttrSize
 template<>
 class LunaTraits< wxTextAttrSize > {
 public:
@@ -12346,6 +13034,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextBoxAttr
 template<>
 class LunaTraits< wxTextBoxAttr > {
 public:
@@ -12364,6 +13053,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextCompleter
 template<>
 class LunaTraits< wxTextCompleter > {
 public:
@@ -12382,6 +13072,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextCompleterSimple
 template<>
 class LunaTraits< wxTextCompleterSimple > {
 public:
@@ -12400,6 +13091,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextDataObject
 template<>
 class LunaTraits< wxTextDataObject > {
 public:
@@ -12418,6 +13110,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextDropTarget
 template<>
 class LunaTraits< wxTextDropTarget > {
 public:
@@ -12436,6 +13129,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextFile
 template<>
 class LunaTraits< wxTextFile > {
 public:
@@ -12454,6 +13148,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextInputStream
 template<>
 class LunaTraits< wxTextInputStream > {
 public:
@@ -12472,6 +13167,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextOutputStream
 template<>
 class LunaTraits< wxTextOutputStream > {
 public:
@@ -12490,6 +13186,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextValidator
 template<>
 class LunaTraits< wxTextValidator > {
 public:
@@ -12508,6 +13205,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTextWrapper
 template<>
 class LunaTraits< wxTextWrapper > {
 public:
@@ -12526,6 +13224,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxThread
 template<>
 class LunaTraits< wxThread > {
 public:
@@ -12544,6 +13243,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxThreadEvent
 template<>
 class LunaTraits< wxThreadEvent > {
 public:
@@ -12562,6 +13262,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxThreadHelper
 template<>
 class LunaTraits< wxThreadHelper > {
 public:
@@ -12580,6 +13281,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTimePickerCtrl
 template<>
 class LunaTraits< wxTimePickerCtrl > {
 public:
@@ -12598,6 +13300,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTimer
 template<>
 class LunaTraits< wxTimer > {
 public:
@@ -12616,6 +13319,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTimerEvent
 template<>
 class LunaTraits< wxTimerEvent > {
 public:
@@ -12634,6 +13338,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTimerRunner
 template<>
 class LunaTraits< wxTimerRunner > {
 public:
@@ -12652,6 +13357,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTimeSpan
 template<>
 class LunaTraits< wxTimeSpan > {
 public:
@@ -12670,6 +13376,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTipProvider
 template<>
 class LunaTraits< wxTipProvider > {
 public:
@@ -12688,6 +13395,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTipWindow
 template<>
 class LunaTraits< wxTipWindow > {
 public:
@@ -12706,6 +13414,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxToolBar
 template<>
 class LunaTraits< wxToolBar > {
 public:
@@ -12724,6 +13433,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxToolBarToolBase
 template<>
 class LunaTraits< wxToolBarToolBase > {
 public:
@@ -12742,6 +13452,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxToolbook
 template<>
 class LunaTraits< wxToolbook > {
 public:
@@ -12760,6 +13471,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxToolTip
 template<>
 class LunaTraits< wxToolTip > {
 public:
@@ -12778,6 +13490,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTransform2D
 template<>
 class LunaTraits< wxTransform2D > {
 public:
@@ -12796,6 +13509,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTranslations
 template<>
 class LunaTraits< wxTranslations > {
 public:
@@ -12814,6 +13528,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTreebook
 template<>
 class LunaTraits< wxTreebook > {
 public:
@@ -12832,6 +13547,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTreeCtrl
 template<>
 class LunaTraits< wxTreeCtrl > {
 public:
@@ -12850,6 +13566,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTreeEvent
 template<>
 class LunaTraits< wxTreeEvent > {
 public:
@@ -12868,6 +13585,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTreeItemData
 template<>
 class LunaTraits< wxTreeItemData > {
 public:
@@ -12886,6 +13604,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTreeItemId
 template<>
 class LunaTraits< wxTreeItemId > {
 public:
@@ -12904,6 +13623,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTreeItemIdValue
 template<>
 class LunaTraits< wxTreeItemIdValue > {
 public:
@@ -12922,6 +13642,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTreeListCtrl
 template<>
 class LunaTraits< wxTreeListCtrl > {
 public:
@@ -12940,6 +13661,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTreeListEvent
 template<>
 class LunaTraits< wxTreeListEvent > {
 public:
@@ -12958,6 +13680,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTreeListItem
 template<>
 class LunaTraits< wxTreeListItem > {
 public:
@@ -12976,6 +13699,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxTreeListItemComparator
 template<>
 class LunaTraits< wxTreeListItemComparator > {
 public:
@@ -12994,6 +13718,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxUIActionSimulator
 template<>
 class LunaTraits< wxUIActionSimulator > {
 public:
@@ -13012,6 +13737,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxULongLong
 template<>
 class LunaTraits< wxULongLong > {
 public:
@@ -13030,6 +13756,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxUniChar
 template<>
 class LunaTraits< wxUniChar > {
 public:
@@ -13048,6 +13775,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxUniCharRef
 template<>
 class LunaTraits< wxUniCharRef > {
 public:
@@ -13066,6 +13794,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxUpdateUIEvent
 template<>
 class LunaTraits< wxUpdateUIEvent > {
 public:
@@ -13084,6 +13813,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxURI
 template<>
 class LunaTraits< wxURI > {
 public:
@@ -13102,6 +13832,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxURL
 template<>
 class LunaTraits< wxURL > {
 public:
@@ -13120,6 +13851,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxURLDataObject
 template<>
 class LunaTraits< wxURLDataObject > {
 public:
@@ -13138,6 +13870,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxUString
 template<>
 class LunaTraits< wxUString > {
 public:
@@ -13156,6 +13889,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxVariant
 template<>
 class LunaTraits< wxVariant > {
 public:
@@ -13174,6 +13908,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxVariantData
 template<>
 class LunaTraits< wxVariantData > {
 public:
@@ -13192,6 +13927,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxVersionInfo
 template<>
 class LunaTraits< wxVersionInfo > {
 public:
@@ -13210,6 +13946,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxVideoMode
 template<>
 class LunaTraits< wxVideoMode > {
 public:
@@ -13228,6 +13965,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxView
 template<>
 class LunaTraits< wxView > {
 public:
@@ -13246,6 +13984,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxVisualAttributes
 template<>
 class LunaTraits< wxVisualAttributes > {
 public:
@@ -13264,6 +14003,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxWindowCreateEvent
 template<>
 class LunaTraits< wxWindowCreateEvent > {
 public:
@@ -13282,6 +14022,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxWindowDestroyEvent
 template<>
 class LunaTraits< wxWindowDestroyEvent > {
 public:
@@ -13300,6 +14041,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxWindowDisabler
 template<>
 class LunaTraits< wxWindowDisabler > {
 public:
@@ -13318,6 +14060,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxWindowModalDialogEvent
 template<>
 class LunaTraits< wxWindowModalDialogEvent > {
 public:
@@ -13336,6 +14079,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxWindowUpdateLocker
 template<>
 class LunaTraits< wxWindowUpdateLocker > {
 public:
@@ -13354,6 +14098,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxWizard
 template<>
 class LunaTraits< wxWizard > {
 public:
@@ -13372,6 +14117,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxWizardEvent
 template<>
 class LunaTraits< wxWizardEvent > {
 public:
@@ -13390,6 +14136,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxWizardPage
 template<>
 class LunaTraits< wxWizardPage > {
 public:
@@ -13408,6 +14155,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxWizardPageSimple
 template<>
 class LunaTraits< wxWizardPageSimple > {
 public:
@@ -13426,6 +14174,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxWrapSizer
 template<>
 class LunaTraits< wxWrapSizer > {
 public:
@@ -13444,6 +14193,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxXLocale
 template<>
 class LunaTraits< wxXLocale > {
 public:
@@ -13462,6 +14212,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxXmlAttribute
 template<>
 class LunaTraits< wxXmlAttribute > {
 public:
@@ -13480,6 +14231,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxXmlDocument
 template<>
 class LunaTraits< wxXmlDocument > {
 public:
@@ -13498,6 +14250,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxXmlNode
 template<>
 class LunaTraits< wxXmlNode > {
 public:
@@ -13516,6 +14269,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxXmlResource
 template<>
 class LunaTraits< wxXmlResource > {
 public:
@@ -13534,6 +14288,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxZipClassFactory
 template<>
 class LunaTraits< wxZipClassFactory > {
 public:
@@ -13552,6 +14307,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxZipEntry
 template<>
 class LunaTraits< wxZipEntry > {
 public:
@@ -13570,6 +14326,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxZipInputStream
 template<>
 class LunaTraits< wxZipInputStream > {
 public:
@@ -13588,6 +14345,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxZipNotifier
 template<>
 class LunaTraits< wxZipNotifier > {
 public:
@@ -13606,6 +14364,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxZipOutputStream
 template<>
 class LunaTraits< wxZipOutputStream > {
 public:
@@ -13624,6 +14383,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxZlibInputStream
 template<>
 class LunaTraits< wxZlibInputStream > {
 public:
@@ -13642,6 +14402,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxZlibOutputStream
 template<>
 class LunaTraits< wxZlibOutputStream > {
 public:
@@ -13660,6 +14421,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxScrolled< wxWindow >
 template<>
 class LunaTraits< wxScrolled< wxWindow > > {
 public:
@@ -13678,6 +14440,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxVector< wxTreeListItem >
 template<>
 class LunaTraits< wxVector< wxTreeListItem > > {
 public:
@@ -13697,6 +14460,7 @@ public:
 };
 
 
+// Mapped type: wxWindowList
 template<>
 class LunaTraits< wxWindowList > {
 public:
@@ -13715,6 +14479,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: WXWidget
 template<>
 class LunaTraits< WXWidget > {
 public:
@@ -13733,6 +14498,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxTimerImpl
 template<>
 class LunaTraits< wxTimerImpl > {
 public:
@@ -13751,6 +14517,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxSizerItemList
 template<>
 class LunaTraits< wxSizerItemList > {
 public:
@@ -13769,6 +14536,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxArrayVideoModes
 template<>
 class LunaTraits< wxArrayVideoModes > {
 public:
@@ -13787,6 +14555,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxMDIClientWindowBase
 template<>
 class LunaTraits< wxMDIClientWindowBase > {
 public:
@@ -13805,6 +14574,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxDynamicLibraryDetailsArray
 template<>
 class LunaTraits< wxDynamicLibraryDetailsArray > {
 public:
@@ -13823,6 +14593,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxFontEncodingArray
 template<>
 class LunaTraits< wxFontEncodingArray > {
 public:
@@ -13841,6 +14612,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxDirFilterListCtrl
 template<>
 class LunaTraits< wxDirFilterListCtrl > {
 public:
@@ -13859,6 +14631,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxGridCellCoordsArray
 template<>
 class LunaTraits< wxGridCellCoordsArray > {
 public:
@@ -13877,6 +14650,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxHtmlBookRecArray
 template<>
 class LunaTraits< wxHtmlBookRecArray > {
 public:
@@ -13895,6 +14669,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxHtmlHelpDataItems
 template<>
 class LunaTraits< wxHtmlHelpDataItems > {
 public:
@@ -13913,6 +14688,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxHtmlRenderingState
 template<>
 class LunaTraits< wxHtmlRenderingState > {
 public:
@@ -13931,6 +14707,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: sockaddr
 template<>
 class LunaTraits< sockaddr > {
 public:
@@ -13949,6 +14726,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxMenuItemList
 template<>
 class LunaTraits< wxMenuItemList > {
 public:
@@ -13967,6 +14745,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxPGCellData
 template<>
 class LunaTraits< wxPGCellData > {
 public:
@@ -13985,6 +14764,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxPGWindowList
 template<>
 class LunaTraits< wxPGWindowList > {
 public:
@@ -14003,6 +14783,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxPGCellRenderer
 template<>
 class LunaTraits< wxPGCellRenderer > {
 public:
@@ -14021,6 +14802,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxPGEditorDialogAdapter
 template<>
 class LunaTraits< wxPGEditorDialogAdapter > {
 public:
@@ -14039,6 +14821,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxRibbonToolBarToolBase
 template<>
 class LunaTraits< wxRibbonToolBarToolBase > {
 public:
@@ -14057,6 +14840,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxSplashScreenWindow
 template<>
 class LunaTraits< wxSplashScreenWindow > {
 public:
@@ -14075,24 +14859,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
-template<>
-class LunaTraits< signed short > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static signed short* _bind_ctor(lua_State *L);
-	static void _bind_dtor(signed short* obj);
-	typedef signed short parent_t;
-	typedef signed short base_t;
-	static luna_ConverterType converters[];
-};
-
+// Mapped type: wxToolBarBase
 template<>
 class LunaTraits< wxToolBarBase > {
 public:
@@ -14111,6 +14878,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+
+// Referenced external: std::vector< int >
+template<>
+class LunaTraits< std::vector< int > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< int >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< int >* obj);
+	typedef std::vector< int > parent_t;
+	typedef std::vector< int > base_t;
+	static luna_ConverterType converters[];
+};
 
 template<>
 class LunaType< 81056638 > {
@@ -15135,6 +15921,13 @@ public:
 };
 
 template<>
+class LunaType< 74412068 > {
+public:
+	typedef wxPointList type;
+	
+};
+
+template<>
 class LunaType< 9908765 > {
 public:
 	typedef wxPosition type;
@@ -15982,16 +16775,16 @@ public:
 };
 
 template<>
-class LunaType< 86307368 > {
+class LunaType< 72996730 > {
 public:
-	typedef signed short type;
+	typedef wxToolBarBase type;
 	
 };
 
 template<>
-class LunaType< 72996730 > {
+class LunaType< 92299338 > {
 public:
-	typedef wxToolBarBase type;
+	typedef std::vector< int > type;
 	
 };
 

@@ -722,8 +722,6 @@ public:
 
 osgViewer::LODScaleHandler* LunaTraits< osgViewer::LODScaleHandler >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgViewer_LODScaleHandler::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgViewer::LODScaleHandler >::_bind_dtor(osgViewer::LODScaleHandler* obj) {

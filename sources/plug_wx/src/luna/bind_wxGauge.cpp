@@ -3362,8 +3362,6 @@ public:
 
 wxGauge* LunaTraits< wxGauge >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxGauge::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxGauge >::_bind_dtor(wxGauge* obj) {

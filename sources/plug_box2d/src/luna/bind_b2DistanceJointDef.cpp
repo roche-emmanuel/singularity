@@ -381,8 +381,6 @@ public:
 
 b2DistanceJointDef* LunaTraits< b2DistanceJointDef >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_b2DistanceJointDef::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< b2DistanceJointDef >::_bind_dtor(b2DistanceJointDef* obj) {

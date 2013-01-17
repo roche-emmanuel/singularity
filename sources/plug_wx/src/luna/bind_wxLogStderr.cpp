@@ -107,8 +107,6 @@ public:
 
 wxLogStderr* LunaTraits< wxLogStderr >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxLogStderr >::_bind_dtor(wxLogStderr* obj) {

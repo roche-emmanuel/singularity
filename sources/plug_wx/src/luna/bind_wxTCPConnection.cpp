@@ -1177,8 +1177,6 @@ public:
 
 wxTCPConnection* LunaTraits< wxTCPConnection >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxTCPConnection::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxTCPConnection >::_bind_dtor(wxTCPConnection* obj) {

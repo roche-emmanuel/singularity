@@ -56,6 +56,25 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getValue(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getLabel(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setValue(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -63,6 +82,63 @@ public:
 	// Constructor binds:
 
 	// Function binds:
+	// int TwEnumVal::Value()
+	static int _bind_getValue(lua_State *L) {
+		if (!_lg_typecheck_getValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int TwEnumVal::Value() function, expected prototype:\nint TwEnumVal::Value()\nClass arguments details:\n");
+		}
+
+
+		TwEnumVal* self=(Luna< TwEnumVal >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int TwEnumVal::Value(). Got : '%s'",typeid(Luna< TwEnumVal >::check(L,1)).name());
+		}
+		int lret = self->Value;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// const char * TwEnumVal::Label()
+	static int _bind_getLabel(lua_State *L) {
+		if (!_lg_typecheck_getLabel(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * TwEnumVal::Label() function, expected prototype:\nconst char * TwEnumVal::Label()\nClass arguments details:\n");
+		}
+
+
+		TwEnumVal* self=(Luna< TwEnumVal >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * TwEnumVal::Label(). Got : '%s'",typeid(Luna< TwEnumVal >::check(L,1)).name());
+		}
+		const char * lret = self->Label;
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// void TwEnumVal::Value(int value)
+	static int _bind_setValue(lua_State *L) {
+		if (!_lg_typecheck_setValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void TwEnumVal::Value(int value) function, expected prototype:\nvoid TwEnumVal::Value(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		TwEnumVal* self=(Luna< TwEnumVal >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void TwEnumVal::Value(int). Got : '%s'",typeid(Luna< TwEnumVal >::check(L,1)).name());
+		}
+		self->Value = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -70,8 +146,6 @@ public:
 
 TwEnumVal* LunaTraits< TwEnumVal >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< TwEnumVal >::_bind_dtor(TwEnumVal* obj) {
@@ -86,6 +160,9 @@ const int LunaTraits< TwEnumVal >::hash = 42065624;
 const int LunaTraits< TwEnumVal >::uniqueIDs[] = {42065624,0};
 
 luna_RegType LunaTraits< TwEnumVal >::methods[] = {
+	{"getValue", &luna_wrapper_TwEnumVal::_bind_getValue},
+	{"getLabel", &luna_wrapper_TwEnumVal::_bind_getLabel},
+	{"setValue", &luna_wrapper_TwEnumVal::_bind_setValue},
 	{"dynCast", &luna_wrapper_TwEnumVal::_bind_dynCast},
 	{"__eq", &luna_wrapper_TwEnumVal::_bind___eq},
 	{0,0}

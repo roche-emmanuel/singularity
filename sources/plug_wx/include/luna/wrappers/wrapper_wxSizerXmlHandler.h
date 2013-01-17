@@ -142,8 +142,8 @@ public:
 		return wxXmlResourceHandler::GetAnimation(param);
 	};
 
-	// wxBitmap wxXmlResourceHandler::GetBitmap(const wxString & param = "bitmap", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
-	wxBitmap public_GetBitmap(const wxString & param = "bitmap", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) {
+	// wxBitmap wxXmlResourceHandler::GetBitmap(const wxString & param = "bitmap", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
+	wxBitmap public_GetBitmap(const wxString & param = "bitmap", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) {
 		return wxXmlResourceHandler::GetBitmap(param, defaultArtClient, size);
 	};
 
@@ -182,13 +182,13 @@ public:
 		return wxXmlResourceHandler::GetID();
 	};
 
-	// wxIcon wxXmlResourceHandler::GetIcon(const wxString & param = "icon", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
-	wxIcon public_GetIcon(const wxString & param = "icon", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) {
+	// wxIcon wxXmlResourceHandler::GetIcon(const wxString & param = "icon", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
+	wxIcon public_GetIcon(const wxString & param = "icon", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) {
 		return wxXmlResourceHandler::GetIcon(param, defaultArtClient, size);
 	};
 
-	// wxIconBundle wxXmlResourceHandler::GetIconBundle(const wxString & param, const class wxString & defaultArtClient = wxART_OTHER)
-	wxIconBundle public_GetIconBundle(const wxString & param, const class wxString & defaultArtClient = wxART_OTHER) {
+	// wxIconBundle wxXmlResourceHandler::GetIconBundle(const wxString & param, const wxString & defaultArtClient = wxART_OTHER)
+	wxIconBundle public_GetIconBundle(const wxString & param, const wxString & defaultArtClient = wxART_OTHER) {
 		return wxXmlResourceHandler::GetIconBundle(param, defaultArtClient);
 	};
 
@@ -324,7 +324,7 @@ public:
 		if( luatop<1 || luatop>4 ) return false;
 
 		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,88196105) ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
 		return true;
 	}
@@ -391,7 +391,7 @@ public:
 		if( luatop<1 || luatop>4 ) return false;
 
 		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,88196105) ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
 		return true;
 	}
@@ -401,7 +401,7 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,88196105) ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -657,11 +657,11 @@ public:
 		return 1;
 	}
 
-	// wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString & param = "bitmap", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
+	// wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString & param = "bitmap", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
 	static int _bind_public_GetBitmap(lua_State *L) {
 		if (!_lg_typecheck_public_GetBitmap(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString & param = \"bitmap\", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) function, expected prototype:\nwxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString & param = \"bitmap\", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString & param = \"bitmap\", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) function, expected prototype:\nwxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString & param = \"bitmap\", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 20268751\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -677,7 +677,7 @@ public:
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString &, const class wxString &, wxSize). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString &, const wxString &, wxSize). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxBitmap stack_lret = self->public_GetBitmap(param, defaultArtClient, size);
 		wxBitmap* lret = new wxBitmap(stack_lret);
@@ -853,11 +853,11 @@ public:
 		return 1;
 	}
 
-	// wxIcon wxXmlResourceHandler::public_GetIcon(const wxString & param = "icon", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
+	// wxIcon wxXmlResourceHandler::public_GetIcon(const wxString & param = "icon", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
 	static int _bind_public_GetIcon(lua_State *L) {
 		if (!_lg_typecheck_public_GetIcon(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIcon wxXmlResourceHandler::public_GetIcon(const wxString & param = \"icon\", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) function, expected prototype:\nwxIcon wxXmlResourceHandler::public_GetIcon(const wxString & param = \"icon\", const class wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxIcon wxXmlResourceHandler::public_GetIcon(const wxString & param = \"icon\", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) function, expected prototype:\nwxIcon wxXmlResourceHandler::public_GetIcon(const wxString & param = \"icon\", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 20268751\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -873,7 +873,7 @@ public:
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIcon wxXmlResourceHandler::public_GetIcon(const wxString &, const class wxString &, wxSize). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxIcon wxXmlResourceHandler::public_GetIcon(const wxString &, const wxString &, wxSize). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxIcon stack_lret = self->public_GetIcon(param, defaultArtClient, size);
 		wxIcon* lret = new wxIcon(stack_lret);
@@ -884,11 +884,11 @@ public:
 		return 1;
 	}
 
-	// wxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString & param, const class wxString & defaultArtClient = wxART_OTHER)
+	// wxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString & param, const wxString & defaultArtClient = wxART_OTHER)
 	static int _bind_public_GetIconBundle(lua_State *L) {
 		if (!_lg_typecheck_public_GetIconBundle(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString & param, const class wxString & defaultArtClient = wxART_OTHER) function, expected prototype:\nwxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString & param, const class wxString & defaultArtClient = wxART_OTHER)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString & param, const wxString & defaultArtClient = wxART_OTHER) function, expected prototype:\nwxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString & param, const wxString & defaultArtClient = wxART_OTHER)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -899,7 +899,7 @@ public:
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString &, const class wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
 		wxIconBundle stack_lret = self->public_GetIconBundle(param, defaultArtClient);
 		wxIconBundle* lret = new wxIconBundle(stack_lret);

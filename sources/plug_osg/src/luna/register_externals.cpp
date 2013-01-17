@@ -6,12 +6,6 @@ const char LunaTraits< __int64 >::moduleName[] = "sgt";
 const int LunaTraits< __int64 >::hash = 32973728;
 const int LunaTraits< __int64 >::uniqueIDs[] = {32973728,0};
 
-const char LunaTraits< OpenThreads::Mutex >::className[] = "OpenThreads_Mutex";
-const char LunaTraits< OpenThreads::Mutex >::fullName[] = "OpenThreads::Mutex";
-const char LunaTraits< OpenThreads::Mutex >::moduleName[] = "sgt";
-const int LunaTraits< OpenThreads::Mutex >::hash = 3168391;
-const int LunaTraits< OpenThreads::Mutex >::uniqueIDs[] = {3168391,0};
-
 const char LunaTraits< osg::Referenced >::className[] = "Referenced";
 const char LunaTraits< osg::Referenced >::fullName[] = "osg::Referenced";
 const char LunaTraits< osg::Referenced >::moduleName[] = "osg";
@@ -29,6 +23,12 @@ const char LunaTraits< std::vector< double > >::fullName[] = "std::vector< doubl
 const char LunaTraits< osg::KdTree::LineSegmentIntersection::RatioList >::moduleName[] = "sgt";
 const int LunaTraits< osg::KdTree::LineSegmentIntersection::RatioList >::hash = 14271479;
 const int LunaTraits< osg::KdTree::LineSegmentIntersection::RatioList >::uniqueIDs[] = {4564820,0};
+
+const char LunaTraits< OpenThreads::Mutex >::className[] = "OpenThreads_Mutex";
+const char LunaTraits< OpenThreads::Mutex >::fullName[] = "OpenThreads::Mutex";
+const char LunaTraits< OpenThreads::Mutex >::moduleName[] = "sgt";
+const int LunaTraits< OpenThreads::Mutex >::hash = 3168391;
+const int LunaTraits< OpenThreads::Mutex >::uniqueIDs[] = {3168391,0};
 
 const char LunaTraits< osg::Program::AttribBindingList >::className[] = "std_map_std_string_unsigned_int";
 const char LunaTraits< std::map< std::string, unsigned int > >::fullName[] = "std::map< std::string, unsigned int >";

@@ -203,8 +203,6 @@ public:
 
 OpenThreads::Atomic* LunaTraits< OpenThreads::Atomic >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_OpenThreads_Atomic::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< OpenThreads::Atomic >::_bind_dtor(OpenThreads::Atomic* obj) {

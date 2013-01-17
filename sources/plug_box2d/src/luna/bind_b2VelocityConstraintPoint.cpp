@@ -439,8 +439,6 @@ public:
 
 b2VelocityConstraintPoint* LunaTraits< b2VelocityConstraintPoint >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< b2VelocityConstraintPoint >::_bind_dtor(b2VelocityConstraintPoint* obj) {

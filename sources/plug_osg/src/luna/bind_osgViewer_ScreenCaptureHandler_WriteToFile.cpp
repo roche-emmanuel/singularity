@@ -254,8 +254,6 @@ public:
 
 osgViewer::ScreenCaptureHandler::WriteToFile* LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgViewer_ScreenCaptureHandler_WriteToFile::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile >::_bind_dtor(osgViewer::ScreenCaptureHandler::WriteToFile* obj) {

@@ -289,6 +289,10 @@ function Class:addTemplateParameter(param)
 	self._templateParameters:push_back(param)
 end
 
+function Class:getTemplateParameters()
+	return self._templateParameters
+end
+
 --- Function used to check if a class is abstract.
 function Class:isAbstract()
 	-- return not self:getAbstractFunctions():empty() or not self:getAbstractOperators():empty()
@@ -312,7 +316,8 @@ function Class:isValidForWrapping()
 	local abase = self:getFirstAbsoluteBase()
 	return not self:isTemplated()
 		and not im:ignore(self:getHeaderFile(),"file")
-		and self:getParent():isValidForWrapping()
+		and ((not self:getParent()) or self:getParent():isValidForWrapping())
+		and self:isPublic()
 		and (abase==self or abase:isValidForWrapping())
 end
 
@@ -474,5 +479,17 @@ function Class:isPolymorphic()
 	local funcs = self:getFunctions{"Virtual"}
 	return not funcs:empty()
 end
+
+function Class:onStackOnly()
+	-- check if this class can only be created on the stack:
+	local funcs = self:getFunctions{"Operator","Private"}
+	for _,func in funcs:sequence() do
+		if (func:getName()=="operator new" or func:getName()=="operator delete") then
+			self:notice("Found private new/delete operator for class ", self:getFullName(),": considered as stack only.")
+			return true;
+		end
+	end
+end
+
 
 return Class

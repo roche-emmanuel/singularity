@@ -612,8 +612,6 @@ public:
 
 b2ContactSolver* LunaTraits< b2ContactSolver >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_b2ContactSolver::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< b2ContactSolver >::_bind_dtor(b2ContactSolver* obj) {

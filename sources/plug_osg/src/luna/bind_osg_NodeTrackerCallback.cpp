@@ -703,8 +703,6 @@ public:
 
 osg::NodeTrackerCallback* LunaTraits< osg::NodeTrackerCallback >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_NodeTrackerCallback::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::NodeTrackerCallback >::_bind_dtor(osg::NodeTrackerCallback* obj) {

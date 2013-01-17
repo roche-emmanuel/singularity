@@ -449,8 +449,6 @@ public:
 
 wxFilterOutputStream* LunaTraits< wxFilterOutputStream >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxFilterOutputStream::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxFilterOutputStream >::_bind_dtor(wxFilterOutputStream* obj) {

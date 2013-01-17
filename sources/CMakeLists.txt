@@ -28,18 +28,16 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_lanes)
 # ADD_SUBDIRECTORY(plug_ssl)
 
-ADD_SUBDIRECTORY(plug_core)
-ADD_SUBDIRECTORY(plug_doxmlparser)
+# ADD_SUBDIRECTORY(plug_core)
+# ADD_SUBDIRECTORY(plug_doxmlparser)
 IF(MSVC)
 	# ADD_SUBDIRECTORY(plug_wx)
 ENDIF()
 
 # ADD_SUBDIRECTORY(plug_osg)
 # ADD_SUBDIRECTORY(plug_osgWX)
-# ADD_SUBDIRECTORY(plug_spice)
-# ADD_SUBDIRECTORY(plug_norad)
 # ADD_SUBDIRECTORY(plug_FANN)
-# ADD_SUBDIRECTORY(plug_awesomium)
+ADD_SUBDIRECTORY(plug_awesomium)
 # ADD_SUBDIRECTORY(plug_spark)
 # ADD_SUBDIRECTORY(plug_tuio)
 # ADD_SUBDIRECTORY(plug_vlc)
@@ -51,7 +49,8 @@ ENDIF()
 
 # ToDo:
 # ADD_SUBDIRECTORY(plug_freenect)
-
+# ADD_SUBDIRECTORY(plug_spice)
+# ADD_SUBDIRECTORY(plug_norad)
 
 # ADD_SUBDIRECTORY(sgt_launcher)
 # ADD_SUBDIRECTORY(tests/virtual_base)

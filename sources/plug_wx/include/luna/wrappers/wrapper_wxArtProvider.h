@@ -47,12 +47,12 @@ protected:
 		return wxArtProvider::CloneRefData(data);
 	};
 
-	// wxBitmap wxArtProvider::CreateBitmap(const class wxString & id, const class wxString & client, const wxSize & size)
-	wxBitmap CreateBitmap(const class wxString & id, const class wxString & client, const wxSize & size) {
+	// wxBitmap wxArtProvider::CreateBitmap(const wxString & id, const wxString & client, const wxSize & size)
+	wxBitmap CreateBitmap(const wxString & id, const wxString & client, const wxSize & size) {
 		if(_obj.pushFunction("CreateBitmap")) {
 			_obj.pushArg((wxArtProvider*)this);
-			_obj.pushArg(&id);
-			_obj.pushArg(&client);
+			_obj.pushArg(id);
+			_obj.pushArg(client);
 			_obj.pushArg(&size);
 			return *(_obj.callFunction<wxBitmap*>());
 		}
@@ -60,12 +60,12 @@ protected:
 		return wxArtProvider::CreateBitmap(id, client, size);
 	};
 
-	// wxIconBundle wxArtProvider::CreateIconBundle(const class wxString & id, const class wxString & client)
-	wxIconBundle CreateIconBundle(const class wxString & id, const class wxString & client) {
+	// wxIconBundle wxArtProvider::CreateIconBundle(const wxString & id, const wxString & client)
+	wxIconBundle CreateIconBundle(const wxString & id, const wxString & client) {
 		if(_obj.pushFunction("CreateIconBundle")) {
 			_obj.pushArg((wxArtProvider*)this);
-			_obj.pushArg(&id);
-			_obj.pushArg(&client);
+			_obj.pushArg(id);
+			_obj.pushArg(client);
 			return *(_obj.callFunction<wxIconBundle*>());
 		}
 

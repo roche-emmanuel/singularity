@@ -75,6 +75,19 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getOrientationVector(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setOrientationVector(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,70092749) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -131,6 +144,50 @@ public:
 		return 1;
 	}
 
+	// SPK::Vector3D SPK::Oriented2DRendererInterface::orientationVector()
+	static int _bind_getOrientationVector(lua_State *L) {
+		if (!_lg_typecheck_getOrientationVector(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in SPK::Vector3D SPK::Oriented2DRendererInterface::orientationVector() function, expected prototype:\nSPK::Vector3D SPK::Oriented2DRendererInterface::orientationVector()\nClass arguments details:\n");
+		}
+
+
+		SPK::Oriented2DRendererInterface* self=(Luna< SPK::Oriented2DRendererInterface >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Oriented2DRendererInterface::orientationVector(). Got : '%s'",typeid(Luna< SPK::Oriented2DRendererInterface >::check(L,1)).name());
+		}
+		const SPK::Vector3D* lret = &self->orientationVector;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< SPK::Vector3D >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void SPK::Oriented2DRendererInterface::orientationVector(SPK::Vector3D value)
+	static int _bind_setOrientationVector(lua_State *L) {
+		if (!_lg_typecheck_setOrientationVector(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void SPK::Oriented2DRendererInterface::orientationVector(SPK::Vector3D value) function, expected prototype:\nvoid SPK::Oriented2DRendererInterface::orientationVector(SPK::Vector3D value)\nClass arguments details:\narg 1 ID = 70092749\n");
+		}
+
+		SPK::Vector3D* value_ptr=(Luna< SPK::Vector3D >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in SPK::Oriented2DRendererInterface::orientationVector function");
+		}
+		SPK::Vector3D value=*value_ptr;
+
+		SPK::Oriented2DRendererInterface* self=(Luna< SPK::Oriented2DRendererInterface >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void SPK::Oriented2DRendererInterface::orientationVector(SPK::Vector3D). Got : '%s'",typeid(Luna< SPK::Oriented2DRendererInterface >::check(L,1)).name());
+		}
+		self->orientationVector = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -138,8 +195,6 @@ public:
 
 SPK::Oriented2DRendererInterface* LunaTraits< SPK::Oriented2DRendererInterface >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_SPK_Oriented2DRendererInterface::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< SPK::Oriented2DRendererInterface >::_bind_dtor(SPK::Oriented2DRendererInterface* obj) {
@@ -156,6 +211,8 @@ const int LunaTraits< SPK::Oriented2DRendererInterface >::uniqueIDs[] = {1188844
 luna_RegType LunaTraits< SPK::Oriented2DRendererInterface >::methods[] = {
 	{"setOrientation", &luna_wrapper_SPK_Oriented2DRendererInterface::_bind_setOrientation},
 	{"getOrientation", &luna_wrapper_SPK_Oriented2DRendererInterface::_bind_getOrientation},
+	{"getOrientationVector", &luna_wrapper_SPK_Oriented2DRendererInterface::_bind_getOrientationVector},
+	{"setOrientationVector", &luna_wrapper_SPK_Oriented2DRendererInterface::_bind_setOrientationVector},
 	{"dynCast", &luna_wrapper_SPK_Oriented2DRendererInterface::_bind_dynCast},
 	{"__eq", &luna_wrapper_SPK_Oriented2DRendererInterface::_bind___eq},
 	{0,0}

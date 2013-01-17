@@ -83,8 +83,6 @@ public:
 
 wxThreadEvent* LunaTraits< wxThreadEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxThreadEvent >::_bind_dtor(wxThreadEvent* obj) {

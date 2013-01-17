@@ -717,8 +717,6 @@ public:
 
 osgUtil::LineSegmentIntersector::Intersection* LunaTraits< osgUtil::LineSegmentIntersector::Intersection >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgUtil_LineSegmentIntersector_Intersection::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::LineSegmentIntersector::Intersection >::_bind_dtor(osgUtil::LineSegmentIntersector::Intersection* obj) {

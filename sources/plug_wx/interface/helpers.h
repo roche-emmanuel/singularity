@@ -33,6 +33,9 @@ class wxRibbonPageTabInfo {
 class wxToolBarToolBase {
 };
 
+class wxPointList {
+};
+
 class wxArrayTreeItemIds {};
 class wxTreeItemIdValue {};
 class wxRichTextFloatCollector {};

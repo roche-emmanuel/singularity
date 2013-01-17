@@ -574,7 +574,7 @@ bool wxGetEmailAddress(char* buf, int sz);
 
     @header{wx/utils.h}
 */
-wxMemorySize wxGetFreeMemory();
+wxLongLong wxGetFreeMemory();
 
 /**
     Return the (current) user's home directory.

@@ -3064,8 +3064,6 @@ public:
 
 wxGLCanvas* LunaTraits< wxGLCanvas >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxGLCanvas::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxGLCanvas >::_bind_dtor(wxGLCanvas* obj) {

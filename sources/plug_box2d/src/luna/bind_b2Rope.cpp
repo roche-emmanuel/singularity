@@ -245,8 +245,6 @@ public:
 
 b2Rope* LunaTraits< b2Rope >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_b2Rope::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< b2Rope >::_bind_dtor(b2Rope* obj) {

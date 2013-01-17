@@ -3503,8 +3503,6 @@ public:
 
 wxDateTime* LunaTraits< wxDateTime >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxDateTime::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxDateTime >::_bind_dtor(wxDateTime* obj) {

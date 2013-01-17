@@ -478,8 +478,6 @@ public:
 
 b2Profile* LunaTraits< b2Profile >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< b2Profile >::_bind_dtor(b2Profile* obj) {

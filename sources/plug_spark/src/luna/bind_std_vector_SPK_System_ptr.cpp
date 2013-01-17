@@ -57,11 +57,11 @@ public:
 };
 
 std::vector< SPK::System * >* LunaTraits< std::vector< SPK::System * > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::vector< SPK::System * >();
 }
 
 void LunaTraits< std::vector< SPK::System * > >::_bind_dtor(std::vector< SPK::System * >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::vector< SPK::System * > >::className[] = "std_vector_SPK_System_ptr";

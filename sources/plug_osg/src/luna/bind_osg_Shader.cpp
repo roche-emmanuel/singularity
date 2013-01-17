@@ -1436,8 +1436,6 @@ public:
 
 osg::Shader* LunaTraits< osg::Shader >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Shader::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::Shader >::_bind_dtor(osg::Shader* obj) {

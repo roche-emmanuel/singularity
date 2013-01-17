@@ -988,8 +988,6 @@ public:
 
 osg::Vec3b* LunaTraits< osg::Vec3b >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Vec3b::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::Vec3b >::_bind_dtor(osg::Vec3b* obj) {

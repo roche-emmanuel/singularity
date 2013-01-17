@@ -28,9 +28,9 @@ int PLUG_EXPORT luaopen_FANN(lua_State* L) {
 
 	register_enums(L);
 
-	register_global_functions(L);
-
 	luna_popModule(L);
+
+	register_global_functions(L);
 
 	luna_copyParents(L,"FANN");
 

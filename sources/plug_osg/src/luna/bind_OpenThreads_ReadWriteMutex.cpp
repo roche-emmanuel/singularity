@@ -96,8 +96,6 @@ public:
 
 OpenThreads::ReadWriteMutex* LunaTraits< OpenThreads::ReadWriteMutex >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< OpenThreads::ReadWriteMutex >::_bind_dtor(OpenThreads::ReadWriteMutex* obj) {

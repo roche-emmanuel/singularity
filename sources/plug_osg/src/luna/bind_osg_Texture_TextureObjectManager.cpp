@@ -1169,8 +1169,6 @@ public:
 
 osg::Texture::TextureObjectManager* LunaTraits< osg::Texture::TextureObjectManager >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Texture_TextureObjectManager::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::Texture::TextureObjectManager >::_bind_dtor(osg::Texture::TextureObjectManager* obj) {

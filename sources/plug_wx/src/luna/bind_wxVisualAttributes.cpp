@@ -241,8 +241,6 @@ public:
 
 wxVisualAttributes* LunaTraits< wxVisualAttributes >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxVisualAttributes >::_bind_dtor(wxVisualAttributes* obj) {

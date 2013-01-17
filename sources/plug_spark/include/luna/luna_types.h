@@ -54,204 +54,7 @@
 #include <RenderingAPIs/OpenGL/SPK_GLPointRenderer.h>
 #include <RenderingAPIs/OpenGL/SPK_GLQuadRenderer.h>
 
-template<>
-class LunaTraits< osg::Drawable > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::Drawable* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::Drawable* obj);
-	typedef osg::Referenced parent_t;
-	typedef osg::Drawable base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< osg::Drawable::UpdateCallback > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::Drawable::UpdateCallback* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::Drawable::UpdateCallback* obj);
-	typedef osg::Referenced parent_t;
-	typedef osg::Drawable::UpdateCallback base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< osg::Referenced > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::Referenced* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::Referenced* obj);
-	typedef osg::Referenced parent_t;
-	typedef osg::Referenced base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< osg::Object > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::Object* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::Object* obj);
-	typedef osg::Referenced parent_t;
-	typedef osg::Object base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< osgGA::GUIEventHandler > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osgGA::GUIEventHandler* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osgGA::GUIEventHandler* obj);
-	typedef osg::Referenced parent_t;
-	typedef osgGA::GUIEventHandler base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< spark::SparkDrawable > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static spark::SparkDrawable* _bind_ctor(lua_State *L);
-	static void _bind_dtor(spark::SparkDrawable* obj);
-	typedef osg::Referenced parent_t;
-	typedef spark::SparkDrawable base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< std::vector< SPK::System * > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::vector< SPK::System * >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::vector< SPK::System * >* obj);
-	typedef std::vector< SPK::System * > parent_t;
-	typedef std::vector< SPK::System * > base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< std::map< std::string, spark::SparkDrawable::ImageAttribute > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::map< std::string, spark::SparkDrawable::ImageAttribute >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::map< std::string, spark::SparkDrawable::ImageAttribute >* obj);
-	typedef std::map< std::string, spark::SparkDrawable::ImageAttribute > parent_t;
-	typedef std::map< std::string, spark::SparkDrawable::ImageAttribute > base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< std::map< std::string, unsigned int > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::map< std::string, unsigned int >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::map< std::string, unsigned int >* obj);
-	typedef std::map< std::string, unsigned int > parent_t;
-	typedef std::map< std::string, unsigned int > base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< spark::SparkDrawable::BaseSystemCreator > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static spark::SparkDrawable::BaseSystemCreator* _bind_ctor(lua_State *L);
-	static void _bind_dtor(spark::SparkDrawable::BaseSystemCreator* obj);
-	typedef osg::Referenced parent_t;
-	typedef spark::SparkDrawable::BaseSystemCreator base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< spark::SparkDrawable::DeferredSystemHandler > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static spark::SparkDrawable::DeferredSystemHandler* _bind_ctor(lua_State *L);
-	static void _bind_dtor(spark::SparkDrawable::DeferredSystemHandler* obj);
-	typedef osg::Referenced parent_t;
-	typedef spark::SparkDrawable::DeferredSystemHandler base_t;
-	static luna_ConverterType converters[];
-};
-
+// Class: spark::SparkDrawable::DeferredSystemHandler::PosAndRotate
 template<>
 class LunaTraits< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate > {
 public:
@@ -270,6 +73,216 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Drawable::UpdateCallback
+template<>
+class LunaTraits< osg::Drawable::UpdateCallback > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Drawable::UpdateCallback* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Drawable::UpdateCallback* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Drawable::UpdateCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Drawable
+template<>
+class LunaTraits< osg::Drawable > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Drawable* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Drawable* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Drawable base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Referenced
+template<>
+class LunaTraits< osg::Referenced > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Referenced* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Referenced* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Referenced base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Object
+template<>
+class LunaTraits< osg::Object > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Object* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Object* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Object base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osgGA::GUIEventHandler
+template<>
+class LunaTraits< osgGA::GUIEventHandler > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osgGA::GUIEventHandler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osgGA::GUIEventHandler* obj);
+	typedef osg::Referenced parent_t;
+	typedef osgGA::GUIEventHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: spark::SparkDrawable
+template<>
+class LunaTraits< spark::SparkDrawable > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static spark::SparkDrawable* _bind_ctor(lua_State *L);
+	static void _bind_dtor(spark::SparkDrawable* obj);
+	typedef osg::Referenced parent_t;
+	typedef spark::SparkDrawable base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: std::vector< SPK::System * >
+template<>
+class LunaTraits< std::vector< SPK::System * > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< SPK::System * >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< SPK::System * >* obj);
+	typedef std::vector< SPK::System * > parent_t;
+	typedef std::vector< SPK::System * > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: std::map< std::string, spark::SparkDrawable::ImageAttribute >
+template<>
+class LunaTraits< std::map< std::string, spark::SparkDrawable::ImageAttribute > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::map< std::string, spark::SparkDrawable::ImageAttribute >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::map< std::string, spark::SparkDrawable::ImageAttribute >* obj);
+	typedef std::map< std::string, spark::SparkDrawable::ImageAttribute > parent_t;
+	typedef std::map< std::string, spark::SparkDrawable::ImageAttribute > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: std::map< std::string, unsigned int >
+template<>
+class LunaTraits< std::map< std::string, unsigned int > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::map< std::string, unsigned int >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::map< std::string, unsigned int >* obj);
+	typedef std::map< std::string, unsigned int > parent_t;
+	typedef std::map< std::string, unsigned int > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: spark::SparkDrawable::BaseSystemCreator
+template<>
+class LunaTraits< spark::SparkDrawable::BaseSystemCreator > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static spark::SparkDrawable::BaseSystemCreator* _bind_ctor(lua_State *L);
+	static void _bind_dtor(spark::SparkDrawable::BaseSystemCreator* obj);
+	typedef osg::Referenced parent_t;
+	typedef spark::SparkDrawable::BaseSystemCreator base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: spark::SparkDrawable::DeferredSystemHandler
+template<>
+class LunaTraits< spark::SparkDrawable::DeferredSystemHandler > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static spark::SparkDrawable::DeferredSystemHandler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(spark::SparkDrawable::DeferredSystemHandler* obj);
+	typedef osg::Referenced parent_t;
+	typedef spark::SparkDrawable::DeferredSystemHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: spark::SparkDrawable::ImageAttribute
 template<>
 class LunaTraits< spark::SparkDrawable::ImageAttribute > {
 public:
@@ -288,6 +301,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: spark::SparkDrawable::SortParticlesOperator
 template<>
 class LunaTraits< spark::SparkDrawable::SortParticlesOperator > {
 public:
@@ -306,6 +320,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: spark::SparkUpdatingHandler
 template<>
 class LunaTraits< spark::SparkUpdatingHandler > {
 public:
@@ -324,6 +339,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: spark::GroupCustomUpdate
 template<>
 class LunaTraits< spark::GroupCustomUpdate > {
 public:
@@ -342,6 +358,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::ArrayBuffer< float >
 template<>
 class LunaTraits< SPK::ArrayBuffer< float > > {
 public:
@@ -360,6 +377,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::ArrayBufferCreator< float >
 template<>
 class LunaTraits< SPK::ArrayBufferCreator< float > > {
 public:
@@ -378,6 +396,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Buffer
 template<>
 class LunaTraits< SPK::Buffer > {
 public:
@@ -396,6 +415,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::BufferCreator
 template<>
 class LunaTraits< SPK::BufferCreator > {
 public:
@@ -414,6 +434,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::BufferHandler
 template<>
 class LunaTraits< SPK::BufferHandler > {
 public:
@@ -432,6 +453,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Registerable
 template<>
 class LunaTraits< SPK::Registerable > {
 public:
@@ -450,6 +472,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Transformable
 template<>
 class LunaTraits< SPK::Transformable > {
 public:
@@ -468,6 +491,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Emitter
 template<>
 class LunaTraits< SPK::Emitter > {
 public:
@@ -486,6 +510,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::SPKFactory
 template<>
 class LunaTraits< SPK::SPKFactory > {
 public:
@@ -504,6 +529,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Group
 template<>
 class LunaTraits< SPK::Group > {
 public:
@@ -522,6 +548,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::InterpolatorEntry
 template<>
 class LunaTraits< SPK::InterpolatorEntry > {
 public:
@@ -540,6 +567,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Interpolator
 template<>
 class LunaTraits< SPK::Interpolator > {
 public:
@@ -558,6 +586,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Model
 template<>
 class LunaTraits< SPK::Model > {
 public:
@@ -576,6 +605,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Modifier
 template<>
 class LunaTraits< SPK::Modifier > {
 public:
@@ -594,6 +624,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Particle
 template<>
 class LunaTraits< SPK::Particle > {
 public:
@@ -612,6 +643,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Renderer
 template<>
 class LunaTraits< SPK::Renderer > {
 public:
@@ -630,6 +662,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::System
 template<>
 class LunaTraits< SPK::System > {
 public:
@@ -648,6 +681,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Vector3D
 template<>
 class LunaTraits< SPK::Vector3D > {
 public:
@@ -666,6 +700,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Zone
 template<>
 class LunaTraits< SPK::Zone > {
 public:
@@ -684,6 +719,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::NormalEmitter
 template<>
 class LunaTraits< SPK::NormalEmitter > {
 public:
@@ -702,6 +738,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::RandomEmitter
 template<>
 class LunaTraits< SPK::RandomEmitter > {
 public:
@@ -720,6 +757,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::SphericEmitter
 template<>
 class LunaTraits< SPK::SphericEmitter > {
 public:
@@ -738,6 +776,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::StaticEmitter
 template<>
 class LunaTraits< SPK::StaticEmitter > {
 public:
@@ -756,6 +795,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::StraightEmitter
 template<>
 class LunaTraits< SPK::StraightEmitter > {
 public:
@@ -774,6 +814,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Collision
 template<>
 class LunaTraits< SPK::Collision > {
 public:
@@ -792,6 +833,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Destroyer
 template<>
 class LunaTraits< SPK::Destroyer > {
 public:
@@ -810,6 +852,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::LinearForce
 template<>
 class LunaTraits< SPK::LinearForce > {
 public:
@@ -828,6 +871,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::ModifierGroup
 template<>
 class LunaTraits< SPK::ModifierGroup > {
 public:
@@ -846,6 +890,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Obstacle
 template<>
 class LunaTraits< SPK::Obstacle > {
 public:
@@ -864,6 +909,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::PointMass
 template<>
 class LunaTraits< SPK::PointMass > {
 public:
@@ -882,6 +928,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Rotator
 template<>
 class LunaTraits< SPK::Rotator > {
 public:
@@ -900,6 +947,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Vortex
 template<>
 class LunaTraits< SPK::Vortex > {
 public:
@@ -918,6 +966,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::LineRendererInterface
 template<>
 class LunaTraits< SPK::LineRendererInterface > {
 public:
@@ -936,6 +985,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Oriented2DRendererInterface
 template<>
 class LunaTraits< SPK::Oriented2DRendererInterface > {
 public:
@@ -954,6 +1004,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Oriented3DRendererInterface
 template<>
 class LunaTraits< SPK::Oriented3DRendererInterface > {
 public:
@@ -972,6 +1023,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::PointRendererInterface
 template<>
 class LunaTraits< SPK::PointRendererInterface > {
 public:
@@ -990,6 +1042,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::QuadRendererInterface
 template<>
 class LunaTraits< SPK::QuadRendererInterface > {
 public:
@@ -1008,6 +1061,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::AABox
 template<>
 class LunaTraits< SPK::AABox > {
 public:
@@ -1026,6 +1080,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Cylinder
 template<>
 class LunaTraits< SPK::Cylinder > {
 public:
@@ -1044,6 +1099,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Line
 template<>
 class LunaTraits< SPK::Line > {
 public:
@@ -1062,6 +1118,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Plane
 template<>
 class LunaTraits< SPK::Plane > {
 public:
@@ -1080,6 +1137,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Point
 template<>
 class LunaTraits< SPK::Point > {
 public:
@@ -1098,6 +1156,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Ring
 template<>
 class LunaTraits< SPK::Ring > {
 public:
@@ -1116,6 +1175,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::Sphere
 template<>
 class LunaTraits< SPK::Sphere > {
 public:
@@ -1134,8 +1194,9 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::GL::GLExtHandler
 template<>
-class LunaTraits< GL::GLExtHandler > {
+class LunaTraits< SPK::GL::GLExtHandler > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -1145,15 +1206,16 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static GL::GLExtHandler* _bind_ctor(lua_State *L);
-	static void _bind_dtor(GL::GLExtHandler* obj);
-	typedef GL::GLExtHandler parent_t;
-	typedef GL::GLExtHandler base_t;
+	static SPK::GL::GLExtHandler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(SPK::GL::GLExtHandler* obj);
+	typedef SPK::GL::GLExtHandler parent_t;
+	typedef SPK::GL::GLExtHandler base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::GL::GLRenderer
 template<>
-class LunaTraits< GL::GLRenderer > {
+class LunaTraits< SPK::GL::GLRenderer > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -1163,15 +1225,16 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static GL::GLRenderer* _bind_ctor(lua_State *L);
-	static void _bind_dtor(GL::GLRenderer* obj);
+	static SPK::GL::GLRenderer* _bind_ctor(lua_State *L);
+	static void _bind_dtor(SPK::GL::GLRenderer* obj);
 	typedef SPK::Registerable parent_t;
-	typedef GL::GLRenderer base_t;
+	typedef SPK::GL::GLRenderer base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::GL::GLLineRenderer
 template<>
-class LunaTraits< GL::GLLineRenderer > {
+class LunaTraits< SPK::GL::GLLineRenderer > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -1181,15 +1244,16 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static GL::GLLineRenderer* _bind_ctor(lua_State *L);
-	static void _bind_dtor(GL::GLLineRenderer* obj);
+	static SPK::GL::GLLineRenderer* _bind_ctor(lua_State *L);
+	static void _bind_dtor(SPK::GL::GLLineRenderer* obj);
 	typedef SPK::Registerable parent_t;
-	typedef GL::GLLineRenderer base_t;
+	typedef SPK::GL::GLLineRenderer base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::GL::GLLineTrailRenderer
 template<>
-class LunaTraits< GL::GLLineTrailRenderer > {
+class LunaTraits< SPK::GL::GLLineTrailRenderer > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -1199,15 +1263,16 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static GL::GLLineTrailRenderer* _bind_ctor(lua_State *L);
-	static void _bind_dtor(GL::GLLineTrailRenderer* obj);
+	static SPK::GL::GLLineTrailRenderer* _bind_ctor(lua_State *L);
+	static void _bind_dtor(SPK::GL::GLLineTrailRenderer* obj);
 	typedef SPK::Registerable parent_t;
-	typedef GL::GLLineTrailRenderer base_t;
+	typedef SPK::GL::GLLineTrailRenderer base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::GL::GLPointRenderer
 template<>
-class LunaTraits< GL::GLPointRenderer > {
+class LunaTraits< SPK::GL::GLPointRenderer > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -1217,15 +1282,16 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static GL::GLPointRenderer* _bind_ctor(lua_State *L);
-	static void _bind_dtor(GL::GLPointRenderer* obj);
+	static SPK::GL::GLPointRenderer* _bind_ctor(lua_State *L);
+	static void _bind_dtor(SPK::GL::GLPointRenderer* obj);
 	typedef SPK::Registerable parent_t;
-	typedef GL::GLPointRenderer base_t;
+	typedef SPK::GL::GLPointRenderer base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: SPK::GL::GLQuadRenderer
 template<>
-class LunaTraits< GL::GLQuadRenderer > {
+class LunaTraits< SPK::GL::GLQuadRenderer > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -1235,19 +1301,285 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static GL::GLQuadRenderer* _bind_ctor(lua_State *L);
-	static void _bind_dtor(GL::GLQuadRenderer* obj);
+	static SPK::GL::GLQuadRenderer* _bind_ctor(lua_State *L);
+	static void _bind_dtor(SPK::GL::GLQuadRenderer* obj);
 	typedef SPK::Registerable parent_t;
-	typedef GL::GLQuadRenderer base_t;
+	typedef SPK::GL::GLQuadRenderer base_t;
 	static luna_ConverterType converters[];
 };
 
 
+// Mapped type: SPK::Pool< SPK::Particle >
+template<>
+class LunaTraits< SPK::Pool< SPK::Particle > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static SPK::Pool< SPK::Particle >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(SPK::Pool< SPK::Particle >* obj);
+	typedef SPK::Pool< SPK::Particle > parent_t;
+	typedef SPK::Pool< SPK::Particle > base_t;
+	static luna_ConverterType converters[];
+};
+
+
+// Referenced external: osg::CopyOp
+template<>
+class LunaTraits< osg::CopyOp > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::CopyOp* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::CopyOp* obj);
+	typedef osg::CopyOp parent_t;
+	typedef osg::CopyOp base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Vec3d
+template<>
+class LunaTraits< osg::Vec3d > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec3d* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec3d* obj);
+	typedef osg::Vec3d parent_t;
+	typedef osg::Vec3d base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::BoundingBox
+template<>
+class LunaTraits< osg::BoundingBox > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::BoundingBox* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::BoundingBox* obj);
+	typedef osg::BoundingBox parent_t;
+	typedef osg::BoundingBox base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::RenderInfo
+template<>
+class LunaTraits< osg::RenderInfo > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::RenderInfo* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::RenderInfo* obj);
+	typedef osg::RenderInfo parent_t;
+	typedef osg::RenderInfo base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Image
+template<>
+class LunaTraits< osg::Image > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Image* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Image* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Image base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::NodeVisitor
+template<>
+class LunaTraits< osg::NodeVisitor > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::NodeVisitor* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::NodeVisitor* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::NodeVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osgGA::GUIEventAdapter
+template<>
+class LunaTraits< osgGA::GUIEventAdapter > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osgGA::GUIEventAdapter* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osgGA::GUIEventAdapter* obj);
+	typedef osg::Referenced parent_t;
+	typedef osgGA::GUIEventAdapter base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osgGA::GUIActionAdapter
+template<>
+class LunaTraits< osgGA::GUIActionAdapter > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osgGA::GUIActionAdapter* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osgGA::GUIActionAdapter* obj);
+	typedef osgGA::GUIActionAdapter parent_t;
+	typedef osgGA::GUIActionAdapter base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Transform
+template<>
+class LunaTraits< osg::Transform > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Transform* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Transform* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Transform base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Matrix
+template<>
+class LunaTraits< osg::Matrix > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix* obj);
+	typedef osg::Matrix parent_t;
+	typedef osg::Matrix base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Vec3
+template<>
+class LunaTraits< osg::Vec3 > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec3* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec3* obj);
+	typedef osg::Vec3 parent_t;
+	typedef osg::Vec3 base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Quat
+template<>
+class LunaTraits< osg::Quat > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Quat* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Quat* obj);
+	typedef osg::Quat parent_t;
+	typedef osg::Quat base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::ref_ptr< osg::Image >
+template<>
+class LunaTraits< osg::ref_ptr< osg::Image > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::ref_ptr< osg::Image >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::ref_ptr< osg::Image >* obj);
+	typedef osg::ref_ptr< osg::Image > parent_t;
+	typedef osg::ref_ptr< osg::Image > base_t;
+	static luna_ConverterType converters[];
+};
 
 template<>
-class LunaType< 20484188 > {
+class LunaType< 5357342 > {
 public:
-	typedef osg::Drawable type;
+	typedef spark::SparkDrawable::DeferredSystemHandler::PosAndRotate type;
 	
 };
 
@@ -1255,6 +1587,13 @@ template<>
 class LunaType< 5213827 > {
 public:
 	typedef osg::Drawable::UpdateCallback type;
+	
+};
+
+template<>
+class LunaType< 20484188 > {
+public:
+	typedef osg::Drawable type;
 	
 };
 
@@ -1297,13 +1636,6 @@ template<>
 class LunaType< 14771105 > {
 public:
 	typedef spark::SparkDrawable::TextureIDMap type;
-	
-};
-
-template<>
-class LunaType< 5357342 > {
-public:
-	typedef spark::SparkDrawable::DeferredSystemHandler::PosAndRotate type;
 	
 };
 
@@ -1448,9 +1780,9 @@ public:
 };
 
 template<>
-class LunaType< 94328851 > {
+class LunaType< 94742166 > {
 public:
-	typedef GL::GLExtHandler type;
+	typedef SPK::GL::GLExtHandler type;
 	
 };
 
@@ -1479,6 +1811,111 @@ template<>
 class LunaType< 5928724 > {
 public:
 	typedef SPK::ArrayBufferCreator< float > type;
+	
+};
+
+template<>
+class LunaType< 60129051 > {
+public:
+	typedef SPK::Pool< SPK::Particle > type;
+	
+};
+
+template<>
+class LunaType< 27134364 > {
+public:
+	typedef osg::CopyOp type;
+	
+};
+
+template<>
+class LunaType< 92303202 > {
+public:
+	typedef osg::Vec3d type;
+	
+};
+
+template<>
+class LunaType< 51056292 > {
+public:
+	typedef osg::BoundingBox type;
+	
+};
+
+template<>
+class LunaType< 2286263 > {
+public:
+	typedef osg::RenderInfo type;
+	
+};
+
+template<>
+class LunaType< 80535448 > {
+public:
+	typedef osg::Image type;
+	
+};
+
+template<>
+class LunaType< 49057446 > {
+public:
+	typedef osg::NodeVisitor type;
+	
+};
+
+template<>
+class LunaType< 91398620 > {
+public:
+	typedef osgGA::GUIEventAdapter type;
+	
+};
+
+template<>
+class LunaType< 85302998 > {
+public:
+	typedef osgGA::GUIActionAdapter type;
+	
+};
+
+template<>
+class LunaType< 49203817 > {
+public:
+	typedef osg::Transform type;
+	
+};
+
+template<>
+class LunaType< 609798 > {
+public:
+	typedef osg::Matrix type;
+	
+};
+
+template<>
+class LunaType< 80396882 > {
+public:
+	typedef osg::Vec3 type;
+	
+};
+
+template<>
+class LunaType< 80263306 > {
+public:
+	typedef osg::Quat type;
+	
+};
+
+template<>
+class LunaType< 72783721 > {
+public:
+	typedef std::map< std::string, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 15557275 > {
+public:
+	typedef osg::ref_ptr< osg::Image > type;
 	
 };
 

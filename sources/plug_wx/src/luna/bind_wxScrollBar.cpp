@@ -3368,8 +3368,6 @@ public:
 
 wxScrollBar* LunaTraits< wxScrollBar >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxScrollBar::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxScrollBar >::_bind_dtor(wxScrollBar* obj) {

@@ -161,8 +161,6 @@ public:
 
 SurfaceSubloadCallback* LunaTraits< SurfaceSubloadCallback >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_SurfaceSubloadCallback::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< SurfaceSubloadCallback >::_bind_dtor(SurfaceSubloadCallback* obj) {

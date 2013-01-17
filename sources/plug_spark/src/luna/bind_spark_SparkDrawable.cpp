@@ -1255,8 +1255,6 @@ public:
 
 spark::SparkDrawable* LunaTraits< spark::SparkDrawable >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_spark_SparkDrawable::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< spark::SparkDrawable >::_bind_dtor(spark::SparkDrawable* obj) {

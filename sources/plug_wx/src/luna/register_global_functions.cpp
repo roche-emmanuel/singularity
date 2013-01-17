@@ -3404,19 +3404,19 @@ static int _bind_wxStripMenuCodes(lua_State *L) {
 	return 1;
 }
 
-// wxMemorySize wxGetFreeMemory()
+// wxLongLong wxGetFreeMemory()
 static int _bind_wxGetFreeMemory(lua_State *L) {
 	if (!_lg_typecheck_wxGetFreeMemory(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxMemorySize wxGetFreeMemory() function, expected prototype:\nwxMemorySize wxGetFreeMemory()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxLongLong wxGetFreeMemory() function, expected prototype:\nwxLongLong wxGetFreeMemory()\nClass arguments details:\n");
 	}
 
 
-	wxMemorySize stack_lret = wxGetFreeMemory();
-	wxMemorySize* lret = new wxMemorySize(stack_lret);
+	wxLongLong stack_lret = wxGetFreeMemory();
+	wxLongLong* lret = new wxLongLong(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
-	Luna< wxMemorySize >::push(L,lret,true);
+	Luna< wxLongLong >::push(L,lret,true);
 
 	return 1;
 }

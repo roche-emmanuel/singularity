@@ -4067,8 +4067,6 @@ public:
 
 wxSlider* LunaTraits< wxSlider >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxSlider::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxSlider >::_bind_dtor(wxSlider* obj) {

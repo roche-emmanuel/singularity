@@ -1382,20 +1382,20 @@ public:
 		return 1;
 	}
 
-	// const class osgDB::FindFileCallback * osgDB::Registry::getFindFileCallback() const
+	// const osgDB::FindFileCallback * osgDB::Registry::getFindFileCallback() const
 	static int _bind_getFindFileCallback_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getFindFileCallback_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const class osgDB::FindFileCallback * osgDB::Registry::getFindFileCallback() const function, expected prototype:\nconst class osgDB::FindFileCallback * osgDB::Registry::getFindFileCallback() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgDB::FindFileCallback * osgDB::Registry::getFindFileCallback() const function, expected prototype:\nconst osgDB::FindFileCallback * osgDB::Registry::getFindFileCallback() const\nClass arguments details:\n");
 		}
 
 
 		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const class osgDB::FindFileCallback * osgDB::Registry::getFindFileCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgDB::FindFileCallback * osgDB::Registry::getFindFileCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		const class osgDB::FindFileCallback * lret = self->getFindFileCallback();
+		const osgDB::FindFileCallback * lret = self->getFindFileCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< osgDB::FindFileCallback >::push(L,lret,false);
@@ -1540,20 +1540,20 @@ public:
 		return 1;
 	}
 
-	// const class osgDB::ReadFileCallback * osgDB::Registry::getReadFileCallback() const
+	// const osgDB::ReadFileCallback * osgDB::Registry::getReadFileCallback() const
 	static int _bind_getReadFileCallback_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getReadFileCallback_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const class osgDB::ReadFileCallback * osgDB::Registry::getReadFileCallback() const function, expected prototype:\nconst class osgDB::ReadFileCallback * osgDB::Registry::getReadFileCallback() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgDB::ReadFileCallback * osgDB::Registry::getReadFileCallback() const function, expected prototype:\nconst osgDB::ReadFileCallback * osgDB::Registry::getReadFileCallback() const\nClass arguments details:\n");
 		}
 
 
 		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const class osgDB::ReadFileCallback * osgDB::Registry::getReadFileCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgDB::ReadFileCallback * osgDB::Registry::getReadFileCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		const class osgDB::ReadFileCallback * lret = self->getReadFileCallback();
+		const osgDB::ReadFileCallback * lret = self->getReadFileCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< osgDB::ReadFileCallback >::push(L,lret,false);
@@ -1908,20 +1908,20 @@ public:
 		return 1;
 	}
 
-	// const class osgDB::WriteFileCallback * osgDB::Registry::getWriteFileCallback() const
+	// const osgDB::WriteFileCallback * osgDB::Registry::getWriteFileCallback() const
 	static int _bind_getWriteFileCallback_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getWriteFileCallback_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const class osgDB::WriteFileCallback * osgDB::Registry::getWriteFileCallback() const function, expected prototype:\nconst class osgDB::WriteFileCallback * osgDB::Registry::getWriteFileCallback() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgDB::WriteFileCallback * osgDB::Registry::getWriteFileCallback() const function, expected prototype:\nconst osgDB::WriteFileCallback * osgDB::Registry::getWriteFileCallback() const\nClass arguments details:\n");
 		}
 
 
 		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const class osgDB::WriteFileCallback * osgDB::Registry::getWriteFileCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osgDB::WriteFileCallback * osgDB::Registry::getWriteFileCallback() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		const class osgDB::WriteFileCallback * lret = self->getWriteFileCallback();
+		const osgDB::WriteFileCallback * lret = self->getWriteFileCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< osgDB::WriteFileCallback >::push(L,lret,false);
@@ -3302,8 +3302,6 @@ public:
 
 osgDB::Registry* LunaTraits< osgDB::Registry >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgDB::Registry >::_bind_dtor(osgDB::Registry* obj) {

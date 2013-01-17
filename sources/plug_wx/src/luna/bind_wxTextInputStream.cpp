@@ -201,11 +201,8 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call signed short wxTextInputStream::Read16S(int). Got : '%s'",typeid(Luna< wxTextInputStream >::check(L,1)).name());
 		}
-		signed short stack_lret = self->Read16S(base);
-		signed short* lret = new signed short(stack_lret);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< signed short >::push(L,lret,true);
+		signed short lret = self->Read16S(base);
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -381,8 +378,6 @@ public:
 
 wxTextInputStream* LunaTraits< wxTextInputStream >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxTextInputStream >::_bind_dtor(wxTextInputStream* obj) {

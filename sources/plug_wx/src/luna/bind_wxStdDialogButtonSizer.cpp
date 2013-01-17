@@ -768,8 +768,6 @@ public:
 
 wxStdDialogButtonSizer* LunaTraits< wxStdDialogButtonSizer >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxStdDialogButtonSizer::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxStdDialogButtonSizer >::_bind_dtor(wxStdDialogButtonSizer* obj) {

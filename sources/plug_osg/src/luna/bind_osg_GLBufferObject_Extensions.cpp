@@ -617,8 +617,6 @@ public:
 
 osg::GLBufferObject::Extensions* LunaTraits< osg::GLBufferObject::Extensions >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_GLBufferObject_Extensions::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::GLBufferObject::Extensions >::_bind_dtor(osg::GLBufferObject::Extensions* obj) {

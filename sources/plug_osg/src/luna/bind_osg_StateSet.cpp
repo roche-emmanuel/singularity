@@ -3308,8 +3308,6 @@ public:
 
 osg::StateSet* LunaTraits< osg::StateSet >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_StateSet::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::StateSet >::_bind_dtor(osg::StateSet* obj) {

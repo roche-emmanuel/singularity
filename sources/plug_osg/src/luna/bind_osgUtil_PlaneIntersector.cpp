@@ -761,8 +761,6 @@ public:
 
 osgUtil::PlaneIntersector* LunaTraits< osgUtil::PlaneIntersector >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgUtil_PlaneIntersector::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::PlaneIntersector >::_bind_dtor(osgUtil::PlaneIntersector* obj) {

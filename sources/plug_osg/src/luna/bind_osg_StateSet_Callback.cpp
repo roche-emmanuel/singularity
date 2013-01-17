@@ -688,8 +688,6 @@ public:
 
 osg::StateSet::Callback* LunaTraits< osg::StateSet::Callback >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_StateSet_Callback::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::StateSet::Callback >::_bind_dtor(osg::StateSet::Callback* obj) {

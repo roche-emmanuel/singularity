@@ -5,6 +5,7 @@
 
 #include <fann_cpp.h>
 
+// Class: FANN::training_data
 template<>
 class LunaTraits< FANN::training_data > {
 public:
@@ -23,6 +24,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: FANN::neural_net
 template<>
 class LunaTraits< FANN::neural_net > {
 public:

@@ -104,34 +104,34 @@ namespace Awesomium {
 	class WebLoginDialogInfo {
 	};
 
-};
-
-namespace KeyCodes {
-};
-
-namespace WebViewListener {
-	class View {
+	namespace KeyCodes {
 	};
 
-	class Load {
-	};
+	namespace WebViewListener {
+		class View {
+		};
 
-	class Process {
-	};
+		class Load {
+		};
 
-	class Menu {
-	};
+		class Process {
+		};
 
-	class Dialog {
-	};
+		class Menu {
+		};
 
-	class Print {
-	};
+		class Dialog {
+		};
 
-	class Download {
-	};
+		class Print {
+		};
 
-	class InputMethodEditor {
+		class Download {
+		};
+
+		class InputMethodEditor {
+		};
+
 	};
 
 };

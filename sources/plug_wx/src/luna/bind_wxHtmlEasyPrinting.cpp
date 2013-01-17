@@ -571,8 +571,6 @@ public:
 
 wxHtmlEasyPrinting* LunaTraits< wxHtmlEasyPrinting >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxHtmlEasyPrinting::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxHtmlEasyPrinting >::_bind_dtor(wxHtmlEasyPrinting* obj) {

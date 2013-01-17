@@ -90,8 +90,6 @@ public:
 
 osg::ValueObjectClassNameTrait< Vec2d >* LunaTraits< osg::ValueObjectClassNameTrait< Vec2d > >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::ValueObjectClassNameTrait< Vec2d > >::_bind_dtor(osg::ValueObjectClassNameTrait< Vec2d >* obj) {

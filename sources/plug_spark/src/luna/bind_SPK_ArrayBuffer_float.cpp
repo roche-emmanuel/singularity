@@ -57,11 +57,11 @@ public:
 };
 
 SPK::ArrayBuffer< float >* LunaTraits< SPK::ArrayBuffer< float > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return NULL;
 }
 
 void LunaTraits< SPK::ArrayBuffer< float > >::_bind_dtor(SPK::ArrayBuffer< float >* obj) {
-	//delete obj; // do not delete by default.
+	// do nothing
 }
 
 const char LunaTraits< SPK::ArrayBuffer< float > >::className[] = "SPK_ArrayBuffer_float";

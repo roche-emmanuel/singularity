@@ -1252,8 +1252,6 @@ public:
 
 osgDB::FieldReaderIterator* LunaTraits< osgDB::FieldReaderIterator >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgDB_FieldReaderIterator::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgDB::FieldReaderIterator >::_bind_dtor(osgDB::FieldReaderIterator* obj) {

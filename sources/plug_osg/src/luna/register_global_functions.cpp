@@ -4836,17 +4836,17 @@ static int _bind_expandWildcardsInFilename(lua_State *L) {
 	return 1;
 }
 
-// FileOpResult::Value osgDB::copyFile(const std::string & source, const std::string & destination)
+// osgDB::FileOpResult::Value osgDB::copyFile(const std::string & source, const std::string & destination)
 static int _bind_copyFile(lua_State *L) {
 	if (!_lg_typecheck_copyFile(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in FileOpResult::Value osgDB::copyFile(const std::string & source, const std::string & destination) function, expected prototype:\nFileOpResult::Value osgDB::copyFile(const std::string & source, const std::string & destination)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in osgDB::FileOpResult::Value osgDB::copyFile(const std::string & source, const std::string & destination) function, expected prototype:\nosgDB::FileOpResult::Value osgDB::copyFile(const std::string & source, const std::string & destination)\nClass arguments details:\n");
 	}
 
 	std::string source(lua_tostring(L,1),lua_objlen(L,1));
 	std::string destination(lua_tostring(L,2),lua_objlen(L,2));
 
-	FileOpResult::Value lret = copyFile(source, destination);
+	osgDB::FileOpResult::Value lret = copyFile(source, destination);
 	lua_pushnumber(L,lret);
 
 	return 1;

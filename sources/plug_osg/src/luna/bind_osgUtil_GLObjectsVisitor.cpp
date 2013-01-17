@@ -833,8 +833,6 @@ public:
 
 osgUtil::GLObjectsVisitor* LunaTraits< osgUtil::GLObjectsVisitor >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgUtil_GLObjectsVisitor::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::GLObjectsVisitor >::_bind_dtor(osgUtil::GLObjectsVisitor* obj) {

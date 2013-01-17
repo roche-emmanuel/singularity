@@ -1394,8 +1394,6 @@ public:
 
 wxMenuItem* LunaTraits< wxMenuItem >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxMenuItem::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxMenuItem >::_bind_dtor(wxMenuItem* obj) {

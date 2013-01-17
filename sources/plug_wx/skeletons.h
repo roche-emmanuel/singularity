@@ -1374,6 +1374,9 @@ class wxPoint2DDouble {
 class wxPoint2DInt {
 };
 
+class wxPointList {
+};
+
 class wxPopupTransientWindow: public wxPopupWindow {
 };
 

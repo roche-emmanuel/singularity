@@ -2956,8 +2956,6 @@ public:
 
 wxMDIClientWindow* LunaTraits< wxMDIClientWindow >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxMDIClientWindow::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxMDIClientWindow >::_bind_dtor(wxMDIClientWindow* obj) {

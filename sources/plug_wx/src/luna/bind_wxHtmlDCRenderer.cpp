@@ -406,8 +406,6 @@ public:
 
 wxHtmlDCRenderer* LunaTraits< wxHtmlDCRenderer >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxHtmlDCRenderer::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxHtmlDCRenderer >::_bind_dtor(wxHtmlDCRenderer* obj) {

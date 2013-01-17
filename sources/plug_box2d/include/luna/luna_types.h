@@ -49,6 +49,7 @@
 #include <Box2D/Dynamics/b2World.h>
 #include <Box2DUpdater.h>
 
+// Class: b2AABB
 template<>
 class LunaTraits< b2AABB > {
 public:
@@ -67,6 +68,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2BlockAllocator
 template<>
 class LunaTraits< b2BlockAllocator > {
 public:
@@ -85,6 +87,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Body
 template<>
 class LunaTraits< b2Body > {
 public:
@@ -103,6 +106,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2BodyDef
 template<>
 class LunaTraits< b2BodyDef > {
 public:
@@ -121,6 +125,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2BroadPhase
 template<>
 class LunaTraits< b2BroadPhase > {
 public:
@@ -139,6 +144,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Contact
 template<>
 class LunaTraits< b2Contact > {
 public:
@@ -157,6 +163,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ChainAndCircleContact
 template<>
 class LunaTraits< b2ChainAndCircleContact > {
 public:
@@ -175,6 +182,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ChainAndPolygonContact
 template<>
 class LunaTraits< b2ChainAndPolygonContact > {
 public:
@@ -193,6 +201,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Shape
 template<>
 class LunaTraits< b2Shape > {
 public:
@@ -211,6 +220,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ChainShape
 template<>
 class LunaTraits< b2ChainShape > {
 public:
@@ -229,6 +239,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2CircleContact
 template<>
 class LunaTraits< b2CircleContact > {
 public:
@@ -247,6 +258,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2CircleShape
 template<>
 class LunaTraits< b2CircleShape > {
 public:
@@ -265,6 +277,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ClipVertex
 template<>
 class LunaTraits< b2ClipVertex > {
 public:
@@ -283,6 +296,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Color
 template<>
 class LunaTraits< b2Color > {
 public:
@@ -301,6 +315,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ContactEdge
 template<>
 class LunaTraits< b2ContactEdge > {
 public:
@@ -319,6 +334,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ContactFeature
 template<>
 class LunaTraits< b2ContactFeature > {
 public:
@@ -337,6 +353,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ContactFilter
 template<>
 class LunaTraits< b2ContactFilter > {
 public:
@@ -355,6 +372,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ContactImpulse
 template<>
 class LunaTraits< b2ContactImpulse > {
 public:
@@ -373,6 +391,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ContactListener
 template<>
 class LunaTraits< b2ContactListener > {
 public:
@@ -391,6 +410,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ContactManager
 template<>
 class LunaTraits< b2ContactManager > {
 public:
@@ -409,6 +429,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ContactPositionConstraint
 template<>
 class LunaTraits< b2ContactPositionConstraint > {
 public:
@@ -427,6 +448,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ContactRegister
 template<>
 class LunaTraits< b2ContactRegister > {
 public:
@@ -445,6 +467,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ContactSolver
 template<>
 class LunaTraits< b2ContactSolver > {
 public:
@@ -463,6 +486,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ContactSolverDef
 template<>
 class LunaTraits< b2ContactSolverDef > {
 public:
@@ -481,6 +505,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ContactVelocityConstraint
 template<>
 class LunaTraits< b2ContactVelocityConstraint > {
 public:
@@ -499,6 +524,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2DestructionListener
 template<>
 class LunaTraits< b2DestructionListener > {
 public:
@@ -517,6 +543,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2DistanceInput
 template<>
 class LunaTraits< b2DistanceInput > {
 public:
@@ -535,6 +562,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Joint
 template<>
 class LunaTraits< b2Joint > {
 public:
@@ -553,6 +581,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2DistanceJoint
 template<>
 class LunaTraits< b2DistanceJoint > {
 public:
@@ -571,6 +600,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2JointDef
 template<>
 class LunaTraits< b2JointDef > {
 public:
@@ -589,6 +619,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2DistanceJointDef
 template<>
 class LunaTraits< b2DistanceJointDef > {
 public:
@@ -607,6 +638,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2DistanceOutput
 template<>
 class LunaTraits< b2DistanceOutput > {
 public:
@@ -625,6 +657,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2DistanceProxy
 template<>
 class LunaTraits< b2DistanceProxy > {
 public:
@@ -643,6 +676,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Draw
 template<>
 class LunaTraits< b2Draw > {
 public:
@@ -661,6 +695,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2DynamicTree
 template<>
 class LunaTraits< b2DynamicTree > {
 public:
@@ -679,6 +714,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2EdgeAndCircleContact
 template<>
 class LunaTraits< b2EdgeAndCircleContact > {
 public:
@@ -697,6 +733,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2EdgeAndPolygonContact
 template<>
 class LunaTraits< b2EdgeAndPolygonContact > {
 public:
@@ -715,6 +752,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2EdgeShape
 template<>
 class LunaTraits< b2EdgeShape > {
 public:
@@ -733,6 +771,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Filter
 template<>
 class LunaTraits< b2Filter > {
 public:
@@ -751,6 +790,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Fixture
 template<>
 class LunaTraits< b2Fixture > {
 public:
@@ -769,6 +809,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2FixtureDef
 template<>
 class LunaTraits< b2FixtureDef > {
 public:
@@ -787,6 +828,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2FixtureProxy
 template<>
 class LunaTraits< b2FixtureProxy > {
 public:
@@ -805,6 +847,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2FrictionJoint
 template<>
 class LunaTraits< b2FrictionJoint > {
 public:
@@ -823,6 +866,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2FrictionJointDef
 template<>
 class LunaTraits< b2FrictionJointDef > {
 public:
@@ -841,6 +885,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2GearJoint
 template<>
 class LunaTraits< b2GearJoint > {
 public:
@@ -859,6 +904,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2GearJointDef
 template<>
 class LunaTraits< b2GearJointDef > {
 public:
@@ -877,6 +923,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Island
 template<>
 class LunaTraits< b2Island > {
 public:
@@ -895,6 +942,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Jacobian
 template<>
 class LunaTraits< b2Jacobian > {
 public:
@@ -913,6 +961,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2JointEdge
 template<>
 class LunaTraits< b2JointEdge > {
 public:
@@ -931,6 +980,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Manifold
 template<>
 class LunaTraits< b2Manifold > {
 public:
@@ -949,6 +999,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2ManifoldPoint
 template<>
 class LunaTraits< b2ManifoldPoint > {
 public:
@@ -967,6 +1018,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2MassData
 template<>
 class LunaTraits< b2MassData > {
 public:
@@ -985,6 +1037,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Mat22
 template<>
 class LunaTraits< b2Mat22 > {
 public:
@@ -1003,6 +1056,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Mat33
 template<>
 class LunaTraits< b2Mat33 > {
 public:
@@ -1021,6 +1075,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2MouseJoint
 template<>
 class LunaTraits< b2MouseJoint > {
 public:
@@ -1039,6 +1094,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2MouseJointDef
 template<>
 class LunaTraits< b2MouseJointDef > {
 public:
@@ -1057,6 +1113,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Pair
 template<>
 class LunaTraits< b2Pair > {
 public:
@@ -1075,6 +1132,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2PolygonAndCircleContact
 template<>
 class LunaTraits< b2PolygonAndCircleContact > {
 public:
@@ -1093,6 +1151,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2PolygonContact
 template<>
 class LunaTraits< b2PolygonContact > {
 public:
@@ -1111,6 +1170,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2PolygonShape
 template<>
 class LunaTraits< b2PolygonShape > {
 public:
@@ -1129,6 +1189,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Position
 template<>
 class LunaTraits< b2Position > {
 public:
@@ -1147,6 +1208,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2PrismaticJoint
 template<>
 class LunaTraits< b2PrismaticJoint > {
 public:
@@ -1165,6 +1227,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2PrismaticJointDef
 template<>
 class LunaTraits< b2PrismaticJointDef > {
 public:
@@ -1183,6 +1246,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Profile
 template<>
 class LunaTraits< b2Profile > {
 public:
@@ -1201,6 +1265,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2PulleyJoint
 template<>
 class LunaTraits< b2PulleyJoint > {
 public:
@@ -1219,6 +1284,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2PulleyJointDef
 template<>
 class LunaTraits< b2PulleyJointDef > {
 public:
@@ -1237,6 +1303,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2QueryCallback
 template<>
 class LunaTraits< b2QueryCallback > {
 public:
@@ -1255,6 +1322,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2RayCastCallback
 template<>
 class LunaTraits< b2RayCastCallback > {
 public:
@@ -1273,6 +1341,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2RayCastInput
 template<>
 class LunaTraits< b2RayCastInput > {
 public:
@@ -1291,6 +1360,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2RayCastOutput
 template<>
 class LunaTraits< b2RayCastOutput > {
 public:
@@ -1309,6 +1379,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2RevoluteJoint
 template<>
 class LunaTraits< b2RevoluteJoint > {
 public:
@@ -1327,6 +1398,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2RevoluteJointDef
 template<>
 class LunaTraits< b2RevoluteJointDef > {
 public:
@@ -1345,6 +1417,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Rope
 template<>
 class LunaTraits< b2Rope > {
 public:
@@ -1363,6 +1436,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2RopeDef
 template<>
 class LunaTraits< b2RopeDef > {
 public:
@@ -1381,6 +1455,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2RopeJoint
 template<>
 class LunaTraits< b2RopeJoint > {
 public:
@@ -1399,6 +1474,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2RopeJointDef
 template<>
 class LunaTraits< b2RopeJointDef > {
 public:
@@ -1417,6 +1493,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Rot
 template<>
 class LunaTraits< b2Rot > {
 public:
@@ -1435,6 +1512,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2SimplexCache
 template<>
 class LunaTraits< b2SimplexCache > {
 public:
@@ -1453,6 +1531,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2SolverData
 template<>
 class LunaTraits< b2SolverData > {
 public:
@@ -1471,6 +1550,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2StackAllocator
 template<>
 class LunaTraits< b2StackAllocator > {
 public:
@@ -1489,6 +1569,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2StackEntry
 template<>
 class LunaTraits< b2StackEntry > {
 public:
@@ -1507,6 +1588,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Sweep
 template<>
 class LunaTraits< b2Sweep > {
 public:
@@ -1525,6 +1607,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Timer
 template<>
 class LunaTraits< b2Timer > {
 public:
@@ -1543,6 +1626,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2TimeStep
 template<>
 class LunaTraits< b2TimeStep > {
 public:
@@ -1561,6 +1645,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2TOIInput
 template<>
 class LunaTraits< b2TOIInput > {
 public:
@@ -1579,6 +1664,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2TOIOutput
 template<>
 class LunaTraits< b2TOIOutput > {
 public:
@@ -1597,6 +1683,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Transform
 template<>
 class LunaTraits< b2Transform > {
 public:
@@ -1615,6 +1702,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2TreeNode
 template<>
 class LunaTraits< b2TreeNode > {
 public:
@@ -1633,6 +1721,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Vec2
 template<>
 class LunaTraits< b2Vec2 > {
 public:
@@ -1651,6 +1740,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Vec3
 template<>
 class LunaTraits< b2Vec3 > {
 public:
@@ -1669,6 +1759,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Velocity
 template<>
 class LunaTraits< b2Velocity > {
 public:
@@ -1687,6 +1778,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2VelocityConstraintPoint
 template<>
 class LunaTraits< b2VelocityConstraintPoint > {
 public:
@@ -1705,6 +1797,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2Version
 template<>
 class LunaTraits< b2Version > {
 public:
@@ -1723,6 +1816,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2WeldJoint
 template<>
 class LunaTraits< b2WeldJoint > {
 public:
@@ -1741,6 +1835,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2WeldJointDef
 template<>
 class LunaTraits< b2WeldJointDef > {
 public:
@@ -1759,6 +1854,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2WheelJoint
 template<>
 class LunaTraits< b2WheelJoint > {
 public:
@@ -1777,6 +1873,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2WheelJointDef
 template<>
 class LunaTraits< b2WheelJointDef > {
 public:
@@ -1795,6 +1892,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2World
 template<>
 class LunaTraits< b2World > {
 public:
@@ -1813,6 +1911,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: b2WorldManifold
 template<>
 class LunaTraits< b2WorldManifold > {
 public:
@@ -1831,6 +1930,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osgGA::GUIEventHandler
 template<>
 class LunaTraits< osgGA::GUIEventHandler > {
 public:
@@ -1849,6 +1949,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Box2DUpdater
 template<>
 class LunaTraits< Box2DUpdater > {
 public:
@@ -1867,6 +1968,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Vec2f
 template<>
 class LunaTraits< osg::Vec2f > {
 public:
@@ -1887,6 +1989,7 @@ public:
 
 
 
+// Referenced external: osg::Referenced
 template<>
 class LunaTraits< osg::Referenced > {
 public:
@@ -1905,6 +2008,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Referenced external: osgGA::GUIEventAdapter
 template<>
 class LunaTraits< osgGA::GUIEventAdapter > {
 public:
@@ -1923,6 +2027,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Referenced external: osgGA::GUIActionAdapter
 template<>
 class LunaTraits< osgGA::GUIActionAdapter > {
 public:
@@ -1941,6 +2046,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Referenced external: osg::Node
 template<>
 class LunaTraits< osg::Node > {
 public:
@@ -1959,6 +2065,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Referenced external: osg::MatrixTransform
 template<>
 class LunaTraits< osg::MatrixTransform > {
 public:

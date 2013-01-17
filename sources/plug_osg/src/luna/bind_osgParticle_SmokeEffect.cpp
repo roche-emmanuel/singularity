@@ -1656,8 +1656,6 @@ public:
 
 osgParticle::SmokeEffect* LunaTraits< osgParticle::SmokeEffect >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgParticle_SmokeEffect::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgParticle::SmokeEffect >::_bind_dtor(osgParticle::SmokeEffect* obj) {

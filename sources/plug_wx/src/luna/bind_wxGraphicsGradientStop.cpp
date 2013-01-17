@@ -70,8 +70,6 @@ public:
 
 wxGraphicsGradientStop* LunaTraits< wxGraphicsGradientStop >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxGraphicsGradientStop >::_bind_dtor(wxGraphicsGradientStop* obj) {

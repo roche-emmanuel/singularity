@@ -279,6 +279,48 @@ function Class:getNumParameters()
 	return self.parameters:size()
 end
 
+function Class:containsClassTemplates()
+	-- check if the parent is a template class:
+	if not self:getParent():isClass() then
+		return false;
+	end
+	
+	local class = self:getParent()
+	if not class:isTemplated() then
+		return false;
+	end
+	
+	-- retrieve the list of template parameters for that class:
+	local tparams = class:getTemplateParameters()
+	
+	-- for each typename, we check if the param name is found in the function prototype:
+	local proto = self:getPrototype(false,false,false)
+	for _,param in tparams:sequence() do
+		
+		if proto:find(param:getName(),1,true) then
+			self:notice("Found template type ", param:getName(), " in function ", self:getPrototype(true,true,false))
+			return true;
+		end
+	end
+end
+
+function Class:containsInvalidType()
+
+	for _,param in self:getParameters():sequence() do
+		local ptype = param:getType()
+		if not ptype:isValidForWrapping() then
+			self:notice("Found invalid type ", ptype:getName(), " in function ", self:getPrototype(true,true,false))	
+			return true;
+		end
+	end
+	
+	if self.returnType and not self.returnType:isValidForWrapping() then
+		self:notice("Found invalid return type ", self.returnType:getName(), " in function ", self:getPrototype(true,true,false))	
+		return true;		
+	end
+end
+
+
 --- Check if this function is valid for wrapping .
 -- only used for luabind and Swig bindings.
 function Class:isValidForWrapping()
@@ -287,7 +329,9 @@ function Class:isValidForWrapping()
     	and not self:containsArray() 
     	and not self:containsPointerOnPointer() 
     	and not self:containsArobace() 
+		and not self:containsInvalidType()
     	and not self:isTemplated()
+		and not self:containsClassTemplates()
 		and self:getLuaName()
     	and not self:containsFunctionArg()
     	and not self:getName():find("~")

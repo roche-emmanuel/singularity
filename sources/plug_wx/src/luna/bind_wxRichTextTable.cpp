@@ -83,8 +83,6 @@ public:
 
 wxRichTextTable* LunaTraits< wxRichTextTable >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxRichTextTable >::_bind_dtor(wxRichTextTable* obj) {

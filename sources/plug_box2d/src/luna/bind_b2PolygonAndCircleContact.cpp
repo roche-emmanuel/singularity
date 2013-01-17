@@ -270,8 +270,6 @@ public:
 
 b2PolygonAndCircleContact* LunaTraits< b2PolygonAndCircleContact >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_b2PolygonAndCircleContact::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< b2PolygonAndCircleContact >::_bind_dtor(b2PolygonAndCircleContact* obj) {

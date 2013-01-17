@@ -205,8 +205,6 @@ public:
 
 wxPGChoiceEntry* LunaTraits< wxPGChoiceEntry >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxPGChoiceEntry::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxPGChoiceEntry >::_bind_dtor(wxPGChoiceEntry* obj) {

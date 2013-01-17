@@ -1395,8 +1395,6 @@ public:
 
 osgGA::EventVisitor* LunaTraits< osgGA::EventVisitor >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgGA_EventVisitor::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgGA::EventVisitor >::_bind_dtor(osgGA::EventVisitor* obj) {

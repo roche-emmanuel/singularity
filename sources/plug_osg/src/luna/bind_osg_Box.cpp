@@ -1211,8 +1211,6 @@ public:
 
 osg::Box* LunaTraits< osg::Box >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Box::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::Box >::_bind_dtor(osg::Box* obj) {

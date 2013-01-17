@@ -375,8 +375,6 @@ public:
 
 b2WeldJointDef* LunaTraits< b2WeldJointDef >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_b2WeldJointDef::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< b2WeldJointDef >::_bind_dtor(b2WeldJointDef* obj) {

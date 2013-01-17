@@ -670,8 +670,6 @@ public:
 
 vlc::VLCImageStream* LunaTraits< vlc::VLCImageStream >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_vlc_VLCImageStream::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< vlc::VLCImageStream >::_bind_dtor(vlc::VLCImageStream* obj) {

@@ -79,8 +79,6 @@ public:
 
 tuio::TUIOClientHandler* LunaTraits< tuio::TUIOClientHandler >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_tuio_TUIOClientHandler::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< tuio::TUIOClientHandler >::_bind_dtor(tuio::TUIOClientHandler* obj) {

@@ -3681,8 +3681,6 @@ public:
 
 wxFileCtrl* LunaTraits< wxFileCtrl >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxFileCtrl::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxFileCtrl >::_bind_dtor(wxFileCtrl* obj) {

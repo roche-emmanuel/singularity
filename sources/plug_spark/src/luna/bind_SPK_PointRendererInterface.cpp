@@ -310,8 +310,6 @@ public:
 
 SPK::PointRendererInterface* LunaTraits< SPK::PointRendererInterface >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_SPK_PointRendererInterface::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< SPK::PointRendererInterface >::_bind_dtor(SPK::PointRendererInterface* obj) {

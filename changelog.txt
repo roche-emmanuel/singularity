@@ -60,3 +60,4 @@
 - Generated reflection for Box2D library.
 - Added Gizmo module and test example.
 - Added support for ICompound protection in doxmlparser module.
+- Added first part of bullet module support.

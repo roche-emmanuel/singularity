@@ -110,56 +110,56 @@ public:
 	inline static bool _lg_typecheck_set_view_listener(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,66232947)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,9977401)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_set_load_listener(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,65940660)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,9685114)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_set_process_listener(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,86671035)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,78037157)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_set_menu_listener(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,65961261)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,9705715)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_set_dialog_listener(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,34397265)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,72828454)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_set_print_listener(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,47951591)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,4030006)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_set_download_listener(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,12394159)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,44749586)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_set_input_method_editor_listener(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,85723603)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,9490281)) ) return false;
 		return true;
 	}
 
@@ -649,322 +649,322 @@ public:
 		return 1;
 	}
 
-	// void Awesomium::WebView::set_view_listener(WebViewListener::View * listener)
+	// void Awesomium::WebView::set_view_listener(Awesomium::WebViewListener::View * listener)
 	static int _bind_set_view_listener(lua_State *L) {
 		if (!_lg_typecheck_set_view_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_view_listener(WebViewListener::View * listener) function, expected prototype:\nvoid Awesomium::WebView::set_view_listener(WebViewListener::View * listener)\nClass arguments details:\narg 1 ID = 66232947\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_view_listener(Awesomium::WebViewListener::View * listener) function, expected prototype:\nvoid Awesomium::WebView::set_view_listener(Awesomium::WebViewListener::View * listener)\nClass arguments details:\narg 1 ID = 9977401\n");
 		}
 
-		WebViewListener::View* listener=(Luna< WebViewListener::View >::check(L,2));
+		Awesomium::WebViewListener::View* listener=(Luna< Awesomium::WebViewListener::View >::check(L,2));
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_view_listener(WebViewListener::View *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_view_listener(Awesomium::WebViewListener::View *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_view_listener(listener);
 
 		return 0;
 	}
 
-	// void Awesomium::WebView::set_load_listener(WebViewListener::Load * listener)
+	// void Awesomium::WebView::set_load_listener(Awesomium::WebViewListener::Load * listener)
 	static int _bind_set_load_listener(lua_State *L) {
 		if (!_lg_typecheck_set_load_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_load_listener(WebViewListener::Load * listener) function, expected prototype:\nvoid Awesomium::WebView::set_load_listener(WebViewListener::Load * listener)\nClass arguments details:\narg 1 ID = 65940660\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_load_listener(Awesomium::WebViewListener::Load * listener) function, expected prototype:\nvoid Awesomium::WebView::set_load_listener(Awesomium::WebViewListener::Load * listener)\nClass arguments details:\narg 1 ID = 9685114\n");
 		}
 
-		WebViewListener::Load* listener=(Luna< WebViewListener::Load >::check(L,2));
+		Awesomium::WebViewListener::Load* listener=(Luna< Awesomium::WebViewListener::Load >::check(L,2));
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_load_listener(WebViewListener::Load *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_load_listener(Awesomium::WebViewListener::Load *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_load_listener(listener);
 
 		return 0;
 	}
 
-	// void Awesomium::WebView::set_process_listener(WebViewListener::Process * listener)
+	// void Awesomium::WebView::set_process_listener(Awesomium::WebViewListener::Process * listener)
 	static int _bind_set_process_listener(lua_State *L) {
 		if (!_lg_typecheck_set_process_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_process_listener(WebViewListener::Process * listener) function, expected prototype:\nvoid Awesomium::WebView::set_process_listener(WebViewListener::Process * listener)\nClass arguments details:\narg 1 ID = 86671035\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_process_listener(Awesomium::WebViewListener::Process * listener) function, expected prototype:\nvoid Awesomium::WebView::set_process_listener(Awesomium::WebViewListener::Process * listener)\nClass arguments details:\narg 1 ID = 78037157\n");
 		}
 
-		WebViewListener::Process* listener=(Luna< WebViewListener::Process >::check(L,2));
+		Awesomium::WebViewListener::Process* listener=(Luna< Awesomium::WebViewListener::Process >::check(L,2));
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_process_listener(WebViewListener::Process *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_process_listener(Awesomium::WebViewListener::Process *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_process_listener(listener);
 
 		return 0;
 	}
 
-	// void Awesomium::WebView::set_menu_listener(WebViewListener::Menu * listener)
+	// void Awesomium::WebView::set_menu_listener(Awesomium::WebViewListener::Menu * listener)
 	static int _bind_set_menu_listener(lua_State *L) {
 		if (!_lg_typecheck_set_menu_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_menu_listener(WebViewListener::Menu * listener) function, expected prototype:\nvoid Awesomium::WebView::set_menu_listener(WebViewListener::Menu * listener)\nClass arguments details:\narg 1 ID = 65961261\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_menu_listener(Awesomium::WebViewListener::Menu * listener) function, expected prototype:\nvoid Awesomium::WebView::set_menu_listener(Awesomium::WebViewListener::Menu * listener)\nClass arguments details:\narg 1 ID = 9705715\n");
 		}
 
-		WebViewListener::Menu* listener=(Luna< WebViewListener::Menu >::check(L,2));
+		Awesomium::WebViewListener::Menu* listener=(Luna< Awesomium::WebViewListener::Menu >::check(L,2));
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_menu_listener(WebViewListener::Menu *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_menu_listener(Awesomium::WebViewListener::Menu *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_menu_listener(listener);
 
 		return 0;
 	}
 
-	// void Awesomium::WebView::set_dialog_listener(WebViewListener::Dialog * listener)
+	// void Awesomium::WebView::set_dialog_listener(Awesomium::WebViewListener::Dialog * listener)
 	static int _bind_set_dialog_listener(lua_State *L) {
 		if (!_lg_typecheck_set_dialog_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_dialog_listener(WebViewListener::Dialog * listener) function, expected prototype:\nvoid Awesomium::WebView::set_dialog_listener(WebViewListener::Dialog * listener)\nClass arguments details:\narg 1 ID = 34397265\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_dialog_listener(Awesomium::WebViewListener::Dialog * listener) function, expected prototype:\nvoid Awesomium::WebView::set_dialog_listener(Awesomium::WebViewListener::Dialog * listener)\nClass arguments details:\narg 1 ID = 72828454\n");
 		}
 
-		WebViewListener::Dialog* listener=(Luna< WebViewListener::Dialog >::check(L,2));
+		Awesomium::WebViewListener::Dialog* listener=(Luna< Awesomium::WebViewListener::Dialog >::check(L,2));
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_dialog_listener(WebViewListener::Dialog *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_dialog_listener(Awesomium::WebViewListener::Dialog *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_dialog_listener(listener);
 
 		return 0;
 	}
 
-	// void Awesomium::WebView::set_print_listener(WebViewListener::Print * listener)
+	// void Awesomium::WebView::set_print_listener(Awesomium::WebViewListener::Print * listener)
 	static int _bind_set_print_listener(lua_State *L) {
 		if (!_lg_typecheck_set_print_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_print_listener(WebViewListener::Print * listener) function, expected prototype:\nvoid Awesomium::WebView::set_print_listener(WebViewListener::Print * listener)\nClass arguments details:\narg 1 ID = 47951591\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_print_listener(Awesomium::WebViewListener::Print * listener) function, expected prototype:\nvoid Awesomium::WebView::set_print_listener(Awesomium::WebViewListener::Print * listener)\nClass arguments details:\narg 1 ID = 4030006\n");
 		}
 
-		WebViewListener::Print* listener=(Luna< WebViewListener::Print >::check(L,2));
+		Awesomium::WebViewListener::Print* listener=(Luna< Awesomium::WebViewListener::Print >::check(L,2));
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_print_listener(WebViewListener::Print *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_print_listener(Awesomium::WebViewListener::Print *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_print_listener(listener);
 
 		return 0;
 	}
 
-	// void Awesomium::WebView::set_download_listener(WebViewListener::Download * listener)
+	// void Awesomium::WebView::set_download_listener(Awesomium::WebViewListener::Download * listener)
 	static int _bind_set_download_listener(lua_State *L) {
 		if (!_lg_typecheck_set_download_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_download_listener(WebViewListener::Download * listener) function, expected prototype:\nvoid Awesomium::WebView::set_download_listener(WebViewListener::Download * listener)\nClass arguments details:\narg 1 ID = 12394159\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_download_listener(Awesomium::WebViewListener::Download * listener) function, expected prototype:\nvoid Awesomium::WebView::set_download_listener(Awesomium::WebViewListener::Download * listener)\nClass arguments details:\narg 1 ID = 44749586\n");
 		}
 
-		WebViewListener::Download* listener=(Luna< WebViewListener::Download >::check(L,2));
+		Awesomium::WebViewListener::Download* listener=(Luna< Awesomium::WebViewListener::Download >::check(L,2));
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_download_listener(WebViewListener::Download *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_download_listener(Awesomium::WebViewListener::Download *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_download_listener(listener);
 
 		return 0;
 	}
 
-	// void Awesomium::WebView::set_input_method_editor_listener(WebViewListener::InputMethodEditor * listener)
+	// void Awesomium::WebView::set_input_method_editor_listener(Awesomium::WebViewListener::InputMethodEditor * listener)
 	static int _bind_set_input_method_editor_listener(lua_State *L) {
 		if (!_lg_typecheck_set_input_method_editor_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_input_method_editor_listener(WebViewListener::InputMethodEditor * listener) function, expected prototype:\nvoid Awesomium::WebView::set_input_method_editor_listener(WebViewListener::InputMethodEditor * listener)\nClass arguments details:\narg 1 ID = 85723603\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_input_method_editor_listener(Awesomium::WebViewListener::InputMethodEditor * listener) function, expected prototype:\nvoid Awesomium::WebView::set_input_method_editor_listener(Awesomium::WebViewListener::InputMethodEditor * listener)\nClass arguments details:\narg 1 ID = 9490281\n");
 		}
 
-		WebViewListener::InputMethodEditor* listener=(Luna< WebViewListener::InputMethodEditor >::check(L,2));
+		Awesomium::WebViewListener::InputMethodEditor* listener=(Luna< Awesomium::WebViewListener::InputMethodEditor >::check(L,2));
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_input_method_editor_listener(WebViewListener::InputMethodEditor *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_input_method_editor_listener(Awesomium::WebViewListener::InputMethodEditor *). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
 		self->set_input_method_editor_listener(listener);
 
 		return 0;
 	}
 
-	// WebViewListener::View * Awesomium::WebView::view_listener()
+	// Awesomium::WebViewListener::View * Awesomium::WebView::view_listener()
 	static int _bind_view_listener(lua_State *L) {
 		if (!_lg_typecheck_view_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in WebViewListener::View * Awesomium::WebView::view_listener() function, expected prototype:\nWebViewListener::View * Awesomium::WebView::view_listener()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::View * Awesomium::WebView::view_listener() function, expected prototype:\nAwesomium::WebViewListener::View * Awesomium::WebView::view_listener()\nClass arguments details:\n");
 		}
 
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::View * Awesomium::WebView::view_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebViewListener::View * Awesomium::WebView::view_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
-		WebViewListener::View * lret = self->view_listener();
+		Awesomium::WebViewListener::View * lret = self->view_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< WebViewListener::View >::push(L,lret,false);
+		Luna< Awesomium::WebViewListener::View >::push(L,lret,false);
 
 		return 1;
 	}
 
-	// WebViewListener::Load * Awesomium::WebView::load_listener()
+	// Awesomium::WebViewListener::Load * Awesomium::WebView::load_listener()
 	static int _bind_load_listener(lua_State *L) {
 		if (!_lg_typecheck_load_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in WebViewListener::Load * Awesomium::WebView::load_listener() function, expected prototype:\nWebViewListener::Load * Awesomium::WebView::load_listener()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::Load * Awesomium::WebView::load_listener() function, expected prototype:\nAwesomium::WebViewListener::Load * Awesomium::WebView::load_listener()\nClass arguments details:\n");
 		}
 
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::Load * Awesomium::WebView::load_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebViewListener::Load * Awesomium::WebView::load_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
-		WebViewListener::Load * lret = self->load_listener();
+		Awesomium::WebViewListener::Load * lret = self->load_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< WebViewListener::Load >::push(L,lret,false);
+		Luna< Awesomium::WebViewListener::Load >::push(L,lret,false);
 
 		return 1;
 	}
 
-	// WebViewListener::Process * Awesomium::WebView::process_listener()
+	// Awesomium::WebViewListener::Process * Awesomium::WebView::process_listener()
 	static int _bind_process_listener(lua_State *L) {
 		if (!_lg_typecheck_process_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in WebViewListener::Process * Awesomium::WebView::process_listener() function, expected prototype:\nWebViewListener::Process * Awesomium::WebView::process_listener()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::Process * Awesomium::WebView::process_listener() function, expected prototype:\nAwesomium::WebViewListener::Process * Awesomium::WebView::process_listener()\nClass arguments details:\n");
 		}
 
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::Process * Awesomium::WebView::process_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebViewListener::Process * Awesomium::WebView::process_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
-		WebViewListener::Process * lret = self->process_listener();
+		Awesomium::WebViewListener::Process * lret = self->process_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< WebViewListener::Process >::push(L,lret,false);
+		Luna< Awesomium::WebViewListener::Process >::push(L,lret,false);
 
 		return 1;
 	}
 
-	// WebViewListener::Menu * Awesomium::WebView::menu_listener()
+	// Awesomium::WebViewListener::Menu * Awesomium::WebView::menu_listener()
 	static int _bind_menu_listener(lua_State *L) {
 		if (!_lg_typecheck_menu_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in WebViewListener::Menu * Awesomium::WebView::menu_listener() function, expected prototype:\nWebViewListener::Menu * Awesomium::WebView::menu_listener()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::Menu * Awesomium::WebView::menu_listener() function, expected prototype:\nAwesomium::WebViewListener::Menu * Awesomium::WebView::menu_listener()\nClass arguments details:\n");
 		}
 
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::Menu * Awesomium::WebView::menu_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebViewListener::Menu * Awesomium::WebView::menu_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
-		WebViewListener::Menu * lret = self->menu_listener();
+		Awesomium::WebViewListener::Menu * lret = self->menu_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< WebViewListener::Menu >::push(L,lret,false);
+		Luna< Awesomium::WebViewListener::Menu >::push(L,lret,false);
 
 		return 1;
 	}
 
-	// WebViewListener::Dialog * Awesomium::WebView::dialog_listener()
+	// Awesomium::WebViewListener::Dialog * Awesomium::WebView::dialog_listener()
 	static int _bind_dialog_listener(lua_State *L) {
 		if (!_lg_typecheck_dialog_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in WebViewListener::Dialog * Awesomium::WebView::dialog_listener() function, expected prototype:\nWebViewListener::Dialog * Awesomium::WebView::dialog_listener()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::Dialog * Awesomium::WebView::dialog_listener() function, expected prototype:\nAwesomium::WebViewListener::Dialog * Awesomium::WebView::dialog_listener()\nClass arguments details:\n");
 		}
 
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::Dialog * Awesomium::WebView::dialog_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebViewListener::Dialog * Awesomium::WebView::dialog_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
-		WebViewListener::Dialog * lret = self->dialog_listener();
+		Awesomium::WebViewListener::Dialog * lret = self->dialog_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< WebViewListener::Dialog >::push(L,lret,false);
+		Luna< Awesomium::WebViewListener::Dialog >::push(L,lret,false);
 
 		return 1;
 	}
 
-	// WebViewListener::Print * Awesomium::WebView::print_listener()
+	// Awesomium::WebViewListener::Print * Awesomium::WebView::print_listener()
 	static int _bind_print_listener(lua_State *L) {
 		if (!_lg_typecheck_print_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in WebViewListener::Print * Awesomium::WebView::print_listener() function, expected prototype:\nWebViewListener::Print * Awesomium::WebView::print_listener()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::Print * Awesomium::WebView::print_listener() function, expected prototype:\nAwesomium::WebViewListener::Print * Awesomium::WebView::print_listener()\nClass arguments details:\n");
 		}
 
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::Print * Awesomium::WebView::print_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebViewListener::Print * Awesomium::WebView::print_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
-		WebViewListener::Print * lret = self->print_listener();
+		Awesomium::WebViewListener::Print * lret = self->print_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< WebViewListener::Print >::push(L,lret,false);
+		Luna< Awesomium::WebViewListener::Print >::push(L,lret,false);
 
 		return 1;
 	}
 
-	// WebViewListener::Download * Awesomium::WebView::download_listener()
+	// Awesomium::WebViewListener::Download * Awesomium::WebView::download_listener()
 	static int _bind_download_listener(lua_State *L) {
 		if (!_lg_typecheck_download_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in WebViewListener::Download * Awesomium::WebView::download_listener() function, expected prototype:\nWebViewListener::Download * Awesomium::WebView::download_listener()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::Download * Awesomium::WebView::download_listener() function, expected prototype:\nAwesomium::WebViewListener::Download * Awesomium::WebView::download_listener()\nClass arguments details:\n");
 		}
 
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::Download * Awesomium::WebView::download_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebViewListener::Download * Awesomium::WebView::download_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
-		WebViewListener::Download * lret = self->download_listener();
+		Awesomium::WebViewListener::Download * lret = self->download_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< WebViewListener::Download >::push(L,lret,false);
+		Luna< Awesomium::WebViewListener::Download >::push(L,lret,false);
 
 		return 1;
 	}
 
-	// WebViewListener::InputMethodEditor * Awesomium::WebView::input_method_editor_listener()
+	// Awesomium::WebViewListener::InputMethodEditor * Awesomium::WebView::input_method_editor_listener()
 	static int _bind_input_method_editor_listener(lua_State *L) {
 		if (!_lg_typecheck_input_method_editor_listener(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in WebViewListener::InputMethodEditor * Awesomium::WebView::input_method_editor_listener() function, expected prototype:\nWebViewListener::InputMethodEditor * Awesomium::WebView::input_method_editor_listener()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::InputMethodEditor * Awesomium::WebView::input_method_editor_listener() function, expected prototype:\nAwesomium::WebViewListener::InputMethodEditor * Awesomium::WebView::input_method_editor_listener()\nClass arguments details:\n");
 		}
 
 
 		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call WebViewListener::InputMethodEditor * Awesomium::WebView::input_method_editor_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebViewListener::InputMethodEditor * Awesomium::WebView::input_method_editor_listener(). Got : '%s'",typeid(Luna< Awesomium::WebView >::check(L,1)).name());
 		}
-		WebViewListener::InputMethodEditor * lret = self->input_method_editor_listener();
+		Awesomium::WebViewListener::InputMethodEditor * lret = self->input_method_editor_listener();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< WebViewListener::InputMethodEditor >::push(L,lret,false);
+		Luna< Awesomium::WebViewListener::InputMethodEditor >::push(L,lret,false);
 
 		return 1;
 	}
@@ -2059,22 +2059,22 @@ Awesomium::WebView* LunaTraits< Awesomium::WebView >::_bind_ctor(lua_State *L) {
 	// void Awesomium::WebView::set_parent_window(NativeWindow parent)
 	// NativeWindow Awesomium::WebView::parent_window()
 	// NativeWindow Awesomium::WebView::window()
-	// void Awesomium::WebView::set_view_listener(WebViewListener::View * listener)
-	// void Awesomium::WebView::set_load_listener(WebViewListener::Load * listener)
-	// void Awesomium::WebView::set_process_listener(WebViewListener::Process * listener)
-	// void Awesomium::WebView::set_menu_listener(WebViewListener::Menu * listener)
-	// void Awesomium::WebView::set_dialog_listener(WebViewListener::Dialog * listener)
-	// void Awesomium::WebView::set_print_listener(WebViewListener::Print * listener)
-	// void Awesomium::WebView::set_download_listener(WebViewListener::Download * listener)
-	// void Awesomium::WebView::set_input_method_editor_listener(WebViewListener::InputMethodEditor * listener)
-	// WebViewListener::View * Awesomium::WebView::view_listener()
-	// WebViewListener::Load * Awesomium::WebView::load_listener()
-	// WebViewListener::Process * Awesomium::WebView::process_listener()
-	// WebViewListener::Menu * Awesomium::WebView::menu_listener()
-	// WebViewListener::Dialog * Awesomium::WebView::dialog_listener()
-	// WebViewListener::Print * Awesomium::WebView::print_listener()
-	// WebViewListener::Download * Awesomium::WebView::download_listener()
-	// WebViewListener::InputMethodEditor * Awesomium::WebView::input_method_editor_listener()
+	// void Awesomium::WebView::set_view_listener(Awesomium::WebViewListener::View * listener)
+	// void Awesomium::WebView::set_load_listener(Awesomium::WebViewListener::Load * listener)
+	// void Awesomium::WebView::set_process_listener(Awesomium::WebViewListener::Process * listener)
+	// void Awesomium::WebView::set_menu_listener(Awesomium::WebViewListener::Menu * listener)
+	// void Awesomium::WebView::set_dialog_listener(Awesomium::WebViewListener::Dialog * listener)
+	// void Awesomium::WebView::set_print_listener(Awesomium::WebViewListener::Print * listener)
+	// void Awesomium::WebView::set_download_listener(Awesomium::WebViewListener::Download * listener)
+	// void Awesomium::WebView::set_input_method_editor_listener(Awesomium::WebViewListener::InputMethodEditor * listener)
+	// Awesomium::WebViewListener::View * Awesomium::WebView::view_listener()
+	// Awesomium::WebViewListener::Load * Awesomium::WebView::load_listener()
+	// Awesomium::WebViewListener::Process * Awesomium::WebView::process_listener()
+	// Awesomium::WebViewListener::Menu * Awesomium::WebView::menu_listener()
+	// Awesomium::WebViewListener::Dialog * Awesomium::WebView::dialog_listener()
+	// Awesomium::WebViewListener::Print * Awesomium::WebView::print_listener()
+	// Awesomium::WebViewListener::Download * Awesomium::WebView::download_listener()
+	// Awesomium::WebViewListener::InputMethodEditor * Awesomium::WebView::input_method_editor_listener()
 	// void Awesomium::WebView::LoadURL(const Awesomium::WebURL & url)
 	// void Awesomium::WebView::GoBack()
 	// void Awesomium::WebView::GoForward()

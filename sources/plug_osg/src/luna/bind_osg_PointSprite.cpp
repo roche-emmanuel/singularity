@@ -1203,8 +1203,6 @@ public:
 
 osg::PointSprite* LunaTraits< osg::PointSprite >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_PointSprite::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::PointSprite >::_bind_dtor(osg::PointSprite* obj) {

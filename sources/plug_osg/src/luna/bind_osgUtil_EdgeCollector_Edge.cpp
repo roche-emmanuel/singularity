@@ -675,8 +675,6 @@ public:
 
 osgUtil::EdgeCollector::Edge* LunaTraits< osgUtil::EdgeCollector::Edge >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgUtil_EdgeCollector_Edge::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::EdgeCollector::Edge >::_bind_dtor(osgUtil::EdgeCollector::Edge* obj) {

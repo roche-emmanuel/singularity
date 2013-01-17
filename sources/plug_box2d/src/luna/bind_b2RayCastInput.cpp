@@ -235,8 +235,6 @@ public:
 
 b2RayCastInput* LunaTraits< b2RayCastInput >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< b2RayCastInput >::_bind_dtor(b2RayCastInput* obj) {

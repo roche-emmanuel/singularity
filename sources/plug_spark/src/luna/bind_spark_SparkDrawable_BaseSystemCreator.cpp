@@ -82,7 +82,7 @@ public:
 	inline static bool _lg_typecheck_op_call(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,14771105) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,72783721) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
@@ -112,7 +112,7 @@ public:
 			luaL_error(L, "luna typecheck failed in unsigned long spark::SparkDrawable::BaseSystemCreator::operator()(const spark::SparkDrawable::TextureIDMap & arg1, int width, int height) function, expected prototype:\nunsigned long spark::SparkDrawable::BaseSystemCreator::operator()(const spark::SparkDrawable::TextureIDMap & arg1, int width, int height)\nClass arguments details:\narg 1 ID = 72783721\n");
 		}
 
-		const spark::SparkDrawable::TextureIDMap* _arg1_ptr=(Luna< spark::SparkDrawable::TextureIDMap >::check(L,2));
+		const spark::SparkDrawable::TextureIDMap* _arg1_ptr=(Luna< std::map< std::string, unsigned int > >::checkSubType< spark::SparkDrawable::TextureIDMap >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in spark::SparkDrawable::BaseSystemCreator::operator() function");
 		}

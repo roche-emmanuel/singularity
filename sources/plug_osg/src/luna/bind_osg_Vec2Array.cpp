@@ -1087,8 +1087,6 @@ public:
 
 osg::Vec2Array* LunaTraits< osg::Vec2Array >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Vec2Array::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::Vec2Array >::_bind_dtor(osg::Vec2Array* obj) {

@@ -445,8 +445,6 @@ public:
 
 spark::SparkUpdatingHandler* LunaTraits< spark::SparkUpdatingHandler >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_spark_SparkUpdatingHandler::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< spark::SparkUpdatingHandler >::_bind_dtor(spark::SparkUpdatingHandler* obj) {

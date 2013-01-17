@@ -3112,8 +3112,6 @@ public:
 
 wxPopupTransientWindow* LunaTraits< wxPopupTransientWindow >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxPopupTransientWindow::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxPopupTransientWindow >::_bind_dtor(wxPopupTransientWindow* obj) {
