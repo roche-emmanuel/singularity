@@ -70,3 +70,4 @@
 - Added micropather module.
 - Moving void class into sgt core module.
 - Rebuilt core and doxmlparser modules with void class in core module.
+- Rebuilt all modules to ensure the void type is not overriden.

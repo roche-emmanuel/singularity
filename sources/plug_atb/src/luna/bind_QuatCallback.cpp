@@ -123,11 +123,11 @@ public:
 
 
 	// Function binds:
-	// static void TW_CALL QuatCallback::setCallback(const void * value, void * clientData)
+	// static void QuatCallback::setCallback(const void * value, void * clientData)
 	static int _bind_setCallback(lua_State *L) {
 		if (!_lg_typecheck_setCallback(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void TW_CALL QuatCallback::setCallback(const void * value, void * clientData) function, expected prototype:\nstatic void TW_CALL QuatCallback::setCallback(const void * value, void * clientData)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void QuatCallback::setCallback(const void * value, void * clientData) function, expected prototype:\nstatic void QuatCallback::setCallback(const void * value, void * clientData)\nClass arguments details:\n");
 		}
 
 		void* value=(Luna< void >::check(L,1));
@@ -138,11 +138,11 @@ public:
 		return 0;
 	}
 
-	// static void TW_CALL QuatCallback::getCallback(void * value, void * clientData)
+	// static void QuatCallback::getCallback(void * value, void * clientData)
 	static int _bind_getCallback(lua_State *L) {
 		if (!_lg_typecheck_getCallback(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void TW_CALL QuatCallback::getCallback(void * value, void * clientData) function, expected prototype:\nstatic void TW_CALL QuatCallback::getCallback(void * value, void * clientData)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void QuatCallback::getCallback(void * value, void * clientData) function, expected prototype:\nstatic void QuatCallback::getCallback(void * value, void * clientData)\nClass arguments details:\n");
 		}
 
 		void* value=(Luna< void >::check(L,1));

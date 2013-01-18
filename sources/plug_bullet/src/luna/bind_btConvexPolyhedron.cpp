@@ -1,8 +1,34 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_btConvexPolyhedron.h>
+
 class luna_wrapper_btConvexPolyhedron {
 public:
 	typedef Luna< btConvexPolyhedron > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<btConvexPolyhedron,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
 
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -54,9 +80,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -196,14 +229,34 @@ public:
 
 	// Constructor binds:
 	// btConvexPolyhedron::btConvexPolyhedron()
-	static btConvexPolyhedron* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static btConvexPolyhedron* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btConvexPolyhedron::btConvexPolyhedron() function, expected prototype:\nbtConvexPolyhedron::btConvexPolyhedron()\nClass arguments details:\n");
 		}
 
 
 		return new btConvexPolyhedron();
+	}
+
+	// btConvexPolyhedron::btConvexPolyhedron(lua_Table * data)
+	static btConvexPolyhedron* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in btConvexPolyhedron::btConvexPolyhedron(lua_Table * data) function, expected prototype:\nbtConvexPolyhedron::btConvexPolyhedron(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_btConvexPolyhedron(L,NULL);
+	}
+
+	// Overload binder for btConvexPolyhedron::btConvexPolyhedron
+	static btConvexPolyhedron* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function btConvexPolyhedron, cannot match any of the overloads for function btConvexPolyhedron:\n  btConvexPolyhedron()\n  btConvexPolyhedron(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -673,6 +726,7 @@ luna_RegType LunaTraits< btConvexPolyhedron >::methods[] = {
 	{"setE", &luna_wrapper_btConvexPolyhedron::_bind_setE},
 	{"dynCast", &luna_wrapper_btConvexPolyhedron::_bind_dynCast},
 	{"__eq", &luna_wrapper_btConvexPolyhedron::_bind___eq},
+	{"getTable", &luna_wrapper_btConvexPolyhedron::_bind_getTable},
 	{0,0}
 };
 

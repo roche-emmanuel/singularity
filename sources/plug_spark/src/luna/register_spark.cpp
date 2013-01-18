@@ -13,10 +13,6 @@ extern void register_global_functions(lua_State* L);
 int PLUG_EXPORT luaopen_spark(lua_State* L) {
 	luna_open(L);
 
-	luna_pushModule(L,"luna");
-	Luna< void >::Register(L);
-	luna_popModule(L);
-
 	luna_pushModule(L,"spark");
 	Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::Register(L);
 	Luna< spark::SparkDrawable >::Register(L);

@@ -1,8 +1,34 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_BasicVariableCallback.h>
+
 class luna_wrapper_BasicVariableCallback {
 public:
 	typedef Luna< BasicVariableCallback > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<osg::Referenced,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
 
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -41,9 +67,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -68,14 +101,34 @@ public:
 
 	// Constructor binds:
 	// BasicVariableCallback::BasicVariableCallback()
-	static BasicVariableCallback* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static BasicVariableCallback* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in BasicVariableCallback::BasicVariableCallback() function, expected prototype:\nBasicVariableCallback::BasicVariableCallback()\nClass arguments details:\n");
 		}
 
 
 		return new BasicVariableCallback();
+	}
+
+	// BasicVariableCallback::BasicVariableCallback(lua_Table * data)
+	static BasicVariableCallback* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in BasicVariableCallback::BasicVariableCallback(lua_Table * data) function, expected prototype:\nBasicVariableCallback::BasicVariableCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_BasicVariableCallback(L,NULL);
+	}
+
+	// Overload binder for BasicVariableCallback::BasicVariableCallback
+	static BasicVariableCallback* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function BasicVariableCallback, cannot match any of the overloads for function BasicVariableCallback:\n  BasicVariableCallback()\n  BasicVariableCallback(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -142,6 +195,7 @@ luna_RegType LunaTraits< BasicVariableCallback >::methods[] = {
 	{"setReadOnly", &luna_wrapper_BasicVariableCallback::_bind_setReadOnly},
 	{"getReadOnly", &luna_wrapper_BasicVariableCallback::_bind_getReadOnly},
 	{"__eq", &luna_wrapper_BasicVariableCallback::_bind___eq},
+	{"getTable", &luna_wrapper_BasicVariableCallback::_bind_getTable},
 	{0,0}
 };
 

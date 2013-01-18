@@ -24,6 +24,12 @@ const char LunaTraits< osgGA::GUIActionAdapter >::moduleName[] = "osgGA";
 const int LunaTraits< osgGA::GUIActionAdapter >::hash = 85302998;
 const int LunaTraits< osgGA::GUIActionAdapter >::uniqueIDs[] = {85302998,0};
 
+const char LunaTraits< void >::className[] = "void";
+const char LunaTraits< void >::fullName[] = "void";
+const char LunaTraits< void >::moduleName[] = "sgt";
+const int LunaTraits< void >::hash = 3625364;
+const int LunaTraits< void >::uniqueIDs[] = {3625364,0};
+
 const char LunaTraits< osg::Image >::className[] = "Image";
 const char LunaTraits< osg::Image >::fullName[] = "osg::Image";
 const char LunaTraits< osg::Image >::moduleName[] = "osg";

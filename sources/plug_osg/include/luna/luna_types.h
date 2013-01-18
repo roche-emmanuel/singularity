@@ -15334,6 +15334,25 @@ public:
 
 
 
+// Referenced external: void
+template<>
+class LunaTraits< void > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static void* _bind_ctor(lua_State *L);
+	static void _bind_dtor(void* obj);
+	typedef void parent_t;
+	typedef void base_t;
+	static luna_ConverterType converters[];
+};
+
 // Referenced external: osg::ref_ptr< osg::Referenced >
 template<>
 class LunaTraits< osg::ref_ptr< osg::Referenced > > {
@@ -19592,6 +19611,13 @@ template<>
 class LunaType< 21902908 > {
 public:
 	typedef std::vector< osgViewer::View * > type;
+	
+};
+
+template<>
+class LunaType< 3625364 > {
+public:
+	typedef void type;
 	
 };
 

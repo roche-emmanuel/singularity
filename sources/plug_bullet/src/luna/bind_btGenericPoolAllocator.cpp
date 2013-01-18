@@ -1,8 +1,34 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_btGenericPoolAllocator.h>
+
 class luna_wrapper_btGenericPoolAllocator {
 public:
 	typedef Luna< btGenericPoolAllocator > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		btGenericPoolAllocator* self=(Luna< btGenericPoolAllocator >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<btGenericPoolAllocator,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
 
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -54,11 +80,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -103,8 +138,8 @@ public:
 
 	// Constructor binds:
 	// btGenericPoolAllocator::btGenericPoolAllocator(size_t pool_element_size, size_t pool_element_count)
-	static btGenericPoolAllocator* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static btGenericPoolAllocator* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btGenericPoolAllocator::btGenericPoolAllocator(size_t pool_element_size, size_t pool_element_count) function, expected prototype:\nbtGenericPoolAllocator::btGenericPoolAllocator(size_t pool_element_size, size_t pool_element_count)\nClass arguments details:\n");
 		}
@@ -113,6 +148,28 @@ public:
 		size_t pool_element_count=(size_t)lua_tointeger(L,2);
 
 		return new btGenericPoolAllocator(pool_element_size, pool_element_count);
+	}
+
+	// btGenericPoolAllocator::btGenericPoolAllocator(lua_Table * data, size_t pool_element_size, size_t pool_element_count)
+	static btGenericPoolAllocator* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in btGenericPoolAllocator::btGenericPoolAllocator(lua_Table * data, size_t pool_element_size, size_t pool_element_count) function, expected prototype:\nbtGenericPoolAllocator::btGenericPoolAllocator(lua_Table * data, size_t pool_element_size, size_t pool_element_count)\nClass arguments details:\n");
+		}
+
+		size_t pool_element_size=(size_t)lua_tointeger(L,2);
+		size_t pool_element_count=(size_t)lua_tointeger(L,3);
+
+		return new wrapper_btGenericPoolAllocator(L,NULL, pool_element_size, pool_element_count);
+	}
+
+	// Overload binder for btGenericPoolAllocator::btGenericPoolAllocator
+	static btGenericPoolAllocator* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function btGenericPoolAllocator, cannot match any of the overloads for function btGenericPoolAllocator:\n  btGenericPoolAllocator(size_t, size_t)\n  btGenericPoolAllocator(lua_Table *, size_t, size_t)\n");
+		return NULL;
 	}
 
 
@@ -244,6 +301,7 @@ luna_RegType LunaTraits< btGenericPoolAllocator >::methods[] = {
 	{"set_pool_count", &luna_wrapper_btGenericPoolAllocator::_bind_set_pool_count},
 	{"dynCast", &luna_wrapper_btGenericPoolAllocator::_bind_dynCast},
 	{"__eq", &luna_wrapper_btGenericPoolAllocator::_bind___eq},
+	{"getTable", &luna_wrapper_btGenericPoolAllocator::_bind_getTable},
 	{0,0}
 };
 

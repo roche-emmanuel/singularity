@@ -107,11 +107,11 @@ public:
 
 
 	// Function binds:
-	// static void TW_CALL ButtonCallback::doExecute(void * clientData)
+	// static void ButtonCallback::doExecute(void * clientData)
 	static int _bind_doExecute(lua_State *L) {
 		if (!_lg_typecheck_doExecute(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void TW_CALL ButtonCallback::doExecute(void * clientData) function, expected prototype:\nstatic void TW_CALL ButtonCallback::doExecute(void * clientData)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void ButtonCallback::doExecute(void * clientData) function, expected prototype:\nstatic void ButtonCallback::doExecute(void * clientData)\nClass arguments details:\n");
 		}
 
 		void* clientData=(Luna< void >::check(L,1));

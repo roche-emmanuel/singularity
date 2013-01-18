@@ -13,10 +13,6 @@ extern void register_global_functions(lua_State* L);
 int PLUG_EXPORT luaopen_atb(lua_State* L) {
 	luna_open(L);
 
-	luna_pushModule(L,"luna");
-	Luna< void >::Register(L);
-	luna_popModule(L);
-
 	luna_pushModule(L,"atb");
 	Luna< BasicVariableCallback >::Register(L);
 	Luna< BoolCallback >::Register(L);

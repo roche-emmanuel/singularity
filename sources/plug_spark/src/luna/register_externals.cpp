@@ -60,6 +60,12 @@ const char LunaTraits< osg::RenderInfo >::moduleName[] = "osg";
 const int LunaTraits< osg::RenderInfo >::hash = 2286263;
 const int LunaTraits< osg::RenderInfo >::uniqueIDs[] = {2286263,0};
 
+const char LunaTraits< void >::className[] = "void";
+const char LunaTraits< void >::fullName[] = "void";
+const char LunaTraits< void >::moduleName[] = "sgt";
+const int LunaTraits< void >::hash = 3625364;
+const int LunaTraits< void >::uniqueIDs[] = {3625364,0};
+
 const char LunaTraits< osg::Image >::className[] = "Image";
 const char LunaTraits< osg::Image >::fullName[] = "osg::Image";
 const char LunaTraits< osg::Image >::moduleName[] = "osg";

@@ -1,8 +1,34 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxStdInputStream.h>
+
 class luna_wrapper_wxStdInputStream {
 public:
 	typedef Luna< wxStdInputStream > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxStdInputStream* self=(Luna< wxStdInputStream >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<wxStdInputStream,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
 
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -54,10 +80,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxInputStream >(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxInputStream >(L,2))) ) return false;
 		return true;
 	}
 
@@ -69,8 +105,8 @@ public:
 
 	// Constructor binds:
 	// wxStdInputStream::wxStdInputStream(wxInputStream & stream)
-	static wxStdInputStream* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxStdInputStream* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxStdInputStream::wxStdInputStream(wxInputStream & stream) function, expected prototype:\nwxStdInputStream::wxStdInputStream(wxInputStream & stream)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -82,6 +118,31 @@ public:
 		wxInputStream & stream=*stream_ptr;
 
 		return new wxStdInputStream(stream);
+	}
+
+	// wxStdInputStream::wxStdInputStream(lua_Table * data, wxInputStream & stream)
+	static wxStdInputStream* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxStdInputStream::wxStdInputStream(lua_Table * data, wxInputStream & stream) function, expected prototype:\nwxStdInputStream::wxStdInputStream(lua_Table * data, wxInputStream & stream)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		wxInputStream* stream_ptr=(Luna< wxObject >::checkSubType< wxInputStream >(L,2));
+		if( !stream_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxStdInputStream::wxStdInputStream function");
+		}
+		wxInputStream & stream=*stream_ptr;
+
+		return new wrapper_wxStdInputStream(L,NULL, stream);
+	}
+
+	// Overload binder for wxStdInputStream::wxStdInputStream
+	static wxStdInputStream* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxStdInputStream, cannot match any of the overloads for function wxStdInputStream:\n  wxStdInputStream(wxInputStream &)\n  wxStdInputStream(lua_Table *, wxInputStream &)\n");
+		return NULL;
 	}
 
 
@@ -109,6 +170,7 @@ const int LunaTraits< wxStdInputStream >::uniqueIDs[] = {37809017,0};
 luna_RegType LunaTraits< wxStdInputStream >::methods[] = {
 	{"dynCast", &luna_wrapper_wxStdInputStream::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxStdInputStream::_bind___eq},
+	{"getTable", &luna_wrapper_wxStdInputStream::_bind_getTable},
 	{0,0}
 };
 

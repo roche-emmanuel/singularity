@@ -13,10 +13,6 @@ extern void register_global_functions(lua_State* L);
 int PLUG_EXPORT luaopen_osgWX(lua_State* L) {
 	luna_open(L);
 
-	luna_pushModule(L,"luna");
-	Luna< void >::Register(L);
-	luna_popModule(L);
-
 	luna_pushModule(L,"osgWX");
 	Luna< GraphicsWindowWX >::Register(L);
 	luna_popModule(L);
@@ -27,9 +23,9 @@ int PLUG_EXPORT luaopen_osgWX(lua_State* L) {
 
 	register_enums(L);
 
-	register_global_functions(L);
-
 	luna_popModule(L);
+
+	register_global_functions(L);
 
 	luna_copyParents(L,"osgWX");
 

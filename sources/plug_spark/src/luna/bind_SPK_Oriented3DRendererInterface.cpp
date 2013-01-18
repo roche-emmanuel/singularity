@@ -1,8 +1,34 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_SPK_Oriented3DRendererInterface.h>
+
 class luna_wrapper_SPK_Oriented3DRendererInterface {
 public:
 	typedef Luna< SPK::Oriented3DRendererInterface > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<SPK::Oriented3DRendererInterface,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
 
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -54,9 +80,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -130,14 +163,34 @@ public:
 
 	// Constructor binds:
 	// SPK::Oriented3DRendererInterface::Oriented3DRendererInterface()
-	static SPK::Oriented3DRendererInterface* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static SPK::Oriented3DRendererInterface* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in SPK::Oriented3DRendererInterface::Oriented3DRendererInterface() function, expected prototype:\nSPK::Oriented3DRendererInterface::Oriented3DRendererInterface()\nClass arguments details:\n");
 		}
 
 
 		return new SPK::Oriented3DRendererInterface();
+	}
+
+	// SPK::Oriented3DRendererInterface::Oriented3DRendererInterface(lua_Table * data)
+	static SPK::Oriented3DRendererInterface* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in SPK::Oriented3DRendererInterface::Oriented3DRendererInterface(lua_Table * data) function, expected prototype:\nSPK::Oriented3DRendererInterface::Oriented3DRendererInterface(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_SPK_Oriented3DRendererInterface(L,NULL);
+	}
+
+	// Overload binder for SPK::Oriented3DRendererInterface::Oriented3DRendererInterface
+	static SPK::Oriented3DRendererInterface* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Oriented3DRendererInterface, cannot match any of the overloads for function Oriented3DRendererInterface:\n  Oriented3DRendererInterface()\n  Oriented3DRendererInterface(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -351,6 +404,7 @@ luna_RegType LunaTraits< SPK::Oriented3DRendererInterface >::methods[] = {
 	{"getUpVector", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_getUpVector},
 	{"dynCast", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_dynCast},
 	{"__eq", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind___eq},
+	{"getTable", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_getTable},
 	{0,0}
 };
 

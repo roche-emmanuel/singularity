@@ -205,7 +205,7 @@ public:
     }
 
 private:
-    virtual ~wxPGChoicesData();
+    ~wxPGChoicesData();
 };
 
 class wxPGChoiceEntry : public wxPGCell

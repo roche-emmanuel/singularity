@@ -72,6 +72,12 @@ const char LunaTraits< std::ostream >::moduleName[] = "std";
 const int LunaTraits< std::ostream >::hash = 2993706;
 const int LunaTraits< std::ostream >::uniqueIDs[] = {2993706,0};
 
+const char LunaTraits< void >::className[] = "void";
+const char LunaTraits< void >::fullName[] = "void";
+const char LunaTraits< void >::moduleName[] = "sgt";
+const int LunaTraits< void >::hash = 3625364;
+const int LunaTraits< void >::uniqueIDs[] = {3625364,0};
+
 const char LunaTraits< osg::ref_ptr< osg::Referenced > >::className[] = "Referenced";
 const char LunaTraits< osg::ref_ptr< osg::Referenced > >::fullName[] = "osg::ref_ptr< osg::Referenced >";
 const char LunaTraits< osg::ref_ptr< osg::Referenced > >::moduleName[] = "sgt";

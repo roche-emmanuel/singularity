@@ -1,8 +1,34 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxXmlAttribute.h>
+
 class luna_wrapper_wxXmlAttribute {
 public:
 	typedef Luna< wxXmlAttribute > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxXmlAttribute* self=(Luna< wxXmlAttribute >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<wxXmlAttribute,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
 
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -68,6 +94,25 @@ public:
 		if( lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23837631)) ) return false;
 		if( luatop>2 && (lua_isnil(L,3)==0 && !(Luna< wxXmlAttribute >::check(L,3)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23837631)) ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !(Luna< wxXmlAttribute >::check(L,4)) ) ) return false;
 		return true;
 	}
 
@@ -144,12 +189,41 @@ public:
 		return new wxXmlAttribute(name, value, next);
 	}
 
+	// wxXmlAttribute::wxXmlAttribute(lua_Table * data)
+	static wxXmlAttribute* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxXmlAttribute::wxXmlAttribute(lua_Table * data) function, expected prototype:\nwxXmlAttribute::wxXmlAttribute(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxXmlAttribute(L,NULL);
+	}
+
+	// wxXmlAttribute::wxXmlAttribute(lua_Table * data, const wxString & name, const wxString & value, wxXmlAttribute * next = NULL)
+	static wxXmlAttribute* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxXmlAttribute::wxXmlAttribute(lua_Table * data, const wxString & name, const wxString & value, wxXmlAttribute * next = NULL) function, expected prototype:\nwxXmlAttribute::wxXmlAttribute(lua_Table * data, const wxString & name, const wxString & value, wxXmlAttribute * next = NULL)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 23837631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString name(lua_tostring(L,2),lua_objlen(L,2));
+		wxString value(lua_tostring(L,3),lua_objlen(L,3));
+		wxXmlAttribute* next=luatop>3 ? (Luna< wxXmlAttribute >::check(L,4)) : (wxXmlAttribute*)NULL;
+
+		return new wrapper_wxXmlAttribute(L,NULL, name, value, next);
+	}
+
 	// Overload binder for wxXmlAttribute::wxXmlAttribute
 	static wxXmlAttribute* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxXmlAttribute, cannot match any of the overloads for function wxXmlAttribute:\n  wxXmlAttribute()\n  wxXmlAttribute(const wxString &, const wxString &, wxXmlAttribute *)\n");
+		luaL_error(L, "error in function wxXmlAttribute, cannot match any of the overloads for function wxXmlAttribute:\n  wxXmlAttribute()\n  wxXmlAttribute(const wxString &, const wxString &, wxXmlAttribute *)\n  wxXmlAttribute(lua_Table *)\n  wxXmlAttribute(lua_Table *, const wxString &, const wxString &, wxXmlAttribute *)\n");
 		return NULL;
 	}
 
@@ -300,6 +374,7 @@ luna_RegType LunaTraits< wxXmlAttribute >::methods[] = {
 	{"SetValue", &luna_wrapper_wxXmlAttribute::_bind_SetValue},
 	{"dynCast", &luna_wrapper_wxXmlAttribute::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxXmlAttribute::_bind___eq},
+	{"getTable", &luna_wrapper_wxXmlAttribute::_bind_getTable},
 	{0,0}
 };
 

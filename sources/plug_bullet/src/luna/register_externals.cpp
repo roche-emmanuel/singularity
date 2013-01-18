@@ -12,6 +12,12 @@ const char LunaTraits< osg::Vec3f >::moduleName[] = "osg";
 const int LunaTraits< osg::Vec3f >::hash = 92303204;
 const int LunaTraits< osg::Vec3f >::uniqueIDs[] = {92303204,0};
 
+const char LunaTraits< void >::className[] = "void";
+const char LunaTraits< void >::fullName[] = "void";
+const char LunaTraits< void >::moduleName[] = "sgt";
+const int LunaTraits< void >::hash = 3625364;
+const int LunaTraits< void >::uniqueIDs[] = {3625364,0};
+
 const char LunaTraits< osg::Referenced >::className[] = "Referenced";
 const char LunaTraits< osg::Referenced >::fullName[] = "osg::Referenced";
 const char LunaTraits< osg::Referenced >::moduleName[] = "osg";

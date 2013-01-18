@@ -7,8 +7,8 @@
 
 * Upgrade version of doxmlparser
 * Add fromVoid/toVoid converters.
-* ensure void type is not overriden.
 
+* Add integral types pointer support
 * Subtexture upload for awesomium surface.
 
 * Add minimal notebook app.

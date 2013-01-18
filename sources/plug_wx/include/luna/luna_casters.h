@@ -711,6 +711,13 @@ struct luna_caster<wxPGChoices,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<wxPGChoicesData,dstType> {
+	static inline dstType* cast(wxPGChoicesData* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<wxPGValidationInfo,dstType> {
 	static inline dstType* cast(wxPGValidationInfo* ptr) {
 		return static_cast<dstType*>(ptr);
