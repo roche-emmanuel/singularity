@@ -36,6 +36,12 @@ const char LunaTraits< spark::SparkDrawable::TextureIDMap >::moduleName[] = "sgt
 const int LunaTraits< spark::SparkDrawable::TextureIDMap >::hash = 14771105;
 const int LunaTraits< spark::SparkDrawable::TextureIDMap >::uniqueIDs[] = {72783721,0};
 
+const char LunaTraits< void >::className[] = "void";
+const char LunaTraits< void >::fullName[] = "void";
+const char LunaTraits< void >::moduleName[] = "sgt";
+const int LunaTraits< void >::hash = 3625364;
+const int LunaTraits< void >::uniqueIDs[] = {3625364,0};
+
 const char LunaTraits< osg::CopyOp >::className[] = "CopyOp";
 const char LunaTraits< osg::CopyOp >::fullName[] = "osg::CopyOp";
 const char LunaTraits< osg::CopyOp >::moduleName[] = "osg";
@@ -59,12 +65,6 @@ const char LunaTraits< osg::RenderInfo >::fullName[] = "osg::RenderInfo";
 const char LunaTraits< osg::RenderInfo >::moduleName[] = "osg";
 const int LunaTraits< osg::RenderInfo >::hash = 2286263;
 const int LunaTraits< osg::RenderInfo >::uniqueIDs[] = {2286263,0};
-
-const char LunaTraits< void >::className[] = "void";
-const char LunaTraits< void >::fullName[] = "void";
-const char LunaTraits< void >::moduleName[] = "sgt";
-const int LunaTraits< void >::hash = 3625364;
-const int LunaTraits< void >::uniqueIDs[] = {3625364,0};
 
 const char LunaTraits< osg::Image >::className[] = "Image";
 const char LunaTraits< osg::Image >::fullName[] = "osg::Image";

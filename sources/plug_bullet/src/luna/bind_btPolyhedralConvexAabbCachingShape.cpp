@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		btPolyhedralConvexAabbCachingShape* self= (btPolyhedralConvexAabbCachingShape*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< btPolyhedralConvexAabbCachingShape >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,58243831) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< btCollisionShape >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_btCollisionShape(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -875,6 +919,8 @@ luna_RegType LunaTraits< btPolyhedralConvexAabbCachingShape >::methods[] = {
 	{"base_setLocalScaling", &luna_wrapper_btPolyhedralConvexAabbCachingShape::_bind_base_setLocalScaling},
 	{"base_getAabb", &luna_wrapper_btPolyhedralConvexAabbCachingShape::_bind_base_getAabb},
 	{"__eq", &luna_wrapper_btPolyhedralConvexAabbCachingShape::_bind___eq},
+	{"fromVoid", &luna_wrapper_btPolyhedralConvexAabbCachingShape::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_btPolyhedralConvexAabbCachingShape::_bind_asVoid},
 	{"getTable", &luna_wrapper_btPolyhedralConvexAabbCachingShape::_bind_getTable},
 	{0,0}
 };

@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		b2AABB* self= (b2AABB*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< b2AABB >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,53833672) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< b2AABB >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -459,6 +503,8 @@ luna_RegType LunaTraits< b2AABB >::methods[] = {
 	{"setUpperBound", &luna_wrapper_b2AABB::_bind_setUpperBound},
 	{"dynCast", &luna_wrapper_b2AABB::_bind_dynCast},
 	{"__eq", &luna_wrapper_b2AABB::_bind___eq},
+	{"fromVoid", &luna_wrapper_b2AABB::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_b2AABB::_bind_asVoid},
 	{0,0}
 };
 

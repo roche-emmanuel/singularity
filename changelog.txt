@@ -72,3 +72,4 @@
 - Rebuilt core and doxmlparser modules with void class in core module.
 - Rebuilt all modules to ensure the void type is not overriden.
 - Fixed error on OpenThreads.ReentrantMutex dependency.
+- Added support for fromVoid/toVoid converters.

@@ -12,6 +12,12 @@ const char LunaTraits< osg::Drawable >::moduleName[] = "osg";
 const int LunaTraits< osg::Drawable >::hash = 20484188;
 const int LunaTraits< osg::Drawable >::uniqueIDs[] = {50169651,0};
 
+const char LunaTraits< void >::className[] = "void";
+const char LunaTraits< void >::fullName[] = "void";
+const char LunaTraits< void >::moduleName[] = "sgt";
+const int LunaTraits< void >::hash = 3625364;
+const int LunaTraits< void >::uniqueIDs[] = {3625364,0};
+
 const char LunaTraits< osg::Referenced >::className[] = "Referenced";
 const char LunaTraits< osg::Referenced >::fullName[] = "osg::Referenced";
 const char LunaTraits< osg::Referenced >::moduleName[] = "osg";
@@ -23,12 +29,6 @@ const char LunaTraits< osg::NodeVisitor >::fullName[] = "osg::NodeVisitor";
 const char LunaTraits< osg::NodeVisitor >::moduleName[] = "osg";
 const int LunaTraits< osg::NodeVisitor >::hash = 49057446;
 const int LunaTraits< osg::NodeVisitor >::uniqueIDs[] = {50169651,0};
-
-const char LunaTraits< void >::className[] = "void";
-const char LunaTraits< void >::fullName[] = "void";
-const char LunaTraits< void >::moduleName[] = "sgt";
-const int LunaTraits< void >::hash = 3625364;
-const int LunaTraits< void >::uniqueIDs[] = {3625364,0};
 
 const char LunaTraits< osg::Object >::className[] = "Object";
 const char LunaTraits< osg::Object >::fullName[] = "osg::Object";

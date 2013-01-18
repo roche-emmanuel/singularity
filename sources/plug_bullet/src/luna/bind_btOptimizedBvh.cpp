@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		btOptimizedBvh* self= (btOptimizedBvh*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< btOptimizedBvh >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,63725098) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< btQuantizedBvh >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_btQuantizedBvh(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -320,6 +364,8 @@ luna_RegType LunaTraits< btOptimizedBvh >::methods[] = {
 	{"updateBvhNodes", &luna_wrapper_btOptimizedBvh::_bind_updateBvhNodes},
 	{"base_calculateSerializeBufferSizeNew", &luna_wrapper_btOptimizedBvh::_bind_base_calculateSerializeBufferSizeNew},
 	{"__eq", &luna_wrapper_btOptimizedBvh::_bind___eq},
+	{"fromVoid", &luna_wrapper_btOptimizedBvh::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_btOptimizedBvh::_bind_asVoid},
 	{"getTable", &luna_wrapper_btOptimizedBvh::_bind_getTable},
 	{0,0}
 };

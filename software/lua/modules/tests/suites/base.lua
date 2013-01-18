@@ -18,3 +18,20 @@ function test_wrapper_destruction()
 	log:info("Tests","Wrapper destructor callback test done.")
 end
 
+function test_void_converters()
+	log:info("Tests","Testing void converters.")
+	
+	local osg = require "osg"
+	
+	local grp = osg.Group()
+	
+	local ptr = grp:asVoid()
+	assert_not_equal(nil,ptr,"Invalid pointer retrieved from group.")
+	
+	local grp2 = osg.Group.fromVoid(ptr)
+	assert_not_equal(nil,grp2,"Invalid group object retrieved from pointer.")
+	
+	assert_equal(grp2,grp,"Group objects are different.")
+	
+	log:info("Tests","Void converters test done.")
+end

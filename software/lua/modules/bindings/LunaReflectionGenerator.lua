@@ -1258,6 +1258,8 @@ function ReflectionGenerator.generate(options)
     	datamap:generateClassHierarchy()
     end
 	
+	tm:getExternalBase("void") -- check if void is external.
+	
 	local writer = LunaWriter()
     writer:writeBindings()
 	

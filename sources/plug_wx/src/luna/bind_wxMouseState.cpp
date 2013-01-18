@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		wxMouseState* self= (wxMouseState*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< wxMouseState >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 
 	// Constructor checkers:
@@ -576,6 +620,8 @@ luna_RegType LunaTraits< wxMouseState >::methods[] = {
 	{"SetAux2Down", &luna_wrapper_wxMouseState::_bind_SetAux2Down},
 	{"SetState", &luna_wrapper_wxMouseState::_bind_SetState},
 	{"__eq", &luna_wrapper_wxMouseState::_bind___eq},
+	{"fromVoid", &luna_wrapper_wxMouseState::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_wxMouseState::_bind_asVoid},
 	{0,0}
 };
 

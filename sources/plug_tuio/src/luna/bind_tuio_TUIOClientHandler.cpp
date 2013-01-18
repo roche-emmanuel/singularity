@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		tuio::TUIOClientHandler* self= (tuio::TUIOClientHandler*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< tuio::TUIOClientHandler >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_GUIEventHandler(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -94,6 +138,8 @@ const int LunaTraits< tuio::TUIOClientHandler >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< tuio::TUIOClientHandler >::methods[] = {
 	{"__eq", &luna_wrapper_tuio_TUIOClientHandler::_bind___eq},
+	{"fromVoid", &luna_wrapper_tuio_TUIOClientHandler::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_tuio_TUIOClientHandler::_bind_asVoid},
 	{0,0}
 };
 

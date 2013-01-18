@@ -85,6 +85,8 @@ function Class:writeFile()
 			buf:writeLine(snippets:getEqualityCode(bname,hash))
 		end
 		
+		buf:writeLine(snippets:getVoidCastingCode(cname,bname,hash))
+
 		if class:getNumBases()==0 then
 			-- No parents for this class:
 			buf:writeLine("// Base class dynamic cast support:")
@@ -284,6 +286,9 @@ function Class:writeFile()
 			if not equalityOperatorProvided then
 				buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',wname,"__eq")			
 			end
+			
+			buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',wname,"fromVoid")
+			buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',wname,"asVoid")
 			
 			if isVirtual then
 				buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',wname,"getTable")			

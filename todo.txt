@@ -6,7 +6,6 @@
 - Todo:
 
 * Upgrade version of doxmlparser
-* Add fromVoid/toVoid converters.
 
 * Add integral types pointer support
 * Subtexture upload for awesomium surface.

@@ -1329,6 +1329,25 @@ public:
 };
 
 
+// Referenced external: void
+template<>
+class LunaTraits< void > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static void* _bind_ctor(lua_State *L);
+	static void _bind_dtor(void* obj);
+	typedef void parent_t;
+	typedef void base_t;
+	static luna_ConverterType converters[];
+};
+
 // Referenced external: osg::CopyOp
 template<>
 class LunaTraits< osg::CopyOp > {
@@ -1402,25 +1421,6 @@ public:
 	static void _bind_dtor(osg::RenderInfo* obj);
 	typedef osg::RenderInfo parent_t;
 	typedef osg::RenderInfo base_t;
-	static luna_ConverterType converters[];
-};
-
-// Referenced external: void
-template<>
-class LunaTraits< void > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static void* _bind_ctor(lua_State *L);
-	static void _bind_dtor(void* obj);
-	typedef void parent_t;
-	typedef void base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -1841,6 +1841,13 @@ public:
 };
 
 template<>
+class LunaType< 3625364 > {
+public:
+	typedef void type;
+	
+};
+
+template<>
 class LunaType< 27134364 > {
 public:
 	typedef osg::CopyOp type;
@@ -1865,13 +1872,6 @@ template<>
 class LunaType< 2286263 > {
 public:
 	typedef osg::RenderInfo type;
-	
-};
-
-template<>
-class LunaType< 3625364 > {
-public:
-	typedef void type;
 	
 };
 

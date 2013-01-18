@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		SPK::GL::GLLineRenderer* self= (SPK::GL::GLLineRenderer*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< SPK::GL::GLLineRenderer >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,31337102) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< SPK::Registerable >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_Registerable(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -639,6 +683,8 @@ luna_RegType LunaTraits< SPK::GL::GLLineRenderer >::methods[] = {
 	{"base_destroyBuffers", &luna_wrapper_SPK_GL_GLLineRenderer::_bind_base_destroyBuffers},
 	{"base_render", &luna_wrapper_SPK_GL_GLLineRenderer::_bind_base_render},
 	{"__eq", &luna_wrapper_SPK_GL_GLLineRenderer::_bind___eq},
+	{"fromVoid", &luna_wrapper_SPK_GL_GLLineRenderer::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_SPK_GL_GLLineRenderer::_bind_asVoid},
 	{"getTable", &luna_wrapper_SPK_GL_GLLineRenderer::_bind_getTable},
 	{"asLineRendererInterface", &luna_wrapper_SPK_GL_GLLineRenderer::_bind_baseCast_SPK_LineRendererInterface},
 	{0,0}
