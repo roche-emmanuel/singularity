@@ -69,3 +69,4 @@
 - Added absolute base class support in SGT module.
 - Added micropather module.
 - Moving void class into sgt core module.
+- Rebuilt core and doxmlparser modules with void class in core module.

@@ -17,6 +17,10 @@ end
 package.cpath = package.cpath..";".. root_path .. "bin/".. flavor .."/modules/?.sgp;".. root_path .. "bin/".. flavor .."/libraries/?.".. shared_ext
 package.path = package.path..";".. root_path .. "lua/modules/?.lua;".. root_path .. "lua/libraries/?.lua"
 
+local tm = require "bindings.TypeManager"
+tm:registerExternals(sgt_path .. "sources/plug_core/classes.luna")
+tm:registerExternalFunctions(sgt_path .. "sources/plug_core/functions.luna")
+
 local ReflectionGenerator = require "bindings.LunaReflectionGenerator"
 
 ReflectionGenerator.generate{
