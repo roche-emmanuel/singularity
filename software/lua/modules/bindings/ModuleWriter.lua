@@ -36,10 +36,12 @@ function Class:writeFile()
 	buf:newLine();
 	
 	-- register the void class:
+	--[[
 	buf:writeSubLine('luna_pushModule(L,"${1}");',"luna")
 	buf:writeLine("Luna< void >::Register(L);")
 	buf:writeSubLine("luna_popModule(L);")
 	buf:newLine()
+	]]
 		
 	-- register the other classes:
 	local written = Set();

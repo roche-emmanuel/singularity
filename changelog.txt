@@ -68,3 +68,4 @@
 - Ignoring getter/setter if already existing.
 - Added absolute base class support in SGT module.
 - Added micropather module.
+- Moving void class into sgt core module.

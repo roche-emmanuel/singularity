@@ -7,6 +7,9 @@ class __int64 {
 class BaseClass {
 };
 
+class void {
+};
+
 namespace boost {
 	namespace posix_time {
 		class ptime {

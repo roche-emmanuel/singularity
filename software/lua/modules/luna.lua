@@ -58,7 +58,7 @@ __luna.copyAllParents = function(mod) --__luna.copyAllParents or
 	    	end
 	  	end
 	end
-	log:debug1("Luna","Ending copy of all parents.");
+	log:debug1("Luna","Ending copy of all parents in module ", mod.__NAME__ or "[unnamed]");
 
 end
 

@@ -97,6 +97,7 @@ lunaStack::~lunaStack()
 }
 
 
+#if 0
 /// Implementation of void type:
 template <>
 void* LunaTraits< void >::_bind_ctor(lua_State *L) {
@@ -140,6 +141,8 @@ template <>
 luna_ConverterType LunaTraits< void >::converters[] = {
 	{0,0}
 };
+
+#endif
 
 void luna_copyParents(lua_State* L, const char* modName) {
 	std::ostringstream os;

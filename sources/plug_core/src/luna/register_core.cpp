@@ -13,13 +13,10 @@ extern void register_global_functions(lua_State* L);
 int PLUG_EXPORT luaopen_core(lua_State* L) {
 	luna_open(L);
 
-	luna_pushModule(L,"luna");
-	Luna< void >::Register(L);
-	luna_popModule(L);
-
 	luna_pushModule(L,"sgt");
 	Luna< __int64 >::Register(L);
 	Luna< BaseClass >::Register(L);
+	Luna< void >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"boost");
 	Luna< boost::posix_time::ptime >::Register(L);

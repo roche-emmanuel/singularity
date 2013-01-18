@@ -11,6 +11,13 @@ struct luna_caster<__int64,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<void,dstType> {
+	static inline dstType* cast(void* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<boost::posix_time::ptime,dstType> {
 	static inline dstType* cast(boost::posix_time::ptime* ptr) {
 		return static_cast<dstType*>(ptr);

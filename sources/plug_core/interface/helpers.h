@@ -40,6 +40,9 @@ protected:
 class __int64 {
 };
 
+class void {
+};
+
 namespace std {
 
 class istream {

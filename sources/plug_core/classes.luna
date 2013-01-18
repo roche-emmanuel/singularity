@@ -1,6 +1,7 @@
 module=sgt
 __int64 => __int64
 BaseClass => BaseClass
+void => void
 module=boost
 boost::posix_time::ptime => boost::posix_time::ptime
 module=osg

@@ -264,6 +264,9 @@ function Class:isClass()
 	end
 	
 	local str = self:getName()
+	if str=="void" then
+		return false; -- void is created as a class in plug_core.
+	end
 	if str:find("__int64") then
 		return true;
 	end
