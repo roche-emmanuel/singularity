@@ -108,13 +108,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_preBlockOp(lua_State *L) {
+	inline static bool _lg_typecheck_getPreBlockOp(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_preBlockOp(lua_State *L) {
+	inline static bool _lg_typecheck_setPreBlockOp(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -228,8 +228,8 @@ public:
 	}
 
 	// osg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp()
-	static int _bind_get_preBlockOp(lua_State *L) {
-		if (!_lg_typecheck_get_preBlockOp(L)) {
+	static int _bind_getPreBlockOp(lua_State *L) {
+		if (!_lg_typecheck_getPreBlockOp(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp() function, expected prototype:\nosg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp()\nClass arguments details:\n");
 		}
@@ -247,8 +247,8 @@ public:
 	}
 
 	// void osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp value)
-	static int _bind_set_preBlockOp(lua_State *L) {
-		if (!_lg_typecheck_set_preBlockOp(L)) {
+	static int _bind_setPreBlockOp(lua_State *L) {
+		if (!_lg_typecheck_setPreBlockOp(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp value) function, expected prototype:\nvoid osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp value)\nClass arguments details:\n");
 		}
@@ -427,8 +427,8 @@ const int LunaTraits< osg::BarrierOperation >::uniqueIDs[] = {50169651, 8229717,
 
 luna_RegType LunaTraits< osg::BarrierOperation >::methods[] = {
 	{"release", &luna_wrapper_osg_BarrierOperation::_bind_release},
-	{"get_preBlockOp", &luna_wrapper_osg_BarrierOperation::_bind_get_preBlockOp},
-	{"set_preBlockOp", &luna_wrapper_osg_BarrierOperation::_bind_set_preBlockOp},
+	{"getPreBlockOp", &luna_wrapper_osg_BarrierOperation::_bind_getPreBlockOp},
+	{"setPreBlockOp", &luna_wrapper_osg_BarrierOperation::_bind_setPreBlockOp},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_BarrierOperation::_bind_base_setThreadSafeRefUnref},
 	{"base_reset", &luna_wrapper_osg_BarrierOperation::_bind_base_reset},
 	{"base_block", &luna_wrapper_osg_BarrierOperation::_bind_base_block},

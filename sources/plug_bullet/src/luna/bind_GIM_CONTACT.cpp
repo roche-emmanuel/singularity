@@ -97,78 +97,78 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_point(lua_State *L) {
+	inline static bool _lg_typecheck_getPoint(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_normal(lua_State *L) {
+	inline static bool _lg_typecheck_getNormal(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_depth(lua_State *L) {
+	inline static bool _lg_typecheck_getDepth(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_distance(lua_State *L) {
+	inline static bool _lg_typecheck_getDistance(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_feature1(lua_State *L) {
+	inline static bool _lg_typecheck_getFeature1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_feature2(lua_State *L) {
+	inline static bool _lg_typecheck_getFeature2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_point(lua_State *L) {
+	inline static bool _lg_typecheck_setPoint(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_normal(lua_State *L) {
+	inline static bool _lg_typecheck_setNormal(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_depth(lua_State *L) {
+	inline static bool _lg_typecheck_setDepth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_distance(lua_State *L) {
+	inline static bool _lg_typecheck_setDistance(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_feature1(lua_State *L) {
+	inline static bool _lg_typecheck_setFeature1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_feature2(lua_State *L) {
+	inline static bool _lg_typecheck_setFeature2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -283,8 +283,8 @@ public:
 	}
 
 	// btVector3 GIM_CONTACT::m_point()
-	static int _bind_getM_point(lua_State *L) {
-		if (!_lg_typecheck_getM_point(L)) {
+	static int _bind_getPoint(lua_State *L) {
+		if (!_lg_typecheck_getPoint(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 GIM_CONTACT::m_point() function, expected prototype:\nbtVector3 GIM_CONTACT::m_point()\nClass arguments details:\n");
 		}
@@ -304,8 +304,8 @@ public:
 	}
 
 	// btVector3 GIM_CONTACT::m_normal()
-	static int _bind_getM_normal(lua_State *L) {
-		if (!_lg_typecheck_getM_normal(L)) {
+	static int _bind_getNormal(lua_State *L) {
+		if (!_lg_typecheck_getNormal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 GIM_CONTACT::m_normal() function, expected prototype:\nbtVector3 GIM_CONTACT::m_normal()\nClass arguments details:\n");
 		}
@@ -325,8 +325,8 @@ public:
 	}
 
 	// float GIM_CONTACT::m_depth()
-	static int _bind_getM_depth(lua_State *L) {
-		if (!_lg_typecheck_getM_depth(L)) {
+	static int _bind_getDepth(lua_State *L) {
+		if (!_lg_typecheck_getDepth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float GIM_CONTACT::m_depth() function, expected prototype:\nfloat GIM_CONTACT::m_depth()\nClass arguments details:\n");
 		}
@@ -344,8 +344,8 @@ public:
 	}
 
 	// float GIM_CONTACT::m_distance()
-	static int _bind_getM_distance(lua_State *L) {
-		if (!_lg_typecheck_getM_distance(L)) {
+	static int _bind_getDistance(lua_State *L) {
+		if (!_lg_typecheck_getDistance(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float GIM_CONTACT::m_distance() function, expected prototype:\nfloat GIM_CONTACT::m_distance()\nClass arguments details:\n");
 		}
@@ -363,8 +363,8 @@ public:
 	}
 
 	// int GIM_CONTACT::m_feature1()
-	static int _bind_getM_feature1(lua_State *L) {
-		if (!_lg_typecheck_getM_feature1(L)) {
+	static int _bind_getFeature1(lua_State *L) {
+		if (!_lg_typecheck_getFeature1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int GIM_CONTACT::m_feature1() function, expected prototype:\nint GIM_CONTACT::m_feature1()\nClass arguments details:\n");
 		}
@@ -382,8 +382,8 @@ public:
 	}
 
 	// int GIM_CONTACT::m_feature2()
-	static int _bind_getM_feature2(lua_State *L) {
-		if (!_lg_typecheck_getM_feature2(L)) {
+	static int _bind_getFeature2(lua_State *L) {
+		if (!_lg_typecheck_getFeature2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int GIM_CONTACT::m_feature2() function, expected prototype:\nint GIM_CONTACT::m_feature2()\nClass arguments details:\n");
 		}
@@ -401,8 +401,8 @@ public:
 	}
 
 	// void GIM_CONTACT::m_point(btVector3 value)
-	static int _bind_setM_point(lua_State *L) {
-		if (!_lg_typecheck_setM_point(L)) {
+	static int _bind_setPoint(lua_State *L) {
+		if (!_lg_typecheck_setPoint(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_point(btVector3 value) function, expected prototype:\nvoid GIM_CONTACT::m_point(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -424,8 +424,8 @@ public:
 	}
 
 	// void GIM_CONTACT::m_normal(btVector3 value)
-	static int _bind_setM_normal(lua_State *L) {
-		if (!_lg_typecheck_setM_normal(L)) {
+	static int _bind_setNormal(lua_State *L) {
+		if (!_lg_typecheck_setNormal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_normal(btVector3 value) function, expected prototype:\nvoid GIM_CONTACT::m_normal(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -447,8 +447,8 @@ public:
 	}
 
 	// void GIM_CONTACT::m_depth(float value)
-	static int _bind_setM_depth(lua_State *L) {
-		if (!_lg_typecheck_setM_depth(L)) {
+	static int _bind_setDepth(lua_State *L) {
+		if (!_lg_typecheck_setDepth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_depth(float value) function, expected prototype:\nvoid GIM_CONTACT::m_depth(float value)\nClass arguments details:\n");
 		}
@@ -466,8 +466,8 @@ public:
 	}
 
 	// void GIM_CONTACT::m_distance(float value)
-	static int _bind_setM_distance(lua_State *L) {
-		if (!_lg_typecheck_setM_distance(L)) {
+	static int _bind_setDistance(lua_State *L) {
+		if (!_lg_typecheck_setDistance(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_distance(float value) function, expected prototype:\nvoid GIM_CONTACT::m_distance(float value)\nClass arguments details:\n");
 		}
@@ -485,8 +485,8 @@ public:
 	}
 
 	// void GIM_CONTACT::m_feature1(int value)
-	static int _bind_setM_feature1(lua_State *L) {
-		if (!_lg_typecheck_setM_feature1(L)) {
+	static int _bind_setFeature1(lua_State *L) {
+		if (!_lg_typecheck_setFeature1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_feature1(int value) function, expected prototype:\nvoid GIM_CONTACT::m_feature1(int value)\nClass arguments details:\n");
 		}
@@ -504,8 +504,8 @@ public:
 	}
 
 	// void GIM_CONTACT::m_feature2(int value)
-	static int _bind_setM_feature2(lua_State *L) {
-		if (!_lg_typecheck_setM_feature2(L)) {
+	static int _bind_setFeature2(lua_State *L) {
+		if (!_lg_typecheck_setFeature2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_feature2(int value) function, expected prototype:\nvoid GIM_CONTACT::m_feature2(int value)\nClass arguments details:\n");
 		}
@@ -545,18 +545,18 @@ const int LunaTraits< GIM_CONTACT >::uniqueIDs[] = {87678210,0};
 luna_RegType LunaTraits< GIM_CONTACT >::methods[] = {
 	{"calc_key_contact", &luna_wrapper_GIM_CONTACT::_bind_calc_key_contact},
 	{"interpolate_normals", &luna_wrapper_GIM_CONTACT::_bind_interpolate_normals},
-	{"getM_point", &luna_wrapper_GIM_CONTACT::_bind_getM_point},
-	{"getM_normal", &luna_wrapper_GIM_CONTACT::_bind_getM_normal},
-	{"getM_depth", &luna_wrapper_GIM_CONTACT::_bind_getM_depth},
-	{"getM_distance", &luna_wrapper_GIM_CONTACT::_bind_getM_distance},
-	{"getM_feature1", &luna_wrapper_GIM_CONTACT::_bind_getM_feature1},
-	{"getM_feature2", &luna_wrapper_GIM_CONTACT::_bind_getM_feature2},
-	{"setM_point", &luna_wrapper_GIM_CONTACT::_bind_setM_point},
-	{"setM_normal", &luna_wrapper_GIM_CONTACT::_bind_setM_normal},
-	{"setM_depth", &luna_wrapper_GIM_CONTACT::_bind_setM_depth},
-	{"setM_distance", &luna_wrapper_GIM_CONTACT::_bind_setM_distance},
-	{"setM_feature1", &luna_wrapper_GIM_CONTACT::_bind_setM_feature1},
-	{"setM_feature2", &luna_wrapper_GIM_CONTACT::_bind_setM_feature2},
+	{"getPoint", &luna_wrapper_GIM_CONTACT::_bind_getPoint},
+	{"getNormal", &luna_wrapper_GIM_CONTACT::_bind_getNormal},
+	{"getDepth", &luna_wrapper_GIM_CONTACT::_bind_getDepth},
+	{"getDistance", &luna_wrapper_GIM_CONTACT::_bind_getDistance},
+	{"getFeature1", &luna_wrapper_GIM_CONTACT::_bind_getFeature1},
+	{"getFeature2", &luna_wrapper_GIM_CONTACT::_bind_getFeature2},
+	{"setPoint", &luna_wrapper_GIM_CONTACT::_bind_setPoint},
+	{"setNormal", &luna_wrapper_GIM_CONTACT::_bind_setNormal},
+	{"setDepth", &luna_wrapper_GIM_CONTACT::_bind_setDepth},
+	{"setDistance", &luna_wrapper_GIM_CONTACT::_bind_setDistance},
+	{"setFeature1", &luna_wrapper_GIM_CONTACT::_bind_setFeature1},
+	{"setFeature2", &luna_wrapper_GIM_CONTACT::_bind_setFeature2},
 	{"dynCast", &luna_wrapper_GIM_CONTACT::_bind_dynCast},
 	{"__eq", &luna_wrapper_GIM_CONTACT::_bind___eq},
 	{0,0}

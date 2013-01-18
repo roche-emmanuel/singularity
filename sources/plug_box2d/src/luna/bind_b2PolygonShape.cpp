@@ -170,26 +170,26 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_centroid(lua_State *L) {
+	inline static bool _lg_typecheck_getCentroid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_vertexCount(lua_State *L) {
+	inline static bool _lg_typecheck_getVertexCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_centroid(lua_State *L) {
+	inline static bool _lg_typecheck_setCentroid(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54494886) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_vertexCount(lua_State *L) {
+	inline static bool _lg_typecheck_setVertexCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -545,8 +545,8 @@ public:
 	}
 
 	// b2Vec2 b2PolygonShape::m_centroid()
-	static int _bind_getM_centroid(lua_State *L) {
-		if (!_lg_typecheck_getM_centroid(L)) {
+	static int _bind_getCentroid(lua_State *L) {
+		if (!_lg_typecheck_getCentroid(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Vec2 b2PolygonShape::m_centroid() function, expected prototype:\nb2Vec2 b2PolygonShape::m_centroid()\nClass arguments details:\n");
 		}
@@ -566,8 +566,8 @@ public:
 	}
 
 	// signed int b2PolygonShape::m_vertexCount()
-	static int _bind_getM_vertexCount(lua_State *L) {
-		if (!_lg_typecheck_getM_vertexCount(L)) {
+	static int _bind_getVertexCount(lua_State *L) {
+		if (!_lg_typecheck_getVertexCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in signed int b2PolygonShape::m_vertexCount() function, expected prototype:\nsigned int b2PolygonShape::m_vertexCount()\nClass arguments details:\n");
 		}
@@ -585,8 +585,8 @@ public:
 	}
 
 	// void b2PolygonShape::m_centroid(b2Vec2 value)
-	static int _bind_setM_centroid(lua_State *L) {
-		if (!_lg_typecheck_setM_centroid(L)) {
+	static int _bind_setCentroid(lua_State *L) {
+		if (!_lg_typecheck_setCentroid(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2PolygonShape::m_centroid(b2Vec2 value) function, expected prototype:\nvoid b2PolygonShape::m_centroid(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
 		}
@@ -608,8 +608,8 @@ public:
 	}
 
 	// void b2PolygonShape::m_vertexCount(signed int value)
-	static int _bind_setM_vertexCount(lua_State *L) {
-		if (!_lg_typecheck_setM_vertexCount(L)) {
+	static int _bind_setVertexCount(lua_State *L) {
+		if (!_lg_typecheck_setVertexCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2PolygonShape::m_vertexCount(signed int value) function, expected prototype:\nvoid b2PolygonShape::m_vertexCount(signed int value)\nClass arguments details:\n");
 		}
@@ -803,10 +803,10 @@ luna_RegType LunaTraits< b2PolygonShape >::methods[] = {
 	{"ComputeMass", &luna_wrapper_b2PolygonShape::_bind_ComputeMass},
 	{"GetVertexCount", &luna_wrapper_b2PolygonShape::_bind_GetVertexCount},
 	{"GetVertex", &luna_wrapper_b2PolygonShape::_bind_GetVertex},
-	{"getM_centroid", &luna_wrapper_b2PolygonShape::_bind_getM_centroid},
-	{"getM_vertexCount", &luna_wrapper_b2PolygonShape::_bind_getM_vertexCount},
-	{"setM_centroid", &luna_wrapper_b2PolygonShape::_bind_setM_centroid},
-	{"setM_vertexCount", &luna_wrapper_b2PolygonShape::_bind_setM_vertexCount},
+	{"getCentroid", &luna_wrapper_b2PolygonShape::_bind_getCentroid},
+	{"getVertexCount", &luna_wrapper_b2PolygonShape::_bind_getVertexCount},
+	{"setCentroid", &luna_wrapper_b2PolygonShape::_bind_setCentroid},
+	{"setVertexCount", &luna_wrapper_b2PolygonShape::_bind_setVertexCount},
 	{"base_Clone", &luna_wrapper_b2PolygonShape::_bind_base_Clone},
 	{"base_GetChildCount", &luna_wrapper_b2PolygonShape::_bind_base_GetChildCount},
 	{"base_TestPoint", &luna_wrapper_b2PolygonShape::_bind_base_TestPoint},

@@ -153,13 +153,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_attrList(lua_State *L) {
+	inline static bool _lg_typecheck_getAttrList(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_attrList(lua_State *L) {
+	inline static bool _lg_typecheck_setAttrList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,94794184) ) return false;
@@ -529,8 +529,8 @@ public:
 	}
 
 	// osgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList()
-	static int _bind_get_attrList(lua_State *L) {
-		if (!_lg_typecheck_get_attrList(L)) {
+	static int _bind_getAttrList(lua_State *L) {
+		if (!_lg_typecheck_getAttrList(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList() function, expected prototype:\nosgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList()\nClass arguments details:\n");
 		}
@@ -550,8 +550,8 @@ public:
 	}
 
 	// void osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value)
-	static int _bind_set_attrList(lua_State *L) {
-		if (!_lg_typecheck_set_attrList(L)) {
+	static int _bind_setAttrList(lua_State *L) {
+		if (!_lg_typecheck_setAttrList(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value)\nClass arguments details:\narg 1 ID = 92516775\n");
 		}
@@ -941,8 +941,8 @@ luna_RegType LunaTraits< osgUtil::PositionalStateContainer >::methods[] = {
 	{"addPositionedAttribute", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_addPositionedAttribute},
 	{"addPositionedTextureAttribute", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_addPositionedTextureAttribute},
 	{"draw", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_draw},
-	{"get_attrList", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_get_attrList},
-	{"set_attrList", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_set_attrList},
+	{"getAttrList", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_getAttrList},
+	{"setAttrList", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_setAttrList},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_base_computeDataVariance},

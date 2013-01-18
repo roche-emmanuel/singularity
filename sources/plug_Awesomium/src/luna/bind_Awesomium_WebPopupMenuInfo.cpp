@@ -62,19 +62,19 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getItem_height(lua_State *L) {
+	inline static bool _lg_typecheck_get_item_height(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getItem_font_size(lua_State *L) {
+	inline static bool _lg_typecheck_get_item_font_size(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getSelected_item(lua_State *L) {
+	inline static bool _lg_typecheck_get_selected_item(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -86,7 +86,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getRight_aligned(lua_State *L) {
+	inline static bool _lg_typecheck_get_right_aligned(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -99,21 +99,21 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setItem_height(lua_State *L) {
+	inline static bool _lg_typecheck_set_item_height(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setItem_font_size(lua_State *L) {
+	inline static bool _lg_typecheck_set_item_font_size(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setSelected_item(lua_State *L) {
+	inline static bool _lg_typecheck_set_selected_item(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -127,7 +127,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setRight_aligned(lua_State *L) {
+	inline static bool _lg_typecheck_set_right_aligned(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -163,8 +163,8 @@ public:
 	}
 
 	// int Awesomium::WebPopupMenuInfo::item_height()
-	static int _bind_getItem_height(lua_State *L) {
-		if (!_lg_typecheck_getItem_height(L)) {
+	static int _bind_get_item_height(lua_State *L) {
+		if (!_lg_typecheck_get_item_height(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int Awesomium::WebPopupMenuInfo::item_height() function, expected prototype:\nint Awesomium::WebPopupMenuInfo::item_height()\nClass arguments details:\n");
 		}
@@ -182,8 +182,8 @@ public:
 	}
 
 	// double Awesomium::WebPopupMenuInfo::item_font_size()
-	static int _bind_getItem_font_size(lua_State *L) {
-		if (!_lg_typecheck_getItem_font_size(L)) {
+	static int _bind_get_item_font_size(lua_State *L) {
+		if (!_lg_typecheck_get_item_font_size(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double Awesomium::WebPopupMenuInfo::item_font_size() function, expected prototype:\ndouble Awesomium::WebPopupMenuInfo::item_font_size()\nClass arguments details:\n");
 		}
@@ -201,8 +201,8 @@ public:
 	}
 
 	// int Awesomium::WebPopupMenuInfo::selected_item()
-	static int _bind_getSelected_item(lua_State *L) {
-		if (!_lg_typecheck_getSelected_item(L)) {
+	static int _bind_get_selected_item(lua_State *L) {
+		if (!_lg_typecheck_get_selected_item(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int Awesomium::WebPopupMenuInfo::selected_item() function, expected prototype:\nint Awesomium::WebPopupMenuInfo::selected_item()\nClass arguments details:\n");
 		}
@@ -241,8 +241,8 @@ public:
 	}
 
 	// bool Awesomium::WebPopupMenuInfo::right_aligned()
-	static int _bind_getRight_aligned(lua_State *L) {
-		if (!_lg_typecheck_getRight_aligned(L)) {
+	static int _bind_get_right_aligned(lua_State *L) {
+		if (!_lg_typecheck_get_right_aligned(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool Awesomium::WebPopupMenuInfo::right_aligned() function, expected prototype:\nbool Awesomium::WebPopupMenuInfo::right_aligned()\nClass arguments details:\n");
 		}
@@ -283,8 +283,8 @@ public:
 	}
 
 	// void Awesomium::WebPopupMenuInfo::item_height(int value)
-	static int _bind_setItem_height(lua_State *L) {
-		if (!_lg_typecheck_setItem_height(L)) {
+	static int _bind_set_item_height(lua_State *L) {
+		if (!_lg_typecheck_set_item_height(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebPopupMenuInfo::item_height(int value) function, expected prototype:\nvoid Awesomium::WebPopupMenuInfo::item_height(int value)\nClass arguments details:\n");
 		}
@@ -302,8 +302,8 @@ public:
 	}
 
 	// void Awesomium::WebPopupMenuInfo::item_font_size(double value)
-	static int _bind_setItem_font_size(lua_State *L) {
-		if (!_lg_typecheck_setItem_font_size(L)) {
+	static int _bind_set_item_font_size(lua_State *L) {
+		if (!_lg_typecheck_set_item_font_size(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebPopupMenuInfo::item_font_size(double value) function, expected prototype:\nvoid Awesomium::WebPopupMenuInfo::item_font_size(double value)\nClass arguments details:\n");
 		}
@@ -321,8 +321,8 @@ public:
 	}
 
 	// void Awesomium::WebPopupMenuInfo::selected_item(int value)
-	static int _bind_setSelected_item(lua_State *L) {
-		if (!_lg_typecheck_setSelected_item(L)) {
+	static int _bind_set_selected_item(lua_State *L) {
+		if (!_lg_typecheck_set_selected_item(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebPopupMenuInfo::selected_item(int value) function, expected prototype:\nvoid Awesomium::WebPopupMenuInfo::selected_item(int value)\nClass arguments details:\n");
 		}
@@ -363,8 +363,8 @@ public:
 	}
 
 	// void Awesomium::WebPopupMenuInfo::right_aligned(bool value)
-	static int _bind_setRight_aligned(lua_State *L) {
-		if (!_lg_typecheck_setRight_aligned(L)) {
+	static int _bind_set_right_aligned(lua_State *L) {
+		if (!_lg_typecheck_set_right_aligned(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebPopupMenuInfo::right_aligned(bool value) function, expected prototype:\nvoid Awesomium::WebPopupMenuInfo::right_aligned(bool value)\nClass arguments details:\n");
 		}
@@ -403,17 +403,17 @@ const int LunaTraits< Awesomium::WebPopupMenuInfo >::uniqueIDs[] = {93395030,0};
 
 luna_RegType LunaTraits< Awesomium::WebPopupMenuInfo >::methods[] = {
 	{"getBounds", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_getBounds},
-	{"getItem_height", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_getItem_height},
-	{"getItem_font_size", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_getItem_font_size},
-	{"getSelected_item", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_getSelected_item},
+	{"get_item_height", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_get_item_height},
+	{"get_item_font_size", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_get_item_font_size},
+	{"get_selected_item", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_get_selected_item},
 	{"getItems", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_getItems},
-	{"getRight_aligned", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_getRight_aligned},
+	{"get_right_aligned", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_get_right_aligned},
 	{"setBounds", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_setBounds},
-	{"setItem_height", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_setItem_height},
-	{"setItem_font_size", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_setItem_font_size},
-	{"setSelected_item", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_setSelected_item},
+	{"set_item_height", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_set_item_height},
+	{"set_item_font_size", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_set_item_font_size},
+	{"set_selected_item", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_set_selected_item},
 	{"setItems", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_setItems},
-	{"setRight_aligned", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_setRight_aligned},
+	{"set_right_aligned", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_set_right_aligned},
 	{"dynCast", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_WebPopupMenuInfo::_bind___eq},
 	{0,0}

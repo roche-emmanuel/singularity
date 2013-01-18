@@ -56,52 +56,52 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_collisionShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionShapeData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_childShapePtr(lua_State *L) {
+	inline static bool _lg_typecheck_getChildShapePtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numChildShapes(lua_State *L) {
+	inline static bool _lg_typecheck_getNumChildShapes(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_collisionMargin(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionMargin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionShapeData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,94025107) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_childShapePtr(lua_State *L) {
+	inline static bool _lg_typecheck_setChildShapePtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,58634217)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numChildShapes(lua_State *L) {
+	inline static bool _lg_typecheck_setNumChildShapes(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionMargin(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -116,8 +116,8 @@ public:
 
 	// Function binds:
 	// btCollisionShapeData btCompoundShapeData::m_collisionShapeData()
-	static int _bind_getM_collisionShapeData(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionShapeData(L)) {
+	static int _bind_getCollisionShapeData(lua_State *L) {
+		if (!_lg_typecheck_getCollisionShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btCollisionShapeData btCompoundShapeData::m_collisionShapeData() function, expected prototype:\nbtCollisionShapeData btCompoundShapeData::m_collisionShapeData()\nClass arguments details:\n");
 		}
@@ -137,8 +137,8 @@ public:
 	}
 
 	// btCompoundShapeChildData * btCompoundShapeData::m_childShapePtr()
-	static int _bind_getM_childShapePtr(lua_State *L) {
-		if (!_lg_typecheck_getM_childShapePtr(L)) {
+	static int _bind_getChildShapePtr(lua_State *L) {
+		if (!_lg_typecheck_getChildShapePtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btCompoundShapeChildData * btCompoundShapeData::m_childShapePtr() function, expected prototype:\nbtCompoundShapeChildData * btCompoundShapeData::m_childShapePtr()\nClass arguments details:\n");
 		}
@@ -158,8 +158,8 @@ public:
 	}
 
 	// int btCompoundShapeData::m_numChildShapes()
-	static int _bind_getM_numChildShapes(lua_State *L) {
-		if (!_lg_typecheck_getM_numChildShapes(L)) {
+	static int _bind_getNumChildShapes(lua_State *L) {
+		if (!_lg_typecheck_getNumChildShapes(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btCompoundShapeData::m_numChildShapes() function, expected prototype:\nint btCompoundShapeData::m_numChildShapes()\nClass arguments details:\n");
 		}
@@ -177,8 +177,8 @@ public:
 	}
 
 	// float btCompoundShapeData::m_collisionMargin()
-	static int _bind_getM_collisionMargin(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionMargin(L)) {
+	static int _bind_getCollisionMargin(lua_State *L) {
+		if (!_lg_typecheck_getCollisionMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btCompoundShapeData::m_collisionMargin() function, expected prototype:\nfloat btCompoundShapeData::m_collisionMargin()\nClass arguments details:\n");
 		}
@@ -196,8 +196,8 @@ public:
 	}
 
 	// void btCompoundShapeData::m_collisionShapeData(btCollisionShapeData value)
-	static int _bind_setM_collisionShapeData(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionShapeData(L)) {
+	static int _bind_setCollisionShapeData(lua_State *L) {
+		if (!_lg_typecheck_setCollisionShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCompoundShapeData::m_collisionShapeData(btCollisionShapeData value) function, expected prototype:\nvoid btCompoundShapeData::m_collisionShapeData(btCollisionShapeData value)\nClass arguments details:\narg 1 ID = 94025107\n");
 		}
@@ -219,8 +219,8 @@ public:
 	}
 
 	// void btCompoundShapeData::m_childShapePtr(btCompoundShapeChildData * value)
-	static int _bind_setM_childShapePtr(lua_State *L) {
-		if (!_lg_typecheck_setM_childShapePtr(L)) {
+	static int _bind_setChildShapePtr(lua_State *L) {
+		if (!_lg_typecheck_setChildShapePtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCompoundShapeData::m_childShapePtr(btCompoundShapeChildData * value) function, expected prototype:\nvoid btCompoundShapeData::m_childShapePtr(btCompoundShapeChildData * value)\nClass arguments details:\narg 1 ID = 58634217\n");
 		}
@@ -238,8 +238,8 @@ public:
 	}
 
 	// void btCompoundShapeData::m_numChildShapes(int value)
-	static int _bind_setM_numChildShapes(lua_State *L) {
-		if (!_lg_typecheck_setM_numChildShapes(L)) {
+	static int _bind_setNumChildShapes(lua_State *L) {
+		if (!_lg_typecheck_setNumChildShapes(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCompoundShapeData::m_numChildShapes(int value) function, expected prototype:\nvoid btCompoundShapeData::m_numChildShapes(int value)\nClass arguments details:\n");
 		}
@@ -257,8 +257,8 @@ public:
 	}
 
 	// void btCompoundShapeData::m_collisionMargin(float value)
-	static int _bind_setM_collisionMargin(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionMargin(L)) {
+	static int _bind_setCollisionMargin(lua_State *L) {
+		if (!_lg_typecheck_setCollisionMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCompoundShapeData::m_collisionMargin(float value) function, expected prototype:\nvoid btCompoundShapeData::m_collisionMargin(float value)\nClass arguments details:\n");
 		}
@@ -296,14 +296,14 @@ const int LunaTraits< btCompoundShapeData >::hash = 55148189;
 const int LunaTraits< btCompoundShapeData >::uniqueIDs[] = {55148189,0};
 
 luna_RegType LunaTraits< btCompoundShapeData >::methods[] = {
-	{"getM_collisionShapeData", &luna_wrapper_btCompoundShapeData::_bind_getM_collisionShapeData},
-	{"getM_childShapePtr", &luna_wrapper_btCompoundShapeData::_bind_getM_childShapePtr},
-	{"getM_numChildShapes", &luna_wrapper_btCompoundShapeData::_bind_getM_numChildShapes},
-	{"getM_collisionMargin", &luna_wrapper_btCompoundShapeData::_bind_getM_collisionMargin},
-	{"setM_collisionShapeData", &luna_wrapper_btCompoundShapeData::_bind_setM_collisionShapeData},
-	{"setM_childShapePtr", &luna_wrapper_btCompoundShapeData::_bind_setM_childShapePtr},
-	{"setM_numChildShapes", &luna_wrapper_btCompoundShapeData::_bind_setM_numChildShapes},
-	{"setM_collisionMargin", &luna_wrapper_btCompoundShapeData::_bind_setM_collisionMargin},
+	{"getCollisionShapeData", &luna_wrapper_btCompoundShapeData::_bind_getCollisionShapeData},
+	{"getChildShapePtr", &luna_wrapper_btCompoundShapeData::_bind_getChildShapePtr},
+	{"getNumChildShapes", &luna_wrapper_btCompoundShapeData::_bind_getNumChildShapes},
+	{"getCollisionMargin", &luna_wrapper_btCompoundShapeData::_bind_getCollisionMargin},
+	{"setCollisionShapeData", &luna_wrapper_btCompoundShapeData::_bind_setCollisionShapeData},
+	{"setChildShapePtr", &luna_wrapper_btCompoundShapeData::_bind_setChildShapePtr},
+	{"setNumChildShapes", &luna_wrapper_btCompoundShapeData::_bind_setNumChildShapes},
+	{"setCollisionMargin", &luna_wrapper_btCompoundShapeData::_bind_setCollisionMargin},
 	{"dynCast", &luna_wrapper_btCompoundShapeData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btCompoundShapeData::_bind___eq},
 	{0,0}

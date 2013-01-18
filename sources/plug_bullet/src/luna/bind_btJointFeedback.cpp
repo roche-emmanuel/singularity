@@ -56,52 +56,52 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_appliedForceBodyA(lua_State *L) {
+	inline static bool _lg_typecheck_getAppliedForceBodyA(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_appliedTorqueBodyA(lua_State *L) {
+	inline static bool _lg_typecheck_getAppliedTorqueBodyA(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_appliedForceBodyB(lua_State *L) {
+	inline static bool _lg_typecheck_getAppliedForceBodyB(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_appliedTorqueBodyB(lua_State *L) {
+	inline static bool _lg_typecheck_getAppliedTorqueBodyB(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_appliedForceBodyA(lua_State *L) {
+	inline static bool _lg_typecheck_setAppliedForceBodyA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_appliedTorqueBodyA(lua_State *L) {
+	inline static bool _lg_typecheck_setAppliedTorqueBodyA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_appliedForceBodyB(lua_State *L) {
+	inline static bool _lg_typecheck_setAppliedForceBodyB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_appliedTorqueBodyB(lua_State *L) {
+	inline static bool _lg_typecheck_setAppliedTorqueBodyB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
@@ -116,8 +116,8 @@ public:
 
 	// Function binds:
 	// btVector3 btJointFeedback::m_appliedForceBodyA()
-	static int _bind_getM_appliedForceBodyA(lua_State *L) {
-		if (!_lg_typecheck_getM_appliedForceBodyA(L)) {
+	static int _bind_getAppliedForceBodyA(lua_State *L) {
+		if (!_lg_typecheck_getAppliedForceBodyA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btJointFeedback::m_appliedForceBodyA() function, expected prototype:\nbtVector3 btJointFeedback::m_appliedForceBodyA()\nClass arguments details:\n");
 		}
@@ -137,8 +137,8 @@ public:
 	}
 
 	// btVector3 btJointFeedback::m_appliedTorqueBodyA()
-	static int _bind_getM_appliedTorqueBodyA(lua_State *L) {
-		if (!_lg_typecheck_getM_appliedTorqueBodyA(L)) {
+	static int _bind_getAppliedTorqueBodyA(lua_State *L) {
+		if (!_lg_typecheck_getAppliedTorqueBodyA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btJointFeedback::m_appliedTorqueBodyA() function, expected prototype:\nbtVector3 btJointFeedback::m_appliedTorqueBodyA()\nClass arguments details:\n");
 		}
@@ -158,8 +158,8 @@ public:
 	}
 
 	// btVector3 btJointFeedback::m_appliedForceBodyB()
-	static int _bind_getM_appliedForceBodyB(lua_State *L) {
-		if (!_lg_typecheck_getM_appliedForceBodyB(L)) {
+	static int _bind_getAppliedForceBodyB(lua_State *L) {
+		if (!_lg_typecheck_getAppliedForceBodyB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btJointFeedback::m_appliedForceBodyB() function, expected prototype:\nbtVector3 btJointFeedback::m_appliedForceBodyB()\nClass arguments details:\n");
 		}
@@ -179,8 +179,8 @@ public:
 	}
 
 	// btVector3 btJointFeedback::m_appliedTorqueBodyB()
-	static int _bind_getM_appliedTorqueBodyB(lua_State *L) {
-		if (!_lg_typecheck_getM_appliedTorqueBodyB(L)) {
+	static int _bind_getAppliedTorqueBodyB(lua_State *L) {
+		if (!_lg_typecheck_getAppliedTorqueBodyB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btJointFeedback::m_appliedTorqueBodyB() function, expected prototype:\nbtVector3 btJointFeedback::m_appliedTorqueBodyB()\nClass arguments details:\n");
 		}
@@ -200,8 +200,8 @@ public:
 	}
 
 	// void btJointFeedback::m_appliedForceBodyA(btVector3 value)
-	static int _bind_setM_appliedForceBodyA(lua_State *L) {
-		if (!_lg_typecheck_setM_appliedForceBodyA(L)) {
+	static int _bind_setAppliedForceBodyA(lua_State *L) {
+		if (!_lg_typecheck_setAppliedForceBodyA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btJointFeedback::m_appliedForceBodyA(btVector3 value) function, expected prototype:\nvoid btJointFeedback::m_appliedForceBodyA(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -223,8 +223,8 @@ public:
 	}
 
 	// void btJointFeedback::m_appliedTorqueBodyA(btVector3 value)
-	static int _bind_setM_appliedTorqueBodyA(lua_State *L) {
-		if (!_lg_typecheck_setM_appliedTorqueBodyA(L)) {
+	static int _bind_setAppliedTorqueBodyA(lua_State *L) {
+		if (!_lg_typecheck_setAppliedTorqueBodyA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btJointFeedback::m_appliedTorqueBodyA(btVector3 value) function, expected prototype:\nvoid btJointFeedback::m_appliedTorqueBodyA(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -246,8 +246,8 @@ public:
 	}
 
 	// void btJointFeedback::m_appliedForceBodyB(btVector3 value)
-	static int _bind_setM_appliedForceBodyB(lua_State *L) {
-		if (!_lg_typecheck_setM_appliedForceBodyB(L)) {
+	static int _bind_setAppliedForceBodyB(lua_State *L) {
+		if (!_lg_typecheck_setAppliedForceBodyB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btJointFeedback::m_appliedForceBodyB(btVector3 value) function, expected prototype:\nvoid btJointFeedback::m_appliedForceBodyB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -269,8 +269,8 @@ public:
 	}
 
 	// void btJointFeedback::m_appliedTorqueBodyB(btVector3 value)
-	static int _bind_setM_appliedTorqueBodyB(lua_State *L) {
-		if (!_lg_typecheck_setM_appliedTorqueBodyB(L)) {
+	static int _bind_setAppliedTorqueBodyB(lua_State *L) {
+		if (!_lg_typecheck_setAppliedTorqueBodyB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btJointFeedback::m_appliedTorqueBodyB(btVector3 value) function, expected prototype:\nvoid btJointFeedback::m_appliedTorqueBodyB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -312,14 +312,14 @@ const int LunaTraits< btJointFeedback >::hash = 18466422;
 const int LunaTraits< btJointFeedback >::uniqueIDs[] = {18466422,0};
 
 luna_RegType LunaTraits< btJointFeedback >::methods[] = {
-	{"getM_appliedForceBodyA", &luna_wrapper_btJointFeedback::_bind_getM_appliedForceBodyA},
-	{"getM_appliedTorqueBodyA", &luna_wrapper_btJointFeedback::_bind_getM_appliedTorqueBodyA},
-	{"getM_appliedForceBodyB", &luna_wrapper_btJointFeedback::_bind_getM_appliedForceBodyB},
-	{"getM_appliedTorqueBodyB", &luna_wrapper_btJointFeedback::_bind_getM_appliedTorqueBodyB},
-	{"setM_appliedForceBodyA", &luna_wrapper_btJointFeedback::_bind_setM_appliedForceBodyA},
-	{"setM_appliedTorqueBodyA", &luna_wrapper_btJointFeedback::_bind_setM_appliedTorqueBodyA},
-	{"setM_appliedForceBodyB", &luna_wrapper_btJointFeedback::_bind_setM_appliedForceBodyB},
-	{"setM_appliedTorqueBodyB", &luna_wrapper_btJointFeedback::_bind_setM_appliedTorqueBodyB},
+	{"getAppliedForceBodyA", &luna_wrapper_btJointFeedback::_bind_getAppliedForceBodyA},
+	{"getAppliedTorqueBodyA", &luna_wrapper_btJointFeedback::_bind_getAppliedTorqueBodyA},
+	{"getAppliedForceBodyB", &luna_wrapper_btJointFeedback::_bind_getAppliedForceBodyB},
+	{"getAppliedTorqueBodyB", &luna_wrapper_btJointFeedback::_bind_getAppliedTorqueBodyB},
+	{"setAppliedForceBodyA", &luna_wrapper_btJointFeedback::_bind_setAppliedForceBodyA},
+	{"setAppliedTorqueBodyA", &luna_wrapper_btJointFeedback::_bind_setAppliedTorqueBodyA},
+	{"setAppliedForceBodyB", &luna_wrapper_btJointFeedback::_bind_setAppliedForceBodyB},
+	{"setAppliedTorqueBodyB", &luna_wrapper_btJointFeedback::_bind_setAppliedTorqueBodyB},
 	{"dynCast", &luna_wrapper_btJointFeedback::_bind_dynCast},
 	{"__eq", &luna_wrapper_btJointFeedback::_bind___eq},
 	{0,0}

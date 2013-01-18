@@ -56,7 +56,7 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_numConstraintRows(lua_State *L) {
+	inline static bool _lg_typecheck_getNumConstraintRows(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -68,7 +68,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numConstraintRows(lua_State *L) {
+	inline static bool _lg_typecheck_setNumConstraintRows(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -90,8 +90,8 @@ public:
 
 	// Function binds:
 	// int btTypedConstraint::btConstraintInfo1::m_numConstraintRows()
-	static int _bind_getM_numConstraintRows(lua_State *L) {
-		if (!_lg_typecheck_getM_numConstraintRows(L)) {
+	static int _bind_getNumConstraintRows(lua_State *L) {
+		if (!_lg_typecheck_getNumConstraintRows(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTypedConstraint::btConstraintInfo1::m_numConstraintRows() function, expected prototype:\nint btTypedConstraint::btConstraintInfo1::m_numConstraintRows()\nClass arguments details:\n");
 		}
@@ -128,8 +128,8 @@ public:
 	}
 
 	// void btTypedConstraint::btConstraintInfo1::m_numConstraintRows(int value)
-	static int _bind_setM_numConstraintRows(lua_State *L) {
-		if (!_lg_typecheck_setM_numConstraintRows(L)) {
+	static int _bind_setNumConstraintRows(lua_State *L) {
+		if (!_lg_typecheck_setNumConstraintRows(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraint::btConstraintInfo1::m_numConstraintRows(int value) function, expected prototype:\nvoid btTypedConstraint::btConstraintInfo1::m_numConstraintRows(int value)\nClass arguments details:\n");
 		}
@@ -186,9 +186,9 @@ const int LunaTraits< btTypedConstraint::btConstraintInfo1 >::hash = 17243935;
 const int LunaTraits< btTypedConstraint::btConstraintInfo1 >::uniqueIDs[] = {17243935,0};
 
 luna_RegType LunaTraits< btTypedConstraint::btConstraintInfo1 >::methods[] = {
-	{"getM_numConstraintRows", &luna_wrapper_btTypedConstraint_btConstraintInfo1::_bind_getM_numConstraintRows},
+	{"getNumConstraintRows", &luna_wrapper_btTypedConstraint_btConstraintInfo1::_bind_getNumConstraintRows},
 	{"getNub", &luna_wrapper_btTypedConstraint_btConstraintInfo1::_bind_getNub},
-	{"setM_numConstraintRows", &luna_wrapper_btTypedConstraint_btConstraintInfo1::_bind_setM_numConstraintRows},
+	{"setNumConstraintRows", &luna_wrapper_btTypedConstraint_btConstraintInfo1::_bind_setNumConstraintRows},
 	{"setNub", &luna_wrapper_btTypedConstraint_btConstraintInfo1::_bind_setNub},
 	{"dynCast", &luna_wrapper_btTypedConstraint_btConstraintInfo1::_bind_dynCast},
 	{"__eq", &luna_wrapper_btTypedConstraint_btConstraintInfo1::_bind___eq},

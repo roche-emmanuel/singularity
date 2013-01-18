@@ -56,169 +56,169 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_hashTablePtr(lua_State *L) {
+	inline static bool _lg_typecheck_getHashTablePtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_nextPtr(lua_State *L) {
+	inline static bool _lg_typecheck_getNextPtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_valueArrayPtr(lua_State *L) {
+	inline static bool _lg_typecheck_getValueArrayPtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_keyArrayPtr(lua_State *L) {
+	inline static bool _lg_typecheck_getKeyArrayPtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_convexEpsilon(lua_State *L) {
+	inline static bool _lg_typecheck_getConvexEpsilon(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_planarEpsilon(lua_State *L) {
+	inline static bool _lg_typecheck_getPlanarEpsilon(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_equalVertexThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getEqualVertexThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_edgeDistanceThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getEdgeDistanceThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_zeroAreaThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getZeroAreaThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_nextSize(lua_State *L) {
+	inline static bool _lg_typecheck_getNextSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hashTableSize(lua_State *L) {
+	inline static bool _lg_typecheck_getHashTableSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numValues(lua_State *L) {
+	inline static bool _lg_typecheck_getNumValues(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numKeys(lua_State *L) {
+	inline static bool _lg_typecheck_getNumKeys(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hashTablePtr(lua_State *L) {
+	inline static bool _lg_typecheck_setHashTablePtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_nextPtr(lua_State *L) {
+	inline static bool _lg_typecheck_setNextPtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_valueArrayPtr(lua_State *L) {
+	inline static bool _lg_typecheck_setValueArrayPtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,90100326)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_keyArrayPtr(lua_State *L) {
+	inline static bool _lg_typecheck_setKeyArrayPtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_convexEpsilon(lua_State *L) {
+	inline static bool _lg_typecheck_setConvexEpsilon(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_planarEpsilon(lua_State *L) {
+	inline static bool _lg_typecheck_setPlanarEpsilon(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_equalVertexThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setEqualVertexThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_edgeDistanceThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setEdgeDistanceThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_zeroAreaThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setZeroAreaThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_nextSize(lua_State *L) {
+	inline static bool _lg_typecheck_setNextSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hashTableSize(lua_State *L) {
+	inline static bool _lg_typecheck_setHashTableSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numValues(lua_State *L) {
+	inline static bool _lg_typecheck_setNumValues(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numKeys(lua_State *L) {
+	inline static bool _lg_typecheck_setNumKeys(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -233,8 +233,8 @@ public:
 
 	// Function binds:
 	// int * btTriangleInfoMapData::m_hashTablePtr()
-	static int _bind_getM_hashTablePtr(lua_State *L) {
-		if (!_lg_typecheck_getM_hashTablePtr(L)) {
+	static int _bind_getHashTablePtr(lua_State *L) {
+		if (!_lg_typecheck_getHashTablePtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int * btTriangleInfoMapData::m_hashTablePtr() function, expected prototype:\nint * btTriangleInfoMapData::m_hashTablePtr()\nClass arguments details:\n");
 		}
@@ -252,8 +252,8 @@ public:
 	}
 
 	// int * btTriangleInfoMapData::m_nextPtr()
-	static int _bind_getM_nextPtr(lua_State *L) {
-		if (!_lg_typecheck_getM_nextPtr(L)) {
+	static int _bind_getNextPtr(lua_State *L) {
+		if (!_lg_typecheck_getNextPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int * btTriangleInfoMapData::m_nextPtr() function, expected prototype:\nint * btTriangleInfoMapData::m_nextPtr()\nClass arguments details:\n");
 		}
@@ -271,8 +271,8 @@ public:
 	}
 
 	// btTriangleInfoData * btTriangleInfoMapData::m_valueArrayPtr()
-	static int _bind_getM_valueArrayPtr(lua_State *L) {
-		if (!_lg_typecheck_getM_valueArrayPtr(L)) {
+	static int _bind_getValueArrayPtr(lua_State *L) {
+		if (!_lg_typecheck_getValueArrayPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTriangleInfoData * btTriangleInfoMapData::m_valueArrayPtr() function, expected prototype:\nbtTriangleInfoData * btTriangleInfoMapData::m_valueArrayPtr()\nClass arguments details:\n");
 		}
@@ -292,8 +292,8 @@ public:
 	}
 
 	// int * btTriangleInfoMapData::m_keyArrayPtr()
-	static int _bind_getM_keyArrayPtr(lua_State *L) {
-		if (!_lg_typecheck_getM_keyArrayPtr(L)) {
+	static int _bind_getKeyArrayPtr(lua_State *L) {
+		if (!_lg_typecheck_getKeyArrayPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int * btTriangleInfoMapData::m_keyArrayPtr() function, expected prototype:\nint * btTriangleInfoMapData::m_keyArrayPtr()\nClass arguments details:\n");
 		}
@@ -311,8 +311,8 @@ public:
 	}
 
 	// float btTriangleInfoMapData::m_convexEpsilon()
-	static int _bind_getM_convexEpsilon(lua_State *L) {
-		if (!_lg_typecheck_getM_convexEpsilon(L)) {
+	static int _bind_getConvexEpsilon(lua_State *L) {
+		if (!_lg_typecheck_getConvexEpsilon(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_convexEpsilon() function, expected prototype:\nfloat btTriangleInfoMapData::m_convexEpsilon()\nClass arguments details:\n");
 		}
@@ -330,8 +330,8 @@ public:
 	}
 
 	// float btTriangleInfoMapData::m_planarEpsilon()
-	static int _bind_getM_planarEpsilon(lua_State *L) {
-		if (!_lg_typecheck_getM_planarEpsilon(L)) {
+	static int _bind_getPlanarEpsilon(lua_State *L) {
+		if (!_lg_typecheck_getPlanarEpsilon(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_planarEpsilon() function, expected prototype:\nfloat btTriangleInfoMapData::m_planarEpsilon()\nClass arguments details:\n");
 		}
@@ -349,8 +349,8 @@ public:
 	}
 
 	// float btTriangleInfoMapData::m_equalVertexThreshold()
-	static int _bind_getM_equalVertexThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_equalVertexThreshold(L)) {
+	static int _bind_getEqualVertexThreshold(lua_State *L) {
+		if (!_lg_typecheck_getEqualVertexThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_equalVertexThreshold() function, expected prototype:\nfloat btTriangleInfoMapData::m_equalVertexThreshold()\nClass arguments details:\n");
 		}
@@ -368,8 +368,8 @@ public:
 	}
 
 	// float btTriangleInfoMapData::m_edgeDistanceThreshold()
-	static int _bind_getM_edgeDistanceThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_edgeDistanceThreshold(L)) {
+	static int _bind_getEdgeDistanceThreshold(lua_State *L) {
+		if (!_lg_typecheck_getEdgeDistanceThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_edgeDistanceThreshold() function, expected prototype:\nfloat btTriangleInfoMapData::m_edgeDistanceThreshold()\nClass arguments details:\n");
 		}
@@ -387,8 +387,8 @@ public:
 	}
 
 	// float btTriangleInfoMapData::m_zeroAreaThreshold()
-	static int _bind_getM_zeroAreaThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_zeroAreaThreshold(L)) {
+	static int _bind_getZeroAreaThreshold(lua_State *L) {
+		if (!_lg_typecheck_getZeroAreaThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_zeroAreaThreshold() function, expected prototype:\nfloat btTriangleInfoMapData::m_zeroAreaThreshold()\nClass arguments details:\n");
 		}
@@ -406,8 +406,8 @@ public:
 	}
 
 	// int btTriangleInfoMapData::m_nextSize()
-	static int _bind_getM_nextSize(lua_State *L) {
-		if (!_lg_typecheck_getM_nextSize(L)) {
+	static int _bind_getNextSize(lua_State *L) {
+		if (!_lg_typecheck_getNextSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTriangleInfoMapData::m_nextSize() function, expected prototype:\nint btTriangleInfoMapData::m_nextSize()\nClass arguments details:\n");
 		}
@@ -425,8 +425,8 @@ public:
 	}
 
 	// int btTriangleInfoMapData::m_hashTableSize()
-	static int _bind_getM_hashTableSize(lua_State *L) {
-		if (!_lg_typecheck_getM_hashTableSize(L)) {
+	static int _bind_getHashTableSize(lua_State *L) {
+		if (!_lg_typecheck_getHashTableSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTriangleInfoMapData::m_hashTableSize() function, expected prototype:\nint btTriangleInfoMapData::m_hashTableSize()\nClass arguments details:\n");
 		}
@@ -444,8 +444,8 @@ public:
 	}
 
 	// int btTriangleInfoMapData::m_numValues()
-	static int _bind_getM_numValues(lua_State *L) {
-		if (!_lg_typecheck_getM_numValues(L)) {
+	static int _bind_getNumValues(lua_State *L) {
+		if (!_lg_typecheck_getNumValues(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTriangleInfoMapData::m_numValues() function, expected prototype:\nint btTriangleInfoMapData::m_numValues()\nClass arguments details:\n");
 		}
@@ -463,8 +463,8 @@ public:
 	}
 
 	// int btTriangleInfoMapData::m_numKeys()
-	static int _bind_getM_numKeys(lua_State *L) {
-		if (!_lg_typecheck_getM_numKeys(L)) {
+	static int _bind_getNumKeys(lua_State *L) {
+		if (!_lg_typecheck_getNumKeys(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTriangleInfoMapData::m_numKeys() function, expected prototype:\nint btTriangleInfoMapData::m_numKeys()\nClass arguments details:\n");
 		}
@@ -482,8 +482,8 @@ public:
 	}
 
 	// void btTriangleInfoMapData::m_hashTablePtr(int * value)
-	static int _bind_setM_hashTablePtr(lua_State *L) {
-		if (!_lg_typecheck_setM_hashTablePtr(L)) {
+	static int _bind_setHashTablePtr(lua_State *L) {
+		if (!_lg_typecheck_setHashTablePtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_hashTablePtr(int * value) function, expected prototype:\nvoid btTriangleInfoMapData::m_hashTablePtr(int * value)\nClass arguments details:\n");
 		}
@@ -501,8 +501,8 @@ public:
 	}
 
 	// void btTriangleInfoMapData::m_nextPtr(int * value)
-	static int _bind_setM_nextPtr(lua_State *L) {
-		if (!_lg_typecheck_setM_nextPtr(L)) {
+	static int _bind_setNextPtr(lua_State *L) {
+		if (!_lg_typecheck_setNextPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_nextPtr(int * value) function, expected prototype:\nvoid btTriangleInfoMapData::m_nextPtr(int * value)\nClass arguments details:\n");
 		}
@@ -520,8 +520,8 @@ public:
 	}
 
 	// void btTriangleInfoMapData::m_valueArrayPtr(btTriangleInfoData * value)
-	static int _bind_setM_valueArrayPtr(lua_State *L) {
-		if (!_lg_typecheck_setM_valueArrayPtr(L)) {
+	static int _bind_setValueArrayPtr(lua_State *L) {
+		if (!_lg_typecheck_setValueArrayPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_valueArrayPtr(btTriangleInfoData * value) function, expected prototype:\nvoid btTriangleInfoMapData::m_valueArrayPtr(btTriangleInfoData * value)\nClass arguments details:\narg 1 ID = 90100326\n");
 		}
@@ -539,8 +539,8 @@ public:
 	}
 
 	// void btTriangleInfoMapData::m_keyArrayPtr(int * value)
-	static int _bind_setM_keyArrayPtr(lua_State *L) {
-		if (!_lg_typecheck_setM_keyArrayPtr(L)) {
+	static int _bind_setKeyArrayPtr(lua_State *L) {
+		if (!_lg_typecheck_setKeyArrayPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_keyArrayPtr(int * value) function, expected prototype:\nvoid btTriangleInfoMapData::m_keyArrayPtr(int * value)\nClass arguments details:\n");
 		}
@@ -558,8 +558,8 @@ public:
 	}
 
 	// void btTriangleInfoMapData::m_convexEpsilon(float value)
-	static int _bind_setM_convexEpsilon(lua_State *L) {
-		if (!_lg_typecheck_setM_convexEpsilon(L)) {
+	static int _bind_setConvexEpsilon(lua_State *L) {
+		if (!_lg_typecheck_setConvexEpsilon(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_convexEpsilon(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_convexEpsilon(float value)\nClass arguments details:\n");
 		}
@@ -577,8 +577,8 @@ public:
 	}
 
 	// void btTriangleInfoMapData::m_planarEpsilon(float value)
-	static int _bind_setM_planarEpsilon(lua_State *L) {
-		if (!_lg_typecheck_setM_planarEpsilon(L)) {
+	static int _bind_setPlanarEpsilon(lua_State *L) {
+		if (!_lg_typecheck_setPlanarEpsilon(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_planarEpsilon(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_planarEpsilon(float value)\nClass arguments details:\n");
 		}
@@ -596,8 +596,8 @@ public:
 	}
 
 	// void btTriangleInfoMapData::m_equalVertexThreshold(float value)
-	static int _bind_setM_equalVertexThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_equalVertexThreshold(L)) {
+	static int _bind_setEqualVertexThreshold(lua_State *L) {
+		if (!_lg_typecheck_setEqualVertexThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_equalVertexThreshold(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_equalVertexThreshold(float value)\nClass arguments details:\n");
 		}
@@ -615,8 +615,8 @@ public:
 	}
 
 	// void btTriangleInfoMapData::m_edgeDistanceThreshold(float value)
-	static int _bind_setM_edgeDistanceThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_edgeDistanceThreshold(L)) {
+	static int _bind_setEdgeDistanceThreshold(lua_State *L) {
+		if (!_lg_typecheck_setEdgeDistanceThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_edgeDistanceThreshold(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_edgeDistanceThreshold(float value)\nClass arguments details:\n");
 		}
@@ -634,8 +634,8 @@ public:
 	}
 
 	// void btTriangleInfoMapData::m_zeroAreaThreshold(float value)
-	static int _bind_setM_zeroAreaThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_zeroAreaThreshold(L)) {
+	static int _bind_setZeroAreaThreshold(lua_State *L) {
+		if (!_lg_typecheck_setZeroAreaThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_zeroAreaThreshold(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_zeroAreaThreshold(float value)\nClass arguments details:\n");
 		}
@@ -653,8 +653,8 @@ public:
 	}
 
 	// void btTriangleInfoMapData::m_nextSize(int value)
-	static int _bind_setM_nextSize(lua_State *L) {
-		if (!_lg_typecheck_setM_nextSize(L)) {
+	static int _bind_setNextSize(lua_State *L) {
+		if (!_lg_typecheck_setNextSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_nextSize(int value) function, expected prototype:\nvoid btTriangleInfoMapData::m_nextSize(int value)\nClass arguments details:\n");
 		}
@@ -672,8 +672,8 @@ public:
 	}
 
 	// void btTriangleInfoMapData::m_hashTableSize(int value)
-	static int _bind_setM_hashTableSize(lua_State *L) {
-		if (!_lg_typecheck_setM_hashTableSize(L)) {
+	static int _bind_setHashTableSize(lua_State *L) {
+		if (!_lg_typecheck_setHashTableSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_hashTableSize(int value) function, expected prototype:\nvoid btTriangleInfoMapData::m_hashTableSize(int value)\nClass arguments details:\n");
 		}
@@ -691,8 +691,8 @@ public:
 	}
 
 	// void btTriangleInfoMapData::m_numValues(int value)
-	static int _bind_setM_numValues(lua_State *L) {
-		if (!_lg_typecheck_setM_numValues(L)) {
+	static int _bind_setNumValues(lua_State *L) {
+		if (!_lg_typecheck_setNumValues(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_numValues(int value) function, expected prototype:\nvoid btTriangleInfoMapData::m_numValues(int value)\nClass arguments details:\n");
 		}
@@ -710,8 +710,8 @@ public:
 	}
 
 	// void btTriangleInfoMapData::m_numKeys(int value)
-	static int _bind_setM_numKeys(lua_State *L) {
-		if (!_lg_typecheck_setM_numKeys(L)) {
+	static int _bind_setNumKeys(lua_State *L) {
+		if (!_lg_typecheck_setNumKeys(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_numKeys(int value) function, expected prototype:\nvoid btTriangleInfoMapData::m_numKeys(int value)\nClass arguments details:\n");
 		}
@@ -749,32 +749,32 @@ const int LunaTraits< btTriangleInfoMapData >::hash = 61372357;
 const int LunaTraits< btTriangleInfoMapData >::uniqueIDs[] = {61372357,0};
 
 luna_RegType LunaTraits< btTriangleInfoMapData >::methods[] = {
-	{"getM_hashTablePtr", &luna_wrapper_btTriangleInfoMapData::_bind_getM_hashTablePtr},
-	{"getM_nextPtr", &luna_wrapper_btTriangleInfoMapData::_bind_getM_nextPtr},
-	{"getM_valueArrayPtr", &luna_wrapper_btTriangleInfoMapData::_bind_getM_valueArrayPtr},
-	{"getM_keyArrayPtr", &luna_wrapper_btTriangleInfoMapData::_bind_getM_keyArrayPtr},
-	{"getM_convexEpsilon", &luna_wrapper_btTriangleInfoMapData::_bind_getM_convexEpsilon},
-	{"getM_planarEpsilon", &luna_wrapper_btTriangleInfoMapData::_bind_getM_planarEpsilon},
-	{"getM_equalVertexThreshold", &luna_wrapper_btTriangleInfoMapData::_bind_getM_equalVertexThreshold},
-	{"getM_edgeDistanceThreshold", &luna_wrapper_btTriangleInfoMapData::_bind_getM_edgeDistanceThreshold},
-	{"getM_zeroAreaThreshold", &luna_wrapper_btTriangleInfoMapData::_bind_getM_zeroAreaThreshold},
-	{"getM_nextSize", &luna_wrapper_btTriangleInfoMapData::_bind_getM_nextSize},
-	{"getM_hashTableSize", &luna_wrapper_btTriangleInfoMapData::_bind_getM_hashTableSize},
-	{"getM_numValues", &luna_wrapper_btTriangleInfoMapData::_bind_getM_numValues},
-	{"getM_numKeys", &luna_wrapper_btTriangleInfoMapData::_bind_getM_numKeys},
-	{"setM_hashTablePtr", &luna_wrapper_btTriangleInfoMapData::_bind_setM_hashTablePtr},
-	{"setM_nextPtr", &luna_wrapper_btTriangleInfoMapData::_bind_setM_nextPtr},
-	{"setM_valueArrayPtr", &luna_wrapper_btTriangleInfoMapData::_bind_setM_valueArrayPtr},
-	{"setM_keyArrayPtr", &luna_wrapper_btTriangleInfoMapData::_bind_setM_keyArrayPtr},
-	{"setM_convexEpsilon", &luna_wrapper_btTriangleInfoMapData::_bind_setM_convexEpsilon},
-	{"setM_planarEpsilon", &luna_wrapper_btTriangleInfoMapData::_bind_setM_planarEpsilon},
-	{"setM_equalVertexThreshold", &luna_wrapper_btTriangleInfoMapData::_bind_setM_equalVertexThreshold},
-	{"setM_edgeDistanceThreshold", &luna_wrapper_btTriangleInfoMapData::_bind_setM_edgeDistanceThreshold},
-	{"setM_zeroAreaThreshold", &luna_wrapper_btTriangleInfoMapData::_bind_setM_zeroAreaThreshold},
-	{"setM_nextSize", &luna_wrapper_btTriangleInfoMapData::_bind_setM_nextSize},
-	{"setM_hashTableSize", &luna_wrapper_btTriangleInfoMapData::_bind_setM_hashTableSize},
-	{"setM_numValues", &luna_wrapper_btTriangleInfoMapData::_bind_setM_numValues},
-	{"setM_numKeys", &luna_wrapper_btTriangleInfoMapData::_bind_setM_numKeys},
+	{"getHashTablePtr", &luna_wrapper_btTriangleInfoMapData::_bind_getHashTablePtr},
+	{"getNextPtr", &luna_wrapper_btTriangleInfoMapData::_bind_getNextPtr},
+	{"getValueArrayPtr", &luna_wrapper_btTriangleInfoMapData::_bind_getValueArrayPtr},
+	{"getKeyArrayPtr", &luna_wrapper_btTriangleInfoMapData::_bind_getKeyArrayPtr},
+	{"getConvexEpsilon", &luna_wrapper_btTriangleInfoMapData::_bind_getConvexEpsilon},
+	{"getPlanarEpsilon", &luna_wrapper_btTriangleInfoMapData::_bind_getPlanarEpsilon},
+	{"getEqualVertexThreshold", &luna_wrapper_btTriangleInfoMapData::_bind_getEqualVertexThreshold},
+	{"getEdgeDistanceThreshold", &luna_wrapper_btTriangleInfoMapData::_bind_getEdgeDistanceThreshold},
+	{"getZeroAreaThreshold", &luna_wrapper_btTriangleInfoMapData::_bind_getZeroAreaThreshold},
+	{"getNextSize", &luna_wrapper_btTriangleInfoMapData::_bind_getNextSize},
+	{"getHashTableSize", &luna_wrapper_btTriangleInfoMapData::_bind_getHashTableSize},
+	{"getNumValues", &luna_wrapper_btTriangleInfoMapData::_bind_getNumValues},
+	{"getNumKeys", &luna_wrapper_btTriangleInfoMapData::_bind_getNumKeys},
+	{"setHashTablePtr", &luna_wrapper_btTriangleInfoMapData::_bind_setHashTablePtr},
+	{"setNextPtr", &luna_wrapper_btTriangleInfoMapData::_bind_setNextPtr},
+	{"setValueArrayPtr", &luna_wrapper_btTriangleInfoMapData::_bind_setValueArrayPtr},
+	{"setKeyArrayPtr", &luna_wrapper_btTriangleInfoMapData::_bind_setKeyArrayPtr},
+	{"setConvexEpsilon", &luna_wrapper_btTriangleInfoMapData::_bind_setConvexEpsilon},
+	{"setPlanarEpsilon", &luna_wrapper_btTriangleInfoMapData::_bind_setPlanarEpsilon},
+	{"setEqualVertexThreshold", &luna_wrapper_btTriangleInfoMapData::_bind_setEqualVertexThreshold},
+	{"setEdgeDistanceThreshold", &luna_wrapper_btTriangleInfoMapData::_bind_setEdgeDistanceThreshold},
+	{"setZeroAreaThreshold", &luna_wrapper_btTriangleInfoMapData::_bind_setZeroAreaThreshold},
+	{"setNextSize", &luna_wrapper_btTriangleInfoMapData::_bind_setNextSize},
+	{"setHashTableSize", &luna_wrapper_btTriangleInfoMapData::_bind_setHashTableSize},
+	{"setNumValues", &luna_wrapper_btTriangleInfoMapData::_bind_setNumValues},
+	{"setNumKeys", &luna_wrapper_btTriangleInfoMapData::_bind_setNumKeys},
 	{"dynCast", &luna_wrapper_btTriangleInfoMapData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btTriangleInfoMapData::_bind___eq},
 	{0,0}

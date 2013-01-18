@@ -56,26 +56,26 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_id(lua_State *L) {
+	inline static bool _lg_typecheck_getId(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_sz(lua_State *L) {
+	inline static bool _lg_typecheck_getSz(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_id(lua_State *L) {
+	inline static bool _lg_typecheck_setId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_sz(lua_State *L) {
+	inline static bool _lg_typecheck_setSz(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -90,8 +90,8 @@ public:
 
 	// Function binds:
 	// int btElement::m_id()
-	static int _bind_getM_id(lua_State *L) {
-		if (!_lg_typecheck_getM_id(L)) {
+	static int _bind_getId(lua_State *L) {
+		if (!_lg_typecheck_getId(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btElement::m_id() function, expected prototype:\nint btElement::m_id()\nClass arguments details:\n");
 		}
@@ -109,8 +109,8 @@ public:
 	}
 
 	// int btElement::m_sz()
-	static int _bind_getM_sz(lua_State *L) {
-		if (!_lg_typecheck_getM_sz(L)) {
+	static int _bind_getSz(lua_State *L) {
+		if (!_lg_typecheck_getSz(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btElement::m_sz() function, expected prototype:\nint btElement::m_sz()\nClass arguments details:\n");
 		}
@@ -128,8 +128,8 @@ public:
 	}
 
 	// void btElement::m_id(int value)
-	static int _bind_setM_id(lua_State *L) {
-		if (!_lg_typecheck_setM_id(L)) {
+	static int _bind_setId(lua_State *L) {
+		if (!_lg_typecheck_setId(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btElement::m_id(int value) function, expected prototype:\nvoid btElement::m_id(int value)\nClass arguments details:\n");
 		}
@@ -147,8 +147,8 @@ public:
 	}
 
 	// void btElement::m_sz(int value)
-	static int _bind_setM_sz(lua_State *L) {
-		if (!_lg_typecheck_setM_sz(L)) {
+	static int _bind_setSz(lua_State *L) {
+		if (!_lg_typecheck_setSz(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btElement::m_sz(int value) function, expected prototype:\nvoid btElement::m_sz(int value)\nClass arguments details:\n");
 		}
@@ -186,10 +186,10 @@ const int LunaTraits< btElement >::hash = 6016384;
 const int LunaTraits< btElement >::uniqueIDs[] = {6016384,0};
 
 luna_RegType LunaTraits< btElement >::methods[] = {
-	{"getM_id", &luna_wrapper_btElement::_bind_getM_id},
-	{"getM_sz", &luna_wrapper_btElement::_bind_getM_sz},
-	{"setM_id", &luna_wrapper_btElement::_bind_setM_id},
-	{"setM_sz", &luna_wrapper_btElement::_bind_setM_sz},
+	{"getId", &luna_wrapper_btElement::_bind_getId},
+	{"getSz", &luna_wrapper_btElement::_bind_getSz},
+	{"setId", &luna_wrapper_btElement::_bind_setId},
+	{"setSz", &luna_wrapper_btElement::_bind_setSz},
 	{"dynCast", &luna_wrapper_btElement::_bind_dynCast},
 	{"__eq", &luna_wrapper_btElement::_bind___eq},
 	{0,0}

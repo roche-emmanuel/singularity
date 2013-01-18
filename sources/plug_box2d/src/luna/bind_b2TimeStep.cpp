@@ -62,7 +62,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getInv_dt(lua_State *L) {
+	inline static bool _lg_typecheck_get_inv_dt(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -99,7 +99,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setInv_dt(lua_State *L) {
+	inline static bool _lg_typecheck_set_inv_dt(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -161,8 +161,8 @@ public:
 	}
 
 	// float b2TimeStep::inv_dt()
-	static int _bind_getInv_dt(lua_State *L) {
-		if (!_lg_typecheck_getInv_dt(L)) {
+	static int _bind_get_inv_dt(lua_State *L) {
+		if (!_lg_typecheck_get_inv_dt(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float b2TimeStep::inv_dt() function, expected prototype:\nfloat b2TimeStep::inv_dt()\nClass arguments details:\n");
 		}
@@ -275,8 +275,8 @@ public:
 	}
 
 	// void b2TimeStep::inv_dt(float value)
-	static int _bind_setInv_dt(lua_State *L) {
-		if (!_lg_typecheck_setInv_dt(L)) {
+	static int _bind_set_inv_dt(lua_State *L) {
+		if (!_lg_typecheck_set_inv_dt(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2TimeStep::inv_dt(float value) function, expected prototype:\nvoid b2TimeStep::inv_dt(float value)\nClass arguments details:\n");
 		}
@@ -391,13 +391,13 @@ const int LunaTraits< b2TimeStep >::uniqueIDs[] = {28832978,0};
 
 luna_RegType LunaTraits< b2TimeStep >::methods[] = {
 	{"getDt", &luna_wrapper_b2TimeStep::_bind_getDt},
-	{"getInv_dt", &luna_wrapper_b2TimeStep::_bind_getInv_dt},
+	{"get_inv_dt", &luna_wrapper_b2TimeStep::_bind_get_inv_dt},
 	{"getDtRatio", &luna_wrapper_b2TimeStep::_bind_getDtRatio},
 	{"getVelocityIterations", &luna_wrapper_b2TimeStep::_bind_getVelocityIterations},
 	{"getPositionIterations", &luna_wrapper_b2TimeStep::_bind_getPositionIterations},
 	{"getWarmStarting", &luna_wrapper_b2TimeStep::_bind_getWarmStarting},
 	{"setDt", &luna_wrapper_b2TimeStep::_bind_setDt},
-	{"setInv_dt", &luna_wrapper_b2TimeStep::_bind_setInv_dt},
+	{"set_inv_dt", &luna_wrapper_b2TimeStep::_bind_set_inv_dt},
 	{"setDtRatio", &luna_wrapper_b2TimeStep::_bind_setDtRatio},
 	{"setVelocityIterations", &luna_wrapper_b2TimeStep::_bind_setVelocityIterations},
 	{"setPositionIterations", &luna_wrapper_b2TimeStep::_bind_setPositionIterations},

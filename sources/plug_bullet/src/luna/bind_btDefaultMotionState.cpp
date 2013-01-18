@@ -106,52 +106,52 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_graphicsWorldTrans(lua_State *L) {
+	inline static bool _lg_typecheck_getGraphicsWorldTrans(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_centerOfMassOffset(lua_State *L) {
+	inline static bool _lg_typecheck_getCenterOfMassOffset(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_startWorldTrans(lua_State *L) {
+	inline static bool _lg_typecheck_getStartWorldTrans(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_userPointer(lua_State *L) {
+	inline static bool _lg_typecheck_getUserPointer(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_graphicsWorldTrans(lua_State *L) {
+	inline static bool _lg_typecheck_setGraphicsWorldTrans(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_centerOfMassOffset(lua_State *L) {
+	inline static bool _lg_typecheck_setCenterOfMassOffset(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_startWorldTrans(lua_State *L) {
+	inline static bool _lg_typecheck_setStartWorldTrans(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_userPointer(lua_State *L) {
+	inline static bool _lg_typecheck_setUserPointer(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
@@ -281,8 +281,8 @@ public:
 	}
 
 	// btTransform btDefaultMotionState::m_graphicsWorldTrans()
-	static int _bind_getM_graphicsWorldTrans(lua_State *L) {
-		if (!_lg_typecheck_getM_graphicsWorldTrans(L)) {
+	static int _bind_getGraphicsWorldTrans(lua_State *L) {
+		if (!_lg_typecheck_getGraphicsWorldTrans(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransform btDefaultMotionState::m_graphicsWorldTrans() function, expected prototype:\nbtTransform btDefaultMotionState::m_graphicsWorldTrans()\nClass arguments details:\n");
 		}
@@ -302,8 +302,8 @@ public:
 	}
 
 	// btTransform btDefaultMotionState::m_centerOfMassOffset()
-	static int _bind_getM_centerOfMassOffset(lua_State *L) {
-		if (!_lg_typecheck_getM_centerOfMassOffset(L)) {
+	static int _bind_getCenterOfMassOffset(lua_State *L) {
+		if (!_lg_typecheck_getCenterOfMassOffset(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransform btDefaultMotionState::m_centerOfMassOffset() function, expected prototype:\nbtTransform btDefaultMotionState::m_centerOfMassOffset()\nClass arguments details:\n");
 		}
@@ -323,8 +323,8 @@ public:
 	}
 
 	// btTransform btDefaultMotionState::m_startWorldTrans()
-	static int _bind_getM_startWorldTrans(lua_State *L) {
-		if (!_lg_typecheck_getM_startWorldTrans(L)) {
+	static int _bind_getStartWorldTrans(lua_State *L) {
+		if (!_lg_typecheck_getStartWorldTrans(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransform btDefaultMotionState::m_startWorldTrans() function, expected prototype:\nbtTransform btDefaultMotionState::m_startWorldTrans()\nClass arguments details:\n");
 		}
@@ -344,8 +344,8 @@ public:
 	}
 
 	// void * btDefaultMotionState::m_userPointer()
-	static int _bind_getM_userPointer(lua_State *L) {
-		if (!_lg_typecheck_getM_userPointer(L)) {
+	static int _bind_getUserPointer(lua_State *L) {
+		if (!_lg_typecheck_getUserPointer(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void * btDefaultMotionState::m_userPointer() function, expected prototype:\nvoid * btDefaultMotionState::m_userPointer()\nClass arguments details:\n");
 		}
@@ -365,8 +365,8 @@ public:
 	}
 
 	// void btDefaultMotionState::m_graphicsWorldTrans(btTransform value)
-	static int _bind_setM_graphicsWorldTrans(lua_State *L) {
-		if (!_lg_typecheck_setM_graphicsWorldTrans(L)) {
+	static int _bind_setGraphicsWorldTrans(lua_State *L) {
+		if (!_lg_typecheck_setGraphicsWorldTrans(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::m_graphicsWorldTrans(btTransform value) function, expected prototype:\nvoid btDefaultMotionState::m_graphicsWorldTrans(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
 		}
@@ -388,8 +388,8 @@ public:
 	}
 
 	// void btDefaultMotionState::m_centerOfMassOffset(btTransform value)
-	static int _bind_setM_centerOfMassOffset(lua_State *L) {
-		if (!_lg_typecheck_setM_centerOfMassOffset(L)) {
+	static int _bind_setCenterOfMassOffset(lua_State *L) {
+		if (!_lg_typecheck_setCenterOfMassOffset(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::m_centerOfMassOffset(btTransform value) function, expected prototype:\nvoid btDefaultMotionState::m_centerOfMassOffset(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
 		}
@@ -411,8 +411,8 @@ public:
 	}
 
 	// void btDefaultMotionState::m_startWorldTrans(btTransform value)
-	static int _bind_setM_startWorldTrans(lua_State *L) {
-		if (!_lg_typecheck_setM_startWorldTrans(L)) {
+	static int _bind_setStartWorldTrans(lua_State *L) {
+		if (!_lg_typecheck_setStartWorldTrans(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::m_startWorldTrans(btTransform value) function, expected prototype:\nvoid btDefaultMotionState::m_startWorldTrans(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
 		}
@@ -434,8 +434,8 @@ public:
 	}
 
 	// void btDefaultMotionState::m_userPointer(void * value)
-	static int _bind_setM_userPointer(lua_State *L) {
-		if (!_lg_typecheck_setM_userPointer(L)) {
+	static int _bind_setUserPointer(lua_State *L) {
+		if (!_lg_typecheck_setUserPointer(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::m_userPointer(void * value) function, expected prototype:\nvoid btDefaultMotionState::m_userPointer(void * value)\nClass arguments details:\n");
 		}
@@ -521,14 +521,14 @@ const int LunaTraits< btDefaultMotionState >::uniqueIDs[] = {40784278,0};
 luna_RegType LunaTraits< btDefaultMotionState >::methods[] = {
 	{"getWorldTransform", &luna_wrapper_btDefaultMotionState::_bind_getWorldTransform},
 	{"setWorldTransform", &luna_wrapper_btDefaultMotionState::_bind_setWorldTransform},
-	{"getM_graphicsWorldTrans", &luna_wrapper_btDefaultMotionState::_bind_getM_graphicsWorldTrans},
-	{"getM_centerOfMassOffset", &luna_wrapper_btDefaultMotionState::_bind_getM_centerOfMassOffset},
-	{"getM_startWorldTrans", &luna_wrapper_btDefaultMotionState::_bind_getM_startWorldTrans},
-	{"getM_userPointer", &luna_wrapper_btDefaultMotionState::_bind_getM_userPointer},
-	{"setM_graphicsWorldTrans", &luna_wrapper_btDefaultMotionState::_bind_setM_graphicsWorldTrans},
-	{"setM_centerOfMassOffset", &luna_wrapper_btDefaultMotionState::_bind_setM_centerOfMassOffset},
-	{"setM_startWorldTrans", &luna_wrapper_btDefaultMotionState::_bind_setM_startWorldTrans},
-	{"setM_userPointer", &luna_wrapper_btDefaultMotionState::_bind_setM_userPointer},
+	{"getGraphicsWorldTrans", &luna_wrapper_btDefaultMotionState::_bind_getGraphicsWorldTrans},
+	{"getCenterOfMassOffset", &luna_wrapper_btDefaultMotionState::_bind_getCenterOfMassOffset},
+	{"getStartWorldTrans", &luna_wrapper_btDefaultMotionState::_bind_getStartWorldTrans},
+	{"getUserPointer", &luna_wrapper_btDefaultMotionState::_bind_getUserPointer},
+	{"setGraphicsWorldTrans", &luna_wrapper_btDefaultMotionState::_bind_setGraphicsWorldTrans},
+	{"setCenterOfMassOffset", &luna_wrapper_btDefaultMotionState::_bind_setCenterOfMassOffset},
+	{"setStartWorldTrans", &luna_wrapper_btDefaultMotionState::_bind_setStartWorldTrans},
+	{"setUserPointer", &luna_wrapper_btDefaultMotionState::_bind_setUserPointer},
 	{"base_getWorldTransform", &luna_wrapper_btDefaultMotionState::_bind_base_getWorldTransform},
 	{"base_setWorldTransform", &luna_wrapper_btDefaultMotionState::_bind_base_setWorldTransform},
 	{"__eq", &luna_wrapper_btDefaultMotionState::_bind___eq},

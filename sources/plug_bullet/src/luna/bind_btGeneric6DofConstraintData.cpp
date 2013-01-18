@@ -56,117 +56,117 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_typeConstraintData(lua_State *L) {
+	inline static bool _lg_typecheck_getTypeConstraintData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rbAFrame(lua_State *L) {
+	inline static bool _lg_typecheck_getRbAFrame(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rbBFrame(lua_State *L) {
+	inline static bool _lg_typecheck_getRbBFrame(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_linearUpperLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getLinearUpperLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_linearLowerLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getLinearLowerLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_angularUpperLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getAngularUpperLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_angularLowerLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getAngularLowerLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_useLinearReferenceFrameA(lua_State *L) {
+	inline static bool _lg_typecheck_getUseLinearReferenceFrameA(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_useOffsetForConstraintFrame(lua_State *L) {
+	inline static bool _lg_typecheck_getUseOffsetForConstraintFrame(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_typeConstraintData(lua_State *L) {
+	inline static bool _lg_typecheck_setTypeConstraintData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,98838043) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rbAFrame(lua_State *L) {
+	inline static bool _lg_typecheck_setRbAFrame(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,93855928) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rbBFrame(lua_State *L) {
+	inline static bool _lg_typecheck_setRbBFrame(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,93855928) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_linearUpperLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setLinearUpperLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_linearLowerLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setLinearLowerLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_angularUpperLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setAngularUpperLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_angularLowerLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setAngularLowerLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_useLinearReferenceFrameA(lua_State *L) {
+	inline static bool _lg_typecheck_setUseLinearReferenceFrameA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_useOffsetForConstraintFrame(lua_State *L) {
+	inline static bool _lg_typecheck_setUseOffsetForConstraintFrame(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -181,8 +181,8 @@ public:
 
 	// Function binds:
 	// btTypedConstraintData btGeneric6DofConstraintData::m_typeConstraintData()
-	static int _bind_getM_typeConstraintData(lua_State *L) {
-		if (!_lg_typecheck_getM_typeConstraintData(L)) {
+	static int _bind_getTypeConstraintData(lua_State *L) {
+		if (!_lg_typecheck_getTypeConstraintData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTypedConstraintData btGeneric6DofConstraintData::m_typeConstraintData() function, expected prototype:\nbtTypedConstraintData btGeneric6DofConstraintData::m_typeConstraintData()\nClass arguments details:\n");
 		}
@@ -202,8 +202,8 @@ public:
 	}
 
 	// btTransformFloatData btGeneric6DofConstraintData::m_rbAFrame()
-	static int _bind_getM_rbAFrame(lua_State *L) {
-		if (!_lg_typecheck_getM_rbAFrame(L)) {
+	static int _bind_getRbAFrame(lua_State *L) {
+		if (!_lg_typecheck_getRbAFrame(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransformFloatData btGeneric6DofConstraintData::m_rbAFrame() function, expected prototype:\nbtTransformFloatData btGeneric6DofConstraintData::m_rbAFrame()\nClass arguments details:\n");
 		}
@@ -223,8 +223,8 @@ public:
 	}
 
 	// btTransformFloatData btGeneric6DofConstraintData::m_rbBFrame()
-	static int _bind_getM_rbBFrame(lua_State *L) {
-		if (!_lg_typecheck_getM_rbBFrame(L)) {
+	static int _bind_getRbBFrame(lua_State *L) {
+		if (!_lg_typecheck_getRbBFrame(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransformFloatData btGeneric6DofConstraintData::m_rbBFrame() function, expected prototype:\nbtTransformFloatData btGeneric6DofConstraintData::m_rbBFrame()\nClass arguments details:\n");
 		}
@@ -244,8 +244,8 @@ public:
 	}
 
 	// btVector3FloatData btGeneric6DofConstraintData::m_linearUpperLimit()
-	static int _bind_getM_linearUpperLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_linearUpperLimit(L)) {
+	static int _bind_getLinearUpperLimit(lua_State *L) {
+		if (!_lg_typecheck_getLinearUpperLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btGeneric6DofConstraintData::m_linearUpperLimit() function, expected prototype:\nbtVector3FloatData btGeneric6DofConstraintData::m_linearUpperLimit()\nClass arguments details:\n");
 		}
@@ -265,8 +265,8 @@ public:
 	}
 
 	// btVector3FloatData btGeneric6DofConstraintData::m_linearLowerLimit()
-	static int _bind_getM_linearLowerLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_linearLowerLimit(L)) {
+	static int _bind_getLinearLowerLimit(lua_State *L) {
+		if (!_lg_typecheck_getLinearLowerLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btGeneric6DofConstraintData::m_linearLowerLimit() function, expected prototype:\nbtVector3FloatData btGeneric6DofConstraintData::m_linearLowerLimit()\nClass arguments details:\n");
 		}
@@ -286,8 +286,8 @@ public:
 	}
 
 	// btVector3FloatData btGeneric6DofConstraintData::m_angularUpperLimit()
-	static int _bind_getM_angularUpperLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_angularUpperLimit(L)) {
+	static int _bind_getAngularUpperLimit(lua_State *L) {
+		if (!_lg_typecheck_getAngularUpperLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btGeneric6DofConstraintData::m_angularUpperLimit() function, expected prototype:\nbtVector3FloatData btGeneric6DofConstraintData::m_angularUpperLimit()\nClass arguments details:\n");
 		}
@@ -307,8 +307,8 @@ public:
 	}
 
 	// btVector3FloatData btGeneric6DofConstraintData::m_angularLowerLimit()
-	static int _bind_getM_angularLowerLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_angularLowerLimit(L)) {
+	static int _bind_getAngularLowerLimit(lua_State *L) {
+		if (!_lg_typecheck_getAngularLowerLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btGeneric6DofConstraintData::m_angularLowerLimit() function, expected prototype:\nbtVector3FloatData btGeneric6DofConstraintData::m_angularLowerLimit()\nClass arguments details:\n");
 		}
@@ -328,8 +328,8 @@ public:
 	}
 
 	// int btGeneric6DofConstraintData::m_useLinearReferenceFrameA()
-	static int _bind_getM_useLinearReferenceFrameA(lua_State *L) {
-		if (!_lg_typecheck_getM_useLinearReferenceFrameA(L)) {
+	static int _bind_getUseLinearReferenceFrameA(lua_State *L) {
+		if (!_lg_typecheck_getUseLinearReferenceFrameA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btGeneric6DofConstraintData::m_useLinearReferenceFrameA() function, expected prototype:\nint btGeneric6DofConstraintData::m_useLinearReferenceFrameA()\nClass arguments details:\n");
 		}
@@ -347,8 +347,8 @@ public:
 	}
 
 	// int btGeneric6DofConstraintData::m_useOffsetForConstraintFrame()
-	static int _bind_getM_useOffsetForConstraintFrame(lua_State *L) {
-		if (!_lg_typecheck_getM_useOffsetForConstraintFrame(L)) {
+	static int _bind_getUseOffsetForConstraintFrame(lua_State *L) {
+		if (!_lg_typecheck_getUseOffsetForConstraintFrame(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btGeneric6DofConstraintData::m_useOffsetForConstraintFrame() function, expected prototype:\nint btGeneric6DofConstraintData::m_useOffsetForConstraintFrame()\nClass arguments details:\n");
 		}
@@ -366,8 +366,8 @@ public:
 	}
 
 	// void btGeneric6DofConstraintData::m_typeConstraintData(btTypedConstraintData value)
-	static int _bind_setM_typeConstraintData(lua_State *L) {
-		if (!_lg_typecheck_setM_typeConstraintData(L)) {
+	static int _bind_setTypeConstraintData(lua_State *L) {
+		if (!_lg_typecheck_setTypeConstraintData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraintData::m_typeConstraintData(btTypedConstraintData value) function, expected prototype:\nvoid btGeneric6DofConstraintData::m_typeConstraintData(btTypedConstraintData value)\nClass arguments details:\narg 1 ID = 98838043\n");
 		}
@@ -389,8 +389,8 @@ public:
 	}
 
 	// void btGeneric6DofConstraintData::m_rbAFrame(btTransformFloatData value)
-	static int _bind_setM_rbAFrame(lua_State *L) {
-		if (!_lg_typecheck_setM_rbAFrame(L)) {
+	static int _bind_setRbAFrame(lua_State *L) {
+		if (!_lg_typecheck_setRbAFrame(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraintData::m_rbAFrame(btTransformFloatData value) function, expected prototype:\nvoid btGeneric6DofConstraintData::m_rbAFrame(btTransformFloatData value)\nClass arguments details:\narg 1 ID = 93855928\n");
 		}
@@ -412,8 +412,8 @@ public:
 	}
 
 	// void btGeneric6DofConstraintData::m_rbBFrame(btTransformFloatData value)
-	static int _bind_setM_rbBFrame(lua_State *L) {
-		if (!_lg_typecheck_setM_rbBFrame(L)) {
+	static int _bind_setRbBFrame(lua_State *L) {
+		if (!_lg_typecheck_setRbBFrame(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraintData::m_rbBFrame(btTransformFloatData value) function, expected prototype:\nvoid btGeneric6DofConstraintData::m_rbBFrame(btTransformFloatData value)\nClass arguments details:\narg 1 ID = 93855928\n");
 		}
@@ -435,8 +435,8 @@ public:
 	}
 
 	// void btGeneric6DofConstraintData::m_linearUpperLimit(btVector3FloatData value)
-	static int _bind_setM_linearUpperLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_linearUpperLimit(L)) {
+	static int _bind_setLinearUpperLimit(lua_State *L) {
+		if (!_lg_typecheck_setLinearUpperLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraintData::m_linearUpperLimit(btVector3FloatData value) function, expected prototype:\nvoid btGeneric6DofConstraintData::m_linearUpperLimit(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -458,8 +458,8 @@ public:
 	}
 
 	// void btGeneric6DofConstraintData::m_linearLowerLimit(btVector3FloatData value)
-	static int _bind_setM_linearLowerLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_linearLowerLimit(L)) {
+	static int _bind_setLinearLowerLimit(lua_State *L) {
+		if (!_lg_typecheck_setLinearLowerLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraintData::m_linearLowerLimit(btVector3FloatData value) function, expected prototype:\nvoid btGeneric6DofConstraintData::m_linearLowerLimit(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -481,8 +481,8 @@ public:
 	}
 
 	// void btGeneric6DofConstraintData::m_angularUpperLimit(btVector3FloatData value)
-	static int _bind_setM_angularUpperLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_angularUpperLimit(L)) {
+	static int _bind_setAngularUpperLimit(lua_State *L) {
+		if (!_lg_typecheck_setAngularUpperLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraintData::m_angularUpperLimit(btVector3FloatData value) function, expected prototype:\nvoid btGeneric6DofConstraintData::m_angularUpperLimit(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -504,8 +504,8 @@ public:
 	}
 
 	// void btGeneric6DofConstraintData::m_angularLowerLimit(btVector3FloatData value)
-	static int _bind_setM_angularLowerLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_angularLowerLimit(L)) {
+	static int _bind_setAngularLowerLimit(lua_State *L) {
+		if (!_lg_typecheck_setAngularLowerLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraintData::m_angularLowerLimit(btVector3FloatData value) function, expected prototype:\nvoid btGeneric6DofConstraintData::m_angularLowerLimit(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -527,8 +527,8 @@ public:
 	}
 
 	// void btGeneric6DofConstraintData::m_useLinearReferenceFrameA(int value)
-	static int _bind_setM_useLinearReferenceFrameA(lua_State *L) {
-		if (!_lg_typecheck_setM_useLinearReferenceFrameA(L)) {
+	static int _bind_setUseLinearReferenceFrameA(lua_State *L) {
+		if (!_lg_typecheck_setUseLinearReferenceFrameA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraintData::m_useLinearReferenceFrameA(int value) function, expected prototype:\nvoid btGeneric6DofConstraintData::m_useLinearReferenceFrameA(int value)\nClass arguments details:\n");
 		}
@@ -546,8 +546,8 @@ public:
 	}
 
 	// void btGeneric6DofConstraintData::m_useOffsetForConstraintFrame(int value)
-	static int _bind_setM_useOffsetForConstraintFrame(lua_State *L) {
-		if (!_lg_typecheck_setM_useOffsetForConstraintFrame(L)) {
+	static int _bind_setUseOffsetForConstraintFrame(lua_State *L) {
+		if (!_lg_typecheck_setUseOffsetForConstraintFrame(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraintData::m_useOffsetForConstraintFrame(int value) function, expected prototype:\nvoid btGeneric6DofConstraintData::m_useOffsetForConstraintFrame(int value)\nClass arguments details:\n");
 		}
@@ -585,24 +585,24 @@ const int LunaTraits< btGeneric6DofConstraintData >::hash = 56103271;
 const int LunaTraits< btGeneric6DofConstraintData >::uniqueIDs[] = {56103271,0};
 
 luna_RegType LunaTraits< btGeneric6DofConstraintData >::methods[] = {
-	{"getM_typeConstraintData", &luna_wrapper_btGeneric6DofConstraintData::_bind_getM_typeConstraintData},
-	{"getM_rbAFrame", &luna_wrapper_btGeneric6DofConstraintData::_bind_getM_rbAFrame},
-	{"getM_rbBFrame", &luna_wrapper_btGeneric6DofConstraintData::_bind_getM_rbBFrame},
-	{"getM_linearUpperLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_getM_linearUpperLimit},
-	{"getM_linearLowerLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_getM_linearLowerLimit},
-	{"getM_angularUpperLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_getM_angularUpperLimit},
-	{"getM_angularLowerLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_getM_angularLowerLimit},
-	{"getM_useLinearReferenceFrameA", &luna_wrapper_btGeneric6DofConstraintData::_bind_getM_useLinearReferenceFrameA},
-	{"getM_useOffsetForConstraintFrame", &luna_wrapper_btGeneric6DofConstraintData::_bind_getM_useOffsetForConstraintFrame},
-	{"setM_typeConstraintData", &luna_wrapper_btGeneric6DofConstraintData::_bind_setM_typeConstraintData},
-	{"setM_rbAFrame", &luna_wrapper_btGeneric6DofConstraintData::_bind_setM_rbAFrame},
-	{"setM_rbBFrame", &luna_wrapper_btGeneric6DofConstraintData::_bind_setM_rbBFrame},
-	{"setM_linearUpperLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_setM_linearUpperLimit},
-	{"setM_linearLowerLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_setM_linearLowerLimit},
-	{"setM_angularUpperLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_setM_angularUpperLimit},
-	{"setM_angularLowerLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_setM_angularLowerLimit},
-	{"setM_useLinearReferenceFrameA", &luna_wrapper_btGeneric6DofConstraintData::_bind_setM_useLinearReferenceFrameA},
-	{"setM_useOffsetForConstraintFrame", &luna_wrapper_btGeneric6DofConstraintData::_bind_setM_useOffsetForConstraintFrame},
+	{"getTypeConstraintData", &luna_wrapper_btGeneric6DofConstraintData::_bind_getTypeConstraintData},
+	{"getRbAFrame", &luna_wrapper_btGeneric6DofConstraintData::_bind_getRbAFrame},
+	{"getRbBFrame", &luna_wrapper_btGeneric6DofConstraintData::_bind_getRbBFrame},
+	{"getLinearUpperLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_getLinearUpperLimit},
+	{"getLinearLowerLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_getLinearLowerLimit},
+	{"getAngularUpperLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_getAngularUpperLimit},
+	{"getAngularLowerLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_getAngularLowerLimit},
+	{"getUseLinearReferenceFrameA", &luna_wrapper_btGeneric6DofConstraintData::_bind_getUseLinearReferenceFrameA},
+	{"getUseOffsetForConstraintFrame", &luna_wrapper_btGeneric6DofConstraintData::_bind_getUseOffsetForConstraintFrame},
+	{"setTypeConstraintData", &luna_wrapper_btGeneric6DofConstraintData::_bind_setTypeConstraintData},
+	{"setRbAFrame", &luna_wrapper_btGeneric6DofConstraintData::_bind_setRbAFrame},
+	{"setRbBFrame", &luna_wrapper_btGeneric6DofConstraintData::_bind_setRbBFrame},
+	{"setLinearUpperLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_setLinearUpperLimit},
+	{"setLinearLowerLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_setLinearLowerLimit},
+	{"setAngularUpperLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_setAngularUpperLimit},
+	{"setAngularLowerLimit", &luna_wrapper_btGeneric6DofConstraintData::_bind_setAngularLowerLimit},
+	{"setUseLinearReferenceFrameA", &luna_wrapper_btGeneric6DofConstraintData::_bind_setUseLinearReferenceFrameA},
+	{"setUseOffsetForConstraintFrame", &luna_wrapper_btGeneric6DofConstraintData::_bind_setUseOffsetForConstraintFrame},
 	{"dynCast", &luna_wrapper_btGeneric6DofConstraintData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btGeneric6DofConstraintData::_bind___eq},
 	{0,0}

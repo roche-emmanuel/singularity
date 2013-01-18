@@ -56,13 +56,13 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_escapeIndexOrTriangleIndex(lua_State *L) {
+	inline static bool _lg_typecheck_getEscapeIndexOrTriangleIndex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_escapeIndexOrTriangleIndex(lua_State *L) {
+	inline static bool _lg_typecheck_setEscapeIndexOrTriangleIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -77,8 +77,8 @@ public:
 
 	// Function binds:
 	// int btQuantizedBvhNodeData::m_escapeIndexOrTriangleIndex()
-	static int _bind_getM_escapeIndexOrTriangleIndex(lua_State *L) {
-		if (!_lg_typecheck_getM_escapeIndexOrTriangleIndex(L)) {
+	static int _bind_getEscapeIndexOrTriangleIndex(lua_State *L) {
+		if (!_lg_typecheck_getEscapeIndexOrTriangleIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btQuantizedBvhNodeData::m_escapeIndexOrTriangleIndex() function, expected prototype:\nint btQuantizedBvhNodeData::m_escapeIndexOrTriangleIndex()\nClass arguments details:\n");
 		}
@@ -96,8 +96,8 @@ public:
 	}
 
 	// void btQuantizedBvhNodeData::m_escapeIndexOrTriangleIndex(int value)
-	static int _bind_setM_escapeIndexOrTriangleIndex(lua_State *L) {
-		if (!_lg_typecheck_setM_escapeIndexOrTriangleIndex(L)) {
+	static int _bind_setEscapeIndexOrTriangleIndex(lua_State *L) {
+		if (!_lg_typecheck_setEscapeIndexOrTriangleIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvhNodeData::m_escapeIndexOrTriangleIndex(int value) function, expected prototype:\nvoid btQuantizedBvhNodeData::m_escapeIndexOrTriangleIndex(int value)\nClass arguments details:\n");
 		}
@@ -135,8 +135,8 @@ const int LunaTraits< btQuantizedBvhNodeData >::hash = 91047799;
 const int LunaTraits< btQuantizedBvhNodeData >::uniqueIDs[] = {91047799,0};
 
 luna_RegType LunaTraits< btQuantizedBvhNodeData >::methods[] = {
-	{"getM_escapeIndexOrTriangleIndex", &luna_wrapper_btQuantizedBvhNodeData::_bind_getM_escapeIndexOrTriangleIndex},
-	{"setM_escapeIndexOrTriangleIndex", &luna_wrapper_btQuantizedBvhNodeData::_bind_setM_escapeIndexOrTriangleIndex},
+	{"getEscapeIndexOrTriangleIndex", &luna_wrapper_btQuantizedBvhNodeData::_bind_getEscapeIndexOrTriangleIndex},
+	{"setEscapeIndexOrTriangleIndex", &luna_wrapper_btQuantizedBvhNodeData::_bind_setEscapeIndexOrTriangleIndex},
 	{"dynCast", &luna_wrapper_btQuantizedBvhNodeData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btQuantizedBvhNodeData::_bind___eq},
 	{0,0}

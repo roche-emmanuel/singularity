@@ -62,91 +62,91 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_arrowColour(lua_State *L) {
+	inline static bool _lg_typecheck_getArrowColour(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_selectionColour(lua_State *L) {
+	inline static bool _lg_typecheck_getSelectionColour(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_labelText(lua_State *L) {
+	inline static bool _lg_typecheck_getLabelText(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_labelFont(lua_State *L) {
+	inline static bool _lg_typecheck_getLabelFont(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_labelColour(lua_State *L) {
+	inline static bool _lg_typecheck_getLabelColour(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_labelBitmap(lua_State *L) {
+	inline static bool _lg_typecheck_getLabelBitmap(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_labelAlignment(lua_State *L) {
+	inline static bool _lg_typecheck_getLabelAlignment(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_arrowColour(lua_State *L) {
+	inline static bool _lg_typecheck_setArrowColour(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_selectionColour(lua_State *L) {
+	inline static bool _lg_typecheck_setSelectionColour(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_labelText(lua_State *L) {
+	inline static bool _lg_typecheck_setLabelText(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_labelFont(lua_State *L) {
+	inline static bool _lg_typecheck_setLabelFont(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_labelColour(lua_State *L) {
+	inline static bool _lg_typecheck_setLabelColour(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_labelBitmap(lua_State *L) {
+	inline static bool _lg_typecheck_setLabelBitmap(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_labelAlignment(lua_State *L) {
+	inline static bool _lg_typecheck_setLabelAlignment(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -172,8 +172,8 @@ public:
 
 	// Function binds:
 	// wxColour wxHeaderButtonParams::m_arrowColour()
-	static int _bind_getM_arrowColour(lua_State *L) {
-		if (!_lg_typecheck_getM_arrowColour(L)) {
+	static int _bind_getArrowColour(lua_State *L) {
+		if (!_lg_typecheck_getArrowColour(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxColour wxHeaderButtonParams::m_arrowColour() function, expected prototype:\nwxColour wxHeaderButtonParams::m_arrowColour()\nClass arguments details:\n");
 		}
@@ -193,8 +193,8 @@ public:
 	}
 
 	// wxColour wxHeaderButtonParams::m_selectionColour()
-	static int _bind_getM_selectionColour(lua_State *L) {
-		if (!_lg_typecheck_getM_selectionColour(L)) {
+	static int _bind_getSelectionColour(lua_State *L) {
+		if (!_lg_typecheck_getSelectionColour(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxColour wxHeaderButtonParams::m_selectionColour() function, expected prototype:\nwxColour wxHeaderButtonParams::m_selectionColour()\nClass arguments details:\n");
 		}
@@ -214,8 +214,8 @@ public:
 	}
 
 	// wxString wxHeaderButtonParams::m_labelText()
-	static int _bind_getM_labelText(lua_State *L) {
-		if (!_lg_typecheck_getM_labelText(L)) {
+	static int _bind_getLabelText(lua_State *L) {
+		if (!_lg_typecheck_getLabelText(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxString wxHeaderButtonParams::m_labelText() function, expected prototype:\nwxString wxHeaderButtonParams::m_labelText()\nClass arguments details:\n");
 		}
@@ -233,8 +233,8 @@ public:
 	}
 
 	// wxFont wxHeaderButtonParams::m_labelFont()
-	static int _bind_getM_labelFont(lua_State *L) {
-		if (!_lg_typecheck_getM_labelFont(L)) {
+	static int _bind_getLabelFont(lua_State *L) {
+		if (!_lg_typecheck_getLabelFont(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxFont wxHeaderButtonParams::m_labelFont() function, expected prototype:\nwxFont wxHeaderButtonParams::m_labelFont()\nClass arguments details:\n");
 		}
@@ -254,8 +254,8 @@ public:
 	}
 
 	// wxColour wxHeaderButtonParams::m_labelColour()
-	static int _bind_getM_labelColour(lua_State *L) {
-		if (!_lg_typecheck_getM_labelColour(L)) {
+	static int _bind_getLabelColour(lua_State *L) {
+		if (!_lg_typecheck_getLabelColour(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxColour wxHeaderButtonParams::m_labelColour() function, expected prototype:\nwxColour wxHeaderButtonParams::m_labelColour()\nClass arguments details:\n");
 		}
@@ -275,8 +275,8 @@ public:
 	}
 
 	// wxBitmap wxHeaderButtonParams::m_labelBitmap()
-	static int _bind_getM_labelBitmap(lua_State *L) {
-		if (!_lg_typecheck_getM_labelBitmap(L)) {
+	static int _bind_getLabelBitmap(lua_State *L) {
+		if (!_lg_typecheck_getLabelBitmap(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxBitmap wxHeaderButtonParams::m_labelBitmap() function, expected prototype:\nwxBitmap wxHeaderButtonParams::m_labelBitmap()\nClass arguments details:\n");
 		}
@@ -296,8 +296,8 @@ public:
 	}
 
 	// int wxHeaderButtonParams::m_labelAlignment()
-	static int _bind_getM_labelAlignment(lua_State *L) {
-		if (!_lg_typecheck_getM_labelAlignment(L)) {
+	static int _bind_getLabelAlignment(lua_State *L) {
+		if (!_lg_typecheck_getLabelAlignment(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int wxHeaderButtonParams::m_labelAlignment() function, expected prototype:\nint wxHeaderButtonParams::m_labelAlignment()\nClass arguments details:\n");
 		}
@@ -315,8 +315,8 @@ public:
 	}
 
 	// void wxHeaderButtonParams::m_arrowColour(wxColour value)
-	static int _bind_setM_arrowColour(lua_State *L) {
-		if (!_lg_typecheck_setM_arrowColour(L)) {
+	static int _bind_setArrowColour(lua_State *L) {
+		if (!_lg_typecheck_setArrowColour(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_arrowColour(wxColour value) function, expected prototype:\nvoid wxHeaderButtonParams::m_arrowColour(wxColour value)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -338,8 +338,8 @@ public:
 	}
 
 	// void wxHeaderButtonParams::m_selectionColour(wxColour value)
-	static int _bind_setM_selectionColour(lua_State *L) {
-		if (!_lg_typecheck_setM_selectionColour(L)) {
+	static int _bind_setSelectionColour(lua_State *L) {
+		if (!_lg_typecheck_setSelectionColour(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_selectionColour(wxColour value) function, expected prototype:\nvoid wxHeaderButtonParams::m_selectionColour(wxColour value)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -361,8 +361,8 @@ public:
 	}
 
 	// void wxHeaderButtonParams::m_labelText(wxString value)
-	static int _bind_setM_labelText(lua_State *L) {
-		if (!_lg_typecheck_setM_labelText(L)) {
+	static int _bind_setLabelText(lua_State *L) {
+		if (!_lg_typecheck_setLabelText(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelText(wxString value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelText(wxString value)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
@@ -380,8 +380,8 @@ public:
 	}
 
 	// void wxHeaderButtonParams::m_labelFont(wxFont value)
-	static int _bind_setM_labelFont(lua_State *L) {
-		if (!_lg_typecheck_setM_labelFont(L)) {
+	static int _bind_setLabelFont(lua_State *L) {
+		if (!_lg_typecheck_setLabelFont(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelFont(wxFont value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelFont(wxFont value)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -403,8 +403,8 @@ public:
 	}
 
 	// void wxHeaderButtonParams::m_labelColour(wxColour value)
-	static int _bind_setM_labelColour(lua_State *L) {
-		if (!_lg_typecheck_setM_labelColour(L)) {
+	static int _bind_setLabelColour(lua_State *L) {
+		if (!_lg_typecheck_setLabelColour(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelColour(wxColour value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelColour(wxColour value)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -426,8 +426,8 @@ public:
 	}
 
 	// void wxHeaderButtonParams::m_labelBitmap(wxBitmap value)
-	static int _bind_setM_labelBitmap(lua_State *L) {
-		if (!_lg_typecheck_setM_labelBitmap(L)) {
+	static int _bind_setLabelBitmap(lua_State *L) {
+		if (!_lg_typecheck_setLabelBitmap(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelBitmap(wxBitmap value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelBitmap(wxBitmap value)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -449,8 +449,8 @@ public:
 	}
 
 	// void wxHeaderButtonParams::m_labelAlignment(int value)
-	static int _bind_setM_labelAlignment(lua_State *L) {
-		if (!_lg_typecheck_setM_labelAlignment(L)) {
+	static int _bind_setLabelAlignment(lua_State *L) {
+		if (!_lg_typecheck_setLabelAlignment(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxHeaderButtonParams::m_labelAlignment(int value) function, expected prototype:\nvoid wxHeaderButtonParams::m_labelAlignment(int value)\nClass arguments details:\n");
 		}
@@ -488,20 +488,20 @@ const int LunaTraits< wxHeaderButtonParams >::hash = 67488995;
 const int LunaTraits< wxHeaderButtonParams >::uniqueIDs[] = {67488995,0};
 
 luna_RegType LunaTraits< wxHeaderButtonParams >::methods[] = {
-	{"getM_arrowColour", &luna_wrapper_wxHeaderButtonParams::_bind_getM_arrowColour},
-	{"getM_selectionColour", &luna_wrapper_wxHeaderButtonParams::_bind_getM_selectionColour},
-	{"getM_labelText", &luna_wrapper_wxHeaderButtonParams::_bind_getM_labelText},
-	{"getM_labelFont", &luna_wrapper_wxHeaderButtonParams::_bind_getM_labelFont},
-	{"getM_labelColour", &luna_wrapper_wxHeaderButtonParams::_bind_getM_labelColour},
-	{"getM_labelBitmap", &luna_wrapper_wxHeaderButtonParams::_bind_getM_labelBitmap},
-	{"getM_labelAlignment", &luna_wrapper_wxHeaderButtonParams::_bind_getM_labelAlignment},
-	{"setM_arrowColour", &luna_wrapper_wxHeaderButtonParams::_bind_setM_arrowColour},
-	{"setM_selectionColour", &luna_wrapper_wxHeaderButtonParams::_bind_setM_selectionColour},
-	{"setM_labelText", &luna_wrapper_wxHeaderButtonParams::_bind_setM_labelText},
-	{"setM_labelFont", &luna_wrapper_wxHeaderButtonParams::_bind_setM_labelFont},
-	{"setM_labelColour", &luna_wrapper_wxHeaderButtonParams::_bind_setM_labelColour},
-	{"setM_labelBitmap", &luna_wrapper_wxHeaderButtonParams::_bind_setM_labelBitmap},
-	{"setM_labelAlignment", &luna_wrapper_wxHeaderButtonParams::_bind_setM_labelAlignment},
+	{"getArrowColour", &luna_wrapper_wxHeaderButtonParams::_bind_getArrowColour},
+	{"getSelectionColour", &luna_wrapper_wxHeaderButtonParams::_bind_getSelectionColour},
+	{"getLabelText", &luna_wrapper_wxHeaderButtonParams::_bind_getLabelText},
+	{"getLabelFont", &luna_wrapper_wxHeaderButtonParams::_bind_getLabelFont},
+	{"getLabelColour", &luna_wrapper_wxHeaderButtonParams::_bind_getLabelColour},
+	{"getLabelBitmap", &luna_wrapper_wxHeaderButtonParams::_bind_getLabelBitmap},
+	{"getLabelAlignment", &luna_wrapper_wxHeaderButtonParams::_bind_getLabelAlignment},
+	{"setArrowColour", &luna_wrapper_wxHeaderButtonParams::_bind_setArrowColour},
+	{"setSelectionColour", &luna_wrapper_wxHeaderButtonParams::_bind_setSelectionColour},
+	{"setLabelText", &luna_wrapper_wxHeaderButtonParams::_bind_setLabelText},
+	{"setLabelFont", &luna_wrapper_wxHeaderButtonParams::_bind_setLabelFont},
+	{"setLabelColour", &luna_wrapper_wxHeaderButtonParams::_bind_setLabelColour},
+	{"setLabelBitmap", &luna_wrapper_wxHeaderButtonParams::_bind_setLabelBitmap},
+	{"setLabelAlignment", &luna_wrapper_wxHeaderButtonParams::_bind_setLabelAlignment},
 	{"dynCast", &luna_wrapper_wxHeaderButtonParams::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxHeaderButtonParams::_bind___eq},
 	{0,0}

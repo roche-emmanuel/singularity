@@ -202,52 +202,52 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_lastUsedMethod(lua_State *L) {
+	inline static bool _lg_typecheck_getLastUsedMethod(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_curIter(lua_State *L) {
+	inline static bool _lg_typecheck_getCurIter(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_degenerateSimplex(lua_State *L) {
+	inline static bool _lg_typecheck_getDegenerateSimplex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_catchDegeneracies(lua_State *L) {
+	inline static bool _lg_typecheck_getCatchDegeneracies(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_lastUsedMethod(lua_State *L) {
+	inline static bool _lg_typecheck_setLastUsedMethod(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_curIter(lua_State *L) {
+	inline static bool _lg_typecheck_setCurIter(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_degenerateSimplex(lua_State *L) {
+	inline static bool _lg_typecheck_setDegenerateSimplex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_catchDegeneracies(lua_State *L) {
+	inline static bool _lg_typecheck_setCatchDegeneracies(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -552,8 +552,8 @@ public:
 	}
 
 	// int btGjkPairDetector::m_lastUsedMethod()
-	static int _bind_getM_lastUsedMethod(lua_State *L) {
-		if (!_lg_typecheck_getM_lastUsedMethod(L)) {
+	static int _bind_getLastUsedMethod(lua_State *L) {
+		if (!_lg_typecheck_getLastUsedMethod(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btGjkPairDetector::m_lastUsedMethod() function, expected prototype:\nint btGjkPairDetector::m_lastUsedMethod()\nClass arguments details:\n");
 		}
@@ -571,8 +571,8 @@ public:
 	}
 
 	// int btGjkPairDetector::m_curIter()
-	static int _bind_getM_curIter(lua_State *L) {
-		if (!_lg_typecheck_getM_curIter(L)) {
+	static int _bind_getCurIter(lua_State *L) {
+		if (!_lg_typecheck_getCurIter(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btGjkPairDetector::m_curIter() function, expected prototype:\nint btGjkPairDetector::m_curIter()\nClass arguments details:\n");
 		}
@@ -590,8 +590,8 @@ public:
 	}
 
 	// int btGjkPairDetector::m_degenerateSimplex()
-	static int _bind_getM_degenerateSimplex(lua_State *L) {
-		if (!_lg_typecheck_getM_degenerateSimplex(L)) {
+	static int _bind_getDegenerateSimplex(lua_State *L) {
+		if (!_lg_typecheck_getDegenerateSimplex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btGjkPairDetector::m_degenerateSimplex() function, expected prototype:\nint btGjkPairDetector::m_degenerateSimplex()\nClass arguments details:\n");
 		}
@@ -609,8 +609,8 @@ public:
 	}
 
 	// int btGjkPairDetector::m_catchDegeneracies()
-	static int _bind_getM_catchDegeneracies(lua_State *L) {
-		if (!_lg_typecheck_getM_catchDegeneracies(L)) {
+	static int _bind_getCatchDegeneracies(lua_State *L) {
+		if (!_lg_typecheck_getCatchDegeneracies(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btGjkPairDetector::m_catchDegeneracies() function, expected prototype:\nint btGjkPairDetector::m_catchDegeneracies()\nClass arguments details:\n");
 		}
@@ -628,8 +628,8 @@ public:
 	}
 
 	// void btGjkPairDetector::m_lastUsedMethod(int value)
-	static int _bind_setM_lastUsedMethod(lua_State *L) {
-		if (!_lg_typecheck_setM_lastUsedMethod(L)) {
+	static int _bind_setLastUsedMethod(lua_State *L) {
+		if (!_lg_typecheck_setLastUsedMethod(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGjkPairDetector::m_lastUsedMethod(int value) function, expected prototype:\nvoid btGjkPairDetector::m_lastUsedMethod(int value)\nClass arguments details:\n");
 		}
@@ -647,8 +647,8 @@ public:
 	}
 
 	// void btGjkPairDetector::m_curIter(int value)
-	static int _bind_setM_curIter(lua_State *L) {
-		if (!_lg_typecheck_setM_curIter(L)) {
+	static int _bind_setCurIter(lua_State *L) {
+		if (!_lg_typecheck_setCurIter(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGjkPairDetector::m_curIter(int value) function, expected prototype:\nvoid btGjkPairDetector::m_curIter(int value)\nClass arguments details:\n");
 		}
@@ -666,8 +666,8 @@ public:
 	}
 
 	// void btGjkPairDetector::m_degenerateSimplex(int value)
-	static int _bind_setM_degenerateSimplex(lua_State *L) {
-		if (!_lg_typecheck_setM_degenerateSimplex(L)) {
+	static int _bind_setDegenerateSimplex(lua_State *L) {
+		if (!_lg_typecheck_setDegenerateSimplex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGjkPairDetector::m_degenerateSimplex(int value) function, expected prototype:\nvoid btGjkPairDetector::m_degenerateSimplex(int value)\nClass arguments details:\n");
 		}
@@ -685,8 +685,8 @@ public:
 	}
 
 	// void btGjkPairDetector::m_catchDegeneracies(int value)
-	static int _bind_setM_catchDegeneracies(lua_State *L) {
-		if (!_lg_typecheck_setM_catchDegeneracies(L)) {
+	static int _bind_setCatchDegeneracies(lua_State *L) {
+		if (!_lg_typecheck_setCatchDegeneracies(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGjkPairDetector::m_catchDegeneracies(int value) function, expected prototype:\nvoid btGjkPairDetector::m_catchDegeneracies(int value)\nClass arguments details:\n");
 		}
@@ -765,14 +765,14 @@ luna_RegType LunaTraits< btGjkPairDetector >::methods[] = {
 	{"getCachedSeparatingDistance", &luna_wrapper_btGjkPairDetector::_bind_getCachedSeparatingDistance},
 	{"setPenetrationDepthSolver", &luna_wrapper_btGjkPairDetector::_bind_setPenetrationDepthSolver},
 	{"setIgnoreMargin", &luna_wrapper_btGjkPairDetector::_bind_setIgnoreMargin},
-	{"getM_lastUsedMethod", &luna_wrapper_btGjkPairDetector::_bind_getM_lastUsedMethod},
-	{"getM_curIter", &luna_wrapper_btGjkPairDetector::_bind_getM_curIter},
-	{"getM_degenerateSimplex", &luna_wrapper_btGjkPairDetector::_bind_getM_degenerateSimplex},
-	{"getM_catchDegeneracies", &luna_wrapper_btGjkPairDetector::_bind_getM_catchDegeneracies},
-	{"setM_lastUsedMethod", &luna_wrapper_btGjkPairDetector::_bind_setM_lastUsedMethod},
-	{"setM_curIter", &luna_wrapper_btGjkPairDetector::_bind_setM_curIter},
-	{"setM_degenerateSimplex", &luna_wrapper_btGjkPairDetector::_bind_setM_degenerateSimplex},
-	{"setM_catchDegeneracies", &luna_wrapper_btGjkPairDetector::_bind_setM_catchDegeneracies},
+	{"getLastUsedMethod", &luna_wrapper_btGjkPairDetector::_bind_getLastUsedMethod},
+	{"getCurIter", &luna_wrapper_btGjkPairDetector::_bind_getCurIter},
+	{"getDegenerateSimplex", &luna_wrapper_btGjkPairDetector::_bind_getDegenerateSimplex},
+	{"getCatchDegeneracies", &luna_wrapper_btGjkPairDetector::_bind_getCatchDegeneracies},
+	{"setLastUsedMethod", &luna_wrapper_btGjkPairDetector::_bind_setLastUsedMethod},
+	{"setCurIter", &luna_wrapper_btGjkPairDetector::_bind_setCurIter},
+	{"setDegenerateSimplex", &luna_wrapper_btGjkPairDetector::_bind_setDegenerateSimplex},
+	{"setCatchDegeneracies", &luna_wrapper_btGjkPairDetector::_bind_setCatchDegeneracies},
 	{"base_getClosestPoints", &luna_wrapper_btGjkPairDetector::_bind_base_getClosestPoints},
 	{"__eq", &luna_wrapper_btGjkPairDetector::_bind___eq},
 	{"getTable", &luna_wrapper_btGjkPairDetector::_bind_getTable},

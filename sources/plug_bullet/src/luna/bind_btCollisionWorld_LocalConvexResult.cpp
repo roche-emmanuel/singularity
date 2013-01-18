@@ -67,58 +67,58 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_hitCollisionObject(lua_State *L) {
+	inline static bool _lg_typecheck_getHitCollisionObject(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_localShapeInfo(lua_State *L) {
+	inline static bool _lg_typecheck_getLocalShapeInfo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitNormalLocal(lua_State *L) {
+	inline static bool _lg_typecheck_getHitNormalLocal(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitPointLocal(lua_State *L) {
+	inline static bool _lg_typecheck_getHitPointLocal(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitFraction(lua_State *L) {
+	inline static bool _lg_typecheck_getHitFraction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_localShapeInfo(lua_State *L) {
+	inline static bool _lg_typecheck_setLocalShapeInfo(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,68696671)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitNormalLocal(lua_State *L) {
+	inline static bool _lg_typecheck_setHitNormalLocal(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitPointLocal(lua_State *L) {
+	inline static bool _lg_typecheck_setHitPointLocal(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitFraction(lua_State *L) {
+	inline static bool _lg_typecheck_setHitFraction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -157,8 +157,8 @@ public:
 
 	// Function binds:
 	// const btCollisionObject * btCollisionWorld::LocalConvexResult::m_hitCollisionObject()
-	static int _bind_getM_hitCollisionObject(lua_State *L) {
-		if (!_lg_typecheck_getM_hitCollisionObject(L)) {
+	static int _bind_getHitCollisionObject(lua_State *L) {
+		if (!_lg_typecheck_getHitCollisionObject(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const btCollisionObject * btCollisionWorld::LocalConvexResult::m_hitCollisionObject() function, expected prototype:\nconst btCollisionObject * btCollisionWorld::LocalConvexResult::m_hitCollisionObject()\nClass arguments details:\n");
 		}
@@ -178,8 +178,8 @@ public:
 	}
 
 	// btCollisionWorld::LocalShapeInfo * btCollisionWorld::LocalConvexResult::m_localShapeInfo()
-	static int _bind_getM_localShapeInfo(lua_State *L) {
-		if (!_lg_typecheck_getM_localShapeInfo(L)) {
+	static int _bind_getLocalShapeInfo(lua_State *L) {
+		if (!_lg_typecheck_getLocalShapeInfo(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btCollisionWorld::LocalShapeInfo * btCollisionWorld::LocalConvexResult::m_localShapeInfo() function, expected prototype:\nbtCollisionWorld::LocalShapeInfo * btCollisionWorld::LocalConvexResult::m_localShapeInfo()\nClass arguments details:\n");
 		}
@@ -199,8 +199,8 @@ public:
 	}
 
 	// btVector3 btCollisionWorld::LocalConvexResult::m_hitNormalLocal()
-	static int _bind_getM_hitNormalLocal(lua_State *L) {
-		if (!_lg_typecheck_getM_hitNormalLocal(L)) {
+	static int _bind_getHitNormalLocal(lua_State *L) {
+		if (!_lg_typecheck_getHitNormalLocal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btCollisionWorld::LocalConvexResult::m_hitNormalLocal() function, expected prototype:\nbtVector3 btCollisionWorld::LocalConvexResult::m_hitNormalLocal()\nClass arguments details:\n");
 		}
@@ -220,8 +220,8 @@ public:
 	}
 
 	// btVector3 btCollisionWorld::LocalConvexResult::m_hitPointLocal()
-	static int _bind_getM_hitPointLocal(lua_State *L) {
-		if (!_lg_typecheck_getM_hitPointLocal(L)) {
+	static int _bind_getHitPointLocal(lua_State *L) {
+		if (!_lg_typecheck_getHitPointLocal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btCollisionWorld::LocalConvexResult::m_hitPointLocal() function, expected prototype:\nbtVector3 btCollisionWorld::LocalConvexResult::m_hitPointLocal()\nClass arguments details:\n");
 		}
@@ -241,8 +241,8 @@ public:
 	}
 
 	// float btCollisionWorld::LocalConvexResult::m_hitFraction()
-	static int _bind_getM_hitFraction(lua_State *L) {
-		if (!_lg_typecheck_getM_hitFraction(L)) {
+	static int _bind_getHitFraction(lua_State *L) {
+		if (!_lg_typecheck_getHitFraction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btCollisionWorld::LocalConvexResult::m_hitFraction() function, expected prototype:\nfloat btCollisionWorld::LocalConvexResult::m_hitFraction()\nClass arguments details:\n");
 		}
@@ -260,8 +260,8 @@ public:
 	}
 
 	// void btCollisionWorld::LocalConvexResult::m_localShapeInfo(btCollisionWorld::LocalShapeInfo * value)
-	static int _bind_setM_localShapeInfo(lua_State *L) {
-		if (!_lg_typecheck_setM_localShapeInfo(L)) {
+	static int _bind_setLocalShapeInfo(lua_State *L) {
+		if (!_lg_typecheck_setLocalShapeInfo(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::LocalConvexResult::m_localShapeInfo(btCollisionWorld::LocalShapeInfo * value) function, expected prototype:\nvoid btCollisionWorld::LocalConvexResult::m_localShapeInfo(btCollisionWorld::LocalShapeInfo * value)\nClass arguments details:\narg 1 ID = 68696671\n");
 		}
@@ -279,8 +279,8 @@ public:
 	}
 
 	// void btCollisionWorld::LocalConvexResult::m_hitNormalLocal(btVector3 value)
-	static int _bind_setM_hitNormalLocal(lua_State *L) {
-		if (!_lg_typecheck_setM_hitNormalLocal(L)) {
+	static int _bind_setHitNormalLocal(lua_State *L) {
+		if (!_lg_typecheck_setHitNormalLocal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::LocalConvexResult::m_hitNormalLocal(btVector3 value) function, expected prototype:\nvoid btCollisionWorld::LocalConvexResult::m_hitNormalLocal(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -302,8 +302,8 @@ public:
 	}
 
 	// void btCollisionWorld::LocalConvexResult::m_hitPointLocal(btVector3 value)
-	static int _bind_setM_hitPointLocal(lua_State *L) {
-		if (!_lg_typecheck_setM_hitPointLocal(L)) {
+	static int _bind_setHitPointLocal(lua_State *L) {
+		if (!_lg_typecheck_setHitPointLocal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::LocalConvexResult::m_hitPointLocal(btVector3 value) function, expected prototype:\nvoid btCollisionWorld::LocalConvexResult::m_hitPointLocal(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -325,8 +325,8 @@ public:
 	}
 
 	// void btCollisionWorld::LocalConvexResult::m_hitFraction(float value)
-	static int _bind_setM_hitFraction(lua_State *L) {
-		if (!_lg_typecheck_setM_hitFraction(L)) {
+	static int _bind_setHitFraction(lua_State *L) {
+		if (!_lg_typecheck_setHitFraction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::LocalConvexResult::m_hitFraction(float value) function, expected prototype:\nvoid btCollisionWorld::LocalConvexResult::m_hitFraction(float value)\nClass arguments details:\n");
 		}
@@ -364,15 +364,15 @@ const int LunaTraits< btCollisionWorld::LocalConvexResult >::hash = 34210430;
 const int LunaTraits< btCollisionWorld::LocalConvexResult >::uniqueIDs[] = {34210430,0};
 
 luna_RegType LunaTraits< btCollisionWorld::LocalConvexResult >::methods[] = {
-	{"getM_hitCollisionObject", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_getM_hitCollisionObject},
-	{"getM_localShapeInfo", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_getM_localShapeInfo},
-	{"getM_hitNormalLocal", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_getM_hitNormalLocal},
-	{"getM_hitPointLocal", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_getM_hitPointLocal},
-	{"getM_hitFraction", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_getM_hitFraction},
-	{"setM_localShapeInfo", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_setM_localShapeInfo},
-	{"setM_hitNormalLocal", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_setM_hitNormalLocal},
-	{"setM_hitPointLocal", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_setM_hitPointLocal},
-	{"setM_hitFraction", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_setM_hitFraction},
+	{"getHitCollisionObject", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_getHitCollisionObject},
+	{"getLocalShapeInfo", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_getLocalShapeInfo},
+	{"getHitNormalLocal", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_getHitNormalLocal},
+	{"getHitPointLocal", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_getHitPointLocal},
+	{"getHitFraction", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_getHitFraction},
+	{"setLocalShapeInfo", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_setLocalShapeInfo},
+	{"setHitNormalLocal", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_setHitNormalLocal},
+	{"setHitPointLocal", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_setHitPointLocal},
+	{"setHitFraction", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_setHitFraction},
 	{"dynCast", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind_dynCast},
 	{"__eq", &luna_wrapper_btCollisionWorld_LocalConvexResult::_bind___eq},
 	{0,0}

@@ -62,169 +62,169 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_timeStep(lua_State *L) {
+	inline static bool _lg_typecheck_getTimeStep(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_stepCount(lua_State *L) {
+	inline static bool _lg_typecheck_getStepCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_dispatchFunc(lua_State *L) {
+	inline static bool _lg_typecheck_getDispatchFunc(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_timeOfImpact(lua_State *L) {
+	inline static bool _lg_typecheck_getTimeOfImpact(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_useContinuous(lua_State *L) {
+	inline static bool _lg_typecheck_getUseContinuous(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_debugDraw(lua_State *L) {
+	inline static bool _lg_typecheck_getDebugDraw(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_enableSatConvex(lua_State *L) {
+	inline static bool _lg_typecheck_getEnableSatConvex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_enableSPU(lua_State *L) {
+	inline static bool _lg_typecheck_getEnableSPU(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_useEpa(lua_State *L) {
+	inline static bool _lg_typecheck_getUseEpa(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_allowedCcdPenetration(lua_State *L) {
+	inline static bool _lg_typecheck_getAllowedCcdPenetration(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_useConvexConservativeDistanceUtil(lua_State *L) {
+	inline static bool _lg_typecheck_getUseConvexConservativeDistanceUtil(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_convexConservativeDistanceThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getConvexConservativeDistanceThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_stackAllocator(lua_State *L) {
+	inline static bool _lg_typecheck_getStackAllocator(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_timeStep(lua_State *L) {
+	inline static bool _lg_typecheck_setTimeStep(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_stepCount(lua_State *L) {
+	inline static bool _lg_typecheck_setStepCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_dispatchFunc(lua_State *L) {
+	inline static bool _lg_typecheck_setDispatchFunc(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_timeOfImpact(lua_State *L) {
+	inline static bool _lg_typecheck_setTimeOfImpact(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_useContinuous(lua_State *L) {
+	inline static bool _lg_typecheck_setUseContinuous(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_debugDraw(lua_State *L) {
+	inline static bool _lg_typecheck_setDebugDraw(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,63441741)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_enableSatConvex(lua_State *L) {
+	inline static bool _lg_typecheck_setEnableSatConvex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_enableSPU(lua_State *L) {
+	inline static bool _lg_typecheck_setEnableSPU(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_useEpa(lua_State *L) {
+	inline static bool _lg_typecheck_setUseEpa(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_allowedCcdPenetration(lua_State *L) {
+	inline static bool _lg_typecheck_setAllowedCcdPenetration(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_useConvexConservativeDistanceUtil(lua_State *L) {
+	inline static bool _lg_typecheck_setUseConvexConservativeDistanceUtil(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_convexConservativeDistanceThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setConvexConservativeDistanceThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_stackAllocator(lua_State *L) {
+	inline static bool _lg_typecheck_setStackAllocator(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,46980417)) ) return false;
@@ -250,8 +250,8 @@ public:
 
 	// Function binds:
 	// float btDispatcherInfo::m_timeStep()
-	static int _bind_getM_timeStep(lua_State *L) {
-		if (!_lg_typecheck_getM_timeStep(L)) {
+	static int _bind_getTimeStep(lua_State *L) {
+		if (!_lg_typecheck_getTimeStep(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btDispatcherInfo::m_timeStep() function, expected prototype:\nfloat btDispatcherInfo::m_timeStep()\nClass arguments details:\n");
 		}
@@ -269,8 +269,8 @@ public:
 	}
 
 	// int btDispatcherInfo::m_stepCount()
-	static int _bind_getM_stepCount(lua_State *L) {
-		if (!_lg_typecheck_getM_stepCount(L)) {
+	static int _bind_getStepCount(lua_State *L) {
+		if (!_lg_typecheck_getStepCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDispatcherInfo::m_stepCount() function, expected prototype:\nint btDispatcherInfo::m_stepCount()\nClass arguments details:\n");
 		}
@@ -288,8 +288,8 @@ public:
 	}
 
 	// int btDispatcherInfo::m_dispatchFunc()
-	static int _bind_getM_dispatchFunc(lua_State *L) {
-		if (!_lg_typecheck_getM_dispatchFunc(L)) {
+	static int _bind_getDispatchFunc(lua_State *L) {
+		if (!_lg_typecheck_getDispatchFunc(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDispatcherInfo::m_dispatchFunc() function, expected prototype:\nint btDispatcherInfo::m_dispatchFunc()\nClass arguments details:\n");
 		}
@@ -307,8 +307,8 @@ public:
 	}
 
 	// float btDispatcherInfo::m_timeOfImpact()
-	static int _bind_getM_timeOfImpact(lua_State *L) {
-		if (!_lg_typecheck_getM_timeOfImpact(L)) {
+	static int _bind_getTimeOfImpact(lua_State *L) {
+		if (!_lg_typecheck_getTimeOfImpact(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btDispatcherInfo::m_timeOfImpact() function, expected prototype:\nfloat btDispatcherInfo::m_timeOfImpact()\nClass arguments details:\n");
 		}
@@ -326,8 +326,8 @@ public:
 	}
 
 	// bool btDispatcherInfo::m_useContinuous()
-	static int _bind_getM_useContinuous(lua_State *L) {
-		if (!_lg_typecheck_getM_useContinuous(L)) {
+	static int _bind_getUseContinuous(lua_State *L) {
+		if (!_lg_typecheck_getUseContinuous(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btDispatcherInfo::m_useContinuous() function, expected prototype:\nbool btDispatcherInfo::m_useContinuous()\nClass arguments details:\n");
 		}
@@ -345,8 +345,8 @@ public:
 	}
 
 	// class btIDebugDraw * btDispatcherInfo::m_debugDraw()
-	static int _bind_getM_debugDraw(lua_State *L) {
-		if (!_lg_typecheck_getM_debugDraw(L)) {
+	static int _bind_getDebugDraw(lua_State *L) {
+		if (!_lg_typecheck_getDebugDraw(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in class btIDebugDraw * btDispatcherInfo::m_debugDraw() function, expected prototype:\nclass btIDebugDraw * btDispatcherInfo::m_debugDraw()\nClass arguments details:\n");
 		}
@@ -366,8 +366,8 @@ public:
 	}
 
 	// bool btDispatcherInfo::m_enableSatConvex()
-	static int _bind_getM_enableSatConvex(lua_State *L) {
-		if (!_lg_typecheck_getM_enableSatConvex(L)) {
+	static int _bind_getEnableSatConvex(lua_State *L) {
+		if (!_lg_typecheck_getEnableSatConvex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btDispatcherInfo::m_enableSatConvex() function, expected prototype:\nbool btDispatcherInfo::m_enableSatConvex()\nClass arguments details:\n");
 		}
@@ -385,8 +385,8 @@ public:
 	}
 
 	// bool btDispatcherInfo::m_enableSPU()
-	static int _bind_getM_enableSPU(lua_State *L) {
-		if (!_lg_typecheck_getM_enableSPU(L)) {
+	static int _bind_getEnableSPU(lua_State *L) {
+		if (!_lg_typecheck_getEnableSPU(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btDispatcherInfo::m_enableSPU() function, expected prototype:\nbool btDispatcherInfo::m_enableSPU()\nClass arguments details:\n");
 		}
@@ -404,8 +404,8 @@ public:
 	}
 
 	// bool btDispatcherInfo::m_useEpa()
-	static int _bind_getM_useEpa(lua_State *L) {
-		if (!_lg_typecheck_getM_useEpa(L)) {
+	static int _bind_getUseEpa(lua_State *L) {
+		if (!_lg_typecheck_getUseEpa(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btDispatcherInfo::m_useEpa() function, expected prototype:\nbool btDispatcherInfo::m_useEpa()\nClass arguments details:\n");
 		}
@@ -423,8 +423,8 @@ public:
 	}
 
 	// float btDispatcherInfo::m_allowedCcdPenetration()
-	static int _bind_getM_allowedCcdPenetration(lua_State *L) {
-		if (!_lg_typecheck_getM_allowedCcdPenetration(L)) {
+	static int _bind_getAllowedCcdPenetration(lua_State *L) {
+		if (!_lg_typecheck_getAllowedCcdPenetration(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btDispatcherInfo::m_allowedCcdPenetration() function, expected prototype:\nfloat btDispatcherInfo::m_allowedCcdPenetration()\nClass arguments details:\n");
 		}
@@ -442,8 +442,8 @@ public:
 	}
 
 	// bool btDispatcherInfo::m_useConvexConservativeDistanceUtil()
-	static int _bind_getM_useConvexConservativeDistanceUtil(lua_State *L) {
-		if (!_lg_typecheck_getM_useConvexConservativeDistanceUtil(L)) {
+	static int _bind_getUseConvexConservativeDistanceUtil(lua_State *L) {
+		if (!_lg_typecheck_getUseConvexConservativeDistanceUtil(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btDispatcherInfo::m_useConvexConservativeDistanceUtil() function, expected prototype:\nbool btDispatcherInfo::m_useConvexConservativeDistanceUtil()\nClass arguments details:\n");
 		}
@@ -461,8 +461,8 @@ public:
 	}
 
 	// float btDispatcherInfo::m_convexConservativeDistanceThreshold()
-	static int _bind_getM_convexConservativeDistanceThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_convexConservativeDistanceThreshold(L)) {
+	static int _bind_getConvexConservativeDistanceThreshold(lua_State *L) {
+		if (!_lg_typecheck_getConvexConservativeDistanceThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btDispatcherInfo::m_convexConservativeDistanceThreshold() function, expected prototype:\nfloat btDispatcherInfo::m_convexConservativeDistanceThreshold()\nClass arguments details:\n");
 		}
@@ -480,8 +480,8 @@ public:
 	}
 
 	// btStackAlloc * btDispatcherInfo::m_stackAllocator()
-	static int _bind_getM_stackAllocator(lua_State *L) {
-		if (!_lg_typecheck_getM_stackAllocator(L)) {
+	static int _bind_getStackAllocator(lua_State *L) {
+		if (!_lg_typecheck_getStackAllocator(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btStackAlloc * btDispatcherInfo::m_stackAllocator() function, expected prototype:\nbtStackAlloc * btDispatcherInfo::m_stackAllocator()\nClass arguments details:\n");
 		}
@@ -501,8 +501,8 @@ public:
 	}
 
 	// void btDispatcherInfo::m_timeStep(float value)
-	static int _bind_setM_timeStep(lua_State *L) {
-		if (!_lg_typecheck_setM_timeStep(L)) {
+	static int _bind_setTimeStep(lua_State *L) {
+		if (!_lg_typecheck_setTimeStep(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDispatcherInfo::m_timeStep(float value) function, expected prototype:\nvoid btDispatcherInfo::m_timeStep(float value)\nClass arguments details:\n");
 		}
@@ -520,8 +520,8 @@ public:
 	}
 
 	// void btDispatcherInfo::m_stepCount(int value)
-	static int _bind_setM_stepCount(lua_State *L) {
-		if (!_lg_typecheck_setM_stepCount(L)) {
+	static int _bind_setStepCount(lua_State *L) {
+		if (!_lg_typecheck_setStepCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDispatcherInfo::m_stepCount(int value) function, expected prototype:\nvoid btDispatcherInfo::m_stepCount(int value)\nClass arguments details:\n");
 		}
@@ -539,8 +539,8 @@ public:
 	}
 
 	// void btDispatcherInfo::m_dispatchFunc(int value)
-	static int _bind_setM_dispatchFunc(lua_State *L) {
-		if (!_lg_typecheck_setM_dispatchFunc(L)) {
+	static int _bind_setDispatchFunc(lua_State *L) {
+		if (!_lg_typecheck_setDispatchFunc(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDispatcherInfo::m_dispatchFunc(int value) function, expected prototype:\nvoid btDispatcherInfo::m_dispatchFunc(int value)\nClass arguments details:\n");
 		}
@@ -558,8 +558,8 @@ public:
 	}
 
 	// void btDispatcherInfo::m_timeOfImpact(float value)
-	static int _bind_setM_timeOfImpact(lua_State *L) {
-		if (!_lg_typecheck_setM_timeOfImpact(L)) {
+	static int _bind_setTimeOfImpact(lua_State *L) {
+		if (!_lg_typecheck_setTimeOfImpact(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDispatcherInfo::m_timeOfImpact(float value) function, expected prototype:\nvoid btDispatcherInfo::m_timeOfImpact(float value)\nClass arguments details:\n");
 		}
@@ -577,8 +577,8 @@ public:
 	}
 
 	// void btDispatcherInfo::m_useContinuous(bool value)
-	static int _bind_setM_useContinuous(lua_State *L) {
-		if (!_lg_typecheck_setM_useContinuous(L)) {
+	static int _bind_setUseContinuous(lua_State *L) {
+		if (!_lg_typecheck_setUseContinuous(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDispatcherInfo::m_useContinuous(bool value) function, expected prototype:\nvoid btDispatcherInfo::m_useContinuous(bool value)\nClass arguments details:\n");
 		}
@@ -596,8 +596,8 @@ public:
 	}
 
 	// void btDispatcherInfo::m_debugDraw(class btIDebugDraw * value)
-	static int _bind_setM_debugDraw(lua_State *L) {
-		if (!_lg_typecheck_setM_debugDraw(L)) {
+	static int _bind_setDebugDraw(lua_State *L) {
+		if (!_lg_typecheck_setDebugDraw(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDispatcherInfo::m_debugDraw(class btIDebugDraw * value) function, expected prototype:\nvoid btDispatcherInfo::m_debugDraw(class btIDebugDraw * value)\nClass arguments details:\narg 1 ID = 63441741\n");
 		}
@@ -615,8 +615,8 @@ public:
 	}
 
 	// void btDispatcherInfo::m_enableSatConvex(bool value)
-	static int _bind_setM_enableSatConvex(lua_State *L) {
-		if (!_lg_typecheck_setM_enableSatConvex(L)) {
+	static int _bind_setEnableSatConvex(lua_State *L) {
+		if (!_lg_typecheck_setEnableSatConvex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDispatcherInfo::m_enableSatConvex(bool value) function, expected prototype:\nvoid btDispatcherInfo::m_enableSatConvex(bool value)\nClass arguments details:\n");
 		}
@@ -634,8 +634,8 @@ public:
 	}
 
 	// void btDispatcherInfo::m_enableSPU(bool value)
-	static int _bind_setM_enableSPU(lua_State *L) {
-		if (!_lg_typecheck_setM_enableSPU(L)) {
+	static int _bind_setEnableSPU(lua_State *L) {
+		if (!_lg_typecheck_setEnableSPU(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDispatcherInfo::m_enableSPU(bool value) function, expected prototype:\nvoid btDispatcherInfo::m_enableSPU(bool value)\nClass arguments details:\n");
 		}
@@ -653,8 +653,8 @@ public:
 	}
 
 	// void btDispatcherInfo::m_useEpa(bool value)
-	static int _bind_setM_useEpa(lua_State *L) {
-		if (!_lg_typecheck_setM_useEpa(L)) {
+	static int _bind_setUseEpa(lua_State *L) {
+		if (!_lg_typecheck_setUseEpa(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDispatcherInfo::m_useEpa(bool value) function, expected prototype:\nvoid btDispatcherInfo::m_useEpa(bool value)\nClass arguments details:\n");
 		}
@@ -672,8 +672,8 @@ public:
 	}
 
 	// void btDispatcherInfo::m_allowedCcdPenetration(float value)
-	static int _bind_setM_allowedCcdPenetration(lua_State *L) {
-		if (!_lg_typecheck_setM_allowedCcdPenetration(L)) {
+	static int _bind_setAllowedCcdPenetration(lua_State *L) {
+		if (!_lg_typecheck_setAllowedCcdPenetration(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDispatcherInfo::m_allowedCcdPenetration(float value) function, expected prototype:\nvoid btDispatcherInfo::m_allowedCcdPenetration(float value)\nClass arguments details:\n");
 		}
@@ -691,8 +691,8 @@ public:
 	}
 
 	// void btDispatcherInfo::m_useConvexConservativeDistanceUtil(bool value)
-	static int _bind_setM_useConvexConservativeDistanceUtil(lua_State *L) {
-		if (!_lg_typecheck_setM_useConvexConservativeDistanceUtil(L)) {
+	static int _bind_setUseConvexConservativeDistanceUtil(lua_State *L) {
+		if (!_lg_typecheck_setUseConvexConservativeDistanceUtil(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDispatcherInfo::m_useConvexConservativeDistanceUtil(bool value) function, expected prototype:\nvoid btDispatcherInfo::m_useConvexConservativeDistanceUtil(bool value)\nClass arguments details:\n");
 		}
@@ -710,8 +710,8 @@ public:
 	}
 
 	// void btDispatcherInfo::m_convexConservativeDistanceThreshold(float value)
-	static int _bind_setM_convexConservativeDistanceThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_convexConservativeDistanceThreshold(L)) {
+	static int _bind_setConvexConservativeDistanceThreshold(lua_State *L) {
+		if (!_lg_typecheck_setConvexConservativeDistanceThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDispatcherInfo::m_convexConservativeDistanceThreshold(float value) function, expected prototype:\nvoid btDispatcherInfo::m_convexConservativeDistanceThreshold(float value)\nClass arguments details:\n");
 		}
@@ -729,8 +729,8 @@ public:
 	}
 
 	// void btDispatcherInfo::m_stackAllocator(btStackAlloc * value)
-	static int _bind_setM_stackAllocator(lua_State *L) {
-		if (!_lg_typecheck_setM_stackAllocator(L)) {
+	static int _bind_setStackAllocator(lua_State *L) {
+		if (!_lg_typecheck_setStackAllocator(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDispatcherInfo::m_stackAllocator(btStackAlloc * value) function, expected prototype:\nvoid btDispatcherInfo::m_stackAllocator(btStackAlloc * value)\nClass arguments details:\narg 1 ID = 46980417\n");
 		}
@@ -768,32 +768,32 @@ const int LunaTraits< btDispatcherInfo >::hash = 95201256;
 const int LunaTraits< btDispatcherInfo >::uniqueIDs[] = {95201256,0};
 
 luna_RegType LunaTraits< btDispatcherInfo >::methods[] = {
-	{"getM_timeStep", &luna_wrapper_btDispatcherInfo::_bind_getM_timeStep},
-	{"getM_stepCount", &luna_wrapper_btDispatcherInfo::_bind_getM_stepCount},
-	{"getM_dispatchFunc", &luna_wrapper_btDispatcherInfo::_bind_getM_dispatchFunc},
-	{"getM_timeOfImpact", &luna_wrapper_btDispatcherInfo::_bind_getM_timeOfImpact},
-	{"getM_useContinuous", &luna_wrapper_btDispatcherInfo::_bind_getM_useContinuous},
-	{"getM_debugDraw", &luna_wrapper_btDispatcherInfo::_bind_getM_debugDraw},
-	{"getM_enableSatConvex", &luna_wrapper_btDispatcherInfo::_bind_getM_enableSatConvex},
-	{"getM_enableSPU", &luna_wrapper_btDispatcherInfo::_bind_getM_enableSPU},
-	{"getM_useEpa", &luna_wrapper_btDispatcherInfo::_bind_getM_useEpa},
-	{"getM_allowedCcdPenetration", &luna_wrapper_btDispatcherInfo::_bind_getM_allowedCcdPenetration},
-	{"getM_useConvexConservativeDistanceUtil", &luna_wrapper_btDispatcherInfo::_bind_getM_useConvexConservativeDistanceUtil},
-	{"getM_convexConservativeDistanceThreshold", &luna_wrapper_btDispatcherInfo::_bind_getM_convexConservativeDistanceThreshold},
-	{"getM_stackAllocator", &luna_wrapper_btDispatcherInfo::_bind_getM_stackAllocator},
-	{"setM_timeStep", &luna_wrapper_btDispatcherInfo::_bind_setM_timeStep},
-	{"setM_stepCount", &luna_wrapper_btDispatcherInfo::_bind_setM_stepCount},
-	{"setM_dispatchFunc", &luna_wrapper_btDispatcherInfo::_bind_setM_dispatchFunc},
-	{"setM_timeOfImpact", &luna_wrapper_btDispatcherInfo::_bind_setM_timeOfImpact},
-	{"setM_useContinuous", &luna_wrapper_btDispatcherInfo::_bind_setM_useContinuous},
-	{"setM_debugDraw", &luna_wrapper_btDispatcherInfo::_bind_setM_debugDraw},
-	{"setM_enableSatConvex", &luna_wrapper_btDispatcherInfo::_bind_setM_enableSatConvex},
-	{"setM_enableSPU", &luna_wrapper_btDispatcherInfo::_bind_setM_enableSPU},
-	{"setM_useEpa", &luna_wrapper_btDispatcherInfo::_bind_setM_useEpa},
-	{"setM_allowedCcdPenetration", &luna_wrapper_btDispatcherInfo::_bind_setM_allowedCcdPenetration},
-	{"setM_useConvexConservativeDistanceUtil", &luna_wrapper_btDispatcherInfo::_bind_setM_useConvexConservativeDistanceUtil},
-	{"setM_convexConservativeDistanceThreshold", &luna_wrapper_btDispatcherInfo::_bind_setM_convexConservativeDistanceThreshold},
-	{"setM_stackAllocator", &luna_wrapper_btDispatcherInfo::_bind_setM_stackAllocator},
+	{"getTimeStep", &luna_wrapper_btDispatcherInfo::_bind_getTimeStep},
+	{"getStepCount", &luna_wrapper_btDispatcherInfo::_bind_getStepCount},
+	{"getDispatchFunc", &luna_wrapper_btDispatcherInfo::_bind_getDispatchFunc},
+	{"getTimeOfImpact", &luna_wrapper_btDispatcherInfo::_bind_getTimeOfImpact},
+	{"getUseContinuous", &luna_wrapper_btDispatcherInfo::_bind_getUseContinuous},
+	{"getDebugDraw", &luna_wrapper_btDispatcherInfo::_bind_getDebugDraw},
+	{"getEnableSatConvex", &luna_wrapper_btDispatcherInfo::_bind_getEnableSatConvex},
+	{"getEnableSPU", &luna_wrapper_btDispatcherInfo::_bind_getEnableSPU},
+	{"getUseEpa", &luna_wrapper_btDispatcherInfo::_bind_getUseEpa},
+	{"getAllowedCcdPenetration", &luna_wrapper_btDispatcherInfo::_bind_getAllowedCcdPenetration},
+	{"getUseConvexConservativeDistanceUtil", &luna_wrapper_btDispatcherInfo::_bind_getUseConvexConservativeDistanceUtil},
+	{"getConvexConservativeDistanceThreshold", &luna_wrapper_btDispatcherInfo::_bind_getConvexConservativeDistanceThreshold},
+	{"getStackAllocator", &luna_wrapper_btDispatcherInfo::_bind_getStackAllocator},
+	{"setTimeStep", &luna_wrapper_btDispatcherInfo::_bind_setTimeStep},
+	{"setStepCount", &luna_wrapper_btDispatcherInfo::_bind_setStepCount},
+	{"setDispatchFunc", &luna_wrapper_btDispatcherInfo::_bind_setDispatchFunc},
+	{"setTimeOfImpact", &luna_wrapper_btDispatcherInfo::_bind_setTimeOfImpact},
+	{"setUseContinuous", &luna_wrapper_btDispatcherInfo::_bind_setUseContinuous},
+	{"setDebugDraw", &luna_wrapper_btDispatcherInfo::_bind_setDebugDraw},
+	{"setEnableSatConvex", &luna_wrapper_btDispatcherInfo::_bind_setEnableSatConvex},
+	{"setEnableSPU", &luna_wrapper_btDispatcherInfo::_bind_setEnableSPU},
+	{"setUseEpa", &luna_wrapper_btDispatcherInfo::_bind_setUseEpa},
+	{"setAllowedCcdPenetration", &luna_wrapper_btDispatcherInfo::_bind_setAllowedCcdPenetration},
+	{"setUseConvexConservativeDistanceUtil", &luna_wrapper_btDispatcherInfo::_bind_setUseConvexConservativeDistanceUtil},
+	{"setConvexConservativeDistanceThreshold", &luna_wrapper_btDispatcherInfo::_bind_setConvexConservativeDistanceThreshold},
+	{"setStackAllocator", &luna_wrapper_btDispatcherInfo::_bind_setStackAllocator},
 	{"dynCast", &luna_wrapper_btDispatcherInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_btDispatcherInfo::_bind___eq},
 	{0,0}

@@ -99,13 +99,13 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_get_eye(lua_State *L) {
+	inline static bool _lg_typecheck_getEye(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_eye(lua_State *L) {
+	inline static bool _lg_typecheck_setEye(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,70092749) ) return false;
@@ -169,8 +169,8 @@ public:
 
 	// Function binds:
 	// SPK::Vector3D spark::SparkDrawable::SortParticlesOperator::_eye()
-	static int _bind_get_eye(lua_State *L) {
-		if (!_lg_typecheck_get_eye(L)) {
+	static int _bind_getEye(lua_State *L) {
+		if (!_lg_typecheck_getEye(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in SPK::Vector3D spark::SparkDrawable::SortParticlesOperator::_eye() function, expected prototype:\nSPK::Vector3D spark::SparkDrawable::SortParticlesOperator::_eye()\nClass arguments details:\n");
 		}
@@ -190,8 +190,8 @@ public:
 	}
 
 	// void spark::SparkDrawable::SortParticlesOperator::_eye(SPK::Vector3D value)
-	static int _bind_set_eye(lua_State *L) {
-		if (!_lg_typecheck_set_eye(L)) {
+	static int _bind_setEye(lua_State *L) {
+		if (!_lg_typecheck_setEye(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::SortParticlesOperator::_eye(SPK::Vector3D value) function, expected prototype:\nvoid spark::SparkDrawable::SortParticlesOperator::_eye(SPK::Vector3D value)\nClass arguments details:\narg 1 ID = 70092749\n");
 		}
@@ -254,8 +254,8 @@ const int LunaTraits< spark::SparkDrawable::SortParticlesOperator >::hash = 6889
 const int LunaTraits< spark::SparkDrawable::SortParticlesOperator >::uniqueIDs[] = {68897850,0};
 
 luna_RegType LunaTraits< spark::SparkDrawable::SortParticlesOperator >::methods[] = {
-	{"get_eye", &luna_wrapper_spark_SparkDrawable_SortParticlesOperator::_bind_get_eye},
-	{"set_eye", &luna_wrapper_spark_SparkDrawable_SortParticlesOperator::_bind_set_eye},
+	{"getEye", &luna_wrapper_spark_SparkDrawable_SortParticlesOperator::_bind_getEye},
+	{"setEye", &luna_wrapper_spark_SparkDrawable_SortParticlesOperator::_bind_setEye},
 	{"op_call", &luna_wrapper_spark_SparkDrawable_SortParticlesOperator::_bind_op_call},
 	{"dynCast", &luna_wrapper_spark_SparkDrawable_SortParticlesOperator::_bind_dynCast},
 	{"__eq", &luna_wrapper_spark_SparkDrawable_SortParticlesOperator::_bind___eq},

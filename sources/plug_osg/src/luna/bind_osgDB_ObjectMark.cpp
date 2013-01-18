@@ -73,26 +73,26 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_get_name(lua_State *L) {
+	inline static bool _lg_typecheck_getName(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_indentDelta(lua_State *L) {
+	inline static bool _lg_typecheck_getIndentDelta(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_name(lua_State *L) {
+	inline static bool _lg_typecheck_setName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_indentDelta(lua_State *L) {
+	inline static bool _lg_typecheck_setIndentDelta(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -147,8 +147,8 @@ public:
 
 	// Function binds:
 	// std::string osgDB::ObjectMark::_name()
-	static int _bind_get_name(lua_State *L) {
-		if (!_lg_typecheck_get_name(L)) {
+	static int _bind_getName(lua_State *L) {
+		if (!_lg_typecheck_getName(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in std::string osgDB::ObjectMark::_name() function, expected prototype:\nstd::string osgDB::ObjectMark::_name()\nClass arguments details:\n");
 		}
@@ -166,8 +166,8 @@ public:
 	}
 
 	// int osgDB::ObjectMark::_indentDelta()
-	static int _bind_get_indentDelta(lua_State *L) {
-		if (!_lg_typecheck_get_indentDelta(L)) {
+	static int _bind_getIndentDelta(lua_State *L) {
+		if (!_lg_typecheck_getIndentDelta(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int osgDB::ObjectMark::_indentDelta() function, expected prototype:\nint osgDB::ObjectMark::_indentDelta()\nClass arguments details:\n");
 		}
@@ -185,8 +185,8 @@ public:
 	}
 
 	// void osgDB::ObjectMark::_name(std::string value)
-	static int _bind_set_name(lua_State *L) {
-		if (!_lg_typecheck_set_name(L)) {
+	static int _bind_setName(lua_State *L) {
+		if (!_lg_typecheck_setName(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ObjectMark::_name(std::string value) function, expected prototype:\nvoid osgDB::ObjectMark::_name(std::string value)\nClass arguments details:\n");
 		}
@@ -204,8 +204,8 @@ public:
 	}
 
 	// void osgDB::ObjectMark::_indentDelta(int value)
-	static int _bind_set_indentDelta(lua_State *L) {
-		if (!_lg_typecheck_set_indentDelta(L)) {
+	static int _bind_setIndentDelta(lua_State *L) {
+		if (!_lg_typecheck_setIndentDelta(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ObjectMark::_indentDelta(int value) function, expected prototype:\nvoid osgDB::ObjectMark::_indentDelta(int value)\nClass arguments details:\n");
 		}
@@ -243,10 +243,10 @@ const int LunaTraits< osgDB::ObjectMark >::hash = 60066730;
 const int LunaTraits< osgDB::ObjectMark >::uniqueIDs[] = {60066730,0};
 
 luna_RegType LunaTraits< osgDB::ObjectMark >::methods[] = {
-	{"get_name", &luna_wrapper_osgDB_ObjectMark::_bind_get_name},
-	{"get_indentDelta", &luna_wrapper_osgDB_ObjectMark::_bind_get_indentDelta},
-	{"set_name", &luna_wrapper_osgDB_ObjectMark::_bind_set_name},
-	{"set_indentDelta", &luna_wrapper_osgDB_ObjectMark::_bind_set_indentDelta},
+	{"getName", &luna_wrapper_osgDB_ObjectMark::_bind_getName},
+	{"getIndentDelta", &luna_wrapper_osgDB_ObjectMark::_bind_getIndentDelta},
+	{"setName", &luna_wrapper_osgDB_ObjectMark::_bind_setName},
+	{"setIndentDelta", &luna_wrapper_osgDB_ObjectMark::_bind_setIndentDelta},
 	{"dynCast", &luna_wrapper_osgDB_ObjectMark::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgDB_ObjectMark::_bind___eq},
 	{0,0}

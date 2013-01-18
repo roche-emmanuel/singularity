@@ -100,208 +100,208 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_loLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getLoLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hiLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getHiLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_targetVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_getTargetVelocity(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_maxMotorForce(lua_State *L) {
+	inline static bool _lg_typecheck_getMaxMotorForce(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_maxLimitForce(lua_State *L) {
+	inline static bool _lg_typecheck_getMaxLimitForce(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_damping(lua_State *L) {
+	inline static bool _lg_typecheck_getDamping(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_limitSoftness(lua_State *L) {
+	inline static bool _lg_typecheck_getLimitSoftness(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_normalCFM(lua_State *L) {
+	inline static bool _lg_typecheck_getNormalCFM(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_stopERP(lua_State *L) {
+	inline static bool _lg_typecheck_getStopERP(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_stopCFM(lua_State *L) {
+	inline static bool _lg_typecheck_getStopCFM(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_bounce(lua_State *L) {
+	inline static bool _lg_typecheck_getBounce(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_enableMotor(lua_State *L) {
+	inline static bool _lg_typecheck_getEnableMotor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_currentLimitError(lua_State *L) {
+	inline static bool _lg_typecheck_getCurrentLimitError(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_currentPosition(lua_State *L) {
+	inline static bool _lg_typecheck_getCurrentPosition(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_currentLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getCurrentLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_accumulatedImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_getAccumulatedImpulse(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_loLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setLoLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hiLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setHiLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_targetVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_setTargetVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_maxMotorForce(lua_State *L) {
+	inline static bool _lg_typecheck_setMaxMotorForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_maxLimitForce(lua_State *L) {
+	inline static bool _lg_typecheck_setMaxLimitForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_damping(lua_State *L) {
+	inline static bool _lg_typecheck_setDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_limitSoftness(lua_State *L) {
+	inline static bool _lg_typecheck_setLimitSoftness(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_normalCFM(lua_State *L) {
+	inline static bool _lg_typecheck_setNormalCFM(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_stopERP(lua_State *L) {
+	inline static bool _lg_typecheck_setStopERP(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_stopCFM(lua_State *L) {
+	inline static bool _lg_typecheck_setStopCFM(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_bounce(lua_State *L) {
+	inline static bool _lg_typecheck_setBounce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_enableMotor(lua_State *L) {
+	inline static bool _lg_typecheck_setEnableMotor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_currentLimitError(lua_State *L) {
+	inline static bool _lg_typecheck_setCurrentLimitError(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_currentPosition(lua_State *L) {
+	inline static bool _lg_typecheck_setCurrentPosition(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_currentLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setCurrentLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_accumulatedImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_setAccumulatedImpulse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -438,8 +438,8 @@ public:
 	}
 
 	// float btRotationalLimitMotor::m_loLimit()
-	static int _bind_getM_loLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_loLimit(L)) {
+	static int _bind_getLoLimit(lua_State *L) {
+		if (!_lg_typecheck_getLoLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRotationalLimitMotor::m_loLimit() function, expected prototype:\nfloat btRotationalLimitMotor::m_loLimit()\nClass arguments details:\n");
 		}
@@ -457,8 +457,8 @@ public:
 	}
 
 	// float btRotationalLimitMotor::m_hiLimit()
-	static int _bind_getM_hiLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_hiLimit(L)) {
+	static int _bind_getHiLimit(lua_State *L) {
+		if (!_lg_typecheck_getHiLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRotationalLimitMotor::m_hiLimit() function, expected prototype:\nfloat btRotationalLimitMotor::m_hiLimit()\nClass arguments details:\n");
 		}
@@ -476,8 +476,8 @@ public:
 	}
 
 	// float btRotationalLimitMotor::m_targetVelocity()
-	static int _bind_getM_targetVelocity(lua_State *L) {
-		if (!_lg_typecheck_getM_targetVelocity(L)) {
+	static int _bind_getTargetVelocity(lua_State *L) {
+		if (!_lg_typecheck_getTargetVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRotationalLimitMotor::m_targetVelocity() function, expected prototype:\nfloat btRotationalLimitMotor::m_targetVelocity()\nClass arguments details:\n");
 		}
@@ -495,8 +495,8 @@ public:
 	}
 
 	// float btRotationalLimitMotor::m_maxMotorForce()
-	static int _bind_getM_maxMotorForce(lua_State *L) {
-		if (!_lg_typecheck_getM_maxMotorForce(L)) {
+	static int _bind_getMaxMotorForce(lua_State *L) {
+		if (!_lg_typecheck_getMaxMotorForce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRotationalLimitMotor::m_maxMotorForce() function, expected prototype:\nfloat btRotationalLimitMotor::m_maxMotorForce()\nClass arguments details:\n");
 		}
@@ -514,8 +514,8 @@ public:
 	}
 
 	// float btRotationalLimitMotor::m_maxLimitForce()
-	static int _bind_getM_maxLimitForce(lua_State *L) {
-		if (!_lg_typecheck_getM_maxLimitForce(L)) {
+	static int _bind_getMaxLimitForce(lua_State *L) {
+		if (!_lg_typecheck_getMaxLimitForce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRotationalLimitMotor::m_maxLimitForce() function, expected prototype:\nfloat btRotationalLimitMotor::m_maxLimitForce()\nClass arguments details:\n");
 		}
@@ -533,8 +533,8 @@ public:
 	}
 
 	// float btRotationalLimitMotor::m_damping()
-	static int _bind_getM_damping(lua_State *L) {
-		if (!_lg_typecheck_getM_damping(L)) {
+	static int _bind_getDamping(lua_State *L) {
+		if (!_lg_typecheck_getDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRotationalLimitMotor::m_damping() function, expected prototype:\nfloat btRotationalLimitMotor::m_damping()\nClass arguments details:\n");
 		}
@@ -552,8 +552,8 @@ public:
 	}
 
 	// float btRotationalLimitMotor::m_limitSoftness()
-	static int _bind_getM_limitSoftness(lua_State *L) {
-		if (!_lg_typecheck_getM_limitSoftness(L)) {
+	static int _bind_getLimitSoftness(lua_State *L) {
+		if (!_lg_typecheck_getLimitSoftness(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRotationalLimitMotor::m_limitSoftness() function, expected prototype:\nfloat btRotationalLimitMotor::m_limitSoftness()\nClass arguments details:\n");
 		}
@@ -571,8 +571,8 @@ public:
 	}
 
 	// float btRotationalLimitMotor::m_normalCFM()
-	static int _bind_getM_normalCFM(lua_State *L) {
-		if (!_lg_typecheck_getM_normalCFM(L)) {
+	static int _bind_getNormalCFM(lua_State *L) {
+		if (!_lg_typecheck_getNormalCFM(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRotationalLimitMotor::m_normalCFM() function, expected prototype:\nfloat btRotationalLimitMotor::m_normalCFM()\nClass arguments details:\n");
 		}
@@ -590,8 +590,8 @@ public:
 	}
 
 	// float btRotationalLimitMotor::m_stopERP()
-	static int _bind_getM_stopERP(lua_State *L) {
-		if (!_lg_typecheck_getM_stopERP(L)) {
+	static int _bind_getStopERP(lua_State *L) {
+		if (!_lg_typecheck_getStopERP(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRotationalLimitMotor::m_stopERP() function, expected prototype:\nfloat btRotationalLimitMotor::m_stopERP()\nClass arguments details:\n");
 		}
@@ -609,8 +609,8 @@ public:
 	}
 
 	// float btRotationalLimitMotor::m_stopCFM()
-	static int _bind_getM_stopCFM(lua_State *L) {
-		if (!_lg_typecheck_getM_stopCFM(L)) {
+	static int _bind_getStopCFM(lua_State *L) {
+		if (!_lg_typecheck_getStopCFM(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRotationalLimitMotor::m_stopCFM() function, expected prototype:\nfloat btRotationalLimitMotor::m_stopCFM()\nClass arguments details:\n");
 		}
@@ -628,8 +628,8 @@ public:
 	}
 
 	// float btRotationalLimitMotor::m_bounce()
-	static int _bind_getM_bounce(lua_State *L) {
-		if (!_lg_typecheck_getM_bounce(L)) {
+	static int _bind_getBounce(lua_State *L) {
+		if (!_lg_typecheck_getBounce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRotationalLimitMotor::m_bounce() function, expected prototype:\nfloat btRotationalLimitMotor::m_bounce()\nClass arguments details:\n");
 		}
@@ -647,8 +647,8 @@ public:
 	}
 
 	// bool btRotationalLimitMotor::m_enableMotor()
-	static int _bind_getM_enableMotor(lua_State *L) {
-		if (!_lg_typecheck_getM_enableMotor(L)) {
+	static int _bind_getEnableMotor(lua_State *L) {
+		if (!_lg_typecheck_getEnableMotor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btRotationalLimitMotor::m_enableMotor() function, expected prototype:\nbool btRotationalLimitMotor::m_enableMotor()\nClass arguments details:\n");
 		}
@@ -666,8 +666,8 @@ public:
 	}
 
 	// float btRotationalLimitMotor::m_currentLimitError()
-	static int _bind_getM_currentLimitError(lua_State *L) {
-		if (!_lg_typecheck_getM_currentLimitError(L)) {
+	static int _bind_getCurrentLimitError(lua_State *L) {
+		if (!_lg_typecheck_getCurrentLimitError(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRotationalLimitMotor::m_currentLimitError() function, expected prototype:\nfloat btRotationalLimitMotor::m_currentLimitError()\nClass arguments details:\n");
 		}
@@ -685,8 +685,8 @@ public:
 	}
 
 	// float btRotationalLimitMotor::m_currentPosition()
-	static int _bind_getM_currentPosition(lua_State *L) {
-		if (!_lg_typecheck_getM_currentPosition(L)) {
+	static int _bind_getCurrentPosition(lua_State *L) {
+		if (!_lg_typecheck_getCurrentPosition(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRotationalLimitMotor::m_currentPosition() function, expected prototype:\nfloat btRotationalLimitMotor::m_currentPosition()\nClass arguments details:\n");
 		}
@@ -704,8 +704,8 @@ public:
 	}
 
 	// int btRotationalLimitMotor::m_currentLimit()
-	static int _bind_getM_currentLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_currentLimit(L)) {
+	static int _bind_getCurrentLimit(lua_State *L) {
+		if (!_lg_typecheck_getCurrentLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btRotationalLimitMotor::m_currentLimit() function, expected prototype:\nint btRotationalLimitMotor::m_currentLimit()\nClass arguments details:\n");
 		}
@@ -723,8 +723,8 @@ public:
 	}
 
 	// float btRotationalLimitMotor::m_accumulatedImpulse()
-	static int _bind_getM_accumulatedImpulse(lua_State *L) {
-		if (!_lg_typecheck_getM_accumulatedImpulse(L)) {
+	static int _bind_getAccumulatedImpulse(lua_State *L) {
+		if (!_lg_typecheck_getAccumulatedImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRotationalLimitMotor::m_accumulatedImpulse() function, expected prototype:\nfloat btRotationalLimitMotor::m_accumulatedImpulse()\nClass arguments details:\n");
 		}
@@ -742,8 +742,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_loLimit(float value)
-	static int _bind_setM_loLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_loLimit(L)) {
+	static int _bind_setLoLimit(lua_State *L) {
+		if (!_lg_typecheck_setLoLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_loLimit(float value) function, expected prototype:\nvoid btRotationalLimitMotor::m_loLimit(float value)\nClass arguments details:\n");
 		}
@@ -761,8 +761,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_hiLimit(float value)
-	static int _bind_setM_hiLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_hiLimit(L)) {
+	static int _bind_setHiLimit(lua_State *L) {
+		if (!_lg_typecheck_setHiLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_hiLimit(float value) function, expected prototype:\nvoid btRotationalLimitMotor::m_hiLimit(float value)\nClass arguments details:\n");
 		}
@@ -780,8 +780,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_targetVelocity(float value)
-	static int _bind_setM_targetVelocity(lua_State *L) {
-		if (!_lg_typecheck_setM_targetVelocity(L)) {
+	static int _bind_setTargetVelocity(lua_State *L) {
+		if (!_lg_typecheck_setTargetVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_targetVelocity(float value) function, expected prototype:\nvoid btRotationalLimitMotor::m_targetVelocity(float value)\nClass arguments details:\n");
 		}
@@ -799,8 +799,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_maxMotorForce(float value)
-	static int _bind_setM_maxMotorForce(lua_State *L) {
-		if (!_lg_typecheck_setM_maxMotorForce(L)) {
+	static int _bind_setMaxMotorForce(lua_State *L) {
+		if (!_lg_typecheck_setMaxMotorForce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_maxMotorForce(float value) function, expected prototype:\nvoid btRotationalLimitMotor::m_maxMotorForce(float value)\nClass arguments details:\n");
 		}
@@ -818,8 +818,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_maxLimitForce(float value)
-	static int _bind_setM_maxLimitForce(lua_State *L) {
-		if (!_lg_typecheck_setM_maxLimitForce(L)) {
+	static int _bind_setMaxLimitForce(lua_State *L) {
+		if (!_lg_typecheck_setMaxLimitForce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_maxLimitForce(float value) function, expected prototype:\nvoid btRotationalLimitMotor::m_maxLimitForce(float value)\nClass arguments details:\n");
 		}
@@ -837,8 +837,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_damping(float value)
-	static int _bind_setM_damping(lua_State *L) {
-		if (!_lg_typecheck_setM_damping(L)) {
+	static int _bind_setDamping(lua_State *L) {
+		if (!_lg_typecheck_setDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_damping(float value) function, expected prototype:\nvoid btRotationalLimitMotor::m_damping(float value)\nClass arguments details:\n");
 		}
@@ -856,8 +856,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_limitSoftness(float value)
-	static int _bind_setM_limitSoftness(lua_State *L) {
-		if (!_lg_typecheck_setM_limitSoftness(L)) {
+	static int _bind_setLimitSoftness(lua_State *L) {
+		if (!_lg_typecheck_setLimitSoftness(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_limitSoftness(float value) function, expected prototype:\nvoid btRotationalLimitMotor::m_limitSoftness(float value)\nClass arguments details:\n");
 		}
@@ -875,8 +875,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_normalCFM(float value)
-	static int _bind_setM_normalCFM(lua_State *L) {
-		if (!_lg_typecheck_setM_normalCFM(L)) {
+	static int _bind_setNormalCFM(lua_State *L) {
+		if (!_lg_typecheck_setNormalCFM(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_normalCFM(float value) function, expected prototype:\nvoid btRotationalLimitMotor::m_normalCFM(float value)\nClass arguments details:\n");
 		}
@@ -894,8 +894,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_stopERP(float value)
-	static int _bind_setM_stopERP(lua_State *L) {
-		if (!_lg_typecheck_setM_stopERP(L)) {
+	static int _bind_setStopERP(lua_State *L) {
+		if (!_lg_typecheck_setStopERP(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_stopERP(float value) function, expected prototype:\nvoid btRotationalLimitMotor::m_stopERP(float value)\nClass arguments details:\n");
 		}
@@ -913,8 +913,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_stopCFM(float value)
-	static int _bind_setM_stopCFM(lua_State *L) {
-		if (!_lg_typecheck_setM_stopCFM(L)) {
+	static int _bind_setStopCFM(lua_State *L) {
+		if (!_lg_typecheck_setStopCFM(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_stopCFM(float value) function, expected prototype:\nvoid btRotationalLimitMotor::m_stopCFM(float value)\nClass arguments details:\n");
 		}
@@ -932,8 +932,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_bounce(float value)
-	static int _bind_setM_bounce(lua_State *L) {
-		if (!_lg_typecheck_setM_bounce(L)) {
+	static int _bind_setBounce(lua_State *L) {
+		if (!_lg_typecheck_setBounce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_bounce(float value) function, expected prototype:\nvoid btRotationalLimitMotor::m_bounce(float value)\nClass arguments details:\n");
 		}
@@ -951,8 +951,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_enableMotor(bool value)
-	static int _bind_setM_enableMotor(lua_State *L) {
-		if (!_lg_typecheck_setM_enableMotor(L)) {
+	static int _bind_setEnableMotor(lua_State *L) {
+		if (!_lg_typecheck_setEnableMotor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_enableMotor(bool value) function, expected prototype:\nvoid btRotationalLimitMotor::m_enableMotor(bool value)\nClass arguments details:\n");
 		}
@@ -970,8 +970,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_currentLimitError(float value)
-	static int _bind_setM_currentLimitError(lua_State *L) {
-		if (!_lg_typecheck_setM_currentLimitError(L)) {
+	static int _bind_setCurrentLimitError(lua_State *L) {
+		if (!_lg_typecheck_setCurrentLimitError(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_currentLimitError(float value) function, expected prototype:\nvoid btRotationalLimitMotor::m_currentLimitError(float value)\nClass arguments details:\n");
 		}
@@ -989,8 +989,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_currentPosition(float value)
-	static int _bind_setM_currentPosition(lua_State *L) {
-		if (!_lg_typecheck_setM_currentPosition(L)) {
+	static int _bind_setCurrentPosition(lua_State *L) {
+		if (!_lg_typecheck_setCurrentPosition(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_currentPosition(float value) function, expected prototype:\nvoid btRotationalLimitMotor::m_currentPosition(float value)\nClass arguments details:\n");
 		}
@@ -1008,8 +1008,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_currentLimit(int value)
-	static int _bind_setM_currentLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_currentLimit(L)) {
+	static int _bind_setCurrentLimit(lua_State *L) {
+		if (!_lg_typecheck_setCurrentLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_currentLimit(int value) function, expected prototype:\nvoid btRotationalLimitMotor::m_currentLimit(int value)\nClass arguments details:\n");
 		}
@@ -1027,8 +1027,8 @@ public:
 	}
 
 	// void btRotationalLimitMotor::m_accumulatedImpulse(float value)
-	static int _bind_setM_accumulatedImpulse(lua_State *L) {
-		if (!_lg_typecheck_setM_accumulatedImpulse(L)) {
+	static int _bind_setAccumulatedImpulse(lua_State *L) {
+		if (!_lg_typecheck_setAccumulatedImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRotationalLimitMotor::m_accumulatedImpulse(float value) function, expected prototype:\nvoid btRotationalLimitMotor::m_accumulatedImpulse(float value)\nClass arguments details:\n");
 		}
@@ -1070,38 +1070,38 @@ luna_RegType LunaTraits< btRotationalLimitMotor >::methods[] = {
 	{"needApplyTorques", &luna_wrapper_btRotationalLimitMotor::_bind_needApplyTorques},
 	{"testLimitValue", &luna_wrapper_btRotationalLimitMotor::_bind_testLimitValue},
 	{"solveAngularLimits", &luna_wrapper_btRotationalLimitMotor::_bind_solveAngularLimits},
-	{"getM_loLimit", &luna_wrapper_btRotationalLimitMotor::_bind_getM_loLimit},
-	{"getM_hiLimit", &luna_wrapper_btRotationalLimitMotor::_bind_getM_hiLimit},
-	{"getM_targetVelocity", &luna_wrapper_btRotationalLimitMotor::_bind_getM_targetVelocity},
-	{"getM_maxMotorForce", &luna_wrapper_btRotationalLimitMotor::_bind_getM_maxMotorForce},
-	{"getM_maxLimitForce", &luna_wrapper_btRotationalLimitMotor::_bind_getM_maxLimitForce},
-	{"getM_damping", &luna_wrapper_btRotationalLimitMotor::_bind_getM_damping},
-	{"getM_limitSoftness", &luna_wrapper_btRotationalLimitMotor::_bind_getM_limitSoftness},
-	{"getM_normalCFM", &luna_wrapper_btRotationalLimitMotor::_bind_getM_normalCFM},
-	{"getM_stopERP", &luna_wrapper_btRotationalLimitMotor::_bind_getM_stopERP},
-	{"getM_stopCFM", &luna_wrapper_btRotationalLimitMotor::_bind_getM_stopCFM},
-	{"getM_bounce", &luna_wrapper_btRotationalLimitMotor::_bind_getM_bounce},
-	{"getM_enableMotor", &luna_wrapper_btRotationalLimitMotor::_bind_getM_enableMotor},
-	{"getM_currentLimitError", &luna_wrapper_btRotationalLimitMotor::_bind_getM_currentLimitError},
-	{"getM_currentPosition", &luna_wrapper_btRotationalLimitMotor::_bind_getM_currentPosition},
-	{"getM_currentLimit", &luna_wrapper_btRotationalLimitMotor::_bind_getM_currentLimit},
-	{"getM_accumulatedImpulse", &luna_wrapper_btRotationalLimitMotor::_bind_getM_accumulatedImpulse},
-	{"setM_loLimit", &luna_wrapper_btRotationalLimitMotor::_bind_setM_loLimit},
-	{"setM_hiLimit", &luna_wrapper_btRotationalLimitMotor::_bind_setM_hiLimit},
-	{"setM_targetVelocity", &luna_wrapper_btRotationalLimitMotor::_bind_setM_targetVelocity},
-	{"setM_maxMotorForce", &luna_wrapper_btRotationalLimitMotor::_bind_setM_maxMotorForce},
-	{"setM_maxLimitForce", &luna_wrapper_btRotationalLimitMotor::_bind_setM_maxLimitForce},
-	{"setM_damping", &luna_wrapper_btRotationalLimitMotor::_bind_setM_damping},
-	{"setM_limitSoftness", &luna_wrapper_btRotationalLimitMotor::_bind_setM_limitSoftness},
-	{"setM_normalCFM", &luna_wrapper_btRotationalLimitMotor::_bind_setM_normalCFM},
-	{"setM_stopERP", &luna_wrapper_btRotationalLimitMotor::_bind_setM_stopERP},
-	{"setM_stopCFM", &luna_wrapper_btRotationalLimitMotor::_bind_setM_stopCFM},
-	{"setM_bounce", &luna_wrapper_btRotationalLimitMotor::_bind_setM_bounce},
-	{"setM_enableMotor", &luna_wrapper_btRotationalLimitMotor::_bind_setM_enableMotor},
-	{"setM_currentLimitError", &luna_wrapper_btRotationalLimitMotor::_bind_setM_currentLimitError},
-	{"setM_currentPosition", &luna_wrapper_btRotationalLimitMotor::_bind_setM_currentPosition},
-	{"setM_currentLimit", &luna_wrapper_btRotationalLimitMotor::_bind_setM_currentLimit},
-	{"setM_accumulatedImpulse", &luna_wrapper_btRotationalLimitMotor::_bind_setM_accumulatedImpulse},
+	{"getLoLimit", &luna_wrapper_btRotationalLimitMotor::_bind_getLoLimit},
+	{"getHiLimit", &luna_wrapper_btRotationalLimitMotor::_bind_getHiLimit},
+	{"getTargetVelocity", &luna_wrapper_btRotationalLimitMotor::_bind_getTargetVelocity},
+	{"getMaxMotorForce", &luna_wrapper_btRotationalLimitMotor::_bind_getMaxMotorForce},
+	{"getMaxLimitForce", &luna_wrapper_btRotationalLimitMotor::_bind_getMaxLimitForce},
+	{"getDamping", &luna_wrapper_btRotationalLimitMotor::_bind_getDamping},
+	{"getLimitSoftness", &luna_wrapper_btRotationalLimitMotor::_bind_getLimitSoftness},
+	{"getNormalCFM", &luna_wrapper_btRotationalLimitMotor::_bind_getNormalCFM},
+	{"getStopERP", &luna_wrapper_btRotationalLimitMotor::_bind_getStopERP},
+	{"getStopCFM", &luna_wrapper_btRotationalLimitMotor::_bind_getStopCFM},
+	{"getBounce", &luna_wrapper_btRotationalLimitMotor::_bind_getBounce},
+	{"getEnableMotor", &luna_wrapper_btRotationalLimitMotor::_bind_getEnableMotor},
+	{"getCurrentLimitError", &luna_wrapper_btRotationalLimitMotor::_bind_getCurrentLimitError},
+	{"getCurrentPosition", &luna_wrapper_btRotationalLimitMotor::_bind_getCurrentPosition},
+	{"getCurrentLimit", &luna_wrapper_btRotationalLimitMotor::_bind_getCurrentLimit},
+	{"getAccumulatedImpulse", &luna_wrapper_btRotationalLimitMotor::_bind_getAccumulatedImpulse},
+	{"setLoLimit", &luna_wrapper_btRotationalLimitMotor::_bind_setLoLimit},
+	{"setHiLimit", &luna_wrapper_btRotationalLimitMotor::_bind_setHiLimit},
+	{"setTargetVelocity", &luna_wrapper_btRotationalLimitMotor::_bind_setTargetVelocity},
+	{"setMaxMotorForce", &luna_wrapper_btRotationalLimitMotor::_bind_setMaxMotorForce},
+	{"setMaxLimitForce", &luna_wrapper_btRotationalLimitMotor::_bind_setMaxLimitForce},
+	{"setDamping", &luna_wrapper_btRotationalLimitMotor::_bind_setDamping},
+	{"setLimitSoftness", &luna_wrapper_btRotationalLimitMotor::_bind_setLimitSoftness},
+	{"setNormalCFM", &luna_wrapper_btRotationalLimitMotor::_bind_setNormalCFM},
+	{"setStopERP", &luna_wrapper_btRotationalLimitMotor::_bind_setStopERP},
+	{"setStopCFM", &luna_wrapper_btRotationalLimitMotor::_bind_setStopCFM},
+	{"setBounce", &luna_wrapper_btRotationalLimitMotor::_bind_setBounce},
+	{"setEnableMotor", &luna_wrapper_btRotationalLimitMotor::_bind_setEnableMotor},
+	{"setCurrentLimitError", &luna_wrapper_btRotationalLimitMotor::_bind_setCurrentLimitError},
+	{"setCurrentPosition", &luna_wrapper_btRotationalLimitMotor::_bind_setCurrentPosition},
+	{"setCurrentLimit", &luna_wrapper_btRotationalLimitMotor::_bind_setCurrentLimit},
+	{"setAccumulatedImpulse", &luna_wrapper_btRotationalLimitMotor::_bind_setAccumulatedImpulse},
 	{"dynCast", &luna_wrapper_btRotationalLimitMotor::_bind_dynCast},
 	{"__eq", &luna_wrapper_btRotationalLimitMotor::_bind___eq},
 	{0,0}

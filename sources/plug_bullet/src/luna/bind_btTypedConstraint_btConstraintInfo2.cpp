@@ -68,25 +68,25 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_J1linearAxis(lua_State *L) {
+	inline static bool _lg_typecheck_getJ1linearAxis(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_J1angularAxis(lua_State *L) {
+	inline static bool _lg_typecheck_getJ1angularAxis(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_J2linearAxis(lua_State *L) {
+	inline static bool _lg_typecheck_getJ2linearAxis(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_J2angularAxis(lua_State *L) {
+	inline static bool _lg_typecheck_getJ2angularAxis(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -98,7 +98,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_constraintError(lua_State *L) {
+	inline static bool _lg_typecheck_getConstraintError(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -110,13 +110,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_lowerLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getLowerLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_upperLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getUpperLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -128,13 +128,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numIterations(lua_State *L) {
+	inline static bool _lg_typecheck_getNumIterations(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_damping(lua_State *L) {
+	inline static bool _lg_typecheck_getDamping(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -154,28 +154,28 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_J1linearAxis(lua_State *L) {
+	inline static bool _lg_typecheck_setJ1linearAxis(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_J1angularAxis(lua_State *L) {
+	inline static bool _lg_typecheck_setJ1angularAxis(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_J2linearAxis(lua_State *L) {
+	inline static bool _lg_typecheck_setJ2linearAxis(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_J2angularAxis(lua_State *L) {
+	inline static bool _lg_typecheck_setJ2angularAxis(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -189,7 +189,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_constraintError(lua_State *L) {
+	inline static bool _lg_typecheck_setConstraintError(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -203,14 +203,14 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_lowerLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setLowerLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_upperLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setUpperLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -224,14 +224,14 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numIterations(lua_State *L) {
+	inline static bool _lg_typecheck_setNumIterations(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_damping(lua_State *L) {
+	inline static bool _lg_typecheck_setDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -284,8 +284,8 @@ public:
 	}
 
 	// float * btTypedConstraint::btConstraintInfo2::m_J1linearAxis()
-	static int _bind_getM_J1linearAxis(lua_State *L) {
-		if (!_lg_typecheck_getM_J1linearAxis(L)) {
+	static int _bind_getJ1linearAxis(lua_State *L) {
+		if (!_lg_typecheck_getJ1linearAxis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float * btTypedConstraint::btConstraintInfo2::m_J1linearAxis() function, expected prototype:\nfloat * btTypedConstraint::btConstraintInfo2::m_J1linearAxis()\nClass arguments details:\n");
 		}
@@ -303,8 +303,8 @@ public:
 	}
 
 	// float * btTypedConstraint::btConstraintInfo2::m_J1angularAxis()
-	static int _bind_getM_J1angularAxis(lua_State *L) {
-		if (!_lg_typecheck_getM_J1angularAxis(L)) {
+	static int _bind_getJ1angularAxis(lua_State *L) {
+		if (!_lg_typecheck_getJ1angularAxis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float * btTypedConstraint::btConstraintInfo2::m_J1angularAxis() function, expected prototype:\nfloat * btTypedConstraint::btConstraintInfo2::m_J1angularAxis()\nClass arguments details:\n");
 		}
@@ -322,8 +322,8 @@ public:
 	}
 
 	// float * btTypedConstraint::btConstraintInfo2::m_J2linearAxis()
-	static int _bind_getM_J2linearAxis(lua_State *L) {
-		if (!_lg_typecheck_getM_J2linearAxis(L)) {
+	static int _bind_getJ2linearAxis(lua_State *L) {
+		if (!_lg_typecheck_getJ2linearAxis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float * btTypedConstraint::btConstraintInfo2::m_J2linearAxis() function, expected prototype:\nfloat * btTypedConstraint::btConstraintInfo2::m_J2linearAxis()\nClass arguments details:\n");
 		}
@@ -341,8 +341,8 @@ public:
 	}
 
 	// float * btTypedConstraint::btConstraintInfo2::m_J2angularAxis()
-	static int _bind_getM_J2angularAxis(lua_State *L) {
-		if (!_lg_typecheck_getM_J2angularAxis(L)) {
+	static int _bind_getJ2angularAxis(lua_State *L) {
+		if (!_lg_typecheck_getJ2angularAxis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float * btTypedConstraint::btConstraintInfo2::m_J2angularAxis() function, expected prototype:\nfloat * btTypedConstraint::btConstraintInfo2::m_J2angularAxis()\nClass arguments details:\n");
 		}
@@ -379,8 +379,8 @@ public:
 	}
 
 	// float * btTypedConstraint::btConstraintInfo2::m_constraintError()
-	static int _bind_getM_constraintError(lua_State *L) {
-		if (!_lg_typecheck_getM_constraintError(L)) {
+	static int _bind_getConstraintError(lua_State *L) {
+		if (!_lg_typecheck_getConstraintError(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float * btTypedConstraint::btConstraintInfo2::m_constraintError() function, expected prototype:\nfloat * btTypedConstraint::btConstraintInfo2::m_constraintError()\nClass arguments details:\n");
 		}
@@ -417,8 +417,8 @@ public:
 	}
 
 	// float * btTypedConstraint::btConstraintInfo2::m_lowerLimit()
-	static int _bind_getM_lowerLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_lowerLimit(L)) {
+	static int _bind_getLowerLimit(lua_State *L) {
+		if (!_lg_typecheck_getLowerLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float * btTypedConstraint::btConstraintInfo2::m_lowerLimit() function, expected prototype:\nfloat * btTypedConstraint::btConstraintInfo2::m_lowerLimit()\nClass arguments details:\n");
 		}
@@ -436,8 +436,8 @@ public:
 	}
 
 	// float * btTypedConstraint::btConstraintInfo2::m_upperLimit()
-	static int _bind_getM_upperLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_upperLimit(L)) {
+	static int _bind_getUpperLimit(lua_State *L) {
+		if (!_lg_typecheck_getUpperLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float * btTypedConstraint::btConstraintInfo2::m_upperLimit() function, expected prototype:\nfloat * btTypedConstraint::btConstraintInfo2::m_upperLimit()\nClass arguments details:\n");
 		}
@@ -474,8 +474,8 @@ public:
 	}
 
 	// int btTypedConstraint::btConstraintInfo2::m_numIterations()
-	static int _bind_getM_numIterations(lua_State *L) {
-		if (!_lg_typecheck_getM_numIterations(L)) {
+	static int _bind_getNumIterations(lua_State *L) {
+		if (!_lg_typecheck_getNumIterations(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTypedConstraint::btConstraintInfo2::m_numIterations() function, expected prototype:\nint btTypedConstraint::btConstraintInfo2::m_numIterations()\nClass arguments details:\n");
 		}
@@ -493,8 +493,8 @@ public:
 	}
 
 	// float btTypedConstraint::btConstraintInfo2::m_damping()
-	static int _bind_getM_damping(lua_State *L) {
-		if (!_lg_typecheck_getM_damping(L)) {
+	static int _bind_getDamping(lua_State *L) {
+		if (!_lg_typecheck_getDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTypedConstraint::btConstraintInfo2::m_damping() function, expected prototype:\nfloat btTypedConstraint::btConstraintInfo2::m_damping()\nClass arguments details:\n");
 		}
@@ -550,8 +550,8 @@ public:
 	}
 
 	// void btTypedConstraint::btConstraintInfo2::m_J1linearAxis(float * value)
-	static int _bind_setM_J1linearAxis(lua_State *L) {
-		if (!_lg_typecheck_setM_J1linearAxis(L)) {
+	static int _bind_setJ1linearAxis(lua_State *L) {
+		if (!_lg_typecheck_setJ1linearAxis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraint::btConstraintInfo2::m_J1linearAxis(float * value) function, expected prototype:\nvoid btTypedConstraint::btConstraintInfo2::m_J1linearAxis(float * value)\nClass arguments details:\n");
 		}
@@ -569,8 +569,8 @@ public:
 	}
 
 	// void btTypedConstraint::btConstraintInfo2::m_J1angularAxis(float * value)
-	static int _bind_setM_J1angularAxis(lua_State *L) {
-		if (!_lg_typecheck_setM_J1angularAxis(L)) {
+	static int _bind_setJ1angularAxis(lua_State *L) {
+		if (!_lg_typecheck_setJ1angularAxis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraint::btConstraintInfo2::m_J1angularAxis(float * value) function, expected prototype:\nvoid btTypedConstraint::btConstraintInfo2::m_J1angularAxis(float * value)\nClass arguments details:\n");
 		}
@@ -588,8 +588,8 @@ public:
 	}
 
 	// void btTypedConstraint::btConstraintInfo2::m_J2linearAxis(float * value)
-	static int _bind_setM_J2linearAxis(lua_State *L) {
-		if (!_lg_typecheck_setM_J2linearAxis(L)) {
+	static int _bind_setJ2linearAxis(lua_State *L) {
+		if (!_lg_typecheck_setJ2linearAxis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraint::btConstraintInfo2::m_J2linearAxis(float * value) function, expected prototype:\nvoid btTypedConstraint::btConstraintInfo2::m_J2linearAxis(float * value)\nClass arguments details:\n");
 		}
@@ -607,8 +607,8 @@ public:
 	}
 
 	// void btTypedConstraint::btConstraintInfo2::m_J2angularAxis(float * value)
-	static int _bind_setM_J2angularAxis(lua_State *L) {
-		if (!_lg_typecheck_setM_J2angularAxis(L)) {
+	static int _bind_setJ2angularAxis(lua_State *L) {
+		if (!_lg_typecheck_setJ2angularAxis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraint::btConstraintInfo2::m_J2angularAxis(float * value) function, expected prototype:\nvoid btTypedConstraint::btConstraintInfo2::m_J2angularAxis(float * value)\nClass arguments details:\n");
 		}
@@ -645,8 +645,8 @@ public:
 	}
 
 	// void btTypedConstraint::btConstraintInfo2::m_constraintError(float * value)
-	static int _bind_setM_constraintError(lua_State *L) {
-		if (!_lg_typecheck_setM_constraintError(L)) {
+	static int _bind_setConstraintError(lua_State *L) {
+		if (!_lg_typecheck_setConstraintError(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraint::btConstraintInfo2::m_constraintError(float * value) function, expected prototype:\nvoid btTypedConstraint::btConstraintInfo2::m_constraintError(float * value)\nClass arguments details:\n");
 		}
@@ -683,8 +683,8 @@ public:
 	}
 
 	// void btTypedConstraint::btConstraintInfo2::m_lowerLimit(float * value)
-	static int _bind_setM_lowerLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_lowerLimit(L)) {
+	static int _bind_setLowerLimit(lua_State *L) {
+		if (!_lg_typecheck_setLowerLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraint::btConstraintInfo2::m_lowerLimit(float * value) function, expected prototype:\nvoid btTypedConstraint::btConstraintInfo2::m_lowerLimit(float * value)\nClass arguments details:\n");
 		}
@@ -702,8 +702,8 @@ public:
 	}
 
 	// void btTypedConstraint::btConstraintInfo2::m_upperLimit(float * value)
-	static int _bind_setM_upperLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_upperLimit(L)) {
+	static int _bind_setUpperLimit(lua_State *L) {
+		if (!_lg_typecheck_setUpperLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraint::btConstraintInfo2::m_upperLimit(float * value) function, expected prototype:\nvoid btTypedConstraint::btConstraintInfo2::m_upperLimit(float * value)\nClass arguments details:\n");
 		}
@@ -740,8 +740,8 @@ public:
 	}
 
 	// void btTypedConstraint::btConstraintInfo2::m_numIterations(int value)
-	static int _bind_setM_numIterations(lua_State *L) {
-		if (!_lg_typecheck_setM_numIterations(L)) {
+	static int _bind_setNumIterations(lua_State *L) {
+		if (!_lg_typecheck_setNumIterations(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraint::btConstraintInfo2::m_numIterations(int value) function, expected prototype:\nvoid btTypedConstraint::btConstraintInfo2::m_numIterations(int value)\nClass arguments details:\n");
 		}
@@ -759,8 +759,8 @@ public:
 	}
 
 	// void btTypedConstraint::btConstraintInfo2::m_damping(float value)
-	static int _bind_setM_damping(lua_State *L) {
-		if (!_lg_typecheck_setM_damping(L)) {
+	static int _bind_setDamping(lua_State *L) {
+		if (!_lg_typecheck_setDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraint::btConstraintInfo2::m_damping(float value) function, expected prototype:\nvoid btTypedConstraint::btConstraintInfo2::m_damping(float value)\nClass arguments details:\n");
 		}
@@ -800,32 +800,32 @@ const int LunaTraits< btTypedConstraint::btConstraintInfo2 >::uniqueIDs[] = {172
 luna_RegType LunaTraits< btTypedConstraint::btConstraintInfo2 >::methods[] = {
 	{"getFps", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getFps},
 	{"getErp", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getErp},
-	{"getM_J1linearAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getM_J1linearAxis},
-	{"getM_J1angularAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getM_J1angularAxis},
-	{"getM_J2linearAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getM_J2linearAxis},
-	{"getM_J2angularAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getM_J2angularAxis},
+	{"getJ1linearAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getJ1linearAxis},
+	{"getJ1angularAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getJ1angularAxis},
+	{"getJ2linearAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getJ2linearAxis},
+	{"getJ2angularAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getJ2angularAxis},
 	{"getRowskip", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getRowskip},
-	{"getM_constraintError", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getM_constraintError},
+	{"getConstraintError", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getConstraintError},
 	{"getCfm", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getCfm},
-	{"getM_lowerLimit", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getM_lowerLimit},
-	{"getM_upperLimit", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getM_upperLimit},
+	{"getLowerLimit", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getLowerLimit},
+	{"getUpperLimit", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getUpperLimit},
 	{"getFindex", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getFindex},
-	{"getM_numIterations", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getM_numIterations},
-	{"getM_damping", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getM_damping},
+	{"getNumIterations", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getNumIterations},
+	{"getDamping", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_getDamping},
 	{"setFps", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setFps},
 	{"setErp", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setErp},
-	{"setM_J1linearAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setM_J1linearAxis},
-	{"setM_J1angularAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setM_J1angularAxis},
-	{"setM_J2linearAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setM_J2linearAxis},
-	{"setM_J2angularAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setM_J2angularAxis},
+	{"setJ1linearAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setJ1linearAxis},
+	{"setJ1angularAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setJ1angularAxis},
+	{"setJ2linearAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setJ2linearAxis},
+	{"setJ2angularAxis", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setJ2angularAxis},
 	{"setRowskip", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setRowskip},
-	{"setM_constraintError", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setM_constraintError},
+	{"setConstraintError", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setConstraintError},
 	{"setCfm", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setCfm},
-	{"setM_lowerLimit", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setM_lowerLimit},
-	{"setM_upperLimit", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setM_upperLimit},
+	{"setLowerLimit", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setLowerLimit},
+	{"setUpperLimit", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setUpperLimit},
 	{"setFindex", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setFindex},
-	{"setM_numIterations", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setM_numIterations},
-	{"setM_damping", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setM_damping},
+	{"setNumIterations", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setNumIterations},
+	{"setDamping", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_setDamping},
 	{"dynCast", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind_dynCast},
 	{"__eq", &luna_wrapper_btTypedConstraint_btConstraintInfo2::_bind___eq},
 	{0,0}

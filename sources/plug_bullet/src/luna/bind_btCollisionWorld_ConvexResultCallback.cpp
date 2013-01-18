@@ -110,39 +110,39 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_closestHitFraction(lua_State *L) {
+	inline static bool _lg_typecheck_getClosestHitFraction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_collisionFilterGroup(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionFilterGroup(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_collisionFilterMask(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionFilterMask(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_closestHitFraction(lua_State *L) {
+	inline static bool _lg_typecheck_setClosestHitFraction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionFilterGroup(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionFilterGroup(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionFilterMask(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionFilterMask(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -239,8 +239,8 @@ public:
 	}
 
 	// float btCollisionWorld::ConvexResultCallback::m_closestHitFraction()
-	static int _bind_getM_closestHitFraction(lua_State *L) {
-		if (!_lg_typecheck_getM_closestHitFraction(L)) {
+	static int _bind_getClosestHitFraction(lua_State *L) {
+		if (!_lg_typecheck_getClosestHitFraction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btCollisionWorld::ConvexResultCallback::m_closestHitFraction() function, expected prototype:\nfloat btCollisionWorld::ConvexResultCallback::m_closestHitFraction()\nClass arguments details:\n");
 		}
@@ -258,8 +258,8 @@ public:
 	}
 
 	// short int btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup()
-	static int _bind_getM_collisionFilterGroup(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionFilterGroup(L)) {
+	static int _bind_getCollisionFilterGroup(lua_State *L) {
+		if (!_lg_typecheck_getCollisionFilterGroup(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in short int btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup() function, expected prototype:\nshort int btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup()\nClass arguments details:\n");
 		}
@@ -277,8 +277,8 @@ public:
 	}
 
 	// short int btCollisionWorld::ConvexResultCallback::m_collisionFilterMask()
-	static int _bind_getM_collisionFilterMask(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionFilterMask(L)) {
+	static int _bind_getCollisionFilterMask(lua_State *L) {
+		if (!_lg_typecheck_getCollisionFilterMask(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in short int btCollisionWorld::ConvexResultCallback::m_collisionFilterMask() function, expected prototype:\nshort int btCollisionWorld::ConvexResultCallback::m_collisionFilterMask()\nClass arguments details:\n");
 		}
@@ -296,8 +296,8 @@ public:
 	}
 
 	// void btCollisionWorld::ConvexResultCallback::m_closestHitFraction(float value)
-	static int _bind_setM_closestHitFraction(lua_State *L) {
-		if (!_lg_typecheck_setM_closestHitFraction(L)) {
+	static int _bind_setClosestHitFraction(lua_State *L) {
+		if (!_lg_typecheck_setClosestHitFraction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ConvexResultCallback::m_closestHitFraction(float value) function, expected prototype:\nvoid btCollisionWorld::ConvexResultCallback::m_closestHitFraction(float value)\nClass arguments details:\n");
 		}
@@ -315,8 +315,8 @@ public:
 	}
 
 	// void btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup(short int value)
-	static int _bind_setM_collisionFilterGroup(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionFilterGroup(L)) {
+	static int _bind_setCollisionFilterGroup(lua_State *L) {
+		if (!_lg_typecheck_setCollisionFilterGroup(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup(short int value) function, expected prototype:\nvoid btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup(short int value)\nClass arguments details:\n");
 		}
@@ -334,8 +334,8 @@ public:
 	}
 
 	// void btCollisionWorld::ConvexResultCallback::m_collisionFilterMask(short int value)
-	static int _bind_setM_collisionFilterMask(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionFilterMask(L)) {
+	static int _bind_setCollisionFilterMask(lua_State *L) {
+		if (!_lg_typecheck_setCollisionFilterMask(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ConvexResultCallback::m_collisionFilterMask(short int value) function, expected prototype:\nvoid btCollisionWorld::ConvexResultCallback::m_collisionFilterMask(short int value)\nClass arguments details:\n");
 		}
@@ -399,12 +399,12 @@ luna_RegType LunaTraits< btCollisionWorld::ConvexResultCallback >::methods[] = {
 	{"hasHit", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_hasHit},
 	{"needsCollision", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_needsCollision},
 	{"addSingleResult", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_addSingleResult},
-	{"getM_closestHitFraction", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_getM_closestHitFraction},
-	{"getM_collisionFilterGroup", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_getM_collisionFilterGroup},
-	{"getM_collisionFilterMask", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_getM_collisionFilterMask},
-	{"setM_closestHitFraction", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_setM_closestHitFraction},
-	{"setM_collisionFilterGroup", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_setM_collisionFilterGroup},
-	{"setM_collisionFilterMask", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_setM_collisionFilterMask},
+	{"getClosestHitFraction", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_getClosestHitFraction},
+	{"getCollisionFilterGroup", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_getCollisionFilterGroup},
+	{"getCollisionFilterMask", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_getCollisionFilterMask},
+	{"setClosestHitFraction", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_setClosestHitFraction},
+	{"setCollisionFilterGroup", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_setCollisionFilterGroup},
+	{"setCollisionFilterMask", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_setCollisionFilterMask},
 	{"base_needsCollision", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_base_needsCollision},
 	{"dynCast", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind_dynCast},
 	{"__eq", &luna_wrapper_btCollisionWorld_ConvexResultCallback::_bind___eq},

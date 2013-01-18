@@ -62,90 +62,90 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_numTriangles(lua_State *L) {
+	inline static bool _lg_typecheck_getNumTriangles(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_triangleIndexBase(lua_State *L) {
+	inline static bool _lg_typecheck_getTriangleIndexBase(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_triangleIndexStride(lua_State *L) {
+	inline static bool _lg_typecheck_getTriangleIndexStride(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numVertices(lua_State *L) {
+	inline static bool _lg_typecheck_getNumVertices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_vertexBase(lua_State *L) {
+	inline static bool _lg_typecheck_getVertexBase(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_vertexStride(lua_State *L) {
+	inline static bool _lg_typecheck_getVertexStride(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_indexType(lua_State *L) {
+	inline static bool _lg_typecheck_getIndexType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_vertexType(lua_State *L) {
+	inline static bool _lg_typecheck_getVertexType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numTriangles(lua_State *L) {
+	inline static bool _lg_typecheck_setNumTriangles(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_triangleIndexStride(lua_State *L) {
+	inline static bool _lg_typecheck_setTriangleIndexStride(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numVertices(lua_State *L) {
+	inline static bool _lg_typecheck_setNumVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_vertexStride(lua_State *L) {
+	inline static bool _lg_typecheck_setVertexStride(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_indexType(lua_State *L) {
+	inline static bool _lg_typecheck_setIndexType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_vertexType(lua_State *L) {
+	inline static bool _lg_typecheck_setVertexType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -171,8 +171,8 @@ public:
 
 	// Function binds:
 	// int btIndexedMesh::m_numTriangles()
-	static int _bind_getM_numTriangles(lua_State *L) {
-		if (!_lg_typecheck_getM_numTriangles(L)) {
+	static int _bind_getNumTriangles(lua_State *L) {
+		if (!_lg_typecheck_getNumTriangles(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btIndexedMesh::m_numTriangles() function, expected prototype:\nint btIndexedMesh::m_numTriangles()\nClass arguments details:\n");
 		}
@@ -190,8 +190,8 @@ public:
 	}
 
 	// const unsigned char * btIndexedMesh::m_triangleIndexBase()
-	static int _bind_getM_triangleIndexBase(lua_State *L) {
-		if (!_lg_typecheck_getM_triangleIndexBase(L)) {
+	static int _bind_getTriangleIndexBase(lua_State *L) {
+		if (!_lg_typecheck_getTriangleIndexBase(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const unsigned char * btIndexedMesh::m_triangleIndexBase() function, expected prototype:\nconst unsigned char * btIndexedMesh::m_triangleIndexBase()\nClass arguments details:\n");
 		}
@@ -209,8 +209,8 @@ public:
 	}
 
 	// int btIndexedMesh::m_triangleIndexStride()
-	static int _bind_getM_triangleIndexStride(lua_State *L) {
-		if (!_lg_typecheck_getM_triangleIndexStride(L)) {
+	static int _bind_getTriangleIndexStride(lua_State *L) {
+		if (!_lg_typecheck_getTriangleIndexStride(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btIndexedMesh::m_triangleIndexStride() function, expected prototype:\nint btIndexedMesh::m_triangleIndexStride()\nClass arguments details:\n");
 		}
@@ -228,8 +228,8 @@ public:
 	}
 
 	// int btIndexedMesh::m_numVertices()
-	static int _bind_getM_numVertices(lua_State *L) {
-		if (!_lg_typecheck_getM_numVertices(L)) {
+	static int _bind_getNumVertices(lua_State *L) {
+		if (!_lg_typecheck_getNumVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btIndexedMesh::m_numVertices() function, expected prototype:\nint btIndexedMesh::m_numVertices()\nClass arguments details:\n");
 		}
@@ -247,8 +247,8 @@ public:
 	}
 
 	// const unsigned char * btIndexedMesh::m_vertexBase()
-	static int _bind_getM_vertexBase(lua_State *L) {
-		if (!_lg_typecheck_getM_vertexBase(L)) {
+	static int _bind_getVertexBase(lua_State *L) {
+		if (!_lg_typecheck_getVertexBase(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const unsigned char * btIndexedMesh::m_vertexBase() function, expected prototype:\nconst unsigned char * btIndexedMesh::m_vertexBase()\nClass arguments details:\n");
 		}
@@ -266,8 +266,8 @@ public:
 	}
 
 	// int btIndexedMesh::m_vertexStride()
-	static int _bind_getM_vertexStride(lua_State *L) {
-		if (!_lg_typecheck_getM_vertexStride(L)) {
+	static int _bind_getVertexStride(lua_State *L) {
+		if (!_lg_typecheck_getVertexStride(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btIndexedMesh::m_vertexStride() function, expected prototype:\nint btIndexedMesh::m_vertexStride()\nClass arguments details:\n");
 		}
@@ -285,8 +285,8 @@ public:
 	}
 
 	// PHY_ScalarType btIndexedMesh::m_indexType()
-	static int _bind_getM_indexType(lua_State *L) {
-		if (!_lg_typecheck_getM_indexType(L)) {
+	static int _bind_getIndexType(lua_State *L) {
+		if (!_lg_typecheck_getIndexType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in PHY_ScalarType btIndexedMesh::m_indexType() function, expected prototype:\nPHY_ScalarType btIndexedMesh::m_indexType()\nClass arguments details:\n");
 		}
@@ -304,8 +304,8 @@ public:
 	}
 
 	// PHY_ScalarType btIndexedMesh::m_vertexType()
-	static int _bind_getM_vertexType(lua_State *L) {
-		if (!_lg_typecheck_getM_vertexType(L)) {
+	static int _bind_getVertexType(lua_State *L) {
+		if (!_lg_typecheck_getVertexType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in PHY_ScalarType btIndexedMesh::m_vertexType() function, expected prototype:\nPHY_ScalarType btIndexedMesh::m_vertexType()\nClass arguments details:\n");
 		}
@@ -323,8 +323,8 @@ public:
 	}
 
 	// void btIndexedMesh::m_numTriangles(int value)
-	static int _bind_setM_numTriangles(lua_State *L) {
-		if (!_lg_typecheck_setM_numTriangles(L)) {
+	static int _bind_setNumTriangles(lua_State *L) {
+		if (!_lg_typecheck_setNumTriangles(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btIndexedMesh::m_numTriangles(int value) function, expected prototype:\nvoid btIndexedMesh::m_numTriangles(int value)\nClass arguments details:\n");
 		}
@@ -342,8 +342,8 @@ public:
 	}
 
 	// void btIndexedMesh::m_triangleIndexStride(int value)
-	static int _bind_setM_triangleIndexStride(lua_State *L) {
-		if (!_lg_typecheck_setM_triangleIndexStride(L)) {
+	static int _bind_setTriangleIndexStride(lua_State *L) {
+		if (!_lg_typecheck_setTriangleIndexStride(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btIndexedMesh::m_triangleIndexStride(int value) function, expected prototype:\nvoid btIndexedMesh::m_triangleIndexStride(int value)\nClass arguments details:\n");
 		}
@@ -361,8 +361,8 @@ public:
 	}
 
 	// void btIndexedMesh::m_numVertices(int value)
-	static int _bind_setM_numVertices(lua_State *L) {
-		if (!_lg_typecheck_setM_numVertices(L)) {
+	static int _bind_setNumVertices(lua_State *L) {
+		if (!_lg_typecheck_setNumVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btIndexedMesh::m_numVertices(int value) function, expected prototype:\nvoid btIndexedMesh::m_numVertices(int value)\nClass arguments details:\n");
 		}
@@ -380,8 +380,8 @@ public:
 	}
 
 	// void btIndexedMesh::m_vertexStride(int value)
-	static int _bind_setM_vertexStride(lua_State *L) {
-		if (!_lg_typecheck_setM_vertexStride(L)) {
+	static int _bind_setVertexStride(lua_State *L) {
+		if (!_lg_typecheck_setVertexStride(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btIndexedMesh::m_vertexStride(int value) function, expected prototype:\nvoid btIndexedMesh::m_vertexStride(int value)\nClass arguments details:\n");
 		}
@@ -399,8 +399,8 @@ public:
 	}
 
 	// void btIndexedMesh::m_indexType(PHY_ScalarType value)
-	static int _bind_setM_indexType(lua_State *L) {
-		if (!_lg_typecheck_setM_indexType(L)) {
+	static int _bind_setIndexType(lua_State *L) {
+		if (!_lg_typecheck_setIndexType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btIndexedMesh::m_indexType(PHY_ScalarType value) function, expected prototype:\nvoid btIndexedMesh::m_indexType(PHY_ScalarType value)\nClass arguments details:\n");
 		}
@@ -418,8 +418,8 @@ public:
 	}
 
 	// void btIndexedMesh::m_vertexType(PHY_ScalarType value)
-	static int _bind_setM_vertexType(lua_State *L) {
-		if (!_lg_typecheck_setM_vertexType(L)) {
+	static int _bind_setVertexType(lua_State *L) {
+		if (!_lg_typecheck_setVertexType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btIndexedMesh::m_vertexType(PHY_ScalarType value) function, expected prototype:\nvoid btIndexedMesh::m_vertexType(PHY_ScalarType value)\nClass arguments details:\n");
 		}
@@ -457,20 +457,20 @@ const int LunaTraits< btIndexedMesh >::hash = 78051397;
 const int LunaTraits< btIndexedMesh >::uniqueIDs[] = {78051397,0};
 
 luna_RegType LunaTraits< btIndexedMesh >::methods[] = {
-	{"getM_numTriangles", &luna_wrapper_btIndexedMesh::_bind_getM_numTriangles},
-	{"getM_triangleIndexBase", &luna_wrapper_btIndexedMesh::_bind_getM_triangleIndexBase},
-	{"getM_triangleIndexStride", &luna_wrapper_btIndexedMesh::_bind_getM_triangleIndexStride},
-	{"getM_numVertices", &luna_wrapper_btIndexedMesh::_bind_getM_numVertices},
-	{"getM_vertexBase", &luna_wrapper_btIndexedMesh::_bind_getM_vertexBase},
-	{"getM_vertexStride", &luna_wrapper_btIndexedMesh::_bind_getM_vertexStride},
-	{"getM_indexType", &luna_wrapper_btIndexedMesh::_bind_getM_indexType},
-	{"getM_vertexType", &luna_wrapper_btIndexedMesh::_bind_getM_vertexType},
-	{"setM_numTriangles", &luna_wrapper_btIndexedMesh::_bind_setM_numTriangles},
-	{"setM_triangleIndexStride", &luna_wrapper_btIndexedMesh::_bind_setM_triangleIndexStride},
-	{"setM_numVertices", &luna_wrapper_btIndexedMesh::_bind_setM_numVertices},
-	{"setM_vertexStride", &luna_wrapper_btIndexedMesh::_bind_setM_vertexStride},
-	{"setM_indexType", &luna_wrapper_btIndexedMesh::_bind_setM_indexType},
-	{"setM_vertexType", &luna_wrapper_btIndexedMesh::_bind_setM_vertexType},
+	{"getNumTriangles", &luna_wrapper_btIndexedMesh::_bind_getNumTriangles},
+	{"getTriangleIndexBase", &luna_wrapper_btIndexedMesh::_bind_getTriangleIndexBase},
+	{"getTriangleIndexStride", &luna_wrapper_btIndexedMesh::_bind_getTriangleIndexStride},
+	{"getNumVertices", &luna_wrapper_btIndexedMesh::_bind_getNumVertices},
+	{"getVertexBase", &luna_wrapper_btIndexedMesh::_bind_getVertexBase},
+	{"getVertexStride", &luna_wrapper_btIndexedMesh::_bind_getVertexStride},
+	{"getIndexType", &luna_wrapper_btIndexedMesh::_bind_getIndexType},
+	{"getVertexType", &luna_wrapper_btIndexedMesh::_bind_getVertexType},
+	{"setNumTriangles", &luna_wrapper_btIndexedMesh::_bind_setNumTriangles},
+	{"setTriangleIndexStride", &luna_wrapper_btIndexedMesh::_bind_setTriangleIndexStride},
+	{"setNumVertices", &luna_wrapper_btIndexedMesh::_bind_setNumVertices},
+	{"setVertexStride", &luna_wrapper_btIndexedMesh::_bind_setVertexStride},
+	{"setIndexType", &luna_wrapper_btIndexedMesh::_bind_setIndexType},
+	{"setVertexType", &luna_wrapper_btIndexedMesh::_bind_setVertexType},
 	{"dynCast", &luna_wrapper_btIndexedMesh::_bind_dynCast},
 	{"__eq", &luna_wrapper_btIndexedMesh::_bind___eq},
 	{0,0}

@@ -69,13 +69,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_objectType(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_setM_objectType(lua_State *L) {
+	inline static bool _lg_typecheck_setObjectType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -120,28 +114,9 @@ public:
 		return 1;
 	}
 
-	// int btTypedObject::m_objectType()
-	static int _bind_getM_objectType(lua_State *L) {
-		if (!_lg_typecheck_getM_objectType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTypedObject::m_objectType() function, expected prototype:\nint btTypedObject::m_objectType()\nClass arguments details:\n");
-		}
-
-
-		btTypedObject* self=(Luna< btTypedObject >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTypedObject::m_objectType(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
-		}
-		int lret = self->m_objectType;
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
 	// void btTypedObject::m_objectType(int value)
-	static int _bind_setM_objectType(lua_State *L) {
-		if (!_lg_typecheck_setM_objectType(L)) {
+	static int _bind_setObjectType(lua_State *L) {
+		if (!_lg_typecheck_setObjectType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedObject::m_objectType(int value) function, expected prototype:\nvoid btTypedObject::m_objectType(int value)\nClass arguments details:\n");
 		}
@@ -180,8 +155,7 @@ const int LunaTraits< btTypedObject >::uniqueIDs[] = {66271199,0};
 
 luna_RegType LunaTraits< btTypedObject >::methods[] = {
 	{"getObjectType", &luna_wrapper_btTypedObject::_bind_getObjectType},
-	{"getM_objectType", &luna_wrapper_btTypedObject::_bind_getM_objectType},
-	{"setM_objectType", &luna_wrapper_btTypedObject::_bind_setM_objectType},
+	{"setObjectType", &luna_wrapper_btTypedObject::_bind_setObjectType},
 	{"dynCast", &luna_wrapper_btTypedObject::_bind_dynCast},
 	{"__eq", &luna_wrapper_btTypedObject::_bind___eq},
 	{0,0}

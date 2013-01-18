@@ -267,68 +267,55 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_set(lua_State *L) {
+	inline static bool _lg_typecheck_getSet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_previous(lua_State *L) {
+	inline static bool _lg_typecheck_getPrevious(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_next(lua_State *L) {
+	inline static bool _lg_typecheck_getNext(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_frameLastUsed(lua_State *L) {
+	inline static bool _lg_typecheck_getFrameLastUsed(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_extensions(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_set(lua_State *L) {
+	inline static bool _lg_typecheck_setSet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_previous(lua_State *L) {
+	inline static bool _lg_typecheck_setPrevious(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_next(lua_State *L) {
+	inline static bool _lg_typecheck_setNext(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_frameLastUsed(lua_State *L) {
+	inline static bool _lg_typecheck_setFrameLastUsed(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_extensions(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
@@ -861,8 +848,8 @@ public:
 	}
 
 	// osg::GLBufferObjectSet * osg::GLBufferObject::_set()
-	static int _bind_get_set(lua_State *L) {
-		if (!_lg_typecheck_get_set(L)) {
+	static int _bind_getSet(lua_State *L) {
+		if (!_lg_typecheck_getSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::GLBufferObjectSet * osg::GLBufferObject::_set() function, expected prototype:\nosg::GLBufferObjectSet * osg::GLBufferObject::_set()\nClass arguments details:\n");
 		}
@@ -882,8 +869,8 @@ public:
 	}
 
 	// osg::GLBufferObject * osg::GLBufferObject::_previous()
-	static int _bind_get_previous(lua_State *L) {
-		if (!_lg_typecheck_get_previous(L)) {
+	static int _bind_getPrevious(lua_State *L) {
+		if (!_lg_typecheck_getPrevious(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::GLBufferObject * osg::GLBufferObject::_previous() function, expected prototype:\nosg::GLBufferObject * osg::GLBufferObject::_previous()\nClass arguments details:\n");
 		}
@@ -903,8 +890,8 @@ public:
 	}
 
 	// osg::GLBufferObject * osg::GLBufferObject::_next()
-	static int _bind_get_next(lua_State *L) {
-		if (!_lg_typecheck_get_next(L)) {
+	static int _bind_getNext(lua_State *L) {
+		if (!_lg_typecheck_getNext(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::GLBufferObject * osg::GLBufferObject::_next() function, expected prototype:\nosg::GLBufferObject * osg::GLBufferObject::_next()\nClass arguments details:\n");
 		}
@@ -924,8 +911,8 @@ public:
 	}
 
 	// unsigned int osg::GLBufferObject::_frameLastUsed()
-	static int _bind_get_frameLastUsed(lua_State *L) {
-		if (!_lg_typecheck_get_frameLastUsed(L)) {
+	static int _bind_getFrameLastUsed(lua_State *L) {
+		if (!_lg_typecheck_getFrameLastUsed(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::GLBufferObject::_frameLastUsed() function, expected prototype:\nunsigned int osg::GLBufferObject::_frameLastUsed()\nClass arguments details:\n");
 		}
@@ -942,30 +929,9 @@ public:
 		return 1;
 	}
 
-	// osg::GLBufferObject::Extensions * osg::GLBufferObject::_extensions()
-	static int _bind_get_extensions(lua_State *L) {
-		if (!_lg_typecheck_get_extensions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::GLBufferObject::Extensions * osg::GLBufferObject::_extensions() function, expected prototype:\nosg::GLBufferObject::Extensions * osg::GLBufferObject::_extensions()\nClass arguments details:\n");
-		}
-
-
-		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::GLBufferObject::Extensions * osg::GLBufferObject::_extensions(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		osg::GLBufferObject::Extensions * lret = self->_extensions;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::GLBufferObject::Extensions >::push(L,lret,false);
-
-		return 1;
-	}
-
 	// void osg::GLBufferObject::_set(osg::GLBufferObjectSet * value)
-	static int _bind_set_set(lua_State *L) {
-		if (!_lg_typecheck_set_set(L)) {
+	static int _bind_setSet(lua_State *L) {
+		if (!_lg_typecheck_setSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::GLBufferObject::_set(osg::GLBufferObjectSet * value) function, expected prototype:\nvoid osg::GLBufferObject::_set(osg::GLBufferObjectSet * value)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -983,8 +949,8 @@ public:
 	}
 
 	// void osg::GLBufferObject::_previous(osg::GLBufferObject * value)
-	static int _bind_set_previous(lua_State *L) {
-		if (!_lg_typecheck_set_previous(L)) {
+	static int _bind_setPrevious(lua_State *L) {
+		if (!_lg_typecheck_setPrevious(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::GLBufferObject::_previous(osg::GLBufferObject * value) function, expected prototype:\nvoid osg::GLBufferObject::_previous(osg::GLBufferObject * value)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1002,8 +968,8 @@ public:
 	}
 
 	// void osg::GLBufferObject::_next(osg::GLBufferObject * value)
-	static int _bind_set_next(lua_State *L) {
-		if (!_lg_typecheck_set_next(L)) {
+	static int _bind_setNext(lua_State *L) {
+		if (!_lg_typecheck_setNext(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::GLBufferObject::_next(osg::GLBufferObject * value) function, expected prototype:\nvoid osg::GLBufferObject::_next(osg::GLBufferObject * value)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1021,8 +987,8 @@ public:
 	}
 
 	// void osg::GLBufferObject::_frameLastUsed(unsigned int value)
-	static int _bind_set_frameLastUsed(lua_State *L) {
-		if (!_lg_typecheck_set_frameLastUsed(L)) {
+	static int _bind_setFrameLastUsed(lua_State *L) {
+		if (!_lg_typecheck_setFrameLastUsed(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::GLBufferObject::_frameLastUsed(unsigned int value) function, expected prototype:\nvoid osg::GLBufferObject::_frameLastUsed(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1035,25 +1001,6 @@ public:
 			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::_frameLastUsed(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->_frameLastUsed = value;
-
-		return 0;
-	}
-
-	// void osg::GLBufferObject::_extensions(osg::GLBufferObject::Extensions * value)
-	static int _bind_set_extensions(lua_State *L) {
-		if (!_lg_typecheck_set_extensions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GLBufferObject::_extensions(osg::GLBufferObject::Extensions * value) function, expected prototype:\nvoid osg::GLBufferObject::_extensions(osg::GLBufferObject::Extensions * value)\nClass arguments details:\narg 1 ID = 50169651\n");
-		}
-
-		osg::GLBufferObject::Extensions* value=(Luna< osg::Referenced >::checkSubType< osg::GLBufferObject::Extensions >(L,2));
-
-		osg::GLBufferObject* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GLBufferObject::_extensions(osg::GLBufferObject::Extensions *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->_extensions = value;
 
 		return 0;
 	}
@@ -1123,16 +1070,14 @@ luna_RegType LunaTraits< osg::GLBufferObject >::methods[] = {
 	{"releaseGLBufferObject", &luna_wrapper_osg_GLBufferObject::_bind_releaseGLBufferObject},
 	{"getExtensions", &luna_wrapper_osg_GLBufferObject::_bind_getExtensions},
 	{"setExtensions", &luna_wrapper_osg_GLBufferObject::_bind_setExtensions},
-	{"get_set", &luna_wrapper_osg_GLBufferObject::_bind_get_set},
-	{"get_previous", &luna_wrapper_osg_GLBufferObject::_bind_get_previous},
-	{"get_next", &luna_wrapper_osg_GLBufferObject::_bind_get_next},
-	{"get_frameLastUsed", &luna_wrapper_osg_GLBufferObject::_bind_get_frameLastUsed},
-	{"get_extensions", &luna_wrapper_osg_GLBufferObject::_bind_get_extensions},
-	{"set_set", &luna_wrapper_osg_GLBufferObject::_bind_set_set},
-	{"set_previous", &luna_wrapper_osg_GLBufferObject::_bind_set_previous},
-	{"set_next", &luna_wrapper_osg_GLBufferObject::_bind_set_next},
-	{"set_frameLastUsed", &luna_wrapper_osg_GLBufferObject::_bind_set_frameLastUsed},
-	{"set_extensions", &luna_wrapper_osg_GLBufferObject::_bind_set_extensions},
+	{"getSet", &luna_wrapper_osg_GLBufferObject::_bind_getSet},
+	{"getPrevious", &luna_wrapper_osg_GLBufferObject::_bind_getPrevious},
+	{"getNext", &luna_wrapper_osg_GLBufferObject::_bind_getNext},
+	{"getFrameLastUsed", &luna_wrapper_osg_GLBufferObject::_bind_getFrameLastUsed},
+	{"setSet", &luna_wrapper_osg_GLBufferObject::_bind_setSet},
+	{"setPrevious", &luna_wrapper_osg_GLBufferObject::_bind_setPrevious},
+	{"setNext", &luna_wrapper_osg_GLBufferObject::_bind_setNext},
+	{"setFrameLastUsed", &luna_wrapper_osg_GLBufferObject::_bind_setFrameLastUsed},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_GLBufferObject::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osg_GLBufferObject::_bind___eq},
 	{"getTable", &luna_wrapper_osg_GLBufferObject::_bind_getTable},

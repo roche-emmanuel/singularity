@@ -117,91 +117,91 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitTransformA(lua_State *L) {
+	inline static bool _lg_typecheck_getHitTransformA(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitTransformB(lua_State *L) {
+	inline static bool _lg_typecheck_getHitTransformB(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_normal(lua_State *L) {
+	inline static bool _lg_typecheck_getNormal(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitPoint(lua_State *L) {
+	inline static bool _lg_typecheck_getHitPoint(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_fraction(lua_State *L) {
+	inline static bool _lg_typecheck_getFraction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_debugDrawer(lua_State *L) {
+	inline static bool _lg_typecheck_getDebugDrawer(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_allowedPenetration(lua_State *L) {
+	inline static bool _lg_typecheck_getAllowedPenetration(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitTransformA(lua_State *L) {
+	inline static bool _lg_typecheck_setHitTransformA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitTransformB(lua_State *L) {
+	inline static bool _lg_typecheck_setHitTransformB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_normal(lua_State *L) {
+	inline static bool _lg_typecheck_setNormal(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitPoint(lua_State *L) {
+	inline static bool _lg_typecheck_setHitPoint(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_fraction(lua_State *L) {
+	inline static bool _lg_typecheck_setFraction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_debugDrawer(lua_State *L) {
+	inline static bool _lg_typecheck_setDebugDrawer(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,63441741)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_allowedPenetration(lua_State *L) {
+	inline static bool _lg_typecheck_setAllowedPenetration(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -331,8 +331,8 @@ public:
 	}
 
 	// btTransform btConvexCast::CastResult::m_hitTransformA()
-	static int _bind_getM_hitTransformA(lua_State *L) {
-		if (!_lg_typecheck_getM_hitTransformA(L)) {
+	static int _bind_getHitTransformA(lua_State *L) {
+		if (!_lg_typecheck_getHitTransformA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransform btConvexCast::CastResult::m_hitTransformA() function, expected prototype:\nbtTransform btConvexCast::CastResult::m_hitTransformA()\nClass arguments details:\n");
 		}
@@ -352,8 +352,8 @@ public:
 	}
 
 	// btTransform btConvexCast::CastResult::m_hitTransformB()
-	static int _bind_getM_hitTransformB(lua_State *L) {
-		if (!_lg_typecheck_getM_hitTransformB(L)) {
+	static int _bind_getHitTransformB(lua_State *L) {
+		if (!_lg_typecheck_getHitTransformB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransform btConvexCast::CastResult::m_hitTransformB() function, expected prototype:\nbtTransform btConvexCast::CastResult::m_hitTransformB()\nClass arguments details:\n");
 		}
@@ -373,8 +373,8 @@ public:
 	}
 
 	// btVector3 btConvexCast::CastResult::m_normal()
-	static int _bind_getM_normal(lua_State *L) {
-		if (!_lg_typecheck_getM_normal(L)) {
+	static int _bind_getNormal(lua_State *L) {
+		if (!_lg_typecheck_getNormal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btConvexCast::CastResult::m_normal() function, expected prototype:\nbtVector3 btConvexCast::CastResult::m_normal()\nClass arguments details:\n");
 		}
@@ -394,8 +394,8 @@ public:
 	}
 
 	// btVector3 btConvexCast::CastResult::m_hitPoint()
-	static int _bind_getM_hitPoint(lua_State *L) {
-		if (!_lg_typecheck_getM_hitPoint(L)) {
+	static int _bind_getHitPoint(lua_State *L) {
+		if (!_lg_typecheck_getHitPoint(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btConvexCast::CastResult::m_hitPoint() function, expected prototype:\nbtVector3 btConvexCast::CastResult::m_hitPoint()\nClass arguments details:\n");
 		}
@@ -415,8 +415,8 @@ public:
 	}
 
 	// float btConvexCast::CastResult::m_fraction()
-	static int _bind_getM_fraction(lua_State *L) {
-		if (!_lg_typecheck_getM_fraction(L)) {
+	static int _bind_getFraction(lua_State *L) {
+		if (!_lg_typecheck_getFraction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConvexCast::CastResult::m_fraction() function, expected prototype:\nfloat btConvexCast::CastResult::m_fraction()\nClass arguments details:\n");
 		}
@@ -434,8 +434,8 @@ public:
 	}
 
 	// btIDebugDraw * btConvexCast::CastResult::m_debugDrawer()
-	static int _bind_getM_debugDrawer(lua_State *L) {
-		if (!_lg_typecheck_getM_debugDrawer(L)) {
+	static int _bind_getDebugDrawer(lua_State *L) {
+		if (!_lg_typecheck_getDebugDrawer(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btIDebugDraw * btConvexCast::CastResult::m_debugDrawer() function, expected prototype:\nbtIDebugDraw * btConvexCast::CastResult::m_debugDrawer()\nClass arguments details:\n");
 		}
@@ -455,8 +455,8 @@ public:
 	}
 
 	// float btConvexCast::CastResult::m_allowedPenetration()
-	static int _bind_getM_allowedPenetration(lua_State *L) {
-		if (!_lg_typecheck_getM_allowedPenetration(L)) {
+	static int _bind_getAllowedPenetration(lua_State *L) {
+		if (!_lg_typecheck_getAllowedPenetration(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConvexCast::CastResult::m_allowedPenetration() function, expected prototype:\nfloat btConvexCast::CastResult::m_allowedPenetration()\nClass arguments details:\n");
 		}
@@ -474,8 +474,8 @@ public:
 	}
 
 	// void btConvexCast::CastResult::m_hitTransformA(btTransform value)
-	static int _bind_setM_hitTransformA(lua_State *L) {
-		if (!_lg_typecheck_setM_hitTransformA(L)) {
+	static int _bind_setHitTransformA(lua_State *L) {
+		if (!_lg_typecheck_setHitTransformA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_hitTransformA(btTransform value) function, expected prototype:\nvoid btConvexCast::CastResult::m_hitTransformA(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
 		}
@@ -497,8 +497,8 @@ public:
 	}
 
 	// void btConvexCast::CastResult::m_hitTransformB(btTransform value)
-	static int _bind_setM_hitTransformB(lua_State *L) {
-		if (!_lg_typecheck_setM_hitTransformB(L)) {
+	static int _bind_setHitTransformB(lua_State *L) {
+		if (!_lg_typecheck_setHitTransformB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_hitTransformB(btTransform value) function, expected prototype:\nvoid btConvexCast::CastResult::m_hitTransformB(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
 		}
@@ -520,8 +520,8 @@ public:
 	}
 
 	// void btConvexCast::CastResult::m_normal(btVector3 value)
-	static int _bind_setM_normal(lua_State *L) {
-		if (!_lg_typecheck_setM_normal(L)) {
+	static int _bind_setNormal(lua_State *L) {
+		if (!_lg_typecheck_setNormal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_normal(btVector3 value) function, expected prototype:\nvoid btConvexCast::CastResult::m_normal(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -543,8 +543,8 @@ public:
 	}
 
 	// void btConvexCast::CastResult::m_hitPoint(btVector3 value)
-	static int _bind_setM_hitPoint(lua_State *L) {
-		if (!_lg_typecheck_setM_hitPoint(L)) {
+	static int _bind_setHitPoint(lua_State *L) {
+		if (!_lg_typecheck_setHitPoint(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_hitPoint(btVector3 value) function, expected prototype:\nvoid btConvexCast::CastResult::m_hitPoint(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -566,8 +566,8 @@ public:
 	}
 
 	// void btConvexCast::CastResult::m_fraction(float value)
-	static int _bind_setM_fraction(lua_State *L) {
-		if (!_lg_typecheck_setM_fraction(L)) {
+	static int _bind_setFraction(lua_State *L) {
+		if (!_lg_typecheck_setFraction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_fraction(float value) function, expected prototype:\nvoid btConvexCast::CastResult::m_fraction(float value)\nClass arguments details:\n");
 		}
@@ -585,8 +585,8 @@ public:
 	}
 
 	// void btConvexCast::CastResult::m_debugDrawer(btIDebugDraw * value)
-	static int _bind_setM_debugDrawer(lua_State *L) {
-		if (!_lg_typecheck_setM_debugDrawer(L)) {
+	static int _bind_setDebugDrawer(lua_State *L) {
+		if (!_lg_typecheck_setDebugDrawer(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_debugDrawer(btIDebugDraw * value) function, expected prototype:\nvoid btConvexCast::CastResult::m_debugDrawer(btIDebugDraw * value)\nClass arguments details:\narg 1 ID = 63441741\n");
 		}
@@ -604,8 +604,8 @@ public:
 	}
 
 	// void btConvexCast::CastResult::m_allowedPenetration(float value)
-	static int _bind_setM_allowedPenetration(lua_State *L) {
-		if (!_lg_typecheck_setM_allowedPenetration(L)) {
+	static int _bind_setAllowedPenetration(lua_State *L) {
+		if (!_lg_typecheck_setAllowedPenetration(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_allowedPenetration(float value) function, expected prototype:\nvoid btConvexCast::CastResult::m_allowedPenetration(float value)\nClass arguments details:\n");
 		}
@@ -708,20 +708,20 @@ luna_RegType LunaTraits< btConvexCast::CastResult >::methods[] = {
 	{"DebugDraw", &luna_wrapper_btConvexCast_CastResult::_bind_DebugDraw},
 	{"drawCoordSystem", &luna_wrapper_btConvexCast_CastResult::_bind_drawCoordSystem},
 	{"reportFailure", &luna_wrapper_btConvexCast_CastResult::_bind_reportFailure},
-	{"getM_hitTransformA", &luna_wrapper_btConvexCast_CastResult::_bind_getM_hitTransformA},
-	{"getM_hitTransformB", &luna_wrapper_btConvexCast_CastResult::_bind_getM_hitTransformB},
-	{"getM_normal", &luna_wrapper_btConvexCast_CastResult::_bind_getM_normal},
-	{"getM_hitPoint", &luna_wrapper_btConvexCast_CastResult::_bind_getM_hitPoint},
-	{"getM_fraction", &luna_wrapper_btConvexCast_CastResult::_bind_getM_fraction},
-	{"getM_debugDrawer", &luna_wrapper_btConvexCast_CastResult::_bind_getM_debugDrawer},
-	{"getM_allowedPenetration", &luna_wrapper_btConvexCast_CastResult::_bind_getM_allowedPenetration},
-	{"setM_hitTransformA", &luna_wrapper_btConvexCast_CastResult::_bind_setM_hitTransformA},
-	{"setM_hitTransformB", &luna_wrapper_btConvexCast_CastResult::_bind_setM_hitTransformB},
-	{"setM_normal", &luna_wrapper_btConvexCast_CastResult::_bind_setM_normal},
-	{"setM_hitPoint", &luna_wrapper_btConvexCast_CastResult::_bind_setM_hitPoint},
-	{"setM_fraction", &luna_wrapper_btConvexCast_CastResult::_bind_setM_fraction},
-	{"setM_debugDrawer", &luna_wrapper_btConvexCast_CastResult::_bind_setM_debugDrawer},
-	{"setM_allowedPenetration", &luna_wrapper_btConvexCast_CastResult::_bind_setM_allowedPenetration},
+	{"getHitTransformA", &luna_wrapper_btConvexCast_CastResult::_bind_getHitTransformA},
+	{"getHitTransformB", &luna_wrapper_btConvexCast_CastResult::_bind_getHitTransformB},
+	{"getNormal", &luna_wrapper_btConvexCast_CastResult::_bind_getNormal},
+	{"getHitPoint", &luna_wrapper_btConvexCast_CastResult::_bind_getHitPoint},
+	{"getFraction", &luna_wrapper_btConvexCast_CastResult::_bind_getFraction},
+	{"getDebugDrawer", &luna_wrapper_btConvexCast_CastResult::_bind_getDebugDrawer},
+	{"getAllowedPenetration", &luna_wrapper_btConvexCast_CastResult::_bind_getAllowedPenetration},
+	{"setHitTransformA", &luna_wrapper_btConvexCast_CastResult::_bind_setHitTransformA},
+	{"setHitTransformB", &luna_wrapper_btConvexCast_CastResult::_bind_setHitTransformB},
+	{"setNormal", &luna_wrapper_btConvexCast_CastResult::_bind_setNormal},
+	{"setHitPoint", &luna_wrapper_btConvexCast_CastResult::_bind_setHitPoint},
+	{"setFraction", &luna_wrapper_btConvexCast_CastResult::_bind_setFraction},
+	{"setDebugDrawer", &luna_wrapper_btConvexCast_CastResult::_bind_setDebugDrawer},
+	{"setAllowedPenetration", &luna_wrapper_btConvexCast_CastResult::_bind_setAllowedPenetration},
 	{"base_DebugDraw", &luna_wrapper_btConvexCast_CastResult::_bind_base_DebugDraw},
 	{"base_drawCoordSystem", &luna_wrapper_btConvexCast_CastResult::_bind_base_drawCoordSystem},
 	{"base_reportFailure", &luna_wrapper_btConvexCast_CastResult::_bind_base_reportFailure},

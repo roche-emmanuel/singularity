@@ -88,13 +88,13 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_get_availableTime(lua_State *L) {
+	inline static bool _lg_typecheck_getAvailableTime(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_availableTime(lua_State *L) {
+	inline static bool _lg_typecheck_setAvailableTime(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -168,8 +168,8 @@ public:
 
 	// Function binds:
 	// double osg::FlushDeletedGLObjectsOperation::_availableTime()
-	static int _bind_get_availableTime(lua_State *L) {
-		if (!_lg_typecheck_get_availableTime(L)) {
+	static int _bind_getAvailableTime(lua_State *L) {
+		if (!_lg_typecheck_getAvailableTime(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double osg::FlushDeletedGLObjectsOperation::_availableTime() function, expected prototype:\ndouble osg::FlushDeletedGLObjectsOperation::_availableTime()\nClass arguments details:\n");
 		}
@@ -187,8 +187,8 @@ public:
 	}
 
 	// void osg::FlushDeletedGLObjectsOperation::_availableTime(double value)
-	static int _bind_set_availableTime(lua_State *L) {
-		if (!_lg_typecheck_set_availableTime(L)) {
+	static int _bind_setAvailableTime(lua_State *L) {
+		if (!_lg_typecheck_setAvailableTime(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::FlushDeletedGLObjectsOperation::_availableTime(double value) function, expected prototype:\nvoid osg::FlushDeletedGLObjectsOperation::_availableTime(double value)\nClass arguments details:\n");
 		}
@@ -282,8 +282,8 @@ const int LunaTraits< osg::FlushDeletedGLObjectsOperation >::hash = 15266697;
 const int LunaTraits< osg::FlushDeletedGLObjectsOperation >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osg::FlushDeletedGLObjectsOperation >::methods[] = {
-	{"get_availableTime", &luna_wrapper_osg_FlushDeletedGLObjectsOperation::_bind_get_availableTime},
-	{"set_availableTime", &luna_wrapper_osg_FlushDeletedGLObjectsOperation::_bind_set_availableTime},
+	{"getAvailableTime", &luna_wrapper_osg_FlushDeletedGLObjectsOperation::_bind_getAvailableTime},
+	{"setAvailableTime", &luna_wrapper_osg_FlushDeletedGLObjectsOperation::_bind_setAvailableTime},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_FlushDeletedGLObjectsOperation::_bind_base_setThreadSafeRefUnref},
 	{"base_release", &luna_wrapper_osg_FlushDeletedGLObjectsOperation::_bind_base_release},
 	{"op_call", &luna_wrapper_osg_FlushDeletedGLObjectsOperation::_bind_op_call},

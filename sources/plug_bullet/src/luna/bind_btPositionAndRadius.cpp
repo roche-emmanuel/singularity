@@ -56,26 +56,26 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_pos(lua_State *L) {
+	inline static bool _lg_typecheck_getPos(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_radius(lua_State *L) {
+	inline static bool _lg_typecheck_getRadius(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_pos(lua_State *L) {
+	inline static bool _lg_typecheck_setPos(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_radius(lua_State *L) {
+	inline static bool _lg_typecheck_setRadius(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -90,8 +90,8 @@ public:
 
 	// Function binds:
 	// btVector3FloatData btPositionAndRadius::m_pos()
-	static int _bind_getM_pos(lua_State *L) {
-		if (!_lg_typecheck_getM_pos(L)) {
+	static int _bind_getPos(lua_State *L) {
+		if (!_lg_typecheck_getPos(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btPositionAndRadius::m_pos() function, expected prototype:\nbtVector3FloatData btPositionAndRadius::m_pos()\nClass arguments details:\n");
 		}
@@ -111,8 +111,8 @@ public:
 	}
 
 	// float btPositionAndRadius::m_radius()
-	static int _bind_getM_radius(lua_State *L) {
-		if (!_lg_typecheck_getM_radius(L)) {
+	static int _bind_getRadius(lua_State *L) {
+		if (!_lg_typecheck_getRadius(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btPositionAndRadius::m_radius() function, expected prototype:\nfloat btPositionAndRadius::m_radius()\nClass arguments details:\n");
 		}
@@ -130,8 +130,8 @@ public:
 	}
 
 	// void btPositionAndRadius::m_pos(btVector3FloatData value)
-	static int _bind_setM_pos(lua_State *L) {
-		if (!_lg_typecheck_setM_pos(L)) {
+	static int _bind_setPos(lua_State *L) {
+		if (!_lg_typecheck_setPos(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPositionAndRadius::m_pos(btVector3FloatData value) function, expected prototype:\nvoid btPositionAndRadius::m_pos(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -153,8 +153,8 @@ public:
 	}
 
 	// void btPositionAndRadius::m_radius(float value)
-	static int _bind_setM_radius(lua_State *L) {
-		if (!_lg_typecheck_setM_radius(L)) {
+	static int _bind_setRadius(lua_State *L) {
+		if (!_lg_typecheck_setRadius(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPositionAndRadius::m_radius(float value) function, expected prototype:\nvoid btPositionAndRadius::m_radius(float value)\nClass arguments details:\n");
 		}
@@ -192,10 +192,10 @@ const int LunaTraits< btPositionAndRadius >::hash = 22563878;
 const int LunaTraits< btPositionAndRadius >::uniqueIDs[] = {22563878,0};
 
 luna_RegType LunaTraits< btPositionAndRadius >::methods[] = {
-	{"getM_pos", &luna_wrapper_btPositionAndRadius::_bind_getM_pos},
-	{"getM_radius", &luna_wrapper_btPositionAndRadius::_bind_getM_radius},
-	{"setM_pos", &luna_wrapper_btPositionAndRadius::_bind_setM_pos},
-	{"setM_radius", &luna_wrapper_btPositionAndRadius::_bind_setM_radius},
+	{"getPos", &luna_wrapper_btPositionAndRadius::_bind_getPos},
+	{"getRadius", &luna_wrapper_btPositionAndRadius::_bind_getRadius},
+	{"setPos", &luna_wrapper_btPositionAndRadius::_bind_setPos},
+	{"setRadius", &luna_wrapper_btPositionAndRadius::_bind_setRadius},
 	{"dynCast", &luna_wrapper_btPositionAndRadius::_bind_dynCast},
 	{"__eq", &luna_wrapper_btPositionAndRadius::_bind___eq},
 	{0,0}

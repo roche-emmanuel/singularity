@@ -220,104 +220,79 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_parent(lua_State *L) {
+	inline static bool _lg_typecheck_getParent(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_depth(lua_State *L) {
+	inline static bool _lg_typecheck_getDepth(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_children(lua_State *L) {
+	inline static bool _lg_typecheck_getChildren(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_leaves(lua_State *L) {
+	inline static bool _lg_typecheck_getLeaves(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_averageDistance(lua_State *L) {
+	inline static bool _lg_typecheck_getDynamic(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_minimumDistance(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_get_userData(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_get_dynamic(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_parent(lua_State *L) {
+	inline static bool _lg_typecheck_setParent(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_depth(lua_State *L) {
+	inline static bool _lg_typecheck_setDepth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_children(lua_State *L) {
+	inline static bool _lg_typecheck_setChildren(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,4476781) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_leaves(lua_State *L) {
+	inline static bool _lg_typecheck_setLeaves(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,49937795) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_averageDistance(lua_State *L) {
+	inline static bool _lg_typecheck_setAverageDistance(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_minimumDistance(lua_State *L) {
+	inline static bool _lg_typecheck_setMinimumDistance(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_userData(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,84922662) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_dynamic(lua_State *L) {
+	inline static bool _lg_typecheck_setDynamic(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -753,8 +728,8 @@ public:
 	}
 
 	// osgUtil::StateGraph * osgUtil::StateGraph::_parent()
-	static int _bind_get_parent(lua_State *L) {
-		if (!_lg_typecheck_get_parent(L)) {
+	static int _bind_getParent(lua_State *L) {
+		if (!_lg_typecheck_getParent(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StateGraph * osgUtil::StateGraph::_parent() function, expected prototype:\nosgUtil::StateGraph * osgUtil::StateGraph::_parent()\nClass arguments details:\n");
 		}
@@ -774,8 +749,8 @@ public:
 	}
 
 	// int osgUtil::StateGraph::_depth()
-	static int _bind_get_depth(lua_State *L) {
-		if (!_lg_typecheck_get_depth(L)) {
+	static int _bind_getDepth(lua_State *L) {
+		if (!_lg_typecheck_getDepth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int osgUtil::StateGraph::_depth() function, expected prototype:\nint osgUtil::StateGraph::_depth()\nClass arguments details:\n");
 		}
@@ -793,8 +768,8 @@ public:
 	}
 
 	// osgUtil::StateGraph::ChildList osgUtil::StateGraph::_children()
-	static int _bind_get_children(lua_State *L) {
-		if (!_lg_typecheck_get_children(L)) {
+	static int _bind_getChildren(lua_State *L) {
+		if (!_lg_typecheck_getChildren(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StateGraph::ChildList osgUtil::StateGraph::_children() function, expected prototype:\nosgUtil::StateGraph::ChildList osgUtil::StateGraph::_children()\nClass arguments details:\n");
 		}
@@ -814,8 +789,8 @@ public:
 	}
 
 	// osgUtil::StateGraph::LeafList osgUtil::StateGraph::_leaves()
-	static int _bind_get_leaves(lua_State *L) {
-		if (!_lg_typecheck_get_leaves(L)) {
+	static int _bind_getLeaves(lua_State *L) {
+		if (!_lg_typecheck_getLeaves(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StateGraph::LeafList osgUtil::StateGraph::_leaves() function, expected prototype:\nosgUtil::StateGraph::LeafList osgUtil::StateGraph::_leaves()\nClass arguments details:\n");
 		}
@@ -834,66 +809,9 @@ public:
 		return 1;
 	}
 
-	// float osgUtil::StateGraph::_averageDistance()
-	static int _bind_get_averageDistance(lua_State *L) {
-		if (!_lg_typecheck_get_averageDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::StateGraph::_averageDistance() function, expected prototype:\nfloat osgUtil::StateGraph::_averageDistance()\nClass arguments details:\n");
-		}
-
-
-		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::StateGraph::_averageDistance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		float lret = self->_averageDistance;
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
-	// float osgUtil::StateGraph::_minimumDistance()
-	static int _bind_get_minimumDistance(lua_State *L) {
-		if (!_lg_typecheck_get_minimumDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::StateGraph::_minimumDistance() function, expected prototype:\nfloat osgUtil::StateGraph::_minimumDistance()\nClass arguments details:\n");
-		}
-
-
-		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float osgUtil::StateGraph::_minimumDistance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		float lret = self->_minimumDistance;
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
-	// osg::ref_ptr< osg::Referenced > osgUtil::StateGraph::_userData()
-	static int _bind_get_userData(lua_State *L) {
-		if (!_lg_typecheck_get_userData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Referenced > osgUtil::StateGraph::_userData() function, expected prototype:\nosg::ref_ptr< osg::Referenced > osgUtil::StateGraph::_userData()\nClass arguments details:\n");
-		}
-
-
-		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Referenced > osgUtil::StateGraph::_userData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		osg::ref_ptr< osg::Referenced > lret = self->_userData;
-		Luna< osg::Referenced >::push(L,lret.get(),false);
-
-		return 1;
-	}
-
 	// bool osgUtil::StateGraph::_dynamic()
-	static int _bind_get_dynamic(lua_State *L) {
-		if (!_lg_typecheck_get_dynamic(L)) {
+	static int _bind_getDynamic(lua_State *L) {
+		if (!_lg_typecheck_getDynamic(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool osgUtil::StateGraph::_dynamic() function, expected prototype:\nbool osgUtil::StateGraph::_dynamic()\nClass arguments details:\n");
 		}
@@ -911,8 +829,8 @@ public:
 	}
 
 	// void osgUtil::StateGraph::_parent(osgUtil::StateGraph * value)
-	static int _bind_set_parent(lua_State *L) {
-		if (!_lg_typecheck_set_parent(L)) {
+	static int _bind_setParent(lua_State *L) {
+		if (!_lg_typecheck_setParent(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateGraph::_parent(osgUtil::StateGraph * value) function, expected prototype:\nvoid osgUtil::StateGraph::_parent(osgUtil::StateGraph * value)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -930,8 +848,8 @@ public:
 	}
 
 	// void osgUtil::StateGraph::_depth(int value)
-	static int _bind_set_depth(lua_State *L) {
-		if (!_lg_typecheck_set_depth(L)) {
+	static int _bind_setDepth(lua_State *L) {
+		if (!_lg_typecheck_setDepth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateGraph::_depth(int value) function, expected prototype:\nvoid osgUtil::StateGraph::_depth(int value)\nClass arguments details:\n");
 		}
@@ -949,8 +867,8 @@ public:
 	}
 
 	// void osgUtil::StateGraph::_children(osgUtil::StateGraph::ChildList value)
-	static int _bind_set_children(lua_State *L) {
-		if (!_lg_typecheck_set_children(L)) {
+	static int _bind_setChildren(lua_State *L) {
+		if (!_lg_typecheck_setChildren(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateGraph::_children(osgUtil::StateGraph::ChildList value) function, expected prototype:\nvoid osgUtil::StateGraph::_children(osgUtil::StateGraph::ChildList value)\nClass arguments details:\narg 1 ID = 8678160\n");
 		}
@@ -972,8 +890,8 @@ public:
 	}
 
 	// void osgUtil::StateGraph::_leaves(osgUtil::StateGraph::LeafList value)
-	static int _bind_set_leaves(lua_State *L) {
-		if (!_lg_typecheck_set_leaves(L)) {
+	static int _bind_setLeaves(lua_State *L) {
+		if (!_lg_typecheck_setLeaves(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateGraph::_leaves(osgUtil::StateGraph::LeafList value) function, expected prototype:\nvoid osgUtil::StateGraph::_leaves(osgUtil::StateGraph::LeafList value)\nClass arguments details:\narg 1 ID = 32098161\n");
 		}
@@ -995,8 +913,8 @@ public:
 	}
 
 	// void osgUtil::StateGraph::_averageDistance(float value)
-	static int _bind_set_averageDistance(lua_State *L) {
-		if (!_lg_typecheck_set_averageDistance(L)) {
+	static int _bind_setAverageDistance(lua_State *L) {
+		if (!_lg_typecheck_setAverageDistance(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateGraph::_averageDistance(float value) function, expected prototype:\nvoid osgUtil::StateGraph::_averageDistance(float value)\nClass arguments details:\n");
 		}
@@ -1014,8 +932,8 @@ public:
 	}
 
 	// void osgUtil::StateGraph::_minimumDistance(float value)
-	static int _bind_set_minimumDistance(lua_State *L) {
-		if (!_lg_typecheck_set_minimumDistance(L)) {
+	static int _bind_setMinimumDistance(lua_State *L) {
+		if (!_lg_typecheck_setMinimumDistance(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateGraph::_minimumDistance(float value) function, expected prototype:\nvoid osgUtil::StateGraph::_minimumDistance(float value)\nClass arguments details:\n");
 		}
@@ -1032,28 +950,9 @@ public:
 		return 0;
 	}
 
-	// void osgUtil::StateGraph::_userData(osg::ref_ptr< osg::Referenced > value)
-	static int _bind_set_userData(lua_State *L) {
-		if (!_lg_typecheck_set_userData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::StateGraph::_userData(osg::ref_ptr< osg::Referenced > value) function, expected prototype:\nvoid osgUtil::StateGraph::_userData(osg::ref_ptr< osg::Referenced > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
-		}
-
-		osg::ref_ptr< osg::Referenced > value = dynamic_cast< osg::Referenced* >(Luna< osg::Referenced >::check(L,2));
-
-		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::StateGraph::_userData(osg::ref_ptr< osg::Referenced >). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->_userData = value;
-
-		return 0;
-	}
-
 	// void osgUtil::StateGraph::_dynamic(bool value)
-	static int _bind_set_dynamic(lua_State *L) {
-		if (!_lg_typecheck_set_dynamic(L)) {
+	static int _bind_setDynamic(lua_State *L) {
+		if (!_lg_typecheck_setDynamic(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateGraph::_dynamic(bool value) function, expected prototype:\nvoid osgUtil::StateGraph::_dynamic(bool value)\nClass arguments details:\n");
 		}
@@ -1127,22 +1026,18 @@ luna_RegType LunaTraits< osgUtil::StateGraph >::methods[] = {
 	{"moveStateGraph", &luna_wrapper_osgUtil_StateGraph::_bind_moveStateGraph},
 	{"moveToRootStateGraph", &luna_wrapper_osgUtil_StateGraph::_bind_moveToRootStateGraph},
 	{"numToPop", &luna_wrapper_osgUtil_StateGraph::_bind_numToPop},
-	{"get_parent", &luna_wrapper_osgUtil_StateGraph::_bind_get_parent},
-	{"get_depth", &luna_wrapper_osgUtil_StateGraph::_bind_get_depth},
-	{"get_children", &luna_wrapper_osgUtil_StateGraph::_bind_get_children},
-	{"get_leaves", &luna_wrapper_osgUtil_StateGraph::_bind_get_leaves},
-	{"get_averageDistance", &luna_wrapper_osgUtil_StateGraph::_bind_get_averageDistance},
-	{"get_minimumDistance", &luna_wrapper_osgUtil_StateGraph::_bind_get_minimumDistance},
-	{"get_userData", &luna_wrapper_osgUtil_StateGraph::_bind_get_userData},
-	{"get_dynamic", &luna_wrapper_osgUtil_StateGraph::_bind_get_dynamic},
-	{"set_parent", &luna_wrapper_osgUtil_StateGraph::_bind_set_parent},
-	{"set_depth", &luna_wrapper_osgUtil_StateGraph::_bind_set_depth},
-	{"set_children", &luna_wrapper_osgUtil_StateGraph::_bind_set_children},
-	{"set_leaves", &luna_wrapper_osgUtil_StateGraph::_bind_set_leaves},
-	{"set_averageDistance", &luna_wrapper_osgUtil_StateGraph::_bind_set_averageDistance},
-	{"set_minimumDistance", &luna_wrapper_osgUtil_StateGraph::_bind_set_minimumDistance},
-	{"set_userData", &luna_wrapper_osgUtil_StateGraph::_bind_set_userData},
-	{"set_dynamic", &luna_wrapper_osgUtil_StateGraph::_bind_set_dynamic},
+	{"getParent", &luna_wrapper_osgUtil_StateGraph::_bind_getParent},
+	{"getDepth", &luna_wrapper_osgUtil_StateGraph::_bind_getDepth},
+	{"getChildren", &luna_wrapper_osgUtil_StateGraph::_bind_getChildren},
+	{"getLeaves", &luna_wrapper_osgUtil_StateGraph::_bind_getLeaves},
+	{"getDynamic", &luna_wrapper_osgUtil_StateGraph::_bind_getDynamic},
+	{"setParent", &luna_wrapper_osgUtil_StateGraph::_bind_setParent},
+	{"setDepth", &luna_wrapper_osgUtil_StateGraph::_bind_setDepth},
+	{"setChildren", &luna_wrapper_osgUtil_StateGraph::_bind_setChildren},
+	{"setLeaves", &luna_wrapper_osgUtil_StateGraph::_bind_setLeaves},
+	{"setAverageDistance", &luna_wrapper_osgUtil_StateGraph::_bind_setAverageDistance},
+	{"setMinimumDistance", &luna_wrapper_osgUtil_StateGraph::_bind_setMinimumDistance},
+	{"setDynamic", &luna_wrapper_osgUtil_StateGraph::_bind_setDynamic},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_StateGraph::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osgUtil_StateGraph::_bind___eq},
 	{"getTable", &luna_wrapper_osgUtil_StateGraph::_bind_getTable},

@@ -62,7 +62,7 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getPage_size(lua_State *L) {
+	inline static bool _lg_typecheck_get_page_size(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -74,19 +74,19 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getSplit_pages_into_multiple_files(lua_State *L) {
+	inline static bool _lg_typecheck_get_split_pages_into_multiple_files(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getPrint_selection_only(lua_State *L) {
+	inline static bool _lg_typecheck_get_print_selection_only(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setPage_size(lua_State *L) {
+	inline static bool _lg_typecheck_set_page_size(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,8907551) ) return false;
@@ -100,14 +100,14 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setSplit_pages_into_multiple_files(lua_State *L) {
+	inline static bool _lg_typecheck_set_split_pages_into_multiple_files(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setPrint_selection_only(lua_State *L) {
+	inline static bool _lg_typecheck_set_print_selection_only(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -133,8 +133,8 @@ public:
 
 	// Function binds:
 	// Awesomium::Rect Awesomium::PrintConfig::page_size()
-	static int _bind_getPage_size(lua_State *L) {
-		if (!_lg_typecheck_getPage_size(L)) {
+	static int _bind_get_page_size(lua_State *L) {
+		if (!_lg_typecheck_get_page_size(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::Rect Awesomium::PrintConfig::page_size() function, expected prototype:\nAwesomium::Rect Awesomium::PrintConfig::page_size()\nClass arguments details:\n");
 		}
@@ -173,8 +173,8 @@ public:
 	}
 
 	// bool Awesomium::PrintConfig::split_pages_into_multiple_files()
-	static int _bind_getSplit_pages_into_multiple_files(lua_State *L) {
-		if (!_lg_typecheck_getSplit_pages_into_multiple_files(L)) {
+	static int _bind_get_split_pages_into_multiple_files(lua_State *L) {
+		if (!_lg_typecheck_get_split_pages_into_multiple_files(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool Awesomium::PrintConfig::split_pages_into_multiple_files() function, expected prototype:\nbool Awesomium::PrintConfig::split_pages_into_multiple_files()\nClass arguments details:\n");
 		}
@@ -192,8 +192,8 @@ public:
 	}
 
 	// bool Awesomium::PrintConfig::print_selection_only()
-	static int _bind_getPrint_selection_only(lua_State *L) {
-		if (!_lg_typecheck_getPrint_selection_only(L)) {
+	static int _bind_get_print_selection_only(lua_State *L) {
+		if (!_lg_typecheck_get_print_selection_only(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool Awesomium::PrintConfig::print_selection_only() function, expected prototype:\nbool Awesomium::PrintConfig::print_selection_only()\nClass arguments details:\n");
 		}
@@ -211,8 +211,8 @@ public:
 	}
 
 	// void Awesomium::PrintConfig::page_size(Awesomium::Rect value)
-	static int _bind_setPage_size(lua_State *L) {
-		if (!_lg_typecheck_setPage_size(L)) {
+	static int _bind_set_page_size(lua_State *L) {
+		if (!_lg_typecheck_set_page_size(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::PrintConfig::page_size(Awesomium::Rect value) function, expected prototype:\nvoid Awesomium::PrintConfig::page_size(Awesomium::Rect value)\nClass arguments details:\narg 1 ID = 8907551\n");
 		}
@@ -253,8 +253,8 @@ public:
 	}
 
 	// void Awesomium::PrintConfig::split_pages_into_multiple_files(bool value)
-	static int _bind_setSplit_pages_into_multiple_files(lua_State *L) {
-		if (!_lg_typecheck_setSplit_pages_into_multiple_files(L)) {
+	static int _bind_set_split_pages_into_multiple_files(lua_State *L) {
+		if (!_lg_typecheck_set_split_pages_into_multiple_files(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::PrintConfig::split_pages_into_multiple_files(bool value) function, expected prototype:\nvoid Awesomium::PrintConfig::split_pages_into_multiple_files(bool value)\nClass arguments details:\n");
 		}
@@ -272,8 +272,8 @@ public:
 	}
 
 	// void Awesomium::PrintConfig::print_selection_only(bool value)
-	static int _bind_setPrint_selection_only(lua_State *L) {
-		if (!_lg_typecheck_setPrint_selection_only(L)) {
+	static int _bind_set_print_selection_only(lua_State *L) {
+		if (!_lg_typecheck_set_print_selection_only(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::PrintConfig::print_selection_only(bool value) function, expected prototype:\nvoid Awesomium::PrintConfig::print_selection_only(bool value)\nClass arguments details:\n");
 		}
@@ -311,14 +311,14 @@ const int LunaTraits< Awesomium::PrintConfig >::hash = 23715294;
 const int LunaTraits< Awesomium::PrintConfig >::uniqueIDs[] = {23715294,0};
 
 luna_RegType LunaTraits< Awesomium::PrintConfig >::methods[] = {
-	{"getPage_size", &luna_wrapper_Awesomium_PrintConfig::_bind_getPage_size},
+	{"get_page_size", &luna_wrapper_Awesomium_PrintConfig::_bind_get_page_size},
 	{"getDpi", &luna_wrapper_Awesomium_PrintConfig::_bind_getDpi},
-	{"getSplit_pages_into_multiple_files", &luna_wrapper_Awesomium_PrintConfig::_bind_getSplit_pages_into_multiple_files},
-	{"getPrint_selection_only", &luna_wrapper_Awesomium_PrintConfig::_bind_getPrint_selection_only},
-	{"setPage_size", &luna_wrapper_Awesomium_PrintConfig::_bind_setPage_size},
+	{"get_split_pages_into_multiple_files", &luna_wrapper_Awesomium_PrintConfig::_bind_get_split_pages_into_multiple_files},
+	{"get_print_selection_only", &luna_wrapper_Awesomium_PrintConfig::_bind_get_print_selection_only},
+	{"set_page_size", &luna_wrapper_Awesomium_PrintConfig::_bind_set_page_size},
 	{"setDpi", &luna_wrapper_Awesomium_PrintConfig::_bind_setDpi},
-	{"setSplit_pages_into_multiple_files", &luna_wrapper_Awesomium_PrintConfig::_bind_setSplit_pages_into_multiple_files},
-	{"setPrint_selection_only", &luna_wrapper_Awesomium_PrintConfig::_bind_setPrint_selection_only},
+	{"set_split_pages_into_multiple_files", &luna_wrapper_Awesomium_PrintConfig::_bind_set_split_pages_into_multiple_files},
+	{"set_print_selection_only", &luna_wrapper_Awesomium_PrintConfig::_bind_set_print_selection_only},
 	{"dynCast", &luna_wrapper_Awesomium_PrintConfig::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_PrintConfig::_bind___eq},
 	{0,0}

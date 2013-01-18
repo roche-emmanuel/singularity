@@ -80,13 +80,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getDEFAULT_TOLERANCE(lua_State *L) {
+	inline static bool _lg_typecheck_get_DEFAULT_TOLERANCE(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getDEFAULT_MAX_ITERATIONS(lua_State *L) {
+	inline static bool _lg_typecheck_get_DEFAULT_MAX_ITERATIONS(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -168,8 +168,8 @@ public:
 	}
 
 	// const float btPolarDecomposition::DEFAULT_TOLERANCE()
-	static int _bind_getDEFAULT_TOLERANCE(lua_State *L) {
-		if (!_lg_typecheck_getDEFAULT_TOLERANCE(L)) {
+	static int _bind_get_DEFAULT_TOLERANCE(lua_State *L) {
+		if (!_lg_typecheck_get_DEFAULT_TOLERANCE(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const float btPolarDecomposition::DEFAULT_TOLERANCE() function, expected prototype:\nconst float btPolarDecomposition::DEFAULT_TOLERANCE()\nClass arguments details:\n");
 		}
@@ -187,8 +187,8 @@ public:
 	}
 
 	// const unsigned int btPolarDecomposition::DEFAULT_MAX_ITERATIONS()
-	static int _bind_getDEFAULT_MAX_ITERATIONS(lua_State *L) {
-		if (!_lg_typecheck_getDEFAULT_MAX_ITERATIONS(L)) {
+	static int _bind_get_DEFAULT_MAX_ITERATIONS(lua_State *L) {
+		if (!_lg_typecheck_get_DEFAULT_MAX_ITERATIONS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const unsigned int btPolarDecomposition::DEFAULT_MAX_ITERATIONS() function, expected prototype:\nconst unsigned int btPolarDecomposition::DEFAULT_MAX_ITERATIONS()\nClass arguments details:\n");
 		}
@@ -228,8 +228,8 @@ const int LunaTraits< btPolarDecomposition >::uniqueIDs[] = {82164365,0};
 luna_RegType LunaTraits< btPolarDecomposition >::methods[] = {
 	{"decompose", &luna_wrapper_btPolarDecomposition::_bind_decompose},
 	{"maxIterations", &luna_wrapper_btPolarDecomposition::_bind_maxIterations},
-	{"getDEFAULT_TOLERANCE", &luna_wrapper_btPolarDecomposition::_bind_getDEFAULT_TOLERANCE},
-	{"getDEFAULT_MAX_ITERATIONS", &luna_wrapper_btPolarDecomposition::_bind_getDEFAULT_MAX_ITERATIONS},
+	{"get_DEFAULT_TOLERANCE", &luna_wrapper_btPolarDecomposition::_bind_get_DEFAULT_TOLERANCE},
+	{"get_DEFAULT_MAX_ITERATIONS", &luna_wrapper_btPolarDecomposition::_bind_get_DEFAULT_MAX_ITERATIONS},
 	{"dynCast", &luna_wrapper_btPolarDecomposition::_bind_dynCast},
 	{"__eq", &luna_wrapper_btPolarDecomposition::_bind___eq},
 	{0,0}

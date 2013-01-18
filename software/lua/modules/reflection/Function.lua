@@ -61,13 +61,19 @@ function Class:getLuaName()
 		end
 		
 		return lname
-	elseif self._isGetter then
+	elseif self._isGetter or self._isSetter then
 		local lname = self:getName()
-		lname = "get" .. lname:sub(1,1):upper() .. lname:sub(2)
-		return lname
-	elseif self._isSetter then
-		local lname = self:getName()
-		lname = "set" .. lname:sub(1,1):upper() .. lname:sub(2)
+		if lname:sub(1,2)=="m_" then
+			lname = lname:sub(3)
+		end
+		if lname:sub(1,1)=="_" or lname:find("^m[A-Z]") then
+			lname = lname:sub(2)
+		end
+
+		local withUnderscore = lname:find("_")
+		local op = self._isGetter and "get" or "set"
+		
+		lname = op .. (withUnderscore and ("_" .. lname) or (lname:sub(1,1):upper() .. lname:sub(2)))
 		return lname
 	else
 		return self:getName()

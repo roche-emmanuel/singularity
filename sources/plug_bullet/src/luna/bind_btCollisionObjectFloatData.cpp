@@ -56,312 +56,312 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_broadphaseHandle(lua_State *L) {
+	inline static bool _lg_typecheck_getBroadphaseHandle(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_collisionShape(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionShape(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rootCollisionShape(lua_State *L) {
+	inline static bool _lg_typecheck_getRootCollisionShape(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_name(lua_State *L) {
+	inline static bool _lg_typecheck_getName(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_worldTransform(lua_State *L) {
+	inline static bool _lg_typecheck_getWorldTransform(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_interpolationWorldTransform(lua_State *L) {
+	inline static bool _lg_typecheck_getInterpolationWorldTransform(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_interpolationLinearVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_getInterpolationLinearVelocity(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_interpolationAngularVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_getInterpolationAngularVelocity(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_anisotropicFriction(lua_State *L) {
+	inline static bool _lg_typecheck_getAnisotropicFriction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contactProcessingThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getContactProcessingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_deactivationTime(lua_State *L) {
+	inline static bool _lg_typecheck_getDeactivationTime(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_friction(lua_State *L) {
+	inline static bool _lg_typecheck_getFriction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rollingFriction(lua_State *L) {
+	inline static bool _lg_typecheck_getRollingFriction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_restitution(lua_State *L) {
+	inline static bool _lg_typecheck_getRestitution(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitFraction(lua_State *L) {
+	inline static bool _lg_typecheck_getHitFraction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_ccdSweptSphereRadius(lua_State *L) {
+	inline static bool _lg_typecheck_getCcdSweptSphereRadius(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_ccdMotionThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getCcdMotionThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hasAnisotropicFriction(lua_State *L) {
+	inline static bool _lg_typecheck_getHasAnisotropicFriction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_collisionFlags(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionFlags(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_islandTag1(lua_State *L) {
+	inline static bool _lg_typecheck_getIslandTag1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_companionId(lua_State *L) {
+	inline static bool _lg_typecheck_getCompanionId(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_activationState1(lua_State *L) {
+	inline static bool _lg_typecheck_getActivationState1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_internalType(lua_State *L) {
+	inline static bool _lg_typecheck_getInternalType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_checkCollideWith(lua_State *L) {
+	inline static bool _lg_typecheck_getCheckCollideWith(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_broadphaseHandle(lua_State *L) {
+	inline static bool _lg_typecheck_setBroadphaseHandle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionShape(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionShape(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rootCollisionShape(lua_State *L) {
+	inline static bool _lg_typecheck_setRootCollisionShape(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,94025107)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_name(lua_State *L) {
+	inline static bool _lg_typecheck_setName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_worldTransform(lua_State *L) {
+	inline static bool _lg_typecheck_setWorldTransform(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,93855928) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_interpolationWorldTransform(lua_State *L) {
+	inline static bool _lg_typecheck_setInterpolationWorldTransform(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,93855928) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_interpolationLinearVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_setInterpolationLinearVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_interpolationAngularVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_setInterpolationAngularVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_anisotropicFriction(lua_State *L) {
+	inline static bool _lg_typecheck_setAnisotropicFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactProcessingThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setContactProcessingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_deactivationTime(lua_State *L) {
+	inline static bool _lg_typecheck_setDeactivationTime(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_friction(lua_State *L) {
+	inline static bool _lg_typecheck_setFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rollingFriction(lua_State *L) {
+	inline static bool _lg_typecheck_setRollingFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_restitution(lua_State *L) {
+	inline static bool _lg_typecheck_setRestitution(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitFraction(lua_State *L) {
+	inline static bool _lg_typecheck_setHitFraction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_ccdSweptSphereRadius(lua_State *L) {
+	inline static bool _lg_typecheck_setCcdSweptSphereRadius(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_ccdMotionThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setCcdMotionThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hasAnisotropicFriction(lua_State *L) {
+	inline static bool _lg_typecheck_setHasAnisotropicFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionFlags(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionFlags(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_islandTag1(lua_State *L) {
+	inline static bool _lg_typecheck_setIslandTag1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_companionId(lua_State *L) {
+	inline static bool _lg_typecheck_setCompanionId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_activationState1(lua_State *L) {
+	inline static bool _lg_typecheck_setActivationState1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_internalType(lua_State *L) {
+	inline static bool _lg_typecheck_setInternalType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_checkCollideWith(lua_State *L) {
+	inline static bool _lg_typecheck_setCheckCollideWith(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -376,8 +376,8 @@ public:
 
 	// Function binds:
 	// void * btCollisionObjectFloatData::m_broadphaseHandle()
-	static int _bind_getM_broadphaseHandle(lua_State *L) {
-		if (!_lg_typecheck_getM_broadphaseHandle(L)) {
+	static int _bind_getBroadphaseHandle(lua_State *L) {
+		if (!_lg_typecheck_getBroadphaseHandle(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void * btCollisionObjectFloatData::m_broadphaseHandle() function, expected prototype:\nvoid * btCollisionObjectFloatData::m_broadphaseHandle()\nClass arguments details:\n");
 		}
@@ -397,8 +397,8 @@ public:
 	}
 
 	// void * btCollisionObjectFloatData::m_collisionShape()
-	static int _bind_getM_collisionShape(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionShape(L)) {
+	static int _bind_getCollisionShape(lua_State *L) {
+		if (!_lg_typecheck_getCollisionShape(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void * btCollisionObjectFloatData::m_collisionShape() function, expected prototype:\nvoid * btCollisionObjectFloatData::m_collisionShape()\nClass arguments details:\n");
 		}
@@ -418,8 +418,8 @@ public:
 	}
 
 	// btCollisionShapeData * btCollisionObjectFloatData::m_rootCollisionShape()
-	static int _bind_getM_rootCollisionShape(lua_State *L) {
-		if (!_lg_typecheck_getM_rootCollisionShape(L)) {
+	static int _bind_getRootCollisionShape(lua_State *L) {
+		if (!_lg_typecheck_getRootCollisionShape(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btCollisionShapeData * btCollisionObjectFloatData::m_rootCollisionShape() function, expected prototype:\nbtCollisionShapeData * btCollisionObjectFloatData::m_rootCollisionShape()\nClass arguments details:\n");
 		}
@@ -439,8 +439,8 @@ public:
 	}
 
 	// char * btCollisionObjectFloatData::m_name()
-	static int _bind_getM_name(lua_State *L) {
-		if (!_lg_typecheck_getM_name(L)) {
+	static int _bind_getName(lua_State *L) {
+		if (!_lg_typecheck_getName(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in char * btCollisionObjectFloatData::m_name() function, expected prototype:\nchar * btCollisionObjectFloatData::m_name()\nClass arguments details:\n");
 		}
@@ -458,8 +458,8 @@ public:
 	}
 
 	// btTransformFloatData btCollisionObjectFloatData::m_worldTransform()
-	static int _bind_getM_worldTransform(lua_State *L) {
-		if (!_lg_typecheck_getM_worldTransform(L)) {
+	static int _bind_getWorldTransform(lua_State *L) {
+		if (!_lg_typecheck_getWorldTransform(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransformFloatData btCollisionObjectFloatData::m_worldTransform() function, expected prototype:\nbtTransformFloatData btCollisionObjectFloatData::m_worldTransform()\nClass arguments details:\n");
 		}
@@ -479,8 +479,8 @@ public:
 	}
 
 	// btTransformFloatData btCollisionObjectFloatData::m_interpolationWorldTransform()
-	static int _bind_getM_interpolationWorldTransform(lua_State *L) {
-		if (!_lg_typecheck_getM_interpolationWorldTransform(L)) {
+	static int _bind_getInterpolationWorldTransform(lua_State *L) {
+		if (!_lg_typecheck_getInterpolationWorldTransform(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransformFloatData btCollisionObjectFloatData::m_interpolationWorldTransform() function, expected prototype:\nbtTransformFloatData btCollisionObjectFloatData::m_interpolationWorldTransform()\nClass arguments details:\n");
 		}
@@ -500,8 +500,8 @@ public:
 	}
 
 	// btVector3FloatData btCollisionObjectFloatData::m_interpolationLinearVelocity()
-	static int _bind_getM_interpolationLinearVelocity(lua_State *L) {
-		if (!_lg_typecheck_getM_interpolationLinearVelocity(L)) {
+	static int _bind_getInterpolationLinearVelocity(lua_State *L) {
+		if (!_lg_typecheck_getInterpolationLinearVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btCollisionObjectFloatData::m_interpolationLinearVelocity() function, expected prototype:\nbtVector3FloatData btCollisionObjectFloatData::m_interpolationLinearVelocity()\nClass arguments details:\n");
 		}
@@ -521,8 +521,8 @@ public:
 	}
 
 	// btVector3FloatData btCollisionObjectFloatData::m_interpolationAngularVelocity()
-	static int _bind_getM_interpolationAngularVelocity(lua_State *L) {
-		if (!_lg_typecheck_getM_interpolationAngularVelocity(L)) {
+	static int _bind_getInterpolationAngularVelocity(lua_State *L) {
+		if (!_lg_typecheck_getInterpolationAngularVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btCollisionObjectFloatData::m_interpolationAngularVelocity() function, expected prototype:\nbtVector3FloatData btCollisionObjectFloatData::m_interpolationAngularVelocity()\nClass arguments details:\n");
 		}
@@ -542,8 +542,8 @@ public:
 	}
 
 	// btVector3FloatData btCollisionObjectFloatData::m_anisotropicFriction()
-	static int _bind_getM_anisotropicFriction(lua_State *L) {
-		if (!_lg_typecheck_getM_anisotropicFriction(L)) {
+	static int _bind_getAnisotropicFriction(lua_State *L) {
+		if (!_lg_typecheck_getAnisotropicFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btCollisionObjectFloatData::m_anisotropicFriction() function, expected prototype:\nbtVector3FloatData btCollisionObjectFloatData::m_anisotropicFriction()\nClass arguments details:\n");
 		}
@@ -563,8 +563,8 @@ public:
 	}
 
 	// float btCollisionObjectFloatData::m_contactProcessingThreshold()
-	static int _bind_getM_contactProcessingThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_contactProcessingThreshold(L)) {
+	static int _bind_getContactProcessingThreshold(lua_State *L) {
+		if (!_lg_typecheck_getContactProcessingThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btCollisionObjectFloatData::m_contactProcessingThreshold() function, expected prototype:\nfloat btCollisionObjectFloatData::m_contactProcessingThreshold()\nClass arguments details:\n");
 		}
@@ -582,8 +582,8 @@ public:
 	}
 
 	// float btCollisionObjectFloatData::m_deactivationTime()
-	static int _bind_getM_deactivationTime(lua_State *L) {
-		if (!_lg_typecheck_getM_deactivationTime(L)) {
+	static int _bind_getDeactivationTime(lua_State *L) {
+		if (!_lg_typecheck_getDeactivationTime(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btCollisionObjectFloatData::m_deactivationTime() function, expected prototype:\nfloat btCollisionObjectFloatData::m_deactivationTime()\nClass arguments details:\n");
 		}
@@ -601,8 +601,8 @@ public:
 	}
 
 	// float btCollisionObjectFloatData::m_friction()
-	static int _bind_getM_friction(lua_State *L) {
-		if (!_lg_typecheck_getM_friction(L)) {
+	static int _bind_getFriction(lua_State *L) {
+		if (!_lg_typecheck_getFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btCollisionObjectFloatData::m_friction() function, expected prototype:\nfloat btCollisionObjectFloatData::m_friction()\nClass arguments details:\n");
 		}
@@ -620,8 +620,8 @@ public:
 	}
 
 	// float btCollisionObjectFloatData::m_rollingFriction()
-	static int _bind_getM_rollingFriction(lua_State *L) {
-		if (!_lg_typecheck_getM_rollingFriction(L)) {
+	static int _bind_getRollingFriction(lua_State *L) {
+		if (!_lg_typecheck_getRollingFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btCollisionObjectFloatData::m_rollingFriction() function, expected prototype:\nfloat btCollisionObjectFloatData::m_rollingFriction()\nClass arguments details:\n");
 		}
@@ -639,8 +639,8 @@ public:
 	}
 
 	// float btCollisionObjectFloatData::m_restitution()
-	static int _bind_getM_restitution(lua_State *L) {
-		if (!_lg_typecheck_getM_restitution(L)) {
+	static int _bind_getRestitution(lua_State *L) {
+		if (!_lg_typecheck_getRestitution(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btCollisionObjectFloatData::m_restitution() function, expected prototype:\nfloat btCollisionObjectFloatData::m_restitution()\nClass arguments details:\n");
 		}
@@ -658,8 +658,8 @@ public:
 	}
 
 	// float btCollisionObjectFloatData::m_hitFraction()
-	static int _bind_getM_hitFraction(lua_State *L) {
-		if (!_lg_typecheck_getM_hitFraction(L)) {
+	static int _bind_getHitFraction(lua_State *L) {
+		if (!_lg_typecheck_getHitFraction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btCollisionObjectFloatData::m_hitFraction() function, expected prototype:\nfloat btCollisionObjectFloatData::m_hitFraction()\nClass arguments details:\n");
 		}
@@ -677,8 +677,8 @@ public:
 	}
 
 	// float btCollisionObjectFloatData::m_ccdSweptSphereRadius()
-	static int _bind_getM_ccdSweptSphereRadius(lua_State *L) {
-		if (!_lg_typecheck_getM_ccdSweptSphereRadius(L)) {
+	static int _bind_getCcdSweptSphereRadius(lua_State *L) {
+		if (!_lg_typecheck_getCcdSweptSphereRadius(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btCollisionObjectFloatData::m_ccdSweptSphereRadius() function, expected prototype:\nfloat btCollisionObjectFloatData::m_ccdSweptSphereRadius()\nClass arguments details:\n");
 		}
@@ -696,8 +696,8 @@ public:
 	}
 
 	// float btCollisionObjectFloatData::m_ccdMotionThreshold()
-	static int _bind_getM_ccdMotionThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_ccdMotionThreshold(L)) {
+	static int _bind_getCcdMotionThreshold(lua_State *L) {
+		if (!_lg_typecheck_getCcdMotionThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btCollisionObjectFloatData::m_ccdMotionThreshold() function, expected prototype:\nfloat btCollisionObjectFloatData::m_ccdMotionThreshold()\nClass arguments details:\n");
 		}
@@ -715,8 +715,8 @@ public:
 	}
 
 	// int btCollisionObjectFloatData::m_hasAnisotropicFriction()
-	static int _bind_getM_hasAnisotropicFriction(lua_State *L) {
-		if (!_lg_typecheck_getM_hasAnisotropicFriction(L)) {
+	static int _bind_getHasAnisotropicFriction(lua_State *L) {
+		if (!_lg_typecheck_getHasAnisotropicFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btCollisionObjectFloatData::m_hasAnisotropicFriction() function, expected prototype:\nint btCollisionObjectFloatData::m_hasAnisotropicFriction()\nClass arguments details:\n");
 		}
@@ -734,8 +734,8 @@ public:
 	}
 
 	// int btCollisionObjectFloatData::m_collisionFlags()
-	static int _bind_getM_collisionFlags(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionFlags(L)) {
+	static int _bind_getCollisionFlags(lua_State *L) {
+		if (!_lg_typecheck_getCollisionFlags(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btCollisionObjectFloatData::m_collisionFlags() function, expected prototype:\nint btCollisionObjectFloatData::m_collisionFlags()\nClass arguments details:\n");
 		}
@@ -753,8 +753,8 @@ public:
 	}
 
 	// int btCollisionObjectFloatData::m_islandTag1()
-	static int _bind_getM_islandTag1(lua_State *L) {
-		if (!_lg_typecheck_getM_islandTag1(L)) {
+	static int _bind_getIslandTag1(lua_State *L) {
+		if (!_lg_typecheck_getIslandTag1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btCollisionObjectFloatData::m_islandTag1() function, expected prototype:\nint btCollisionObjectFloatData::m_islandTag1()\nClass arguments details:\n");
 		}
@@ -772,8 +772,8 @@ public:
 	}
 
 	// int btCollisionObjectFloatData::m_companionId()
-	static int _bind_getM_companionId(lua_State *L) {
-		if (!_lg_typecheck_getM_companionId(L)) {
+	static int _bind_getCompanionId(lua_State *L) {
+		if (!_lg_typecheck_getCompanionId(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btCollisionObjectFloatData::m_companionId() function, expected prototype:\nint btCollisionObjectFloatData::m_companionId()\nClass arguments details:\n");
 		}
@@ -791,8 +791,8 @@ public:
 	}
 
 	// int btCollisionObjectFloatData::m_activationState1()
-	static int _bind_getM_activationState1(lua_State *L) {
-		if (!_lg_typecheck_getM_activationState1(L)) {
+	static int _bind_getActivationState1(lua_State *L) {
+		if (!_lg_typecheck_getActivationState1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btCollisionObjectFloatData::m_activationState1() function, expected prototype:\nint btCollisionObjectFloatData::m_activationState1()\nClass arguments details:\n");
 		}
@@ -810,8 +810,8 @@ public:
 	}
 
 	// int btCollisionObjectFloatData::m_internalType()
-	static int _bind_getM_internalType(lua_State *L) {
-		if (!_lg_typecheck_getM_internalType(L)) {
+	static int _bind_getInternalType(lua_State *L) {
+		if (!_lg_typecheck_getInternalType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btCollisionObjectFloatData::m_internalType() function, expected prototype:\nint btCollisionObjectFloatData::m_internalType()\nClass arguments details:\n");
 		}
@@ -829,8 +829,8 @@ public:
 	}
 
 	// int btCollisionObjectFloatData::m_checkCollideWith()
-	static int _bind_getM_checkCollideWith(lua_State *L) {
-		if (!_lg_typecheck_getM_checkCollideWith(L)) {
+	static int _bind_getCheckCollideWith(lua_State *L) {
+		if (!_lg_typecheck_getCheckCollideWith(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btCollisionObjectFloatData::m_checkCollideWith() function, expected prototype:\nint btCollisionObjectFloatData::m_checkCollideWith()\nClass arguments details:\n");
 		}
@@ -848,8 +848,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_broadphaseHandle(void * value)
-	static int _bind_setM_broadphaseHandle(lua_State *L) {
-		if (!_lg_typecheck_setM_broadphaseHandle(L)) {
+	static int _bind_setBroadphaseHandle(lua_State *L) {
+		if (!_lg_typecheck_setBroadphaseHandle(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_broadphaseHandle(void * value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_broadphaseHandle(void * value)\nClass arguments details:\n");
 		}
@@ -867,8 +867,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_collisionShape(void * value)
-	static int _bind_setM_collisionShape(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionShape(L)) {
+	static int _bind_setCollisionShape(lua_State *L) {
+		if (!_lg_typecheck_setCollisionShape(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_collisionShape(void * value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_collisionShape(void * value)\nClass arguments details:\n");
 		}
@@ -886,8 +886,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_rootCollisionShape(btCollisionShapeData * value)
-	static int _bind_setM_rootCollisionShape(lua_State *L) {
-		if (!_lg_typecheck_setM_rootCollisionShape(L)) {
+	static int _bind_setRootCollisionShape(lua_State *L) {
+		if (!_lg_typecheck_setRootCollisionShape(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_rootCollisionShape(btCollisionShapeData * value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_rootCollisionShape(btCollisionShapeData * value)\nClass arguments details:\narg 1 ID = 94025107\n");
 		}
@@ -905,8 +905,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_name(char * value)
-	static int _bind_setM_name(lua_State *L) {
-		if (!_lg_typecheck_setM_name(L)) {
+	static int _bind_setName(lua_State *L) {
+		if (!_lg_typecheck_setName(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_name(char * value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_name(char * value)\nClass arguments details:\n");
 		}
@@ -924,8 +924,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_worldTransform(btTransformFloatData value)
-	static int _bind_setM_worldTransform(lua_State *L) {
-		if (!_lg_typecheck_setM_worldTransform(L)) {
+	static int _bind_setWorldTransform(lua_State *L) {
+		if (!_lg_typecheck_setWorldTransform(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_worldTransform(btTransformFloatData value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_worldTransform(btTransformFloatData value)\nClass arguments details:\narg 1 ID = 93855928\n");
 		}
@@ -947,8 +947,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_interpolationWorldTransform(btTransformFloatData value)
-	static int _bind_setM_interpolationWorldTransform(lua_State *L) {
-		if (!_lg_typecheck_setM_interpolationWorldTransform(L)) {
+	static int _bind_setInterpolationWorldTransform(lua_State *L) {
+		if (!_lg_typecheck_setInterpolationWorldTransform(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_interpolationWorldTransform(btTransformFloatData value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_interpolationWorldTransform(btTransformFloatData value)\nClass arguments details:\narg 1 ID = 93855928\n");
 		}
@@ -970,8 +970,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_interpolationLinearVelocity(btVector3FloatData value)
-	static int _bind_setM_interpolationLinearVelocity(lua_State *L) {
-		if (!_lg_typecheck_setM_interpolationLinearVelocity(L)) {
+	static int _bind_setInterpolationLinearVelocity(lua_State *L) {
+		if (!_lg_typecheck_setInterpolationLinearVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_interpolationLinearVelocity(btVector3FloatData value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_interpolationLinearVelocity(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -993,8 +993,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_interpolationAngularVelocity(btVector3FloatData value)
-	static int _bind_setM_interpolationAngularVelocity(lua_State *L) {
-		if (!_lg_typecheck_setM_interpolationAngularVelocity(L)) {
+	static int _bind_setInterpolationAngularVelocity(lua_State *L) {
+		if (!_lg_typecheck_setInterpolationAngularVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_interpolationAngularVelocity(btVector3FloatData value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_interpolationAngularVelocity(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -1016,8 +1016,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_anisotropicFriction(btVector3FloatData value)
-	static int _bind_setM_anisotropicFriction(lua_State *L) {
-		if (!_lg_typecheck_setM_anisotropicFriction(L)) {
+	static int _bind_setAnisotropicFriction(lua_State *L) {
+		if (!_lg_typecheck_setAnisotropicFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_anisotropicFriction(btVector3FloatData value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_anisotropicFriction(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -1039,8 +1039,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_contactProcessingThreshold(float value)
-	static int _bind_setM_contactProcessingThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_contactProcessingThreshold(L)) {
+	static int _bind_setContactProcessingThreshold(lua_State *L) {
+		if (!_lg_typecheck_setContactProcessingThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_contactProcessingThreshold(float value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_contactProcessingThreshold(float value)\nClass arguments details:\n");
 		}
@@ -1058,8 +1058,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_deactivationTime(float value)
-	static int _bind_setM_deactivationTime(lua_State *L) {
-		if (!_lg_typecheck_setM_deactivationTime(L)) {
+	static int _bind_setDeactivationTime(lua_State *L) {
+		if (!_lg_typecheck_setDeactivationTime(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_deactivationTime(float value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_deactivationTime(float value)\nClass arguments details:\n");
 		}
@@ -1077,8 +1077,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_friction(float value)
-	static int _bind_setM_friction(lua_State *L) {
-		if (!_lg_typecheck_setM_friction(L)) {
+	static int _bind_setFriction(lua_State *L) {
+		if (!_lg_typecheck_setFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_friction(float value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_friction(float value)\nClass arguments details:\n");
 		}
@@ -1096,8 +1096,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_rollingFriction(float value)
-	static int _bind_setM_rollingFriction(lua_State *L) {
-		if (!_lg_typecheck_setM_rollingFriction(L)) {
+	static int _bind_setRollingFriction(lua_State *L) {
+		if (!_lg_typecheck_setRollingFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_rollingFriction(float value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_rollingFriction(float value)\nClass arguments details:\n");
 		}
@@ -1115,8 +1115,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_restitution(float value)
-	static int _bind_setM_restitution(lua_State *L) {
-		if (!_lg_typecheck_setM_restitution(L)) {
+	static int _bind_setRestitution(lua_State *L) {
+		if (!_lg_typecheck_setRestitution(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_restitution(float value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_restitution(float value)\nClass arguments details:\n");
 		}
@@ -1134,8 +1134,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_hitFraction(float value)
-	static int _bind_setM_hitFraction(lua_State *L) {
-		if (!_lg_typecheck_setM_hitFraction(L)) {
+	static int _bind_setHitFraction(lua_State *L) {
+		if (!_lg_typecheck_setHitFraction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_hitFraction(float value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_hitFraction(float value)\nClass arguments details:\n");
 		}
@@ -1153,8 +1153,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_ccdSweptSphereRadius(float value)
-	static int _bind_setM_ccdSweptSphereRadius(lua_State *L) {
-		if (!_lg_typecheck_setM_ccdSweptSphereRadius(L)) {
+	static int _bind_setCcdSweptSphereRadius(lua_State *L) {
+		if (!_lg_typecheck_setCcdSweptSphereRadius(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_ccdSweptSphereRadius(float value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_ccdSweptSphereRadius(float value)\nClass arguments details:\n");
 		}
@@ -1172,8 +1172,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_ccdMotionThreshold(float value)
-	static int _bind_setM_ccdMotionThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_ccdMotionThreshold(L)) {
+	static int _bind_setCcdMotionThreshold(lua_State *L) {
+		if (!_lg_typecheck_setCcdMotionThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_ccdMotionThreshold(float value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_ccdMotionThreshold(float value)\nClass arguments details:\n");
 		}
@@ -1191,8 +1191,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_hasAnisotropicFriction(int value)
-	static int _bind_setM_hasAnisotropicFriction(lua_State *L) {
-		if (!_lg_typecheck_setM_hasAnisotropicFriction(L)) {
+	static int _bind_setHasAnisotropicFriction(lua_State *L) {
+		if (!_lg_typecheck_setHasAnisotropicFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_hasAnisotropicFriction(int value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_hasAnisotropicFriction(int value)\nClass arguments details:\n");
 		}
@@ -1210,8 +1210,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_collisionFlags(int value)
-	static int _bind_setM_collisionFlags(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionFlags(L)) {
+	static int _bind_setCollisionFlags(lua_State *L) {
+		if (!_lg_typecheck_setCollisionFlags(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_collisionFlags(int value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_collisionFlags(int value)\nClass arguments details:\n");
 		}
@@ -1229,8 +1229,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_islandTag1(int value)
-	static int _bind_setM_islandTag1(lua_State *L) {
-		if (!_lg_typecheck_setM_islandTag1(L)) {
+	static int _bind_setIslandTag1(lua_State *L) {
+		if (!_lg_typecheck_setIslandTag1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_islandTag1(int value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_islandTag1(int value)\nClass arguments details:\n");
 		}
@@ -1248,8 +1248,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_companionId(int value)
-	static int _bind_setM_companionId(lua_State *L) {
-		if (!_lg_typecheck_setM_companionId(L)) {
+	static int _bind_setCompanionId(lua_State *L) {
+		if (!_lg_typecheck_setCompanionId(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_companionId(int value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_companionId(int value)\nClass arguments details:\n");
 		}
@@ -1267,8 +1267,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_activationState1(int value)
-	static int _bind_setM_activationState1(lua_State *L) {
-		if (!_lg_typecheck_setM_activationState1(L)) {
+	static int _bind_setActivationState1(lua_State *L) {
+		if (!_lg_typecheck_setActivationState1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_activationState1(int value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_activationState1(int value)\nClass arguments details:\n");
 		}
@@ -1286,8 +1286,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_internalType(int value)
-	static int _bind_setM_internalType(lua_State *L) {
-		if (!_lg_typecheck_setM_internalType(L)) {
+	static int _bind_setInternalType(lua_State *L) {
+		if (!_lg_typecheck_setInternalType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_internalType(int value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_internalType(int value)\nClass arguments details:\n");
 		}
@@ -1305,8 +1305,8 @@ public:
 	}
 
 	// void btCollisionObjectFloatData::m_checkCollideWith(int value)
-	static int _bind_setM_checkCollideWith(lua_State *L) {
-		if (!_lg_typecheck_setM_checkCollideWith(L)) {
+	static int _bind_setCheckCollideWith(lua_State *L) {
+		if (!_lg_typecheck_setCheckCollideWith(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionObjectFloatData::m_checkCollideWith(int value) function, expected prototype:\nvoid btCollisionObjectFloatData::m_checkCollideWith(int value)\nClass arguments details:\n");
 		}
@@ -1344,54 +1344,54 @@ const int LunaTraits< btCollisionObjectFloatData >::hash = 5462649;
 const int LunaTraits< btCollisionObjectFloatData >::uniqueIDs[] = {5462649,0};
 
 luna_RegType LunaTraits< btCollisionObjectFloatData >::methods[] = {
-	{"getM_broadphaseHandle", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_broadphaseHandle},
-	{"getM_collisionShape", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_collisionShape},
-	{"getM_rootCollisionShape", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_rootCollisionShape},
-	{"getM_name", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_name},
-	{"getM_worldTransform", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_worldTransform},
-	{"getM_interpolationWorldTransform", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_interpolationWorldTransform},
-	{"getM_interpolationLinearVelocity", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_interpolationLinearVelocity},
-	{"getM_interpolationAngularVelocity", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_interpolationAngularVelocity},
-	{"getM_anisotropicFriction", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_anisotropicFriction},
-	{"getM_contactProcessingThreshold", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_contactProcessingThreshold},
-	{"getM_deactivationTime", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_deactivationTime},
-	{"getM_friction", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_friction},
-	{"getM_rollingFriction", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_rollingFriction},
-	{"getM_restitution", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_restitution},
-	{"getM_hitFraction", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_hitFraction},
-	{"getM_ccdSweptSphereRadius", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_ccdSweptSphereRadius},
-	{"getM_ccdMotionThreshold", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_ccdMotionThreshold},
-	{"getM_hasAnisotropicFriction", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_hasAnisotropicFriction},
-	{"getM_collisionFlags", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_collisionFlags},
-	{"getM_islandTag1", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_islandTag1},
-	{"getM_companionId", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_companionId},
-	{"getM_activationState1", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_activationState1},
-	{"getM_internalType", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_internalType},
-	{"getM_checkCollideWith", &luna_wrapper_btCollisionObjectFloatData::_bind_getM_checkCollideWith},
-	{"setM_broadphaseHandle", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_broadphaseHandle},
-	{"setM_collisionShape", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_collisionShape},
-	{"setM_rootCollisionShape", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_rootCollisionShape},
-	{"setM_name", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_name},
-	{"setM_worldTransform", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_worldTransform},
-	{"setM_interpolationWorldTransform", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_interpolationWorldTransform},
-	{"setM_interpolationLinearVelocity", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_interpolationLinearVelocity},
-	{"setM_interpolationAngularVelocity", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_interpolationAngularVelocity},
-	{"setM_anisotropicFriction", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_anisotropicFriction},
-	{"setM_contactProcessingThreshold", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_contactProcessingThreshold},
-	{"setM_deactivationTime", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_deactivationTime},
-	{"setM_friction", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_friction},
-	{"setM_rollingFriction", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_rollingFriction},
-	{"setM_restitution", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_restitution},
-	{"setM_hitFraction", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_hitFraction},
-	{"setM_ccdSweptSphereRadius", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_ccdSweptSphereRadius},
-	{"setM_ccdMotionThreshold", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_ccdMotionThreshold},
-	{"setM_hasAnisotropicFriction", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_hasAnisotropicFriction},
-	{"setM_collisionFlags", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_collisionFlags},
-	{"setM_islandTag1", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_islandTag1},
-	{"setM_companionId", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_companionId},
-	{"setM_activationState1", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_activationState1},
-	{"setM_internalType", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_internalType},
-	{"setM_checkCollideWith", &luna_wrapper_btCollisionObjectFloatData::_bind_setM_checkCollideWith},
+	{"getBroadphaseHandle", &luna_wrapper_btCollisionObjectFloatData::_bind_getBroadphaseHandle},
+	{"getCollisionShape", &luna_wrapper_btCollisionObjectFloatData::_bind_getCollisionShape},
+	{"getRootCollisionShape", &luna_wrapper_btCollisionObjectFloatData::_bind_getRootCollisionShape},
+	{"getName", &luna_wrapper_btCollisionObjectFloatData::_bind_getName},
+	{"getWorldTransform", &luna_wrapper_btCollisionObjectFloatData::_bind_getWorldTransform},
+	{"getInterpolationWorldTransform", &luna_wrapper_btCollisionObjectFloatData::_bind_getInterpolationWorldTransform},
+	{"getInterpolationLinearVelocity", &luna_wrapper_btCollisionObjectFloatData::_bind_getInterpolationLinearVelocity},
+	{"getInterpolationAngularVelocity", &luna_wrapper_btCollisionObjectFloatData::_bind_getInterpolationAngularVelocity},
+	{"getAnisotropicFriction", &luna_wrapper_btCollisionObjectFloatData::_bind_getAnisotropicFriction},
+	{"getContactProcessingThreshold", &luna_wrapper_btCollisionObjectFloatData::_bind_getContactProcessingThreshold},
+	{"getDeactivationTime", &luna_wrapper_btCollisionObjectFloatData::_bind_getDeactivationTime},
+	{"getFriction", &luna_wrapper_btCollisionObjectFloatData::_bind_getFriction},
+	{"getRollingFriction", &luna_wrapper_btCollisionObjectFloatData::_bind_getRollingFriction},
+	{"getRestitution", &luna_wrapper_btCollisionObjectFloatData::_bind_getRestitution},
+	{"getHitFraction", &luna_wrapper_btCollisionObjectFloatData::_bind_getHitFraction},
+	{"getCcdSweptSphereRadius", &luna_wrapper_btCollisionObjectFloatData::_bind_getCcdSweptSphereRadius},
+	{"getCcdMotionThreshold", &luna_wrapper_btCollisionObjectFloatData::_bind_getCcdMotionThreshold},
+	{"getHasAnisotropicFriction", &luna_wrapper_btCollisionObjectFloatData::_bind_getHasAnisotropicFriction},
+	{"getCollisionFlags", &luna_wrapper_btCollisionObjectFloatData::_bind_getCollisionFlags},
+	{"getIslandTag1", &luna_wrapper_btCollisionObjectFloatData::_bind_getIslandTag1},
+	{"getCompanionId", &luna_wrapper_btCollisionObjectFloatData::_bind_getCompanionId},
+	{"getActivationState1", &luna_wrapper_btCollisionObjectFloatData::_bind_getActivationState1},
+	{"getInternalType", &luna_wrapper_btCollisionObjectFloatData::_bind_getInternalType},
+	{"getCheckCollideWith", &luna_wrapper_btCollisionObjectFloatData::_bind_getCheckCollideWith},
+	{"setBroadphaseHandle", &luna_wrapper_btCollisionObjectFloatData::_bind_setBroadphaseHandle},
+	{"setCollisionShape", &luna_wrapper_btCollisionObjectFloatData::_bind_setCollisionShape},
+	{"setRootCollisionShape", &luna_wrapper_btCollisionObjectFloatData::_bind_setRootCollisionShape},
+	{"setName", &luna_wrapper_btCollisionObjectFloatData::_bind_setName},
+	{"setWorldTransform", &luna_wrapper_btCollisionObjectFloatData::_bind_setWorldTransform},
+	{"setInterpolationWorldTransform", &luna_wrapper_btCollisionObjectFloatData::_bind_setInterpolationWorldTransform},
+	{"setInterpolationLinearVelocity", &luna_wrapper_btCollisionObjectFloatData::_bind_setInterpolationLinearVelocity},
+	{"setInterpolationAngularVelocity", &luna_wrapper_btCollisionObjectFloatData::_bind_setInterpolationAngularVelocity},
+	{"setAnisotropicFriction", &luna_wrapper_btCollisionObjectFloatData::_bind_setAnisotropicFriction},
+	{"setContactProcessingThreshold", &luna_wrapper_btCollisionObjectFloatData::_bind_setContactProcessingThreshold},
+	{"setDeactivationTime", &luna_wrapper_btCollisionObjectFloatData::_bind_setDeactivationTime},
+	{"setFriction", &luna_wrapper_btCollisionObjectFloatData::_bind_setFriction},
+	{"setRollingFriction", &luna_wrapper_btCollisionObjectFloatData::_bind_setRollingFriction},
+	{"setRestitution", &luna_wrapper_btCollisionObjectFloatData::_bind_setRestitution},
+	{"setHitFraction", &luna_wrapper_btCollisionObjectFloatData::_bind_setHitFraction},
+	{"setCcdSweptSphereRadius", &luna_wrapper_btCollisionObjectFloatData::_bind_setCcdSweptSphereRadius},
+	{"setCcdMotionThreshold", &luna_wrapper_btCollisionObjectFloatData::_bind_setCcdMotionThreshold},
+	{"setHasAnisotropicFriction", &luna_wrapper_btCollisionObjectFloatData::_bind_setHasAnisotropicFriction},
+	{"setCollisionFlags", &luna_wrapper_btCollisionObjectFloatData::_bind_setCollisionFlags},
+	{"setIslandTag1", &luna_wrapper_btCollisionObjectFloatData::_bind_setIslandTag1},
+	{"setCompanionId", &luna_wrapper_btCollisionObjectFloatData::_bind_setCompanionId},
+	{"setActivationState1", &luna_wrapper_btCollisionObjectFloatData::_bind_setActivationState1},
+	{"setInternalType", &luna_wrapper_btCollisionObjectFloatData::_bind_setInternalType},
+	{"setCheckCollideWith", &luna_wrapper_btCollisionObjectFloatData::_bind_setCheckCollideWith},
 	{"dynCast", &luna_wrapper_btCollisionObjectFloatData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btCollisionObjectFloatData::_bind___eq},
 	{0,0}

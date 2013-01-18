@@ -62,39 +62,39 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_get_numVerticesProcessed(lua_State *L) {
+	inline static bool _lg_typecheck_getNumVerticesProcessed(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_targetNumTrianglesPerLeaf(lua_State *L) {
+	inline static bool _lg_typecheck_getTargetNumTrianglesPerLeaf(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_maxNumLevels(lua_State *L) {
+	inline static bool _lg_typecheck_getMaxNumLevels(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_numVerticesProcessed(lua_State *L) {
+	inline static bool _lg_typecheck_setNumVerticesProcessed(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_targetNumTrianglesPerLeaf(lua_State *L) {
+	inline static bool _lg_typecheck_setTargetNumTrianglesPerLeaf(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_maxNumLevels(lua_State *L) {
+	inline static bool _lg_typecheck_setMaxNumLevels(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -120,8 +120,8 @@ public:
 
 	// Function binds:
 	// unsigned int osg::KdTree::BuildOptions::_numVerticesProcessed()
-	static int _bind_get_numVerticesProcessed(lua_State *L) {
-		if (!_lg_typecheck_get_numVerticesProcessed(L)) {
+	static int _bind_getNumVerticesProcessed(lua_State *L) {
+		if (!_lg_typecheck_getNumVerticesProcessed(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::BuildOptions::_numVerticesProcessed() function, expected prototype:\nunsigned int osg::KdTree::BuildOptions::_numVerticesProcessed()\nClass arguments details:\n");
 		}
@@ -139,8 +139,8 @@ public:
 	}
 
 	// unsigned int osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf()
-	static int _bind_get_targetNumTrianglesPerLeaf(lua_State *L) {
-		if (!_lg_typecheck_get_targetNumTrianglesPerLeaf(L)) {
+	static int _bind_getTargetNumTrianglesPerLeaf(lua_State *L) {
+		if (!_lg_typecheck_getTargetNumTrianglesPerLeaf(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf() function, expected prototype:\nunsigned int osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf()\nClass arguments details:\n");
 		}
@@ -158,8 +158,8 @@ public:
 	}
 
 	// unsigned int osg::KdTree::BuildOptions::_maxNumLevels()
-	static int _bind_get_maxNumLevels(lua_State *L) {
-		if (!_lg_typecheck_get_maxNumLevels(L)) {
+	static int _bind_getMaxNumLevels(lua_State *L) {
+		if (!_lg_typecheck_getMaxNumLevels(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::KdTree::BuildOptions::_maxNumLevels() function, expected prototype:\nunsigned int osg::KdTree::BuildOptions::_maxNumLevels()\nClass arguments details:\n");
 		}
@@ -177,8 +177,8 @@ public:
 	}
 
 	// void osg::KdTree::BuildOptions::_numVerticesProcessed(unsigned int value)
-	static int _bind_set_numVerticesProcessed(lua_State *L) {
-		if (!_lg_typecheck_set_numVerticesProcessed(L)) {
+	static int _bind_setNumVerticesProcessed(lua_State *L) {
+		if (!_lg_typecheck_setNumVerticesProcessed(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::KdTree::BuildOptions::_numVerticesProcessed(unsigned int value) function, expected prototype:\nvoid osg::KdTree::BuildOptions::_numVerticesProcessed(unsigned int value)\nClass arguments details:\n");
 		}
@@ -196,8 +196,8 @@ public:
 	}
 
 	// void osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf(unsigned int value)
-	static int _bind_set_targetNumTrianglesPerLeaf(lua_State *L) {
-		if (!_lg_typecheck_set_targetNumTrianglesPerLeaf(L)) {
+	static int _bind_setTargetNumTrianglesPerLeaf(lua_State *L) {
+		if (!_lg_typecheck_setTargetNumTrianglesPerLeaf(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf(unsigned int value) function, expected prototype:\nvoid osg::KdTree::BuildOptions::_targetNumTrianglesPerLeaf(unsigned int value)\nClass arguments details:\n");
 		}
@@ -215,8 +215,8 @@ public:
 	}
 
 	// void osg::KdTree::BuildOptions::_maxNumLevels(unsigned int value)
-	static int _bind_set_maxNumLevels(lua_State *L) {
-		if (!_lg_typecheck_set_maxNumLevels(L)) {
+	static int _bind_setMaxNumLevels(lua_State *L) {
+		if (!_lg_typecheck_setMaxNumLevels(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::KdTree::BuildOptions::_maxNumLevels(unsigned int value) function, expected prototype:\nvoid osg::KdTree::BuildOptions::_maxNumLevels(unsigned int value)\nClass arguments details:\n");
 		}
@@ -254,12 +254,12 @@ const int LunaTraits< osg::KdTree::BuildOptions >::hash = 4714115;
 const int LunaTraits< osg::KdTree::BuildOptions >::uniqueIDs[] = {4714115,0};
 
 luna_RegType LunaTraits< osg::KdTree::BuildOptions >::methods[] = {
-	{"get_numVerticesProcessed", &luna_wrapper_osg_KdTree_BuildOptions::_bind_get_numVerticesProcessed},
-	{"get_targetNumTrianglesPerLeaf", &luna_wrapper_osg_KdTree_BuildOptions::_bind_get_targetNumTrianglesPerLeaf},
-	{"get_maxNumLevels", &luna_wrapper_osg_KdTree_BuildOptions::_bind_get_maxNumLevels},
-	{"set_numVerticesProcessed", &luna_wrapper_osg_KdTree_BuildOptions::_bind_set_numVerticesProcessed},
-	{"set_targetNumTrianglesPerLeaf", &luna_wrapper_osg_KdTree_BuildOptions::_bind_set_targetNumTrianglesPerLeaf},
-	{"set_maxNumLevels", &luna_wrapper_osg_KdTree_BuildOptions::_bind_set_maxNumLevels},
+	{"getNumVerticesProcessed", &luna_wrapper_osg_KdTree_BuildOptions::_bind_getNumVerticesProcessed},
+	{"getTargetNumTrianglesPerLeaf", &luna_wrapper_osg_KdTree_BuildOptions::_bind_getTargetNumTrianglesPerLeaf},
+	{"getMaxNumLevels", &luna_wrapper_osg_KdTree_BuildOptions::_bind_getMaxNumLevels},
+	{"setNumVerticesProcessed", &luna_wrapper_osg_KdTree_BuildOptions::_bind_setNumVerticesProcessed},
+	{"setTargetNumTrianglesPerLeaf", &luna_wrapper_osg_KdTree_BuildOptions::_bind_setTargetNumTrianglesPerLeaf},
+	{"setMaxNumLevels", &luna_wrapper_osg_KdTree_BuildOptions::_bind_setMaxNumLevels},
 	{"dynCast", &luna_wrapper_osg_KdTree_BuildOptions::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_KdTree_BuildOptions::_bind___eq},
 	{0,0}

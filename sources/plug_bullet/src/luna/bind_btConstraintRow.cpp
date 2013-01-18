@@ -56,65 +56,65 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_rhs(lua_State *L) {
+	inline static bool _lg_typecheck_getRhs(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_jacDiagInv(lua_State *L) {
+	inline static bool _lg_typecheck_getJacDiagInv(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_lowerLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getLowerLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_upperLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getUpperLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_accumImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_getAccumImpulse(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rhs(lua_State *L) {
+	inline static bool _lg_typecheck_setRhs(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_jacDiagInv(lua_State *L) {
+	inline static bool _lg_typecheck_setJacDiagInv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_lowerLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setLowerLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_upperLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setUpperLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_accumImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_setAccumImpulse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -129,8 +129,8 @@ public:
 
 	// Function binds:
 	// float btConstraintRow::m_rhs()
-	static int _bind_getM_rhs(lua_State *L) {
-		if (!_lg_typecheck_getM_rhs(L)) {
+	static int _bind_getRhs(lua_State *L) {
+		if (!_lg_typecheck_getRhs(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConstraintRow::m_rhs() function, expected prototype:\nfloat btConstraintRow::m_rhs()\nClass arguments details:\n");
 		}
@@ -148,8 +148,8 @@ public:
 	}
 
 	// float btConstraintRow::m_jacDiagInv()
-	static int _bind_getM_jacDiagInv(lua_State *L) {
-		if (!_lg_typecheck_getM_jacDiagInv(L)) {
+	static int _bind_getJacDiagInv(lua_State *L) {
+		if (!_lg_typecheck_getJacDiagInv(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConstraintRow::m_jacDiagInv() function, expected prototype:\nfloat btConstraintRow::m_jacDiagInv()\nClass arguments details:\n");
 		}
@@ -167,8 +167,8 @@ public:
 	}
 
 	// float btConstraintRow::m_lowerLimit()
-	static int _bind_getM_lowerLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_lowerLimit(L)) {
+	static int _bind_getLowerLimit(lua_State *L) {
+		if (!_lg_typecheck_getLowerLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConstraintRow::m_lowerLimit() function, expected prototype:\nfloat btConstraintRow::m_lowerLimit()\nClass arguments details:\n");
 		}
@@ -186,8 +186,8 @@ public:
 	}
 
 	// float btConstraintRow::m_upperLimit()
-	static int _bind_getM_upperLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_upperLimit(L)) {
+	static int _bind_getUpperLimit(lua_State *L) {
+		if (!_lg_typecheck_getUpperLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConstraintRow::m_upperLimit() function, expected prototype:\nfloat btConstraintRow::m_upperLimit()\nClass arguments details:\n");
 		}
@@ -205,8 +205,8 @@ public:
 	}
 
 	// float btConstraintRow::m_accumImpulse()
-	static int _bind_getM_accumImpulse(lua_State *L) {
-		if (!_lg_typecheck_getM_accumImpulse(L)) {
+	static int _bind_getAccumImpulse(lua_State *L) {
+		if (!_lg_typecheck_getAccumImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConstraintRow::m_accumImpulse() function, expected prototype:\nfloat btConstraintRow::m_accumImpulse()\nClass arguments details:\n");
 		}
@@ -224,8 +224,8 @@ public:
 	}
 
 	// void btConstraintRow::m_rhs(float value)
-	static int _bind_setM_rhs(lua_State *L) {
-		if (!_lg_typecheck_setM_rhs(L)) {
+	static int _bind_setRhs(lua_State *L) {
+		if (!_lg_typecheck_setRhs(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConstraintRow::m_rhs(float value) function, expected prototype:\nvoid btConstraintRow::m_rhs(float value)\nClass arguments details:\n");
 		}
@@ -243,8 +243,8 @@ public:
 	}
 
 	// void btConstraintRow::m_jacDiagInv(float value)
-	static int _bind_setM_jacDiagInv(lua_State *L) {
-		if (!_lg_typecheck_setM_jacDiagInv(L)) {
+	static int _bind_setJacDiagInv(lua_State *L) {
+		if (!_lg_typecheck_setJacDiagInv(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConstraintRow::m_jacDiagInv(float value) function, expected prototype:\nvoid btConstraintRow::m_jacDiagInv(float value)\nClass arguments details:\n");
 		}
@@ -262,8 +262,8 @@ public:
 	}
 
 	// void btConstraintRow::m_lowerLimit(float value)
-	static int _bind_setM_lowerLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_lowerLimit(L)) {
+	static int _bind_setLowerLimit(lua_State *L) {
+		if (!_lg_typecheck_setLowerLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConstraintRow::m_lowerLimit(float value) function, expected prototype:\nvoid btConstraintRow::m_lowerLimit(float value)\nClass arguments details:\n");
 		}
@@ -281,8 +281,8 @@ public:
 	}
 
 	// void btConstraintRow::m_upperLimit(float value)
-	static int _bind_setM_upperLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_upperLimit(L)) {
+	static int _bind_setUpperLimit(lua_State *L) {
+		if (!_lg_typecheck_setUpperLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConstraintRow::m_upperLimit(float value) function, expected prototype:\nvoid btConstraintRow::m_upperLimit(float value)\nClass arguments details:\n");
 		}
@@ -300,8 +300,8 @@ public:
 	}
 
 	// void btConstraintRow::m_accumImpulse(float value)
-	static int _bind_setM_accumImpulse(lua_State *L) {
-		if (!_lg_typecheck_setM_accumImpulse(L)) {
+	static int _bind_setAccumImpulse(lua_State *L) {
+		if (!_lg_typecheck_setAccumImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConstraintRow::m_accumImpulse(float value) function, expected prototype:\nvoid btConstraintRow::m_accumImpulse(float value)\nClass arguments details:\n");
 		}
@@ -339,16 +339,16 @@ const int LunaTraits< btConstraintRow >::hash = 47364139;
 const int LunaTraits< btConstraintRow >::uniqueIDs[] = {47364139,0};
 
 luna_RegType LunaTraits< btConstraintRow >::methods[] = {
-	{"getM_rhs", &luna_wrapper_btConstraintRow::_bind_getM_rhs},
-	{"getM_jacDiagInv", &luna_wrapper_btConstraintRow::_bind_getM_jacDiagInv},
-	{"getM_lowerLimit", &luna_wrapper_btConstraintRow::_bind_getM_lowerLimit},
-	{"getM_upperLimit", &luna_wrapper_btConstraintRow::_bind_getM_upperLimit},
-	{"getM_accumImpulse", &luna_wrapper_btConstraintRow::_bind_getM_accumImpulse},
-	{"setM_rhs", &luna_wrapper_btConstraintRow::_bind_setM_rhs},
-	{"setM_jacDiagInv", &luna_wrapper_btConstraintRow::_bind_setM_jacDiagInv},
-	{"setM_lowerLimit", &luna_wrapper_btConstraintRow::_bind_setM_lowerLimit},
-	{"setM_upperLimit", &luna_wrapper_btConstraintRow::_bind_setM_upperLimit},
-	{"setM_accumImpulse", &luna_wrapper_btConstraintRow::_bind_setM_accumImpulse},
+	{"getRhs", &luna_wrapper_btConstraintRow::_bind_getRhs},
+	{"getJacDiagInv", &luna_wrapper_btConstraintRow::_bind_getJacDiagInv},
+	{"getLowerLimit", &luna_wrapper_btConstraintRow::_bind_getLowerLimit},
+	{"getUpperLimit", &luna_wrapper_btConstraintRow::_bind_getUpperLimit},
+	{"getAccumImpulse", &luna_wrapper_btConstraintRow::_bind_getAccumImpulse},
+	{"setRhs", &luna_wrapper_btConstraintRow::_bind_setRhs},
+	{"setJacDiagInv", &luna_wrapper_btConstraintRow::_bind_setJacDiagInv},
+	{"setLowerLimit", &luna_wrapper_btConstraintRow::_bind_setLowerLimit},
+	{"setUpperLimit", &luna_wrapper_btConstraintRow::_bind_setUpperLimit},
+	{"setAccumImpulse", &luna_wrapper_btConstraintRow::_bind_setAccumImpulse},
 	{"dynCast", &luna_wrapper_btConstraintRow::_bind_dynCast},
 	{"__eq", &luna_wrapper_btConstraintRow::_bind___eq},
 	{0,0}

@@ -56,13 +56,13 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_ptr(lua_State *L) {
+	inline static bool _lg_typecheck_getPtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_ptr(lua_State *L) {
+	inline static bool _lg_typecheck_setPtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
@@ -77,8 +77,8 @@ public:
 
 	// Function binds:
 	// void * btPointerUid::m_ptr()
-	static int _bind_getM_ptr(lua_State *L) {
-		if (!_lg_typecheck_getM_ptr(L)) {
+	static int _bind_getPtr(lua_State *L) {
+		if (!_lg_typecheck_getPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void * btPointerUid::m_ptr() function, expected prototype:\nvoid * btPointerUid::m_ptr()\nClass arguments details:\n");
 		}
@@ -98,8 +98,8 @@ public:
 	}
 
 	// void btPointerUid::m_ptr(void * value)
-	static int _bind_setM_ptr(lua_State *L) {
-		if (!_lg_typecheck_setM_ptr(L)) {
+	static int _bind_setPtr(lua_State *L) {
+		if (!_lg_typecheck_setPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPointerUid::m_ptr(void * value) function, expected prototype:\nvoid btPointerUid::m_ptr(void * value)\nClass arguments details:\n");
 		}
@@ -137,8 +137,8 @@ const int LunaTraits< btPointerUid >::hash = 86408151;
 const int LunaTraits< btPointerUid >::uniqueIDs[] = {86408151,0};
 
 luna_RegType LunaTraits< btPointerUid >::methods[] = {
-	{"getM_ptr", &luna_wrapper_btPointerUid::_bind_getM_ptr},
-	{"setM_ptr", &luna_wrapper_btPointerUid::_bind_setM_ptr},
+	{"getPtr", &luna_wrapper_btPointerUid::_bind_getPtr},
+	{"setPtr", &luna_wrapper_btPointerUid::_bind_setPtr},
 	{"dynCast", &luna_wrapper_btPointerUid::_bind_dynCast},
 	{"__eq", &luna_wrapper_btPointerUid::_bind___eq},
 	{0,0}

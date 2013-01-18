@@ -60,6 +60,9 @@
 - Generated reflection for Box2D library.
 - Added Gizmo module and test example.
 - Added support for ICompound protection in doxmlparser module.
+- Added support for file ignoring in parsing process.
 - Added first part of bullet module support.
 - Added second part of bullet module support.
 - Added bullet sample test.
+- Changed getter/setter lua names : using "_" separator if already found in name. Ignore "m_"/"mXXX"/"_" prefix.
+- Ignoring getter/setter if already existing.

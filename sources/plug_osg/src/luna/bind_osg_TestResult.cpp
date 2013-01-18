@@ -82,65 +82,65 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_get_init(lua_State *L) {
+	inline static bool _lg_typecheck_getInit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_id(lua_State *L) {
+	inline static bool _lg_typecheck_getId(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_contextID(lua_State *L) {
+	inline static bool _lg_typecheck_getContextID(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_active(lua_State *L) {
+	inline static bool _lg_typecheck_getActive(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_numPixels(lua_State *L) {
+	inline static bool _lg_typecheck_getNumPixels(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_init(lua_State *L) {
+	inline static bool _lg_typecheck_setInit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_id(lua_State *L) {
+	inline static bool _lg_typecheck_setId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_contextID(lua_State *L) {
+	inline static bool _lg_typecheck_setContextID(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_active(lua_State *L) {
+	inline static bool _lg_typecheck_setActive(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_numPixels(lua_State *L) {
+	inline static bool _lg_typecheck_setNumPixels(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -193,8 +193,8 @@ public:
 
 	// Function binds:
 	// bool osg::TestResult::_init()
-	static int _bind_get_init(lua_State *L) {
-		if (!_lg_typecheck_get_init(L)) {
+	static int _bind_getInit(lua_State *L) {
+		if (!_lg_typecheck_getInit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool osg::TestResult::_init() function, expected prototype:\nbool osg::TestResult::_init()\nClass arguments details:\n");
 		}
@@ -212,8 +212,8 @@ public:
 	}
 
 	// unsigned int osg::TestResult::_id()
-	static int _bind_get_id(lua_State *L) {
-		if (!_lg_typecheck_get_id(L)) {
+	static int _bind_getId(lua_State *L) {
+		if (!_lg_typecheck_getId(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::TestResult::_id() function, expected prototype:\nunsigned int osg::TestResult::_id()\nClass arguments details:\n");
 		}
@@ -231,8 +231,8 @@ public:
 	}
 
 	// unsigned int osg::TestResult::_contextID()
-	static int _bind_get_contextID(lua_State *L) {
-		if (!_lg_typecheck_get_contextID(L)) {
+	static int _bind_getContextID(lua_State *L) {
+		if (!_lg_typecheck_getContextID(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::TestResult::_contextID() function, expected prototype:\nunsigned int osg::TestResult::_contextID()\nClass arguments details:\n");
 		}
@@ -250,8 +250,8 @@ public:
 	}
 
 	// bool osg::TestResult::_active()
-	static int _bind_get_active(lua_State *L) {
-		if (!_lg_typecheck_get_active(L)) {
+	static int _bind_getActive(lua_State *L) {
+		if (!_lg_typecheck_getActive(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool osg::TestResult::_active() function, expected prototype:\nbool osg::TestResult::_active()\nClass arguments details:\n");
 		}
@@ -269,8 +269,8 @@ public:
 	}
 
 	// int osg::TestResult::_numPixels()
-	static int _bind_get_numPixels(lua_State *L) {
-		if (!_lg_typecheck_get_numPixels(L)) {
+	static int _bind_getNumPixels(lua_State *L) {
+		if (!_lg_typecheck_getNumPixels(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int osg::TestResult::_numPixels() function, expected prototype:\nint osg::TestResult::_numPixels()\nClass arguments details:\n");
 		}
@@ -288,8 +288,8 @@ public:
 	}
 
 	// void osg::TestResult::_init(bool value)
-	static int _bind_set_init(lua_State *L) {
-		if (!_lg_typecheck_set_init(L)) {
+	static int _bind_setInit(lua_State *L) {
+		if (!_lg_typecheck_setInit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::TestResult::_init(bool value) function, expected prototype:\nvoid osg::TestResult::_init(bool value)\nClass arguments details:\n");
 		}
@@ -307,8 +307,8 @@ public:
 	}
 
 	// void osg::TestResult::_id(unsigned int value)
-	static int _bind_set_id(lua_State *L) {
-		if (!_lg_typecheck_set_id(L)) {
+	static int _bind_setId(lua_State *L) {
+		if (!_lg_typecheck_setId(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::TestResult::_id(unsigned int value) function, expected prototype:\nvoid osg::TestResult::_id(unsigned int value)\nClass arguments details:\n");
 		}
@@ -326,8 +326,8 @@ public:
 	}
 
 	// void osg::TestResult::_contextID(unsigned int value)
-	static int _bind_set_contextID(lua_State *L) {
-		if (!_lg_typecheck_set_contextID(L)) {
+	static int _bind_setContextID(lua_State *L) {
+		if (!_lg_typecheck_setContextID(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::TestResult::_contextID(unsigned int value) function, expected prototype:\nvoid osg::TestResult::_contextID(unsigned int value)\nClass arguments details:\n");
 		}
@@ -345,8 +345,8 @@ public:
 	}
 
 	// void osg::TestResult::_active(bool value)
-	static int _bind_set_active(lua_State *L) {
-		if (!_lg_typecheck_set_active(L)) {
+	static int _bind_setActive(lua_State *L) {
+		if (!_lg_typecheck_setActive(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::TestResult::_active(bool value) function, expected prototype:\nvoid osg::TestResult::_active(bool value)\nClass arguments details:\n");
 		}
@@ -364,8 +364,8 @@ public:
 	}
 
 	// void osg::TestResult::_numPixels(int value)
-	static int _bind_set_numPixels(lua_State *L) {
-		if (!_lg_typecheck_set_numPixels(L)) {
+	static int _bind_setNumPixels(lua_State *L) {
+		if (!_lg_typecheck_setNumPixels(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::TestResult::_numPixels(int value) function, expected prototype:\nvoid osg::TestResult::_numPixels(int value)\nClass arguments details:\n");
 		}
@@ -422,16 +422,16 @@ const int LunaTraits< osg::TestResult >::hash = 49600581;
 const int LunaTraits< osg::TestResult >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osg::TestResult >::methods[] = {
-	{"get_init", &luna_wrapper_osg_TestResult::_bind_get_init},
-	{"get_id", &luna_wrapper_osg_TestResult::_bind_get_id},
-	{"get_contextID", &luna_wrapper_osg_TestResult::_bind_get_contextID},
-	{"get_active", &luna_wrapper_osg_TestResult::_bind_get_active},
-	{"get_numPixels", &luna_wrapper_osg_TestResult::_bind_get_numPixels},
-	{"set_init", &luna_wrapper_osg_TestResult::_bind_set_init},
-	{"set_id", &luna_wrapper_osg_TestResult::_bind_set_id},
-	{"set_contextID", &luna_wrapper_osg_TestResult::_bind_set_contextID},
-	{"set_active", &luna_wrapper_osg_TestResult::_bind_set_active},
-	{"set_numPixels", &luna_wrapper_osg_TestResult::_bind_set_numPixels},
+	{"getInit", &luna_wrapper_osg_TestResult::_bind_getInit},
+	{"getId", &luna_wrapper_osg_TestResult::_bind_getId},
+	{"getContextID", &luna_wrapper_osg_TestResult::_bind_getContextID},
+	{"getActive", &luna_wrapper_osg_TestResult::_bind_getActive},
+	{"getNumPixels", &luna_wrapper_osg_TestResult::_bind_getNumPixels},
+	{"setInit", &luna_wrapper_osg_TestResult::_bind_setInit},
+	{"setId", &luna_wrapper_osg_TestResult::_bind_setId},
+	{"setContextID", &luna_wrapper_osg_TestResult::_bind_setContextID},
+	{"setActive", &luna_wrapper_osg_TestResult::_bind_setActive},
+	{"setNumPixels", &luna_wrapper_osg_TestResult::_bind_setNumPixels},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_TestResult::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osg_TestResult::_bind___eq},
 	{"getTable", &luna_wrapper_osg_TestResult::_bind_getTable},

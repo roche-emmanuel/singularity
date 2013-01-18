@@ -169,260 +169,260 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_numInstancedGroup(lua_State *L) {
+	inline static bool _lg_typecheck_getNumInstancedGroup(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_numInstancedSwitch(lua_State *L) {
+	inline static bool _lg_typecheck_getNumInstancedSwitch(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_numInstancedLOD(lua_State *L) {
+	inline static bool _lg_typecheck_getNumInstancedLOD(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_numInstancedTransform(lua_State *L) {
+	inline static bool _lg_typecheck_getNumInstancedTransform(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_numInstancedGeode(lua_State *L) {
+	inline static bool _lg_typecheck_getNumInstancedGeode(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_numInstancedDrawable(lua_State *L) {
+	inline static bool _lg_typecheck_getNumInstancedDrawable(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_numInstancedGeometry(lua_State *L) {
+	inline static bool _lg_typecheck_getNumInstancedGeometry(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_numInstancedFastGeometry(lua_State *L) {
+	inline static bool _lg_typecheck_getNumInstancedFastGeometry(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_numInstancedStateSet(lua_State *L) {
+	inline static bool _lg_typecheck_getNumInstancedStateSet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_groupSet(lua_State *L) {
+	inline static bool _lg_typecheck_getGroupSet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_transformSet(lua_State *L) {
+	inline static bool _lg_typecheck_getTransformSet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_lodSet(lua_State *L) {
+	inline static bool _lg_typecheck_getLodSet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_switchSet(lua_State *L) {
+	inline static bool _lg_typecheck_getSwitchSet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_geodeSet(lua_State *L) {
+	inline static bool _lg_typecheck_getGeodeSet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_drawableSet(lua_State *L) {
+	inline static bool _lg_typecheck_getDrawableSet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_geometrySet(lua_State *L) {
+	inline static bool _lg_typecheck_getGeometrySet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_fastGeometrySet(lua_State *L) {
+	inline static bool _lg_typecheck_getFastGeometrySet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_statesetSet(lua_State *L) {
+	inline static bool _lg_typecheck_getStatesetSet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_uniqueStats(lua_State *L) {
+	inline static bool _lg_typecheck_getUniqueStats(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_instancedStats(lua_State *L) {
+	inline static bool _lg_typecheck_getInstancedStats(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_numInstancedGroup(lua_State *L) {
+	inline static bool _lg_typecheck_setNumInstancedGroup(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_numInstancedSwitch(lua_State *L) {
+	inline static bool _lg_typecheck_setNumInstancedSwitch(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_numInstancedLOD(lua_State *L) {
+	inline static bool _lg_typecheck_setNumInstancedLOD(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_numInstancedTransform(lua_State *L) {
+	inline static bool _lg_typecheck_setNumInstancedTransform(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_numInstancedGeode(lua_State *L) {
+	inline static bool _lg_typecheck_setNumInstancedGeode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_numInstancedDrawable(lua_State *L) {
+	inline static bool _lg_typecheck_setNumInstancedDrawable(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_numInstancedGeometry(lua_State *L) {
+	inline static bool _lg_typecheck_setNumInstancedGeometry(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_numInstancedFastGeometry(lua_State *L) {
+	inline static bool _lg_typecheck_setNumInstancedFastGeometry(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_numInstancedStateSet(lua_State *L) {
+	inline static bool _lg_typecheck_setNumInstancedStateSet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_groupSet(lua_State *L) {
+	inline static bool _lg_typecheck_setGroupSet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,73927809) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_transformSet(lua_State *L) {
+	inline static bool _lg_typecheck_setTransformSet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,73927809) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_lodSet(lua_State *L) {
+	inline static bool _lg_typecheck_setLodSet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,73927809) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_switchSet(lua_State *L) {
+	inline static bool _lg_typecheck_setSwitchSet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,73927809) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_geodeSet(lua_State *L) {
+	inline static bool _lg_typecheck_setGeodeSet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,73927809) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_drawableSet(lua_State *L) {
+	inline static bool _lg_typecheck_setDrawableSet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,76374875) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_geometrySet(lua_State *L) {
+	inline static bool _lg_typecheck_setGeometrySet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,76374875) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_fastGeometrySet(lua_State *L) {
+	inline static bool _lg_typecheck_setFastGeometrySet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,76374875) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_statesetSet(lua_State *L) {
+	inline static bool _lg_typecheck_setStatesetSet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,97002577) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_uniqueStats(lua_State *L) {
+	inline static bool _lg_typecheck_setUniqueStats(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,95996950) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_instancedStats(lua_State *L) {
+	inline static bool _lg_typecheck_setInstancedStats(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,95996950) ) return false;
@@ -849,8 +849,8 @@ public:
 	}
 
 	// unsigned int osgUtil::StatsVisitor::_numInstancedGroup()
-	static int _bind_get_numInstancedGroup(lua_State *L) {
-		if (!_lg_typecheck_get_numInstancedGroup(L)) {
+	static int _bind_getNumInstancedGroup(lua_State *L) {
+		if (!_lg_typecheck_getNumInstancedGroup(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedGroup() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedGroup()\nClass arguments details:\n");
 		}
@@ -868,8 +868,8 @@ public:
 	}
 
 	// unsigned int osgUtil::StatsVisitor::_numInstancedSwitch()
-	static int _bind_get_numInstancedSwitch(lua_State *L) {
-		if (!_lg_typecheck_get_numInstancedSwitch(L)) {
+	static int _bind_getNumInstancedSwitch(lua_State *L) {
+		if (!_lg_typecheck_getNumInstancedSwitch(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedSwitch() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedSwitch()\nClass arguments details:\n");
 		}
@@ -887,8 +887,8 @@ public:
 	}
 
 	// unsigned int osgUtil::StatsVisitor::_numInstancedLOD()
-	static int _bind_get_numInstancedLOD(lua_State *L) {
-		if (!_lg_typecheck_get_numInstancedLOD(L)) {
+	static int _bind_getNumInstancedLOD(lua_State *L) {
+		if (!_lg_typecheck_getNumInstancedLOD(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedLOD() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedLOD()\nClass arguments details:\n");
 		}
@@ -906,8 +906,8 @@ public:
 	}
 
 	// unsigned int osgUtil::StatsVisitor::_numInstancedTransform()
-	static int _bind_get_numInstancedTransform(lua_State *L) {
-		if (!_lg_typecheck_get_numInstancedTransform(L)) {
+	static int _bind_getNumInstancedTransform(lua_State *L) {
+		if (!_lg_typecheck_getNumInstancedTransform(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedTransform() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedTransform()\nClass arguments details:\n");
 		}
@@ -925,8 +925,8 @@ public:
 	}
 
 	// unsigned int osgUtil::StatsVisitor::_numInstancedGeode()
-	static int _bind_get_numInstancedGeode(lua_State *L) {
-		if (!_lg_typecheck_get_numInstancedGeode(L)) {
+	static int _bind_getNumInstancedGeode(lua_State *L) {
+		if (!_lg_typecheck_getNumInstancedGeode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedGeode() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedGeode()\nClass arguments details:\n");
 		}
@@ -944,8 +944,8 @@ public:
 	}
 
 	// unsigned int osgUtil::StatsVisitor::_numInstancedDrawable()
-	static int _bind_get_numInstancedDrawable(lua_State *L) {
-		if (!_lg_typecheck_get_numInstancedDrawable(L)) {
+	static int _bind_getNumInstancedDrawable(lua_State *L) {
+		if (!_lg_typecheck_getNumInstancedDrawable(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedDrawable() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedDrawable()\nClass arguments details:\n");
 		}
@@ -963,8 +963,8 @@ public:
 	}
 
 	// unsigned int osgUtil::StatsVisitor::_numInstancedGeometry()
-	static int _bind_get_numInstancedGeometry(lua_State *L) {
-		if (!_lg_typecheck_get_numInstancedGeometry(L)) {
+	static int _bind_getNumInstancedGeometry(lua_State *L) {
+		if (!_lg_typecheck_getNumInstancedGeometry(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedGeometry() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedGeometry()\nClass arguments details:\n");
 		}
@@ -982,8 +982,8 @@ public:
 	}
 
 	// unsigned int osgUtil::StatsVisitor::_numInstancedFastGeometry()
-	static int _bind_get_numInstancedFastGeometry(lua_State *L) {
-		if (!_lg_typecheck_get_numInstancedFastGeometry(L)) {
+	static int _bind_getNumInstancedFastGeometry(lua_State *L) {
+		if (!_lg_typecheck_getNumInstancedFastGeometry(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedFastGeometry() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedFastGeometry()\nClass arguments details:\n");
 		}
@@ -1001,8 +1001,8 @@ public:
 	}
 
 	// unsigned int osgUtil::StatsVisitor::_numInstancedStateSet()
-	static int _bind_get_numInstancedStateSet(lua_State *L) {
-		if (!_lg_typecheck_get_numInstancedStateSet(L)) {
+	static int _bind_getNumInstancedStateSet(lua_State *L) {
+		if (!_lg_typecheck_getNumInstancedStateSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StatsVisitor::_numInstancedStateSet() function, expected prototype:\nunsigned int osgUtil::StatsVisitor::_numInstancedStateSet()\nClass arguments details:\n");
 		}
@@ -1020,8 +1020,8 @@ public:
 	}
 
 	// osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_groupSet()
-	static int _bind_get_groupSet(lua_State *L) {
-		if (!_lg_typecheck_get_groupSet(L)) {
+	static int _bind_getGroupSet(lua_State *L) {
+		if (!_lg_typecheck_getGroupSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_groupSet() function, expected prototype:\nosgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_groupSet()\nClass arguments details:\n");
 		}
@@ -1041,8 +1041,8 @@ public:
 	}
 
 	// osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_transformSet()
-	static int _bind_get_transformSet(lua_State *L) {
-		if (!_lg_typecheck_get_transformSet(L)) {
+	static int _bind_getTransformSet(lua_State *L) {
+		if (!_lg_typecheck_getTransformSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_transformSet() function, expected prototype:\nosgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_transformSet()\nClass arguments details:\n");
 		}
@@ -1062,8 +1062,8 @@ public:
 	}
 
 	// osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_lodSet()
-	static int _bind_get_lodSet(lua_State *L) {
-		if (!_lg_typecheck_get_lodSet(L)) {
+	static int _bind_getLodSet(lua_State *L) {
+		if (!_lg_typecheck_getLodSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_lodSet() function, expected prototype:\nosgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_lodSet()\nClass arguments details:\n");
 		}
@@ -1083,8 +1083,8 @@ public:
 	}
 
 	// osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_switchSet()
-	static int _bind_get_switchSet(lua_State *L) {
-		if (!_lg_typecheck_get_switchSet(L)) {
+	static int _bind_getSwitchSet(lua_State *L) {
+		if (!_lg_typecheck_getSwitchSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_switchSet() function, expected prototype:\nosgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_switchSet()\nClass arguments details:\n");
 		}
@@ -1104,8 +1104,8 @@ public:
 	}
 
 	// osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_geodeSet()
-	static int _bind_get_geodeSet(lua_State *L) {
-		if (!_lg_typecheck_get_geodeSet(L)) {
+	static int _bind_getGeodeSet(lua_State *L) {
+		if (!_lg_typecheck_getGeodeSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_geodeSet() function, expected prototype:\nosgUtil::StatsVisitor::NodeSet osgUtil::StatsVisitor::_geodeSet()\nClass arguments details:\n");
 		}
@@ -1125,8 +1125,8 @@ public:
 	}
 
 	// osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_drawableSet()
-	static int _bind_get_drawableSet(lua_State *L) {
-		if (!_lg_typecheck_get_drawableSet(L)) {
+	static int _bind_getDrawableSet(lua_State *L) {
+		if (!_lg_typecheck_getDrawableSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_drawableSet() function, expected prototype:\nosgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_drawableSet()\nClass arguments details:\n");
 		}
@@ -1146,8 +1146,8 @@ public:
 	}
 
 	// osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_geometrySet()
-	static int _bind_get_geometrySet(lua_State *L) {
-		if (!_lg_typecheck_get_geometrySet(L)) {
+	static int _bind_getGeometrySet(lua_State *L) {
+		if (!_lg_typecheck_getGeometrySet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_geometrySet() function, expected prototype:\nosgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_geometrySet()\nClass arguments details:\n");
 		}
@@ -1167,8 +1167,8 @@ public:
 	}
 
 	// osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_fastGeometrySet()
-	static int _bind_get_fastGeometrySet(lua_State *L) {
-		if (!_lg_typecheck_get_fastGeometrySet(L)) {
+	static int _bind_getFastGeometrySet(lua_State *L) {
+		if (!_lg_typecheck_getFastGeometrySet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_fastGeometrySet() function, expected prototype:\nosgUtil::StatsVisitor::DrawableSet osgUtil::StatsVisitor::_fastGeometrySet()\nClass arguments details:\n");
 		}
@@ -1188,8 +1188,8 @@ public:
 	}
 
 	// osgUtil::StatsVisitor::StateSetSet osgUtil::StatsVisitor::_statesetSet()
-	static int _bind_get_statesetSet(lua_State *L) {
-		if (!_lg_typecheck_get_statesetSet(L)) {
+	static int _bind_getStatesetSet(lua_State *L) {
+		if (!_lg_typecheck_getStatesetSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::StateSetSet osgUtil::StatsVisitor::_statesetSet() function, expected prototype:\nosgUtil::StatsVisitor::StateSetSet osgUtil::StatsVisitor::_statesetSet()\nClass arguments details:\n");
 		}
@@ -1209,8 +1209,8 @@ public:
 	}
 
 	// osgUtil::Statistics osgUtil::StatsVisitor::_uniqueStats()
-	static int _bind_get_uniqueStats(lua_State *L) {
-		if (!_lg_typecheck_get_uniqueStats(L)) {
+	static int _bind_getUniqueStats(lua_State *L) {
+		if (!_lg_typecheck_getUniqueStats(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::Statistics osgUtil::StatsVisitor::_uniqueStats() function, expected prototype:\nosgUtil::Statistics osgUtil::StatsVisitor::_uniqueStats()\nClass arguments details:\n");
 		}
@@ -1230,8 +1230,8 @@ public:
 	}
 
 	// osgUtil::Statistics osgUtil::StatsVisitor::_instancedStats()
-	static int _bind_get_instancedStats(lua_State *L) {
-		if (!_lg_typecheck_get_instancedStats(L)) {
+	static int _bind_getInstancedStats(lua_State *L) {
+		if (!_lg_typecheck_getInstancedStats(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::Statistics osgUtil::StatsVisitor::_instancedStats() function, expected prototype:\nosgUtil::Statistics osgUtil::StatsVisitor::_instancedStats()\nClass arguments details:\n");
 		}
@@ -1251,8 +1251,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_numInstancedGroup(unsigned int value)
-	static int _bind_set_numInstancedGroup(lua_State *L) {
-		if (!_lg_typecheck_set_numInstancedGroup(L)) {
+	static int _bind_setNumInstancedGroup(lua_State *L) {
+		if (!_lg_typecheck_setNumInstancedGroup(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedGroup(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedGroup(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1270,8 +1270,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_numInstancedSwitch(unsigned int value)
-	static int _bind_set_numInstancedSwitch(lua_State *L) {
-		if (!_lg_typecheck_set_numInstancedSwitch(L)) {
+	static int _bind_setNumInstancedSwitch(lua_State *L) {
+		if (!_lg_typecheck_setNumInstancedSwitch(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedSwitch(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedSwitch(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1289,8 +1289,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_numInstancedLOD(unsigned int value)
-	static int _bind_set_numInstancedLOD(lua_State *L) {
-		if (!_lg_typecheck_set_numInstancedLOD(L)) {
+	static int _bind_setNumInstancedLOD(lua_State *L) {
+		if (!_lg_typecheck_setNumInstancedLOD(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedLOD(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedLOD(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1308,8 +1308,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_numInstancedTransform(unsigned int value)
-	static int _bind_set_numInstancedTransform(lua_State *L) {
-		if (!_lg_typecheck_set_numInstancedTransform(L)) {
+	static int _bind_setNumInstancedTransform(lua_State *L) {
+		if (!_lg_typecheck_setNumInstancedTransform(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedTransform(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedTransform(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1327,8 +1327,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_numInstancedGeode(unsigned int value)
-	static int _bind_set_numInstancedGeode(lua_State *L) {
-		if (!_lg_typecheck_set_numInstancedGeode(L)) {
+	static int _bind_setNumInstancedGeode(lua_State *L) {
+		if (!_lg_typecheck_setNumInstancedGeode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedGeode(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedGeode(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1346,8 +1346,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_numInstancedDrawable(unsigned int value)
-	static int _bind_set_numInstancedDrawable(lua_State *L) {
-		if (!_lg_typecheck_set_numInstancedDrawable(L)) {
+	static int _bind_setNumInstancedDrawable(lua_State *L) {
+		if (!_lg_typecheck_setNumInstancedDrawable(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedDrawable(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedDrawable(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1365,8 +1365,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_numInstancedGeometry(unsigned int value)
-	static int _bind_set_numInstancedGeometry(lua_State *L) {
-		if (!_lg_typecheck_set_numInstancedGeometry(L)) {
+	static int _bind_setNumInstancedGeometry(lua_State *L) {
+		if (!_lg_typecheck_setNumInstancedGeometry(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedGeometry(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedGeometry(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1384,8 +1384,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_numInstancedFastGeometry(unsigned int value)
-	static int _bind_set_numInstancedFastGeometry(lua_State *L) {
-		if (!_lg_typecheck_set_numInstancedFastGeometry(L)) {
+	static int _bind_setNumInstancedFastGeometry(lua_State *L) {
+		if (!_lg_typecheck_setNumInstancedFastGeometry(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedFastGeometry(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedFastGeometry(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1403,8 +1403,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_numInstancedStateSet(unsigned int value)
-	static int _bind_set_numInstancedStateSet(lua_State *L) {
-		if (!_lg_typecheck_set_numInstancedStateSet(L)) {
+	static int _bind_setNumInstancedStateSet(lua_State *L) {
+		if (!_lg_typecheck_setNumInstancedStateSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_numInstancedStateSet(unsigned int value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_numInstancedStateSet(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1422,8 +1422,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_groupSet(osgUtil::StatsVisitor::NodeSet value)
-	static int _bind_set_groupSet(lua_State *L) {
-		if (!_lg_typecheck_set_groupSet(L)) {
+	static int _bind_setGroupSet(lua_State *L) {
+		if (!_lg_typecheck_setGroupSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_groupSet(osgUtil::StatsVisitor::NodeSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_groupSet(osgUtil::StatsVisitor::NodeSet value)\nClass arguments details:\narg 1 ID = 22793184\n");
 		}
@@ -1445,8 +1445,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_transformSet(osgUtil::StatsVisitor::NodeSet value)
-	static int _bind_set_transformSet(lua_State *L) {
-		if (!_lg_typecheck_set_transformSet(L)) {
+	static int _bind_setTransformSet(lua_State *L) {
+		if (!_lg_typecheck_setTransformSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_transformSet(osgUtil::StatsVisitor::NodeSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_transformSet(osgUtil::StatsVisitor::NodeSet value)\nClass arguments details:\narg 1 ID = 22793184\n");
 		}
@@ -1468,8 +1468,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_lodSet(osgUtil::StatsVisitor::NodeSet value)
-	static int _bind_set_lodSet(lua_State *L) {
-		if (!_lg_typecheck_set_lodSet(L)) {
+	static int _bind_setLodSet(lua_State *L) {
+		if (!_lg_typecheck_setLodSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_lodSet(osgUtil::StatsVisitor::NodeSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_lodSet(osgUtil::StatsVisitor::NodeSet value)\nClass arguments details:\narg 1 ID = 22793184\n");
 		}
@@ -1491,8 +1491,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_switchSet(osgUtil::StatsVisitor::NodeSet value)
-	static int _bind_set_switchSet(lua_State *L) {
-		if (!_lg_typecheck_set_switchSet(L)) {
+	static int _bind_setSwitchSet(lua_State *L) {
+		if (!_lg_typecheck_setSwitchSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_switchSet(osgUtil::StatsVisitor::NodeSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_switchSet(osgUtil::StatsVisitor::NodeSet value)\nClass arguments details:\narg 1 ID = 22793184\n");
 		}
@@ -1514,8 +1514,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_geodeSet(osgUtil::StatsVisitor::NodeSet value)
-	static int _bind_set_geodeSet(lua_State *L) {
-		if (!_lg_typecheck_set_geodeSet(L)) {
+	static int _bind_setGeodeSet(lua_State *L) {
+		if (!_lg_typecheck_setGeodeSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_geodeSet(osgUtil::StatsVisitor::NodeSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_geodeSet(osgUtil::StatsVisitor::NodeSet value)\nClass arguments details:\narg 1 ID = 22793184\n");
 		}
@@ -1537,8 +1537,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_drawableSet(osgUtil::StatsVisitor::DrawableSet value)
-	static int _bind_set_drawableSet(lua_State *L) {
-		if (!_lg_typecheck_set_drawableSet(L)) {
+	static int _bind_setDrawableSet(lua_State *L) {
+		if (!_lg_typecheck_setDrawableSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_drawableSet(osgUtil::StatsVisitor::DrawableSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_drawableSet(osgUtil::StatsVisitor::DrawableSet value)\nClass arguments details:\narg 1 ID = 41381585\n");
 		}
@@ -1560,8 +1560,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_geometrySet(osgUtil::StatsVisitor::DrawableSet value)
-	static int _bind_set_geometrySet(lua_State *L) {
-		if (!_lg_typecheck_set_geometrySet(L)) {
+	static int _bind_setGeometrySet(lua_State *L) {
+		if (!_lg_typecheck_setGeometrySet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_geometrySet(osgUtil::StatsVisitor::DrawableSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_geometrySet(osgUtil::StatsVisitor::DrawableSet value)\nClass arguments details:\narg 1 ID = 41381585\n");
 		}
@@ -1583,8 +1583,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_fastGeometrySet(osgUtil::StatsVisitor::DrawableSet value)
-	static int _bind_set_fastGeometrySet(lua_State *L) {
-		if (!_lg_typecheck_set_fastGeometrySet(L)) {
+	static int _bind_setFastGeometrySet(lua_State *L) {
+		if (!_lg_typecheck_setFastGeometrySet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_fastGeometrySet(osgUtil::StatsVisitor::DrawableSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_fastGeometrySet(osgUtil::StatsVisitor::DrawableSet value)\nClass arguments details:\narg 1 ID = 41381585\n");
 		}
@@ -1606,8 +1606,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_statesetSet(osgUtil::StatsVisitor::StateSetSet value)
-	static int _bind_set_statesetSet(lua_State *L) {
-		if (!_lg_typecheck_set_statesetSet(L)) {
+	static int _bind_setStatesetSet(lua_State *L) {
+		if (!_lg_typecheck_setStatesetSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_statesetSet(osgUtil::StatsVisitor::StateSetSet value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_statesetSet(osgUtil::StatsVisitor::StateSetSet value)\nClass arguments details:\narg 1 ID = 77774778\n");
 		}
@@ -1629,8 +1629,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_uniqueStats(osgUtil::Statistics value)
-	static int _bind_set_uniqueStats(lua_State *L) {
-		if (!_lg_typecheck_set_uniqueStats(L)) {
+	static int _bind_setUniqueStats(lua_State *L) {
+		if (!_lg_typecheck_setUniqueStats(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_uniqueStats(osgUtil::Statistics value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_uniqueStats(osgUtil::Statistics value)\nClass arguments details:\narg 1 ID = 95996950\n");
 		}
@@ -1652,8 +1652,8 @@ public:
 	}
 
 	// void osgUtil::StatsVisitor::_instancedStats(osgUtil::Statistics value)
-	static int _bind_set_instancedStats(lua_State *L) {
-		if (!_lg_typecheck_set_instancedStats(L)) {
+	static int _bind_setInstancedStats(lua_State *L) {
+		if (!_lg_typecheck_setInstancedStats(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::_instancedStats(osgUtil::Statistics value) function, expected prototype:\nvoid osgUtil::StatsVisitor::_instancedStats(osgUtil::Statistics value)\nClass arguments details:\narg 1 ID = 95996950\n");
 		}
@@ -2046,46 +2046,46 @@ luna_RegType LunaTraits< osgUtil::StatsVisitor >::methods[] = {
 	{"apply", &luna_wrapper_osgUtil_StatsVisitor::_bind_apply},
 	{"totalUpStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_totalUpStats},
 	{"print", &luna_wrapper_osgUtil_StatsVisitor::_bind_print},
-	{"get_numInstancedGroup", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedGroup},
-	{"get_numInstancedSwitch", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedSwitch},
-	{"get_numInstancedLOD", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedLOD},
-	{"get_numInstancedTransform", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedTransform},
-	{"get_numInstancedGeode", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedGeode},
-	{"get_numInstancedDrawable", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedDrawable},
-	{"get_numInstancedGeometry", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedGeometry},
-	{"get_numInstancedFastGeometry", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedFastGeometry},
-	{"get_numInstancedStateSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_numInstancedStateSet},
-	{"get_groupSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_groupSet},
-	{"get_transformSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_transformSet},
-	{"get_lodSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_lodSet},
-	{"get_switchSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_switchSet},
-	{"get_geodeSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_geodeSet},
-	{"get_drawableSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_drawableSet},
-	{"get_geometrySet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_geometrySet},
-	{"get_fastGeometrySet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_fastGeometrySet},
-	{"get_statesetSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_statesetSet},
-	{"get_uniqueStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_uniqueStats},
-	{"get_instancedStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_get_instancedStats},
-	{"set_numInstancedGroup", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedGroup},
-	{"set_numInstancedSwitch", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedSwitch},
-	{"set_numInstancedLOD", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedLOD},
-	{"set_numInstancedTransform", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedTransform},
-	{"set_numInstancedGeode", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedGeode},
-	{"set_numInstancedDrawable", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedDrawable},
-	{"set_numInstancedGeometry", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedGeometry},
-	{"set_numInstancedFastGeometry", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedFastGeometry},
-	{"set_numInstancedStateSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_numInstancedStateSet},
-	{"set_groupSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_groupSet},
-	{"set_transformSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_transformSet},
-	{"set_lodSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_lodSet},
-	{"set_switchSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_switchSet},
-	{"set_geodeSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_geodeSet},
-	{"set_drawableSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_drawableSet},
-	{"set_geometrySet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_geometrySet},
-	{"set_fastGeometrySet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_fastGeometrySet},
-	{"set_statesetSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_statesetSet},
-	{"set_uniqueStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_uniqueStats},
-	{"set_instancedStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_set_instancedStats},
+	{"getNumInstancedGroup", &luna_wrapper_osgUtil_StatsVisitor::_bind_getNumInstancedGroup},
+	{"getNumInstancedSwitch", &luna_wrapper_osgUtil_StatsVisitor::_bind_getNumInstancedSwitch},
+	{"getNumInstancedLOD", &luna_wrapper_osgUtil_StatsVisitor::_bind_getNumInstancedLOD},
+	{"getNumInstancedTransform", &luna_wrapper_osgUtil_StatsVisitor::_bind_getNumInstancedTransform},
+	{"getNumInstancedGeode", &luna_wrapper_osgUtil_StatsVisitor::_bind_getNumInstancedGeode},
+	{"getNumInstancedDrawable", &luna_wrapper_osgUtil_StatsVisitor::_bind_getNumInstancedDrawable},
+	{"getNumInstancedGeometry", &luna_wrapper_osgUtil_StatsVisitor::_bind_getNumInstancedGeometry},
+	{"getNumInstancedFastGeometry", &luna_wrapper_osgUtil_StatsVisitor::_bind_getNumInstancedFastGeometry},
+	{"getNumInstancedStateSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_getNumInstancedStateSet},
+	{"getGroupSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_getGroupSet},
+	{"getTransformSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_getTransformSet},
+	{"getLodSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_getLodSet},
+	{"getSwitchSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_getSwitchSet},
+	{"getGeodeSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_getGeodeSet},
+	{"getDrawableSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_getDrawableSet},
+	{"getGeometrySet", &luna_wrapper_osgUtil_StatsVisitor::_bind_getGeometrySet},
+	{"getFastGeometrySet", &luna_wrapper_osgUtil_StatsVisitor::_bind_getFastGeometrySet},
+	{"getStatesetSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_getStatesetSet},
+	{"getUniqueStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_getUniqueStats},
+	{"getInstancedStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_getInstancedStats},
+	{"setNumInstancedGroup", &luna_wrapper_osgUtil_StatsVisitor::_bind_setNumInstancedGroup},
+	{"setNumInstancedSwitch", &luna_wrapper_osgUtil_StatsVisitor::_bind_setNumInstancedSwitch},
+	{"setNumInstancedLOD", &luna_wrapper_osgUtil_StatsVisitor::_bind_setNumInstancedLOD},
+	{"setNumInstancedTransform", &luna_wrapper_osgUtil_StatsVisitor::_bind_setNumInstancedTransform},
+	{"setNumInstancedGeode", &luna_wrapper_osgUtil_StatsVisitor::_bind_setNumInstancedGeode},
+	{"setNumInstancedDrawable", &luna_wrapper_osgUtil_StatsVisitor::_bind_setNumInstancedDrawable},
+	{"setNumInstancedGeometry", &luna_wrapper_osgUtil_StatsVisitor::_bind_setNumInstancedGeometry},
+	{"setNumInstancedFastGeometry", &luna_wrapper_osgUtil_StatsVisitor::_bind_setNumInstancedFastGeometry},
+	{"setNumInstancedStateSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_setNumInstancedStateSet},
+	{"setGroupSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_setGroupSet},
+	{"setTransformSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_setTransformSet},
+	{"setLodSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_setLodSet},
+	{"setSwitchSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_setSwitchSet},
+	{"setGeodeSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_setGeodeSet},
+	{"setDrawableSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_setDrawableSet},
+	{"setGeometrySet", &luna_wrapper_osgUtil_StatsVisitor::_bind_setGeometrySet},
+	{"setFastGeometrySet", &luna_wrapper_osgUtil_StatsVisitor::_bind_setFastGeometrySet},
+	{"setStatesetSet", &luna_wrapper_osgUtil_StatsVisitor::_bind_setStatesetSet},
+	{"setUniqueStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_setUniqueStats},
+	{"setInstancedStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_setInstancedStats},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_StatsVisitor::_bind_base_setThreadSafeRefUnref},
 	{"base_getEyePoint", &luna_wrapper_osgUtil_StatsVisitor::_bind_base_getEyePoint},
 	{"base_getViewPoint", &luna_wrapper_osgUtil_StatsVisitor::_bind_base_getViewPoint},

@@ -414,13 +414,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_useSolveConstraintObsolete(lua_State *L) {
+	inline static bool _lg_typecheck_getUseSolveConstraintObsolete(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_useSolveConstraintObsolete(lua_State *L) {
+	inline static bool _lg_typecheck_setUseSolveConstraintObsolete(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -1555,8 +1555,8 @@ public:
 	}
 
 	// bool btGeneric6DofConstraint::m_useSolveConstraintObsolete()
-	static int _bind_getM_useSolveConstraintObsolete(lua_State *L) {
-		if (!_lg_typecheck_getM_useSolveConstraintObsolete(L)) {
+	static int _bind_getUseSolveConstraintObsolete(lua_State *L) {
+		if (!_lg_typecheck_getUseSolveConstraintObsolete(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btGeneric6DofConstraint::m_useSolveConstraintObsolete() function, expected prototype:\nbool btGeneric6DofConstraint::m_useSolveConstraintObsolete()\nClass arguments details:\n");
 		}
@@ -1574,8 +1574,8 @@ public:
 	}
 
 	// void btGeneric6DofConstraint::m_useSolveConstraintObsolete(bool value)
-	static int _bind_setM_useSolveConstraintObsolete(lua_State *L) {
-		if (!_lg_typecheck_setM_useSolveConstraintObsolete(L)) {
+	static int _bind_setUseSolveConstraintObsolete(lua_State *L) {
+		if (!_lg_typecheck_setUseSolveConstraintObsolete(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::m_useSolveConstraintObsolete(bool value) function, expected prototype:\nvoid btGeneric6DofConstraint::m_useSolveConstraintObsolete(bool value)\nClass arguments details:\n");
 		}
@@ -1843,8 +1843,8 @@ luna_RegType LunaTraits< btGeneric6DofConstraint >::methods[] = {
 	{"getParam", &luna_wrapper_btGeneric6DofConstraint::_bind_getParam},
 	{"setAxis", &luna_wrapper_btGeneric6DofConstraint::_bind_setAxis},
 	{"calculateSerializeBufferSize", &luna_wrapper_btGeneric6DofConstraint::_bind_calculateSerializeBufferSize},
-	{"getM_useSolveConstraintObsolete", &luna_wrapper_btGeneric6DofConstraint::_bind_getM_useSolveConstraintObsolete},
-	{"setM_useSolveConstraintObsolete", &luna_wrapper_btGeneric6DofConstraint::_bind_setM_useSolveConstraintObsolete},
+	{"getUseSolveConstraintObsolete", &luna_wrapper_btGeneric6DofConstraint::_bind_getUseSolveConstraintObsolete},
+	{"setUseSolveConstraintObsolete", &luna_wrapper_btGeneric6DofConstraint::_bind_setUseSolveConstraintObsolete},
 	{"base_setupSolverConstraint", &luna_wrapper_btGeneric6DofConstraint::_bind_base_setupSolverConstraint},
 	{"base_solveConstraintObsolete", &luna_wrapper_btGeneric6DofConstraint::_bind_base_solveConstraintObsolete},
 	{"base_buildJacobian", &luna_wrapper_btGeneric6DofConstraint::_bind_base_buildJacobian},

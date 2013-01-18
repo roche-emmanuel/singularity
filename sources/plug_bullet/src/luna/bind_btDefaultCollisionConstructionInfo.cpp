@@ -62,104 +62,104 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_stackAlloc(lua_State *L) {
+	inline static bool _lg_typecheck_getStackAlloc(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_persistentManifoldPool(lua_State *L) {
+	inline static bool _lg_typecheck_getPersistentManifoldPool(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_collisionAlgorithmPool(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionAlgorithmPool(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_defaultMaxPersistentManifoldPoolSize(lua_State *L) {
+	inline static bool _lg_typecheck_getDefaultMaxPersistentManifoldPoolSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_defaultMaxCollisionAlgorithmPoolSize(lua_State *L) {
+	inline static bool _lg_typecheck_getDefaultMaxCollisionAlgorithmPoolSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_customCollisionAlgorithmMaxElementSize(lua_State *L) {
+	inline static bool _lg_typecheck_getCustomCollisionAlgorithmMaxElementSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_defaultStackAllocatorSize(lua_State *L) {
+	inline static bool _lg_typecheck_getDefaultStackAllocatorSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_useEpaPenetrationAlgorithm(lua_State *L) {
+	inline static bool _lg_typecheck_getUseEpaPenetrationAlgorithm(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_stackAlloc(lua_State *L) {
+	inline static bool _lg_typecheck_setStackAlloc(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,46980417)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_persistentManifoldPool(lua_State *L) {
+	inline static bool _lg_typecheck_setPersistentManifoldPool(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,19742987)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionAlgorithmPool(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionAlgorithmPool(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,19742987)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_defaultMaxPersistentManifoldPoolSize(lua_State *L) {
+	inline static bool _lg_typecheck_setDefaultMaxPersistentManifoldPoolSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_defaultMaxCollisionAlgorithmPoolSize(lua_State *L) {
+	inline static bool _lg_typecheck_setDefaultMaxCollisionAlgorithmPoolSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_customCollisionAlgorithmMaxElementSize(lua_State *L) {
+	inline static bool _lg_typecheck_setCustomCollisionAlgorithmMaxElementSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_defaultStackAllocatorSize(lua_State *L) {
+	inline static bool _lg_typecheck_setDefaultStackAllocatorSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_useEpaPenetrationAlgorithm(lua_State *L) {
+	inline static bool _lg_typecheck_setUseEpaPenetrationAlgorithm(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -185,8 +185,8 @@ public:
 
 	// Function binds:
 	// btStackAlloc * btDefaultCollisionConstructionInfo::m_stackAlloc()
-	static int _bind_getM_stackAlloc(lua_State *L) {
-		if (!_lg_typecheck_getM_stackAlloc(L)) {
+	static int _bind_getStackAlloc(lua_State *L) {
+		if (!_lg_typecheck_getStackAlloc(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btStackAlloc * btDefaultCollisionConstructionInfo::m_stackAlloc() function, expected prototype:\nbtStackAlloc * btDefaultCollisionConstructionInfo::m_stackAlloc()\nClass arguments details:\n");
 		}
@@ -206,8 +206,8 @@ public:
 	}
 
 	// btPoolAllocator * btDefaultCollisionConstructionInfo::m_persistentManifoldPool()
-	static int _bind_getM_persistentManifoldPool(lua_State *L) {
-		if (!_lg_typecheck_getM_persistentManifoldPool(L)) {
+	static int _bind_getPersistentManifoldPool(lua_State *L) {
+		if (!_lg_typecheck_getPersistentManifoldPool(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btPoolAllocator * btDefaultCollisionConstructionInfo::m_persistentManifoldPool() function, expected prototype:\nbtPoolAllocator * btDefaultCollisionConstructionInfo::m_persistentManifoldPool()\nClass arguments details:\n");
 		}
@@ -227,8 +227,8 @@ public:
 	}
 
 	// btPoolAllocator * btDefaultCollisionConstructionInfo::m_collisionAlgorithmPool()
-	static int _bind_getM_collisionAlgorithmPool(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionAlgorithmPool(L)) {
+	static int _bind_getCollisionAlgorithmPool(lua_State *L) {
+		if (!_lg_typecheck_getCollisionAlgorithmPool(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btPoolAllocator * btDefaultCollisionConstructionInfo::m_collisionAlgorithmPool() function, expected prototype:\nbtPoolAllocator * btDefaultCollisionConstructionInfo::m_collisionAlgorithmPool()\nClass arguments details:\n");
 		}
@@ -248,8 +248,8 @@ public:
 	}
 
 	// int btDefaultCollisionConstructionInfo::m_defaultMaxPersistentManifoldPoolSize()
-	static int _bind_getM_defaultMaxPersistentManifoldPoolSize(lua_State *L) {
-		if (!_lg_typecheck_getM_defaultMaxPersistentManifoldPoolSize(L)) {
+	static int _bind_getDefaultMaxPersistentManifoldPoolSize(lua_State *L) {
+		if (!_lg_typecheck_getDefaultMaxPersistentManifoldPoolSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDefaultCollisionConstructionInfo::m_defaultMaxPersistentManifoldPoolSize() function, expected prototype:\nint btDefaultCollisionConstructionInfo::m_defaultMaxPersistentManifoldPoolSize()\nClass arguments details:\n");
 		}
@@ -267,8 +267,8 @@ public:
 	}
 
 	// int btDefaultCollisionConstructionInfo::m_defaultMaxCollisionAlgorithmPoolSize()
-	static int _bind_getM_defaultMaxCollisionAlgorithmPoolSize(lua_State *L) {
-		if (!_lg_typecheck_getM_defaultMaxCollisionAlgorithmPoolSize(L)) {
+	static int _bind_getDefaultMaxCollisionAlgorithmPoolSize(lua_State *L) {
+		if (!_lg_typecheck_getDefaultMaxCollisionAlgorithmPoolSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDefaultCollisionConstructionInfo::m_defaultMaxCollisionAlgorithmPoolSize() function, expected prototype:\nint btDefaultCollisionConstructionInfo::m_defaultMaxCollisionAlgorithmPoolSize()\nClass arguments details:\n");
 		}
@@ -286,8 +286,8 @@ public:
 	}
 
 	// int btDefaultCollisionConstructionInfo::m_customCollisionAlgorithmMaxElementSize()
-	static int _bind_getM_customCollisionAlgorithmMaxElementSize(lua_State *L) {
-		if (!_lg_typecheck_getM_customCollisionAlgorithmMaxElementSize(L)) {
+	static int _bind_getCustomCollisionAlgorithmMaxElementSize(lua_State *L) {
+		if (!_lg_typecheck_getCustomCollisionAlgorithmMaxElementSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDefaultCollisionConstructionInfo::m_customCollisionAlgorithmMaxElementSize() function, expected prototype:\nint btDefaultCollisionConstructionInfo::m_customCollisionAlgorithmMaxElementSize()\nClass arguments details:\n");
 		}
@@ -305,8 +305,8 @@ public:
 	}
 
 	// int btDefaultCollisionConstructionInfo::m_defaultStackAllocatorSize()
-	static int _bind_getM_defaultStackAllocatorSize(lua_State *L) {
-		if (!_lg_typecheck_getM_defaultStackAllocatorSize(L)) {
+	static int _bind_getDefaultStackAllocatorSize(lua_State *L) {
+		if (!_lg_typecheck_getDefaultStackAllocatorSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDefaultCollisionConstructionInfo::m_defaultStackAllocatorSize() function, expected prototype:\nint btDefaultCollisionConstructionInfo::m_defaultStackAllocatorSize()\nClass arguments details:\n");
 		}
@@ -324,8 +324,8 @@ public:
 	}
 
 	// int btDefaultCollisionConstructionInfo::m_useEpaPenetrationAlgorithm()
-	static int _bind_getM_useEpaPenetrationAlgorithm(lua_State *L) {
-		if (!_lg_typecheck_getM_useEpaPenetrationAlgorithm(L)) {
+	static int _bind_getUseEpaPenetrationAlgorithm(lua_State *L) {
+		if (!_lg_typecheck_getUseEpaPenetrationAlgorithm(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDefaultCollisionConstructionInfo::m_useEpaPenetrationAlgorithm() function, expected prototype:\nint btDefaultCollisionConstructionInfo::m_useEpaPenetrationAlgorithm()\nClass arguments details:\n");
 		}
@@ -343,8 +343,8 @@ public:
 	}
 
 	// void btDefaultCollisionConstructionInfo::m_stackAlloc(btStackAlloc * value)
-	static int _bind_setM_stackAlloc(lua_State *L) {
-		if (!_lg_typecheck_setM_stackAlloc(L)) {
+	static int _bind_setStackAlloc(lua_State *L) {
+		if (!_lg_typecheck_setStackAlloc(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDefaultCollisionConstructionInfo::m_stackAlloc(btStackAlloc * value) function, expected prototype:\nvoid btDefaultCollisionConstructionInfo::m_stackAlloc(btStackAlloc * value)\nClass arguments details:\narg 1 ID = 46980417\n");
 		}
@@ -362,8 +362,8 @@ public:
 	}
 
 	// void btDefaultCollisionConstructionInfo::m_persistentManifoldPool(btPoolAllocator * value)
-	static int _bind_setM_persistentManifoldPool(lua_State *L) {
-		if (!_lg_typecheck_setM_persistentManifoldPool(L)) {
+	static int _bind_setPersistentManifoldPool(lua_State *L) {
+		if (!_lg_typecheck_setPersistentManifoldPool(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDefaultCollisionConstructionInfo::m_persistentManifoldPool(btPoolAllocator * value) function, expected prototype:\nvoid btDefaultCollisionConstructionInfo::m_persistentManifoldPool(btPoolAllocator * value)\nClass arguments details:\narg 1 ID = 19742987\n");
 		}
@@ -381,8 +381,8 @@ public:
 	}
 
 	// void btDefaultCollisionConstructionInfo::m_collisionAlgorithmPool(btPoolAllocator * value)
-	static int _bind_setM_collisionAlgorithmPool(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionAlgorithmPool(L)) {
+	static int _bind_setCollisionAlgorithmPool(lua_State *L) {
+		if (!_lg_typecheck_setCollisionAlgorithmPool(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDefaultCollisionConstructionInfo::m_collisionAlgorithmPool(btPoolAllocator * value) function, expected prototype:\nvoid btDefaultCollisionConstructionInfo::m_collisionAlgorithmPool(btPoolAllocator * value)\nClass arguments details:\narg 1 ID = 19742987\n");
 		}
@@ -400,8 +400,8 @@ public:
 	}
 
 	// void btDefaultCollisionConstructionInfo::m_defaultMaxPersistentManifoldPoolSize(int value)
-	static int _bind_setM_defaultMaxPersistentManifoldPoolSize(lua_State *L) {
-		if (!_lg_typecheck_setM_defaultMaxPersistentManifoldPoolSize(L)) {
+	static int _bind_setDefaultMaxPersistentManifoldPoolSize(lua_State *L) {
+		if (!_lg_typecheck_setDefaultMaxPersistentManifoldPoolSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDefaultCollisionConstructionInfo::m_defaultMaxPersistentManifoldPoolSize(int value) function, expected prototype:\nvoid btDefaultCollisionConstructionInfo::m_defaultMaxPersistentManifoldPoolSize(int value)\nClass arguments details:\n");
 		}
@@ -419,8 +419,8 @@ public:
 	}
 
 	// void btDefaultCollisionConstructionInfo::m_defaultMaxCollisionAlgorithmPoolSize(int value)
-	static int _bind_setM_defaultMaxCollisionAlgorithmPoolSize(lua_State *L) {
-		if (!_lg_typecheck_setM_defaultMaxCollisionAlgorithmPoolSize(L)) {
+	static int _bind_setDefaultMaxCollisionAlgorithmPoolSize(lua_State *L) {
+		if (!_lg_typecheck_setDefaultMaxCollisionAlgorithmPoolSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDefaultCollisionConstructionInfo::m_defaultMaxCollisionAlgorithmPoolSize(int value) function, expected prototype:\nvoid btDefaultCollisionConstructionInfo::m_defaultMaxCollisionAlgorithmPoolSize(int value)\nClass arguments details:\n");
 		}
@@ -438,8 +438,8 @@ public:
 	}
 
 	// void btDefaultCollisionConstructionInfo::m_customCollisionAlgorithmMaxElementSize(int value)
-	static int _bind_setM_customCollisionAlgorithmMaxElementSize(lua_State *L) {
-		if (!_lg_typecheck_setM_customCollisionAlgorithmMaxElementSize(L)) {
+	static int _bind_setCustomCollisionAlgorithmMaxElementSize(lua_State *L) {
+		if (!_lg_typecheck_setCustomCollisionAlgorithmMaxElementSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDefaultCollisionConstructionInfo::m_customCollisionAlgorithmMaxElementSize(int value) function, expected prototype:\nvoid btDefaultCollisionConstructionInfo::m_customCollisionAlgorithmMaxElementSize(int value)\nClass arguments details:\n");
 		}
@@ -457,8 +457,8 @@ public:
 	}
 
 	// void btDefaultCollisionConstructionInfo::m_defaultStackAllocatorSize(int value)
-	static int _bind_setM_defaultStackAllocatorSize(lua_State *L) {
-		if (!_lg_typecheck_setM_defaultStackAllocatorSize(L)) {
+	static int _bind_setDefaultStackAllocatorSize(lua_State *L) {
+		if (!_lg_typecheck_setDefaultStackAllocatorSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDefaultCollisionConstructionInfo::m_defaultStackAllocatorSize(int value) function, expected prototype:\nvoid btDefaultCollisionConstructionInfo::m_defaultStackAllocatorSize(int value)\nClass arguments details:\n");
 		}
@@ -476,8 +476,8 @@ public:
 	}
 
 	// void btDefaultCollisionConstructionInfo::m_useEpaPenetrationAlgorithm(int value)
-	static int _bind_setM_useEpaPenetrationAlgorithm(lua_State *L) {
-		if (!_lg_typecheck_setM_useEpaPenetrationAlgorithm(L)) {
+	static int _bind_setUseEpaPenetrationAlgorithm(lua_State *L) {
+		if (!_lg_typecheck_setUseEpaPenetrationAlgorithm(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDefaultCollisionConstructionInfo::m_useEpaPenetrationAlgorithm(int value) function, expected prototype:\nvoid btDefaultCollisionConstructionInfo::m_useEpaPenetrationAlgorithm(int value)\nClass arguments details:\n");
 		}
@@ -515,22 +515,22 @@ const int LunaTraits< btDefaultCollisionConstructionInfo >::hash = 82853014;
 const int LunaTraits< btDefaultCollisionConstructionInfo >::uniqueIDs[] = {82853014,0};
 
 luna_RegType LunaTraits< btDefaultCollisionConstructionInfo >::methods[] = {
-	{"getM_stackAlloc", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getM_stackAlloc},
-	{"getM_persistentManifoldPool", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getM_persistentManifoldPool},
-	{"getM_collisionAlgorithmPool", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getM_collisionAlgorithmPool},
-	{"getM_defaultMaxPersistentManifoldPoolSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getM_defaultMaxPersistentManifoldPoolSize},
-	{"getM_defaultMaxCollisionAlgorithmPoolSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getM_defaultMaxCollisionAlgorithmPoolSize},
-	{"getM_customCollisionAlgorithmMaxElementSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getM_customCollisionAlgorithmMaxElementSize},
-	{"getM_defaultStackAllocatorSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getM_defaultStackAllocatorSize},
-	{"getM_useEpaPenetrationAlgorithm", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getM_useEpaPenetrationAlgorithm},
-	{"setM_stackAlloc", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setM_stackAlloc},
-	{"setM_persistentManifoldPool", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setM_persistentManifoldPool},
-	{"setM_collisionAlgorithmPool", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setM_collisionAlgorithmPool},
-	{"setM_defaultMaxPersistentManifoldPoolSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setM_defaultMaxPersistentManifoldPoolSize},
-	{"setM_defaultMaxCollisionAlgorithmPoolSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setM_defaultMaxCollisionAlgorithmPoolSize},
-	{"setM_customCollisionAlgorithmMaxElementSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setM_customCollisionAlgorithmMaxElementSize},
-	{"setM_defaultStackAllocatorSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setM_defaultStackAllocatorSize},
-	{"setM_useEpaPenetrationAlgorithm", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setM_useEpaPenetrationAlgorithm},
+	{"getStackAlloc", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getStackAlloc},
+	{"getPersistentManifoldPool", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getPersistentManifoldPool},
+	{"getCollisionAlgorithmPool", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getCollisionAlgorithmPool},
+	{"getDefaultMaxPersistentManifoldPoolSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getDefaultMaxPersistentManifoldPoolSize},
+	{"getDefaultMaxCollisionAlgorithmPoolSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getDefaultMaxCollisionAlgorithmPoolSize},
+	{"getCustomCollisionAlgorithmMaxElementSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getCustomCollisionAlgorithmMaxElementSize},
+	{"getDefaultStackAllocatorSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getDefaultStackAllocatorSize},
+	{"getUseEpaPenetrationAlgorithm", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_getUseEpaPenetrationAlgorithm},
+	{"setStackAlloc", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setStackAlloc},
+	{"setPersistentManifoldPool", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setPersistentManifoldPool},
+	{"setCollisionAlgorithmPool", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setCollisionAlgorithmPool},
+	{"setDefaultMaxPersistentManifoldPoolSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setDefaultMaxPersistentManifoldPoolSize},
+	{"setDefaultMaxCollisionAlgorithmPoolSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setDefaultMaxCollisionAlgorithmPoolSize},
+	{"setCustomCollisionAlgorithmMaxElementSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setCustomCollisionAlgorithmMaxElementSize},
+	{"setDefaultStackAllocatorSize", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setDefaultStackAllocatorSize},
+	{"setUseEpaPenetrationAlgorithm", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_setUseEpaPenetrationAlgorithm},
 	{"dynCast", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_btDefaultCollisionConstructionInfo::_bind___eq},
 	{0,0}

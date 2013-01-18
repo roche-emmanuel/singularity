@@ -235,26 +235,26 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_min(lua_State *L) {
+	inline static bool _lg_typecheck_getMin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_max(lua_State *L) {
+	inline static bool _lg_typecheck_getMax(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_min(lua_State *L) {
+	inline static bool _lg_typecheck_setMin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_max(lua_State *L) {
+	inline static bool _lg_typecheck_setMax(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
@@ -817,8 +817,8 @@ public:
 	}
 
 	// btVector3 btAABB::m_min()
-	static int _bind_getM_min(lua_State *L) {
-		if (!_lg_typecheck_getM_min(L)) {
+	static int _bind_getMin(lua_State *L) {
+		if (!_lg_typecheck_getMin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btAABB::m_min() function, expected prototype:\nbtVector3 btAABB::m_min()\nClass arguments details:\n");
 		}
@@ -838,8 +838,8 @@ public:
 	}
 
 	// btVector3 btAABB::m_max()
-	static int _bind_getM_max(lua_State *L) {
-		if (!_lg_typecheck_getM_max(L)) {
+	static int _bind_getMax(lua_State *L) {
+		if (!_lg_typecheck_getMax(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btAABB::m_max() function, expected prototype:\nbtVector3 btAABB::m_max()\nClass arguments details:\n");
 		}
@@ -859,8 +859,8 @@ public:
 	}
 
 	// void btAABB::m_min(btVector3 value)
-	static int _bind_setM_min(lua_State *L) {
-		if (!_lg_typecheck_setM_min(L)) {
+	static int _bind_setMin(lua_State *L) {
+		if (!_lg_typecheck_setMin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btAABB::m_min(btVector3 value) function, expected prototype:\nvoid btAABB::m_min(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -882,8 +882,8 @@ public:
 	}
 
 	// void btAABB::m_max(btVector3 value)
-	static int _bind_setM_max(lua_State *L) {
-		if (!_lg_typecheck_setM_max(L)) {
+	static int _bind_setMax(lua_State *L) {
+		if (!_lg_typecheck_setMax(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btAABB::m_max(btVector3 value) function, expected prototype:\nvoid btAABB::m_max(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -942,10 +942,10 @@ luna_RegType LunaTraits< btAABB >::methods[] = {
 	{"overlapping_trans_cache", &luna_wrapper_btAABB::_bind_overlapping_trans_cache},
 	{"collide_plane", &luna_wrapper_btAABB::_bind_collide_plane},
 	{"collide_triangle_exact", &luna_wrapper_btAABB::_bind_collide_triangle_exact},
-	{"getM_min", &luna_wrapper_btAABB::_bind_getM_min},
-	{"getM_max", &luna_wrapper_btAABB::_bind_getM_max},
-	{"setM_min", &luna_wrapper_btAABB::_bind_setM_min},
-	{"setM_max", &luna_wrapper_btAABB::_bind_setM_max},
+	{"getMin", &luna_wrapper_btAABB::_bind_getMin},
+	{"getMax", &luna_wrapper_btAABB::_bind_getMax},
+	{"setMin", &luna_wrapper_btAABB::_bind_setMin},
+	{"setMax", &luna_wrapper_btAABB::_bind_setMax},
 	{"dynCast", &luna_wrapper_btAABB::_bind_dynCast},
 	{"__eq", &luna_wrapper_btAABB::_bind___eq},
 	{0,0}

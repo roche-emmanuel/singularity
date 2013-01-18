@@ -144,13 +144,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_compoundShape(lua_State *L) {
+	inline static bool _lg_typecheck_getCompoundShape(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_compoundShape(lua_State *L) {
+	inline static bool _lg_typecheck_setCompoundShape(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,58243831)) ) return false;
@@ -370,8 +370,8 @@ public:
 	}
 
 	// btGImpactCompoundShape * btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape()
-	static int _bind_getM_compoundShape(lua_State *L) {
-		if (!_lg_typecheck_getM_compoundShape(L)) {
+	static int _bind_getCompoundShape(lua_State *L) {
+		if (!_lg_typecheck_getCompoundShape(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape * btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape() function, expected prototype:\nbtGImpactCompoundShape * btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape()\nClass arguments details:\n");
 		}
@@ -391,8 +391,8 @@ public:
 	}
 
 	// void btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape(btGImpactCompoundShape * value)
-	static int _bind_setM_compoundShape(lua_State *L) {
-		if (!_lg_typecheck_setM_compoundShape(L)) {
+	static int _bind_setCompoundShape(lua_State *L) {
+		if (!_lg_typecheck_setCompoundShape(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape(btGImpactCompoundShape * value) function, expected prototype:\nvoid btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape(btGImpactCompoundShape * value)\nClass arguments details:\narg 1 ID = 58243831\n");
 		}
@@ -520,8 +520,8 @@ luna_RegType LunaTraits< btGImpactCompoundShape::CompoundPrimitiveManager >::met
 	{"get_primitive_count", &luna_wrapper_btGImpactCompoundShape_CompoundPrimitiveManager::_bind_get_primitive_count},
 	{"get_primitive_box", &luna_wrapper_btGImpactCompoundShape_CompoundPrimitiveManager::_bind_get_primitive_box},
 	{"get_primitive_triangle", &luna_wrapper_btGImpactCompoundShape_CompoundPrimitiveManager::_bind_get_primitive_triangle},
-	{"getM_compoundShape", &luna_wrapper_btGImpactCompoundShape_CompoundPrimitiveManager::_bind_getM_compoundShape},
-	{"setM_compoundShape", &luna_wrapper_btGImpactCompoundShape_CompoundPrimitiveManager::_bind_setM_compoundShape},
+	{"getCompoundShape", &luna_wrapper_btGImpactCompoundShape_CompoundPrimitiveManager::_bind_getCompoundShape},
+	{"setCompoundShape", &luna_wrapper_btGImpactCompoundShape_CompoundPrimitiveManager::_bind_setCompoundShape},
 	{"base_is_trimesh", &luna_wrapper_btGImpactCompoundShape_CompoundPrimitiveManager::_bind_base_is_trimesh},
 	{"base_get_primitive_count", &luna_wrapper_btGImpactCompoundShape_CompoundPrimitiveManager::_bind_base_get_primitive_count},
 	{"base_get_primitive_box", &luna_wrapper_btGImpactCompoundShape_CompoundPrimitiveManager::_bind_base_get_primitive_box},

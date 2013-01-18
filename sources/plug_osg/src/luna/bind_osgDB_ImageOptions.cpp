@@ -158,130 +158,130 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_sourceImageSamplingMode(lua_State *L) {
+	inline static bool _lg_typecheck_getSourceImageSamplingMode(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_sourceImageWindowMode(lua_State *L) {
+	inline static bool _lg_typecheck_getSourceImageWindowMode(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_sourceRatioWindow(lua_State *L) {
+	inline static bool _lg_typecheck_getSourceRatioWindow(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_sourcePixelWindow(lua_State *L) {
+	inline static bool _lg_typecheck_getSourcePixelWindow(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_destinationImage(lua_State *L) {
+	inline static bool _lg_typecheck_getDestinationImage(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_destinationImageWindowMode(lua_State *L) {
+	inline static bool _lg_typecheck_getDestinationImageWindowMode(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_destinationRatioWindow(lua_State *L) {
+	inline static bool _lg_typecheck_getDestinationRatioWindow(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_destinationPixelWindow(lua_State *L) {
+	inline static bool _lg_typecheck_getDestinationPixelWindow(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_destinationDataType(lua_State *L) {
+	inline static bool _lg_typecheck_getDestinationDataType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_destinationPixelFormat(lua_State *L) {
+	inline static bool _lg_typecheck_getDestinationPixelFormat(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_sourceImageSamplingMode(lua_State *L) {
+	inline static bool _lg_typecheck_setSourceImageSamplingMode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_sourceImageWindowMode(lua_State *L) {
+	inline static bool _lg_typecheck_setSourceImageWindowMode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_sourceRatioWindow(lua_State *L) {
+	inline static bool _lg_typecheck_setSourceRatioWindow(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,44466488) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_sourcePixelWindow(lua_State *L) {
+	inline static bool _lg_typecheck_setSourcePixelWindow(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,68659525) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_destinationImage(lua_State *L) {
+	inline static bool _lg_typecheck_setDestinationImage(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,15557275) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_destinationImageWindowMode(lua_State *L) {
+	inline static bool _lg_typecheck_setDestinationImageWindowMode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_destinationRatioWindow(lua_State *L) {
+	inline static bool _lg_typecheck_setDestinationRatioWindow(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,44466488) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_destinationPixelWindow(lua_State *L) {
+	inline static bool _lg_typecheck_setDestinationPixelWindow(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,68659525) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_destinationDataType(lua_State *L) {
+	inline static bool _lg_typecheck_setDestinationDataType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_destinationPixelFormat(lua_State *L) {
+	inline static bool _lg_typecheck_setDestinationPixelFormat(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -603,8 +603,8 @@ public:
 	}
 
 	// osgDB::ImageOptions::ImageSamplingMode osgDB::ImageOptions::_sourceImageSamplingMode()
-	static int _bind_get_sourceImageSamplingMode(lua_State *L) {
-		if (!_lg_typecheck_get_sourceImageSamplingMode(L)) {
+	static int _bind_getSourceImageSamplingMode(lua_State *L) {
+		if (!_lg_typecheck_getSourceImageSamplingMode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::ImageSamplingMode osgDB::ImageOptions::_sourceImageSamplingMode() function, expected prototype:\nosgDB::ImageOptions::ImageSamplingMode osgDB::ImageOptions::_sourceImageSamplingMode()\nClass arguments details:\n");
 		}
@@ -622,8 +622,8 @@ public:
 	}
 
 	// osgDB::ImageOptions::ImageWindowMode osgDB::ImageOptions::_sourceImageWindowMode()
-	static int _bind_get_sourceImageWindowMode(lua_State *L) {
-		if (!_lg_typecheck_get_sourceImageWindowMode(L)) {
+	static int _bind_getSourceImageWindowMode(lua_State *L) {
+		if (!_lg_typecheck_getSourceImageWindowMode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::ImageWindowMode osgDB::ImageOptions::_sourceImageWindowMode() function, expected prototype:\nosgDB::ImageOptions::ImageWindowMode osgDB::ImageOptions::_sourceImageWindowMode()\nClass arguments details:\n");
 		}
@@ -641,8 +641,8 @@ public:
 	}
 
 	// osgDB::ImageOptions::RatioWindow osgDB::ImageOptions::_sourceRatioWindow()
-	static int _bind_get_sourceRatioWindow(lua_State *L) {
-		if (!_lg_typecheck_get_sourceRatioWindow(L)) {
+	static int _bind_getSourceRatioWindow(lua_State *L) {
+		if (!_lg_typecheck_getSourceRatioWindow(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::RatioWindow osgDB::ImageOptions::_sourceRatioWindow() function, expected prototype:\nosgDB::ImageOptions::RatioWindow osgDB::ImageOptions::_sourceRatioWindow()\nClass arguments details:\n");
 		}
@@ -662,8 +662,8 @@ public:
 	}
 
 	// osgDB::ImageOptions::PixelWindow osgDB::ImageOptions::_sourcePixelWindow()
-	static int _bind_get_sourcePixelWindow(lua_State *L) {
-		if (!_lg_typecheck_get_sourcePixelWindow(L)) {
+	static int _bind_getSourcePixelWindow(lua_State *L) {
+		if (!_lg_typecheck_getSourcePixelWindow(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::PixelWindow osgDB::ImageOptions::_sourcePixelWindow() function, expected prototype:\nosgDB::ImageOptions::PixelWindow osgDB::ImageOptions::_sourcePixelWindow()\nClass arguments details:\n");
 		}
@@ -683,8 +683,8 @@ public:
 	}
 
 	// osg::ref_ptr< osg::Image > osgDB::ImageOptions::_destinationImage()
-	static int _bind_get_destinationImage(lua_State *L) {
-		if (!_lg_typecheck_get_destinationImage(L)) {
+	static int _bind_getDestinationImage(lua_State *L) {
+		if (!_lg_typecheck_getDestinationImage(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Image > osgDB::ImageOptions::_destinationImage() function, expected prototype:\nosg::ref_ptr< osg::Image > osgDB::ImageOptions::_destinationImage()\nClass arguments details:\n");
 		}
@@ -702,8 +702,8 @@ public:
 	}
 
 	// osgDB::ImageOptions::ImageWindowMode osgDB::ImageOptions::_destinationImageWindowMode()
-	static int _bind_get_destinationImageWindowMode(lua_State *L) {
-		if (!_lg_typecheck_get_destinationImageWindowMode(L)) {
+	static int _bind_getDestinationImageWindowMode(lua_State *L) {
+		if (!_lg_typecheck_getDestinationImageWindowMode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::ImageWindowMode osgDB::ImageOptions::_destinationImageWindowMode() function, expected prototype:\nosgDB::ImageOptions::ImageWindowMode osgDB::ImageOptions::_destinationImageWindowMode()\nClass arguments details:\n");
 		}
@@ -721,8 +721,8 @@ public:
 	}
 
 	// osgDB::ImageOptions::RatioWindow osgDB::ImageOptions::_destinationRatioWindow()
-	static int _bind_get_destinationRatioWindow(lua_State *L) {
-		if (!_lg_typecheck_get_destinationRatioWindow(L)) {
+	static int _bind_getDestinationRatioWindow(lua_State *L) {
+		if (!_lg_typecheck_getDestinationRatioWindow(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::RatioWindow osgDB::ImageOptions::_destinationRatioWindow() function, expected prototype:\nosgDB::ImageOptions::RatioWindow osgDB::ImageOptions::_destinationRatioWindow()\nClass arguments details:\n");
 		}
@@ -742,8 +742,8 @@ public:
 	}
 
 	// osgDB::ImageOptions::PixelWindow osgDB::ImageOptions::_destinationPixelWindow()
-	static int _bind_get_destinationPixelWindow(lua_State *L) {
-		if (!_lg_typecheck_get_destinationPixelWindow(L)) {
+	static int _bind_getDestinationPixelWindow(lua_State *L) {
+		if (!_lg_typecheck_getDestinationPixelWindow(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::PixelWindow osgDB::ImageOptions::_destinationPixelWindow() function, expected prototype:\nosgDB::ImageOptions::PixelWindow osgDB::ImageOptions::_destinationPixelWindow()\nClass arguments details:\n");
 		}
@@ -763,8 +763,8 @@ public:
 	}
 
 	// unsigned int osgDB::ImageOptions::_destinationDataType()
-	static int _bind_get_destinationDataType(lua_State *L) {
-		if (!_lg_typecheck_get_destinationDataType(L)) {
+	static int _bind_getDestinationDataType(lua_State *L) {
+		if (!_lg_typecheck_getDestinationDataType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ImageOptions::_destinationDataType() function, expected prototype:\nunsigned int osgDB::ImageOptions::_destinationDataType()\nClass arguments details:\n");
 		}
@@ -782,8 +782,8 @@ public:
 	}
 
 	// unsigned int osgDB::ImageOptions::_destinationPixelFormat()
-	static int _bind_get_destinationPixelFormat(lua_State *L) {
-		if (!_lg_typecheck_get_destinationPixelFormat(L)) {
+	static int _bind_getDestinationPixelFormat(lua_State *L) {
+		if (!_lg_typecheck_getDestinationPixelFormat(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgDB::ImageOptions::_destinationPixelFormat() function, expected prototype:\nunsigned int osgDB::ImageOptions::_destinationPixelFormat()\nClass arguments details:\n");
 		}
@@ -801,8 +801,8 @@ public:
 	}
 
 	// void osgDB::ImageOptions::_sourceImageSamplingMode(osgDB::ImageOptions::ImageSamplingMode value)
-	static int _bind_set_sourceImageSamplingMode(lua_State *L) {
-		if (!_lg_typecheck_set_sourceImageSamplingMode(L)) {
+	static int _bind_setSourceImageSamplingMode(lua_State *L) {
+		if (!_lg_typecheck_setSourceImageSamplingMode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_sourceImageSamplingMode(osgDB::ImageOptions::ImageSamplingMode value) function, expected prototype:\nvoid osgDB::ImageOptions::_sourceImageSamplingMode(osgDB::ImageOptions::ImageSamplingMode value)\nClass arguments details:\n");
 		}
@@ -820,8 +820,8 @@ public:
 	}
 
 	// void osgDB::ImageOptions::_sourceImageWindowMode(osgDB::ImageOptions::ImageWindowMode value)
-	static int _bind_set_sourceImageWindowMode(lua_State *L) {
-		if (!_lg_typecheck_set_sourceImageWindowMode(L)) {
+	static int _bind_setSourceImageWindowMode(lua_State *L) {
+		if (!_lg_typecheck_setSourceImageWindowMode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_sourceImageWindowMode(osgDB::ImageOptions::ImageWindowMode value) function, expected prototype:\nvoid osgDB::ImageOptions::_sourceImageWindowMode(osgDB::ImageOptions::ImageWindowMode value)\nClass arguments details:\n");
 		}
@@ -839,8 +839,8 @@ public:
 	}
 
 	// void osgDB::ImageOptions::_sourceRatioWindow(osgDB::ImageOptions::RatioWindow value)
-	static int _bind_set_sourceRatioWindow(lua_State *L) {
-		if (!_lg_typecheck_set_sourceRatioWindow(L)) {
+	static int _bind_setSourceRatioWindow(lua_State *L) {
+		if (!_lg_typecheck_setSourceRatioWindow(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_sourceRatioWindow(osgDB::ImageOptions::RatioWindow value) function, expected prototype:\nvoid osgDB::ImageOptions::_sourceRatioWindow(osgDB::ImageOptions::RatioWindow value)\nClass arguments details:\narg 1 ID = 44466488\n");
 		}
@@ -862,8 +862,8 @@ public:
 	}
 
 	// void osgDB::ImageOptions::_sourcePixelWindow(osgDB::ImageOptions::PixelWindow value)
-	static int _bind_set_sourcePixelWindow(lua_State *L) {
-		if (!_lg_typecheck_set_sourcePixelWindow(L)) {
+	static int _bind_setSourcePixelWindow(lua_State *L) {
+		if (!_lg_typecheck_setSourcePixelWindow(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_sourcePixelWindow(osgDB::ImageOptions::PixelWindow value) function, expected prototype:\nvoid osgDB::ImageOptions::_sourcePixelWindow(osgDB::ImageOptions::PixelWindow value)\nClass arguments details:\narg 1 ID = 68659525\n");
 		}
@@ -885,8 +885,8 @@ public:
 	}
 
 	// void osgDB::ImageOptions::_destinationImage(osg::ref_ptr< osg::Image > value)
-	static int _bind_set_destinationImage(lua_State *L) {
-		if (!_lg_typecheck_set_destinationImage(L)) {
+	static int _bind_setDestinationImage(lua_State *L) {
+		if (!_lg_typecheck_setDestinationImage(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_destinationImage(osg::ref_ptr< osg::Image > value) function, expected prototype:\nvoid osgDB::ImageOptions::_destinationImage(osg::ref_ptr< osg::Image > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -904,8 +904,8 @@ public:
 	}
 
 	// void osgDB::ImageOptions::_destinationImageWindowMode(osgDB::ImageOptions::ImageWindowMode value)
-	static int _bind_set_destinationImageWindowMode(lua_State *L) {
-		if (!_lg_typecheck_set_destinationImageWindowMode(L)) {
+	static int _bind_setDestinationImageWindowMode(lua_State *L) {
+		if (!_lg_typecheck_setDestinationImageWindowMode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_destinationImageWindowMode(osgDB::ImageOptions::ImageWindowMode value) function, expected prototype:\nvoid osgDB::ImageOptions::_destinationImageWindowMode(osgDB::ImageOptions::ImageWindowMode value)\nClass arguments details:\n");
 		}
@@ -923,8 +923,8 @@ public:
 	}
 
 	// void osgDB::ImageOptions::_destinationRatioWindow(osgDB::ImageOptions::RatioWindow value)
-	static int _bind_set_destinationRatioWindow(lua_State *L) {
-		if (!_lg_typecheck_set_destinationRatioWindow(L)) {
+	static int _bind_setDestinationRatioWindow(lua_State *L) {
+		if (!_lg_typecheck_setDestinationRatioWindow(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_destinationRatioWindow(osgDB::ImageOptions::RatioWindow value) function, expected prototype:\nvoid osgDB::ImageOptions::_destinationRatioWindow(osgDB::ImageOptions::RatioWindow value)\nClass arguments details:\narg 1 ID = 44466488\n");
 		}
@@ -946,8 +946,8 @@ public:
 	}
 
 	// void osgDB::ImageOptions::_destinationPixelWindow(osgDB::ImageOptions::PixelWindow value)
-	static int _bind_set_destinationPixelWindow(lua_State *L) {
-		if (!_lg_typecheck_set_destinationPixelWindow(L)) {
+	static int _bind_setDestinationPixelWindow(lua_State *L) {
+		if (!_lg_typecheck_setDestinationPixelWindow(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_destinationPixelWindow(osgDB::ImageOptions::PixelWindow value) function, expected prototype:\nvoid osgDB::ImageOptions::_destinationPixelWindow(osgDB::ImageOptions::PixelWindow value)\nClass arguments details:\narg 1 ID = 68659525\n");
 		}
@@ -969,8 +969,8 @@ public:
 	}
 
 	// void osgDB::ImageOptions::_destinationDataType(unsigned int value)
-	static int _bind_set_destinationDataType(lua_State *L) {
-		if (!_lg_typecheck_set_destinationDataType(L)) {
+	static int _bind_setDestinationDataType(lua_State *L) {
+		if (!_lg_typecheck_setDestinationDataType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_destinationDataType(unsigned int value) function, expected prototype:\nvoid osgDB::ImageOptions::_destinationDataType(unsigned int value)\nClass arguments details:\n");
 		}
@@ -988,8 +988,8 @@ public:
 	}
 
 	// void osgDB::ImageOptions::_destinationPixelFormat(unsigned int value)
-	static int _bind_set_destinationPixelFormat(lua_State *L) {
-		if (!_lg_typecheck_set_destinationPixelFormat(L)) {
+	static int _bind_setDestinationPixelFormat(lua_State *L) {
+		if (!_lg_typecheck_setDestinationPixelFormat(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::_destinationPixelFormat(unsigned int value) function, expected prototype:\nvoid osgDB::ImageOptions::_destinationPixelFormat(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1285,26 +1285,26 @@ luna_RegType LunaTraits< osgDB::ImageOptions >::methods[] = {
 	{"libraryName", &luna_wrapper_osgDB_ImageOptions::_bind_libraryName},
 	{"className", &luna_wrapper_osgDB_ImageOptions::_bind_className},
 	{"init", &luna_wrapper_osgDB_ImageOptions::_bind_init},
-	{"get_sourceImageSamplingMode", &luna_wrapper_osgDB_ImageOptions::_bind_get_sourceImageSamplingMode},
-	{"get_sourceImageWindowMode", &luna_wrapper_osgDB_ImageOptions::_bind_get_sourceImageWindowMode},
-	{"get_sourceRatioWindow", &luna_wrapper_osgDB_ImageOptions::_bind_get_sourceRatioWindow},
-	{"get_sourcePixelWindow", &luna_wrapper_osgDB_ImageOptions::_bind_get_sourcePixelWindow},
-	{"get_destinationImage", &luna_wrapper_osgDB_ImageOptions::_bind_get_destinationImage},
-	{"get_destinationImageWindowMode", &luna_wrapper_osgDB_ImageOptions::_bind_get_destinationImageWindowMode},
-	{"get_destinationRatioWindow", &luna_wrapper_osgDB_ImageOptions::_bind_get_destinationRatioWindow},
-	{"get_destinationPixelWindow", &luna_wrapper_osgDB_ImageOptions::_bind_get_destinationPixelWindow},
-	{"get_destinationDataType", &luna_wrapper_osgDB_ImageOptions::_bind_get_destinationDataType},
-	{"get_destinationPixelFormat", &luna_wrapper_osgDB_ImageOptions::_bind_get_destinationPixelFormat},
-	{"set_sourceImageSamplingMode", &luna_wrapper_osgDB_ImageOptions::_bind_set_sourceImageSamplingMode},
-	{"set_sourceImageWindowMode", &luna_wrapper_osgDB_ImageOptions::_bind_set_sourceImageWindowMode},
-	{"set_sourceRatioWindow", &luna_wrapper_osgDB_ImageOptions::_bind_set_sourceRatioWindow},
-	{"set_sourcePixelWindow", &luna_wrapper_osgDB_ImageOptions::_bind_set_sourcePixelWindow},
-	{"set_destinationImage", &luna_wrapper_osgDB_ImageOptions::_bind_set_destinationImage},
-	{"set_destinationImageWindowMode", &luna_wrapper_osgDB_ImageOptions::_bind_set_destinationImageWindowMode},
-	{"set_destinationRatioWindow", &luna_wrapper_osgDB_ImageOptions::_bind_set_destinationRatioWindow},
-	{"set_destinationPixelWindow", &luna_wrapper_osgDB_ImageOptions::_bind_set_destinationPixelWindow},
-	{"set_destinationDataType", &luna_wrapper_osgDB_ImageOptions::_bind_set_destinationDataType},
-	{"set_destinationPixelFormat", &luna_wrapper_osgDB_ImageOptions::_bind_set_destinationPixelFormat},
+	{"getSourceImageSamplingMode", &luna_wrapper_osgDB_ImageOptions::_bind_getSourceImageSamplingMode},
+	{"getSourceImageWindowMode", &luna_wrapper_osgDB_ImageOptions::_bind_getSourceImageWindowMode},
+	{"getSourceRatioWindow", &luna_wrapper_osgDB_ImageOptions::_bind_getSourceRatioWindow},
+	{"getSourcePixelWindow", &luna_wrapper_osgDB_ImageOptions::_bind_getSourcePixelWindow},
+	{"getDestinationImage", &luna_wrapper_osgDB_ImageOptions::_bind_getDestinationImage},
+	{"getDestinationImageWindowMode", &luna_wrapper_osgDB_ImageOptions::_bind_getDestinationImageWindowMode},
+	{"getDestinationRatioWindow", &luna_wrapper_osgDB_ImageOptions::_bind_getDestinationRatioWindow},
+	{"getDestinationPixelWindow", &luna_wrapper_osgDB_ImageOptions::_bind_getDestinationPixelWindow},
+	{"getDestinationDataType", &luna_wrapper_osgDB_ImageOptions::_bind_getDestinationDataType},
+	{"getDestinationPixelFormat", &luna_wrapper_osgDB_ImageOptions::_bind_getDestinationPixelFormat},
+	{"setSourceImageSamplingMode", &luna_wrapper_osgDB_ImageOptions::_bind_setSourceImageSamplingMode},
+	{"setSourceImageWindowMode", &luna_wrapper_osgDB_ImageOptions::_bind_setSourceImageWindowMode},
+	{"setSourceRatioWindow", &luna_wrapper_osgDB_ImageOptions::_bind_setSourceRatioWindow},
+	{"setSourcePixelWindow", &luna_wrapper_osgDB_ImageOptions::_bind_setSourcePixelWindow},
+	{"setDestinationImage", &luna_wrapper_osgDB_ImageOptions::_bind_setDestinationImage},
+	{"setDestinationImageWindowMode", &luna_wrapper_osgDB_ImageOptions::_bind_setDestinationImageWindowMode},
+	{"setDestinationRatioWindow", &luna_wrapper_osgDB_ImageOptions::_bind_setDestinationRatioWindow},
+	{"setDestinationPixelWindow", &luna_wrapper_osgDB_ImageOptions::_bind_setDestinationPixelWindow},
+	{"setDestinationDataType", &luna_wrapper_osgDB_ImageOptions::_bind_setDestinationDataType},
+	{"setDestinationPixelFormat", &luna_wrapper_osgDB_ImageOptions::_bind_setDestinationPixelFormat},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgDB_ImageOptions::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osgDB_ImageOptions::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgDB_ImageOptions::_bind_base_computeDataVariance},

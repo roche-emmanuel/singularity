@@ -62,78 +62,78 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_suspensionStiffness(lua_State *L) {
+	inline static bool _lg_typecheck_getSuspensionStiffness(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_suspensionCompression(lua_State *L) {
+	inline static bool _lg_typecheck_getSuspensionCompression(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_suspensionDamping(lua_State *L) {
+	inline static bool _lg_typecheck_getSuspensionDamping(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_maxSuspensionTravelCm(lua_State *L) {
+	inline static bool _lg_typecheck_getMaxSuspensionTravelCm(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_frictionSlip(lua_State *L) {
+	inline static bool _lg_typecheck_getFrictionSlip(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_maxSuspensionForce(lua_State *L) {
+	inline static bool _lg_typecheck_getMaxSuspensionForce(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_suspensionStiffness(lua_State *L) {
+	inline static bool _lg_typecheck_setSuspensionStiffness(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_suspensionCompression(lua_State *L) {
+	inline static bool _lg_typecheck_setSuspensionCompression(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_suspensionDamping(lua_State *L) {
+	inline static bool _lg_typecheck_setSuspensionDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_maxSuspensionTravelCm(lua_State *L) {
+	inline static bool _lg_typecheck_setMaxSuspensionTravelCm(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_frictionSlip(lua_State *L) {
+	inline static bool _lg_typecheck_setFrictionSlip(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_maxSuspensionForce(lua_State *L) {
+	inline static bool _lg_typecheck_setMaxSuspensionForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -159,8 +159,8 @@ public:
 
 	// Function binds:
 	// float btRaycastVehicle::btVehicleTuning::m_suspensionStiffness()
-	static int _bind_getM_suspensionStiffness(lua_State *L) {
-		if (!_lg_typecheck_getM_suspensionStiffness(L)) {
+	static int _bind_getSuspensionStiffness(lua_State *L) {
+		if (!_lg_typecheck_getSuspensionStiffness(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_suspensionStiffness() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_suspensionStiffness()\nClass arguments details:\n");
 		}
@@ -178,8 +178,8 @@ public:
 	}
 
 	// float btRaycastVehicle::btVehicleTuning::m_suspensionCompression()
-	static int _bind_getM_suspensionCompression(lua_State *L) {
-		if (!_lg_typecheck_getM_suspensionCompression(L)) {
+	static int _bind_getSuspensionCompression(lua_State *L) {
+		if (!_lg_typecheck_getSuspensionCompression(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_suspensionCompression() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_suspensionCompression()\nClass arguments details:\n");
 		}
@@ -197,8 +197,8 @@ public:
 	}
 
 	// float btRaycastVehicle::btVehicleTuning::m_suspensionDamping()
-	static int _bind_getM_suspensionDamping(lua_State *L) {
-		if (!_lg_typecheck_getM_suspensionDamping(L)) {
+	static int _bind_getSuspensionDamping(lua_State *L) {
+		if (!_lg_typecheck_getSuspensionDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_suspensionDamping() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_suspensionDamping()\nClass arguments details:\n");
 		}
@@ -216,8 +216,8 @@ public:
 	}
 
 	// float btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm()
-	static int _bind_getM_maxSuspensionTravelCm(lua_State *L) {
-		if (!_lg_typecheck_getM_maxSuspensionTravelCm(L)) {
+	static int _bind_getMaxSuspensionTravelCm(lua_State *L) {
+		if (!_lg_typecheck_getMaxSuspensionTravelCm(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm()\nClass arguments details:\n");
 		}
@@ -235,8 +235,8 @@ public:
 	}
 
 	// float btRaycastVehicle::btVehicleTuning::m_frictionSlip()
-	static int _bind_getM_frictionSlip(lua_State *L) {
-		if (!_lg_typecheck_getM_frictionSlip(L)) {
+	static int _bind_getFrictionSlip(lua_State *L) {
+		if (!_lg_typecheck_getFrictionSlip(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_frictionSlip() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_frictionSlip()\nClass arguments details:\n");
 		}
@@ -254,8 +254,8 @@ public:
 	}
 
 	// float btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce()
-	static int _bind_getM_maxSuspensionForce(lua_State *L) {
-		if (!_lg_typecheck_getM_maxSuspensionForce(L)) {
+	static int _bind_getMaxSuspensionForce(lua_State *L) {
+		if (!_lg_typecheck_getMaxSuspensionForce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce()\nClass arguments details:\n");
 		}
@@ -273,8 +273,8 @@ public:
 	}
 
 	// void btRaycastVehicle::btVehicleTuning::m_suspensionStiffness(float value)
-	static int _bind_setM_suspensionStiffness(lua_State *L) {
-		if (!_lg_typecheck_setM_suspensionStiffness(L)) {
+	static int _bind_setSuspensionStiffness(lua_State *L) {
+		if (!_lg_typecheck_setSuspensionStiffness(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_suspensionStiffness(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_suspensionStiffness(float value)\nClass arguments details:\n");
 		}
@@ -292,8 +292,8 @@ public:
 	}
 
 	// void btRaycastVehicle::btVehicleTuning::m_suspensionCompression(float value)
-	static int _bind_setM_suspensionCompression(lua_State *L) {
-		if (!_lg_typecheck_setM_suspensionCompression(L)) {
+	static int _bind_setSuspensionCompression(lua_State *L) {
+		if (!_lg_typecheck_setSuspensionCompression(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_suspensionCompression(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_suspensionCompression(float value)\nClass arguments details:\n");
 		}
@@ -311,8 +311,8 @@ public:
 	}
 
 	// void btRaycastVehicle::btVehicleTuning::m_suspensionDamping(float value)
-	static int _bind_setM_suspensionDamping(lua_State *L) {
-		if (!_lg_typecheck_setM_suspensionDamping(L)) {
+	static int _bind_setSuspensionDamping(lua_State *L) {
+		if (!_lg_typecheck_setSuspensionDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_suspensionDamping(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_suspensionDamping(float value)\nClass arguments details:\n");
 		}
@@ -330,8 +330,8 @@ public:
 	}
 
 	// void btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm(float value)
-	static int _bind_setM_maxSuspensionTravelCm(lua_State *L) {
-		if (!_lg_typecheck_setM_maxSuspensionTravelCm(L)) {
+	static int _bind_setMaxSuspensionTravelCm(lua_State *L) {
+		if (!_lg_typecheck_setMaxSuspensionTravelCm(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm(float value)\nClass arguments details:\n");
 		}
@@ -349,8 +349,8 @@ public:
 	}
 
 	// void btRaycastVehicle::btVehicleTuning::m_frictionSlip(float value)
-	static int _bind_setM_frictionSlip(lua_State *L) {
-		if (!_lg_typecheck_setM_frictionSlip(L)) {
+	static int _bind_setFrictionSlip(lua_State *L) {
+		if (!_lg_typecheck_setFrictionSlip(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_frictionSlip(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_frictionSlip(float value)\nClass arguments details:\n");
 		}
@@ -368,8 +368,8 @@ public:
 	}
 
 	// void btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce(float value)
-	static int _bind_setM_maxSuspensionForce(lua_State *L) {
-		if (!_lg_typecheck_setM_maxSuspensionForce(L)) {
+	static int _bind_setMaxSuspensionForce(lua_State *L) {
+		if (!_lg_typecheck_setMaxSuspensionForce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce(float value)\nClass arguments details:\n");
 		}
@@ -407,18 +407,18 @@ const int LunaTraits< btRaycastVehicle::btVehicleTuning >::hash = 91513369;
 const int LunaTraits< btRaycastVehicle::btVehicleTuning >::uniqueIDs[] = {91513369,0};
 
 luna_RegType LunaTraits< btRaycastVehicle::btVehicleTuning >::methods[] = {
-	{"getM_suspensionStiffness", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_getM_suspensionStiffness},
-	{"getM_suspensionCompression", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_getM_suspensionCompression},
-	{"getM_suspensionDamping", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_getM_suspensionDamping},
-	{"getM_maxSuspensionTravelCm", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_getM_maxSuspensionTravelCm},
-	{"getM_frictionSlip", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_getM_frictionSlip},
-	{"getM_maxSuspensionForce", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_getM_maxSuspensionForce},
-	{"setM_suspensionStiffness", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_setM_suspensionStiffness},
-	{"setM_suspensionCompression", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_setM_suspensionCompression},
-	{"setM_suspensionDamping", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_setM_suspensionDamping},
-	{"setM_maxSuspensionTravelCm", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_setM_maxSuspensionTravelCm},
-	{"setM_frictionSlip", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_setM_frictionSlip},
-	{"setM_maxSuspensionForce", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_setM_maxSuspensionForce},
+	{"getSuspensionStiffness", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_getSuspensionStiffness},
+	{"getSuspensionCompression", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_getSuspensionCompression},
+	{"getSuspensionDamping", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_getSuspensionDamping},
+	{"getMaxSuspensionTravelCm", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_getMaxSuspensionTravelCm},
+	{"getFrictionSlip", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_getFrictionSlip},
+	{"getMaxSuspensionForce", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_getMaxSuspensionForce},
+	{"setSuspensionStiffness", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_setSuspensionStiffness},
+	{"setSuspensionCompression", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_setSuspensionCompression},
+	{"setSuspensionDamping", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_setSuspensionDamping},
+	{"setMaxSuspensionTravelCm", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_setMaxSuspensionTravelCm},
+	{"setFrictionSlip", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_setFrictionSlip},
+	{"setMaxSuspensionForce", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_setMaxSuspensionForce},
 	{"dynCast", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind_dynCast},
 	{"__eq", &luna_wrapper_btRaycastVehicle_btVehicleTuning::_bind___eq},
 	{0,0}

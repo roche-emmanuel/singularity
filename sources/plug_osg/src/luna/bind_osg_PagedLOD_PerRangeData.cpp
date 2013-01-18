@@ -70,91 +70,91 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_get_filename(lua_State *L) {
+	inline static bool _lg_typecheck_getFilename(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_priorityOffset(lua_State *L) {
+	inline static bool _lg_typecheck_getPriorityOffset(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_priorityScale(lua_State *L) {
+	inline static bool _lg_typecheck_getPriorityScale(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_timeStamp(lua_State *L) {
+	inline static bool _lg_typecheck_getTimeStamp(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_frameNumber(lua_State *L) {
+	inline static bool _lg_typecheck_getFrameNumber(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_frameNumberOfLastReleaseGLObjects(lua_State *L) {
+	inline static bool _lg_typecheck_getFrameNumberOfLastReleaseGLObjects(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_databaseRequest(lua_State *L) {
+	inline static bool _lg_typecheck_getDatabaseRequest(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_filename(lua_State *L) {
+	inline static bool _lg_typecheck_setFilename(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_priorityOffset(lua_State *L) {
+	inline static bool _lg_typecheck_setPriorityOffset(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_priorityScale(lua_State *L) {
+	inline static bool _lg_typecheck_setPriorityScale(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_timeStamp(lua_State *L) {
+	inline static bool _lg_typecheck_setTimeStamp(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_frameNumber(lua_State *L) {
+	inline static bool _lg_typecheck_setFrameNumber(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_frameNumberOfLastReleaseGLObjects(lua_State *L) {
+	inline static bool _lg_typecheck_setFrameNumberOfLastReleaseGLObjects(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_databaseRequest(lua_State *L) {
+	inline static bool _lg_typecheck_setDatabaseRequest(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,84922662) ) return false;
@@ -212,8 +212,8 @@ public:
 
 	// Function binds:
 	// std::string osg::PagedLOD::PerRangeData::_filename()
-	static int _bind_get_filename(lua_State *L) {
-		if (!_lg_typecheck_get_filename(L)) {
+	static int _bind_getFilename(lua_State *L) {
+		if (!_lg_typecheck_getFilename(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in std::string osg::PagedLOD::PerRangeData::_filename() function, expected prototype:\nstd::string osg::PagedLOD::PerRangeData::_filename()\nClass arguments details:\n");
 		}
@@ -231,8 +231,8 @@ public:
 	}
 
 	// float osg::PagedLOD::PerRangeData::_priorityOffset()
-	static int _bind_get_priorityOffset(lua_State *L) {
-		if (!_lg_typecheck_get_priorityOffset(L)) {
+	static int _bind_getPriorityOffset(lua_State *L) {
+		if (!_lg_typecheck_getPriorityOffset(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float osg::PagedLOD::PerRangeData::_priorityOffset() function, expected prototype:\nfloat osg::PagedLOD::PerRangeData::_priorityOffset()\nClass arguments details:\n");
 		}
@@ -250,8 +250,8 @@ public:
 	}
 
 	// float osg::PagedLOD::PerRangeData::_priorityScale()
-	static int _bind_get_priorityScale(lua_State *L) {
-		if (!_lg_typecheck_get_priorityScale(L)) {
+	static int _bind_getPriorityScale(lua_State *L) {
+		if (!_lg_typecheck_getPriorityScale(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float osg::PagedLOD::PerRangeData::_priorityScale() function, expected prototype:\nfloat osg::PagedLOD::PerRangeData::_priorityScale()\nClass arguments details:\n");
 		}
@@ -269,8 +269,8 @@ public:
 	}
 
 	// double osg::PagedLOD::PerRangeData::_timeStamp()
-	static int _bind_get_timeStamp(lua_State *L) {
-		if (!_lg_typecheck_get_timeStamp(L)) {
+	static int _bind_getTimeStamp(lua_State *L) {
+		if (!_lg_typecheck_getTimeStamp(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double osg::PagedLOD::PerRangeData::_timeStamp() function, expected prototype:\ndouble osg::PagedLOD::PerRangeData::_timeStamp()\nClass arguments details:\n");
 		}
@@ -288,8 +288,8 @@ public:
 	}
 
 	// unsigned int osg::PagedLOD::PerRangeData::_frameNumber()
-	static int _bind_get_frameNumber(lua_State *L) {
-		if (!_lg_typecheck_get_frameNumber(L)) {
+	static int _bind_getFrameNumber(lua_State *L) {
+		if (!_lg_typecheck_getFrameNumber(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::PagedLOD::PerRangeData::_frameNumber() function, expected prototype:\nunsigned int osg::PagedLOD::PerRangeData::_frameNumber()\nClass arguments details:\n");
 		}
@@ -307,8 +307,8 @@ public:
 	}
 
 	// unsigned int osg::PagedLOD::PerRangeData::_frameNumberOfLastReleaseGLObjects()
-	static int _bind_get_frameNumberOfLastReleaseGLObjects(lua_State *L) {
-		if (!_lg_typecheck_get_frameNumberOfLastReleaseGLObjects(L)) {
+	static int _bind_getFrameNumberOfLastReleaseGLObjects(lua_State *L) {
+		if (!_lg_typecheck_getFrameNumberOfLastReleaseGLObjects(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::PagedLOD::PerRangeData::_frameNumberOfLastReleaseGLObjects() function, expected prototype:\nunsigned int osg::PagedLOD::PerRangeData::_frameNumberOfLastReleaseGLObjects()\nClass arguments details:\n");
 		}
@@ -326,8 +326,8 @@ public:
 	}
 
 	// osg::ref_ptr< osg::Referenced > osg::PagedLOD::PerRangeData::_databaseRequest()
-	static int _bind_get_databaseRequest(lua_State *L) {
-		if (!_lg_typecheck_get_databaseRequest(L)) {
+	static int _bind_getDatabaseRequest(lua_State *L) {
+		if (!_lg_typecheck_getDatabaseRequest(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Referenced > osg::PagedLOD::PerRangeData::_databaseRequest() function, expected prototype:\nosg::ref_ptr< osg::Referenced > osg::PagedLOD::PerRangeData::_databaseRequest()\nClass arguments details:\n");
 		}
@@ -345,8 +345,8 @@ public:
 	}
 
 	// void osg::PagedLOD::PerRangeData::_filename(std::string value)
-	static int _bind_set_filename(lua_State *L) {
-		if (!_lg_typecheck_set_filename(L)) {
+	static int _bind_setFilename(lua_State *L) {
+		if (!_lg_typecheck_setFilename(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::PagedLOD::PerRangeData::_filename(std::string value) function, expected prototype:\nvoid osg::PagedLOD::PerRangeData::_filename(std::string value)\nClass arguments details:\n");
 		}
@@ -364,8 +364,8 @@ public:
 	}
 
 	// void osg::PagedLOD::PerRangeData::_priorityOffset(float value)
-	static int _bind_set_priorityOffset(lua_State *L) {
-		if (!_lg_typecheck_set_priorityOffset(L)) {
+	static int _bind_setPriorityOffset(lua_State *L) {
+		if (!_lg_typecheck_setPriorityOffset(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::PagedLOD::PerRangeData::_priorityOffset(float value) function, expected prototype:\nvoid osg::PagedLOD::PerRangeData::_priorityOffset(float value)\nClass arguments details:\n");
 		}
@@ -383,8 +383,8 @@ public:
 	}
 
 	// void osg::PagedLOD::PerRangeData::_priorityScale(float value)
-	static int _bind_set_priorityScale(lua_State *L) {
-		if (!_lg_typecheck_set_priorityScale(L)) {
+	static int _bind_setPriorityScale(lua_State *L) {
+		if (!_lg_typecheck_setPriorityScale(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::PagedLOD::PerRangeData::_priorityScale(float value) function, expected prototype:\nvoid osg::PagedLOD::PerRangeData::_priorityScale(float value)\nClass arguments details:\n");
 		}
@@ -402,8 +402,8 @@ public:
 	}
 
 	// void osg::PagedLOD::PerRangeData::_timeStamp(double value)
-	static int _bind_set_timeStamp(lua_State *L) {
-		if (!_lg_typecheck_set_timeStamp(L)) {
+	static int _bind_setTimeStamp(lua_State *L) {
+		if (!_lg_typecheck_setTimeStamp(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::PagedLOD::PerRangeData::_timeStamp(double value) function, expected prototype:\nvoid osg::PagedLOD::PerRangeData::_timeStamp(double value)\nClass arguments details:\n");
 		}
@@ -421,8 +421,8 @@ public:
 	}
 
 	// void osg::PagedLOD::PerRangeData::_frameNumber(unsigned int value)
-	static int _bind_set_frameNumber(lua_State *L) {
-		if (!_lg_typecheck_set_frameNumber(L)) {
+	static int _bind_setFrameNumber(lua_State *L) {
+		if (!_lg_typecheck_setFrameNumber(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::PagedLOD::PerRangeData::_frameNumber(unsigned int value) function, expected prototype:\nvoid osg::PagedLOD::PerRangeData::_frameNumber(unsigned int value)\nClass arguments details:\n");
 		}
@@ -440,8 +440,8 @@ public:
 	}
 
 	// void osg::PagedLOD::PerRangeData::_frameNumberOfLastReleaseGLObjects(unsigned int value)
-	static int _bind_set_frameNumberOfLastReleaseGLObjects(lua_State *L) {
-		if (!_lg_typecheck_set_frameNumberOfLastReleaseGLObjects(L)) {
+	static int _bind_setFrameNumberOfLastReleaseGLObjects(lua_State *L) {
+		if (!_lg_typecheck_setFrameNumberOfLastReleaseGLObjects(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::PagedLOD::PerRangeData::_frameNumberOfLastReleaseGLObjects(unsigned int value) function, expected prototype:\nvoid osg::PagedLOD::PerRangeData::_frameNumberOfLastReleaseGLObjects(unsigned int value)\nClass arguments details:\n");
 		}
@@ -459,8 +459,8 @@ public:
 	}
 
 	// void osg::PagedLOD::PerRangeData::_databaseRequest(osg::ref_ptr< osg::Referenced > value)
-	static int _bind_set_databaseRequest(lua_State *L) {
-		if (!_lg_typecheck_set_databaseRequest(L)) {
+	static int _bind_setDatabaseRequest(lua_State *L) {
+		if (!_lg_typecheck_setDatabaseRequest(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::PagedLOD::PerRangeData::_databaseRequest(osg::ref_ptr< osg::Referenced > value) function, expected prototype:\nvoid osg::PagedLOD::PerRangeData::_databaseRequest(osg::ref_ptr< osg::Referenced > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -524,20 +524,20 @@ const int LunaTraits< osg::PagedLOD::PerRangeData >::hash = 17496146;
 const int LunaTraits< osg::PagedLOD::PerRangeData >::uniqueIDs[] = {17496146,0};
 
 luna_RegType LunaTraits< osg::PagedLOD::PerRangeData >::methods[] = {
-	{"get_filename", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_get_filename},
-	{"get_priorityOffset", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_get_priorityOffset},
-	{"get_priorityScale", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_get_priorityScale},
-	{"get_timeStamp", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_get_timeStamp},
-	{"get_frameNumber", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_get_frameNumber},
-	{"get_frameNumberOfLastReleaseGLObjects", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_get_frameNumberOfLastReleaseGLObjects},
-	{"get_databaseRequest", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_get_databaseRequest},
-	{"set_filename", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_set_filename},
-	{"set_priorityOffset", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_set_priorityOffset},
-	{"set_priorityScale", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_set_priorityScale},
-	{"set_timeStamp", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_set_timeStamp},
-	{"set_frameNumber", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_set_frameNumber},
-	{"set_frameNumberOfLastReleaseGLObjects", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_set_frameNumberOfLastReleaseGLObjects},
-	{"set_databaseRequest", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_set_databaseRequest},
+	{"getFilename", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getFilename},
+	{"getPriorityOffset", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getPriorityOffset},
+	{"getPriorityScale", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getPriorityScale},
+	{"getTimeStamp", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getTimeStamp},
+	{"getFrameNumber", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getFrameNumber},
+	{"getFrameNumberOfLastReleaseGLObjects", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getFrameNumberOfLastReleaseGLObjects},
+	{"getDatabaseRequest", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getDatabaseRequest},
+	{"setFilename", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setFilename},
+	{"setPriorityOffset", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setPriorityOffset},
+	{"setPriorityScale", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setPriorityScale},
+	{"setTimeStamp", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setTimeStamp},
+	{"setFrameNumber", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setFrameNumber},
+	{"setFrameNumberOfLastReleaseGLObjects", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setFrameNumberOfLastReleaseGLObjects},
+	{"setDatabaseRequest", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setDatabaseRequest},
 	{"op_assign", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind___eq},

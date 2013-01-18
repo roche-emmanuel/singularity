@@ -94,52 +94,52 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_protected(lua_State *L) {
+	inline static bool _lg_typecheck_getProtected(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_index(lua_State *L) {
+	inline static bool _lg_typecheck_getIndex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_vertex(lua_State *L) {
+	inline static bool _lg_typecheck_getVertex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_triangles(lua_State *L) {
+	inline static bool _lg_typecheck_getTriangles(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_protected(lua_State *L) {
+	inline static bool _lg_typecheck_setProtected(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_index(lua_State *L) {
+	inline static bool _lg_typecheck_setIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_vertex(lua_State *L) {
+	inline static bool _lg_typecheck_setVertex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_triangles(lua_State *L) {
+	inline static bool _lg_typecheck_setTriangles(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,71050428) ) return false;
@@ -236,8 +236,8 @@ public:
 	}
 
 	// bool osgUtil::EdgeCollector::Point::_protected()
-	static int _bind_get_protected(lua_State *L) {
-		if (!_lg_typecheck_get_protected(L)) {
+	static int _bind_getProtected(lua_State *L) {
+		if (!_lg_typecheck_getProtected(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool osgUtil::EdgeCollector::Point::_protected() function, expected prototype:\nbool osgUtil::EdgeCollector::Point::_protected()\nClass arguments details:\n");
 		}
@@ -255,8 +255,8 @@ public:
 	}
 
 	// unsigned int osgUtil::EdgeCollector::Point::_index()
-	static int _bind_get_index(lua_State *L) {
-		if (!_lg_typecheck_get_index(L)) {
+	static int _bind_getIndex(lua_State *L) {
+		if (!_lg_typecheck_getIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::EdgeCollector::Point::_index() function, expected prototype:\nunsigned int osgUtil::EdgeCollector::Point::_index()\nClass arguments details:\n");
 		}
@@ -274,8 +274,8 @@ public:
 	}
 
 	// osg::Vec3d osgUtil::EdgeCollector::Point::_vertex()
-	static int _bind_get_vertex(lua_State *L) {
-		if (!_lg_typecheck_get_vertex(L)) {
+	static int _bind_getVertex(lua_State *L) {
+		if (!_lg_typecheck_getVertex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::Vec3d osgUtil::EdgeCollector::Point::_vertex() function, expected prototype:\nosg::Vec3d osgUtil::EdgeCollector::Point::_vertex()\nClass arguments details:\n");
 		}
@@ -295,8 +295,8 @@ public:
 	}
 
 	// osgUtil::EdgeCollector::TriangleSet osgUtil::EdgeCollector::Point::_triangles()
-	static int _bind_get_triangles(lua_State *L) {
-		if (!_lg_typecheck_get_triangles(L)) {
+	static int _bind_getTriangles(lua_State *L) {
+		if (!_lg_typecheck_getTriangles(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::TriangleSet osgUtil::EdgeCollector::Point::_triangles() function, expected prototype:\nosgUtil::EdgeCollector::TriangleSet osgUtil::EdgeCollector::Point::_triangles()\nClass arguments details:\n");
 		}
@@ -316,8 +316,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Point::_protected(bool value)
-	static int _bind_set_protected(lua_State *L) {
-		if (!_lg_typecheck_set_protected(L)) {
+	static int _bind_setProtected(lua_State *L) {
+		if (!_lg_typecheck_setProtected(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Point::_protected(bool value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Point::_protected(bool value)\nClass arguments details:\n");
 		}
@@ -335,8 +335,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Point::_index(unsigned int value)
-	static int _bind_set_index(lua_State *L) {
-		if (!_lg_typecheck_set_index(L)) {
+	static int _bind_setIndex(lua_State *L) {
+		if (!_lg_typecheck_setIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Point::_index(unsigned int value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Point::_index(unsigned int value)\nClass arguments details:\n");
 		}
@@ -354,8 +354,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Point::_vertex(osg::Vec3d value)
-	static int _bind_set_vertex(lua_State *L) {
-		if (!_lg_typecheck_set_vertex(L)) {
+	static int _bind_setVertex(lua_State *L) {
+		if (!_lg_typecheck_setVertex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Point::_vertex(osg::Vec3d value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Point::_vertex(osg::Vec3d value)\nClass arguments details:\narg 1 ID = 92303202\n");
 		}
@@ -377,8 +377,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Point::_triangles(osgUtil::EdgeCollector::TriangleSet value)
-	static int _bind_set_triangles(lua_State *L) {
-		if (!_lg_typecheck_set_triangles(L)) {
+	static int _bind_setTriangles(lua_State *L) {
+		if (!_lg_typecheck_setTriangles(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Point::_triangles(osgUtil::EdgeCollector::TriangleSet value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Point::_triangles(osgUtil::EdgeCollector::TriangleSet value)\nClass arguments details:\narg 1 ID = 62987903\n");
 		}
@@ -465,14 +465,14 @@ const int LunaTraits< osgUtil::EdgeCollector::Point >::uniqueIDs[] = {50169651,0
 luna_RegType LunaTraits< osgUtil::EdgeCollector::Point >::methods[] = {
 	{"clear", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_clear},
 	{"isBoundaryPoint", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_isBoundaryPoint},
-	{"get_protected", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_get_protected},
-	{"get_index", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_get_index},
-	{"get_vertex", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_get_vertex},
-	{"get_triangles", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_get_triangles},
-	{"set_protected", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_set_protected},
-	{"set_index", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_set_index},
-	{"set_vertex", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_set_vertex},
-	{"set_triangles", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_set_triangles},
+	{"getProtected", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_getProtected},
+	{"getIndex", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_getIndex},
+	{"getVertex", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_getVertex},
+	{"getTriangles", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_getTriangles},
+	{"setProtected", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_setProtected},
+	{"setIndex", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_setIndex},
+	{"setVertex", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_setVertex},
+	{"setTriangles", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_setTriangles},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind_base_setThreadSafeRefUnref},
 	{"__lt", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind___lt},
 	{"__eq", &luna_wrapper_osgUtil_EdgeCollector_Point::_bind___eq},

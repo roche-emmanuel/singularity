@@ -110,130 +110,130 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_p1(lua_State *L) {
+	inline static bool _lg_typecheck_getP1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_p2(lua_State *L) {
+	inline static bool _lg_typecheck_getP2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_p3(lua_State *L) {
+	inline static bool _lg_typecheck_getP3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_op1(lua_State *L) {
+	inline static bool _lg_typecheck_getOp1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_op2(lua_State *L) {
+	inline static bool _lg_typecheck_getOp2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_op3(lua_State *L) {
+	inline static bool _lg_typecheck_getOp3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_e1(lua_State *L) {
+	inline static bool _lg_typecheck_getE1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_e2(lua_State *L) {
+	inline static bool _lg_typecheck_getE2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_e3(lua_State *L) {
+	inline static bool _lg_typecheck_getE3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_plane(lua_State *L) {
+	inline static bool _lg_typecheck_getPlane(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_p1(lua_State *L) {
+	inline static bool _lg_typecheck_setP1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,28717922) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_p2(lua_State *L) {
+	inline static bool _lg_typecheck_setP2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,28717922) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_p3(lua_State *L) {
+	inline static bool _lg_typecheck_setP3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,28717922) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_op1(lua_State *L) {
+	inline static bool _lg_typecheck_setOp1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,28717922) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_op2(lua_State *L) {
+	inline static bool _lg_typecheck_setOp2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,28717922) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_op3(lua_State *L) {
+	inline static bool _lg_typecheck_setOp3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,28717922) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_e1(lua_State *L) {
+	inline static bool _lg_typecheck_setE1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,95131209) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_e2(lua_State *L) {
+	inline static bool _lg_typecheck_setE2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,95131209) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_e3(lua_State *L) {
+	inline static bool _lg_typecheck_setE3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,95131209) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_plane(lua_State *L) {
+	inline static bool _lg_typecheck_setPlane(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,86970521) ) return false;
@@ -375,8 +375,8 @@ public:
 	}
 
 	// osg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_p1()
-	static int _bind_get_p1(lua_State *L) {
-		if (!_lg_typecheck_get_p1(L)) {
+	static int _bind_getP1(lua_State *L) {
+		if (!_lg_typecheck_getP1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_p1() function, expected prototype:\nosg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_p1()\nClass arguments details:\n");
 		}
@@ -394,8 +394,8 @@ public:
 	}
 
 	// osg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_p2()
-	static int _bind_get_p2(lua_State *L) {
-		if (!_lg_typecheck_get_p2(L)) {
+	static int _bind_getP2(lua_State *L) {
+		if (!_lg_typecheck_getP2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_p2() function, expected prototype:\nosg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_p2()\nClass arguments details:\n");
 		}
@@ -413,8 +413,8 @@ public:
 	}
 
 	// osg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_p3()
-	static int _bind_get_p3(lua_State *L) {
-		if (!_lg_typecheck_get_p3(L)) {
+	static int _bind_getP3(lua_State *L) {
+		if (!_lg_typecheck_getP3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_p3() function, expected prototype:\nosg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_p3()\nClass arguments details:\n");
 		}
@@ -432,8 +432,8 @@ public:
 	}
 
 	// osg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_op1()
-	static int _bind_get_op1(lua_State *L) {
-		if (!_lg_typecheck_get_op1(L)) {
+	static int _bind_getOp1(lua_State *L) {
+		if (!_lg_typecheck_getOp1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_op1() function, expected prototype:\nosg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_op1()\nClass arguments details:\n");
 		}
@@ -451,8 +451,8 @@ public:
 	}
 
 	// osg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_op2()
-	static int _bind_get_op2(lua_State *L) {
-		if (!_lg_typecheck_get_op2(L)) {
+	static int _bind_getOp2(lua_State *L) {
+		if (!_lg_typecheck_getOp2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_op2() function, expected prototype:\nosg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_op2()\nClass arguments details:\n");
 		}
@@ -470,8 +470,8 @@ public:
 	}
 
 	// osg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_op3()
-	static int _bind_get_op3(lua_State *L) {
-		if (!_lg_typecheck_get_op3(L)) {
+	static int _bind_getOp3(lua_State *L) {
+		if (!_lg_typecheck_getOp3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_op3() function, expected prototype:\nosg::ref_ptr< osgUtil::EdgeCollector::Point > osgUtil::EdgeCollector::Triangle::_op3()\nClass arguments details:\n");
 		}
@@ -489,8 +489,8 @@ public:
 	}
 
 	// osg::ref_ptr< osgUtil::EdgeCollector::Edge > osgUtil::EdgeCollector::Triangle::_e1()
-	static int _bind_get_e1(lua_State *L) {
-		if (!_lg_typecheck_get_e1(L)) {
+	static int _bind_getE1(lua_State *L) {
+		if (!_lg_typecheck_getE1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgUtil::EdgeCollector::Edge > osgUtil::EdgeCollector::Triangle::_e1() function, expected prototype:\nosg::ref_ptr< osgUtil::EdgeCollector::Edge > osgUtil::EdgeCollector::Triangle::_e1()\nClass arguments details:\n");
 		}
@@ -508,8 +508,8 @@ public:
 	}
 
 	// osg::ref_ptr< osgUtil::EdgeCollector::Edge > osgUtil::EdgeCollector::Triangle::_e2()
-	static int _bind_get_e2(lua_State *L) {
-		if (!_lg_typecheck_get_e2(L)) {
+	static int _bind_getE2(lua_State *L) {
+		if (!_lg_typecheck_getE2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgUtil::EdgeCollector::Edge > osgUtil::EdgeCollector::Triangle::_e2() function, expected prototype:\nosg::ref_ptr< osgUtil::EdgeCollector::Edge > osgUtil::EdgeCollector::Triangle::_e2()\nClass arguments details:\n");
 		}
@@ -527,8 +527,8 @@ public:
 	}
 
 	// osg::ref_ptr< osgUtil::EdgeCollector::Edge > osgUtil::EdgeCollector::Triangle::_e3()
-	static int _bind_get_e3(lua_State *L) {
-		if (!_lg_typecheck_get_e3(L)) {
+	static int _bind_getE3(lua_State *L) {
+		if (!_lg_typecheck_getE3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgUtil::EdgeCollector::Edge > osgUtil::EdgeCollector::Triangle::_e3() function, expected prototype:\nosg::ref_ptr< osgUtil::EdgeCollector::Edge > osgUtil::EdgeCollector::Triangle::_e3()\nClass arguments details:\n");
 		}
@@ -546,8 +546,8 @@ public:
 	}
 
 	// osg::Plane osgUtil::EdgeCollector::Triangle::_plane()
-	static int _bind_get_plane(lua_State *L) {
-		if (!_lg_typecheck_get_plane(L)) {
+	static int _bind_getPlane(lua_State *L) {
+		if (!_lg_typecheck_getPlane(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::Plane osgUtil::EdgeCollector::Triangle::_plane() function, expected prototype:\nosg::Plane osgUtil::EdgeCollector::Triangle::_plane()\nClass arguments details:\n");
 		}
@@ -567,8 +567,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Triangle::_p1(osg::ref_ptr< osgUtil::EdgeCollector::Point > value)
-	static int _bind_set_p1(lua_State *L) {
-		if (!_lg_typecheck_set_p1(L)) {
+	static int _bind_setP1(lua_State *L) {
+		if (!_lg_typecheck_setP1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Triangle::_p1(osg::ref_ptr< osgUtil::EdgeCollector::Point > value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Triangle::_p1(osg::ref_ptr< osgUtil::EdgeCollector::Point > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -586,8 +586,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Triangle::_p2(osg::ref_ptr< osgUtil::EdgeCollector::Point > value)
-	static int _bind_set_p2(lua_State *L) {
-		if (!_lg_typecheck_set_p2(L)) {
+	static int _bind_setP2(lua_State *L) {
+		if (!_lg_typecheck_setP2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Triangle::_p2(osg::ref_ptr< osgUtil::EdgeCollector::Point > value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Triangle::_p2(osg::ref_ptr< osgUtil::EdgeCollector::Point > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -605,8 +605,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Triangle::_p3(osg::ref_ptr< osgUtil::EdgeCollector::Point > value)
-	static int _bind_set_p3(lua_State *L) {
-		if (!_lg_typecheck_set_p3(L)) {
+	static int _bind_setP3(lua_State *L) {
+		if (!_lg_typecheck_setP3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Triangle::_p3(osg::ref_ptr< osgUtil::EdgeCollector::Point > value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Triangle::_p3(osg::ref_ptr< osgUtil::EdgeCollector::Point > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -624,8 +624,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Triangle::_op1(osg::ref_ptr< osgUtil::EdgeCollector::Point > value)
-	static int _bind_set_op1(lua_State *L) {
-		if (!_lg_typecheck_set_op1(L)) {
+	static int _bind_setOp1(lua_State *L) {
+		if (!_lg_typecheck_setOp1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Triangle::_op1(osg::ref_ptr< osgUtil::EdgeCollector::Point > value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Triangle::_op1(osg::ref_ptr< osgUtil::EdgeCollector::Point > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -643,8 +643,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Triangle::_op2(osg::ref_ptr< osgUtil::EdgeCollector::Point > value)
-	static int _bind_set_op2(lua_State *L) {
-		if (!_lg_typecheck_set_op2(L)) {
+	static int _bind_setOp2(lua_State *L) {
+		if (!_lg_typecheck_setOp2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Triangle::_op2(osg::ref_ptr< osgUtil::EdgeCollector::Point > value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Triangle::_op2(osg::ref_ptr< osgUtil::EdgeCollector::Point > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -662,8 +662,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Triangle::_op3(osg::ref_ptr< osgUtil::EdgeCollector::Point > value)
-	static int _bind_set_op3(lua_State *L) {
-		if (!_lg_typecheck_set_op3(L)) {
+	static int _bind_setOp3(lua_State *L) {
+		if (!_lg_typecheck_setOp3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Triangle::_op3(osg::ref_ptr< osgUtil::EdgeCollector::Point > value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Triangle::_op3(osg::ref_ptr< osgUtil::EdgeCollector::Point > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -681,8 +681,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Triangle::_e1(osg::ref_ptr< osgUtil::EdgeCollector::Edge > value)
-	static int _bind_set_e1(lua_State *L) {
-		if (!_lg_typecheck_set_e1(L)) {
+	static int _bind_setE1(lua_State *L) {
+		if (!_lg_typecheck_setE1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Triangle::_e1(osg::ref_ptr< osgUtil::EdgeCollector::Edge > value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Triangle::_e1(osg::ref_ptr< osgUtil::EdgeCollector::Edge > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -700,8 +700,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Triangle::_e2(osg::ref_ptr< osgUtil::EdgeCollector::Edge > value)
-	static int _bind_set_e2(lua_State *L) {
-		if (!_lg_typecheck_set_e2(L)) {
+	static int _bind_setE2(lua_State *L) {
+		if (!_lg_typecheck_setE2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Triangle::_e2(osg::ref_ptr< osgUtil::EdgeCollector::Edge > value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Triangle::_e2(osg::ref_ptr< osgUtil::EdgeCollector::Edge > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -719,8 +719,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Triangle::_e3(osg::ref_ptr< osgUtil::EdgeCollector::Edge > value)
-	static int _bind_set_e3(lua_State *L) {
-		if (!_lg_typecheck_set_e3(L)) {
+	static int _bind_setE3(lua_State *L) {
+		if (!_lg_typecheck_setE3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Triangle::_e3(osg::ref_ptr< osgUtil::EdgeCollector::Edge > value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Triangle::_e3(osg::ref_ptr< osgUtil::EdgeCollector::Edge > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -738,8 +738,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Triangle::_plane(osg::Plane value)
-	static int _bind_set_plane(lua_State *L) {
-		if (!_lg_typecheck_set_plane(L)) {
+	static int _bind_setPlane(lua_State *L) {
+		if (!_lg_typecheck_setPlane(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Triangle::_plane(osg::Plane value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Triangle::_plane(osg::Plane value)\nClass arguments details:\narg 1 ID = 86970521\n");
 		}
@@ -828,26 +828,26 @@ luna_RegType LunaTraits< osgUtil::EdgeCollector::Triangle >::methods[] = {
 	{"setOrderedPoints", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_setOrderedPoints},
 	{"distance", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_distance},
 	{"isBoundaryTriangle", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_isBoundaryTriangle},
-	{"get_p1", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_get_p1},
-	{"get_p2", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_get_p2},
-	{"get_p3", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_get_p3},
-	{"get_op1", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_get_op1},
-	{"get_op2", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_get_op2},
-	{"get_op3", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_get_op3},
-	{"get_e1", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_get_e1},
-	{"get_e2", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_get_e2},
-	{"get_e3", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_get_e3},
-	{"get_plane", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_get_plane},
-	{"set_p1", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_set_p1},
-	{"set_p2", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_set_p2},
-	{"set_p3", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_set_p3},
-	{"set_op1", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_set_op1},
-	{"set_op2", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_set_op2},
-	{"set_op3", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_set_op3},
-	{"set_e1", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_set_e1},
-	{"set_e2", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_set_e2},
-	{"set_e3", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_set_e3},
-	{"set_plane", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_set_plane},
+	{"getP1", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_getP1},
+	{"getP2", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_getP2},
+	{"getP3", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_getP3},
+	{"getOp1", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_getOp1},
+	{"getOp2", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_getOp2},
+	{"getOp3", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_getOp3},
+	{"getE1", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_getE1},
+	{"getE2", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_getE2},
+	{"getE3", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_getE3},
+	{"getPlane", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_getPlane},
+	{"setP1", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_setP1},
+	{"setP2", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_setP2},
+	{"setP3", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_setP3},
+	{"setOp1", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_setOp1},
+	{"setOp2", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_setOp2},
+	{"setOp3", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_setOp3},
+	{"setE1", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_setE1},
+	{"setE2", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_setE2},
+	{"setE3", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_setE3},
+	{"setPlane", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_setPlane},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind_base_setThreadSafeRefUnref},
 	{"__lt", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind___lt},
 	{"__eq", &luna_wrapper_osgUtil_EdgeCollector_Triangle::_bind___eq},

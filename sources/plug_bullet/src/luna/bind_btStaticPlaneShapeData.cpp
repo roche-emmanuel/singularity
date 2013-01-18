@@ -56,52 +56,52 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_collisionShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionShapeData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_localScaling(lua_State *L) {
+	inline static bool _lg_typecheck_getLocalScaling(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_planeNormal(lua_State *L) {
+	inline static bool _lg_typecheck_getPlaneNormal(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_planeConstant(lua_State *L) {
+	inline static bool _lg_typecheck_getPlaneConstant(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionShapeData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,94025107) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_localScaling(lua_State *L) {
+	inline static bool _lg_typecheck_setLocalScaling(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_planeNormal(lua_State *L) {
+	inline static bool _lg_typecheck_setPlaneNormal(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_planeConstant(lua_State *L) {
+	inline static bool _lg_typecheck_setPlaneConstant(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -116,8 +116,8 @@ public:
 
 	// Function binds:
 	// btCollisionShapeData btStaticPlaneShapeData::m_collisionShapeData()
-	static int _bind_getM_collisionShapeData(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionShapeData(L)) {
+	static int _bind_getCollisionShapeData(lua_State *L) {
+		if (!_lg_typecheck_getCollisionShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btCollisionShapeData btStaticPlaneShapeData::m_collisionShapeData() function, expected prototype:\nbtCollisionShapeData btStaticPlaneShapeData::m_collisionShapeData()\nClass arguments details:\n");
 		}
@@ -137,8 +137,8 @@ public:
 	}
 
 	// btVector3FloatData btStaticPlaneShapeData::m_localScaling()
-	static int _bind_getM_localScaling(lua_State *L) {
-		if (!_lg_typecheck_getM_localScaling(L)) {
+	static int _bind_getLocalScaling(lua_State *L) {
+		if (!_lg_typecheck_getLocalScaling(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btStaticPlaneShapeData::m_localScaling() function, expected prototype:\nbtVector3FloatData btStaticPlaneShapeData::m_localScaling()\nClass arguments details:\n");
 		}
@@ -158,8 +158,8 @@ public:
 	}
 
 	// btVector3FloatData btStaticPlaneShapeData::m_planeNormal()
-	static int _bind_getM_planeNormal(lua_State *L) {
-		if (!_lg_typecheck_getM_planeNormal(L)) {
+	static int _bind_getPlaneNormal(lua_State *L) {
+		if (!_lg_typecheck_getPlaneNormal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btStaticPlaneShapeData::m_planeNormal() function, expected prototype:\nbtVector3FloatData btStaticPlaneShapeData::m_planeNormal()\nClass arguments details:\n");
 		}
@@ -179,8 +179,8 @@ public:
 	}
 
 	// float btStaticPlaneShapeData::m_planeConstant()
-	static int _bind_getM_planeConstant(lua_State *L) {
-		if (!_lg_typecheck_getM_planeConstant(L)) {
+	static int _bind_getPlaneConstant(lua_State *L) {
+		if (!_lg_typecheck_getPlaneConstant(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btStaticPlaneShapeData::m_planeConstant() function, expected prototype:\nfloat btStaticPlaneShapeData::m_planeConstant()\nClass arguments details:\n");
 		}
@@ -198,8 +198,8 @@ public:
 	}
 
 	// void btStaticPlaneShapeData::m_collisionShapeData(btCollisionShapeData value)
-	static int _bind_setM_collisionShapeData(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionShapeData(L)) {
+	static int _bind_setCollisionShapeData(lua_State *L) {
+		if (!_lg_typecheck_setCollisionShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btStaticPlaneShapeData::m_collisionShapeData(btCollisionShapeData value) function, expected prototype:\nvoid btStaticPlaneShapeData::m_collisionShapeData(btCollisionShapeData value)\nClass arguments details:\narg 1 ID = 94025107\n");
 		}
@@ -221,8 +221,8 @@ public:
 	}
 
 	// void btStaticPlaneShapeData::m_localScaling(btVector3FloatData value)
-	static int _bind_setM_localScaling(lua_State *L) {
-		if (!_lg_typecheck_setM_localScaling(L)) {
+	static int _bind_setLocalScaling(lua_State *L) {
+		if (!_lg_typecheck_setLocalScaling(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btStaticPlaneShapeData::m_localScaling(btVector3FloatData value) function, expected prototype:\nvoid btStaticPlaneShapeData::m_localScaling(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -244,8 +244,8 @@ public:
 	}
 
 	// void btStaticPlaneShapeData::m_planeNormal(btVector3FloatData value)
-	static int _bind_setM_planeNormal(lua_State *L) {
-		if (!_lg_typecheck_setM_planeNormal(L)) {
+	static int _bind_setPlaneNormal(lua_State *L) {
+		if (!_lg_typecheck_setPlaneNormal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btStaticPlaneShapeData::m_planeNormal(btVector3FloatData value) function, expected prototype:\nvoid btStaticPlaneShapeData::m_planeNormal(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -267,8 +267,8 @@ public:
 	}
 
 	// void btStaticPlaneShapeData::m_planeConstant(float value)
-	static int _bind_setM_planeConstant(lua_State *L) {
-		if (!_lg_typecheck_setM_planeConstant(L)) {
+	static int _bind_setPlaneConstant(lua_State *L) {
+		if (!_lg_typecheck_setPlaneConstant(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btStaticPlaneShapeData::m_planeConstant(float value) function, expected prototype:\nvoid btStaticPlaneShapeData::m_planeConstant(float value)\nClass arguments details:\n");
 		}
@@ -306,14 +306,14 @@ const int LunaTraits< btStaticPlaneShapeData >::hash = 36910585;
 const int LunaTraits< btStaticPlaneShapeData >::uniqueIDs[] = {36910585,0};
 
 luna_RegType LunaTraits< btStaticPlaneShapeData >::methods[] = {
-	{"getM_collisionShapeData", &luna_wrapper_btStaticPlaneShapeData::_bind_getM_collisionShapeData},
-	{"getM_localScaling", &luna_wrapper_btStaticPlaneShapeData::_bind_getM_localScaling},
-	{"getM_planeNormal", &luna_wrapper_btStaticPlaneShapeData::_bind_getM_planeNormal},
-	{"getM_planeConstant", &luna_wrapper_btStaticPlaneShapeData::_bind_getM_planeConstant},
-	{"setM_collisionShapeData", &luna_wrapper_btStaticPlaneShapeData::_bind_setM_collisionShapeData},
-	{"setM_localScaling", &luna_wrapper_btStaticPlaneShapeData::_bind_setM_localScaling},
-	{"setM_planeNormal", &luna_wrapper_btStaticPlaneShapeData::_bind_setM_planeNormal},
-	{"setM_planeConstant", &luna_wrapper_btStaticPlaneShapeData::_bind_setM_planeConstant},
+	{"getCollisionShapeData", &luna_wrapper_btStaticPlaneShapeData::_bind_getCollisionShapeData},
+	{"getLocalScaling", &luna_wrapper_btStaticPlaneShapeData::_bind_getLocalScaling},
+	{"getPlaneNormal", &luna_wrapper_btStaticPlaneShapeData::_bind_getPlaneNormal},
+	{"getPlaneConstant", &luna_wrapper_btStaticPlaneShapeData::_bind_getPlaneConstant},
+	{"setCollisionShapeData", &luna_wrapper_btStaticPlaneShapeData::_bind_setCollisionShapeData},
+	{"setLocalScaling", &luna_wrapper_btStaticPlaneShapeData::_bind_setLocalScaling},
+	{"setPlaneNormal", &luna_wrapper_btStaticPlaneShapeData::_bind_setPlaneNormal},
+	{"setPlaneConstant", &luna_wrapper_btStaticPlaneShapeData::_bind_setPlaneConstant},
 	{"dynCast", &luna_wrapper_btStaticPlaneShapeData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btStaticPlaneShapeData::_bind___eq},
 	{0,0}

@@ -91,39 +91,39 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_T1to0(lua_State *L) {
+	inline static bool _lg_typecheck_getT1to0(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_R1to0(lua_State *L) {
+	inline static bool _lg_typecheck_getR1to0(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_AR(lua_State *L) {
+	inline static bool _lg_typecheck_getAR(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_T1to0(lua_State *L) {
+	inline static bool _lg_typecheck_setT1to0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_R1to0(lua_State *L) {
+	inline static bool _lg_typecheck_setR1to0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,30394543) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_AR(lua_State *L) {
+	inline static bool _lg_typecheck_setAR(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,30394543) ) return false;
@@ -250,8 +250,8 @@ public:
 	}
 
 	// btVector3 BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0()
-	static int _bind_getM_T1to0(lua_State *L) {
-		if (!_lg_typecheck_getM_T1to0(L)) {
+	static int _bind_getT1to0(lua_State *L) {
+		if (!_lg_typecheck_getT1to0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0() function, expected prototype:\nbtVector3 BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0()\nClass arguments details:\n");
 		}
@@ -271,8 +271,8 @@ public:
 	}
 
 	// btMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0()
-	static int _bind_getM_R1to0(lua_State *L) {
-		if (!_lg_typecheck_getM_R1to0(L)) {
+	static int _bind_getR1to0(lua_State *L) {
+		if (!_lg_typecheck_getR1to0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0() function, expected prototype:\nbtMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0()\nClass arguments details:\n");
 		}
@@ -292,8 +292,8 @@ public:
 	}
 
 	// btMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_AR()
-	static int _bind_getM_AR(lua_State *L) {
-		if (!_lg_typecheck_getM_AR(L)) {
+	static int _bind_getAR(lua_State *L) {
+		if (!_lg_typecheck_getAR(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_AR() function, expected prototype:\nbtMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_AR()\nClass arguments details:\n");
 		}
@@ -313,8 +313,8 @@ public:
 	}
 
 	// void BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0(btVector3 value)
-	static int _bind_setM_T1to0(lua_State *L) {
-		if (!_lg_typecheck_setM_T1to0(L)) {
+	static int _bind_setT1to0(lua_State *L) {
+		if (!_lg_typecheck_setT1to0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0(btVector3 value) function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -336,8 +336,8 @@ public:
 	}
 
 	// void BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0(btMatrix3x3 value)
-	static int _bind_setM_R1to0(lua_State *L) {
-		if (!_lg_typecheck_setM_R1to0(L)) {
+	static int _bind_setR1to0(lua_State *L) {
+		if (!_lg_typecheck_setR1to0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0(btMatrix3x3 value) function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0(btMatrix3x3 value)\nClass arguments details:\narg 1 ID = 30394543\n");
 		}
@@ -359,8 +359,8 @@ public:
 	}
 
 	// void BT_BOX_BOX_TRANSFORM_CACHE::m_AR(btMatrix3x3 value)
-	static int _bind_setM_AR(lua_State *L) {
-		if (!_lg_typecheck_setM_AR(L)) {
+	static int _bind_setAR(lua_State *L) {
+		if (!_lg_typecheck_setAR(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::m_AR(btMatrix3x3 value) function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::m_AR(btMatrix3x3 value)\nClass arguments details:\narg 1 ID = 30394543\n");
 		}
@@ -406,12 +406,12 @@ luna_RegType LunaTraits< BT_BOX_BOX_TRANSFORM_CACHE >::methods[] = {
 	{"calc_from_homogenic", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_calc_from_homogenic},
 	{"calc_from_full_invert", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_calc_from_full_invert},
 	{"transform", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_transform},
-	{"getM_T1to0", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_getM_T1to0},
-	{"getM_R1to0", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_getM_R1to0},
-	{"getM_AR", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_getM_AR},
-	{"setM_T1to0", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_setM_T1to0},
-	{"setM_R1to0", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_setM_R1to0},
-	{"setM_AR", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_setM_AR},
+	{"getT1to0", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_getT1to0},
+	{"getR1to0", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_getR1to0},
+	{"getAR", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_getAR},
+	{"setT1to0", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_setT1to0},
+	{"setR1to0", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_setR1to0},
+	{"setAR", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_setAR},
 	{"dynCast", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind_dynCast},
 	{"__eq", &luna_wrapper_BT_BOX_BOX_TRANSFORM_CACHE::_bind___eq},
 	{0,0}

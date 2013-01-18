@@ -56,65 +56,65 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_transform(lua_State *L) {
+	inline static bool _lg_typecheck_getTransform(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_childShape(lua_State *L) {
+	inline static bool _lg_typecheck_getChildShape(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_childShapeType(lua_State *L) {
+	inline static bool _lg_typecheck_getChildShapeType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_childMargin(lua_State *L) {
+	inline static bool _lg_typecheck_getChildMargin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_node(lua_State *L) {
+	inline static bool _lg_typecheck_getNode(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_transform(lua_State *L) {
+	inline static bool _lg_typecheck_setTransform(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_childShape(lua_State *L) {
+	inline static bool _lg_typecheck_setChildShape(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,58243831)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_childShapeType(lua_State *L) {
+	inline static bool _lg_typecheck_setChildShapeType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_childMargin(lua_State *L) {
+	inline static bool _lg_typecheck_setChildMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_node(lua_State *L) {
+	inline static bool _lg_typecheck_setNode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91335778)) ) return false;
@@ -129,8 +129,8 @@ public:
 
 	// Function binds:
 	// btTransform btCompoundShapeChild::m_transform()
-	static int _bind_getM_transform(lua_State *L) {
-		if (!_lg_typecheck_getM_transform(L)) {
+	static int _bind_getTransform(lua_State *L) {
+		if (!_lg_typecheck_getTransform(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransform btCompoundShapeChild::m_transform() function, expected prototype:\nbtTransform btCompoundShapeChild::m_transform()\nClass arguments details:\n");
 		}
@@ -150,8 +150,8 @@ public:
 	}
 
 	// btCollisionShape * btCompoundShapeChild::m_childShape()
-	static int _bind_getM_childShape(lua_State *L) {
-		if (!_lg_typecheck_getM_childShape(L)) {
+	static int _bind_getChildShape(lua_State *L) {
+		if (!_lg_typecheck_getChildShape(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btCollisionShape * btCompoundShapeChild::m_childShape() function, expected prototype:\nbtCollisionShape * btCompoundShapeChild::m_childShape()\nClass arguments details:\n");
 		}
@@ -171,8 +171,8 @@ public:
 	}
 
 	// int btCompoundShapeChild::m_childShapeType()
-	static int _bind_getM_childShapeType(lua_State *L) {
-		if (!_lg_typecheck_getM_childShapeType(L)) {
+	static int _bind_getChildShapeType(lua_State *L) {
+		if (!_lg_typecheck_getChildShapeType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btCompoundShapeChild::m_childShapeType() function, expected prototype:\nint btCompoundShapeChild::m_childShapeType()\nClass arguments details:\n");
 		}
@@ -190,8 +190,8 @@ public:
 	}
 
 	// float btCompoundShapeChild::m_childMargin()
-	static int _bind_getM_childMargin(lua_State *L) {
-		if (!_lg_typecheck_getM_childMargin(L)) {
+	static int _bind_getChildMargin(lua_State *L) {
+		if (!_lg_typecheck_getChildMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btCompoundShapeChild::m_childMargin() function, expected prototype:\nfloat btCompoundShapeChild::m_childMargin()\nClass arguments details:\n");
 		}
@@ -209,8 +209,8 @@ public:
 	}
 
 	// struct btDbvtNode * btCompoundShapeChild::m_node()
-	static int _bind_getM_node(lua_State *L) {
-		if (!_lg_typecheck_getM_node(L)) {
+	static int _bind_getNode(lua_State *L) {
+		if (!_lg_typecheck_getNode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in struct btDbvtNode * btCompoundShapeChild::m_node() function, expected prototype:\nstruct btDbvtNode * btCompoundShapeChild::m_node()\nClass arguments details:\n");
 		}
@@ -230,8 +230,8 @@ public:
 	}
 
 	// void btCompoundShapeChild::m_transform(btTransform value)
-	static int _bind_setM_transform(lua_State *L) {
-		if (!_lg_typecheck_setM_transform(L)) {
+	static int _bind_setTransform(lua_State *L) {
+		if (!_lg_typecheck_setTransform(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_transform(btTransform value) function, expected prototype:\nvoid btCompoundShapeChild::m_transform(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
 		}
@@ -253,8 +253,8 @@ public:
 	}
 
 	// void btCompoundShapeChild::m_childShape(btCollisionShape * value)
-	static int _bind_setM_childShape(lua_State *L) {
-		if (!_lg_typecheck_setM_childShape(L)) {
+	static int _bind_setChildShape(lua_State *L) {
+		if (!_lg_typecheck_setChildShape(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_childShape(btCollisionShape * value) function, expected prototype:\nvoid btCompoundShapeChild::m_childShape(btCollisionShape * value)\nClass arguments details:\narg 1 ID = 58243831\n");
 		}
@@ -272,8 +272,8 @@ public:
 	}
 
 	// void btCompoundShapeChild::m_childShapeType(int value)
-	static int _bind_setM_childShapeType(lua_State *L) {
-		if (!_lg_typecheck_setM_childShapeType(L)) {
+	static int _bind_setChildShapeType(lua_State *L) {
+		if (!_lg_typecheck_setChildShapeType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_childShapeType(int value) function, expected prototype:\nvoid btCompoundShapeChild::m_childShapeType(int value)\nClass arguments details:\n");
 		}
@@ -291,8 +291,8 @@ public:
 	}
 
 	// void btCompoundShapeChild::m_childMargin(float value)
-	static int _bind_setM_childMargin(lua_State *L) {
-		if (!_lg_typecheck_setM_childMargin(L)) {
+	static int _bind_setChildMargin(lua_State *L) {
+		if (!_lg_typecheck_setChildMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_childMargin(float value) function, expected prototype:\nvoid btCompoundShapeChild::m_childMargin(float value)\nClass arguments details:\n");
 		}
@@ -310,8 +310,8 @@ public:
 	}
 
 	// void btCompoundShapeChild::m_node(struct btDbvtNode * value)
-	static int _bind_setM_node(lua_State *L) {
-		if (!_lg_typecheck_setM_node(L)) {
+	static int _bind_setNode(lua_State *L) {
+		if (!_lg_typecheck_setNode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_node(struct btDbvtNode * value) function, expected prototype:\nvoid btCompoundShapeChild::m_node(struct btDbvtNode * value)\nClass arguments details:\narg 1 ID = 91335778\n");
 		}
@@ -349,16 +349,16 @@ const int LunaTraits< btCompoundShapeChild >::hash = 8868405;
 const int LunaTraits< btCompoundShapeChild >::uniqueIDs[] = {8868405,0};
 
 luna_RegType LunaTraits< btCompoundShapeChild >::methods[] = {
-	{"getM_transform", &luna_wrapper_btCompoundShapeChild::_bind_getM_transform},
-	{"getM_childShape", &luna_wrapper_btCompoundShapeChild::_bind_getM_childShape},
-	{"getM_childShapeType", &luna_wrapper_btCompoundShapeChild::_bind_getM_childShapeType},
-	{"getM_childMargin", &luna_wrapper_btCompoundShapeChild::_bind_getM_childMargin},
-	{"getM_node", &luna_wrapper_btCompoundShapeChild::_bind_getM_node},
-	{"setM_transform", &luna_wrapper_btCompoundShapeChild::_bind_setM_transform},
-	{"setM_childShape", &luna_wrapper_btCompoundShapeChild::_bind_setM_childShape},
-	{"setM_childShapeType", &luna_wrapper_btCompoundShapeChild::_bind_setM_childShapeType},
-	{"setM_childMargin", &luna_wrapper_btCompoundShapeChild::_bind_setM_childMargin},
-	{"setM_node", &luna_wrapper_btCompoundShapeChild::_bind_setM_node},
+	{"getTransform", &luna_wrapper_btCompoundShapeChild::_bind_getTransform},
+	{"getChildShape", &luna_wrapper_btCompoundShapeChild::_bind_getChildShape},
+	{"getChildShapeType", &luna_wrapper_btCompoundShapeChild::_bind_getChildShapeType},
+	{"getChildMargin", &luna_wrapper_btCompoundShapeChild::_bind_getChildMargin},
+	{"getNode", &luna_wrapper_btCompoundShapeChild::_bind_getNode},
+	{"setTransform", &luna_wrapper_btCompoundShapeChild::_bind_setTransform},
+	{"setChildShape", &luna_wrapper_btCompoundShapeChild::_bind_setChildShape},
+	{"setChildShapeType", &luna_wrapper_btCompoundShapeChild::_bind_setChildShapeType},
+	{"setChildMargin", &luna_wrapper_btCompoundShapeChild::_bind_setChildMargin},
+	{"setNode", &luna_wrapper_btCompoundShapeChild::_bind_setNode},
 	{"dynCast", &luna_wrapper_btCompoundShapeChild::_bind_dynCast},
 	{"__eq", &luna_wrapper_btCompoundShapeChild::_bind___eq},
 	{0,0}

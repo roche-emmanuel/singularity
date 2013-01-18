@@ -56,13 +56,13 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_indices(lua_State *L) {
+	inline static bool _lg_typecheck_getIndices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_indices(lua_State *L) {
+	inline static bool _lg_typecheck_setIndices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,41950488) ) return false;
@@ -77,8 +77,8 @@ public:
 
 	// Function binds:
 	// btAlignedObjectArray< int > btFace::m_indices()
-	static int _bind_getM_indices(lua_State *L) {
-		if (!_lg_typecheck_getM_indices(L)) {
+	static int _bind_getIndices(lua_State *L) {
+		if (!_lg_typecheck_getIndices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< int > btFace::m_indices() function, expected prototype:\nbtAlignedObjectArray< int > btFace::m_indices()\nClass arguments details:\n");
 		}
@@ -98,8 +98,8 @@ public:
 	}
 
 	// void btFace::m_indices(btAlignedObjectArray< int > value)
-	static int _bind_setM_indices(lua_State *L) {
-		if (!_lg_typecheck_setM_indices(L)) {
+	static int _bind_setIndices(lua_State *L) {
+		if (!_lg_typecheck_setIndices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btFace::m_indices(btAlignedObjectArray< int > value) function, expected prototype:\nvoid btFace::m_indices(btAlignedObjectArray< int > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -141,8 +141,8 @@ const int LunaTraits< btFace >::hash = 14966817;
 const int LunaTraits< btFace >::uniqueIDs[] = {14966817,0};
 
 luna_RegType LunaTraits< btFace >::methods[] = {
-	{"getM_indices", &luna_wrapper_btFace::_bind_getM_indices},
-	{"setM_indices", &luna_wrapper_btFace::_bind_setM_indices},
+	{"getIndices", &luna_wrapper_btFace::_bind_getIndices},
+	{"setIndices", &luna_wrapper_btFace::_bind_setIndices},
 	{"dynCast", &luna_wrapper_btFace::_bind_dynCast},
 	{"__eq", &luna_wrapper_btFace::_bind___eq},
 	{0,0}

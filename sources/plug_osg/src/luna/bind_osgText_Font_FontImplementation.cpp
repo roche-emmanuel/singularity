@@ -127,13 +127,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_facade(lua_State *L) {
+	inline static bool _lg_typecheck_getFacade(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_facade(lua_State *L) {
+	inline static bool _lg_typecheck_setFacade(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
@@ -322,8 +322,8 @@ public:
 	}
 
 	// osgText::Font * osgText::Font::FontImplementation::_facade()
-	static int _bind_get_facade(lua_State *L) {
-		if (!_lg_typecheck_get_facade(L)) {
+	static int _bind_getFacade(lua_State *L) {
+		if (!_lg_typecheck_getFacade(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgText::Font * osgText::Font::FontImplementation::_facade() function, expected prototype:\nosgText::Font * osgText::Font::FontImplementation::_facade()\nClass arguments details:\n");
 		}
@@ -343,8 +343,8 @@ public:
 	}
 
 	// void osgText::Font::FontImplementation::_facade(osgText::Font * value)
-	static int _bind_set_facade(lua_State *L) {
-		if (!_lg_typecheck_set_facade(L)) {
+	static int _bind_setFacade(lua_State *L) {
+		if (!_lg_typecheck_setFacade(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgText::Font::FontImplementation::_facade(osgText::Font * value) function, expected prototype:\nvoid osgText::Font::FontImplementation::_facade(osgText::Font * value)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -416,8 +416,8 @@ luna_RegType LunaTraits< osgText::Font::FontImplementation >::methods[] = {
 	{"getKerning", &luna_wrapper_osgText_Font_FontImplementation::_bind_getKerning},
 	{"hasVertical", &luna_wrapper_osgText_Font_FontImplementation::_bind_hasVertical},
 	{"addGlyph", &luna_wrapper_osgText_Font_FontImplementation::_bind_addGlyph},
-	{"get_facade", &luna_wrapper_osgText_Font_FontImplementation::_bind_get_facade},
-	{"set_facade", &luna_wrapper_osgText_Font_FontImplementation::_bind_set_facade},
+	{"getFacade", &luna_wrapper_osgText_Font_FontImplementation::_bind_getFacade},
+	{"setFacade", &luna_wrapper_osgText_Font_FontImplementation::_bind_setFacade},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgText_Font_FontImplementation::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osgText_Font_FontImplementation::_bind___eq},
 	{"getTable", &luna_wrapper_osgText_Font_FontImplementation::_bind_getTable},

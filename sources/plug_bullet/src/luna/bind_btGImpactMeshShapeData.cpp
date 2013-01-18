@@ -56,65 +56,65 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_collisionShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionShapeData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_meshInterface(lua_State *L) {
+	inline static bool _lg_typecheck_getMeshInterface(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_localScaling(lua_State *L) {
+	inline static bool _lg_typecheck_getLocalScaling(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_collisionMargin(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionMargin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_gimpactSubType(lua_State *L) {
+	inline static bool _lg_typecheck_getGimpactSubType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionShapeData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,94025107) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_meshInterface(lua_State *L) {
+	inline static bool _lg_typecheck_setMeshInterface(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,5637632) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_localScaling(lua_State *L) {
+	inline static bool _lg_typecheck_setLocalScaling(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionMargin(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_gimpactSubType(lua_State *L) {
+	inline static bool _lg_typecheck_setGimpactSubType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -129,8 +129,8 @@ public:
 
 	// Function binds:
 	// btCollisionShapeData btGImpactMeshShapeData::m_collisionShapeData()
-	static int _bind_getM_collisionShapeData(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionShapeData(L)) {
+	static int _bind_getCollisionShapeData(lua_State *L) {
+		if (!_lg_typecheck_getCollisionShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btCollisionShapeData btGImpactMeshShapeData::m_collisionShapeData() function, expected prototype:\nbtCollisionShapeData btGImpactMeshShapeData::m_collisionShapeData()\nClass arguments details:\n");
 		}
@@ -150,8 +150,8 @@ public:
 	}
 
 	// btStridingMeshInterfaceData btGImpactMeshShapeData::m_meshInterface()
-	static int _bind_getM_meshInterface(lua_State *L) {
-		if (!_lg_typecheck_getM_meshInterface(L)) {
+	static int _bind_getMeshInterface(lua_State *L) {
+		if (!_lg_typecheck_getMeshInterface(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btStridingMeshInterfaceData btGImpactMeshShapeData::m_meshInterface() function, expected prototype:\nbtStridingMeshInterfaceData btGImpactMeshShapeData::m_meshInterface()\nClass arguments details:\n");
 		}
@@ -171,8 +171,8 @@ public:
 	}
 
 	// btVector3FloatData btGImpactMeshShapeData::m_localScaling()
-	static int _bind_getM_localScaling(lua_State *L) {
-		if (!_lg_typecheck_getM_localScaling(L)) {
+	static int _bind_getLocalScaling(lua_State *L) {
+		if (!_lg_typecheck_getLocalScaling(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btGImpactMeshShapeData::m_localScaling() function, expected prototype:\nbtVector3FloatData btGImpactMeshShapeData::m_localScaling()\nClass arguments details:\n");
 		}
@@ -192,8 +192,8 @@ public:
 	}
 
 	// float btGImpactMeshShapeData::m_collisionMargin()
-	static int _bind_getM_collisionMargin(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionMargin(L)) {
+	static int _bind_getCollisionMargin(lua_State *L) {
+		if (!_lg_typecheck_getCollisionMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btGImpactMeshShapeData::m_collisionMargin() function, expected prototype:\nfloat btGImpactMeshShapeData::m_collisionMargin()\nClass arguments details:\n");
 		}
@@ -211,8 +211,8 @@ public:
 	}
 
 	// int btGImpactMeshShapeData::m_gimpactSubType()
-	static int _bind_getM_gimpactSubType(lua_State *L) {
-		if (!_lg_typecheck_getM_gimpactSubType(L)) {
+	static int _bind_getGimpactSubType(lua_State *L) {
+		if (!_lg_typecheck_getGimpactSubType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapeData::m_gimpactSubType() function, expected prototype:\nint btGImpactMeshShapeData::m_gimpactSubType()\nClass arguments details:\n");
 		}
@@ -230,8 +230,8 @@ public:
 	}
 
 	// void btGImpactMeshShapeData::m_collisionShapeData(btCollisionShapeData value)
-	static int _bind_setM_collisionShapeData(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionShapeData(L)) {
+	static int _bind_setCollisionShapeData(lua_State *L) {
+		if (!_lg_typecheck_setCollisionShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapeData::m_collisionShapeData(btCollisionShapeData value) function, expected prototype:\nvoid btGImpactMeshShapeData::m_collisionShapeData(btCollisionShapeData value)\nClass arguments details:\narg 1 ID = 94025107\n");
 		}
@@ -253,8 +253,8 @@ public:
 	}
 
 	// void btGImpactMeshShapeData::m_meshInterface(btStridingMeshInterfaceData value)
-	static int _bind_setM_meshInterface(lua_State *L) {
-		if (!_lg_typecheck_setM_meshInterface(L)) {
+	static int _bind_setMeshInterface(lua_State *L) {
+		if (!_lg_typecheck_setMeshInterface(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapeData::m_meshInterface(btStridingMeshInterfaceData value) function, expected prototype:\nvoid btGImpactMeshShapeData::m_meshInterface(btStridingMeshInterfaceData value)\nClass arguments details:\narg 1 ID = 5637632\n");
 		}
@@ -276,8 +276,8 @@ public:
 	}
 
 	// void btGImpactMeshShapeData::m_localScaling(btVector3FloatData value)
-	static int _bind_setM_localScaling(lua_State *L) {
-		if (!_lg_typecheck_setM_localScaling(L)) {
+	static int _bind_setLocalScaling(lua_State *L) {
+		if (!_lg_typecheck_setLocalScaling(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapeData::m_localScaling(btVector3FloatData value) function, expected prototype:\nvoid btGImpactMeshShapeData::m_localScaling(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -299,8 +299,8 @@ public:
 	}
 
 	// void btGImpactMeshShapeData::m_collisionMargin(float value)
-	static int _bind_setM_collisionMargin(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionMargin(L)) {
+	static int _bind_setCollisionMargin(lua_State *L) {
+		if (!_lg_typecheck_setCollisionMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapeData::m_collisionMargin(float value) function, expected prototype:\nvoid btGImpactMeshShapeData::m_collisionMargin(float value)\nClass arguments details:\n");
 		}
@@ -318,8 +318,8 @@ public:
 	}
 
 	// void btGImpactMeshShapeData::m_gimpactSubType(int value)
-	static int _bind_setM_gimpactSubType(lua_State *L) {
-		if (!_lg_typecheck_setM_gimpactSubType(L)) {
+	static int _bind_setGimpactSubType(lua_State *L) {
+		if (!_lg_typecheck_setGimpactSubType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapeData::m_gimpactSubType(int value) function, expected prototype:\nvoid btGImpactMeshShapeData::m_gimpactSubType(int value)\nClass arguments details:\n");
 		}
@@ -357,16 +357,16 @@ const int LunaTraits< btGImpactMeshShapeData >::hash = 48029312;
 const int LunaTraits< btGImpactMeshShapeData >::uniqueIDs[] = {48029312,0};
 
 luna_RegType LunaTraits< btGImpactMeshShapeData >::methods[] = {
-	{"getM_collisionShapeData", &luna_wrapper_btGImpactMeshShapeData::_bind_getM_collisionShapeData},
-	{"getM_meshInterface", &luna_wrapper_btGImpactMeshShapeData::_bind_getM_meshInterface},
-	{"getM_localScaling", &luna_wrapper_btGImpactMeshShapeData::_bind_getM_localScaling},
-	{"getM_collisionMargin", &luna_wrapper_btGImpactMeshShapeData::_bind_getM_collisionMargin},
-	{"getM_gimpactSubType", &luna_wrapper_btGImpactMeshShapeData::_bind_getM_gimpactSubType},
-	{"setM_collisionShapeData", &luna_wrapper_btGImpactMeshShapeData::_bind_setM_collisionShapeData},
-	{"setM_meshInterface", &luna_wrapper_btGImpactMeshShapeData::_bind_setM_meshInterface},
-	{"setM_localScaling", &luna_wrapper_btGImpactMeshShapeData::_bind_setM_localScaling},
-	{"setM_collisionMargin", &luna_wrapper_btGImpactMeshShapeData::_bind_setM_collisionMargin},
-	{"setM_gimpactSubType", &luna_wrapper_btGImpactMeshShapeData::_bind_setM_gimpactSubType},
+	{"getCollisionShapeData", &luna_wrapper_btGImpactMeshShapeData::_bind_getCollisionShapeData},
+	{"getMeshInterface", &luna_wrapper_btGImpactMeshShapeData::_bind_getMeshInterface},
+	{"getLocalScaling", &luna_wrapper_btGImpactMeshShapeData::_bind_getLocalScaling},
+	{"getCollisionMargin", &luna_wrapper_btGImpactMeshShapeData::_bind_getCollisionMargin},
+	{"getGimpactSubType", &luna_wrapper_btGImpactMeshShapeData::_bind_getGimpactSubType},
+	{"setCollisionShapeData", &luna_wrapper_btGImpactMeshShapeData::_bind_setCollisionShapeData},
+	{"setMeshInterface", &luna_wrapper_btGImpactMeshShapeData::_bind_setMeshInterface},
+	{"setLocalScaling", &luna_wrapper_btGImpactMeshShapeData::_bind_setLocalScaling},
+	{"setCollisionMargin", &luna_wrapper_btGImpactMeshShapeData::_bind_setCollisionMargin},
+	{"setGimpactSubType", &luna_wrapper_btGImpactMeshShapeData::_bind_setGimpactSubType},
 	{"dynCast", &luna_wrapper_btGImpactMeshShapeData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btGImpactMeshShapeData::_bind___eq},
 	{0,0}

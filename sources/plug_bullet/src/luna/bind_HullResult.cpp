@@ -62,78 +62,78 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getMPolygons(lua_State *L) {
+	inline static bool _lg_typecheck_getPolygons(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMNumOutputVertices(lua_State *L) {
+	inline static bool _lg_typecheck_getNumOutputVertices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_OutputVertices(lua_State *L) {
+	inline static bool _lg_typecheck_getOutputVertices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMNumFaces(lua_State *L) {
+	inline static bool _lg_typecheck_getNumFaces(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMNumIndices(lua_State *L) {
+	inline static bool _lg_typecheck_getNumIndices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_Indices(lua_State *L) {
+	inline static bool _lg_typecheck_getIndices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMPolygons(lua_State *L) {
+	inline static bool _lg_typecheck_setPolygons(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMNumOutputVertices(lua_State *L) {
+	inline static bool _lg_typecheck_setNumOutputVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_OutputVertices(lua_State *L) {
+	inline static bool _lg_typecheck_setOutputVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,89770050) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMNumFaces(lua_State *L) {
+	inline static bool _lg_typecheck_setNumFaces(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMNumIndices(lua_State *L) {
+	inline static bool _lg_typecheck_setNumIndices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_Indices(lua_State *L) {
+	inline static bool _lg_typecheck_setIndices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,90753422) ) return false;
@@ -159,8 +159,8 @@ public:
 
 	// Function binds:
 	// bool HullResult::mPolygons()
-	static int _bind_getMPolygons(lua_State *L) {
-		if (!_lg_typecheck_getMPolygons(L)) {
+	static int _bind_getPolygons(lua_State *L) {
+		if (!_lg_typecheck_getPolygons(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool HullResult::mPolygons() function, expected prototype:\nbool HullResult::mPolygons()\nClass arguments details:\n");
 		}
@@ -178,8 +178,8 @@ public:
 	}
 
 	// unsigned int HullResult::mNumOutputVertices()
-	static int _bind_getMNumOutputVertices(lua_State *L) {
-		if (!_lg_typecheck_getMNumOutputVertices(L)) {
+	static int _bind_getNumOutputVertices(lua_State *L) {
+		if (!_lg_typecheck_getNumOutputVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int HullResult::mNumOutputVertices() function, expected prototype:\nunsigned int HullResult::mNumOutputVertices()\nClass arguments details:\n");
 		}
@@ -197,8 +197,8 @@ public:
 	}
 
 	// btAlignedObjectArray< btVector3 > HullResult::m_OutputVertices()
-	static int _bind_getM_OutputVertices(lua_State *L) {
-		if (!_lg_typecheck_getM_OutputVertices(L)) {
+	static int _bind_getOutputVertices(lua_State *L) {
+		if (!_lg_typecheck_getOutputVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > HullResult::m_OutputVertices() function, expected prototype:\nbtAlignedObjectArray< btVector3 > HullResult::m_OutputVertices()\nClass arguments details:\n");
 		}
@@ -218,8 +218,8 @@ public:
 	}
 
 	// unsigned int HullResult::mNumFaces()
-	static int _bind_getMNumFaces(lua_State *L) {
-		if (!_lg_typecheck_getMNumFaces(L)) {
+	static int _bind_getNumFaces(lua_State *L) {
+		if (!_lg_typecheck_getNumFaces(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int HullResult::mNumFaces() function, expected prototype:\nunsigned int HullResult::mNumFaces()\nClass arguments details:\n");
 		}
@@ -237,8 +237,8 @@ public:
 	}
 
 	// unsigned int HullResult::mNumIndices()
-	static int _bind_getMNumIndices(lua_State *L) {
-		if (!_lg_typecheck_getMNumIndices(L)) {
+	static int _bind_getNumIndices(lua_State *L) {
+		if (!_lg_typecheck_getNumIndices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int HullResult::mNumIndices() function, expected prototype:\nunsigned int HullResult::mNumIndices()\nClass arguments details:\n");
 		}
@@ -256,8 +256,8 @@ public:
 	}
 
 	// btAlignedObjectArray< unsigned int > HullResult::m_Indices()
-	static int _bind_getM_Indices(lua_State *L) {
-		if (!_lg_typecheck_getM_Indices(L)) {
+	static int _bind_getIndices(lua_State *L) {
+		if (!_lg_typecheck_getIndices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< unsigned int > HullResult::m_Indices() function, expected prototype:\nbtAlignedObjectArray< unsigned int > HullResult::m_Indices()\nClass arguments details:\n");
 		}
@@ -277,8 +277,8 @@ public:
 	}
 
 	// void HullResult::mPolygons(bool value)
-	static int _bind_setMPolygons(lua_State *L) {
-		if (!_lg_typecheck_setMPolygons(L)) {
+	static int _bind_setPolygons(lua_State *L) {
+		if (!_lg_typecheck_setPolygons(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void HullResult::mPolygons(bool value) function, expected prototype:\nvoid HullResult::mPolygons(bool value)\nClass arguments details:\n");
 		}
@@ -296,8 +296,8 @@ public:
 	}
 
 	// void HullResult::mNumOutputVertices(unsigned int value)
-	static int _bind_setMNumOutputVertices(lua_State *L) {
-		if (!_lg_typecheck_setMNumOutputVertices(L)) {
+	static int _bind_setNumOutputVertices(lua_State *L) {
+		if (!_lg_typecheck_setNumOutputVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void HullResult::mNumOutputVertices(unsigned int value) function, expected prototype:\nvoid HullResult::mNumOutputVertices(unsigned int value)\nClass arguments details:\n");
 		}
@@ -315,8 +315,8 @@ public:
 	}
 
 	// void HullResult::m_OutputVertices(btAlignedObjectArray< btVector3 > value)
-	static int _bind_setM_OutputVertices(lua_State *L) {
-		if (!_lg_typecheck_setM_OutputVertices(L)) {
+	static int _bind_setOutputVertices(lua_State *L) {
+		if (!_lg_typecheck_setOutputVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void HullResult::m_OutputVertices(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid HullResult::m_OutputVertices(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -338,8 +338,8 @@ public:
 	}
 
 	// void HullResult::mNumFaces(unsigned int value)
-	static int _bind_setMNumFaces(lua_State *L) {
-		if (!_lg_typecheck_setMNumFaces(L)) {
+	static int _bind_setNumFaces(lua_State *L) {
+		if (!_lg_typecheck_setNumFaces(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void HullResult::mNumFaces(unsigned int value) function, expected prototype:\nvoid HullResult::mNumFaces(unsigned int value)\nClass arguments details:\n");
 		}
@@ -357,8 +357,8 @@ public:
 	}
 
 	// void HullResult::mNumIndices(unsigned int value)
-	static int _bind_setMNumIndices(lua_State *L) {
-		if (!_lg_typecheck_setMNumIndices(L)) {
+	static int _bind_setNumIndices(lua_State *L) {
+		if (!_lg_typecheck_setNumIndices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void HullResult::mNumIndices(unsigned int value) function, expected prototype:\nvoid HullResult::mNumIndices(unsigned int value)\nClass arguments details:\n");
 		}
@@ -376,8 +376,8 @@ public:
 	}
 
 	// void HullResult::m_Indices(btAlignedObjectArray< unsigned int > value)
-	static int _bind_setM_Indices(lua_State *L) {
-		if (!_lg_typecheck_setM_Indices(L)) {
+	static int _bind_setIndices(lua_State *L) {
+		if (!_lg_typecheck_setIndices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void HullResult::m_Indices(btAlignedObjectArray< unsigned int > value) function, expected prototype:\nvoid HullResult::m_Indices(btAlignedObjectArray< unsigned int > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -419,18 +419,18 @@ const int LunaTraits< HullResult >::hash = 83000358;
 const int LunaTraits< HullResult >::uniqueIDs[] = {83000358,0};
 
 luna_RegType LunaTraits< HullResult >::methods[] = {
-	{"getMPolygons", &luna_wrapper_HullResult::_bind_getMPolygons},
-	{"getMNumOutputVertices", &luna_wrapper_HullResult::_bind_getMNumOutputVertices},
-	{"getM_OutputVertices", &luna_wrapper_HullResult::_bind_getM_OutputVertices},
-	{"getMNumFaces", &luna_wrapper_HullResult::_bind_getMNumFaces},
-	{"getMNumIndices", &luna_wrapper_HullResult::_bind_getMNumIndices},
-	{"getM_Indices", &luna_wrapper_HullResult::_bind_getM_Indices},
-	{"setMPolygons", &luna_wrapper_HullResult::_bind_setMPolygons},
-	{"setMNumOutputVertices", &luna_wrapper_HullResult::_bind_setMNumOutputVertices},
-	{"setM_OutputVertices", &luna_wrapper_HullResult::_bind_setM_OutputVertices},
-	{"setMNumFaces", &luna_wrapper_HullResult::_bind_setMNumFaces},
-	{"setMNumIndices", &luna_wrapper_HullResult::_bind_setMNumIndices},
-	{"setM_Indices", &luna_wrapper_HullResult::_bind_setM_Indices},
+	{"getPolygons", &luna_wrapper_HullResult::_bind_getPolygons},
+	{"getNumOutputVertices", &luna_wrapper_HullResult::_bind_getNumOutputVertices},
+	{"getOutputVertices", &luna_wrapper_HullResult::_bind_getOutputVertices},
+	{"getNumFaces", &luna_wrapper_HullResult::_bind_getNumFaces},
+	{"getNumIndices", &luna_wrapper_HullResult::_bind_getNumIndices},
+	{"getIndices", &luna_wrapper_HullResult::_bind_getIndices},
+	{"setPolygons", &luna_wrapper_HullResult::_bind_setPolygons},
+	{"setNumOutputVertices", &luna_wrapper_HullResult::_bind_setNumOutputVertices},
+	{"setOutputVertices", &luna_wrapper_HullResult::_bind_setOutputVertices},
+	{"setNumFaces", &luna_wrapper_HullResult::_bind_setNumFaces},
+	{"setNumIndices", &luna_wrapper_HullResult::_bind_setNumIndices},
+	{"setIndices", &luna_wrapper_HullResult::_bind_setIndices},
 	{"dynCast", &luna_wrapper_HullResult::_bind_dynCast},
 	{"__eq", &luna_wrapper_HullResult::_bind___eq},
 	{0,0}

@@ -71,13 +71,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_vertexIndexMapping(lua_State *L) {
+	inline static bool _lg_typecheck_getVertexIndexMapping(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_vertexIndexMapping(lua_State *L) {
+	inline static bool _lg_typecheck_setVertexIndexMapping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,41950488) ) return false;
@@ -145,8 +145,8 @@ public:
 	}
 
 	// btAlignedObjectArray< int > HullLibrary::m_vertexIndexMapping()
-	static int _bind_getM_vertexIndexMapping(lua_State *L) {
-		if (!_lg_typecheck_getM_vertexIndexMapping(L)) {
+	static int _bind_getVertexIndexMapping(lua_State *L) {
+		if (!_lg_typecheck_getVertexIndexMapping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< int > HullLibrary::m_vertexIndexMapping() function, expected prototype:\nbtAlignedObjectArray< int > HullLibrary::m_vertexIndexMapping()\nClass arguments details:\n");
 		}
@@ -166,8 +166,8 @@ public:
 	}
 
 	// void HullLibrary::m_vertexIndexMapping(btAlignedObjectArray< int > value)
-	static int _bind_setM_vertexIndexMapping(lua_State *L) {
-		if (!_lg_typecheck_setM_vertexIndexMapping(L)) {
+	static int _bind_setVertexIndexMapping(lua_State *L) {
+		if (!_lg_typecheck_setVertexIndexMapping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void HullLibrary::m_vertexIndexMapping(btAlignedObjectArray< int > value) function, expected prototype:\nvoid HullLibrary::m_vertexIndexMapping(btAlignedObjectArray< int > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -211,8 +211,8 @@ const int LunaTraits< HullLibrary >::uniqueIDs[] = {46706140,0};
 luna_RegType LunaTraits< HullLibrary >::methods[] = {
 	{"CreateConvexHull", &luna_wrapper_HullLibrary::_bind_CreateConvexHull},
 	{"ReleaseResult", &luna_wrapper_HullLibrary::_bind_ReleaseResult},
-	{"getM_vertexIndexMapping", &luna_wrapper_HullLibrary::_bind_getM_vertexIndexMapping},
-	{"setM_vertexIndexMapping", &luna_wrapper_HullLibrary::_bind_setM_vertexIndexMapping},
+	{"getVertexIndexMapping", &luna_wrapper_HullLibrary::_bind_getVertexIndexMapping},
+	{"setVertexIndexMapping", &luna_wrapper_HullLibrary::_bind_setVertexIndexMapping},
 	{"dynCast", &luna_wrapper_HullLibrary::_bind_dynCast},
 	{"__eq", &luna_wrapper_HullLibrary::_bind___eq},
 	{0,0}

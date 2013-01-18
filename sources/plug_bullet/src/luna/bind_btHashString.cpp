@@ -84,19 +84,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_string(lua_State *L) {
+	inline static bool _lg_typecheck_getString(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hash(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_setM_hash(lua_State *L) {
+	inline static bool _lg_typecheck_setHash(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -187,8 +181,8 @@ public:
 	}
 
 	// const char * btHashString::m_string()
-	static int _bind_getM_string(lua_State *L) {
-		if (!_lg_typecheck_getM_string(L)) {
+	static int _bind_getString(lua_State *L) {
+		if (!_lg_typecheck_getString(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const char * btHashString::m_string() function, expected prototype:\nconst char * btHashString::m_string()\nClass arguments details:\n");
 		}
@@ -205,28 +199,9 @@ public:
 		return 1;
 	}
 
-	// unsigned int btHashString::m_hash()
-	static int _bind_getM_hash(lua_State *L) {
-		if (!_lg_typecheck_getM_hash(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int btHashString::m_hash() function, expected prototype:\nunsigned int btHashString::m_hash()\nClass arguments details:\n");
-		}
-
-
-		btHashString* self=(Luna< btHashString >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int btHashString::m_hash(). Got : '%s'",typeid(Luna< btHashString >::check(L,1)).name());
-		}
-		unsigned int lret = self->m_hash;
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
 	// void btHashString::m_hash(unsigned int value)
-	static int _bind_setM_hash(lua_State *L) {
-		if (!_lg_typecheck_setM_hash(L)) {
+	static int _bind_setHash(lua_State *L) {
+		if (!_lg_typecheck_setHash(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btHashString::m_hash(unsigned int value) function, expected prototype:\nvoid btHashString::m_hash(unsigned int value)\nClass arguments details:\n");
 		}
@@ -267,9 +242,8 @@ luna_RegType LunaTraits< btHashString >::methods[] = {
 	{"getHash", &luna_wrapper_btHashString::_bind_getHash},
 	{"portableStringCompare", &luna_wrapper_btHashString::_bind_portableStringCompare},
 	{"equals", &luna_wrapper_btHashString::_bind_equals},
-	{"getM_string", &luna_wrapper_btHashString::_bind_getM_string},
-	{"getM_hash", &luna_wrapper_btHashString::_bind_getM_hash},
-	{"setM_hash", &luna_wrapper_btHashString::_bind_setM_hash},
+	{"getString", &luna_wrapper_btHashString::_bind_getString},
+	{"setHash", &luna_wrapper_btHashString::_bind_setHash},
 	{"dynCast", &luna_wrapper_btHashString::_bind_dynCast},
 	{"__eq", &luna_wrapper_btHashString::_bind___eq},
 	{0,0}

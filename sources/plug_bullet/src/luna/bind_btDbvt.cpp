@@ -316,91 +316,91 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_root(lua_State *L) {
+	inline static bool _lg_typecheck_getRoot(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_free(lua_State *L) {
+	inline static bool _lg_typecheck_getFree(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_lkhd(lua_State *L) {
+	inline static bool _lg_typecheck_getLkhd(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_leaves(lua_State *L) {
+	inline static bool _lg_typecheck_getLeaves(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_opath(lua_State *L) {
+	inline static bool _lg_typecheck_getOpath(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_stkStack(lua_State *L) {
+	inline static bool _lg_typecheck_getStkStack(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rayTestStack(lua_State *L) {
+	inline static bool _lg_typecheck_getRayTestStack(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_root(lua_State *L) {
+	inline static bool _lg_typecheck_setRoot(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91335778)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_free(lua_State *L) {
+	inline static bool _lg_typecheck_setFree(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91335778)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_lkhd(lua_State *L) {
+	inline static bool _lg_typecheck_setLkhd(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_leaves(lua_State *L) {
+	inline static bool _lg_typecheck_setLeaves(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_opath(lua_State *L) {
+	inline static bool _lg_typecheck_setOpath(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_stkStack(lua_State *L) {
+	inline static bool _lg_typecheck_setStkStack(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,64242255) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rayTestStack(lua_State *L) {
+	inline static bool _lg_typecheck_setRayTestStack(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,275816) ) return false;
@@ -1084,8 +1084,8 @@ public:
 	}
 
 	// btDbvtNode * btDbvt::m_root()
-	static int _bind_getM_root(lua_State *L) {
-		if (!_lg_typecheck_getM_root(L)) {
+	static int _bind_getRoot(lua_State *L) {
+		if (!_lg_typecheck_getRoot(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btDbvtNode * btDbvt::m_root() function, expected prototype:\nbtDbvtNode * btDbvt::m_root()\nClass arguments details:\n");
 		}
@@ -1105,8 +1105,8 @@ public:
 	}
 
 	// btDbvtNode * btDbvt::m_free()
-	static int _bind_getM_free(lua_State *L) {
-		if (!_lg_typecheck_getM_free(L)) {
+	static int _bind_getFree(lua_State *L) {
+		if (!_lg_typecheck_getFree(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btDbvtNode * btDbvt::m_free() function, expected prototype:\nbtDbvtNode * btDbvt::m_free()\nClass arguments details:\n");
 		}
@@ -1126,8 +1126,8 @@ public:
 	}
 
 	// int btDbvt::m_lkhd()
-	static int _bind_getM_lkhd(lua_State *L) {
-		if (!_lg_typecheck_getM_lkhd(L)) {
+	static int _bind_getLkhd(lua_State *L) {
+		if (!_lg_typecheck_getLkhd(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDbvt::m_lkhd() function, expected prototype:\nint btDbvt::m_lkhd()\nClass arguments details:\n");
 		}
@@ -1145,8 +1145,8 @@ public:
 	}
 
 	// int btDbvt::m_leaves()
-	static int _bind_getM_leaves(lua_State *L) {
-		if (!_lg_typecheck_getM_leaves(L)) {
+	static int _bind_getLeaves(lua_State *L) {
+		if (!_lg_typecheck_getLeaves(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDbvt::m_leaves() function, expected prototype:\nint btDbvt::m_leaves()\nClass arguments details:\n");
 		}
@@ -1164,8 +1164,8 @@ public:
 	}
 
 	// unsigned int btDbvt::m_opath()
-	static int _bind_getM_opath(lua_State *L) {
-		if (!_lg_typecheck_getM_opath(L)) {
+	static int _bind_getOpath(lua_State *L) {
+		if (!_lg_typecheck_getOpath(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int btDbvt::m_opath() function, expected prototype:\nunsigned int btDbvt::m_opath()\nClass arguments details:\n");
 		}
@@ -1183,8 +1183,8 @@ public:
 	}
 
 	// btAlignedObjectArray< btDbvt::sStkNN > btDbvt::m_stkStack()
-	static int _bind_getM_stkStack(lua_State *L) {
-		if (!_lg_typecheck_getM_stkStack(L)) {
+	static int _bind_getStkStack(lua_State *L) {
+		if (!_lg_typecheck_getStkStack(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btDbvt::sStkNN > btDbvt::m_stkStack() function, expected prototype:\nbtAlignedObjectArray< btDbvt::sStkNN > btDbvt::m_stkStack()\nClass arguments details:\n");
 		}
@@ -1204,8 +1204,8 @@ public:
 	}
 
 	// btAlignedObjectArray< const btDbvtNode * > btDbvt::m_rayTestStack()
-	static int _bind_getM_rayTestStack(lua_State *L) {
-		if (!_lg_typecheck_getM_rayTestStack(L)) {
+	static int _bind_getRayTestStack(lua_State *L) {
+		if (!_lg_typecheck_getRayTestStack(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< const btDbvtNode * > btDbvt::m_rayTestStack() function, expected prototype:\nbtAlignedObjectArray< const btDbvtNode * > btDbvt::m_rayTestStack()\nClass arguments details:\n");
 		}
@@ -1225,8 +1225,8 @@ public:
 	}
 
 	// void btDbvt::m_root(btDbvtNode * value)
-	static int _bind_setM_root(lua_State *L) {
-		if (!_lg_typecheck_setM_root(L)) {
+	static int _bind_setRoot(lua_State *L) {
+		if (!_lg_typecheck_setRoot(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvt::m_root(btDbvtNode * value) function, expected prototype:\nvoid btDbvt::m_root(btDbvtNode * value)\nClass arguments details:\narg 1 ID = 91335778\n");
 		}
@@ -1244,8 +1244,8 @@ public:
 	}
 
 	// void btDbvt::m_free(btDbvtNode * value)
-	static int _bind_setM_free(lua_State *L) {
-		if (!_lg_typecheck_setM_free(L)) {
+	static int _bind_setFree(lua_State *L) {
+		if (!_lg_typecheck_setFree(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvt::m_free(btDbvtNode * value) function, expected prototype:\nvoid btDbvt::m_free(btDbvtNode * value)\nClass arguments details:\narg 1 ID = 91335778\n");
 		}
@@ -1263,8 +1263,8 @@ public:
 	}
 
 	// void btDbvt::m_lkhd(int value)
-	static int _bind_setM_lkhd(lua_State *L) {
-		if (!_lg_typecheck_setM_lkhd(L)) {
+	static int _bind_setLkhd(lua_State *L) {
+		if (!_lg_typecheck_setLkhd(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvt::m_lkhd(int value) function, expected prototype:\nvoid btDbvt::m_lkhd(int value)\nClass arguments details:\n");
 		}
@@ -1282,8 +1282,8 @@ public:
 	}
 
 	// void btDbvt::m_leaves(int value)
-	static int _bind_setM_leaves(lua_State *L) {
-		if (!_lg_typecheck_setM_leaves(L)) {
+	static int _bind_setLeaves(lua_State *L) {
+		if (!_lg_typecheck_setLeaves(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvt::m_leaves(int value) function, expected prototype:\nvoid btDbvt::m_leaves(int value)\nClass arguments details:\n");
 		}
@@ -1301,8 +1301,8 @@ public:
 	}
 
 	// void btDbvt::m_opath(unsigned int value)
-	static int _bind_setM_opath(lua_State *L) {
-		if (!_lg_typecheck_setM_opath(L)) {
+	static int _bind_setOpath(lua_State *L) {
+		if (!_lg_typecheck_setOpath(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvt::m_opath(unsigned int value) function, expected prototype:\nvoid btDbvt::m_opath(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1320,8 +1320,8 @@ public:
 	}
 
 	// void btDbvt::m_stkStack(btAlignedObjectArray< btDbvt::sStkNN > value)
-	static int _bind_setM_stkStack(lua_State *L) {
-		if (!_lg_typecheck_setM_stkStack(L)) {
+	static int _bind_setStkStack(lua_State *L) {
+		if (!_lg_typecheck_setStkStack(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvt::m_stkStack(btAlignedObjectArray< btDbvt::sStkNN > value) function, expected prototype:\nvoid btDbvt::m_stkStack(btAlignedObjectArray< btDbvt::sStkNN > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -1343,8 +1343,8 @@ public:
 	}
 
 	// void btDbvt::m_rayTestStack(btAlignedObjectArray< const btDbvtNode * > value)
-	static int _bind_setM_rayTestStack(lua_State *L) {
-		if (!_lg_typecheck_setM_rayTestStack(L)) {
+	static int _bind_setRayTestStack(lua_State *L) {
+		if (!_lg_typecheck_setRayTestStack(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvt::m_rayTestStack(btAlignedObjectArray< const btDbvtNode * > value) function, expected prototype:\nvoid btDbvt::m_rayTestStack(btAlignedObjectArray< const btDbvtNode * > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -1411,20 +1411,20 @@ luna_RegType LunaTraits< btDbvt >::methods[] = {
 	{"collideTU", &luna_wrapper_btDbvt::_bind_collideTU},
 	{"nearest", &luna_wrapper_btDbvt::_bind_nearest},
 	{"allocate", &luna_wrapper_btDbvt::_bind_allocate},
-	{"getM_root", &luna_wrapper_btDbvt::_bind_getM_root},
-	{"getM_free", &luna_wrapper_btDbvt::_bind_getM_free},
-	{"getM_lkhd", &luna_wrapper_btDbvt::_bind_getM_lkhd},
-	{"getM_leaves", &luna_wrapper_btDbvt::_bind_getM_leaves},
-	{"getM_opath", &luna_wrapper_btDbvt::_bind_getM_opath},
-	{"getM_stkStack", &luna_wrapper_btDbvt::_bind_getM_stkStack},
-	{"getM_rayTestStack", &luna_wrapper_btDbvt::_bind_getM_rayTestStack},
-	{"setM_root", &luna_wrapper_btDbvt::_bind_setM_root},
-	{"setM_free", &luna_wrapper_btDbvt::_bind_setM_free},
-	{"setM_lkhd", &luna_wrapper_btDbvt::_bind_setM_lkhd},
-	{"setM_leaves", &luna_wrapper_btDbvt::_bind_setM_leaves},
-	{"setM_opath", &luna_wrapper_btDbvt::_bind_setM_opath},
-	{"setM_stkStack", &luna_wrapper_btDbvt::_bind_setM_stkStack},
-	{"setM_rayTestStack", &luna_wrapper_btDbvt::_bind_setM_rayTestStack},
+	{"getRoot", &luna_wrapper_btDbvt::_bind_getRoot},
+	{"getFree", &luna_wrapper_btDbvt::_bind_getFree},
+	{"getLkhd", &luna_wrapper_btDbvt::_bind_getLkhd},
+	{"getLeaves", &luna_wrapper_btDbvt::_bind_getLeaves},
+	{"getOpath", &luna_wrapper_btDbvt::_bind_getOpath},
+	{"getStkStack", &luna_wrapper_btDbvt::_bind_getStkStack},
+	{"getRayTestStack", &luna_wrapper_btDbvt::_bind_getRayTestStack},
+	{"setRoot", &luna_wrapper_btDbvt::_bind_setRoot},
+	{"setFree", &luna_wrapper_btDbvt::_bind_setFree},
+	{"setLkhd", &luna_wrapper_btDbvt::_bind_setLkhd},
+	{"setLeaves", &luna_wrapper_btDbvt::_bind_setLeaves},
+	{"setOpath", &luna_wrapper_btDbvt::_bind_setOpath},
+	{"setStkStack", &luna_wrapper_btDbvt::_bind_setStkStack},
+	{"setRayTestStack", &luna_wrapper_btDbvt::_bind_setRayTestStack},
 	{"dynCast", &luna_wrapper_btDbvt::_bind_dynCast},
 	{"__eq", &luna_wrapper_btDbvt::_bind___eq},
 	{0,0}

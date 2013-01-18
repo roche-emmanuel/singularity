@@ -99,52 +99,52 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_from(lua_State *L) {
+	inline static bool _lg_typecheck_getFrom(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_to(lua_State *L) {
+	inline static bool _lg_typecheck_getTo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_flags(lua_State *L) {
+	inline static bool _lg_typecheck_getFlags(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitFraction(lua_State *L) {
+	inline static bool _lg_typecheck_getHitFraction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_from(lua_State *L) {
+	inline static bool _lg_typecheck_setFrom(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_to(lua_State *L) {
+	inline static bool _lg_typecheck_setTo(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_flags(lua_State *L) {
+	inline static bool _lg_typecheck_setFlags(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitFraction(lua_State *L) {
+	inline static bool _lg_typecheck_setHitFraction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -240,8 +240,8 @@ public:
 	}
 
 	// btVector3 btTriangleRaycastCallback::m_from()
-	static int _bind_getM_from(lua_State *L) {
-		if (!_lg_typecheck_getM_from(L)) {
+	static int _bind_getFrom(lua_State *L) {
+		if (!_lg_typecheck_getFrom(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTriangleRaycastCallback::m_from() function, expected prototype:\nbtVector3 btTriangleRaycastCallback::m_from()\nClass arguments details:\n");
 		}
@@ -261,8 +261,8 @@ public:
 	}
 
 	// btVector3 btTriangleRaycastCallback::m_to()
-	static int _bind_getM_to(lua_State *L) {
-		if (!_lg_typecheck_getM_to(L)) {
+	static int _bind_getTo(lua_State *L) {
+		if (!_lg_typecheck_getTo(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTriangleRaycastCallback::m_to() function, expected prototype:\nbtVector3 btTriangleRaycastCallback::m_to()\nClass arguments details:\n");
 		}
@@ -282,8 +282,8 @@ public:
 	}
 
 	// unsigned int btTriangleRaycastCallback::m_flags()
-	static int _bind_getM_flags(lua_State *L) {
-		if (!_lg_typecheck_getM_flags(L)) {
+	static int _bind_getFlags(lua_State *L) {
+		if (!_lg_typecheck_getFlags(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int btTriangleRaycastCallback::m_flags() function, expected prototype:\nunsigned int btTriangleRaycastCallback::m_flags()\nClass arguments details:\n");
 		}
@@ -301,8 +301,8 @@ public:
 	}
 
 	// float btTriangleRaycastCallback::m_hitFraction()
-	static int _bind_getM_hitFraction(lua_State *L) {
-		if (!_lg_typecheck_getM_hitFraction(L)) {
+	static int _bind_getHitFraction(lua_State *L) {
+		if (!_lg_typecheck_getHitFraction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTriangleRaycastCallback::m_hitFraction() function, expected prototype:\nfloat btTriangleRaycastCallback::m_hitFraction()\nClass arguments details:\n");
 		}
@@ -320,8 +320,8 @@ public:
 	}
 
 	// void btTriangleRaycastCallback::m_from(btVector3 value)
-	static int _bind_setM_from(lua_State *L) {
-		if (!_lg_typecheck_setM_from(L)) {
+	static int _bind_setFrom(lua_State *L) {
+		if (!_lg_typecheck_setFrom(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::m_from(btVector3 value) function, expected prototype:\nvoid btTriangleRaycastCallback::m_from(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -343,8 +343,8 @@ public:
 	}
 
 	// void btTriangleRaycastCallback::m_to(btVector3 value)
-	static int _bind_setM_to(lua_State *L) {
-		if (!_lg_typecheck_setM_to(L)) {
+	static int _bind_setTo(lua_State *L) {
+		if (!_lg_typecheck_setTo(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::m_to(btVector3 value) function, expected prototype:\nvoid btTriangleRaycastCallback::m_to(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -366,8 +366,8 @@ public:
 	}
 
 	// void btTriangleRaycastCallback::m_flags(unsigned int value)
-	static int _bind_setM_flags(lua_State *L) {
-		if (!_lg_typecheck_setM_flags(L)) {
+	static int _bind_setFlags(lua_State *L) {
+		if (!_lg_typecheck_setFlags(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::m_flags(unsigned int value) function, expected prototype:\nvoid btTriangleRaycastCallback::m_flags(unsigned int value)\nClass arguments details:\n");
 		}
@@ -385,8 +385,8 @@ public:
 	}
 
 	// void btTriangleRaycastCallback::m_hitFraction(float value)
-	static int _bind_setM_hitFraction(lua_State *L) {
-		if (!_lg_typecheck_setM_hitFraction(L)) {
+	static int _bind_setHitFraction(lua_State *L) {
+		if (!_lg_typecheck_setHitFraction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::m_hitFraction(float value) function, expected prototype:\nvoid btTriangleRaycastCallback::m_hitFraction(float value)\nClass arguments details:\n");
 		}
@@ -450,14 +450,14 @@ const int LunaTraits< btTriangleRaycastCallback >::uniqueIDs[] = {46793426,0};
 luna_RegType LunaTraits< btTriangleRaycastCallback >::methods[] = {
 	{"processTriangle", &luna_wrapper_btTriangleRaycastCallback::_bind_processTriangle},
 	{"reportHit", &luna_wrapper_btTriangleRaycastCallback::_bind_reportHit},
-	{"getM_from", &luna_wrapper_btTriangleRaycastCallback::_bind_getM_from},
-	{"getM_to", &luna_wrapper_btTriangleRaycastCallback::_bind_getM_to},
-	{"getM_flags", &luna_wrapper_btTriangleRaycastCallback::_bind_getM_flags},
-	{"getM_hitFraction", &luna_wrapper_btTriangleRaycastCallback::_bind_getM_hitFraction},
-	{"setM_from", &luna_wrapper_btTriangleRaycastCallback::_bind_setM_from},
-	{"setM_to", &luna_wrapper_btTriangleRaycastCallback::_bind_setM_to},
-	{"setM_flags", &luna_wrapper_btTriangleRaycastCallback::_bind_setM_flags},
-	{"setM_hitFraction", &luna_wrapper_btTriangleRaycastCallback::_bind_setM_hitFraction},
+	{"getFrom", &luna_wrapper_btTriangleRaycastCallback::_bind_getFrom},
+	{"getTo", &luna_wrapper_btTriangleRaycastCallback::_bind_getTo},
+	{"getFlags", &luna_wrapper_btTriangleRaycastCallback::_bind_getFlags},
+	{"getHitFraction", &luna_wrapper_btTriangleRaycastCallback::_bind_getHitFraction},
+	{"setFrom", &luna_wrapper_btTriangleRaycastCallback::_bind_setFrom},
+	{"setTo", &luna_wrapper_btTriangleRaycastCallback::_bind_setTo},
+	{"setFlags", &luna_wrapper_btTriangleRaycastCallback::_bind_setFlags},
+	{"setHitFraction", &luna_wrapper_btTriangleRaycastCallback::_bind_setHitFraction},
 	{"base_processTriangle", &luna_wrapper_btTriangleRaycastCallback::_bind_base_processTriangle},
 	{"__eq", &luna_wrapper_btTriangleRaycastCallback::_bind___eq},
 	{"getTable", &luna_wrapper_btTriangleRaycastCallback::_bind_getTable},

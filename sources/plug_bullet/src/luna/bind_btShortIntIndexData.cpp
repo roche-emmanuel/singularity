@@ -56,13 +56,13 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_value(lua_State *L) {
+	inline static bool _lg_typecheck_getValue(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_value(lua_State *L) {
+	inline static bool _lg_typecheck_setValue(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -77,8 +77,8 @@ public:
 
 	// Function binds:
 	// short btShortIntIndexData::m_value()
-	static int _bind_getM_value(lua_State *L) {
-		if (!_lg_typecheck_getM_value(L)) {
+	static int _bind_getValue(lua_State *L) {
+		if (!_lg_typecheck_getValue(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in short btShortIntIndexData::m_value() function, expected prototype:\nshort btShortIntIndexData::m_value()\nClass arguments details:\n");
 		}
@@ -96,8 +96,8 @@ public:
 	}
 
 	// void btShortIntIndexData::m_value(short value)
-	static int _bind_setM_value(lua_State *L) {
-		if (!_lg_typecheck_setM_value(L)) {
+	static int _bind_setValue(lua_State *L) {
+		if (!_lg_typecheck_setValue(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btShortIntIndexData::m_value(short value) function, expected prototype:\nvoid btShortIntIndexData::m_value(short value)\nClass arguments details:\n");
 		}
@@ -135,8 +135,8 @@ const int LunaTraits< btShortIntIndexData >::hash = 8692805;
 const int LunaTraits< btShortIntIndexData >::uniqueIDs[] = {8692805,0};
 
 luna_RegType LunaTraits< btShortIntIndexData >::methods[] = {
-	{"getM_value", &luna_wrapper_btShortIntIndexData::_bind_getM_value},
-	{"setM_value", &luna_wrapper_btShortIntIndexData::_bind_setM_value},
+	{"getValue", &luna_wrapper_btShortIntIndexData::_bind_getValue},
+	{"setValue", &luna_wrapper_btShortIntIndexData::_bind_setValue},
 	{"dynCast", &luna_wrapper_btShortIntIndexData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btShortIntIndexData::_bind___eq},
 	{0,0}

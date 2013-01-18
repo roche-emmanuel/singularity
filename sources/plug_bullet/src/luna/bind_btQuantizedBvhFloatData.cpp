@@ -56,156 +56,156 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_bvhAabbMin(lua_State *L) {
+	inline static bool _lg_typecheck_getBvhAabbMin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_bvhAabbMax(lua_State *L) {
+	inline static bool _lg_typecheck_getBvhAabbMax(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_bvhQuantization(lua_State *L) {
+	inline static bool _lg_typecheck_getBvhQuantization(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_curNodeIndex(lua_State *L) {
+	inline static bool _lg_typecheck_getCurNodeIndex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_useQuantization(lua_State *L) {
+	inline static bool _lg_typecheck_getUseQuantization(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numContiguousLeafNodes(lua_State *L) {
+	inline static bool _lg_typecheck_getNumContiguousLeafNodes(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numQuantizedContiguousNodes(lua_State *L) {
+	inline static bool _lg_typecheck_getNumQuantizedContiguousNodes(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contiguousNodesPtr(lua_State *L) {
+	inline static bool _lg_typecheck_getContiguousNodesPtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_quantizedContiguousNodesPtr(lua_State *L) {
+	inline static bool _lg_typecheck_getQuantizedContiguousNodesPtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_subTreeInfoPtr(lua_State *L) {
+	inline static bool _lg_typecheck_getSubTreeInfoPtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_traversalMode(lua_State *L) {
+	inline static bool _lg_typecheck_getTraversalMode(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numSubtreeHeaders(lua_State *L) {
+	inline static bool _lg_typecheck_getNumSubtreeHeaders(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_bvhAabbMin(lua_State *L) {
+	inline static bool _lg_typecheck_setBvhAabbMin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_bvhAabbMax(lua_State *L) {
+	inline static bool _lg_typecheck_setBvhAabbMax(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_bvhQuantization(lua_State *L) {
+	inline static bool _lg_typecheck_setBvhQuantization(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_curNodeIndex(lua_State *L) {
+	inline static bool _lg_typecheck_setCurNodeIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_useQuantization(lua_State *L) {
+	inline static bool _lg_typecheck_setUseQuantization(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numContiguousLeafNodes(lua_State *L) {
+	inline static bool _lg_typecheck_setNumContiguousLeafNodes(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numQuantizedContiguousNodes(lua_State *L) {
+	inline static bool _lg_typecheck_setNumQuantizedContiguousNodes(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contiguousNodesPtr(lua_State *L) {
+	inline static bool _lg_typecheck_setContiguousNodesPtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,22170580)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_quantizedContiguousNodesPtr(lua_State *L) {
+	inline static bool _lg_typecheck_setQuantizedContiguousNodesPtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91047799)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_subTreeInfoPtr(lua_State *L) {
+	inline static bool _lg_typecheck_setSubTreeInfoPtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,95109631)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_traversalMode(lua_State *L) {
+	inline static bool _lg_typecheck_setTraversalMode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numSubtreeHeaders(lua_State *L) {
+	inline static bool _lg_typecheck_setNumSubtreeHeaders(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -220,8 +220,8 @@ public:
 
 	// Function binds:
 	// btVector3FloatData btQuantizedBvhFloatData::m_bvhAabbMin()
-	static int _bind_getM_bvhAabbMin(lua_State *L) {
-		if (!_lg_typecheck_getM_bvhAabbMin(L)) {
+	static int _bind_getBvhAabbMin(lua_State *L) {
+		if (!_lg_typecheck_getBvhAabbMin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btQuantizedBvhFloatData::m_bvhAabbMin() function, expected prototype:\nbtVector3FloatData btQuantizedBvhFloatData::m_bvhAabbMin()\nClass arguments details:\n");
 		}
@@ -241,8 +241,8 @@ public:
 	}
 
 	// btVector3FloatData btQuantizedBvhFloatData::m_bvhAabbMax()
-	static int _bind_getM_bvhAabbMax(lua_State *L) {
-		if (!_lg_typecheck_getM_bvhAabbMax(L)) {
+	static int _bind_getBvhAabbMax(lua_State *L) {
+		if (!_lg_typecheck_getBvhAabbMax(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btQuantizedBvhFloatData::m_bvhAabbMax() function, expected prototype:\nbtVector3FloatData btQuantizedBvhFloatData::m_bvhAabbMax()\nClass arguments details:\n");
 		}
@@ -262,8 +262,8 @@ public:
 	}
 
 	// btVector3FloatData btQuantizedBvhFloatData::m_bvhQuantization()
-	static int _bind_getM_bvhQuantization(lua_State *L) {
-		if (!_lg_typecheck_getM_bvhQuantization(L)) {
+	static int _bind_getBvhQuantization(lua_State *L) {
+		if (!_lg_typecheck_getBvhQuantization(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btQuantizedBvhFloatData::m_bvhQuantization() function, expected prototype:\nbtVector3FloatData btQuantizedBvhFloatData::m_bvhQuantization()\nClass arguments details:\n");
 		}
@@ -283,8 +283,8 @@ public:
 	}
 
 	// int btQuantizedBvhFloatData::m_curNodeIndex()
-	static int _bind_getM_curNodeIndex(lua_State *L) {
-		if (!_lg_typecheck_getM_curNodeIndex(L)) {
+	static int _bind_getCurNodeIndex(lua_State *L) {
+		if (!_lg_typecheck_getCurNodeIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btQuantizedBvhFloatData::m_curNodeIndex() function, expected prototype:\nint btQuantizedBvhFloatData::m_curNodeIndex()\nClass arguments details:\n");
 		}
@@ -302,8 +302,8 @@ public:
 	}
 
 	// int btQuantizedBvhFloatData::m_useQuantization()
-	static int _bind_getM_useQuantization(lua_State *L) {
-		if (!_lg_typecheck_getM_useQuantization(L)) {
+	static int _bind_getUseQuantization(lua_State *L) {
+		if (!_lg_typecheck_getUseQuantization(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btQuantizedBvhFloatData::m_useQuantization() function, expected prototype:\nint btQuantizedBvhFloatData::m_useQuantization()\nClass arguments details:\n");
 		}
@@ -321,8 +321,8 @@ public:
 	}
 
 	// int btQuantizedBvhFloatData::m_numContiguousLeafNodes()
-	static int _bind_getM_numContiguousLeafNodes(lua_State *L) {
-		if (!_lg_typecheck_getM_numContiguousLeafNodes(L)) {
+	static int _bind_getNumContiguousLeafNodes(lua_State *L) {
+		if (!_lg_typecheck_getNumContiguousLeafNodes(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btQuantizedBvhFloatData::m_numContiguousLeafNodes() function, expected prototype:\nint btQuantizedBvhFloatData::m_numContiguousLeafNodes()\nClass arguments details:\n");
 		}
@@ -340,8 +340,8 @@ public:
 	}
 
 	// int btQuantizedBvhFloatData::m_numQuantizedContiguousNodes()
-	static int _bind_getM_numQuantizedContiguousNodes(lua_State *L) {
-		if (!_lg_typecheck_getM_numQuantizedContiguousNodes(L)) {
+	static int _bind_getNumQuantizedContiguousNodes(lua_State *L) {
+		if (!_lg_typecheck_getNumQuantizedContiguousNodes(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btQuantizedBvhFloatData::m_numQuantizedContiguousNodes() function, expected prototype:\nint btQuantizedBvhFloatData::m_numQuantizedContiguousNodes()\nClass arguments details:\n");
 		}
@@ -359,8 +359,8 @@ public:
 	}
 
 	// btOptimizedBvhNodeFloatData * btQuantizedBvhFloatData::m_contiguousNodesPtr()
-	static int _bind_getM_contiguousNodesPtr(lua_State *L) {
-		if (!_lg_typecheck_getM_contiguousNodesPtr(L)) {
+	static int _bind_getContiguousNodesPtr(lua_State *L) {
+		if (!_lg_typecheck_getContiguousNodesPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btOptimizedBvhNodeFloatData * btQuantizedBvhFloatData::m_contiguousNodesPtr() function, expected prototype:\nbtOptimizedBvhNodeFloatData * btQuantizedBvhFloatData::m_contiguousNodesPtr()\nClass arguments details:\n");
 		}
@@ -380,8 +380,8 @@ public:
 	}
 
 	// btQuantizedBvhNodeData * btQuantizedBvhFloatData::m_quantizedContiguousNodesPtr()
-	static int _bind_getM_quantizedContiguousNodesPtr(lua_State *L) {
-		if (!_lg_typecheck_getM_quantizedContiguousNodesPtr(L)) {
+	static int _bind_getQuantizedContiguousNodesPtr(lua_State *L) {
+		if (!_lg_typecheck_getQuantizedContiguousNodesPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btQuantizedBvhNodeData * btQuantizedBvhFloatData::m_quantizedContiguousNodesPtr() function, expected prototype:\nbtQuantizedBvhNodeData * btQuantizedBvhFloatData::m_quantizedContiguousNodesPtr()\nClass arguments details:\n");
 		}
@@ -401,8 +401,8 @@ public:
 	}
 
 	// btBvhSubtreeInfoData * btQuantizedBvhFloatData::m_subTreeInfoPtr()
-	static int _bind_getM_subTreeInfoPtr(lua_State *L) {
-		if (!_lg_typecheck_getM_subTreeInfoPtr(L)) {
+	static int _bind_getSubTreeInfoPtr(lua_State *L) {
+		if (!_lg_typecheck_getSubTreeInfoPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btBvhSubtreeInfoData * btQuantizedBvhFloatData::m_subTreeInfoPtr() function, expected prototype:\nbtBvhSubtreeInfoData * btQuantizedBvhFloatData::m_subTreeInfoPtr()\nClass arguments details:\n");
 		}
@@ -422,8 +422,8 @@ public:
 	}
 
 	// int btQuantizedBvhFloatData::m_traversalMode()
-	static int _bind_getM_traversalMode(lua_State *L) {
-		if (!_lg_typecheck_getM_traversalMode(L)) {
+	static int _bind_getTraversalMode(lua_State *L) {
+		if (!_lg_typecheck_getTraversalMode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btQuantizedBvhFloatData::m_traversalMode() function, expected prototype:\nint btQuantizedBvhFloatData::m_traversalMode()\nClass arguments details:\n");
 		}
@@ -441,8 +441,8 @@ public:
 	}
 
 	// int btQuantizedBvhFloatData::m_numSubtreeHeaders()
-	static int _bind_getM_numSubtreeHeaders(lua_State *L) {
-		if (!_lg_typecheck_getM_numSubtreeHeaders(L)) {
+	static int _bind_getNumSubtreeHeaders(lua_State *L) {
+		if (!_lg_typecheck_getNumSubtreeHeaders(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btQuantizedBvhFloatData::m_numSubtreeHeaders() function, expected prototype:\nint btQuantizedBvhFloatData::m_numSubtreeHeaders()\nClass arguments details:\n");
 		}
@@ -460,8 +460,8 @@ public:
 	}
 
 	// void btQuantizedBvhFloatData::m_bvhAabbMin(btVector3FloatData value)
-	static int _bind_setM_bvhAabbMin(lua_State *L) {
-		if (!_lg_typecheck_setM_bvhAabbMin(L)) {
+	static int _bind_setBvhAabbMin(lua_State *L) {
+		if (!_lg_typecheck_setBvhAabbMin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvhFloatData::m_bvhAabbMin(btVector3FloatData value) function, expected prototype:\nvoid btQuantizedBvhFloatData::m_bvhAabbMin(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -483,8 +483,8 @@ public:
 	}
 
 	// void btQuantizedBvhFloatData::m_bvhAabbMax(btVector3FloatData value)
-	static int _bind_setM_bvhAabbMax(lua_State *L) {
-		if (!_lg_typecheck_setM_bvhAabbMax(L)) {
+	static int _bind_setBvhAabbMax(lua_State *L) {
+		if (!_lg_typecheck_setBvhAabbMax(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvhFloatData::m_bvhAabbMax(btVector3FloatData value) function, expected prototype:\nvoid btQuantizedBvhFloatData::m_bvhAabbMax(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -506,8 +506,8 @@ public:
 	}
 
 	// void btQuantizedBvhFloatData::m_bvhQuantization(btVector3FloatData value)
-	static int _bind_setM_bvhQuantization(lua_State *L) {
-		if (!_lg_typecheck_setM_bvhQuantization(L)) {
+	static int _bind_setBvhQuantization(lua_State *L) {
+		if (!_lg_typecheck_setBvhQuantization(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvhFloatData::m_bvhQuantization(btVector3FloatData value) function, expected prototype:\nvoid btQuantizedBvhFloatData::m_bvhQuantization(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -529,8 +529,8 @@ public:
 	}
 
 	// void btQuantizedBvhFloatData::m_curNodeIndex(int value)
-	static int _bind_setM_curNodeIndex(lua_State *L) {
-		if (!_lg_typecheck_setM_curNodeIndex(L)) {
+	static int _bind_setCurNodeIndex(lua_State *L) {
+		if (!_lg_typecheck_setCurNodeIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvhFloatData::m_curNodeIndex(int value) function, expected prototype:\nvoid btQuantizedBvhFloatData::m_curNodeIndex(int value)\nClass arguments details:\n");
 		}
@@ -548,8 +548,8 @@ public:
 	}
 
 	// void btQuantizedBvhFloatData::m_useQuantization(int value)
-	static int _bind_setM_useQuantization(lua_State *L) {
-		if (!_lg_typecheck_setM_useQuantization(L)) {
+	static int _bind_setUseQuantization(lua_State *L) {
+		if (!_lg_typecheck_setUseQuantization(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvhFloatData::m_useQuantization(int value) function, expected prototype:\nvoid btQuantizedBvhFloatData::m_useQuantization(int value)\nClass arguments details:\n");
 		}
@@ -567,8 +567,8 @@ public:
 	}
 
 	// void btQuantizedBvhFloatData::m_numContiguousLeafNodes(int value)
-	static int _bind_setM_numContiguousLeafNodes(lua_State *L) {
-		if (!_lg_typecheck_setM_numContiguousLeafNodes(L)) {
+	static int _bind_setNumContiguousLeafNodes(lua_State *L) {
+		if (!_lg_typecheck_setNumContiguousLeafNodes(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvhFloatData::m_numContiguousLeafNodes(int value) function, expected prototype:\nvoid btQuantizedBvhFloatData::m_numContiguousLeafNodes(int value)\nClass arguments details:\n");
 		}
@@ -586,8 +586,8 @@ public:
 	}
 
 	// void btQuantizedBvhFloatData::m_numQuantizedContiguousNodes(int value)
-	static int _bind_setM_numQuantizedContiguousNodes(lua_State *L) {
-		if (!_lg_typecheck_setM_numQuantizedContiguousNodes(L)) {
+	static int _bind_setNumQuantizedContiguousNodes(lua_State *L) {
+		if (!_lg_typecheck_setNumQuantizedContiguousNodes(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvhFloatData::m_numQuantizedContiguousNodes(int value) function, expected prototype:\nvoid btQuantizedBvhFloatData::m_numQuantizedContiguousNodes(int value)\nClass arguments details:\n");
 		}
@@ -605,8 +605,8 @@ public:
 	}
 
 	// void btQuantizedBvhFloatData::m_contiguousNodesPtr(btOptimizedBvhNodeFloatData * value)
-	static int _bind_setM_contiguousNodesPtr(lua_State *L) {
-		if (!_lg_typecheck_setM_contiguousNodesPtr(L)) {
+	static int _bind_setContiguousNodesPtr(lua_State *L) {
+		if (!_lg_typecheck_setContiguousNodesPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvhFloatData::m_contiguousNodesPtr(btOptimizedBvhNodeFloatData * value) function, expected prototype:\nvoid btQuantizedBvhFloatData::m_contiguousNodesPtr(btOptimizedBvhNodeFloatData * value)\nClass arguments details:\narg 1 ID = 22170580\n");
 		}
@@ -624,8 +624,8 @@ public:
 	}
 
 	// void btQuantizedBvhFloatData::m_quantizedContiguousNodesPtr(btQuantizedBvhNodeData * value)
-	static int _bind_setM_quantizedContiguousNodesPtr(lua_State *L) {
-		if (!_lg_typecheck_setM_quantizedContiguousNodesPtr(L)) {
+	static int _bind_setQuantizedContiguousNodesPtr(lua_State *L) {
+		if (!_lg_typecheck_setQuantizedContiguousNodesPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvhFloatData::m_quantizedContiguousNodesPtr(btQuantizedBvhNodeData * value) function, expected prototype:\nvoid btQuantizedBvhFloatData::m_quantizedContiguousNodesPtr(btQuantizedBvhNodeData * value)\nClass arguments details:\narg 1 ID = 91047799\n");
 		}
@@ -643,8 +643,8 @@ public:
 	}
 
 	// void btQuantizedBvhFloatData::m_subTreeInfoPtr(btBvhSubtreeInfoData * value)
-	static int _bind_setM_subTreeInfoPtr(lua_State *L) {
-		if (!_lg_typecheck_setM_subTreeInfoPtr(L)) {
+	static int _bind_setSubTreeInfoPtr(lua_State *L) {
+		if (!_lg_typecheck_setSubTreeInfoPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvhFloatData::m_subTreeInfoPtr(btBvhSubtreeInfoData * value) function, expected prototype:\nvoid btQuantizedBvhFloatData::m_subTreeInfoPtr(btBvhSubtreeInfoData * value)\nClass arguments details:\narg 1 ID = 95109631\n");
 		}
@@ -662,8 +662,8 @@ public:
 	}
 
 	// void btQuantizedBvhFloatData::m_traversalMode(int value)
-	static int _bind_setM_traversalMode(lua_State *L) {
-		if (!_lg_typecheck_setM_traversalMode(L)) {
+	static int _bind_setTraversalMode(lua_State *L) {
+		if (!_lg_typecheck_setTraversalMode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvhFloatData::m_traversalMode(int value) function, expected prototype:\nvoid btQuantizedBvhFloatData::m_traversalMode(int value)\nClass arguments details:\n");
 		}
@@ -681,8 +681,8 @@ public:
 	}
 
 	// void btQuantizedBvhFloatData::m_numSubtreeHeaders(int value)
-	static int _bind_setM_numSubtreeHeaders(lua_State *L) {
-		if (!_lg_typecheck_setM_numSubtreeHeaders(L)) {
+	static int _bind_setNumSubtreeHeaders(lua_State *L) {
+		if (!_lg_typecheck_setNumSubtreeHeaders(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvhFloatData::m_numSubtreeHeaders(int value) function, expected prototype:\nvoid btQuantizedBvhFloatData::m_numSubtreeHeaders(int value)\nClass arguments details:\n");
 		}
@@ -720,30 +720,30 @@ const int LunaTraits< btQuantizedBvhFloatData >::hash = 49199970;
 const int LunaTraits< btQuantizedBvhFloatData >::uniqueIDs[] = {49199970,0};
 
 luna_RegType LunaTraits< btQuantizedBvhFloatData >::methods[] = {
-	{"getM_bvhAabbMin", &luna_wrapper_btQuantizedBvhFloatData::_bind_getM_bvhAabbMin},
-	{"getM_bvhAabbMax", &luna_wrapper_btQuantizedBvhFloatData::_bind_getM_bvhAabbMax},
-	{"getM_bvhQuantization", &luna_wrapper_btQuantizedBvhFloatData::_bind_getM_bvhQuantization},
-	{"getM_curNodeIndex", &luna_wrapper_btQuantizedBvhFloatData::_bind_getM_curNodeIndex},
-	{"getM_useQuantization", &luna_wrapper_btQuantizedBvhFloatData::_bind_getM_useQuantization},
-	{"getM_numContiguousLeafNodes", &luna_wrapper_btQuantizedBvhFloatData::_bind_getM_numContiguousLeafNodes},
-	{"getM_numQuantizedContiguousNodes", &luna_wrapper_btQuantizedBvhFloatData::_bind_getM_numQuantizedContiguousNodes},
-	{"getM_contiguousNodesPtr", &luna_wrapper_btQuantizedBvhFloatData::_bind_getM_contiguousNodesPtr},
-	{"getM_quantizedContiguousNodesPtr", &luna_wrapper_btQuantizedBvhFloatData::_bind_getM_quantizedContiguousNodesPtr},
-	{"getM_subTreeInfoPtr", &luna_wrapper_btQuantizedBvhFloatData::_bind_getM_subTreeInfoPtr},
-	{"getM_traversalMode", &luna_wrapper_btQuantizedBvhFloatData::_bind_getM_traversalMode},
-	{"getM_numSubtreeHeaders", &luna_wrapper_btQuantizedBvhFloatData::_bind_getM_numSubtreeHeaders},
-	{"setM_bvhAabbMin", &luna_wrapper_btQuantizedBvhFloatData::_bind_setM_bvhAabbMin},
-	{"setM_bvhAabbMax", &luna_wrapper_btQuantizedBvhFloatData::_bind_setM_bvhAabbMax},
-	{"setM_bvhQuantization", &luna_wrapper_btQuantizedBvhFloatData::_bind_setM_bvhQuantization},
-	{"setM_curNodeIndex", &luna_wrapper_btQuantizedBvhFloatData::_bind_setM_curNodeIndex},
-	{"setM_useQuantization", &luna_wrapper_btQuantizedBvhFloatData::_bind_setM_useQuantization},
-	{"setM_numContiguousLeafNodes", &luna_wrapper_btQuantizedBvhFloatData::_bind_setM_numContiguousLeafNodes},
-	{"setM_numQuantizedContiguousNodes", &luna_wrapper_btQuantizedBvhFloatData::_bind_setM_numQuantizedContiguousNodes},
-	{"setM_contiguousNodesPtr", &luna_wrapper_btQuantizedBvhFloatData::_bind_setM_contiguousNodesPtr},
-	{"setM_quantizedContiguousNodesPtr", &luna_wrapper_btQuantizedBvhFloatData::_bind_setM_quantizedContiguousNodesPtr},
-	{"setM_subTreeInfoPtr", &luna_wrapper_btQuantizedBvhFloatData::_bind_setM_subTreeInfoPtr},
-	{"setM_traversalMode", &luna_wrapper_btQuantizedBvhFloatData::_bind_setM_traversalMode},
-	{"setM_numSubtreeHeaders", &luna_wrapper_btQuantizedBvhFloatData::_bind_setM_numSubtreeHeaders},
+	{"getBvhAabbMin", &luna_wrapper_btQuantizedBvhFloatData::_bind_getBvhAabbMin},
+	{"getBvhAabbMax", &luna_wrapper_btQuantizedBvhFloatData::_bind_getBvhAabbMax},
+	{"getBvhQuantization", &luna_wrapper_btQuantizedBvhFloatData::_bind_getBvhQuantization},
+	{"getCurNodeIndex", &luna_wrapper_btQuantizedBvhFloatData::_bind_getCurNodeIndex},
+	{"getUseQuantization", &luna_wrapper_btQuantizedBvhFloatData::_bind_getUseQuantization},
+	{"getNumContiguousLeafNodes", &luna_wrapper_btQuantizedBvhFloatData::_bind_getNumContiguousLeafNodes},
+	{"getNumQuantizedContiguousNodes", &luna_wrapper_btQuantizedBvhFloatData::_bind_getNumQuantizedContiguousNodes},
+	{"getContiguousNodesPtr", &luna_wrapper_btQuantizedBvhFloatData::_bind_getContiguousNodesPtr},
+	{"getQuantizedContiguousNodesPtr", &luna_wrapper_btQuantizedBvhFloatData::_bind_getQuantizedContiguousNodesPtr},
+	{"getSubTreeInfoPtr", &luna_wrapper_btQuantizedBvhFloatData::_bind_getSubTreeInfoPtr},
+	{"getTraversalMode", &luna_wrapper_btQuantizedBvhFloatData::_bind_getTraversalMode},
+	{"getNumSubtreeHeaders", &luna_wrapper_btQuantizedBvhFloatData::_bind_getNumSubtreeHeaders},
+	{"setBvhAabbMin", &luna_wrapper_btQuantizedBvhFloatData::_bind_setBvhAabbMin},
+	{"setBvhAabbMax", &luna_wrapper_btQuantizedBvhFloatData::_bind_setBvhAabbMax},
+	{"setBvhQuantization", &luna_wrapper_btQuantizedBvhFloatData::_bind_setBvhQuantization},
+	{"setCurNodeIndex", &luna_wrapper_btQuantizedBvhFloatData::_bind_setCurNodeIndex},
+	{"setUseQuantization", &luna_wrapper_btQuantizedBvhFloatData::_bind_setUseQuantization},
+	{"setNumContiguousLeafNodes", &luna_wrapper_btQuantizedBvhFloatData::_bind_setNumContiguousLeafNodes},
+	{"setNumQuantizedContiguousNodes", &luna_wrapper_btQuantizedBvhFloatData::_bind_setNumQuantizedContiguousNodes},
+	{"setContiguousNodesPtr", &luna_wrapper_btQuantizedBvhFloatData::_bind_setContiguousNodesPtr},
+	{"setQuantizedContiguousNodesPtr", &luna_wrapper_btQuantizedBvhFloatData::_bind_setQuantizedContiguousNodesPtr},
+	{"setSubTreeInfoPtr", &luna_wrapper_btQuantizedBvhFloatData::_bind_setSubTreeInfoPtr},
+	{"setTraversalMode", &luna_wrapper_btQuantizedBvhFloatData::_bind_setTraversalMode},
+	{"setNumSubtreeHeaders", &luna_wrapper_btQuantizedBvhFloatData::_bind_setNumSubtreeHeaders},
 	{"dynCast", &luna_wrapper_btQuantizedBvhFloatData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btQuantizedBvhFloatData::_bind___eq},
 	{0,0}

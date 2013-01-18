@@ -107,169 +107,169 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_limitSoftness(lua_State *L) {
+	inline static bool _lg_typecheck_getLimitSoftness(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_damping(lua_State *L) {
+	inline static bool _lg_typecheck_getDamping(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_restitution(lua_State *L) {
+	inline static bool _lg_typecheck_getRestitution(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_normalCFM(lua_State *L) {
+	inline static bool _lg_typecheck_getNormalCFM(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_stopERP(lua_State *L) {
+	inline static bool _lg_typecheck_getStopERP(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_stopCFM(lua_State *L) {
+	inline static bool _lg_typecheck_getStopCFM(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_lowerLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getLowerLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_upperLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getUpperLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_accumulatedImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_getAccumulatedImpulse(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_targetVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_getTargetVelocity(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_maxMotorForce(lua_State *L) {
+	inline static bool _lg_typecheck_getMaxMotorForce(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_currentLimitError(lua_State *L) {
+	inline static bool _lg_typecheck_getCurrentLimitError(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_currentLinearDiff(lua_State *L) {
+	inline static bool _lg_typecheck_getCurrentLinearDiff(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_limitSoftness(lua_State *L) {
+	inline static bool _lg_typecheck_setLimitSoftness(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_damping(lua_State *L) {
+	inline static bool _lg_typecheck_setDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_restitution(lua_State *L) {
+	inline static bool _lg_typecheck_setRestitution(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_normalCFM(lua_State *L) {
+	inline static bool _lg_typecheck_setNormalCFM(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_stopERP(lua_State *L) {
+	inline static bool _lg_typecheck_setStopERP(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_stopCFM(lua_State *L) {
+	inline static bool _lg_typecheck_setStopCFM(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_lowerLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setLowerLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_upperLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setUpperLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_accumulatedImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_setAccumulatedImpulse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_targetVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_setTargetVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_maxMotorForce(lua_State *L) {
+	inline static bool _lg_typecheck_setMaxMotorForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_currentLimitError(lua_State *L) {
+	inline static bool _lg_typecheck_setCurrentLimitError(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_currentLinearDiff(lua_State *L) {
+	inline static bool _lg_typecheck_setCurrentLinearDiff(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
@@ -433,8 +433,8 @@ public:
 	}
 
 	// float btTranslationalLimitMotor::m_limitSoftness()
-	static int _bind_getM_limitSoftness(lua_State *L) {
-		if (!_lg_typecheck_getM_limitSoftness(L)) {
+	static int _bind_getLimitSoftness(lua_State *L) {
+		if (!_lg_typecheck_getLimitSoftness(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTranslationalLimitMotor::m_limitSoftness() function, expected prototype:\nfloat btTranslationalLimitMotor::m_limitSoftness()\nClass arguments details:\n");
 		}
@@ -452,8 +452,8 @@ public:
 	}
 
 	// float btTranslationalLimitMotor::m_damping()
-	static int _bind_getM_damping(lua_State *L) {
-		if (!_lg_typecheck_getM_damping(L)) {
+	static int _bind_getDamping(lua_State *L) {
+		if (!_lg_typecheck_getDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTranslationalLimitMotor::m_damping() function, expected prototype:\nfloat btTranslationalLimitMotor::m_damping()\nClass arguments details:\n");
 		}
@@ -471,8 +471,8 @@ public:
 	}
 
 	// float btTranslationalLimitMotor::m_restitution()
-	static int _bind_getM_restitution(lua_State *L) {
-		if (!_lg_typecheck_getM_restitution(L)) {
+	static int _bind_getRestitution(lua_State *L) {
+		if (!_lg_typecheck_getRestitution(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTranslationalLimitMotor::m_restitution() function, expected prototype:\nfloat btTranslationalLimitMotor::m_restitution()\nClass arguments details:\n");
 		}
@@ -490,8 +490,8 @@ public:
 	}
 
 	// btVector3 btTranslationalLimitMotor::m_normalCFM()
-	static int _bind_getM_normalCFM(lua_State *L) {
-		if (!_lg_typecheck_getM_normalCFM(L)) {
+	static int _bind_getNormalCFM(lua_State *L) {
+		if (!_lg_typecheck_getNormalCFM(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_normalCFM() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_normalCFM()\nClass arguments details:\n");
 		}
@@ -511,8 +511,8 @@ public:
 	}
 
 	// btVector3 btTranslationalLimitMotor::m_stopERP()
-	static int _bind_getM_stopERP(lua_State *L) {
-		if (!_lg_typecheck_getM_stopERP(L)) {
+	static int _bind_getStopERP(lua_State *L) {
+		if (!_lg_typecheck_getStopERP(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_stopERP() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_stopERP()\nClass arguments details:\n");
 		}
@@ -532,8 +532,8 @@ public:
 	}
 
 	// btVector3 btTranslationalLimitMotor::m_stopCFM()
-	static int _bind_getM_stopCFM(lua_State *L) {
-		if (!_lg_typecheck_getM_stopCFM(L)) {
+	static int _bind_getStopCFM(lua_State *L) {
+		if (!_lg_typecheck_getStopCFM(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_stopCFM() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_stopCFM()\nClass arguments details:\n");
 		}
@@ -553,8 +553,8 @@ public:
 	}
 
 	// btVector3 btTranslationalLimitMotor::m_lowerLimit()
-	static int _bind_getM_lowerLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_lowerLimit(L)) {
+	static int _bind_getLowerLimit(lua_State *L) {
+		if (!_lg_typecheck_getLowerLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_lowerLimit() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_lowerLimit()\nClass arguments details:\n");
 		}
@@ -574,8 +574,8 @@ public:
 	}
 
 	// btVector3 btTranslationalLimitMotor::m_upperLimit()
-	static int _bind_getM_upperLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_upperLimit(L)) {
+	static int _bind_getUpperLimit(lua_State *L) {
+		if (!_lg_typecheck_getUpperLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_upperLimit() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_upperLimit()\nClass arguments details:\n");
 		}
@@ -595,8 +595,8 @@ public:
 	}
 
 	// btVector3 btTranslationalLimitMotor::m_accumulatedImpulse()
-	static int _bind_getM_accumulatedImpulse(lua_State *L) {
-		if (!_lg_typecheck_getM_accumulatedImpulse(L)) {
+	static int _bind_getAccumulatedImpulse(lua_State *L) {
+		if (!_lg_typecheck_getAccumulatedImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_accumulatedImpulse() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_accumulatedImpulse()\nClass arguments details:\n");
 		}
@@ -616,8 +616,8 @@ public:
 	}
 
 	// btVector3 btTranslationalLimitMotor::m_targetVelocity()
-	static int _bind_getM_targetVelocity(lua_State *L) {
-		if (!_lg_typecheck_getM_targetVelocity(L)) {
+	static int _bind_getTargetVelocity(lua_State *L) {
+		if (!_lg_typecheck_getTargetVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_targetVelocity() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_targetVelocity()\nClass arguments details:\n");
 		}
@@ -637,8 +637,8 @@ public:
 	}
 
 	// btVector3 btTranslationalLimitMotor::m_maxMotorForce()
-	static int _bind_getM_maxMotorForce(lua_State *L) {
-		if (!_lg_typecheck_getM_maxMotorForce(L)) {
+	static int _bind_getMaxMotorForce(lua_State *L) {
+		if (!_lg_typecheck_getMaxMotorForce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_maxMotorForce() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_maxMotorForce()\nClass arguments details:\n");
 		}
@@ -658,8 +658,8 @@ public:
 	}
 
 	// btVector3 btTranslationalLimitMotor::m_currentLimitError()
-	static int _bind_getM_currentLimitError(lua_State *L) {
-		if (!_lg_typecheck_getM_currentLimitError(L)) {
+	static int _bind_getCurrentLimitError(lua_State *L) {
+		if (!_lg_typecheck_getCurrentLimitError(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_currentLimitError() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_currentLimitError()\nClass arguments details:\n");
 		}
@@ -679,8 +679,8 @@ public:
 	}
 
 	// btVector3 btTranslationalLimitMotor::m_currentLinearDiff()
-	static int _bind_getM_currentLinearDiff(lua_State *L) {
-		if (!_lg_typecheck_getM_currentLinearDiff(L)) {
+	static int _bind_getCurrentLinearDiff(lua_State *L) {
+		if (!_lg_typecheck_getCurrentLinearDiff(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_currentLinearDiff() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_currentLinearDiff()\nClass arguments details:\n");
 		}
@@ -700,8 +700,8 @@ public:
 	}
 
 	// void btTranslationalLimitMotor::m_limitSoftness(float value)
-	static int _bind_setM_limitSoftness(lua_State *L) {
-		if (!_lg_typecheck_setM_limitSoftness(L)) {
+	static int _bind_setLimitSoftness(lua_State *L) {
+		if (!_lg_typecheck_setLimitSoftness(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_limitSoftness(float value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_limitSoftness(float value)\nClass arguments details:\n");
 		}
@@ -719,8 +719,8 @@ public:
 	}
 
 	// void btTranslationalLimitMotor::m_damping(float value)
-	static int _bind_setM_damping(lua_State *L) {
-		if (!_lg_typecheck_setM_damping(L)) {
+	static int _bind_setDamping(lua_State *L) {
+		if (!_lg_typecheck_setDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_damping(float value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_damping(float value)\nClass arguments details:\n");
 		}
@@ -738,8 +738,8 @@ public:
 	}
 
 	// void btTranslationalLimitMotor::m_restitution(float value)
-	static int _bind_setM_restitution(lua_State *L) {
-		if (!_lg_typecheck_setM_restitution(L)) {
+	static int _bind_setRestitution(lua_State *L) {
+		if (!_lg_typecheck_setRestitution(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_restitution(float value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_restitution(float value)\nClass arguments details:\n");
 		}
@@ -757,8 +757,8 @@ public:
 	}
 
 	// void btTranslationalLimitMotor::m_normalCFM(btVector3 value)
-	static int _bind_setM_normalCFM(lua_State *L) {
-		if (!_lg_typecheck_setM_normalCFM(L)) {
+	static int _bind_setNormalCFM(lua_State *L) {
+		if (!_lg_typecheck_setNormalCFM(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_normalCFM(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_normalCFM(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -780,8 +780,8 @@ public:
 	}
 
 	// void btTranslationalLimitMotor::m_stopERP(btVector3 value)
-	static int _bind_setM_stopERP(lua_State *L) {
-		if (!_lg_typecheck_setM_stopERP(L)) {
+	static int _bind_setStopERP(lua_State *L) {
+		if (!_lg_typecheck_setStopERP(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_stopERP(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_stopERP(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -803,8 +803,8 @@ public:
 	}
 
 	// void btTranslationalLimitMotor::m_stopCFM(btVector3 value)
-	static int _bind_setM_stopCFM(lua_State *L) {
-		if (!_lg_typecheck_setM_stopCFM(L)) {
+	static int _bind_setStopCFM(lua_State *L) {
+		if (!_lg_typecheck_setStopCFM(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_stopCFM(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_stopCFM(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -826,8 +826,8 @@ public:
 	}
 
 	// void btTranslationalLimitMotor::m_lowerLimit(btVector3 value)
-	static int _bind_setM_lowerLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_lowerLimit(L)) {
+	static int _bind_setLowerLimit(lua_State *L) {
+		if (!_lg_typecheck_setLowerLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_lowerLimit(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_lowerLimit(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -849,8 +849,8 @@ public:
 	}
 
 	// void btTranslationalLimitMotor::m_upperLimit(btVector3 value)
-	static int _bind_setM_upperLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_upperLimit(L)) {
+	static int _bind_setUpperLimit(lua_State *L) {
+		if (!_lg_typecheck_setUpperLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_upperLimit(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_upperLimit(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -872,8 +872,8 @@ public:
 	}
 
 	// void btTranslationalLimitMotor::m_accumulatedImpulse(btVector3 value)
-	static int _bind_setM_accumulatedImpulse(lua_State *L) {
-		if (!_lg_typecheck_setM_accumulatedImpulse(L)) {
+	static int _bind_setAccumulatedImpulse(lua_State *L) {
+		if (!_lg_typecheck_setAccumulatedImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_accumulatedImpulse(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_accumulatedImpulse(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -895,8 +895,8 @@ public:
 	}
 
 	// void btTranslationalLimitMotor::m_targetVelocity(btVector3 value)
-	static int _bind_setM_targetVelocity(lua_State *L) {
-		if (!_lg_typecheck_setM_targetVelocity(L)) {
+	static int _bind_setTargetVelocity(lua_State *L) {
+		if (!_lg_typecheck_setTargetVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_targetVelocity(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_targetVelocity(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -918,8 +918,8 @@ public:
 	}
 
 	// void btTranslationalLimitMotor::m_maxMotorForce(btVector3 value)
-	static int _bind_setM_maxMotorForce(lua_State *L) {
-		if (!_lg_typecheck_setM_maxMotorForce(L)) {
+	static int _bind_setMaxMotorForce(lua_State *L) {
+		if (!_lg_typecheck_setMaxMotorForce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_maxMotorForce(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_maxMotorForce(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -941,8 +941,8 @@ public:
 	}
 
 	// void btTranslationalLimitMotor::m_currentLimitError(btVector3 value)
-	static int _bind_setM_currentLimitError(lua_State *L) {
-		if (!_lg_typecheck_setM_currentLimitError(L)) {
+	static int _bind_setCurrentLimitError(lua_State *L) {
+		if (!_lg_typecheck_setCurrentLimitError(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_currentLimitError(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_currentLimitError(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -964,8 +964,8 @@ public:
 	}
 
 	// void btTranslationalLimitMotor::m_currentLinearDiff(btVector3 value)
-	static int _bind_setM_currentLinearDiff(lua_State *L) {
-		if (!_lg_typecheck_setM_currentLinearDiff(L)) {
+	static int _bind_setCurrentLinearDiff(lua_State *L) {
+		if (!_lg_typecheck_setCurrentLinearDiff(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_currentLinearDiff(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_currentLinearDiff(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1011,32 +1011,32 @@ luna_RegType LunaTraits< btTranslationalLimitMotor >::methods[] = {
 	{"needApplyForce", &luna_wrapper_btTranslationalLimitMotor::_bind_needApplyForce},
 	{"testLimitValue", &luna_wrapper_btTranslationalLimitMotor::_bind_testLimitValue},
 	{"solveLinearAxis", &luna_wrapper_btTranslationalLimitMotor::_bind_solveLinearAxis},
-	{"getM_limitSoftness", &luna_wrapper_btTranslationalLimitMotor::_bind_getM_limitSoftness},
-	{"getM_damping", &luna_wrapper_btTranslationalLimitMotor::_bind_getM_damping},
-	{"getM_restitution", &luna_wrapper_btTranslationalLimitMotor::_bind_getM_restitution},
-	{"getM_normalCFM", &luna_wrapper_btTranslationalLimitMotor::_bind_getM_normalCFM},
-	{"getM_stopERP", &luna_wrapper_btTranslationalLimitMotor::_bind_getM_stopERP},
-	{"getM_stopCFM", &luna_wrapper_btTranslationalLimitMotor::_bind_getM_stopCFM},
-	{"getM_lowerLimit", &luna_wrapper_btTranslationalLimitMotor::_bind_getM_lowerLimit},
-	{"getM_upperLimit", &luna_wrapper_btTranslationalLimitMotor::_bind_getM_upperLimit},
-	{"getM_accumulatedImpulse", &luna_wrapper_btTranslationalLimitMotor::_bind_getM_accumulatedImpulse},
-	{"getM_targetVelocity", &luna_wrapper_btTranslationalLimitMotor::_bind_getM_targetVelocity},
-	{"getM_maxMotorForce", &luna_wrapper_btTranslationalLimitMotor::_bind_getM_maxMotorForce},
-	{"getM_currentLimitError", &luna_wrapper_btTranslationalLimitMotor::_bind_getM_currentLimitError},
-	{"getM_currentLinearDiff", &luna_wrapper_btTranslationalLimitMotor::_bind_getM_currentLinearDiff},
-	{"setM_limitSoftness", &luna_wrapper_btTranslationalLimitMotor::_bind_setM_limitSoftness},
-	{"setM_damping", &luna_wrapper_btTranslationalLimitMotor::_bind_setM_damping},
-	{"setM_restitution", &luna_wrapper_btTranslationalLimitMotor::_bind_setM_restitution},
-	{"setM_normalCFM", &luna_wrapper_btTranslationalLimitMotor::_bind_setM_normalCFM},
-	{"setM_stopERP", &luna_wrapper_btTranslationalLimitMotor::_bind_setM_stopERP},
-	{"setM_stopCFM", &luna_wrapper_btTranslationalLimitMotor::_bind_setM_stopCFM},
-	{"setM_lowerLimit", &luna_wrapper_btTranslationalLimitMotor::_bind_setM_lowerLimit},
-	{"setM_upperLimit", &luna_wrapper_btTranslationalLimitMotor::_bind_setM_upperLimit},
-	{"setM_accumulatedImpulse", &luna_wrapper_btTranslationalLimitMotor::_bind_setM_accumulatedImpulse},
-	{"setM_targetVelocity", &luna_wrapper_btTranslationalLimitMotor::_bind_setM_targetVelocity},
-	{"setM_maxMotorForce", &luna_wrapper_btTranslationalLimitMotor::_bind_setM_maxMotorForce},
-	{"setM_currentLimitError", &luna_wrapper_btTranslationalLimitMotor::_bind_setM_currentLimitError},
-	{"setM_currentLinearDiff", &luna_wrapper_btTranslationalLimitMotor::_bind_setM_currentLinearDiff},
+	{"getLimitSoftness", &luna_wrapper_btTranslationalLimitMotor::_bind_getLimitSoftness},
+	{"getDamping", &luna_wrapper_btTranslationalLimitMotor::_bind_getDamping},
+	{"getRestitution", &luna_wrapper_btTranslationalLimitMotor::_bind_getRestitution},
+	{"getNormalCFM", &luna_wrapper_btTranslationalLimitMotor::_bind_getNormalCFM},
+	{"getStopERP", &luna_wrapper_btTranslationalLimitMotor::_bind_getStopERP},
+	{"getStopCFM", &luna_wrapper_btTranslationalLimitMotor::_bind_getStopCFM},
+	{"getLowerLimit", &luna_wrapper_btTranslationalLimitMotor::_bind_getLowerLimit},
+	{"getUpperLimit", &luna_wrapper_btTranslationalLimitMotor::_bind_getUpperLimit},
+	{"getAccumulatedImpulse", &luna_wrapper_btTranslationalLimitMotor::_bind_getAccumulatedImpulse},
+	{"getTargetVelocity", &luna_wrapper_btTranslationalLimitMotor::_bind_getTargetVelocity},
+	{"getMaxMotorForce", &luna_wrapper_btTranslationalLimitMotor::_bind_getMaxMotorForce},
+	{"getCurrentLimitError", &luna_wrapper_btTranslationalLimitMotor::_bind_getCurrentLimitError},
+	{"getCurrentLinearDiff", &luna_wrapper_btTranslationalLimitMotor::_bind_getCurrentLinearDiff},
+	{"setLimitSoftness", &luna_wrapper_btTranslationalLimitMotor::_bind_setLimitSoftness},
+	{"setDamping", &luna_wrapper_btTranslationalLimitMotor::_bind_setDamping},
+	{"setRestitution", &luna_wrapper_btTranslationalLimitMotor::_bind_setRestitution},
+	{"setNormalCFM", &luna_wrapper_btTranslationalLimitMotor::_bind_setNormalCFM},
+	{"setStopERP", &luna_wrapper_btTranslationalLimitMotor::_bind_setStopERP},
+	{"setStopCFM", &luna_wrapper_btTranslationalLimitMotor::_bind_setStopCFM},
+	{"setLowerLimit", &luna_wrapper_btTranslationalLimitMotor::_bind_setLowerLimit},
+	{"setUpperLimit", &luna_wrapper_btTranslationalLimitMotor::_bind_setUpperLimit},
+	{"setAccumulatedImpulse", &luna_wrapper_btTranslationalLimitMotor::_bind_setAccumulatedImpulse},
+	{"setTargetVelocity", &luna_wrapper_btTranslationalLimitMotor::_bind_setTargetVelocity},
+	{"setMaxMotorForce", &luna_wrapper_btTranslationalLimitMotor::_bind_setMaxMotorForce},
+	{"setCurrentLimitError", &luna_wrapper_btTranslationalLimitMotor::_bind_setCurrentLimitError},
+	{"setCurrentLinearDiff", &luna_wrapper_btTranslationalLimitMotor::_bind_setCurrentLinearDiff},
 	{"dynCast", &luna_wrapper_btTranslationalLimitMotor::_bind_dynCast},
 	{"__eq", &luna_wrapper_btTranslationalLimitMotor::_bind___eq},
 	{0,0}

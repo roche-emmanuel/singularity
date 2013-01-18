@@ -67,221 +67,221 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_mass(lua_State *L) {
+	inline static bool _lg_typecheck_getMass(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_motionState(lua_State *L) {
+	inline static bool _lg_typecheck_getMotionState(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_startWorldTransform(lua_State *L) {
+	inline static bool _lg_typecheck_getStartWorldTransform(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_collisionShape(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionShape(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_localInertia(lua_State *L) {
+	inline static bool _lg_typecheck_getLocalInertia(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_linearDamping(lua_State *L) {
+	inline static bool _lg_typecheck_getLinearDamping(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_angularDamping(lua_State *L) {
+	inline static bool _lg_typecheck_getAngularDamping(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_friction(lua_State *L) {
+	inline static bool _lg_typecheck_getFriction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rollingFriction(lua_State *L) {
+	inline static bool _lg_typecheck_getRollingFriction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_restitution(lua_State *L) {
+	inline static bool _lg_typecheck_getRestitution(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_linearSleepingThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getLinearSleepingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_angularSleepingThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getAngularSleepingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_additionalDamping(lua_State *L) {
+	inline static bool _lg_typecheck_getAdditionalDamping(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_additionalDampingFactor(lua_State *L) {
+	inline static bool _lg_typecheck_getAdditionalDampingFactor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_additionalLinearDampingThresholdSqr(lua_State *L) {
+	inline static bool _lg_typecheck_getAdditionalLinearDampingThresholdSqr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_additionalAngularDampingThresholdSqr(lua_State *L) {
+	inline static bool _lg_typecheck_getAdditionalAngularDampingThresholdSqr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_additionalAngularDampingFactor(lua_State *L) {
+	inline static bool _lg_typecheck_getAdditionalAngularDampingFactor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_mass(lua_State *L) {
+	inline static bool _lg_typecheck_setMass(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_motionState(lua_State *L) {
+	inline static bool _lg_typecheck_setMotionState(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,40784278)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_startWorldTransform(lua_State *L) {
+	inline static bool _lg_typecheck_setStartWorldTransform(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionShape(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionShape(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,58243831)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_localInertia(lua_State *L) {
+	inline static bool _lg_typecheck_setLocalInertia(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_linearDamping(lua_State *L) {
+	inline static bool _lg_typecheck_setLinearDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_angularDamping(lua_State *L) {
+	inline static bool _lg_typecheck_setAngularDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_friction(lua_State *L) {
+	inline static bool _lg_typecheck_setFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rollingFriction(lua_State *L) {
+	inline static bool _lg_typecheck_setRollingFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_restitution(lua_State *L) {
+	inline static bool _lg_typecheck_setRestitution(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_linearSleepingThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setLinearSleepingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_angularSleepingThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setAngularSleepingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_additionalDamping(lua_State *L) {
+	inline static bool _lg_typecheck_setAdditionalDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_additionalDampingFactor(lua_State *L) {
+	inline static bool _lg_typecheck_setAdditionalDampingFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_additionalLinearDampingThresholdSqr(lua_State *L) {
+	inline static bool _lg_typecheck_setAdditionalLinearDampingThresholdSqr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_additionalAngularDampingThresholdSqr(lua_State *L) {
+	inline static bool _lg_typecheck_setAdditionalAngularDampingThresholdSqr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_additionalAngularDampingFactor(lua_State *L) {
+	inline static bool _lg_typecheck_setAdditionalAngularDampingFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -317,8 +317,8 @@ public:
 
 	// Function binds:
 	// float btRigidBody::btRigidBodyConstructionInfo::m_mass()
-	static int _bind_getM_mass(lua_State *L) {
-		if (!_lg_typecheck_getM_mass(L)) {
+	static int _bind_getMass(lua_State *L) {
+		if (!_lg_typecheck_getMass(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBody::btRigidBodyConstructionInfo::m_mass() function, expected prototype:\nfloat btRigidBody::btRigidBodyConstructionInfo::m_mass()\nClass arguments details:\n");
 		}
@@ -336,8 +336,8 @@ public:
 	}
 
 	// btMotionState * btRigidBody::btRigidBodyConstructionInfo::m_motionState()
-	static int _bind_getM_motionState(lua_State *L) {
-		if (!_lg_typecheck_getM_motionState(L)) {
+	static int _bind_getMotionState(lua_State *L) {
+		if (!_lg_typecheck_getMotionState(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btMotionState * btRigidBody::btRigidBodyConstructionInfo::m_motionState() function, expected prototype:\nbtMotionState * btRigidBody::btRigidBodyConstructionInfo::m_motionState()\nClass arguments details:\n");
 		}
@@ -357,8 +357,8 @@ public:
 	}
 
 	// btTransform btRigidBody::btRigidBodyConstructionInfo::m_startWorldTransform()
-	static int _bind_getM_startWorldTransform(lua_State *L) {
-		if (!_lg_typecheck_getM_startWorldTransform(L)) {
+	static int _bind_getStartWorldTransform(lua_State *L) {
+		if (!_lg_typecheck_getStartWorldTransform(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransform btRigidBody::btRigidBodyConstructionInfo::m_startWorldTransform() function, expected prototype:\nbtTransform btRigidBody::btRigidBodyConstructionInfo::m_startWorldTransform()\nClass arguments details:\n");
 		}
@@ -378,8 +378,8 @@ public:
 	}
 
 	// btCollisionShape * btRigidBody::btRigidBodyConstructionInfo::m_collisionShape()
-	static int _bind_getM_collisionShape(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionShape(L)) {
+	static int _bind_getCollisionShape(lua_State *L) {
+		if (!_lg_typecheck_getCollisionShape(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btCollisionShape * btRigidBody::btRigidBodyConstructionInfo::m_collisionShape() function, expected prototype:\nbtCollisionShape * btRigidBody::btRigidBodyConstructionInfo::m_collisionShape()\nClass arguments details:\n");
 		}
@@ -399,8 +399,8 @@ public:
 	}
 
 	// btVector3 btRigidBody::btRigidBodyConstructionInfo::m_localInertia()
-	static int _bind_getM_localInertia(lua_State *L) {
-		if (!_lg_typecheck_getM_localInertia(L)) {
+	static int _bind_getLocalInertia(lua_State *L) {
+		if (!_lg_typecheck_getLocalInertia(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btRigidBody::btRigidBodyConstructionInfo::m_localInertia() function, expected prototype:\nbtVector3 btRigidBody::btRigidBodyConstructionInfo::m_localInertia()\nClass arguments details:\n");
 		}
@@ -420,8 +420,8 @@ public:
 	}
 
 	// float btRigidBody::btRigidBodyConstructionInfo::m_linearDamping()
-	static int _bind_getM_linearDamping(lua_State *L) {
-		if (!_lg_typecheck_getM_linearDamping(L)) {
+	static int _bind_getLinearDamping(lua_State *L) {
+		if (!_lg_typecheck_getLinearDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBody::btRigidBodyConstructionInfo::m_linearDamping() function, expected prototype:\nfloat btRigidBody::btRigidBodyConstructionInfo::m_linearDamping()\nClass arguments details:\n");
 		}
@@ -439,8 +439,8 @@ public:
 	}
 
 	// float btRigidBody::btRigidBodyConstructionInfo::m_angularDamping()
-	static int _bind_getM_angularDamping(lua_State *L) {
-		if (!_lg_typecheck_getM_angularDamping(L)) {
+	static int _bind_getAngularDamping(lua_State *L) {
+		if (!_lg_typecheck_getAngularDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBody::btRigidBodyConstructionInfo::m_angularDamping() function, expected prototype:\nfloat btRigidBody::btRigidBodyConstructionInfo::m_angularDamping()\nClass arguments details:\n");
 		}
@@ -458,8 +458,8 @@ public:
 	}
 
 	// float btRigidBody::btRigidBodyConstructionInfo::m_friction()
-	static int _bind_getM_friction(lua_State *L) {
-		if (!_lg_typecheck_getM_friction(L)) {
+	static int _bind_getFriction(lua_State *L) {
+		if (!_lg_typecheck_getFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBody::btRigidBodyConstructionInfo::m_friction() function, expected prototype:\nfloat btRigidBody::btRigidBodyConstructionInfo::m_friction()\nClass arguments details:\n");
 		}
@@ -477,8 +477,8 @@ public:
 	}
 
 	// float btRigidBody::btRigidBodyConstructionInfo::m_rollingFriction()
-	static int _bind_getM_rollingFriction(lua_State *L) {
-		if (!_lg_typecheck_getM_rollingFriction(L)) {
+	static int _bind_getRollingFriction(lua_State *L) {
+		if (!_lg_typecheck_getRollingFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBody::btRigidBodyConstructionInfo::m_rollingFriction() function, expected prototype:\nfloat btRigidBody::btRigidBodyConstructionInfo::m_rollingFriction()\nClass arguments details:\n");
 		}
@@ -496,8 +496,8 @@ public:
 	}
 
 	// float btRigidBody::btRigidBodyConstructionInfo::m_restitution()
-	static int _bind_getM_restitution(lua_State *L) {
-		if (!_lg_typecheck_getM_restitution(L)) {
+	static int _bind_getRestitution(lua_State *L) {
+		if (!_lg_typecheck_getRestitution(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBody::btRigidBodyConstructionInfo::m_restitution() function, expected prototype:\nfloat btRigidBody::btRigidBodyConstructionInfo::m_restitution()\nClass arguments details:\n");
 		}
@@ -515,8 +515,8 @@ public:
 	}
 
 	// float btRigidBody::btRigidBodyConstructionInfo::m_linearSleepingThreshold()
-	static int _bind_getM_linearSleepingThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_linearSleepingThreshold(L)) {
+	static int _bind_getLinearSleepingThreshold(lua_State *L) {
+		if (!_lg_typecheck_getLinearSleepingThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBody::btRigidBodyConstructionInfo::m_linearSleepingThreshold() function, expected prototype:\nfloat btRigidBody::btRigidBodyConstructionInfo::m_linearSleepingThreshold()\nClass arguments details:\n");
 		}
@@ -534,8 +534,8 @@ public:
 	}
 
 	// float btRigidBody::btRigidBodyConstructionInfo::m_angularSleepingThreshold()
-	static int _bind_getM_angularSleepingThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_angularSleepingThreshold(L)) {
+	static int _bind_getAngularSleepingThreshold(lua_State *L) {
+		if (!_lg_typecheck_getAngularSleepingThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBody::btRigidBodyConstructionInfo::m_angularSleepingThreshold() function, expected prototype:\nfloat btRigidBody::btRigidBodyConstructionInfo::m_angularSleepingThreshold()\nClass arguments details:\n");
 		}
@@ -553,8 +553,8 @@ public:
 	}
 
 	// bool btRigidBody::btRigidBodyConstructionInfo::m_additionalDamping()
-	static int _bind_getM_additionalDamping(lua_State *L) {
-		if (!_lg_typecheck_getM_additionalDamping(L)) {
+	static int _bind_getAdditionalDamping(lua_State *L) {
+		if (!_lg_typecheck_getAdditionalDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btRigidBody::btRigidBodyConstructionInfo::m_additionalDamping() function, expected prototype:\nbool btRigidBody::btRigidBodyConstructionInfo::m_additionalDamping()\nClass arguments details:\n");
 		}
@@ -572,8 +572,8 @@ public:
 	}
 
 	// float btRigidBody::btRigidBodyConstructionInfo::m_additionalDampingFactor()
-	static int _bind_getM_additionalDampingFactor(lua_State *L) {
-		if (!_lg_typecheck_getM_additionalDampingFactor(L)) {
+	static int _bind_getAdditionalDampingFactor(lua_State *L) {
+		if (!_lg_typecheck_getAdditionalDampingFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBody::btRigidBodyConstructionInfo::m_additionalDampingFactor() function, expected prototype:\nfloat btRigidBody::btRigidBodyConstructionInfo::m_additionalDampingFactor()\nClass arguments details:\n");
 		}
@@ -591,8 +591,8 @@ public:
 	}
 
 	// float btRigidBody::btRigidBodyConstructionInfo::m_additionalLinearDampingThresholdSqr()
-	static int _bind_getM_additionalLinearDampingThresholdSqr(lua_State *L) {
-		if (!_lg_typecheck_getM_additionalLinearDampingThresholdSqr(L)) {
+	static int _bind_getAdditionalLinearDampingThresholdSqr(lua_State *L) {
+		if (!_lg_typecheck_getAdditionalLinearDampingThresholdSqr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBody::btRigidBodyConstructionInfo::m_additionalLinearDampingThresholdSqr() function, expected prototype:\nfloat btRigidBody::btRigidBodyConstructionInfo::m_additionalLinearDampingThresholdSqr()\nClass arguments details:\n");
 		}
@@ -610,8 +610,8 @@ public:
 	}
 
 	// float btRigidBody::btRigidBodyConstructionInfo::m_additionalAngularDampingThresholdSqr()
-	static int _bind_getM_additionalAngularDampingThresholdSqr(lua_State *L) {
-		if (!_lg_typecheck_getM_additionalAngularDampingThresholdSqr(L)) {
+	static int _bind_getAdditionalAngularDampingThresholdSqr(lua_State *L) {
+		if (!_lg_typecheck_getAdditionalAngularDampingThresholdSqr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBody::btRigidBodyConstructionInfo::m_additionalAngularDampingThresholdSqr() function, expected prototype:\nfloat btRigidBody::btRigidBodyConstructionInfo::m_additionalAngularDampingThresholdSqr()\nClass arguments details:\n");
 		}
@@ -629,8 +629,8 @@ public:
 	}
 
 	// float btRigidBody::btRigidBodyConstructionInfo::m_additionalAngularDampingFactor()
-	static int _bind_getM_additionalAngularDampingFactor(lua_State *L) {
-		if (!_lg_typecheck_getM_additionalAngularDampingFactor(L)) {
+	static int _bind_getAdditionalAngularDampingFactor(lua_State *L) {
+		if (!_lg_typecheck_getAdditionalAngularDampingFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBody::btRigidBodyConstructionInfo::m_additionalAngularDampingFactor() function, expected prototype:\nfloat btRigidBody::btRigidBodyConstructionInfo::m_additionalAngularDampingFactor()\nClass arguments details:\n");
 		}
@@ -648,8 +648,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_mass(float value)
-	static int _bind_setM_mass(lua_State *L) {
-		if (!_lg_typecheck_setM_mass(L)) {
+	static int _bind_setMass(lua_State *L) {
+		if (!_lg_typecheck_setMass(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_mass(float value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_mass(float value)\nClass arguments details:\n");
 		}
@@ -667,8 +667,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_motionState(btMotionState * value)
-	static int _bind_setM_motionState(lua_State *L) {
-		if (!_lg_typecheck_setM_motionState(L)) {
+	static int _bind_setMotionState(lua_State *L) {
+		if (!_lg_typecheck_setMotionState(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_motionState(btMotionState * value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_motionState(btMotionState * value)\nClass arguments details:\narg 1 ID = 40784278\n");
 		}
@@ -686,8 +686,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_startWorldTransform(btTransform value)
-	static int _bind_setM_startWorldTransform(lua_State *L) {
-		if (!_lg_typecheck_setM_startWorldTransform(L)) {
+	static int _bind_setStartWorldTransform(lua_State *L) {
+		if (!_lg_typecheck_setStartWorldTransform(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_startWorldTransform(btTransform value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_startWorldTransform(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
 		}
@@ -709,8 +709,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_collisionShape(btCollisionShape * value)
-	static int _bind_setM_collisionShape(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionShape(L)) {
+	static int _bind_setCollisionShape(lua_State *L) {
+		if (!_lg_typecheck_setCollisionShape(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_collisionShape(btCollisionShape * value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_collisionShape(btCollisionShape * value)\nClass arguments details:\narg 1 ID = 58243831\n");
 		}
@@ -728,8 +728,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_localInertia(btVector3 value)
-	static int _bind_setM_localInertia(lua_State *L) {
-		if (!_lg_typecheck_setM_localInertia(L)) {
+	static int _bind_setLocalInertia(lua_State *L) {
+		if (!_lg_typecheck_setLocalInertia(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_localInertia(btVector3 value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_localInertia(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -751,8 +751,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_linearDamping(float value)
-	static int _bind_setM_linearDamping(lua_State *L) {
-		if (!_lg_typecheck_setM_linearDamping(L)) {
+	static int _bind_setLinearDamping(lua_State *L) {
+		if (!_lg_typecheck_setLinearDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_linearDamping(float value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_linearDamping(float value)\nClass arguments details:\n");
 		}
@@ -770,8 +770,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_angularDamping(float value)
-	static int _bind_setM_angularDamping(lua_State *L) {
-		if (!_lg_typecheck_setM_angularDamping(L)) {
+	static int _bind_setAngularDamping(lua_State *L) {
+		if (!_lg_typecheck_setAngularDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_angularDamping(float value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_angularDamping(float value)\nClass arguments details:\n");
 		}
@@ -789,8 +789,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_friction(float value)
-	static int _bind_setM_friction(lua_State *L) {
-		if (!_lg_typecheck_setM_friction(L)) {
+	static int _bind_setFriction(lua_State *L) {
+		if (!_lg_typecheck_setFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_friction(float value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_friction(float value)\nClass arguments details:\n");
 		}
@@ -808,8 +808,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_rollingFriction(float value)
-	static int _bind_setM_rollingFriction(lua_State *L) {
-		if (!_lg_typecheck_setM_rollingFriction(L)) {
+	static int _bind_setRollingFriction(lua_State *L) {
+		if (!_lg_typecheck_setRollingFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_rollingFriction(float value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_rollingFriction(float value)\nClass arguments details:\n");
 		}
@@ -827,8 +827,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_restitution(float value)
-	static int _bind_setM_restitution(lua_State *L) {
-		if (!_lg_typecheck_setM_restitution(L)) {
+	static int _bind_setRestitution(lua_State *L) {
+		if (!_lg_typecheck_setRestitution(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_restitution(float value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_restitution(float value)\nClass arguments details:\n");
 		}
@@ -846,8 +846,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_linearSleepingThreshold(float value)
-	static int _bind_setM_linearSleepingThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_linearSleepingThreshold(L)) {
+	static int _bind_setLinearSleepingThreshold(lua_State *L) {
+		if (!_lg_typecheck_setLinearSleepingThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_linearSleepingThreshold(float value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_linearSleepingThreshold(float value)\nClass arguments details:\n");
 		}
@@ -865,8 +865,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_angularSleepingThreshold(float value)
-	static int _bind_setM_angularSleepingThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_angularSleepingThreshold(L)) {
+	static int _bind_setAngularSleepingThreshold(lua_State *L) {
+		if (!_lg_typecheck_setAngularSleepingThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_angularSleepingThreshold(float value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_angularSleepingThreshold(float value)\nClass arguments details:\n");
 		}
@@ -884,8 +884,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_additionalDamping(bool value)
-	static int _bind_setM_additionalDamping(lua_State *L) {
-		if (!_lg_typecheck_setM_additionalDamping(L)) {
+	static int _bind_setAdditionalDamping(lua_State *L) {
+		if (!_lg_typecheck_setAdditionalDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_additionalDamping(bool value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_additionalDamping(bool value)\nClass arguments details:\n");
 		}
@@ -903,8 +903,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_additionalDampingFactor(float value)
-	static int _bind_setM_additionalDampingFactor(lua_State *L) {
-		if (!_lg_typecheck_setM_additionalDampingFactor(L)) {
+	static int _bind_setAdditionalDampingFactor(lua_State *L) {
+		if (!_lg_typecheck_setAdditionalDampingFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_additionalDampingFactor(float value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_additionalDampingFactor(float value)\nClass arguments details:\n");
 		}
@@ -922,8 +922,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_additionalLinearDampingThresholdSqr(float value)
-	static int _bind_setM_additionalLinearDampingThresholdSqr(lua_State *L) {
-		if (!_lg_typecheck_setM_additionalLinearDampingThresholdSqr(L)) {
+	static int _bind_setAdditionalLinearDampingThresholdSqr(lua_State *L) {
+		if (!_lg_typecheck_setAdditionalLinearDampingThresholdSqr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_additionalLinearDampingThresholdSqr(float value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_additionalLinearDampingThresholdSqr(float value)\nClass arguments details:\n");
 		}
@@ -941,8 +941,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_additionalAngularDampingThresholdSqr(float value)
-	static int _bind_setM_additionalAngularDampingThresholdSqr(lua_State *L) {
-		if (!_lg_typecheck_setM_additionalAngularDampingThresholdSqr(L)) {
+	static int _bind_setAdditionalAngularDampingThresholdSqr(lua_State *L) {
+		if (!_lg_typecheck_setAdditionalAngularDampingThresholdSqr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_additionalAngularDampingThresholdSqr(float value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_additionalAngularDampingThresholdSqr(float value)\nClass arguments details:\n");
 		}
@@ -960,8 +960,8 @@ public:
 	}
 
 	// void btRigidBody::btRigidBodyConstructionInfo::m_additionalAngularDampingFactor(float value)
-	static int _bind_setM_additionalAngularDampingFactor(lua_State *L) {
-		if (!_lg_typecheck_setM_additionalAngularDampingFactor(L)) {
+	static int _bind_setAdditionalAngularDampingFactor(lua_State *L) {
+		if (!_lg_typecheck_setAdditionalAngularDampingFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::btRigidBodyConstructionInfo::m_additionalAngularDampingFactor(float value) function, expected prototype:\nvoid btRigidBody::btRigidBodyConstructionInfo::m_additionalAngularDampingFactor(float value)\nClass arguments details:\n");
 		}
@@ -999,40 +999,40 @@ const int LunaTraits< btRigidBody::btRigidBodyConstructionInfo >::hash = 1378903
 const int LunaTraits< btRigidBody::btRigidBodyConstructionInfo >::uniqueIDs[] = {13789036,0};
 
 luna_RegType LunaTraits< btRigidBody::btRigidBodyConstructionInfo >::methods[] = {
-	{"getM_mass", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_mass},
-	{"getM_motionState", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_motionState},
-	{"getM_startWorldTransform", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_startWorldTransform},
-	{"getM_collisionShape", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_collisionShape},
-	{"getM_localInertia", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_localInertia},
-	{"getM_linearDamping", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_linearDamping},
-	{"getM_angularDamping", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_angularDamping},
-	{"getM_friction", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_friction},
-	{"getM_rollingFriction", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_rollingFriction},
-	{"getM_restitution", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_restitution},
-	{"getM_linearSleepingThreshold", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_linearSleepingThreshold},
-	{"getM_angularSleepingThreshold", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_angularSleepingThreshold},
-	{"getM_additionalDamping", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_additionalDamping},
-	{"getM_additionalDampingFactor", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_additionalDampingFactor},
-	{"getM_additionalLinearDampingThresholdSqr", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_additionalLinearDampingThresholdSqr},
-	{"getM_additionalAngularDampingThresholdSqr", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_additionalAngularDampingThresholdSqr},
-	{"getM_additionalAngularDampingFactor", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getM_additionalAngularDampingFactor},
-	{"setM_mass", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_mass},
-	{"setM_motionState", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_motionState},
-	{"setM_startWorldTransform", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_startWorldTransform},
-	{"setM_collisionShape", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_collisionShape},
-	{"setM_localInertia", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_localInertia},
-	{"setM_linearDamping", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_linearDamping},
-	{"setM_angularDamping", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_angularDamping},
-	{"setM_friction", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_friction},
-	{"setM_rollingFriction", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_rollingFriction},
-	{"setM_restitution", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_restitution},
-	{"setM_linearSleepingThreshold", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_linearSleepingThreshold},
-	{"setM_angularSleepingThreshold", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_angularSleepingThreshold},
-	{"setM_additionalDamping", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_additionalDamping},
-	{"setM_additionalDampingFactor", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_additionalDampingFactor},
-	{"setM_additionalLinearDampingThresholdSqr", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_additionalLinearDampingThresholdSqr},
-	{"setM_additionalAngularDampingThresholdSqr", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_additionalAngularDampingThresholdSqr},
-	{"setM_additionalAngularDampingFactor", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setM_additionalAngularDampingFactor},
+	{"getMass", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getMass},
+	{"getMotionState", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getMotionState},
+	{"getStartWorldTransform", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getStartWorldTransform},
+	{"getCollisionShape", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getCollisionShape},
+	{"getLocalInertia", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getLocalInertia},
+	{"getLinearDamping", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getLinearDamping},
+	{"getAngularDamping", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getAngularDamping},
+	{"getFriction", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getFriction},
+	{"getRollingFriction", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getRollingFriction},
+	{"getRestitution", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getRestitution},
+	{"getLinearSleepingThreshold", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getLinearSleepingThreshold},
+	{"getAngularSleepingThreshold", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getAngularSleepingThreshold},
+	{"getAdditionalDamping", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getAdditionalDamping},
+	{"getAdditionalDampingFactor", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getAdditionalDampingFactor},
+	{"getAdditionalLinearDampingThresholdSqr", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getAdditionalLinearDampingThresholdSqr},
+	{"getAdditionalAngularDampingThresholdSqr", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getAdditionalAngularDampingThresholdSqr},
+	{"getAdditionalAngularDampingFactor", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_getAdditionalAngularDampingFactor},
+	{"setMass", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setMass},
+	{"setMotionState", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setMotionState},
+	{"setStartWorldTransform", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setStartWorldTransform},
+	{"setCollisionShape", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setCollisionShape},
+	{"setLocalInertia", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setLocalInertia},
+	{"setLinearDamping", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setLinearDamping},
+	{"setAngularDamping", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setAngularDamping},
+	{"setFriction", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setFriction},
+	{"setRollingFriction", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setRollingFriction},
+	{"setRestitution", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setRestitution},
+	{"setLinearSleepingThreshold", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setLinearSleepingThreshold},
+	{"setAngularSleepingThreshold", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setAngularSleepingThreshold},
+	{"setAdditionalDamping", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setAdditionalDamping},
+	{"setAdditionalDampingFactor", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setAdditionalDampingFactor},
+	{"setAdditionalLinearDampingThresholdSqr", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setAdditionalLinearDampingThresholdSqr},
+	{"setAdditionalAngularDampingThresholdSqr", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setAdditionalAngularDampingThresholdSqr},
+	{"setAdditionalAngularDampingFactor", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_setAdditionalAngularDampingFactor},
 	{"dynCast", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_btRigidBody_btRigidBodyConstructionInfo::_bind___eq},
 	{0,0}

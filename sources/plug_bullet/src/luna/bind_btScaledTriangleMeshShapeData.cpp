@@ -56,26 +56,26 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_trimeshShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_getTrimeshShapeData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_localScaling(lua_State *L) {
+	inline static bool _lg_typecheck_getLocalScaling(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_trimeshShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_setTrimeshShapeData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,3729562) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_localScaling(lua_State *L) {
+	inline static bool _lg_typecheck_setLocalScaling(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
@@ -90,8 +90,8 @@ public:
 
 	// Function binds:
 	// btTriangleMeshShapeData btScaledTriangleMeshShapeData::m_trimeshShapeData()
-	static int _bind_getM_trimeshShapeData(lua_State *L) {
-		if (!_lg_typecheck_getM_trimeshShapeData(L)) {
+	static int _bind_getTrimeshShapeData(lua_State *L) {
+		if (!_lg_typecheck_getTrimeshShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTriangleMeshShapeData btScaledTriangleMeshShapeData::m_trimeshShapeData() function, expected prototype:\nbtTriangleMeshShapeData btScaledTriangleMeshShapeData::m_trimeshShapeData()\nClass arguments details:\n");
 		}
@@ -111,8 +111,8 @@ public:
 	}
 
 	// btVector3FloatData btScaledTriangleMeshShapeData::m_localScaling()
-	static int _bind_getM_localScaling(lua_State *L) {
-		if (!_lg_typecheck_getM_localScaling(L)) {
+	static int _bind_getLocalScaling(lua_State *L) {
+		if (!_lg_typecheck_getLocalScaling(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btScaledTriangleMeshShapeData::m_localScaling() function, expected prototype:\nbtVector3FloatData btScaledTriangleMeshShapeData::m_localScaling()\nClass arguments details:\n");
 		}
@@ -132,8 +132,8 @@ public:
 	}
 
 	// void btScaledTriangleMeshShapeData::m_trimeshShapeData(btTriangleMeshShapeData value)
-	static int _bind_setM_trimeshShapeData(lua_State *L) {
-		if (!_lg_typecheck_setM_trimeshShapeData(L)) {
+	static int _bind_setTrimeshShapeData(lua_State *L) {
+		if (!_lg_typecheck_setTrimeshShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btScaledTriangleMeshShapeData::m_trimeshShapeData(btTriangleMeshShapeData value) function, expected prototype:\nvoid btScaledTriangleMeshShapeData::m_trimeshShapeData(btTriangleMeshShapeData value)\nClass arguments details:\narg 1 ID = 3729562\n");
 		}
@@ -155,8 +155,8 @@ public:
 	}
 
 	// void btScaledTriangleMeshShapeData::m_localScaling(btVector3FloatData value)
-	static int _bind_setM_localScaling(lua_State *L) {
-		if (!_lg_typecheck_setM_localScaling(L)) {
+	static int _bind_setLocalScaling(lua_State *L) {
+		if (!_lg_typecheck_setLocalScaling(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btScaledTriangleMeshShapeData::m_localScaling(btVector3FloatData value) function, expected prototype:\nvoid btScaledTriangleMeshShapeData::m_localScaling(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -198,10 +198,10 @@ const int LunaTraits< btScaledTriangleMeshShapeData >::hash = 52810247;
 const int LunaTraits< btScaledTriangleMeshShapeData >::uniqueIDs[] = {52810247,0};
 
 luna_RegType LunaTraits< btScaledTriangleMeshShapeData >::methods[] = {
-	{"getM_trimeshShapeData", &luna_wrapper_btScaledTriangleMeshShapeData::_bind_getM_trimeshShapeData},
-	{"getM_localScaling", &luna_wrapper_btScaledTriangleMeshShapeData::_bind_getM_localScaling},
-	{"setM_trimeshShapeData", &luna_wrapper_btScaledTriangleMeshShapeData::_bind_setM_trimeshShapeData},
-	{"setM_localScaling", &luna_wrapper_btScaledTriangleMeshShapeData::_bind_setM_localScaling},
+	{"getTrimeshShapeData", &luna_wrapper_btScaledTriangleMeshShapeData::_bind_getTrimeshShapeData},
+	{"getLocalScaling", &luna_wrapper_btScaledTriangleMeshShapeData::_bind_getLocalScaling},
+	{"setTrimeshShapeData", &luna_wrapper_btScaledTriangleMeshShapeData::_bind_setTrimeshShapeData},
+	{"setLocalScaling", &luna_wrapper_btScaledTriangleMeshShapeData::_bind_setLocalScaling},
 	{"dynCast", &luna_wrapper_btScaledTriangleMeshShapeData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btScaledTriangleMeshShapeData::_bind___eq},
 	{0,0}

@@ -56,13 +56,13 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_pad(lua_State *L) {
+	inline static bool _lg_typecheck_getPad(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_pad(lua_State *L) {
+	inline static bool _lg_typecheck_setPad(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -77,8 +77,8 @@ public:
 
 	// Function binds:
 	// char btCharIndexTripletData::m_pad()
-	static int _bind_getM_pad(lua_State *L) {
-		if (!_lg_typecheck_getM_pad(L)) {
+	static int _bind_getPad(lua_State *L) {
+		if (!_lg_typecheck_getPad(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in char btCharIndexTripletData::m_pad() function, expected prototype:\nchar btCharIndexTripletData::m_pad()\nClass arguments details:\n");
 		}
@@ -96,8 +96,8 @@ public:
 	}
 
 	// void btCharIndexTripletData::m_pad(char value)
-	static int _bind_setM_pad(lua_State *L) {
-		if (!_lg_typecheck_setM_pad(L)) {
+	static int _bind_setPad(lua_State *L) {
+		if (!_lg_typecheck_setPad(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCharIndexTripletData::m_pad(char value) function, expected prototype:\nvoid btCharIndexTripletData::m_pad(char value)\nClass arguments details:\n");
 		}
@@ -135,8 +135,8 @@ const int LunaTraits< btCharIndexTripletData >::hash = 66220201;
 const int LunaTraits< btCharIndexTripletData >::uniqueIDs[] = {66220201,0};
 
 luna_RegType LunaTraits< btCharIndexTripletData >::methods[] = {
-	{"getM_pad", &luna_wrapper_btCharIndexTripletData::_bind_getM_pad},
-	{"setM_pad", &luna_wrapper_btCharIndexTripletData::_bind_setM_pad},
+	{"getPad", &luna_wrapper_btCharIndexTripletData::_bind_getPad},
+	{"setPad", &luna_wrapper_btCharIndexTripletData::_bind_setPad},
 	{"dynCast", &luna_wrapper_btCharIndexTripletData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btCharIndexTripletData::_bind___eq},
 	{0,0}

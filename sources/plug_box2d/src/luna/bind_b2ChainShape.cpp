@@ -168,78 +168,78 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_vertices(lua_State *L) {
+	inline static bool _lg_typecheck_getVertices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_count(lua_State *L) {
+	inline static bool _lg_typecheck_getCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_prevVertex(lua_State *L) {
+	inline static bool _lg_typecheck_getPrevVertex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_nextVertex(lua_State *L) {
+	inline static bool _lg_typecheck_getNextVertex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hasPrevVertex(lua_State *L) {
+	inline static bool _lg_typecheck_getHasPrevVertex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hasNextVertex(lua_State *L) {
+	inline static bool _lg_typecheck_getHasNextVertex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_vertices(lua_State *L) {
+	inline static bool _lg_typecheck_setVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,54494886)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_count(lua_State *L) {
+	inline static bool _lg_typecheck_setCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_prevVertex(lua_State *L) {
+	inline static bool _lg_typecheck_setPrevVertex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54494886) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_nextVertex(lua_State *L) {
+	inline static bool _lg_typecheck_setNextVertex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54494886) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hasPrevVertex(lua_State *L) {
+	inline static bool _lg_typecheck_setHasPrevVertex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hasNextVertex(lua_State *L) {
+	inline static bool _lg_typecheck_setHasNextVertex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -585,8 +585,8 @@ public:
 	}
 
 	// b2Vec2 * b2ChainShape::m_vertices()
-	static int _bind_getM_vertices(lua_State *L) {
-		if (!_lg_typecheck_getM_vertices(L)) {
+	static int _bind_getVertices(lua_State *L) {
+		if (!_lg_typecheck_getVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Vec2 * b2ChainShape::m_vertices() function, expected prototype:\nb2Vec2 * b2ChainShape::m_vertices()\nClass arguments details:\n");
 		}
@@ -606,8 +606,8 @@ public:
 	}
 
 	// signed int b2ChainShape::m_count()
-	static int _bind_getM_count(lua_State *L) {
-		if (!_lg_typecheck_getM_count(L)) {
+	static int _bind_getCount(lua_State *L) {
+		if (!_lg_typecheck_getCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in signed int b2ChainShape::m_count() function, expected prototype:\nsigned int b2ChainShape::m_count()\nClass arguments details:\n");
 		}
@@ -625,8 +625,8 @@ public:
 	}
 
 	// b2Vec2 b2ChainShape::m_prevVertex()
-	static int _bind_getM_prevVertex(lua_State *L) {
-		if (!_lg_typecheck_getM_prevVertex(L)) {
+	static int _bind_getPrevVertex(lua_State *L) {
+		if (!_lg_typecheck_getPrevVertex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Vec2 b2ChainShape::m_prevVertex() function, expected prototype:\nb2Vec2 b2ChainShape::m_prevVertex()\nClass arguments details:\n");
 		}
@@ -646,8 +646,8 @@ public:
 	}
 
 	// b2Vec2 b2ChainShape::m_nextVertex()
-	static int _bind_getM_nextVertex(lua_State *L) {
-		if (!_lg_typecheck_getM_nextVertex(L)) {
+	static int _bind_getNextVertex(lua_State *L) {
+		if (!_lg_typecheck_getNextVertex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Vec2 b2ChainShape::m_nextVertex() function, expected prototype:\nb2Vec2 b2ChainShape::m_nextVertex()\nClass arguments details:\n");
 		}
@@ -667,8 +667,8 @@ public:
 	}
 
 	// bool b2ChainShape::m_hasPrevVertex()
-	static int _bind_getM_hasPrevVertex(lua_State *L) {
-		if (!_lg_typecheck_getM_hasPrevVertex(L)) {
+	static int _bind_getHasPrevVertex(lua_State *L) {
+		if (!_lg_typecheck_getHasPrevVertex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool b2ChainShape::m_hasPrevVertex() function, expected prototype:\nbool b2ChainShape::m_hasPrevVertex()\nClass arguments details:\n");
 		}
@@ -686,8 +686,8 @@ public:
 	}
 
 	// bool b2ChainShape::m_hasNextVertex()
-	static int _bind_getM_hasNextVertex(lua_State *L) {
-		if (!_lg_typecheck_getM_hasNextVertex(L)) {
+	static int _bind_getHasNextVertex(lua_State *L) {
+		if (!_lg_typecheck_getHasNextVertex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool b2ChainShape::m_hasNextVertex() function, expected prototype:\nbool b2ChainShape::m_hasNextVertex()\nClass arguments details:\n");
 		}
@@ -705,8 +705,8 @@ public:
 	}
 
 	// void b2ChainShape::m_vertices(b2Vec2 * value)
-	static int _bind_setM_vertices(lua_State *L) {
-		if (!_lg_typecheck_setM_vertices(L)) {
+	static int _bind_setVertices(lua_State *L) {
+		if (!_lg_typecheck_setVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ChainShape::m_vertices(b2Vec2 * value) function, expected prototype:\nvoid b2ChainShape::m_vertices(b2Vec2 * value)\nClass arguments details:\narg 1 ID = 54494886\n");
 		}
@@ -724,8 +724,8 @@ public:
 	}
 
 	// void b2ChainShape::m_count(signed int value)
-	static int _bind_setM_count(lua_State *L) {
-		if (!_lg_typecheck_setM_count(L)) {
+	static int _bind_setCount(lua_State *L) {
+		if (!_lg_typecheck_setCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ChainShape::m_count(signed int value) function, expected prototype:\nvoid b2ChainShape::m_count(signed int value)\nClass arguments details:\n");
 		}
@@ -743,8 +743,8 @@ public:
 	}
 
 	// void b2ChainShape::m_prevVertex(b2Vec2 value)
-	static int _bind_setM_prevVertex(lua_State *L) {
-		if (!_lg_typecheck_setM_prevVertex(L)) {
+	static int _bind_setPrevVertex(lua_State *L) {
+		if (!_lg_typecheck_setPrevVertex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ChainShape::m_prevVertex(b2Vec2 value) function, expected prototype:\nvoid b2ChainShape::m_prevVertex(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
 		}
@@ -766,8 +766,8 @@ public:
 	}
 
 	// void b2ChainShape::m_nextVertex(b2Vec2 value)
-	static int _bind_setM_nextVertex(lua_State *L) {
-		if (!_lg_typecheck_setM_nextVertex(L)) {
+	static int _bind_setNextVertex(lua_State *L) {
+		if (!_lg_typecheck_setNextVertex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ChainShape::m_nextVertex(b2Vec2 value) function, expected prototype:\nvoid b2ChainShape::m_nextVertex(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
 		}
@@ -789,8 +789,8 @@ public:
 	}
 
 	// void b2ChainShape::m_hasPrevVertex(bool value)
-	static int _bind_setM_hasPrevVertex(lua_State *L) {
-		if (!_lg_typecheck_setM_hasPrevVertex(L)) {
+	static int _bind_setHasPrevVertex(lua_State *L) {
+		if (!_lg_typecheck_setHasPrevVertex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ChainShape::m_hasPrevVertex(bool value) function, expected prototype:\nvoid b2ChainShape::m_hasPrevVertex(bool value)\nClass arguments details:\n");
 		}
@@ -808,8 +808,8 @@ public:
 	}
 
 	// void b2ChainShape::m_hasNextVertex(bool value)
-	static int _bind_setM_hasNextVertex(lua_State *L) {
-		if (!_lg_typecheck_setM_hasNextVertex(L)) {
+	static int _bind_setHasNextVertex(lua_State *L) {
+		if (!_lg_typecheck_setHasNextVertex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ChainShape::m_hasNextVertex(bool value) function, expected prototype:\nvoid b2ChainShape::m_hasNextVertex(bool value)\nClass arguments details:\n");
 		}
@@ -1004,18 +1004,18 @@ luna_RegType LunaTraits< b2ChainShape >::methods[] = {
 	{"RayCast", &luna_wrapper_b2ChainShape::_bind_RayCast},
 	{"ComputeAABB", &luna_wrapper_b2ChainShape::_bind_ComputeAABB},
 	{"ComputeMass", &luna_wrapper_b2ChainShape::_bind_ComputeMass},
-	{"getM_vertices", &luna_wrapper_b2ChainShape::_bind_getM_vertices},
-	{"getM_count", &luna_wrapper_b2ChainShape::_bind_getM_count},
-	{"getM_prevVertex", &luna_wrapper_b2ChainShape::_bind_getM_prevVertex},
-	{"getM_nextVertex", &luna_wrapper_b2ChainShape::_bind_getM_nextVertex},
-	{"getM_hasPrevVertex", &luna_wrapper_b2ChainShape::_bind_getM_hasPrevVertex},
-	{"getM_hasNextVertex", &luna_wrapper_b2ChainShape::_bind_getM_hasNextVertex},
-	{"setM_vertices", &luna_wrapper_b2ChainShape::_bind_setM_vertices},
-	{"setM_count", &luna_wrapper_b2ChainShape::_bind_setM_count},
-	{"setM_prevVertex", &luna_wrapper_b2ChainShape::_bind_setM_prevVertex},
-	{"setM_nextVertex", &luna_wrapper_b2ChainShape::_bind_setM_nextVertex},
-	{"setM_hasPrevVertex", &luna_wrapper_b2ChainShape::_bind_setM_hasPrevVertex},
-	{"setM_hasNextVertex", &luna_wrapper_b2ChainShape::_bind_setM_hasNextVertex},
+	{"getVertices", &luna_wrapper_b2ChainShape::_bind_getVertices},
+	{"getCount", &luna_wrapper_b2ChainShape::_bind_getCount},
+	{"getPrevVertex", &luna_wrapper_b2ChainShape::_bind_getPrevVertex},
+	{"getNextVertex", &luna_wrapper_b2ChainShape::_bind_getNextVertex},
+	{"getHasPrevVertex", &luna_wrapper_b2ChainShape::_bind_getHasPrevVertex},
+	{"getHasNextVertex", &luna_wrapper_b2ChainShape::_bind_getHasNextVertex},
+	{"setVertices", &luna_wrapper_b2ChainShape::_bind_setVertices},
+	{"setCount", &luna_wrapper_b2ChainShape::_bind_setCount},
+	{"setPrevVertex", &luna_wrapper_b2ChainShape::_bind_setPrevVertex},
+	{"setNextVertex", &luna_wrapper_b2ChainShape::_bind_setNextVertex},
+	{"setHasPrevVertex", &luna_wrapper_b2ChainShape::_bind_setHasPrevVertex},
+	{"setHasNextVertex", &luna_wrapper_b2ChainShape::_bind_setHasNextVertex},
 	{"base_Clone", &luna_wrapper_b2ChainShape::_bind_base_Clone},
 	{"base_GetChildCount", &luna_wrapper_b2ChainShape::_bind_base_GetChildCount},
 	{"base_TestPoint", &luna_wrapper_b2ChainShape::_bind_base_TestPoint},

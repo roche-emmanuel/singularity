@@ -101,91 +101,91 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_step(lua_State *L) {
+	inline static bool _lg_typecheck_getStep(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_positions(lua_State *L) {
+	inline static bool _lg_typecheck_getPositions(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_velocities(lua_State *L) {
+	inline static bool _lg_typecheck_getVelocities(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_allocator(lua_State *L) {
+	inline static bool _lg_typecheck_getAllocator(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_positionConstraints(lua_State *L) {
+	inline static bool _lg_typecheck_getPositionConstraints(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_velocityConstraints(lua_State *L) {
+	inline static bool _lg_typecheck_getVelocityConstraints(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_count(lua_State *L) {
+	inline static bool _lg_typecheck_getCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_step(lua_State *L) {
+	inline static bool _lg_typecheck_setStep(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,28832978) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_positions(lua_State *L) {
+	inline static bool _lg_typecheck_setPositions(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,79848895)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_velocities(lua_State *L) {
+	inline static bool _lg_typecheck_setVelocities(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,85114450)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_allocator(lua_State *L) {
+	inline static bool _lg_typecheck_setAllocator(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,83926873)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_positionConstraints(lua_State *L) {
+	inline static bool _lg_typecheck_setPositionConstraints(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,38983117)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_velocityConstraints(lua_State *L) {
+	inline static bool _lg_typecheck_setVelocityConstraints(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,22596938)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_count(lua_State *L) {
+	inline static bool _lg_typecheck_setCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -324,8 +324,8 @@ public:
 	}
 
 	// b2TimeStep b2ContactSolver::m_step()
-	static int _bind_getM_step(lua_State *L) {
-		if (!_lg_typecheck_getM_step(L)) {
+	static int _bind_getStep(lua_State *L) {
+		if (!_lg_typecheck_getStep(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2TimeStep b2ContactSolver::m_step() function, expected prototype:\nb2TimeStep b2ContactSolver::m_step()\nClass arguments details:\n");
 		}
@@ -345,8 +345,8 @@ public:
 	}
 
 	// b2Position * b2ContactSolver::m_positions()
-	static int _bind_getM_positions(lua_State *L) {
-		if (!_lg_typecheck_getM_positions(L)) {
+	static int _bind_getPositions(lua_State *L) {
+		if (!_lg_typecheck_getPositions(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Position * b2ContactSolver::m_positions() function, expected prototype:\nb2Position * b2ContactSolver::m_positions()\nClass arguments details:\n");
 		}
@@ -366,8 +366,8 @@ public:
 	}
 
 	// b2Velocity * b2ContactSolver::m_velocities()
-	static int _bind_getM_velocities(lua_State *L) {
-		if (!_lg_typecheck_getM_velocities(L)) {
+	static int _bind_getVelocities(lua_State *L) {
+		if (!_lg_typecheck_getVelocities(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Velocity * b2ContactSolver::m_velocities() function, expected prototype:\nb2Velocity * b2ContactSolver::m_velocities()\nClass arguments details:\n");
 		}
@@ -387,8 +387,8 @@ public:
 	}
 
 	// b2StackAllocator * b2ContactSolver::m_allocator()
-	static int _bind_getM_allocator(lua_State *L) {
-		if (!_lg_typecheck_getM_allocator(L)) {
+	static int _bind_getAllocator(lua_State *L) {
+		if (!_lg_typecheck_getAllocator(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2StackAllocator * b2ContactSolver::m_allocator() function, expected prototype:\nb2StackAllocator * b2ContactSolver::m_allocator()\nClass arguments details:\n");
 		}
@@ -408,8 +408,8 @@ public:
 	}
 
 	// b2ContactPositionConstraint * b2ContactSolver::m_positionConstraints()
-	static int _bind_getM_positionConstraints(lua_State *L) {
-		if (!_lg_typecheck_getM_positionConstraints(L)) {
+	static int _bind_getPositionConstraints(lua_State *L) {
+		if (!_lg_typecheck_getPositionConstraints(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2ContactPositionConstraint * b2ContactSolver::m_positionConstraints() function, expected prototype:\nb2ContactPositionConstraint * b2ContactSolver::m_positionConstraints()\nClass arguments details:\n");
 		}
@@ -429,8 +429,8 @@ public:
 	}
 
 	// b2ContactVelocityConstraint * b2ContactSolver::m_velocityConstraints()
-	static int _bind_getM_velocityConstraints(lua_State *L) {
-		if (!_lg_typecheck_getM_velocityConstraints(L)) {
+	static int _bind_getVelocityConstraints(lua_State *L) {
+		if (!_lg_typecheck_getVelocityConstraints(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2ContactVelocityConstraint * b2ContactSolver::m_velocityConstraints() function, expected prototype:\nb2ContactVelocityConstraint * b2ContactSolver::m_velocityConstraints()\nClass arguments details:\n");
 		}
@@ -450,8 +450,8 @@ public:
 	}
 
 	// int b2ContactSolver::m_count()
-	static int _bind_getM_count(lua_State *L) {
-		if (!_lg_typecheck_getM_count(L)) {
+	static int _bind_getCount(lua_State *L) {
+		if (!_lg_typecheck_getCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int b2ContactSolver::m_count() function, expected prototype:\nint b2ContactSolver::m_count()\nClass arguments details:\n");
 		}
@@ -469,8 +469,8 @@ public:
 	}
 
 	// void b2ContactSolver::m_step(b2TimeStep value)
-	static int _bind_setM_step(lua_State *L) {
-		if (!_lg_typecheck_setM_step(L)) {
+	static int _bind_setStep(lua_State *L) {
+		if (!_lg_typecheck_setStep(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_step(b2TimeStep value) function, expected prototype:\nvoid b2ContactSolver::m_step(b2TimeStep value)\nClass arguments details:\narg 1 ID = 28832978\n");
 		}
@@ -492,8 +492,8 @@ public:
 	}
 
 	// void b2ContactSolver::m_positions(b2Position * value)
-	static int _bind_setM_positions(lua_State *L) {
-		if (!_lg_typecheck_setM_positions(L)) {
+	static int _bind_setPositions(lua_State *L) {
+		if (!_lg_typecheck_setPositions(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_positions(b2Position * value) function, expected prototype:\nvoid b2ContactSolver::m_positions(b2Position * value)\nClass arguments details:\narg 1 ID = 79848895\n");
 		}
@@ -511,8 +511,8 @@ public:
 	}
 
 	// void b2ContactSolver::m_velocities(b2Velocity * value)
-	static int _bind_setM_velocities(lua_State *L) {
-		if (!_lg_typecheck_setM_velocities(L)) {
+	static int _bind_setVelocities(lua_State *L) {
+		if (!_lg_typecheck_setVelocities(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_velocities(b2Velocity * value) function, expected prototype:\nvoid b2ContactSolver::m_velocities(b2Velocity * value)\nClass arguments details:\narg 1 ID = 85114450\n");
 		}
@@ -530,8 +530,8 @@ public:
 	}
 
 	// void b2ContactSolver::m_allocator(b2StackAllocator * value)
-	static int _bind_setM_allocator(lua_State *L) {
-		if (!_lg_typecheck_setM_allocator(L)) {
+	static int _bind_setAllocator(lua_State *L) {
+		if (!_lg_typecheck_setAllocator(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_allocator(b2StackAllocator * value) function, expected prototype:\nvoid b2ContactSolver::m_allocator(b2StackAllocator * value)\nClass arguments details:\narg 1 ID = 83926873\n");
 		}
@@ -549,8 +549,8 @@ public:
 	}
 
 	// void b2ContactSolver::m_positionConstraints(b2ContactPositionConstraint * value)
-	static int _bind_setM_positionConstraints(lua_State *L) {
-		if (!_lg_typecheck_setM_positionConstraints(L)) {
+	static int _bind_setPositionConstraints(lua_State *L) {
+		if (!_lg_typecheck_setPositionConstraints(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_positionConstraints(b2ContactPositionConstraint * value) function, expected prototype:\nvoid b2ContactSolver::m_positionConstraints(b2ContactPositionConstraint * value)\nClass arguments details:\narg 1 ID = 38983117\n");
 		}
@@ -568,8 +568,8 @@ public:
 	}
 
 	// void b2ContactSolver::m_velocityConstraints(b2ContactVelocityConstraint * value)
-	static int _bind_setM_velocityConstraints(lua_State *L) {
-		if (!_lg_typecheck_setM_velocityConstraints(L)) {
+	static int _bind_setVelocityConstraints(lua_State *L) {
+		if (!_lg_typecheck_setVelocityConstraints(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_velocityConstraints(b2ContactVelocityConstraint * value) function, expected prototype:\nvoid b2ContactSolver::m_velocityConstraints(b2ContactVelocityConstraint * value)\nClass arguments details:\narg 1 ID = 22596938\n");
 		}
@@ -587,8 +587,8 @@ public:
 	}
 
 	// void b2ContactSolver::m_count(int value)
-	static int _bind_setM_count(lua_State *L) {
-		if (!_lg_typecheck_setM_count(L)) {
+	static int _bind_setCount(lua_State *L) {
+		if (!_lg_typecheck_setCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_count(int value) function, expected prototype:\nvoid b2ContactSolver::m_count(int value)\nClass arguments details:\n");
 		}
@@ -632,20 +632,20 @@ luna_RegType LunaTraits< b2ContactSolver >::methods[] = {
 	{"StoreImpulses", &luna_wrapper_b2ContactSolver::_bind_StoreImpulses},
 	{"SolvePositionConstraints", &luna_wrapper_b2ContactSolver::_bind_SolvePositionConstraints},
 	{"SolveTOIPositionConstraints", &luna_wrapper_b2ContactSolver::_bind_SolveTOIPositionConstraints},
-	{"getM_step", &luna_wrapper_b2ContactSolver::_bind_getM_step},
-	{"getM_positions", &luna_wrapper_b2ContactSolver::_bind_getM_positions},
-	{"getM_velocities", &luna_wrapper_b2ContactSolver::_bind_getM_velocities},
-	{"getM_allocator", &luna_wrapper_b2ContactSolver::_bind_getM_allocator},
-	{"getM_positionConstraints", &luna_wrapper_b2ContactSolver::_bind_getM_positionConstraints},
-	{"getM_velocityConstraints", &luna_wrapper_b2ContactSolver::_bind_getM_velocityConstraints},
-	{"getM_count", &luna_wrapper_b2ContactSolver::_bind_getM_count},
-	{"setM_step", &luna_wrapper_b2ContactSolver::_bind_setM_step},
-	{"setM_positions", &luna_wrapper_b2ContactSolver::_bind_setM_positions},
-	{"setM_velocities", &luna_wrapper_b2ContactSolver::_bind_setM_velocities},
-	{"setM_allocator", &luna_wrapper_b2ContactSolver::_bind_setM_allocator},
-	{"setM_positionConstraints", &luna_wrapper_b2ContactSolver::_bind_setM_positionConstraints},
-	{"setM_velocityConstraints", &luna_wrapper_b2ContactSolver::_bind_setM_velocityConstraints},
-	{"setM_count", &luna_wrapper_b2ContactSolver::_bind_setM_count},
+	{"getStep", &luna_wrapper_b2ContactSolver::_bind_getStep},
+	{"getPositions", &luna_wrapper_b2ContactSolver::_bind_getPositions},
+	{"getVelocities", &luna_wrapper_b2ContactSolver::_bind_getVelocities},
+	{"getAllocator", &luna_wrapper_b2ContactSolver::_bind_getAllocator},
+	{"getPositionConstraints", &luna_wrapper_b2ContactSolver::_bind_getPositionConstraints},
+	{"getVelocityConstraints", &luna_wrapper_b2ContactSolver::_bind_getVelocityConstraints},
+	{"getCount", &luna_wrapper_b2ContactSolver::_bind_getCount},
+	{"setStep", &luna_wrapper_b2ContactSolver::_bind_setStep},
+	{"setPositions", &luna_wrapper_b2ContactSolver::_bind_setPositions},
+	{"setVelocities", &luna_wrapper_b2ContactSolver::_bind_setVelocities},
+	{"setAllocator", &luna_wrapper_b2ContactSolver::_bind_setAllocator},
+	{"setPositionConstraints", &luna_wrapper_b2ContactSolver::_bind_setPositionConstraints},
+	{"setVelocityConstraints", &luna_wrapper_b2ContactSolver::_bind_setVelocityConstraints},
+	{"setCount", &luna_wrapper_b2ContactSolver::_bind_setCount},
 	{"dynCast", &luna_wrapper_b2ContactSolver::_bind_dynCast},
 	{"__eq", &luna_wrapper_b2ContactSolver::_bind___eq},
 	{0,0}

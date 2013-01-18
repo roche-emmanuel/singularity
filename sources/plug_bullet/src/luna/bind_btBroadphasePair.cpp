@@ -80,65 +80,65 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_pProxy0(lua_State *L) {
+	inline static bool _lg_typecheck_getPProxy0(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_pProxy1(lua_State *L) {
+	inline static bool _lg_typecheck_getPProxy1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_algorithm(lua_State *L) {
+	inline static bool _lg_typecheck_getAlgorithm(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_internalInfo1(lua_State *L) {
+	inline static bool _lg_typecheck_getInternalInfo1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_internalTmpValue(lua_State *L) {
+	inline static bool _lg_typecheck_getInternalTmpValue(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_pProxy0(lua_State *L) {
+	inline static bool _lg_typecheck_setPProxy0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,44086089)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_pProxy1(lua_State *L) {
+	inline static bool _lg_typecheck_setPProxy1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,44086089)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_algorithm(lua_State *L) {
+	inline static bool _lg_typecheck_setAlgorithm(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,17890858)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_internalInfo1(lua_State *L) {
+	inline static bool _lg_typecheck_setInternalInfo1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_internalTmpValue(lua_State *L) {
+	inline static bool _lg_typecheck_setInternalTmpValue(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -211,8 +211,8 @@ public:
 
 	// Function binds:
 	// btBroadphaseProxy * btBroadphasePair::m_pProxy0()
-	static int _bind_getM_pProxy0(lua_State *L) {
-		if (!_lg_typecheck_getM_pProxy0(L)) {
+	static int _bind_getPProxy0(lua_State *L) {
+		if (!_lg_typecheck_getPProxy0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btBroadphaseProxy * btBroadphasePair::m_pProxy0() function, expected prototype:\nbtBroadphaseProxy * btBroadphasePair::m_pProxy0()\nClass arguments details:\n");
 		}
@@ -232,8 +232,8 @@ public:
 	}
 
 	// btBroadphaseProxy * btBroadphasePair::m_pProxy1()
-	static int _bind_getM_pProxy1(lua_State *L) {
-		if (!_lg_typecheck_getM_pProxy1(L)) {
+	static int _bind_getPProxy1(lua_State *L) {
+		if (!_lg_typecheck_getPProxy1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btBroadphaseProxy * btBroadphasePair::m_pProxy1() function, expected prototype:\nbtBroadphaseProxy * btBroadphasePair::m_pProxy1()\nClass arguments details:\n");
 		}
@@ -253,8 +253,8 @@ public:
 	}
 
 	// btCollisionAlgorithm * btBroadphasePair::m_algorithm()
-	static int _bind_getM_algorithm(lua_State *L) {
-		if (!_lg_typecheck_getM_algorithm(L)) {
+	static int _bind_getAlgorithm(lua_State *L) {
+		if (!_lg_typecheck_getAlgorithm(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btCollisionAlgorithm * btBroadphasePair::m_algorithm() function, expected prototype:\nbtCollisionAlgorithm * btBroadphasePair::m_algorithm()\nClass arguments details:\n");
 		}
@@ -274,8 +274,8 @@ public:
 	}
 
 	// void * btBroadphasePair::m_internalInfo1()
-	static int _bind_getM_internalInfo1(lua_State *L) {
-		if (!_lg_typecheck_getM_internalInfo1(L)) {
+	static int _bind_getInternalInfo1(lua_State *L) {
+		if (!_lg_typecheck_getInternalInfo1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void * btBroadphasePair::m_internalInfo1() function, expected prototype:\nvoid * btBroadphasePair::m_internalInfo1()\nClass arguments details:\n");
 		}
@@ -295,8 +295,8 @@ public:
 	}
 
 	// int btBroadphasePair::m_internalTmpValue()
-	static int _bind_getM_internalTmpValue(lua_State *L) {
-		if (!_lg_typecheck_getM_internalTmpValue(L)) {
+	static int _bind_getInternalTmpValue(lua_State *L) {
+		if (!_lg_typecheck_getInternalTmpValue(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btBroadphasePair::m_internalTmpValue() function, expected prototype:\nint btBroadphasePair::m_internalTmpValue()\nClass arguments details:\n");
 		}
@@ -314,8 +314,8 @@ public:
 	}
 
 	// void btBroadphasePair::m_pProxy0(btBroadphaseProxy * value)
-	static int _bind_setM_pProxy0(lua_State *L) {
-		if (!_lg_typecheck_setM_pProxy0(L)) {
+	static int _bind_setPProxy0(lua_State *L) {
+		if (!_lg_typecheck_setPProxy0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBroadphasePair::m_pProxy0(btBroadphaseProxy * value) function, expected prototype:\nvoid btBroadphasePair::m_pProxy0(btBroadphaseProxy * value)\nClass arguments details:\narg 1 ID = 44086089\n");
 		}
@@ -333,8 +333,8 @@ public:
 	}
 
 	// void btBroadphasePair::m_pProxy1(btBroadphaseProxy * value)
-	static int _bind_setM_pProxy1(lua_State *L) {
-		if (!_lg_typecheck_setM_pProxy1(L)) {
+	static int _bind_setPProxy1(lua_State *L) {
+		if (!_lg_typecheck_setPProxy1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBroadphasePair::m_pProxy1(btBroadphaseProxy * value) function, expected prototype:\nvoid btBroadphasePair::m_pProxy1(btBroadphaseProxy * value)\nClass arguments details:\narg 1 ID = 44086089\n");
 		}
@@ -352,8 +352,8 @@ public:
 	}
 
 	// void btBroadphasePair::m_algorithm(btCollisionAlgorithm * value)
-	static int _bind_setM_algorithm(lua_State *L) {
-		if (!_lg_typecheck_setM_algorithm(L)) {
+	static int _bind_setAlgorithm(lua_State *L) {
+		if (!_lg_typecheck_setAlgorithm(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBroadphasePair::m_algorithm(btCollisionAlgorithm * value) function, expected prototype:\nvoid btBroadphasePair::m_algorithm(btCollisionAlgorithm * value)\nClass arguments details:\narg 1 ID = 17890858\n");
 		}
@@ -371,8 +371,8 @@ public:
 	}
 
 	// void btBroadphasePair::m_internalInfo1(void * value)
-	static int _bind_setM_internalInfo1(lua_State *L) {
-		if (!_lg_typecheck_setM_internalInfo1(L)) {
+	static int _bind_setInternalInfo1(lua_State *L) {
+		if (!_lg_typecheck_setInternalInfo1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBroadphasePair::m_internalInfo1(void * value) function, expected prototype:\nvoid btBroadphasePair::m_internalInfo1(void * value)\nClass arguments details:\n");
 		}
@@ -390,8 +390,8 @@ public:
 	}
 
 	// void btBroadphasePair::m_internalTmpValue(int value)
-	static int _bind_setM_internalTmpValue(lua_State *L) {
-		if (!_lg_typecheck_setM_internalTmpValue(L)) {
+	static int _bind_setInternalTmpValue(lua_State *L) {
+		if (!_lg_typecheck_setInternalTmpValue(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBroadphasePair::m_internalTmpValue(int value) function, expected prototype:\nvoid btBroadphasePair::m_internalTmpValue(int value)\nClass arguments details:\n");
 		}
@@ -429,16 +429,16 @@ const int LunaTraits< btBroadphasePair >::hash = 82050774;
 const int LunaTraits< btBroadphasePair >::uniqueIDs[] = {82050774,0};
 
 luna_RegType LunaTraits< btBroadphasePair >::methods[] = {
-	{"getM_pProxy0", &luna_wrapper_btBroadphasePair::_bind_getM_pProxy0},
-	{"getM_pProxy1", &luna_wrapper_btBroadphasePair::_bind_getM_pProxy1},
-	{"getM_algorithm", &luna_wrapper_btBroadphasePair::_bind_getM_algorithm},
-	{"getM_internalInfo1", &luna_wrapper_btBroadphasePair::_bind_getM_internalInfo1},
-	{"getM_internalTmpValue", &luna_wrapper_btBroadphasePair::_bind_getM_internalTmpValue},
-	{"setM_pProxy0", &luna_wrapper_btBroadphasePair::_bind_setM_pProxy0},
-	{"setM_pProxy1", &luna_wrapper_btBroadphasePair::_bind_setM_pProxy1},
-	{"setM_algorithm", &luna_wrapper_btBroadphasePair::_bind_setM_algorithm},
-	{"setM_internalInfo1", &luna_wrapper_btBroadphasePair::_bind_setM_internalInfo1},
-	{"setM_internalTmpValue", &luna_wrapper_btBroadphasePair::_bind_setM_internalTmpValue},
+	{"getPProxy0", &luna_wrapper_btBroadphasePair::_bind_getPProxy0},
+	{"getPProxy1", &luna_wrapper_btBroadphasePair::_bind_getPProxy1},
+	{"getAlgorithm", &luna_wrapper_btBroadphasePair::_bind_getAlgorithm},
+	{"getInternalInfo1", &luna_wrapper_btBroadphasePair::_bind_getInternalInfo1},
+	{"getInternalTmpValue", &luna_wrapper_btBroadphasePair::_bind_getInternalTmpValue},
+	{"setPProxy0", &luna_wrapper_btBroadphasePair::_bind_setPProxy0},
+	{"setPProxy1", &luna_wrapper_btBroadphasePair::_bind_setPProxy1},
+	{"setAlgorithm", &luna_wrapper_btBroadphasePair::_bind_setAlgorithm},
+	{"setInternalInfo1", &luna_wrapper_btBroadphasePair::_bind_setInternalInfo1},
+	{"setInternalTmpValue", &luna_wrapper_btBroadphasePair::_bind_setInternalTmpValue},
 	{"dynCast", &luna_wrapper_btBroadphasePair::_bind_dynCast},
 	{"__eq", &luna_wrapper_btBroadphasePair::_bind___eq},
 	{0,0}

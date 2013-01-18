@@ -97,32 +97,32 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_vertices(lua_State *L) {
+	inline static bool _lg_typecheck_getVertices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_count(lua_State *L) {
+	inline static bool _lg_typecheck_getCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_radius(lua_State *L) {
+	inline static bool _lg_typecheck_getRadius(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_count(lua_State *L) {
+	inline static bool _lg_typecheck_setCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_radius(lua_State *L) {
+	inline static bool _lg_typecheck_setRadius(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -259,8 +259,8 @@ public:
 	}
 
 	// const b2Vec2 * b2DistanceProxy::m_vertices()
-	static int _bind_getM_vertices(lua_State *L) {
-		if (!_lg_typecheck_getM_vertices(L)) {
+	static int _bind_getVertices(lua_State *L) {
+		if (!_lg_typecheck_getVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const b2Vec2 * b2DistanceProxy::m_vertices() function, expected prototype:\nconst b2Vec2 * b2DistanceProxy::m_vertices()\nClass arguments details:\n");
 		}
@@ -280,8 +280,8 @@ public:
 	}
 
 	// signed int b2DistanceProxy::m_count()
-	static int _bind_getM_count(lua_State *L) {
-		if (!_lg_typecheck_getM_count(L)) {
+	static int _bind_getCount(lua_State *L) {
+		if (!_lg_typecheck_getCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in signed int b2DistanceProxy::m_count() function, expected prototype:\nsigned int b2DistanceProxy::m_count()\nClass arguments details:\n");
 		}
@@ -299,8 +299,8 @@ public:
 	}
 
 	// float b2DistanceProxy::m_radius()
-	static int _bind_getM_radius(lua_State *L) {
-		if (!_lg_typecheck_getM_radius(L)) {
+	static int _bind_getRadius(lua_State *L) {
+		if (!_lg_typecheck_getRadius(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float b2DistanceProxy::m_radius() function, expected prototype:\nfloat b2DistanceProxy::m_radius()\nClass arguments details:\n");
 		}
@@ -318,8 +318,8 @@ public:
 	}
 
 	// void b2DistanceProxy::m_count(signed int value)
-	static int _bind_setM_count(lua_State *L) {
-		if (!_lg_typecheck_setM_count(L)) {
+	static int _bind_setCount(lua_State *L) {
+		if (!_lg_typecheck_setCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2DistanceProxy::m_count(signed int value) function, expected prototype:\nvoid b2DistanceProxy::m_count(signed int value)\nClass arguments details:\n");
 		}
@@ -337,8 +337,8 @@ public:
 	}
 
 	// void b2DistanceProxy::m_radius(float value)
-	static int _bind_setM_radius(lua_State *L) {
-		if (!_lg_typecheck_setM_radius(L)) {
+	static int _bind_setRadius(lua_State *L) {
+		if (!_lg_typecheck_setRadius(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2DistanceProxy::m_radius(float value) function, expected prototype:\nvoid b2DistanceProxy::m_radius(float value)\nClass arguments details:\n");
 		}
@@ -381,11 +381,11 @@ luna_RegType LunaTraits< b2DistanceProxy >::methods[] = {
 	{"GetSupportVertex", &luna_wrapper_b2DistanceProxy::_bind_GetSupportVertex},
 	{"GetVertexCount", &luna_wrapper_b2DistanceProxy::_bind_GetVertexCount},
 	{"GetVertex", &luna_wrapper_b2DistanceProxy::_bind_GetVertex},
-	{"getM_vertices", &luna_wrapper_b2DistanceProxy::_bind_getM_vertices},
-	{"getM_count", &luna_wrapper_b2DistanceProxy::_bind_getM_count},
-	{"getM_radius", &luna_wrapper_b2DistanceProxy::_bind_getM_radius},
-	{"setM_count", &luna_wrapper_b2DistanceProxy::_bind_setM_count},
-	{"setM_radius", &luna_wrapper_b2DistanceProxy::_bind_setM_radius},
+	{"getVertices", &luna_wrapper_b2DistanceProxy::_bind_getVertices},
+	{"getCount", &luna_wrapper_b2DistanceProxy::_bind_getCount},
+	{"getRadius", &luna_wrapper_b2DistanceProxy::_bind_getRadius},
+	{"setCount", &luna_wrapper_b2DistanceProxy::_bind_setCount},
+	{"setRadius", &luna_wrapper_b2DistanceProxy::_bind_setRadius},
 	{"dynCast", &luna_wrapper_b2DistanceProxy::_bind_dynCast},
 	{"__eq", &luna_wrapper_b2DistanceProxy::_bind___eq},
 	{0,0}

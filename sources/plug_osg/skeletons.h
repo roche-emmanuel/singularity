@@ -241,10 +241,10 @@ public:
 class Traits: public osg::Referenced, public osg::GraphicsContext::ScreenIdentifier {
 };
 
-class Triangle: public osg::Referenced {
+class Triangle {
 };
 
-class Triangle {
+class Triangle: public osg::Referenced {
 };
 
 class UniformBlockInfo {
@@ -260,10 +260,10 @@ public:
 
 };
 
-class UpdateCallback: public osg::StateAttributeCallback {
+class UpdateCallback: public osg::Object {
 };
 
-class UpdateCallback: public osg::Object {
+class UpdateCallback: public osg::StateAttributeCallback {
 };
 
 class UpdateSlaveCallback: public osg::Referenced {
@@ -1735,6 +1735,9 @@ namespace osg {
 	};
 
 	class ref_ptr< osg::PrimitiveSet > {
+	};
+
+	class ref_ptr< osg::AnimationPath > {
 	};
 
 	class Vec2Array: public osg::Array {

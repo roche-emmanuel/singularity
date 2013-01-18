@@ -51,6 +51,9 @@ class osg::ref_ptr<osg::Image> {
 class osg::ref_ptr<osg::PrimitiveSet> {
 };
 
+class osg::ref_ptr<osg::AnimationPath> {
+};
+
 namespace osg {
 
 

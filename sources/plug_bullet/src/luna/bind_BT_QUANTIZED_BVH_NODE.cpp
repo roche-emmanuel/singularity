@@ -102,13 +102,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_escapeIndexOrDataIndex(lua_State *L) {
+	inline static bool _lg_typecheck_getEscapeIndexOrDataIndex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_escapeIndexOrDataIndex(lua_State *L) {
+	inline static bool _lg_typecheck_setEscapeIndexOrDataIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -250,8 +250,8 @@ public:
 	}
 
 	// int BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex()
-	static int _bind_getM_escapeIndexOrDataIndex(lua_State *L) {
-		if (!_lg_typecheck_getM_escapeIndexOrDataIndex(L)) {
+	static int _bind_getEscapeIndexOrDataIndex(lua_State *L) {
+		if (!_lg_typecheck_getEscapeIndexOrDataIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex() function, expected prototype:\nint BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex()\nClass arguments details:\n");
 		}
@@ -269,8 +269,8 @@ public:
 	}
 
 	// void BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex(int value)
-	static int _bind_setM_escapeIndexOrDataIndex(lua_State *L) {
-		if (!_lg_typecheck_setM_escapeIndexOrDataIndex(L)) {
+	static int _bind_setEscapeIndexOrDataIndex(lua_State *L) {
+		if (!_lg_typecheck_setEscapeIndexOrDataIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex(int value) function, expected prototype:\nvoid BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex(int value)\nClass arguments details:\n");
 		}
@@ -314,8 +314,8 @@ luna_RegType LunaTraits< BT_QUANTIZED_BVH_NODE >::methods[] = {
 	{"getDataIndex", &luna_wrapper_BT_QUANTIZED_BVH_NODE::_bind_getDataIndex},
 	{"setDataIndex", &luna_wrapper_BT_QUANTIZED_BVH_NODE::_bind_setDataIndex},
 	{"testQuantizedBoxOverlapp", &luna_wrapper_BT_QUANTIZED_BVH_NODE::_bind_testQuantizedBoxOverlapp},
-	{"getM_escapeIndexOrDataIndex", &luna_wrapper_BT_QUANTIZED_BVH_NODE::_bind_getM_escapeIndexOrDataIndex},
-	{"setM_escapeIndexOrDataIndex", &luna_wrapper_BT_QUANTIZED_BVH_NODE::_bind_setM_escapeIndexOrDataIndex},
+	{"getEscapeIndexOrDataIndex", &luna_wrapper_BT_QUANTIZED_BVH_NODE::_bind_getEscapeIndexOrDataIndex},
+	{"setEscapeIndexOrDataIndex", &luna_wrapper_BT_QUANTIZED_BVH_NODE::_bind_setEscapeIndexOrDataIndex},
 	{"dynCast", &luna_wrapper_BT_QUANTIZED_BVH_NODE::_bind_dynCast},
 	{"__eq", &luna_wrapper_BT_QUANTIZED_BVH_NODE::_bind___eq},
 	{0,0}

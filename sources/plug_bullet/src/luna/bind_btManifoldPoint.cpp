@@ -112,325 +112,301 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_localPointA(lua_State *L) {
+	inline static bool _lg_typecheck_getLocalPointA(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_localPointB(lua_State *L) {
+	inline static bool _lg_typecheck_getLocalPointB(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_positionWorldOnB(lua_State *L) {
+	inline static bool _lg_typecheck_getNormalWorldOnB(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_positionWorldOnA(lua_State *L) {
+	inline static bool _lg_typecheck_getDistance1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_normalWorldOnB(lua_State *L) {
+	inline static bool _lg_typecheck_getCombinedFriction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_distance1(lua_State *L) {
+	inline static bool _lg_typecheck_getCombinedRollingFriction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_combinedFriction(lua_State *L) {
+	inline static bool _lg_typecheck_getCombinedRestitution(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_combinedRollingFriction(lua_State *L) {
+	inline static bool _lg_typecheck_getPartId0(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_combinedRestitution(lua_State *L) {
+	inline static bool _lg_typecheck_getPartId1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_partId0(lua_State *L) {
+	inline static bool _lg_typecheck_getIndex0(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_partId1(lua_State *L) {
+	inline static bool _lg_typecheck_getIndex1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_index0(lua_State *L) {
+	inline static bool _lg_typecheck_getUserPersistentData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_index1(lua_State *L) {
+	inline static bool _lg_typecheck_getLateralFrictionInitialized(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_userPersistentData(lua_State *L) {
+	inline static bool _lg_typecheck_getAppliedImpulseLateral1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_lateralFrictionInitialized(lua_State *L) {
+	inline static bool _lg_typecheck_getAppliedImpulseLateral2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_appliedImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_getContactMotion1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_appliedImpulseLateral1(lua_State *L) {
+	inline static bool _lg_typecheck_getContactMotion2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_appliedImpulseLateral2(lua_State *L) {
+	inline static bool _lg_typecheck_getContactCFM1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contactMotion1(lua_State *L) {
+	inline static bool _lg_typecheck_getContactCFM2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contactMotion2(lua_State *L) {
+	inline static bool _lg_typecheck_getLateralFrictionDir1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contactCFM1(lua_State *L) {
+	inline static bool _lg_typecheck_getLateralFrictionDir2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contactCFM2(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getM_lifeTime(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getM_lateralFrictionDir1(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getM_lateralFrictionDir2(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_setM_localPointA(lua_State *L) {
+	inline static bool _lg_typecheck_setLocalPointA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_localPointB(lua_State *L) {
+	inline static bool _lg_typecheck_setLocalPointB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_positionWorldOnB(lua_State *L) {
+	inline static bool _lg_typecheck_setPositionWorldOnB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_positionWorldOnA(lua_State *L) {
+	inline static bool _lg_typecheck_setPositionWorldOnA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_normalWorldOnB(lua_State *L) {
+	inline static bool _lg_typecheck_setNormalWorldOnB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_distance1(lua_State *L) {
+	inline static bool _lg_typecheck_setDistance1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_combinedFriction(lua_State *L) {
+	inline static bool _lg_typecheck_setCombinedFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_combinedRollingFriction(lua_State *L) {
+	inline static bool _lg_typecheck_setCombinedRollingFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_combinedRestitution(lua_State *L) {
+	inline static bool _lg_typecheck_setCombinedRestitution(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_partId0(lua_State *L) {
+	inline static bool _lg_typecheck_setPartId0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_partId1(lua_State *L) {
+	inline static bool _lg_typecheck_setPartId1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_index0(lua_State *L) {
+	inline static bool _lg_typecheck_setIndex0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_index1(lua_State *L) {
+	inline static bool _lg_typecheck_setIndex1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_userPersistentData(lua_State *L) {
+	inline static bool _lg_typecheck_setUserPersistentData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_lateralFrictionInitialized(lua_State *L) {
+	inline static bool _lg_typecheck_setLateralFrictionInitialized(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_appliedImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_setAppliedImpulse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_appliedImpulseLateral1(lua_State *L) {
+	inline static bool _lg_typecheck_setAppliedImpulseLateral1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_appliedImpulseLateral2(lua_State *L) {
+	inline static bool _lg_typecheck_setAppliedImpulseLateral2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactMotion1(lua_State *L) {
+	inline static bool _lg_typecheck_setContactMotion1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactMotion2(lua_State *L) {
+	inline static bool _lg_typecheck_setContactMotion2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactCFM1(lua_State *L) {
+	inline static bool _lg_typecheck_setContactCFM1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactCFM2(lua_State *L) {
+	inline static bool _lg_typecheck_setContactCFM2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_lifeTime(lua_State *L) {
+	inline static bool _lg_typecheck_setLifeTime(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_lateralFrictionDir1(lua_State *L) {
+	inline static bool _lg_typecheck_setLateralFrictionDir1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_lateralFrictionDir2(lua_State *L) {
+	inline static bool _lg_typecheck_setLateralFrictionDir2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
@@ -610,8 +586,8 @@ public:
 	}
 
 	// btVector3 btManifoldPoint::m_localPointA()
-	static int _bind_getM_localPointA(lua_State *L) {
-		if (!_lg_typecheck_getM_localPointA(L)) {
+	static int _bind_getLocalPointA(lua_State *L) {
+		if (!_lg_typecheck_getLocalPointA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_localPointA() function, expected prototype:\nbtVector3 btManifoldPoint::m_localPointA()\nClass arguments details:\n");
 		}
@@ -631,8 +607,8 @@ public:
 	}
 
 	// btVector3 btManifoldPoint::m_localPointB()
-	static int _bind_getM_localPointB(lua_State *L) {
-		if (!_lg_typecheck_getM_localPointB(L)) {
+	static int _bind_getLocalPointB(lua_State *L) {
+		if (!_lg_typecheck_getLocalPointB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_localPointB() function, expected prototype:\nbtVector3 btManifoldPoint::m_localPointB()\nClass arguments details:\n");
 		}
@@ -651,51 +627,9 @@ public:
 		return 1;
 	}
 
-	// btVector3 btManifoldPoint::m_positionWorldOnB()
-	static int _bind_getM_positionWorldOnB(lua_State *L) {
-		if (!_lg_typecheck_getM_positionWorldOnB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_positionWorldOnB() function, expected prototype:\nbtVector3 btManifoldPoint::m_positionWorldOnB()\nClass arguments details:\n");
-		}
-
-
-		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btManifoldPoint::m_positionWorldOnB(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
-		}
-		const btVector3* lret = &self->m_positionWorldOnB;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< btVector3 >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// btVector3 btManifoldPoint::m_positionWorldOnA()
-	static int _bind_getM_positionWorldOnA(lua_State *L) {
-		if (!_lg_typecheck_getM_positionWorldOnA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_positionWorldOnA() function, expected prototype:\nbtVector3 btManifoldPoint::m_positionWorldOnA()\nClass arguments details:\n");
-		}
-
-
-		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btManifoldPoint::m_positionWorldOnA(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
-		}
-		const btVector3* lret = &self->m_positionWorldOnA;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< btVector3 >::push(L,lret,false);
-
-		return 1;
-	}
-
 	// btVector3 btManifoldPoint::m_normalWorldOnB()
-	static int _bind_getM_normalWorldOnB(lua_State *L) {
-		if (!_lg_typecheck_getM_normalWorldOnB(L)) {
+	static int _bind_getNormalWorldOnB(lua_State *L) {
+		if (!_lg_typecheck_getNormalWorldOnB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_normalWorldOnB() function, expected prototype:\nbtVector3 btManifoldPoint::m_normalWorldOnB()\nClass arguments details:\n");
 		}
@@ -715,8 +649,8 @@ public:
 	}
 
 	// float btManifoldPoint::m_distance1()
-	static int _bind_getM_distance1(lua_State *L) {
-		if (!_lg_typecheck_getM_distance1(L)) {
+	static int _bind_getDistance1(lua_State *L) {
+		if (!_lg_typecheck_getDistance1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_distance1() function, expected prototype:\nfloat btManifoldPoint::m_distance1()\nClass arguments details:\n");
 		}
@@ -734,8 +668,8 @@ public:
 	}
 
 	// float btManifoldPoint::m_combinedFriction()
-	static int _bind_getM_combinedFriction(lua_State *L) {
-		if (!_lg_typecheck_getM_combinedFriction(L)) {
+	static int _bind_getCombinedFriction(lua_State *L) {
+		if (!_lg_typecheck_getCombinedFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_combinedFriction() function, expected prototype:\nfloat btManifoldPoint::m_combinedFriction()\nClass arguments details:\n");
 		}
@@ -753,8 +687,8 @@ public:
 	}
 
 	// float btManifoldPoint::m_combinedRollingFriction()
-	static int _bind_getM_combinedRollingFriction(lua_State *L) {
-		if (!_lg_typecheck_getM_combinedRollingFriction(L)) {
+	static int _bind_getCombinedRollingFriction(lua_State *L) {
+		if (!_lg_typecheck_getCombinedRollingFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_combinedRollingFriction() function, expected prototype:\nfloat btManifoldPoint::m_combinedRollingFriction()\nClass arguments details:\n");
 		}
@@ -772,8 +706,8 @@ public:
 	}
 
 	// float btManifoldPoint::m_combinedRestitution()
-	static int _bind_getM_combinedRestitution(lua_State *L) {
-		if (!_lg_typecheck_getM_combinedRestitution(L)) {
+	static int _bind_getCombinedRestitution(lua_State *L) {
+		if (!_lg_typecheck_getCombinedRestitution(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_combinedRestitution() function, expected prototype:\nfloat btManifoldPoint::m_combinedRestitution()\nClass arguments details:\n");
 		}
@@ -791,8 +725,8 @@ public:
 	}
 
 	// int btManifoldPoint::m_partId0()
-	static int _bind_getM_partId0(lua_State *L) {
-		if (!_lg_typecheck_getM_partId0(L)) {
+	static int _bind_getPartId0(lua_State *L) {
+		if (!_lg_typecheck_getPartId0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btManifoldPoint::m_partId0() function, expected prototype:\nint btManifoldPoint::m_partId0()\nClass arguments details:\n");
 		}
@@ -810,8 +744,8 @@ public:
 	}
 
 	// int btManifoldPoint::m_partId1()
-	static int _bind_getM_partId1(lua_State *L) {
-		if (!_lg_typecheck_getM_partId1(L)) {
+	static int _bind_getPartId1(lua_State *L) {
+		if (!_lg_typecheck_getPartId1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btManifoldPoint::m_partId1() function, expected prototype:\nint btManifoldPoint::m_partId1()\nClass arguments details:\n");
 		}
@@ -829,8 +763,8 @@ public:
 	}
 
 	// int btManifoldPoint::m_index0()
-	static int _bind_getM_index0(lua_State *L) {
-		if (!_lg_typecheck_getM_index0(L)) {
+	static int _bind_getIndex0(lua_State *L) {
+		if (!_lg_typecheck_getIndex0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btManifoldPoint::m_index0() function, expected prototype:\nint btManifoldPoint::m_index0()\nClass arguments details:\n");
 		}
@@ -848,8 +782,8 @@ public:
 	}
 
 	// int btManifoldPoint::m_index1()
-	static int _bind_getM_index1(lua_State *L) {
-		if (!_lg_typecheck_getM_index1(L)) {
+	static int _bind_getIndex1(lua_State *L) {
+		if (!_lg_typecheck_getIndex1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btManifoldPoint::m_index1() function, expected prototype:\nint btManifoldPoint::m_index1()\nClass arguments details:\n");
 		}
@@ -867,8 +801,8 @@ public:
 	}
 
 	// void * btManifoldPoint::m_userPersistentData()
-	static int _bind_getM_userPersistentData(lua_State *L) {
-		if (!_lg_typecheck_getM_userPersistentData(L)) {
+	static int _bind_getUserPersistentData(lua_State *L) {
+		if (!_lg_typecheck_getUserPersistentData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void * btManifoldPoint::m_userPersistentData() function, expected prototype:\nvoid * btManifoldPoint::m_userPersistentData()\nClass arguments details:\n");
 		}
@@ -888,8 +822,8 @@ public:
 	}
 
 	// bool btManifoldPoint::m_lateralFrictionInitialized()
-	static int _bind_getM_lateralFrictionInitialized(lua_State *L) {
-		if (!_lg_typecheck_getM_lateralFrictionInitialized(L)) {
+	static int _bind_getLateralFrictionInitialized(lua_State *L) {
+		if (!_lg_typecheck_getLateralFrictionInitialized(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btManifoldPoint::m_lateralFrictionInitialized() function, expected prototype:\nbool btManifoldPoint::m_lateralFrictionInitialized()\nClass arguments details:\n");
 		}
@@ -906,28 +840,9 @@ public:
 		return 1;
 	}
 
-	// float btManifoldPoint::m_appliedImpulse()
-	static int _bind_getM_appliedImpulse(lua_State *L) {
-		if (!_lg_typecheck_getM_appliedImpulse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_appliedImpulse() function, expected prototype:\nfloat btManifoldPoint::m_appliedImpulse()\nClass arguments details:\n");
-		}
-
-
-		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_appliedImpulse(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
-		}
-		float lret = self->m_appliedImpulse;
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
 	// float btManifoldPoint::m_appliedImpulseLateral1()
-	static int _bind_getM_appliedImpulseLateral1(lua_State *L) {
-		if (!_lg_typecheck_getM_appliedImpulseLateral1(L)) {
+	static int _bind_getAppliedImpulseLateral1(lua_State *L) {
+		if (!_lg_typecheck_getAppliedImpulseLateral1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_appliedImpulseLateral1() function, expected prototype:\nfloat btManifoldPoint::m_appliedImpulseLateral1()\nClass arguments details:\n");
 		}
@@ -945,8 +860,8 @@ public:
 	}
 
 	// float btManifoldPoint::m_appliedImpulseLateral2()
-	static int _bind_getM_appliedImpulseLateral2(lua_State *L) {
-		if (!_lg_typecheck_getM_appliedImpulseLateral2(L)) {
+	static int _bind_getAppliedImpulseLateral2(lua_State *L) {
+		if (!_lg_typecheck_getAppliedImpulseLateral2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_appliedImpulseLateral2() function, expected prototype:\nfloat btManifoldPoint::m_appliedImpulseLateral2()\nClass arguments details:\n");
 		}
@@ -964,8 +879,8 @@ public:
 	}
 
 	// float btManifoldPoint::m_contactMotion1()
-	static int _bind_getM_contactMotion1(lua_State *L) {
-		if (!_lg_typecheck_getM_contactMotion1(L)) {
+	static int _bind_getContactMotion1(lua_State *L) {
+		if (!_lg_typecheck_getContactMotion1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_contactMotion1() function, expected prototype:\nfloat btManifoldPoint::m_contactMotion1()\nClass arguments details:\n");
 		}
@@ -983,8 +898,8 @@ public:
 	}
 
 	// float btManifoldPoint::m_contactMotion2()
-	static int _bind_getM_contactMotion2(lua_State *L) {
-		if (!_lg_typecheck_getM_contactMotion2(L)) {
+	static int _bind_getContactMotion2(lua_State *L) {
+		if (!_lg_typecheck_getContactMotion2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_contactMotion2() function, expected prototype:\nfloat btManifoldPoint::m_contactMotion2()\nClass arguments details:\n");
 		}
@@ -1002,8 +917,8 @@ public:
 	}
 
 	// float btManifoldPoint::m_contactCFM1()
-	static int _bind_getM_contactCFM1(lua_State *L) {
-		if (!_lg_typecheck_getM_contactCFM1(L)) {
+	static int _bind_getContactCFM1(lua_State *L) {
+		if (!_lg_typecheck_getContactCFM1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_contactCFM1() function, expected prototype:\nfloat btManifoldPoint::m_contactCFM1()\nClass arguments details:\n");
 		}
@@ -1021,8 +936,8 @@ public:
 	}
 
 	// float btManifoldPoint::m_contactCFM2()
-	static int _bind_getM_contactCFM2(lua_State *L) {
-		if (!_lg_typecheck_getM_contactCFM2(L)) {
+	static int _bind_getContactCFM2(lua_State *L) {
+		if (!_lg_typecheck_getContactCFM2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_contactCFM2() function, expected prototype:\nfloat btManifoldPoint::m_contactCFM2()\nClass arguments details:\n");
 		}
@@ -1039,28 +954,9 @@ public:
 		return 1;
 	}
 
-	// int btManifoldPoint::m_lifeTime()
-	static int _bind_getM_lifeTime(lua_State *L) {
-		if (!_lg_typecheck_getM_lifeTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btManifoldPoint::m_lifeTime() function, expected prototype:\nint btManifoldPoint::m_lifeTime()\nClass arguments details:\n");
-		}
-
-
-		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btManifoldPoint::m_lifeTime(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
-		}
-		int lret = self->m_lifeTime;
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
 	// btVector3 btManifoldPoint::m_lateralFrictionDir1()
-	static int _bind_getM_lateralFrictionDir1(lua_State *L) {
-		if (!_lg_typecheck_getM_lateralFrictionDir1(L)) {
+	static int _bind_getLateralFrictionDir1(lua_State *L) {
+		if (!_lg_typecheck_getLateralFrictionDir1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_lateralFrictionDir1() function, expected prototype:\nbtVector3 btManifoldPoint::m_lateralFrictionDir1()\nClass arguments details:\n");
 		}
@@ -1080,8 +976,8 @@ public:
 	}
 
 	// btVector3 btManifoldPoint::m_lateralFrictionDir2()
-	static int _bind_getM_lateralFrictionDir2(lua_State *L) {
-		if (!_lg_typecheck_getM_lateralFrictionDir2(L)) {
+	static int _bind_getLateralFrictionDir2(lua_State *L) {
+		if (!_lg_typecheck_getLateralFrictionDir2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_lateralFrictionDir2() function, expected prototype:\nbtVector3 btManifoldPoint::m_lateralFrictionDir2()\nClass arguments details:\n");
 		}
@@ -1101,8 +997,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_localPointA(btVector3 value)
-	static int _bind_setM_localPointA(lua_State *L) {
-		if (!_lg_typecheck_setM_localPointA(L)) {
+	static int _bind_setLocalPointA(lua_State *L) {
+		if (!_lg_typecheck_setLocalPointA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_localPointA(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_localPointA(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1124,8 +1020,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_localPointB(btVector3 value)
-	static int _bind_setM_localPointB(lua_State *L) {
-		if (!_lg_typecheck_setM_localPointB(L)) {
+	static int _bind_setLocalPointB(lua_State *L) {
+		if (!_lg_typecheck_setLocalPointB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_localPointB(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_localPointB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1147,8 +1043,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_positionWorldOnB(btVector3 value)
-	static int _bind_setM_positionWorldOnB(lua_State *L) {
-		if (!_lg_typecheck_setM_positionWorldOnB(L)) {
+	static int _bind_setPositionWorldOnB(lua_State *L) {
+		if (!_lg_typecheck_setPositionWorldOnB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_positionWorldOnB(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_positionWorldOnB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1170,8 +1066,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_positionWorldOnA(btVector3 value)
-	static int _bind_setM_positionWorldOnA(lua_State *L) {
-		if (!_lg_typecheck_setM_positionWorldOnA(L)) {
+	static int _bind_setPositionWorldOnA(lua_State *L) {
+		if (!_lg_typecheck_setPositionWorldOnA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_positionWorldOnA(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_positionWorldOnA(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1193,8 +1089,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_normalWorldOnB(btVector3 value)
-	static int _bind_setM_normalWorldOnB(lua_State *L) {
-		if (!_lg_typecheck_setM_normalWorldOnB(L)) {
+	static int _bind_setNormalWorldOnB(lua_State *L) {
+		if (!_lg_typecheck_setNormalWorldOnB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_normalWorldOnB(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_normalWorldOnB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1216,8 +1112,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_distance1(float value)
-	static int _bind_setM_distance1(lua_State *L) {
-		if (!_lg_typecheck_setM_distance1(L)) {
+	static int _bind_setDistance1(lua_State *L) {
+		if (!_lg_typecheck_setDistance1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_distance1(float value) function, expected prototype:\nvoid btManifoldPoint::m_distance1(float value)\nClass arguments details:\n");
 		}
@@ -1235,8 +1131,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_combinedFriction(float value)
-	static int _bind_setM_combinedFriction(lua_State *L) {
-		if (!_lg_typecheck_setM_combinedFriction(L)) {
+	static int _bind_setCombinedFriction(lua_State *L) {
+		if (!_lg_typecheck_setCombinedFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_combinedFriction(float value) function, expected prototype:\nvoid btManifoldPoint::m_combinedFriction(float value)\nClass arguments details:\n");
 		}
@@ -1254,8 +1150,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_combinedRollingFriction(float value)
-	static int _bind_setM_combinedRollingFriction(lua_State *L) {
-		if (!_lg_typecheck_setM_combinedRollingFriction(L)) {
+	static int _bind_setCombinedRollingFriction(lua_State *L) {
+		if (!_lg_typecheck_setCombinedRollingFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_combinedRollingFriction(float value) function, expected prototype:\nvoid btManifoldPoint::m_combinedRollingFriction(float value)\nClass arguments details:\n");
 		}
@@ -1273,8 +1169,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_combinedRestitution(float value)
-	static int _bind_setM_combinedRestitution(lua_State *L) {
-		if (!_lg_typecheck_setM_combinedRestitution(L)) {
+	static int _bind_setCombinedRestitution(lua_State *L) {
+		if (!_lg_typecheck_setCombinedRestitution(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_combinedRestitution(float value) function, expected prototype:\nvoid btManifoldPoint::m_combinedRestitution(float value)\nClass arguments details:\n");
 		}
@@ -1292,8 +1188,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_partId0(int value)
-	static int _bind_setM_partId0(lua_State *L) {
-		if (!_lg_typecheck_setM_partId0(L)) {
+	static int _bind_setPartId0(lua_State *L) {
+		if (!_lg_typecheck_setPartId0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_partId0(int value) function, expected prototype:\nvoid btManifoldPoint::m_partId0(int value)\nClass arguments details:\n");
 		}
@@ -1311,8 +1207,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_partId1(int value)
-	static int _bind_setM_partId1(lua_State *L) {
-		if (!_lg_typecheck_setM_partId1(L)) {
+	static int _bind_setPartId1(lua_State *L) {
+		if (!_lg_typecheck_setPartId1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_partId1(int value) function, expected prototype:\nvoid btManifoldPoint::m_partId1(int value)\nClass arguments details:\n");
 		}
@@ -1330,8 +1226,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_index0(int value)
-	static int _bind_setM_index0(lua_State *L) {
-		if (!_lg_typecheck_setM_index0(L)) {
+	static int _bind_setIndex0(lua_State *L) {
+		if (!_lg_typecheck_setIndex0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_index0(int value) function, expected prototype:\nvoid btManifoldPoint::m_index0(int value)\nClass arguments details:\n");
 		}
@@ -1349,8 +1245,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_index1(int value)
-	static int _bind_setM_index1(lua_State *L) {
-		if (!_lg_typecheck_setM_index1(L)) {
+	static int _bind_setIndex1(lua_State *L) {
+		if (!_lg_typecheck_setIndex1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_index1(int value) function, expected prototype:\nvoid btManifoldPoint::m_index1(int value)\nClass arguments details:\n");
 		}
@@ -1368,8 +1264,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_userPersistentData(void * value)
-	static int _bind_setM_userPersistentData(lua_State *L) {
-		if (!_lg_typecheck_setM_userPersistentData(L)) {
+	static int _bind_setUserPersistentData(lua_State *L) {
+		if (!_lg_typecheck_setUserPersistentData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_userPersistentData(void * value) function, expected prototype:\nvoid btManifoldPoint::m_userPersistentData(void * value)\nClass arguments details:\n");
 		}
@@ -1387,8 +1283,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_lateralFrictionInitialized(bool value)
-	static int _bind_setM_lateralFrictionInitialized(lua_State *L) {
-		if (!_lg_typecheck_setM_lateralFrictionInitialized(L)) {
+	static int _bind_setLateralFrictionInitialized(lua_State *L) {
+		if (!_lg_typecheck_setLateralFrictionInitialized(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_lateralFrictionInitialized(bool value) function, expected prototype:\nvoid btManifoldPoint::m_lateralFrictionInitialized(bool value)\nClass arguments details:\n");
 		}
@@ -1406,8 +1302,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_appliedImpulse(float value)
-	static int _bind_setM_appliedImpulse(lua_State *L) {
-		if (!_lg_typecheck_setM_appliedImpulse(L)) {
+	static int _bind_setAppliedImpulse(lua_State *L) {
+		if (!_lg_typecheck_setAppliedImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_appliedImpulse(float value) function, expected prototype:\nvoid btManifoldPoint::m_appliedImpulse(float value)\nClass arguments details:\n");
 		}
@@ -1425,8 +1321,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_appliedImpulseLateral1(float value)
-	static int _bind_setM_appliedImpulseLateral1(lua_State *L) {
-		if (!_lg_typecheck_setM_appliedImpulseLateral1(L)) {
+	static int _bind_setAppliedImpulseLateral1(lua_State *L) {
+		if (!_lg_typecheck_setAppliedImpulseLateral1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_appliedImpulseLateral1(float value) function, expected prototype:\nvoid btManifoldPoint::m_appliedImpulseLateral1(float value)\nClass arguments details:\n");
 		}
@@ -1444,8 +1340,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_appliedImpulseLateral2(float value)
-	static int _bind_setM_appliedImpulseLateral2(lua_State *L) {
-		if (!_lg_typecheck_setM_appliedImpulseLateral2(L)) {
+	static int _bind_setAppliedImpulseLateral2(lua_State *L) {
+		if (!_lg_typecheck_setAppliedImpulseLateral2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_appliedImpulseLateral2(float value) function, expected prototype:\nvoid btManifoldPoint::m_appliedImpulseLateral2(float value)\nClass arguments details:\n");
 		}
@@ -1463,8 +1359,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_contactMotion1(float value)
-	static int _bind_setM_contactMotion1(lua_State *L) {
-		if (!_lg_typecheck_setM_contactMotion1(L)) {
+	static int _bind_setContactMotion1(lua_State *L) {
+		if (!_lg_typecheck_setContactMotion1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_contactMotion1(float value) function, expected prototype:\nvoid btManifoldPoint::m_contactMotion1(float value)\nClass arguments details:\n");
 		}
@@ -1482,8 +1378,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_contactMotion2(float value)
-	static int _bind_setM_contactMotion2(lua_State *L) {
-		if (!_lg_typecheck_setM_contactMotion2(L)) {
+	static int _bind_setContactMotion2(lua_State *L) {
+		if (!_lg_typecheck_setContactMotion2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_contactMotion2(float value) function, expected prototype:\nvoid btManifoldPoint::m_contactMotion2(float value)\nClass arguments details:\n");
 		}
@@ -1501,8 +1397,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_contactCFM1(float value)
-	static int _bind_setM_contactCFM1(lua_State *L) {
-		if (!_lg_typecheck_setM_contactCFM1(L)) {
+	static int _bind_setContactCFM1(lua_State *L) {
+		if (!_lg_typecheck_setContactCFM1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_contactCFM1(float value) function, expected prototype:\nvoid btManifoldPoint::m_contactCFM1(float value)\nClass arguments details:\n");
 		}
@@ -1520,8 +1416,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_contactCFM2(float value)
-	static int _bind_setM_contactCFM2(lua_State *L) {
-		if (!_lg_typecheck_setM_contactCFM2(L)) {
+	static int _bind_setContactCFM2(lua_State *L) {
+		if (!_lg_typecheck_setContactCFM2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_contactCFM2(float value) function, expected prototype:\nvoid btManifoldPoint::m_contactCFM2(float value)\nClass arguments details:\n");
 		}
@@ -1539,8 +1435,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_lifeTime(int value)
-	static int _bind_setM_lifeTime(lua_State *L) {
-		if (!_lg_typecheck_setM_lifeTime(L)) {
+	static int _bind_setLifeTime(lua_State *L) {
+		if (!_lg_typecheck_setLifeTime(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_lifeTime(int value) function, expected prototype:\nvoid btManifoldPoint::m_lifeTime(int value)\nClass arguments details:\n");
 		}
@@ -1558,8 +1454,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_lateralFrictionDir1(btVector3 value)
-	static int _bind_setM_lateralFrictionDir1(lua_State *L) {
-		if (!_lg_typecheck_setM_lateralFrictionDir1(L)) {
+	static int _bind_setLateralFrictionDir1(lua_State *L) {
+		if (!_lg_typecheck_setLateralFrictionDir1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_lateralFrictionDir1(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_lateralFrictionDir1(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1581,8 +1477,8 @@ public:
 	}
 
 	// void btManifoldPoint::m_lateralFrictionDir2(btVector3 value)
-	static int _bind_setM_lateralFrictionDir2(lua_State *L) {
-		if (!_lg_typecheck_setM_lateralFrictionDir2(L)) {
+	static int _bind_setLateralFrictionDir2(lua_State *L) {
+		if (!_lg_typecheck_setLateralFrictionDir2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_lateralFrictionDir2(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_lateralFrictionDir2(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1630,56 +1526,52 @@ luna_RegType LunaTraits< btManifoldPoint >::methods[] = {
 	{"getPositionWorldOnB", &luna_wrapper_btManifoldPoint::_bind_getPositionWorldOnB},
 	{"setDistance", &luna_wrapper_btManifoldPoint::_bind_setDistance},
 	{"getAppliedImpulse", &luna_wrapper_btManifoldPoint::_bind_getAppliedImpulse},
-	{"getM_localPointA", &luna_wrapper_btManifoldPoint::_bind_getM_localPointA},
-	{"getM_localPointB", &luna_wrapper_btManifoldPoint::_bind_getM_localPointB},
-	{"getM_positionWorldOnB", &luna_wrapper_btManifoldPoint::_bind_getM_positionWorldOnB},
-	{"getM_positionWorldOnA", &luna_wrapper_btManifoldPoint::_bind_getM_positionWorldOnA},
-	{"getM_normalWorldOnB", &luna_wrapper_btManifoldPoint::_bind_getM_normalWorldOnB},
-	{"getM_distance1", &luna_wrapper_btManifoldPoint::_bind_getM_distance1},
-	{"getM_combinedFriction", &luna_wrapper_btManifoldPoint::_bind_getM_combinedFriction},
-	{"getM_combinedRollingFriction", &luna_wrapper_btManifoldPoint::_bind_getM_combinedRollingFriction},
-	{"getM_combinedRestitution", &luna_wrapper_btManifoldPoint::_bind_getM_combinedRestitution},
-	{"getM_partId0", &luna_wrapper_btManifoldPoint::_bind_getM_partId0},
-	{"getM_partId1", &luna_wrapper_btManifoldPoint::_bind_getM_partId1},
-	{"getM_index0", &luna_wrapper_btManifoldPoint::_bind_getM_index0},
-	{"getM_index1", &luna_wrapper_btManifoldPoint::_bind_getM_index1},
-	{"getM_userPersistentData", &luna_wrapper_btManifoldPoint::_bind_getM_userPersistentData},
-	{"getM_lateralFrictionInitialized", &luna_wrapper_btManifoldPoint::_bind_getM_lateralFrictionInitialized},
-	{"getM_appliedImpulse", &luna_wrapper_btManifoldPoint::_bind_getM_appliedImpulse},
-	{"getM_appliedImpulseLateral1", &luna_wrapper_btManifoldPoint::_bind_getM_appliedImpulseLateral1},
-	{"getM_appliedImpulseLateral2", &luna_wrapper_btManifoldPoint::_bind_getM_appliedImpulseLateral2},
-	{"getM_contactMotion1", &luna_wrapper_btManifoldPoint::_bind_getM_contactMotion1},
-	{"getM_contactMotion2", &luna_wrapper_btManifoldPoint::_bind_getM_contactMotion2},
-	{"getM_contactCFM1", &luna_wrapper_btManifoldPoint::_bind_getM_contactCFM1},
-	{"getM_contactCFM2", &luna_wrapper_btManifoldPoint::_bind_getM_contactCFM2},
-	{"getM_lifeTime", &luna_wrapper_btManifoldPoint::_bind_getM_lifeTime},
-	{"getM_lateralFrictionDir1", &luna_wrapper_btManifoldPoint::_bind_getM_lateralFrictionDir1},
-	{"getM_lateralFrictionDir2", &luna_wrapper_btManifoldPoint::_bind_getM_lateralFrictionDir2},
-	{"setM_localPointA", &luna_wrapper_btManifoldPoint::_bind_setM_localPointA},
-	{"setM_localPointB", &luna_wrapper_btManifoldPoint::_bind_setM_localPointB},
-	{"setM_positionWorldOnB", &luna_wrapper_btManifoldPoint::_bind_setM_positionWorldOnB},
-	{"setM_positionWorldOnA", &luna_wrapper_btManifoldPoint::_bind_setM_positionWorldOnA},
-	{"setM_normalWorldOnB", &luna_wrapper_btManifoldPoint::_bind_setM_normalWorldOnB},
-	{"setM_distance1", &luna_wrapper_btManifoldPoint::_bind_setM_distance1},
-	{"setM_combinedFriction", &luna_wrapper_btManifoldPoint::_bind_setM_combinedFriction},
-	{"setM_combinedRollingFriction", &luna_wrapper_btManifoldPoint::_bind_setM_combinedRollingFriction},
-	{"setM_combinedRestitution", &luna_wrapper_btManifoldPoint::_bind_setM_combinedRestitution},
-	{"setM_partId0", &luna_wrapper_btManifoldPoint::_bind_setM_partId0},
-	{"setM_partId1", &luna_wrapper_btManifoldPoint::_bind_setM_partId1},
-	{"setM_index0", &luna_wrapper_btManifoldPoint::_bind_setM_index0},
-	{"setM_index1", &luna_wrapper_btManifoldPoint::_bind_setM_index1},
-	{"setM_userPersistentData", &luna_wrapper_btManifoldPoint::_bind_setM_userPersistentData},
-	{"setM_lateralFrictionInitialized", &luna_wrapper_btManifoldPoint::_bind_setM_lateralFrictionInitialized},
-	{"setM_appliedImpulse", &luna_wrapper_btManifoldPoint::_bind_setM_appliedImpulse},
-	{"setM_appliedImpulseLateral1", &luna_wrapper_btManifoldPoint::_bind_setM_appliedImpulseLateral1},
-	{"setM_appliedImpulseLateral2", &luna_wrapper_btManifoldPoint::_bind_setM_appliedImpulseLateral2},
-	{"setM_contactMotion1", &luna_wrapper_btManifoldPoint::_bind_setM_contactMotion1},
-	{"setM_contactMotion2", &luna_wrapper_btManifoldPoint::_bind_setM_contactMotion2},
-	{"setM_contactCFM1", &luna_wrapper_btManifoldPoint::_bind_setM_contactCFM1},
-	{"setM_contactCFM2", &luna_wrapper_btManifoldPoint::_bind_setM_contactCFM2},
-	{"setM_lifeTime", &luna_wrapper_btManifoldPoint::_bind_setM_lifeTime},
-	{"setM_lateralFrictionDir1", &luna_wrapper_btManifoldPoint::_bind_setM_lateralFrictionDir1},
-	{"setM_lateralFrictionDir2", &luna_wrapper_btManifoldPoint::_bind_setM_lateralFrictionDir2},
+	{"getLocalPointA", &luna_wrapper_btManifoldPoint::_bind_getLocalPointA},
+	{"getLocalPointB", &luna_wrapper_btManifoldPoint::_bind_getLocalPointB},
+	{"getNormalWorldOnB", &luna_wrapper_btManifoldPoint::_bind_getNormalWorldOnB},
+	{"getDistance1", &luna_wrapper_btManifoldPoint::_bind_getDistance1},
+	{"getCombinedFriction", &luna_wrapper_btManifoldPoint::_bind_getCombinedFriction},
+	{"getCombinedRollingFriction", &luna_wrapper_btManifoldPoint::_bind_getCombinedRollingFriction},
+	{"getCombinedRestitution", &luna_wrapper_btManifoldPoint::_bind_getCombinedRestitution},
+	{"getPartId0", &luna_wrapper_btManifoldPoint::_bind_getPartId0},
+	{"getPartId1", &luna_wrapper_btManifoldPoint::_bind_getPartId1},
+	{"getIndex0", &luna_wrapper_btManifoldPoint::_bind_getIndex0},
+	{"getIndex1", &luna_wrapper_btManifoldPoint::_bind_getIndex1},
+	{"getUserPersistentData", &luna_wrapper_btManifoldPoint::_bind_getUserPersistentData},
+	{"getLateralFrictionInitialized", &luna_wrapper_btManifoldPoint::_bind_getLateralFrictionInitialized},
+	{"getAppliedImpulseLateral1", &luna_wrapper_btManifoldPoint::_bind_getAppliedImpulseLateral1},
+	{"getAppliedImpulseLateral2", &luna_wrapper_btManifoldPoint::_bind_getAppliedImpulseLateral2},
+	{"getContactMotion1", &luna_wrapper_btManifoldPoint::_bind_getContactMotion1},
+	{"getContactMotion2", &luna_wrapper_btManifoldPoint::_bind_getContactMotion2},
+	{"getContactCFM1", &luna_wrapper_btManifoldPoint::_bind_getContactCFM1},
+	{"getContactCFM2", &luna_wrapper_btManifoldPoint::_bind_getContactCFM2},
+	{"getLateralFrictionDir1", &luna_wrapper_btManifoldPoint::_bind_getLateralFrictionDir1},
+	{"getLateralFrictionDir2", &luna_wrapper_btManifoldPoint::_bind_getLateralFrictionDir2},
+	{"setLocalPointA", &luna_wrapper_btManifoldPoint::_bind_setLocalPointA},
+	{"setLocalPointB", &luna_wrapper_btManifoldPoint::_bind_setLocalPointB},
+	{"setPositionWorldOnB", &luna_wrapper_btManifoldPoint::_bind_setPositionWorldOnB},
+	{"setPositionWorldOnA", &luna_wrapper_btManifoldPoint::_bind_setPositionWorldOnA},
+	{"setNormalWorldOnB", &luna_wrapper_btManifoldPoint::_bind_setNormalWorldOnB},
+	{"setDistance1", &luna_wrapper_btManifoldPoint::_bind_setDistance1},
+	{"setCombinedFriction", &luna_wrapper_btManifoldPoint::_bind_setCombinedFriction},
+	{"setCombinedRollingFriction", &luna_wrapper_btManifoldPoint::_bind_setCombinedRollingFriction},
+	{"setCombinedRestitution", &luna_wrapper_btManifoldPoint::_bind_setCombinedRestitution},
+	{"setPartId0", &luna_wrapper_btManifoldPoint::_bind_setPartId0},
+	{"setPartId1", &luna_wrapper_btManifoldPoint::_bind_setPartId1},
+	{"setIndex0", &luna_wrapper_btManifoldPoint::_bind_setIndex0},
+	{"setIndex1", &luna_wrapper_btManifoldPoint::_bind_setIndex1},
+	{"setUserPersistentData", &luna_wrapper_btManifoldPoint::_bind_setUserPersistentData},
+	{"setLateralFrictionInitialized", &luna_wrapper_btManifoldPoint::_bind_setLateralFrictionInitialized},
+	{"setAppliedImpulse", &luna_wrapper_btManifoldPoint::_bind_setAppliedImpulse},
+	{"setAppliedImpulseLateral1", &luna_wrapper_btManifoldPoint::_bind_setAppliedImpulseLateral1},
+	{"setAppliedImpulseLateral2", &luna_wrapper_btManifoldPoint::_bind_setAppliedImpulseLateral2},
+	{"setContactMotion1", &luna_wrapper_btManifoldPoint::_bind_setContactMotion1},
+	{"setContactMotion2", &luna_wrapper_btManifoldPoint::_bind_setContactMotion2},
+	{"setContactCFM1", &luna_wrapper_btManifoldPoint::_bind_setContactCFM1},
+	{"setContactCFM2", &luna_wrapper_btManifoldPoint::_bind_setContactCFM2},
+	{"setLifeTime", &luna_wrapper_btManifoldPoint::_bind_setLifeTime},
+	{"setLateralFrictionDir1", &luna_wrapper_btManifoldPoint::_bind_setLateralFrictionDir1},
+	{"setLateralFrictionDir2", &luna_wrapper_btManifoldPoint::_bind_setLateralFrictionDir2},
 	{"dynCast", &luna_wrapper_btManifoldPoint::_bind_dynCast},
 	{"__eq", &luna_wrapper_btManifoldPoint::_bind___eq},
 	{0,0}

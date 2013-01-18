@@ -70,26 +70,26 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_get_index(lua_State *L) {
+	inline static bool _lg_typecheck_getIndex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_size(lua_State *L) {
+	inline static bool _lg_typecheck_getSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_index(lua_State *L) {
+	inline static bool _lg_typecheck_setIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_size(lua_State *L) {
+	inline static bool _lg_typecheck_setSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -137,8 +137,8 @@ public:
 
 	// Function binds:
 	// unsigned int osg::Program::UniformBlockInfo::_index()
-	static int _bind_get_index(lua_State *L) {
-		if (!_lg_typecheck_get_index(L)) {
+	static int _bind_getIndex(lua_State *L) {
+		if (!_lg_typecheck_getIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::Program::UniformBlockInfo::_index() function, expected prototype:\nunsigned int osg::Program::UniformBlockInfo::_index()\nClass arguments details:\n");
 		}
@@ -156,8 +156,8 @@ public:
 	}
 
 	// int osg::Program::UniformBlockInfo::_size()
-	static int _bind_get_size(lua_State *L) {
-		if (!_lg_typecheck_get_size(L)) {
+	static int _bind_getSize(lua_State *L) {
+		if (!_lg_typecheck_getSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int osg::Program::UniformBlockInfo::_size() function, expected prototype:\nint osg::Program::UniformBlockInfo::_size()\nClass arguments details:\n");
 		}
@@ -175,8 +175,8 @@ public:
 	}
 
 	// void osg::Program::UniformBlockInfo::_index(unsigned int value)
-	static int _bind_set_index(lua_State *L) {
-		if (!_lg_typecheck_set_index(L)) {
+	static int _bind_setIndex(lua_State *L) {
+		if (!_lg_typecheck_setIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Program::UniformBlockInfo::_index(unsigned int value) function, expected prototype:\nvoid osg::Program::UniformBlockInfo::_index(unsigned int value)\nClass arguments details:\n");
 		}
@@ -194,8 +194,8 @@ public:
 	}
 
 	// void osg::Program::UniformBlockInfo::_size(int value)
-	static int _bind_set_size(lua_State *L) {
-		if (!_lg_typecheck_set_size(L)) {
+	static int _bind_setSize(lua_State *L) {
+		if (!_lg_typecheck_setSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Program::UniformBlockInfo::_size(int value) function, expected prototype:\nvoid osg::Program::UniformBlockInfo::_size(int value)\nClass arguments details:\n");
 		}
@@ -233,10 +233,10 @@ const int LunaTraits< osg::Program::UniformBlockInfo >::hash = 92598171;
 const int LunaTraits< osg::Program::UniformBlockInfo >::uniqueIDs[] = {92598171,0};
 
 luna_RegType LunaTraits< osg::Program::UniformBlockInfo >::methods[] = {
-	{"get_index", &luna_wrapper_osg_Program_UniformBlockInfo::_bind_get_index},
-	{"get_size", &luna_wrapper_osg_Program_UniformBlockInfo::_bind_get_size},
-	{"set_index", &luna_wrapper_osg_Program_UniformBlockInfo::_bind_set_index},
-	{"set_size", &luna_wrapper_osg_Program_UniformBlockInfo::_bind_set_size},
+	{"getIndex", &luna_wrapper_osg_Program_UniformBlockInfo::_bind_getIndex},
+	{"getSize", &luna_wrapper_osg_Program_UniformBlockInfo::_bind_getSize},
+	{"setIndex", &luna_wrapper_osg_Program_UniformBlockInfo::_bind_setIndex},
+	{"setSize", &luna_wrapper_osg_Program_UniformBlockInfo::_bind_setSize},
 	{"dynCast", &luna_wrapper_osg_Program_UniformBlockInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_Program_UniformBlockInfo::_bind___eq},
 	{0,0}

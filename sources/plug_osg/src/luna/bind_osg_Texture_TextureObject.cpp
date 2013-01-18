@@ -241,120 +241,87 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_id(lua_State *L) {
+	inline static bool _lg_typecheck_getId(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_profile(lua_State *L) {
+	inline static bool _lg_typecheck_getProfile(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_set(lua_State *L) {
+	inline static bool _lg_typecheck_getSet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_previous(lua_State *L) {
+	inline static bool _lg_typecheck_getPrevious(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_next(lua_State *L) {
+	inline static bool _lg_typecheck_getNext(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_texture(lua_State *L) {
+	inline static bool _lg_typecheck_getAllocated(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_allocated(lua_State *L) {
+	inline static bool _lg_typecheck_getFrameLastUsed(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_frameLastUsed(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_get_timeStamp(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_id(lua_State *L) {
+	inline static bool _lg_typecheck_setId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_profile(lua_State *L) {
+	inline static bool _lg_typecheck_setProfile(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,69361645) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_set(lua_State *L) {
+	inline static bool _lg_typecheck_setSet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_previous(lua_State *L) {
+	inline static bool _lg_typecheck_setPrevious(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_next(lua_State *L) {
+	inline static bool _lg_typecheck_setNext(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_texture(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_allocated(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isboolean(L,2)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_frameLastUsed(lua_State *L) {
+	inline static bool _lg_typecheck_setFrameLastUsed(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_timeStamp(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -761,8 +728,8 @@ public:
 	}
 
 	// unsigned int osg::Texture::TextureObject::_id()
-	static int _bind_get_id(lua_State *L) {
-		if (!_lg_typecheck_get_id(L)) {
+	static int _bind_getId(lua_State *L) {
+		if (!_lg_typecheck_getId(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture::TextureObject::_id() function, expected prototype:\nunsigned int osg::Texture::TextureObject::_id()\nClass arguments details:\n");
 		}
@@ -780,8 +747,8 @@ public:
 	}
 
 	// osg::Texture::TextureProfile osg::Texture::TextureObject::_profile()
-	static int _bind_get_profile(lua_State *L) {
-		if (!_lg_typecheck_get_profile(L)) {
+	static int _bind_getProfile(lua_State *L) {
+		if (!_lg_typecheck_getProfile(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::Texture::TextureProfile osg::Texture::TextureObject::_profile() function, expected prototype:\nosg::Texture::TextureProfile osg::Texture::TextureObject::_profile()\nClass arguments details:\n");
 		}
@@ -801,8 +768,8 @@ public:
 	}
 
 	// osg::Texture::TextureObjectSet * osg::Texture::TextureObject::_set()
-	static int _bind_get_set(lua_State *L) {
-		if (!_lg_typecheck_get_set(L)) {
+	static int _bind_getSet(lua_State *L) {
+		if (!_lg_typecheck_getSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObjectSet * osg::Texture::TextureObject::_set() function, expected prototype:\nosg::Texture::TextureObjectSet * osg::Texture::TextureObject::_set()\nClass arguments details:\n");
 		}
@@ -822,8 +789,8 @@ public:
 	}
 
 	// osg::Texture::TextureObject * osg::Texture::TextureObject::_previous()
-	static int _bind_get_previous(lua_State *L) {
-		if (!_lg_typecheck_get_previous(L)) {
+	static int _bind_getPrevious(lua_State *L) {
+		if (!_lg_typecheck_getPrevious(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObject * osg::Texture::TextureObject::_previous() function, expected prototype:\nosg::Texture::TextureObject * osg::Texture::TextureObject::_previous()\nClass arguments details:\n");
 		}
@@ -843,8 +810,8 @@ public:
 	}
 
 	// osg::Texture::TextureObject * osg::Texture::TextureObject::_next()
-	static int _bind_get_next(lua_State *L) {
-		if (!_lg_typecheck_get_next(L)) {
+	static int _bind_getNext(lua_State *L) {
+		if (!_lg_typecheck_getNext(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObject * osg::Texture::TextureObject::_next() function, expected prototype:\nosg::Texture::TextureObject * osg::Texture::TextureObject::_next()\nClass arguments details:\n");
 		}
@@ -863,30 +830,9 @@ public:
 		return 1;
 	}
 
-	// osg::Texture * osg::Texture::TextureObject::_texture()
-	static int _bind_get_texture(lua_State *L) {
-		if (!_lg_typecheck_get_texture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture * osg::Texture::TextureObject::_texture() function, expected prototype:\nosg::Texture * osg::Texture::TextureObject::_texture()\nClass arguments details:\n");
-		}
-
-
-		osg::Texture::TextureObject* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObject >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture * osg::Texture::TextureObject::_texture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		osg::Texture * lret = self->_texture;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::Texture >::push(L,lret,false);
-
-		return 1;
-	}
-
 	// bool osg::Texture::TextureObject::_allocated()
-	static int _bind_get_allocated(lua_State *L) {
-		if (!_lg_typecheck_get_allocated(L)) {
+	static int _bind_getAllocated(lua_State *L) {
+		if (!_lg_typecheck_getAllocated(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool osg::Texture::TextureObject::_allocated() function, expected prototype:\nbool osg::Texture::TextureObject::_allocated()\nClass arguments details:\n");
 		}
@@ -904,8 +850,8 @@ public:
 	}
 
 	// unsigned int osg::Texture::TextureObject::_frameLastUsed()
-	static int _bind_get_frameLastUsed(lua_State *L) {
-		if (!_lg_typecheck_get_frameLastUsed(L)) {
+	static int _bind_getFrameLastUsed(lua_State *L) {
+		if (!_lg_typecheck_getFrameLastUsed(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture::TextureObject::_frameLastUsed() function, expected prototype:\nunsigned int osg::Texture::TextureObject::_frameLastUsed()\nClass arguments details:\n");
 		}
@@ -922,28 +868,9 @@ public:
 		return 1;
 	}
 
-	// double osg::Texture::TextureObject::_timeStamp()
-	static int _bind_get_timeStamp(lua_State *L) {
-		if (!_lg_typecheck_get_timeStamp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::Texture::TextureObject::_timeStamp() function, expected prototype:\ndouble osg::Texture::TextureObject::_timeStamp()\nClass arguments details:\n");
-		}
-
-
-		osg::Texture::TextureObject* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObject >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::Texture::TextureObject::_timeStamp(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		double lret = self->_timeStamp;
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
 	// void osg::Texture::TextureObject::_id(unsigned int value)
-	static int _bind_set_id(lua_State *L) {
-		if (!_lg_typecheck_set_id(L)) {
+	static int _bind_setId(lua_State *L) {
+		if (!_lg_typecheck_setId(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObject::_id(unsigned int value) function, expected prototype:\nvoid osg::Texture::TextureObject::_id(unsigned int value)\nClass arguments details:\n");
 		}
@@ -961,8 +888,8 @@ public:
 	}
 
 	// void osg::Texture::TextureObject::_profile(osg::Texture::TextureProfile value)
-	static int _bind_set_profile(lua_State *L) {
-		if (!_lg_typecheck_set_profile(L)) {
+	static int _bind_setProfile(lua_State *L) {
+		if (!_lg_typecheck_setProfile(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObject::_profile(osg::Texture::TextureProfile value) function, expected prototype:\nvoid osg::Texture::TextureObject::_profile(osg::Texture::TextureProfile value)\nClass arguments details:\narg 1 ID = 69361645\n");
 		}
@@ -984,8 +911,8 @@ public:
 	}
 
 	// void osg::Texture::TextureObject::_set(osg::Texture::TextureObjectSet * value)
-	static int _bind_set_set(lua_State *L) {
-		if (!_lg_typecheck_set_set(L)) {
+	static int _bind_setSet(lua_State *L) {
+		if (!_lg_typecheck_setSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObject::_set(osg::Texture::TextureObjectSet * value) function, expected prototype:\nvoid osg::Texture::TextureObject::_set(osg::Texture::TextureObjectSet * value)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1003,8 +930,8 @@ public:
 	}
 
 	// void osg::Texture::TextureObject::_previous(osg::Texture::TextureObject * value)
-	static int _bind_set_previous(lua_State *L) {
-		if (!_lg_typecheck_set_previous(L)) {
+	static int _bind_setPrevious(lua_State *L) {
+		if (!_lg_typecheck_setPrevious(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObject::_previous(osg::Texture::TextureObject * value) function, expected prototype:\nvoid osg::Texture::TextureObject::_previous(osg::Texture::TextureObject * value)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1022,8 +949,8 @@ public:
 	}
 
 	// void osg::Texture::TextureObject::_next(osg::Texture::TextureObject * value)
-	static int _bind_set_next(lua_State *L) {
-		if (!_lg_typecheck_set_next(L)) {
+	static int _bind_setNext(lua_State *L) {
+		if (!_lg_typecheck_setNext(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObject::_next(osg::Texture::TextureObject * value) function, expected prototype:\nvoid osg::Texture::TextureObject::_next(osg::Texture::TextureObject * value)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1040,47 +967,9 @@ public:
 		return 0;
 	}
 
-	// void osg::Texture::TextureObject::_texture(osg::Texture * value)
-	static int _bind_set_texture(lua_State *L) {
-		if (!_lg_typecheck_set_texture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObject::_texture(osg::Texture * value) function, expected prototype:\nvoid osg::Texture::TextureObject::_texture(osg::Texture * value)\nClass arguments details:\narg 1 ID = 50169651\n");
-		}
-
-		osg::Texture* value=(Luna< osg::Referenced >::checkSubType< osg::Texture >(L,2));
-
-		osg::Texture::TextureObject* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObject >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObject::_texture(osg::Texture *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->_texture = value;
-
-		return 0;
-	}
-
-	// void osg::Texture::TextureObject::_allocated(bool value)
-	static int _bind_set_allocated(lua_State *L) {
-		if (!_lg_typecheck_set_allocated(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObject::_allocated(bool value) function, expected prototype:\nvoid osg::Texture::TextureObject::_allocated(bool value)\nClass arguments details:\n");
-		}
-
-		bool value=(bool)(lua_toboolean(L,2)==1);
-
-		osg::Texture::TextureObject* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObject >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObject::_allocated(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->_allocated = value;
-
-		return 0;
-	}
-
 	// void osg::Texture::TextureObject::_frameLastUsed(unsigned int value)
-	static int _bind_set_frameLastUsed(lua_State *L) {
-		if (!_lg_typecheck_set_frameLastUsed(L)) {
+	static int _bind_setFrameLastUsed(lua_State *L) {
+		if (!_lg_typecheck_setFrameLastUsed(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObject::_frameLastUsed(unsigned int value) function, expected prototype:\nvoid osg::Texture::TextureObject::_frameLastUsed(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1093,25 +982,6 @@ public:
 			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObject::_frameLastUsed(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->_frameLastUsed = value;
-
-		return 0;
-	}
-
-	// void osg::Texture::TextureObject::_timeStamp(double value)
-	static int _bind_set_timeStamp(lua_State *L) {
-		if (!_lg_typecheck_set_timeStamp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObject::_timeStamp(double value) function, expected prototype:\nvoid osg::Texture::TextureObject::_timeStamp(double value)\nClass arguments details:\n");
-		}
-
-		double value=(double)lua_tonumber(L,2);
-
-		osg::Texture::TextureObject* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObject >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObject::_timeStamp(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->_timeStamp = value;
 
 		return 0;
 	}
@@ -1168,24 +1038,19 @@ luna_RegType LunaTraits< osg::Texture::TextureObject >::methods[] = {
 	{"setAllocated", &luna_wrapper_osg_Texture_TextureObject::_bind_setAllocated},
 	{"isAllocated", &luna_wrapper_osg_Texture_TextureObject::_bind_isAllocated},
 	{"isReusable", &luna_wrapper_osg_Texture_TextureObject::_bind_isReusable},
-	{"get_id", &luna_wrapper_osg_Texture_TextureObject::_bind_get_id},
-	{"get_profile", &luna_wrapper_osg_Texture_TextureObject::_bind_get_profile},
-	{"get_set", &luna_wrapper_osg_Texture_TextureObject::_bind_get_set},
-	{"get_previous", &luna_wrapper_osg_Texture_TextureObject::_bind_get_previous},
-	{"get_next", &luna_wrapper_osg_Texture_TextureObject::_bind_get_next},
-	{"get_texture", &luna_wrapper_osg_Texture_TextureObject::_bind_get_texture},
-	{"get_allocated", &luna_wrapper_osg_Texture_TextureObject::_bind_get_allocated},
-	{"get_frameLastUsed", &luna_wrapper_osg_Texture_TextureObject::_bind_get_frameLastUsed},
-	{"get_timeStamp", &luna_wrapper_osg_Texture_TextureObject::_bind_get_timeStamp},
-	{"set_id", &luna_wrapper_osg_Texture_TextureObject::_bind_set_id},
-	{"set_profile", &luna_wrapper_osg_Texture_TextureObject::_bind_set_profile},
-	{"set_set", &luna_wrapper_osg_Texture_TextureObject::_bind_set_set},
-	{"set_previous", &luna_wrapper_osg_Texture_TextureObject::_bind_set_previous},
-	{"set_next", &luna_wrapper_osg_Texture_TextureObject::_bind_set_next},
-	{"set_texture", &luna_wrapper_osg_Texture_TextureObject::_bind_set_texture},
-	{"set_allocated", &luna_wrapper_osg_Texture_TextureObject::_bind_set_allocated},
-	{"set_frameLastUsed", &luna_wrapper_osg_Texture_TextureObject::_bind_set_frameLastUsed},
-	{"set_timeStamp", &luna_wrapper_osg_Texture_TextureObject::_bind_set_timeStamp},
+	{"getId", &luna_wrapper_osg_Texture_TextureObject::_bind_getId},
+	{"getProfile", &luna_wrapper_osg_Texture_TextureObject::_bind_getProfile},
+	{"getSet", &luna_wrapper_osg_Texture_TextureObject::_bind_getSet},
+	{"getPrevious", &luna_wrapper_osg_Texture_TextureObject::_bind_getPrevious},
+	{"getNext", &luna_wrapper_osg_Texture_TextureObject::_bind_getNext},
+	{"getAllocated", &luna_wrapper_osg_Texture_TextureObject::_bind_getAllocated},
+	{"getFrameLastUsed", &luna_wrapper_osg_Texture_TextureObject::_bind_getFrameLastUsed},
+	{"setId", &luna_wrapper_osg_Texture_TextureObject::_bind_setId},
+	{"setProfile", &luna_wrapper_osg_Texture_TextureObject::_bind_setProfile},
+	{"setSet", &luna_wrapper_osg_Texture_TextureObject::_bind_setSet},
+	{"setPrevious", &luna_wrapper_osg_Texture_TextureObject::_bind_setPrevious},
+	{"setNext", &luna_wrapper_osg_Texture_TextureObject::_bind_setNext},
+	{"setFrameLastUsed", &luna_wrapper_osg_Texture_TextureObject::_bind_setFrameLastUsed},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_Texture_TextureObject::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osg_Texture_TextureObject::_bind___eq},
 	{"getTable", &luna_wrapper_osg_Texture_TextureObject::_bind_getTable},

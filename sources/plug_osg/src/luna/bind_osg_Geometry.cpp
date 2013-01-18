@@ -916,7 +916,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getS_InvalidArrayData(lua_State *L) {
+	inline static bool _lg_typecheck_get_s_InvalidArrayData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -3942,8 +3942,8 @@ public:
 	}
 
 	// const osg::Geometry::ArrayData osg::Geometry::s_InvalidArrayData()
-	static int _bind_getS_InvalidArrayData(lua_State *L) {
-		if (!_lg_typecheck_getS_InvalidArrayData(L)) {
+	static int _bind_get_s_InvalidArrayData(lua_State *L) {
+		if (!_lg_typecheck_get_s_InvalidArrayData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const osg::Geometry::ArrayData osg::Geometry::s_InvalidArrayData() function, expected prototype:\nconst osg::Geometry::ArrayData osg::Geometry::s_InvalidArrayData()\nClass arguments details:\n");
 		}
@@ -4583,7 +4583,7 @@ luna_RegType LunaTraits< osg::Geometry >::methods[] = {
 	{"getGLObjectSizeHint", &luna_wrapper_osg_Geometry::_bind_getGLObjectSizeHint},
 	{"compileGLObjects", &luna_wrapper_osg_Geometry::_bind_compileGLObjects},
 	{"drawImplementation", &luna_wrapper_osg_Geometry::_bind_drawImplementation},
-	{"getS_InvalidArrayData", &luna_wrapper_osg_Geometry::_bind_getS_InvalidArrayData},
+	{"get_s_InvalidArrayData", &luna_wrapper_osg_Geometry::_bind_get_s_InvalidArrayData},
 	{"base_setName", &luna_wrapper_osg_Geometry::_bind_base_setName},
 	{"base_setUserData", &luna_wrapper_osg_Geometry::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osg_Geometry::_bind_base_getUserData},

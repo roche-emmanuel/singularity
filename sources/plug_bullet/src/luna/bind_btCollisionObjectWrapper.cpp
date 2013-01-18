@@ -84,25 +84,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_parent(lua_State *L) {
+	inline static bool _lg_typecheck_getParent(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_shape(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getM_collisionObject(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getM_worldTransform(lua_State *L) {
+	inline static bool _lg_typecheck_getShape(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -184,8 +172,8 @@ public:
 	}
 
 	// const btCollisionObjectWrapper * btCollisionObjectWrapper::m_parent()
-	static int _bind_getM_parent(lua_State *L) {
-		if (!_lg_typecheck_getM_parent(L)) {
+	static int _bind_getParent(lua_State *L) {
+		if (!_lg_typecheck_getParent(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const btCollisionObjectWrapper * btCollisionObjectWrapper::m_parent() function, expected prototype:\nconst btCollisionObjectWrapper * btCollisionObjectWrapper::m_parent()\nClass arguments details:\n");
 		}
@@ -205,8 +193,8 @@ public:
 	}
 
 	// const btCollisionShape * btCollisionObjectWrapper::m_shape()
-	static int _bind_getM_shape(lua_State *L) {
-		if (!_lg_typecheck_getM_shape(L)) {
+	static int _bind_getShape(lua_State *L) {
+		if (!_lg_typecheck_getShape(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const btCollisionShape * btCollisionObjectWrapper::m_shape() function, expected prototype:\nconst btCollisionShape * btCollisionObjectWrapper::m_shape()\nClass arguments details:\n");
 		}
@@ -221,48 +209,6 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< btCollisionShape >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// const btCollisionObject * btCollisionObjectWrapper::m_collisionObject()
-	static int _bind_getM_collisionObject(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btCollisionObject * btCollisionObjectWrapper::m_collisionObject() function, expected prototype:\nconst btCollisionObject * btCollisionObjectWrapper::m_collisionObject()\nClass arguments details:\n");
-		}
-
-
-		btCollisionObjectWrapper* self=(Luna< btCollisionObjectWrapper >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btCollisionObject * btCollisionObjectWrapper::m_collisionObject(). Got : '%s'",typeid(Luna< btCollisionObjectWrapper >::check(L,1)).name());
-		}
-		const btCollisionObject * lret = self->m_collisionObject;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< btCollisionObject >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// const btTransform & btCollisionObjectWrapper::m_worldTransform()
-	static int _bind_getM_worldTransform(lua_State *L) {
-		if (!_lg_typecheck_getM_worldTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btCollisionObjectWrapper::m_worldTransform() function, expected prototype:\nconst btTransform & btCollisionObjectWrapper::m_worldTransform()\nClass arguments details:\n");
-		}
-
-
-		btCollisionObjectWrapper* self=(Luna< btCollisionObjectWrapper >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btCollisionObjectWrapper::m_worldTransform(). Got : '%s'",typeid(Luna< btCollisionObjectWrapper >::check(L,1)).name());
-		}
-		const btTransform* lret = &self->m_worldTransform;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< btTransform >::push(L,lret,false);
 
 		return 1;
 	}
@@ -291,10 +237,8 @@ luna_RegType LunaTraits< btCollisionObjectWrapper >::methods[] = {
 	{"getWorldTransform", &luna_wrapper_btCollisionObjectWrapper::_bind_getWorldTransform},
 	{"getCollisionObject", &luna_wrapper_btCollisionObjectWrapper::_bind_getCollisionObject},
 	{"getCollisionShape", &luna_wrapper_btCollisionObjectWrapper::_bind_getCollisionShape},
-	{"getM_parent", &luna_wrapper_btCollisionObjectWrapper::_bind_getM_parent},
-	{"getM_shape", &luna_wrapper_btCollisionObjectWrapper::_bind_getM_shape},
-	{"getM_collisionObject", &luna_wrapper_btCollisionObjectWrapper::_bind_getM_collisionObject},
-	{"getM_worldTransform", &luna_wrapper_btCollisionObjectWrapper::_bind_getM_worldTransform},
+	{"getParent", &luna_wrapper_btCollisionObjectWrapper::_bind_getParent},
+	{"getShape", &luna_wrapper_btCollisionObjectWrapper::_bind_getShape},
 	{"dynCast", &luna_wrapper_btCollisionObjectWrapper::_bind_dynCast},
 	{"__eq", &luna_wrapper_btCollisionObjectWrapper::_bind___eq},
 	{0,0}

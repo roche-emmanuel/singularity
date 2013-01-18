@@ -56,65 +56,65 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_collisionShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionShapeData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_localScaling(lua_State *L) {
+	inline static bool _lg_typecheck_getLocalScaling(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_implicitShapeDimensions(lua_State *L) {
+	inline static bool _lg_typecheck_getImplicitShapeDimensions(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_collisionMargin(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionMargin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_padding(lua_State *L) {
+	inline static bool _lg_typecheck_getPadding(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionShapeData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,94025107) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_localScaling(lua_State *L) {
+	inline static bool _lg_typecheck_setLocalScaling(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_implicitShapeDimensions(lua_State *L) {
+	inline static bool _lg_typecheck_setImplicitShapeDimensions(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionMargin(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_padding(lua_State *L) {
+	inline static bool _lg_typecheck_setPadding(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -129,8 +129,8 @@ public:
 
 	// Function binds:
 	// btCollisionShapeData btConvexInternalShapeData::m_collisionShapeData()
-	static int _bind_getM_collisionShapeData(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionShapeData(L)) {
+	static int _bind_getCollisionShapeData(lua_State *L) {
+		if (!_lg_typecheck_getCollisionShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btCollisionShapeData btConvexInternalShapeData::m_collisionShapeData() function, expected prototype:\nbtCollisionShapeData btConvexInternalShapeData::m_collisionShapeData()\nClass arguments details:\n");
 		}
@@ -150,8 +150,8 @@ public:
 	}
 
 	// btVector3FloatData btConvexInternalShapeData::m_localScaling()
-	static int _bind_getM_localScaling(lua_State *L) {
-		if (!_lg_typecheck_getM_localScaling(L)) {
+	static int _bind_getLocalScaling(lua_State *L) {
+		if (!_lg_typecheck_getLocalScaling(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btConvexInternalShapeData::m_localScaling() function, expected prototype:\nbtVector3FloatData btConvexInternalShapeData::m_localScaling()\nClass arguments details:\n");
 		}
@@ -171,8 +171,8 @@ public:
 	}
 
 	// btVector3FloatData btConvexInternalShapeData::m_implicitShapeDimensions()
-	static int _bind_getM_implicitShapeDimensions(lua_State *L) {
-		if (!_lg_typecheck_getM_implicitShapeDimensions(L)) {
+	static int _bind_getImplicitShapeDimensions(lua_State *L) {
+		if (!_lg_typecheck_getImplicitShapeDimensions(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btConvexInternalShapeData::m_implicitShapeDimensions() function, expected prototype:\nbtVector3FloatData btConvexInternalShapeData::m_implicitShapeDimensions()\nClass arguments details:\n");
 		}
@@ -192,8 +192,8 @@ public:
 	}
 
 	// float btConvexInternalShapeData::m_collisionMargin()
-	static int _bind_getM_collisionMargin(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionMargin(L)) {
+	static int _bind_getCollisionMargin(lua_State *L) {
+		if (!_lg_typecheck_getCollisionMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConvexInternalShapeData::m_collisionMargin() function, expected prototype:\nfloat btConvexInternalShapeData::m_collisionMargin()\nClass arguments details:\n");
 		}
@@ -211,8 +211,8 @@ public:
 	}
 
 	// int btConvexInternalShapeData::m_padding()
-	static int _bind_getM_padding(lua_State *L) {
-		if (!_lg_typecheck_getM_padding(L)) {
+	static int _bind_getPadding(lua_State *L) {
+		if (!_lg_typecheck_getPadding(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btConvexInternalShapeData::m_padding() function, expected prototype:\nint btConvexInternalShapeData::m_padding()\nClass arguments details:\n");
 		}
@@ -230,8 +230,8 @@ public:
 	}
 
 	// void btConvexInternalShapeData::m_collisionShapeData(btCollisionShapeData value)
-	static int _bind_setM_collisionShapeData(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionShapeData(L)) {
+	static int _bind_setCollisionShapeData(lua_State *L) {
+		if (!_lg_typecheck_setCollisionShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexInternalShapeData::m_collisionShapeData(btCollisionShapeData value) function, expected prototype:\nvoid btConvexInternalShapeData::m_collisionShapeData(btCollisionShapeData value)\nClass arguments details:\narg 1 ID = 94025107\n");
 		}
@@ -253,8 +253,8 @@ public:
 	}
 
 	// void btConvexInternalShapeData::m_localScaling(btVector3FloatData value)
-	static int _bind_setM_localScaling(lua_State *L) {
-		if (!_lg_typecheck_setM_localScaling(L)) {
+	static int _bind_setLocalScaling(lua_State *L) {
+		if (!_lg_typecheck_setLocalScaling(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexInternalShapeData::m_localScaling(btVector3FloatData value) function, expected prototype:\nvoid btConvexInternalShapeData::m_localScaling(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -276,8 +276,8 @@ public:
 	}
 
 	// void btConvexInternalShapeData::m_implicitShapeDimensions(btVector3FloatData value)
-	static int _bind_setM_implicitShapeDimensions(lua_State *L) {
-		if (!_lg_typecheck_setM_implicitShapeDimensions(L)) {
+	static int _bind_setImplicitShapeDimensions(lua_State *L) {
+		if (!_lg_typecheck_setImplicitShapeDimensions(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexInternalShapeData::m_implicitShapeDimensions(btVector3FloatData value) function, expected prototype:\nvoid btConvexInternalShapeData::m_implicitShapeDimensions(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -299,8 +299,8 @@ public:
 	}
 
 	// void btConvexInternalShapeData::m_collisionMargin(float value)
-	static int _bind_setM_collisionMargin(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionMargin(L)) {
+	static int _bind_setCollisionMargin(lua_State *L) {
+		if (!_lg_typecheck_setCollisionMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexInternalShapeData::m_collisionMargin(float value) function, expected prototype:\nvoid btConvexInternalShapeData::m_collisionMargin(float value)\nClass arguments details:\n");
 		}
@@ -318,8 +318,8 @@ public:
 	}
 
 	// void btConvexInternalShapeData::m_padding(int value)
-	static int _bind_setM_padding(lua_State *L) {
-		if (!_lg_typecheck_setM_padding(L)) {
+	static int _bind_setPadding(lua_State *L) {
+		if (!_lg_typecheck_setPadding(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexInternalShapeData::m_padding(int value) function, expected prototype:\nvoid btConvexInternalShapeData::m_padding(int value)\nClass arguments details:\n");
 		}
@@ -357,16 +357,16 @@ const int LunaTraits< btConvexInternalShapeData >::hash = 7968673;
 const int LunaTraits< btConvexInternalShapeData >::uniqueIDs[] = {7968673,0};
 
 luna_RegType LunaTraits< btConvexInternalShapeData >::methods[] = {
-	{"getM_collisionShapeData", &luna_wrapper_btConvexInternalShapeData::_bind_getM_collisionShapeData},
-	{"getM_localScaling", &luna_wrapper_btConvexInternalShapeData::_bind_getM_localScaling},
-	{"getM_implicitShapeDimensions", &luna_wrapper_btConvexInternalShapeData::_bind_getM_implicitShapeDimensions},
-	{"getM_collisionMargin", &luna_wrapper_btConvexInternalShapeData::_bind_getM_collisionMargin},
-	{"getM_padding", &luna_wrapper_btConvexInternalShapeData::_bind_getM_padding},
-	{"setM_collisionShapeData", &luna_wrapper_btConvexInternalShapeData::_bind_setM_collisionShapeData},
-	{"setM_localScaling", &luna_wrapper_btConvexInternalShapeData::_bind_setM_localScaling},
-	{"setM_implicitShapeDimensions", &luna_wrapper_btConvexInternalShapeData::_bind_setM_implicitShapeDimensions},
-	{"setM_collisionMargin", &luna_wrapper_btConvexInternalShapeData::_bind_setM_collisionMargin},
-	{"setM_padding", &luna_wrapper_btConvexInternalShapeData::_bind_setM_padding},
+	{"getCollisionShapeData", &luna_wrapper_btConvexInternalShapeData::_bind_getCollisionShapeData},
+	{"getLocalScaling", &luna_wrapper_btConvexInternalShapeData::_bind_getLocalScaling},
+	{"getImplicitShapeDimensions", &luna_wrapper_btConvexInternalShapeData::_bind_getImplicitShapeDimensions},
+	{"getCollisionMargin", &luna_wrapper_btConvexInternalShapeData::_bind_getCollisionMargin},
+	{"getPadding", &luna_wrapper_btConvexInternalShapeData::_bind_getPadding},
+	{"setCollisionShapeData", &luna_wrapper_btConvexInternalShapeData::_bind_setCollisionShapeData},
+	{"setLocalScaling", &luna_wrapper_btConvexInternalShapeData::_bind_setLocalScaling},
+	{"setImplicitShapeDimensions", &luna_wrapper_btConvexInternalShapeData::_bind_setImplicitShapeDimensions},
+	{"setCollisionMargin", &luna_wrapper_btConvexInternalShapeData::_bind_setCollisionMargin},
+	{"setPadding", &luna_wrapper_btConvexInternalShapeData::_bind_setPadding},
 	{"dynCast", &luna_wrapper_btConvexInternalShapeData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btConvexInternalShapeData::_bind___eq},
 	{0,0}

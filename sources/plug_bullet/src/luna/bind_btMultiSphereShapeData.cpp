@@ -56,39 +56,39 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_convexInternalShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_getConvexInternalShapeData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_localPositionArrayPtr(lua_State *L) {
+	inline static bool _lg_typecheck_getLocalPositionArrayPtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_localPositionArraySize(lua_State *L) {
+	inline static bool _lg_typecheck_getLocalPositionArraySize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_convexInternalShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_setConvexInternalShapeData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,7968673) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_localPositionArrayPtr(lua_State *L) {
+	inline static bool _lg_typecheck_setLocalPositionArrayPtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,22563878)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_localPositionArraySize(lua_State *L) {
+	inline static bool _lg_typecheck_setLocalPositionArraySize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -103,8 +103,8 @@ public:
 
 	// Function binds:
 	// btConvexInternalShapeData btMultiSphereShapeData::m_convexInternalShapeData()
-	static int _bind_getM_convexInternalShapeData(lua_State *L) {
-		if (!_lg_typecheck_getM_convexInternalShapeData(L)) {
+	static int _bind_getConvexInternalShapeData(lua_State *L) {
+		if (!_lg_typecheck_getConvexInternalShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btConvexInternalShapeData btMultiSphereShapeData::m_convexInternalShapeData() function, expected prototype:\nbtConvexInternalShapeData btMultiSphereShapeData::m_convexInternalShapeData()\nClass arguments details:\n");
 		}
@@ -124,8 +124,8 @@ public:
 	}
 
 	// btPositionAndRadius * btMultiSphereShapeData::m_localPositionArrayPtr()
-	static int _bind_getM_localPositionArrayPtr(lua_State *L) {
-		if (!_lg_typecheck_getM_localPositionArrayPtr(L)) {
+	static int _bind_getLocalPositionArrayPtr(lua_State *L) {
+		if (!_lg_typecheck_getLocalPositionArrayPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btPositionAndRadius * btMultiSphereShapeData::m_localPositionArrayPtr() function, expected prototype:\nbtPositionAndRadius * btMultiSphereShapeData::m_localPositionArrayPtr()\nClass arguments details:\n");
 		}
@@ -145,8 +145,8 @@ public:
 	}
 
 	// int btMultiSphereShapeData::m_localPositionArraySize()
-	static int _bind_getM_localPositionArraySize(lua_State *L) {
-		if (!_lg_typecheck_getM_localPositionArraySize(L)) {
+	static int _bind_getLocalPositionArraySize(lua_State *L) {
+		if (!_lg_typecheck_getLocalPositionArraySize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btMultiSphereShapeData::m_localPositionArraySize() function, expected prototype:\nint btMultiSphereShapeData::m_localPositionArraySize()\nClass arguments details:\n");
 		}
@@ -164,8 +164,8 @@ public:
 	}
 
 	// void btMultiSphereShapeData::m_convexInternalShapeData(btConvexInternalShapeData value)
-	static int _bind_setM_convexInternalShapeData(lua_State *L) {
-		if (!_lg_typecheck_setM_convexInternalShapeData(L)) {
+	static int _bind_setConvexInternalShapeData(lua_State *L) {
+		if (!_lg_typecheck_setConvexInternalShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btMultiSphereShapeData::m_convexInternalShapeData(btConvexInternalShapeData value) function, expected prototype:\nvoid btMultiSphereShapeData::m_convexInternalShapeData(btConvexInternalShapeData value)\nClass arguments details:\narg 1 ID = 7968673\n");
 		}
@@ -187,8 +187,8 @@ public:
 	}
 
 	// void btMultiSphereShapeData::m_localPositionArrayPtr(btPositionAndRadius * value)
-	static int _bind_setM_localPositionArrayPtr(lua_State *L) {
-		if (!_lg_typecheck_setM_localPositionArrayPtr(L)) {
+	static int _bind_setLocalPositionArrayPtr(lua_State *L) {
+		if (!_lg_typecheck_setLocalPositionArrayPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btMultiSphereShapeData::m_localPositionArrayPtr(btPositionAndRadius * value) function, expected prototype:\nvoid btMultiSphereShapeData::m_localPositionArrayPtr(btPositionAndRadius * value)\nClass arguments details:\narg 1 ID = 22563878\n");
 		}
@@ -206,8 +206,8 @@ public:
 	}
 
 	// void btMultiSphereShapeData::m_localPositionArraySize(int value)
-	static int _bind_setM_localPositionArraySize(lua_State *L) {
-		if (!_lg_typecheck_setM_localPositionArraySize(L)) {
+	static int _bind_setLocalPositionArraySize(lua_State *L) {
+		if (!_lg_typecheck_setLocalPositionArraySize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btMultiSphereShapeData::m_localPositionArraySize(int value) function, expected prototype:\nvoid btMultiSphereShapeData::m_localPositionArraySize(int value)\nClass arguments details:\n");
 		}
@@ -245,12 +245,12 @@ const int LunaTraits< btMultiSphereShapeData >::hash = 69068888;
 const int LunaTraits< btMultiSphereShapeData >::uniqueIDs[] = {69068888,0};
 
 luna_RegType LunaTraits< btMultiSphereShapeData >::methods[] = {
-	{"getM_convexInternalShapeData", &luna_wrapper_btMultiSphereShapeData::_bind_getM_convexInternalShapeData},
-	{"getM_localPositionArrayPtr", &luna_wrapper_btMultiSphereShapeData::_bind_getM_localPositionArrayPtr},
-	{"getM_localPositionArraySize", &luna_wrapper_btMultiSphereShapeData::_bind_getM_localPositionArraySize},
-	{"setM_convexInternalShapeData", &luna_wrapper_btMultiSphereShapeData::_bind_setM_convexInternalShapeData},
-	{"setM_localPositionArrayPtr", &luna_wrapper_btMultiSphereShapeData::_bind_setM_localPositionArrayPtr},
-	{"setM_localPositionArraySize", &luna_wrapper_btMultiSphereShapeData::_bind_setM_localPositionArraySize},
+	{"getConvexInternalShapeData", &luna_wrapper_btMultiSphereShapeData::_bind_getConvexInternalShapeData},
+	{"getLocalPositionArrayPtr", &luna_wrapper_btMultiSphereShapeData::_bind_getLocalPositionArrayPtr},
+	{"getLocalPositionArraySize", &luna_wrapper_btMultiSphereShapeData::_bind_getLocalPositionArraySize},
+	{"setConvexInternalShapeData", &luna_wrapper_btMultiSphereShapeData::_bind_setConvexInternalShapeData},
+	{"setLocalPositionArrayPtr", &luna_wrapper_btMultiSphereShapeData::_bind_setLocalPositionArrayPtr},
+	{"setLocalPositionArraySize", &luna_wrapper_btMultiSphereShapeData::_bind_setLocalPositionArraySize},
 	{"dynCast", &luna_wrapper_btMultiSphereShapeData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btMultiSphereShapeData::_bind___eq},
 	{0,0}

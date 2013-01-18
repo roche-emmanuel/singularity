@@ -99,52 +99,52 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_pdSolver(lua_State *L) {
+	inline static bool _lg_typecheck_getPdSolver(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_simplexSolver(lua_State *L) {
+	inline static bool _lg_typecheck_getSimplexSolver(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numPerturbationIterations(lua_State *L) {
+	inline static bool _lg_typecheck_getNumPerturbationIterations(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_minimumPointsPerturbationThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getMinimumPointsPerturbationThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_pdSolver(lua_State *L) {
+	inline static bool _lg_typecheck_setPdSolver(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,62802517)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_simplexSolver(lua_State *L) {
+	inline static bool _lg_typecheck_setSimplexSolver(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,95428271)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numPerturbationIterations(lua_State *L) {
+	inline static bool _lg_typecheck_setNumPerturbationIterations(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_minimumPointsPerturbationThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setMinimumPointsPerturbationThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -231,8 +231,8 @@ public:
 	}
 
 	// btConvexPenetrationDepthSolver * btConvex2dConvex2dAlgorithm::CreateFunc::m_pdSolver()
-	static int _bind_getM_pdSolver(lua_State *L) {
-		if (!_lg_typecheck_getM_pdSolver(L)) {
+	static int _bind_getPdSolver(lua_State *L) {
+		if (!_lg_typecheck_getPdSolver(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btConvexPenetrationDepthSolver * btConvex2dConvex2dAlgorithm::CreateFunc::m_pdSolver() function, expected prototype:\nbtConvexPenetrationDepthSolver * btConvex2dConvex2dAlgorithm::CreateFunc::m_pdSolver()\nClass arguments details:\n");
 		}
@@ -252,8 +252,8 @@ public:
 	}
 
 	// btVoronoiSimplexSolver * btConvex2dConvex2dAlgorithm::CreateFunc::m_simplexSolver()
-	static int _bind_getM_simplexSolver(lua_State *L) {
-		if (!_lg_typecheck_getM_simplexSolver(L)) {
+	static int _bind_getSimplexSolver(lua_State *L) {
+		if (!_lg_typecheck_getSimplexSolver(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVoronoiSimplexSolver * btConvex2dConvex2dAlgorithm::CreateFunc::m_simplexSolver() function, expected prototype:\nbtVoronoiSimplexSolver * btConvex2dConvex2dAlgorithm::CreateFunc::m_simplexSolver()\nClass arguments details:\n");
 		}
@@ -273,8 +273,8 @@ public:
 	}
 
 	// int btConvex2dConvex2dAlgorithm::CreateFunc::m_numPerturbationIterations()
-	static int _bind_getM_numPerturbationIterations(lua_State *L) {
-		if (!_lg_typecheck_getM_numPerturbationIterations(L)) {
+	static int _bind_getNumPerturbationIterations(lua_State *L) {
+		if (!_lg_typecheck_getNumPerturbationIterations(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btConvex2dConvex2dAlgorithm::CreateFunc::m_numPerturbationIterations() function, expected prototype:\nint btConvex2dConvex2dAlgorithm::CreateFunc::m_numPerturbationIterations()\nClass arguments details:\n");
 		}
@@ -292,8 +292,8 @@ public:
 	}
 
 	// int btConvex2dConvex2dAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold()
-	static int _bind_getM_minimumPointsPerturbationThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_minimumPointsPerturbationThreshold(L)) {
+	static int _bind_getMinimumPointsPerturbationThreshold(lua_State *L) {
+		if (!_lg_typecheck_getMinimumPointsPerturbationThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btConvex2dConvex2dAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold() function, expected prototype:\nint btConvex2dConvex2dAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold()\nClass arguments details:\n");
 		}
@@ -311,8 +311,8 @@ public:
 	}
 
 	// void btConvex2dConvex2dAlgorithm::CreateFunc::m_pdSolver(btConvexPenetrationDepthSolver * value)
-	static int _bind_setM_pdSolver(lua_State *L) {
-		if (!_lg_typecheck_setM_pdSolver(L)) {
+	static int _bind_setPdSolver(lua_State *L) {
+		if (!_lg_typecheck_setPdSolver(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvex2dConvex2dAlgorithm::CreateFunc::m_pdSolver(btConvexPenetrationDepthSolver * value) function, expected prototype:\nvoid btConvex2dConvex2dAlgorithm::CreateFunc::m_pdSolver(btConvexPenetrationDepthSolver * value)\nClass arguments details:\narg 1 ID = 62802517\n");
 		}
@@ -330,8 +330,8 @@ public:
 	}
 
 	// void btConvex2dConvex2dAlgorithm::CreateFunc::m_simplexSolver(btVoronoiSimplexSolver * value)
-	static int _bind_setM_simplexSolver(lua_State *L) {
-		if (!_lg_typecheck_setM_simplexSolver(L)) {
+	static int _bind_setSimplexSolver(lua_State *L) {
+		if (!_lg_typecheck_setSimplexSolver(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvex2dConvex2dAlgorithm::CreateFunc::m_simplexSolver(btVoronoiSimplexSolver * value) function, expected prototype:\nvoid btConvex2dConvex2dAlgorithm::CreateFunc::m_simplexSolver(btVoronoiSimplexSolver * value)\nClass arguments details:\narg 1 ID = 95428271\n");
 		}
@@ -349,8 +349,8 @@ public:
 	}
 
 	// void btConvex2dConvex2dAlgorithm::CreateFunc::m_numPerturbationIterations(int value)
-	static int _bind_setM_numPerturbationIterations(lua_State *L) {
-		if (!_lg_typecheck_setM_numPerturbationIterations(L)) {
+	static int _bind_setNumPerturbationIterations(lua_State *L) {
+		if (!_lg_typecheck_setNumPerturbationIterations(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvex2dConvex2dAlgorithm::CreateFunc::m_numPerturbationIterations(int value) function, expected prototype:\nvoid btConvex2dConvex2dAlgorithm::CreateFunc::m_numPerturbationIterations(int value)\nClass arguments details:\n");
 		}
@@ -368,8 +368,8 @@ public:
 	}
 
 	// void btConvex2dConvex2dAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(int value)
-	static int _bind_setM_minimumPointsPerturbationThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_minimumPointsPerturbationThreshold(L)) {
+	static int _bind_setMinimumPointsPerturbationThreshold(lua_State *L) {
+		if (!_lg_typecheck_setMinimumPointsPerturbationThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvex2dConvex2dAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(int value) function, expected prototype:\nvoid btConvex2dConvex2dAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(int value)\nClass arguments details:\n");
 		}
@@ -436,14 +436,14 @@ const int LunaTraits< btConvex2dConvex2dAlgorithm::CreateFunc >::uniqueIDs[] = {
 
 luna_RegType LunaTraits< btConvex2dConvex2dAlgorithm::CreateFunc >::methods[] = {
 	{"CreateCollisionAlgorithm", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_CreateCollisionAlgorithm},
-	{"getM_pdSolver", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_getM_pdSolver},
-	{"getM_simplexSolver", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_getM_simplexSolver},
-	{"getM_numPerturbationIterations", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_getM_numPerturbationIterations},
-	{"getM_minimumPointsPerturbationThreshold", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_getM_minimumPointsPerturbationThreshold},
-	{"setM_pdSolver", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_setM_pdSolver},
-	{"setM_simplexSolver", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_setM_simplexSolver},
-	{"setM_numPerturbationIterations", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_setM_numPerturbationIterations},
-	{"setM_minimumPointsPerturbationThreshold", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_setM_minimumPointsPerturbationThreshold},
+	{"getPdSolver", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_getPdSolver},
+	{"getSimplexSolver", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_getSimplexSolver},
+	{"getNumPerturbationIterations", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_getNumPerturbationIterations},
+	{"getMinimumPointsPerturbationThreshold", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_getMinimumPointsPerturbationThreshold},
+	{"setPdSolver", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_setPdSolver},
+	{"setSimplexSolver", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_setSimplexSolver},
+	{"setNumPerturbationIterations", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_setNumPerturbationIterations},
+	{"setMinimumPointsPerturbationThreshold", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_setMinimumPointsPerturbationThreshold},
 	{"base_CreateCollisionAlgorithm", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_base_CreateCollisionAlgorithm},
 	{"__eq", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind___eq},
 	{"getTable", &luna_wrapper_btConvex2dConvex2dAlgorithm_CreateFunc::_bind_getTable},

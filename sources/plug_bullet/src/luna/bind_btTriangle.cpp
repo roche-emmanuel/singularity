@@ -56,65 +56,65 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_vertex0(lua_State *L) {
+	inline static bool _lg_typecheck_getVertex0(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_vertex1(lua_State *L) {
+	inline static bool _lg_typecheck_getVertex1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_vertex2(lua_State *L) {
+	inline static bool _lg_typecheck_getVertex2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_partId(lua_State *L) {
+	inline static bool _lg_typecheck_getPartId(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_triangleIndex(lua_State *L) {
+	inline static bool _lg_typecheck_getTriangleIndex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_vertex0(lua_State *L) {
+	inline static bool _lg_typecheck_setVertex0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_vertex1(lua_State *L) {
+	inline static bool _lg_typecheck_setVertex1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_vertex2(lua_State *L) {
+	inline static bool _lg_typecheck_setVertex2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_partId(lua_State *L) {
+	inline static bool _lg_typecheck_setPartId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_triangleIndex(lua_State *L) {
+	inline static bool _lg_typecheck_setTriangleIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -129,8 +129,8 @@ public:
 
 	// Function binds:
 	// btVector3 btTriangle::m_vertex0()
-	static int _bind_getM_vertex0(lua_State *L) {
-		if (!_lg_typecheck_getM_vertex0(L)) {
+	static int _bind_getVertex0(lua_State *L) {
+		if (!_lg_typecheck_getVertex0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTriangle::m_vertex0() function, expected prototype:\nbtVector3 btTriangle::m_vertex0()\nClass arguments details:\n");
 		}
@@ -150,8 +150,8 @@ public:
 	}
 
 	// btVector3 btTriangle::m_vertex1()
-	static int _bind_getM_vertex1(lua_State *L) {
-		if (!_lg_typecheck_getM_vertex1(L)) {
+	static int _bind_getVertex1(lua_State *L) {
+		if (!_lg_typecheck_getVertex1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTriangle::m_vertex1() function, expected prototype:\nbtVector3 btTriangle::m_vertex1()\nClass arguments details:\n");
 		}
@@ -171,8 +171,8 @@ public:
 	}
 
 	// btVector3 btTriangle::m_vertex2()
-	static int _bind_getM_vertex2(lua_State *L) {
-		if (!_lg_typecheck_getM_vertex2(L)) {
+	static int _bind_getVertex2(lua_State *L) {
+		if (!_lg_typecheck_getVertex2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btTriangle::m_vertex2() function, expected prototype:\nbtVector3 btTriangle::m_vertex2()\nClass arguments details:\n");
 		}
@@ -192,8 +192,8 @@ public:
 	}
 
 	// int btTriangle::m_partId()
-	static int _bind_getM_partId(lua_State *L) {
-		if (!_lg_typecheck_getM_partId(L)) {
+	static int _bind_getPartId(lua_State *L) {
+		if (!_lg_typecheck_getPartId(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTriangle::m_partId() function, expected prototype:\nint btTriangle::m_partId()\nClass arguments details:\n");
 		}
@@ -211,8 +211,8 @@ public:
 	}
 
 	// int btTriangle::m_triangleIndex()
-	static int _bind_getM_triangleIndex(lua_State *L) {
-		if (!_lg_typecheck_getM_triangleIndex(L)) {
+	static int _bind_getTriangleIndex(lua_State *L) {
+		if (!_lg_typecheck_getTriangleIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTriangle::m_triangleIndex() function, expected prototype:\nint btTriangle::m_triangleIndex()\nClass arguments details:\n");
 		}
@@ -230,8 +230,8 @@ public:
 	}
 
 	// void btTriangle::m_vertex0(btVector3 value)
-	static int _bind_setM_vertex0(lua_State *L) {
-		if (!_lg_typecheck_setM_vertex0(L)) {
+	static int _bind_setVertex0(lua_State *L) {
+		if (!_lg_typecheck_setVertex0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangle::m_vertex0(btVector3 value) function, expected prototype:\nvoid btTriangle::m_vertex0(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -253,8 +253,8 @@ public:
 	}
 
 	// void btTriangle::m_vertex1(btVector3 value)
-	static int _bind_setM_vertex1(lua_State *L) {
-		if (!_lg_typecheck_setM_vertex1(L)) {
+	static int _bind_setVertex1(lua_State *L) {
+		if (!_lg_typecheck_setVertex1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangle::m_vertex1(btVector3 value) function, expected prototype:\nvoid btTriangle::m_vertex1(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -276,8 +276,8 @@ public:
 	}
 
 	// void btTriangle::m_vertex2(btVector3 value)
-	static int _bind_setM_vertex2(lua_State *L) {
-		if (!_lg_typecheck_setM_vertex2(L)) {
+	static int _bind_setVertex2(lua_State *L) {
+		if (!_lg_typecheck_setVertex2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangle::m_vertex2(btVector3 value) function, expected prototype:\nvoid btTriangle::m_vertex2(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -299,8 +299,8 @@ public:
 	}
 
 	// void btTriangle::m_partId(int value)
-	static int _bind_setM_partId(lua_State *L) {
-		if (!_lg_typecheck_setM_partId(L)) {
+	static int _bind_setPartId(lua_State *L) {
+		if (!_lg_typecheck_setPartId(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangle::m_partId(int value) function, expected prototype:\nvoid btTriangle::m_partId(int value)\nClass arguments details:\n");
 		}
@@ -318,8 +318,8 @@ public:
 	}
 
 	// void btTriangle::m_triangleIndex(int value)
-	static int _bind_setM_triangleIndex(lua_State *L) {
-		if (!_lg_typecheck_setM_triangleIndex(L)) {
+	static int _bind_setTriangleIndex(lua_State *L) {
+		if (!_lg_typecheck_setTriangleIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangle::m_triangleIndex(int value) function, expected prototype:\nvoid btTriangle::m_triangleIndex(int value)\nClass arguments details:\n");
 		}
@@ -357,16 +357,16 @@ const int LunaTraits< btTriangle >::hash = 4403420;
 const int LunaTraits< btTriangle >::uniqueIDs[] = {4403420,0};
 
 luna_RegType LunaTraits< btTriangle >::methods[] = {
-	{"getM_vertex0", &luna_wrapper_btTriangle::_bind_getM_vertex0},
-	{"getM_vertex1", &luna_wrapper_btTriangle::_bind_getM_vertex1},
-	{"getM_vertex2", &luna_wrapper_btTriangle::_bind_getM_vertex2},
-	{"getM_partId", &luna_wrapper_btTriangle::_bind_getM_partId},
-	{"getM_triangleIndex", &luna_wrapper_btTriangle::_bind_getM_triangleIndex},
-	{"setM_vertex0", &luna_wrapper_btTriangle::_bind_setM_vertex0},
-	{"setM_vertex1", &luna_wrapper_btTriangle::_bind_setM_vertex1},
-	{"setM_vertex2", &luna_wrapper_btTriangle::_bind_setM_vertex2},
-	{"setM_partId", &luna_wrapper_btTriangle::_bind_setM_partId},
-	{"setM_triangleIndex", &luna_wrapper_btTriangle::_bind_setM_triangleIndex},
+	{"getVertex0", &luna_wrapper_btTriangle::_bind_getVertex0},
+	{"getVertex1", &luna_wrapper_btTriangle::_bind_getVertex1},
+	{"getVertex2", &luna_wrapper_btTriangle::_bind_getVertex2},
+	{"getPartId", &luna_wrapper_btTriangle::_bind_getPartId},
+	{"getTriangleIndex", &luna_wrapper_btTriangle::_bind_getTriangleIndex},
+	{"setVertex0", &luna_wrapper_btTriangle::_bind_setVertex0},
+	{"setVertex1", &luna_wrapper_btTriangle::_bind_setVertex1},
+	{"setVertex2", &luna_wrapper_btTriangle::_bind_setVertex2},
+	{"setPartId", &luna_wrapper_btTriangle::_bind_setPartId},
+	{"setTriangleIndex", &luna_wrapper_btTriangle::_bind_setTriangleIndex},
 	{"dynCast", &luna_wrapper_btTriangle::_bind_dynCast},
 	{"__eq", &luna_wrapper_btTriangle::_bind___eq},
 	{0,0}

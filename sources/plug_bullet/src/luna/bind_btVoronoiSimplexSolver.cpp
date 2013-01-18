@@ -206,117 +206,104 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numVertices(lua_State *L) {
+	inline static bool _lg_typecheck_getNumVertices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_cachedP1(lua_State *L) {
+	inline static bool _lg_typecheck_getCachedP1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_cachedP2(lua_State *L) {
+	inline static bool _lg_typecheck_getCachedP2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_cachedV(lua_State *L) {
+	inline static bool _lg_typecheck_getCachedV(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_lastW(lua_State *L) {
+	inline static bool _lg_typecheck_getLastW(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_equalVertexThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getCachedValidClosest(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_cachedValidClosest(lua_State *L) {
+	inline static bool _lg_typecheck_getCachedBC(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_cachedBC(lua_State *L) {
+	inline static bool _lg_typecheck_getNeedsUpdate(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_needsUpdate(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_setM_numVertices(lua_State *L) {
+	inline static bool _lg_typecheck_setNumVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_cachedP1(lua_State *L) {
+	inline static bool _lg_typecheck_setCachedP1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_cachedP2(lua_State *L) {
+	inline static bool _lg_typecheck_setCachedP2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_cachedV(lua_State *L) {
+	inline static bool _lg_typecheck_setCachedV(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_lastW(lua_State *L) {
+	inline static bool _lg_typecheck_setLastW(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_equalVertexThreshold(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isnumber(L,2)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_setM_cachedValidClosest(lua_State *L) {
+	inline static bool _lg_typecheck_setCachedValidClosest(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_cachedBC(lua_State *L) {
+	inline static bool _lg_typecheck_setCachedBC(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,75923500) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_needsUpdate(lua_State *L) {
+	inline static bool _lg_typecheck_setNeedsUpdate(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -826,8 +813,8 @@ public:
 	}
 
 	// int btVoronoiSimplexSolver::m_numVertices()
-	static int _bind_getM_numVertices(lua_State *L) {
-		if (!_lg_typecheck_getM_numVertices(L)) {
+	static int _bind_getNumVertices(lua_State *L) {
+		if (!_lg_typecheck_getNumVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btVoronoiSimplexSolver::m_numVertices() function, expected prototype:\nint btVoronoiSimplexSolver::m_numVertices()\nClass arguments details:\n");
 		}
@@ -845,8 +832,8 @@ public:
 	}
 
 	// btVector3 btVoronoiSimplexSolver::m_cachedP1()
-	static int _bind_getM_cachedP1(lua_State *L) {
-		if (!_lg_typecheck_getM_cachedP1(L)) {
+	static int _bind_getCachedP1(lua_State *L) {
+		if (!_lg_typecheck_getCachedP1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btVoronoiSimplexSolver::m_cachedP1() function, expected prototype:\nbtVector3 btVoronoiSimplexSolver::m_cachedP1()\nClass arguments details:\n");
 		}
@@ -866,8 +853,8 @@ public:
 	}
 
 	// btVector3 btVoronoiSimplexSolver::m_cachedP2()
-	static int _bind_getM_cachedP2(lua_State *L) {
-		if (!_lg_typecheck_getM_cachedP2(L)) {
+	static int _bind_getCachedP2(lua_State *L) {
+		if (!_lg_typecheck_getCachedP2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btVoronoiSimplexSolver::m_cachedP2() function, expected prototype:\nbtVector3 btVoronoiSimplexSolver::m_cachedP2()\nClass arguments details:\n");
 		}
@@ -887,8 +874,8 @@ public:
 	}
 
 	// btVector3 btVoronoiSimplexSolver::m_cachedV()
-	static int _bind_getM_cachedV(lua_State *L) {
-		if (!_lg_typecheck_getM_cachedV(L)) {
+	static int _bind_getCachedV(lua_State *L) {
+		if (!_lg_typecheck_getCachedV(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btVoronoiSimplexSolver::m_cachedV() function, expected prototype:\nbtVector3 btVoronoiSimplexSolver::m_cachedV()\nClass arguments details:\n");
 		}
@@ -908,8 +895,8 @@ public:
 	}
 
 	// btVector3 btVoronoiSimplexSolver::m_lastW()
-	static int _bind_getM_lastW(lua_State *L) {
-		if (!_lg_typecheck_getM_lastW(L)) {
+	static int _bind_getLastW(lua_State *L) {
+		if (!_lg_typecheck_getLastW(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btVoronoiSimplexSolver::m_lastW() function, expected prototype:\nbtVector3 btVoronoiSimplexSolver::m_lastW()\nClass arguments details:\n");
 		}
@@ -928,28 +915,9 @@ public:
 		return 1;
 	}
 
-	// float btVoronoiSimplexSolver::m_equalVertexThreshold()
-	static int _bind_getM_equalVertexThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_equalVertexThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btVoronoiSimplexSolver::m_equalVertexThreshold() function, expected prototype:\nfloat btVoronoiSimplexSolver::m_equalVertexThreshold()\nClass arguments details:\n");
-		}
-
-
-		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btVoronoiSimplexSolver::m_equalVertexThreshold(). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
-		}
-		float lret = self->m_equalVertexThreshold;
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
 	// bool btVoronoiSimplexSolver::m_cachedValidClosest()
-	static int _bind_getM_cachedValidClosest(lua_State *L) {
-		if (!_lg_typecheck_getM_cachedValidClosest(L)) {
+	static int _bind_getCachedValidClosest(lua_State *L) {
+		if (!_lg_typecheck_getCachedValidClosest(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::m_cachedValidClosest() function, expected prototype:\nbool btVoronoiSimplexSolver::m_cachedValidClosest()\nClass arguments details:\n");
 		}
@@ -967,8 +935,8 @@ public:
 	}
 
 	// btSubSimplexClosestResult btVoronoiSimplexSolver::m_cachedBC()
-	static int _bind_getM_cachedBC(lua_State *L) {
-		if (!_lg_typecheck_getM_cachedBC(L)) {
+	static int _bind_getCachedBC(lua_State *L) {
+		if (!_lg_typecheck_getCachedBC(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btSubSimplexClosestResult btVoronoiSimplexSolver::m_cachedBC() function, expected prototype:\nbtSubSimplexClosestResult btVoronoiSimplexSolver::m_cachedBC()\nClass arguments details:\n");
 		}
@@ -988,8 +956,8 @@ public:
 	}
 
 	// bool btVoronoiSimplexSolver::m_needsUpdate()
-	static int _bind_getM_needsUpdate(lua_State *L) {
-		if (!_lg_typecheck_getM_needsUpdate(L)) {
+	static int _bind_getNeedsUpdate(lua_State *L) {
+		if (!_lg_typecheck_getNeedsUpdate(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::m_needsUpdate() function, expected prototype:\nbool btVoronoiSimplexSolver::m_needsUpdate()\nClass arguments details:\n");
 		}
@@ -1007,8 +975,8 @@ public:
 	}
 
 	// void btVoronoiSimplexSolver::m_numVertices(int value)
-	static int _bind_setM_numVertices(lua_State *L) {
-		if (!_lg_typecheck_setM_numVertices(L)) {
+	static int _bind_setNumVertices(lua_State *L) {
+		if (!_lg_typecheck_setNumVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_numVertices(int value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_numVertices(int value)\nClass arguments details:\n");
 		}
@@ -1026,8 +994,8 @@ public:
 	}
 
 	// void btVoronoiSimplexSolver::m_cachedP1(btVector3 value)
-	static int _bind_setM_cachedP1(lua_State *L) {
-		if (!_lg_typecheck_setM_cachedP1(L)) {
+	static int _bind_setCachedP1(lua_State *L) {
+		if (!_lg_typecheck_setCachedP1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedP1(btVector3 value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedP1(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1049,8 +1017,8 @@ public:
 	}
 
 	// void btVoronoiSimplexSolver::m_cachedP2(btVector3 value)
-	static int _bind_setM_cachedP2(lua_State *L) {
-		if (!_lg_typecheck_setM_cachedP2(L)) {
+	static int _bind_setCachedP2(lua_State *L) {
+		if (!_lg_typecheck_setCachedP2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedP2(btVector3 value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedP2(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1072,8 +1040,8 @@ public:
 	}
 
 	// void btVoronoiSimplexSolver::m_cachedV(btVector3 value)
-	static int _bind_setM_cachedV(lua_State *L) {
-		if (!_lg_typecheck_setM_cachedV(L)) {
+	static int _bind_setCachedV(lua_State *L) {
+		if (!_lg_typecheck_setCachedV(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedV(btVector3 value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedV(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1095,8 +1063,8 @@ public:
 	}
 
 	// void btVoronoiSimplexSolver::m_lastW(btVector3 value)
-	static int _bind_setM_lastW(lua_State *L) {
-		if (!_lg_typecheck_setM_lastW(L)) {
+	static int _bind_setLastW(lua_State *L) {
+		if (!_lg_typecheck_setLastW(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_lastW(btVector3 value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_lastW(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1117,28 +1085,9 @@ public:
 		return 0;
 	}
 
-	// void btVoronoiSimplexSolver::m_equalVertexThreshold(float value)
-	static int _bind_setM_equalVertexThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_equalVertexThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_equalVertexThreshold(float value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_equalVertexThreshold(float value)\nClass arguments details:\n");
-		}
-
-		float value=(float)lua_tonumber(L,2);
-
-		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_equalVertexThreshold(float). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
-		}
-		self->m_equalVertexThreshold = value;
-
-		return 0;
-	}
-
 	// void btVoronoiSimplexSolver::m_cachedValidClosest(bool value)
-	static int _bind_setM_cachedValidClosest(lua_State *L) {
-		if (!_lg_typecheck_setM_cachedValidClosest(L)) {
+	static int _bind_setCachedValidClosest(lua_State *L) {
+		if (!_lg_typecheck_setCachedValidClosest(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedValidClosest(bool value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedValidClosest(bool value)\nClass arguments details:\n");
 		}
@@ -1156,8 +1105,8 @@ public:
 	}
 
 	// void btVoronoiSimplexSolver::m_cachedBC(btSubSimplexClosestResult value)
-	static int _bind_setM_cachedBC(lua_State *L) {
-		if (!_lg_typecheck_setM_cachedBC(L)) {
+	static int _bind_setCachedBC(lua_State *L) {
+		if (!_lg_typecheck_setCachedBC(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedBC(btSubSimplexClosestResult value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedBC(btSubSimplexClosestResult value)\nClass arguments details:\narg 1 ID = 75923500\n");
 		}
@@ -1179,8 +1128,8 @@ public:
 	}
 
 	// void btVoronoiSimplexSolver::m_needsUpdate(bool value)
-	static int _bind_setM_needsUpdate(lua_State *L) {
-		if (!_lg_typecheck_setM_needsUpdate(L)) {
+	static int _bind_setNeedsUpdate(lua_State *L) {
+		if (!_lg_typecheck_setNeedsUpdate(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_needsUpdate(bool value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_needsUpdate(bool value)\nClass arguments details:\n");
 		}
@@ -1237,24 +1186,22 @@ luna_RegType LunaTraits< btVoronoiSimplexSolver >::methods[] = {
 	{"emptySimplex", &luna_wrapper_btVoronoiSimplexSolver::_bind_emptySimplex},
 	{"compute_points", &luna_wrapper_btVoronoiSimplexSolver::_bind_compute_points},
 	{"numVertices", &luna_wrapper_btVoronoiSimplexSolver::_bind_numVertices},
-	{"getM_numVertices", &luna_wrapper_btVoronoiSimplexSolver::_bind_getM_numVertices},
-	{"getM_cachedP1", &luna_wrapper_btVoronoiSimplexSolver::_bind_getM_cachedP1},
-	{"getM_cachedP2", &luna_wrapper_btVoronoiSimplexSolver::_bind_getM_cachedP2},
-	{"getM_cachedV", &luna_wrapper_btVoronoiSimplexSolver::_bind_getM_cachedV},
-	{"getM_lastW", &luna_wrapper_btVoronoiSimplexSolver::_bind_getM_lastW},
-	{"getM_equalVertexThreshold", &luna_wrapper_btVoronoiSimplexSolver::_bind_getM_equalVertexThreshold},
-	{"getM_cachedValidClosest", &luna_wrapper_btVoronoiSimplexSolver::_bind_getM_cachedValidClosest},
-	{"getM_cachedBC", &luna_wrapper_btVoronoiSimplexSolver::_bind_getM_cachedBC},
-	{"getM_needsUpdate", &luna_wrapper_btVoronoiSimplexSolver::_bind_getM_needsUpdate},
-	{"setM_numVertices", &luna_wrapper_btVoronoiSimplexSolver::_bind_setM_numVertices},
-	{"setM_cachedP1", &luna_wrapper_btVoronoiSimplexSolver::_bind_setM_cachedP1},
-	{"setM_cachedP2", &luna_wrapper_btVoronoiSimplexSolver::_bind_setM_cachedP2},
-	{"setM_cachedV", &luna_wrapper_btVoronoiSimplexSolver::_bind_setM_cachedV},
-	{"setM_lastW", &luna_wrapper_btVoronoiSimplexSolver::_bind_setM_lastW},
-	{"setM_equalVertexThreshold", &luna_wrapper_btVoronoiSimplexSolver::_bind_setM_equalVertexThreshold},
-	{"setM_cachedValidClosest", &luna_wrapper_btVoronoiSimplexSolver::_bind_setM_cachedValidClosest},
-	{"setM_cachedBC", &luna_wrapper_btVoronoiSimplexSolver::_bind_setM_cachedBC},
-	{"setM_needsUpdate", &luna_wrapper_btVoronoiSimplexSolver::_bind_setM_needsUpdate},
+	{"getNumVertices", &luna_wrapper_btVoronoiSimplexSolver::_bind_getNumVertices},
+	{"getCachedP1", &luna_wrapper_btVoronoiSimplexSolver::_bind_getCachedP1},
+	{"getCachedP2", &luna_wrapper_btVoronoiSimplexSolver::_bind_getCachedP2},
+	{"getCachedV", &luna_wrapper_btVoronoiSimplexSolver::_bind_getCachedV},
+	{"getLastW", &luna_wrapper_btVoronoiSimplexSolver::_bind_getLastW},
+	{"getCachedValidClosest", &luna_wrapper_btVoronoiSimplexSolver::_bind_getCachedValidClosest},
+	{"getCachedBC", &luna_wrapper_btVoronoiSimplexSolver::_bind_getCachedBC},
+	{"getNeedsUpdate", &luna_wrapper_btVoronoiSimplexSolver::_bind_getNeedsUpdate},
+	{"setNumVertices", &luna_wrapper_btVoronoiSimplexSolver::_bind_setNumVertices},
+	{"setCachedP1", &luna_wrapper_btVoronoiSimplexSolver::_bind_setCachedP1},
+	{"setCachedP2", &luna_wrapper_btVoronoiSimplexSolver::_bind_setCachedP2},
+	{"setCachedV", &luna_wrapper_btVoronoiSimplexSolver::_bind_setCachedV},
+	{"setLastW", &luna_wrapper_btVoronoiSimplexSolver::_bind_setLastW},
+	{"setCachedValidClosest", &luna_wrapper_btVoronoiSimplexSolver::_bind_setCachedValidClosest},
+	{"setCachedBC", &luna_wrapper_btVoronoiSimplexSolver::_bind_setCachedBC},
+	{"setNeedsUpdate", &luna_wrapper_btVoronoiSimplexSolver::_bind_setNeedsUpdate},
 	{"dynCast", &luna_wrapper_btVoronoiSimplexSolver::_bind_dynCast},
 	{"__eq", &luna_wrapper_btVoronoiSimplexSolver::_bind___eq},
 	{0,0}

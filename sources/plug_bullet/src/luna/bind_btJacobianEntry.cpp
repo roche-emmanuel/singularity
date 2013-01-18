@@ -166,78 +166,78 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_linearJointAxis(lua_State *L) {
+	inline static bool _lg_typecheck_getLinearJointAxis(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_aJ(lua_State *L) {
+	inline static bool _lg_typecheck_getAJ(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_bJ(lua_State *L) {
+	inline static bool _lg_typecheck_getBJ(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_0MinvJt(lua_State *L) {
+	inline static bool _lg_typecheck_get0MinvJt(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_1MinvJt(lua_State *L) {
+	inline static bool _lg_typecheck_get1MinvJt(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_Adiag(lua_State *L) {
+	inline static bool _lg_typecheck_getAdiag(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_linearJointAxis(lua_State *L) {
+	inline static bool _lg_typecheck_setLinearJointAxis(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_aJ(lua_State *L) {
+	inline static bool _lg_typecheck_setAJ(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_bJ(lua_State *L) {
+	inline static bool _lg_typecheck_setBJ(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_0MinvJt(lua_State *L) {
+	inline static bool _lg_typecheck_set0MinvJt(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_1MinvJt(lua_State *L) {
+	inline static bool _lg_typecheck_set1MinvJt(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_Adiag(lua_State *L) {
+	inline static bool _lg_typecheck_setAdiag(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -545,8 +545,8 @@ public:
 	}
 
 	// btVector3 btJacobianEntry::m_linearJointAxis()
-	static int _bind_getM_linearJointAxis(lua_State *L) {
-		if (!_lg_typecheck_getM_linearJointAxis(L)) {
+	static int _bind_getLinearJointAxis(lua_State *L) {
+		if (!_lg_typecheck_getLinearJointAxis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btJacobianEntry::m_linearJointAxis() function, expected prototype:\nbtVector3 btJacobianEntry::m_linearJointAxis()\nClass arguments details:\n");
 		}
@@ -566,8 +566,8 @@ public:
 	}
 
 	// btVector3 btJacobianEntry::m_aJ()
-	static int _bind_getM_aJ(lua_State *L) {
-		if (!_lg_typecheck_getM_aJ(L)) {
+	static int _bind_getAJ(lua_State *L) {
+		if (!_lg_typecheck_getAJ(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btJacobianEntry::m_aJ() function, expected prototype:\nbtVector3 btJacobianEntry::m_aJ()\nClass arguments details:\n");
 		}
@@ -587,8 +587,8 @@ public:
 	}
 
 	// btVector3 btJacobianEntry::m_bJ()
-	static int _bind_getM_bJ(lua_State *L) {
-		if (!_lg_typecheck_getM_bJ(L)) {
+	static int _bind_getBJ(lua_State *L) {
+		if (!_lg_typecheck_getBJ(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btJacobianEntry::m_bJ() function, expected prototype:\nbtVector3 btJacobianEntry::m_bJ()\nClass arguments details:\n");
 		}
@@ -608,8 +608,8 @@ public:
 	}
 
 	// btVector3 btJacobianEntry::m_0MinvJt()
-	static int _bind_getM_0MinvJt(lua_State *L) {
-		if (!_lg_typecheck_getM_0MinvJt(L)) {
+	static int _bind_get0MinvJt(lua_State *L) {
+		if (!_lg_typecheck_get0MinvJt(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btJacobianEntry::m_0MinvJt() function, expected prototype:\nbtVector3 btJacobianEntry::m_0MinvJt()\nClass arguments details:\n");
 		}
@@ -629,8 +629,8 @@ public:
 	}
 
 	// btVector3 btJacobianEntry::m_1MinvJt()
-	static int _bind_getM_1MinvJt(lua_State *L) {
-		if (!_lg_typecheck_getM_1MinvJt(L)) {
+	static int _bind_get1MinvJt(lua_State *L) {
+		if (!_lg_typecheck_get1MinvJt(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btJacobianEntry::m_1MinvJt() function, expected prototype:\nbtVector3 btJacobianEntry::m_1MinvJt()\nClass arguments details:\n");
 		}
@@ -650,8 +650,8 @@ public:
 	}
 
 	// float btJacobianEntry::m_Adiag()
-	static int _bind_getM_Adiag(lua_State *L) {
-		if (!_lg_typecheck_getM_Adiag(L)) {
+	static int _bind_getAdiag(lua_State *L) {
+		if (!_lg_typecheck_getAdiag(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btJacobianEntry::m_Adiag() function, expected prototype:\nfloat btJacobianEntry::m_Adiag()\nClass arguments details:\n");
 		}
@@ -669,8 +669,8 @@ public:
 	}
 
 	// void btJacobianEntry::m_linearJointAxis(btVector3 value)
-	static int _bind_setM_linearJointAxis(lua_State *L) {
-		if (!_lg_typecheck_setM_linearJointAxis(L)) {
+	static int _bind_setLinearJointAxis(lua_State *L) {
+		if (!_lg_typecheck_setLinearJointAxis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btJacobianEntry::m_linearJointAxis(btVector3 value) function, expected prototype:\nvoid btJacobianEntry::m_linearJointAxis(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -692,8 +692,8 @@ public:
 	}
 
 	// void btJacobianEntry::m_aJ(btVector3 value)
-	static int _bind_setM_aJ(lua_State *L) {
-		if (!_lg_typecheck_setM_aJ(L)) {
+	static int _bind_setAJ(lua_State *L) {
+		if (!_lg_typecheck_setAJ(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btJacobianEntry::m_aJ(btVector3 value) function, expected prototype:\nvoid btJacobianEntry::m_aJ(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -715,8 +715,8 @@ public:
 	}
 
 	// void btJacobianEntry::m_bJ(btVector3 value)
-	static int _bind_setM_bJ(lua_State *L) {
-		if (!_lg_typecheck_setM_bJ(L)) {
+	static int _bind_setBJ(lua_State *L) {
+		if (!_lg_typecheck_setBJ(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btJacobianEntry::m_bJ(btVector3 value) function, expected prototype:\nvoid btJacobianEntry::m_bJ(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -738,8 +738,8 @@ public:
 	}
 
 	// void btJacobianEntry::m_0MinvJt(btVector3 value)
-	static int _bind_setM_0MinvJt(lua_State *L) {
-		if (!_lg_typecheck_setM_0MinvJt(L)) {
+	static int _bind_set0MinvJt(lua_State *L) {
+		if (!_lg_typecheck_set0MinvJt(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btJacobianEntry::m_0MinvJt(btVector3 value) function, expected prototype:\nvoid btJacobianEntry::m_0MinvJt(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -761,8 +761,8 @@ public:
 	}
 
 	// void btJacobianEntry::m_1MinvJt(btVector3 value)
-	static int _bind_setM_1MinvJt(lua_State *L) {
-		if (!_lg_typecheck_setM_1MinvJt(L)) {
+	static int _bind_set1MinvJt(lua_State *L) {
+		if (!_lg_typecheck_set1MinvJt(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btJacobianEntry::m_1MinvJt(btVector3 value) function, expected prototype:\nvoid btJacobianEntry::m_1MinvJt(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -784,8 +784,8 @@ public:
 	}
 
 	// void btJacobianEntry::m_Adiag(float value)
-	static int _bind_setM_Adiag(lua_State *L) {
-		if (!_lg_typecheck_setM_Adiag(L)) {
+	static int _bind_setAdiag(lua_State *L) {
+		if (!_lg_typecheck_setAdiag(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btJacobianEntry::m_Adiag(float value) function, expected prototype:\nvoid btJacobianEntry::m_Adiag(float value)\nClass arguments details:\n");
 		}
@@ -826,18 +826,18 @@ luna_RegType LunaTraits< btJacobianEntry >::methods[] = {
 	{"getDiagonal", &luna_wrapper_btJacobianEntry::_bind_getDiagonal},
 	{"getNonDiagonal", &luna_wrapper_btJacobianEntry::_bind_getNonDiagonal},
 	{"getRelativeVelocity", &luna_wrapper_btJacobianEntry::_bind_getRelativeVelocity},
-	{"getM_linearJointAxis", &luna_wrapper_btJacobianEntry::_bind_getM_linearJointAxis},
-	{"getM_aJ", &luna_wrapper_btJacobianEntry::_bind_getM_aJ},
-	{"getM_bJ", &luna_wrapper_btJacobianEntry::_bind_getM_bJ},
-	{"getM_0MinvJt", &luna_wrapper_btJacobianEntry::_bind_getM_0MinvJt},
-	{"getM_1MinvJt", &luna_wrapper_btJacobianEntry::_bind_getM_1MinvJt},
-	{"getM_Adiag", &luna_wrapper_btJacobianEntry::_bind_getM_Adiag},
-	{"setM_linearJointAxis", &luna_wrapper_btJacobianEntry::_bind_setM_linearJointAxis},
-	{"setM_aJ", &luna_wrapper_btJacobianEntry::_bind_setM_aJ},
-	{"setM_bJ", &luna_wrapper_btJacobianEntry::_bind_setM_bJ},
-	{"setM_0MinvJt", &luna_wrapper_btJacobianEntry::_bind_setM_0MinvJt},
-	{"setM_1MinvJt", &luna_wrapper_btJacobianEntry::_bind_setM_1MinvJt},
-	{"setM_Adiag", &luna_wrapper_btJacobianEntry::_bind_setM_Adiag},
+	{"getLinearJointAxis", &luna_wrapper_btJacobianEntry::_bind_getLinearJointAxis},
+	{"getAJ", &luna_wrapper_btJacobianEntry::_bind_getAJ},
+	{"getBJ", &luna_wrapper_btJacobianEntry::_bind_getBJ},
+	{"get0MinvJt", &luna_wrapper_btJacobianEntry::_bind_get0MinvJt},
+	{"get1MinvJt", &luna_wrapper_btJacobianEntry::_bind_get1MinvJt},
+	{"getAdiag", &luna_wrapper_btJacobianEntry::_bind_getAdiag},
+	{"setLinearJointAxis", &luna_wrapper_btJacobianEntry::_bind_setLinearJointAxis},
+	{"setAJ", &luna_wrapper_btJacobianEntry::_bind_setAJ},
+	{"setBJ", &luna_wrapper_btJacobianEntry::_bind_setBJ},
+	{"set0MinvJt", &luna_wrapper_btJacobianEntry::_bind_set0MinvJt},
+	{"set1MinvJt", &luna_wrapper_btJacobianEntry::_bind_set1MinvJt},
+	{"setAdiag", &luna_wrapper_btJacobianEntry::_bind_setAdiag},
 	{"dynCast", &luna_wrapper_btJacobianEntry::_bind_dynCast},
 	{"__eq", &luna_wrapper_btJacobianEntry::_bind___eq},
 	{0,0}

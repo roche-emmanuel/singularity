@@ -213,26 +213,26 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_useSolveConstraintObsolete(lua_State *L) {
+	inline static bool _lg_typecheck_getUseSolveConstraintObsolete(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_setting(lua_State *L) {
+	inline static bool _lg_typecheck_getSetting(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_useSolveConstraintObsolete(lua_State *L) {
+	inline static bool _lg_typecheck_setUseSolveConstraintObsolete(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_setting(lua_State *L) {
+	inline static bool _lg_typecheck_setSetting(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,71995903) ) return false;
@@ -702,8 +702,8 @@ public:
 	}
 
 	// bool btPoint2PointConstraint::m_useSolveConstraintObsolete()
-	static int _bind_getM_useSolveConstraintObsolete(lua_State *L) {
-		if (!_lg_typecheck_getM_useSolveConstraintObsolete(L)) {
+	static int _bind_getUseSolveConstraintObsolete(lua_State *L) {
+		if (!_lg_typecheck_getUseSolveConstraintObsolete(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btPoint2PointConstraint::m_useSolveConstraintObsolete() function, expected prototype:\nbool btPoint2PointConstraint::m_useSolveConstraintObsolete()\nClass arguments details:\n");
 		}
@@ -721,8 +721,8 @@ public:
 	}
 
 	// btConstraintSetting btPoint2PointConstraint::m_setting()
-	static int _bind_getM_setting(lua_State *L) {
-		if (!_lg_typecheck_getM_setting(L)) {
+	static int _bind_getSetting(lua_State *L) {
+		if (!_lg_typecheck_getSetting(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btConstraintSetting btPoint2PointConstraint::m_setting() function, expected prototype:\nbtConstraintSetting btPoint2PointConstraint::m_setting()\nClass arguments details:\n");
 		}
@@ -742,8 +742,8 @@ public:
 	}
 
 	// void btPoint2PointConstraint::m_useSolveConstraintObsolete(bool value)
-	static int _bind_setM_useSolveConstraintObsolete(lua_State *L) {
-		if (!_lg_typecheck_setM_useSolveConstraintObsolete(L)) {
+	static int _bind_setUseSolveConstraintObsolete(lua_State *L) {
+		if (!_lg_typecheck_setUseSolveConstraintObsolete(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPoint2PointConstraint::m_useSolveConstraintObsolete(bool value) function, expected prototype:\nvoid btPoint2PointConstraint::m_useSolveConstraintObsolete(bool value)\nClass arguments details:\n");
 		}
@@ -761,8 +761,8 @@ public:
 	}
 
 	// void btPoint2PointConstraint::m_setting(btConstraintSetting value)
-	static int _bind_setM_setting(lua_State *L) {
-		if (!_lg_typecheck_setM_setting(L)) {
+	static int _bind_setSetting(lua_State *L) {
+		if (!_lg_typecheck_setSetting(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPoint2PointConstraint::m_setting(btConstraintSetting value) function, expected prototype:\nvoid btPoint2PointConstraint::m_setting(btConstraintSetting value)\nClass arguments details:\narg 1 ID = 71995903\n");
 		}
@@ -993,10 +993,10 @@ luna_RegType LunaTraits< btPoint2PointConstraint >::methods[] = {
 	{"setParam", &luna_wrapper_btPoint2PointConstraint::_bind_setParam},
 	{"getParam", &luna_wrapper_btPoint2PointConstraint::_bind_getParam},
 	{"calculateSerializeBufferSize", &luna_wrapper_btPoint2PointConstraint::_bind_calculateSerializeBufferSize},
-	{"getM_useSolveConstraintObsolete", &luna_wrapper_btPoint2PointConstraint::_bind_getM_useSolveConstraintObsolete},
-	{"getM_setting", &luna_wrapper_btPoint2PointConstraint::_bind_getM_setting},
-	{"setM_useSolveConstraintObsolete", &luna_wrapper_btPoint2PointConstraint::_bind_setM_useSolveConstraintObsolete},
-	{"setM_setting", &luna_wrapper_btPoint2PointConstraint::_bind_setM_setting},
+	{"getUseSolveConstraintObsolete", &luna_wrapper_btPoint2PointConstraint::_bind_getUseSolveConstraintObsolete},
+	{"getSetting", &luna_wrapper_btPoint2PointConstraint::_bind_getSetting},
+	{"setUseSolveConstraintObsolete", &luna_wrapper_btPoint2PointConstraint::_bind_setUseSolveConstraintObsolete},
+	{"setSetting", &luna_wrapper_btPoint2PointConstraint::_bind_setSetting},
 	{"base_setupSolverConstraint", &luna_wrapper_btPoint2PointConstraint::_bind_base_setupSolverConstraint},
 	{"base_solveConstraintObsolete", &luna_wrapper_btPoint2PointConstraint::_bind_base_solveConstraintObsolete},
 	{"base_buildJacobian", &luna_wrapper_btPoint2PointConstraint::_bind_base_buildJacobian},

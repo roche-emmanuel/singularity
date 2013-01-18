@@ -150,26 +150,26 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_width(lua_State *L) {
+	inline static bool _lg_typecheck_getWidth(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_height(lua_State *L) {
+	inline static bool _lg_typecheck_getHeight(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_width(lua_State *L) {
+	inline static bool _lg_typecheck_setWidth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,25580455) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_height(lua_State *L) {
+	inline static bool _lg_typecheck_setHeight(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,25580455) ) return false;
@@ -576,8 +576,8 @@ public:
 	}
 
 	// wxTextAttrDimension wxTextAttrSize::m_width()
-	static int _bind_getM_width(lua_State *L) {
-		if (!_lg_typecheck_getM_width(L)) {
+	static int _bind_getWidth(lua_State *L) {
+		if (!_lg_typecheck_getWidth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxTextAttrDimension wxTextAttrSize::m_width() function, expected prototype:\nwxTextAttrDimension wxTextAttrSize::m_width()\nClass arguments details:\n");
 		}
@@ -597,8 +597,8 @@ public:
 	}
 
 	// wxTextAttrDimension wxTextAttrSize::m_height()
-	static int _bind_getM_height(lua_State *L) {
-		if (!_lg_typecheck_getM_height(L)) {
+	static int _bind_getHeight(lua_State *L) {
+		if (!_lg_typecheck_getHeight(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxTextAttrDimension wxTextAttrSize::m_height() function, expected prototype:\nwxTextAttrDimension wxTextAttrSize::m_height()\nClass arguments details:\n");
 		}
@@ -618,8 +618,8 @@ public:
 	}
 
 	// void wxTextAttrSize::m_width(wxTextAttrDimension value)
-	static int _bind_setM_width(lua_State *L) {
-		if (!_lg_typecheck_setM_width(L)) {
+	static int _bind_setWidth(lua_State *L) {
+		if (!_lg_typecheck_setWidth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxTextAttrSize::m_width(wxTextAttrDimension value) function, expected prototype:\nvoid wxTextAttrSize::m_width(wxTextAttrDimension value)\nClass arguments details:\narg 1 ID = 25580455\n");
 		}
@@ -641,8 +641,8 @@ public:
 	}
 
 	// void wxTextAttrSize::m_height(wxTextAttrDimension value)
-	static int _bind_setM_height(lua_State *L) {
-		if (!_lg_typecheck_setM_height(L)) {
+	static int _bind_setHeight(lua_State *L) {
+		if (!_lg_typecheck_setHeight(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxTextAttrSize::m_height(wxTextAttrDimension value) function, expected prototype:\nvoid wxTextAttrSize::m_height(wxTextAttrDimension value)\nClass arguments details:\narg 1 ID = 25580455\n");
 		}
@@ -717,10 +717,10 @@ luna_RegType LunaTraits< wxTextAttrSize >::methods[] = {
 	{"SetWidth", &luna_wrapper_wxTextAttrSize::_bind_SetWidth},
 	{"GetHeight", &luna_wrapper_wxTextAttrSize::_bind_GetHeight},
 	{"SetHeight", &luna_wrapper_wxTextAttrSize::_bind_SetHeight},
-	{"getM_width", &luna_wrapper_wxTextAttrSize::_bind_getM_width},
-	{"getM_height", &luna_wrapper_wxTextAttrSize::_bind_getM_height},
-	{"setM_width", &luna_wrapper_wxTextAttrSize::_bind_setM_width},
-	{"setM_height", &luna_wrapper_wxTextAttrSize::_bind_setM_height},
+	{"getWidth", &luna_wrapper_wxTextAttrSize::_bind_getWidth},
+	{"getHeight", &luna_wrapper_wxTextAttrSize::_bind_getHeight},
+	{"setWidth", &luna_wrapper_wxTextAttrSize::_bind_setWidth},
+	{"setHeight", &luna_wrapper_wxTextAttrSize::_bind_setHeight},
 	{"__eq", &luna_wrapper_wxTextAttrSize::_bind___eq},
 	{"dynCast", &luna_wrapper_wxTextAttrSize::_bind_dynCast},
 	{0,0}

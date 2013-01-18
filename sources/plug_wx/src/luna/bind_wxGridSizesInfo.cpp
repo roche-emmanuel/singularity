@@ -78,13 +78,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_sizeDefault(lua_State *L) {
+	inline static bool _lg_typecheck_getSizeDefault(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_sizeDefault(lua_State *L) {
+	inline static bool _lg_typecheck_setSizeDefault(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -156,8 +156,8 @@ public:
 	}
 
 	// int wxGridSizesInfo::m_sizeDefault()
-	static int _bind_getM_sizeDefault(lua_State *L) {
-		if (!_lg_typecheck_getM_sizeDefault(L)) {
+	static int _bind_getSizeDefault(lua_State *L) {
+		if (!_lg_typecheck_getSizeDefault(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int wxGridSizesInfo::m_sizeDefault() function, expected prototype:\nint wxGridSizesInfo::m_sizeDefault()\nClass arguments details:\n");
 		}
@@ -175,8 +175,8 @@ public:
 	}
 
 	// void wxGridSizesInfo::m_sizeDefault(int value)
-	static int _bind_setM_sizeDefault(lua_State *L) {
-		if (!_lg_typecheck_setM_sizeDefault(L)) {
+	static int _bind_setSizeDefault(lua_State *L) {
+		if (!_lg_typecheck_setSizeDefault(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxGridSizesInfo::m_sizeDefault(int value) function, expected prototype:\nvoid wxGridSizesInfo::m_sizeDefault(int value)\nClass arguments details:\n");
 		}
@@ -215,8 +215,8 @@ const int LunaTraits< wxGridSizesInfo >::uniqueIDs[] = {73467241,0};
 
 luna_RegType LunaTraits< wxGridSizesInfo >::methods[] = {
 	{"GetSize", &luna_wrapper_wxGridSizesInfo::_bind_GetSize},
-	{"getM_sizeDefault", &luna_wrapper_wxGridSizesInfo::_bind_getM_sizeDefault},
-	{"setM_sizeDefault", &luna_wrapper_wxGridSizesInfo::_bind_setM_sizeDefault},
+	{"getSizeDefault", &luna_wrapper_wxGridSizesInfo::_bind_getSizeDefault},
+	{"setSizeDefault", &luna_wrapper_wxGridSizesInfo::_bind_setSizeDefault},
 	{"dynCast", &luna_wrapper_wxGridSizesInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxGridSizesInfo::_bind___eq},
 	{0,0}

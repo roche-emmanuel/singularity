@@ -56,52 +56,52 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_flags(lua_State *L) {
+	inline static bool _lg_typecheck_getFlags(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_edgeV0V1Angle(lua_State *L) {
+	inline static bool _lg_typecheck_getEdgeV0V1Angle(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_edgeV1V2Angle(lua_State *L) {
+	inline static bool _lg_typecheck_getEdgeV1V2Angle(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_edgeV2V0Angle(lua_State *L) {
+	inline static bool _lg_typecheck_getEdgeV2V0Angle(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_flags(lua_State *L) {
+	inline static bool _lg_typecheck_setFlags(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_edgeV0V1Angle(lua_State *L) {
+	inline static bool _lg_typecheck_setEdgeV0V1Angle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_edgeV1V2Angle(lua_State *L) {
+	inline static bool _lg_typecheck_setEdgeV1V2Angle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_edgeV2V0Angle(lua_State *L) {
+	inline static bool _lg_typecheck_setEdgeV2V0Angle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -116,8 +116,8 @@ public:
 
 	// Function binds:
 	// int btTriangleInfoData::m_flags()
-	static int _bind_getM_flags(lua_State *L) {
-		if (!_lg_typecheck_getM_flags(L)) {
+	static int _bind_getFlags(lua_State *L) {
+		if (!_lg_typecheck_getFlags(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTriangleInfoData::m_flags() function, expected prototype:\nint btTriangleInfoData::m_flags()\nClass arguments details:\n");
 		}
@@ -135,8 +135,8 @@ public:
 	}
 
 	// float btTriangleInfoData::m_edgeV0V1Angle()
-	static int _bind_getM_edgeV0V1Angle(lua_State *L) {
-		if (!_lg_typecheck_getM_edgeV0V1Angle(L)) {
+	static int _bind_getEdgeV0V1Angle(lua_State *L) {
+		if (!_lg_typecheck_getEdgeV0V1Angle(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTriangleInfoData::m_edgeV0V1Angle() function, expected prototype:\nfloat btTriangleInfoData::m_edgeV0V1Angle()\nClass arguments details:\n");
 		}
@@ -154,8 +154,8 @@ public:
 	}
 
 	// float btTriangleInfoData::m_edgeV1V2Angle()
-	static int _bind_getM_edgeV1V2Angle(lua_State *L) {
-		if (!_lg_typecheck_getM_edgeV1V2Angle(L)) {
+	static int _bind_getEdgeV1V2Angle(lua_State *L) {
+		if (!_lg_typecheck_getEdgeV1V2Angle(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTriangleInfoData::m_edgeV1V2Angle() function, expected prototype:\nfloat btTriangleInfoData::m_edgeV1V2Angle()\nClass arguments details:\n");
 		}
@@ -173,8 +173,8 @@ public:
 	}
 
 	// float btTriangleInfoData::m_edgeV2V0Angle()
-	static int _bind_getM_edgeV2V0Angle(lua_State *L) {
-		if (!_lg_typecheck_getM_edgeV2V0Angle(L)) {
+	static int _bind_getEdgeV2V0Angle(lua_State *L) {
+		if (!_lg_typecheck_getEdgeV2V0Angle(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTriangleInfoData::m_edgeV2V0Angle() function, expected prototype:\nfloat btTriangleInfoData::m_edgeV2V0Angle()\nClass arguments details:\n");
 		}
@@ -192,8 +192,8 @@ public:
 	}
 
 	// void btTriangleInfoData::m_flags(int value)
-	static int _bind_setM_flags(lua_State *L) {
-		if (!_lg_typecheck_setM_flags(L)) {
+	static int _bind_setFlags(lua_State *L) {
+		if (!_lg_typecheck_setFlags(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoData::m_flags(int value) function, expected prototype:\nvoid btTriangleInfoData::m_flags(int value)\nClass arguments details:\n");
 		}
@@ -211,8 +211,8 @@ public:
 	}
 
 	// void btTriangleInfoData::m_edgeV0V1Angle(float value)
-	static int _bind_setM_edgeV0V1Angle(lua_State *L) {
-		if (!_lg_typecheck_setM_edgeV0V1Angle(L)) {
+	static int _bind_setEdgeV0V1Angle(lua_State *L) {
+		if (!_lg_typecheck_setEdgeV0V1Angle(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoData::m_edgeV0V1Angle(float value) function, expected prototype:\nvoid btTriangleInfoData::m_edgeV0V1Angle(float value)\nClass arguments details:\n");
 		}
@@ -230,8 +230,8 @@ public:
 	}
 
 	// void btTriangleInfoData::m_edgeV1V2Angle(float value)
-	static int _bind_setM_edgeV1V2Angle(lua_State *L) {
-		if (!_lg_typecheck_setM_edgeV1V2Angle(L)) {
+	static int _bind_setEdgeV1V2Angle(lua_State *L) {
+		if (!_lg_typecheck_setEdgeV1V2Angle(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoData::m_edgeV1V2Angle(float value) function, expected prototype:\nvoid btTriangleInfoData::m_edgeV1V2Angle(float value)\nClass arguments details:\n");
 		}
@@ -249,8 +249,8 @@ public:
 	}
 
 	// void btTriangleInfoData::m_edgeV2V0Angle(float value)
-	static int _bind_setM_edgeV2V0Angle(lua_State *L) {
-		if (!_lg_typecheck_setM_edgeV2V0Angle(L)) {
+	static int _bind_setEdgeV2V0Angle(lua_State *L) {
+		if (!_lg_typecheck_setEdgeV2V0Angle(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleInfoData::m_edgeV2V0Angle(float value) function, expected prototype:\nvoid btTriangleInfoData::m_edgeV2V0Angle(float value)\nClass arguments details:\n");
 		}
@@ -288,14 +288,14 @@ const int LunaTraits< btTriangleInfoData >::hash = 90100326;
 const int LunaTraits< btTriangleInfoData >::uniqueIDs[] = {90100326,0};
 
 luna_RegType LunaTraits< btTriangleInfoData >::methods[] = {
-	{"getM_flags", &luna_wrapper_btTriangleInfoData::_bind_getM_flags},
-	{"getM_edgeV0V1Angle", &luna_wrapper_btTriangleInfoData::_bind_getM_edgeV0V1Angle},
-	{"getM_edgeV1V2Angle", &luna_wrapper_btTriangleInfoData::_bind_getM_edgeV1V2Angle},
-	{"getM_edgeV2V0Angle", &luna_wrapper_btTriangleInfoData::_bind_getM_edgeV2V0Angle},
-	{"setM_flags", &luna_wrapper_btTriangleInfoData::_bind_setM_flags},
-	{"setM_edgeV0V1Angle", &luna_wrapper_btTriangleInfoData::_bind_setM_edgeV0V1Angle},
-	{"setM_edgeV1V2Angle", &luna_wrapper_btTriangleInfoData::_bind_setM_edgeV1V2Angle},
-	{"setM_edgeV2V0Angle", &luna_wrapper_btTriangleInfoData::_bind_setM_edgeV2V0Angle},
+	{"getFlags", &luna_wrapper_btTriangleInfoData::_bind_getFlags},
+	{"getEdgeV0V1Angle", &luna_wrapper_btTriangleInfoData::_bind_getEdgeV0V1Angle},
+	{"getEdgeV1V2Angle", &luna_wrapper_btTriangleInfoData::_bind_getEdgeV1V2Angle},
+	{"getEdgeV2V0Angle", &luna_wrapper_btTriangleInfoData::_bind_getEdgeV2V0Angle},
+	{"setFlags", &luna_wrapper_btTriangleInfoData::_bind_setFlags},
+	{"setEdgeV0V1Angle", &luna_wrapper_btTriangleInfoData::_bind_setEdgeV0V1Angle},
+	{"setEdgeV1V2Angle", &luna_wrapper_btTriangleInfoData::_bind_setEdgeV1V2Angle},
+	{"setEdgeV2V0Angle", &luna_wrapper_btTriangleInfoData::_bind_setEdgeV2V0Angle},
 	{"dynCast", &luna_wrapper_btTriangleInfoData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btTriangleInfoData::_bind___eq},
 	{0,0}

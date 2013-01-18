@@ -56,26 +56,26 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_solverInfo(lua_State *L) {
+	inline static bool _lg_typecheck_getSolverInfo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_gravity(lua_State *L) {
+	inline static bool _lg_typecheck_getGravity(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_solverInfo(lua_State *L) {
+	inline static bool _lg_typecheck_setSolverInfo(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,29375914) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_gravity(lua_State *L) {
+	inline static bool _lg_typecheck_setGravity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,89582070) ) return false;
@@ -90,8 +90,8 @@ public:
 
 	// Function binds:
 	// btContactSolverInfoDoubleData btDynamicsWorldDoubleData::m_solverInfo()
-	static int _bind_getM_solverInfo(lua_State *L) {
-		if (!_lg_typecheck_getM_solverInfo(L)) {
+	static int _bind_getSolverInfo(lua_State *L) {
+		if (!_lg_typecheck_getSolverInfo(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btContactSolverInfoDoubleData btDynamicsWorldDoubleData::m_solverInfo() function, expected prototype:\nbtContactSolverInfoDoubleData btDynamicsWorldDoubleData::m_solverInfo()\nClass arguments details:\n");
 		}
@@ -111,8 +111,8 @@ public:
 	}
 
 	// btVector3DoubleData btDynamicsWorldDoubleData::m_gravity()
-	static int _bind_getM_gravity(lua_State *L) {
-		if (!_lg_typecheck_getM_gravity(L)) {
+	static int _bind_getGravity(lua_State *L) {
+		if (!_lg_typecheck_getGravity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3DoubleData btDynamicsWorldDoubleData::m_gravity() function, expected prototype:\nbtVector3DoubleData btDynamicsWorldDoubleData::m_gravity()\nClass arguments details:\n");
 		}
@@ -132,8 +132,8 @@ public:
 	}
 
 	// void btDynamicsWorldDoubleData::m_solverInfo(btContactSolverInfoDoubleData value)
-	static int _bind_setM_solverInfo(lua_State *L) {
-		if (!_lg_typecheck_setM_solverInfo(L)) {
+	static int _bind_setSolverInfo(lua_State *L) {
+		if (!_lg_typecheck_setSolverInfo(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDynamicsWorldDoubleData::m_solverInfo(btContactSolverInfoDoubleData value) function, expected prototype:\nvoid btDynamicsWorldDoubleData::m_solverInfo(btContactSolverInfoDoubleData value)\nClass arguments details:\narg 1 ID = 29375914\n");
 		}
@@ -155,8 +155,8 @@ public:
 	}
 
 	// void btDynamicsWorldDoubleData::m_gravity(btVector3DoubleData value)
-	static int _bind_setM_gravity(lua_State *L) {
-		if (!_lg_typecheck_setM_gravity(L)) {
+	static int _bind_setGravity(lua_State *L) {
+		if (!_lg_typecheck_setGravity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDynamicsWorldDoubleData::m_gravity(btVector3DoubleData value) function, expected prototype:\nvoid btDynamicsWorldDoubleData::m_gravity(btVector3DoubleData value)\nClass arguments details:\narg 1 ID = 89582070\n");
 		}
@@ -198,10 +198,10 @@ const int LunaTraits< btDynamicsWorldDoubleData >::hash = 73649389;
 const int LunaTraits< btDynamicsWorldDoubleData >::uniqueIDs[] = {73649389,0};
 
 luna_RegType LunaTraits< btDynamicsWorldDoubleData >::methods[] = {
-	{"getM_solverInfo", &luna_wrapper_btDynamicsWorldDoubleData::_bind_getM_solverInfo},
-	{"getM_gravity", &luna_wrapper_btDynamicsWorldDoubleData::_bind_getM_gravity},
-	{"setM_solverInfo", &luna_wrapper_btDynamicsWorldDoubleData::_bind_setM_solverInfo},
-	{"setM_gravity", &luna_wrapper_btDynamicsWorldDoubleData::_bind_setM_gravity},
+	{"getSolverInfo", &luna_wrapper_btDynamicsWorldDoubleData::_bind_getSolverInfo},
+	{"getGravity", &luna_wrapper_btDynamicsWorldDoubleData::_bind_getGravity},
+	{"setSolverInfo", &luna_wrapper_btDynamicsWorldDoubleData::_bind_setSolverInfo},
+	{"setGravity", &luna_wrapper_btDynamicsWorldDoubleData::_bind_setGravity},
 	{"dynCast", &luna_wrapper_btDynamicsWorldDoubleData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btDynamicsWorldDoubleData::_bind___eq},
 	{0,0}

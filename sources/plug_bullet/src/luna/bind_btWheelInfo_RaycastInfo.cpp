@@ -56,104 +56,104 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_contactNormalWS(lua_State *L) {
+	inline static bool _lg_typecheck_getContactNormalWS(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contactPointWS(lua_State *L) {
+	inline static bool _lg_typecheck_getContactPointWS(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_suspensionLength(lua_State *L) {
+	inline static bool _lg_typecheck_getSuspensionLength(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hardPointWS(lua_State *L) {
+	inline static bool _lg_typecheck_getHardPointWS(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_wheelDirectionWS(lua_State *L) {
+	inline static bool _lg_typecheck_getWheelDirectionWS(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_wheelAxleWS(lua_State *L) {
+	inline static bool _lg_typecheck_getWheelAxleWS(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_isInContact(lua_State *L) {
+	inline static bool _lg_typecheck_getIsInContact(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_groundObject(lua_State *L) {
+	inline static bool _lg_typecheck_getGroundObject(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactNormalWS(lua_State *L) {
+	inline static bool _lg_typecheck_setContactNormalWS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactPointWS(lua_State *L) {
+	inline static bool _lg_typecheck_setContactPointWS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_suspensionLength(lua_State *L) {
+	inline static bool _lg_typecheck_setSuspensionLength(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hardPointWS(lua_State *L) {
+	inline static bool _lg_typecheck_setHardPointWS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_wheelDirectionWS(lua_State *L) {
+	inline static bool _lg_typecheck_setWheelDirectionWS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_wheelAxleWS(lua_State *L) {
+	inline static bool _lg_typecheck_setWheelAxleWS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_isInContact(lua_State *L) {
+	inline static bool _lg_typecheck_setIsInContact(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_groundObject(lua_State *L) {
+	inline static bool _lg_typecheck_setGroundObject(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
@@ -168,8 +168,8 @@ public:
 
 	// Function binds:
 	// btVector3 btWheelInfo::RaycastInfo::m_contactNormalWS()
-	static int _bind_getM_contactNormalWS(lua_State *L) {
-		if (!_lg_typecheck_getM_contactNormalWS(L)) {
+	static int _bind_getContactNormalWS(lua_State *L) {
+		if (!_lg_typecheck_getContactNormalWS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_contactNormalWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_contactNormalWS()\nClass arguments details:\n");
 		}
@@ -189,8 +189,8 @@ public:
 	}
 
 	// btVector3 btWheelInfo::RaycastInfo::m_contactPointWS()
-	static int _bind_getM_contactPointWS(lua_State *L) {
-		if (!_lg_typecheck_getM_contactPointWS(L)) {
+	static int _bind_getContactPointWS(lua_State *L) {
+		if (!_lg_typecheck_getContactPointWS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_contactPointWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_contactPointWS()\nClass arguments details:\n");
 		}
@@ -210,8 +210,8 @@ public:
 	}
 
 	// float btWheelInfo::RaycastInfo::m_suspensionLength()
-	static int _bind_getM_suspensionLength(lua_State *L) {
-		if (!_lg_typecheck_getM_suspensionLength(L)) {
+	static int _bind_getSuspensionLength(lua_State *L) {
+		if (!_lg_typecheck_getSuspensionLength(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btWheelInfo::RaycastInfo::m_suspensionLength() function, expected prototype:\nfloat btWheelInfo::RaycastInfo::m_suspensionLength()\nClass arguments details:\n");
 		}
@@ -229,8 +229,8 @@ public:
 	}
 
 	// btVector3 btWheelInfo::RaycastInfo::m_hardPointWS()
-	static int _bind_getM_hardPointWS(lua_State *L) {
-		if (!_lg_typecheck_getM_hardPointWS(L)) {
+	static int _bind_getHardPointWS(lua_State *L) {
+		if (!_lg_typecheck_getHardPointWS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_hardPointWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_hardPointWS()\nClass arguments details:\n");
 		}
@@ -250,8 +250,8 @@ public:
 	}
 
 	// btVector3 btWheelInfo::RaycastInfo::m_wheelDirectionWS()
-	static int _bind_getM_wheelDirectionWS(lua_State *L) {
-		if (!_lg_typecheck_getM_wheelDirectionWS(L)) {
+	static int _bind_getWheelDirectionWS(lua_State *L) {
+		if (!_lg_typecheck_getWheelDirectionWS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_wheelDirectionWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_wheelDirectionWS()\nClass arguments details:\n");
 		}
@@ -271,8 +271,8 @@ public:
 	}
 
 	// btVector3 btWheelInfo::RaycastInfo::m_wheelAxleWS()
-	static int _bind_getM_wheelAxleWS(lua_State *L) {
-		if (!_lg_typecheck_getM_wheelAxleWS(L)) {
+	static int _bind_getWheelAxleWS(lua_State *L) {
+		if (!_lg_typecheck_getWheelAxleWS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_wheelAxleWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_wheelAxleWS()\nClass arguments details:\n");
 		}
@@ -292,8 +292,8 @@ public:
 	}
 
 	// bool btWheelInfo::RaycastInfo::m_isInContact()
-	static int _bind_getM_isInContact(lua_State *L) {
-		if (!_lg_typecheck_getM_isInContact(L)) {
+	static int _bind_getIsInContact(lua_State *L) {
+		if (!_lg_typecheck_getIsInContact(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btWheelInfo::RaycastInfo::m_isInContact() function, expected prototype:\nbool btWheelInfo::RaycastInfo::m_isInContact()\nClass arguments details:\n");
 		}
@@ -311,8 +311,8 @@ public:
 	}
 
 	// void * btWheelInfo::RaycastInfo::m_groundObject()
-	static int _bind_getM_groundObject(lua_State *L) {
-		if (!_lg_typecheck_getM_groundObject(L)) {
+	static int _bind_getGroundObject(lua_State *L) {
+		if (!_lg_typecheck_getGroundObject(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void * btWheelInfo::RaycastInfo::m_groundObject() function, expected prototype:\nvoid * btWheelInfo::RaycastInfo::m_groundObject()\nClass arguments details:\n");
 		}
@@ -332,8 +332,8 @@ public:
 	}
 
 	// void btWheelInfo::RaycastInfo::m_contactNormalWS(btVector3 value)
-	static int _bind_setM_contactNormalWS(lua_State *L) {
-		if (!_lg_typecheck_setM_contactNormalWS(L)) {
+	static int _bind_setContactNormalWS(lua_State *L) {
+		if (!_lg_typecheck_setContactNormalWS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_contactNormalWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_contactNormalWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -355,8 +355,8 @@ public:
 	}
 
 	// void btWheelInfo::RaycastInfo::m_contactPointWS(btVector3 value)
-	static int _bind_setM_contactPointWS(lua_State *L) {
-		if (!_lg_typecheck_setM_contactPointWS(L)) {
+	static int _bind_setContactPointWS(lua_State *L) {
+		if (!_lg_typecheck_setContactPointWS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_contactPointWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_contactPointWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -378,8 +378,8 @@ public:
 	}
 
 	// void btWheelInfo::RaycastInfo::m_suspensionLength(float value)
-	static int _bind_setM_suspensionLength(lua_State *L) {
-		if (!_lg_typecheck_setM_suspensionLength(L)) {
+	static int _bind_setSuspensionLength(lua_State *L) {
+		if (!_lg_typecheck_setSuspensionLength(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_suspensionLength(float value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_suspensionLength(float value)\nClass arguments details:\n");
 		}
@@ -397,8 +397,8 @@ public:
 	}
 
 	// void btWheelInfo::RaycastInfo::m_hardPointWS(btVector3 value)
-	static int _bind_setM_hardPointWS(lua_State *L) {
-		if (!_lg_typecheck_setM_hardPointWS(L)) {
+	static int _bind_setHardPointWS(lua_State *L) {
+		if (!_lg_typecheck_setHardPointWS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_hardPointWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_hardPointWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -420,8 +420,8 @@ public:
 	}
 
 	// void btWheelInfo::RaycastInfo::m_wheelDirectionWS(btVector3 value)
-	static int _bind_setM_wheelDirectionWS(lua_State *L) {
-		if (!_lg_typecheck_setM_wheelDirectionWS(L)) {
+	static int _bind_setWheelDirectionWS(lua_State *L) {
+		if (!_lg_typecheck_setWheelDirectionWS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_wheelDirectionWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_wheelDirectionWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -443,8 +443,8 @@ public:
 	}
 
 	// void btWheelInfo::RaycastInfo::m_wheelAxleWS(btVector3 value)
-	static int _bind_setM_wheelAxleWS(lua_State *L) {
-		if (!_lg_typecheck_setM_wheelAxleWS(L)) {
+	static int _bind_setWheelAxleWS(lua_State *L) {
+		if (!_lg_typecheck_setWheelAxleWS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_wheelAxleWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_wheelAxleWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -466,8 +466,8 @@ public:
 	}
 
 	// void btWheelInfo::RaycastInfo::m_isInContact(bool value)
-	static int _bind_setM_isInContact(lua_State *L) {
-		if (!_lg_typecheck_setM_isInContact(L)) {
+	static int _bind_setIsInContact(lua_State *L) {
+		if (!_lg_typecheck_setIsInContact(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_isInContact(bool value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_isInContact(bool value)\nClass arguments details:\n");
 		}
@@ -485,8 +485,8 @@ public:
 	}
 
 	// void btWheelInfo::RaycastInfo::m_groundObject(void * value)
-	static int _bind_setM_groundObject(lua_State *L) {
-		if (!_lg_typecheck_setM_groundObject(L)) {
+	static int _bind_setGroundObject(lua_State *L) {
+		if (!_lg_typecheck_setGroundObject(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_groundObject(void * value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_groundObject(void * value)\nClass arguments details:\n");
 		}
@@ -524,22 +524,22 @@ const int LunaTraits< btWheelInfo::RaycastInfo >::hash = 75375071;
 const int LunaTraits< btWheelInfo::RaycastInfo >::uniqueIDs[] = {75375071,0};
 
 luna_RegType LunaTraits< btWheelInfo::RaycastInfo >::methods[] = {
-	{"getM_contactNormalWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getM_contactNormalWS},
-	{"getM_contactPointWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getM_contactPointWS},
-	{"getM_suspensionLength", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getM_suspensionLength},
-	{"getM_hardPointWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getM_hardPointWS},
-	{"getM_wheelDirectionWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getM_wheelDirectionWS},
-	{"getM_wheelAxleWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getM_wheelAxleWS},
-	{"getM_isInContact", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getM_isInContact},
-	{"getM_groundObject", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getM_groundObject},
-	{"setM_contactNormalWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setM_contactNormalWS},
-	{"setM_contactPointWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setM_contactPointWS},
-	{"setM_suspensionLength", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setM_suspensionLength},
-	{"setM_hardPointWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setM_hardPointWS},
-	{"setM_wheelDirectionWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setM_wheelDirectionWS},
-	{"setM_wheelAxleWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setM_wheelAxleWS},
-	{"setM_isInContact", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setM_isInContact},
-	{"setM_groundObject", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setM_groundObject},
+	{"getContactNormalWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getContactNormalWS},
+	{"getContactPointWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getContactPointWS},
+	{"getSuspensionLength", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getSuspensionLength},
+	{"getHardPointWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getHardPointWS},
+	{"getWheelDirectionWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getWheelDirectionWS},
+	{"getWheelAxleWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getWheelAxleWS},
+	{"getIsInContact", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getIsInContact},
+	{"getGroundObject", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_getGroundObject},
+	{"setContactNormalWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setContactNormalWS},
+	{"setContactPointWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setContactPointWS},
+	{"setSuspensionLength", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setSuspensionLength},
+	{"setHardPointWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setHardPointWS},
+	{"setWheelDirectionWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setWheelDirectionWS},
+	{"setWheelAxleWS", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setWheelAxleWS},
+	{"setIsInContact", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setIsInContact},
+	{"setGroundObject", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_setGroundObject},
 	{"dynCast", &luna_wrapper_btWheelInfo_RaycastInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_btWheelInfo_RaycastInfo::_bind___eq},
 	{0,0}

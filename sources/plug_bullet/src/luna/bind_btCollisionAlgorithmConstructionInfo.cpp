@@ -71,26 +71,26 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_dispatcher1(lua_State *L) {
+	inline static bool _lg_typecheck_getDispatcher1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_manifold(lua_State *L) {
+	inline static bool _lg_typecheck_getManifold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_dispatcher1(lua_State *L) {
+	inline static bool _lg_typecheck_setDispatcher1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,71097681)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_manifold(lua_State *L) {
+	inline static bool _lg_typecheck_setManifold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,66271199)) ) return false;
@@ -138,8 +138,8 @@ public:
 
 	// Function binds:
 	// btDispatcher * btCollisionAlgorithmConstructionInfo::m_dispatcher1()
-	static int _bind_getM_dispatcher1(lua_State *L) {
-		if (!_lg_typecheck_getM_dispatcher1(L)) {
+	static int _bind_getDispatcher1(lua_State *L) {
+		if (!_lg_typecheck_getDispatcher1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btDispatcher * btCollisionAlgorithmConstructionInfo::m_dispatcher1() function, expected prototype:\nbtDispatcher * btCollisionAlgorithmConstructionInfo::m_dispatcher1()\nClass arguments details:\n");
 		}
@@ -159,8 +159,8 @@ public:
 	}
 
 	// btPersistentManifold * btCollisionAlgorithmConstructionInfo::m_manifold()
-	static int _bind_getM_manifold(lua_State *L) {
-		if (!_lg_typecheck_getM_manifold(L)) {
+	static int _bind_getManifold(lua_State *L) {
+		if (!_lg_typecheck_getManifold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btPersistentManifold * btCollisionAlgorithmConstructionInfo::m_manifold() function, expected prototype:\nbtPersistentManifold * btCollisionAlgorithmConstructionInfo::m_manifold()\nClass arguments details:\n");
 		}
@@ -180,8 +180,8 @@ public:
 	}
 
 	// void btCollisionAlgorithmConstructionInfo::m_dispatcher1(btDispatcher * value)
-	static int _bind_setM_dispatcher1(lua_State *L) {
-		if (!_lg_typecheck_setM_dispatcher1(L)) {
+	static int _bind_setDispatcher1(lua_State *L) {
+		if (!_lg_typecheck_setDispatcher1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionAlgorithmConstructionInfo::m_dispatcher1(btDispatcher * value) function, expected prototype:\nvoid btCollisionAlgorithmConstructionInfo::m_dispatcher1(btDispatcher * value)\nClass arguments details:\narg 1 ID = 71097681\n");
 		}
@@ -199,8 +199,8 @@ public:
 	}
 
 	// void btCollisionAlgorithmConstructionInfo::m_manifold(btPersistentManifold * value)
-	static int _bind_setM_manifold(lua_State *L) {
-		if (!_lg_typecheck_setM_manifold(L)) {
+	static int _bind_setManifold(lua_State *L) {
+		if (!_lg_typecheck_setManifold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionAlgorithmConstructionInfo::m_manifold(btPersistentManifold * value) function, expected prototype:\nvoid btCollisionAlgorithmConstructionInfo::m_manifold(btPersistentManifold * value)\nClass arguments details:\narg 1 ID = 66271199\n");
 		}
@@ -238,10 +238,10 @@ const int LunaTraits< btCollisionAlgorithmConstructionInfo >::hash = 61780402;
 const int LunaTraits< btCollisionAlgorithmConstructionInfo >::uniqueIDs[] = {61780402,0};
 
 luna_RegType LunaTraits< btCollisionAlgorithmConstructionInfo >::methods[] = {
-	{"getM_dispatcher1", &luna_wrapper_btCollisionAlgorithmConstructionInfo::_bind_getM_dispatcher1},
-	{"getM_manifold", &luna_wrapper_btCollisionAlgorithmConstructionInfo::_bind_getM_manifold},
-	{"setM_dispatcher1", &luna_wrapper_btCollisionAlgorithmConstructionInfo::_bind_setM_dispatcher1},
-	{"setM_manifold", &luna_wrapper_btCollisionAlgorithmConstructionInfo::_bind_setM_manifold},
+	{"getDispatcher1", &luna_wrapper_btCollisionAlgorithmConstructionInfo::_bind_getDispatcher1},
+	{"getManifold", &luna_wrapper_btCollisionAlgorithmConstructionInfo::_bind_getManifold},
+	{"setDispatcher1", &luna_wrapper_btCollisionAlgorithmConstructionInfo::_bind_setDispatcher1},
+	{"setManifold", &luna_wrapper_btCollisionAlgorithmConstructionInfo::_bind_setManifold},
 	{"dynCast", &luna_wrapper_btCollisionAlgorithmConstructionInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_btCollisionAlgorithmConstructionInfo::_bind___eq},
 	{0,0}

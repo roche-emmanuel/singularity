@@ -56,273 +56,273 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_collisionObjectData(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionObjectData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_invInertiaTensorWorld(lua_State *L) {
+	inline static bool _lg_typecheck_getInvInertiaTensorWorld(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_linearVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_getLinearVelocity(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_angularVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_getAngularVelocity(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_angularFactor(lua_State *L) {
+	inline static bool _lg_typecheck_getAngularFactor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_linearFactor(lua_State *L) {
+	inline static bool _lg_typecheck_getLinearFactor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_gravity(lua_State *L) {
+	inline static bool _lg_typecheck_getGravity(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_gravity_acceleration(lua_State *L) {
+	inline static bool _lg_typecheck_get_gravity_acceleration(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_invInertiaLocal(lua_State *L) {
+	inline static bool _lg_typecheck_getInvInertiaLocal(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_totalForce(lua_State *L) {
+	inline static bool _lg_typecheck_getTotalForce(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_totalTorque(lua_State *L) {
+	inline static bool _lg_typecheck_getTotalTorque(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_inverseMass(lua_State *L) {
+	inline static bool _lg_typecheck_getInverseMass(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_linearDamping(lua_State *L) {
+	inline static bool _lg_typecheck_getLinearDamping(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_angularDamping(lua_State *L) {
+	inline static bool _lg_typecheck_getAngularDamping(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_additionalDampingFactor(lua_State *L) {
+	inline static bool _lg_typecheck_getAdditionalDampingFactor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_additionalLinearDampingThresholdSqr(lua_State *L) {
+	inline static bool _lg_typecheck_getAdditionalLinearDampingThresholdSqr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_additionalAngularDampingThresholdSqr(lua_State *L) {
+	inline static bool _lg_typecheck_getAdditionalAngularDampingThresholdSqr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_additionalAngularDampingFactor(lua_State *L) {
+	inline static bool _lg_typecheck_getAdditionalAngularDampingFactor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_linearSleepingThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getLinearSleepingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_angularSleepingThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getAngularSleepingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_additionalDamping(lua_State *L) {
+	inline static bool _lg_typecheck_getAdditionalDamping(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionObjectData(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionObjectData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,5462649) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_invInertiaTensorWorld(lua_State *L) {
+	inline static bool _lg_typecheck_setInvInertiaTensorWorld(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,4769007) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_linearVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_setLinearVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_angularVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_setAngularVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_angularFactor(lua_State *L) {
+	inline static bool _lg_typecheck_setAngularFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_linearFactor(lua_State *L) {
+	inline static bool _lg_typecheck_setLinearFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_gravity(lua_State *L) {
+	inline static bool _lg_typecheck_setGravity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_gravity_acceleration(lua_State *L) {
+	inline static bool _lg_typecheck_set_gravity_acceleration(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_invInertiaLocal(lua_State *L) {
+	inline static bool _lg_typecheck_setInvInertiaLocal(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_totalForce(lua_State *L) {
+	inline static bool _lg_typecheck_setTotalForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_totalTorque(lua_State *L) {
+	inline static bool _lg_typecheck_setTotalTorque(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_inverseMass(lua_State *L) {
+	inline static bool _lg_typecheck_setInverseMass(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_linearDamping(lua_State *L) {
+	inline static bool _lg_typecheck_setLinearDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_angularDamping(lua_State *L) {
+	inline static bool _lg_typecheck_setAngularDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_additionalDampingFactor(lua_State *L) {
+	inline static bool _lg_typecheck_setAdditionalDampingFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_additionalLinearDampingThresholdSqr(lua_State *L) {
+	inline static bool _lg_typecheck_setAdditionalLinearDampingThresholdSqr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_additionalAngularDampingThresholdSqr(lua_State *L) {
+	inline static bool _lg_typecheck_setAdditionalAngularDampingThresholdSqr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_additionalAngularDampingFactor(lua_State *L) {
+	inline static bool _lg_typecheck_setAdditionalAngularDampingFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_linearSleepingThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setLinearSleepingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_angularSleepingThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setAngularSleepingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_additionalDamping(lua_State *L) {
+	inline static bool _lg_typecheck_setAdditionalDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -337,8 +337,8 @@ public:
 
 	// Function binds:
 	// btCollisionObjectFloatData btRigidBodyFloatData::m_collisionObjectData()
-	static int _bind_getM_collisionObjectData(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionObjectData(L)) {
+	static int _bind_getCollisionObjectData(lua_State *L) {
+		if (!_lg_typecheck_getCollisionObjectData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btCollisionObjectFloatData btRigidBodyFloatData::m_collisionObjectData() function, expected prototype:\nbtCollisionObjectFloatData btRigidBodyFloatData::m_collisionObjectData()\nClass arguments details:\n");
 		}
@@ -358,8 +358,8 @@ public:
 	}
 
 	// btMatrix3x3FloatData btRigidBodyFloatData::m_invInertiaTensorWorld()
-	static int _bind_getM_invInertiaTensorWorld(lua_State *L) {
-		if (!_lg_typecheck_getM_invInertiaTensorWorld(L)) {
+	static int _bind_getInvInertiaTensorWorld(lua_State *L) {
+		if (!_lg_typecheck_getInvInertiaTensorWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btMatrix3x3FloatData btRigidBodyFloatData::m_invInertiaTensorWorld() function, expected prototype:\nbtMatrix3x3FloatData btRigidBodyFloatData::m_invInertiaTensorWorld()\nClass arguments details:\n");
 		}
@@ -379,8 +379,8 @@ public:
 	}
 
 	// btVector3FloatData btRigidBodyFloatData::m_linearVelocity()
-	static int _bind_getM_linearVelocity(lua_State *L) {
-		if (!_lg_typecheck_getM_linearVelocity(L)) {
+	static int _bind_getLinearVelocity(lua_State *L) {
+		if (!_lg_typecheck_getLinearVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_linearVelocity() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_linearVelocity()\nClass arguments details:\n");
 		}
@@ -400,8 +400,8 @@ public:
 	}
 
 	// btVector3FloatData btRigidBodyFloatData::m_angularVelocity()
-	static int _bind_getM_angularVelocity(lua_State *L) {
-		if (!_lg_typecheck_getM_angularVelocity(L)) {
+	static int _bind_getAngularVelocity(lua_State *L) {
+		if (!_lg_typecheck_getAngularVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_angularVelocity() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_angularVelocity()\nClass arguments details:\n");
 		}
@@ -421,8 +421,8 @@ public:
 	}
 
 	// btVector3FloatData btRigidBodyFloatData::m_angularFactor()
-	static int _bind_getM_angularFactor(lua_State *L) {
-		if (!_lg_typecheck_getM_angularFactor(L)) {
+	static int _bind_getAngularFactor(lua_State *L) {
+		if (!_lg_typecheck_getAngularFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_angularFactor() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_angularFactor()\nClass arguments details:\n");
 		}
@@ -442,8 +442,8 @@ public:
 	}
 
 	// btVector3FloatData btRigidBodyFloatData::m_linearFactor()
-	static int _bind_getM_linearFactor(lua_State *L) {
-		if (!_lg_typecheck_getM_linearFactor(L)) {
+	static int _bind_getLinearFactor(lua_State *L) {
+		if (!_lg_typecheck_getLinearFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_linearFactor() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_linearFactor()\nClass arguments details:\n");
 		}
@@ -463,8 +463,8 @@ public:
 	}
 
 	// btVector3FloatData btRigidBodyFloatData::m_gravity()
-	static int _bind_getM_gravity(lua_State *L) {
-		if (!_lg_typecheck_getM_gravity(L)) {
+	static int _bind_getGravity(lua_State *L) {
+		if (!_lg_typecheck_getGravity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_gravity() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_gravity()\nClass arguments details:\n");
 		}
@@ -484,8 +484,8 @@ public:
 	}
 
 	// btVector3FloatData btRigidBodyFloatData::m_gravity_acceleration()
-	static int _bind_getM_gravity_acceleration(lua_State *L) {
-		if (!_lg_typecheck_getM_gravity_acceleration(L)) {
+	static int _bind_get_gravity_acceleration(lua_State *L) {
+		if (!_lg_typecheck_get_gravity_acceleration(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_gravity_acceleration() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_gravity_acceleration()\nClass arguments details:\n");
 		}
@@ -505,8 +505,8 @@ public:
 	}
 
 	// btVector3FloatData btRigidBodyFloatData::m_invInertiaLocal()
-	static int _bind_getM_invInertiaLocal(lua_State *L) {
-		if (!_lg_typecheck_getM_invInertiaLocal(L)) {
+	static int _bind_getInvInertiaLocal(lua_State *L) {
+		if (!_lg_typecheck_getInvInertiaLocal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_invInertiaLocal() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_invInertiaLocal()\nClass arguments details:\n");
 		}
@@ -526,8 +526,8 @@ public:
 	}
 
 	// btVector3FloatData btRigidBodyFloatData::m_totalForce()
-	static int _bind_getM_totalForce(lua_State *L) {
-		if (!_lg_typecheck_getM_totalForce(L)) {
+	static int _bind_getTotalForce(lua_State *L) {
+		if (!_lg_typecheck_getTotalForce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_totalForce() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_totalForce()\nClass arguments details:\n");
 		}
@@ -547,8 +547,8 @@ public:
 	}
 
 	// btVector3FloatData btRigidBodyFloatData::m_totalTorque()
-	static int _bind_getM_totalTorque(lua_State *L) {
-		if (!_lg_typecheck_getM_totalTorque(L)) {
+	static int _bind_getTotalTorque(lua_State *L) {
+		if (!_lg_typecheck_getTotalTorque(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_totalTorque() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_totalTorque()\nClass arguments details:\n");
 		}
@@ -568,8 +568,8 @@ public:
 	}
 
 	// float btRigidBodyFloatData::m_inverseMass()
-	static int _bind_getM_inverseMass(lua_State *L) {
-		if (!_lg_typecheck_getM_inverseMass(L)) {
+	static int _bind_getInverseMass(lua_State *L) {
+		if (!_lg_typecheck_getInverseMass(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_inverseMass() function, expected prototype:\nfloat btRigidBodyFloatData::m_inverseMass()\nClass arguments details:\n");
 		}
@@ -587,8 +587,8 @@ public:
 	}
 
 	// float btRigidBodyFloatData::m_linearDamping()
-	static int _bind_getM_linearDamping(lua_State *L) {
-		if (!_lg_typecheck_getM_linearDamping(L)) {
+	static int _bind_getLinearDamping(lua_State *L) {
+		if (!_lg_typecheck_getLinearDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_linearDamping() function, expected prototype:\nfloat btRigidBodyFloatData::m_linearDamping()\nClass arguments details:\n");
 		}
@@ -606,8 +606,8 @@ public:
 	}
 
 	// float btRigidBodyFloatData::m_angularDamping()
-	static int _bind_getM_angularDamping(lua_State *L) {
-		if (!_lg_typecheck_getM_angularDamping(L)) {
+	static int _bind_getAngularDamping(lua_State *L) {
+		if (!_lg_typecheck_getAngularDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_angularDamping() function, expected prototype:\nfloat btRigidBodyFloatData::m_angularDamping()\nClass arguments details:\n");
 		}
@@ -625,8 +625,8 @@ public:
 	}
 
 	// float btRigidBodyFloatData::m_additionalDampingFactor()
-	static int _bind_getM_additionalDampingFactor(lua_State *L) {
-		if (!_lg_typecheck_getM_additionalDampingFactor(L)) {
+	static int _bind_getAdditionalDampingFactor(lua_State *L) {
+		if (!_lg_typecheck_getAdditionalDampingFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_additionalDampingFactor() function, expected prototype:\nfloat btRigidBodyFloatData::m_additionalDampingFactor()\nClass arguments details:\n");
 		}
@@ -644,8 +644,8 @@ public:
 	}
 
 	// float btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr()
-	static int _bind_getM_additionalLinearDampingThresholdSqr(lua_State *L) {
-		if (!_lg_typecheck_getM_additionalLinearDampingThresholdSqr(L)) {
+	static int _bind_getAdditionalLinearDampingThresholdSqr(lua_State *L) {
+		if (!_lg_typecheck_getAdditionalLinearDampingThresholdSqr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr() function, expected prototype:\nfloat btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr()\nClass arguments details:\n");
 		}
@@ -663,8 +663,8 @@ public:
 	}
 
 	// float btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr()
-	static int _bind_getM_additionalAngularDampingThresholdSqr(lua_State *L) {
-		if (!_lg_typecheck_getM_additionalAngularDampingThresholdSqr(L)) {
+	static int _bind_getAdditionalAngularDampingThresholdSqr(lua_State *L) {
+		if (!_lg_typecheck_getAdditionalAngularDampingThresholdSqr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr() function, expected prototype:\nfloat btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr()\nClass arguments details:\n");
 		}
@@ -682,8 +682,8 @@ public:
 	}
 
 	// float btRigidBodyFloatData::m_additionalAngularDampingFactor()
-	static int _bind_getM_additionalAngularDampingFactor(lua_State *L) {
-		if (!_lg_typecheck_getM_additionalAngularDampingFactor(L)) {
+	static int _bind_getAdditionalAngularDampingFactor(lua_State *L) {
+		if (!_lg_typecheck_getAdditionalAngularDampingFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_additionalAngularDampingFactor() function, expected prototype:\nfloat btRigidBodyFloatData::m_additionalAngularDampingFactor()\nClass arguments details:\n");
 		}
@@ -701,8 +701,8 @@ public:
 	}
 
 	// float btRigidBodyFloatData::m_linearSleepingThreshold()
-	static int _bind_getM_linearSleepingThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_linearSleepingThreshold(L)) {
+	static int _bind_getLinearSleepingThreshold(lua_State *L) {
+		if (!_lg_typecheck_getLinearSleepingThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_linearSleepingThreshold() function, expected prototype:\nfloat btRigidBodyFloatData::m_linearSleepingThreshold()\nClass arguments details:\n");
 		}
@@ -720,8 +720,8 @@ public:
 	}
 
 	// float btRigidBodyFloatData::m_angularSleepingThreshold()
-	static int _bind_getM_angularSleepingThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_angularSleepingThreshold(L)) {
+	static int _bind_getAngularSleepingThreshold(lua_State *L) {
+		if (!_lg_typecheck_getAngularSleepingThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_angularSleepingThreshold() function, expected prototype:\nfloat btRigidBodyFloatData::m_angularSleepingThreshold()\nClass arguments details:\n");
 		}
@@ -739,8 +739,8 @@ public:
 	}
 
 	// int btRigidBodyFloatData::m_additionalDamping()
-	static int _bind_getM_additionalDamping(lua_State *L) {
-		if (!_lg_typecheck_getM_additionalDamping(L)) {
+	static int _bind_getAdditionalDamping(lua_State *L) {
+		if (!_lg_typecheck_getAdditionalDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btRigidBodyFloatData::m_additionalDamping() function, expected prototype:\nint btRigidBodyFloatData::m_additionalDamping()\nClass arguments details:\n");
 		}
@@ -758,8 +758,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_collisionObjectData(btCollisionObjectFloatData value)
-	static int _bind_setM_collisionObjectData(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionObjectData(L)) {
+	static int _bind_setCollisionObjectData(lua_State *L) {
+		if (!_lg_typecheck_setCollisionObjectData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_collisionObjectData(btCollisionObjectFloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_collisionObjectData(btCollisionObjectFloatData value)\nClass arguments details:\narg 1 ID = 5462649\n");
 		}
@@ -781,8 +781,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_invInertiaTensorWorld(btMatrix3x3FloatData value)
-	static int _bind_setM_invInertiaTensorWorld(lua_State *L) {
-		if (!_lg_typecheck_setM_invInertiaTensorWorld(L)) {
+	static int _bind_setInvInertiaTensorWorld(lua_State *L) {
+		if (!_lg_typecheck_setInvInertiaTensorWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_invInertiaTensorWorld(btMatrix3x3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_invInertiaTensorWorld(btMatrix3x3FloatData value)\nClass arguments details:\narg 1 ID = 4769007\n");
 		}
@@ -804,8 +804,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_linearVelocity(btVector3FloatData value)
-	static int _bind_setM_linearVelocity(lua_State *L) {
-		if (!_lg_typecheck_setM_linearVelocity(L)) {
+	static int _bind_setLinearVelocity(lua_State *L) {
+		if (!_lg_typecheck_setLinearVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_linearVelocity(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_linearVelocity(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -827,8 +827,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_angularVelocity(btVector3FloatData value)
-	static int _bind_setM_angularVelocity(lua_State *L) {
-		if (!_lg_typecheck_setM_angularVelocity(L)) {
+	static int _bind_setAngularVelocity(lua_State *L) {
+		if (!_lg_typecheck_setAngularVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_angularVelocity(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_angularVelocity(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -850,8 +850,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_angularFactor(btVector3FloatData value)
-	static int _bind_setM_angularFactor(lua_State *L) {
-		if (!_lg_typecheck_setM_angularFactor(L)) {
+	static int _bind_setAngularFactor(lua_State *L) {
+		if (!_lg_typecheck_setAngularFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_angularFactor(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_angularFactor(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -873,8 +873,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_linearFactor(btVector3FloatData value)
-	static int _bind_setM_linearFactor(lua_State *L) {
-		if (!_lg_typecheck_setM_linearFactor(L)) {
+	static int _bind_setLinearFactor(lua_State *L) {
+		if (!_lg_typecheck_setLinearFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_linearFactor(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_linearFactor(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -896,8 +896,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_gravity(btVector3FloatData value)
-	static int _bind_setM_gravity(lua_State *L) {
-		if (!_lg_typecheck_setM_gravity(L)) {
+	static int _bind_setGravity(lua_State *L) {
+		if (!_lg_typecheck_setGravity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_gravity(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_gravity(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -919,8 +919,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_gravity_acceleration(btVector3FloatData value)
-	static int _bind_setM_gravity_acceleration(lua_State *L) {
-		if (!_lg_typecheck_setM_gravity_acceleration(L)) {
+	static int _bind_set_gravity_acceleration(lua_State *L) {
+		if (!_lg_typecheck_set_gravity_acceleration(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_gravity_acceleration(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_gravity_acceleration(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -942,8 +942,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_invInertiaLocal(btVector3FloatData value)
-	static int _bind_setM_invInertiaLocal(lua_State *L) {
-		if (!_lg_typecheck_setM_invInertiaLocal(L)) {
+	static int _bind_setInvInertiaLocal(lua_State *L) {
+		if (!_lg_typecheck_setInvInertiaLocal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_invInertiaLocal(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_invInertiaLocal(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -965,8 +965,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_totalForce(btVector3FloatData value)
-	static int _bind_setM_totalForce(lua_State *L) {
-		if (!_lg_typecheck_setM_totalForce(L)) {
+	static int _bind_setTotalForce(lua_State *L) {
+		if (!_lg_typecheck_setTotalForce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_totalForce(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_totalForce(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -988,8 +988,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_totalTorque(btVector3FloatData value)
-	static int _bind_setM_totalTorque(lua_State *L) {
-		if (!_lg_typecheck_setM_totalTorque(L)) {
+	static int _bind_setTotalTorque(lua_State *L) {
+		if (!_lg_typecheck_setTotalTorque(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_totalTorque(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_totalTorque(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -1011,8 +1011,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_inverseMass(float value)
-	static int _bind_setM_inverseMass(lua_State *L) {
-		if (!_lg_typecheck_setM_inverseMass(L)) {
+	static int _bind_setInverseMass(lua_State *L) {
+		if (!_lg_typecheck_setInverseMass(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_inverseMass(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_inverseMass(float value)\nClass arguments details:\n");
 		}
@@ -1030,8 +1030,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_linearDamping(float value)
-	static int _bind_setM_linearDamping(lua_State *L) {
-		if (!_lg_typecheck_setM_linearDamping(L)) {
+	static int _bind_setLinearDamping(lua_State *L) {
+		if (!_lg_typecheck_setLinearDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_linearDamping(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_linearDamping(float value)\nClass arguments details:\n");
 		}
@@ -1049,8 +1049,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_angularDamping(float value)
-	static int _bind_setM_angularDamping(lua_State *L) {
-		if (!_lg_typecheck_setM_angularDamping(L)) {
+	static int _bind_setAngularDamping(lua_State *L) {
+		if (!_lg_typecheck_setAngularDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_angularDamping(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_angularDamping(float value)\nClass arguments details:\n");
 		}
@@ -1068,8 +1068,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_additionalDampingFactor(float value)
-	static int _bind_setM_additionalDampingFactor(lua_State *L) {
-		if (!_lg_typecheck_setM_additionalDampingFactor(L)) {
+	static int _bind_setAdditionalDampingFactor(lua_State *L) {
+		if (!_lg_typecheck_setAdditionalDampingFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalDampingFactor(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalDampingFactor(float value)\nClass arguments details:\n");
 		}
@@ -1087,8 +1087,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr(float value)
-	static int _bind_setM_additionalLinearDampingThresholdSqr(lua_State *L) {
-		if (!_lg_typecheck_setM_additionalLinearDampingThresholdSqr(L)) {
+	static int _bind_setAdditionalLinearDampingThresholdSqr(lua_State *L) {
+		if (!_lg_typecheck_setAdditionalLinearDampingThresholdSqr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr(float value)\nClass arguments details:\n");
 		}
@@ -1106,8 +1106,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr(float value)
-	static int _bind_setM_additionalAngularDampingThresholdSqr(lua_State *L) {
-		if (!_lg_typecheck_setM_additionalAngularDampingThresholdSqr(L)) {
+	static int _bind_setAdditionalAngularDampingThresholdSqr(lua_State *L) {
+		if (!_lg_typecheck_setAdditionalAngularDampingThresholdSqr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr(float value)\nClass arguments details:\n");
 		}
@@ -1125,8 +1125,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_additionalAngularDampingFactor(float value)
-	static int _bind_setM_additionalAngularDampingFactor(lua_State *L) {
-		if (!_lg_typecheck_setM_additionalAngularDampingFactor(L)) {
+	static int _bind_setAdditionalAngularDampingFactor(lua_State *L) {
+		if (!_lg_typecheck_setAdditionalAngularDampingFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalAngularDampingFactor(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalAngularDampingFactor(float value)\nClass arguments details:\n");
 		}
@@ -1144,8 +1144,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_linearSleepingThreshold(float value)
-	static int _bind_setM_linearSleepingThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_linearSleepingThreshold(L)) {
+	static int _bind_setLinearSleepingThreshold(lua_State *L) {
+		if (!_lg_typecheck_setLinearSleepingThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_linearSleepingThreshold(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_linearSleepingThreshold(float value)\nClass arguments details:\n");
 		}
@@ -1163,8 +1163,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_angularSleepingThreshold(float value)
-	static int _bind_setM_angularSleepingThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_angularSleepingThreshold(L)) {
+	static int _bind_setAngularSleepingThreshold(lua_State *L) {
+		if (!_lg_typecheck_setAngularSleepingThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_angularSleepingThreshold(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_angularSleepingThreshold(float value)\nClass arguments details:\n");
 		}
@@ -1182,8 +1182,8 @@ public:
 	}
 
 	// void btRigidBodyFloatData::m_additionalDamping(int value)
-	static int _bind_setM_additionalDamping(lua_State *L) {
-		if (!_lg_typecheck_setM_additionalDamping(L)) {
+	static int _bind_setAdditionalDamping(lua_State *L) {
+		if (!_lg_typecheck_setAdditionalDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalDamping(int value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalDamping(int value)\nClass arguments details:\n");
 		}
@@ -1221,48 +1221,48 @@ const int LunaTraits< btRigidBodyFloatData >::hash = 1580424;
 const int LunaTraits< btRigidBodyFloatData >::uniqueIDs[] = {1580424,0};
 
 luna_RegType LunaTraits< btRigidBodyFloatData >::methods[] = {
-	{"getM_collisionObjectData", &luna_wrapper_btRigidBodyFloatData::_bind_getM_collisionObjectData},
-	{"getM_invInertiaTensorWorld", &luna_wrapper_btRigidBodyFloatData::_bind_getM_invInertiaTensorWorld},
-	{"getM_linearVelocity", &luna_wrapper_btRigidBodyFloatData::_bind_getM_linearVelocity},
-	{"getM_angularVelocity", &luna_wrapper_btRigidBodyFloatData::_bind_getM_angularVelocity},
-	{"getM_angularFactor", &luna_wrapper_btRigidBodyFloatData::_bind_getM_angularFactor},
-	{"getM_linearFactor", &luna_wrapper_btRigidBodyFloatData::_bind_getM_linearFactor},
-	{"getM_gravity", &luna_wrapper_btRigidBodyFloatData::_bind_getM_gravity},
-	{"getM_gravity_acceleration", &luna_wrapper_btRigidBodyFloatData::_bind_getM_gravity_acceleration},
-	{"getM_invInertiaLocal", &luna_wrapper_btRigidBodyFloatData::_bind_getM_invInertiaLocal},
-	{"getM_totalForce", &luna_wrapper_btRigidBodyFloatData::_bind_getM_totalForce},
-	{"getM_totalTorque", &luna_wrapper_btRigidBodyFloatData::_bind_getM_totalTorque},
-	{"getM_inverseMass", &luna_wrapper_btRigidBodyFloatData::_bind_getM_inverseMass},
-	{"getM_linearDamping", &luna_wrapper_btRigidBodyFloatData::_bind_getM_linearDamping},
-	{"getM_angularDamping", &luna_wrapper_btRigidBodyFloatData::_bind_getM_angularDamping},
-	{"getM_additionalDampingFactor", &luna_wrapper_btRigidBodyFloatData::_bind_getM_additionalDampingFactor},
-	{"getM_additionalLinearDampingThresholdSqr", &luna_wrapper_btRigidBodyFloatData::_bind_getM_additionalLinearDampingThresholdSqr},
-	{"getM_additionalAngularDampingThresholdSqr", &luna_wrapper_btRigidBodyFloatData::_bind_getM_additionalAngularDampingThresholdSqr},
-	{"getM_additionalAngularDampingFactor", &luna_wrapper_btRigidBodyFloatData::_bind_getM_additionalAngularDampingFactor},
-	{"getM_linearSleepingThreshold", &luna_wrapper_btRigidBodyFloatData::_bind_getM_linearSleepingThreshold},
-	{"getM_angularSleepingThreshold", &luna_wrapper_btRigidBodyFloatData::_bind_getM_angularSleepingThreshold},
-	{"getM_additionalDamping", &luna_wrapper_btRigidBodyFloatData::_bind_getM_additionalDamping},
-	{"setM_collisionObjectData", &luna_wrapper_btRigidBodyFloatData::_bind_setM_collisionObjectData},
-	{"setM_invInertiaTensorWorld", &luna_wrapper_btRigidBodyFloatData::_bind_setM_invInertiaTensorWorld},
-	{"setM_linearVelocity", &luna_wrapper_btRigidBodyFloatData::_bind_setM_linearVelocity},
-	{"setM_angularVelocity", &luna_wrapper_btRigidBodyFloatData::_bind_setM_angularVelocity},
-	{"setM_angularFactor", &luna_wrapper_btRigidBodyFloatData::_bind_setM_angularFactor},
-	{"setM_linearFactor", &luna_wrapper_btRigidBodyFloatData::_bind_setM_linearFactor},
-	{"setM_gravity", &luna_wrapper_btRigidBodyFloatData::_bind_setM_gravity},
-	{"setM_gravity_acceleration", &luna_wrapper_btRigidBodyFloatData::_bind_setM_gravity_acceleration},
-	{"setM_invInertiaLocal", &luna_wrapper_btRigidBodyFloatData::_bind_setM_invInertiaLocal},
-	{"setM_totalForce", &luna_wrapper_btRigidBodyFloatData::_bind_setM_totalForce},
-	{"setM_totalTorque", &luna_wrapper_btRigidBodyFloatData::_bind_setM_totalTorque},
-	{"setM_inverseMass", &luna_wrapper_btRigidBodyFloatData::_bind_setM_inverseMass},
-	{"setM_linearDamping", &luna_wrapper_btRigidBodyFloatData::_bind_setM_linearDamping},
-	{"setM_angularDamping", &luna_wrapper_btRigidBodyFloatData::_bind_setM_angularDamping},
-	{"setM_additionalDampingFactor", &luna_wrapper_btRigidBodyFloatData::_bind_setM_additionalDampingFactor},
-	{"setM_additionalLinearDampingThresholdSqr", &luna_wrapper_btRigidBodyFloatData::_bind_setM_additionalLinearDampingThresholdSqr},
-	{"setM_additionalAngularDampingThresholdSqr", &luna_wrapper_btRigidBodyFloatData::_bind_setM_additionalAngularDampingThresholdSqr},
-	{"setM_additionalAngularDampingFactor", &luna_wrapper_btRigidBodyFloatData::_bind_setM_additionalAngularDampingFactor},
-	{"setM_linearSleepingThreshold", &luna_wrapper_btRigidBodyFloatData::_bind_setM_linearSleepingThreshold},
-	{"setM_angularSleepingThreshold", &luna_wrapper_btRigidBodyFloatData::_bind_setM_angularSleepingThreshold},
-	{"setM_additionalDamping", &luna_wrapper_btRigidBodyFloatData::_bind_setM_additionalDamping},
+	{"getCollisionObjectData", &luna_wrapper_btRigidBodyFloatData::_bind_getCollisionObjectData},
+	{"getInvInertiaTensorWorld", &luna_wrapper_btRigidBodyFloatData::_bind_getInvInertiaTensorWorld},
+	{"getLinearVelocity", &luna_wrapper_btRigidBodyFloatData::_bind_getLinearVelocity},
+	{"getAngularVelocity", &luna_wrapper_btRigidBodyFloatData::_bind_getAngularVelocity},
+	{"getAngularFactor", &luna_wrapper_btRigidBodyFloatData::_bind_getAngularFactor},
+	{"getLinearFactor", &luna_wrapper_btRigidBodyFloatData::_bind_getLinearFactor},
+	{"getGravity", &luna_wrapper_btRigidBodyFloatData::_bind_getGravity},
+	{"get_gravity_acceleration", &luna_wrapper_btRigidBodyFloatData::_bind_get_gravity_acceleration},
+	{"getInvInertiaLocal", &luna_wrapper_btRigidBodyFloatData::_bind_getInvInertiaLocal},
+	{"getTotalForce", &luna_wrapper_btRigidBodyFloatData::_bind_getTotalForce},
+	{"getTotalTorque", &luna_wrapper_btRigidBodyFloatData::_bind_getTotalTorque},
+	{"getInverseMass", &luna_wrapper_btRigidBodyFloatData::_bind_getInverseMass},
+	{"getLinearDamping", &luna_wrapper_btRigidBodyFloatData::_bind_getLinearDamping},
+	{"getAngularDamping", &luna_wrapper_btRigidBodyFloatData::_bind_getAngularDamping},
+	{"getAdditionalDampingFactor", &luna_wrapper_btRigidBodyFloatData::_bind_getAdditionalDampingFactor},
+	{"getAdditionalLinearDampingThresholdSqr", &luna_wrapper_btRigidBodyFloatData::_bind_getAdditionalLinearDampingThresholdSqr},
+	{"getAdditionalAngularDampingThresholdSqr", &luna_wrapper_btRigidBodyFloatData::_bind_getAdditionalAngularDampingThresholdSqr},
+	{"getAdditionalAngularDampingFactor", &luna_wrapper_btRigidBodyFloatData::_bind_getAdditionalAngularDampingFactor},
+	{"getLinearSleepingThreshold", &luna_wrapper_btRigidBodyFloatData::_bind_getLinearSleepingThreshold},
+	{"getAngularSleepingThreshold", &luna_wrapper_btRigidBodyFloatData::_bind_getAngularSleepingThreshold},
+	{"getAdditionalDamping", &luna_wrapper_btRigidBodyFloatData::_bind_getAdditionalDamping},
+	{"setCollisionObjectData", &luna_wrapper_btRigidBodyFloatData::_bind_setCollisionObjectData},
+	{"setInvInertiaTensorWorld", &luna_wrapper_btRigidBodyFloatData::_bind_setInvInertiaTensorWorld},
+	{"setLinearVelocity", &luna_wrapper_btRigidBodyFloatData::_bind_setLinearVelocity},
+	{"setAngularVelocity", &luna_wrapper_btRigidBodyFloatData::_bind_setAngularVelocity},
+	{"setAngularFactor", &luna_wrapper_btRigidBodyFloatData::_bind_setAngularFactor},
+	{"setLinearFactor", &luna_wrapper_btRigidBodyFloatData::_bind_setLinearFactor},
+	{"setGravity", &luna_wrapper_btRigidBodyFloatData::_bind_setGravity},
+	{"set_gravity_acceleration", &luna_wrapper_btRigidBodyFloatData::_bind_set_gravity_acceleration},
+	{"setInvInertiaLocal", &luna_wrapper_btRigidBodyFloatData::_bind_setInvInertiaLocal},
+	{"setTotalForce", &luna_wrapper_btRigidBodyFloatData::_bind_setTotalForce},
+	{"setTotalTorque", &luna_wrapper_btRigidBodyFloatData::_bind_setTotalTorque},
+	{"setInverseMass", &luna_wrapper_btRigidBodyFloatData::_bind_setInverseMass},
+	{"setLinearDamping", &luna_wrapper_btRigidBodyFloatData::_bind_setLinearDamping},
+	{"setAngularDamping", &luna_wrapper_btRigidBodyFloatData::_bind_setAngularDamping},
+	{"setAdditionalDampingFactor", &luna_wrapper_btRigidBodyFloatData::_bind_setAdditionalDampingFactor},
+	{"setAdditionalLinearDampingThresholdSqr", &luna_wrapper_btRigidBodyFloatData::_bind_setAdditionalLinearDampingThresholdSqr},
+	{"setAdditionalAngularDampingThresholdSqr", &luna_wrapper_btRigidBodyFloatData::_bind_setAdditionalAngularDampingThresholdSqr},
+	{"setAdditionalAngularDampingFactor", &luna_wrapper_btRigidBodyFloatData::_bind_setAdditionalAngularDampingFactor},
+	{"setLinearSleepingThreshold", &luna_wrapper_btRigidBodyFloatData::_bind_setLinearSleepingThreshold},
+	{"setAngularSleepingThreshold", &luna_wrapper_btRigidBodyFloatData::_bind_setAngularSleepingThreshold},
+	{"setAdditionalDamping", &luna_wrapper_btRigidBodyFloatData::_bind_setAdditionalDamping},
 	{"dynCast", &luna_wrapper_btRigidBodyFloatData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btRigidBodyFloatData::_bind___eq},
 	{0,0}

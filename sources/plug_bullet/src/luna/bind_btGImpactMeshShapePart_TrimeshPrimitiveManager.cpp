@@ -190,31 +190,31 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_margin(lua_State *L) {
+	inline static bool _lg_typecheck_getMargin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_meshInterface(lua_State *L) {
+	inline static bool _lg_typecheck_getMeshInterface(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_scale(lua_State *L) {
+	inline static bool _lg_typecheck_getScale(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_part(lua_State *L) {
+	inline static bool _lg_typecheck_getPart(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_lock_count(lua_State *L) {
+	inline static bool _lg_typecheck_get_lock_count(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -268,35 +268,35 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_margin(lua_State *L) {
+	inline static bool _lg_typecheck_setMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_meshInterface(lua_State *L) {
+	inline static bool _lg_typecheck_setMeshInterface(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56402633)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_scale(lua_State *L) {
+	inline static bool _lg_typecheck_setScale(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_part(lua_State *L) {
+	inline static bool _lg_typecheck_setPart(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_lock_count(lua_State *L) {
+	inline static bool _lg_typecheck_set_lock_count(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -685,8 +685,8 @@ public:
 	}
 
 	// float btGImpactMeshShapePart::TrimeshPrimitiveManager::m_margin()
-	static int _bind_getM_margin(lua_State *L) {
-		if (!_lg_typecheck_getM_margin(L)) {
+	static int _bind_getMargin(lua_State *L) {
+		if (!_lg_typecheck_getMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btGImpactMeshShapePart::TrimeshPrimitiveManager::m_margin() function, expected prototype:\nfloat btGImpactMeshShapePart::TrimeshPrimitiveManager::m_margin()\nClass arguments details:\n");
 		}
@@ -704,8 +704,8 @@ public:
 	}
 
 	// btStridingMeshInterface * btGImpactMeshShapePart::TrimeshPrimitiveManager::m_meshInterface()
-	static int _bind_getM_meshInterface(lua_State *L) {
-		if (!_lg_typecheck_getM_meshInterface(L)) {
+	static int _bind_getMeshInterface(lua_State *L) {
+		if (!_lg_typecheck_getMeshInterface(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btStridingMeshInterface * btGImpactMeshShapePart::TrimeshPrimitiveManager::m_meshInterface() function, expected prototype:\nbtStridingMeshInterface * btGImpactMeshShapePart::TrimeshPrimitiveManager::m_meshInterface()\nClass arguments details:\n");
 		}
@@ -725,8 +725,8 @@ public:
 	}
 
 	// btVector3 btGImpactMeshShapePart::TrimeshPrimitiveManager::m_scale()
-	static int _bind_getM_scale(lua_State *L) {
-		if (!_lg_typecheck_getM_scale(L)) {
+	static int _bind_getScale(lua_State *L) {
+		if (!_lg_typecheck_getScale(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btGImpactMeshShapePart::TrimeshPrimitiveManager::m_scale() function, expected prototype:\nbtVector3 btGImpactMeshShapePart::TrimeshPrimitiveManager::m_scale()\nClass arguments details:\n");
 		}
@@ -746,8 +746,8 @@ public:
 	}
 
 	// int btGImpactMeshShapePart::TrimeshPrimitiveManager::m_part()
-	static int _bind_getM_part(lua_State *L) {
-		if (!_lg_typecheck_getM_part(L)) {
+	static int _bind_getPart(lua_State *L) {
+		if (!_lg_typecheck_getPart(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapePart::TrimeshPrimitiveManager::m_part() function, expected prototype:\nint btGImpactMeshShapePart::TrimeshPrimitiveManager::m_part()\nClass arguments details:\n");
 		}
@@ -765,8 +765,8 @@ public:
 	}
 
 	// int btGImpactMeshShapePart::TrimeshPrimitiveManager::m_lock_count()
-	static int _bind_getM_lock_count(lua_State *L) {
-		if (!_lg_typecheck_getM_lock_count(L)) {
+	static int _bind_get_lock_count(lua_State *L) {
+		if (!_lg_typecheck_get_lock_count(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapePart::TrimeshPrimitiveManager::m_lock_count() function, expected prototype:\nint btGImpactMeshShapePart::TrimeshPrimitiveManager::m_lock_count()\nClass arguments details:\n");
 		}
@@ -936,8 +936,8 @@ public:
 	}
 
 	// void btGImpactMeshShapePart::TrimeshPrimitiveManager::m_margin(float value)
-	static int _bind_setM_margin(lua_State *L) {
-		if (!_lg_typecheck_setM_margin(L)) {
+	static int _bind_setMargin(lua_State *L) {
+		if (!_lg_typecheck_setMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::TrimeshPrimitiveManager::m_margin(float value) function, expected prototype:\nvoid btGImpactMeshShapePart::TrimeshPrimitiveManager::m_margin(float value)\nClass arguments details:\n");
 		}
@@ -955,8 +955,8 @@ public:
 	}
 
 	// void btGImpactMeshShapePart::TrimeshPrimitiveManager::m_meshInterface(btStridingMeshInterface * value)
-	static int _bind_setM_meshInterface(lua_State *L) {
-		if (!_lg_typecheck_setM_meshInterface(L)) {
+	static int _bind_setMeshInterface(lua_State *L) {
+		if (!_lg_typecheck_setMeshInterface(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::TrimeshPrimitiveManager::m_meshInterface(btStridingMeshInterface * value) function, expected prototype:\nvoid btGImpactMeshShapePart::TrimeshPrimitiveManager::m_meshInterface(btStridingMeshInterface * value)\nClass arguments details:\narg 1 ID = 56402633\n");
 		}
@@ -974,8 +974,8 @@ public:
 	}
 
 	// void btGImpactMeshShapePart::TrimeshPrimitiveManager::m_scale(btVector3 value)
-	static int _bind_setM_scale(lua_State *L) {
-		if (!_lg_typecheck_setM_scale(L)) {
+	static int _bind_setScale(lua_State *L) {
+		if (!_lg_typecheck_setScale(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::TrimeshPrimitiveManager::m_scale(btVector3 value) function, expected prototype:\nvoid btGImpactMeshShapePart::TrimeshPrimitiveManager::m_scale(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -997,8 +997,8 @@ public:
 	}
 
 	// void btGImpactMeshShapePart::TrimeshPrimitiveManager::m_part(int value)
-	static int _bind_setM_part(lua_State *L) {
-		if (!_lg_typecheck_setM_part(L)) {
+	static int _bind_setPart(lua_State *L) {
+		if (!_lg_typecheck_setPart(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::TrimeshPrimitiveManager::m_part(int value) function, expected prototype:\nvoid btGImpactMeshShapePart::TrimeshPrimitiveManager::m_part(int value)\nClass arguments details:\n");
 		}
@@ -1016,8 +1016,8 @@ public:
 	}
 
 	// void btGImpactMeshShapePart::TrimeshPrimitiveManager::m_lock_count(int value)
-	static int _bind_setM_lock_count(lua_State *L) {
-		if (!_lg_typecheck_setM_lock_count(L)) {
+	static int _bind_set_lock_count(lua_State *L) {
+		if (!_lg_typecheck_set_lock_count(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::TrimeshPrimitiveManager::m_lock_count(int value) function, expected prototype:\nvoid btGImpactMeshShapePart::TrimeshPrimitiveManager::m_lock_count(int value)\nClass arguments details:\n");
 		}
@@ -1265,11 +1265,11 @@ luna_RegType LunaTraits< btGImpactMeshShapePart::TrimeshPrimitiveManager >::meth
 	{"get_primitive_box", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_get_primitive_box},
 	{"get_primitive_triangle", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_get_primitive_triangle},
 	{"get_bullet_triangle", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_get_bullet_triangle},
-	{"getM_margin", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getM_margin},
-	{"getM_meshInterface", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getM_meshInterface},
-	{"getM_scale", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getM_scale},
-	{"getM_part", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getM_part},
-	{"getM_lock_count", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getM_lock_count},
+	{"getMargin", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getMargin},
+	{"getMeshInterface", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getMeshInterface},
+	{"getScale", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getScale},
+	{"getPart", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getPart},
+	{"get_lock_count", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_get_lock_count},
 	{"getVertexbase", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getVertexbase},
 	{"getNumverts", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getNumverts},
 	{"getType", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getType},
@@ -1278,11 +1278,11 @@ luna_RegType LunaTraits< btGImpactMeshShapePart::TrimeshPrimitiveManager >::meth
 	{"getIndexstride", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getIndexstride},
 	{"getNumfaces", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getNumfaces},
 	{"getIndicestype", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_getIndicestype},
-	{"setM_margin", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_setM_margin},
-	{"setM_meshInterface", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_setM_meshInterface},
-	{"setM_scale", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_setM_scale},
-	{"setM_part", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_setM_part},
-	{"setM_lock_count", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_setM_lock_count},
+	{"setMargin", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_setMargin},
+	{"setMeshInterface", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_setMeshInterface},
+	{"setScale", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_setScale},
+	{"setPart", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_setPart},
+	{"set_lock_count", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_set_lock_count},
 	{"setNumverts", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_setNumverts},
 	{"setType", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_setType},
 	{"setStride", &luna_wrapper_btGImpactMeshShapePart_TrimeshPrimitiveManager::_bind_setStride},

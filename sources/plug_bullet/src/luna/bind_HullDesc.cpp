@@ -95,84 +95,84 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMFlags(lua_State *L) {
+	inline static bool _lg_typecheck_getFlags(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMVcount(lua_State *L) {
+	inline static bool _lg_typecheck_getVcount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMVertices(lua_State *L) {
+	inline static bool _lg_typecheck_getVertices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMVertexStride(lua_State *L) {
+	inline static bool _lg_typecheck_getVertexStride(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMNormalEpsilon(lua_State *L) {
+	inline static bool _lg_typecheck_getNormalEpsilon(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMMaxVertices(lua_State *L) {
+	inline static bool _lg_typecheck_getMaxVertices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMMaxFaces(lua_State *L) {
+	inline static bool _lg_typecheck_getMaxFaces(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMFlags(lua_State *L) {
+	inline static bool _lg_typecheck_setFlags(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMVcount(lua_State *L) {
+	inline static bool _lg_typecheck_setVcount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMVertexStride(lua_State *L) {
+	inline static bool _lg_typecheck_setVertexStride(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMNormalEpsilon(lua_State *L) {
+	inline static bool _lg_typecheck_setNormalEpsilon(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMMaxVertices(lua_State *L) {
+	inline static bool _lg_typecheck_setMaxVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMMaxFaces(lua_State *L) {
+	inline static bool _lg_typecheck_setMaxFaces(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -282,8 +282,8 @@ public:
 	}
 
 	// unsigned int HullDesc::mFlags()
-	static int _bind_getMFlags(lua_State *L) {
-		if (!_lg_typecheck_getMFlags(L)) {
+	static int _bind_getFlags(lua_State *L) {
+		if (!_lg_typecheck_getFlags(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int HullDesc::mFlags() function, expected prototype:\nunsigned int HullDesc::mFlags()\nClass arguments details:\n");
 		}
@@ -301,8 +301,8 @@ public:
 	}
 
 	// unsigned int HullDesc::mVcount()
-	static int _bind_getMVcount(lua_State *L) {
-		if (!_lg_typecheck_getMVcount(L)) {
+	static int _bind_getVcount(lua_State *L) {
+		if (!_lg_typecheck_getVcount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int HullDesc::mVcount() function, expected prototype:\nunsigned int HullDesc::mVcount()\nClass arguments details:\n");
 		}
@@ -320,8 +320,8 @@ public:
 	}
 
 	// const btVector3 * HullDesc::mVertices()
-	static int _bind_getMVertices(lua_State *L) {
-		if (!_lg_typecheck_getMVertices(L)) {
+	static int _bind_getVertices(lua_State *L) {
+		if (!_lg_typecheck_getVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const btVector3 * HullDesc::mVertices() function, expected prototype:\nconst btVector3 * HullDesc::mVertices()\nClass arguments details:\n");
 		}
@@ -341,8 +341,8 @@ public:
 	}
 
 	// unsigned int HullDesc::mVertexStride()
-	static int _bind_getMVertexStride(lua_State *L) {
-		if (!_lg_typecheck_getMVertexStride(L)) {
+	static int _bind_getVertexStride(lua_State *L) {
+		if (!_lg_typecheck_getVertexStride(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int HullDesc::mVertexStride() function, expected prototype:\nunsigned int HullDesc::mVertexStride()\nClass arguments details:\n");
 		}
@@ -360,8 +360,8 @@ public:
 	}
 
 	// float HullDesc::mNormalEpsilon()
-	static int _bind_getMNormalEpsilon(lua_State *L) {
-		if (!_lg_typecheck_getMNormalEpsilon(L)) {
+	static int _bind_getNormalEpsilon(lua_State *L) {
+		if (!_lg_typecheck_getNormalEpsilon(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float HullDesc::mNormalEpsilon() function, expected prototype:\nfloat HullDesc::mNormalEpsilon()\nClass arguments details:\n");
 		}
@@ -379,8 +379,8 @@ public:
 	}
 
 	// unsigned int HullDesc::mMaxVertices()
-	static int _bind_getMMaxVertices(lua_State *L) {
-		if (!_lg_typecheck_getMMaxVertices(L)) {
+	static int _bind_getMaxVertices(lua_State *L) {
+		if (!_lg_typecheck_getMaxVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int HullDesc::mMaxVertices() function, expected prototype:\nunsigned int HullDesc::mMaxVertices()\nClass arguments details:\n");
 		}
@@ -398,8 +398,8 @@ public:
 	}
 
 	// unsigned int HullDesc::mMaxFaces()
-	static int _bind_getMMaxFaces(lua_State *L) {
-		if (!_lg_typecheck_getMMaxFaces(L)) {
+	static int _bind_getMaxFaces(lua_State *L) {
+		if (!_lg_typecheck_getMaxFaces(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int HullDesc::mMaxFaces() function, expected prototype:\nunsigned int HullDesc::mMaxFaces()\nClass arguments details:\n");
 		}
@@ -417,8 +417,8 @@ public:
 	}
 
 	// void HullDesc::mFlags(unsigned int value)
-	static int _bind_setMFlags(lua_State *L) {
-		if (!_lg_typecheck_setMFlags(L)) {
+	static int _bind_setFlags(lua_State *L) {
+		if (!_lg_typecheck_setFlags(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void HullDesc::mFlags(unsigned int value) function, expected prototype:\nvoid HullDesc::mFlags(unsigned int value)\nClass arguments details:\n");
 		}
@@ -436,8 +436,8 @@ public:
 	}
 
 	// void HullDesc::mVcount(unsigned int value)
-	static int _bind_setMVcount(lua_State *L) {
-		if (!_lg_typecheck_setMVcount(L)) {
+	static int _bind_setVcount(lua_State *L) {
+		if (!_lg_typecheck_setVcount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void HullDesc::mVcount(unsigned int value) function, expected prototype:\nvoid HullDesc::mVcount(unsigned int value)\nClass arguments details:\n");
 		}
@@ -455,8 +455,8 @@ public:
 	}
 
 	// void HullDesc::mVertexStride(unsigned int value)
-	static int _bind_setMVertexStride(lua_State *L) {
-		if (!_lg_typecheck_setMVertexStride(L)) {
+	static int _bind_setVertexStride(lua_State *L) {
+		if (!_lg_typecheck_setVertexStride(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void HullDesc::mVertexStride(unsigned int value) function, expected prototype:\nvoid HullDesc::mVertexStride(unsigned int value)\nClass arguments details:\n");
 		}
@@ -474,8 +474,8 @@ public:
 	}
 
 	// void HullDesc::mNormalEpsilon(float value)
-	static int _bind_setMNormalEpsilon(lua_State *L) {
-		if (!_lg_typecheck_setMNormalEpsilon(L)) {
+	static int _bind_setNormalEpsilon(lua_State *L) {
+		if (!_lg_typecheck_setNormalEpsilon(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void HullDesc::mNormalEpsilon(float value) function, expected prototype:\nvoid HullDesc::mNormalEpsilon(float value)\nClass arguments details:\n");
 		}
@@ -493,8 +493,8 @@ public:
 	}
 
 	// void HullDesc::mMaxVertices(unsigned int value)
-	static int _bind_setMMaxVertices(lua_State *L) {
-		if (!_lg_typecheck_setMMaxVertices(L)) {
+	static int _bind_setMaxVertices(lua_State *L) {
+		if (!_lg_typecheck_setMaxVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void HullDesc::mMaxVertices(unsigned int value) function, expected prototype:\nvoid HullDesc::mMaxVertices(unsigned int value)\nClass arguments details:\n");
 		}
@@ -512,8 +512,8 @@ public:
 	}
 
 	// void HullDesc::mMaxFaces(unsigned int value)
-	static int _bind_setMMaxFaces(lua_State *L) {
-		if (!_lg_typecheck_setMMaxFaces(L)) {
+	static int _bind_setMaxFaces(lua_State *L) {
+		if (!_lg_typecheck_setMaxFaces(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void HullDesc::mMaxFaces(unsigned int value) function, expected prototype:\nvoid HullDesc::mMaxFaces(unsigned int value)\nClass arguments details:\n");
 		}
@@ -554,19 +554,19 @@ luna_RegType LunaTraits< HullDesc >::methods[] = {
 	{"HasHullFlag", &luna_wrapper_HullDesc::_bind_HasHullFlag},
 	{"SetHullFlag", &luna_wrapper_HullDesc::_bind_SetHullFlag},
 	{"ClearHullFlag", &luna_wrapper_HullDesc::_bind_ClearHullFlag},
-	{"getMFlags", &luna_wrapper_HullDesc::_bind_getMFlags},
-	{"getMVcount", &luna_wrapper_HullDesc::_bind_getMVcount},
-	{"getMVertices", &luna_wrapper_HullDesc::_bind_getMVertices},
-	{"getMVertexStride", &luna_wrapper_HullDesc::_bind_getMVertexStride},
-	{"getMNormalEpsilon", &luna_wrapper_HullDesc::_bind_getMNormalEpsilon},
-	{"getMMaxVertices", &luna_wrapper_HullDesc::_bind_getMMaxVertices},
-	{"getMMaxFaces", &luna_wrapper_HullDesc::_bind_getMMaxFaces},
-	{"setMFlags", &luna_wrapper_HullDesc::_bind_setMFlags},
-	{"setMVcount", &luna_wrapper_HullDesc::_bind_setMVcount},
-	{"setMVertexStride", &luna_wrapper_HullDesc::_bind_setMVertexStride},
-	{"setMNormalEpsilon", &luna_wrapper_HullDesc::_bind_setMNormalEpsilon},
-	{"setMMaxVertices", &luna_wrapper_HullDesc::_bind_setMMaxVertices},
-	{"setMMaxFaces", &luna_wrapper_HullDesc::_bind_setMMaxFaces},
+	{"getFlags", &luna_wrapper_HullDesc::_bind_getFlags},
+	{"getVcount", &luna_wrapper_HullDesc::_bind_getVcount},
+	{"getVertices", &luna_wrapper_HullDesc::_bind_getVertices},
+	{"getVertexStride", &luna_wrapper_HullDesc::_bind_getVertexStride},
+	{"getNormalEpsilon", &luna_wrapper_HullDesc::_bind_getNormalEpsilon},
+	{"getMaxVertices", &luna_wrapper_HullDesc::_bind_getMaxVertices},
+	{"getMaxFaces", &luna_wrapper_HullDesc::_bind_getMaxFaces},
+	{"setFlags", &luna_wrapper_HullDesc::_bind_setFlags},
+	{"setVcount", &luna_wrapper_HullDesc::_bind_setVcount},
+	{"setVertexStride", &luna_wrapper_HullDesc::_bind_setVertexStride},
+	{"setNormalEpsilon", &luna_wrapper_HullDesc::_bind_setNormalEpsilon},
+	{"setMaxVertices", &luna_wrapper_HullDesc::_bind_setMaxVertices},
+	{"setMaxFaces", &luna_wrapper_HullDesc::_bind_setMaxFaces},
 	{"dynCast", &luna_wrapper_HullDesc::_bind_dynCast},
 	{"__eq", &luna_wrapper_HullDesc::_bind___eq},
 	{0,0}

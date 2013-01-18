@@ -56,26 +56,26 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_bound(lua_State *L) {
+	inline static bool _lg_typecheck_getBound(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_data(lua_State *L) {
+	inline static bool _lg_typecheck_getData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_bound(lua_State *L) {
+	inline static bool _lg_typecheck_setBound(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,14786052) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_data(lua_State *L) {
+	inline static bool _lg_typecheck_setData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -90,8 +90,8 @@ public:
 
 	// Function binds:
 	// btAABB GIM_BVH_DATA::m_bound()
-	static int _bind_getM_bound(lua_State *L) {
-		if (!_lg_typecheck_getM_bound(L)) {
+	static int _bind_getBound(lua_State *L) {
+		if (!_lg_typecheck_getBound(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btAABB GIM_BVH_DATA::m_bound() function, expected prototype:\nbtAABB GIM_BVH_DATA::m_bound()\nClass arguments details:\n");
 		}
@@ -111,8 +111,8 @@ public:
 	}
 
 	// int GIM_BVH_DATA::m_data()
-	static int _bind_getM_data(lua_State *L) {
-		if (!_lg_typecheck_getM_data(L)) {
+	static int _bind_getData(lua_State *L) {
+		if (!_lg_typecheck_getData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int GIM_BVH_DATA::m_data() function, expected prototype:\nint GIM_BVH_DATA::m_data()\nClass arguments details:\n");
 		}
@@ -130,8 +130,8 @@ public:
 	}
 
 	// void GIM_BVH_DATA::m_bound(btAABB value)
-	static int _bind_setM_bound(lua_State *L) {
-		if (!_lg_typecheck_setM_bound(L)) {
+	static int _bind_setBound(lua_State *L) {
+		if (!_lg_typecheck_setBound(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GIM_BVH_DATA::m_bound(btAABB value) function, expected prototype:\nvoid GIM_BVH_DATA::m_bound(btAABB value)\nClass arguments details:\narg 1 ID = 14786052\n");
 		}
@@ -153,8 +153,8 @@ public:
 	}
 
 	// void GIM_BVH_DATA::m_data(int value)
-	static int _bind_setM_data(lua_State *L) {
-		if (!_lg_typecheck_setM_data(L)) {
+	static int _bind_setData(lua_State *L) {
+		if (!_lg_typecheck_setData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GIM_BVH_DATA::m_data(int value) function, expected prototype:\nvoid GIM_BVH_DATA::m_data(int value)\nClass arguments details:\n");
 		}
@@ -192,10 +192,10 @@ const int LunaTraits< GIM_BVH_DATA >::hash = 56409546;
 const int LunaTraits< GIM_BVH_DATA >::uniqueIDs[] = {56409546,0};
 
 luna_RegType LunaTraits< GIM_BVH_DATA >::methods[] = {
-	{"getM_bound", &luna_wrapper_GIM_BVH_DATA::_bind_getM_bound},
-	{"getM_data", &luna_wrapper_GIM_BVH_DATA::_bind_getM_data},
-	{"setM_bound", &luna_wrapper_GIM_BVH_DATA::_bind_setM_bound},
-	{"setM_data", &luna_wrapper_GIM_BVH_DATA::_bind_setM_data},
+	{"getBound", &luna_wrapper_GIM_BVH_DATA::_bind_getBound},
+	{"getData", &luna_wrapper_GIM_BVH_DATA::_bind_getData},
+	{"setBound", &luna_wrapper_GIM_BVH_DATA::_bind_setBound},
+	{"setData", &luna_wrapper_GIM_BVH_DATA::_bind_setData},
 	{"dynCast", &luna_wrapper_GIM_BVH_DATA::_bind_dynCast},
 	{"__eq", &luna_wrapper_GIM_BVH_DATA::_bind___eq},
 	{0,0}

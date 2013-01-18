@@ -76,26 +76,26 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_rayDirectionInverse(lua_State *L) {
+	inline static bool _lg_typecheck_getRayDirectionInverse(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_lambda_max(lua_State *L) {
+	inline static bool _lg_typecheck_get_lambda_max(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rayDirectionInverse(lua_State *L) {
+	inline static bool _lg_typecheck_setRayDirectionInverse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_lambda_max(lua_State *L) {
+	inline static bool _lg_typecheck_set_lambda_max(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -121,8 +121,8 @@ public:
 
 	// Function binds:
 	// btVector3 btBroadphaseRayCallback::m_rayDirectionInverse()
-	static int _bind_getM_rayDirectionInverse(lua_State *L) {
-		if (!_lg_typecheck_getM_rayDirectionInverse(L)) {
+	static int _bind_getRayDirectionInverse(lua_State *L) {
+		if (!_lg_typecheck_getRayDirectionInverse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btBroadphaseRayCallback::m_rayDirectionInverse() function, expected prototype:\nbtVector3 btBroadphaseRayCallback::m_rayDirectionInverse()\nClass arguments details:\n");
 		}
@@ -142,8 +142,8 @@ public:
 	}
 
 	// float btBroadphaseRayCallback::m_lambda_max()
-	static int _bind_getM_lambda_max(lua_State *L) {
-		if (!_lg_typecheck_getM_lambda_max(L)) {
+	static int _bind_get_lambda_max(lua_State *L) {
+		if (!_lg_typecheck_get_lambda_max(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btBroadphaseRayCallback::m_lambda_max() function, expected prototype:\nfloat btBroadphaseRayCallback::m_lambda_max()\nClass arguments details:\n");
 		}
@@ -161,8 +161,8 @@ public:
 	}
 
 	// void btBroadphaseRayCallback::m_rayDirectionInverse(btVector3 value)
-	static int _bind_setM_rayDirectionInverse(lua_State *L) {
-		if (!_lg_typecheck_setM_rayDirectionInverse(L)) {
+	static int _bind_setRayDirectionInverse(lua_State *L) {
+		if (!_lg_typecheck_setRayDirectionInverse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBroadphaseRayCallback::m_rayDirectionInverse(btVector3 value) function, expected prototype:\nvoid btBroadphaseRayCallback::m_rayDirectionInverse(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -184,8 +184,8 @@ public:
 	}
 
 	// void btBroadphaseRayCallback::m_lambda_max(float value)
-	static int _bind_setM_lambda_max(lua_State *L) {
-		if (!_lg_typecheck_setM_lambda_max(L)) {
+	static int _bind_set_lambda_max(lua_State *L) {
+		if (!_lg_typecheck_set_lambda_max(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBroadphaseRayCallback::m_lambda_max(float value) function, expected prototype:\nvoid btBroadphaseRayCallback::m_lambda_max(float value)\nClass arguments details:\n");
 		}
@@ -226,10 +226,10 @@ const int LunaTraits< btBroadphaseRayCallback >::hash = 40837775;
 const int LunaTraits< btBroadphaseRayCallback >::uniqueIDs[] = {52132875,0};
 
 luna_RegType LunaTraits< btBroadphaseRayCallback >::methods[] = {
-	{"getM_rayDirectionInverse", &luna_wrapper_btBroadphaseRayCallback::_bind_getM_rayDirectionInverse},
-	{"getM_lambda_max", &luna_wrapper_btBroadphaseRayCallback::_bind_getM_lambda_max},
-	{"setM_rayDirectionInverse", &luna_wrapper_btBroadphaseRayCallback::_bind_setM_rayDirectionInverse},
-	{"setM_lambda_max", &luna_wrapper_btBroadphaseRayCallback::_bind_setM_lambda_max},
+	{"getRayDirectionInverse", &luna_wrapper_btBroadphaseRayCallback::_bind_getRayDirectionInverse},
+	{"get_lambda_max", &luna_wrapper_btBroadphaseRayCallback::_bind_get_lambda_max},
+	{"setRayDirectionInverse", &luna_wrapper_btBroadphaseRayCallback::_bind_setRayDirectionInverse},
+	{"set_lambda_max", &luna_wrapper_btBroadphaseRayCallback::_bind_set_lambda_max},
 	{"__eq", &luna_wrapper_btBroadphaseRayCallback::_bind___eq},
 	{"getTable", &luna_wrapper_btBroadphaseRayCallback::_bind_getTable},
 	{0,0}

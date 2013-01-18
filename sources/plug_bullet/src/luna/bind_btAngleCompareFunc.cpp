@@ -63,13 +63,13 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_anchor(lua_State *L) {
+	inline static bool _lg_typecheck_getAnchor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_anchor(lua_State *L) {
+	inline static bool _lg_typecheck_setAnchor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
@@ -108,8 +108,8 @@ public:
 
 	// Function binds:
 	// btVector3 btAngleCompareFunc::m_anchor()
-	static int _bind_getM_anchor(lua_State *L) {
-		if (!_lg_typecheck_getM_anchor(L)) {
+	static int _bind_getAnchor(lua_State *L) {
+		if (!_lg_typecheck_getAnchor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btAngleCompareFunc::m_anchor() function, expected prototype:\nbtVector3 btAngleCompareFunc::m_anchor()\nClass arguments details:\n");
 		}
@@ -129,8 +129,8 @@ public:
 	}
 
 	// void btAngleCompareFunc::m_anchor(btVector3 value)
-	static int _bind_setM_anchor(lua_State *L) {
-		if (!_lg_typecheck_setM_anchor(L)) {
+	static int _bind_setAnchor(lua_State *L) {
+		if (!_lg_typecheck_setAnchor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btAngleCompareFunc::m_anchor(btVector3 value) function, expected prototype:\nvoid btAngleCompareFunc::m_anchor(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -201,8 +201,8 @@ const int LunaTraits< btAngleCompareFunc >::hash = 86058940;
 const int LunaTraits< btAngleCompareFunc >::uniqueIDs[] = {86058940,0};
 
 luna_RegType LunaTraits< btAngleCompareFunc >::methods[] = {
-	{"getM_anchor", &luna_wrapper_btAngleCompareFunc::_bind_getM_anchor},
-	{"setM_anchor", &luna_wrapper_btAngleCompareFunc::_bind_setM_anchor},
+	{"getAnchor", &luna_wrapper_btAngleCompareFunc::_bind_getAnchor},
+	{"setAnchor", &luna_wrapper_btAngleCompareFunc::_bind_setAnchor},
 	{"op_call", &luna_wrapper_btAngleCompareFunc::_bind_op_call},
 	{"dynCast", &luna_wrapper_btAngleCompareFunc::_bind_dynCast},
 	{"__eq", &luna_wrapper_btAngleCompareFunc::_bind___eq},

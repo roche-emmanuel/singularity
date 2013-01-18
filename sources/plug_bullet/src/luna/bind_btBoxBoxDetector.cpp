@@ -101,13 +101,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_box1(lua_State *L) {
+	inline static bool _lg_typecheck_getBox1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_box2(lua_State *L) {
+	inline static bool _lg_typecheck_getBox2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -199,8 +199,8 @@ public:
 	}
 
 	// const btBoxShape * btBoxBoxDetector::m_box1()
-	static int _bind_getM_box1(lua_State *L) {
-		if (!_lg_typecheck_getM_box1(L)) {
+	static int _bind_getBox1(lua_State *L) {
+		if (!_lg_typecheck_getBox1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const btBoxShape * btBoxBoxDetector::m_box1() function, expected prototype:\nconst btBoxShape * btBoxBoxDetector::m_box1()\nClass arguments details:\n");
 		}
@@ -220,8 +220,8 @@ public:
 	}
 
 	// const btBoxShape * btBoxBoxDetector::m_box2()
-	static int _bind_getM_box2(lua_State *L) {
-		if (!_lg_typecheck_getM_box2(L)) {
+	static int _bind_getBox2(lua_State *L) {
+		if (!_lg_typecheck_getBox2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const btBoxShape * btBoxBoxDetector::m_box2() function, expected prototype:\nconst btBoxShape * btBoxBoxDetector::m_box2()\nClass arguments details:\n");
 		}
@@ -294,8 +294,8 @@ const int LunaTraits< btBoxBoxDetector >::uniqueIDs[] = {36160911,0};
 
 luna_RegType LunaTraits< btBoxBoxDetector >::methods[] = {
 	{"getClosestPoints", &luna_wrapper_btBoxBoxDetector::_bind_getClosestPoints},
-	{"getM_box1", &luna_wrapper_btBoxBoxDetector::_bind_getM_box1},
-	{"getM_box2", &luna_wrapper_btBoxBoxDetector::_bind_getM_box2},
+	{"getBox1", &luna_wrapper_btBoxBoxDetector::_bind_getBox1},
+	{"getBox2", &luna_wrapper_btBoxBoxDetector::_bind_getBox2},
 	{"base_getClosestPoints", &luna_wrapper_btBoxBoxDetector::_bind_base_getClosestPoints},
 	{"__eq", &luna_wrapper_btBoxBoxDetector::_bind___eq},
 	{"getTable", &luna_wrapper_btBoxBoxDetector::_bind_getTable},

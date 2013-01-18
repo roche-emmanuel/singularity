@@ -98,58 +98,58 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_convexFromWorld(lua_State *L) {
+	inline static bool _lg_typecheck_getConvexFromWorld(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_convexToWorld(lua_State *L) {
+	inline static bool _lg_typecheck_getConvexToWorld(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitNormalWorld(lua_State *L) {
+	inline static bool _lg_typecheck_getHitNormalWorld(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitPointWorld(lua_State *L) {
+	inline static bool _lg_typecheck_getHitPointWorld(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitCollisionObject(lua_State *L) {
+	inline static bool _lg_typecheck_getHitCollisionObject(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_convexFromWorld(lua_State *L) {
+	inline static bool _lg_typecheck_setConvexFromWorld(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_convexToWorld(lua_State *L) {
+	inline static bool _lg_typecheck_setConvexToWorld(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitNormalWorld(lua_State *L) {
+	inline static bool _lg_typecheck_setHitNormalWorld(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitPointWorld(lua_State *L) {
+	inline static bool _lg_typecheck_setHitPointWorld(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
@@ -255,8 +255,8 @@ public:
 	}
 
 	// btVector3 btCollisionWorld::ClosestConvexResultCallback::m_convexFromWorld()
-	static int _bind_getM_convexFromWorld(lua_State *L) {
-		if (!_lg_typecheck_getM_convexFromWorld(L)) {
+	static int _bind_getConvexFromWorld(lua_State *L) {
+		if (!_lg_typecheck_getConvexFromWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btCollisionWorld::ClosestConvexResultCallback::m_convexFromWorld() function, expected prototype:\nbtVector3 btCollisionWorld::ClosestConvexResultCallback::m_convexFromWorld()\nClass arguments details:\n");
 		}
@@ -276,8 +276,8 @@ public:
 	}
 
 	// btVector3 btCollisionWorld::ClosestConvexResultCallback::m_convexToWorld()
-	static int _bind_getM_convexToWorld(lua_State *L) {
-		if (!_lg_typecheck_getM_convexToWorld(L)) {
+	static int _bind_getConvexToWorld(lua_State *L) {
+		if (!_lg_typecheck_getConvexToWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btCollisionWorld::ClosestConvexResultCallback::m_convexToWorld() function, expected prototype:\nbtVector3 btCollisionWorld::ClosestConvexResultCallback::m_convexToWorld()\nClass arguments details:\n");
 		}
@@ -297,8 +297,8 @@ public:
 	}
 
 	// btVector3 btCollisionWorld::ClosestConvexResultCallback::m_hitNormalWorld()
-	static int _bind_getM_hitNormalWorld(lua_State *L) {
-		if (!_lg_typecheck_getM_hitNormalWorld(L)) {
+	static int _bind_getHitNormalWorld(lua_State *L) {
+		if (!_lg_typecheck_getHitNormalWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btCollisionWorld::ClosestConvexResultCallback::m_hitNormalWorld() function, expected prototype:\nbtVector3 btCollisionWorld::ClosestConvexResultCallback::m_hitNormalWorld()\nClass arguments details:\n");
 		}
@@ -318,8 +318,8 @@ public:
 	}
 
 	// btVector3 btCollisionWorld::ClosestConvexResultCallback::m_hitPointWorld()
-	static int _bind_getM_hitPointWorld(lua_State *L) {
-		if (!_lg_typecheck_getM_hitPointWorld(L)) {
+	static int _bind_getHitPointWorld(lua_State *L) {
+		if (!_lg_typecheck_getHitPointWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btCollisionWorld::ClosestConvexResultCallback::m_hitPointWorld() function, expected prototype:\nbtVector3 btCollisionWorld::ClosestConvexResultCallback::m_hitPointWorld()\nClass arguments details:\n");
 		}
@@ -339,8 +339,8 @@ public:
 	}
 
 	// const btCollisionObject * btCollisionWorld::ClosestConvexResultCallback::m_hitCollisionObject()
-	static int _bind_getM_hitCollisionObject(lua_State *L) {
-		if (!_lg_typecheck_getM_hitCollisionObject(L)) {
+	static int _bind_getHitCollisionObject(lua_State *L) {
+		if (!_lg_typecheck_getHitCollisionObject(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const btCollisionObject * btCollisionWorld::ClosestConvexResultCallback::m_hitCollisionObject() function, expected prototype:\nconst btCollisionObject * btCollisionWorld::ClosestConvexResultCallback::m_hitCollisionObject()\nClass arguments details:\n");
 		}
@@ -360,8 +360,8 @@ public:
 	}
 
 	// void btCollisionWorld::ClosestConvexResultCallback::m_convexFromWorld(btVector3 value)
-	static int _bind_setM_convexFromWorld(lua_State *L) {
-		if (!_lg_typecheck_setM_convexFromWorld(L)) {
+	static int _bind_setConvexFromWorld(lua_State *L) {
+		if (!_lg_typecheck_setConvexFromWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ClosestConvexResultCallback::m_convexFromWorld(btVector3 value) function, expected prototype:\nvoid btCollisionWorld::ClosestConvexResultCallback::m_convexFromWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -383,8 +383,8 @@ public:
 	}
 
 	// void btCollisionWorld::ClosestConvexResultCallback::m_convexToWorld(btVector3 value)
-	static int _bind_setM_convexToWorld(lua_State *L) {
-		if (!_lg_typecheck_setM_convexToWorld(L)) {
+	static int _bind_setConvexToWorld(lua_State *L) {
+		if (!_lg_typecheck_setConvexToWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ClosestConvexResultCallback::m_convexToWorld(btVector3 value) function, expected prototype:\nvoid btCollisionWorld::ClosestConvexResultCallback::m_convexToWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -406,8 +406,8 @@ public:
 	}
 
 	// void btCollisionWorld::ClosestConvexResultCallback::m_hitNormalWorld(btVector3 value)
-	static int _bind_setM_hitNormalWorld(lua_State *L) {
-		if (!_lg_typecheck_setM_hitNormalWorld(L)) {
+	static int _bind_setHitNormalWorld(lua_State *L) {
+		if (!_lg_typecheck_setHitNormalWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ClosestConvexResultCallback::m_hitNormalWorld(btVector3 value) function, expected prototype:\nvoid btCollisionWorld::ClosestConvexResultCallback::m_hitNormalWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -429,8 +429,8 @@ public:
 	}
 
 	// void btCollisionWorld::ClosestConvexResultCallback::m_hitPointWorld(btVector3 value)
-	static int _bind_setM_hitPointWorld(lua_State *L) {
-		if (!_lg_typecheck_setM_hitPointWorld(L)) {
+	static int _bind_setHitPointWorld(lua_State *L) {
+		if (!_lg_typecheck_setHitPointWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ClosestConvexResultCallback::m_hitPointWorld(btVector3 value) function, expected prototype:\nvoid btCollisionWorld::ClosestConvexResultCallback::m_hitPointWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -518,15 +518,15 @@ const int LunaTraits< btCollisionWorld::ClosestConvexResultCallback >::uniqueIDs
 
 luna_RegType LunaTraits< btCollisionWorld::ClosestConvexResultCallback >::methods[] = {
 	{"addSingleResult", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_addSingleResult},
-	{"getM_convexFromWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_getM_convexFromWorld},
-	{"getM_convexToWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_getM_convexToWorld},
-	{"getM_hitNormalWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_getM_hitNormalWorld},
-	{"getM_hitPointWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_getM_hitPointWorld},
-	{"getM_hitCollisionObject", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_getM_hitCollisionObject},
-	{"setM_convexFromWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_setM_convexFromWorld},
-	{"setM_convexToWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_setM_convexToWorld},
-	{"setM_hitNormalWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_setM_hitNormalWorld},
-	{"setM_hitPointWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_setM_hitPointWorld},
+	{"getConvexFromWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_getConvexFromWorld},
+	{"getConvexToWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_getConvexToWorld},
+	{"getHitNormalWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_getHitNormalWorld},
+	{"getHitPointWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_getHitPointWorld},
+	{"getHitCollisionObject", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_getHitCollisionObject},
+	{"setConvexFromWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_setConvexFromWorld},
+	{"setConvexToWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_setConvexToWorld},
+	{"setHitNormalWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_setHitNormalWorld},
+	{"setHitPointWorld", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_setHitPointWorld},
 	{"base_needsCollision", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_base_needsCollision},
 	{"base_addSingleResult", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind_base_addSingleResult},
 	{"__eq", &luna_wrapper_btCollisionWorld_ClosestConvexResultCallback::_bind___eq},

@@ -79,39 +79,39 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_closestPointOnSimplex(lua_State *L) {
+	inline static bool _lg_typecheck_getClosestPointOnSimplex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_usedVertices(lua_State *L) {
+	inline static bool _lg_typecheck_getUsedVertices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_degenerate(lua_State *L) {
+	inline static bool _lg_typecheck_getDegenerate(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_closestPointOnSimplex(lua_State *L) {
+	inline static bool _lg_typecheck_setClosestPointOnSimplex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_usedVertices(lua_State *L) {
+	inline static bool _lg_typecheck_setUsedVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,61938597) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_degenerate(lua_State *L) {
+	inline static bool _lg_typecheck_setDegenerate(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -187,8 +187,8 @@ public:
 	}
 
 	// btVector3 btSubSimplexClosestResult::m_closestPointOnSimplex()
-	static int _bind_getM_closestPointOnSimplex(lua_State *L) {
-		if (!_lg_typecheck_getM_closestPointOnSimplex(L)) {
+	static int _bind_getClosestPointOnSimplex(lua_State *L) {
+		if (!_lg_typecheck_getClosestPointOnSimplex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btSubSimplexClosestResult::m_closestPointOnSimplex() function, expected prototype:\nbtVector3 btSubSimplexClosestResult::m_closestPointOnSimplex()\nClass arguments details:\n");
 		}
@@ -208,8 +208,8 @@ public:
 	}
 
 	// btUsageBitfield btSubSimplexClosestResult::m_usedVertices()
-	static int _bind_getM_usedVertices(lua_State *L) {
-		if (!_lg_typecheck_getM_usedVertices(L)) {
+	static int _bind_getUsedVertices(lua_State *L) {
+		if (!_lg_typecheck_getUsedVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btUsageBitfield btSubSimplexClosestResult::m_usedVertices() function, expected prototype:\nbtUsageBitfield btSubSimplexClosestResult::m_usedVertices()\nClass arguments details:\n");
 		}
@@ -229,8 +229,8 @@ public:
 	}
 
 	// bool btSubSimplexClosestResult::m_degenerate()
-	static int _bind_getM_degenerate(lua_State *L) {
-		if (!_lg_typecheck_getM_degenerate(L)) {
+	static int _bind_getDegenerate(lua_State *L) {
+		if (!_lg_typecheck_getDegenerate(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btSubSimplexClosestResult::m_degenerate() function, expected prototype:\nbool btSubSimplexClosestResult::m_degenerate()\nClass arguments details:\n");
 		}
@@ -248,8 +248,8 @@ public:
 	}
 
 	// void btSubSimplexClosestResult::m_closestPointOnSimplex(btVector3 value)
-	static int _bind_setM_closestPointOnSimplex(lua_State *L) {
-		if (!_lg_typecheck_setM_closestPointOnSimplex(L)) {
+	static int _bind_setClosestPointOnSimplex(lua_State *L) {
+		if (!_lg_typecheck_setClosestPointOnSimplex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSubSimplexClosestResult::m_closestPointOnSimplex(btVector3 value) function, expected prototype:\nvoid btSubSimplexClosestResult::m_closestPointOnSimplex(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -271,8 +271,8 @@ public:
 	}
 
 	// void btSubSimplexClosestResult::m_usedVertices(btUsageBitfield value)
-	static int _bind_setM_usedVertices(lua_State *L) {
-		if (!_lg_typecheck_setM_usedVertices(L)) {
+	static int _bind_setUsedVertices(lua_State *L) {
+		if (!_lg_typecheck_setUsedVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSubSimplexClosestResult::m_usedVertices(btUsageBitfield value) function, expected prototype:\nvoid btSubSimplexClosestResult::m_usedVertices(btUsageBitfield value)\nClass arguments details:\narg 1 ID = 61938597\n");
 		}
@@ -294,8 +294,8 @@ public:
 	}
 
 	// void btSubSimplexClosestResult::m_degenerate(bool value)
-	static int _bind_setM_degenerate(lua_State *L) {
-		if (!_lg_typecheck_setM_degenerate(L)) {
+	static int _bind_setDegenerate(lua_State *L) {
+		if (!_lg_typecheck_setDegenerate(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSubSimplexClosestResult::m_degenerate(bool value) function, expected prototype:\nvoid btSubSimplexClosestResult::m_degenerate(bool value)\nClass arguments details:\n");
 		}
@@ -336,12 +336,12 @@ luna_RegType LunaTraits< btSubSimplexClosestResult >::methods[] = {
 	{"reset", &luna_wrapper_btSubSimplexClosestResult::_bind_reset},
 	{"isValid", &luna_wrapper_btSubSimplexClosestResult::_bind_isValid},
 	{"setBarycentricCoordinates", &luna_wrapper_btSubSimplexClosestResult::_bind_setBarycentricCoordinates},
-	{"getM_closestPointOnSimplex", &luna_wrapper_btSubSimplexClosestResult::_bind_getM_closestPointOnSimplex},
-	{"getM_usedVertices", &luna_wrapper_btSubSimplexClosestResult::_bind_getM_usedVertices},
-	{"getM_degenerate", &luna_wrapper_btSubSimplexClosestResult::_bind_getM_degenerate},
-	{"setM_closestPointOnSimplex", &luna_wrapper_btSubSimplexClosestResult::_bind_setM_closestPointOnSimplex},
-	{"setM_usedVertices", &luna_wrapper_btSubSimplexClosestResult::_bind_setM_usedVertices},
-	{"setM_degenerate", &luna_wrapper_btSubSimplexClosestResult::_bind_setM_degenerate},
+	{"getClosestPointOnSimplex", &luna_wrapper_btSubSimplexClosestResult::_bind_getClosestPointOnSimplex},
+	{"getUsedVertices", &luna_wrapper_btSubSimplexClosestResult::_bind_getUsedVertices},
+	{"getDegenerate", &luna_wrapper_btSubSimplexClosestResult::_bind_getDegenerate},
+	{"setClosestPointOnSimplex", &luna_wrapper_btSubSimplexClosestResult::_bind_setClosestPointOnSimplex},
+	{"setUsedVertices", &luna_wrapper_btSubSimplexClosestResult::_bind_setUsedVertices},
+	{"setDegenerate", &luna_wrapper_btSubSimplexClosestResult::_bind_setDegenerate},
 	{"dynCast", &luna_wrapper_btSubSimplexClosestResult::_bind_dynCast},
 	{"__eq", &luna_wrapper_btSubSimplexClosestResult::_bind___eq},
 	{0,0}

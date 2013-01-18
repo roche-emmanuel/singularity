@@ -94,39 +94,39 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_name(lua_State *L) {
+	inline static bool _lg_typecheck_getName(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_value(lua_State *L) {
+	inline static bool _lg_typecheck_getValue(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_mapProperty(lua_State *L) {
+	inline static bool _lg_typecheck_getMapProperty(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_name(lua_State *L) {
+	inline static bool _lg_typecheck_setName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_value(lua_State *L) {
+	inline static bool _lg_typecheck_setValue(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_mapProperty(lua_State *L) {
+	inline static bool _lg_typecheck_setMapProperty(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -242,8 +242,8 @@ public:
 	}
 
 	// std::string osgDB::ObjectProperty::_name()
-	static int _bind_get_name(lua_State *L) {
-		if (!_lg_typecheck_get_name(L)) {
+	static int _bind_getName(lua_State *L) {
+		if (!_lg_typecheck_getName(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in std::string osgDB::ObjectProperty::_name() function, expected prototype:\nstd::string osgDB::ObjectProperty::_name()\nClass arguments details:\n");
 		}
@@ -261,8 +261,8 @@ public:
 	}
 
 	// int osgDB::ObjectProperty::_value()
-	static int _bind_get_value(lua_State *L) {
-		if (!_lg_typecheck_get_value(L)) {
+	static int _bind_getValue(lua_State *L) {
+		if (!_lg_typecheck_getValue(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int osgDB::ObjectProperty::_value() function, expected prototype:\nint osgDB::ObjectProperty::_value()\nClass arguments details:\n");
 		}
@@ -280,8 +280,8 @@ public:
 	}
 
 	// bool osgDB::ObjectProperty::_mapProperty()
-	static int _bind_get_mapProperty(lua_State *L) {
-		if (!_lg_typecheck_get_mapProperty(L)) {
+	static int _bind_getMapProperty(lua_State *L) {
+		if (!_lg_typecheck_getMapProperty(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool osgDB::ObjectProperty::_mapProperty() function, expected prototype:\nbool osgDB::ObjectProperty::_mapProperty()\nClass arguments details:\n");
 		}
@@ -299,8 +299,8 @@ public:
 	}
 
 	// void osgDB::ObjectProperty::_name(std::string value)
-	static int _bind_set_name(lua_State *L) {
-		if (!_lg_typecheck_set_name(L)) {
+	static int _bind_setName(lua_State *L) {
+		if (!_lg_typecheck_setName(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ObjectProperty::_name(std::string value) function, expected prototype:\nvoid osgDB::ObjectProperty::_name(std::string value)\nClass arguments details:\n");
 		}
@@ -318,8 +318,8 @@ public:
 	}
 
 	// void osgDB::ObjectProperty::_value(int value)
-	static int _bind_set_value(lua_State *L) {
-		if (!_lg_typecheck_set_value(L)) {
+	static int _bind_setValue(lua_State *L) {
+		if (!_lg_typecheck_setValue(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ObjectProperty::_value(int value) function, expected prototype:\nvoid osgDB::ObjectProperty::_value(int value)\nClass arguments details:\n");
 		}
@@ -337,8 +337,8 @@ public:
 	}
 
 	// void osgDB::ObjectProperty::_mapProperty(bool value)
-	static int _bind_set_mapProperty(lua_State *L) {
-		if (!_lg_typecheck_set_mapProperty(L)) {
+	static int _bind_setMapProperty(lua_State *L) {
+		if (!_lg_typecheck_setMapProperty(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ObjectProperty::_mapProperty(bool value) function, expected prototype:\nvoid osgDB::ObjectProperty::_mapProperty(bool value)\nClass arguments details:\n");
 		}
@@ -379,12 +379,12 @@ luna_RegType LunaTraits< osgDB::ObjectProperty >::methods[] = {
 	{"proto", &luna_wrapper_osgDB_ObjectProperty::_bind_proto},
 	{"set", &luna_wrapper_osgDB_ObjectProperty::_bind_set},
 	{"get", &luna_wrapper_osgDB_ObjectProperty::_bind_get},
-	{"get_name", &luna_wrapper_osgDB_ObjectProperty::_bind_get_name},
-	{"get_value", &luna_wrapper_osgDB_ObjectProperty::_bind_get_value},
-	{"get_mapProperty", &luna_wrapper_osgDB_ObjectProperty::_bind_get_mapProperty},
-	{"set_name", &luna_wrapper_osgDB_ObjectProperty::_bind_set_name},
-	{"set_value", &luna_wrapper_osgDB_ObjectProperty::_bind_set_value},
-	{"set_mapProperty", &luna_wrapper_osgDB_ObjectProperty::_bind_set_mapProperty},
+	{"getName", &luna_wrapper_osgDB_ObjectProperty::_bind_getName},
+	{"getValue", &luna_wrapper_osgDB_ObjectProperty::_bind_getValue},
+	{"getMapProperty", &luna_wrapper_osgDB_ObjectProperty::_bind_getMapProperty},
+	{"setName", &luna_wrapper_osgDB_ObjectProperty::_bind_setName},
+	{"setValue", &luna_wrapper_osgDB_ObjectProperty::_bind_setValue},
+	{"setMapProperty", &luna_wrapper_osgDB_ObjectProperty::_bind_setMapProperty},
 	{"dynCast", &luna_wrapper_osgDB_ObjectProperty::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgDB_ObjectProperty::_bind___eq},
 	{0,0}

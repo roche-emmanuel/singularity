@@ -123,130 +123,130 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_allocator(lua_State *L) {
+	inline static bool _lg_typecheck_getAllocator(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_listener(lua_State *L) {
+	inline static bool _lg_typecheck_getListener(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_positions(lua_State *L) {
+	inline static bool _lg_typecheck_getPositions(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_velocities(lua_State *L) {
+	inline static bool _lg_typecheck_getVelocities(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_bodyCount(lua_State *L) {
+	inline static bool _lg_typecheck_getBodyCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_jointCount(lua_State *L) {
+	inline static bool _lg_typecheck_getJointCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contactCount(lua_State *L) {
+	inline static bool _lg_typecheck_getContactCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_bodyCapacity(lua_State *L) {
+	inline static bool _lg_typecheck_getBodyCapacity(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contactCapacity(lua_State *L) {
+	inline static bool _lg_typecheck_getContactCapacity(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_jointCapacity(lua_State *L) {
+	inline static bool _lg_typecheck_getJointCapacity(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_allocator(lua_State *L) {
+	inline static bool _lg_typecheck_setAllocator(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,83926873)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_listener(lua_State *L) {
+	inline static bool _lg_typecheck_setListener(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,55252344)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_positions(lua_State *L) {
+	inline static bool _lg_typecheck_setPositions(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,79848895)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_velocities(lua_State *L) {
+	inline static bool _lg_typecheck_setVelocities(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,85114450)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_bodyCount(lua_State *L) {
+	inline static bool _lg_typecheck_setBodyCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_jointCount(lua_State *L) {
+	inline static bool _lg_typecheck_setJointCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactCount(lua_State *L) {
+	inline static bool _lg_typecheck_setContactCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_bodyCapacity(lua_State *L) {
+	inline static bool _lg_typecheck_setBodyCapacity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactCapacity(lua_State *L) {
+	inline static bool _lg_typecheck_setContactCapacity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_jointCapacity(lua_State *L) {
+	inline static bool _lg_typecheck_setJointCapacity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -436,8 +436,8 @@ public:
 	}
 
 	// b2StackAllocator * b2Island::m_allocator()
-	static int _bind_getM_allocator(lua_State *L) {
-		if (!_lg_typecheck_getM_allocator(L)) {
+	static int _bind_getAllocator(lua_State *L) {
+		if (!_lg_typecheck_getAllocator(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2StackAllocator * b2Island::m_allocator() function, expected prototype:\nb2StackAllocator * b2Island::m_allocator()\nClass arguments details:\n");
 		}
@@ -457,8 +457,8 @@ public:
 	}
 
 	// b2ContactListener * b2Island::m_listener()
-	static int _bind_getM_listener(lua_State *L) {
-		if (!_lg_typecheck_getM_listener(L)) {
+	static int _bind_getListener(lua_State *L) {
+		if (!_lg_typecheck_getListener(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2ContactListener * b2Island::m_listener() function, expected prototype:\nb2ContactListener * b2Island::m_listener()\nClass arguments details:\n");
 		}
@@ -478,8 +478,8 @@ public:
 	}
 
 	// b2Position * b2Island::m_positions()
-	static int _bind_getM_positions(lua_State *L) {
-		if (!_lg_typecheck_getM_positions(L)) {
+	static int _bind_getPositions(lua_State *L) {
+		if (!_lg_typecheck_getPositions(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Position * b2Island::m_positions() function, expected prototype:\nb2Position * b2Island::m_positions()\nClass arguments details:\n");
 		}
@@ -499,8 +499,8 @@ public:
 	}
 
 	// b2Velocity * b2Island::m_velocities()
-	static int _bind_getM_velocities(lua_State *L) {
-		if (!_lg_typecheck_getM_velocities(L)) {
+	static int _bind_getVelocities(lua_State *L) {
+		if (!_lg_typecheck_getVelocities(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Velocity * b2Island::m_velocities() function, expected prototype:\nb2Velocity * b2Island::m_velocities()\nClass arguments details:\n");
 		}
@@ -520,8 +520,8 @@ public:
 	}
 
 	// signed int b2Island::m_bodyCount()
-	static int _bind_getM_bodyCount(lua_State *L) {
-		if (!_lg_typecheck_getM_bodyCount(L)) {
+	static int _bind_getBodyCount(lua_State *L) {
+		if (!_lg_typecheck_getBodyCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in signed int b2Island::m_bodyCount() function, expected prototype:\nsigned int b2Island::m_bodyCount()\nClass arguments details:\n");
 		}
@@ -539,8 +539,8 @@ public:
 	}
 
 	// signed int b2Island::m_jointCount()
-	static int _bind_getM_jointCount(lua_State *L) {
-		if (!_lg_typecheck_getM_jointCount(L)) {
+	static int _bind_getJointCount(lua_State *L) {
+		if (!_lg_typecheck_getJointCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in signed int b2Island::m_jointCount() function, expected prototype:\nsigned int b2Island::m_jointCount()\nClass arguments details:\n");
 		}
@@ -558,8 +558,8 @@ public:
 	}
 
 	// signed int b2Island::m_contactCount()
-	static int _bind_getM_contactCount(lua_State *L) {
-		if (!_lg_typecheck_getM_contactCount(L)) {
+	static int _bind_getContactCount(lua_State *L) {
+		if (!_lg_typecheck_getContactCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in signed int b2Island::m_contactCount() function, expected prototype:\nsigned int b2Island::m_contactCount()\nClass arguments details:\n");
 		}
@@ -577,8 +577,8 @@ public:
 	}
 
 	// signed int b2Island::m_bodyCapacity()
-	static int _bind_getM_bodyCapacity(lua_State *L) {
-		if (!_lg_typecheck_getM_bodyCapacity(L)) {
+	static int _bind_getBodyCapacity(lua_State *L) {
+		if (!_lg_typecheck_getBodyCapacity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in signed int b2Island::m_bodyCapacity() function, expected prototype:\nsigned int b2Island::m_bodyCapacity()\nClass arguments details:\n");
 		}
@@ -596,8 +596,8 @@ public:
 	}
 
 	// signed int b2Island::m_contactCapacity()
-	static int _bind_getM_contactCapacity(lua_State *L) {
-		if (!_lg_typecheck_getM_contactCapacity(L)) {
+	static int _bind_getContactCapacity(lua_State *L) {
+		if (!_lg_typecheck_getContactCapacity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in signed int b2Island::m_contactCapacity() function, expected prototype:\nsigned int b2Island::m_contactCapacity()\nClass arguments details:\n");
 		}
@@ -615,8 +615,8 @@ public:
 	}
 
 	// signed int b2Island::m_jointCapacity()
-	static int _bind_getM_jointCapacity(lua_State *L) {
-		if (!_lg_typecheck_getM_jointCapacity(L)) {
+	static int _bind_getJointCapacity(lua_State *L) {
+		if (!_lg_typecheck_getJointCapacity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in signed int b2Island::m_jointCapacity() function, expected prototype:\nsigned int b2Island::m_jointCapacity()\nClass arguments details:\n");
 		}
@@ -634,8 +634,8 @@ public:
 	}
 
 	// void b2Island::m_allocator(b2StackAllocator * value)
-	static int _bind_setM_allocator(lua_State *L) {
-		if (!_lg_typecheck_setM_allocator(L)) {
+	static int _bind_setAllocator(lua_State *L) {
+		if (!_lg_typecheck_setAllocator(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2Island::m_allocator(b2StackAllocator * value) function, expected prototype:\nvoid b2Island::m_allocator(b2StackAllocator * value)\nClass arguments details:\narg 1 ID = 83926873\n");
 		}
@@ -653,8 +653,8 @@ public:
 	}
 
 	// void b2Island::m_listener(b2ContactListener * value)
-	static int _bind_setM_listener(lua_State *L) {
-		if (!_lg_typecheck_setM_listener(L)) {
+	static int _bind_setListener(lua_State *L) {
+		if (!_lg_typecheck_setListener(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2Island::m_listener(b2ContactListener * value) function, expected prototype:\nvoid b2Island::m_listener(b2ContactListener * value)\nClass arguments details:\narg 1 ID = 55252344\n");
 		}
@@ -672,8 +672,8 @@ public:
 	}
 
 	// void b2Island::m_positions(b2Position * value)
-	static int _bind_setM_positions(lua_State *L) {
-		if (!_lg_typecheck_setM_positions(L)) {
+	static int _bind_setPositions(lua_State *L) {
+		if (!_lg_typecheck_setPositions(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2Island::m_positions(b2Position * value) function, expected prototype:\nvoid b2Island::m_positions(b2Position * value)\nClass arguments details:\narg 1 ID = 79848895\n");
 		}
@@ -691,8 +691,8 @@ public:
 	}
 
 	// void b2Island::m_velocities(b2Velocity * value)
-	static int _bind_setM_velocities(lua_State *L) {
-		if (!_lg_typecheck_setM_velocities(L)) {
+	static int _bind_setVelocities(lua_State *L) {
+		if (!_lg_typecheck_setVelocities(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2Island::m_velocities(b2Velocity * value) function, expected prototype:\nvoid b2Island::m_velocities(b2Velocity * value)\nClass arguments details:\narg 1 ID = 85114450\n");
 		}
@@ -710,8 +710,8 @@ public:
 	}
 
 	// void b2Island::m_bodyCount(signed int value)
-	static int _bind_setM_bodyCount(lua_State *L) {
-		if (!_lg_typecheck_setM_bodyCount(L)) {
+	static int _bind_setBodyCount(lua_State *L) {
+		if (!_lg_typecheck_setBodyCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2Island::m_bodyCount(signed int value) function, expected prototype:\nvoid b2Island::m_bodyCount(signed int value)\nClass arguments details:\n");
 		}
@@ -729,8 +729,8 @@ public:
 	}
 
 	// void b2Island::m_jointCount(signed int value)
-	static int _bind_setM_jointCount(lua_State *L) {
-		if (!_lg_typecheck_setM_jointCount(L)) {
+	static int _bind_setJointCount(lua_State *L) {
+		if (!_lg_typecheck_setJointCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2Island::m_jointCount(signed int value) function, expected prototype:\nvoid b2Island::m_jointCount(signed int value)\nClass arguments details:\n");
 		}
@@ -748,8 +748,8 @@ public:
 	}
 
 	// void b2Island::m_contactCount(signed int value)
-	static int _bind_setM_contactCount(lua_State *L) {
-		if (!_lg_typecheck_setM_contactCount(L)) {
+	static int _bind_setContactCount(lua_State *L) {
+		if (!_lg_typecheck_setContactCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2Island::m_contactCount(signed int value) function, expected prototype:\nvoid b2Island::m_contactCount(signed int value)\nClass arguments details:\n");
 		}
@@ -767,8 +767,8 @@ public:
 	}
 
 	// void b2Island::m_bodyCapacity(signed int value)
-	static int _bind_setM_bodyCapacity(lua_State *L) {
-		if (!_lg_typecheck_setM_bodyCapacity(L)) {
+	static int _bind_setBodyCapacity(lua_State *L) {
+		if (!_lg_typecheck_setBodyCapacity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2Island::m_bodyCapacity(signed int value) function, expected prototype:\nvoid b2Island::m_bodyCapacity(signed int value)\nClass arguments details:\n");
 		}
@@ -786,8 +786,8 @@ public:
 	}
 
 	// void b2Island::m_contactCapacity(signed int value)
-	static int _bind_setM_contactCapacity(lua_State *L) {
-		if (!_lg_typecheck_setM_contactCapacity(L)) {
+	static int _bind_setContactCapacity(lua_State *L) {
+		if (!_lg_typecheck_setContactCapacity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2Island::m_contactCapacity(signed int value) function, expected prototype:\nvoid b2Island::m_contactCapacity(signed int value)\nClass arguments details:\n");
 		}
@@ -805,8 +805,8 @@ public:
 	}
 
 	// void b2Island::m_jointCapacity(signed int value)
-	static int _bind_setM_jointCapacity(lua_State *L) {
-		if (!_lg_typecheck_setM_jointCapacity(L)) {
+	static int _bind_setJointCapacity(lua_State *L) {
+		if (!_lg_typecheck_setJointCapacity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2Island::m_jointCapacity(signed int value) function, expected prototype:\nvoid b2Island::m_jointCapacity(signed int value)\nClass arguments details:\n");
 		}
@@ -849,26 +849,26 @@ luna_RegType LunaTraits< b2Island >::methods[] = {
 	{"SolveTOI", &luna_wrapper_b2Island::_bind_SolveTOI},
 	{"Add", &luna_wrapper_b2Island::_bind_Add},
 	{"Report", &luna_wrapper_b2Island::_bind_Report},
-	{"getM_allocator", &luna_wrapper_b2Island::_bind_getM_allocator},
-	{"getM_listener", &luna_wrapper_b2Island::_bind_getM_listener},
-	{"getM_positions", &luna_wrapper_b2Island::_bind_getM_positions},
-	{"getM_velocities", &luna_wrapper_b2Island::_bind_getM_velocities},
-	{"getM_bodyCount", &luna_wrapper_b2Island::_bind_getM_bodyCount},
-	{"getM_jointCount", &luna_wrapper_b2Island::_bind_getM_jointCount},
-	{"getM_contactCount", &luna_wrapper_b2Island::_bind_getM_contactCount},
-	{"getM_bodyCapacity", &luna_wrapper_b2Island::_bind_getM_bodyCapacity},
-	{"getM_contactCapacity", &luna_wrapper_b2Island::_bind_getM_contactCapacity},
-	{"getM_jointCapacity", &luna_wrapper_b2Island::_bind_getM_jointCapacity},
-	{"setM_allocator", &luna_wrapper_b2Island::_bind_setM_allocator},
-	{"setM_listener", &luna_wrapper_b2Island::_bind_setM_listener},
-	{"setM_positions", &luna_wrapper_b2Island::_bind_setM_positions},
-	{"setM_velocities", &luna_wrapper_b2Island::_bind_setM_velocities},
-	{"setM_bodyCount", &luna_wrapper_b2Island::_bind_setM_bodyCount},
-	{"setM_jointCount", &luna_wrapper_b2Island::_bind_setM_jointCount},
-	{"setM_contactCount", &luna_wrapper_b2Island::_bind_setM_contactCount},
-	{"setM_bodyCapacity", &luna_wrapper_b2Island::_bind_setM_bodyCapacity},
-	{"setM_contactCapacity", &luna_wrapper_b2Island::_bind_setM_contactCapacity},
-	{"setM_jointCapacity", &luna_wrapper_b2Island::_bind_setM_jointCapacity},
+	{"getAllocator", &luna_wrapper_b2Island::_bind_getAllocator},
+	{"getListener", &luna_wrapper_b2Island::_bind_getListener},
+	{"getPositions", &luna_wrapper_b2Island::_bind_getPositions},
+	{"getVelocities", &luna_wrapper_b2Island::_bind_getVelocities},
+	{"getBodyCount", &luna_wrapper_b2Island::_bind_getBodyCount},
+	{"getJointCount", &luna_wrapper_b2Island::_bind_getJointCount},
+	{"getContactCount", &luna_wrapper_b2Island::_bind_getContactCount},
+	{"getBodyCapacity", &luna_wrapper_b2Island::_bind_getBodyCapacity},
+	{"getContactCapacity", &luna_wrapper_b2Island::_bind_getContactCapacity},
+	{"getJointCapacity", &luna_wrapper_b2Island::_bind_getJointCapacity},
+	{"setAllocator", &luna_wrapper_b2Island::_bind_setAllocator},
+	{"setListener", &luna_wrapper_b2Island::_bind_setListener},
+	{"setPositions", &luna_wrapper_b2Island::_bind_setPositions},
+	{"setVelocities", &luna_wrapper_b2Island::_bind_setVelocities},
+	{"setBodyCount", &luna_wrapper_b2Island::_bind_setBodyCount},
+	{"setJointCount", &luna_wrapper_b2Island::_bind_setJointCount},
+	{"setContactCount", &luna_wrapper_b2Island::_bind_setContactCount},
+	{"setBodyCapacity", &luna_wrapper_b2Island::_bind_setBodyCapacity},
+	{"setContactCapacity", &luna_wrapper_b2Island::_bind_setContactCapacity},
+	{"setJointCapacity", &luna_wrapper_b2Island::_bind_setJointCapacity},
 	{"dynCast", &luna_wrapper_b2Island::_bind_dynCast},
 	{"__eq", &luna_wrapper_b2Island::_bind___eq},
 	{0,0}

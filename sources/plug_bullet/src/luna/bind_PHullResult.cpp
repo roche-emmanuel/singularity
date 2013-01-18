@@ -62,65 +62,65 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getMVcount(lua_State *L) {
+	inline static bool _lg_typecheck_getVcount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMIndexCount(lua_State *L) {
+	inline static bool _lg_typecheck_getIndexCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMFaceCount(lua_State *L) {
+	inline static bool _lg_typecheck_getFaceCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMVertices(lua_State *L) {
+	inline static bool _lg_typecheck_getVertices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_Indices(lua_State *L) {
+	inline static bool _lg_typecheck_getIndices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMVcount(lua_State *L) {
+	inline static bool _lg_typecheck_setVcount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMIndexCount(lua_State *L) {
+	inline static bool _lg_typecheck_setIndexCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMFaceCount(lua_State *L) {
+	inline static bool _lg_typecheck_setFaceCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMVertices(lua_State *L) {
+	inline static bool _lg_typecheck_setVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_Indices(lua_State *L) {
+	inline static bool _lg_typecheck_setIndices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,90753422) ) return false;
@@ -146,8 +146,8 @@ public:
 
 	// Function binds:
 	// unsigned int PHullResult::mVcount()
-	static int _bind_getMVcount(lua_State *L) {
-		if (!_lg_typecheck_getMVcount(L)) {
+	static int _bind_getVcount(lua_State *L) {
+		if (!_lg_typecheck_getVcount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int PHullResult::mVcount() function, expected prototype:\nunsigned int PHullResult::mVcount()\nClass arguments details:\n");
 		}
@@ -165,8 +165,8 @@ public:
 	}
 
 	// unsigned int PHullResult::mIndexCount()
-	static int _bind_getMIndexCount(lua_State *L) {
-		if (!_lg_typecheck_getMIndexCount(L)) {
+	static int _bind_getIndexCount(lua_State *L) {
+		if (!_lg_typecheck_getIndexCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int PHullResult::mIndexCount() function, expected prototype:\nunsigned int PHullResult::mIndexCount()\nClass arguments details:\n");
 		}
@@ -184,8 +184,8 @@ public:
 	}
 
 	// unsigned int PHullResult::mFaceCount()
-	static int _bind_getMFaceCount(lua_State *L) {
-		if (!_lg_typecheck_getMFaceCount(L)) {
+	static int _bind_getFaceCount(lua_State *L) {
+		if (!_lg_typecheck_getFaceCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int PHullResult::mFaceCount() function, expected prototype:\nunsigned int PHullResult::mFaceCount()\nClass arguments details:\n");
 		}
@@ -203,8 +203,8 @@ public:
 	}
 
 	// btVector3 * PHullResult::mVertices()
-	static int _bind_getMVertices(lua_State *L) {
-		if (!_lg_typecheck_getMVertices(L)) {
+	static int _bind_getVertices(lua_State *L) {
+		if (!_lg_typecheck_getVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 * PHullResult::mVertices() function, expected prototype:\nbtVector3 * PHullResult::mVertices()\nClass arguments details:\n");
 		}
@@ -224,8 +224,8 @@ public:
 	}
 
 	// TUIntArray PHullResult::m_Indices()
-	static int _bind_getM_Indices(lua_State *L) {
-		if (!_lg_typecheck_getM_Indices(L)) {
+	static int _bind_getIndices(lua_State *L) {
+		if (!_lg_typecheck_getIndices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in TUIntArray PHullResult::m_Indices() function, expected prototype:\nTUIntArray PHullResult::m_Indices()\nClass arguments details:\n");
 		}
@@ -245,8 +245,8 @@ public:
 	}
 
 	// void PHullResult::mVcount(unsigned int value)
-	static int _bind_setMVcount(lua_State *L) {
-		if (!_lg_typecheck_setMVcount(L)) {
+	static int _bind_setVcount(lua_State *L) {
+		if (!_lg_typecheck_setVcount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void PHullResult::mVcount(unsigned int value) function, expected prototype:\nvoid PHullResult::mVcount(unsigned int value)\nClass arguments details:\n");
 		}
@@ -264,8 +264,8 @@ public:
 	}
 
 	// void PHullResult::mIndexCount(unsigned int value)
-	static int _bind_setMIndexCount(lua_State *L) {
-		if (!_lg_typecheck_setMIndexCount(L)) {
+	static int _bind_setIndexCount(lua_State *L) {
+		if (!_lg_typecheck_setIndexCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void PHullResult::mIndexCount(unsigned int value) function, expected prototype:\nvoid PHullResult::mIndexCount(unsigned int value)\nClass arguments details:\n");
 		}
@@ -283,8 +283,8 @@ public:
 	}
 
 	// void PHullResult::mFaceCount(unsigned int value)
-	static int _bind_setMFaceCount(lua_State *L) {
-		if (!_lg_typecheck_setMFaceCount(L)) {
+	static int _bind_setFaceCount(lua_State *L) {
+		if (!_lg_typecheck_setFaceCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void PHullResult::mFaceCount(unsigned int value) function, expected prototype:\nvoid PHullResult::mFaceCount(unsigned int value)\nClass arguments details:\n");
 		}
@@ -302,8 +302,8 @@ public:
 	}
 
 	// void PHullResult::mVertices(btVector3 * value)
-	static int _bind_setMVertices(lua_State *L) {
-		if (!_lg_typecheck_setMVertices(L)) {
+	static int _bind_setVertices(lua_State *L) {
+		if (!_lg_typecheck_setVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void PHullResult::mVertices(btVector3 * value) function, expected prototype:\nvoid PHullResult::mVertices(btVector3 * value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -321,8 +321,8 @@ public:
 	}
 
 	// void PHullResult::m_Indices(TUIntArray value)
-	static int _bind_setM_Indices(lua_State *L) {
-		if (!_lg_typecheck_setM_Indices(L)) {
+	static int _bind_setIndices(lua_State *L) {
+		if (!_lg_typecheck_setIndices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void PHullResult::m_Indices(TUIntArray value) function, expected prototype:\nvoid PHullResult::m_Indices(TUIntArray value)\nClass arguments details:\narg 1 ID = 91893113\n");
 		}
@@ -364,16 +364,16 @@ const int LunaTraits< PHullResult >::hash = 89946505;
 const int LunaTraits< PHullResult >::uniqueIDs[] = {89946505,0};
 
 luna_RegType LunaTraits< PHullResult >::methods[] = {
-	{"getMVcount", &luna_wrapper_PHullResult::_bind_getMVcount},
-	{"getMIndexCount", &luna_wrapper_PHullResult::_bind_getMIndexCount},
-	{"getMFaceCount", &luna_wrapper_PHullResult::_bind_getMFaceCount},
-	{"getMVertices", &luna_wrapper_PHullResult::_bind_getMVertices},
-	{"getM_Indices", &luna_wrapper_PHullResult::_bind_getM_Indices},
-	{"setMVcount", &luna_wrapper_PHullResult::_bind_setMVcount},
-	{"setMIndexCount", &luna_wrapper_PHullResult::_bind_setMIndexCount},
-	{"setMFaceCount", &luna_wrapper_PHullResult::_bind_setMFaceCount},
-	{"setMVertices", &luna_wrapper_PHullResult::_bind_setMVertices},
-	{"setM_Indices", &luna_wrapper_PHullResult::_bind_setM_Indices},
+	{"getVcount", &luna_wrapper_PHullResult::_bind_getVcount},
+	{"getIndexCount", &luna_wrapper_PHullResult::_bind_getIndexCount},
+	{"getFaceCount", &luna_wrapper_PHullResult::_bind_getFaceCount},
+	{"getVertices", &luna_wrapper_PHullResult::_bind_getVertices},
+	{"getIndices", &luna_wrapper_PHullResult::_bind_getIndices},
+	{"setVcount", &luna_wrapper_PHullResult::_bind_setVcount},
+	{"setIndexCount", &luna_wrapper_PHullResult::_bind_setIndexCount},
+	{"setFaceCount", &luna_wrapper_PHullResult::_bind_setFaceCount},
+	{"setVertices", &luna_wrapper_PHullResult::_bind_setVertices},
+	{"setIndices", &luna_wrapper_PHullResult::_bind_setIndices},
 	{"dynCast", &luna_wrapper_PHullResult::_bind_dynCast},
 	{"__eq", &luna_wrapper_PHullResult::_bind___eq},
 	{0,0}

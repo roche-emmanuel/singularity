@@ -84,13 +84,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_pool_count(lua_State *L) {
+	inline static bool _lg_typecheck_get_pool_count(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_pool_count(lua_State *L) {
+	inline static bool _lg_typecheck_set_pool_count(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -179,8 +179,8 @@ public:
 	}
 
 	// size_t btGenericPoolAllocator::m_pool_count()
-	static int _bind_getM_pool_count(lua_State *L) {
-		if (!_lg_typecheck_getM_pool_count(L)) {
+	static int _bind_get_pool_count(lua_State *L) {
+		if (!_lg_typecheck_get_pool_count(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in size_t btGenericPoolAllocator::m_pool_count() function, expected prototype:\nsize_t btGenericPoolAllocator::m_pool_count()\nClass arguments details:\n");
 		}
@@ -198,8 +198,8 @@ public:
 	}
 
 	// void btGenericPoolAllocator::m_pool_count(size_t value)
-	static int _bind_setM_pool_count(lua_State *L) {
-		if (!_lg_typecheck_setM_pool_count(L)) {
+	static int _bind_set_pool_count(lua_State *L) {
+		if (!_lg_typecheck_set_pool_count(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGenericPoolAllocator::m_pool_count(size_t value) function, expected prototype:\nvoid btGenericPoolAllocator::m_pool_count(size_t value)\nClass arguments details:\n");
 		}
@@ -240,8 +240,8 @@ luna_RegType LunaTraits< btGenericPoolAllocator >::methods[] = {
 	{"get_pool_capacity", &luna_wrapper_btGenericPoolAllocator::_bind_get_pool_capacity},
 	{"allocate", &luna_wrapper_btGenericPoolAllocator::_bind_allocate},
 	{"freeMemory", &luna_wrapper_btGenericPoolAllocator::_bind_freeMemory},
-	{"getM_pool_count", &luna_wrapper_btGenericPoolAllocator::_bind_getM_pool_count},
-	{"setM_pool_count", &luna_wrapper_btGenericPoolAllocator::_bind_setM_pool_count},
+	{"get_pool_count", &luna_wrapper_btGenericPoolAllocator::_bind_get_pool_count},
+	{"set_pool_count", &luna_wrapper_btGenericPoolAllocator::_bind_set_pool_count},
 	{"dynCast", &luna_wrapper_btGenericPoolAllocator::_bind_dynCast},
 	{"__eq", &luna_wrapper_btGenericPoolAllocator::_bind___eq},
 	{0,0}

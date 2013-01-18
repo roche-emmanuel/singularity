@@ -472,7 +472,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getNO_IMAGE(lua_State *L) {
+	inline static bool _lg_typecheck_get_NO_IMAGE(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -2369,8 +2369,8 @@ public:
 	}
 
 	// const int wxTreeListCtrl::NO_IMAGE()
-	static int _bind_getNO_IMAGE(lua_State *L) {
-		if (!_lg_typecheck_getNO_IMAGE(L)) {
+	static int _bind_get_NO_IMAGE(lua_State *L) {
+		if (!_lg_typecheck_get_NO_IMAGE(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const int wxTreeListCtrl::NO_IMAGE() function, expected prototype:\nconst int wxTreeListCtrl::NO_IMAGE()\nClass arguments details:\n");
 		}
@@ -4524,7 +4524,7 @@ luna_RegType LunaTraits< wxTreeListCtrl >::methods[] = {
 	{"SetItemComparator", &luna_wrapper_wxTreeListCtrl::_bind_SetItemComparator},
 	{"GetView", &luna_wrapper_wxTreeListCtrl::_bind_GetView},
 	{"GetDataView", &luna_wrapper_wxTreeListCtrl::_bind_GetDataView},
-	{"getNO_IMAGE", &luna_wrapper_wxTreeListCtrl::_bind_getNO_IMAGE},
+	{"get_NO_IMAGE", &luna_wrapper_wxTreeListCtrl::_bind_get_NO_IMAGE},
 	{"base_GetClassInfo", &luna_wrapper_wxTreeListCtrl::_bind_base_GetClassInfo},
 	{"base_AcceptsFocus", &luna_wrapper_wxTreeListCtrl::_bind_base_AcceptsFocus},
 	{"base_AcceptsFocusFromKeyboard", &luna_wrapper_wxTreeListCtrl::_bind_base_AcceptsFocusFromKeyboard},

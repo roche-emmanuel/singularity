@@ -86,104 +86,104 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_vertices(lua_State *L) {
+	inline static bool _lg_typecheck_getVertices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_faces(lua_State *L) {
+	inline static bool _lg_typecheck_getFaces(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_uniqueEdges(lua_State *L) {
+	inline static bool _lg_typecheck_getUniqueEdges(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_localCenter(lua_State *L) {
+	inline static bool _lg_typecheck_getLocalCenter(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_extents(lua_State *L) {
+	inline static bool _lg_typecheck_getExtents(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_radius(lua_State *L) {
+	inline static bool _lg_typecheck_getRadius(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMC(lua_State *L) {
+	inline static bool _lg_typecheck_getC(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getME(lua_State *L) {
+	inline static bool _lg_typecheck_getE(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_vertices(lua_State *L) {
+	inline static bool _lg_typecheck_setVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,89770050) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_faces(lua_State *L) {
+	inline static bool _lg_typecheck_setFaces(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,27702431) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_uniqueEdges(lua_State *L) {
+	inline static bool _lg_typecheck_setUniqueEdges(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,89770050) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_localCenter(lua_State *L) {
+	inline static bool _lg_typecheck_setLocalCenter(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_extents(lua_State *L) {
+	inline static bool _lg_typecheck_setExtents(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_radius(lua_State *L) {
+	inline static bool _lg_typecheck_setRadius(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMC(lua_State *L) {
+	inline static bool _lg_typecheck_setC(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setME(lua_State *L) {
+	inline static bool _lg_typecheck_setE(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
@@ -286,8 +286,8 @@ public:
 	}
 
 	// btAlignedObjectArray< btVector3 > btConvexPolyhedron::m_vertices()
-	static int _bind_getM_vertices(lua_State *L) {
-		if (!_lg_typecheck_getM_vertices(L)) {
+	static int _bind_getVertices(lua_State *L) {
+		if (!_lg_typecheck_getVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > btConvexPolyhedron::m_vertices() function, expected prototype:\nbtAlignedObjectArray< btVector3 > btConvexPolyhedron::m_vertices()\nClass arguments details:\n");
 		}
@@ -307,8 +307,8 @@ public:
 	}
 
 	// btAlignedObjectArray< btFace > btConvexPolyhedron::m_faces()
-	static int _bind_getM_faces(lua_State *L) {
-		if (!_lg_typecheck_getM_faces(L)) {
+	static int _bind_getFaces(lua_State *L) {
+		if (!_lg_typecheck_getFaces(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btFace > btConvexPolyhedron::m_faces() function, expected prototype:\nbtAlignedObjectArray< btFace > btConvexPolyhedron::m_faces()\nClass arguments details:\n");
 		}
@@ -328,8 +328,8 @@ public:
 	}
 
 	// btAlignedObjectArray< btVector3 > btConvexPolyhedron::m_uniqueEdges()
-	static int _bind_getM_uniqueEdges(lua_State *L) {
-		if (!_lg_typecheck_getM_uniqueEdges(L)) {
+	static int _bind_getUniqueEdges(lua_State *L) {
+		if (!_lg_typecheck_getUniqueEdges(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > btConvexPolyhedron::m_uniqueEdges() function, expected prototype:\nbtAlignedObjectArray< btVector3 > btConvexPolyhedron::m_uniqueEdges()\nClass arguments details:\n");
 		}
@@ -349,8 +349,8 @@ public:
 	}
 
 	// btVector3 btConvexPolyhedron::m_localCenter()
-	static int _bind_getM_localCenter(lua_State *L) {
-		if (!_lg_typecheck_getM_localCenter(L)) {
+	static int _bind_getLocalCenter(lua_State *L) {
+		if (!_lg_typecheck_getLocalCenter(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btConvexPolyhedron::m_localCenter() function, expected prototype:\nbtVector3 btConvexPolyhedron::m_localCenter()\nClass arguments details:\n");
 		}
@@ -370,8 +370,8 @@ public:
 	}
 
 	// btVector3 btConvexPolyhedron::m_extents()
-	static int _bind_getM_extents(lua_State *L) {
-		if (!_lg_typecheck_getM_extents(L)) {
+	static int _bind_getExtents(lua_State *L) {
+		if (!_lg_typecheck_getExtents(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btConvexPolyhedron::m_extents() function, expected prototype:\nbtVector3 btConvexPolyhedron::m_extents()\nClass arguments details:\n");
 		}
@@ -391,8 +391,8 @@ public:
 	}
 
 	// float btConvexPolyhedron::m_radius()
-	static int _bind_getM_radius(lua_State *L) {
-		if (!_lg_typecheck_getM_radius(L)) {
+	static int _bind_getRadius(lua_State *L) {
+		if (!_lg_typecheck_getRadius(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConvexPolyhedron::m_radius() function, expected prototype:\nfloat btConvexPolyhedron::m_radius()\nClass arguments details:\n");
 		}
@@ -410,8 +410,8 @@ public:
 	}
 
 	// btVector3 btConvexPolyhedron::mC()
-	static int _bind_getMC(lua_State *L) {
-		if (!_lg_typecheck_getMC(L)) {
+	static int _bind_getC(lua_State *L) {
+		if (!_lg_typecheck_getC(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btConvexPolyhedron::mC() function, expected prototype:\nbtVector3 btConvexPolyhedron::mC()\nClass arguments details:\n");
 		}
@@ -431,8 +431,8 @@ public:
 	}
 
 	// btVector3 btConvexPolyhedron::mE()
-	static int _bind_getME(lua_State *L) {
-		if (!_lg_typecheck_getME(L)) {
+	static int _bind_getE(lua_State *L) {
+		if (!_lg_typecheck_getE(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btConvexPolyhedron::mE() function, expected prototype:\nbtVector3 btConvexPolyhedron::mE()\nClass arguments details:\n");
 		}
@@ -452,8 +452,8 @@ public:
 	}
 
 	// void btConvexPolyhedron::m_vertices(btAlignedObjectArray< btVector3 > value)
-	static int _bind_setM_vertices(lua_State *L) {
-		if (!_lg_typecheck_setM_vertices(L)) {
+	static int _bind_setVertices(lua_State *L) {
+		if (!_lg_typecheck_setVertices(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_vertices(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid btConvexPolyhedron::m_vertices(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -475,8 +475,8 @@ public:
 	}
 
 	// void btConvexPolyhedron::m_faces(btAlignedObjectArray< btFace > value)
-	static int _bind_setM_faces(lua_State *L) {
-		if (!_lg_typecheck_setM_faces(L)) {
+	static int _bind_setFaces(lua_State *L) {
+		if (!_lg_typecheck_setFaces(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_faces(btAlignedObjectArray< btFace > value) function, expected prototype:\nvoid btConvexPolyhedron::m_faces(btAlignedObjectArray< btFace > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -498,8 +498,8 @@ public:
 	}
 
 	// void btConvexPolyhedron::m_uniqueEdges(btAlignedObjectArray< btVector3 > value)
-	static int _bind_setM_uniqueEdges(lua_State *L) {
-		if (!_lg_typecheck_setM_uniqueEdges(L)) {
+	static int _bind_setUniqueEdges(lua_State *L) {
+		if (!_lg_typecheck_setUniqueEdges(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_uniqueEdges(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid btConvexPolyhedron::m_uniqueEdges(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -521,8 +521,8 @@ public:
 	}
 
 	// void btConvexPolyhedron::m_localCenter(btVector3 value)
-	static int _bind_setM_localCenter(lua_State *L) {
-		if (!_lg_typecheck_setM_localCenter(L)) {
+	static int _bind_setLocalCenter(lua_State *L) {
+		if (!_lg_typecheck_setLocalCenter(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_localCenter(btVector3 value) function, expected prototype:\nvoid btConvexPolyhedron::m_localCenter(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -544,8 +544,8 @@ public:
 	}
 
 	// void btConvexPolyhedron::m_extents(btVector3 value)
-	static int _bind_setM_extents(lua_State *L) {
-		if (!_lg_typecheck_setM_extents(L)) {
+	static int _bind_setExtents(lua_State *L) {
+		if (!_lg_typecheck_setExtents(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_extents(btVector3 value) function, expected prototype:\nvoid btConvexPolyhedron::m_extents(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -567,8 +567,8 @@ public:
 	}
 
 	// void btConvexPolyhedron::m_radius(float value)
-	static int _bind_setM_radius(lua_State *L) {
-		if (!_lg_typecheck_setM_radius(L)) {
+	static int _bind_setRadius(lua_State *L) {
+		if (!_lg_typecheck_setRadius(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_radius(float value) function, expected prototype:\nvoid btConvexPolyhedron::m_radius(float value)\nClass arguments details:\n");
 		}
@@ -586,8 +586,8 @@ public:
 	}
 
 	// void btConvexPolyhedron::mC(btVector3 value)
-	static int _bind_setMC(lua_State *L) {
-		if (!_lg_typecheck_setMC(L)) {
+	static int _bind_setC(lua_State *L) {
+		if (!_lg_typecheck_setC(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::mC(btVector3 value) function, expected prototype:\nvoid btConvexPolyhedron::mC(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -609,8 +609,8 @@ public:
 	}
 
 	// void btConvexPolyhedron::mE(btVector3 value)
-	static int _bind_setME(lua_State *L) {
-		if (!_lg_typecheck_setME(L)) {
+	static int _bind_setE(lua_State *L) {
+		if (!_lg_typecheck_setE(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::mE(btVector3 value) function, expected prototype:\nvoid btConvexPolyhedron::mE(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -655,22 +655,22 @@ luna_RegType LunaTraits< btConvexPolyhedron >::methods[] = {
 	{"initialize", &luna_wrapper_btConvexPolyhedron::_bind_initialize},
 	{"testContainment", &luna_wrapper_btConvexPolyhedron::_bind_testContainment},
 	{"project", &luna_wrapper_btConvexPolyhedron::_bind_project},
-	{"getM_vertices", &luna_wrapper_btConvexPolyhedron::_bind_getM_vertices},
-	{"getM_faces", &luna_wrapper_btConvexPolyhedron::_bind_getM_faces},
-	{"getM_uniqueEdges", &luna_wrapper_btConvexPolyhedron::_bind_getM_uniqueEdges},
-	{"getM_localCenter", &luna_wrapper_btConvexPolyhedron::_bind_getM_localCenter},
-	{"getM_extents", &luna_wrapper_btConvexPolyhedron::_bind_getM_extents},
-	{"getM_radius", &luna_wrapper_btConvexPolyhedron::_bind_getM_radius},
-	{"getMC", &luna_wrapper_btConvexPolyhedron::_bind_getMC},
-	{"getME", &luna_wrapper_btConvexPolyhedron::_bind_getME},
-	{"setM_vertices", &luna_wrapper_btConvexPolyhedron::_bind_setM_vertices},
-	{"setM_faces", &luna_wrapper_btConvexPolyhedron::_bind_setM_faces},
-	{"setM_uniqueEdges", &luna_wrapper_btConvexPolyhedron::_bind_setM_uniqueEdges},
-	{"setM_localCenter", &luna_wrapper_btConvexPolyhedron::_bind_setM_localCenter},
-	{"setM_extents", &luna_wrapper_btConvexPolyhedron::_bind_setM_extents},
-	{"setM_radius", &luna_wrapper_btConvexPolyhedron::_bind_setM_radius},
-	{"setMC", &luna_wrapper_btConvexPolyhedron::_bind_setMC},
-	{"setME", &luna_wrapper_btConvexPolyhedron::_bind_setME},
+	{"getVertices", &luna_wrapper_btConvexPolyhedron::_bind_getVertices},
+	{"getFaces", &luna_wrapper_btConvexPolyhedron::_bind_getFaces},
+	{"getUniqueEdges", &luna_wrapper_btConvexPolyhedron::_bind_getUniqueEdges},
+	{"getLocalCenter", &luna_wrapper_btConvexPolyhedron::_bind_getLocalCenter},
+	{"getExtents", &luna_wrapper_btConvexPolyhedron::_bind_getExtents},
+	{"getRadius", &luna_wrapper_btConvexPolyhedron::_bind_getRadius},
+	{"getC", &luna_wrapper_btConvexPolyhedron::_bind_getC},
+	{"getE", &luna_wrapper_btConvexPolyhedron::_bind_getE},
+	{"setVertices", &luna_wrapper_btConvexPolyhedron::_bind_setVertices},
+	{"setFaces", &luna_wrapper_btConvexPolyhedron::_bind_setFaces},
+	{"setUniqueEdges", &luna_wrapper_btConvexPolyhedron::_bind_setUniqueEdges},
+	{"setLocalCenter", &luna_wrapper_btConvexPolyhedron::_bind_setLocalCenter},
+	{"setExtents", &luna_wrapper_btConvexPolyhedron::_bind_setExtents},
+	{"setRadius", &luna_wrapper_btConvexPolyhedron::_bind_setRadius},
+	{"setC", &luna_wrapper_btConvexPolyhedron::_bind_setC},
+	{"setE", &luna_wrapper_btConvexPolyhedron::_bind_setE},
 	{"dynCast", &luna_wrapper_btConvexPolyhedron::_bind_dynCast},
 	{"__eq", &luna_wrapper_btConvexPolyhedron::_bind___eq},
 	{0,0}

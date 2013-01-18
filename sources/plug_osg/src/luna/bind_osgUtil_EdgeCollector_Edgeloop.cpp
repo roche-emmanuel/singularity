@@ -94,13 +94,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_edgeList(lua_State *L) {
+	inline static bool _lg_typecheck_getEdgeList(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_edgeList(lua_State *L) {
+	inline static bool _lg_typecheck_setEdgeList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,57514973) ) return false;
@@ -193,8 +193,8 @@ public:
 	}
 
 	// osgUtil::EdgeCollector::Edgeloop::EdgeList osgUtil::EdgeCollector::Edgeloop::_edgeList()
-	static int _bind_get_edgeList(lua_State *L) {
-		if (!_lg_typecheck_get_edgeList(L)) {
+	static int _bind_getEdgeList(lua_State *L) {
+		if (!_lg_typecheck_getEdgeList(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Edgeloop::EdgeList osgUtil::EdgeCollector::Edgeloop::_edgeList() function, expected prototype:\nosgUtil::EdgeCollector::Edgeloop::EdgeList osgUtil::EdgeCollector::Edgeloop::_edgeList()\nClass arguments details:\n");
 		}
@@ -214,8 +214,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::Edgeloop::_edgeList(osgUtil::EdgeCollector::Edgeloop::EdgeList value)
-	static int _bind_set_edgeList(lua_State *L) {
-		if (!_lg_typecheck_set_edgeList(L)) {
+	static int _bind_setEdgeList(lua_State *L) {
+		if (!_lg_typecheck_setEdgeList(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Edgeloop::_edgeList(osgUtil::EdgeCollector::Edgeloop::EdgeList value) function, expected prototype:\nvoid osgUtil::EdgeCollector::Edgeloop::_edgeList(osgUtil::EdgeCollector::Edgeloop::EdgeList value)\nClass arguments details:\narg 1 ID = 72030032\n");
 		}
@@ -278,8 +278,8 @@ const int LunaTraits< osgUtil::EdgeCollector::Edgeloop >::uniqueIDs[] = {5016965
 luna_RegType LunaTraits< osgUtil::EdgeCollector::Edgeloop >::methods[] = {
 	{"isClosed", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind_isClosed},
 	{"toIndexArray", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind_toIndexArray},
-	{"get_edgeList", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind_get_edgeList},
-	{"set_edgeList", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind_set_edgeList},
+	{"getEdgeList", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind_getEdgeList},
+	{"setEdgeList", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind_setEdgeList},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind___eq},
 	{"getTable", &luna_wrapper_osgUtil_EdgeCollector_Edgeloop::_bind_getTable},

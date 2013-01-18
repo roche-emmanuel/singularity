@@ -55,39 +55,39 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_aabbMin(lua_State *L) {
+	inline static bool _lg_typecheck_getAabbMin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_aabbMax(lua_State *L) {
+	inline static bool _lg_typecheck_getAabbMax(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_shapeType(lua_State *L) {
+	inline static bool _lg_typecheck_getShapeType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_aabbMin(lua_State *L) {
+	inline static bool _lg_typecheck_setAabbMin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_aabbMax(lua_State *L) {
+	inline static bool _lg_typecheck_setAabbMax(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_shapeType(lua_State *L) {
+	inline static bool _lg_typecheck_setShapeType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -127,8 +127,8 @@ public:
 
 	// Function binds:
 	// btVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMin()
-	static int _bind_getM_aabbMin(lua_State *L) {
-		if (!_lg_typecheck_getM_aabbMin(L)) {
+	static int _bind_getAabbMin(lua_State *L) {
+		if (!_lg_typecheck_getAabbMin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMin() function, expected prototype:\nbtVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMin()\nClass arguments details:\n");
 		}
@@ -148,8 +148,8 @@ public:
 	}
 
 	// btVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMax()
-	static int _bind_getM_aabbMax(lua_State *L) {
-		if (!_lg_typecheck_getM_aabbMax(L)) {
+	static int _bind_getAabbMax(lua_State *L) {
+		if (!_lg_typecheck_getAabbMax(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMax() function, expected prototype:\nbtVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMax()\nClass arguments details:\n");
 		}
@@ -169,8 +169,8 @@ public:
 	}
 
 	// int btMultiSapBroadphase::btMultiSapProxy::m_shapeType()
-	static int _bind_getM_shapeType(lua_State *L) {
-		if (!_lg_typecheck_getM_shapeType(L)) {
+	static int _bind_getShapeType(lua_State *L) {
+		if (!_lg_typecheck_getShapeType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btMultiSapBroadphase::btMultiSapProxy::m_shapeType() function, expected prototype:\nint btMultiSapBroadphase::btMultiSapProxy::m_shapeType()\nClass arguments details:\n");
 		}
@@ -188,8 +188,8 @@ public:
 	}
 
 	// void btMultiSapBroadphase::btMultiSapProxy::m_aabbMin(btVector3 value)
-	static int _bind_setM_aabbMin(lua_State *L) {
-		if (!_lg_typecheck_setM_aabbMin(L)) {
+	static int _bind_setAabbMin(lua_State *L) {
+		if (!_lg_typecheck_setAabbMin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btMultiSapBroadphase::btMultiSapProxy::m_aabbMin(btVector3 value) function, expected prototype:\nvoid btMultiSapBroadphase::btMultiSapProxy::m_aabbMin(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -211,8 +211,8 @@ public:
 	}
 
 	// void btMultiSapBroadphase::btMultiSapProxy::m_aabbMax(btVector3 value)
-	static int _bind_setM_aabbMax(lua_State *L) {
-		if (!_lg_typecheck_setM_aabbMax(L)) {
+	static int _bind_setAabbMax(lua_State *L) {
+		if (!_lg_typecheck_setAabbMax(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btMultiSapBroadphase::btMultiSapProxy::m_aabbMax(btVector3 value) function, expected prototype:\nvoid btMultiSapBroadphase::btMultiSapProxy::m_aabbMax(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -234,8 +234,8 @@ public:
 	}
 
 	// void btMultiSapBroadphase::btMultiSapProxy::m_shapeType(int value)
-	static int _bind_setM_shapeType(lua_State *L) {
-		if (!_lg_typecheck_setM_shapeType(L)) {
+	static int _bind_setShapeType(lua_State *L) {
+		if (!_lg_typecheck_setShapeType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btMultiSapBroadphase::btMultiSapProxy::m_shapeType(int value) function, expected prototype:\nvoid btMultiSapBroadphase::btMultiSapProxy::m_shapeType(int value)\nClass arguments details:\n");
 		}
@@ -273,12 +273,12 @@ const int LunaTraits< btMultiSapBroadphase::btMultiSapProxy >::hash = 239210;
 const int LunaTraits< btMultiSapBroadphase::btMultiSapProxy >::uniqueIDs[] = {44086089,0};
 
 luna_RegType LunaTraits< btMultiSapBroadphase::btMultiSapProxy >::methods[] = {
-	{"getM_aabbMin", &luna_wrapper_btMultiSapBroadphase_btMultiSapProxy::_bind_getM_aabbMin},
-	{"getM_aabbMax", &luna_wrapper_btMultiSapBroadphase_btMultiSapProxy::_bind_getM_aabbMax},
-	{"getM_shapeType", &luna_wrapper_btMultiSapBroadphase_btMultiSapProxy::_bind_getM_shapeType},
-	{"setM_aabbMin", &luna_wrapper_btMultiSapBroadphase_btMultiSapProxy::_bind_setM_aabbMin},
-	{"setM_aabbMax", &luna_wrapper_btMultiSapBroadphase_btMultiSapProxy::_bind_setM_aabbMax},
-	{"setM_shapeType", &luna_wrapper_btMultiSapBroadphase_btMultiSapProxy::_bind_setM_shapeType},
+	{"getAabbMin", &luna_wrapper_btMultiSapBroadphase_btMultiSapProxy::_bind_getAabbMin},
+	{"getAabbMax", &luna_wrapper_btMultiSapBroadphase_btMultiSapProxy::_bind_getAabbMax},
+	{"getShapeType", &luna_wrapper_btMultiSapBroadphase_btMultiSapProxy::_bind_getShapeType},
+	{"setAabbMin", &luna_wrapper_btMultiSapBroadphase_btMultiSapProxy::_bind_setAabbMin},
+	{"setAabbMax", &luna_wrapper_btMultiSapBroadphase_btMultiSapProxy::_bind_setAabbMax},
+	{"setShapeType", &luna_wrapper_btMultiSapBroadphase_btMultiSapProxy::_bind_setShapeType},
 	{"__eq", &luna_wrapper_btMultiSapBroadphase_btMultiSapProxy::_bind___eq},
 	{0,0}
 };

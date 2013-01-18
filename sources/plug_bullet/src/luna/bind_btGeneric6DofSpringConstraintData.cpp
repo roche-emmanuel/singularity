@@ -56,13 +56,13 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_6dofData(lua_State *L) {
+	inline static bool _lg_typecheck_get6dofData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_6dofData(lua_State *L) {
+	inline static bool _lg_typecheck_set6dofData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56103271) ) return false;
@@ -77,8 +77,8 @@ public:
 
 	// Function binds:
 	// btGeneric6DofConstraintData btGeneric6DofSpringConstraintData::m_6dofData()
-	static int _bind_getM_6dofData(lua_State *L) {
-		if (!_lg_typecheck_getM_6dofData(L)) {
+	static int _bind_get6dofData(lua_State *L) {
+		if (!_lg_typecheck_get6dofData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btGeneric6DofConstraintData btGeneric6DofSpringConstraintData::m_6dofData() function, expected prototype:\nbtGeneric6DofConstraintData btGeneric6DofSpringConstraintData::m_6dofData()\nClass arguments details:\n");
 		}
@@ -98,8 +98,8 @@ public:
 	}
 
 	// void btGeneric6DofSpringConstraintData::m_6dofData(btGeneric6DofConstraintData value)
-	static int _bind_setM_6dofData(lua_State *L) {
-		if (!_lg_typecheck_setM_6dofData(L)) {
+	static int _bind_set6dofData(lua_State *L) {
+		if (!_lg_typecheck_set6dofData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraintData::m_6dofData(btGeneric6DofConstraintData value) function, expected prototype:\nvoid btGeneric6DofSpringConstraintData::m_6dofData(btGeneric6DofConstraintData value)\nClass arguments details:\narg 1 ID = 56103271\n");
 		}
@@ -141,8 +141,8 @@ const int LunaTraits< btGeneric6DofSpringConstraintData >::hash = 39358732;
 const int LunaTraits< btGeneric6DofSpringConstraintData >::uniqueIDs[] = {39358732,0};
 
 luna_RegType LunaTraits< btGeneric6DofSpringConstraintData >::methods[] = {
-	{"getM_6dofData", &luna_wrapper_btGeneric6DofSpringConstraintData::_bind_getM_6dofData},
-	{"setM_6dofData", &luna_wrapper_btGeneric6DofSpringConstraintData::_bind_setM_6dofData},
+	{"get6dofData", &luna_wrapper_btGeneric6DofSpringConstraintData::_bind_get6dofData},
+	{"set6dofData", &luna_wrapper_btGeneric6DofSpringConstraintData::_bind_set6dofData},
 	{"dynCast", &luna_wrapper_btGeneric6DofSpringConstraintData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btGeneric6DofSpringConstraintData::_bind___eq},
 	{0,0}

@@ -56,65 +56,65 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_aabbMinOrg(lua_State *L) {
+	inline static bool _lg_typecheck_getAabbMinOrg(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_aabbMaxOrg(lua_State *L) {
+	inline static bool _lg_typecheck_getAabbMaxOrg(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_escapeIndex(lua_State *L) {
+	inline static bool _lg_typecheck_getEscapeIndex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_subPart(lua_State *L) {
+	inline static bool _lg_typecheck_getSubPart(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_triangleIndex(lua_State *L) {
+	inline static bool _lg_typecheck_getTriangleIndex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_aabbMinOrg(lua_State *L) {
+	inline static bool _lg_typecheck_setAabbMinOrg(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,89582070) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_aabbMaxOrg(lua_State *L) {
+	inline static bool _lg_typecheck_setAabbMaxOrg(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,89582070) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_escapeIndex(lua_State *L) {
+	inline static bool _lg_typecheck_setEscapeIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_subPart(lua_State *L) {
+	inline static bool _lg_typecheck_setSubPart(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_triangleIndex(lua_State *L) {
+	inline static bool _lg_typecheck_setTriangleIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -129,8 +129,8 @@ public:
 
 	// Function binds:
 	// btVector3DoubleData btOptimizedBvhNodeDoubleData::m_aabbMinOrg()
-	static int _bind_getM_aabbMinOrg(lua_State *L) {
-		if (!_lg_typecheck_getM_aabbMinOrg(L)) {
+	static int _bind_getAabbMinOrg(lua_State *L) {
+		if (!_lg_typecheck_getAabbMinOrg(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3DoubleData btOptimizedBvhNodeDoubleData::m_aabbMinOrg() function, expected prototype:\nbtVector3DoubleData btOptimizedBvhNodeDoubleData::m_aabbMinOrg()\nClass arguments details:\n");
 		}
@@ -150,8 +150,8 @@ public:
 	}
 
 	// btVector3DoubleData btOptimizedBvhNodeDoubleData::m_aabbMaxOrg()
-	static int _bind_getM_aabbMaxOrg(lua_State *L) {
-		if (!_lg_typecheck_getM_aabbMaxOrg(L)) {
+	static int _bind_getAabbMaxOrg(lua_State *L) {
+		if (!_lg_typecheck_getAabbMaxOrg(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3DoubleData btOptimizedBvhNodeDoubleData::m_aabbMaxOrg() function, expected prototype:\nbtVector3DoubleData btOptimizedBvhNodeDoubleData::m_aabbMaxOrg()\nClass arguments details:\n");
 		}
@@ -171,8 +171,8 @@ public:
 	}
 
 	// int btOptimizedBvhNodeDoubleData::m_escapeIndex()
-	static int _bind_getM_escapeIndex(lua_State *L) {
-		if (!_lg_typecheck_getM_escapeIndex(L)) {
+	static int _bind_getEscapeIndex(lua_State *L) {
+		if (!_lg_typecheck_getEscapeIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btOptimizedBvhNodeDoubleData::m_escapeIndex() function, expected prototype:\nint btOptimizedBvhNodeDoubleData::m_escapeIndex()\nClass arguments details:\n");
 		}
@@ -190,8 +190,8 @@ public:
 	}
 
 	// int btOptimizedBvhNodeDoubleData::m_subPart()
-	static int _bind_getM_subPart(lua_State *L) {
-		if (!_lg_typecheck_getM_subPart(L)) {
+	static int _bind_getSubPart(lua_State *L) {
+		if (!_lg_typecheck_getSubPart(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btOptimizedBvhNodeDoubleData::m_subPart() function, expected prototype:\nint btOptimizedBvhNodeDoubleData::m_subPart()\nClass arguments details:\n");
 		}
@@ -209,8 +209,8 @@ public:
 	}
 
 	// int btOptimizedBvhNodeDoubleData::m_triangleIndex()
-	static int _bind_getM_triangleIndex(lua_State *L) {
-		if (!_lg_typecheck_getM_triangleIndex(L)) {
+	static int _bind_getTriangleIndex(lua_State *L) {
+		if (!_lg_typecheck_getTriangleIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btOptimizedBvhNodeDoubleData::m_triangleIndex() function, expected prototype:\nint btOptimizedBvhNodeDoubleData::m_triangleIndex()\nClass arguments details:\n");
 		}
@@ -228,8 +228,8 @@ public:
 	}
 
 	// void btOptimizedBvhNodeDoubleData::m_aabbMinOrg(btVector3DoubleData value)
-	static int _bind_setM_aabbMinOrg(lua_State *L) {
-		if (!_lg_typecheck_setM_aabbMinOrg(L)) {
+	static int _bind_setAabbMinOrg(lua_State *L) {
+		if (!_lg_typecheck_setAabbMinOrg(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btOptimizedBvhNodeDoubleData::m_aabbMinOrg(btVector3DoubleData value) function, expected prototype:\nvoid btOptimizedBvhNodeDoubleData::m_aabbMinOrg(btVector3DoubleData value)\nClass arguments details:\narg 1 ID = 89582070\n");
 		}
@@ -251,8 +251,8 @@ public:
 	}
 
 	// void btOptimizedBvhNodeDoubleData::m_aabbMaxOrg(btVector3DoubleData value)
-	static int _bind_setM_aabbMaxOrg(lua_State *L) {
-		if (!_lg_typecheck_setM_aabbMaxOrg(L)) {
+	static int _bind_setAabbMaxOrg(lua_State *L) {
+		if (!_lg_typecheck_setAabbMaxOrg(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btOptimizedBvhNodeDoubleData::m_aabbMaxOrg(btVector3DoubleData value) function, expected prototype:\nvoid btOptimizedBvhNodeDoubleData::m_aabbMaxOrg(btVector3DoubleData value)\nClass arguments details:\narg 1 ID = 89582070\n");
 		}
@@ -274,8 +274,8 @@ public:
 	}
 
 	// void btOptimizedBvhNodeDoubleData::m_escapeIndex(int value)
-	static int _bind_setM_escapeIndex(lua_State *L) {
-		if (!_lg_typecheck_setM_escapeIndex(L)) {
+	static int _bind_setEscapeIndex(lua_State *L) {
+		if (!_lg_typecheck_setEscapeIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btOptimizedBvhNodeDoubleData::m_escapeIndex(int value) function, expected prototype:\nvoid btOptimizedBvhNodeDoubleData::m_escapeIndex(int value)\nClass arguments details:\n");
 		}
@@ -293,8 +293,8 @@ public:
 	}
 
 	// void btOptimizedBvhNodeDoubleData::m_subPart(int value)
-	static int _bind_setM_subPart(lua_State *L) {
-		if (!_lg_typecheck_setM_subPart(L)) {
+	static int _bind_setSubPart(lua_State *L) {
+		if (!_lg_typecheck_setSubPart(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btOptimizedBvhNodeDoubleData::m_subPart(int value) function, expected prototype:\nvoid btOptimizedBvhNodeDoubleData::m_subPart(int value)\nClass arguments details:\n");
 		}
@@ -312,8 +312,8 @@ public:
 	}
 
 	// void btOptimizedBvhNodeDoubleData::m_triangleIndex(int value)
-	static int _bind_setM_triangleIndex(lua_State *L) {
-		if (!_lg_typecheck_setM_triangleIndex(L)) {
+	static int _bind_setTriangleIndex(lua_State *L) {
+		if (!_lg_typecheck_setTriangleIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btOptimizedBvhNodeDoubleData::m_triangleIndex(int value) function, expected prototype:\nvoid btOptimizedBvhNodeDoubleData::m_triangleIndex(int value)\nClass arguments details:\n");
 		}
@@ -351,16 +351,16 @@ const int LunaTraits< btOptimizedBvhNodeDoubleData >::hash = 92362319;
 const int LunaTraits< btOptimizedBvhNodeDoubleData >::uniqueIDs[] = {92362319,0};
 
 luna_RegType LunaTraits< btOptimizedBvhNodeDoubleData >::methods[] = {
-	{"getM_aabbMinOrg", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_getM_aabbMinOrg},
-	{"getM_aabbMaxOrg", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_getM_aabbMaxOrg},
-	{"getM_escapeIndex", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_getM_escapeIndex},
-	{"getM_subPart", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_getM_subPart},
-	{"getM_triangleIndex", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_getM_triangleIndex},
-	{"setM_aabbMinOrg", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_setM_aabbMinOrg},
-	{"setM_aabbMaxOrg", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_setM_aabbMaxOrg},
-	{"setM_escapeIndex", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_setM_escapeIndex},
-	{"setM_subPart", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_setM_subPart},
-	{"setM_triangleIndex", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_setM_triangleIndex},
+	{"getAabbMinOrg", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_getAabbMinOrg},
+	{"getAabbMaxOrg", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_getAabbMaxOrg},
+	{"getEscapeIndex", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_getEscapeIndex},
+	{"getSubPart", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_getSubPart},
+	{"getTriangleIndex", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_getTriangleIndex},
+	{"setAabbMinOrg", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_setAabbMinOrg},
+	{"setAabbMaxOrg", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_setAabbMaxOrg},
+	{"setEscapeIndex", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_setEscapeIndex},
+	{"setSubPart", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_setSubPart},
+	{"setTriangleIndex", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_setTriangleIndex},
 	{"dynCast", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btOptimizedBvhNodeDoubleData::_bind___eq},
 	{0,0}

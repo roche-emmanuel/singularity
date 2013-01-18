@@ -143,26 +143,26 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_type(lua_State *L) {
+	inline static bool _lg_typecheck_getType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_radius(lua_State *L) {
+	inline static bool _lg_typecheck_getRadius(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_type(lua_State *L) {
+	inline static bool _lg_typecheck_setType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_radius(lua_State *L) {
+	inline static bool _lg_typecheck_setRadius(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -353,8 +353,8 @@ public:
 	}
 
 	// b2Shape::Type b2Shape::m_type()
-	static int _bind_getM_type(lua_State *L) {
-		if (!_lg_typecheck_getM_type(L)) {
+	static int _bind_getType(lua_State *L) {
+		if (!_lg_typecheck_getType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Shape::Type b2Shape::m_type() function, expected prototype:\nb2Shape::Type b2Shape::m_type()\nClass arguments details:\n");
 		}
@@ -372,8 +372,8 @@ public:
 	}
 
 	// float b2Shape::m_radius()
-	static int _bind_getM_radius(lua_State *L) {
-		if (!_lg_typecheck_getM_radius(L)) {
+	static int _bind_getRadius(lua_State *L) {
+		if (!_lg_typecheck_getRadius(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float b2Shape::m_radius() function, expected prototype:\nfloat b2Shape::m_radius()\nClass arguments details:\n");
 		}
@@ -391,8 +391,8 @@ public:
 	}
 
 	// void b2Shape::m_type(b2Shape::Type value)
-	static int _bind_setM_type(lua_State *L) {
-		if (!_lg_typecheck_setM_type(L)) {
+	static int _bind_setType(lua_State *L) {
+		if (!_lg_typecheck_setType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2Shape::m_type(b2Shape::Type value) function, expected prototype:\nvoid b2Shape::m_type(b2Shape::Type value)\nClass arguments details:\n");
 		}
@@ -410,8 +410,8 @@ public:
 	}
 
 	// void b2Shape::m_radius(float value)
-	static int _bind_setM_radius(lua_State *L) {
-		if (!_lg_typecheck_setM_radius(L)) {
+	static int _bind_setRadius(lua_State *L) {
+		if (!_lg_typecheck_setRadius(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2Shape::m_radius(float value) function, expected prototype:\nvoid b2Shape::m_radius(float value)\nClass arguments details:\n");
 		}
@@ -464,10 +464,10 @@ luna_RegType LunaTraits< b2Shape >::methods[] = {
 	{"RayCast", &luna_wrapper_b2Shape::_bind_RayCast},
 	{"ComputeAABB", &luna_wrapper_b2Shape::_bind_ComputeAABB},
 	{"ComputeMass", &luna_wrapper_b2Shape::_bind_ComputeMass},
-	{"getM_type", &luna_wrapper_b2Shape::_bind_getM_type},
-	{"getM_radius", &luna_wrapper_b2Shape::_bind_getM_radius},
-	{"setM_type", &luna_wrapper_b2Shape::_bind_setM_type},
-	{"setM_radius", &luna_wrapper_b2Shape::_bind_setM_radius},
+	{"getType", &luna_wrapper_b2Shape::_bind_getType},
+	{"getRadius", &luna_wrapper_b2Shape::_bind_getRadius},
+	{"setType", &luna_wrapper_b2Shape::_bind_setType},
+	{"setRadius", &luna_wrapper_b2Shape::_bind_setRadius},
 	{"dynCast", &luna_wrapper_b2Shape::_bind_dynCast},
 	{"__eq", &luna_wrapper_b2Shape::_bind___eq},
 	{"getTable", &luna_wrapper_b2Shape::_bind_getTable},

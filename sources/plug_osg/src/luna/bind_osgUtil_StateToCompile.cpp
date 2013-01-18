@@ -130,104 +130,104 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_drawablesHandled(lua_State *L) {
+	inline static bool _lg_typecheck_getDrawablesHandled(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_statesetsHandled(lua_State *L) {
+	inline static bool _lg_typecheck_getStatesetsHandled(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_mode(lua_State *L) {
+	inline static bool _lg_typecheck_getMode(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_drawables(lua_State *L) {
+	inline static bool _lg_typecheck_getDrawables(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_textures(lua_State *L) {
+	inline static bool _lg_typecheck_getTextures(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_programs(lua_State *L) {
+	inline static bool _lg_typecheck_getPrograms(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_assignPBOToImages(lua_State *L) {
+	inline static bool _lg_typecheck_getAssignPBOToImages(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_pbo(lua_State *L) {
+	inline static bool _lg_typecheck_getPbo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_drawablesHandled(lua_State *L) {
+	inline static bool _lg_typecheck_setDrawablesHandled(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,76374875) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_statesetsHandled(lua_State *L) {
+	inline static bool _lg_typecheck_setStatesetsHandled(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,97002577) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_mode(lua_State *L) {
+	inline static bool _lg_typecheck_setMode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_drawables(lua_State *L) {
+	inline static bool _lg_typecheck_setDrawables(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,76374875) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_textures(lua_State *L) {
+	inline static bool _lg_typecheck_setTextures(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,55546203) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_programs(lua_State *L) {
+	inline static bool _lg_typecheck_setPrograms(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,89238351) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_assignPBOToImages(lua_State *L) {
+	inline static bool _lg_typecheck_setAssignPBOToImages(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_pbo(lua_State *L) {
+	inline static bool _lg_typecheck_setPbo(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,84032264) ) return false;
@@ -522,8 +522,8 @@ public:
 	}
 
 	// osgUtil::StateToCompile::DrawableSet osgUtil::StateToCompile::_drawablesHandled()
-	static int _bind_get_drawablesHandled(lua_State *L) {
-		if (!_lg_typecheck_get_drawablesHandled(L)) {
+	static int _bind_getDrawablesHandled(lua_State *L) {
+		if (!_lg_typecheck_getDrawablesHandled(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StateToCompile::DrawableSet osgUtil::StateToCompile::_drawablesHandled() function, expected prototype:\nosgUtil::StateToCompile::DrawableSet osgUtil::StateToCompile::_drawablesHandled()\nClass arguments details:\n");
 		}
@@ -543,8 +543,8 @@ public:
 	}
 
 	// osgUtil::StateToCompile::StateSetSet osgUtil::StateToCompile::_statesetsHandled()
-	static int _bind_get_statesetsHandled(lua_State *L) {
-		if (!_lg_typecheck_get_statesetsHandled(L)) {
+	static int _bind_getStatesetsHandled(lua_State *L) {
+		if (!_lg_typecheck_getStatesetsHandled(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StateToCompile::StateSetSet osgUtil::StateToCompile::_statesetsHandled() function, expected prototype:\nosgUtil::StateToCompile::StateSetSet osgUtil::StateToCompile::_statesetsHandled()\nClass arguments details:\n");
 		}
@@ -564,8 +564,8 @@ public:
 	}
 
 	// unsigned int osgUtil::StateToCompile::_mode()
-	static int _bind_get_mode(lua_State *L) {
-		if (!_lg_typecheck_get_mode(L)) {
+	static int _bind_getMode(lua_State *L) {
+		if (!_lg_typecheck_getMode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::StateToCompile::_mode() function, expected prototype:\nunsigned int osgUtil::StateToCompile::_mode()\nClass arguments details:\n");
 		}
@@ -583,8 +583,8 @@ public:
 	}
 
 	// osgUtil::StateToCompile::DrawableSet osgUtil::StateToCompile::_drawables()
-	static int _bind_get_drawables(lua_State *L) {
-		if (!_lg_typecheck_get_drawables(L)) {
+	static int _bind_getDrawables(lua_State *L) {
+		if (!_lg_typecheck_getDrawables(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StateToCompile::DrawableSet osgUtil::StateToCompile::_drawables() function, expected prototype:\nosgUtil::StateToCompile::DrawableSet osgUtil::StateToCompile::_drawables()\nClass arguments details:\n");
 		}
@@ -604,8 +604,8 @@ public:
 	}
 
 	// osgUtil::StateToCompile::TextureSet osgUtil::StateToCompile::_textures()
-	static int _bind_get_textures(lua_State *L) {
-		if (!_lg_typecheck_get_textures(L)) {
+	static int _bind_getTextures(lua_State *L) {
+		if (!_lg_typecheck_getTextures(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StateToCompile::TextureSet osgUtil::StateToCompile::_textures() function, expected prototype:\nosgUtil::StateToCompile::TextureSet osgUtil::StateToCompile::_textures()\nClass arguments details:\n");
 		}
@@ -625,8 +625,8 @@ public:
 	}
 
 	// osgUtil::StateToCompile::ProgramSet osgUtil::StateToCompile::_programs()
-	static int _bind_get_programs(lua_State *L) {
-		if (!_lg_typecheck_get_programs(L)) {
+	static int _bind_getPrograms(lua_State *L) {
+		if (!_lg_typecheck_getPrograms(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StateToCompile::ProgramSet osgUtil::StateToCompile::_programs() function, expected prototype:\nosgUtil::StateToCompile::ProgramSet osgUtil::StateToCompile::_programs()\nClass arguments details:\n");
 		}
@@ -646,8 +646,8 @@ public:
 	}
 
 	// bool osgUtil::StateToCompile::_assignPBOToImages()
-	static int _bind_get_assignPBOToImages(lua_State *L) {
-		if (!_lg_typecheck_get_assignPBOToImages(L)) {
+	static int _bind_getAssignPBOToImages(lua_State *L) {
+		if (!_lg_typecheck_getAssignPBOToImages(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool osgUtil::StateToCompile::_assignPBOToImages() function, expected prototype:\nbool osgUtil::StateToCompile::_assignPBOToImages()\nClass arguments details:\n");
 		}
@@ -665,8 +665,8 @@ public:
 	}
 
 	// osg::ref_ptr< osg::PixelBufferObject > osgUtil::StateToCompile::_pbo()
-	static int _bind_get_pbo(lua_State *L) {
-		if (!_lg_typecheck_get_pbo(L)) {
+	static int _bind_getPbo(lua_State *L) {
+		if (!_lg_typecheck_getPbo(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::PixelBufferObject > osgUtil::StateToCompile::_pbo() function, expected prototype:\nosg::ref_ptr< osg::PixelBufferObject > osgUtil::StateToCompile::_pbo()\nClass arguments details:\n");
 		}
@@ -684,8 +684,8 @@ public:
 	}
 
 	// void osgUtil::StateToCompile::_drawablesHandled(osgUtil::StateToCompile::DrawableSet value)
-	static int _bind_set_drawablesHandled(lua_State *L) {
-		if (!_lg_typecheck_set_drawablesHandled(L)) {
+	static int _bind_setDrawablesHandled(lua_State *L) {
+		if (!_lg_typecheck_setDrawablesHandled(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_drawablesHandled(osgUtil::StateToCompile::DrawableSet value) function, expected prototype:\nvoid osgUtil::StateToCompile::_drawablesHandled(osgUtil::StateToCompile::DrawableSet value)\nClass arguments details:\narg 1 ID = 70884799\n");
 		}
@@ -707,8 +707,8 @@ public:
 	}
 
 	// void osgUtil::StateToCompile::_statesetsHandled(osgUtil::StateToCompile::StateSetSet value)
-	static int _bind_set_statesetsHandled(lua_State *L) {
-		if (!_lg_typecheck_set_statesetsHandled(L)) {
+	static int _bind_setStatesetsHandled(lua_State *L) {
+		if (!_lg_typecheck_setStatesetsHandled(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_statesetsHandled(osgUtil::StateToCompile::StateSetSet value) function, expected prototype:\nvoid osgUtil::StateToCompile::_statesetsHandled(osgUtil::StateToCompile::StateSetSet value)\nClass arguments details:\narg 1 ID = 88961844\n");
 		}
@@ -730,8 +730,8 @@ public:
 	}
 
 	// void osgUtil::StateToCompile::_mode(unsigned int value)
-	static int _bind_set_mode(lua_State *L) {
-		if (!_lg_typecheck_set_mode(L)) {
+	static int _bind_setMode(lua_State *L) {
+		if (!_lg_typecheck_setMode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_mode(unsigned int value) function, expected prototype:\nvoid osgUtil::StateToCompile::_mode(unsigned int value)\nClass arguments details:\n");
 		}
@@ -749,8 +749,8 @@ public:
 	}
 
 	// void osgUtil::StateToCompile::_drawables(osgUtil::StateToCompile::DrawableSet value)
-	static int _bind_set_drawables(lua_State *L) {
-		if (!_lg_typecheck_set_drawables(L)) {
+	static int _bind_setDrawables(lua_State *L) {
+		if (!_lg_typecheck_setDrawables(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_drawables(osgUtil::StateToCompile::DrawableSet value) function, expected prototype:\nvoid osgUtil::StateToCompile::_drawables(osgUtil::StateToCompile::DrawableSet value)\nClass arguments details:\narg 1 ID = 70884799\n");
 		}
@@ -772,8 +772,8 @@ public:
 	}
 
 	// void osgUtil::StateToCompile::_textures(osgUtil::StateToCompile::TextureSet value)
-	static int _bind_set_textures(lua_State *L) {
-		if (!_lg_typecheck_set_textures(L)) {
+	static int _bind_setTextures(lua_State *L) {
+		if (!_lg_typecheck_setTextures(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_textures(osgUtil::StateToCompile::TextureSet value) function, expected prototype:\nvoid osgUtil::StateToCompile::_textures(osgUtil::StateToCompile::TextureSet value)\nClass arguments details:\narg 1 ID = 41341545\n");
 		}
@@ -795,8 +795,8 @@ public:
 	}
 
 	// void osgUtil::StateToCompile::_programs(osgUtil::StateToCompile::ProgramSet value)
-	static int _bind_set_programs(lua_State *L) {
-		if (!_lg_typecheck_set_programs(L)) {
+	static int _bind_setPrograms(lua_State *L) {
+		if (!_lg_typecheck_setPrograms(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_programs(osgUtil::StateToCompile::ProgramSet value) function, expected prototype:\nvoid osgUtil::StateToCompile::_programs(osgUtil::StateToCompile::ProgramSet value)\nClass arguments details:\narg 1 ID = 13242464\n");
 		}
@@ -818,8 +818,8 @@ public:
 	}
 
 	// void osgUtil::StateToCompile::_assignPBOToImages(bool value)
-	static int _bind_set_assignPBOToImages(lua_State *L) {
-		if (!_lg_typecheck_set_assignPBOToImages(L)) {
+	static int _bind_setAssignPBOToImages(lua_State *L) {
+		if (!_lg_typecheck_setAssignPBOToImages(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_assignPBOToImages(bool value) function, expected prototype:\nvoid osgUtil::StateToCompile::_assignPBOToImages(bool value)\nClass arguments details:\n");
 		}
@@ -837,8 +837,8 @@ public:
 	}
 
 	// void osgUtil::StateToCompile::_pbo(osg::ref_ptr< osg::PixelBufferObject > value)
-	static int _bind_set_pbo(lua_State *L) {
-		if (!_lg_typecheck_set_pbo(L)) {
+	static int _bind_setPbo(lua_State *L) {
+		if (!_lg_typecheck_setPbo(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::StateToCompile::_pbo(osg::ref_ptr< osg::PixelBufferObject > value) function, expected prototype:\nvoid osgUtil::StateToCompile::_pbo(osg::ref_ptr< osg::PixelBufferObject > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -1199,22 +1199,22 @@ const int LunaTraits< osgUtil::StateToCompile >::uniqueIDs[] = {50169651,0};
 luna_RegType LunaTraits< osgUtil::StateToCompile >::methods[] = {
 	{"empty", &luna_wrapper_osgUtil_StateToCompile::_bind_empty},
 	{"apply", &luna_wrapper_osgUtil_StateToCompile::_bind_apply},
-	{"get_drawablesHandled", &luna_wrapper_osgUtil_StateToCompile::_bind_get_drawablesHandled},
-	{"get_statesetsHandled", &luna_wrapper_osgUtil_StateToCompile::_bind_get_statesetsHandled},
-	{"get_mode", &luna_wrapper_osgUtil_StateToCompile::_bind_get_mode},
-	{"get_drawables", &luna_wrapper_osgUtil_StateToCompile::_bind_get_drawables},
-	{"get_textures", &luna_wrapper_osgUtil_StateToCompile::_bind_get_textures},
-	{"get_programs", &luna_wrapper_osgUtil_StateToCompile::_bind_get_programs},
-	{"get_assignPBOToImages", &luna_wrapper_osgUtil_StateToCompile::_bind_get_assignPBOToImages},
-	{"get_pbo", &luna_wrapper_osgUtil_StateToCompile::_bind_get_pbo},
-	{"set_drawablesHandled", &luna_wrapper_osgUtil_StateToCompile::_bind_set_drawablesHandled},
-	{"set_statesetsHandled", &luna_wrapper_osgUtil_StateToCompile::_bind_set_statesetsHandled},
-	{"set_mode", &luna_wrapper_osgUtil_StateToCompile::_bind_set_mode},
-	{"set_drawables", &luna_wrapper_osgUtil_StateToCompile::_bind_set_drawables},
-	{"set_textures", &luna_wrapper_osgUtil_StateToCompile::_bind_set_textures},
-	{"set_programs", &luna_wrapper_osgUtil_StateToCompile::_bind_set_programs},
-	{"set_assignPBOToImages", &luna_wrapper_osgUtil_StateToCompile::_bind_set_assignPBOToImages},
-	{"set_pbo", &luna_wrapper_osgUtil_StateToCompile::_bind_set_pbo},
+	{"getDrawablesHandled", &luna_wrapper_osgUtil_StateToCompile::_bind_getDrawablesHandled},
+	{"getStatesetsHandled", &luna_wrapper_osgUtil_StateToCompile::_bind_getStatesetsHandled},
+	{"getMode", &luna_wrapper_osgUtil_StateToCompile::_bind_getMode},
+	{"getDrawables", &luna_wrapper_osgUtil_StateToCompile::_bind_getDrawables},
+	{"getTextures", &luna_wrapper_osgUtil_StateToCompile::_bind_getTextures},
+	{"getPrograms", &luna_wrapper_osgUtil_StateToCompile::_bind_getPrograms},
+	{"getAssignPBOToImages", &luna_wrapper_osgUtil_StateToCompile::_bind_getAssignPBOToImages},
+	{"getPbo", &luna_wrapper_osgUtil_StateToCompile::_bind_getPbo},
+	{"setDrawablesHandled", &luna_wrapper_osgUtil_StateToCompile::_bind_setDrawablesHandled},
+	{"setStatesetsHandled", &luna_wrapper_osgUtil_StateToCompile::_bind_setStatesetsHandled},
+	{"setMode", &luna_wrapper_osgUtil_StateToCompile::_bind_setMode},
+	{"setDrawables", &luna_wrapper_osgUtil_StateToCompile::_bind_setDrawables},
+	{"setTextures", &luna_wrapper_osgUtil_StateToCompile::_bind_setTextures},
+	{"setPrograms", &luna_wrapper_osgUtil_StateToCompile::_bind_setPrograms},
+	{"setAssignPBOToImages", &luna_wrapper_osgUtil_StateToCompile::_bind_setAssignPBOToImages},
+	{"setPbo", &luna_wrapper_osgUtil_StateToCompile::_bind_setPbo},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_StateToCompile::_bind_base_setThreadSafeRefUnref},
 	{"base_libraryName", &luna_wrapper_osgUtil_StateToCompile::_bind_base_libraryName},
 	{"base_className", &luna_wrapper_osgUtil_StateToCompile::_bind_base_className},

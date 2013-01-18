@@ -306,14 +306,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setDepth_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_setDepth_overload_2(lua_State *L) {
+	inline static bool _lg_typecheck_setDepth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -397,7 +390,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_binNo(lua_State *L) {
+	inline static bool _lg_typecheck_getBinNo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -421,13 +414,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_vertexCount(lua_State *L) {
+	inline static bool _lg_typecheck_getVertexCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_primitiveCount(lua_State *L) {
+	inline static bool _lg_typecheck_getPrimitiveCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -475,13 +468,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_binNo(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_setStattype(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -503,14 +489,14 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_vertexCount(lua_State *L) {
+	inline static bool _lg_typecheck_setVertexCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_primitiveCount(lua_State *L) {
+	inline static bool _lg_typecheck_setPrimitiveCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,14759504) ) return false;
@@ -1286,8 +1272,8 @@ public:
 	}
 
 	// void osgUtil::Statistics::setDepth(int d)
-	static int _bind_setDepth_overload_1(lua_State *L) {
-		if (!_lg_typecheck_setDepth_overload_1(L)) {
+	static int _bind_setDepth(lua_State *L) {
+		if (!_lg_typecheck_setDepth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::setDepth(int d) function, expected prototype:\nvoid osgUtil::Statistics::setDepth(int d)\nClass arguments details:\n");
 		}
@@ -1301,34 +1287,6 @@ public:
 		}
 		self->setDepth(d);
 
-		return 0;
-	}
-
-	// void osgUtil::Statistics::depth(int value)
-	static int _bind_setDepth_overload_2(lua_State *L) {
-		if (!_lg_typecheck_setDepth_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::depth(int value) function, expected prototype:\nvoid osgUtil::Statistics::depth(int value)\nClass arguments details:\n");
-		}
-
-		int value=(int)lua_tointeger(L,2);
-
-		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::depth(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
-		}
-		self->depth = value;
-
-		return 0;
-	}
-
-	// Overload binder for osgUtil::Statistics::setDepth
-	static int _bind_setDepth(lua_State *L) {
-		if (_lg_typecheck_setDepth_overload_1(L)) return _bind_setDepth_overload_1(L);
-		if (_lg_typecheck_setDepth_overload_2(L)) return _bind_setDepth_overload_2(L);
-
-		luaL_error(L, "error in function setDepth, cannot match any of the overloads for function setDepth:\n  setDepth(int)\n  setDepth(int)\n");
 		return 0;
 	}
 
@@ -1565,8 +1523,8 @@ public:
 	}
 
 	// int osgUtil::Statistics::_binNo()
-	static int _bind_get_binNo(lua_State *L) {
-		if (!_lg_typecheck_get_binNo(L)) {
+	static int _bind_getBinNo(lua_State *L) {
+		if (!_lg_typecheck_getBinNo(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int osgUtil::Statistics::_binNo() function, expected prototype:\nint osgUtil::Statistics::_binNo()\nClass arguments details:\n");
 		}
@@ -1641,8 +1599,8 @@ public:
 	}
 
 	// unsigned int osgUtil::Statistics::_vertexCount()
-	static int _bind_get_vertexCount(lua_State *L) {
-		if (!_lg_typecheck_get_vertexCount(L)) {
+	static int _bind_getVertexCount(lua_State *L) {
+		if (!_lg_typecheck_getVertexCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::Statistics::_vertexCount() function, expected prototype:\nunsigned int osgUtil::Statistics::_vertexCount()\nClass arguments details:\n");
 		}
@@ -1660,8 +1618,8 @@ public:
 	}
 
 	// osgUtil::Statistics::PrimitiveValueMap osgUtil::Statistics::_primitiveCount()
-	static int _bind_get_primitiveCount(lua_State *L) {
-		if (!_lg_typecheck_get_primitiveCount(L)) {
+	static int _bind_getPrimitiveCount(lua_State *L) {
+		if (!_lg_typecheck_getPrimitiveCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::PrimitiveValueMap osgUtil::Statistics::_primitiveCount() function, expected prototype:\nosgUtil::Statistics::PrimitiveValueMap osgUtil::Statistics::_primitiveCount()\nClass arguments details:\n");
 		}
@@ -1794,25 +1752,6 @@ public:
 		return 0;
 	}
 
-	// void osgUtil::Statistics::_binNo(int value)
-	static int _bind_set_binNo(lua_State *L) {
-		if (!_lg_typecheck_set_binNo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::_binNo(int value) function, expected prototype:\nvoid osgUtil::Statistics::_binNo(int value)\nClass arguments details:\n");
-		}
-
-		int value=(int)lua_tointeger(L,2);
-
-		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::_binNo(int). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
-		}
-		self->_binNo = value;
-
-		return 0;
-	}
-
 	// void osgUtil::Statistics::stattype(osgUtil::Statistics::StatsType value)
 	static int _bind_setStattype(lua_State *L) {
 		if (!_lg_typecheck_setStattype(L)) {
@@ -1871,8 +1810,8 @@ public:
 	}
 
 	// void osgUtil::Statistics::_vertexCount(unsigned int value)
-	static int _bind_set_vertexCount(lua_State *L) {
-		if (!_lg_typecheck_set_vertexCount(L)) {
+	static int _bind_setVertexCount(lua_State *L) {
+		if (!_lg_typecheck_setVertexCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::_vertexCount(unsigned int value) function, expected prototype:\nvoid osgUtil::Statistics::_vertexCount(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1890,8 +1829,8 @@ public:
 	}
 
 	// void osgUtil::Statistics::_primitiveCount(osgUtil::Statistics::PrimitiveValueMap value)
-	static int _bind_set_primitiveCount(lua_State *L) {
-		if (!_lg_typecheck_set_primitiveCount(L)) {
+	static int _bind_setPrimitiveCount(lua_State *L) {
+		if (!_lg_typecheck_setPrimitiveCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::_primitiveCount(osgUtil::Statistics::PrimitiveValueMap value) function, expected prototype:\nvoid osgUtil::Statistics::_primitiveCount(osgUtil::Statistics::PrimitiveValueMap value)\nClass arguments details:\narg 1 ID = 74391787\n");
 		}
@@ -2369,24 +2308,23 @@ luna_RegType LunaTraits< osgUtil::Statistics >::methods[] = {
 	{"getNumFastDrawables", &luna_wrapper_osgUtil_Statistics::_bind_getNumFastDrawables},
 	{"getNlights", &luna_wrapper_osgUtil_Statistics::_bind_getNlights},
 	{"getDepth", &luna_wrapper_osgUtil_Statistics::_bind_getDepth},
-	{"get_binNo", &luna_wrapper_osgUtil_Statistics::_bind_get_binNo},
+	{"getBinNo", &luna_wrapper_osgUtil_Statistics::_bind_getBinNo},
 	{"getStattype", &luna_wrapper_osgUtil_Statistics::_bind_getStattype},
 	{"getNimpostor", &luna_wrapper_osgUtil_Statistics::_bind_getNimpostor},
 	{"getNumOrderedLeaves", &luna_wrapper_osgUtil_Statistics::_bind_getNumOrderedLeaves},
-	{"get_vertexCount", &luna_wrapper_osgUtil_Statistics::_bind_get_vertexCount},
-	{"get_primitiveCount", &luna_wrapper_osgUtil_Statistics::_bind_get_primitiveCount},
+	{"getVertexCount", &luna_wrapper_osgUtil_Statistics::_bind_getVertexCount},
+	{"getPrimitiveCount", &luna_wrapper_osgUtil_Statistics::_bind_getPrimitiveCount},
 	{"setNumDrawables", &luna_wrapper_osgUtil_Statistics::_bind_setNumDrawables},
 	{"setNummat", &luna_wrapper_osgUtil_Statistics::_bind_setNummat},
 	{"setNbins", &luna_wrapper_osgUtil_Statistics::_bind_setNbins},
 	{"setNumStateGraphs", &luna_wrapper_osgUtil_Statistics::_bind_setNumStateGraphs},
 	{"setNumFastDrawables", &luna_wrapper_osgUtil_Statistics::_bind_setNumFastDrawables},
 	{"setNlights", &luna_wrapper_osgUtil_Statistics::_bind_setNlights},
-	{"set_binNo", &luna_wrapper_osgUtil_Statistics::_bind_set_binNo},
 	{"setStattype", &luna_wrapper_osgUtil_Statistics::_bind_setStattype},
 	{"setNimpostor", &luna_wrapper_osgUtil_Statistics::_bind_setNimpostor},
 	{"setNumOrderedLeaves", &luna_wrapper_osgUtil_Statistics::_bind_setNumOrderedLeaves},
-	{"set_vertexCount", &luna_wrapper_osgUtil_Statistics::_bind_set_vertexCount},
-	{"set_primitiveCount", &luna_wrapper_osgUtil_Statistics::_bind_set_primitiveCount},
+	{"setVertexCount", &luna_wrapper_osgUtil_Statistics::_bind_setVertexCount},
+	{"setPrimitiveCount", &luna_wrapper_osgUtil_Statistics::_bind_setPrimitiveCount},
 	{"base_setVertexArray", &luna_wrapper_osgUtil_Statistics::_bind_base_setVertexArray},
 	{"base_drawArrays", &luna_wrapper_osgUtil_Statistics::_bind_base_drawArrays},
 	{"base_drawElements", &luna_wrapper_osgUtil_Statistics::_bind_base_drawElements},

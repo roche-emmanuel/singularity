@@ -56,65 +56,65 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_chunkCode(lua_State *L) {
+	inline static bool _lg_typecheck_getChunkCode(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_length(lua_State *L) {
+	inline static bool _lg_typecheck_getLength(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_oldPtr(lua_State *L) {
+	inline static bool _lg_typecheck_getOldPtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_dna_nr(lua_State *L) {
+	inline static bool _lg_typecheck_get_dna_nr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_number(lua_State *L) {
+	inline static bool _lg_typecheck_getNumber(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_chunkCode(lua_State *L) {
+	inline static bool _lg_typecheck_setChunkCode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_length(lua_State *L) {
+	inline static bool _lg_typecheck_setLength(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_oldPtr(lua_State *L) {
+	inline static bool _lg_typecheck_setOldPtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_dna_nr(lua_State *L) {
+	inline static bool _lg_typecheck_set_dna_nr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_number(lua_State *L) {
+	inline static bool _lg_typecheck_setNumber(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -129,8 +129,8 @@ public:
 
 	// Function binds:
 	// int btChunk::m_chunkCode()
-	static int _bind_getM_chunkCode(lua_State *L) {
-		if (!_lg_typecheck_getM_chunkCode(L)) {
+	static int _bind_getChunkCode(lua_State *L) {
+		if (!_lg_typecheck_getChunkCode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btChunk::m_chunkCode() function, expected prototype:\nint btChunk::m_chunkCode()\nClass arguments details:\n");
 		}
@@ -148,8 +148,8 @@ public:
 	}
 
 	// int btChunk::m_length()
-	static int _bind_getM_length(lua_State *L) {
-		if (!_lg_typecheck_getM_length(L)) {
+	static int _bind_getLength(lua_State *L) {
+		if (!_lg_typecheck_getLength(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btChunk::m_length() function, expected prototype:\nint btChunk::m_length()\nClass arguments details:\n");
 		}
@@ -167,8 +167,8 @@ public:
 	}
 
 	// void * btChunk::m_oldPtr()
-	static int _bind_getM_oldPtr(lua_State *L) {
-		if (!_lg_typecheck_getM_oldPtr(L)) {
+	static int _bind_getOldPtr(lua_State *L) {
+		if (!_lg_typecheck_getOldPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void * btChunk::m_oldPtr() function, expected prototype:\nvoid * btChunk::m_oldPtr()\nClass arguments details:\n");
 		}
@@ -188,8 +188,8 @@ public:
 	}
 
 	// int btChunk::m_dna_nr()
-	static int _bind_getM_dna_nr(lua_State *L) {
-		if (!_lg_typecheck_getM_dna_nr(L)) {
+	static int _bind_get_dna_nr(lua_State *L) {
+		if (!_lg_typecheck_get_dna_nr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btChunk::m_dna_nr() function, expected prototype:\nint btChunk::m_dna_nr()\nClass arguments details:\n");
 		}
@@ -207,8 +207,8 @@ public:
 	}
 
 	// int btChunk::m_number()
-	static int _bind_getM_number(lua_State *L) {
-		if (!_lg_typecheck_getM_number(L)) {
+	static int _bind_getNumber(lua_State *L) {
+		if (!_lg_typecheck_getNumber(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btChunk::m_number() function, expected prototype:\nint btChunk::m_number()\nClass arguments details:\n");
 		}
@@ -226,8 +226,8 @@ public:
 	}
 
 	// void btChunk::m_chunkCode(int value)
-	static int _bind_setM_chunkCode(lua_State *L) {
-		if (!_lg_typecheck_setM_chunkCode(L)) {
+	static int _bind_setChunkCode(lua_State *L) {
+		if (!_lg_typecheck_setChunkCode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btChunk::m_chunkCode(int value) function, expected prototype:\nvoid btChunk::m_chunkCode(int value)\nClass arguments details:\n");
 		}
@@ -245,8 +245,8 @@ public:
 	}
 
 	// void btChunk::m_length(int value)
-	static int _bind_setM_length(lua_State *L) {
-		if (!_lg_typecheck_setM_length(L)) {
+	static int _bind_setLength(lua_State *L) {
+		if (!_lg_typecheck_setLength(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btChunk::m_length(int value) function, expected prototype:\nvoid btChunk::m_length(int value)\nClass arguments details:\n");
 		}
@@ -264,8 +264,8 @@ public:
 	}
 
 	// void btChunk::m_oldPtr(void * value)
-	static int _bind_setM_oldPtr(lua_State *L) {
-		if (!_lg_typecheck_setM_oldPtr(L)) {
+	static int _bind_setOldPtr(lua_State *L) {
+		if (!_lg_typecheck_setOldPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btChunk::m_oldPtr(void * value) function, expected prototype:\nvoid btChunk::m_oldPtr(void * value)\nClass arguments details:\n");
 		}
@@ -283,8 +283,8 @@ public:
 	}
 
 	// void btChunk::m_dna_nr(int value)
-	static int _bind_setM_dna_nr(lua_State *L) {
-		if (!_lg_typecheck_setM_dna_nr(L)) {
+	static int _bind_set_dna_nr(lua_State *L) {
+		if (!_lg_typecheck_set_dna_nr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btChunk::m_dna_nr(int value) function, expected prototype:\nvoid btChunk::m_dna_nr(int value)\nClass arguments details:\n");
 		}
@@ -302,8 +302,8 @@ public:
 	}
 
 	// void btChunk::m_number(int value)
-	static int _bind_setM_number(lua_State *L) {
-		if (!_lg_typecheck_setM_number(L)) {
+	static int _bind_setNumber(lua_State *L) {
+		if (!_lg_typecheck_setNumber(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btChunk::m_number(int value) function, expected prototype:\nvoid btChunk::m_number(int value)\nClass arguments details:\n");
 		}
@@ -341,16 +341,16 @@ const int LunaTraits< btChunk >::hash = 61426957;
 const int LunaTraits< btChunk >::uniqueIDs[] = {61426957,0};
 
 luna_RegType LunaTraits< btChunk >::methods[] = {
-	{"getM_chunkCode", &luna_wrapper_btChunk::_bind_getM_chunkCode},
-	{"getM_length", &luna_wrapper_btChunk::_bind_getM_length},
-	{"getM_oldPtr", &luna_wrapper_btChunk::_bind_getM_oldPtr},
-	{"getM_dna_nr", &luna_wrapper_btChunk::_bind_getM_dna_nr},
-	{"getM_number", &luna_wrapper_btChunk::_bind_getM_number},
-	{"setM_chunkCode", &luna_wrapper_btChunk::_bind_setM_chunkCode},
-	{"setM_length", &luna_wrapper_btChunk::_bind_setM_length},
-	{"setM_oldPtr", &luna_wrapper_btChunk::_bind_setM_oldPtr},
-	{"setM_dna_nr", &luna_wrapper_btChunk::_bind_setM_dna_nr},
-	{"setM_number", &luna_wrapper_btChunk::_bind_setM_number},
+	{"getChunkCode", &luna_wrapper_btChunk::_bind_getChunkCode},
+	{"getLength", &luna_wrapper_btChunk::_bind_getLength},
+	{"getOldPtr", &luna_wrapper_btChunk::_bind_getOldPtr},
+	{"get_dna_nr", &luna_wrapper_btChunk::_bind_get_dna_nr},
+	{"getNumber", &luna_wrapper_btChunk::_bind_getNumber},
+	{"setChunkCode", &luna_wrapper_btChunk::_bind_setChunkCode},
+	{"setLength", &luna_wrapper_btChunk::_bind_setLength},
+	{"setOldPtr", &luna_wrapper_btChunk::_bind_setOldPtr},
+	{"set_dna_nr", &luna_wrapper_btChunk::_bind_set_dna_nr},
+	{"setNumber", &luna_wrapper_btChunk::_bind_setNumber},
 	{"dynCast", &luna_wrapper_btChunk::_bind_dynCast},
 	{"__eq", &luna_wrapper_btChunk::_bind___eq},
 	{0,0}

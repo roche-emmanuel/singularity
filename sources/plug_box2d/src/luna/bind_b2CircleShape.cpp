@@ -157,13 +157,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_p(lua_State *L) {
+	inline static bool _lg_typecheck_getP(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_p(lua_State *L) {
+	inline static bool _lg_typecheck_setP(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54494886) ) return false;
@@ -494,8 +494,8 @@ public:
 	}
 
 	// b2Vec2 b2CircleShape::m_p()
-	static int _bind_getM_p(lua_State *L) {
-		if (!_lg_typecheck_getM_p(L)) {
+	static int _bind_getP(lua_State *L) {
+		if (!_lg_typecheck_getP(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Vec2 b2CircleShape::m_p() function, expected prototype:\nb2Vec2 b2CircleShape::m_p()\nClass arguments details:\n");
 		}
@@ -515,8 +515,8 @@ public:
 	}
 
 	// void b2CircleShape::m_p(b2Vec2 value)
-	static int _bind_setM_p(lua_State *L) {
-		if (!_lg_typecheck_setM_p(L)) {
+	static int _bind_setP(lua_State *L) {
+		if (!_lg_typecheck_setP(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2CircleShape::m_p(b2Vec2 value) function, expected prototype:\nvoid b2CircleShape::m_p(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
 		}
@@ -714,8 +714,8 @@ luna_RegType LunaTraits< b2CircleShape >::methods[] = {
 	{"GetSupportVertex", &luna_wrapper_b2CircleShape::_bind_GetSupportVertex},
 	{"GetVertexCount", &luna_wrapper_b2CircleShape::_bind_GetVertexCount},
 	{"GetVertex", &luna_wrapper_b2CircleShape::_bind_GetVertex},
-	{"getM_p", &luna_wrapper_b2CircleShape::_bind_getM_p},
-	{"setM_p", &luna_wrapper_b2CircleShape::_bind_setM_p},
+	{"getP", &luna_wrapper_b2CircleShape::_bind_getP},
+	{"setP", &luna_wrapper_b2CircleShape::_bind_setP},
 	{"base_Clone", &luna_wrapper_b2CircleShape::_bind_base_Clone},
 	{"base_GetChildCount", &luna_wrapper_b2CircleShape::_bind_base_GetChildCount},
 	{"base_TestPoint", &luna_wrapper_b2CircleShape::_bind_base_TestPoint},

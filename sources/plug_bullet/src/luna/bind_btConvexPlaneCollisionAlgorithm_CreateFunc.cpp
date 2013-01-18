@@ -91,26 +91,26 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numPerturbationIterations(lua_State *L) {
+	inline static bool _lg_typecheck_getNumPerturbationIterations(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_minimumPointsPerturbationThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getMinimumPointsPerturbationThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numPerturbationIterations(lua_State *L) {
+	inline static bool _lg_typecheck_setNumPerturbationIterations(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_minimumPointsPerturbationThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setMinimumPointsPerturbationThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -193,8 +193,8 @@ public:
 	}
 
 	// int btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations()
-	static int _bind_getM_numPerturbationIterations(lua_State *L) {
-		if (!_lg_typecheck_getM_numPerturbationIterations(L)) {
+	static int _bind_getNumPerturbationIterations(lua_State *L) {
+		if (!_lg_typecheck_getNumPerturbationIterations(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations() function, expected prototype:\nint btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations()\nClass arguments details:\n");
 		}
@@ -212,8 +212,8 @@ public:
 	}
 
 	// int btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold()
-	static int _bind_getM_minimumPointsPerturbationThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_minimumPointsPerturbationThreshold(L)) {
+	static int _bind_getMinimumPointsPerturbationThreshold(lua_State *L) {
+		if (!_lg_typecheck_getMinimumPointsPerturbationThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold() function, expected prototype:\nint btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold()\nClass arguments details:\n");
 		}
@@ -231,8 +231,8 @@ public:
 	}
 
 	// void btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations(int value)
-	static int _bind_setM_numPerturbationIterations(lua_State *L) {
-		if (!_lg_typecheck_setM_numPerturbationIterations(L)) {
+	static int _bind_setNumPerturbationIterations(lua_State *L) {
+		if (!_lg_typecheck_setNumPerturbationIterations(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations(int value) function, expected prototype:\nvoid btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations(int value)\nClass arguments details:\n");
 		}
@@ -250,8 +250,8 @@ public:
 	}
 
 	// void btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(int value)
-	static int _bind_setM_minimumPointsPerturbationThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_minimumPointsPerturbationThreshold(L)) {
+	static int _bind_setMinimumPointsPerturbationThreshold(lua_State *L) {
+		if (!_lg_typecheck_setMinimumPointsPerturbationThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(int value) function, expected prototype:\nvoid btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(int value)\nClass arguments details:\n");
 		}
@@ -318,10 +318,10 @@ const int LunaTraits< btConvexPlaneCollisionAlgorithm::CreateFunc >::uniqueIDs[]
 
 luna_RegType LunaTraits< btConvexPlaneCollisionAlgorithm::CreateFunc >::methods[] = {
 	{"CreateCollisionAlgorithm", &luna_wrapper_btConvexPlaneCollisionAlgorithm_CreateFunc::_bind_CreateCollisionAlgorithm},
-	{"getM_numPerturbationIterations", &luna_wrapper_btConvexPlaneCollisionAlgorithm_CreateFunc::_bind_getM_numPerturbationIterations},
-	{"getM_minimumPointsPerturbationThreshold", &luna_wrapper_btConvexPlaneCollisionAlgorithm_CreateFunc::_bind_getM_minimumPointsPerturbationThreshold},
-	{"setM_numPerturbationIterations", &luna_wrapper_btConvexPlaneCollisionAlgorithm_CreateFunc::_bind_setM_numPerturbationIterations},
-	{"setM_minimumPointsPerturbationThreshold", &luna_wrapper_btConvexPlaneCollisionAlgorithm_CreateFunc::_bind_setM_minimumPointsPerturbationThreshold},
+	{"getNumPerturbationIterations", &luna_wrapper_btConvexPlaneCollisionAlgorithm_CreateFunc::_bind_getNumPerturbationIterations},
+	{"getMinimumPointsPerturbationThreshold", &luna_wrapper_btConvexPlaneCollisionAlgorithm_CreateFunc::_bind_getMinimumPointsPerturbationThreshold},
+	{"setNumPerturbationIterations", &luna_wrapper_btConvexPlaneCollisionAlgorithm_CreateFunc::_bind_setNumPerturbationIterations},
+	{"setMinimumPointsPerturbationThreshold", &luna_wrapper_btConvexPlaneCollisionAlgorithm_CreateFunc::_bind_setMinimumPointsPerturbationThreshold},
 	{"base_CreateCollisionAlgorithm", &luna_wrapper_btConvexPlaneCollisionAlgorithm_CreateFunc::_bind_base_CreateCollisionAlgorithm},
 	{"__eq", &luna_wrapper_btConvexPlaneCollisionAlgorithm_CreateFunc::_bind___eq},
 	{"getTable", &luna_wrapper_btConvexPlaneCollisionAlgorithm_CreateFunc::_bind_getTable},

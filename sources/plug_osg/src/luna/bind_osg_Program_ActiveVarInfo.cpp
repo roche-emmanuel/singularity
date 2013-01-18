@@ -71,39 +71,39 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_get_location(lua_State *L) {
+	inline static bool _lg_typecheck_getLocation(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_type(lua_State *L) {
+	inline static bool _lg_typecheck_getType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_size(lua_State *L) {
+	inline static bool _lg_typecheck_getSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_location(lua_State *L) {
+	inline static bool _lg_typecheck_setLocation(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_type(lua_State *L) {
+	inline static bool _lg_typecheck_setType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_size(lua_State *L) {
+	inline static bool _lg_typecheck_setSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -152,8 +152,8 @@ public:
 
 	// Function binds:
 	// int osg::Program::ActiveVarInfo::_location()
-	static int _bind_get_location(lua_State *L) {
-		if (!_lg_typecheck_get_location(L)) {
+	static int _bind_getLocation(lua_State *L) {
+		if (!_lg_typecheck_getLocation(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int osg::Program::ActiveVarInfo::_location() function, expected prototype:\nint osg::Program::ActiveVarInfo::_location()\nClass arguments details:\n");
 		}
@@ -171,8 +171,8 @@ public:
 	}
 
 	// unsigned int osg::Program::ActiveVarInfo::_type()
-	static int _bind_get_type(lua_State *L) {
-		if (!_lg_typecheck_get_type(L)) {
+	static int _bind_getType(lua_State *L) {
+		if (!_lg_typecheck_getType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::Program::ActiveVarInfo::_type() function, expected prototype:\nunsigned int osg::Program::ActiveVarInfo::_type()\nClass arguments details:\n");
 		}
@@ -190,8 +190,8 @@ public:
 	}
 
 	// int osg::Program::ActiveVarInfo::_size()
-	static int _bind_get_size(lua_State *L) {
-		if (!_lg_typecheck_get_size(L)) {
+	static int _bind_getSize(lua_State *L) {
+		if (!_lg_typecheck_getSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int osg::Program::ActiveVarInfo::_size() function, expected prototype:\nint osg::Program::ActiveVarInfo::_size()\nClass arguments details:\n");
 		}
@@ -209,8 +209,8 @@ public:
 	}
 
 	// void osg::Program::ActiveVarInfo::_location(int value)
-	static int _bind_set_location(lua_State *L) {
-		if (!_lg_typecheck_set_location(L)) {
+	static int _bind_setLocation(lua_State *L) {
+		if (!_lg_typecheck_setLocation(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Program::ActiveVarInfo::_location(int value) function, expected prototype:\nvoid osg::Program::ActiveVarInfo::_location(int value)\nClass arguments details:\n");
 		}
@@ -228,8 +228,8 @@ public:
 	}
 
 	// void osg::Program::ActiveVarInfo::_type(unsigned int value)
-	static int _bind_set_type(lua_State *L) {
-		if (!_lg_typecheck_set_type(L)) {
+	static int _bind_setType(lua_State *L) {
+		if (!_lg_typecheck_setType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Program::ActiveVarInfo::_type(unsigned int value) function, expected prototype:\nvoid osg::Program::ActiveVarInfo::_type(unsigned int value)\nClass arguments details:\n");
 		}
@@ -247,8 +247,8 @@ public:
 	}
 
 	// void osg::Program::ActiveVarInfo::_size(int value)
-	static int _bind_set_size(lua_State *L) {
-		if (!_lg_typecheck_set_size(L)) {
+	static int _bind_setSize(lua_State *L) {
+		if (!_lg_typecheck_setSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Program::ActiveVarInfo::_size(int value) function, expected prototype:\nvoid osg::Program::ActiveVarInfo::_size(int value)\nClass arguments details:\n");
 		}
@@ -286,12 +286,12 @@ const int LunaTraits< osg::Program::ActiveVarInfo >::hash = 71916305;
 const int LunaTraits< osg::Program::ActiveVarInfo >::uniqueIDs[] = {71916305,0};
 
 luna_RegType LunaTraits< osg::Program::ActiveVarInfo >::methods[] = {
-	{"get_location", &luna_wrapper_osg_Program_ActiveVarInfo::_bind_get_location},
-	{"get_type", &luna_wrapper_osg_Program_ActiveVarInfo::_bind_get_type},
-	{"get_size", &luna_wrapper_osg_Program_ActiveVarInfo::_bind_get_size},
-	{"set_location", &luna_wrapper_osg_Program_ActiveVarInfo::_bind_set_location},
-	{"set_type", &luna_wrapper_osg_Program_ActiveVarInfo::_bind_set_type},
-	{"set_size", &luna_wrapper_osg_Program_ActiveVarInfo::_bind_set_size},
+	{"getLocation", &luna_wrapper_osg_Program_ActiveVarInfo::_bind_getLocation},
+	{"getType", &luna_wrapper_osg_Program_ActiveVarInfo::_bind_getType},
+	{"getSize", &luna_wrapper_osg_Program_ActiveVarInfo::_bind_getSize},
+	{"setLocation", &luna_wrapper_osg_Program_ActiveVarInfo::_bind_setLocation},
+	{"setType", &luna_wrapper_osg_Program_ActiveVarInfo::_bind_setType},
+	{"setSize", &luna_wrapper_osg_Program_ActiveVarInfo::_bind_setSize},
 	{"dynCast", &luna_wrapper_osg_Program_ActiveVarInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_Program_ActiveVarInfo::_bind___eq},
 	{0,0}

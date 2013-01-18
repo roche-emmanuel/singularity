@@ -124,26 +124,26 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_buildOptions(lua_State *L) {
+	inline static bool _lg_typecheck_getBuildOptions(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_kdTreePrototype(lua_State *L) {
+	inline static bool _lg_typecheck_getKdTreePrototype(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_buildOptions(lua_State *L) {
+	inline static bool _lg_typecheck_setBuildOptions(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,4714115) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_kdTreePrototype(lua_State *L) {
+	inline static bool _lg_typecheck_setKdTreePrototype(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,58004536) ) return false;
@@ -379,8 +379,8 @@ public:
 	}
 
 	// osg::KdTree::BuildOptions osg::KdTreeBuilder::_buildOptions()
-	static int _bind_get_buildOptions(lua_State *L) {
-		if (!_lg_typecheck_get_buildOptions(L)) {
+	static int _bind_getBuildOptions(lua_State *L) {
+		if (!_lg_typecheck_getBuildOptions(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::KdTree::BuildOptions osg::KdTreeBuilder::_buildOptions() function, expected prototype:\nosg::KdTree::BuildOptions osg::KdTreeBuilder::_buildOptions()\nClass arguments details:\n");
 		}
@@ -400,8 +400,8 @@ public:
 	}
 
 	// osg::ref_ptr< osg::KdTree > osg::KdTreeBuilder::_kdTreePrototype()
-	static int _bind_get_kdTreePrototype(lua_State *L) {
-		if (!_lg_typecheck_get_kdTreePrototype(L)) {
+	static int _bind_getKdTreePrototype(lua_State *L) {
+		if (!_lg_typecheck_getKdTreePrototype(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::KdTree > osg::KdTreeBuilder::_kdTreePrototype() function, expected prototype:\nosg::ref_ptr< osg::KdTree > osg::KdTreeBuilder::_kdTreePrototype()\nClass arguments details:\n");
 		}
@@ -419,8 +419,8 @@ public:
 	}
 
 	// void osg::KdTreeBuilder::_buildOptions(osg::KdTree::BuildOptions value)
-	static int _bind_set_buildOptions(lua_State *L) {
-		if (!_lg_typecheck_set_buildOptions(L)) {
+	static int _bind_setBuildOptions(lua_State *L) {
+		if (!_lg_typecheck_setBuildOptions(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::KdTreeBuilder::_buildOptions(osg::KdTree::BuildOptions value) function, expected prototype:\nvoid osg::KdTreeBuilder::_buildOptions(osg::KdTree::BuildOptions value)\nClass arguments details:\narg 1 ID = 4714115\n");
 		}
@@ -442,8 +442,8 @@ public:
 	}
 
 	// void osg::KdTreeBuilder::_kdTreePrototype(osg::ref_ptr< osg::KdTree > value)
-	static int _bind_set_kdTreePrototype(lua_State *L) {
-		if (!_lg_typecheck_set_kdTreePrototype(L)) {
+	static int _bind_setKdTreePrototype(lua_State *L) {
+		if (!_lg_typecheck_setKdTreePrototype(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::KdTreeBuilder::_kdTreePrototype(osg::ref_ptr< osg::KdTree > value) function, expected prototype:\nvoid osg::KdTreeBuilder::_kdTreePrototype(osg::ref_ptr< osg::KdTree > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -723,10 +723,10 @@ luna_RegType LunaTraits< osg::KdTreeBuilder >::methods[] = {
 	{"className", &luna_wrapper_osg_KdTreeBuilder::_bind_className},
 	{"clone", &luna_wrapper_osg_KdTreeBuilder::_bind_clone},
 	{"apply", &luna_wrapper_osg_KdTreeBuilder::_bind_apply},
-	{"get_buildOptions", &luna_wrapper_osg_KdTreeBuilder::_bind_get_buildOptions},
-	{"get_kdTreePrototype", &luna_wrapper_osg_KdTreeBuilder::_bind_get_kdTreePrototype},
-	{"set_buildOptions", &luna_wrapper_osg_KdTreeBuilder::_bind_set_buildOptions},
-	{"set_kdTreePrototype", &luna_wrapper_osg_KdTreeBuilder::_bind_set_kdTreePrototype},
+	{"getBuildOptions", &luna_wrapper_osg_KdTreeBuilder::_bind_getBuildOptions},
+	{"getKdTreePrototype", &luna_wrapper_osg_KdTreeBuilder::_bind_getKdTreePrototype},
+	{"setBuildOptions", &luna_wrapper_osg_KdTreeBuilder::_bind_setBuildOptions},
+	{"setKdTreePrototype", &luna_wrapper_osg_KdTreeBuilder::_bind_setKdTreePrototype},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_KdTreeBuilder::_bind_base_setThreadSafeRefUnref},
 	{"base_reset", &luna_wrapper_osg_KdTreeBuilder::_bind_base_reset},
 	{"base_getEyePoint", &luna_wrapper_osg_KdTreeBuilder::_bind_base_getEyePoint},

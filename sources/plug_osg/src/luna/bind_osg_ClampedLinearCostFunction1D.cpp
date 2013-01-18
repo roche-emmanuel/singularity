@@ -75,7 +75,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_cost0(lua_State *L) {
+	inline static bool _lg_typecheck_getCost0(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -93,7 +93,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_cost0(lua_State *L) {
+	inline static bool _lg_typecheck_setCost0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -166,8 +166,8 @@ public:
 	}
 
 	// double osg::ClampedLinearCostFunction1D::_cost0()
-	static int _bind_get_cost0(lua_State *L) {
-		if (!_lg_typecheck_get_cost0(L)) {
+	static int _bind_getCost0(lua_State *L) {
+		if (!_lg_typecheck_getCost0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double osg::ClampedLinearCostFunction1D::_cost0() function, expected prototype:\ndouble osg::ClampedLinearCostFunction1D::_cost0()\nClass arguments details:\n");
 		}
@@ -223,8 +223,8 @@ public:
 	}
 
 	// void osg::ClampedLinearCostFunction1D::_cost0(double value)
-	static int _bind_set_cost0(lua_State *L) {
-		if (!_lg_typecheck_set_cost0(L)) {
+	static int _bind_setCost0(lua_State *L) {
+		if (!_lg_typecheck_setCost0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::ClampedLinearCostFunction1D::_cost0(double value) function, expected prototype:\nvoid osg::ClampedLinearCostFunction1D::_cost0(double value)\nClass arguments details:\n");
 		}
@@ -321,10 +321,10 @@ const int LunaTraits< osg::ClampedLinearCostFunction1D >::uniqueIDs[] = {4905077
 
 luna_RegType LunaTraits< osg::ClampedLinearCostFunction1D >::methods[] = {
 	{"set", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_set},
-	{"get_cost0", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_get_cost0},
+	{"getCost0", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_getCost0},
 	{"get_dcost_di", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_get_dcost_di},
 	{"get_min_input", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_get_min_input},
-	{"set_cost0", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_set_cost0},
+	{"setCost0", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_setCost0},
 	{"set_dcost_di", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_set_dcost_di},
 	{"set_min_input", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_set_min_input},
 	{"op_call", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_op_call},

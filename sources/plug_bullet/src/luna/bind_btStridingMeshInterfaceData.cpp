@@ -56,39 +56,39 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_meshPartsPtr(lua_State *L) {
+	inline static bool _lg_typecheck_getMeshPartsPtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_scaling(lua_State *L) {
+	inline static bool _lg_typecheck_getScaling(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numMeshParts(lua_State *L) {
+	inline static bool _lg_typecheck_getNumMeshParts(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_meshPartsPtr(lua_State *L) {
+	inline static bool _lg_typecheck_setMeshPartsPtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,75941957)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_scaling(lua_State *L) {
+	inline static bool _lg_typecheck_setScaling(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,96449857) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numMeshParts(lua_State *L) {
+	inline static bool _lg_typecheck_setNumMeshParts(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -103,8 +103,8 @@ public:
 
 	// Function binds:
 	// btMeshPartData * btStridingMeshInterfaceData::m_meshPartsPtr()
-	static int _bind_getM_meshPartsPtr(lua_State *L) {
-		if (!_lg_typecheck_getM_meshPartsPtr(L)) {
+	static int _bind_getMeshPartsPtr(lua_State *L) {
+		if (!_lg_typecheck_getMeshPartsPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btMeshPartData * btStridingMeshInterfaceData::m_meshPartsPtr() function, expected prototype:\nbtMeshPartData * btStridingMeshInterfaceData::m_meshPartsPtr()\nClass arguments details:\n");
 		}
@@ -124,8 +124,8 @@ public:
 	}
 
 	// btVector3FloatData btStridingMeshInterfaceData::m_scaling()
-	static int _bind_getM_scaling(lua_State *L) {
-		if (!_lg_typecheck_getM_scaling(L)) {
+	static int _bind_getScaling(lua_State *L) {
+		if (!_lg_typecheck_getScaling(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData btStridingMeshInterfaceData::m_scaling() function, expected prototype:\nbtVector3FloatData btStridingMeshInterfaceData::m_scaling()\nClass arguments details:\n");
 		}
@@ -145,8 +145,8 @@ public:
 	}
 
 	// int btStridingMeshInterfaceData::m_numMeshParts()
-	static int _bind_getM_numMeshParts(lua_State *L) {
-		if (!_lg_typecheck_getM_numMeshParts(L)) {
+	static int _bind_getNumMeshParts(lua_State *L) {
+		if (!_lg_typecheck_getNumMeshParts(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btStridingMeshInterfaceData::m_numMeshParts() function, expected prototype:\nint btStridingMeshInterfaceData::m_numMeshParts()\nClass arguments details:\n");
 		}
@@ -164,8 +164,8 @@ public:
 	}
 
 	// void btStridingMeshInterfaceData::m_meshPartsPtr(btMeshPartData * value)
-	static int _bind_setM_meshPartsPtr(lua_State *L) {
-		if (!_lg_typecheck_setM_meshPartsPtr(L)) {
+	static int _bind_setMeshPartsPtr(lua_State *L) {
+		if (!_lg_typecheck_setMeshPartsPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btStridingMeshInterfaceData::m_meshPartsPtr(btMeshPartData * value) function, expected prototype:\nvoid btStridingMeshInterfaceData::m_meshPartsPtr(btMeshPartData * value)\nClass arguments details:\narg 1 ID = 75941957\n");
 		}
@@ -183,8 +183,8 @@ public:
 	}
 
 	// void btStridingMeshInterfaceData::m_scaling(btVector3FloatData value)
-	static int _bind_setM_scaling(lua_State *L) {
-		if (!_lg_typecheck_setM_scaling(L)) {
+	static int _bind_setScaling(lua_State *L) {
+		if (!_lg_typecheck_setScaling(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btStridingMeshInterfaceData::m_scaling(btVector3FloatData value) function, expected prototype:\nvoid btStridingMeshInterfaceData::m_scaling(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -206,8 +206,8 @@ public:
 	}
 
 	// void btStridingMeshInterfaceData::m_numMeshParts(int value)
-	static int _bind_setM_numMeshParts(lua_State *L) {
-		if (!_lg_typecheck_setM_numMeshParts(L)) {
+	static int _bind_setNumMeshParts(lua_State *L) {
+		if (!_lg_typecheck_setNumMeshParts(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btStridingMeshInterfaceData::m_numMeshParts(int value) function, expected prototype:\nvoid btStridingMeshInterfaceData::m_numMeshParts(int value)\nClass arguments details:\n");
 		}
@@ -245,12 +245,12 @@ const int LunaTraits< btStridingMeshInterfaceData >::hash = 5637632;
 const int LunaTraits< btStridingMeshInterfaceData >::uniqueIDs[] = {5637632,0};
 
 luna_RegType LunaTraits< btStridingMeshInterfaceData >::methods[] = {
-	{"getM_meshPartsPtr", &luna_wrapper_btStridingMeshInterfaceData::_bind_getM_meshPartsPtr},
-	{"getM_scaling", &luna_wrapper_btStridingMeshInterfaceData::_bind_getM_scaling},
-	{"getM_numMeshParts", &luna_wrapper_btStridingMeshInterfaceData::_bind_getM_numMeshParts},
-	{"setM_meshPartsPtr", &luna_wrapper_btStridingMeshInterfaceData::_bind_setM_meshPartsPtr},
-	{"setM_scaling", &luna_wrapper_btStridingMeshInterfaceData::_bind_setM_scaling},
-	{"setM_numMeshParts", &luna_wrapper_btStridingMeshInterfaceData::_bind_setM_numMeshParts},
+	{"getMeshPartsPtr", &luna_wrapper_btStridingMeshInterfaceData::_bind_getMeshPartsPtr},
+	{"getScaling", &luna_wrapper_btStridingMeshInterfaceData::_bind_getScaling},
+	{"getNumMeshParts", &luna_wrapper_btStridingMeshInterfaceData::_bind_getNumMeshParts},
+	{"setMeshPartsPtr", &luna_wrapper_btStridingMeshInterfaceData::_bind_setMeshPartsPtr},
+	{"setScaling", &luna_wrapper_btStridingMeshInterfaceData::_bind_setScaling},
+	{"setNumMeshParts", &luna_wrapper_btStridingMeshInterfaceData::_bind_setNumMeshParts},
 	{"dynCast", &luna_wrapper_btStridingMeshInterfaceData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btStridingMeshInterfaceData::_bind___eq},
 	{0,0}

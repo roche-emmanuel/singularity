@@ -56,26 +56,26 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_basis(lua_State *L) {
+	inline static bool _lg_typecheck_getBasis(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_origin(lua_State *L) {
+	inline static bool _lg_typecheck_getOrigin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_basis(lua_State *L) {
+	inline static bool _lg_typecheck_setBasis(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,48479346) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_origin(lua_State *L) {
+	inline static bool _lg_typecheck_setOrigin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,89582070) ) return false;
@@ -90,8 +90,8 @@ public:
 
 	// Function binds:
 	// btMatrix3x3DoubleData btTransformDoubleData::m_basis()
-	static int _bind_getM_basis(lua_State *L) {
-		if (!_lg_typecheck_getM_basis(L)) {
+	static int _bind_getBasis(lua_State *L) {
+		if (!_lg_typecheck_getBasis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btMatrix3x3DoubleData btTransformDoubleData::m_basis() function, expected prototype:\nbtMatrix3x3DoubleData btTransformDoubleData::m_basis()\nClass arguments details:\n");
 		}
@@ -111,8 +111,8 @@ public:
 	}
 
 	// btVector3DoubleData btTransformDoubleData::m_origin()
-	static int _bind_getM_origin(lua_State *L) {
-		if (!_lg_typecheck_getM_origin(L)) {
+	static int _bind_getOrigin(lua_State *L) {
+		if (!_lg_typecheck_getOrigin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3DoubleData btTransformDoubleData::m_origin() function, expected prototype:\nbtVector3DoubleData btTransformDoubleData::m_origin()\nClass arguments details:\n");
 		}
@@ -132,8 +132,8 @@ public:
 	}
 
 	// void btTransformDoubleData::m_basis(btMatrix3x3DoubleData value)
-	static int _bind_setM_basis(lua_State *L) {
-		if (!_lg_typecheck_setM_basis(L)) {
+	static int _bind_setBasis(lua_State *L) {
+		if (!_lg_typecheck_setBasis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTransformDoubleData::m_basis(btMatrix3x3DoubleData value) function, expected prototype:\nvoid btTransformDoubleData::m_basis(btMatrix3x3DoubleData value)\nClass arguments details:\narg 1 ID = 48479346\n");
 		}
@@ -155,8 +155,8 @@ public:
 	}
 
 	// void btTransformDoubleData::m_origin(btVector3DoubleData value)
-	static int _bind_setM_origin(lua_State *L) {
-		if (!_lg_typecheck_setM_origin(L)) {
+	static int _bind_setOrigin(lua_State *L) {
+		if (!_lg_typecheck_setOrigin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTransformDoubleData::m_origin(btVector3DoubleData value) function, expected prototype:\nvoid btTransformDoubleData::m_origin(btVector3DoubleData value)\nClass arguments details:\narg 1 ID = 89582070\n");
 		}
@@ -198,10 +198,10 @@ const int LunaTraits< btTransformDoubleData >::hash = 10173309;
 const int LunaTraits< btTransformDoubleData >::uniqueIDs[] = {10173309,0};
 
 luna_RegType LunaTraits< btTransformDoubleData >::methods[] = {
-	{"getM_basis", &luna_wrapper_btTransformDoubleData::_bind_getM_basis},
-	{"getM_origin", &luna_wrapper_btTransformDoubleData::_bind_getM_origin},
-	{"setM_basis", &luna_wrapper_btTransformDoubleData::_bind_setM_basis},
-	{"setM_origin", &luna_wrapper_btTransformDoubleData::_bind_setM_origin},
+	{"getBasis", &luna_wrapper_btTransformDoubleData::_bind_getBasis},
+	{"getOrigin", &luna_wrapper_btTransformDoubleData::_bind_getOrigin},
+	{"setBasis", &luna_wrapper_btTransformDoubleData::_bind_setBasis},
+	{"setOrigin", &luna_wrapper_btTransformDoubleData::_bind_setOrigin},
 	{"dynCast", &luna_wrapper_btTransformDoubleData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btTransformDoubleData::_bind___eq},
 	{0,0}

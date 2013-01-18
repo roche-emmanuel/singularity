@@ -56,169 +56,169 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_typeConstraintData(lua_State *L) {
+	inline static bool _lg_typecheck_getTypeConstraintData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rbAFrame(lua_State *L) {
+	inline static bool _lg_typecheck_getRbAFrame(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rbBFrame(lua_State *L) {
+	inline static bool _lg_typecheck_getRbBFrame(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_useReferenceFrameA(lua_State *L) {
+	inline static bool _lg_typecheck_getUseReferenceFrameA(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_angularOnly(lua_State *L) {
+	inline static bool _lg_typecheck_getAngularOnly(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_enableAngularMotor(lua_State *L) {
+	inline static bool _lg_typecheck_getEnableAngularMotor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_motorTargetVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_getMotorTargetVelocity(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_maxMotorImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_getMaxMotorImpulse(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_lowerLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getLowerLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_upperLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getUpperLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_limitSoftness(lua_State *L) {
+	inline static bool _lg_typecheck_getLimitSoftness(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_biasFactor(lua_State *L) {
+	inline static bool _lg_typecheck_getBiasFactor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_relaxationFactor(lua_State *L) {
+	inline static bool _lg_typecheck_getRelaxationFactor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_typeConstraintData(lua_State *L) {
+	inline static bool _lg_typecheck_setTypeConstraintData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,98838043) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rbAFrame(lua_State *L) {
+	inline static bool _lg_typecheck_setRbAFrame(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,93855928) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rbBFrame(lua_State *L) {
+	inline static bool _lg_typecheck_setRbBFrame(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,93855928) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_useReferenceFrameA(lua_State *L) {
+	inline static bool _lg_typecheck_setUseReferenceFrameA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_angularOnly(lua_State *L) {
+	inline static bool _lg_typecheck_setAngularOnly(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_enableAngularMotor(lua_State *L) {
+	inline static bool _lg_typecheck_setEnableAngularMotor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_motorTargetVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_setMotorTargetVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_maxMotorImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_setMaxMotorImpulse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_lowerLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setLowerLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_upperLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setUpperLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_limitSoftness(lua_State *L) {
+	inline static bool _lg_typecheck_setLimitSoftness(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_biasFactor(lua_State *L) {
+	inline static bool _lg_typecheck_setBiasFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_relaxationFactor(lua_State *L) {
+	inline static bool _lg_typecheck_setRelaxationFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -233,8 +233,8 @@ public:
 
 	// Function binds:
 	// btTypedConstraintData btHingeConstraintFloatData::m_typeConstraintData()
-	static int _bind_getM_typeConstraintData(lua_State *L) {
-		if (!_lg_typecheck_getM_typeConstraintData(L)) {
+	static int _bind_getTypeConstraintData(lua_State *L) {
+		if (!_lg_typecheck_getTypeConstraintData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTypedConstraintData btHingeConstraintFloatData::m_typeConstraintData() function, expected prototype:\nbtTypedConstraintData btHingeConstraintFloatData::m_typeConstraintData()\nClass arguments details:\n");
 		}
@@ -254,8 +254,8 @@ public:
 	}
 
 	// btTransformFloatData btHingeConstraintFloatData::m_rbAFrame()
-	static int _bind_getM_rbAFrame(lua_State *L) {
-		if (!_lg_typecheck_getM_rbAFrame(L)) {
+	static int _bind_getRbAFrame(lua_State *L) {
+		if (!_lg_typecheck_getRbAFrame(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransformFloatData btHingeConstraintFloatData::m_rbAFrame() function, expected prototype:\nbtTransformFloatData btHingeConstraintFloatData::m_rbAFrame()\nClass arguments details:\n");
 		}
@@ -275,8 +275,8 @@ public:
 	}
 
 	// btTransformFloatData btHingeConstraintFloatData::m_rbBFrame()
-	static int _bind_getM_rbBFrame(lua_State *L) {
-		if (!_lg_typecheck_getM_rbBFrame(L)) {
+	static int _bind_getRbBFrame(lua_State *L) {
+		if (!_lg_typecheck_getRbBFrame(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransformFloatData btHingeConstraintFloatData::m_rbBFrame() function, expected prototype:\nbtTransformFloatData btHingeConstraintFloatData::m_rbBFrame()\nClass arguments details:\n");
 		}
@@ -296,8 +296,8 @@ public:
 	}
 
 	// int btHingeConstraintFloatData::m_useReferenceFrameA()
-	static int _bind_getM_useReferenceFrameA(lua_State *L) {
-		if (!_lg_typecheck_getM_useReferenceFrameA(L)) {
+	static int _bind_getUseReferenceFrameA(lua_State *L) {
+		if (!_lg_typecheck_getUseReferenceFrameA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btHingeConstraintFloatData::m_useReferenceFrameA() function, expected prototype:\nint btHingeConstraintFloatData::m_useReferenceFrameA()\nClass arguments details:\n");
 		}
@@ -315,8 +315,8 @@ public:
 	}
 
 	// int btHingeConstraintFloatData::m_angularOnly()
-	static int _bind_getM_angularOnly(lua_State *L) {
-		if (!_lg_typecheck_getM_angularOnly(L)) {
+	static int _bind_getAngularOnly(lua_State *L) {
+		if (!_lg_typecheck_getAngularOnly(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btHingeConstraintFloatData::m_angularOnly() function, expected prototype:\nint btHingeConstraintFloatData::m_angularOnly()\nClass arguments details:\n");
 		}
@@ -334,8 +334,8 @@ public:
 	}
 
 	// int btHingeConstraintFloatData::m_enableAngularMotor()
-	static int _bind_getM_enableAngularMotor(lua_State *L) {
-		if (!_lg_typecheck_getM_enableAngularMotor(L)) {
+	static int _bind_getEnableAngularMotor(lua_State *L) {
+		if (!_lg_typecheck_getEnableAngularMotor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btHingeConstraintFloatData::m_enableAngularMotor() function, expected prototype:\nint btHingeConstraintFloatData::m_enableAngularMotor()\nClass arguments details:\n");
 		}
@@ -353,8 +353,8 @@ public:
 	}
 
 	// float btHingeConstraintFloatData::m_motorTargetVelocity()
-	static int _bind_getM_motorTargetVelocity(lua_State *L) {
-		if (!_lg_typecheck_getM_motorTargetVelocity(L)) {
+	static int _bind_getMotorTargetVelocity(lua_State *L) {
+		if (!_lg_typecheck_getMotorTargetVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btHingeConstraintFloatData::m_motorTargetVelocity() function, expected prototype:\nfloat btHingeConstraintFloatData::m_motorTargetVelocity()\nClass arguments details:\n");
 		}
@@ -372,8 +372,8 @@ public:
 	}
 
 	// float btHingeConstraintFloatData::m_maxMotorImpulse()
-	static int _bind_getM_maxMotorImpulse(lua_State *L) {
-		if (!_lg_typecheck_getM_maxMotorImpulse(L)) {
+	static int _bind_getMaxMotorImpulse(lua_State *L) {
+		if (!_lg_typecheck_getMaxMotorImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btHingeConstraintFloatData::m_maxMotorImpulse() function, expected prototype:\nfloat btHingeConstraintFloatData::m_maxMotorImpulse()\nClass arguments details:\n");
 		}
@@ -391,8 +391,8 @@ public:
 	}
 
 	// float btHingeConstraintFloatData::m_lowerLimit()
-	static int _bind_getM_lowerLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_lowerLimit(L)) {
+	static int _bind_getLowerLimit(lua_State *L) {
+		if (!_lg_typecheck_getLowerLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btHingeConstraintFloatData::m_lowerLimit() function, expected prototype:\nfloat btHingeConstraintFloatData::m_lowerLimit()\nClass arguments details:\n");
 		}
@@ -410,8 +410,8 @@ public:
 	}
 
 	// float btHingeConstraintFloatData::m_upperLimit()
-	static int _bind_getM_upperLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_upperLimit(L)) {
+	static int _bind_getUpperLimit(lua_State *L) {
+		if (!_lg_typecheck_getUpperLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btHingeConstraintFloatData::m_upperLimit() function, expected prototype:\nfloat btHingeConstraintFloatData::m_upperLimit()\nClass arguments details:\n");
 		}
@@ -429,8 +429,8 @@ public:
 	}
 
 	// float btHingeConstraintFloatData::m_limitSoftness()
-	static int _bind_getM_limitSoftness(lua_State *L) {
-		if (!_lg_typecheck_getM_limitSoftness(L)) {
+	static int _bind_getLimitSoftness(lua_State *L) {
+		if (!_lg_typecheck_getLimitSoftness(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btHingeConstraintFloatData::m_limitSoftness() function, expected prototype:\nfloat btHingeConstraintFloatData::m_limitSoftness()\nClass arguments details:\n");
 		}
@@ -448,8 +448,8 @@ public:
 	}
 
 	// float btHingeConstraintFloatData::m_biasFactor()
-	static int _bind_getM_biasFactor(lua_State *L) {
-		if (!_lg_typecheck_getM_biasFactor(L)) {
+	static int _bind_getBiasFactor(lua_State *L) {
+		if (!_lg_typecheck_getBiasFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btHingeConstraintFloatData::m_biasFactor() function, expected prototype:\nfloat btHingeConstraintFloatData::m_biasFactor()\nClass arguments details:\n");
 		}
@@ -467,8 +467,8 @@ public:
 	}
 
 	// float btHingeConstraintFloatData::m_relaxationFactor()
-	static int _bind_getM_relaxationFactor(lua_State *L) {
-		if (!_lg_typecheck_getM_relaxationFactor(L)) {
+	static int _bind_getRelaxationFactor(lua_State *L) {
+		if (!_lg_typecheck_getRelaxationFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btHingeConstraintFloatData::m_relaxationFactor() function, expected prototype:\nfloat btHingeConstraintFloatData::m_relaxationFactor()\nClass arguments details:\n");
 		}
@@ -486,8 +486,8 @@ public:
 	}
 
 	// void btHingeConstraintFloatData::m_typeConstraintData(btTypedConstraintData value)
-	static int _bind_setM_typeConstraintData(lua_State *L) {
-		if (!_lg_typecheck_setM_typeConstraintData(L)) {
+	static int _bind_setTypeConstraintData(lua_State *L) {
+		if (!_lg_typecheck_setTypeConstraintData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btHingeConstraintFloatData::m_typeConstraintData(btTypedConstraintData value) function, expected prototype:\nvoid btHingeConstraintFloatData::m_typeConstraintData(btTypedConstraintData value)\nClass arguments details:\narg 1 ID = 98838043\n");
 		}
@@ -509,8 +509,8 @@ public:
 	}
 
 	// void btHingeConstraintFloatData::m_rbAFrame(btTransformFloatData value)
-	static int _bind_setM_rbAFrame(lua_State *L) {
-		if (!_lg_typecheck_setM_rbAFrame(L)) {
+	static int _bind_setRbAFrame(lua_State *L) {
+		if (!_lg_typecheck_setRbAFrame(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btHingeConstraintFloatData::m_rbAFrame(btTransformFloatData value) function, expected prototype:\nvoid btHingeConstraintFloatData::m_rbAFrame(btTransformFloatData value)\nClass arguments details:\narg 1 ID = 93855928\n");
 		}
@@ -532,8 +532,8 @@ public:
 	}
 
 	// void btHingeConstraintFloatData::m_rbBFrame(btTransformFloatData value)
-	static int _bind_setM_rbBFrame(lua_State *L) {
-		if (!_lg_typecheck_setM_rbBFrame(L)) {
+	static int _bind_setRbBFrame(lua_State *L) {
+		if (!_lg_typecheck_setRbBFrame(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btHingeConstraintFloatData::m_rbBFrame(btTransformFloatData value) function, expected prototype:\nvoid btHingeConstraintFloatData::m_rbBFrame(btTransformFloatData value)\nClass arguments details:\narg 1 ID = 93855928\n");
 		}
@@ -555,8 +555,8 @@ public:
 	}
 
 	// void btHingeConstraintFloatData::m_useReferenceFrameA(int value)
-	static int _bind_setM_useReferenceFrameA(lua_State *L) {
-		if (!_lg_typecheck_setM_useReferenceFrameA(L)) {
+	static int _bind_setUseReferenceFrameA(lua_State *L) {
+		if (!_lg_typecheck_setUseReferenceFrameA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btHingeConstraintFloatData::m_useReferenceFrameA(int value) function, expected prototype:\nvoid btHingeConstraintFloatData::m_useReferenceFrameA(int value)\nClass arguments details:\n");
 		}
@@ -574,8 +574,8 @@ public:
 	}
 
 	// void btHingeConstraintFloatData::m_angularOnly(int value)
-	static int _bind_setM_angularOnly(lua_State *L) {
-		if (!_lg_typecheck_setM_angularOnly(L)) {
+	static int _bind_setAngularOnly(lua_State *L) {
+		if (!_lg_typecheck_setAngularOnly(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btHingeConstraintFloatData::m_angularOnly(int value) function, expected prototype:\nvoid btHingeConstraintFloatData::m_angularOnly(int value)\nClass arguments details:\n");
 		}
@@ -593,8 +593,8 @@ public:
 	}
 
 	// void btHingeConstraintFloatData::m_enableAngularMotor(int value)
-	static int _bind_setM_enableAngularMotor(lua_State *L) {
-		if (!_lg_typecheck_setM_enableAngularMotor(L)) {
+	static int _bind_setEnableAngularMotor(lua_State *L) {
+		if (!_lg_typecheck_setEnableAngularMotor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btHingeConstraintFloatData::m_enableAngularMotor(int value) function, expected prototype:\nvoid btHingeConstraintFloatData::m_enableAngularMotor(int value)\nClass arguments details:\n");
 		}
@@ -612,8 +612,8 @@ public:
 	}
 
 	// void btHingeConstraintFloatData::m_motorTargetVelocity(float value)
-	static int _bind_setM_motorTargetVelocity(lua_State *L) {
-		if (!_lg_typecheck_setM_motorTargetVelocity(L)) {
+	static int _bind_setMotorTargetVelocity(lua_State *L) {
+		if (!_lg_typecheck_setMotorTargetVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btHingeConstraintFloatData::m_motorTargetVelocity(float value) function, expected prototype:\nvoid btHingeConstraintFloatData::m_motorTargetVelocity(float value)\nClass arguments details:\n");
 		}
@@ -631,8 +631,8 @@ public:
 	}
 
 	// void btHingeConstraintFloatData::m_maxMotorImpulse(float value)
-	static int _bind_setM_maxMotorImpulse(lua_State *L) {
-		if (!_lg_typecheck_setM_maxMotorImpulse(L)) {
+	static int _bind_setMaxMotorImpulse(lua_State *L) {
+		if (!_lg_typecheck_setMaxMotorImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btHingeConstraintFloatData::m_maxMotorImpulse(float value) function, expected prototype:\nvoid btHingeConstraintFloatData::m_maxMotorImpulse(float value)\nClass arguments details:\n");
 		}
@@ -650,8 +650,8 @@ public:
 	}
 
 	// void btHingeConstraintFloatData::m_lowerLimit(float value)
-	static int _bind_setM_lowerLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_lowerLimit(L)) {
+	static int _bind_setLowerLimit(lua_State *L) {
+		if (!_lg_typecheck_setLowerLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btHingeConstraintFloatData::m_lowerLimit(float value) function, expected prototype:\nvoid btHingeConstraintFloatData::m_lowerLimit(float value)\nClass arguments details:\n");
 		}
@@ -669,8 +669,8 @@ public:
 	}
 
 	// void btHingeConstraintFloatData::m_upperLimit(float value)
-	static int _bind_setM_upperLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_upperLimit(L)) {
+	static int _bind_setUpperLimit(lua_State *L) {
+		if (!_lg_typecheck_setUpperLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btHingeConstraintFloatData::m_upperLimit(float value) function, expected prototype:\nvoid btHingeConstraintFloatData::m_upperLimit(float value)\nClass arguments details:\n");
 		}
@@ -688,8 +688,8 @@ public:
 	}
 
 	// void btHingeConstraintFloatData::m_limitSoftness(float value)
-	static int _bind_setM_limitSoftness(lua_State *L) {
-		if (!_lg_typecheck_setM_limitSoftness(L)) {
+	static int _bind_setLimitSoftness(lua_State *L) {
+		if (!_lg_typecheck_setLimitSoftness(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btHingeConstraintFloatData::m_limitSoftness(float value) function, expected prototype:\nvoid btHingeConstraintFloatData::m_limitSoftness(float value)\nClass arguments details:\n");
 		}
@@ -707,8 +707,8 @@ public:
 	}
 
 	// void btHingeConstraintFloatData::m_biasFactor(float value)
-	static int _bind_setM_biasFactor(lua_State *L) {
-		if (!_lg_typecheck_setM_biasFactor(L)) {
+	static int _bind_setBiasFactor(lua_State *L) {
+		if (!_lg_typecheck_setBiasFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btHingeConstraintFloatData::m_biasFactor(float value) function, expected prototype:\nvoid btHingeConstraintFloatData::m_biasFactor(float value)\nClass arguments details:\n");
 		}
@@ -726,8 +726,8 @@ public:
 	}
 
 	// void btHingeConstraintFloatData::m_relaxationFactor(float value)
-	static int _bind_setM_relaxationFactor(lua_State *L) {
-		if (!_lg_typecheck_setM_relaxationFactor(L)) {
+	static int _bind_setRelaxationFactor(lua_State *L) {
+		if (!_lg_typecheck_setRelaxationFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btHingeConstraintFloatData::m_relaxationFactor(float value) function, expected prototype:\nvoid btHingeConstraintFloatData::m_relaxationFactor(float value)\nClass arguments details:\n");
 		}
@@ -765,32 +765,32 @@ const int LunaTraits< btHingeConstraintFloatData >::hash = 29781387;
 const int LunaTraits< btHingeConstraintFloatData >::uniqueIDs[] = {29781387,0};
 
 luna_RegType LunaTraits< btHingeConstraintFloatData >::methods[] = {
-	{"getM_typeConstraintData", &luna_wrapper_btHingeConstraintFloatData::_bind_getM_typeConstraintData},
-	{"getM_rbAFrame", &luna_wrapper_btHingeConstraintFloatData::_bind_getM_rbAFrame},
-	{"getM_rbBFrame", &luna_wrapper_btHingeConstraintFloatData::_bind_getM_rbBFrame},
-	{"getM_useReferenceFrameA", &luna_wrapper_btHingeConstraintFloatData::_bind_getM_useReferenceFrameA},
-	{"getM_angularOnly", &luna_wrapper_btHingeConstraintFloatData::_bind_getM_angularOnly},
-	{"getM_enableAngularMotor", &luna_wrapper_btHingeConstraintFloatData::_bind_getM_enableAngularMotor},
-	{"getM_motorTargetVelocity", &luna_wrapper_btHingeConstraintFloatData::_bind_getM_motorTargetVelocity},
-	{"getM_maxMotorImpulse", &luna_wrapper_btHingeConstraintFloatData::_bind_getM_maxMotorImpulse},
-	{"getM_lowerLimit", &luna_wrapper_btHingeConstraintFloatData::_bind_getM_lowerLimit},
-	{"getM_upperLimit", &luna_wrapper_btHingeConstraintFloatData::_bind_getM_upperLimit},
-	{"getM_limitSoftness", &luna_wrapper_btHingeConstraintFloatData::_bind_getM_limitSoftness},
-	{"getM_biasFactor", &luna_wrapper_btHingeConstraintFloatData::_bind_getM_biasFactor},
-	{"getM_relaxationFactor", &luna_wrapper_btHingeConstraintFloatData::_bind_getM_relaxationFactor},
-	{"setM_typeConstraintData", &luna_wrapper_btHingeConstraintFloatData::_bind_setM_typeConstraintData},
-	{"setM_rbAFrame", &luna_wrapper_btHingeConstraintFloatData::_bind_setM_rbAFrame},
-	{"setM_rbBFrame", &luna_wrapper_btHingeConstraintFloatData::_bind_setM_rbBFrame},
-	{"setM_useReferenceFrameA", &luna_wrapper_btHingeConstraintFloatData::_bind_setM_useReferenceFrameA},
-	{"setM_angularOnly", &luna_wrapper_btHingeConstraintFloatData::_bind_setM_angularOnly},
-	{"setM_enableAngularMotor", &luna_wrapper_btHingeConstraintFloatData::_bind_setM_enableAngularMotor},
-	{"setM_motorTargetVelocity", &luna_wrapper_btHingeConstraintFloatData::_bind_setM_motorTargetVelocity},
-	{"setM_maxMotorImpulse", &luna_wrapper_btHingeConstraintFloatData::_bind_setM_maxMotorImpulse},
-	{"setM_lowerLimit", &luna_wrapper_btHingeConstraintFloatData::_bind_setM_lowerLimit},
-	{"setM_upperLimit", &luna_wrapper_btHingeConstraintFloatData::_bind_setM_upperLimit},
-	{"setM_limitSoftness", &luna_wrapper_btHingeConstraintFloatData::_bind_setM_limitSoftness},
-	{"setM_biasFactor", &luna_wrapper_btHingeConstraintFloatData::_bind_setM_biasFactor},
-	{"setM_relaxationFactor", &luna_wrapper_btHingeConstraintFloatData::_bind_setM_relaxationFactor},
+	{"getTypeConstraintData", &luna_wrapper_btHingeConstraintFloatData::_bind_getTypeConstraintData},
+	{"getRbAFrame", &luna_wrapper_btHingeConstraintFloatData::_bind_getRbAFrame},
+	{"getRbBFrame", &luna_wrapper_btHingeConstraintFloatData::_bind_getRbBFrame},
+	{"getUseReferenceFrameA", &luna_wrapper_btHingeConstraintFloatData::_bind_getUseReferenceFrameA},
+	{"getAngularOnly", &luna_wrapper_btHingeConstraintFloatData::_bind_getAngularOnly},
+	{"getEnableAngularMotor", &luna_wrapper_btHingeConstraintFloatData::_bind_getEnableAngularMotor},
+	{"getMotorTargetVelocity", &luna_wrapper_btHingeConstraintFloatData::_bind_getMotorTargetVelocity},
+	{"getMaxMotorImpulse", &luna_wrapper_btHingeConstraintFloatData::_bind_getMaxMotorImpulse},
+	{"getLowerLimit", &luna_wrapper_btHingeConstraintFloatData::_bind_getLowerLimit},
+	{"getUpperLimit", &luna_wrapper_btHingeConstraintFloatData::_bind_getUpperLimit},
+	{"getLimitSoftness", &luna_wrapper_btHingeConstraintFloatData::_bind_getLimitSoftness},
+	{"getBiasFactor", &luna_wrapper_btHingeConstraintFloatData::_bind_getBiasFactor},
+	{"getRelaxationFactor", &luna_wrapper_btHingeConstraintFloatData::_bind_getRelaxationFactor},
+	{"setTypeConstraintData", &luna_wrapper_btHingeConstraintFloatData::_bind_setTypeConstraintData},
+	{"setRbAFrame", &luna_wrapper_btHingeConstraintFloatData::_bind_setRbAFrame},
+	{"setRbBFrame", &luna_wrapper_btHingeConstraintFloatData::_bind_setRbBFrame},
+	{"setUseReferenceFrameA", &luna_wrapper_btHingeConstraintFloatData::_bind_setUseReferenceFrameA},
+	{"setAngularOnly", &luna_wrapper_btHingeConstraintFloatData::_bind_setAngularOnly},
+	{"setEnableAngularMotor", &luna_wrapper_btHingeConstraintFloatData::_bind_setEnableAngularMotor},
+	{"setMotorTargetVelocity", &luna_wrapper_btHingeConstraintFloatData::_bind_setMotorTargetVelocity},
+	{"setMaxMotorImpulse", &luna_wrapper_btHingeConstraintFloatData::_bind_setMaxMotorImpulse},
+	{"setLowerLimit", &luna_wrapper_btHingeConstraintFloatData::_bind_setLowerLimit},
+	{"setUpperLimit", &luna_wrapper_btHingeConstraintFloatData::_bind_setUpperLimit},
+	{"setLimitSoftness", &luna_wrapper_btHingeConstraintFloatData::_bind_setLimitSoftness},
+	{"setBiasFactor", &luna_wrapper_btHingeConstraintFloatData::_bind_setBiasFactor},
+	{"setRelaxationFactor", &luna_wrapper_btHingeConstraintFloatData::_bind_setRelaxationFactor},
 	{"dynCast", &luna_wrapper_btHingeConstraintFloatData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btHingeConstraintFloatData::_bind___eq},
 	{0,0}

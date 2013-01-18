@@ -109,39 +109,39 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_ppi(lua_State *L) {
+	inline static bool _lg_typecheck_getPpi(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_scale(lua_State *L) {
+	inline static bool _lg_typecheck_getScale(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_parentSize(lua_State *L) {
+	inline static bool _lg_typecheck_getParentSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_ppi(lua_State *L) {
+	inline static bool _lg_typecheck_setPpi(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_scale(lua_State *L) {
+	inline static bool _lg_typecheck_setScale(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_parentSize(lua_State *L) {
+	inline static bool _lg_typecheck_setParentSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
@@ -300,8 +300,8 @@ public:
 	}
 
 	// int wxTextAttrDimensionConverter::m_ppi()
-	static int _bind_getM_ppi(lua_State *L) {
-		if (!_lg_typecheck_getM_ppi(L)) {
+	static int _bind_getPpi(lua_State *L) {
+		if (!_lg_typecheck_getPpi(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int wxTextAttrDimensionConverter::m_ppi() function, expected prototype:\nint wxTextAttrDimensionConverter::m_ppi()\nClass arguments details:\n");
 		}
@@ -319,8 +319,8 @@ public:
 	}
 
 	// double wxTextAttrDimensionConverter::m_scale()
-	static int _bind_getM_scale(lua_State *L) {
-		if (!_lg_typecheck_getM_scale(L)) {
+	static int _bind_getScale(lua_State *L) {
+		if (!_lg_typecheck_getScale(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double wxTextAttrDimensionConverter::m_scale() function, expected prototype:\ndouble wxTextAttrDimensionConverter::m_scale()\nClass arguments details:\n");
 		}
@@ -338,8 +338,8 @@ public:
 	}
 
 	// wxSize wxTextAttrDimensionConverter::m_parentSize()
-	static int _bind_getM_parentSize(lua_State *L) {
-		if (!_lg_typecheck_getM_parentSize(L)) {
+	static int _bind_getParentSize(lua_State *L) {
+		if (!_lg_typecheck_getParentSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxSize wxTextAttrDimensionConverter::m_parentSize() function, expected prototype:\nwxSize wxTextAttrDimensionConverter::m_parentSize()\nClass arguments details:\n");
 		}
@@ -359,8 +359,8 @@ public:
 	}
 
 	// void wxTextAttrDimensionConverter::m_ppi(int value)
-	static int _bind_setM_ppi(lua_State *L) {
-		if (!_lg_typecheck_setM_ppi(L)) {
+	static int _bind_setPpi(lua_State *L) {
+		if (!_lg_typecheck_setPpi(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxTextAttrDimensionConverter::m_ppi(int value) function, expected prototype:\nvoid wxTextAttrDimensionConverter::m_ppi(int value)\nClass arguments details:\n");
 		}
@@ -378,8 +378,8 @@ public:
 	}
 
 	// void wxTextAttrDimensionConverter::m_scale(double value)
-	static int _bind_setM_scale(lua_State *L) {
-		if (!_lg_typecheck_setM_scale(L)) {
+	static int _bind_setScale(lua_State *L) {
+		if (!_lg_typecheck_setScale(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxTextAttrDimensionConverter::m_scale(double value) function, expected prototype:\nvoid wxTextAttrDimensionConverter::m_scale(double value)\nClass arguments details:\n");
 		}
@@ -397,8 +397,8 @@ public:
 	}
 
 	// void wxTextAttrDimensionConverter::m_parentSize(wxSize value)
-	static int _bind_setM_parentSize(lua_State *L) {
-		if (!_lg_typecheck_setM_parentSize(L)) {
+	static int _bind_setParentSize(lua_State *L) {
+		if (!_lg_typecheck_setParentSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxTextAttrDimensionConverter::m_parentSize(wxSize value) function, expected prototype:\nvoid wxTextAttrDimensionConverter::m_parentSize(wxSize value)\nClass arguments details:\narg 1 ID = 20268751\n");
 		}
@@ -444,12 +444,12 @@ luna_RegType LunaTraits< wxTextAttrDimensionConverter >::methods[] = {
 	{"GetTenthsMM", &luna_wrapper_wxTextAttrDimensionConverter::_bind_GetTenthsMM},
 	{"ConvertTenthsMMToPixels", &luna_wrapper_wxTextAttrDimensionConverter::_bind_ConvertTenthsMMToPixels},
 	{"ConvertPixelsToTenthsMM", &luna_wrapper_wxTextAttrDimensionConverter::_bind_ConvertPixelsToTenthsMM},
-	{"getM_ppi", &luna_wrapper_wxTextAttrDimensionConverter::_bind_getM_ppi},
-	{"getM_scale", &luna_wrapper_wxTextAttrDimensionConverter::_bind_getM_scale},
-	{"getM_parentSize", &luna_wrapper_wxTextAttrDimensionConverter::_bind_getM_parentSize},
-	{"setM_ppi", &luna_wrapper_wxTextAttrDimensionConverter::_bind_setM_ppi},
-	{"setM_scale", &luna_wrapper_wxTextAttrDimensionConverter::_bind_setM_scale},
-	{"setM_parentSize", &luna_wrapper_wxTextAttrDimensionConverter::_bind_setM_parentSize},
+	{"getPpi", &luna_wrapper_wxTextAttrDimensionConverter::_bind_getPpi},
+	{"getScale", &luna_wrapper_wxTextAttrDimensionConverter::_bind_getScale},
+	{"getParentSize", &luna_wrapper_wxTextAttrDimensionConverter::_bind_getParentSize},
+	{"setPpi", &luna_wrapper_wxTextAttrDimensionConverter::_bind_setPpi},
+	{"setScale", &luna_wrapper_wxTextAttrDimensionConverter::_bind_setScale},
+	{"setParentSize", &luna_wrapper_wxTextAttrDimensionConverter::_bind_setParentSize},
 	{"dynCast", &luna_wrapper_wxTextAttrDimensionConverter::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxTextAttrDimensionConverter::_bind___eq},
 	{0,0}

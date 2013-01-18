@@ -62,52 +62,52 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_transformA(lua_State *L) {
+	inline static bool _lg_typecheck_getTransformA(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_transformB(lua_State *L) {
+	inline static bool _lg_typecheck_getTransformB(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_maximumDistanceSquared(lua_State *L) {
+	inline static bool _lg_typecheck_getMaximumDistanceSquared(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_stackAlloc(lua_State *L) {
+	inline static bool _lg_typecheck_getStackAlloc(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_transformA(lua_State *L) {
+	inline static bool _lg_typecheck_setTransformA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_transformB(lua_State *L) {
+	inline static bool _lg_typecheck_setTransformB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_maximumDistanceSquared(lua_State *L) {
+	inline static bool _lg_typecheck_setMaximumDistanceSquared(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_stackAlloc(lua_State *L) {
+	inline static bool _lg_typecheck_setStackAlloc(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,46980417)) ) return false;
@@ -133,8 +133,8 @@ public:
 
 	// Function binds:
 	// btTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA()
-	static int _bind_getM_transformA(lua_State *L) {
-		if (!_lg_typecheck_getM_transformA(L)) {
+	static int _bind_getTransformA(lua_State *L) {
+		if (!_lg_typecheck_getTransformA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA() function, expected prototype:\nbtTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA()\nClass arguments details:\n");
 		}
@@ -154,8 +154,8 @@ public:
 	}
 
 	// btTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB()
-	static int _bind_getM_transformB(lua_State *L) {
-		if (!_lg_typecheck_getM_transformB(L)) {
+	static int _bind_getTransformB(lua_State *L) {
+		if (!_lg_typecheck_getTransformB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB() function, expected prototype:\nbtTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB()\nClass arguments details:\n");
 		}
@@ -175,8 +175,8 @@ public:
 	}
 
 	// float btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared()
-	static int _bind_getM_maximumDistanceSquared(lua_State *L) {
-		if (!_lg_typecheck_getM_maximumDistanceSquared(L)) {
+	static int _bind_getMaximumDistanceSquared(lua_State *L) {
+		if (!_lg_typecheck_getMaximumDistanceSquared(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared() function, expected prototype:\nfloat btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared()\nClass arguments details:\n");
 		}
@@ -194,8 +194,8 @@ public:
 	}
 
 	// btStackAlloc * btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc()
-	static int _bind_getM_stackAlloc(lua_State *L) {
-		if (!_lg_typecheck_getM_stackAlloc(L)) {
+	static int _bind_getStackAlloc(lua_State *L) {
+		if (!_lg_typecheck_getStackAlloc(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btStackAlloc * btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc() function, expected prototype:\nbtStackAlloc * btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc()\nClass arguments details:\n");
 		}
@@ -215,8 +215,8 @@ public:
 	}
 
 	// void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA(btTransform value)
-	static int _bind_setM_transformA(lua_State *L) {
-		if (!_lg_typecheck_setM_transformA(L)) {
+	static int _bind_setTransformA(lua_State *L) {
+		if (!_lg_typecheck_setTransformA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA(btTransform value) function, expected prototype:\nvoid btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
 		}
@@ -238,8 +238,8 @@ public:
 	}
 
 	// void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB(btTransform value)
-	static int _bind_setM_transformB(lua_State *L) {
-		if (!_lg_typecheck_setM_transformB(L)) {
+	static int _bind_setTransformB(lua_State *L) {
+		if (!_lg_typecheck_setTransformB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB(btTransform value) function, expected prototype:\nvoid btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
 		}
@@ -261,8 +261,8 @@ public:
 	}
 
 	// void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared(float value)
-	static int _bind_setM_maximumDistanceSquared(lua_State *L) {
-		if (!_lg_typecheck_setM_maximumDistanceSquared(L)) {
+	static int _bind_setMaximumDistanceSquared(lua_State *L) {
+		if (!_lg_typecheck_setMaximumDistanceSquared(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared(float value) function, expected prototype:\nvoid btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared(float value)\nClass arguments details:\n");
 		}
@@ -280,8 +280,8 @@ public:
 	}
 
 	// void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc(btStackAlloc * value)
-	static int _bind_setM_stackAlloc(lua_State *L) {
-		if (!_lg_typecheck_setM_stackAlloc(L)) {
+	static int _bind_setStackAlloc(lua_State *L) {
+		if (!_lg_typecheck_setStackAlloc(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc(btStackAlloc * value) function, expected prototype:\nvoid btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc(btStackAlloc * value)\nClass arguments details:\narg 1 ID = 46980417\n");
 		}
@@ -319,14 +319,14 @@ const int LunaTraits< btDiscreteCollisionDetectorInterface::ClosestPointInput >:
 const int LunaTraits< btDiscreteCollisionDetectorInterface::ClosestPointInput >::uniqueIDs[] = {99215612,0};
 
 luna_RegType LunaTraits< btDiscreteCollisionDetectorInterface::ClosestPointInput >::methods[] = {
-	{"getM_transformA", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_getM_transformA},
-	{"getM_transformB", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_getM_transformB},
-	{"getM_maximumDistanceSquared", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_getM_maximumDistanceSquared},
-	{"getM_stackAlloc", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_getM_stackAlloc},
-	{"setM_transformA", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_setM_transformA},
-	{"setM_transformB", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_setM_transformB},
-	{"setM_maximumDistanceSquared", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_setM_maximumDistanceSquared},
-	{"setM_stackAlloc", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_setM_stackAlloc},
+	{"getTransformA", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_getTransformA},
+	{"getTransformB", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_getTransformB},
+	{"getMaximumDistanceSquared", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_getMaximumDistanceSquared},
+	{"getStackAlloc", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_getStackAlloc},
+	{"setTransformA", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_setTransformA},
+	{"setTransformB", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_setTransformB},
+	{"setMaximumDistanceSquared", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_setMaximumDistanceSquared},
+	{"setStackAlloc", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_setStackAlloc},
 	{"dynCast", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind_dynCast},
 	{"__eq", &luna_wrapper_btDiscreteCollisionDetectorInterface_ClosestPointInput::_bind___eq},
 	{0,0}

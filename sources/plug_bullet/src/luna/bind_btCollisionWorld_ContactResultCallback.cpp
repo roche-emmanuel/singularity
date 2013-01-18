@@ -109,26 +109,26 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_collisionFilterGroup(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionFilterGroup(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_collisionFilterMask(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionFilterMask(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionFilterGroup(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionFilterGroup(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionFilterMask(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionFilterMask(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -211,8 +211,8 @@ public:
 	}
 
 	// short int btCollisionWorld::ContactResultCallback::m_collisionFilterGroup()
-	static int _bind_getM_collisionFilterGroup(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionFilterGroup(L)) {
+	static int _bind_getCollisionFilterGroup(lua_State *L) {
+		if (!_lg_typecheck_getCollisionFilterGroup(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in short int btCollisionWorld::ContactResultCallback::m_collisionFilterGroup() function, expected prototype:\nshort int btCollisionWorld::ContactResultCallback::m_collisionFilterGroup()\nClass arguments details:\n");
 		}
@@ -230,8 +230,8 @@ public:
 	}
 
 	// short int btCollisionWorld::ContactResultCallback::m_collisionFilterMask()
-	static int _bind_getM_collisionFilterMask(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionFilterMask(L)) {
+	static int _bind_getCollisionFilterMask(lua_State *L) {
+		if (!_lg_typecheck_getCollisionFilterMask(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in short int btCollisionWorld::ContactResultCallback::m_collisionFilterMask() function, expected prototype:\nshort int btCollisionWorld::ContactResultCallback::m_collisionFilterMask()\nClass arguments details:\n");
 		}
@@ -249,8 +249,8 @@ public:
 	}
 
 	// void btCollisionWorld::ContactResultCallback::m_collisionFilterGroup(short int value)
-	static int _bind_setM_collisionFilterGroup(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionFilterGroup(L)) {
+	static int _bind_setCollisionFilterGroup(lua_State *L) {
+		if (!_lg_typecheck_setCollisionFilterGroup(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ContactResultCallback::m_collisionFilterGroup(short int value) function, expected prototype:\nvoid btCollisionWorld::ContactResultCallback::m_collisionFilterGroup(short int value)\nClass arguments details:\n");
 		}
@@ -268,8 +268,8 @@ public:
 	}
 
 	// void btCollisionWorld::ContactResultCallback::m_collisionFilterMask(short int value)
-	static int _bind_setM_collisionFilterMask(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionFilterMask(L)) {
+	static int _bind_setCollisionFilterMask(lua_State *L) {
+		if (!_lg_typecheck_setCollisionFilterMask(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ContactResultCallback::m_collisionFilterMask(short int value) function, expected prototype:\nvoid btCollisionWorld::ContactResultCallback::m_collisionFilterMask(short int value)\nClass arguments details:\n");
 		}
@@ -332,10 +332,10 @@ const int LunaTraits< btCollisionWorld::ContactResultCallback >::uniqueIDs[] = {
 luna_RegType LunaTraits< btCollisionWorld::ContactResultCallback >::methods[] = {
 	{"needsCollision", &luna_wrapper_btCollisionWorld_ContactResultCallback::_bind_needsCollision},
 	{"addSingleResult", &luna_wrapper_btCollisionWorld_ContactResultCallback::_bind_addSingleResult},
-	{"getM_collisionFilterGroup", &luna_wrapper_btCollisionWorld_ContactResultCallback::_bind_getM_collisionFilterGroup},
-	{"getM_collisionFilterMask", &luna_wrapper_btCollisionWorld_ContactResultCallback::_bind_getM_collisionFilterMask},
-	{"setM_collisionFilterGroup", &luna_wrapper_btCollisionWorld_ContactResultCallback::_bind_setM_collisionFilterGroup},
-	{"setM_collisionFilterMask", &luna_wrapper_btCollisionWorld_ContactResultCallback::_bind_setM_collisionFilterMask},
+	{"getCollisionFilterGroup", &luna_wrapper_btCollisionWorld_ContactResultCallback::_bind_getCollisionFilterGroup},
+	{"getCollisionFilterMask", &luna_wrapper_btCollisionWorld_ContactResultCallback::_bind_getCollisionFilterMask},
+	{"setCollisionFilterGroup", &luna_wrapper_btCollisionWorld_ContactResultCallback::_bind_setCollisionFilterGroup},
+	{"setCollisionFilterMask", &luna_wrapper_btCollisionWorld_ContactResultCallback::_bind_setCollisionFilterMask},
 	{"base_needsCollision", &luna_wrapper_btCollisionWorld_ContactResultCallback::_bind_base_needsCollision},
 	{"dynCast", &luna_wrapper_btCollisionWorld_ContactResultCallback::_bind_dynCast},
 	{"__eq", &luna_wrapper_btCollisionWorld_ContactResultCallback::_bind___eq},

@@ -905,7 +905,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getFACE_CONTROLLED_BY_GEOMETRY_SHADER(lua_State *L) {
+	inline static bool _lg_typecheck_get_FACE_CONTROLLED_BY_GEOMETRY_SHADER(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -3732,8 +3732,8 @@ public:
 	}
 
 	// const unsigned int osg::Camera::FACE_CONTROLLED_BY_GEOMETRY_SHADER()
-	static int _bind_getFACE_CONTROLLED_BY_GEOMETRY_SHADER(lua_State *L) {
-		if (!_lg_typecheck_getFACE_CONTROLLED_BY_GEOMETRY_SHADER(L)) {
+	static int _bind_get_FACE_CONTROLLED_BY_GEOMETRY_SHADER(lua_State *L) {
+		if (!_lg_typecheck_get_FACE_CONTROLLED_BY_GEOMETRY_SHADER(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const unsigned int osg::Camera::FACE_CONTROLLED_BY_GEOMETRY_SHADER() function, expected prototype:\nconst unsigned int osg::Camera::FACE_CONTROLLED_BY_GEOMETRY_SHADER()\nClass arguments details:\n");
 		}
@@ -4727,7 +4727,7 @@ luna_RegType LunaTraits< osg::Camera >::methods[] = {
 	{"computeLocalToWorldMatrix", &luna_wrapper_osg_Camera::_bind_computeLocalToWorldMatrix},
 	{"computeWorldToLocalMatrix", &luna_wrapper_osg_Camera::_bind_computeWorldToLocalMatrix},
 	{"inheritCullSettings", &luna_wrapper_osg_Camera::_bind_inheritCullSettings},
-	{"getFACE_CONTROLLED_BY_GEOMETRY_SHADER", &luna_wrapper_osg_Camera::_bind_getFACE_CONTROLLED_BY_GEOMETRY_SHADER},
+	{"get_FACE_CONTROLLED_BY_GEOMETRY_SHADER", &luna_wrapper_osg_Camera::_bind_get_FACE_CONTROLLED_BY_GEOMETRY_SHADER},
 	{"base_setName", &luna_wrapper_osg_Camera::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_Camera::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_Camera::_bind_base_setUserData},

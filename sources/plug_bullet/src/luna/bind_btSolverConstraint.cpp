@@ -56,260 +56,260 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_relpos1CrossNormal(lua_State *L) {
+	inline static bool _lg_typecheck_getRelpos1CrossNormal(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contactNormal(lua_State *L) {
+	inline static bool _lg_typecheck_getContactNormal(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_relpos2CrossNormal(lua_State *L) {
+	inline static bool _lg_typecheck_getRelpos2CrossNormal(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_angularComponentA(lua_State *L) {
+	inline static bool _lg_typecheck_getAngularComponentA(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_angularComponentB(lua_State *L) {
+	inline static bool _lg_typecheck_getAngularComponentB(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_appliedPushImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_getAppliedPushImpulse(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_appliedImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_getAppliedImpulse(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_friction(lua_State *L) {
+	inline static bool _lg_typecheck_getFriction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_jacDiagABInv(lua_State *L) {
+	inline static bool _lg_typecheck_getJacDiagABInv(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rhs(lua_State *L) {
+	inline static bool _lg_typecheck_getRhs(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_cfm(lua_State *L) {
+	inline static bool _lg_typecheck_getCfm(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_lowerLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getLowerLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_upperLimit(lua_State *L) {
+	inline static bool _lg_typecheck_getUpperLimit(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rhsPenetration(lua_State *L) {
+	inline static bool _lg_typecheck_getRhsPenetration(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_originalContactPoint(lua_State *L) {
+	inline static bool _lg_typecheck_getOriginalContactPoint(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_unusedPadding4(lua_State *L) {
+	inline static bool _lg_typecheck_getUnusedPadding4(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_overrideNumSolverIterations(lua_State *L) {
+	inline static bool _lg_typecheck_getOverrideNumSolverIterations(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_frictionIndex(lua_State *L) {
+	inline static bool _lg_typecheck_getFrictionIndex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_solverBodyIdA(lua_State *L) {
+	inline static bool _lg_typecheck_getSolverBodyIdA(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_solverBodyIdB(lua_State *L) {
+	inline static bool _lg_typecheck_getSolverBodyIdB(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_relpos1CrossNormal(lua_State *L) {
+	inline static bool _lg_typecheck_setRelpos1CrossNormal(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactNormal(lua_State *L) {
+	inline static bool _lg_typecheck_setContactNormal(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_relpos2CrossNormal(lua_State *L) {
+	inline static bool _lg_typecheck_setRelpos2CrossNormal(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_angularComponentA(lua_State *L) {
+	inline static bool _lg_typecheck_setAngularComponentA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_angularComponentB(lua_State *L) {
+	inline static bool _lg_typecheck_setAngularComponentB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_appliedPushImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_setAppliedPushImpulse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_appliedImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_setAppliedImpulse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_friction(lua_State *L) {
+	inline static bool _lg_typecheck_setFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_jacDiagABInv(lua_State *L) {
+	inline static bool _lg_typecheck_setJacDiagABInv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rhs(lua_State *L) {
+	inline static bool _lg_typecheck_setRhs(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_cfm(lua_State *L) {
+	inline static bool _lg_typecheck_setCfm(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_lowerLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setLowerLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_upperLimit(lua_State *L) {
+	inline static bool _lg_typecheck_setUpperLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rhsPenetration(lua_State *L) {
+	inline static bool _lg_typecheck_setRhsPenetration(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_originalContactPoint(lua_State *L) {
+	inline static bool _lg_typecheck_setOriginalContactPoint(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_unusedPadding4(lua_State *L) {
+	inline static bool _lg_typecheck_setUnusedPadding4(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_overrideNumSolverIterations(lua_State *L) {
+	inline static bool _lg_typecheck_setOverrideNumSolverIterations(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_frictionIndex(lua_State *L) {
+	inline static bool _lg_typecheck_setFrictionIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_solverBodyIdA(lua_State *L) {
+	inline static bool _lg_typecheck_setSolverBodyIdA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_solverBodyIdB(lua_State *L) {
+	inline static bool _lg_typecheck_setSolverBodyIdB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -324,8 +324,8 @@ public:
 
 	// Function binds:
 	// btVector3 btSolverConstraint::m_relpos1CrossNormal()
-	static int _bind_getM_relpos1CrossNormal(lua_State *L) {
-		if (!_lg_typecheck_getM_relpos1CrossNormal(L)) {
+	static int _bind_getRelpos1CrossNormal(lua_State *L) {
+		if (!_lg_typecheck_getRelpos1CrossNormal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btSolverConstraint::m_relpos1CrossNormal() function, expected prototype:\nbtVector3 btSolverConstraint::m_relpos1CrossNormal()\nClass arguments details:\n");
 		}
@@ -345,8 +345,8 @@ public:
 	}
 
 	// btVector3 btSolverConstraint::m_contactNormal()
-	static int _bind_getM_contactNormal(lua_State *L) {
-		if (!_lg_typecheck_getM_contactNormal(L)) {
+	static int _bind_getContactNormal(lua_State *L) {
+		if (!_lg_typecheck_getContactNormal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btSolverConstraint::m_contactNormal() function, expected prototype:\nbtVector3 btSolverConstraint::m_contactNormal()\nClass arguments details:\n");
 		}
@@ -366,8 +366,8 @@ public:
 	}
 
 	// btVector3 btSolverConstraint::m_relpos2CrossNormal()
-	static int _bind_getM_relpos2CrossNormal(lua_State *L) {
-		if (!_lg_typecheck_getM_relpos2CrossNormal(L)) {
+	static int _bind_getRelpos2CrossNormal(lua_State *L) {
+		if (!_lg_typecheck_getRelpos2CrossNormal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btSolverConstraint::m_relpos2CrossNormal() function, expected prototype:\nbtVector3 btSolverConstraint::m_relpos2CrossNormal()\nClass arguments details:\n");
 		}
@@ -387,8 +387,8 @@ public:
 	}
 
 	// btVector3 btSolverConstraint::m_angularComponentA()
-	static int _bind_getM_angularComponentA(lua_State *L) {
-		if (!_lg_typecheck_getM_angularComponentA(L)) {
+	static int _bind_getAngularComponentA(lua_State *L) {
+		if (!_lg_typecheck_getAngularComponentA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btSolverConstraint::m_angularComponentA() function, expected prototype:\nbtVector3 btSolverConstraint::m_angularComponentA()\nClass arguments details:\n");
 		}
@@ -408,8 +408,8 @@ public:
 	}
 
 	// btVector3 btSolverConstraint::m_angularComponentB()
-	static int _bind_getM_angularComponentB(lua_State *L) {
-		if (!_lg_typecheck_getM_angularComponentB(L)) {
+	static int _bind_getAngularComponentB(lua_State *L) {
+		if (!_lg_typecheck_getAngularComponentB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btSolverConstraint::m_angularComponentB() function, expected prototype:\nbtVector3 btSolverConstraint::m_angularComponentB()\nClass arguments details:\n");
 		}
@@ -429,8 +429,8 @@ public:
 	}
 
 	// float btSolverConstraint::m_appliedPushImpulse()
-	static int _bind_getM_appliedPushImpulse(lua_State *L) {
-		if (!_lg_typecheck_getM_appliedPushImpulse(L)) {
+	static int _bind_getAppliedPushImpulse(lua_State *L) {
+		if (!_lg_typecheck_getAppliedPushImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btSolverConstraint::m_appliedPushImpulse() function, expected prototype:\nfloat btSolverConstraint::m_appliedPushImpulse()\nClass arguments details:\n");
 		}
@@ -448,8 +448,8 @@ public:
 	}
 
 	// float btSolverConstraint::m_appliedImpulse()
-	static int _bind_getM_appliedImpulse(lua_State *L) {
-		if (!_lg_typecheck_getM_appliedImpulse(L)) {
+	static int _bind_getAppliedImpulse(lua_State *L) {
+		if (!_lg_typecheck_getAppliedImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btSolverConstraint::m_appliedImpulse() function, expected prototype:\nfloat btSolverConstraint::m_appliedImpulse()\nClass arguments details:\n");
 		}
@@ -467,8 +467,8 @@ public:
 	}
 
 	// float btSolverConstraint::m_friction()
-	static int _bind_getM_friction(lua_State *L) {
-		if (!_lg_typecheck_getM_friction(L)) {
+	static int _bind_getFriction(lua_State *L) {
+		if (!_lg_typecheck_getFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btSolverConstraint::m_friction() function, expected prototype:\nfloat btSolverConstraint::m_friction()\nClass arguments details:\n");
 		}
@@ -486,8 +486,8 @@ public:
 	}
 
 	// float btSolverConstraint::m_jacDiagABInv()
-	static int _bind_getM_jacDiagABInv(lua_State *L) {
-		if (!_lg_typecheck_getM_jacDiagABInv(L)) {
+	static int _bind_getJacDiagABInv(lua_State *L) {
+		if (!_lg_typecheck_getJacDiagABInv(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btSolverConstraint::m_jacDiagABInv() function, expected prototype:\nfloat btSolverConstraint::m_jacDiagABInv()\nClass arguments details:\n");
 		}
@@ -505,8 +505,8 @@ public:
 	}
 
 	// float btSolverConstraint::m_rhs()
-	static int _bind_getM_rhs(lua_State *L) {
-		if (!_lg_typecheck_getM_rhs(L)) {
+	static int _bind_getRhs(lua_State *L) {
+		if (!_lg_typecheck_getRhs(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btSolverConstraint::m_rhs() function, expected prototype:\nfloat btSolverConstraint::m_rhs()\nClass arguments details:\n");
 		}
@@ -524,8 +524,8 @@ public:
 	}
 
 	// float btSolverConstraint::m_cfm()
-	static int _bind_getM_cfm(lua_State *L) {
-		if (!_lg_typecheck_getM_cfm(L)) {
+	static int _bind_getCfm(lua_State *L) {
+		if (!_lg_typecheck_getCfm(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btSolverConstraint::m_cfm() function, expected prototype:\nfloat btSolverConstraint::m_cfm()\nClass arguments details:\n");
 		}
@@ -543,8 +543,8 @@ public:
 	}
 
 	// float btSolverConstraint::m_lowerLimit()
-	static int _bind_getM_lowerLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_lowerLimit(L)) {
+	static int _bind_getLowerLimit(lua_State *L) {
+		if (!_lg_typecheck_getLowerLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btSolverConstraint::m_lowerLimit() function, expected prototype:\nfloat btSolverConstraint::m_lowerLimit()\nClass arguments details:\n");
 		}
@@ -562,8 +562,8 @@ public:
 	}
 
 	// float btSolverConstraint::m_upperLimit()
-	static int _bind_getM_upperLimit(lua_State *L) {
-		if (!_lg_typecheck_getM_upperLimit(L)) {
+	static int _bind_getUpperLimit(lua_State *L) {
+		if (!_lg_typecheck_getUpperLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btSolverConstraint::m_upperLimit() function, expected prototype:\nfloat btSolverConstraint::m_upperLimit()\nClass arguments details:\n");
 		}
@@ -581,8 +581,8 @@ public:
 	}
 
 	// float btSolverConstraint::m_rhsPenetration()
-	static int _bind_getM_rhsPenetration(lua_State *L) {
-		if (!_lg_typecheck_getM_rhsPenetration(L)) {
+	static int _bind_getRhsPenetration(lua_State *L) {
+		if (!_lg_typecheck_getRhsPenetration(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btSolverConstraint::m_rhsPenetration() function, expected prototype:\nfloat btSolverConstraint::m_rhsPenetration()\nClass arguments details:\n");
 		}
@@ -600,8 +600,8 @@ public:
 	}
 
 	// void * btSolverConstraint::m_originalContactPoint()
-	static int _bind_getM_originalContactPoint(lua_State *L) {
-		if (!_lg_typecheck_getM_originalContactPoint(L)) {
+	static int _bind_getOriginalContactPoint(lua_State *L) {
+		if (!_lg_typecheck_getOriginalContactPoint(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void * btSolverConstraint::m_originalContactPoint() function, expected prototype:\nvoid * btSolverConstraint::m_originalContactPoint()\nClass arguments details:\n");
 		}
@@ -621,8 +621,8 @@ public:
 	}
 
 	// float btSolverConstraint::m_unusedPadding4()
-	static int _bind_getM_unusedPadding4(lua_State *L) {
-		if (!_lg_typecheck_getM_unusedPadding4(L)) {
+	static int _bind_getUnusedPadding4(lua_State *L) {
+		if (!_lg_typecheck_getUnusedPadding4(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btSolverConstraint::m_unusedPadding4() function, expected prototype:\nfloat btSolverConstraint::m_unusedPadding4()\nClass arguments details:\n");
 		}
@@ -640,8 +640,8 @@ public:
 	}
 
 	// int btSolverConstraint::m_overrideNumSolverIterations()
-	static int _bind_getM_overrideNumSolverIterations(lua_State *L) {
-		if (!_lg_typecheck_getM_overrideNumSolverIterations(L)) {
+	static int _bind_getOverrideNumSolverIterations(lua_State *L) {
+		if (!_lg_typecheck_getOverrideNumSolverIterations(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btSolverConstraint::m_overrideNumSolverIterations() function, expected prototype:\nint btSolverConstraint::m_overrideNumSolverIterations()\nClass arguments details:\n");
 		}
@@ -659,8 +659,8 @@ public:
 	}
 
 	// int btSolverConstraint::m_frictionIndex()
-	static int _bind_getM_frictionIndex(lua_State *L) {
-		if (!_lg_typecheck_getM_frictionIndex(L)) {
+	static int _bind_getFrictionIndex(lua_State *L) {
+		if (!_lg_typecheck_getFrictionIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btSolverConstraint::m_frictionIndex() function, expected prototype:\nint btSolverConstraint::m_frictionIndex()\nClass arguments details:\n");
 		}
@@ -678,8 +678,8 @@ public:
 	}
 
 	// int btSolverConstraint::m_solverBodyIdA()
-	static int _bind_getM_solverBodyIdA(lua_State *L) {
-		if (!_lg_typecheck_getM_solverBodyIdA(L)) {
+	static int _bind_getSolverBodyIdA(lua_State *L) {
+		if (!_lg_typecheck_getSolverBodyIdA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btSolverConstraint::m_solverBodyIdA() function, expected prototype:\nint btSolverConstraint::m_solverBodyIdA()\nClass arguments details:\n");
 		}
@@ -697,8 +697,8 @@ public:
 	}
 
 	// int btSolverConstraint::m_solverBodyIdB()
-	static int _bind_getM_solverBodyIdB(lua_State *L) {
-		if (!_lg_typecheck_getM_solverBodyIdB(L)) {
+	static int _bind_getSolverBodyIdB(lua_State *L) {
+		if (!_lg_typecheck_getSolverBodyIdB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btSolverConstraint::m_solverBodyIdB() function, expected prototype:\nint btSolverConstraint::m_solverBodyIdB()\nClass arguments details:\n");
 		}
@@ -716,8 +716,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_relpos1CrossNormal(btVector3 value)
-	static int _bind_setM_relpos1CrossNormal(lua_State *L) {
-		if (!_lg_typecheck_setM_relpos1CrossNormal(L)) {
+	static int _bind_setRelpos1CrossNormal(lua_State *L) {
+		if (!_lg_typecheck_setRelpos1CrossNormal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_relpos1CrossNormal(btVector3 value) function, expected prototype:\nvoid btSolverConstraint::m_relpos1CrossNormal(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -739,8 +739,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_contactNormal(btVector3 value)
-	static int _bind_setM_contactNormal(lua_State *L) {
-		if (!_lg_typecheck_setM_contactNormal(L)) {
+	static int _bind_setContactNormal(lua_State *L) {
+		if (!_lg_typecheck_setContactNormal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_contactNormal(btVector3 value) function, expected prototype:\nvoid btSolverConstraint::m_contactNormal(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -762,8 +762,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_relpos2CrossNormal(btVector3 value)
-	static int _bind_setM_relpos2CrossNormal(lua_State *L) {
-		if (!_lg_typecheck_setM_relpos2CrossNormal(L)) {
+	static int _bind_setRelpos2CrossNormal(lua_State *L) {
+		if (!_lg_typecheck_setRelpos2CrossNormal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_relpos2CrossNormal(btVector3 value) function, expected prototype:\nvoid btSolverConstraint::m_relpos2CrossNormal(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -785,8 +785,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_angularComponentA(btVector3 value)
-	static int _bind_setM_angularComponentA(lua_State *L) {
-		if (!_lg_typecheck_setM_angularComponentA(L)) {
+	static int _bind_setAngularComponentA(lua_State *L) {
+		if (!_lg_typecheck_setAngularComponentA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_angularComponentA(btVector3 value) function, expected prototype:\nvoid btSolverConstraint::m_angularComponentA(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -808,8 +808,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_angularComponentB(btVector3 value)
-	static int _bind_setM_angularComponentB(lua_State *L) {
-		if (!_lg_typecheck_setM_angularComponentB(L)) {
+	static int _bind_setAngularComponentB(lua_State *L) {
+		if (!_lg_typecheck_setAngularComponentB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_angularComponentB(btVector3 value) function, expected prototype:\nvoid btSolverConstraint::m_angularComponentB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -831,8 +831,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_appliedPushImpulse(float value)
-	static int _bind_setM_appliedPushImpulse(lua_State *L) {
-		if (!_lg_typecheck_setM_appliedPushImpulse(L)) {
+	static int _bind_setAppliedPushImpulse(lua_State *L) {
+		if (!_lg_typecheck_setAppliedPushImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_appliedPushImpulse(float value) function, expected prototype:\nvoid btSolverConstraint::m_appliedPushImpulse(float value)\nClass arguments details:\n");
 		}
@@ -850,8 +850,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_appliedImpulse(float value)
-	static int _bind_setM_appliedImpulse(lua_State *L) {
-		if (!_lg_typecheck_setM_appliedImpulse(L)) {
+	static int _bind_setAppliedImpulse(lua_State *L) {
+		if (!_lg_typecheck_setAppliedImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_appliedImpulse(float value) function, expected prototype:\nvoid btSolverConstraint::m_appliedImpulse(float value)\nClass arguments details:\n");
 		}
@@ -869,8 +869,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_friction(float value)
-	static int _bind_setM_friction(lua_State *L) {
-		if (!_lg_typecheck_setM_friction(L)) {
+	static int _bind_setFriction(lua_State *L) {
+		if (!_lg_typecheck_setFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_friction(float value) function, expected prototype:\nvoid btSolverConstraint::m_friction(float value)\nClass arguments details:\n");
 		}
@@ -888,8 +888,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_jacDiagABInv(float value)
-	static int _bind_setM_jacDiagABInv(lua_State *L) {
-		if (!_lg_typecheck_setM_jacDiagABInv(L)) {
+	static int _bind_setJacDiagABInv(lua_State *L) {
+		if (!_lg_typecheck_setJacDiagABInv(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_jacDiagABInv(float value) function, expected prototype:\nvoid btSolverConstraint::m_jacDiagABInv(float value)\nClass arguments details:\n");
 		}
@@ -907,8 +907,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_rhs(float value)
-	static int _bind_setM_rhs(lua_State *L) {
-		if (!_lg_typecheck_setM_rhs(L)) {
+	static int _bind_setRhs(lua_State *L) {
+		if (!_lg_typecheck_setRhs(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_rhs(float value) function, expected prototype:\nvoid btSolverConstraint::m_rhs(float value)\nClass arguments details:\n");
 		}
@@ -926,8 +926,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_cfm(float value)
-	static int _bind_setM_cfm(lua_State *L) {
-		if (!_lg_typecheck_setM_cfm(L)) {
+	static int _bind_setCfm(lua_State *L) {
+		if (!_lg_typecheck_setCfm(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_cfm(float value) function, expected prototype:\nvoid btSolverConstraint::m_cfm(float value)\nClass arguments details:\n");
 		}
@@ -945,8 +945,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_lowerLimit(float value)
-	static int _bind_setM_lowerLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_lowerLimit(L)) {
+	static int _bind_setLowerLimit(lua_State *L) {
+		if (!_lg_typecheck_setLowerLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_lowerLimit(float value) function, expected prototype:\nvoid btSolverConstraint::m_lowerLimit(float value)\nClass arguments details:\n");
 		}
@@ -964,8 +964,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_upperLimit(float value)
-	static int _bind_setM_upperLimit(lua_State *L) {
-		if (!_lg_typecheck_setM_upperLimit(L)) {
+	static int _bind_setUpperLimit(lua_State *L) {
+		if (!_lg_typecheck_setUpperLimit(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_upperLimit(float value) function, expected prototype:\nvoid btSolverConstraint::m_upperLimit(float value)\nClass arguments details:\n");
 		}
@@ -983,8 +983,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_rhsPenetration(float value)
-	static int _bind_setM_rhsPenetration(lua_State *L) {
-		if (!_lg_typecheck_setM_rhsPenetration(L)) {
+	static int _bind_setRhsPenetration(lua_State *L) {
+		if (!_lg_typecheck_setRhsPenetration(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_rhsPenetration(float value) function, expected prototype:\nvoid btSolverConstraint::m_rhsPenetration(float value)\nClass arguments details:\n");
 		}
@@ -1002,8 +1002,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_originalContactPoint(void * value)
-	static int _bind_setM_originalContactPoint(lua_State *L) {
-		if (!_lg_typecheck_setM_originalContactPoint(L)) {
+	static int _bind_setOriginalContactPoint(lua_State *L) {
+		if (!_lg_typecheck_setOriginalContactPoint(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_originalContactPoint(void * value) function, expected prototype:\nvoid btSolverConstraint::m_originalContactPoint(void * value)\nClass arguments details:\n");
 		}
@@ -1021,8 +1021,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_unusedPadding4(float value)
-	static int _bind_setM_unusedPadding4(lua_State *L) {
-		if (!_lg_typecheck_setM_unusedPadding4(L)) {
+	static int _bind_setUnusedPadding4(lua_State *L) {
+		if (!_lg_typecheck_setUnusedPadding4(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_unusedPadding4(float value) function, expected prototype:\nvoid btSolverConstraint::m_unusedPadding4(float value)\nClass arguments details:\n");
 		}
@@ -1040,8 +1040,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_overrideNumSolverIterations(int value)
-	static int _bind_setM_overrideNumSolverIterations(lua_State *L) {
-		if (!_lg_typecheck_setM_overrideNumSolverIterations(L)) {
+	static int _bind_setOverrideNumSolverIterations(lua_State *L) {
+		if (!_lg_typecheck_setOverrideNumSolverIterations(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_overrideNumSolverIterations(int value) function, expected prototype:\nvoid btSolverConstraint::m_overrideNumSolverIterations(int value)\nClass arguments details:\n");
 		}
@@ -1059,8 +1059,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_frictionIndex(int value)
-	static int _bind_setM_frictionIndex(lua_State *L) {
-		if (!_lg_typecheck_setM_frictionIndex(L)) {
+	static int _bind_setFrictionIndex(lua_State *L) {
+		if (!_lg_typecheck_setFrictionIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_frictionIndex(int value) function, expected prototype:\nvoid btSolverConstraint::m_frictionIndex(int value)\nClass arguments details:\n");
 		}
@@ -1078,8 +1078,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_solverBodyIdA(int value)
-	static int _bind_setM_solverBodyIdA(lua_State *L) {
-		if (!_lg_typecheck_setM_solverBodyIdA(L)) {
+	static int _bind_setSolverBodyIdA(lua_State *L) {
+		if (!_lg_typecheck_setSolverBodyIdA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_solverBodyIdA(int value) function, expected prototype:\nvoid btSolverConstraint::m_solverBodyIdA(int value)\nClass arguments details:\n");
 		}
@@ -1097,8 +1097,8 @@ public:
 	}
 
 	// void btSolverConstraint::m_solverBodyIdB(int value)
-	static int _bind_setM_solverBodyIdB(lua_State *L) {
-		if (!_lg_typecheck_setM_solverBodyIdB(L)) {
+	static int _bind_setSolverBodyIdB(lua_State *L) {
+		if (!_lg_typecheck_setSolverBodyIdB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverConstraint::m_solverBodyIdB(int value) function, expected prototype:\nvoid btSolverConstraint::m_solverBodyIdB(int value)\nClass arguments details:\n");
 		}
@@ -1136,46 +1136,46 @@ const int LunaTraits< btSolverConstraint >::hash = 67106554;
 const int LunaTraits< btSolverConstraint >::uniqueIDs[] = {67106554,0};
 
 luna_RegType LunaTraits< btSolverConstraint >::methods[] = {
-	{"getM_relpos1CrossNormal", &luna_wrapper_btSolverConstraint::_bind_getM_relpos1CrossNormal},
-	{"getM_contactNormal", &luna_wrapper_btSolverConstraint::_bind_getM_contactNormal},
-	{"getM_relpos2CrossNormal", &luna_wrapper_btSolverConstraint::_bind_getM_relpos2CrossNormal},
-	{"getM_angularComponentA", &luna_wrapper_btSolverConstraint::_bind_getM_angularComponentA},
-	{"getM_angularComponentB", &luna_wrapper_btSolverConstraint::_bind_getM_angularComponentB},
-	{"getM_appliedPushImpulse", &luna_wrapper_btSolverConstraint::_bind_getM_appliedPushImpulse},
-	{"getM_appliedImpulse", &luna_wrapper_btSolverConstraint::_bind_getM_appliedImpulse},
-	{"getM_friction", &luna_wrapper_btSolverConstraint::_bind_getM_friction},
-	{"getM_jacDiagABInv", &luna_wrapper_btSolverConstraint::_bind_getM_jacDiagABInv},
-	{"getM_rhs", &luna_wrapper_btSolverConstraint::_bind_getM_rhs},
-	{"getM_cfm", &luna_wrapper_btSolverConstraint::_bind_getM_cfm},
-	{"getM_lowerLimit", &luna_wrapper_btSolverConstraint::_bind_getM_lowerLimit},
-	{"getM_upperLimit", &luna_wrapper_btSolverConstraint::_bind_getM_upperLimit},
-	{"getM_rhsPenetration", &luna_wrapper_btSolverConstraint::_bind_getM_rhsPenetration},
-	{"getM_originalContactPoint", &luna_wrapper_btSolverConstraint::_bind_getM_originalContactPoint},
-	{"getM_unusedPadding4", &luna_wrapper_btSolverConstraint::_bind_getM_unusedPadding4},
-	{"getM_overrideNumSolverIterations", &luna_wrapper_btSolverConstraint::_bind_getM_overrideNumSolverIterations},
-	{"getM_frictionIndex", &luna_wrapper_btSolverConstraint::_bind_getM_frictionIndex},
-	{"getM_solverBodyIdA", &luna_wrapper_btSolverConstraint::_bind_getM_solverBodyIdA},
-	{"getM_solverBodyIdB", &luna_wrapper_btSolverConstraint::_bind_getM_solverBodyIdB},
-	{"setM_relpos1CrossNormal", &luna_wrapper_btSolverConstraint::_bind_setM_relpos1CrossNormal},
-	{"setM_contactNormal", &luna_wrapper_btSolverConstraint::_bind_setM_contactNormal},
-	{"setM_relpos2CrossNormal", &luna_wrapper_btSolverConstraint::_bind_setM_relpos2CrossNormal},
-	{"setM_angularComponentA", &luna_wrapper_btSolverConstraint::_bind_setM_angularComponentA},
-	{"setM_angularComponentB", &luna_wrapper_btSolverConstraint::_bind_setM_angularComponentB},
-	{"setM_appliedPushImpulse", &luna_wrapper_btSolverConstraint::_bind_setM_appliedPushImpulse},
-	{"setM_appliedImpulse", &luna_wrapper_btSolverConstraint::_bind_setM_appliedImpulse},
-	{"setM_friction", &luna_wrapper_btSolverConstraint::_bind_setM_friction},
-	{"setM_jacDiagABInv", &luna_wrapper_btSolverConstraint::_bind_setM_jacDiagABInv},
-	{"setM_rhs", &luna_wrapper_btSolverConstraint::_bind_setM_rhs},
-	{"setM_cfm", &luna_wrapper_btSolverConstraint::_bind_setM_cfm},
-	{"setM_lowerLimit", &luna_wrapper_btSolverConstraint::_bind_setM_lowerLimit},
-	{"setM_upperLimit", &luna_wrapper_btSolverConstraint::_bind_setM_upperLimit},
-	{"setM_rhsPenetration", &luna_wrapper_btSolverConstraint::_bind_setM_rhsPenetration},
-	{"setM_originalContactPoint", &luna_wrapper_btSolverConstraint::_bind_setM_originalContactPoint},
-	{"setM_unusedPadding4", &luna_wrapper_btSolverConstraint::_bind_setM_unusedPadding4},
-	{"setM_overrideNumSolverIterations", &luna_wrapper_btSolverConstraint::_bind_setM_overrideNumSolverIterations},
-	{"setM_frictionIndex", &luna_wrapper_btSolverConstraint::_bind_setM_frictionIndex},
-	{"setM_solverBodyIdA", &luna_wrapper_btSolverConstraint::_bind_setM_solverBodyIdA},
-	{"setM_solverBodyIdB", &luna_wrapper_btSolverConstraint::_bind_setM_solverBodyIdB},
+	{"getRelpos1CrossNormal", &luna_wrapper_btSolverConstraint::_bind_getRelpos1CrossNormal},
+	{"getContactNormal", &luna_wrapper_btSolverConstraint::_bind_getContactNormal},
+	{"getRelpos2CrossNormal", &luna_wrapper_btSolverConstraint::_bind_getRelpos2CrossNormal},
+	{"getAngularComponentA", &luna_wrapper_btSolverConstraint::_bind_getAngularComponentA},
+	{"getAngularComponentB", &luna_wrapper_btSolverConstraint::_bind_getAngularComponentB},
+	{"getAppliedPushImpulse", &luna_wrapper_btSolverConstraint::_bind_getAppliedPushImpulse},
+	{"getAppliedImpulse", &luna_wrapper_btSolverConstraint::_bind_getAppliedImpulse},
+	{"getFriction", &luna_wrapper_btSolverConstraint::_bind_getFriction},
+	{"getJacDiagABInv", &luna_wrapper_btSolverConstraint::_bind_getJacDiagABInv},
+	{"getRhs", &luna_wrapper_btSolverConstraint::_bind_getRhs},
+	{"getCfm", &luna_wrapper_btSolverConstraint::_bind_getCfm},
+	{"getLowerLimit", &luna_wrapper_btSolverConstraint::_bind_getLowerLimit},
+	{"getUpperLimit", &luna_wrapper_btSolverConstraint::_bind_getUpperLimit},
+	{"getRhsPenetration", &luna_wrapper_btSolverConstraint::_bind_getRhsPenetration},
+	{"getOriginalContactPoint", &luna_wrapper_btSolverConstraint::_bind_getOriginalContactPoint},
+	{"getUnusedPadding4", &luna_wrapper_btSolverConstraint::_bind_getUnusedPadding4},
+	{"getOverrideNumSolverIterations", &luna_wrapper_btSolverConstraint::_bind_getOverrideNumSolverIterations},
+	{"getFrictionIndex", &luna_wrapper_btSolverConstraint::_bind_getFrictionIndex},
+	{"getSolverBodyIdA", &luna_wrapper_btSolverConstraint::_bind_getSolverBodyIdA},
+	{"getSolverBodyIdB", &luna_wrapper_btSolverConstraint::_bind_getSolverBodyIdB},
+	{"setRelpos1CrossNormal", &luna_wrapper_btSolverConstraint::_bind_setRelpos1CrossNormal},
+	{"setContactNormal", &luna_wrapper_btSolverConstraint::_bind_setContactNormal},
+	{"setRelpos2CrossNormal", &luna_wrapper_btSolverConstraint::_bind_setRelpos2CrossNormal},
+	{"setAngularComponentA", &luna_wrapper_btSolverConstraint::_bind_setAngularComponentA},
+	{"setAngularComponentB", &luna_wrapper_btSolverConstraint::_bind_setAngularComponentB},
+	{"setAppliedPushImpulse", &luna_wrapper_btSolverConstraint::_bind_setAppliedPushImpulse},
+	{"setAppliedImpulse", &luna_wrapper_btSolverConstraint::_bind_setAppliedImpulse},
+	{"setFriction", &luna_wrapper_btSolverConstraint::_bind_setFriction},
+	{"setJacDiagABInv", &luna_wrapper_btSolverConstraint::_bind_setJacDiagABInv},
+	{"setRhs", &luna_wrapper_btSolverConstraint::_bind_setRhs},
+	{"setCfm", &luna_wrapper_btSolverConstraint::_bind_setCfm},
+	{"setLowerLimit", &luna_wrapper_btSolverConstraint::_bind_setLowerLimit},
+	{"setUpperLimit", &luna_wrapper_btSolverConstraint::_bind_setUpperLimit},
+	{"setRhsPenetration", &luna_wrapper_btSolverConstraint::_bind_setRhsPenetration},
+	{"setOriginalContactPoint", &luna_wrapper_btSolverConstraint::_bind_setOriginalContactPoint},
+	{"setUnusedPadding4", &luna_wrapper_btSolverConstraint::_bind_setUnusedPadding4},
+	{"setOverrideNumSolverIterations", &luna_wrapper_btSolverConstraint::_bind_setOverrideNumSolverIterations},
+	{"setFrictionIndex", &luna_wrapper_btSolverConstraint::_bind_setFrictionIndex},
+	{"setSolverBodyIdA", &luna_wrapper_btSolverConstraint::_bind_setSolverBodyIdA},
+	{"setSolverBodyIdB", &luna_wrapper_btSolverConstraint::_bind_setSolverBodyIdB},
 	{"dynCast", &luna_wrapper_btSolverConstraint::_bind_dynCast},
 	{"__eq", &luna_wrapper_btSolverConstraint::_bind___eq},
 	{0,0}

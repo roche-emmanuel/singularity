@@ -56,78 +56,78 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_collisionShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionShapeData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_meshInterface(lua_State *L) {
+	inline static bool _lg_typecheck_getMeshInterface(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_quantizedFloatBvh(lua_State *L) {
+	inline static bool _lg_typecheck_getQuantizedFloatBvh(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_quantizedDoubleBvh(lua_State *L) {
+	inline static bool _lg_typecheck_getQuantizedDoubleBvh(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_triangleInfoMap(lua_State *L) {
+	inline static bool _lg_typecheck_getTriangleInfoMap(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_collisionMargin(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionMargin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionShapeData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,94025107) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_meshInterface(lua_State *L) {
+	inline static bool _lg_typecheck_setMeshInterface(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,5637632) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_quantizedFloatBvh(lua_State *L) {
+	inline static bool _lg_typecheck_setQuantizedFloatBvh(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,49199970)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_quantizedDoubleBvh(lua_State *L) {
+	inline static bool _lg_typecheck_setQuantizedDoubleBvh(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,27343504)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_triangleInfoMap(lua_State *L) {
+	inline static bool _lg_typecheck_setTriangleInfoMap(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,61372357)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionMargin(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -142,8 +142,8 @@ public:
 
 	// Function binds:
 	// btCollisionShapeData btTriangleMeshShapeData::m_collisionShapeData()
-	static int _bind_getM_collisionShapeData(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionShapeData(L)) {
+	static int _bind_getCollisionShapeData(lua_State *L) {
+		if (!_lg_typecheck_getCollisionShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btCollisionShapeData btTriangleMeshShapeData::m_collisionShapeData() function, expected prototype:\nbtCollisionShapeData btTriangleMeshShapeData::m_collisionShapeData()\nClass arguments details:\n");
 		}
@@ -163,8 +163,8 @@ public:
 	}
 
 	// btStridingMeshInterfaceData btTriangleMeshShapeData::m_meshInterface()
-	static int _bind_getM_meshInterface(lua_State *L) {
-		if (!_lg_typecheck_getM_meshInterface(L)) {
+	static int _bind_getMeshInterface(lua_State *L) {
+		if (!_lg_typecheck_getMeshInterface(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btStridingMeshInterfaceData btTriangleMeshShapeData::m_meshInterface() function, expected prototype:\nbtStridingMeshInterfaceData btTriangleMeshShapeData::m_meshInterface()\nClass arguments details:\n");
 		}
@@ -184,8 +184,8 @@ public:
 	}
 
 	// btQuantizedBvhFloatData * btTriangleMeshShapeData::m_quantizedFloatBvh()
-	static int _bind_getM_quantizedFloatBvh(lua_State *L) {
-		if (!_lg_typecheck_getM_quantizedFloatBvh(L)) {
+	static int _bind_getQuantizedFloatBvh(lua_State *L) {
+		if (!_lg_typecheck_getQuantizedFloatBvh(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btQuantizedBvhFloatData * btTriangleMeshShapeData::m_quantizedFloatBvh() function, expected prototype:\nbtQuantizedBvhFloatData * btTriangleMeshShapeData::m_quantizedFloatBvh()\nClass arguments details:\n");
 		}
@@ -205,8 +205,8 @@ public:
 	}
 
 	// btQuantizedBvhDoubleData * btTriangleMeshShapeData::m_quantizedDoubleBvh()
-	static int _bind_getM_quantizedDoubleBvh(lua_State *L) {
-		if (!_lg_typecheck_getM_quantizedDoubleBvh(L)) {
+	static int _bind_getQuantizedDoubleBvh(lua_State *L) {
+		if (!_lg_typecheck_getQuantizedDoubleBvh(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btQuantizedBvhDoubleData * btTriangleMeshShapeData::m_quantizedDoubleBvh() function, expected prototype:\nbtQuantizedBvhDoubleData * btTriangleMeshShapeData::m_quantizedDoubleBvh()\nClass arguments details:\n");
 		}
@@ -226,8 +226,8 @@ public:
 	}
 
 	// btTriangleInfoMapData * btTriangleMeshShapeData::m_triangleInfoMap()
-	static int _bind_getM_triangleInfoMap(lua_State *L) {
-		if (!_lg_typecheck_getM_triangleInfoMap(L)) {
+	static int _bind_getTriangleInfoMap(lua_State *L) {
+		if (!_lg_typecheck_getTriangleInfoMap(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTriangleInfoMapData * btTriangleMeshShapeData::m_triangleInfoMap() function, expected prototype:\nbtTriangleInfoMapData * btTriangleMeshShapeData::m_triangleInfoMap()\nClass arguments details:\n");
 		}
@@ -247,8 +247,8 @@ public:
 	}
 
 	// float btTriangleMeshShapeData::m_collisionMargin()
-	static int _bind_getM_collisionMargin(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionMargin(L)) {
+	static int _bind_getCollisionMargin(lua_State *L) {
+		if (!_lg_typecheck_getCollisionMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTriangleMeshShapeData::m_collisionMargin() function, expected prototype:\nfloat btTriangleMeshShapeData::m_collisionMargin()\nClass arguments details:\n");
 		}
@@ -266,8 +266,8 @@ public:
 	}
 
 	// void btTriangleMeshShapeData::m_collisionShapeData(btCollisionShapeData value)
-	static int _bind_setM_collisionShapeData(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionShapeData(L)) {
+	static int _bind_setCollisionShapeData(lua_State *L) {
+		if (!_lg_typecheck_setCollisionShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_collisionShapeData(btCollisionShapeData value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_collisionShapeData(btCollisionShapeData value)\nClass arguments details:\narg 1 ID = 94025107\n");
 		}
@@ -289,8 +289,8 @@ public:
 	}
 
 	// void btTriangleMeshShapeData::m_meshInterface(btStridingMeshInterfaceData value)
-	static int _bind_setM_meshInterface(lua_State *L) {
-		if (!_lg_typecheck_setM_meshInterface(L)) {
+	static int _bind_setMeshInterface(lua_State *L) {
+		if (!_lg_typecheck_setMeshInterface(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_meshInterface(btStridingMeshInterfaceData value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_meshInterface(btStridingMeshInterfaceData value)\nClass arguments details:\narg 1 ID = 5637632\n");
 		}
@@ -312,8 +312,8 @@ public:
 	}
 
 	// void btTriangleMeshShapeData::m_quantizedFloatBvh(btQuantizedBvhFloatData * value)
-	static int _bind_setM_quantizedFloatBvh(lua_State *L) {
-		if (!_lg_typecheck_setM_quantizedFloatBvh(L)) {
+	static int _bind_setQuantizedFloatBvh(lua_State *L) {
+		if (!_lg_typecheck_setQuantizedFloatBvh(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_quantizedFloatBvh(btQuantizedBvhFloatData * value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_quantizedFloatBvh(btQuantizedBvhFloatData * value)\nClass arguments details:\narg 1 ID = 49199970\n");
 		}
@@ -331,8 +331,8 @@ public:
 	}
 
 	// void btTriangleMeshShapeData::m_quantizedDoubleBvh(btQuantizedBvhDoubleData * value)
-	static int _bind_setM_quantizedDoubleBvh(lua_State *L) {
-		if (!_lg_typecheck_setM_quantizedDoubleBvh(L)) {
+	static int _bind_setQuantizedDoubleBvh(lua_State *L) {
+		if (!_lg_typecheck_setQuantizedDoubleBvh(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_quantizedDoubleBvh(btQuantizedBvhDoubleData * value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_quantizedDoubleBvh(btQuantizedBvhDoubleData * value)\nClass arguments details:\narg 1 ID = 27343504\n");
 		}
@@ -350,8 +350,8 @@ public:
 	}
 
 	// void btTriangleMeshShapeData::m_triangleInfoMap(btTriangleInfoMapData * value)
-	static int _bind_setM_triangleInfoMap(lua_State *L) {
-		if (!_lg_typecheck_setM_triangleInfoMap(L)) {
+	static int _bind_setTriangleInfoMap(lua_State *L) {
+		if (!_lg_typecheck_setTriangleInfoMap(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_triangleInfoMap(btTriangleInfoMapData * value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_triangleInfoMap(btTriangleInfoMapData * value)\nClass arguments details:\narg 1 ID = 61372357\n");
 		}
@@ -369,8 +369,8 @@ public:
 	}
 
 	// void btTriangleMeshShapeData::m_collisionMargin(float value)
-	static int _bind_setM_collisionMargin(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionMargin(L)) {
+	static int _bind_setCollisionMargin(lua_State *L) {
+		if (!_lg_typecheck_setCollisionMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_collisionMargin(float value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_collisionMargin(float value)\nClass arguments details:\n");
 		}
@@ -408,18 +408,18 @@ const int LunaTraits< btTriangleMeshShapeData >::hash = 3729562;
 const int LunaTraits< btTriangleMeshShapeData >::uniqueIDs[] = {3729562,0};
 
 luna_RegType LunaTraits< btTriangleMeshShapeData >::methods[] = {
-	{"getM_collisionShapeData", &luna_wrapper_btTriangleMeshShapeData::_bind_getM_collisionShapeData},
-	{"getM_meshInterface", &luna_wrapper_btTriangleMeshShapeData::_bind_getM_meshInterface},
-	{"getM_quantizedFloatBvh", &luna_wrapper_btTriangleMeshShapeData::_bind_getM_quantizedFloatBvh},
-	{"getM_quantizedDoubleBvh", &luna_wrapper_btTriangleMeshShapeData::_bind_getM_quantizedDoubleBvh},
-	{"getM_triangleInfoMap", &luna_wrapper_btTriangleMeshShapeData::_bind_getM_triangleInfoMap},
-	{"getM_collisionMargin", &luna_wrapper_btTriangleMeshShapeData::_bind_getM_collisionMargin},
-	{"setM_collisionShapeData", &luna_wrapper_btTriangleMeshShapeData::_bind_setM_collisionShapeData},
-	{"setM_meshInterface", &luna_wrapper_btTriangleMeshShapeData::_bind_setM_meshInterface},
-	{"setM_quantizedFloatBvh", &luna_wrapper_btTriangleMeshShapeData::_bind_setM_quantizedFloatBvh},
-	{"setM_quantizedDoubleBvh", &luna_wrapper_btTriangleMeshShapeData::_bind_setM_quantizedDoubleBvh},
-	{"setM_triangleInfoMap", &luna_wrapper_btTriangleMeshShapeData::_bind_setM_triangleInfoMap},
-	{"setM_collisionMargin", &luna_wrapper_btTriangleMeshShapeData::_bind_setM_collisionMargin},
+	{"getCollisionShapeData", &luna_wrapper_btTriangleMeshShapeData::_bind_getCollisionShapeData},
+	{"getMeshInterface", &luna_wrapper_btTriangleMeshShapeData::_bind_getMeshInterface},
+	{"getQuantizedFloatBvh", &luna_wrapper_btTriangleMeshShapeData::_bind_getQuantizedFloatBvh},
+	{"getQuantizedDoubleBvh", &luna_wrapper_btTriangleMeshShapeData::_bind_getQuantizedDoubleBvh},
+	{"getTriangleInfoMap", &luna_wrapper_btTriangleMeshShapeData::_bind_getTriangleInfoMap},
+	{"getCollisionMargin", &luna_wrapper_btTriangleMeshShapeData::_bind_getCollisionMargin},
+	{"setCollisionShapeData", &luna_wrapper_btTriangleMeshShapeData::_bind_setCollisionShapeData},
+	{"setMeshInterface", &luna_wrapper_btTriangleMeshShapeData::_bind_setMeshInterface},
+	{"setQuantizedFloatBvh", &luna_wrapper_btTriangleMeshShapeData::_bind_setQuantizedFloatBvh},
+	{"setQuantizedDoubleBvh", &luna_wrapper_btTriangleMeshShapeData::_bind_setQuantizedDoubleBvh},
+	{"setTriangleInfoMap", &luna_wrapper_btTriangleMeshShapeData::_bind_setTriangleInfoMap},
+	{"setCollisionMargin", &luna_wrapper_btTriangleMeshShapeData::_bind_setCollisionMargin},
 	{"dynCast", &luna_wrapper_btTriangleMeshShapeData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btTriangleMeshShapeData::_bind___eq},
 	{0,0}

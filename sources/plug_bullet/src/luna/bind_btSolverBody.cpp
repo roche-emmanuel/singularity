@@ -207,143 +207,100 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_worldTransform(lua_State *L) {
+	inline static bool _lg_typecheck_getAngularFactor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_deltaLinearVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_getLinearFactor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_deltaAngularVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_getInvMass(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_angularFactor(lua_State *L) {
+	inline static bool _lg_typecheck_getLinearVelocity(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_linearFactor(lua_State *L) {
+	inline static bool _lg_typecheck_getOriginalBody(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_invMass(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getM_pushVelocity(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getM_turnVelocity(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getM_linearVelocity(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getM_angularVelocity(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getM_originalBody(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_setM_worldTransform(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_setM_deltaLinearVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_setDeltaLinearVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_deltaAngularVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_setDeltaAngularVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_angularFactor(lua_State *L) {
+	inline static bool _lg_typecheck_setAngularFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_linearFactor(lua_State *L) {
+	inline static bool _lg_typecheck_setLinearFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_invMass(lua_State *L) {
+	inline static bool _lg_typecheck_setInvMass(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_pushVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_setPushVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_turnVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_setTurnVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_linearVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_setLinearVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_angularVelocity(lua_State *L) {
+	inline static bool _lg_typecheck_setAngularVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_originalBody(lua_State *L) {
+	inline static bool _lg_typecheck_setOriginalBody(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,85758361)) ) return false;
@@ -861,72 +818,9 @@ public:
 		return 0;
 	}
 
-	// btTransform btSolverBody::m_worldTransform()
-	static int _bind_getM_worldTransform(lua_State *L) {
-		if (!_lg_typecheck_getM_worldTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btSolverBody::m_worldTransform() function, expected prototype:\nbtTransform btSolverBody::m_worldTransform()\nClass arguments details:\n");
-		}
-
-
-		btSolverBody* self=(Luna< btSolverBody >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btSolverBody::m_worldTransform(). Got : '%s'",typeid(Luna< btSolverBody >::check(L,1)).name());
-		}
-		const btTransform* lret = &self->m_worldTransform;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< btTransform >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// btVector3 btSolverBody::m_deltaLinearVelocity()
-	static int _bind_getM_deltaLinearVelocity(lua_State *L) {
-		if (!_lg_typecheck_getM_deltaLinearVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btSolverBody::m_deltaLinearVelocity() function, expected prototype:\nbtVector3 btSolverBody::m_deltaLinearVelocity()\nClass arguments details:\n");
-		}
-
-
-		btSolverBody* self=(Luna< btSolverBody >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btSolverBody::m_deltaLinearVelocity(). Got : '%s'",typeid(Luna< btSolverBody >::check(L,1)).name());
-		}
-		const btVector3* lret = &self->m_deltaLinearVelocity;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< btVector3 >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// btVector3 btSolverBody::m_deltaAngularVelocity()
-	static int _bind_getM_deltaAngularVelocity(lua_State *L) {
-		if (!_lg_typecheck_getM_deltaAngularVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btSolverBody::m_deltaAngularVelocity() function, expected prototype:\nbtVector3 btSolverBody::m_deltaAngularVelocity()\nClass arguments details:\n");
-		}
-
-
-		btSolverBody* self=(Luna< btSolverBody >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btSolverBody::m_deltaAngularVelocity(). Got : '%s'",typeid(Luna< btSolverBody >::check(L,1)).name());
-		}
-		const btVector3* lret = &self->m_deltaAngularVelocity;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< btVector3 >::push(L,lret,false);
-
-		return 1;
-	}
-
 	// btVector3 btSolverBody::m_angularFactor()
-	static int _bind_getM_angularFactor(lua_State *L) {
-		if (!_lg_typecheck_getM_angularFactor(L)) {
+	static int _bind_getAngularFactor(lua_State *L) {
+		if (!_lg_typecheck_getAngularFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btSolverBody::m_angularFactor() function, expected prototype:\nbtVector3 btSolverBody::m_angularFactor()\nClass arguments details:\n");
 		}
@@ -946,8 +840,8 @@ public:
 	}
 
 	// btVector3 btSolverBody::m_linearFactor()
-	static int _bind_getM_linearFactor(lua_State *L) {
-		if (!_lg_typecheck_getM_linearFactor(L)) {
+	static int _bind_getLinearFactor(lua_State *L) {
+		if (!_lg_typecheck_getLinearFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btSolverBody::m_linearFactor() function, expected prototype:\nbtVector3 btSolverBody::m_linearFactor()\nClass arguments details:\n");
 		}
@@ -967,8 +861,8 @@ public:
 	}
 
 	// btVector3 btSolverBody::m_invMass()
-	static int _bind_getM_invMass(lua_State *L) {
-		if (!_lg_typecheck_getM_invMass(L)) {
+	static int _bind_getInvMass(lua_State *L) {
+		if (!_lg_typecheck_getInvMass(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btSolverBody::m_invMass() function, expected prototype:\nbtVector3 btSolverBody::m_invMass()\nClass arguments details:\n");
 		}
@@ -987,51 +881,9 @@ public:
 		return 1;
 	}
 
-	// btVector3 btSolverBody::m_pushVelocity()
-	static int _bind_getM_pushVelocity(lua_State *L) {
-		if (!_lg_typecheck_getM_pushVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btSolverBody::m_pushVelocity() function, expected prototype:\nbtVector3 btSolverBody::m_pushVelocity()\nClass arguments details:\n");
-		}
-
-
-		btSolverBody* self=(Luna< btSolverBody >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btSolverBody::m_pushVelocity(). Got : '%s'",typeid(Luna< btSolverBody >::check(L,1)).name());
-		}
-		const btVector3* lret = &self->m_pushVelocity;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< btVector3 >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// btVector3 btSolverBody::m_turnVelocity()
-	static int _bind_getM_turnVelocity(lua_State *L) {
-		if (!_lg_typecheck_getM_turnVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btSolverBody::m_turnVelocity() function, expected prototype:\nbtVector3 btSolverBody::m_turnVelocity()\nClass arguments details:\n");
-		}
-
-
-		btSolverBody* self=(Luna< btSolverBody >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btSolverBody::m_turnVelocity(). Got : '%s'",typeid(Luna< btSolverBody >::check(L,1)).name());
-		}
-		const btVector3* lret = &self->m_turnVelocity;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< btVector3 >::push(L,lret,false);
-
-		return 1;
-	}
-
 	// btVector3 btSolverBody::m_linearVelocity()
-	static int _bind_getM_linearVelocity(lua_State *L) {
-		if (!_lg_typecheck_getM_linearVelocity(L)) {
+	static int _bind_getLinearVelocity(lua_State *L) {
+		if (!_lg_typecheck_getLinearVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btSolverBody::m_linearVelocity() function, expected prototype:\nbtVector3 btSolverBody::m_linearVelocity()\nClass arguments details:\n");
 		}
@@ -1050,30 +902,9 @@ public:
 		return 1;
 	}
 
-	// btVector3 btSolverBody::m_angularVelocity()
-	static int _bind_getM_angularVelocity(lua_State *L) {
-		if (!_lg_typecheck_getM_angularVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btSolverBody::m_angularVelocity() function, expected prototype:\nbtVector3 btSolverBody::m_angularVelocity()\nClass arguments details:\n");
-		}
-
-
-		btSolverBody* self=(Luna< btSolverBody >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btSolverBody::m_angularVelocity(). Got : '%s'",typeid(Luna< btSolverBody >::check(L,1)).name());
-		}
-		const btVector3* lret = &self->m_angularVelocity;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< btVector3 >::push(L,lret,false);
-
-		return 1;
-	}
-
 	// btRigidBody * btSolverBody::m_originalBody()
-	static int _bind_getM_originalBody(lua_State *L) {
-		if (!_lg_typecheck_getM_originalBody(L)) {
+	static int _bind_getOriginalBody(lua_State *L) {
+		if (!_lg_typecheck_getOriginalBody(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btRigidBody * btSolverBody::m_originalBody() function, expected prototype:\nbtRigidBody * btSolverBody::m_originalBody()\nClass arguments details:\n");
 		}
@@ -1092,32 +923,9 @@ public:
 		return 1;
 	}
 
-	// void btSolverBody::m_worldTransform(btTransform value)
-	static int _bind_setM_worldTransform(lua_State *L) {
-		if (!_lg_typecheck_setM_worldTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSolverBody::m_worldTransform(btTransform value) function, expected prototype:\nvoid btSolverBody::m_worldTransform(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
-		}
-
-		btTransform* value_ptr=(Luna< btTransform >::check(L,2));
-		if( !value_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg value in btSolverBody::m_worldTransform function");
-		}
-		btTransform value=*value_ptr;
-
-		btSolverBody* self=(Luna< btSolverBody >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSolverBody::m_worldTransform(btTransform). Got : '%s'",typeid(Luna< btSolverBody >::check(L,1)).name());
-		}
-		self->m_worldTransform = value;
-
-		return 0;
-	}
-
 	// void btSolverBody::m_deltaLinearVelocity(btVector3 value)
-	static int _bind_setM_deltaLinearVelocity(lua_State *L) {
-		if (!_lg_typecheck_setM_deltaLinearVelocity(L)) {
+	static int _bind_setDeltaLinearVelocity(lua_State *L) {
+		if (!_lg_typecheck_setDeltaLinearVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverBody::m_deltaLinearVelocity(btVector3 value) function, expected prototype:\nvoid btSolverBody::m_deltaLinearVelocity(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1139,8 +947,8 @@ public:
 	}
 
 	// void btSolverBody::m_deltaAngularVelocity(btVector3 value)
-	static int _bind_setM_deltaAngularVelocity(lua_State *L) {
-		if (!_lg_typecheck_setM_deltaAngularVelocity(L)) {
+	static int _bind_setDeltaAngularVelocity(lua_State *L) {
+		if (!_lg_typecheck_setDeltaAngularVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverBody::m_deltaAngularVelocity(btVector3 value) function, expected prototype:\nvoid btSolverBody::m_deltaAngularVelocity(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1162,8 +970,8 @@ public:
 	}
 
 	// void btSolverBody::m_angularFactor(btVector3 value)
-	static int _bind_setM_angularFactor(lua_State *L) {
-		if (!_lg_typecheck_setM_angularFactor(L)) {
+	static int _bind_setAngularFactor(lua_State *L) {
+		if (!_lg_typecheck_setAngularFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverBody::m_angularFactor(btVector3 value) function, expected prototype:\nvoid btSolverBody::m_angularFactor(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1185,8 +993,8 @@ public:
 	}
 
 	// void btSolverBody::m_linearFactor(btVector3 value)
-	static int _bind_setM_linearFactor(lua_State *L) {
-		if (!_lg_typecheck_setM_linearFactor(L)) {
+	static int _bind_setLinearFactor(lua_State *L) {
+		if (!_lg_typecheck_setLinearFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverBody::m_linearFactor(btVector3 value) function, expected prototype:\nvoid btSolverBody::m_linearFactor(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1208,8 +1016,8 @@ public:
 	}
 
 	// void btSolverBody::m_invMass(btVector3 value)
-	static int _bind_setM_invMass(lua_State *L) {
-		if (!_lg_typecheck_setM_invMass(L)) {
+	static int _bind_setInvMass(lua_State *L) {
+		if (!_lg_typecheck_setInvMass(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverBody::m_invMass(btVector3 value) function, expected prototype:\nvoid btSolverBody::m_invMass(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1231,8 +1039,8 @@ public:
 	}
 
 	// void btSolverBody::m_pushVelocity(btVector3 value)
-	static int _bind_setM_pushVelocity(lua_State *L) {
-		if (!_lg_typecheck_setM_pushVelocity(L)) {
+	static int _bind_setPushVelocity(lua_State *L) {
+		if (!_lg_typecheck_setPushVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverBody::m_pushVelocity(btVector3 value) function, expected prototype:\nvoid btSolverBody::m_pushVelocity(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1254,8 +1062,8 @@ public:
 	}
 
 	// void btSolverBody::m_turnVelocity(btVector3 value)
-	static int _bind_setM_turnVelocity(lua_State *L) {
-		if (!_lg_typecheck_setM_turnVelocity(L)) {
+	static int _bind_setTurnVelocity(lua_State *L) {
+		if (!_lg_typecheck_setTurnVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverBody::m_turnVelocity(btVector3 value) function, expected prototype:\nvoid btSolverBody::m_turnVelocity(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1277,8 +1085,8 @@ public:
 	}
 
 	// void btSolverBody::m_linearVelocity(btVector3 value)
-	static int _bind_setM_linearVelocity(lua_State *L) {
-		if (!_lg_typecheck_setM_linearVelocity(L)) {
+	static int _bind_setLinearVelocity(lua_State *L) {
+		if (!_lg_typecheck_setLinearVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverBody::m_linearVelocity(btVector3 value) function, expected prototype:\nvoid btSolverBody::m_linearVelocity(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1300,8 +1108,8 @@ public:
 	}
 
 	// void btSolverBody::m_angularVelocity(btVector3 value)
-	static int _bind_setM_angularVelocity(lua_State *L) {
-		if (!_lg_typecheck_setM_angularVelocity(L)) {
+	static int _bind_setAngularVelocity(lua_State *L) {
+		if (!_lg_typecheck_setAngularVelocity(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverBody::m_angularVelocity(btVector3 value) function, expected prototype:\nvoid btSolverBody::m_angularVelocity(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -1323,8 +1131,8 @@ public:
 	}
 
 	// void btSolverBody::m_originalBody(btRigidBody * value)
-	static int _bind_setM_originalBody(lua_State *L) {
-		if (!_lg_typecheck_setM_originalBody(L)) {
+	static int _bind_setOriginalBody(lua_State *L) {
+		if (!_lg_typecheck_setOriginalBody(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSolverBody::m_originalBody(btRigidBody * value) function, expected prototype:\nvoid btSolverBody::m_originalBody(btRigidBody * value)\nClass arguments details:\narg 1 ID = 85758361\n");
 		}
@@ -1384,28 +1192,21 @@ luna_RegType LunaTraits< btSolverBody >::methods[] = {
 	{"internalApplyImpulse", &luna_wrapper_btSolverBody::_bind_internalApplyImpulse},
 	{"writebackVelocity", &luna_wrapper_btSolverBody::_bind_writebackVelocity},
 	{"writebackVelocityAndTransform", &luna_wrapper_btSolverBody::_bind_writebackVelocityAndTransform},
-	{"getM_worldTransform", &luna_wrapper_btSolverBody::_bind_getM_worldTransform},
-	{"getM_deltaLinearVelocity", &luna_wrapper_btSolverBody::_bind_getM_deltaLinearVelocity},
-	{"getM_deltaAngularVelocity", &luna_wrapper_btSolverBody::_bind_getM_deltaAngularVelocity},
-	{"getM_angularFactor", &luna_wrapper_btSolverBody::_bind_getM_angularFactor},
-	{"getM_linearFactor", &luna_wrapper_btSolverBody::_bind_getM_linearFactor},
-	{"getM_invMass", &luna_wrapper_btSolverBody::_bind_getM_invMass},
-	{"getM_pushVelocity", &luna_wrapper_btSolverBody::_bind_getM_pushVelocity},
-	{"getM_turnVelocity", &luna_wrapper_btSolverBody::_bind_getM_turnVelocity},
-	{"getM_linearVelocity", &luna_wrapper_btSolverBody::_bind_getM_linearVelocity},
-	{"getM_angularVelocity", &luna_wrapper_btSolverBody::_bind_getM_angularVelocity},
-	{"getM_originalBody", &luna_wrapper_btSolverBody::_bind_getM_originalBody},
-	{"setM_worldTransform", &luna_wrapper_btSolverBody::_bind_setM_worldTransform},
-	{"setM_deltaLinearVelocity", &luna_wrapper_btSolverBody::_bind_setM_deltaLinearVelocity},
-	{"setM_deltaAngularVelocity", &luna_wrapper_btSolverBody::_bind_setM_deltaAngularVelocity},
-	{"setM_angularFactor", &luna_wrapper_btSolverBody::_bind_setM_angularFactor},
-	{"setM_linearFactor", &luna_wrapper_btSolverBody::_bind_setM_linearFactor},
-	{"setM_invMass", &luna_wrapper_btSolverBody::_bind_setM_invMass},
-	{"setM_pushVelocity", &luna_wrapper_btSolverBody::_bind_setM_pushVelocity},
-	{"setM_turnVelocity", &luna_wrapper_btSolverBody::_bind_setM_turnVelocity},
-	{"setM_linearVelocity", &luna_wrapper_btSolverBody::_bind_setM_linearVelocity},
-	{"setM_angularVelocity", &luna_wrapper_btSolverBody::_bind_setM_angularVelocity},
-	{"setM_originalBody", &luna_wrapper_btSolverBody::_bind_setM_originalBody},
+	{"getAngularFactor", &luna_wrapper_btSolverBody::_bind_getAngularFactor},
+	{"getLinearFactor", &luna_wrapper_btSolverBody::_bind_getLinearFactor},
+	{"getInvMass", &luna_wrapper_btSolverBody::_bind_getInvMass},
+	{"getLinearVelocity", &luna_wrapper_btSolverBody::_bind_getLinearVelocity},
+	{"getOriginalBody", &luna_wrapper_btSolverBody::_bind_getOriginalBody},
+	{"setDeltaLinearVelocity", &luna_wrapper_btSolverBody::_bind_setDeltaLinearVelocity},
+	{"setDeltaAngularVelocity", &luna_wrapper_btSolverBody::_bind_setDeltaAngularVelocity},
+	{"setAngularFactor", &luna_wrapper_btSolverBody::_bind_setAngularFactor},
+	{"setLinearFactor", &luna_wrapper_btSolverBody::_bind_setLinearFactor},
+	{"setInvMass", &luna_wrapper_btSolverBody::_bind_setInvMass},
+	{"setPushVelocity", &luna_wrapper_btSolverBody::_bind_setPushVelocity},
+	{"setTurnVelocity", &luna_wrapper_btSolverBody::_bind_setTurnVelocity},
+	{"setLinearVelocity", &luna_wrapper_btSolverBody::_bind_setLinearVelocity},
+	{"setAngularVelocity", &luna_wrapper_btSolverBody::_bind_setAngularVelocity},
+	{"setOriginalBody", &luna_wrapper_btSolverBody::_bind_setOriginalBody},
 	{"dynCast", &luna_wrapper_btSolverBody::_bind_dynCast},
 	{"__eq", &luna_wrapper_btSolverBody::_bind___eq},
 	{0,0}

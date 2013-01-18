@@ -138,78 +138,78 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_vertex1(lua_State *L) {
+	inline static bool _lg_typecheck_getVertex1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_vertex2(lua_State *L) {
+	inline static bool _lg_typecheck_getVertex2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_vertex0(lua_State *L) {
+	inline static bool _lg_typecheck_getVertex0(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_vertex3(lua_State *L) {
+	inline static bool _lg_typecheck_getVertex3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hasVertex0(lua_State *L) {
+	inline static bool _lg_typecheck_getHasVertex0(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hasVertex3(lua_State *L) {
+	inline static bool _lg_typecheck_getHasVertex3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_vertex1(lua_State *L) {
+	inline static bool _lg_typecheck_setVertex1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54494886) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_vertex2(lua_State *L) {
+	inline static bool _lg_typecheck_setVertex2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54494886) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_vertex0(lua_State *L) {
+	inline static bool _lg_typecheck_setVertex0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54494886) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_vertex3(lua_State *L) {
+	inline static bool _lg_typecheck_setVertex3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,54494886) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hasVertex0(lua_State *L) {
+	inline static bool _lg_typecheck_setHasVertex0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hasVertex3(lua_State *L) {
+	inline static bool _lg_typecheck_setHasVertex3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -477,8 +477,8 @@ public:
 	}
 
 	// b2Vec2 b2EdgeShape::m_vertex1()
-	static int _bind_getM_vertex1(lua_State *L) {
-		if (!_lg_typecheck_getM_vertex1(L)) {
+	static int _bind_getVertex1(lua_State *L) {
+		if (!_lg_typecheck_getVertex1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Vec2 b2EdgeShape::m_vertex1() function, expected prototype:\nb2Vec2 b2EdgeShape::m_vertex1()\nClass arguments details:\n");
 		}
@@ -498,8 +498,8 @@ public:
 	}
 
 	// b2Vec2 b2EdgeShape::m_vertex2()
-	static int _bind_getM_vertex2(lua_State *L) {
-		if (!_lg_typecheck_getM_vertex2(L)) {
+	static int _bind_getVertex2(lua_State *L) {
+		if (!_lg_typecheck_getVertex2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Vec2 b2EdgeShape::m_vertex2() function, expected prototype:\nb2Vec2 b2EdgeShape::m_vertex2()\nClass arguments details:\n");
 		}
@@ -519,8 +519,8 @@ public:
 	}
 
 	// b2Vec2 b2EdgeShape::m_vertex0()
-	static int _bind_getM_vertex0(lua_State *L) {
-		if (!_lg_typecheck_getM_vertex0(L)) {
+	static int _bind_getVertex0(lua_State *L) {
+		if (!_lg_typecheck_getVertex0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Vec2 b2EdgeShape::m_vertex0() function, expected prototype:\nb2Vec2 b2EdgeShape::m_vertex0()\nClass arguments details:\n");
 		}
@@ -540,8 +540,8 @@ public:
 	}
 
 	// b2Vec2 b2EdgeShape::m_vertex3()
-	static int _bind_getM_vertex3(lua_State *L) {
-		if (!_lg_typecheck_getM_vertex3(L)) {
+	static int _bind_getVertex3(lua_State *L) {
+		if (!_lg_typecheck_getVertex3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Vec2 b2EdgeShape::m_vertex3() function, expected prototype:\nb2Vec2 b2EdgeShape::m_vertex3()\nClass arguments details:\n");
 		}
@@ -561,8 +561,8 @@ public:
 	}
 
 	// bool b2EdgeShape::m_hasVertex0()
-	static int _bind_getM_hasVertex0(lua_State *L) {
-		if (!_lg_typecheck_getM_hasVertex0(L)) {
+	static int _bind_getHasVertex0(lua_State *L) {
+		if (!_lg_typecheck_getHasVertex0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool b2EdgeShape::m_hasVertex0() function, expected prototype:\nbool b2EdgeShape::m_hasVertex0()\nClass arguments details:\n");
 		}
@@ -580,8 +580,8 @@ public:
 	}
 
 	// bool b2EdgeShape::m_hasVertex3()
-	static int _bind_getM_hasVertex3(lua_State *L) {
-		if (!_lg_typecheck_getM_hasVertex3(L)) {
+	static int _bind_getHasVertex3(lua_State *L) {
+		if (!_lg_typecheck_getHasVertex3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool b2EdgeShape::m_hasVertex3() function, expected prototype:\nbool b2EdgeShape::m_hasVertex3()\nClass arguments details:\n");
 		}
@@ -599,8 +599,8 @@ public:
 	}
 
 	// void b2EdgeShape::m_vertex1(b2Vec2 value)
-	static int _bind_setM_vertex1(lua_State *L) {
-		if (!_lg_typecheck_setM_vertex1(L)) {
+	static int _bind_setVertex1(lua_State *L) {
+		if (!_lg_typecheck_setVertex1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_vertex1(b2Vec2 value) function, expected prototype:\nvoid b2EdgeShape::m_vertex1(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
 		}
@@ -622,8 +622,8 @@ public:
 	}
 
 	// void b2EdgeShape::m_vertex2(b2Vec2 value)
-	static int _bind_setM_vertex2(lua_State *L) {
-		if (!_lg_typecheck_setM_vertex2(L)) {
+	static int _bind_setVertex2(lua_State *L) {
+		if (!_lg_typecheck_setVertex2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_vertex2(b2Vec2 value) function, expected prototype:\nvoid b2EdgeShape::m_vertex2(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
 		}
@@ -645,8 +645,8 @@ public:
 	}
 
 	// void b2EdgeShape::m_vertex0(b2Vec2 value)
-	static int _bind_setM_vertex0(lua_State *L) {
-		if (!_lg_typecheck_setM_vertex0(L)) {
+	static int _bind_setVertex0(lua_State *L) {
+		if (!_lg_typecheck_setVertex0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_vertex0(b2Vec2 value) function, expected prototype:\nvoid b2EdgeShape::m_vertex0(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
 		}
@@ -668,8 +668,8 @@ public:
 	}
 
 	// void b2EdgeShape::m_vertex3(b2Vec2 value)
-	static int _bind_setM_vertex3(lua_State *L) {
-		if (!_lg_typecheck_setM_vertex3(L)) {
+	static int _bind_setVertex3(lua_State *L) {
+		if (!_lg_typecheck_setVertex3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_vertex3(b2Vec2 value) function, expected prototype:\nvoid b2EdgeShape::m_vertex3(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
 		}
@@ -691,8 +691,8 @@ public:
 	}
 
 	// void b2EdgeShape::m_hasVertex0(bool value)
-	static int _bind_setM_hasVertex0(lua_State *L) {
-		if (!_lg_typecheck_setM_hasVertex0(L)) {
+	static int _bind_setHasVertex0(lua_State *L) {
+		if (!_lg_typecheck_setHasVertex0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_hasVertex0(bool value) function, expected prototype:\nvoid b2EdgeShape::m_hasVertex0(bool value)\nClass arguments details:\n");
 		}
@@ -710,8 +710,8 @@ public:
 	}
 
 	// void b2EdgeShape::m_hasVertex3(bool value)
-	static int _bind_setM_hasVertex3(lua_State *L) {
-		if (!_lg_typecheck_setM_hasVertex3(L)) {
+	static int _bind_setHasVertex3(lua_State *L) {
+		if (!_lg_typecheck_setHasVertex3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_hasVertex3(bool value) function, expected prototype:\nvoid b2EdgeShape::m_hasVertex3(bool value)\nClass arguments details:\n");
 		}
@@ -902,18 +902,18 @@ luna_RegType LunaTraits< b2EdgeShape >::methods[] = {
 	{"RayCast", &luna_wrapper_b2EdgeShape::_bind_RayCast},
 	{"ComputeAABB", &luna_wrapper_b2EdgeShape::_bind_ComputeAABB},
 	{"ComputeMass", &luna_wrapper_b2EdgeShape::_bind_ComputeMass},
-	{"getM_vertex1", &luna_wrapper_b2EdgeShape::_bind_getM_vertex1},
-	{"getM_vertex2", &luna_wrapper_b2EdgeShape::_bind_getM_vertex2},
-	{"getM_vertex0", &luna_wrapper_b2EdgeShape::_bind_getM_vertex0},
-	{"getM_vertex3", &luna_wrapper_b2EdgeShape::_bind_getM_vertex3},
-	{"getM_hasVertex0", &luna_wrapper_b2EdgeShape::_bind_getM_hasVertex0},
-	{"getM_hasVertex3", &luna_wrapper_b2EdgeShape::_bind_getM_hasVertex3},
-	{"setM_vertex1", &luna_wrapper_b2EdgeShape::_bind_setM_vertex1},
-	{"setM_vertex2", &luna_wrapper_b2EdgeShape::_bind_setM_vertex2},
-	{"setM_vertex0", &luna_wrapper_b2EdgeShape::_bind_setM_vertex0},
-	{"setM_vertex3", &luna_wrapper_b2EdgeShape::_bind_setM_vertex3},
-	{"setM_hasVertex0", &luna_wrapper_b2EdgeShape::_bind_setM_hasVertex0},
-	{"setM_hasVertex3", &luna_wrapper_b2EdgeShape::_bind_setM_hasVertex3},
+	{"getVertex1", &luna_wrapper_b2EdgeShape::_bind_getVertex1},
+	{"getVertex2", &luna_wrapper_b2EdgeShape::_bind_getVertex2},
+	{"getVertex0", &luna_wrapper_b2EdgeShape::_bind_getVertex0},
+	{"getVertex3", &luna_wrapper_b2EdgeShape::_bind_getVertex3},
+	{"getHasVertex0", &luna_wrapper_b2EdgeShape::_bind_getHasVertex0},
+	{"getHasVertex3", &luna_wrapper_b2EdgeShape::_bind_getHasVertex3},
+	{"setVertex1", &luna_wrapper_b2EdgeShape::_bind_setVertex1},
+	{"setVertex2", &luna_wrapper_b2EdgeShape::_bind_setVertex2},
+	{"setVertex0", &luna_wrapper_b2EdgeShape::_bind_setVertex0},
+	{"setVertex3", &luna_wrapper_b2EdgeShape::_bind_setVertex3},
+	{"setHasVertex0", &luna_wrapper_b2EdgeShape::_bind_setHasVertex0},
+	{"setHasVertex3", &luna_wrapper_b2EdgeShape::_bind_setHasVertex3},
 	{"base_Clone", &luna_wrapper_b2EdgeShape::_bind_base_Clone},
 	{"base_GetChildCount", &luna_wrapper_b2EdgeShape::_bind_base_GetChildCount},
 	{"base_TestPoint", &luna_wrapper_b2EdgeShape::_bind_base_TestPoint},

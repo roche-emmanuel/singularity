@@ -70,26 +70,26 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_friction(lua_State *L) {
+	inline static bool _lg_typecheck_getFriction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_restitution(lua_State *L) {
+	inline static bool _lg_typecheck_getRestitution(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_friction(lua_State *L) {
+	inline static bool _lg_typecheck_setFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_restitution(lua_State *L) {
+	inline static bool _lg_typecheck_setRestitution(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -137,8 +137,8 @@ public:
 
 	// Function binds:
 	// float btMaterial::m_friction()
-	static int _bind_getM_friction(lua_State *L) {
-		if (!_lg_typecheck_getM_friction(L)) {
+	static int _bind_getFriction(lua_State *L) {
+		if (!_lg_typecheck_getFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btMaterial::m_friction() function, expected prototype:\nfloat btMaterial::m_friction()\nClass arguments details:\n");
 		}
@@ -156,8 +156,8 @@ public:
 	}
 
 	// float btMaterial::m_restitution()
-	static int _bind_getM_restitution(lua_State *L) {
-		if (!_lg_typecheck_getM_restitution(L)) {
+	static int _bind_getRestitution(lua_State *L) {
+		if (!_lg_typecheck_getRestitution(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btMaterial::m_restitution() function, expected prototype:\nfloat btMaterial::m_restitution()\nClass arguments details:\n");
 		}
@@ -175,8 +175,8 @@ public:
 	}
 
 	// void btMaterial::m_friction(float value)
-	static int _bind_setM_friction(lua_State *L) {
-		if (!_lg_typecheck_setM_friction(L)) {
+	static int _bind_setFriction(lua_State *L) {
+		if (!_lg_typecheck_setFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btMaterial::m_friction(float value) function, expected prototype:\nvoid btMaterial::m_friction(float value)\nClass arguments details:\n");
 		}
@@ -194,8 +194,8 @@ public:
 	}
 
 	// void btMaterial::m_restitution(float value)
-	static int _bind_setM_restitution(lua_State *L) {
-		if (!_lg_typecheck_setM_restitution(L)) {
+	static int _bind_setRestitution(lua_State *L) {
+		if (!_lg_typecheck_setRestitution(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btMaterial::m_restitution(float value) function, expected prototype:\nvoid btMaterial::m_restitution(float value)\nClass arguments details:\n");
 		}
@@ -233,10 +233,10 @@ const int LunaTraits< btMaterial >::hash = 47294335;
 const int LunaTraits< btMaterial >::uniqueIDs[] = {47294335,0};
 
 luna_RegType LunaTraits< btMaterial >::methods[] = {
-	{"getM_friction", &luna_wrapper_btMaterial::_bind_getM_friction},
-	{"getM_restitution", &luna_wrapper_btMaterial::_bind_getM_restitution},
-	{"setM_friction", &luna_wrapper_btMaterial::_bind_setM_friction},
-	{"setM_restitution", &luna_wrapper_btMaterial::_bind_setM_restitution},
+	{"getFriction", &luna_wrapper_btMaterial::_bind_getFriction},
+	{"getRestitution", &luna_wrapper_btMaterial::_bind_getRestitution},
+	{"setFriction", &luna_wrapper_btMaterial::_bind_setFriction},
+	{"setRestitution", &luna_wrapper_btMaterial::_bind_setRestitution},
 	{"dynCast", &luna_wrapper_btMaterial::_bind_dynCast},
 	{"__eq", &luna_wrapper_btMaterial::_bind___eq},
 	{0,0}

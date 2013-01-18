@@ -148,26 +148,26 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_x(lua_State *L) {
+	inline static bool _lg_typecheck_getX(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_y(lua_State *L) {
+	inline static bool _lg_typecheck_getY(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_x(lua_State *L) {
+	inline static bool _lg_typecheck_setX(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_y(lua_State *L) {
+	inline static bool _lg_typecheck_setY(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -537,8 +537,8 @@ public:
 	}
 
 	// double wxPoint2DDouble::m_x()
-	static int _bind_getM_x(lua_State *L) {
-		if (!_lg_typecheck_getM_x(L)) {
+	static int _bind_getX(lua_State *L) {
+		if (!_lg_typecheck_getX(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double wxPoint2DDouble::m_x() function, expected prototype:\ndouble wxPoint2DDouble::m_x()\nClass arguments details:\n");
 		}
@@ -556,8 +556,8 @@ public:
 	}
 
 	// double wxPoint2DDouble::m_y()
-	static int _bind_getM_y(lua_State *L) {
-		if (!_lg_typecheck_getM_y(L)) {
+	static int _bind_getY(lua_State *L) {
+		if (!_lg_typecheck_getY(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double wxPoint2DDouble::m_y() function, expected prototype:\ndouble wxPoint2DDouble::m_y()\nClass arguments details:\n");
 		}
@@ -575,8 +575,8 @@ public:
 	}
 
 	// void wxPoint2DDouble::m_x(double value)
-	static int _bind_setM_x(lua_State *L) {
-		if (!_lg_typecheck_setM_x(L)) {
+	static int _bind_setX(lua_State *L) {
+		if (!_lg_typecheck_setX(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxPoint2DDouble::m_x(double value) function, expected prototype:\nvoid wxPoint2DDouble::m_x(double value)\nClass arguments details:\n");
 		}
@@ -594,8 +594,8 @@ public:
 	}
 
 	// void wxPoint2DDouble::m_y(double value)
-	static int _bind_setM_y(lua_State *L) {
-		if (!_lg_typecheck_setM_y(L)) {
+	static int _bind_setY(lua_State *L) {
+		if (!_lg_typecheck_setY(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxPoint2DDouble::m_y(double value) function, expected prototype:\nvoid wxPoint2DDouble::m_y(double value)\nClass arguments details:\n");
 		}
@@ -792,10 +792,10 @@ luna_RegType LunaTraits< wxPoint2DDouble >::methods[] = {
 	{"GetDistanceSquare", &luna_wrapper_wxPoint2DDouble::_bind_GetDistanceSquare},
 	{"GetDotProduct", &luna_wrapper_wxPoint2DDouble::_bind_GetDotProduct},
 	{"GetCrossProduct", &luna_wrapper_wxPoint2DDouble::_bind_GetCrossProduct},
-	{"getM_x", &luna_wrapper_wxPoint2DDouble::_bind_getM_x},
-	{"getM_y", &luna_wrapper_wxPoint2DDouble::_bind_getM_y},
-	{"setM_x", &luna_wrapper_wxPoint2DDouble::_bind_setM_x},
-	{"setM_y", &luna_wrapper_wxPoint2DDouble::_bind_setM_y},
+	{"getX", &luna_wrapper_wxPoint2DDouble::_bind_getX},
+	{"getY", &luna_wrapper_wxPoint2DDouble::_bind_getY},
+	{"setX", &luna_wrapper_wxPoint2DDouble::_bind_setX},
+	{"setY", &luna_wrapper_wxPoint2DDouble::_bind_setY},
 	{"__unm", &luna_wrapper_wxPoint2DDouble::_bind___unm},
 	{"op_assign", &luna_wrapper_wxPoint2DDouble::_bind_op_assign},
 	{"op_add", &luna_wrapper_wxPoint2DDouble::_bind_op_add},

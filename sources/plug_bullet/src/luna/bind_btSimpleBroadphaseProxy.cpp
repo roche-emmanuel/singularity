@@ -77,13 +77,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_nextFree(lua_State *L) {
+	inline static bool _lg_typecheck_getNextFree(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_nextFree(lua_State *L) {
+	inline static bool _lg_typecheck_setNextFree(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -182,8 +182,8 @@ public:
 	}
 
 	// int btSimpleBroadphaseProxy::m_nextFree()
-	static int _bind_getM_nextFree(lua_State *L) {
-		if (!_lg_typecheck_getM_nextFree(L)) {
+	static int _bind_getNextFree(lua_State *L) {
+		if (!_lg_typecheck_getNextFree(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btSimpleBroadphaseProxy::m_nextFree() function, expected prototype:\nint btSimpleBroadphaseProxy::m_nextFree()\nClass arguments details:\n");
 		}
@@ -201,8 +201,8 @@ public:
 	}
 
 	// void btSimpleBroadphaseProxy::m_nextFree(int value)
-	static int _bind_setM_nextFree(lua_State *L) {
-		if (!_lg_typecheck_setM_nextFree(L)) {
+	static int _bind_setNextFree(lua_State *L) {
+		if (!_lg_typecheck_setNextFree(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btSimpleBroadphaseProxy::m_nextFree(int value) function, expected prototype:\nvoid btSimpleBroadphaseProxy::m_nextFree(int value)\nClass arguments details:\n");
 		}
@@ -242,8 +242,8 @@ const int LunaTraits< btSimpleBroadphaseProxy >::uniqueIDs[] = {44086089,0};
 luna_RegType LunaTraits< btSimpleBroadphaseProxy >::methods[] = {
 	{"SetNextFree", &luna_wrapper_btSimpleBroadphaseProxy::_bind_SetNextFree},
 	{"GetNextFree", &luna_wrapper_btSimpleBroadphaseProxy::_bind_GetNextFree},
-	{"getM_nextFree", &luna_wrapper_btSimpleBroadphaseProxy::_bind_getM_nextFree},
-	{"setM_nextFree", &luna_wrapper_btSimpleBroadphaseProxy::_bind_setM_nextFree},
+	{"getNextFree", &luna_wrapper_btSimpleBroadphaseProxy::_bind_getNextFree},
+	{"setNextFree", &luna_wrapper_btSimpleBroadphaseProxy::_bind_setNextFree},
 	{"__eq", &luna_wrapper_btSimpleBroadphaseProxy::_bind___eq},
 	{0,0}
 };

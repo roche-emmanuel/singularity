@@ -106,39 +106,39 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_plane(lua_State *L) {
+	inline static bool _lg_typecheck_getPlane(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_margin(lua_State *L) {
+	inline static bool _lg_typecheck_getMargin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_dummy(lua_State *L) {
+	inline static bool _lg_typecheck_getDummy(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_plane(lua_State *L) {
+	inline static bool _lg_typecheck_setPlane(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_margin(lua_State *L) {
+	inline static bool _lg_typecheck_setMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_dummy(lua_State *L) {
+	inline static bool _lg_typecheck_setDummy(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -307,8 +307,8 @@ public:
 	}
 
 	// btVector4 btPrimitiveTriangle::m_plane()
-	static int _bind_getM_plane(lua_State *L) {
-		if (!_lg_typecheck_getM_plane(L)) {
+	static int _bind_getPlane(lua_State *L) {
+		if (!_lg_typecheck_getPlane(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector4 btPrimitiveTriangle::m_plane() function, expected prototype:\nbtVector4 btPrimitiveTriangle::m_plane()\nClass arguments details:\n");
 		}
@@ -328,8 +328,8 @@ public:
 	}
 
 	// float btPrimitiveTriangle::m_margin()
-	static int _bind_getM_margin(lua_State *L) {
-		if (!_lg_typecheck_getM_margin(L)) {
+	static int _bind_getMargin(lua_State *L) {
+		if (!_lg_typecheck_getMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btPrimitiveTriangle::m_margin() function, expected prototype:\nfloat btPrimitiveTriangle::m_margin()\nClass arguments details:\n");
 		}
@@ -347,8 +347,8 @@ public:
 	}
 
 	// float btPrimitiveTriangle::m_dummy()
-	static int _bind_getM_dummy(lua_State *L) {
-		if (!_lg_typecheck_getM_dummy(L)) {
+	static int _bind_getDummy(lua_State *L) {
+		if (!_lg_typecheck_getDummy(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btPrimitiveTriangle::m_dummy() function, expected prototype:\nfloat btPrimitiveTriangle::m_dummy()\nClass arguments details:\n");
 		}
@@ -366,8 +366,8 @@ public:
 	}
 
 	// void btPrimitiveTriangle::m_plane(btVector4 value)
-	static int _bind_setM_plane(lua_State *L) {
-		if (!_lg_typecheck_setM_plane(L)) {
+	static int _bind_setPlane(lua_State *L) {
+		if (!_lg_typecheck_setPlane(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::m_plane(btVector4 value) function, expected prototype:\nvoid btPrimitiveTriangle::m_plane(btVector4 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -389,8 +389,8 @@ public:
 	}
 
 	// void btPrimitiveTriangle::m_margin(float value)
-	static int _bind_setM_margin(lua_State *L) {
-		if (!_lg_typecheck_setM_margin(L)) {
+	static int _bind_setMargin(lua_State *L) {
+		if (!_lg_typecheck_setMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::m_margin(float value) function, expected prototype:\nvoid btPrimitiveTriangle::m_margin(float value)\nClass arguments details:\n");
 		}
@@ -408,8 +408,8 @@ public:
 	}
 
 	// void btPrimitiveTriangle::m_dummy(float value)
-	static int _bind_setM_dummy(lua_State *L) {
-		if (!_lg_typecheck_setM_dummy(L)) {
+	static int _bind_setDummy(lua_State *L) {
+		if (!_lg_typecheck_setDummy(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::m_dummy(float value) function, expected prototype:\nvoid btPrimitiveTriangle::m_dummy(float value)\nClass arguments details:\n");
 		}
@@ -453,12 +453,12 @@ luna_RegType LunaTraits< btPrimitiveTriangle >::methods[] = {
 	{"applyTransform", &luna_wrapper_btPrimitiveTriangle::_bind_applyTransform},
 	{"clip_triangle", &luna_wrapper_btPrimitiveTriangle::_bind_clip_triangle},
 	{"find_triangle_collision_clip_method", &luna_wrapper_btPrimitiveTriangle::_bind_find_triangle_collision_clip_method},
-	{"getM_plane", &luna_wrapper_btPrimitiveTriangle::_bind_getM_plane},
-	{"getM_margin", &luna_wrapper_btPrimitiveTriangle::_bind_getM_margin},
-	{"getM_dummy", &luna_wrapper_btPrimitiveTriangle::_bind_getM_dummy},
-	{"setM_plane", &luna_wrapper_btPrimitiveTriangle::_bind_setM_plane},
-	{"setM_margin", &luna_wrapper_btPrimitiveTriangle::_bind_setM_margin},
-	{"setM_dummy", &luna_wrapper_btPrimitiveTriangle::_bind_setM_dummy},
+	{"getPlane", &luna_wrapper_btPrimitiveTriangle::_bind_getPlane},
+	{"getMargin", &luna_wrapper_btPrimitiveTriangle::_bind_getMargin},
+	{"getDummy", &luna_wrapper_btPrimitiveTriangle::_bind_getDummy},
+	{"setPlane", &luna_wrapper_btPrimitiveTriangle::_bind_setPlane},
+	{"setMargin", &luna_wrapper_btPrimitiveTriangle::_bind_setMargin},
+	{"setDummy", &luna_wrapper_btPrimitiveTriangle::_bind_setDummy},
 	{"dynCast", &luna_wrapper_btPrimitiveTriangle::_bind_dynCast},
 	{"__eq", &luna_wrapper_btPrimitiveTriangle::_bind___eq},
 	{0,0}

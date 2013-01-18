@@ -129,65 +129,59 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_pool(lua_State *L) {
+	inline static bool _lg_typecheck_getPool(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_free_nodes(lua_State *L) {
+	inline static bool _lg_typecheck_get_free_nodes(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_allocated_sizes(lua_State *L) {
+	inline static bool _lg_typecheck_get_allocated_sizes(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_allocated_count(lua_State *L) {
+	inline static bool _lg_typecheck_get_free_nodes_count(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_free_nodes_count(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_setM_pool(lua_State *L) {
+	inline static bool _lg_typecheck_setPool(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_free_nodes(lua_State *L) {
+	inline static bool _lg_typecheck_set_free_nodes(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_allocated_sizes(lua_State *L) {
+	inline static bool _lg_typecheck_set_allocated_sizes(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_allocated_count(lua_State *L) {
+	inline static bool _lg_typecheck_set_allocated_count(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_free_nodes_count(lua_State *L) {
+	inline static bool _lg_typecheck_set_free_nodes_count(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -412,8 +406,8 @@ public:
 	}
 
 	// unsigned char * btGenericMemoryPool::m_pool()
-	static int _bind_getM_pool(lua_State *L) {
-		if (!_lg_typecheck_getM_pool(L)) {
+	static int _bind_getPool(lua_State *L) {
+		if (!_lg_typecheck_getPool(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned char * btGenericMemoryPool::m_pool() function, expected prototype:\nunsigned char * btGenericMemoryPool::m_pool()\nClass arguments details:\n");
 		}
@@ -431,8 +425,8 @@ public:
 	}
 
 	// size_t * btGenericMemoryPool::m_free_nodes()
-	static int _bind_getM_free_nodes(lua_State *L) {
-		if (!_lg_typecheck_getM_free_nodes(L)) {
+	static int _bind_get_free_nodes(lua_State *L) {
+		if (!_lg_typecheck_get_free_nodes(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in size_t * btGenericMemoryPool::m_free_nodes() function, expected prototype:\nsize_t * btGenericMemoryPool::m_free_nodes()\nClass arguments details:\n");
 		}
@@ -450,8 +444,8 @@ public:
 	}
 
 	// size_t * btGenericMemoryPool::m_allocated_sizes()
-	static int _bind_getM_allocated_sizes(lua_State *L) {
-		if (!_lg_typecheck_getM_allocated_sizes(L)) {
+	static int _bind_get_allocated_sizes(lua_State *L) {
+		if (!_lg_typecheck_get_allocated_sizes(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in size_t * btGenericMemoryPool::m_allocated_sizes() function, expected prototype:\nsize_t * btGenericMemoryPool::m_allocated_sizes()\nClass arguments details:\n");
 		}
@@ -468,28 +462,9 @@ public:
 		return 1;
 	}
 
-	// size_t btGenericMemoryPool::m_allocated_count()
-	static int _bind_getM_allocated_count(lua_State *L) {
-		if (!_lg_typecheck_getM_allocated_count(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t btGenericMemoryPool::m_allocated_count() function, expected prototype:\nsize_t btGenericMemoryPool::m_allocated_count()\nClass arguments details:\n");
-		}
-
-
-		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t btGenericMemoryPool::m_allocated_count(). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
-		}
-		size_t lret = self->m_allocated_count;
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
 	// size_t btGenericMemoryPool::m_free_nodes_count()
-	static int _bind_getM_free_nodes_count(lua_State *L) {
-		if (!_lg_typecheck_getM_free_nodes_count(L)) {
+	static int _bind_get_free_nodes_count(lua_State *L) {
+		if (!_lg_typecheck_get_free_nodes_count(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in size_t btGenericMemoryPool::m_free_nodes_count() function, expected prototype:\nsize_t btGenericMemoryPool::m_free_nodes_count()\nClass arguments details:\n");
 		}
@@ -507,8 +482,8 @@ public:
 	}
 
 	// void btGenericMemoryPool::m_pool(unsigned char * value)
-	static int _bind_setM_pool(lua_State *L) {
-		if (!_lg_typecheck_setM_pool(L)) {
+	static int _bind_setPool(lua_State *L) {
+		if (!_lg_typecheck_setPool(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_pool(unsigned char * value) function, expected prototype:\nvoid btGenericMemoryPool::m_pool(unsigned char * value)\nClass arguments details:\n");
 		}
@@ -526,8 +501,8 @@ public:
 	}
 
 	// void btGenericMemoryPool::m_free_nodes(size_t * value)
-	static int _bind_setM_free_nodes(lua_State *L) {
-		if (!_lg_typecheck_setM_free_nodes(L)) {
+	static int _bind_set_free_nodes(lua_State *L) {
+		if (!_lg_typecheck_set_free_nodes(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_free_nodes(size_t * value) function, expected prototype:\nvoid btGenericMemoryPool::m_free_nodes(size_t * value)\nClass arguments details:\n");
 		}
@@ -545,8 +520,8 @@ public:
 	}
 
 	// void btGenericMemoryPool::m_allocated_sizes(size_t * value)
-	static int _bind_setM_allocated_sizes(lua_State *L) {
-		if (!_lg_typecheck_setM_allocated_sizes(L)) {
+	static int _bind_set_allocated_sizes(lua_State *L) {
+		if (!_lg_typecheck_set_allocated_sizes(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_allocated_sizes(size_t * value) function, expected prototype:\nvoid btGenericMemoryPool::m_allocated_sizes(size_t * value)\nClass arguments details:\n");
 		}
@@ -564,8 +539,8 @@ public:
 	}
 
 	// void btGenericMemoryPool::m_allocated_count(size_t value)
-	static int _bind_setM_allocated_count(lua_State *L) {
-		if (!_lg_typecheck_setM_allocated_count(L)) {
+	static int _bind_set_allocated_count(lua_State *L) {
+		if (!_lg_typecheck_set_allocated_count(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_allocated_count(size_t value) function, expected prototype:\nvoid btGenericMemoryPool::m_allocated_count(size_t value)\nClass arguments details:\n");
 		}
@@ -583,8 +558,8 @@ public:
 	}
 
 	// void btGenericMemoryPool::m_free_nodes_count(size_t value)
-	static int _bind_setM_free_nodes_count(lua_State *L) {
-		if (!_lg_typecheck_setM_free_nodes_count(L)) {
+	static int _bind_set_free_nodes_count(lua_State *L) {
+		if (!_lg_typecheck_set_free_nodes_count(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_free_nodes_count(size_t value) function, expected prototype:\nvoid btGenericMemoryPool::m_free_nodes_count(size_t value)\nClass arguments details:\n");
 		}
@@ -632,16 +607,15 @@ luna_RegType LunaTraits< btGenericMemoryPool >::methods[] = {
 	{"get_element_data", &luna_wrapper_btGenericMemoryPool::_bind_get_element_data},
 	{"allocate", &luna_wrapper_btGenericMemoryPool::_bind_allocate},
 	{"freeMemory", &luna_wrapper_btGenericMemoryPool::_bind_freeMemory},
-	{"getM_pool", &luna_wrapper_btGenericMemoryPool::_bind_getM_pool},
-	{"getM_free_nodes", &luna_wrapper_btGenericMemoryPool::_bind_getM_free_nodes},
-	{"getM_allocated_sizes", &luna_wrapper_btGenericMemoryPool::_bind_getM_allocated_sizes},
-	{"getM_allocated_count", &luna_wrapper_btGenericMemoryPool::_bind_getM_allocated_count},
-	{"getM_free_nodes_count", &luna_wrapper_btGenericMemoryPool::_bind_getM_free_nodes_count},
-	{"setM_pool", &luna_wrapper_btGenericMemoryPool::_bind_setM_pool},
-	{"setM_free_nodes", &luna_wrapper_btGenericMemoryPool::_bind_setM_free_nodes},
-	{"setM_allocated_sizes", &luna_wrapper_btGenericMemoryPool::_bind_setM_allocated_sizes},
-	{"setM_allocated_count", &luna_wrapper_btGenericMemoryPool::_bind_setM_allocated_count},
-	{"setM_free_nodes_count", &luna_wrapper_btGenericMemoryPool::_bind_setM_free_nodes_count},
+	{"getPool", &luna_wrapper_btGenericMemoryPool::_bind_getPool},
+	{"get_free_nodes", &luna_wrapper_btGenericMemoryPool::_bind_get_free_nodes},
+	{"get_allocated_sizes", &luna_wrapper_btGenericMemoryPool::_bind_get_allocated_sizes},
+	{"get_free_nodes_count", &luna_wrapper_btGenericMemoryPool::_bind_get_free_nodes_count},
+	{"setPool", &luna_wrapper_btGenericMemoryPool::_bind_setPool},
+	{"set_free_nodes", &luna_wrapper_btGenericMemoryPool::_bind_set_free_nodes},
+	{"set_allocated_sizes", &luna_wrapper_btGenericMemoryPool::_bind_set_allocated_sizes},
+	{"set_allocated_count", &luna_wrapper_btGenericMemoryPool::_bind_set_allocated_count},
+	{"set_free_nodes_count", &luna_wrapper_btGenericMemoryPool::_bind_set_free_nodes_count},
 	{"dynCast", &luna_wrapper_btGenericMemoryPool::_bind_dynCast},
 	{"__eq", &luna_wrapper_btGenericMemoryPool::_bind___eq},
 	{0,0}

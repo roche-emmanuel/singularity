@@ -56,273 +56,273 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_tau(lua_State *L) {
+	inline static bool _lg_typecheck_getTau(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_damping(lua_State *L) {
+	inline static bool _lg_typecheck_getDamping(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_friction(lua_State *L) {
+	inline static bool _lg_typecheck_getFriction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_timeStep(lua_State *L) {
+	inline static bool _lg_typecheck_getTimeStep(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_restitution(lua_State *L) {
+	inline static bool _lg_typecheck_getRestitution(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numIterations(lua_State *L) {
+	inline static bool _lg_typecheck_getNumIterations(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_maxErrorReduction(lua_State *L) {
+	inline static bool _lg_typecheck_getMaxErrorReduction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_sor(lua_State *L) {
+	inline static bool _lg_typecheck_getSor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_erp(lua_State *L) {
+	inline static bool _lg_typecheck_getErp(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_erp2(lua_State *L) {
+	inline static bool _lg_typecheck_getErp2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_globalCfm(lua_State *L) {
+	inline static bool _lg_typecheck_getGlobalCfm(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_splitImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_getSplitImpulse(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_splitImpulsePenetrationThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getSplitImpulsePenetrationThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_splitImpulseTurnErp(lua_State *L) {
+	inline static bool _lg_typecheck_getSplitImpulseTurnErp(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_linearSlop(lua_State *L) {
+	inline static bool _lg_typecheck_getLinearSlop(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_warmstartingFactor(lua_State *L) {
+	inline static bool _lg_typecheck_getWarmstartingFactor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_solverMode(lua_State *L) {
+	inline static bool _lg_typecheck_getSolverMode(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_restingContactRestitutionThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getRestingContactRestitutionThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_minimumSolverBatchSize(lua_State *L) {
+	inline static bool _lg_typecheck_getMinimumSolverBatchSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_maxGyroscopicForce(lua_State *L) {
+	inline static bool _lg_typecheck_getMaxGyroscopicForce(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_singleAxisRollingFrictionThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getSingleAxisRollingFrictionThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_tau(lua_State *L) {
+	inline static bool _lg_typecheck_setTau(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_damping(lua_State *L) {
+	inline static bool _lg_typecheck_setDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_friction(lua_State *L) {
+	inline static bool _lg_typecheck_setFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_timeStep(lua_State *L) {
+	inline static bool _lg_typecheck_setTimeStep(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_restitution(lua_State *L) {
+	inline static bool _lg_typecheck_setRestitution(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numIterations(lua_State *L) {
+	inline static bool _lg_typecheck_setNumIterations(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_maxErrorReduction(lua_State *L) {
+	inline static bool _lg_typecheck_setMaxErrorReduction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_sor(lua_State *L) {
+	inline static bool _lg_typecheck_setSor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_erp(lua_State *L) {
+	inline static bool _lg_typecheck_setErp(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_erp2(lua_State *L) {
+	inline static bool _lg_typecheck_setErp2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_globalCfm(lua_State *L) {
+	inline static bool _lg_typecheck_setGlobalCfm(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_splitImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_setSplitImpulse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_splitImpulsePenetrationThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setSplitImpulsePenetrationThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_splitImpulseTurnErp(lua_State *L) {
+	inline static bool _lg_typecheck_setSplitImpulseTurnErp(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_linearSlop(lua_State *L) {
+	inline static bool _lg_typecheck_setLinearSlop(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_warmstartingFactor(lua_State *L) {
+	inline static bool _lg_typecheck_setWarmstartingFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_solverMode(lua_State *L) {
+	inline static bool _lg_typecheck_setSolverMode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_restingContactRestitutionThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setRestingContactRestitutionThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_minimumSolverBatchSize(lua_State *L) {
+	inline static bool _lg_typecheck_setMinimumSolverBatchSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_maxGyroscopicForce(lua_State *L) {
+	inline static bool _lg_typecheck_setMaxGyroscopicForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_singleAxisRollingFrictionThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setSingleAxisRollingFrictionThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -337,8 +337,8 @@ public:
 
 	// Function binds:
 	// float btContactSolverInfoData::m_tau()
-	static int _bind_getM_tau(lua_State *L) {
-		if (!_lg_typecheck_getM_tau(L)) {
+	static int _bind_getTau(lua_State *L) {
+		if (!_lg_typecheck_getTau(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_tau() function, expected prototype:\nfloat btContactSolverInfoData::m_tau()\nClass arguments details:\n");
 		}
@@ -356,8 +356,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_damping()
-	static int _bind_getM_damping(lua_State *L) {
-		if (!_lg_typecheck_getM_damping(L)) {
+	static int _bind_getDamping(lua_State *L) {
+		if (!_lg_typecheck_getDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_damping() function, expected prototype:\nfloat btContactSolverInfoData::m_damping()\nClass arguments details:\n");
 		}
@@ -375,8 +375,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_friction()
-	static int _bind_getM_friction(lua_State *L) {
-		if (!_lg_typecheck_getM_friction(L)) {
+	static int _bind_getFriction(lua_State *L) {
+		if (!_lg_typecheck_getFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_friction() function, expected prototype:\nfloat btContactSolverInfoData::m_friction()\nClass arguments details:\n");
 		}
@@ -394,8 +394,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_timeStep()
-	static int _bind_getM_timeStep(lua_State *L) {
-		if (!_lg_typecheck_getM_timeStep(L)) {
+	static int _bind_getTimeStep(lua_State *L) {
+		if (!_lg_typecheck_getTimeStep(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_timeStep() function, expected prototype:\nfloat btContactSolverInfoData::m_timeStep()\nClass arguments details:\n");
 		}
@@ -413,8 +413,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_restitution()
-	static int _bind_getM_restitution(lua_State *L) {
-		if (!_lg_typecheck_getM_restitution(L)) {
+	static int _bind_getRestitution(lua_State *L) {
+		if (!_lg_typecheck_getRestitution(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_restitution() function, expected prototype:\nfloat btContactSolverInfoData::m_restitution()\nClass arguments details:\n");
 		}
@@ -432,8 +432,8 @@ public:
 	}
 
 	// int btContactSolverInfoData::m_numIterations()
-	static int _bind_getM_numIterations(lua_State *L) {
-		if (!_lg_typecheck_getM_numIterations(L)) {
+	static int _bind_getNumIterations(lua_State *L) {
+		if (!_lg_typecheck_getNumIterations(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btContactSolverInfoData::m_numIterations() function, expected prototype:\nint btContactSolverInfoData::m_numIterations()\nClass arguments details:\n");
 		}
@@ -451,8 +451,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_maxErrorReduction()
-	static int _bind_getM_maxErrorReduction(lua_State *L) {
-		if (!_lg_typecheck_getM_maxErrorReduction(L)) {
+	static int _bind_getMaxErrorReduction(lua_State *L) {
+		if (!_lg_typecheck_getMaxErrorReduction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_maxErrorReduction() function, expected prototype:\nfloat btContactSolverInfoData::m_maxErrorReduction()\nClass arguments details:\n");
 		}
@@ -470,8 +470,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_sor()
-	static int _bind_getM_sor(lua_State *L) {
-		if (!_lg_typecheck_getM_sor(L)) {
+	static int _bind_getSor(lua_State *L) {
+		if (!_lg_typecheck_getSor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_sor() function, expected prototype:\nfloat btContactSolverInfoData::m_sor()\nClass arguments details:\n");
 		}
@@ -489,8 +489,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_erp()
-	static int _bind_getM_erp(lua_State *L) {
-		if (!_lg_typecheck_getM_erp(L)) {
+	static int _bind_getErp(lua_State *L) {
+		if (!_lg_typecheck_getErp(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_erp() function, expected prototype:\nfloat btContactSolverInfoData::m_erp()\nClass arguments details:\n");
 		}
@@ -508,8 +508,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_erp2()
-	static int _bind_getM_erp2(lua_State *L) {
-		if (!_lg_typecheck_getM_erp2(L)) {
+	static int _bind_getErp2(lua_State *L) {
+		if (!_lg_typecheck_getErp2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_erp2() function, expected prototype:\nfloat btContactSolverInfoData::m_erp2()\nClass arguments details:\n");
 		}
@@ -527,8 +527,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_globalCfm()
-	static int _bind_getM_globalCfm(lua_State *L) {
-		if (!_lg_typecheck_getM_globalCfm(L)) {
+	static int _bind_getGlobalCfm(lua_State *L) {
+		if (!_lg_typecheck_getGlobalCfm(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_globalCfm() function, expected prototype:\nfloat btContactSolverInfoData::m_globalCfm()\nClass arguments details:\n");
 		}
@@ -546,8 +546,8 @@ public:
 	}
 
 	// int btContactSolverInfoData::m_splitImpulse()
-	static int _bind_getM_splitImpulse(lua_State *L) {
-		if (!_lg_typecheck_getM_splitImpulse(L)) {
+	static int _bind_getSplitImpulse(lua_State *L) {
+		if (!_lg_typecheck_getSplitImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btContactSolverInfoData::m_splitImpulse() function, expected prototype:\nint btContactSolverInfoData::m_splitImpulse()\nClass arguments details:\n");
 		}
@@ -565,8 +565,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_splitImpulsePenetrationThreshold()
-	static int _bind_getM_splitImpulsePenetrationThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_splitImpulsePenetrationThreshold(L)) {
+	static int _bind_getSplitImpulsePenetrationThreshold(lua_State *L) {
+		if (!_lg_typecheck_getSplitImpulsePenetrationThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_splitImpulsePenetrationThreshold() function, expected prototype:\nfloat btContactSolverInfoData::m_splitImpulsePenetrationThreshold()\nClass arguments details:\n");
 		}
@@ -584,8 +584,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_splitImpulseTurnErp()
-	static int _bind_getM_splitImpulseTurnErp(lua_State *L) {
-		if (!_lg_typecheck_getM_splitImpulseTurnErp(L)) {
+	static int _bind_getSplitImpulseTurnErp(lua_State *L) {
+		if (!_lg_typecheck_getSplitImpulseTurnErp(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_splitImpulseTurnErp() function, expected prototype:\nfloat btContactSolverInfoData::m_splitImpulseTurnErp()\nClass arguments details:\n");
 		}
@@ -603,8 +603,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_linearSlop()
-	static int _bind_getM_linearSlop(lua_State *L) {
-		if (!_lg_typecheck_getM_linearSlop(L)) {
+	static int _bind_getLinearSlop(lua_State *L) {
+		if (!_lg_typecheck_getLinearSlop(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_linearSlop() function, expected prototype:\nfloat btContactSolverInfoData::m_linearSlop()\nClass arguments details:\n");
 		}
@@ -622,8 +622,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_warmstartingFactor()
-	static int _bind_getM_warmstartingFactor(lua_State *L) {
-		if (!_lg_typecheck_getM_warmstartingFactor(L)) {
+	static int _bind_getWarmstartingFactor(lua_State *L) {
+		if (!_lg_typecheck_getWarmstartingFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_warmstartingFactor() function, expected prototype:\nfloat btContactSolverInfoData::m_warmstartingFactor()\nClass arguments details:\n");
 		}
@@ -641,8 +641,8 @@ public:
 	}
 
 	// int btContactSolverInfoData::m_solverMode()
-	static int _bind_getM_solverMode(lua_State *L) {
-		if (!_lg_typecheck_getM_solverMode(L)) {
+	static int _bind_getSolverMode(lua_State *L) {
+		if (!_lg_typecheck_getSolverMode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btContactSolverInfoData::m_solverMode() function, expected prototype:\nint btContactSolverInfoData::m_solverMode()\nClass arguments details:\n");
 		}
@@ -660,8 +660,8 @@ public:
 	}
 
 	// int btContactSolverInfoData::m_restingContactRestitutionThreshold()
-	static int _bind_getM_restingContactRestitutionThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_restingContactRestitutionThreshold(L)) {
+	static int _bind_getRestingContactRestitutionThreshold(lua_State *L) {
+		if (!_lg_typecheck_getRestingContactRestitutionThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btContactSolverInfoData::m_restingContactRestitutionThreshold() function, expected prototype:\nint btContactSolverInfoData::m_restingContactRestitutionThreshold()\nClass arguments details:\n");
 		}
@@ -679,8 +679,8 @@ public:
 	}
 
 	// int btContactSolverInfoData::m_minimumSolverBatchSize()
-	static int _bind_getM_minimumSolverBatchSize(lua_State *L) {
-		if (!_lg_typecheck_getM_minimumSolverBatchSize(L)) {
+	static int _bind_getMinimumSolverBatchSize(lua_State *L) {
+		if (!_lg_typecheck_getMinimumSolverBatchSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btContactSolverInfoData::m_minimumSolverBatchSize() function, expected prototype:\nint btContactSolverInfoData::m_minimumSolverBatchSize()\nClass arguments details:\n");
 		}
@@ -698,8 +698,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_maxGyroscopicForce()
-	static int _bind_getM_maxGyroscopicForce(lua_State *L) {
-		if (!_lg_typecheck_getM_maxGyroscopicForce(L)) {
+	static int _bind_getMaxGyroscopicForce(lua_State *L) {
+		if (!_lg_typecheck_getMaxGyroscopicForce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_maxGyroscopicForce() function, expected prototype:\nfloat btContactSolverInfoData::m_maxGyroscopicForce()\nClass arguments details:\n");
 		}
@@ -717,8 +717,8 @@ public:
 	}
 
 	// float btContactSolverInfoData::m_singleAxisRollingFrictionThreshold()
-	static int _bind_getM_singleAxisRollingFrictionThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_singleAxisRollingFrictionThreshold(L)) {
+	static int _bind_getSingleAxisRollingFrictionThreshold(lua_State *L) {
+		if (!_lg_typecheck_getSingleAxisRollingFrictionThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btContactSolverInfoData::m_singleAxisRollingFrictionThreshold() function, expected prototype:\nfloat btContactSolverInfoData::m_singleAxisRollingFrictionThreshold()\nClass arguments details:\n");
 		}
@@ -736,8 +736,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_tau(float value)
-	static int _bind_setM_tau(lua_State *L) {
-		if (!_lg_typecheck_setM_tau(L)) {
+	static int _bind_setTau(lua_State *L) {
+		if (!_lg_typecheck_setTau(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_tau(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_tau(float value)\nClass arguments details:\n");
 		}
@@ -755,8 +755,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_damping(float value)
-	static int _bind_setM_damping(lua_State *L) {
-		if (!_lg_typecheck_setM_damping(L)) {
+	static int _bind_setDamping(lua_State *L) {
+		if (!_lg_typecheck_setDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_damping(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_damping(float value)\nClass arguments details:\n");
 		}
@@ -774,8 +774,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_friction(float value)
-	static int _bind_setM_friction(lua_State *L) {
-		if (!_lg_typecheck_setM_friction(L)) {
+	static int _bind_setFriction(lua_State *L) {
+		if (!_lg_typecheck_setFriction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_friction(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_friction(float value)\nClass arguments details:\n");
 		}
@@ -793,8 +793,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_timeStep(float value)
-	static int _bind_setM_timeStep(lua_State *L) {
-		if (!_lg_typecheck_setM_timeStep(L)) {
+	static int _bind_setTimeStep(lua_State *L) {
+		if (!_lg_typecheck_setTimeStep(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_timeStep(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_timeStep(float value)\nClass arguments details:\n");
 		}
@@ -812,8 +812,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_restitution(float value)
-	static int _bind_setM_restitution(lua_State *L) {
-		if (!_lg_typecheck_setM_restitution(L)) {
+	static int _bind_setRestitution(lua_State *L) {
+		if (!_lg_typecheck_setRestitution(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_restitution(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_restitution(float value)\nClass arguments details:\n");
 		}
@@ -831,8 +831,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_numIterations(int value)
-	static int _bind_setM_numIterations(lua_State *L) {
-		if (!_lg_typecheck_setM_numIterations(L)) {
+	static int _bind_setNumIterations(lua_State *L) {
+		if (!_lg_typecheck_setNumIterations(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_numIterations(int value) function, expected prototype:\nvoid btContactSolverInfoData::m_numIterations(int value)\nClass arguments details:\n");
 		}
@@ -850,8 +850,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_maxErrorReduction(float value)
-	static int _bind_setM_maxErrorReduction(lua_State *L) {
-		if (!_lg_typecheck_setM_maxErrorReduction(L)) {
+	static int _bind_setMaxErrorReduction(lua_State *L) {
+		if (!_lg_typecheck_setMaxErrorReduction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_maxErrorReduction(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_maxErrorReduction(float value)\nClass arguments details:\n");
 		}
@@ -869,8 +869,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_sor(float value)
-	static int _bind_setM_sor(lua_State *L) {
-		if (!_lg_typecheck_setM_sor(L)) {
+	static int _bind_setSor(lua_State *L) {
+		if (!_lg_typecheck_setSor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_sor(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_sor(float value)\nClass arguments details:\n");
 		}
@@ -888,8 +888,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_erp(float value)
-	static int _bind_setM_erp(lua_State *L) {
-		if (!_lg_typecheck_setM_erp(L)) {
+	static int _bind_setErp(lua_State *L) {
+		if (!_lg_typecheck_setErp(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_erp(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_erp(float value)\nClass arguments details:\n");
 		}
@@ -907,8 +907,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_erp2(float value)
-	static int _bind_setM_erp2(lua_State *L) {
-		if (!_lg_typecheck_setM_erp2(L)) {
+	static int _bind_setErp2(lua_State *L) {
+		if (!_lg_typecheck_setErp2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_erp2(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_erp2(float value)\nClass arguments details:\n");
 		}
@@ -926,8 +926,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_globalCfm(float value)
-	static int _bind_setM_globalCfm(lua_State *L) {
-		if (!_lg_typecheck_setM_globalCfm(L)) {
+	static int _bind_setGlobalCfm(lua_State *L) {
+		if (!_lg_typecheck_setGlobalCfm(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_globalCfm(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_globalCfm(float value)\nClass arguments details:\n");
 		}
@@ -945,8 +945,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_splitImpulse(int value)
-	static int _bind_setM_splitImpulse(lua_State *L) {
-		if (!_lg_typecheck_setM_splitImpulse(L)) {
+	static int _bind_setSplitImpulse(lua_State *L) {
+		if (!_lg_typecheck_setSplitImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_splitImpulse(int value) function, expected prototype:\nvoid btContactSolverInfoData::m_splitImpulse(int value)\nClass arguments details:\n");
 		}
@@ -964,8 +964,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_splitImpulsePenetrationThreshold(float value)
-	static int _bind_setM_splitImpulsePenetrationThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_splitImpulsePenetrationThreshold(L)) {
+	static int _bind_setSplitImpulsePenetrationThreshold(lua_State *L) {
+		if (!_lg_typecheck_setSplitImpulsePenetrationThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_splitImpulsePenetrationThreshold(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_splitImpulsePenetrationThreshold(float value)\nClass arguments details:\n");
 		}
@@ -983,8 +983,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_splitImpulseTurnErp(float value)
-	static int _bind_setM_splitImpulseTurnErp(lua_State *L) {
-		if (!_lg_typecheck_setM_splitImpulseTurnErp(L)) {
+	static int _bind_setSplitImpulseTurnErp(lua_State *L) {
+		if (!_lg_typecheck_setSplitImpulseTurnErp(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_splitImpulseTurnErp(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_splitImpulseTurnErp(float value)\nClass arguments details:\n");
 		}
@@ -1002,8 +1002,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_linearSlop(float value)
-	static int _bind_setM_linearSlop(lua_State *L) {
-		if (!_lg_typecheck_setM_linearSlop(L)) {
+	static int _bind_setLinearSlop(lua_State *L) {
+		if (!_lg_typecheck_setLinearSlop(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_linearSlop(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_linearSlop(float value)\nClass arguments details:\n");
 		}
@@ -1021,8 +1021,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_warmstartingFactor(float value)
-	static int _bind_setM_warmstartingFactor(lua_State *L) {
-		if (!_lg_typecheck_setM_warmstartingFactor(L)) {
+	static int _bind_setWarmstartingFactor(lua_State *L) {
+		if (!_lg_typecheck_setWarmstartingFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_warmstartingFactor(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_warmstartingFactor(float value)\nClass arguments details:\n");
 		}
@@ -1040,8 +1040,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_solverMode(int value)
-	static int _bind_setM_solverMode(lua_State *L) {
-		if (!_lg_typecheck_setM_solverMode(L)) {
+	static int _bind_setSolverMode(lua_State *L) {
+		if (!_lg_typecheck_setSolverMode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_solverMode(int value) function, expected prototype:\nvoid btContactSolverInfoData::m_solverMode(int value)\nClass arguments details:\n");
 		}
@@ -1059,8 +1059,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_restingContactRestitutionThreshold(int value)
-	static int _bind_setM_restingContactRestitutionThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_restingContactRestitutionThreshold(L)) {
+	static int _bind_setRestingContactRestitutionThreshold(lua_State *L) {
+		if (!_lg_typecheck_setRestingContactRestitutionThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_restingContactRestitutionThreshold(int value) function, expected prototype:\nvoid btContactSolverInfoData::m_restingContactRestitutionThreshold(int value)\nClass arguments details:\n");
 		}
@@ -1078,8 +1078,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_minimumSolverBatchSize(int value)
-	static int _bind_setM_minimumSolverBatchSize(lua_State *L) {
-		if (!_lg_typecheck_setM_minimumSolverBatchSize(L)) {
+	static int _bind_setMinimumSolverBatchSize(lua_State *L) {
+		if (!_lg_typecheck_setMinimumSolverBatchSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_minimumSolverBatchSize(int value) function, expected prototype:\nvoid btContactSolverInfoData::m_minimumSolverBatchSize(int value)\nClass arguments details:\n");
 		}
@@ -1097,8 +1097,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_maxGyroscopicForce(float value)
-	static int _bind_setM_maxGyroscopicForce(lua_State *L) {
-		if (!_lg_typecheck_setM_maxGyroscopicForce(L)) {
+	static int _bind_setMaxGyroscopicForce(lua_State *L) {
+		if (!_lg_typecheck_setMaxGyroscopicForce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_maxGyroscopicForce(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_maxGyroscopicForce(float value)\nClass arguments details:\n");
 		}
@@ -1116,8 +1116,8 @@ public:
 	}
 
 	// void btContactSolverInfoData::m_singleAxisRollingFrictionThreshold(float value)
-	static int _bind_setM_singleAxisRollingFrictionThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_singleAxisRollingFrictionThreshold(L)) {
+	static int _bind_setSingleAxisRollingFrictionThreshold(lua_State *L) {
+		if (!_lg_typecheck_setSingleAxisRollingFrictionThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btContactSolverInfoData::m_singleAxisRollingFrictionThreshold(float value) function, expected prototype:\nvoid btContactSolverInfoData::m_singleAxisRollingFrictionThreshold(float value)\nClass arguments details:\n");
 		}
@@ -1155,48 +1155,48 @@ const int LunaTraits< btContactSolverInfoData >::hash = 5410878;
 const int LunaTraits< btContactSolverInfoData >::uniqueIDs[] = {5410878,0};
 
 luna_RegType LunaTraits< btContactSolverInfoData >::methods[] = {
-	{"getM_tau", &luna_wrapper_btContactSolverInfoData::_bind_getM_tau},
-	{"getM_damping", &luna_wrapper_btContactSolverInfoData::_bind_getM_damping},
-	{"getM_friction", &luna_wrapper_btContactSolverInfoData::_bind_getM_friction},
-	{"getM_timeStep", &luna_wrapper_btContactSolverInfoData::_bind_getM_timeStep},
-	{"getM_restitution", &luna_wrapper_btContactSolverInfoData::_bind_getM_restitution},
-	{"getM_numIterations", &luna_wrapper_btContactSolverInfoData::_bind_getM_numIterations},
-	{"getM_maxErrorReduction", &luna_wrapper_btContactSolverInfoData::_bind_getM_maxErrorReduction},
-	{"getM_sor", &luna_wrapper_btContactSolverInfoData::_bind_getM_sor},
-	{"getM_erp", &luna_wrapper_btContactSolverInfoData::_bind_getM_erp},
-	{"getM_erp2", &luna_wrapper_btContactSolverInfoData::_bind_getM_erp2},
-	{"getM_globalCfm", &luna_wrapper_btContactSolverInfoData::_bind_getM_globalCfm},
-	{"getM_splitImpulse", &luna_wrapper_btContactSolverInfoData::_bind_getM_splitImpulse},
-	{"getM_splitImpulsePenetrationThreshold", &luna_wrapper_btContactSolverInfoData::_bind_getM_splitImpulsePenetrationThreshold},
-	{"getM_splitImpulseTurnErp", &luna_wrapper_btContactSolverInfoData::_bind_getM_splitImpulseTurnErp},
-	{"getM_linearSlop", &luna_wrapper_btContactSolverInfoData::_bind_getM_linearSlop},
-	{"getM_warmstartingFactor", &luna_wrapper_btContactSolverInfoData::_bind_getM_warmstartingFactor},
-	{"getM_solverMode", &luna_wrapper_btContactSolverInfoData::_bind_getM_solverMode},
-	{"getM_restingContactRestitutionThreshold", &luna_wrapper_btContactSolverInfoData::_bind_getM_restingContactRestitutionThreshold},
-	{"getM_minimumSolverBatchSize", &luna_wrapper_btContactSolverInfoData::_bind_getM_minimumSolverBatchSize},
-	{"getM_maxGyroscopicForce", &luna_wrapper_btContactSolverInfoData::_bind_getM_maxGyroscopicForce},
-	{"getM_singleAxisRollingFrictionThreshold", &luna_wrapper_btContactSolverInfoData::_bind_getM_singleAxisRollingFrictionThreshold},
-	{"setM_tau", &luna_wrapper_btContactSolverInfoData::_bind_setM_tau},
-	{"setM_damping", &luna_wrapper_btContactSolverInfoData::_bind_setM_damping},
-	{"setM_friction", &luna_wrapper_btContactSolverInfoData::_bind_setM_friction},
-	{"setM_timeStep", &luna_wrapper_btContactSolverInfoData::_bind_setM_timeStep},
-	{"setM_restitution", &luna_wrapper_btContactSolverInfoData::_bind_setM_restitution},
-	{"setM_numIterations", &luna_wrapper_btContactSolverInfoData::_bind_setM_numIterations},
-	{"setM_maxErrorReduction", &luna_wrapper_btContactSolverInfoData::_bind_setM_maxErrorReduction},
-	{"setM_sor", &luna_wrapper_btContactSolverInfoData::_bind_setM_sor},
-	{"setM_erp", &luna_wrapper_btContactSolverInfoData::_bind_setM_erp},
-	{"setM_erp2", &luna_wrapper_btContactSolverInfoData::_bind_setM_erp2},
-	{"setM_globalCfm", &luna_wrapper_btContactSolverInfoData::_bind_setM_globalCfm},
-	{"setM_splitImpulse", &luna_wrapper_btContactSolverInfoData::_bind_setM_splitImpulse},
-	{"setM_splitImpulsePenetrationThreshold", &luna_wrapper_btContactSolverInfoData::_bind_setM_splitImpulsePenetrationThreshold},
-	{"setM_splitImpulseTurnErp", &luna_wrapper_btContactSolverInfoData::_bind_setM_splitImpulseTurnErp},
-	{"setM_linearSlop", &luna_wrapper_btContactSolverInfoData::_bind_setM_linearSlop},
-	{"setM_warmstartingFactor", &luna_wrapper_btContactSolverInfoData::_bind_setM_warmstartingFactor},
-	{"setM_solverMode", &luna_wrapper_btContactSolverInfoData::_bind_setM_solverMode},
-	{"setM_restingContactRestitutionThreshold", &luna_wrapper_btContactSolverInfoData::_bind_setM_restingContactRestitutionThreshold},
-	{"setM_minimumSolverBatchSize", &luna_wrapper_btContactSolverInfoData::_bind_setM_minimumSolverBatchSize},
-	{"setM_maxGyroscopicForce", &luna_wrapper_btContactSolverInfoData::_bind_setM_maxGyroscopicForce},
-	{"setM_singleAxisRollingFrictionThreshold", &luna_wrapper_btContactSolverInfoData::_bind_setM_singleAxisRollingFrictionThreshold},
+	{"getTau", &luna_wrapper_btContactSolverInfoData::_bind_getTau},
+	{"getDamping", &luna_wrapper_btContactSolverInfoData::_bind_getDamping},
+	{"getFriction", &luna_wrapper_btContactSolverInfoData::_bind_getFriction},
+	{"getTimeStep", &luna_wrapper_btContactSolverInfoData::_bind_getTimeStep},
+	{"getRestitution", &luna_wrapper_btContactSolverInfoData::_bind_getRestitution},
+	{"getNumIterations", &luna_wrapper_btContactSolverInfoData::_bind_getNumIterations},
+	{"getMaxErrorReduction", &luna_wrapper_btContactSolverInfoData::_bind_getMaxErrorReduction},
+	{"getSor", &luna_wrapper_btContactSolverInfoData::_bind_getSor},
+	{"getErp", &luna_wrapper_btContactSolverInfoData::_bind_getErp},
+	{"getErp2", &luna_wrapper_btContactSolverInfoData::_bind_getErp2},
+	{"getGlobalCfm", &luna_wrapper_btContactSolverInfoData::_bind_getGlobalCfm},
+	{"getSplitImpulse", &luna_wrapper_btContactSolverInfoData::_bind_getSplitImpulse},
+	{"getSplitImpulsePenetrationThreshold", &luna_wrapper_btContactSolverInfoData::_bind_getSplitImpulsePenetrationThreshold},
+	{"getSplitImpulseTurnErp", &luna_wrapper_btContactSolverInfoData::_bind_getSplitImpulseTurnErp},
+	{"getLinearSlop", &luna_wrapper_btContactSolverInfoData::_bind_getLinearSlop},
+	{"getWarmstartingFactor", &luna_wrapper_btContactSolverInfoData::_bind_getWarmstartingFactor},
+	{"getSolverMode", &luna_wrapper_btContactSolverInfoData::_bind_getSolverMode},
+	{"getRestingContactRestitutionThreshold", &luna_wrapper_btContactSolverInfoData::_bind_getRestingContactRestitutionThreshold},
+	{"getMinimumSolverBatchSize", &luna_wrapper_btContactSolverInfoData::_bind_getMinimumSolverBatchSize},
+	{"getMaxGyroscopicForce", &luna_wrapper_btContactSolverInfoData::_bind_getMaxGyroscopicForce},
+	{"getSingleAxisRollingFrictionThreshold", &luna_wrapper_btContactSolverInfoData::_bind_getSingleAxisRollingFrictionThreshold},
+	{"setTau", &luna_wrapper_btContactSolverInfoData::_bind_setTau},
+	{"setDamping", &luna_wrapper_btContactSolverInfoData::_bind_setDamping},
+	{"setFriction", &luna_wrapper_btContactSolverInfoData::_bind_setFriction},
+	{"setTimeStep", &luna_wrapper_btContactSolverInfoData::_bind_setTimeStep},
+	{"setRestitution", &luna_wrapper_btContactSolverInfoData::_bind_setRestitution},
+	{"setNumIterations", &luna_wrapper_btContactSolverInfoData::_bind_setNumIterations},
+	{"setMaxErrorReduction", &luna_wrapper_btContactSolverInfoData::_bind_setMaxErrorReduction},
+	{"setSor", &luna_wrapper_btContactSolverInfoData::_bind_setSor},
+	{"setErp", &luna_wrapper_btContactSolverInfoData::_bind_setErp},
+	{"setErp2", &luna_wrapper_btContactSolverInfoData::_bind_setErp2},
+	{"setGlobalCfm", &luna_wrapper_btContactSolverInfoData::_bind_setGlobalCfm},
+	{"setSplitImpulse", &luna_wrapper_btContactSolverInfoData::_bind_setSplitImpulse},
+	{"setSplitImpulsePenetrationThreshold", &luna_wrapper_btContactSolverInfoData::_bind_setSplitImpulsePenetrationThreshold},
+	{"setSplitImpulseTurnErp", &luna_wrapper_btContactSolverInfoData::_bind_setSplitImpulseTurnErp},
+	{"setLinearSlop", &luna_wrapper_btContactSolverInfoData::_bind_setLinearSlop},
+	{"setWarmstartingFactor", &luna_wrapper_btContactSolverInfoData::_bind_setWarmstartingFactor},
+	{"setSolverMode", &luna_wrapper_btContactSolverInfoData::_bind_setSolverMode},
+	{"setRestingContactRestitutionThreshold", &luna_wrapper_btContactSolverInfoData::_bind_setRestingContactRestitutionThreshold},
+	{"setMinimumSolverBatchSize", &luna_wrapper_btContactSolverInfoData::_bind_setMinimumSolverBatchSize},
+	{"setMaxGyroscopicForce", &luna_wrapper_btContactSolverInfoData::_bind_setMaxGyroscopicForce},
+	{"setSingleAxisRollingFrictionThreshold", &luna_wrapper_btContactSolverInfoData::_bind_setSingleAxisRollingFrictionThreshold},
 	{"dynCast", &luna_wrapper_btContactSolverInfoData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btContactSolverInfoData::_bind___eq},
 	{0,0}

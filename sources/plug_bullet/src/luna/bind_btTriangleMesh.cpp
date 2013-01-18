@@ -146,13 +146,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_weldingThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getWeldingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_weldingThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setWeldingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -452,8 +452,8 @@ public:
 	}
 
 	// float btTriangleMesh::m_weldingThreshold()
-	static int _bind_getM_weldingThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_weldingThreshold(L)) {
+	static int _bind_getWeldingThreshold(lua_State *L) {
+		if (!_lg_typecheck_getWeldingThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTriangleMesh::m_weldingThreshold() function, expected prototype:\nfloat btTriangleMesh::m_weldingThreshold()\nClass arguments details:\n");
 		}
@@ -471,8 +471,8 @@ public:
 	}
 
 	// void btTriangleMesh::m_weldingThreshold(float value)
-	static int _bind_setM_weldingThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_weldingThreshold(L)) {
+	static int _bind_setWeldingThreshold(lua_State *L) {
+		if (!_lg_typecheck_setWeldingThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleMesh::m_weldingThreshold(float value) function, expected prototype:\nvoid btTriangleMesh::m_weldingThreshold(float value)\nClass arguments details:\n");
 		}
@@ -728,8 +728,8 @@ luna_RegType LunaTraits< btTriangleMesh >::methods[] = {
 	{"preallocateIndices", &luna_wrapper_btTriangleMesh::_bind_preallocateIndices},
 	{"findOrAddVertex", &luna_wrapper_btTriangleMesh::_bind_findOrAddVertex},
 	{"addIndex", &luna_wrapper_btTriangleMesh::_bind_addIndex},
-	{"getM_weldingThreshold", &luna_wrapper_btTriangleMesh::_bind_getM_weldingThreshold},
-	{"setM_weldingThreshold", &luna_wrapper_btTriangleMesh::_bind_setM_weldingThreshold},
+	{"getWeldingThreshold", &luna_wrapper_btTriangleMesh::_bind_getWeldingThreshold},
+	{"setWeldingThreshold", &luna_wrapper_btTriangleMesh::_bind_setWeldingThreshold},
 	{"base_InternalProcessAllTriangles", &luna_wrapper_btTriangleMesh::_bind_base_InternalProcessAllTriangles},
 	{"base_calculateSerializeBufferSize", &luna_wrapper_btTriangleMesh::_bind_base_calculateSerializeBufferSize},
 	{"base_unLockVertexBase", &luna_wrapper_btTriangleMesh::_bind_base_unLockVertexBase},

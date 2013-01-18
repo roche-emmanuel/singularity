@@ -56,39 +56,39 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_typeConstraintData(lua_State *L) {
+	inline static bool _lg_typecheck_getTypeConstraintData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_pivotInA(lua_State *L) {
+	inline static bool _lg_typecheck_getPivotInA(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_pivotInB(lua_State *L) {
+	inline static bool _lg_typecheck_getPivotInB(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_typeConstraintData(lua_State *L) {
+	inline static bool _lg_typecheck_setTypeConstraintData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,98838043) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_pivotInA(lua_State *L) {
+	inline static bool _lg_typecheck_setPivotInA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,89582070) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_pivotInB(lua_State *L) {
+	inline static bool _lg_typecheck_setPivotInB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,89582070) ) return false;
@@ -103,8 +103,8 @@ public:
 
 	// Function binds:
 	// btTypedConstraintData btPoint2PointConstraintDoubleData::m_typeConstraintData()
-	static int _bind_getM_typeConstraintData(lua_State *L) {
-		if (!_lg_typecheck_getM_typeConstraintData(L)) {
+	static int _bind_getTypeConstraintData(lua_State *L) {
+		if (!_lg_typecheck_getTypeConstraintData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTypedConstraintData btPoint2PointConstraintDoubleData::m_typeConstraintData() function, expected prototype:\nbtTypedConstraintData btPoint2PointConstraintDoubleData::m_typeConstraintData()\nClass arguments details:\n");
 		}
@@ -124,8 +124,8 @@ public:
 	}
 
 	// btVector3DoubleData btPoint2PointConstraintDoubleData::m_pivotInA()
-	static int _bind_getM_pivotInA(lua_State *L) {
-		if (!_lg_typecheck_getM_pivotInA(L)) {
+	static int _bind_getPivotInA(lua_State *L) {
+		if (!_lg_typecheck_getPivotInA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3DoubleData btPoint2PointConstraintDoubleData::m_pivotInA() function, expected prototype:\nbtVector3DoubleData btPoint2PointConstraintDoubleData::m_pivotInA()\nClass arguments details:\n");
 		}
@@ -145,8 +145,8 @@ public:
 	}
 
 	// btVector3DoubleData btPoint2PointConstraintDoubleData::m_pivotInB()
-	static int _bind_getM_pivotInB(lua_State *L) {
-		if (!_lg_typecheck_getM_pivotInB(L)) {
+	static int _bind_getPivotInB(lua_State *L) {
+		if (!_lg_typecheck_getPivotInB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3DoubleData btPoint2PointConstraintDoubleData::m_pivotInB() function, expected prototype:\nbtVector3DoubleData btPoint2PointConstraintDoubleData::m_pivotInB()\nClass arguments details:\n");
 		}
@@ -166,8 +166,8 @@ public:
 	}
 
 	// void btPoint2PointConstraintDoubleData::m_typeConstraintData(btTypedConstraintData value)
-	static int _bind_setM_typeConstraintData(lua_State *L) {
-		if (!_lg_typecheck_setM_typeConstraintData(L)) {
+	static int _bind_setTypeConstraintData(lua_State *L) {
+		if (!_lg_typecheck_setTypeConstraintData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPoint2PointConstraintDoubleData::m_typeConstraintData(btTypedConstraintData value) function, expected prototype:\nvoid btPoint2PointConstraintDoubleData::m_typeConstraintData(btTypedConstraintData value)\nClass arguments details:\narg 1 ID = 98838043\n");
 		}
@@ -189,8 +189,8 @@ public:
 	}
 
 	// void btPoint2PointConstraintDoubleData::m_pivotInA(btVector3DoubleData value)
-	static int _bind_setM_pivotInA(lua_State *L) {
-		if (!_lg_typecheck_setM_pivotInA(L)) {
+	static int _bind_setPivotInA(lua_State *L) {
+		if (!_lg_typecheck_setPivotInA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPoint2PointConstraintDoubleData::m_pivotInA(btVector3DoubleData value) function, expected prototype:\nvoid btPoint2PointConstraintDoubleData::m_pivotInA(btVector3DoubleData value)\nClass arguments details:\narg 1 ID = 89582070\n");
 		}
@@ -212,8 +212,8 @@ public:
 	}
 
 	// void btPoint2PointConstraintDoubleData::m_pivotInB(btVector3DoubleData value)
-	static int _bind_setM_pivotInB(lua_State *L) {
-		if (!_lg_typecheck_setM_pivotInB(L)) {
+	static int _bind_setPivotInB(lua_State *L) {
+		if (!_lg_typecheck_setPivotInB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPoint2PointConstraintDoubleData::m_pivotInB(btVector3DoubleData value) function, expected prototype:\nvoid btPoint2PointConstraintDoubleData::m_pivotInB(btVector3DoubleData value)\nClass arguments details:\narg 1 ID = 89582070\n");
 		}
@@ -255,12 +255,12 @@ const int LunaTraits< btPoint2PointConstraintDoubleData >::hash = 21299109;
 const int LunaTraits< btPoint2PointConstraintDoubleData >::uniqueIDs[] = {21299109,0};
 
 luna_RegType LunaTraits< btPoint2PointConstraintDoubleData >::methods[] = {
-	{"getM_typeConstraintData", &luna_wrapper_btPoint2PointConstraintDoubleData::_bind_getM_typeConstraintData},
-	{"getM_pivotInA", &luna_wrapper_btPoint2PointConstraintDoubleData::_bind_getM_pivotInA},
-	{"getM_pivotInB", &luna_wrapper_btPoint2PointConstraintDoubleData::_bind_getM_pivotInB},
-	{"setM_typeConstraintData", &luna_wrapper_btPoint2PointConstraintDoubleData::_bind_setM_typeConstraintData},
-	{"setM_pivotInA", &luna_wrapper_btPoint2PointConstraintDoubleData::_bind_setM_pivotInA},
-	{"setM_pivotInB", &luna_wrapper_btPoint2PointConstraintDoubleData::_bind_setM_pivotInB},
+	{"getTypeConstraintData", &luna_wrapper_btPoint2PointConstraintDoubleData::_bind_getTypeConstraintData},
+	{"getPivotInA", &luna_wrapper_btPoint2PointConstraintDoubleData::_bind_getPivotInA},
+	{"getPivotInB", &luna_wrapper_btPoint2PointConstraintDoubleData::_bind_getPivotInB},
+	{"setTypeConstraintData", &luna_wrapper_btPoint2PointConstraintDoubleData::_bind_setTypeConstraintData},
+	{"setPivotInA", &luna_wrapper_btPoint2PointConstraintDoubleData::_bind_setPivotInA},
+	{"setPivotInB", &luna_wrapper_btPoint2PointConstraintDoubleData::_bind_setPivotInB},
 	{"dynCast", &luna_wrapper_btPoint2PointConstraintDoubleData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btPoint2PointConstraintDoubleData::_bind___eq},
 	{0,0}

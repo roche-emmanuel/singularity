@@ -80,13 +80,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_escapeIndexOrTriangleIndex(lua_State *L) {
+	inline static bool _lg_typecheck_getEscapeIndexOrTriangleIndex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_escapeIndexOrTriangleIndex(lua_State *L) {
+	inline static bool _lg_typecheck_setEscapeIndexOrTriangleIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -177,8 +177,8 @@ public:
 	}
 
 	// int btQuantizedBvhNode::m_escapeIndexOrTriangleIndex()
-	static int _bind_getM_escapeIndexOrTriangleIndex(lua_State *L) {
-		if (!_lg_typecheck_getM_escapeIndexOrTriangleIndex(L)) {
+	static int _bind_getEscapeIndexOrTriangleIndex(lua_State *L) {
+		if (!_lg_typecheck_getEscapeIndexOrTriangleIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btQuantizedBvhNode::m_escapeIndexOrTriangleIndex() function, expected prototype:\nint btQuantizedBvhNode::m_escapeIndexOrTriangleIndex()\nClass arguments details:\n");
 		}
@@ -196,8 +196,8 @@ public:
 	}
 
 	// void btQuantizedBvhNode::m_escapeIndexOrTriangleIndex(int value)
-	static int _bind_setM_escapeIndexOrTriangleIndex(lua_State *L) {
-		if (!_lg_typecheck_setM_escapeIndexOrTriangleIndex(L)) {
+	static int _bind_setEscapeIndexOrTriangleIndex(lua_State *L) {
+		if (!_lg_typecheck_setEscapeIndexOrTriangleIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvhNode::m_escapeIndexOrTriangleIndex(int value) function, expected prototype:\nvoid btQuantizedBvhNode::m_escapeIndexOrTriangleIndex(int value)\nClass arguments details:\n");
 		}
@@ -239,8 +239,8 @@ luna_RegType LunaTraits< btQuantizedBvhNode >::methods[] = {
 	{"getEscapeIndex", &luna_wrapper_btQuantizedBvhNode::_bind_getEscapeIndex},
 	{"getTriangleIndex", &luna_wrapper_btQuantizedBvhNode::_bind_getTriangleIndex},
 	{"getPartId", &luna_wrapper_btQuantizedBvhNode::_bind_getPartId},
-	{"getM_escapeIndexOrTriangleIndex", &luna_wrapper_btQuantizedBvhNode::_bind_getM_escapeIndexOrTriangleIndex},
-	{"setM_escapeIndexOrTriangleIndex", &luna_wrapper_btQuantizedBvhNode::_bind_setM_escapeIndexOrTriangleIndex},
+	{"getEscapeIndexOrTriangleIndex", &luna_wrapper_btQuantizedBvhNode::_bind_getEscapeIndexOrTriangleIndex},
+	{"setEscapeIndexOrTriangleIndex", &luna_wrapper_btQuantizedBvhNode::_bind_setEscapeIndexOrTriangleIndex},
 	{"dynCast", &luna_wrapper_btQuantizedBvhNode::_bind_dynCast},
 	{"__eq", &luna_wrapper_btQuantizedBvhNode::_bind___eq},
 	{0,0}

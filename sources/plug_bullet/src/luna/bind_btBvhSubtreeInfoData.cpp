@@ -56,26 +56,26 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_rootNodeIndex(lua_State *L) {
+	inline static bool _lg_typecheck_getRootNodeIndex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_subtreeSize(lua_State *L) {
+	inline static bool _lg_typecheck_getSubtreeSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rootNodeIndex(lua_State *L) {
+	inline static bool _lg_typecheck_setRootNodeIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_subtreeSize(lua_State *L) {
+	inline static bool _lg_typecheck_setSubtreeSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -90,8 +90,8 @@ public:
 
 	// Function binds:
 	// int btBvhSubtreeInfoData::m_rootNodeIndex()
-	static int _bind_getM_rootNodeIndex(lua_State *L) {
-		if (!_lg_typecheck_getM_rootNodeIndex(L)) {
+	static int _bind_getRootNodeIndex(lua_State *L) {
+		if (!_lg_typecheck_getRootNodeIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btBvhSubtreeInfoData::m_rootNodeIndex() function, expected prototype:\nint btBvhSubtreeInfoData::m_rootNodeIndex()\nClass arguments details:\n");
 		}
@@ -109,8 +109,8 @@ public:
 	}
 
 	// int btBvhSubtreeInfoData::m_subtreeSize()
-	static int _bind_getM_subtreeSize(lua_State *L) {
-		if (!_lg_typecheck_getM_subtreeSize(L)) {
+	static int _bind_getSubtreeSize(lua_State *L) {
+		if (!_lg_typecheck_getSubtreeSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btBvhSubtreeInfoData::m_subtreeSize() function, expected prototype:\nint btBvhSubtreeInfoData::m_subtreeSize()\nClass arguments details:\n");
 		}
@@ -128,8 +128,8 @@ public:
 	}
 
 	// void btBvhSubtreeInfoData::m_rootNodeIndex(int value)
-	static int _bind_setM_rootNodeIndex(lua_State *L) {
-		if (!_lg_typecheck_setM_rootNodeIndex(L)) {
+	static int _bind_setRootNodeIndex(lua_State *L) {
+		if (!_lg_typecheck_setRootNodeIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBvhSubtreeInfoData::m_rootNodeIndex(int value) function, expected prototype:\nvoid btBvhSubtreeInfoData::m_rootNodeIndex(int value)\nClass arguments details:\n");
 		}
@@ -147,8 +147,8 @@ public:
 	}
 
 	// void btBvhSubtreeInfoData::m_subtreeSize(int value)
-	static int _bind_setM_subtreeSize(lua_State *L) {
-		if (!_lg_typecheck_setM_subtreeSize(L)) {
+	static int _bind_setSubtreeSize(lua_State *L) {
+		if (!_lg_typecheck_setSubtreeSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBvhSubtreeInfoData::m_subtreeSize(int value) function, expected prototype:\nvoid btBvhSubtreeInfoData::m_subtreeSize(int value)\nClass arguments details:\n");
 		}
@@ -186,10 +186,10 @@ const int LunaTraits< btBvhSubtreeInfoData >::hash = 95109631;
 const int LunaTraits< btBvhSubtreeInfoData >::uniqueIDs[] = {95109631,0};
 
 luna_RegType LunaTraits< btBvhSubtreeInfoData >::methods[] = {
-	{"getM_rootNodeIndex", &luna_wrapper_btBvhSubtreeInfoData::_bind_getM_rootNodeIndex},
-	{"getM_subtreeSize", &luna_wrapper_btBvhSubtreeInfoData::_bind_getM_subtreeSize},
-	{"setM_rootNodeIndex", &luna_wrapper_btBvhSubtreeInfoData::_bind_setM_rootNodeIndex},
-	{"setM_subtreeSize", &luna_wrapper_btBvhSubtreeInfoData::_bind_setM_subtreeSize},
+	{"getRootNodeIndex", &luna_wrapper_btBvhSubtreeInfoData::_bind_getRootNodeIndex},
+	{"getSubtreeSize", &luna_wrapper_btBvhSubtreeInfoData::_bind_getSubtreeSize},
+	{"setRootNodeIndex", &luna_wrapper_btBvhSubtreeInfoData::_bind_setRootNodeIndex},
+	{"setSubtreeSize", &luna_wrapper_btBvhSubtreeInfoData::_bind_setSubtreeSize},
 	{"dynCast", &luna_wrapper_btBvhSubtreeInfoData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btBvhSubtreeInfoData::_bind___eq},
 	{0,0}

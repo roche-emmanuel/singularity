@@ -1495,6 +1495,13 @@ struct luna_caster<osg::ref_ptr< osg::PrimitiveSet >,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<osg::ref_ptr< osg::AnimationPath >,dstType> {
+	static inline dstType* cast(osg::ref_ptr< osg::AnimationPath >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<std::deque< std::string >,dstType> {
 	static inline dstType* cast(std::deque< std::string >* ptr) {
 		return static_cast<dstType*>(ptr);

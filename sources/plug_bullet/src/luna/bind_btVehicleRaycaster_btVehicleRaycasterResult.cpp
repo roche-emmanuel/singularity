@@ -62,39 +62,39 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_hitPointInWorld(lua_State *L) {
+	inline static bool _lg_typecheck_getHitPointInWorld(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitNormalInWorld(lua_State *L) {
+	inline static bool _lg_typecheck_getHitNormalInWorld(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_distFraction(lua_State *L) {
+	inline static bool _lg_typecheck_getDistFraction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitPointInWorld(lua_State *L) {
+	inline static bool _lg_typecheck_setHitPointInWorld(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitNormalInWorld(lua_State *L) {
+	inline static bool _lg_typecheck_setHitNormalInWorld(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_distFraction(lua_State *L) {
+	inline static bool _lg_typecheck_setDistFraction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -120,8 +120,8 @@ public:
 
 	// Function binds:
 	// btVector3 btVehicleRaycaster::btVehicleRaycasterResult::m_hitPointInWorld()
-	static int _bind_getM_hitPointInWorld(lua_State *L) {
-		if (!_lg_typecheck_getM_hitPointInWorld(L)) {
+	static int _bind_getHitPointInWorld(lua_State *L) {
+		if (!_lg_typecheck_getHitPointInWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btVehicleRaycaster::btVehicleRaycasterResult::m_hitPointInWorld() function, expected prototype:\nbtVector3 btVehicleRaycaster::btVehicleRaycasterResult::m_hitPointInWorld()\nClass arguments details:\n");
 		}
@@ -141,8 +141,8 @@ public:
 	}
 
 	// btVector3 btVehicleRaycaster::btVehicleRaycasterResult::m_hitNormalInWorld()
-	static int _bind_getM_hitNormalInWorld(lua_State *L) {
-		if (!_lg_typecheck_getM_hitNormalInWorld(L)) {
+	static int _bind_getHitNormalInWorld(lua_State *L) {
+		if (!_lg_typecheck_getHitNormalInWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btVehicleRaycaster::btVehicleRaycasterResult::m_hitNormalInWorld() function, expected prototype:\nbtVector3 btVehicleRaycaster::btVehicleRaycasterResult::m_hitNormalInWorld()\nClass arguments details:\n");
 		}
@@ -162,8 +162,8 @@ public:
 	}
 
 	// float btVehicleRaycaster::btVehicleRaycasterResult::m_distFraction()
-	static int _bind_getM_distFraction(lua_State *L) {
-		if (!_lg_typecheck_getM_distFraction(L)) {
+	static int _bind_getDistFraction(lua_State *L) {
+		if (!_lg_typecheck_getDistFraction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btVehicleRaycaster::btVehicleRaycasterResult::m_distFraction() function, expected prototype:\nfloat btVehicleRaycaster::btVehicleRaycasterResult::m_distFraction()\nClass arguments details:\n");
 		}
@@ -181,8 +181,8 @@ public:
 	}
 
 	// void btVehicleRaycaster::btVehicleRaycasterResult::m_hitPointInWorld(btVector3 value)
-	static int _bind_setM_hitPointInWorld(lua_State *L) {
-		if (!_lg_typecheck_setM_hitPointInWorld(L)) {
+	static int _bind_setHitPointInWorld(lua_State *L) {
+		if (!_lg_typecheck_setHitPointInWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btVehicleRaycaster::btVehicleRaycasterResult::m_hitPointInWorld(btVector3 value) function, expected prototype:\nvoid btVehicleRaycaster::btVehicleRaycasterResult::m_hitPointInWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -204,8 +204,8 @@ public:
 	}
 
 	// void btVehicleRaycaster::btVehicleRaycasterResult::m_hitNormalInWorld(btVector3 value)
-	static int _bind_setM_hitNormalInWorld(lua_State *L) {
-		if (!_lg_typecheck_setM_hitNormalInWorld(L)) {
+	static int _bind_setHitNormalInWorld(lua_State *L) {
+		if (!_lg_typecheck_setHitNormalInWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btVehicleRaycaster::btVehicleRaycasterResult::m_hitNormalInWorld(btVector3 value) function, expected prototype:\nvoid btVehicleRaycaster::btVehicleRaycasterResult::m_hitNormalInWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -227,8 +227,8 @@ public:
 	}
 
 	// void btVehicleRaycaster::btVehicleRaycasterResult::m_distFraction(float value)
-	static int _bind_setM_distFraction(lua_State *L) {
-		if (!_lg_typecheck_setM_distFraction(L)) {
+	static int _bind_setDistFraction(lua_State *L) {
+		if (!_lg_typecheck_setDistFraction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btVehicleRaycaster::btVehicleRaycasterResult::m_distFraction(float value) function, expected prototype:\nvoid btVehicleRaycaster::btVehicleRaycasterResult::m_distFraction(float value)\nClass arguments details:\n");
 		}
@@ -266,12 +266,12 @@ const int LunaTraits< btVehicleRaycaster::btVehicleRaycasterResult >::hash = 504
 const int LunaTraits< btVehicleRaycaster::btVehicleRaycasterResult >::uniqueIDs[] = {50443956,0};
 
 luna_RegType LunaTraits< btVehicleRaycaster::btVehicleRaycasterResult >::methods[] = {
-	{"getM_hitPointInWorld", &luna_wrapper_btVehicleRaycaster_btVehicleRaycasterResult::_bind_getM_hitPointInWorld},
-	{"getM_hitNormalInWorld", &luna_wrapper_btVehicleRaycaster_btVehicleRaycasterResult::_bind_getM_hitNormalInWorld},
-	{"getM_distFraction", &luna_wrapper_btVehicleRaycaster_btVehicleRaycasterResult::_bind_getM_distFraction},
-	{"setM_hitPointInWorld", &luna_wrapper_btVehicleRaycaster_btVehicleRaycasterResult::_bind_setM_hitPointInWorld},
-	{"setM_hitNormalInWorld", &luna_wrapper_btVehicleRaycaster_btVehicleRaycasterResult::_bind_setM_hitNormalInWorld},
-	{"setM_distFraction", &luna_wrapper_btVehicleRaycaster_btVehicleRaycasterResult::_bind_setM_distFraction},
+	{"getHitPointInWorld", &luna_wrapper_btVehicleRaycaster_btVehicleRaycasterResult::_bind_getHitPointInWorld},
+	{"getHitNormalInWorld", &luna_wrapper_btVehicleRaycaster_btVehicleRaycasterResult::_bind_getHitNormalInWorld},
+	{"getDistFraction", &luna_wrapper_btVehicleRaycaster_btVehicleRaycasterResult::_bind_getDistFraction},
+	{"setHitPointInWorld", &luna_wrapper_btVehicleRaycaster_btVehicleRaycasterResult::_bind_setHitPointInWorld},
+	{"setHitNormalInWorld", &luna_wrapper_btVehicleRaycaster_btVehicleRaycasterResult::_bind_setHitNormalInWorld},
+	{"setDistFraction", &luna_wrapper_btVehicleRaycaster_btVehicleRaycasterResult::_bind_setDistFraction},
 	{"dynCast", &luna_wrapper_btVehicleRaycaster_btVehicleRaycasterResult::_bind_dynCast},
 	{"__eq", &luna_wrapper_btVehicleRaycaster_btVehicleRaycasterResult::_bind___eq},
 	{0,0}

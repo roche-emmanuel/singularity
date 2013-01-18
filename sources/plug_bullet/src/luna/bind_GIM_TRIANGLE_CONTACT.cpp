@@ -87,39 +87,39 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_penetration_depth(lua_State *L) {
+	inline static bool _lg_typecheck_get_penetration_depth(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_point_count(lua_State *L) {
+	inline static bool _lg_typecheck_get_point_count(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_separating_normal(lua_State *L) {
+	inline static bool _lg_typecheck_get_separating_normal(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_penetration_depth(lua_State *L) {
+	inline static bool _lg_typecheck_set_penetration_depth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_point_count(lua_State *L) {
+	inline static bool _lg_typecheck_set_point_count(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_separating_normal(lua_State *L) {
+	inline static bool _lg_typecheck_set_separating_normal(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
@@ -219,8 +219,8 @@ public:
 	}
 
 	// float GIM_TRIANGLE_CONTACT::m_penetration_depth()
-	static int _bind_getM_penetration_depth(lua_State *L) {
-		if (!_lg_typecheck_getM_penetration_depth(L)) {
+	static int _bind_get_penetration_depth(lua_State *L) {
+		if (!_lg_typecheck_get_penetration_depth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float GIM_TRIANGLE_CONTACT::m_penetration_depth() function, expected prototype:\nfloat GIM_TRIANGLE_CONTACT::m_penetration_depth()\nClass arguments details:\n");
 		}
@@ -238,8 +238,8 @@ public:
 	}
 
 	// int GIM_TRIANGLE_CONTACT::m_point_count()
-	static int _bind_getM_point_count(lua_State *L) {
-		if (!_lg_typecheck_getM_point_count(L)) {
+	static int _bind_get_point_count(lua_State *L) {
+		if (!_lg_typecheck_get_point_count(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int GIM_TRIANGLE_CONTACT::m_point_count() function, expected prototype:\nint GIM_TRIANGLE_CONTACT::m_point_count()\nClass arguments details:\n");
 		}
@@ -257,8 +257,8 @@ public:
 	}
 
 	// btVector4 GIM_TRIANGLE_CONTACT::m_separating_normal()
-	static int _bind_getM_separating_normal(lua_State *L) {
-		if (!_lg_typecheck_getM_separating_normal(L)) {
+	static int _bind_get_separating_normal(lua_State *L) {
+		if (!_lg_typecheck_get_separating_normal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector4 GIM_TRIANGLE_CONTACT::m_separating_normal() function, expected prototype:\nbtVector4 GIM_TRIANGLE_CONTACT::m_separating_normal()\nClass arguments details:\n");
 		}
@@ -278,8 +278,8 @@ public:
 	}
 
 	// void GIM_TRIANGLE_CONTACT::m_penetration_depth(float value)
-	static int _bind_setM_penetration_depth(lua_State *L) {
-		if (!_lg_typecheck_setM_penetration_depth(L)) {
+	static int _bind_set_penetration_depth(lua_State *L) {
+		if (!_lg_typecheck_set_penetration_depth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GIM_TRIANGLE_CONTACT::m_penetration_depth(float value) function, expected prototype:\nvoid GIM_TRIANGLE_CONTACT::m_penetration_depth(float value)\nClass arguments details:\n");
 		}
@@ -297,8 +297,8 @@ public:
 	}
 
 	// void GIM_TRIANGLE_CONTACT::m_point_count(int value)
-	static int _bind_setM_point_count(lua_State *L) {
-		if (!_lg_typecheck_setM_point_count(L)) {
+	static int _bind_set_point_count(lua_State *L) {
+		if (!_lg_typecheck_set_point_count(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GIM_TRIANGLE_CONTACT::m_point_count(int value) function, expected prototype:\nvoid GIM_TRIANGLE_CONTACT::m_point_count(int value)\nClass arguments details:\n");
 		}
@@ -316,8 +316,8 @@ public:
 	}
 
 	// void GIM_TRIANGLE_CONTACT::m_separating_normal(btVector4 value)
-	static int _bind_setM_separating_normal(lua_State *L) {
-		if (!_lg_typecheck_setM_separating_normal(L)) {
+	static int _bind_set_separating_normal(lua_State *L) {
+		if (!_lg_typecheck_set_separating_normal(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GIM_TRIANGLE_CONTACT::m_separating_normal(btVector4 value) function, expected prototype:\nvoid GIM_TRIANGLE_CONTACT::m_separating_normal(btVector4 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -361,12 +361,12 @@ const int LunaTraits< GIM_TRIANGLE_CONTACT >::uniqueIDs[] = {87059149,0};
 luna_RegType LunaTraits< GIM_TRIANGLE_CONTACT >::methods[] = {
 	{"copy_from", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_copy_from},
 	{"merge_points", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_merge_points},
-	{"getM_penetration_depth", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_getM_penetration_depth},
-	{"getM_point_count", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_getM_point_count},
-	{"getM_separating_normal", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_getM_separating_normal},
-	{"setM_penetration_depth", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_setM_penetration_depth},
-	{"setM_point_count", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_setM_point_count},
-	{"setM_separating_normal", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_setM_separating_normal},
+	{"get_penetration_depth", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_get_penetration_depth},
+	{"get_point_count", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_get_point_count},
+	{"get_separating_normal", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_get_separating_normal},
+	{"set_penetration_depth", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_set_penetration_depth},
+	{"set_point_count", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_set_point_count},
+	{"set_separating_normal", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_set_separating_normal},
 	{"dynCast", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind_dynCast},
 	{"__eq", &luna_wrapper_GIM_TRIANGLE_CONTACT::_bind___eq},
 	{0,0}

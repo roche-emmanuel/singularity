@@ -56,169 +56,169 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_rbA(lua_State *L) {
+	inline static bool _lg_typecheck_getRbA(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rbB(lua_State *L) {
+	inline static bool _lg_typecheck_getRbB(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_name(lua_State *L) {
+	inline static bool _lg_typecheck_getName(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_objectType(lua_State *L) {
+	inline static bool _lg_typecheck_getObjectType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_userConstraintType(lua_State *L) {
+	inline static bool _lg_typecheck_getUserConstraintType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_userConstraintId(lua_State *L) {
+	inline static bool _lg_typecheck_getUserConstraintId(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_needsFeedback(lua_State *L) {
+	inline static bool _lg_typecheck_getNeedsFeedback(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_appliedImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_getAppliedImpulse(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_dbgDrawSize(lua_State *L) {
+	inline static bool _lg_typecheck_getDbgDrawSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_disableCollisionsBetweenLinkedBodies(lua_State *L) {
+	inline static bool _lg_typecheck_getDisableCollisionsBetweenLinkedBodies(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_overrideNumSolverIterations(lua_State *L) {
+	inline static bool _lg_typecheck_getOverrideNumSolverIterations(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_breakingImpulseThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_getBreakingImpulseThreshold(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_isEnabled(lua_State *L) {
+	inline static bool _lg_typecheck_getIsEnabled(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rbA(lua_State *L) {
+	inline static bool _lg_typecheck_setRbA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,1580424)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rbB(lua_State *L) {
+	inline static bool _lg_typecheck_setRbB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,1580424)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_name(lua_State *L) {
+	inline static bool _lg_typecheck_setName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_objectType(lua_State *L) {
+	inline static bool _lg_typecheck_setObjectType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_userConstraintType(lua_State *L) {
+	inline static bool _lg_typecheck_setUserConstraintType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_userConstraintId(lua_State *L) {
+	inline static bool _lg_typecheck_setUserConstraintId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_needsFeedback(lua_State *L) {
+	inline static bool _lg_typecheck_setNeedsFeedback(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_appliedImpulse(lua_State *L) {
+	inline static bool _lg_typecheck_setAppliedImpulse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_dbgDrawSize(lua_State *L) {
+	inline static bool _lg_typecheck_setDbgDrawSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_disableCollisionsBetweenLinkedBodies(lua_State *L) {
+	inline static bool _lg_typecheck_setDisableCollisionsBetweenLinkedBodies(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_overrideNumSolverIterations(lua_State *L) {
+	inline static bool _lg_typecheck_setOverrideNumSolverIterations(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_breakingImpulseThreshold(lua_State *L) {
+	inline static bool _lg_typecheck_setBreakingImpulseThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_isEnabled(lua_State *L) {
+	inline static bool _lg_typecheck_setIsEnabled(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -233,8 +233,8 @@ public:
 
 	// Function binds:
 	// btRigidBodyFloatData * btTypedConstraintData::m_rbA()
-	static int _bind_getM_rbA(lua_State *L) {
-		if (!_lg_typecheck_getM_rbA(L)) {
+	static int _bind_getRbA(lua_State *L) {
+		if (!_lg_typecheck_getRbA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btRigidBodyFloatData * btTypedConstraintData::m_rbA() function, expected prototype:\nbtRigidBodyFloatData * btTypedConstraintData::m_rbA()\nClass arguments details:\n");
 		}
@@ -254,8 +254,8 @@ public:
 	}
 
 	// btRigidBodyFloatData * btTypedConstraintData::m_rbB()
-	static int _bind_getM_rbB(lua_State *L) {
-		if (!_lg_typecheck_getM_rbB(L)) {
+	static int _bind_getRbB(lua_State *L) {
+		if (!_lg_typecheck_getRbB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btRigidBodyFloatData * btTypedConstraintData::m_rbB() function, expected prototype:\nbtRigidBodyFloatData * btTypedConstraintData::m_rbB()\nClass arguments details:\n");
 		}
@@ -275,8 +275,8 @@ public:
 	}
 
 	// char * btTypedConstraintData::m_name()
-	static int _bind_getM_name(lua_State *L) {
-		if (!_lg_typecheck_getM_name(L)) {
+	static int _bind_getName(lua_State *L) {
+		if (!_lg_typecheck_getName(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in char * btTypedConstraintData::m_name() function, expected prototype:\nchar * btTypedConstraintData::m_name()\nClass arguments details:\n");
 		}
@@ -294,8 +294,8 @@ public:
 	}
 
 	// int btTypedConstraintData::m_objectType()
-	static int _bind_getM_objectType(lua_State *L) {
-		if (!_lg_typecheck_getM_objectType(L)) {
+	static int _bind_getObjectType(lua_State *L) {
+		if (!_lg_typecheck_getObjectType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_objectType() function, expected prototype:\nint btTypedConstraintData::m_objectType()\nClass arguments details:\n");
 		}
@@ -313,8 +313,8 @@ public:
 	}
 
 	// int btTypedConstraintData::m_userConstraintType()
-	static int _bind_getM_userConstraintType(lua_State *L) {
-		if (!_lg_typecheck_getM_userConstraintType(L)) {
+	static int _bind_getUserConstraintType(lua_State *L) {
+		if (!_lg_typecheck_getUserConstraintType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_userConstraintType() function, expected prototype:\nint btTypedConstraintData::m_userConstraintType()\nClass arguments details:\n");
 		}
@@ -332,8 +332,8 @@ public:
 	}
 
 	// int btTypedConstraintData::m_userConstraintId()
-	static int _bind_getM_userConstraintId(lua_State *L) {
-		if (!_lg_typecheck_getM_userConstraintId(L)) {
+	static int _bind_getUserConstraintId(lua_State *L) {
+		if (!_lg_typecheck_getUserConstraintId(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_userConstraintId() function, expected prototype:\nint btTypedConstraintData::m_userConstraintId()\nClass arguments details:\n");
 		}
@@ -351,8 +351,8 @@ public:
 	}
 
 	// int btTypedConstraintData::m_needsFeedback()
-	static int _bind_getM_needsFeedback(lua_State *L) {
-		if (!_lg_typecheck_getM_needsFeedback(L)) {
+	static int _bind_getNeedsFeedback(lua_State *L) {
+		if (!_lg_typecheck_getNeedsFeedback(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_needsFeedback() function, expected prototype:\nint btTypedConstraintData::m_needsFeedback()\nClass arguments details:\n");
 		}
@@ -370,8 +370,8 @@ public:
 	}
 
 	// float btTypedConstraintData::m_appliedImpulse()
-	static int _bind_getM_appliedImpulse(lua_State *L) {
-		if (!_lg_typecheck_getM_appliedImpulse(L)) {
+	static int _bind_getAppliedImpulse(lua_State *L) {
+		if (!_lg_typecheck_getAppliedImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTypedConstraintData::m_appliedImpulse() function, expected prototype:\nfloat btTypedConstraintData::m_appliedImpulse()\nClass arguments details:\n");
 		}
@@ -389,8 +389,8 @@ public:
 	}
 
 	// float btTypedConstraintData::m_dbgDrawSize()
-	static int _bind_getM_dbgDrawSize(lua_State *L) {
-		if (!_lg_typecheck_getM_dbgDrawSize(L)) {
+	static int _bind_getDbgDrawSize(lua_State *L) {
+		if (!_lg_typecheck_getDbgDrawSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTypedConstraintData::m_dbgDrawSize() function, expected prototype:\nfloat btTypedConstraintData::m_dbgDrawSize()\nClass arguments details:\n");
 		}
@@ -408,8 +408,8 @@ public:
 	}
 
 	// int btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies()
-	static int _bind_getM_disableCollisionsBetweenLinkedBodies(lua_State *L) {
-		if (!_lg_typecheck_getM_disableCollisionsBetweenLinkedBodies(L)) {
+	static int _bind_getDisableCollisionsBetweenLinkedBodies(lua_State *L) {
+		if (!_lg_typecheck_getDisableCollisionsBetweenLinkedBodies(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies() function, expected prototype:\nint btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies()\nClass arguments details:\n");
 		}
@@ -427,8 +427,8 @@ public:
 	}
 
 	// int btTypedConstraintData::m_overrideNumSolverIterations()
-	static int _bind_getM_overrideNumSolverIterations(lua_State *L) {
-		if (!_lg_typecheck_getM_overrideNumSolverIterations(L)) {
+	static int _bind_getOverrideNumSolverIterations(lua_State *L) {
+		if (!_lg_typecheck_getOverrideNumSolverIterations(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_overrideNumSolverIterations() function, expected prototype:\nint btTypedConstraintData::m_overrideNumSolverIterations()\nClass arguments details:\n");
 		}
@@ -446,8 +446,8 @@ public:
 	}
 
 	// float btTypedConstraintData::m_breakingImpulseThreshold()
-	static int _bind_getM_breakingImpulseThreshold(lua_State *L) {
-		if (!_lg_typecheck_getM_breakingImpulseThreshold(L)) {
+	static int _bind_getBreakingImpulseThreshold(lua_State *L) {
+		if (!_lg_typecheck_getBreakingImpulseThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTypedConstraintData::m_breakingImpulseThreshold() function, expected prototype:\nfloat btTypedConstraintData::m_breakingImpulseThreshold()\nClass arguments details:\n");
 		}
@@ -465,8 +465,8 @@ public:
 	}
 
 	// int btTypedConstraintData::m_isEnabled()
-	static int _bind_getM_isEnabled(lua_State *L) {
-		if (!_lg_typecheck_getM_isEnabled(L)) {
+	static int _bind_getIsEnabled(lua_State *L) {
+		if (!_lg_typecheck_getIsEnabled(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_isEnabled() function, expected prototype:\nint btTypedConstraintData::m_isEnabled()\nClass arguments details:\n");
 		}
@@ -484,8 +484,8 @@ public:
 	}
 
 	// void btTypedConstraintData::m_rbA(btRigidBodyFloatData * value)
-	static int _bind_setM_rbA(lua_State *L) {
-		if (!_lg_typecheck_setM_rbA(L)) {
+	static int _bind_setRbA(lua_State *L) {
+		if (!_lg_typecheck_setRbA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_rbA(btRigidBodyFloatData * value) function, expected prototype:\nvoid btTypedConstraintData::m_rbA(btRigidBodyFloatData * value)\nClass arguments details:\narg 1 ID = 1580424\n");
 		}
@@ -503,8 +503,8 @@ public:
 	}
 
 	// void btTypedConstraintData::m_rbB(btRigidBodyFloatData * value)
-	static int _bind_setM_rbB(lua_State *L) {
-		if (!_lg_typecheck_setM_rbB(L)) {
+	static int _bind_setRbB(lua_State *L) {
+		if (!_lg_typecheck_setRbB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_rbB(btRigidBodyFloatData * value) function, expected prototype:\nvoid btTypedConstraintData::m_rbB(btRigidBodyFloatData * value)\nClass arguments details:\narg 1 ID = 1580424\n");
 		}
@@ -522,8 +522,8 @@ public:
 	}
 
 	// void btTypedConstraintData::m_name(char * value)
-	static int _bind_setM_name(lua_State *L) {
-		if (!_lg_typecheck_setM_name(L)) {
+	static int _bind_setName(lua_State *L) {
+		if (!_lg_typecheck_setName(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_name(char * value) function, expected prototype:\nvoid btTypedConstraintData::m_name(char * value)\nClass arguments details:\n");
 		}
@@ -541,8 +541,8 @@ public:
 	}
 
 	// void btTypedConstraintData::m_objectType(int value)
-	static int _bind_setM_objectType(lua_State *L) {
-		if (!_lg_typecheck_setM_objectType(L)) {
+	static int _bind_setObjectType(lua_State *L) {
+		if (!_lg_typecheck_setObjectType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_objectType(int value) function, expected prototype:\nvoid btTypedConstraintData::m_objectType(int value)\nClass arguments details:\n");
 		}
@@ -560,8 +560,8 @@ public:
 	}
 
 	// void btTypedConstraintData::m_userConstraintType(int value)
-	static int _bind_setM_userConstraintType(lua_State *L) {
-		if (!_lg_typecheck_setM_userConstraintType(L)) {
+	static int _bind_setUserConstraintType(lua_State *L) {
+		if (!_lg_typecheck_setUserConstraintType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_userConstraintType(int value) function, expected prototype:\nvoid btTypedConstraintData::m_userConstraintType(int value)\nClass arguments details:\n");
 		}
@@ -579,8 +579,8 @@ public:
 	}
 
 	// void btTypedConstraintData::m_userConstraintId(int value)
-	static int _bind_setM_userConstraintId(lua_State *L) {
-		if (!_lg_typecheck_setM_userConstraintId(L)) {
+	static int _bind_setUserConstraintId(lua_State *L) {
+		if (!_lg_typecheck_setUserConstraintId(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_userConstraintId(int value) function, expected prototype:\nvoid btTypedConstraintData::m_userConstraintId(int value)\nClass arguments details:\n");
 		}
@@ -598,8 +598,8 @@ public:
 	}
 
 	// void btTypedConstraintData::m_needsFeedback(int value)
-	static int _bind_setM_needsFeedback(lua_State *L) {
-		if (!_lg_typecheck_setM_needsFeedback(L)) {
+	static int _bind_setNeedsFeedback(lua_State *L) {
+		if (!_lg_typecheck_setNeedsFeedback(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_needsFeedback(int value) function, expected prototype:\nvoid btTypedConstraintData::m_needsFeedback(int value)\nClass arguments details:\n");
 		}
@@ -617,8 +617,8 @@ public:
 	}
 
 	// void btTypedConstraintData::m_appliedImpulse(float value)
-	static int _bind_setM_appliedImpulse(lua_State *L) {
-		if (!_lg_typecheck_setM_appliedImpulse(L)) {
+	static int _bind_setAppliedImpulse(lua_State *L) {
+		if (!_lg_typecheck_setAppliedImpulse(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_appliedImpulse(float value) function, expected prototype:\nvoid btTypedConstraintData::m_appliedImpulse(float value)\nClass arguments details:\n");
 		}
@@ -636,8 +636,8 @@ public:
 	}
 
 	// void btTypedConstraintData::m_dbgDrawSize(float value)
-	static int _bind_setM_dbgDrawSize(lua_State *L) {
-		if (!_lg_typecheck_setM_dbgDrawSize(L)) {
+	static int _bind_setDbgDrawSize(lua_State *L) {
+		if (!_lg_typecheck_setDbgDrawSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_dbgDrawSize(float value) function, expected prototype:\nvoid btTypedConstraintData::m_dbgDrawSize(float value)\nClass arguments details:\n");
 		}
@@ -655,8 +655,8 @@ public:
 	}
 
 	// void btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies(int value)
-	static int _bind_setM_disableCollisionsBetweenLinkedBodies(lua_State *L) {
-		if (!_lg_typecheck_setM_disableCollisionsBetweenLinkedBodies(L)) {
+	static int _bind_setDisableCollisionsBetweenLinkedBodies(lua_State *L) {
+		if (!_lg_typecheck_setDisableCollisionsBetweenLinkedBodies(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies(int value) function, expected prototype:\nvoid btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies(int value)\nClass arguments details:\n");
 		}
@@ -674,8 +674,8 @@ public:
 	}
 
 	// void btTypedConstraintData::m_overrideNumSolverIterations(int value)
-	static int _bind_setM_overrideNumSolverIterations(lua_State *L) {
-		if (!_lg_typecheck_setM_overrideNumSolverIterations(L)) {
+	static int _bind_setOverrideNumSolverIterations(lua_State *L) {
+		if (!_lg_typecheck_setOverrideNumSolverIterations(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_overrideNumSolverIterations(int value) function, expected prototype:\nvoid btTypedConstraintData::m_overrideNumSolverIterations(int value)\nClass arguments details:\n");
 		}
@@ -693,8 +693,8 @@ public:
 	}
 
 	// void btTypedConstraintData::m_breakingImpulseThreshold(float value)
-	static int _bind_setM_breakingImpulseThreshold(lua_State *L) {
-		if (!_lg_typecheck_setM_breakingImpulseThreshold(L)) {
+	static int _bind_setBreakingImpulseThreshold(lua_State *L) {
+		if (!_lg_typecheck_setBreakingImpulseThreshold(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_breakingImpulseThreshold(float value) function, expected prototype:\nvoid btTypedConstraintData::m_breakingImpulseThreshold(float value)\nClass arguments details:\n");
 		}
@@ -712,8 +712,8 @@ public:
 	}
 
 	// void btTypedConstraintData::m_isEnabled(int value)
-	static int _bind_setM_isEnabled(lua_State *L) {
-		if (!_lg_typecheck_setM_isEnabled(L)) {
+	static int _bind_setIsEnabled(lua_State *L) {
+		if (!_lg_typecheck_setIsEnabled(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_isEnabled(int value) function, expected prototype:\nvoid btTypedConstraintData::m_isEnabled(int value)\nClass arguments details:\n");
 		}
@@ -751,32 +751,32 @@ const int LunaTraits< btTypedConstraintData >::hash = 98838043;
 const int LunaTraits< btTypedConstraintData >::uniqueIDs[] = {98838043,0};
 
 luna_RegType LunaTraits< btTypedConstraintData >::methods[] = {
-	{"getM_rbA", &luna_wrapper_btTypedConstraintData::_bind_getM_rbA},
-	{"getM_rbB", &luna_wrapper_btTypedConstraintData::_bind_getM_rbB},
-	{"getM_name", &luna_wrapper_btTypedConstraintData::_bind_getM_name},
-	{"getM_objectType", &luna_wrapper_btTypedConstraintData::_bind_getM_objectType},
-	{"getM_userConstraintType", &luna_wrapper_btTypedConstraintData::_bind_getM_userConstraintType},
-	{"getM_userConstraintId", &luna_wrapper_btTypedConstraintData::_bind_getM_userConstraintId},
-	{"getM_needsFeedback", &luna_wrapper_btTypedConstraintData::_bind_getM_needsFeedback},
-	{"getM_appliedImpulse", &luna_wrapper_btTypedConstraintData::_bind_getM_appliedImpulse},
-	{"getM_dbgDrawSize", &luna_wrapper_btTypedConstraintData::_bind_getM_dbgDrawSize},
-	{"getM_disableCollisionsBetweenLinkedBodies", &luna_wrapper_btTypedConstraintData::_bind_getM_disableCollisionsBetweenLinkedBodies},
-	{"getM_overrideNumSolverIterations", &luna_wrapper_btTypedConstraintData::_bind_getM_overrideNumSolverIterations},
-	{"getM_breakingImpulseThreshold", &luna_wrapper_btTypedConstraintData::_bind_getM_breakingImpulseThreshold},
-	{"getM_isEnabled", &luna_wrapper_btTypedConstraintData::_bind_getM_isEnabled},
-	{"setM_rbA", &luna_wrapper_btTypedConstraintData::_bind_setM_rbA},
-	{"setM_rbB", &luna_wrapper_btTypedConstraintData::_bind_setM_rbB},
-	{"setM_name", &luna_wrapper_btTypedConstraintData::_bind_setM_name},
-	{"setM_objectType", &luna_wrapper_btTypedConstraintData::_bind_setM_objectType},
-	{"setM_userConstraintType", &luna_wrapper_btTypedConstraintData::_bind_setM_userConstraintType},
-	{"setM_userConstraintId", &luna_wrapper_btTypedConstraintData::_bind_setM_userConstraintId},
-	{"setM_needsFeedback", &luna_wrapper_btTypedConstraintData::_bind_setM_needsFeedback},
-	{"setM_appliedImpulse", &luna_wrapper_btTypedConstraintData::_bind_setM_appliedImpulse},
-	{"setM_dbgDrawSize", &luna_wrapper_btTypedConstraintData::_bind_setM_dbgDrawSize},
-	{"setM_disableCollisionsBetweenLinkedBodies", &luna_wrapper_btTypedConstraintData::_bind_setM_disableCollisionsBetweenLinkedBodies},
-	{"setM_overrideNumSolverIterations", &luna_wrapper_btTypedConstraintData::_bind_setM_overrideNumSolverIterations},
-	{"setM_breakingImpulseThreshold", &luna_wrapper_btTypedConstraintData::_bind_setM_breakingImpulseThreshold},
-	{"setM_isEnabled", &luna_wrapper_btTypedConstraintData::_bind_setM_isEnabled},
+	{"getRbA", &luna_wrapper_btTypedConstraintData::_bind_getRbA},
+	{"getRbB", &luna_wrapper_btTypedConstraintData::_bind_getRbB},
+	{"getName", &luna_wrapper_btTypedConstraintData::_bind_getName},
+	{"getObjectType", &luna_wrapper_btTypedConstraintData::_bind_getObjectType},
+	{"getUserConstraintType", &luna_wrapper_btTypedConstraintData::_bind_getUserConstraintType},
+	{"getUserConstraintId", &luna_wrapper_btTypedConstraintData::_bind_getUserConstraintId},
+	{"getNeedsFeedback", &luna_wrapper_btTypedConstraintData::_bind_getNeedsFeedback},
+	{"getAppliedImpulse", &luna_wrapper_btTypedConstraintData::_bind_getAppliedImpulse},
+	{"getDbgDrawSize", &luna_wrapper_btTypedConstraintData::_bind_getDbgDrawSize},
+	{"getDisableCollisionsBetweenLinkedBodies", &luna_wrapper_btTypedConstraintData::_bind_getDisableCollisionsBetweenLinkedBodies},
+	{"getOverrideNumSolverIterations", &luna_wrapper_btTypedConstraintData::_bind_getOverrideNumSolverIterations},
+	{"getBreakingImpulseThreshold", &luna_wrapper_btTypedConstraintData::_bind_getBreakingImpulseThreshold},
+	{"getIsEnabled", &luna_wrapper_btTypedConstraintData::_bind_getIsEnabled},
+	{"setRbA", &luna_wrapper_btTypedConstraintData::_bind_setRbA},
+	{"setRbB", &luna_wrapper_btTypedConstraintData::_bind_setRbB},
+	{"setName", &luna_wrapper_btTypedConstraintData::_bind_setName},
+	{"setObjectType", &luna_wrapper_btTypedConstraintData::_bind_setObjectType},
+	{"setUserConstraintType", &luna_wrapper_btTypedConstraintData::_bind_setUserConstraintType},
+	{"setUserConstraintId", &luna_wrapper_btTypedConstraintData::_bind_setUserConstraintId},
+	{"setNeedsFeedback", &luna_wrapper_btTypedConstraintData::_bind_setNeedsFeedback},
+	{"setAppliedImpulse", &luna_wrapper_btTypedConstraintData::_bind_setAppliedImpulse},
+	{"setDbgDrawSize", &luna_wrapper_btTypedConstraintData::_bind_setDbgDrawSize},
+	{"setDisableCollisionsBetweenLinkedBodies", &luna_wrapper_btTypedConstraintData::_bind_setDisableCollisionsBetweenLinkedBodies},
+	{"setOverrideNumSolverIterations", &luna_wrapper_btTypedConstraintData::_bind_setOverrideNumSolverIterations},
+	{"setBreakingImpulseThreshold", &luna_wrapper_btTypedConstraintData::_bind_setBreakingImpulseThreshold},
+	{"setIsEnabled", &luna_wrapper_btTypedConstraintData::_bind_setIsEnabled},
 	{"dynCast", &luna_wrapper_btTypedConstraintData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btTypedConstraintData::_bind___eq},
 	{0,0}

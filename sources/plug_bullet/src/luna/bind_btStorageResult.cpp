@@ -85,39 +85,39 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_normalOnSurfaceB(lua_State *L) {
+	inline static bool _lg_typecheck_getNormalOnSurfaceB(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_closestPointInB(lua_State *L) {
+	inline static bool _lg_typecheck_getClosestPointInB(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_distance(lua_State *L) {
+	inline static bool _lg_typecheck_getDistance(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_normalOnSurfaceB(lua_State *L) {
+	inline static bool _lg_typecheck_setNormalOnSurfaceB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_closestPointInB(lua_State *L) {
+	inline static bool _lg_typecheck_setClosestPointInB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_distance(lua_State *L) {
+	inline static bool _lg_typecheck_setDistance(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -181,8 +181,8 @@ public:
 	}
 
 	// btVector3 btStorageResult::m_normalOnSurfaceB()
-	static int _bind_getM_normalOnSurfaceB(lua_State *L) {
-		if (!_lg_typecheck_getM_normalOnSurfaceB(L)) {
+	static int _bind_getNormalOnSurfaceB(lua_State *L) {
+		if (!_lg_typecheck_getNormalOnSurfaceB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btStorageResult::m_normalOnSurfaceB() function, expected prototype:\nbtVector3 btStorageResult::m_normalOnSurfaceB()\nClass arguments details:\n");
 		}
@@ -202,8 +202,8 @@ public:
 	}
 
 	// btVector3 btStorageResult::m_closestPointInB()
-	static int _bind_getM_closestPointInB(lua_State *L) {
-		if (!_lg_typecheck_getM_closestPointInB(L)) {
+	static int _bind_getClosestPointInB(lua_State *L) {
+		if (!_lg_typecheck_getClosestPointInB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btStorageResult::m_closestPointInB() function, expected prototype:\nbtVector3 btStorageResult::m_closestPointInB()\nClass arguments details:\n");
 		}
@@ -223,8 +223,8 @@ public:
 	}
 
 	// float btStorageResult::m_distance()
-	static int _bind_getM_distance(lua_State *L) {
-		if (!_lg_typecheck_getM_distance(L)) {
+	static int _bind_getDistance(lua_State *L) {
+		if (!_lg_typecheck_getDistance(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btStorageResult::m_distance() function, expected prototype:\nfloat btStorageResult::m_distance()\nClass arguments details:\n");
 		}
@@ -242,8 +242,8 @@ public:
 	}
 
 	// void btStorageResult::m_normalOnSurfaceB(btVector3 value)
-	static int _bind_setM_normalOnSurfaceB(lua_State *L) {
-		if (!_lg_typecheck_setM_normalOnSurfaceB(L)) {
+	static int _bind_setNormalOnSurfaceB(lua_State *L) {
+		if (!_lg_typecheck_setNormalOnSurfaceB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btStorageResult::m_normalOnSurfaceB(btVector3 value) function, expected prototype:\nvoid btStorageResult::m_normalOnSurfaceB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -265,8 +265,8 @@ public:
 	}
 
 	// void btStorageResult::m_closestPointInB(btVector3 value)
-	static int _bind_setM_closestPointInB(lua_State *L) {
-		if (!_lg_typecheck_setM_closestPointInB(L)) {
+	static int _bind_setClosestPointInB(lua_State *L) {
+		if (!_lg_typecheck_setClosestPointInB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btStorageResult::m_closestPointInB(btVector3 value) function, expected prototype:\nvoid btStorageResult::m_closestPointInB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -288,8 +288,8 @@ public:
 	}
 
 	// void btStorageResult::m_distance(float value)
-	static int _bind_setM_distance(lua_State *L) {
-		if (!_lg_typecheck_setM_distance(L)) {
+	static int _bind_setDistance(lua_State *L) {
+		if (!_lg_typecheck_setDistance(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btStorageResult::m_distance(float value) function, expected prototype:\nvoid btStorageResult::m_distance(float value)\nClass arguments details:\n");
 		}
@@ -361,12 +361,12 @@ const int LunaTraits< btStorageResult >::uniqueIDs[] = {25324514,0};
 
 luna_RegType LunaTraits< btStorageResult >::methods[] = {
 	{"addContactPoint", &luna_wrapper_btStorageResult::_bind_addContactPoint},
-	{"getM_normalOnSurfaceB", &luna_wrapper_btStorageResult::_bind_getM_normalOnSurfaceB},
-	{"getM_closestPointInB", &luna_wrapper_btStorageResult::_bind_getM_closestPointInB},
-	{"getM_distance", &luna_wrapper_btStorageResult::_bind_getM_distance},
-	{"setM_normalOnSurfaceB", &luna_wrapper_btStorageResult::_bind_setM_normalOnSurfaceB},
-	{"setM_closestPointInB", &luna_wrapper_btStorageResult::_bind_setM_closestPointInB},
-	{"setM_distance", &luna_wrapper_btStorageResult::_bind_setM_distance},
+	{"getNormalOnSurfaceB", &luna_wrapper_btStorageResult::_bind_getNormalOnSurfaceB},
+	{"getClosestPointInB", &luna_wrapper_btStorageResult::_bind_getClosestPointInB},
+	{"getDistance", &luna_wrapper_btStorageResult::_bind_getDistance},
+	{"setNormalOnSurfaceB", &luna_wrapper_btStorageResult::_bind_setNormalOnSurfaceB},
+	{"setClosestPointInB", &luna_wrapper_btStorageResult::_bind_setClosestPointInB},
+	{"setDistance", &luna_wrapper_btStorageResult::_bind_setDistance},
 	{"base_addContactPoint", &luna_wrapper_btStorageResult::_bind_base_addContactPoint},
 	{"__eq", &luna_wrapper_btStorageResult::_bind___eq},
 	{"getTable", &luna_wrapper_btStorageResult::_bind_getTable},

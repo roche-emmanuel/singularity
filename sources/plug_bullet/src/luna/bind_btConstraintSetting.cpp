@@ -62,39 +62,39 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_tau(lua_State *L) {
+	inline static bool _lg_typecheck_getTau(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_damping(lua_State *L) {
+	inline static bool _lg_typecheck_getDamping(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_impulseClamp(lua_State *L) {
+	inline static bool _lg_typecheck_getImpulseClamp(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_tau(lua_State *L) {
+	inline static bool _lg_typecheck_setTau(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_damping(lua_State *L) {
+	inline static bool _lg_typecheck_setDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_impulseClamp(lua_State *L) {
+	inline static bool _lg_typecheck_setImpulseClamp(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -120,8 +120,8 @@ public:
 
 	// Function binds:
 	// float btConstraintSetting::m_tau()
-	static int _bind_getM_tau(lua_State *L) {
-		if (!_lg_typecheck_getM_tau(L)) {
+	static int _bind_getTau(lua_State *L) {
+		if (!_lg_typecheck_getTau(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConstraintSetting::m_tau() function, expected prototype:\nfloat btConstraintSetting::m_tau()\nClass arguments details:\n");
 		}
@@ -139,8 +139,8 @@ public:
 	}
 
 	// float btConstraintSetting::m_damping()
-	static int _bind_getM_damping(lua_State *L) {
-		if (!_lg_typecheck_getM_damping(L)) {
+	static int _bind_getDamping(lua_State *L) {
+		if (!_lg_typecheck_getDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConstraintSetting::m_damping() function, expected prototype:\nfloat btConstraintSetting::m_damping()\nClass arguments details:\n");
 		}
@@ -158,8 +158,8 @@ public:
 	}
 
 	// float btConstraintSetting::m_impulseClamp()
-	static int _bind_getM_impulseClamp(lua_State *L) {
-		if (!_lg_typecheck_getM_impulseClamp(L)) {
+	static int _bind_getImpulseClamp(lua_State *L) {
+		if (!_lg_typecheck_getImpulseClamp(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConstraintSetting::m_impulseClamp() function, expected prototype:\nfloat btConstraintSetting::m_impulseClamp()\nClass arguments details:\n");
 		}
@@ -177,8 +177,8 @@ public:
 	}
 
 	// void btConstraintSetting::m_tau(float value)
-	static int _bind_setM_tau(lua_State *L) {
-		if (!_lg_typecheck_setM_tau(L)) {
+	static int _bind_setTau(lua_State *L) {
+		if (!_lg_typecheck_setTau(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConstraintSetting::m_tau(float value) function, expected prototype:\nvoid btConstraintSetting::m_tau(float value)\nClass arguments details:\n");
 		}
@@ -196,8 +196,8 @@ public:
 	}
 
 	// void btConstraintSetting::m_damping(float value)
-	static int _bind_setM_damping(lua_State *L) {
-		if (!_lg_typecheck_setM_damping(L)) {
+	static int _bind_setDamping(lua_State *L) {
+		if (!_lg_typecheck_setDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConstraintSetting::m_damping(float value) function, expected prototype:\nvoid btConstraintSetting::m_damping(float value)\nClass arguments details:\n");
 		}
@@ -215,8 +215,8 @@ public:
 	}
 
 	// void btConstraintSetting::m_impulseClamp(float value)
-	static int _bind_setM_impulseClamp(lua_State *L) {
-		if (!_lg_typecheck_setM_impulseClamp(L)) {
+	static int _bind_setImpulseClamp(lua_State *L) {
+		if (!_lg_typecheck_setImpulseClamp(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConstraintSetting::m_impulseClamp(float value) function, expected prototype:\nvoid btConstraintSetting::m_impulseClamp(float value)\nClass arguments details:\n");
 		}
@@ -254,12 +254,12 @@ const int LunaTraits< btConstraintSetting >::hash = 71995903;
 const int LunaTraits< btConstraintSetting >::uniqueIDs[] = {71995903,0};
 
 luna_RegType LunaTraits< btConstraintSetting >::methods[] = {
-	{"getM_tau", &luna_wrapper_btConstraintSetting::_bind_getM_tau},
-	{"getM_damping", &luna_wrapper_btConstraintSetting::_bind_getM_damping},
-	{"getM_impulseClamp", &luna_wrapper_btConstraintSetting::_bind_getM_impulseClamp},
-	{"setM_tau", &luna_wrapper_btConstraintSetting::_bind_setM_tau},
-	{"setM_damping", &luna_wrapper_btConstraintSetting::_bind_setM_damping},
-	{"setM_impulseClamp", &luna_wrapper_btConstraintSetting::_bind_setM_impulseClamp},
+	{"getTau", &luna_wrapper_btConstraintSetting::_bind_getTau},
+	{"getDamping", &luna_wrapper_btConstraintSetting::_bind_getDamping},
+	{"getImpulseClamp", &luna_wrapper_btConstraintSetting::_bind_getImpulseClamp},
+	{"setTau", &luna_wrapper_btConstraintSetting::_bind_setTau},
+	{"setDamping", &luna_wrapper_btConstraintSetting::_bind_setDamping},
+	{"setImpulseClamp", &luna_wrapper_btConstraintSetting::_bind_setImpulseClamp},
 	{"dynCast", &luna_wrapper_btConstraintSetting::_bind_dynCast},
 	{"__eq", &luna_wrapper_btConstraintSetting::_bind___eq},
 	{0,0}

@@ -89,78 +89,78 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_broadPhase(lua_State *L) {
+	inline static bool _lg_typecheck_getBroadPhase(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contactList(lua_State *L) {
+	inline static bool _lg_typecheck_getContactList(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contactCount(lua_State *L) {
+	inline static bool _lg_typecheck_getContactCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contactFilter(lua_State *L) {
+	inline static bool _lg_typecheck_getContactFilter(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contactListener(lua_State *L) {
+	inline static bool _lg_typecheck_getContactListener(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_allocator(lua_State *L) {
+	inline static bool _lg_typecheck_getAllocator(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_broadPhase(lua_State *L) {
+	inline static bool _lg_typecheck_setBroadPhase(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,95168430) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactList(lua_State *L) {
+	inline static bool _lg_typecheck_setContactList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,92978558)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactCount(lua_State *L) {
+	inline static bool _lg_typecheck_setContactCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactFilter(lua_State *L) {
+	inline static bool _lg_typecheck_setContactFilter(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,7470542)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactListener(lua_State *L) {
+	inline static bool _lg_typecheck_setContactListener(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,55252344)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_allocator(lua_State *L) {
+	inline static bool _lg_typecheck_setAllocator(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,76186022)) ) return false;
@@ -261,8 +261,8 @@ public:
 	}
 
 	// b2BroadPhase b2ContactManager::m_broadPhase()
-	static int _bind_getM_broadPhase(lua_State *L) {
-		if (!_lg_typecheck_getM_broadPhase(L)) {
+	static int _bind_getBroadPhase(lua_State *L) {
+		if (!_lg_typecheck_getBroadPhase(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2BroadPhase b2ContactManager::m_broadPhase() function, expected prototype:\nb2BroadPhase b2ContactManager::m_broadPhase()\nClass arguments details:\n");
 		}
@@ -282,8 +282,8 @@ public:
 	}
 
 	// b2Contact * b2ContactManager::m_contactList()
-	static int _bind_getM_contactList(lua_State *L) {
-		if (!_lg_typecheck_getM_contactList(L)) {
+	static int _bind_getContactList(lua_State *L) {
+		if (!_lg_typecheck_getContactList(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2Contact * b2ContactManager::m_contactList() function, expected prototype:\nb2Contact * b2ContactManager::m_contactList()\nClass arguments details:\n");
 		}
@@ -303,8 +303,8 @@ public:
 	}
 
 	// signed int b2ContactManager::m_contactCount()
-	static int _bind_getM_contactCount(lua_State *L) {
-		if (!_lg_typecheck_getM_contactCount(L)) {
+	static int _bind_getContactCount(lua_State *L) {
+		if (!_lg_typecheck_getContactCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in signed int b2ContactManager::m_contactCount() function, expected prototype:\nsigned int b2ContactManager::m_contactCount()\nClass arguments details:\n");
 		}
@@ -322,8 +322,8 @@ public:
 	}
 
 	// b2ContactFilter * b2ContactManager::m_contactFilter()
-	static int _bind_getM_contactFilter(lua_State *L) {
-		if (!_lg_typecheck_getM_contactFilter(L)) {
+	static int _bind_getContactFilter(lua_State *L) {
+		if (!_lg_typecheck_getContactFilter(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2ContactFilter * b2ContactManager::m_contactFilter() function, expected prototype:\nb2ContactFilter * b2ContactManager::m_contactFilter()\nClass arguments details:\n");
 		}
@@ -343,8 +343,8 @@ public:
 	}
 
 	// b2ContactListener * b2ContactManager::m_contactListener()
-	static int _bind_getM_contactListener(lua_State *L) {
-		if (!_lg_typecheck_getM_contactListener(L)) {
+	static int _bind_getContactListener(lua_State *L) {
+		if (!_lg_typecheck_getContactListener(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2ContactListener * b2ContactManager::m_contactListener() function, expected prototype:\nb2ContactListener * b2ContactManager::m_contactListener()\nClass arguments details:\n");
 		}
@@ -364,8 +364,8 @@ public:
 	}
 
 	// b2BlockAllocator * b2ContactManager::m_allocator()
-	static int _bind_getM_allocator(lua_State *L) {
-		if (!_lg_typecheck_getM_allocator(L)) {
+	static int _bind_getAllocator(lua_State *L) {
+		if (!_lg_typecheck_getAllocator(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in b2BlockAllocator * b2ContactManager::m_allocator() function, expected prototype:\nb2BlockAllocator * b2ContactManager::m_allocator()\nClass arguments details:\n");
 		}
@@ -385,8 +385,8 @@ public:
 	}
 
 	// void b2ContactManager::m_broadPhase(b2BroadPhase value)
-	static int _bind_setM_broadPhase(lua_State *L) {
-		if (!_lg_typecheck_setM_broadPhase(L)) {
+	static int _bind_setBroadPhase(lua_State *L) {
+		if (!_lg_typecheck_setBroadPhase(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_broadPhase(b2BroadPhase value) function, expected prototype:\nvoid b2ContactManager::m_broadPhase(b2BroadPhase value)\nClass arguments details:\narg 1 ID = 95168430\n");
 		}
@@ -408,8 +408,8 @@ public:
 	}
 
 	// void b2ContactManager::m_contactList(b2Contact * value)
-	static int _bind_setM_contactList(lua_State *L) {
-		if (!_lg_typecheck_setM_contactList(L)) {
+	static int _bind_setContactList(lua_State *L) {
+		if (!_lg_typecheck_setContactList(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_contactList(b2Contact * value) function, expected prototype:\nvoid b2ContactManager::m_contactList(b2Contact * value)\nClass arguments details:\narg 1 ID = 92978558\n");
 		}
@@ -427,8 +427,8 @@ public:
 	}
 
 	// void b2ContactManager::m_contactCount(signed int value)
-	static int _bind_setM_contactCount(lua_State *L) {
-		if (!_lg_typecheck_setM_contactCount(L)) {
+	static int _bind_setContactCount(lua_State *L) {
+		if (!_lg_typecheck_setContactCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_contactCount(signed int value) function, expected prototype:\nvoid b2ContactManager::m_contactCount(signed int value)\nClass arguments details:\n");
 		}
@@ -446,8 +446,8 @@ public:
 	}
 
 	// void b2ContactManager::m_contactFilter(b2ContactFilter * value)
-	static int _bind_setM_contactFilter(lua_State *L) {
-		if (!_lg_typecheck_setM_contactFilter(L)) {
+	static int _bind_setContactFilter(lua_State *L) {
+		if (!_lg_typecheck_setContactFilter(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_contactFilter(b2ContactFilter * value) function, expected prototype:\nvoid b2ContactManager::m_contactFilter(b2ContactFilter * value)\nClass arguments details:\narg 1 ID = 7470542\n");
 		}
@@ -465,8 +465,8 @@ public:
 	}
 
 	// void b2ContactManager::m_contactListener(b2ContactListener * value)
-	static int _bind_setM_contactListener(lua_State *L) {
-		if (!_lg_typecheck_setM_contactListener(L)) {
+	static int _bind_setContactListener(lua_State *L) {
+		if (!_lg_typecheck_setContactListener(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_contactListener(b2ContactListener * value) function, expected prototype:\nvoid b2ContactManager::m_contactListener(b2ContactListener * value)\nClass arguments details:\narg 1 ID = 55252344\n");
 		}
@@ -484,8 +484,8 @@ public:
 	}
 
 	// void b2ContactManager::m_allocator(b2BlockAllocator * value)
-	static int _bind_setM_allocator(lua_State *L) {
-		if (!_lg_typecheck_setM_allocator(L)) {
+	static int _bind_setAllocator(lua_State *L) {
+		if (!_lg_typecheck_setAllocator(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_allocator(b2BlockAllocator * value) function, expected prototype:\nvoid b2ContactManager::m_allocator(b2BlockAllocator * value)\nClass arguments details:\narg 1 ID = 76186022\n");
 		}
@@ -527,18 +527,18 @@ luna_RegType LunaTraits< b2ContactManager >::methods[] = {
 	{"FindNewContacts", &luna_wrapper_b2ContactManager::_bind_FindNewContacts},
 	{"Destroy", &luna_wrapper_b2ContactManager::_bind_Destroy},
 	{"Collide", &luna_wrapper_b2ContactManager::_bind_Collide},
-	{"getM_broadPhase", &luna_wrapper_b2ContactManager::_bind_getM_broadPhase},
-	{"getM_contactList", &luna_wrapper_b2ContactManager::_bind_getM_contactList},
-	{"getM_contactCount", &luna_wrapper_b2ContactManager::_bind_getM_contactCount},
-	{"getM_contactFilter", &luna_wrapper_b2ContactManager::_bind_getM_contactFilter},
-	{"getM_contactListener", &luna_wrapper_b2ContactManager::_bind_getM_contactListener},
-	{"getM_allocator", &luna_wrapper_b2ContactManager::_bind_getM_allocator},
-	{"setM_broadPhase", &luna_wrapper_b2ContactManager::_bind_setM_broadPhase},
-	{"setM_contactList", &luna_wrapper_b2ContactManager::_bind_setM_contactList},
-	{"setM_contactCount", &luna_wrapper_b2ContactManager::_bind_setM_contactCount},
-	{"setM_contactFilter", &luna_wrapper_b2ContactManager::_bind_setM_contactFilter},
-	{"setM_contactListener", &luna_wrapper_b2ContactManager::_bind_setM_contactListener},
-	{"setM_allocator", &luna_wrapper_b2ContactManager::_bind_setM_allocator},
+	{"getBroadPhase", &luna_wrapper_b2ContactManager::_bind_getBroadPhase},
+	{"getContactList", &luna_wrapper_b2ContactManager::_bind_getContactList},
+	{"getContactCount", &luna_wrapper_b2ContactManager::_bind_getContactCount},
+	{"getContactFilter", &luna_wrapper_b2ContactManager::_bind_getContactFilter},
+	{"getContactListener", &luna_wrapper_b2ContactManager::_bind_getContactListener},
+	{"getAllocator", &luna_wrapper_b2ContactManager::_bind_getAllocator},
+	{"setBroadPhase", &luna_wrapper_b2ContactManager::_bind_setBroadPhase},
+	{"setContactList", &luna_wrapper_b2ContactManager::_bind_setContactList},
+	{"setContactCount", &luna_wrapper_b2ContactManager::_bind_setContactCount},
+	{"setContactFilter", &luna_wrapper_b2ContactManager::_bind_setContactFilter},
+	{"setContactListener", &luna_wrapper_b2ContactManager::_bind_setContactListener},
+	{"setAllocator", &luna_wrapper_b2ContactManager::_bind_setAllocator},
 	{"dynCast", &luna_wrapper_b2ContactManager::_bind_dynCast},
 	{"__eq", &luna_wrapper_b2ContactManager::_bind___eq},
 	{0,0}

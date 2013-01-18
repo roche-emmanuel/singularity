@@ -101,84 +101,84 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_convexShape(lua_State *L) {
+	inline static bool _lg_typecheck_getConvexShape(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_convexShapeFrom(lua_State *L) {
+	inline static bool _lg_typecheck_getConvexShapeFrom(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_convexShapeTo(lua_State *L) {
+	inline static bool _lg_typecheck_getConvexShapeTo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_triangleToWorld(lua_State *L) {
+	inline static bool _lg_typecheck_getTriangleToWorld(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitFraction(lua_State *L) {
+	inline static bool _lg_typecheck_getHitFraction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_triangleCollisionMargin(lua_State *L) {
+	inline static bool _lg_typecheck_getTriangleCollisionMargin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_allowedPenetration(lua_State *L) {
+	inline static bool _lg_typecheck_getAllowedPenetration(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_convexShapeFrom(lua_State *L) {
+	inline static bool _lg_typecheck_setConvexShapeFrom(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_convexShapeTo(lua_State *L) {
+	inline static bool _lg_typecheck_setConvexShapeTo(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_triangleToWorld(lua_State *L) {
+	inline static bool _lg_typecheck_setTriangleToWorld(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitFraction(lua_State *L) {
+	inline static bool _lg_typecheck_setHitFraction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_triangleCollisionMargin(lua_State *L) {
+	inline static bool _lg_typecheck_setTriangleCollisionMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_allowedPenetration(lua_State *L) {
+	inline static bool _lg_typecheck_setAllowedPenetration(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -283,8 +283,8 @@ public:
 	}
 
 	// const btConvexShape * btTriangleConvexcastCallback::m_convexShape()
-	static int _bind_getM_convexShape(lua_State *L) {
-		if (!_lg_typecheck_getM_convexShape(L)) {
+	static int _bind_getConvexShape(lua_State *L) {
+		if (!_lg_typecheck_getConvexShape(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const btConvexShape * btTriangleConvexcastCallback::m_convexShape() function, expected prototype:\nconst btConvexShape * btTriangleConvexcastCallback::m_convexShape()\nClass arguments details:\n");
 		}
@@ -304,8 +304,8 @@ public:
 	}
 
 	// btTransform btTriangleConvexcastCallback::m_convexShapeFrom()
-	static int _bind_getM_convexShapeFrom(lua_State *L) {
-		if (!_lg_typecheck_getM_convexShapeFrom(L)) {
+	static int _bind_getConvexShapeFrom(lua_State *L) {
+		if (!_lg_typecheck_getConvexShapeFrom(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransform btTriangleConvexcastCallback::m_convexShapeFrom() function, expected prototype:\nbtTransform btTriangleConvexcastCallback::m_convexShapeFrom()\nClass arguments details:\n");
 		}
@@ -325,8 +325,8 @@ public:
 	}
 
 	// btTransform btTriangleConvexcastCallback::m_convexShapeTo()
-	static int _bind_getM_convexShapeTo(lua_State *L) {
-		if (!_lg_typecheck_getM_convexShapeTo(L)) {
+	static int _bind_getConvexShapeTo(lua_State *L) {
+		if (!_lg_typecheck_getConvexShapeTo(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransform btTriangleConvexcastCallback::m_convexShapeTo() function, expected prototype:\nbtTransform btTriangleConvexcastCallback::m_convexShapeTo()\nClass arguments details:\n");
 		}
@@ -346,8 +346,8 @@ public:
 	}
 
 	// btTransform btTriangleConvexcastCallback::m_triangleToWorld()
-	static int _bind_getM_triangleToWorld(lua_State *L) {
-		if (!_lg_typecheck_getM_triangleToWorld(L)) {
+	static int _bind_getTriangleToWorld(lua_State *L) {
+		if (!_lg_typecheck_getTriangleToWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransform btTriangleConvexcastCallback::m_triangleToWorld() function, expected prototype:\nbtTransform btTriangleConvexcastCallback::m_triangleToWorld()\nClass arguments details:\n");
 		}
@@ -367,8 +367,8 @@ public:
 	}
 
 	// float btTriangleConvexcastCallback::m_hitFraction()
-	static int _bind_getM_hitFraction(lua_State *L) {
-		if (!_lg_typecheck_getM_hitFraction(L)) {
+	static int _bind_getHitFraction(lua_State *L) {
+		if (!_lg_typecheck_getHitFraction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTriangleConvexcastCallback::m_hitFraction() function, expected prototype:\nfloat btTriangleConvexcastCallback::m_hitFraction()\nClass arguments details:\n");
 		}
@@ -386,8 +386,8 @@ public:
 	}
 
 	// float btTriangleConvexcastCallback::m_triangleCollisionMargin()
-	static int _bind_getM_triangleCollisionMargin(lua_State *L) {
-		if (!_lg_typecheck_getM_triangleCollisionMargin(L)) {
+	static int _bind_getTriangleCollisionMargin(lua_State *L) {
+		if (!_lg_typecheck_getTriangleCollisionMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTriangleConvexcastCallback::m_triangleCollisionMargin() function, expected prototype:\nfloat btTriangleConvexcastCallback::m_triangleCollisionMargin()\nClass arguments details:\n");
 		}
@@ -405,8 +405,8 @@ public:
 	}
 
 	// float btTriangleConvexcastCallback::m_allowedPenetration()
-	static int _bind_getM_allowedPenetration(lua_State *L) {
-		if (!_lg_typecheck_getM_allowedPenetration(L)) {
+	static int _bind_getAllowedPenetration(lua_State *L) {
+		if (!_lg_typecheck_getAllowedPenetration(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btTriangleConvexcastCallback::m_allowedPenetration() function, expected prototype:\nfloat btTriangleConvexcastCallback::m_allowedPenetration()\nClass arguments details:\n");
 		}
@@ -424,8 +424,8 @@ public:
 	}
 
 	// void btTriangleConvexcastCallback::m_convexShapeFrom(btTransform value)
-	static int _bind_setM_convexShapeFrom(lua_State *L) {
-		if (!_lg_typecheck_setM_convexShapeFrom(L)) {
+	static int _bind_setConvexShapeFrom(lua_State *L) {
+		if (!_lg_typecheck_setConvexShapeFrom(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_convexShapeFrom(btTransform value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_convexShapeFrom(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
 		}
@@ -447,8 +447,8 @@ public:
 	}
 
 	// void btTriangleConvexcastCallback::m_convexShapeTo(btTransform value)
-	static int _bind_setM_convexShapeTo(lua_State *L) {
-		if (!_lg_typecheck_setM_convexShapeTo(L)) {
+	static int _bind_setConvexShapeTo(lua_State *L) {
+		if (!_lg_typecheck_setConvexShapeTo(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_convexShapeTo(btTransform value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_convexShapeTo(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
 		}
@@ -470,8 +470,8 @@ public:
 	}
 
 	// void btTriangleConvexcastCallback::m_triangleToWorld(btTransform value)
-	static int _bind_setM_triangleToWorld(lua_State *L) {
-		if (!_lg_typecheck_setM_triangleToWorld(L)) {
+	static int _bind_setTriangleToWorld(lua_State *L) {
+		if (!_lg_typecheck_setTriangleToWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_triangleToWorld(btTransform value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_triangleToWorld(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
 		}
@@ -493,8 +493,8 @@ public:
 	}
 
 	// void btTriangleConvexcastCallback::m_hitFraction(float value)
-	static int _bind_setM_hitFraction(lua_State *L) {
-		if (!_lg_typecheck_setM_hitFraction(L)) {
+	static int _bind_setHitFraction(lua_State *L) {
+		if (!_lg_typecheck_setHitFraction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_hitFraction(float value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_hitFraction(float value)\nClass arguments details:\n");
 		}
@@ -512,8 +512,8 @@ public:
 	}
 
 	// void btTriangleConvexcastCallback::m_triangleCollisionMargin(float value)
-	static int _bind_setM_triangleCollisionMargin(lua_State *L) {
-		if (!_lg_typecheck_setM_triangleCollisionMargin(L)) {
+	static int _bind_setTriangleCollisionMargin(lua_State *L) {
+		if (!_lg_typecheck_setTriangleCollisionMargin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_triangleCollisionMargin(float value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_triangleCollisionMargin(float value)\nClass arguments details:\n");
 		}
@@ -531,8 +531,8 @@ public:
 	}
 
 	// void btTriangleConvexcastCallback::m_allowedPenetration(float value)
-	static int _bind_setM_allowedPenetration(lua_State *L) {
-		if (!_lg_typecheck_setM_allowedPenetration(L)) {
+	static int _bind_setAllowedPenetration(lua_State *L) {
+		if (!_lg_typecheck_setAllowedPenetration(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_allowedPenetration(float value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_allowedPenetration(float value)\nClass arguments details:\n");
 		}
@@ -596,19 +596,19 @@ const int LunaTraits< btTriangleConvexcastCallback >::uniqueIDs[] = {46793426,0}
 luna_RegType LunaTraits< btTriangleConvexcastCallback >::methods[] = {
 	{"processTriangle", &luna_wrapper_btTriangleConvexcastCallback::_bind_processTriangle},
 	{"reportHit", &luna_wrapper_btTriangleConvexcastCallback::_bind_reportHit},
-	{"getM_convexShape", &luna_wrapper_btTriangleConvexcastCallback::_bind_getM_convexShape},
-	{"getM_convexShapeFrom", &luna_wrapper_btTriangleConvexcastCallback::_bind_getM_convexShapeFrom},
-	{"getM_convexShapeTo", &luna_wrapper_btTriangleConvexcastCallback::_bind_getM_convexShapeTo},
-	{"getM_triangleToWorld", &luna_wrapper_btTriangleConvexcastCallback::_bind_getM_triangleToWorld},
-	{"getM_hitFraction", &luna_wrapper_btTriangleConvexcastCallback::_bind_getM_hitFraction},
-	{"getM_triangleCollisionMargin", &luna_wrapper_btTriangleConvexcastCallback::_bind_getM_triangleCollisionMargin},
-	{"getM_allowedPenetration", &luna_wrapper_btTriangleConvexcastCallback::_bind_getM_allowedPenetration},
-	{"setM_convexShapeFrom", &luna_wrapper_btTriangleConvexcastCallback::_bind_setM_convexShapeFrom},
-	{"setM_convexShapeTo", &luna_wrapper_btTriangleConvexcastCallback::_bind_setM_convexShapeTo},
-	{"setM_triangleToWorld", &luna_wrapper_btTriangleConvexcastCallback::_bind_setM_triangleToWorld},
-	{"setM_hitFraction", &luna_wrapper_btTriangleConvexcastCallback::_bind_setM_hitFraction},
-	{"setM_triangleCollisionMargin", &luna_wrapper_btTriangleConvexcastCallback::_bind_setM_triangleCollisionMargin},
-	{"setM_allowedPenetration", &luna_wrapper_btTriangleConvexcastCallback::_bind_setM_allowedPenetration},
+	{"getConvexShape", &luna_wrapper_btTriangleConvexcastCallback::_bind_getConvexShape},
+	{"getConvexShapeFrom", &luna_wrapper_btTriangleConvexcastCallback::_bind_getConvexShapeFrom},
+	{"getConvexShapeTo", &luna_wrapper_btTriangleConvexcastCallback::_bind_getConvexShapeTo},
+	{"getTriangleToWorld", &luna_wrapper_btTriangleConvexcastCallback::_bind_getTriangleToWorld},
+	{"getHitFraction", &luna_wrapper_btTriangleConvexcastCallback::_bind_getHitFraction},
+	{"getTriangleCollisionMargin", &luna_wrapper_btTriangleConvexcastCallback::_bind_getTriangleCollisionMargin},
+	{"getAllowedPenetration", &luna_wrapper_btTriangleConvexcastCallback::_bind_getAllowedPenetration},
+	{"setConvexShapeFrom", &luna_wrapper_btTriangleConvexcastCallback::_bind_setConvexShapeFrom},
+	{"setConvexShapeTo", &luna_wrapper_btTriangleConvexcastCallback::_bind_setConvexShapeTo},
+	{"setTriangleToWorld", &luna_wrapper_btTriangleConvexcastCallback::_bind_setTriangleToWorld},
+	{"setHitFraction", &luna_wrapper_btTriangleConvexcastCallback::_bind_setHitFraction},
+	{"setTriangleCollisionMargin", &luna_wrapper_btTriangleConvexcastCallback::_bind_setTriangleCollisionMargin},
+	{"setAllowedPenetration", &luna_wrapper_btTriangleConvexcastCallback::_bind_setAllowedPenetration},
 	{"base_processTriangle", &luna_wrapper_btTriangleConvexcastCallback::_bind_base_processTriangle},
 	{"__eq", &luna_wrapper_btTriangleConvexcastCallback::_bind___eq},
 	{"getTable", &luna_wrapper_btTriangleConvexcastCallback::_bind_getTable},

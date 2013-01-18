@@ -56,90 +56,90 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_numMaterials(lua_State *L) {
+	inline static bool _lg_typecheck_getNumMaterials(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_materialBase(lua_State *L) {
+	inline static bool _lg_typecheck_getMaterialBase(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_materialStride(lua_State *L) {
+	inline static bool _lg_typecheck_getMaterialStride(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_materialType(lua_State *L) {
+	inline static bool _lg_typecheck_getMaterialType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numTriangles(lua_State *L) {
+	inline static bool _lg_typecheck_getNumTriangles(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_triangleMaterialsBase(lua_State *L) {
+	inline static bool _lg_typecheck_getTriangleMaterialsBase(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_triangleMaterialStride(lua_State *L) {
+	inline static bool _lg_typecheck_getTriangleMaterialStride(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_triangleType(lua_State *L) {
+	inline static bool _lg_typecheck_getTriangleType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numMaterials(lua_State *L) {
+	inline static bool _lg_typecheck_setNumMaterials(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_materialStride(lua_State *L) {
+	inline static bool _lg_typecheck_setMaterialStride(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_materialType(lua_State *L) {
+	inline static bool _lg_typecheck_setMaterialType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numTriangles(lua_State *L) {
+	inline static bool _lg_typecheck_setNumTriangles(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_triangleMaterialStride(lua_State *L) {
+	inline static bool _lg_typecheck_setTriangleMaterialStride(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_triangleType(lua_State *L) {
+	inline static bool _lg_typecheck_setTriangleType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -154,8 +154,8 @@ public:
 
 	// Function binds:
 	// int btMaterialProperties::m_numMaterials()
-	static int _bind_getM_numMaterials(lua_State *L) {
-		if (!_lg_typecheck_getM_numMaterials(L)) {
+	static int _bind_getNumMaterials(lua_State *L) {
+		if (!_lg_typecheck_getNumMaterials(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btMaterialProperties::m_numMaterials() function, expected prototype:\nint btMaterialProperties::m_numMaterials()\nClass arguments details:\n");
 		}
@@ -173,8 +173,8 @@ public:
 	}
 
 	// const unsigned char * btMaterialProperties::m_materialBase()
-	static int _bind_getM_materialBase(lua_State *L) {
-		if (!_lg_typecheck_getM_materialBase(L)) {
+	static int _bind_getMaterialBase(lua_State *L) {
+		if (!_lg_typecheck_getMaterialBase(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const unsigned char * btMaterialProperties::m_materialBase() function, expected prototype:\nconst unsigned char * btMaterialProperties::m_materialBase()\nClass arguments details:\n");
 		}
@@ -192,8 +192,8 @@ public:
 	}
 
 	// int btMaterialProperties::m_materialStride()
-	static int _bind_getM_materialStride(lua_State *L) {
-		if (!_lg_typecheck_getM_materialStride(L)) {
+	static int _bind_getMaterialStride(lua_State *L) {
+		if (!_lg_typecheck_getMaterialStride(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btMaterialProperties::m_materialStride() function, expected prototype:\nint btMaterialProperties::m_materialStride()\nClass arguments details:\n");
 		}
@@ -211,8 +211,8 @@ public:
 	}
 
 	// PHY_ScalarType btMaterialProperties::m_materialType()
-	static int _bind_getM_materialType(lua_State *L) {
-		if (!_lg_typecheck_getM_materialType(L)) {
+	static int _bind_getMaterialType(lua_State *L) {
+		if (!_lg_typecheck_getMaterialType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in PHY_ScalarType btMaterialProperties::m_materialType() function, expected prototype:\nPHY_ScalarType btMaterialProperties::m_materialType()\nClass arguments details:\n");
 		}
@@ -230,8 +230,8 @@ public:
 	}
 
 	// int btMaterialProperties::m_numTriangles()
-	static int _bind_getM_numTriangles(lua_State *L) {
-		if (!_lg_typecheck_getM_numTriangles(L)) {
+	static int _bind_getNumTriangles(lua_State *L) {
+		if (!_lg_typecheck_getNumTriangles(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btMaterialProperties::m_numTriangles() function, expected prototype:\nint btMaterialProperties::m_numTriangles()\nClass arguments details:\n");
 		}
@@ -249,8 +249,8 @@ public:
 	}
 
 	// const unsigned char * btMaterialProperties::m_triangleMaterialsBase()
-	static int _bind_getM_triangleMaterialsBase(lua_State *L) {
-		if (!_lg_typecheck_getM_triangleMaterialsBase(L)) {
+	static int _bind_getTriangleMaterialsBase(lua_State *L) {
+		if (!_lg_typecheck_getTriangleMaterialsBase(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const unsigned char * btMaterialProperties::m_triangleMaterialsBase() function, expected prototype:\nconst unsigned char * btMaterialProperties::m_triangleMaterialsBase()\nClass arguments details:\n");
 		}
@@ -268,8 +268,8 @@ public:
 	}
 
 	// int btMaterialProperties::m_triangleMaterialStride()
-	static int _bind_getM_triangleMaterialStride(lua_State *L) {
-		if (!_lg_typecheck_getM_triangleMaterialStride(L)) {
+	static int _bind_getTriangleMaterialStride(lua_State *L) {
+		if (!_lg_typecheck_getTriangleMaterialStride(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btMaterialProperties::m_triangleMaterialStride() function, expected prototype:\nint btMaterialProperties::m_triangleMaterialStride()\nClass arguments details:\n");
 		}
@@ -287,8 +287,8 @@ public:
 	}
 
 	// PHY_ScalarType btMaterialProperties::m_triangleType()
-	static int _bind_getM_triangleType(lua_State *L) {
-		if (!_lg_typecheck_getM_triangleType(L)) {
+	static int _bind_getTriangleType(lua_State *L) {
+		if (!_lg_typecheck_getTriangleType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in PHY_ScalarType btMaterialProperties::m_triangleType() function, expected prototype:\nPHY_ScalarType btMaterialProperties::m_triangleType()\nClass arguments details:\n");
 		}
@@ -306,8 +306,8 @@ public:
 	}
 
 	// void btMaterialProperties::m_numMaterials(int value)
-	static int _bind_setM_numMaterials(lua_State *L) {
-		if (!_lg_typecheck_setM_numMaterials(L)) {
+	static int _bind_setNumMaterials(lua_State *L) {
+		if (!_lg_typecheck_setNumMaterials(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_numMaterials(int value) function, expected prototype:\nvoid btMaterialProperties::m_numMaterials(int value)\nClass arguments details:\n");
 		}
@@ -325,8 +325,8 @@ public:
 	}
 
 	// void btMaterialProperties::m_materialStride(int value)
-	static int _bind_setM_materialStride(lua_State *L) {
-		if (!_lg_typecheck_setM_materialStride(L)) {
+	static int _bind_setMaterialStride(lua_State *L) {
+		if (!_lg_typecheck_setMaterialStride(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_materialStride(int value) function, expected prototype:\nvoid btMaterialProperties::m_materialStride(int value)\nClass arguments details:\n");
 		}
@@ -344,8 +344,8 @@ public:
 	}
 
 	// void btMaterialProperties::m_materialType(PHY_ScalarType value)
-	static int _bind_setM_materialType(lua_State *L) {
-		if (!_lg_typecheck_setM_materialType(L)) {
+	static int _bind_setMaterialType(lua_State *L) {
+		if (!_lg_typecheck_setMaterialType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_materialType(PHY_ScalarType value) function, expected prototype:\nvoid btMaterialProperties::m_materialType(PHY_ScalarType value)\nClass arguments details:\n");
 		}
@@ -363,8 +363,8 @@ public:
 	}
 
 	// void btMaterialProperties::m_numTriangles(int value)
-	static int _bind_setM_numTriangles(lua_State *L) {
-		if (!_lg_typecheck_setM_numTriangles(L)) {
+	static int _bind_setNumTriangles(lua_State *L) {
+		if (!_lg_typecheck_setNumTriangles(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_numTriangles(int value) function, expected prototype:\nvoid btMaterialProperties::m_numTriangles(int value)\nClass arguments details:\n");
 		}
@@ -382,8 +382,8 @@ public:
 	}
 
 	// void btMaterialProperties::m_triangleMaterialStride(int value)
-	static int _bind_setM_triangleMaterialStride(lua_State *L) {
-		if (!_lg_typecheck_setM_triangleMaterialStride(L)) {
+	static int _bind_setTriangleMaterialStride(lua_State *L) {
+		if (!_lg_typecheck_setTriangleMaterialStride(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_triangleMaterialStride(int value) function, expected prototype:\nvoid btMaterialProperties::m_triangleMaterialStride(int value)\nClass arguments details:\n");
 		}
@@ -401,8 +401,8 @@ public:
 	}
 
 	// void btMaterialProperties::m_triangleType(PHY_ScalarType value)
-	static int _bind_setM_triangleType(lua_State *L) {
-		if (!_lg_typecheck_setM_triangleType(L)) {
+	static int _bind_setTriangleType(lua_State *L) {
+		if (!_lg_typecheck_setTriangleType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_triangleType(PHY_ScalarType value) function, expected prototype:\nvoid btMaterialProperties::m_triangleType(PHY_ScalarType value)\nClass arguments details:\n");
 		}
@@ -440,20 +440,20 @@ const int LunaTraits< btMaterialProperties >::hash = 67602617;
 const int LunaTraits< btMaterialProperties >::uniqueIDs[] = {67602617,0};
 
 luna_RegType LunaTraits< btMaterialProperties >::methods[] = {
-	{"getM_numMaterials", &luna_wrapper_btMaterialProperties::_bind_getM_numMaterials},
-	{"getM_materialBase", &luna_wrapper_btMaterialProperties::_bind_getM_materialBase},
-	{"getM_materialStride", &luna_wrapper_btMaterialProperties::_bind_getM_materialStride},
-	{"getM_materialType", &luna_wrapper_btMaterialProperties::_bind_getM_materialType},
-	{"getM_numTriangles", &luna_wrapper_btMaterialProperties::_bind_getM_numTriangles},
-	{"getM_triangleMaterialsBase", &luna_wrapper_btMaterialProperties::_bind_getM_triangleMaterialsBase},
-	{"getM_triangleMaterialStride", &luna_wrapper_btMaterialProperties::_bind_getM_triangleMaterialStride},
-	{"getM_triangleType", &luna_wrapper_btMaterialProperties::_bind_getM_triangleType},
-	{"setM_numMaterials", &luna_wrapper_btMaterialProperties::_bind_setM_numMaterials},
-	{"setM_materialStride", &luna_wrapper_btMaterialProperties::_bind_setM_materialStride},
-	{"setM_materialType", &luna_wrapper_btMaterialProperties::_bind_setM_materialType},
-	{"setM_numTriangles", &luna_wrapper_btMaterialProperties::_bind_setM_numTriangles},
-	{"setM_triangleMaterialStride", &luna_wrapper_btMaterialProperties::_bind_setM_triangleMaterialStride},
-	{"setM_triangleType", &luna_wrapper_btMaterialProperties::_bind_setM_triangleType},
+	{"getNumMaterials", &luna_wrapper_btMaterialProperties::_bind_getNumMaterials},
+	{"getMaterialBase", &luna_wrapper_btMaterialProperties::_bind_getMaterialBase},
+	{"getMaterialStride", &luna_wrapper_btMaterialProperties::_bind_getMaterialStride},
+	{"getMaterialType", &luna_wrapper_btMaterialProperties::_bind_getMaterialType},
+	{"getNumTriangles", &luna_wrapper_btMaterialProperties::_bind_getNumTriangles},
+	{"getTriangleMaterialsBase", &luna_wrapper_btMaterialProperties::_bind_getTriangleMaterialsBase},
+	{"getTriangleMaterialStride", &luna_wrapper_btMaterialProperties::_bind_getTriangleMaterialStride},
+	{"getTriangleType", &luna_wrapper_btMaterialProperties::_bind_getTriangleType},
+	{"setNumMaterials", &luna_wrapper_btMaterialProperties::_bind_setNumMaterials},
+	{"setMaterialStride", &luna_wrapper_btMaterialProperties::_bind_setMaterialStride},
+	{"setMaterialType", &luna_wrapper_btMaterialProperties::_bind_setMaterialType},
+	{"setNumTriangles", &luna_wrapper_btMaterialProperties::_bind_setNumTriangles},
+	{"setTriangleMaterialStride", &luna_wrapper_btMaterialProperties::_bind_setTriangleMaterialStride},
+	{"setTriangleType", &luna_wrapper_btMaterialProperties::_bind_setTriangleType},
 	{"dynCast", &luna_wrapper_btMaterialProperties::_bind_dynCast},
 	{"__eq", &luna_wrapper_btMaterialProperties::_bind___eq},
 	{0,0}

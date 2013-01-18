@@ -56,52 +56,52 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_convexInternalShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_getConvexInternalShapeData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_unscaledPointsFloatPtr(lua_State *L) {
+	inline static bool _lg_typecheck_getUnscaledPointsFloatPtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_unscaledPointsDoublePtr(lua_State *L) {
+	inline static bool _lg_typecheck_getUnscaledPointsDoublePtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_numUnscaledPoints(lua_State *L) {
+	inline static bool _lg_typecheck_getNumUnscaledPoints(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_convexInternalShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_setConvexInternalShapeData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,7968673) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_unscaledPointsFloatPtr(lua_State *L) {
+	inline static bool _lg_typecheck_setUnscaledPointsFloatPtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,96449857)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_unscaledPointsDoublePtr(lua_State *L) {
+	inline static bool _lg_typecheck_setUnscaledPointsDoublePtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,89582070)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_numUnscaledPoints(lua_State *L) {
+	inline static bool _lg_typecheck_setNumUnscaledPoints(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -116,8 +116,8 @@ public:
 
 	// Function binds:
 	// btConvexInternalShapeData btConvexHullShapeData::m_convexInternalShapeData()
-	static int _bind_getM_convexInternalShapeData(lua_State *L) {
-		if (!_lg_typecheck_getM_convexInternalShapeData(L)) {
+	static int _bind_getConvexInternalShapeData(lua_State *L) {
+		if (!_lg_typecheck_getConvexInternalShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btConvexInternalShapeData btConvexHullShapeData::m_convexInternalShapeData() function, expected prototype:\nbtConvexInternalShapeData btConvexHullShapeData::m_convexInternalShapeData()\nClass arguments details:\n");
 		}
@@ -137,8 +137,8 @@ public:
 	}
 
 	// btVector3FloatData * btConvexHullShapeData::m_unscaledPointsFloatPtr()
-	static int _bind_getM_unscaledPointsFloatPtr(lua_State *L) {
-		if (!_lg_typecheck_getM_unscaledPointsFloatPtr(L)) {
+	static int _bind_getUnscaledPointsFloatPtr(lua_State *L) {
+		if (!_lg_typecheck_getUnscaledPointsFloatPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3FloatData * btConvexHullShapeData::m_unscaledPointsFloatPtr() function, expected prototype:\nbtVector3FloatData * btConvexHullShapeData::m_unscaledPointsFloatPtr()\nClass arguments details:\n");
 		}
@@ -158,8 +158,8 @@ public:
 	}
 
 	// btVector3DoubleData * btConvexHullShapeData::m_unscaledPointsDoublePtr()
-	static int _bind_getM_unscaledPointsDoublePtr(lua_State *L) {
-		if (!_lg_typecheck_getM_unscaledPointsDoublePtr(L)) {
+	static int _bind_getUnscaledPointsDoublePtr(lua_State *L) {
+		if (!_lg_typecheck_getUnscaledPointsDoublePtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3DoubleData * btConvexHullShapeData::m_unscaledPointsDoublePtr() function, expected prototype:\nbtVector3DoubleData * btConvexHullShapeData::m_unscaledPointsDoublePtr()\nClass arguments details:\n");
 		}
@@ -179,8 +179,8 @@ public:
 	}
 
 	// int btConvexHullShapeData::m_numUnscaledPoints()
-	static int _bind_getM_numUnscaledPoints(lua_State *L) {
-		if (!_lg_typecheck_getM_numUnscaledPoints(L)) {
+	static int _bind_getNumUnscaledPoints(lua_State *L) {
+		if (!_lg_typecheck_getNumUnscaledPoints(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btConvexHullShapeData::m_numUnscaledPoints() function, expected prototype:\nint btConvexHullShapeData::m_numUnscaledPoints()\nClass arguments details:\n");
 		}
@@ -198,8 +198,8 @@ public:
 	}
 
 	// void btConvexHullShapeData::m_convexInternalShapeData(btConvexInternalShapeData value)
-	static int _bind_setM_convexInternalShapeData(lua_State *L) {
-		if (!_lg_typecheck_setM_convexInternalShapeData(L)) {
+	static int _bind_setConvexInternalShapeData(lua_State *L) {
+		if (!_lg_typecheck_setConvexInternalShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexHullShapeData::m_convexInternalShapeData(btConvexInternalShapeData value) function, expected prototype:\nvoid btConvexHullShapeData::m_convexInternalShapeData(btConvexInternalShapeData value)\nClass arguments details:\narg 1 ID = 7968673\n");
 		}
@@ -221,8 +221,8 @@ public:
 	}
 
 	// void btConvexHullShapeData::m_unscaledPointsFloatPtr(btVector3FloatData * value)
-	static int _bind_setM_unscaledPointsFloatPtr(lua_State *L) {
-		if (!_lg_typecheck_setM_unscaledPointsFloatPtr(L)) {
+	static int _bind_setUnscaledPointsFloatPtr(lua_State *L) {
+		if (!_lg_typecheck_setUnscaledPointsFloatPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexHullShapeData::m_unscaledPointsFloatPtr(btVector3FloatData * value) function, expected prototype:\nvoid btConvexHullShapeData::m_unscaledPointsFloatPtr(btVector3FloatData * value)\nClass arguments details:\narg 1 ID = 96449857\n");
 		}
@@ -240,8 +240,8 @@ public:
 	}
 
 	// void btConvexHullShapeData::m_unscaledPointsDoublePtr(btVector3DoubleData * value)
-	static int _bind_setM_unscaledPointsDoublePtr(lua_State *L) {
-		if (!_lg_typecheck_setM_unscaledPointsDoublePtr(L)) {
+	static int _bind_setUnscaledPointsDoublePtr(lua_State *L) {
+		if (!_lg_typecheck_setUnscaledPointsDoublePtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexHullShapeData::m_unscaledPointsDoublePtr(btVector3DoubleData * value) function, expected prototype:\nvoid btConvexHullShapeData::m_unscaledPointsDoublePtr(btVector3DoubleData * value)\nClass arguments details:\narg 1 ID = 89582070\n");
 		}
@@ -259,8 +259,8 @@ public:
 	}
 
 	// void btConvexHullShapeData::m_numUnscaledPoints(int value)
-	static int _bind_setM_numUnscaledPoints(lua_State *L) {
-		if (!_lg_typecheck_setM_numUnscaledPoints(L)) {
+	static int _bind_setNumUnscaledPoints(lua_State *L) {
+		if (!_lg_typecheck_setNumUnscaledPoints(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexHullShapeData::m_numUnscaledPoints(int value) function, expected prototype:\nvoid btConvexHullShapeData::m_numUnscaledPoints(int value)\nClass arguments details:\n");
 		}
@@ -298,14 +298,14 @@ const int LunaTraits< btConvexHullShapeData >::hash = 77818044;
 const int LunaTraits< btConvexHullShapeData >::uniqueIDs[] = {77818044,0};
 
 luna_RegType LunaTraits< btConvexHullShapeData >::methods[] = {
-	{"getM_convexInternalShapeData", &luna_wrapper_btConvexHullShapeData::_bind_getM_convexInternalShapeData},
-	{"getM_unscaledPointsFloatPtr", &luna_wrapper_btConvexHullShapeData::_bind_getM_unscaledPointsFloatPtr},
-	{"getM_unscaledPointsDoublePtr", &luna_wrapper_btConvexHullShapeData::_bind_getM_unscaledPointsDoublePtr},
-	{"getM_numUnscaledPoints", &luna_wrapper_btConvexHullShapeData::_bind_getM_numUnscaledPoints},
-	{"setM_convexInternalShapeData", &luna_wrapper_btConvexHullShapeData::_bind_setM_convexInternalShapeData},
-	{"setM_unscaledPointsFloatPtr", &luna_wrapper_btConvexHullShapeData::_bind_setM_unscaledPointsFloatPtr},
-	{"setM_unscaledPointsDoublePtr", &luna_wrapper_btConvexHullShapeData::_bind_setM_unscaledPointsDoublePtr},
-	{"setM_numUnscaledPoints", &luna_wrapper_btConvexHullShapeData::_bind_setM_numUnscaledPoints},
+	{"getConvexInternalShapeData", &luna_wrapper_btConvexHullShapeData::_bind_getConvexInternalShapeData},
+	{"getUnscaledPointsFloatPtr", &luna_wrapper_btConvexHullShapeData::_bind_getUnscaledPointsFloatPtr},
+	{"getUnscaledPointsDoublePtr", &luna_wrapper_btConvexHullShapeData::_bind_getUnscaledPointsDoublePtr},
+	{"getNumUnscaledPoints", &luna_wrapper_btConvexHullShapeData::_bind_getNumUnscaledPoints},
+	{"setConvexInternalShapeData", &luna_wrapper_btConvexHullShapeData::_bind_setConvexInternalShapeData},
+	{"setUnscaledPointsFloatPtr", &luna_wrapper_btConvexHullShapeData::_bind_setUnscaledPointsFloatPtr},
+	{"setUnscaledPointsDoublePtr", &luna_wrapper_btConvexHullShapeData::_bind_setUnscaledPointsDoublePtr},
+	{"setNumUnscaledPoints", &luna_wrapper_btConvexHullShapeData::_bind_setNumUnscaledPoints},
 	{"dynCast", &luna_wrapper_btConvexHullShapeData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btConvexHullShapeData::_bind___eq},
 	{0,0}

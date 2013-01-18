@@ -98,52 +98,52 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rayFromWorld(lua_State *L) {
+	inline static bool _lg_typecheck_getRayFromWorld(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rayToWorld(lua_State *L) {
+	inline static bool _lg_typecheck_getRayToWorld(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitNormalWorld(lua_State *L) {
+	inline static bool _lg_typecheck_getHitNormalWorld(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hitPointWorld(lua_State *L) {
+	inline static bool _lg_typecheck_getHitPointWorld(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rayFromWorld(lua_State *L) {
+	inline static bool _lg_typecheck_setRayFromWorld(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rayToWorld(lua_State *L) {
+	inline static bool _lg_typecheck_setRayToWorld(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitNormalWorld(lua_State *L) {
+	inline static bool _lg_typecheck_setHitNormalWorld(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hitPointWorld(lua_State *L) {
+	inline static bool _lg_typecheck_setHitPointWorld(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
@@ -249,8 +249,8 @@ public:
 	}
 
 	// btVector3 btCollisionWorld::ClosestRayResultCallback::m_rayFromWorld()
-	static int _bind_getM_rayFromWorld(lua_State *L) {
-		if (!_lg_typecheck_getM_rayFromWorld(L)) {
+	static int _bind_getRayFromWorld(lua_State *L) {
+		if (!_lg_typecheck_getRayFromWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btCollisionWorld::ClosestRayResultCallback::m_rayFromWorld() function, expected prototype:\nbtVector3 btCollisionWorld::ClosestRayResultCallback::m_rayFromWorld()\nClass arguments details:\n");
 		}
@@ -270,8 +270,8 @@ public:
 	}
 
 	// btVector3 btCollisionWorld::ClosestRayResultCallback::m_rayToWorld()
-	static int _bind_getM_rayToWorld(lua_State *L) {
-		if (!_lg_typecheck_getM_rayToWorld(L)) {
+	static int _bind_getRayToWorld(lua_State *L) {
+		if (!_lg_typecheck_getRayToWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btCollisionWorld::ClosestRayResultCallback::m_rayToWorld() function, expected prototype:\nbtVector3 btCollisionWorld::ClosestRayResultCallback::m_rayToWorld()\nClass arguments details:\n");
 		}
@@ -291,8 +291,8 @@ public:
 	}
 
 	// btVector3 btCollisionWorld::ClosestRayResultCallback::m_hitNormalWorld()
-	static int _bind_getM_hitNormalWorld(lua_State *L) {
-		if (!_lg_typecheck_getM_hitNormalWorld(L)) {
+	static int _bind_getHitNormalWorld(lua_State *L) {
+		if (!_lg_typecheck_getHitNormalWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btCollisionWorld::ClosestRayResultCallback::m_hitNormalWorld() function, expected prototype:\nbtVector3 btCollisionWorld::ClosestRayResultCallback::m_hitNormalWorld()\nClass arguments details:\n");
 		}
@@ -312,8 +312,8 @@ public:
 	}
 
 	// btVector3 btCollisionWorld::ClosestRayResultCallback::m_hitPointWorld()
-	static int _bind_getM_hitPointWorld(lua_State *L) {
-		if (!_lg_typecheck_getM_hitPointWorld(L)) {
+	static int _bind_getHitPointWorld(lua_State *L) {
+		if (!_lg_typecheck_getHitPointWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btCollisionWorld::ClosestRayResultCallback::m_hitPointWorld() function, expected prototype:\nbtVector3 btCollisionWorld::ClosestRayResultCallback::m_hitPointWorld()\nClass arguments details:\n");
 		}
@@ -333,8 +333,8 @@ public:
 	}
 
 	// void btCollisionWorld::ClosestRayResultCallback::m_rayFromWorld(btVector3 value)
-	static int _bind_setM_rayFromWorld(lua_State *L) {
-		if (!_lg_typecheck_setM_rayFromWorld(L)) {
+	static int _bind_setRayFromWorld(lua_State *L) {
+		if (!_lg_typecheck_setRayFromWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ClosestRayResultCallback::m_rayFromWorld(btVector3 value) function, expected prototype:\nvoid btCollisionWorld::ClosestRayResultCallback::m_rayFromWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -356,8 +356,8 @@ public:
 	}
 
 	// void btCollisionWorld::ClosestRayResultCallback::m_rayToWorld(btVector3 value)
-	static int _bind_setM_rayToWorld(lua_State *L) {
-		if (!_lg_typecheck_setM_rayToWorld(L)) {
+	static int _bind_setRayToWorld(lua_State *L) {
+		if (!_lg_typecheck_setRayToWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ClosestRayResultCallback::m_rayToWorld(btVector3 value) function, expected prototype:\nvoid btCollisionWorld::ClosestRayResultCallback::m_rayToWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -379,8 +379,8 @@ public:
 	}
 
 	// void btCollisionWorld::ClosestRayResultCallback::m_hitNormalWorld(btVector3 value)
-	static int _bind_setM_hitNormalWorld(lua_State *L) {
-		if (!_lg_typecheck_setM_hitNormalWorld(L)) {
+	static int _bind_setHitNormalWorld(lua_State *L) {
+		if (!_lg_typecheck_setHitNormalWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ClosestRayResultCallback::m_hitNormalWorld(btVector3 value) function, expected prototype:\nvoid btCollisionWorld::ClosestRayResultCallback::m_hitNormalWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -402,8 +402,8 @@ public:
 	}
 
 	// void btCollisionWorld::ClosestRayResultCallback::m_hitPointWorld(btVector3 value)
-	static int _bind_setM_hitPointWorld(lua_State *L) {
-		if (!_lg_typecheck_setM_hitPointWorld(L)) {
+	static int _bind_setHitPointWorld(lua_State *L) {
+		if (!_lg_typecheck_setHitPointWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ClosestRayResultCallback::m_hitPointWorld(btVector3 value) function, expected prototype:\nvoid btCollisionWorld::ClosestRayResultCallback::m_hitPointWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -491,14 +491,14 @@ const int LunaTraits< btCollisionWorld::ClosestRayResultCallback >::uniqueIDs[] 
 
 luna_RegType LunaTraits< btCollisionWorld::ClosestRayResultCallback >::methods[] = {
 	{"addSingleResult", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_addSingleResult},
-	{"getM_rayFromWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_getM_rayFromWorld},
-	{"getM_rayToWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_getM_rayToWorld},
-	{"getM_hitNormalWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_getM_hitNormalWorld},
-	{"getM_hitPointWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_getM_hitPointWorld},
-	{"setM_rayFromWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_setM_rayFromWorld},
-	{"setM_rayToWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_setM_rayToWorld},
-	{"setM_hitNormalWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_setM_hitNormalWorld},
-	{"setM_hitPointWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_setM_hitPointWorld},
+	{"getRayFromWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_getRayFromWorld},
+	{"getRayToWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_getRayToWorld},
+	{"getHitNormalWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_getHitNormalWorld},
+	{"getHitPointWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_getHitPointWorld},
+	{"setRayFromWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_setRayFromWorld},
+	{"setRayToWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_setRayToWorld},
+	{"setHitNormalWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_setHitNormalWorld},
+	{"setHitPointWorld", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_setHitPointWorld},
 	{"base_needsCollision", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_base_needsCollision},
 	{"base_addSingleResult", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind_base_addSingleResult},
 	{"__eq", &luna_wrapper_btCollisionWorld_ClosestRayResultCallback::_bind___eq},

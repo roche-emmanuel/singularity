@@ -194,39 +194,39 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_companionIdA(lua_State *L) {
+	inline static bool _lg_typecheck_getCompanionIdA(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_companionIdB(lua_State *L) {
+	inline static bool _lg_typecheck_getCompanionIdB(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_index1a(lua_State *L) {
+	inline static bool _lg_typecheck_getIndex1a(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_companionIdA(lua_State *L) {
+	inline static bool _lg_typecheck_setCompanionIdA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_companionIdB(lua_State *L) {
+	inline static bool _lg_typecheck_setCompanionIdB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_index1a(lua_State *L) {
+	inline static bool _lg_typecheck_setIndex1a(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -693,8 +693,8 @@ public:
 	}
 
 	// int btPersistentManifold::m_companionIdA()
-	static int _bind_getM_companionIdA(lua_State *L) {
-		if (!_lg_typecheck_getM_companionIdA(L)) {
+	static int _bind_getCompanionIdA(lua_State *L) {
+		if (!_lg_typecheck_getCompanionIdA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btPersistentManifold::m_companionIdA() function, expected prototype:\nint btPersistentManifold::m_companionIdA()\nClass arguments details:\n");
 		}
@@ -712,8 +712,8 @@ public:
 	}
 
 	// int btPersistentManifold::m_companionIdB()
-	static int _bind_getM_companionIdB(lua_State *L) {
-		if (!_lg_typecheck_getM_companionIdB(L)) {
+	static int _bind_getCompanionIdB(lua_State *L) {
+		if (!_lg_typecheck_getCompanionIdB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btPersistentManifold::m_companionIdB() function, expected prototype:\nint btPersistentManifold::m_companionIdB()\nClass arguments details:\n");
 		}
@@ -731,8 +731,8 @@ public:
 	}
 
 	// int btPersistentManifold::m_index1a()
-	static int _bind_getM_index1a(lua_State *L) {
-		if (!_lg_typecheck_getM_index1a(L)) {
+	static int _bind_getIndex1a(lua_State *L) {
+		if (!_lg_typecheck_getIndex1a(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btPersistentManifold::m_index1a() function, expected prototype:\nint btPersistentManifold::m_index1a()\nClass arguments details:\n");
 		}
@@ -750,8 +750,8 @@ public:
 	}
 
 	// void btPersistentManifold::m_companionIdA(int value)
-	static int _bind_setM_companionIdA(lua_State *L) {
-		if (!_lg_typecheck_setM_companionIdA(L)) {
+	static int _bind_setCompanionIdA(lua_State *L) {
+		if (!_lg_typecheck_setCompanionIdA(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPersistentManifold::m_companionIdA(int value) function, expected prototype:\nvoid btPersistentManifold::m_companionIdA(int value)\nClass arguments details:\n");
 		}
@@ -769,8 +769,8 @@ public:
 	}
 
 	// void btPersistentManifold::m_companionIdB(int value)
-	static int _bind_setM_companionIdB(lua_State *L) {
-		if (!_lg_typecheck_setM_companionIdB(L)) {
+	static int _bind_setCompanionIdB(lua_State *L) {
+		if (!_lg_typecheck_setCompanionIdB(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPersistentManifold::m_companionIdB(int value) function, expected prototype:\nvoid btPersistentManifold::m_companionIdB(int value)\nClass arguments details:\n");
 		}
@@ -788,8 +788,8 @@ public:
 	}
 
 	// void btPersistentManifold::m_index1a(int value)
-	static int _bind_setM_index1a(lua_State *L) {
-		if (!_lg_typecheck_setM_index1a(L)) {
+	static int _bind_setIndex1a(lua_State *L) {
+		if (!_lg_typecheck_setIndex1a(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPersistentManifold::m_index1a(int value) function, expected prototype:\nvoid btPersistentManifold::m_index1a(int value)\nClass arguments details:\n");
 		}
@@ -845,12 +845,12 @@ luna_RegType LunaTraits< btPersistentManifold >::methods[] = {
 	{"validContactDistance", &luna_wrapper_btPersistentManifold::_bind_validContactDistance},
 	{"refreshContactPoints", &luna_wrapper_btPersistentManifold::_bind_refreshContactPoints},
 	{"clearManifold", &luna_wrapper_btPersistentManifold::_bind_clearManifold},
-	{"getM_companionIdA", &luna_wrapper_btPersistentManifold::_bind_getM_companionIdA},
-	{"getM_companionIdB", &luna_wrapper_btPersistentManifold::_bind_getM_companionIdB},
-	{"getM_index1a", &luna_wrapper_btPersistentManifold::_bind_getM_index1a},
-	{"setM_companionIdA", &luna_wrapper_btPersistentManifold::_bind_setM_companionIdA},
-	{"setM_companionIdB", &luna_wrapper_btPersistentManifold::_bind_setM_companionIdB},
-	{"setM_index1a", &luna_wrapper_btPersistentManifold::_bind_setM_index1a},
+	{"getCompanionIdA", &luna_wrapper_btPersistentManifold::_bind_getCompanionIdA},
+	{"getCompanionIdB", &luna_wrapper_btPersistentManifold::_bind_getCompanionIdB},
+	{"getIndex1a", &luna_wrapper_btPersistentManifold::_bind_getIndex1a},
+	{"setCompanionIdA", &luna_wrapper_btPersistentManifold::_bind_setCompanionIdA},
+	{"setCompanionIdB", &luna_wrapper_btPersistentManifold::_bind_setCompanionIdB},
+	{"setIndex1a", &luna_wrapper_btPersistentManifold::_bind_setIndex1a},
 	{"__eq", &luna_wrapper_btPersistentManifold::_bind___eq},
 	{0,0}
 };

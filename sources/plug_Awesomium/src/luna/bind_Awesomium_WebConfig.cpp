@@ -70,91 +70,91 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getLog_level(lua_State *L) {
+	inline static bool _lg_typecheck_get_log_level(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getPackage_path(lua_State *L) {
+	inline static bool _lg_typecheck_get_package_path(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getPlugin_path(lua_State *L) {
+	inline static bool _lg_typecheck_get_plugin_path(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getLog_path(lua_State *L) {
+	inline static bool _lg_typecheck_get_log_path(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getChild_process_path(lua_State *L) {
+	inline static bool _lg_typecheck_get_child_process_path(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getUser_agent(lua_State *L) {
+	inline static bool _lg_typecheck_get_user_agent(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getAdditional_options(lua_State *L) {
+	inline static bool _lg_typecheck_get_additional_options(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setLog_level(lua_State *L) {
+	inline static bool _lg_typecheck_set_log_level(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setPackage_path(lua_State *L) {
+	inline static bool _lg_typecheck_set_package_path(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13938525) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setPlugin_path(lua_State *L) {
+	inline static bool _lg_typecheck_set_plugin_path(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13938525) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setLog_path(lua_State *L) {
+	inline static bool _lg_typecheck_set_log_path(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13938525) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setChild_process_path(lua_State *L) {
+	inline static bool _lg_typecheck_set_child_process_path(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13938525) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setUser_agent(lua_State *L) {
+	inline static bool _lg_typecheck_set_user_agent(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13938525) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setAdditional_options(lua_State *L) {
+	inline static bool _lg_typecheck_set_additional_options(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,16354805) ) return false;
@@ -195,8 +195,8 @@ public:
 	}
 
 	// Awesomium::LogLevel Awesomium::WebConfig::log_level()
-	static int _bind_getLog_level(lua_State *L) {
-		if (!_lg_typecheck_getLog_level(L)) {
+	static int _bind_get_log_level(lua_State *L) {
+		if (!_lg_typecheck_get_log_level(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::LogLevel Awesomium::WebConfig::log_level() function, expected prototype:\nAwesomium::LogLevel Awesomium::WebConfig::log_level()\nClass arguments details:\n");
 		}
@@ -214,8 +214,8 @@ public:
 	}
 
 	// Awesomium::WebString Awesomium::WebConfig::package_path()
-	static int _bind_getPackage_path(lua_State *L) {
-		if (!_lg_typecheck_getPackage_path(L)) {
+	static int _bind_get_package_path(lua_State *L) {
+		if (!_lg_typecheck_get_package_path(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebConfig::package_path() function, expected prototype:\nAwesomium::WebString Awesomium::WebConfig::package_path()\nClass arguments details:\n");
 		}
@@ -234,8 +234,8 @@ public:
 	}
 
 	// Awesomium::WebString Awesomium::WebConfig::plugin_path()
-	static int _bind_getPlugin_path(lua_State *L) {
-		if (!_lg_typecheck_getPlugin_path(L)) {
+	static int _bind_get_plugin_path(lua_State *L) {
+		if (!_lg_typecheck_get_plugin_path(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebConfig::plugin_path() function, expected prototype:\nAwesomium::WebString Awesomium::WebConfig::plugin_path()\nClass arguments details:\n");
 		}
@@ -254,8 +254,8 @@ public:
 	}
 
 	// Awesomium::WebString Awesomium::WebConfig::log_path()
-	static int _bind_getLog_path(lua_State *L) {
-		if (!_lg_typecheck_getLog_path(L)) {
+	static int _bind_get_log_path(lua_State *L) {
+		if (!_lg_typecheck_get_log_path(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebConfig::log_path() function, expected prototype:\nAwesomium::WebString Awesomium::WebConfig::log_path()\nClass arguments details:\n");
 		}
@@ -274,8 +274,8 @@ public:
 	}
 
 	// Awesomium::WebString Awesomium::WebConfig::child_process_path()
-	static int _bind_getChild_process_path(lua_State *L) {
-		if (!_lg_typecheck_getChild_process_path(L)) {
+	static int _bind_get_child_process_path(lua_State *L) {
+		if (!_lg_typecheck_get_child_process_path(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebConfig::child_process_path() function, expected prototype:\nAwesomium::WebString Awesomium::WebConfig::child_process_path()\nClass arguments details:\n");
 		}
@@ -294,8 +294,8 @@ public:
 	}
 
 	// Awesomium::WebString Awesomium::WebConfig::user_agent()
-	static int _bind_getUser_agent(lua_State *L) {
-		if (!_lg_typecheck_getUser_agent(L)) {
+	static int _bind_get_user_agent(lua_State *L) {
+		if (!_lg_typecheck_get_user_agent(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebConfig::user_agent() function, expected prototype:\nAwesomium::WebString Awesomium::WebConfig::user_agent()\nClass arguments details:\n");
 		}
@@ -314,8 +314,8 @@ public:
 	}
 
 	// Awesomium::WebStringArray Awesomium::WebConfig::additional_options()
-	static int _bind_getAdditional_options(lua_State *L) {
-		if (!_lg_typecheck_getAdditional_options(L)) {
+	static int _bind_get_additional_options(lua_State *L) {
+		if (!_lg_typecheck_get_additional_options(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::WebStringArray Awesomium::WebConfig::additional_options() function, expected prototype:\nAwesomium::WebStringArray Awesomium::WebConfig::additional_options()\nClass arguments details:\n");
 		}
@@ -335,8 +335,8 @@ public:
 	}
 
 	// void Awesomium::WebConfig::log_level(Awesomium::LogLevel value)
-	static int _bind_setLog_level(lua_State *L) {
-		if (!_lg_typecheck_setLog_level(L)) {
+	static int _bind_set_log_level(lua_State *L) {
+		if (!_lg_typecheck_set_log_level(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebConfig::log_level(Awesomium::LogLevel value) function, expected prototype:\nvoid Awesomium::WebConfig::log_level(Awesomium::LogLevel value)\nClass arguments details:\n");
 		}
@@ -354,8 +354,8 @@ public:
 	}
 
 	// void Awesomium::WebConfig::package_path(Awesomium::WebString value)
-	static int _bind_setPackage_path(lua_State *L) {
-		if (!_lg_typecheck_setPackage_path(L)) {
+	static int _bind_set_package_path(lua_State *L) {
+		if (!_lg_typecheck_set_package_path(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebConfig::package_path(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebConfig::package_path(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n");
 		}
@@ -374,8 +374,8 @@ public:
 	}
 
 	// void Awesomium::WebConfig::plugin_path(Awesomium::WebString value)
-	static int _bind_setPlugin_path(lua_State *L) {
-		if (!_lg_typecheck_setPlugin_path(L)) {
+	static int _bind_set_plugin_path(lua_State *L) {
+		if (!_lg_typecheck_set_plugin_path(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebConfig::plugin_path(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebConfig::plugin_path(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n");
 		}
@@ -394,8 +394,8 @@ public:
 	}
 
 	// void Awesomium::WebConfig::log_path(Awesomium::WebString value)
-	static int _bind_setLog_path(lua_State *L) {
-		if (!_lg_typecheck_setLog_path(L)) {
+	static int _bind_set_log_path(lua_State *L) {
+		if (!_lg_typecheck_set_log_path(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebConfig::log_path(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebConfig::log_path(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n");
 		}
@@ -414,8 +414,8 @@ public:
 	}
 
 	// void Awesomium::WebConfig::child_process_path(Awesomium::WebString value)
-	static int _bind_setChild_process_path(lua_State *L) {
-		if (!_lg_typecheck_setChild_process_path(L)) {
+	static int _bind_set_child_process_path(lua_State *L) {
+		if (!_lg_typecheck_set_child_process_path(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebConfig::child_process_path(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebConfig::child_process_path(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n");
 		}
@@ -434,8 +434,8 @@ public:
 	}
 
 	// void Awesomium::WebConfig::user_agent(Awesomium::WebString value)
-	static int _bind_setUser_agent(lua_State *L) {
-		if (!_lg_typecheck_setUser_agent(L)) {
+	static int _bind_set_user_agent(lua_State *L) {
+		if (!_lg_typecheck_set_user_agent(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebConfig::user_agent(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebConfig::user_agent(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n");
 		}
@@ -454,8 +454,8 @@ public:
 	}
 
 	// void Awesomium::WebConfig::additional_options(Awesomium::WebStringArray value)
-	static int _bind_setAdditional_options(lua_State *L) {
-		if (!_lg_typecheck_setAdditional_options(L)) {
+	static int _bind_set_additional_options(lua_State *L) {
+		if (!_lg_typecheck_set_additional_options(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebConfig::additional_options(Awesomium::WebStringArray value) function, expected prototype:\nvoid Awesomium::WebConfig::additional_options(Awesomium::WebStringArray value)\nClass arguments details:\narg 1 ID = 16354805\n");
 		}
@@ -498,20 +498,20 @@ const int LunaTraits< Awesomium::WebConfig >::uniqueIDs[] = {51132402,0};
 
 luna_RegType LunaTraits< Awesomium::WebConfig >::methods[] = {
 	{"addAdditionalOption", &luna_wrapper_Awesomium_WebConfig::_bind_addAdditionalOption},
-	{"getLog_level", &luna_wrapper_Awesomium_WebConfig::_bind_getLog_level},
-	{"getPackage_path", &luna_wrapper_Awesomium_WebConfig::_bind_getPackage_path},
-	{"getPlugin_path", &luna_wrapper_Awesomium_WebConfig::_bind_getPlugin_path},
-	{"getLog_path", &luna_wrapper_Awesomium_WebConfig::_bind_getLog_path},
-	{"getChild_process_path", &luna_wrapper_Awesomium_WebConfig::_bind_getChild_process_path},
-	{"getUser_agent", &luna_wrapper_Awesomium_WebConfig::_bind_getUser_agent},
-	{"getAdditional_options", &luna_wrapper_Awesomium_WebConfig::_bind_getAdditional_options},
-	{"setLog_level", &luna_wrapper_Awesomium_WebConfig::_bind_setLog_level},
-	{"setPackage_path", &luna_wrapper_Awesomium_WebConfig::_bind_setPackage_path},
-	{"setPlugin_path", &luna_wrapper_Awesomium_WebConfig::_bind_setPlugin_path},
-	{"setLog_path", &luna_wrapper_Awesomium_WebConfig::_bind_setLog_path},
-	{"setChild_process_path", &luna_wrapper_Awesomium_WebConfig::_bind_setChild_process_path},
-	{"setUser_agent", &luna_wrapper_Awesomium_WebConfig::_bind_setUser_agent},
-	{"setAdditional_options", &luna_wrapper_Awesomium_WebConfig::_bind_setAdditional_options},
+	{"get_log_level", &luna_wrapper_Awesomium_WebConfig::_bind_get_log_level},
+	{"get_package_path", &luna_wrapper_Awesomium_WebConfig::_bind_get_package_path},
+	{"get_plugin_path", &luna_wrapper_Awesomium_WebConfig::_bind_get_plugin_path},
+	{"get_log_path", &luna_wrapper_Awesomium_WebConfig::_bind_get_log_path},
+	{"get_child_process_path", &luna_wrapper_Awesomium_WebConfig::_bind_get_child_process_path},
+	{"get_user_agent", &luna_wrapper_Awesomium_WebConfig::_bind_get_user_agent},
+	{"get_additional_options", &luna_wrapper_Awesomium_WebConfig::_bind_get_additional_options},
+	{"set_log_level", &luna_wrapper_Awesomium_WebConfig::_bind_set_log_level},
+	{"set_package_path", &luna_wrapper_Awesomium_WebConfig::_bind_set_package_path},
+	{"set_plugin_path", &luna_wrapper_Awesomium_WebConfig::_bind_set_plugin_path},
+	{"set_log_path", &luna_wrapper_Awesomium_WebConfig::_bind_set_log_path},
+	{"set_child_process_path", &luna_wrapper_Awesomium_WebConfig::_bind_set_child_process_path},
+	{"set_user_agent", &luna_wrapper_Awesomium_WebConfig::_bind_set_user_agent},
+	{"set_additional_options", &luna_wrapper_Awesomium_WebConfig::_bind_set_additional_options},
 	{"dynCast", &luna_wrapper_Awesomium_WebConfig::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_WebConfig::_bind___eq},
 	{0,0}

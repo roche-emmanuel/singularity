@@ -51,26 +51,26 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_angle(lua_State *L) {
+	inline static bool _lg_typecheck_getAngle(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_orgIndex(lua_State *L) {
+	inline static bool _lg_typecheck_getOrgIndex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_angle(lua_State *L) {
+	inline static bool _lg_typecheck_setAngle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_orgIndex(lua_State *L) {
+	inline static bool _lg_typecheck_setOrgIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -102,8 +102,8 @@ public:
 
 	// Function binds:
 	// float GrahamVector3::m_angle()
-	static int _bind_getM_angle(lua_State *L) {
-		if (!_lg_typecheck_getM_angle(L)) {
+	static int _bind_getAngle(lua_State *L) {
+		if (!_lg_typecheck_getAngle(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float GrahamVector3::m_angle() function, expected prototype:\nfloat GrahamVector3::m_angle()\nClass arguments details:\n");
 		}
@@ -121,8 +121,8 @@ public:
 	}
 
 	// int GrahamVector3::m_orgIndex()
-	static int _bind_getM_orgIndex(lua_State *L) {
-		if (!_lg_typecheck_getM_orgIndex(L)) {
+	static int _bind_getOrgIndex(lua_State *L) {
+		if (!_lg_typecheck_getOrgIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int GrahamVector3::m_orgIndex() function, expected prototype:\nint GrahamVector3::m_orgIndex()\nClass arguments details:\n");
 		}
@@ -140,8 +140,8 @@ public:
 	}
 
 	// void GrahamVector3::m_angle(float value)
-	static int _bind_setM_angle(lua_State *L) {
-		if (!_lg_typecheck_setM_angle(L)) {
+	static int _bind_setAngle(lua_State *L) {
+		if (!_lg_typecheck_setAngle(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GrahamVector3::m_angle(float value) function, expected prototype:\nvoid GrahamVector3::m_angle(float value)\nClass arguments details:\n");
 		}
@@ -159,8 +159,8 @@ public:
 	}
 
 	// void GrahamVector3::m_orgIndex(int value)
-	static int _bind_setM_orgIndex(lua_State *L) {
-		if (!_lg_typecheck_setM_orgIndex(L)) {
+	static int _bind_setOrgIndex(lua_State *L) {
+		if (!_lg_typecheck_setOrgIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GrahamVector3::m_orgIndex(int value) function, expected prototype:\nvoid GrahamVector3::m_orgIndex(int value)\nClass arguments details:\n");
 		}
@@ -198,10 +198,10 @@ const int LunaTraits< GrahamVector3 >::hash = 65522341;
 const int LunaTraits< GrahamVector3 >::uniqueIDs[] = {91544891,0};
 
 luna_RegType LunaTraits< GrahamVector3 >::methods[] = {
-	{"getM_angle", &luna_wrapper_GrahamVector3::_bind_getM_angle},
-	{"getM_orgIndex", &luna_wrapper_GrahamVector3::_bind_getM_orgIndex},
-	{"setM_angle", &luna_wrapper_GrahamVector3::_bind_setM_angle},
-	{"setM_orgIndex", &luna_wrapper_GrahamVector3::_bind_setM_orgIndex},
+	{"getAngle", &luna_wrapper_GrahamVector3::_bind_getAngle},
+	{"getOrgIndex", &luna_wrapper_GrahamVector3::_bind_getOrgIndex},
+	{"setAngle", &luna_wrapper_GrahamVector3::_bind_setAngle},
+	{"setOrgIndex", &luna_wrapper_GrahamVector3::_bind_setOrgIndex},
 	{"__eq", &luna_wrapper_GrahamVector3::_bind___eq},
 	{0,0}
 };

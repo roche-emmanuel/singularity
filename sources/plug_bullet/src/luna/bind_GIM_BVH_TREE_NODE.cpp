@@ -94,13 +94,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_bound(lua_State *L) {
+	inline static bool _lg_typecheck_getBound(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_bound(lua_State *L) {
+	inline static bool _lg_typecheck_setBound(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,14786052) ) return false;
@@ -221,8 +221,8 @@ public:
 	}
 
 	// btAABB GIM_BVH_TREE_NODE::m_bound()
-	static int _bind_getM_bound(lua_State *L) {
-		if (!_lg_typecheck_getM_bound(L)) {
+	static int _bind_getBound(lua_State *L) {
+		if (!_lg_typecheck_getBound(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btAABB GIM_BVH_TREE_NODE::m_bound() function, expected prototype:\nbtAABB GIM_BVH_TREE_NODE::m_bound()\nClass arguments details:\n");
 		}
@@ -242,8 +242,8 @@ public:
 	}
 
 	// void GIM_BVH_TREE_NODE::m_bound(btAABB value)
-	static int _bind_setM_bound(lua_State *L) {
-		if (!_lg_typecheck_setM_bound(L)) {
+	static int _bind_setBound(lua_State *L) {
+		if (!_lg_typecheck_setBound(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GIM_BVH_TREE_NODE::m_bound(btAABB value) function, expected prototype:\nvoid GIM_BVH_TREE_NODE::m_bound(btAABB value)\nClass arguments details:\narg 1 ID = 14786052\n");
 		}
@@ -290,8 +290,8 @@ luna_RegType LunaTraits< GIM_BVH_TREE_NODE >::methods[] = {
 	{"setEscapeIndex", &luna_wrapper_GIM_BVH_TREE_NODE::_bind_setEscapeIndex},
 	{"getDataIndex", &luna_wrapper_GIM_BVH_TREE_NODE::_bind_getDataIndex},
 	{"setDataIndex", &luna_wrapper_GIM_BVH_TREE_NODE::_bind_setDataIndex},
-	{"getM_bound", &luna_wrapper_GIM_BVH_TREE_NODE::_bind_getM_bound},
-	{"setM_bound", &luna_wrapper_GIM_BVH_TREE_NODE::_bind_setM_bound},
+	{"getBound", &luna_wrapper_GIM_BVH_TREE_NODE::_bind_getBound},
+	{"setBound", &luna_wrapper_GIM_BVH_TREE_NODE::_bind_setBound},
 	{"dynCast", &luna_wrapper_GIM_BVH_TREE_NODE::_bind_dynCast},
 	{"__eq", &luna_wrapper_GIM_BVH_TREE_NODE::_bind___eq},
 	{0,0}

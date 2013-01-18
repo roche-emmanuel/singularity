@@ -240,221 +240,221 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_paircache(lua_State *L) {
+	inline static bool _lg_typecheck_getPaircache(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_prediction(lua_State *L) {
+	inline static bool _lg_typecheck_getPrediction(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_stageCurrent(lua_State *L) {
+	inline static bool _lg_typecheck_getStageCurrent(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_fupdates(lua_State *L) {
+	inline static bool _lg_typecheck_getFupdates(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_dupdates(lua_State *L) {
+	inline static bool _lg_typecheck_getDupdates(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_cupdates(lua_State *L) {
+	inline static bool _lg_typecheck_getCupdates(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_newpairs(lua_State *L) {
+	inline static bool _lg_typecheck_getNewpairs(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_fixedleft(lua_State *L) {
+	inline static bool _lg_typecheck_getFixedleft(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_updates_call(lua_State *L) {
+	inline static bool _lg_typecheck_get_updates_call(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_updates_done(lua_State *L) {
+	inline static bool _lg_typecheck_get_updates_done(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_updates_ratio(lua_State *L) {
+	inline static bool _lg_typecheck_get_updates_ratio(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_pid(lua_State *L) {
+	inline static bool _lg_typecheck_getPid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_cid(lua_State *L) {
+	inline static bool _lg_typecheck_getCid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_gid(lua_State *L) {
+	inline static bool _lg_typecheck_getGid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_releasepaircache(lua_State *L) {
+	inline static bool _lg_typecheck_getReleasepaircache(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_deferedcollide(lua_State *L) {
+	inline static bool _lg_typecheck_getDeferedcollide(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_needcleanup(lua_State *L) {
+	inline static bool _lg_typecheck_getNeedcleanup(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_paircache(lua_State *L) {
+	inline static bool _lg_typecheck_setPaircache(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,78133027)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_prediction(lua_State *L) {
+	inline static bool _lg_typecheck_setPrediction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_stageCurrent(lua_State *L) {
+	inline static bool _lg_typecheck_setStageCurrent(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_fupdates(lua_State *L) {
+	inline static bool _lg_typecheck_setFupdates(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_dupdates(lua_State *L) {
+	inline static bool _lg_typecheck_setDupdates(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_cupdates(lua_State *L) {
+	inline static bool _lg_typecheck_setCupdates(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_newpairs(lua_State *L) {
+	inline static bool _lg_typecheck_setNewpairs(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_fixedleft(lua_State *L) {
+	inline static bool _lg_typecheck_setFixedleft(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_updates_call(lua_State *L) {
+	inline static bool _lg_typecheck_set_updates_call(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_updates_done(lua_State *L) {
+	inline static bool _lg_typecheck_set_updates_done(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_updates_ratio(lua_State *L) {
+	inline static bool _lg_typecheck_set_updates_ratio(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_pid(lua_State *L) {
+	inline static bool _lg_typecheck_setPid(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_cid(lua_State *L) {
+	inline static bool _lg_typecheck_setCid(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_gid(lua_State *L) {
+	inline static bool _lg_typecheck_setGid(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_releasepaircache(lua_State *L) {
+	inline static bool _lg_typecheck_setReleasepaircache(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_deferedcollide(lua_State *L) {
+	inline static bool _lg_typecheck_setDeferedcollide(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_needcleanup(lua_State *L) {
+	inline static bool _lg_typecheck_setNeedcleanup(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -1075,8 +1075,8 @@ public:
 	}
 
 	// btOverlappingPairCache * btDbvtBroadphase::m_paircache()
-	static int _bind_getM_paircache(lua_State *L) {
-		if (!_lg_typecheck_getM_paircache(L)) {
+	static int _bind_getPaircache(lua_State *L) {
+		if (!_lg_typecheck_getPaircache(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btOverlappingPairCache * btDbvtBroadphase::m_paircache() function, expected prototype:\nbtOverlappingPairCache * btDbvtBroadphase::m_paircache()\nClass arguments details:\n");
 		}
@@ -1096,8 +1096,8 @@ public:
 	}
 
 	// float btDbvtBroadphase::m_prediction()
-	static int _bind_getM_prediction(lua_State *L) {
-		if (!_lg_typecheck_getM_prediction(L)) {
+	static int _bind_getPrediction(lua_State *L) {
+		if (!_lg_typecheck_getPrediction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btDbvtBroadphase::m_prediction() function, expected prototype:\nfloat btDbvtBroadphase::m_prediction()\nClass arguments details:\n");
 		}
@@ -1115,8 +1115,8 @@ public:
 	}
 
 	// int btDbvtBroadphase::m_stageCurrent()
-	static int _bind_getM_stageCurrent(lua_State *L) {
-		if (!_lg_typecheck_getM_stageCurrent(L)) {
+	static int _bind_getStageCurrent(lua_State *L) {
+		if (!_lg_typecheck_getStageCurrent(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDbvtBroadphase::m_stageCurrent() function, expected prototype:\nint btDbvtBroadphase::m_stageCurrent()\nClass arguments details:\n");
 		}
@@ -1134,8 +1134,8 @@ public:
 	}
 
 	// int btDbvtBroadphase::m_fupdates()
-	static int _bind_getM_fupdates(lua_State *L) {
-		if (!_lg_typecheck_getM_fupdates(L)) {
+	static int _bind_getFupdates(lua_State *L) {
+		if (!_lg_typecheck_getFupdates(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDbvtBroadphase::m_fupdates() function, expected prototype:\nint btDbvtBroadphase::m_fupdates()\nClass arguments details:\n");
 		}
@@ -1153,8 +1153,8 @@ public:
 	}
 
 	// int btDbvtBroadphase::m_dupdates()
-	static int _bind_getM_dupdates(lua_State *L) {
-		if (!_lg_typecheck_getM_dupdates(L)) {
+	static int _bind_getDupdates(lua_State *L) {
+		if (!_lg_typecheck_getDupdates(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDbvtBroadphase::m_dupdates() function, expected prototype:\nint btDbvtBroadphase::m_dupdates()\nClass arguments details:\n");
 		}
@@ -1172,8 +1172,8 @@ public:
 	}
 
 	// int btDbvtBroadphase::m_cupdates()
-	static int _bind_getM_cupdates(lua_State *L) {
-		if (!_lg_typecheck_getM_cupdates(L)) {
+	static int _bind_getCupdates(lua_State *L) {
+		if (!_lg_typecheck_getCupdates(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDbvtBroadphase::m_cupdates() function, expected prototype:\nint btDbvtBroadphase::m_cupdates()\nClass arguments details:\n");
 		}
@@ -1191,8 +1191,8 @@ public:
 	}
 
 	// int btDbvtBroadphase::m_newpairs()
-	static int _bind_getM_newpairs(lua_State *L) {
-		if (!_lg_typecheck_getM_newpairs(L)) {
+	static int _bind_getNewpairs(lua_State *L) {
+		if (!_lg_typecheck_getNewpairs(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDbvtBroadphase::m_newpairs() function, expected prototype:\nint btDbvtBroadphase::m_newpairs()\nClass arguments details:\n");
 		}
@@ -1210,8 +1210,8 @@ public:
 	}
 
 	// int btDbvtBroadphase::m_fixedleft()
-	static int _bind_getM_fixedleft(lua_State *L) {
-		if (!_lg_typecheck_getM_fixedleft(L)) {
+	static int _bind_getFixedleft(lua_State *L) {
+		if (!_lg_typecheck_getFixedleft(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDbvtBroadphase::m_fixedleft() function, expected prototype:\nint btDbvtBroadphase::m_fixedleft()\nClass arguments details:\n");
 		}
@@ -1229,8 +1229,8 @@ public:
 	}
 
 	// unsigned int btDbvtBroadphase::m_updates_call()
-	static int _bind_getM_updates_call(lua_State *L) {
-		if (!_lg_typecheck_getM_updates_call(L)) {
+	static int _bind_get_updates_call(lua_State *L) {
+		if (!_lg_typecheck_get_updates_call(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int btDbvtBroadphase::m_updates_call() function, expected prototype:\nunsigned int btDbvtBroadphase::m_updates_call()\nClass arguments details:\n");
 		}
@@ -1248,8 +1248,8 @@ public:
 	}
 
 	// unsigned int btDbvtBroadphase::m_updates_done()
-	static int _bind_getM_updates_done(lua_State *L) {
-		if (!_lg_typecheck_getM_updates_done(L)) {
+	static int _bind_get_updates_done(lua_State *L) {
+		if (!_lg_typecheck_get_updates_done(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int btDbvtBroadphase::m_updates_done() function, expected prototype:\nunsigned int btDbvtBroadphase::m_updates_done()\nClass arguments details:\n");
 		}
@@ -1267,8 +1267,8 @@ public:
 	}
 
 	// float btDbvtBroadphase::m_updates_ratio()
-	static int _bind_getM_updates_ratio(lua_State *L) {
-		if (!_lg_typecheck_getM_updates_ratio(L)) {
+	static int _bind_get_updates_ratio(lua_State *L) {
+		if (!_lg_typecheck_get_updates_ratio(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btDbvtBroadphase::m_updates_ratio() function, expected prototype:\nfloat btDbvtBroadphase::m_updates_ratio()\nClass arguments details:\n");
 		}
@@ -1286,8 +1286,8 @@ public:
 	}
 
 	// int btDbvtBroadphase::m_pid()
-	static int _bind_getM_pid(lua_State *L) {
-		if (!_lg_typecheck_getM_pid(L)) {
+	static int _bind_getPid(lua_State *L) {
+		if (!_lg_typecheck_getPid(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDbvtBroadphase::m_pid() function, expected prototype:\nint btDbvtBroadphase::m_pid()\nClass arguments details:\n");
 		}
@@ -1305,8 +1305,8 @@ public:
 	}
 
 	// int btDbvtBroadphase::m_cid()
-	static int _bind_getM_cid(lua_State *L) {
-		if (!_lg_typecheck_getM_cid(L)) {
+	static int _bind_getCid(lua_State *L) {
+		if (!_lg_typecheck_getCid(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDbvtBroadphase::m_cid() function, expected prototype:\nint btDbvtBroadphase::m_cid()\nClass arguments details:\n");
 		}
@@ -1324,8 +1324,8 @@ public:
 	}
 
 	// int btDbvtBroadphase::m_gid()
-	static int _bind_getM_gid(lua_State *L) {
-		if (!_lg_typecheck_getM_gid(L)) {
+	static int _bind_getGid(lua_State *L) {
+		if (!_lg_typecheck_getGid(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btDbvtBroadphase::m_gid() function, expected prototype:\nint btDbvtBroadphase::m_gid()\nClass arguments details:\n");
 		}
@@ -1343,8 +1343,8 @@ public:
 	}
 
 	// bool btDbvtBroadphase::m_releasepaircache()
-	static int _bind_getM_releasepaircache(lua_State *L) {
-		if (!_lg_typecheck_getM_releasepaircache(L)) {
+	static int _bind_getReleasepaircache(lua_State *L) {
+		if (!_lg_typecheck_getReleasepaircache(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btDbvtBroadphase::m_releasepaircache() function, expected prototype:\nbool btDbvtBroadphase::m_releasepaircache()\nClass arguments details:\n");
 		}
@@ -1362,8 +1362,8 @@ public:
 	}
 
 	// bool btDbvtBroadphase::m_deferedcollide()
-	static int _bind_getM_deferedcollide(lua_State *L) {
-		if (!_lg_typecheck_getM_deferedcollide(L)) {
+	static int _bind_getDeferedcollide(lua_State *L) {
+		if (!_lg_typecheck_getDeferedcollide(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btDbvtBroadphase::m_deferedcollide() function, expected prototype:\nbool btDbvtBroadphase::m_deferedcollide()\nClass arguments details:\n");
 		}
@@ -1381,8 +1381,8 @@ public:
 	}
 
 	// bool btDbvtBroadphase::m_needcleanup()
-	static int _bind_getM_needcleanup(lua_State *L) {
-		if (!_lg_typecheck_getM_needcleanup(L)) {
+	static int _bind_getNeedcleanup(lua_State *L) {
+		if (!_lg_typecheck_getNeedcleanup(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btDbvtBroadphase::m_needcleanup() function, expected prototype:\nbool btDbvtBroadphase::m_needcleanup()\nClass arguments details:\n");
 		}
@@ -1400,8 +1400,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_paircache(btOverlappingPairCache * value)
-	static int _bind_setM_paircache(lua_State *L) {
-		if (!_lg_typecheck_setM_paircache(L)) {
+	static int _bind_setPaircache(lua_State *L) {
+		if (!_lg_typecheck_setPaircache(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_paircache(btOverlappingPairCache * value) function, expected prototype:\nvoid btDbvtBroadphase::m_paircache(btOverlappingPairCache * value)\nClass arguments details:\narg 1 ID = 78133027\n");
 		}
@@ -1419,8 +1419,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_prediction(float value)
-	static int _bind_setM_prediction(lua_State *L) {
-		if (!_lg_typecheck_setM_prediction(L)) {
+	static int _bind_setPrediction(lua_State *L) {
+		if (!_lg_typecheck_setPrediction(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_prediction(float value) function, expected prototype:\nvoid btDbvtBroadphase::m_prediction(float value)\nClass arguments details:\n");
 		}
@@ -1438,8 +1438,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_stageCurrent(int value)
-	static int _bind_setM_stageCurrent(lua_State *L) {
-		if (!_lg_typecheck_setM_stageCurrent(L)) {
+	static int _bind_setStageCurrent(lua_State *L) {
+		if (!_lg_typecheck_setStageCurrent(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_stageCurrent(int value) function, expected prototype:\nvoid btDbvtBroadphase::m_stageCurrent(int value)\nClass arguments details:\n");
 		}
@@ -1457,8 +1457,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_fupdates(int value)
-	static int _bind_setM_fupdates(lua_State *L) {
-		if (!_lg_typecheck_setM_fupdates(L)) {
+	static int _bind_setFupdates(lua_State *L) {
+		if (!_lg_typecheck_setFupdates(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_fupdates(int value) function, expected prototype:\nvoid btDbvtBroadphase::m_fupdates(int value)\nClass arguments details:\n");
 		}
@@ -1476,8 +1476,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_dupdates(int value)
-	static int _bind_setM_dupdates(lua_State *L) {
-		if (!_lg_typecheck_setM_dupdates(L)) {
+	static int _bind_setDupdates(lua_State *L) {
+		if (!_lg_typecheck_setDupdates(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_dupdates(int value) function, expected prototype:\nvoid btDbvtBroadphase::m_dupdates(int value)\nClass arguments details:\n");
 		}
@@ -1495,8 +1495,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_cupdates(int value)
-	static int _bind_setM_cupdates(lua_State *L) {
-		if (!_lg_typecheck_setM_cupdates(L)) {
+	static int _bind_setCupdates(lua_State *L) {
+		if (!_lg_typecheck_setCupdates(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_cupdates(int value) function, expected prototype:\nvoid btDbvtBroadphase::m_cupdates(int value)\nClass arguments details:\n");
 		}
@@ -1514,8 +1514,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_newpairs(int value)
-	static int _bind_setM_newpairs(lua_State *L) {
-		if (!_lg_typecheck_setM_newpairs(L)) {
+	static int _bind_setNewpairs(lua_State *L) {
+		if (!_lg_typecheck_setNewpairs(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_newpairs(int value) function, expected prototype:\nvoid btDbvtBroadphase::m_newpairs(int value)\nClass arguments details:\n");
 		}
@@ -1533,8 +1533,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_fixedleft(int value)
-	static int _bind_setM_fixedleft(lua_State *L) {
-		if (!_lg_typecheck_setM_fixedleft(L)) {
+	static int _bind_setFixedleft(lua_State *L) {
+		if (!_lg_typecheck_setFixedleft(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_fixedleft(int value) function, expected prototype:\nvoid btDbvtBroadphase::m_fixedleft(int value)\nClass arguments details:\n");
 		}
@@ -1552,8 +1552,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_updates_call(unsigned int value)
-	static int _bind_setM_updates_call(lua_State *L) {
-		if (!_lg_typecheck_setM_updates_call(L)) {
+	static int _bind_set_updates_call(lua_State *L) {
+		if (!_lg_typecheck_set_updates_call(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_updates_call(unsigned int value) function, expected prototype:\nvoid btDbvtBroadphase::m_updates_call(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1571,8 +1571,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_updates_done(unsigned int value)
-	static int _bind_setM_updates_done(lua_State *L) {
-		if (!_lg_typecheck_setM_updates_done(L)) {
+	static int _bind_set_updates_done(lua_State *L) {
+		if (!_lg_typecheck_set_updates_done(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_updates_done(unsigned int value) function, expected prototype:\nvoid btDbvtBroadphase::m_updates_done(unsigned int value)\nClass arguments details:\n");
 		}
@@ -1590,8 +1590,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_updates_ratio(float value)
-	static int _bind_setM_updates_ratio(lua_State *L) {
-		if (!_lg_typecheck_setM_updates_ratio(L)) {
+	static int _bind_set_updates_ratio(lua_State *L) {
+		if (!_lg_typecheck_set_updates_ratio(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_updates_ratio(float value) function, expected prototype:\nvoid btDbvtBroadphase::m_updates_ratio(float value)\nClass arguments details:\n");
 		}
@@ -1609,8 +1609,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_pid(int value)
-	static int _bind_setM_pid(lua_State *L) {
-		if (!_lg_typecheck_setM_pid(L)) {
+	static int _bind_setPid(lua_State *L) {
+		if (!_lg_typecheck_setPid(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_pid(int value) function, expected prototype:\nvoid btDbvtBroadphase::m_pid(int value)\nClass arguments details:\n");
 		}
@@ -1628,8 +1628,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_cid(int value)
-	static int _bind_setM_cid(lua_State *L) {
-		if (!_lg_typecheck_setM_cid(L)) {
+	static int _bind_setCid(lua_State *L) {
+		if (!_lg_typecheck_setCid(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_cid(int value) function, expected prototype:\nvoid btDbvtBroadphase::m_cid(int value)\nClass arguments details:\n");
 		}
@@ -1647,8 +1647,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_gid(int value)
-	static int _bind_setM_gid(lua_State *L) {
-		if (!_lg_typecheck_setM_gid(L)) {
+	static int _bind_setGid(lua_State *L) {
+		if (!_lg_typecheck_setGid(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_gid(int value) function, expected prototype:\nvoid btDbvtBroadphase::m_gid(int value)\nClass arguments details:\n");
 		}
@@ -1666,8 +1666,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_releasepaircache(bool value)
-	static int _bind_setM_releasepaircache(lua_State *L) {
-		if (!_lg_typecheck_setM_releasepaircache(L)) {
+	static int _bind_setReleasepaircache(lua_State *L) {
+		if (!_lg_typecheck_setReleasepaircache(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_releasepaircache(bool value) function, expected prototype:\nvoid btDbvtBroadphase::m_releasepaircache(bool value)\nClass arguments details:\n");
 		}
@@ -1685,8 +1685,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_deferedcollide(bool value)
-	static int _bind_setM_deferedcollide(lua_State *L) {
-		if (!_lg_typecheck_setM_deferedcollide(L)) {
+	static int _bind_setDeferedcollide(lua_State *L) {
+		if (!_lg_typecheck_setDeferedcollide(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_deferedcollide(bool value) function, expected prototype:\nvoid btDbvtBroadphase::m_deferedcollide(bool value)\nClass arguments details:\n");
 		}
@@ -1704,8 +1704,8 @@ public:
 	}
 
 	// void btDbvtBroadphase::m_needcleanup(bool value)
-	static int _bind_setM_needcleanup(lua_State *L) {
-		if (!_lg_typecheck_setM_needcleanup(L)) {
+	static int _bind_setNeedcleanup(lua_State *L) {
+		if (!_lg_typecheck_setNeedcleanup(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btDbvtBroadphase::m_needcleanup(bool value) function, expected prototype:\nvoid btDbvtBroadphase::m_needcleanup(bool value)\nClass arguments details:\n");
 		}
@@ -2090,40 +2090,40 @@ luna_RegType LunaTraits< btDbvtBroadphase >::methods[] = {
 	{"getVelocityPrediction", &luna_wrapper_btDbvtBroadphase::_bind_getVelocityPrediction},
 	{"setAabbForceUpdate", &luna_wrapper_btDbvtBroadphase::_bind_setAabbForceUpdate},
 	{"benchmark", &luna_wrapper_btDbvtBroadphase::_bind_benchmark},
-	{"getM_paircache", &luna_wrapper_btDbvtBroadphase::_bind_getM_paircache},
-	{"getM_prediction", &luna_wrapper_btDbvtBroadphase::_bind_getM_prediction},
-	{"getM_stageCurrent", &luna_wrapper_btDbvtBroadphase::_bind_getM_stageCurrent},
-	{"getM_fupdates", &luna_wrapper_btDbvtBroadphase::_bind_getM_fupdates},
-	{"getM_dupdates", &luna_wrapper_btDbvtBroadphase::_bind_getM_dupdates},
-	{"getM_cupdates", &luna_wrapper_btDbvtBroadphase::_bind_getM_cupdates},
-	{"getM_newpairs", &luna_wrapper_btDbvtBroadphase::_bind_getM_newpairs},
-	{"getM_fixedleft", &luna_wrapper_btDbvtBroadphase::_bind_getM_fixedleft},
-	{"getM_updates_call", &luna_wrapper_btDbvtBroadphase::_bind_getM_updates_call},
-	{"getM_updates_done", &luna_wrapper_btDbvtBroadphase::_bind_getM_updates_done},
-	{"getM_updates_ratio", &luna_wrapper_btDbvtBroadphase::_bind_getM_updates_ratio},
-	{"getM_pid", &luna_wrapper_btDbvtBroadphase::_bind_getM_pid},
-	{"getM_cid", &luna_wrapper_btDbvtBroadphase::_bind_getM_cid},
-	{"getM_gid", &luna_wrapper_btDbvtBroadphase::_bind_getM_gid},
-	{"getM_releasepaircache", &luna_wrapper_btDbvtBroadphase::_bind_getM_releasepaircache},
-	{"getM_deferedcollide", &luna_wrapper_btDbvtBroadphase::_bind_getM_deferedcollide},
-	{"getM_needcleanup", &luna_wrapper_btDbvtBroadphase::_bind_getM_needcleanup},
-	{"setM_paircache", &luna_wrapper_btDbvtBroadphase::_bind_setM_paircache},
-	{"setM_prediction", &luna_wrapper_btDbvtBroadphase::_bind_setM_prediction},
-	{"setM_stageCurrent", &luna_wrapper_btDbvtBroadphase::_bind_setM_stageCurrent},
-	{"setM_fupdates", &luna_wrapper_btDbvtBroadphase::_bind_setM_fupdates},
-	{"setM_dupdates", &luna_wrapper_btDbvtBroadphase::_bind_setM_dupdates},
-	{"setM_cupdates", &luna_wrapper_btDbvtBroadphase::_bind_setM_cupdates},
-	{"setM_newpairs", &luna_wrapper_btDbvtBroadphase::_bind_setM_newpairs},
-	{"setM_fixedleft", &luna_wrapper_btDbvtBroadphase::_bind_setM_fixedleft},
-	{"setM_updates_call", &luna_wrapper_btDbvtBroadphase::_bind_setM_updates_call},
-	{"setM_updates_done", &luna_wrapper_btDbvtBroadphase::_bind_setM_updates_done},
-	{"setM_updates_ratio", &luna_wrapper_btDbvtBroadphase::_bind_setM_updates_ratio},
-	{"setM_pid", &luna_wrapper_btDbvtBroadphase::_bind_setM_pid},
-	{"setM_cid", &luna_wrapper_btDbvtBroadphase::_bind_setM_cid},
-	{"setM_gid", &luna_wrapper_btDbvtBroadphase::_bind_setM_gid},
-	{"setM_releasepaircache", &luna_wrapper_btDbvtBroadphase::_bind_setM_releasepaircache},
-	{"setM_deferedcollide", &luna_wrapper_btDbvtBroadphase::_bind_setM_deferedcollide},
-	{"setM_needcleanup", &luna_wrapper_btDbvtBroadphase::_bind_setM_needcleanup},
+	{"getPaircache", &luna_wrapper_btDbvtBroadphase::_bind_getPaircache},
+	{"getPrediction", &luna_wrapper_btDbvtBroadphase::_bind_getPrediction},
+	{"getStageCurrent", &luna_wrapper_btDbvtBroadphase::_bind_getStageCurrent},
+	{"getFupdates", &luna_wrapper_btDbvtBroadphase::_bind_getFupdates},
+	{"getDupdates", &luna_wrapper_btDbvtBroadphase::_bind_getDupdates},
+	{"getCupdates", &luna_wrapper_btDbvtBroadphase::_bind_getCupdates},
+	{"getNewpairs", &luna_wrapper_btDbvtBroadphase::_bind_getNewpairs},
+	{"getFixedleft", &luna_wrapper_btDbvtBroadphase::_bind_getFixedleft},
+	{"get_updates_call", &luna_wrapper_btDbvtBroadphase::_bind_get_updates_call},
+	{"get_updates_done", &luna_wrapper_btDbvtBroadphase::_bind_get_updates_done},
+	{"get_updates_ratio", &luna_wrapper_btDbvtBroadphase::_bind_get_updates_ratio},
+	{"getPid", &luna_wrapper_btDbvtBroadphase::_bind_getPid},
+	{"getCid", &luna_wrapper_btDbvtBroadphase::_bind_getCid},
+	{"getGid", &luna_wrapper_btDbvtBroadphase::_bind_getGid},
+	{"getReleasepaircache", &luna_wrapper_btDbvtBroadphase::_bind_getReleasepaircache},
+	{"getDeferedcollide", &luna_wrapper_btDbvtBroadphase::_bind_getDeferedcollide},
+	{"getNeedcleanup", &luna_wrapper_btDbvtBroadphase::_bind_getNeedcleanup},
+	{"setPaircache", &luna_wrapper_btDbvtBroadphase::_bind_setPaircache},
+	{"setPrediction", &luna_wrapper_btDbvtBroadphase::_bind_setPrediction},
+	{"setStageCurrent", &luna_wrapper_btDbvtBroadphase::_bind_setStageCurrent},
+	{"setFupdates", &luna_wrapper_btDbvtBroadphase::_bind_setFupdates},
+	{"setDupdates", &luna_wrapper_btDbvtBroadphase::_bind_setDupdates},
+	{"setCupdates", &luna_wrapper_btDbvtBroadphase::_bind_setCupdates},
+	{"setNewpairs", &luna_wrapper_btDbvtBroadphase::_bind_setNewpairs},
+	{"setFixedleft", &luna_wrapper_btDbvtBroadphase::_bind_setFixedleft},
+	{"set_updates_call", &luna_wrapper_btDbvtBroadphase::_bind_set_updates_call},
+	{"set_updates_done", &luna_wrapper_btDbvtBroadphase::_bind_set_updates_done},
+	{"set_updates_ratio", &luna_wrapper_btDbvtBroadphase::_bind_set_updates_ratio},
+	{"setPid", &luna_wrapper_btDbvtBroadphase::_bind_setPid},
+	{"setCid", &luna_wrapper_btDbvtBroadphase::_bind_setCid},
+	{"setGid", &luna_wrapper_btDbvtBroadphase::_bind_setGid},
+	{"setReleasepaircache", &luna_wrapper_btDbvtBroadphase::_bind_setReleasepaircache},
+	{"setDeferedcollide", &luna_wrapper_btDbvtBroadphase::_bind_setDeferedcollide},
+	{"setNeedcleanup", &luna_wrapper_btDbvtBroadphase::_bind_setNeedcleanup},
 	{"base_createProxy", &luna_wrapper_btDbvtBroadphase::_bind_base_createProxy},
 	{"base_destroyProxy", &luna_wrapper_btDbvtBroadphase::_bind_base_destroyProxy},
 	{"base_setAabb", &luna_wrapper_btDbvtBroadphase::_bind_base_setAabb},

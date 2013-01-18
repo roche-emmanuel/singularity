@@ -56,156 +56,156 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_chassisConnectionCS(lua_State *L) {
+	inline static bool _lg_typecheck_getChassisConnectionCS(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_wheelDirectionCS(lua_State *L) {
+	inline static bool _lg_typecheck_getWheelDirectionCS(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_wheelAxleCS(lua_State *L) {
+	inline static bool _lg_typecheck_getWheelAxleCS(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_suspensionRestLength(lua_State *L) {
+	inline static bool _lg_typecheck_getSuspensionRestLength(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_maxSuspensionTravelCm(lua_State *L) {
+	inline static bool _lg_typecheck_getMaxSuspensionTravelCm(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_wheelRadius(lua_State *L) {
+	inline static bool _lg_typecheck_getWheelRadius(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_suspensionStiffness(lua_State *L) {
+	inline static bool _lg_typecheck_getSuspensionStiffness(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_wheelsDampingCompression(lua_State *L) {
+	inline static bool _lg_typecheck_getWheelsDampingCompression(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_wheelsDampingRelaxation(lua_State *L) {
+	inline static bool _lg_typecheck_getWheelsDampingRelaxation(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_frictionSlip(lua_State *L) {
+	inline static bool _lg_typecheck_getFrictionSlip(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_maxSuspensionForce(lua_State *L) {
+	inline static bool _lg_typecheck_getMaxSuspensionForce(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_bIsFrontWheel(lua_State *L) {
+	inline static bool _lg_typecheck_getBIsFrontWheel(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_chassisConnectionCS(lua_State *L) {
+	inline static bool _lg_typecheck_setChassisConnectionCS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_wheelDirectionCS(lua_State *L) {
+	inline static bool _lg_typecheck_setWheelDirectionCS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_wheelAxleCS(lua_State *L) {
+	inline static bool _lg_typecheck_setWheelAxleCS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_suspensionRestLength(lua_State *L) {
+	inline static bool _lg_typecheck_setSuspensionRestLength(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_maxSuspensionTravelCm(lua_State *L) {
+	inline static bool _lg_typecheck_setMaxSuspensionTravelCm(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_wheelRadius(lua_State *L) {
+	inline static bool _lg_typecheck_setWheelRadius(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_suspensionStiffness(lua_State *L) {
+	inline static bool _lg_typecheck_setSuspensionStiffness(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_wheelsDampingCompression(lua_State *L) {
+	inline static bool _lg_typecheck_setWheelsDampingCompression(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_wheelsDampingRelaxation(lua_State *L) {
+	inline static bool _lg_typecheck_setWheelsDampingRelaxation(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_frictionSlip(lua_State *L) {
+	inline static bool _lg_typecheck_setFrictionSlip(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_maxSuspensionForce(lua_State *L) {
+	inline static bool _lg_typecheck_setMaxSuspensionForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_bIsFrontWheel(lua_State *L) {
+	inline static bool _lg_typecheck_setBIsFrontWheel(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -220,8 +220,8 @@ public:
 
 	// Function binds:
 	// btVector3 btWheelInfoConstructionInfo::m_chassisConnectionCS()
-	static int _bind_getM_chassisConnectionCS(lua_State *L) {
-		if (!_lg_typecheck_getM_chassisConnectionCS(L)) {
+	static int _bind_getChassisConnectionCS(lua_State *L) {
+		if (!_lg_typecheck_getChassisConnectionCS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfoConstructionInfo::m_chassisConnectionCS() function, expected prototype:\nbtVector3 btWheelInfoConstructionInfo::m_chassisConnectionCS()\nClass arguments details:\n");
 		}
@@ -241,8 +241,8 @@ public:
 	}
 
 	// btVector3 btWheelInfoConstructionInfo::m_wheelDirectionCS()
-	static int _bind_getM_wheelDirectionCS(lua_State *L) {
-		if (!_lg_typecheck_getM_wheelDirectionCS(L)) {
+	static int _bind_getWheelDirectionCS(lua_State *L) {
+		if (!_lg_typecheck_getWheelDirectionCS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfoConstructionInfo::m_wheelDirectionCS() function, expected prototype:\nbtVector3 btWheelInfoConstructionInfo::m_wheelDirectionCS()\nClass arguments details:\n");
 		}
@@ -262,8 +262,8 @@ public:
 	}
 
 	// btVector3 btWheelInfoConstructionInfo::m_wheelAxleCS()
-	static int _bind_getM_wheelAxleCS(lua_State *L) {
-		if (!_lg_typecheck_getM_wheelAxleCS(L)) {
+	static int _bind_getWheelAxleCS(lua_State *L) {
+		if (!_lg_typecheck_getWheelAxleCS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfoConstructionInfo::m_wheelAxleCS() function, expected prototype:\nbtVector3 btWheelInfoConstructionInfo::m_wheelAxleCS()\nClass arguments details:\n");
 		}
@@ -283,8 +283,8 @@ public:
 	}
 
 	// float btWheelInfoConstructionInfo::m_suspensionRestLength()
-	static int _bind_getM_suspensionRestLength(lua_State *L) {
-		if (!_lg_typecheck_getM_suspensionRestLength(L)) {
+	static int _bind_getSuspensionRestLength(lua_State *L) {
+		if (!_lg_typecheck_getSuspensionRestLength(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_suspensionRestLength() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_suspensionRestLength()\nClass arguments details:\n");
 		}
@@ -302,8 +302,8 @@ public:
 	}
 
 	// float btWheelInfoConstructionInfo::m_maxSuspensionTravelCm()
-	static int _bind_getM_maxSuspensionTravelCm(lua_State *L) {
-		if (!_lg_typecheck_getM_maxSuspensionTravelCm(L)) {
+	static int _bind_getMaxSuspensionTravelCm(lua_State *L) {
+		if (!_lg_typecheck_getMaxSuspensionTravelCm(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_maxSuspensionTravelCm() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_maxSuspensionTravelCm()\nClass arguments details:\n");
 		}
@@ -321,8 +321,8 @@ public:
 	}
 
 	// float btWheelInfoConstructionInfo::m_wheelRadius()
-	static int _bind_getM_wheelRadius(lua_State *L) {
-		if (!_lg_typecheck_getM_wheelRadius(L)) {
+	static int _bind_getWheelRadius(lua_State *L) {
+		if (!_lg_typecheck_getWheelRadius(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_wheelRadius() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_wheelRadius()\nClass arguments details:\n");
 		}
@@ -340,8 +340,8 @@ public:
 	}
 
 	// float btWheelInfoConstructionInfo::m_suspensionStiffness()
-	static int _bind_getM_suspensionStiffness(lua_State *L) {
-		if (!_lg_typecheck_getM_suspensionStiffness(L)) {
+	static int _bind_getSuspensionStiffness(lua_State *L) {
+		if (!_lg_typecheck_getSuspensionStiffness(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_suspensionStiffness() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_suspensionStiffness()\nClass arguments details:\n");
 		}
@@ -359,8 +359,8 @@ public:
 	}
 
 	// float btWheelInfoConstructionInfo::m_wheelsDampingCompression()
-	static int _bind_getM_wheelsDampingCompression(lua_State *L) {
-		if (!_lg_typecheck_getM_wheelsDampingCompression(L)) {
+	static int _bind_getWheelsDampingCompression(lua_State *L) {
+		if (!_lg_typecheck_getWheelsDampingCompression(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_wheelsDampingCompression() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_wheelsDampingCompression()\nClass arguments details:\n");
 		}
@@ -378,8 +378,8 @@ public:
 	}
 
 	// float btWheelInfoConstructionInfo::m_wheelsDampingRelaxation()
-	static int _bind_getM_wheelsDampingRelaxation(lua_State *L) {
-		if (!_lg_typecheck_getM_wheelsDampingRelaxation(L)) {
+	static int _bind_getWheelsDampingRelaxation(lua_State *L) {
+		if (!_lg_typecheck_getWheelsDampingRelaxation(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_wheelsDampingRelaxation() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_wheelsDampingRelaxation()\nClass arguments details:\n");
 		}
@@ -397,8 +397,8 @@ public:
 	}
 
 	// float btWheelInfoConstructionInfo::m_frictionSlip()
-	static int _bind_getM_frictionSlip(lua_State *L) {
-		if (!_lg_typecheck_getM_frictionSlip(L)) {
+	static int _bind_getFrictionSlip(lua_State *L) {
+		if (!_lg_typecheck_getFrictionSlip(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_frictionSlip() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_frictionSlip()\nClass arguments details:\n");
 		}
@@ -416,8 +416,8 @@ public:
 	}
 
 	// float btWheelInfoConstructionInfo::m_maxSuspensionForce()
-	static int _bind_getM_maxSuspensionForce(lua_State *L) {
-		if (!_lg_typecheck_getM_maxSuspensionForce(L)) {
+	static int _bind_getMaxSuspensionForce(lua_State *L) {
+		if (!_lg_typecheck_getMaxSuspensionForce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_maxSuspensionForce() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_maxSuspensionForce()\nClass arguments details:\n");
 		}
@@ -435,8 +435,8 @@ public:
 	}
 
 	// bool btWheelInfoConstructionInfo::m_bIsFrontWheel()
-	static int _bind_getM_bIsFrontWheel(lua_State *L) {
-		if (!_lg_typecheck_getM_bIsFrontWheel(L)) {
+	static int _bind_getBIsFrontWheel(lua_State *L) {
+		if (!_lg_typecheck_getBIsFrontWheel(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btWheelInfoConstructionInfo::m_bIsFrontWheel() function, expected prototype:\nbool btWheelInfoConstructionInfo::m_bIsFrontWheel()\nClass arguments details:\n");
 		}
@@ -454,8 +454,8 @@ public:
 	}
 
 	// void btWheelInfoConstructionInfo::m_chassisConnectionCS(btVector3 value)
-	static int _bind_setM_chassisConnectionCS(lua_State *L) {
-		if (!_lg_typecheck_setM_chassisConnectionCS(L)) {
+	static int _bind_setChassisConnectionCS(lua_State *L) {
+		if (!_lg_typecheck_setChassisConnectionCS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_chassisConnectionCS(btVector3 value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_chassisConnectionCS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -477,8 +477,8 @@ public:
 	}
 
 	// void btWheelInfoConstructionInfo::m_wheelDirectionCS(btVector3 value)
-	static int _bind_setM_wheelDirectionCS(lua_State *L) {
-		if (!_lg_typecheck_setM_wheelDirectionCS(L)) {
+	static int _bind_setWheelDirectionCS(lua_State *L) {
+		if (!_lg_typecheck_setWheelDirectionCS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelDirectionCS(btVector3 value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelDirectionCS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -500,8 +500,8 @@ public:
 	}
 
 	// void btWheelInfoConstructionInfo::m_wheelAxleCS(btVector3 value)
-	static int _bind_setM_wheelAxleCS(lua_State *L) {
-		if (!_lg_typecheck_setM_wheelAxleCS(L)) {
+	static int _bind_setWheelAxleCS(lua_State *L) {
+		if (!_lg_typecheck_setWheelAxleCS(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelAxleCS(btVector3 value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelAxleCS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -523,8 +523,8 @@ public:
 	}
 
 	// void btWheelInfoConstructionInfo::m_suspensionRestLength(float value)
-	static int _bind_setM_suspensionRestLength(lua_State *L) {
-		if (!_lg_typecheck_setM_suspensionRestLength(L)) {
+	static int _bind_setSuspensionRestLength(lua_State *L) {
+		if (!_lg_typecheck_setSuspensionRestLength(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_suspensionRestLength(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_suspensionRestLength(float value)\nClass arguments details:\n");
 		}
@@ -542,8 +542,8 @@ public:
 	}
 
 	// void btWheelInfoConstructionInfo::m_maxSuspensionTravelCm(float value)
-	static int _bind_setM_maxSuspensionTravelCm(lua_State *L) {
-		if (!_lg_typecheck_setM_maxSuspensionTravelCm(L)) {
+	static int _bind_setMaxSuspensionTravelCm(lua_State *L) {
+		if (!_lg_typecheck_setMaxSuspensionTravelCm(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_maxSuspensionTravelCm(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_maxSuspensionTravelCm(float value)\nClass arguments details:\n");
 		}
@@ -561,8 +561,8 @@ public:
 	}
 
 	// void btWheelInfoConstructionInfo::m_wheelRadius(float value)
-	static int _bind_setM_wheelRadius(lua_State *L) {
-		if (!_lg_typecheck_setM_wheelRadius(L)) {
+	static int _bind_setWheelRadius(lua_State *L) {
+		if (!_lg_typecheck_setWheelRadius(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelRadius(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelRadius(float value)\nClass arguments details:\n");
 		}
@@ -580,8 +580,8 @@ public:
 	}
 
 	// void btWheelInfoConstructionInfo::m_suspensionStiffness(float value)
-	static int _bind_setM_suspensionStiffness(lua_State *L) {
-		if (!_lg_typecheck_setM_suspensionStiffness(L)) {
+	static int _bind_setSuspensionStiffness(lua_State *L) {
+		if (!_lg_typecheck_setSuspensionStiffness(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_suspensionStiffness(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_suspensionStiffness(float value)\nClass arguments details:\n");
 		}
@@ -599,8 +599,8 @@ public:
 	}
 
 	// void btWheelInfoConstructionInfo::m_wheelsDampingCompression(float value)
-	static int _bind_setM_wheelsDampingCompression(lua_State *L) {
-		if (!_lg_typecheck_setM_wheelsDampingCompression(L)) {
+	static int _bind_setWheelsDampingCompression(lua_State *L) {
+		if (!_lg_typecheck_setWheelsDampingCompression(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelsDampingCompression(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelsDampingCompression(float value)\nClass arguments details:\n");
 		}
@@ -618,8 +618,8 @@ public:
 	}
 
 	// void btWheelInfoConstructionInfo::m_wheelsDampingRelaxation(float value)
-	static int _bind_setM_wheelsDampingRelaxation(lua_State *L) {
-		if (!_lg_typecheck_setM_wheelsDampingRelaxation(L)) {
+	static int _bind_setWheelsDampingRelaxation(lua_State *L) {
+		if (!_lg_typecheck_setWheelsDampingRelaxation(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelsDampingRelaxation(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelsDampingRelaxation(float value)\nClass arguments details:\n");
 		}
@@ -637,8 +637,8 @@ public:
 	}
 
 	// void btWheelInfoConstructionInfo::m_frictionSlip(float value)
-	static int _bind_setM_frictionSlip(lua_State *L) {
-		if (!_lg_typecheck_setM_frictionSlip(L)) {
+	static int _bind_setFrictionSlip(lua_State *L) {
+		if (!_lg_typecheck_setFrictionSlip(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_frictionSlip(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_frictionSlip(float value)\nClass arguments details:\n");
 		}
@@ -656,8 +656,8 @@ public:
 	}
 
 	// void btWheelInfoConstructionInfo::m_maxSuspensionForce(float value)
-	static int _bind_setM_maxSuspensionForce(lua_State *L) {
-		if (!_lg_typecheck_setM_maxSuspensionForce(L)) {
+	static int _bind_setMaxSuspensionForce(lua_State *L) {
+		if (!_lg_typecheck_setMaxSuspensionForce(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_maxSuspensionForce(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_maxSuspensionForce(float value)\nClass arguments details:\n");
 		}
@@ -675,8 +675,8 @@ public:
 	}
 
 	// void btWheelInfoConstructionInfo::m_bIsFrontWheel(bool value)
-	static int _bind_setM_bIsFrontWheel(lua_State *L) {
-		if (!_lg_typecheck_setM_bIsFrontWheel(L)) {
+	static int _bind_setBIsFrontWheel(lua_State *L) {
+		if (!_lg_typecheck_setBIsFrontWheel(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_bIsFrontWheel(bool value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_bIsFrontWheel(bool value)\nClass arguments details:\n");
 		}
@@ -714,30 +714,30 @@ const int LunaTraits< btWheelInfoConstructionInfo >::hash = 65660504;
 const int LunaTraits< btWheelInfoConstructionInfo >::uniqueIDs[] = {65660504,0};
 
 luna_RegType LunaTraits< btWheelInfoConstructionInfo >::methods[] = {
-	{"getM_chassisConnectionCS", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getM_chassisConnectionCS},
-	{"getM_wheelDirectionCS", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getM_wheelDirectionCS},
-	{"getM_wheelAxleCS", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getM_wheelAxleCS},
-	{"getM_suspensionRestLength", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getM_suspensionRestLength},
-	{"getM_maxSuspensionTravelCm", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getM_maxSuspensionTravelCm},
-	{"getM_wheelRadius", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getM_wheelRadius},
-	{"getM_suspensionStiffness", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getM_suspensionStiffness},
-	{"getM_wheelsDampingCompression", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getM_wheelsDampingCompression},
-	{"getM_wheelsDampingRelaxation", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getM_wheelsDampingRelaxation},
-	{"getM_frictionSlip", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getM_frictionSlip},
-	{"getM_maxSuspensionForce", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getM_maxSuspensionForce},
-	{"getM_bIsFrontWheel", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getM_bIsFrontWheel},
-	{"setM_chassisConnectionCS", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setM_chassisConnectionCS},
-	{"setM_wheelDirectionCS", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setM_wheelDirectionCS},
-	{"setM_wheelAxleCS", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setM_wheelAxleCS},
-	{"setM_suspensionRestLength", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setM_suspensionRestLength},
-	{"setM_maxSuspensionTravelCm", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setM_maxSuspensionTravelCm},
-	{"setM_wheelRadius", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setM_wheelRadius},
-	{"setM_suspensionStiffness", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setM_suspensionStiffness},
-	{"setM_wheelsDampingCompression", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setM_wheelsDampingCompression},
-	{"setM_wheelsDampingRelaxation", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setM_wheelsDampingRelaxation},
-	{"setM_frictionSlip", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setM_frictionSlip},
-	{"setM_maxSuspensionForce", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setM_maxSuspensionForce},
-	{"setM_bIsFrontWheel", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setM_bIsFrontWheel},
+	{"getChassisConnectionCS", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getChassisConnectionCS},
+	{"getWheelDirectionCS", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getWheelDirectionCS},
+	{"getWheelAxleCS", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getWheelAxleCS},
+	{"getSuspensionRestLength", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getSuspensionRestLength},
+	{"getMaxSuspensionTravelCm", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getMaxSuspensionTravelCm},
+	{"getWheelRadius", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getWheelRadius},
+	{"getSuspensionStiffness", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getSuspensionStiffness},
+	{"getWheelsDampingCompression", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getWheelsDampingCompression},
+	{"getWheelsDampingRelaxation", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getWheelsDampingRelaxation},
+	{"getFrictionSlip", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getFrictionSlip},
+	{"getMaxSuspensionForce", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getMaxSuspensionForce},
+	{"getBIsFrontWheel", &luna_wrapper_btWheelInfoConstructionInfo::_bind_getBIsFrontWheel},
+	{"setChassisConnectionCS", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setChassisConnectionCS},
+	{"setWheelDirectionCS", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setWheelDirectionCS},
+	{"setWheelAxleCS", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setWheelAxleCS},
+	{"setSuspensionRestLength", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setSuspensionRestLength},
+	{"setMaxSuspensionTravelCm", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setMaxSuspensionTravelCm},
+	{"setWheelRadius", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setWheelRadius},
+	{"setSuspensionStiffness", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setSuspensionStiffness},
+	{"setWheelsDampingCompression", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setWheelsDampingCompression},
+	{"setWheelsDampingRelaxation", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setWheelsDampingRelaxation},
+	{"setFrictionSlip", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setFrictionSlip},
+	{"setMaxSuspensionForce", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setMaxSuspensionForce},
+	{"setBIsFrontWheel", &luna_wrapper_btWheelInfoConstructionInfo::_bind_setBIsFrontWheel},
 	{"dynCast", &luna_wrapper_btWheelInfoConstructionInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_btWheelInfoConstructionInfo::_bind___eq},
 	{0,0}

@@ -56,26 +56,26 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_shapePart(lua_State *L) {
+	inline static bool _lg_typecheck_getShapePart(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_triangleIndex(lua_State *L) {
+	inline static bool _lg_typecheck_getTriangleIndex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_shapePart(lua_State *L) {
+	inline static bool _lg_typecheck_setShapePart(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_triangleIndex(lua_State *L) {
+	inline static bool _lg_typecheck_setTriangleIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -90,8 +90,8 @@ public:
 
 	// Function binds:
 	// int btCollisionWorld::LocalShapeInfo::m_shapePart()
-	static int _bind_getM_shapePart(lua_State *L) {
-		if (!_lg_typecheck_getM_shapePart(L)) {
+	static int _bind_getShapePart(lua_State *L) {
+		if (!_lg_typecheck_getShapePart(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btCollisionWorld::LocalShapeInfo::m_shapePart() function, expected prototype:\nint btCollisionWorld::LocalShapeInfo::m_shapePart()\nClass arguments details:\n");
 		}
@@ -109,8 +109,8 @@ public:
 	}
 
 	// int btCollisionWorld::LocalShapeInfo::m_triangleIndex()
-	static int _bind_getM_triangleIndex(lua_State *L) {
-		if (!_lg_typecheck_getM_triangleIndex(L)) {
+	static int _bind_getTriangleIndex(lua_State *L) {
+		if (!_lg_typecheck_getTriangleIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btCollisionWorld::LocalShapeInfo::m_triangleIndex() function, expected prototype:\nint btCollisionWorld::LocalShapeInfo::m_triangleIndex()\nClass arguments details:\n");
 		}
@@ -128,8 +128,8 @@ public:
 	}
 
 	// void btCollisionWorld::LocalShapeInfo::m_shapePart(int value)
-	static int _bind_setM_shapePart(lua_State *L) {
-		if (!_lg_typecheck_setM_shapePart(L)) {
+	static int _bind_setShapePart(lua_State *L) {
+		if (!_lg_typecheck_setShapePart(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::LocalShapeInfo::m_shapePart(int value) function, expected prototype:\nvoid btCollisionWorld::LocalShapeInfo::m_shapePart(int value)\nClass arguments details:\n");
 		}
@@ -147,8 +147,8 @@ public:
 	}
 
 	// void btCollisionWorld::LocalShapeInfo::m_triangleIndex(int value)
-	static int _bind_setM_triangleIndex(lua_State *L) {
-		if (!_lg_typecheck_setM_triangleIndex(L)) {
+	static int _bind_setTriangleIndex(lua_State *L) {
+		if (!_lg_typecheck_setTriangleIndex(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionWorld::LocalShapeInfo::m_triangleIndex(int value) function, expected prototype:\nvoid btCollisionWorld::LocalShapeInfo::m_triangleIndex(int value)\nClass arguments details:\n");
 		}
@@ -186,10 +186,10 @@ const int LunaTraits< btCollisionWorld::LocalShapeInfo >::hash = 68696671;
 const int LunaTraits< btCollisionWorld::LocalShapeInfo >::uniqueIDs[] = {68696671,0};
 
 luna_RegType LunaTraits< btCollisionWorld::LocalShapeInfo >::methods[] = {
-	{"getM_shapePart", &luna_wrapper_btCollisionWorld_LocalShapeInfo::_bind_getM_shapePart},
-	{"getM_triangleIndex", &luna_wrapper_btCollisionWorld_LocalShapeInfo::_bind_getM_triangleIndex},
-	{"setM_shapePart", &luna_wrapper_btCollisionWorld_LocalShapeInfo::_bind_setM_shapePart},
-	{"setM_triangleIndex", &luna_wrapper_btCollisionWorld_LocalShapeInfo::_bind_setM_triangleIndex},
+	{"getShapePart", &luna_wrapper_btCollisionWorld_LocalShapeInfo::_bind_getShapePart},
+	{"getTriangleIndex", &luna_wrapper_btCollisionWorld_LocalShapeInfo::_bind_getTriangleIndex},
+	{"setShapePart", &luna_wrapper_btCollisionWorld_LocalShapeInfo::_bind_setShapePart},
+	{"setTriangleIndex", &luna_wrapper_btCollisionWorld_LocalShapeInfo::_bind_setTriangleIndex},
 	{"dynCast", &luna_wrapper_btCollisionWorld_LocalShapeInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_btCollisionWorld_LocalShapeInfo::_bind___eq},
 	{0,0}

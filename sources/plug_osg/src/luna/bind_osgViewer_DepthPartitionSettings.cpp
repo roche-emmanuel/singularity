@@ -96,52 +96,52 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_mode(lua_State *L) {
+	inline static bool _lg_typecheck_getMode(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_zNear(lua_State *L) {
+	inline static bool _lg_typecheck_getZNear(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_zMid(lua_State *L) {
+	inline static bool _lg_typecheck_getZMid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_zFar(lua_State *L) {
+	inline static bool _lg_typecheck_getZFar(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_mode(lua_State *L) {
+	inline static bool _lg_typecheck_setMode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_zNear(lua_State *L) {
+	inline static bool _lg_typecheck_setZNear(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_zMid(lua_State *L) {
+	inline static bool _lg_typecheck_setZMid(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_zFar(lua_State *L) {
+	inline static bool _lg_typecheck_setZFar(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -237,8 +237,8 @@ public:
 	}
 
 	// osgViewer::DepthPartitionSettings::DepthMode osgViewer::DepthPartitionSettings::_mode()
-	static int _bind_get_mode(lua_State *L) {
-		if (!_lg_typecheck_get_mode(L)) {
+	static int _bind_getMode(lua_State *L) {
+		if (!_lg_typecheck_getMode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgViewer::DepthPartitionSettings::DepthMode osgViewer::DepthPartitionSettings::_mode() function, expected prototype:\nosgViewer::DepthPartitionSettings::DepthMode osgViewer::DepthPartitionSettings::_mode()\nClass arguments details:\n");
 		}
@@ -256,8 +256,8 @@ public:
 	}
 
 	// double osgViewer::DepthPartitionSettings::_zNear()
-	static int _bind_get_zNear(lua_State *L) {
-		if (!_lg_typecheck_get_zNear(L)) {
+	static int _bind_getZNear(lua_State *L) {
+		if (!_lg_typecheck_getZNear(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double osgViewer::DepthPartitionSettings::_zNear() function, expected prototype:\ndouble osgViewer::DepthPartitionSettings::_zNear()\nClass arguments details:\n");
 		}
@@ -275,8 +275,8 @@ public:
 	}
 
 	// double osgViewer::DepthPartitionSettings::_zMid()
-	static int _bind_get_zMid(lua_State *L) {
-		if (!_lg_typecheck_get_zMid(L)) {
+	static int _bind_getZMid(lua_State *L) {
+		if (!_lg_typecheck_getZMid(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double osgViewer::DepthPartitionSettings::_zMid() function, expected prototype:\ndouble osgViewer::DepthPartitionSettings::_zMid()\nClass arguments details:\n");
 		}
@@ -294,8 +294,8 @@ public:
 	}
 
 	// double osgViewer::DepthPartitionSettings::_zFar()
-	static int _bind_get_zFar(lua_State *L) {
-		if (!_lg_typecheck_get_zFar(L)) {
+	static int _bind_getZFar(lua_State *L) {
+		if (!_lg_typecheck_getZFar(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double osgViewer::DepthPartitionSettings::_zFar() function, expected prototype:\ndouble osgViewer::DepthPartitionSettings::_zFar()\nClass arguments details:\n");
 		}
@@ -313,8 +313,8 @@ public:
 	}
 
 	// void osgViewer::DepthPartitionSettings::_mode(osgViewer::DepthPartitionSettings::DepthMode value)
-	static int _bind_set_mode(lua_State *L) {
-		if (!_lg_typecheck_set_mode(L)) {
+	static int _bind_setMode(lua_State *L) {
+		if (!_lg_typecheck_setMode(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgViewer::DepthPartitionSettings::_mode(osgViewer::DepthPartitionSettings::DepthMode value) function, expected prototype:\nvoid osgViewer::DepthPartitionSettings::_mode(osgViewer::DepthPartitionSettings::DepthMode value)\nClass arguments details:\n");
 		}
@@ -332,8 +332,8 @@ public:
 	}
 
 	// void osgViewer::DepthPartitionSettings::_zNear(double value)
-	static int _bind_set_zNear(lua_State *L) {
-		if (!_lg_typecheck_set_zNear(L)) {
+	static int _bind_setZNear(lua_State *L) {
+		if (!_lg_typecheck_setZNear(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgViewer::DepthPartitionSettings::_zNear(double value) function, expected prototype:\nvoid osgViewer::DepthPartitionSettings::_zNear(double value)\nClass arguments details:\n");
 		}
@@ -351,8 +351,8 @@ public:
 	}
 
 	// void osgViewer::DepthPartitionSettings::_zMid(double value)
-	static int _bind_set_zMid(lua_State *L) {
-		if (!_lg_typecheck_set_zMid(L)) {
+	static int _bind_setZMid(lua_State *L) {
+		if (!_lg_typecheck_setZMid(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgViewer::DepthPartitionSettings::_zMid(double value) function, expected prototype:\nvoid osgViewer::DepthPartitionSettings::_zMid(double value)\nClass arguments details:\n");
 		}
@@ -370,8 +370,8 @@ public:
 	}
 
 	// void osgViewer::DepthPartitionSettings::_zFar(double value)
-	static int _bind_set_zFar(lua_State *L) {
-		if (!_lg_typecheck_set_zFar(L)) {
+	static int _bind_setZFar(lua_State *L) {
+		if (!_lg_typecheck_setZFar(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgViewer::DepthPartitionSettings::_zFar(double value) function, expected prototype:\nvoid osgViewer::DepthPartitionSettings::_zFar(double value)\nClass arguments details:\n");
 		}
@@ -456,14 +456,14 @@ const int LunaTraits< osgViewer::DepthPartitionSettings >::uniqueIDs[] = {501696
 
 luna_RegType LunaTraits< osgViewer::DepthPartitionSettings >::methods[] = {
 	{"getDepthRange", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_getDepthRange},
-	{"get_mode", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_get_mode},
-	{"get_zNear", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_get_zNear},
-	{"get_zMid", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_get_zMid},
-	{"get_zFar", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_get_zFar},
-	{"set_mode", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_set_mode},
-	{"set_zNear", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_set_zNear},
-	{"set_zMid", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_set_zMid},
-	{"set_zFar", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_set_zFar},
+	{"getMode", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_getMode},
+	{"getZNear", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_getZNear},
+	{"getZMid", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_getZMid},
+	{"getZFar", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_getZFar},
+	{"setMode", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_setMode},
+	{"setZNear", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_setZNear},
+	{"setZMid", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_setZMid},
+	{"setZFar", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_setZFar},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_base_setThreadSafeRefUnref},
 	{"base_getDepthRange", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_base_getDepthRange},
 	{"__eq", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind___eq},

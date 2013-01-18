@@ -56,130 +56,130 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_typeConstraintData(lua_State *L) {
+	inline static bool _lg_typecheck_getTypeConstraintData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rbAFrame(lua_State *L) {
+	inline static bool _lg_typecheck_getRbAFrame(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_rbBFrame(lua_State *L) {
+	inline static bool _lg_typecheck_getRbBFrame(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_swingSpan1(lua_State *L) {
+	inline static bool _lg_typecheck_getSwingSpan1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_swingSpan2(lua_State *L) {
+	inline static bool _lg_typecheck_getSwingSpan2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_twistSpan(lua_State *L) {
+	inline static bool _lg_typecheck_getTwistSpan(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_limitSoftness(lua_State *L) {
+	inline static bool _lg_typecheck_getLimitSoftness(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_biasFactor(lua_State *L) {
+	inline static bool _lg_typecheck_getBiasFactor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_relaxationFactor(lua_State *L) {
+	inline static bool _lg_typecheck_getRelaxationFactor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_damping(lua_State *L) {
+	inline static bool _lg_typecheck_getDamping(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_typeConstraintData(lua_State *L) {
+	inline static bool _lg_typecheck_setTypeConstraintData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,98838043) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rbAFrame(lua_State *L) {
+	inline static bool _lg_typecheck_setRbAFrame(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,93855928) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_rbBFrame(lua_State *L) {
+	inline static bool _lg_typecheck_setRbBFrame(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,93855928) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_swingSpan1(lua_State *L) {
+	inline static bool _lg_typecheck_setSwingSpan1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_swingSpan2(lua_State *L) {
+	inline static bool _lg_typecheck_setSwingSpan2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_twistSpan(lua_State *L) {
+	inline static bool _lg_typecheck_setTwistSpan(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_limitSoftness(lua_State *L) {
+	inline static bool _lg_typecheck_setLimitSoftness(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_biasFactor(lua_State *L) {
+	inline static bool _lg_typecheck_setBiasFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_relaxationFactor(lua_State *L) {
+	inline static bool _lg_typecheck_setRelaxationFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_damping(lua_State *L) {
+	inline static bool _lg_typecheck_setDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -194,8 +194,8 @@ public:
 
 	// Function binds:
 	// btTypedConstraintData btConeTwistConstraintData::m_typeConstraintData()
-	static int _bind_getM_typeConstraintData(lua_State *L) {
-		if (!_lg_typecheck_getM_typeConstraintData(L)) {
+	static int _bind_getTypeConstraintData(lua_State *L) {
+		if (!_lg_typecheck_getTypeConstraintData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTypedConstraintData btConeTwistConstraintData::m_typeConstraintData() function, expected prototype:\nbtTypedConstraintData btConeTwistConstraintData::m_typeConstraintData()\nClass arguments details:\n");
 		}
@@ -215,8 +215,8 @@ public:
 	}
 
 	// btTransformFloatData btConeTwistConstraintData::m_rbAFrame()
-	static int _bind_getM_rbAFrame(lua_State *L) {
-		if (!_lg_typecheck_getM_rbAFrame(L)) {
+	static int _bind_getRbAFrame(lua_State *L) {
+		if (!_lg_typecheck_getRbAFrame(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransformFloatData btConeTwistConstraintData::m_rbAFrame() function, expected prototype:\nbtTransformFloatData btConeTwistConstraintData::m_rbAFrame()\nClass arguments details:\n");
 		}
@@ -236,8 +236,8 @@ public:
 	}
 
 	// btTransformFloatData btConeTwistConstraintData::m_rbBFrame()
-	static int _bind_getM_rbBFrame(lua_State *L) {
-		if (!_lg_typecheck_getM_rbBFrame(L)) {
+	static int _bind_getRbBFrame(lua_State *L) {
+		if (!_lg_typecheck_getRbBFrame(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btTransformFloatData btConeTwistConstraintData::m_rbBFrame() function, expected prototype:\nbtTransformFloatData btConeTwistConstraintData::m_rbBFrame()\nClass arguments details:\n");
 		}
@@ -257,8 +257,8 @@ public:
 	}
 
 	// float btConeTwistConstraintData::m_swingSpan1()
-	static int _bind_getM_swingSpan1(lua_State *L) {
-		if (!_lg_typecheck_getM_swingSpan1(L)) {
+	static int _bind_getSwingSpan1(lua_State *L) {
+		if (!_lg_typecheck_getSwingSpan1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConeTwistConstraintData::m_swingSpan1() function, expected prototype:\nfloat btConeTwistConstraintData::m_swingSpan1()\nClass arguments details:\n");
 		}
@@ -276,8 +276,8 @@ public:
 	}
 
 	// float btConeTwistConstraintData::m_swingSpan2()
-	static int _bind_getM_swingSpan2(lua_State *L) {
-		if (!_lg_typecheck_getM_swingSpan2(L)) {
+	static int _bind_getSwingSpan2(lua_State *L) {
+		if (!_lg_typecheck_getSwingSpan2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConeTwistConstraintData::m_swingSpan2() function, expected prototype:\nfloat btConeTwistConstraintData::m_swingSpan2()\nClass arguments details:\n");
 		}
@@ -295,8 +295,8 @@ public:
 	}
 
 	// float btConeTwistConstraintData::m_twistSpan()
-	static int _bind_getM_twistSpan(lua_State *L) {
-		if (!_lg_typecheck_getM_twistSpan(L)) {
+	static int _bind_getTwistSpan(lua_State *L) {
+		if (!_lg_typecheck_getTwistSpan(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConeTwistConstraintData::m_twistSpan() function, expected prototype:\nfloat btConeTwistConstraintData::m_twistSpan()\nClass arguments details:\n");
 		}
@@ -314,8 +314,8 @@ public:
 	}
 
 	// float btConeTwistConstraintData::m_limitSoftness()
-	static int _bind_getM_limitSoftness(lua_State *L) {
-		if (!_lg_typecheck_getM_limitSoftness(L)) {
+	static int _bind_getLimitSoftness(lua_State *L) {
+		if (!_lg_typecheck_getLimitSoftness(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConeTwistConstraintData::m_limitSoftness() function, expected prototype:\nfloat btConeTwistConstraintData::m_limitSoftness()\nClass arguments details:\n");
 		}
@@ -333,8 +333,8 @@ public:
 	}
 
 	// float btConeTwistConstraintData::m_biasFactor()
-	static int _bind_getM_biasFactor(lua_State *L) {
-		if (!_lg_typecheck_getM_biasFactor(L)) {
+	static int _bind_getBiasFactor(lua_State *L) {
+		if (!_lg_typecheck_getBiasFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConeTwistConstraintData::m_biasFactor() function, expected prototype:\nfloat btConeTwistConstraintData::m_biasFactor()\nClass arguments details:\n");
 		}
@@ -352,8 +352,8 @@ public:
 	}
 
 	// float btConeTwistConstraintData::m_relaxationFactor()
-	static int _bind_getM_relaxationFactor(lua_State *L) {
-		if (!_lg_typecheck_getM_relaxationFactor(L)) {
+	static int _bind_getRelaxationFactor(lua_State *L) {
+		if (!_lg_typecheck_getRelaxationFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConeTwistConstraintData::m_relaxationFactor() function, expected prototype:\nfloat btConeTwistConstraintData::m_relaxationFactor()\nClass arguments details:\n");
 		}
@@ -371,8 +371,8 @@ public:
 	}
 
 	// float btConeTwistConstraintData::m_damping()
-	static int _bind_getM_damping(lua_State *L) {
-		if (!_lg_typecheck_getM_damping(L)) {
+	static int _bind_getDamping(lua_State *L) {
+		if (!_lg_typecheck_getDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btConeTwistConstraintData::m_damping() function, expected prototype:\nfloat btConeTwistConstraintData::m_damping()\nClass arguments details:\n");
 		}
@@ -390,8 +390,8 @@ public:
 	}
 
 	// void btConeTwistConstraintData::m_typeConstraintData(btTypedConstraintData value)
-	static int _bind_setM_typeConstraintData(lua_State *L) {
-		if (!_lg_typecheck_setM_typeConstraintData(L)) {
+	static int _bind_setTypeConstraintData(lua_State *L) {
+		if (!_lg_typecheck_setTypeConstraintData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConeTwistConstraintData::m_typeConstraintData(btTypedConstraintData value) function, expected prototype:\nvoid btConeTwistConstraintData::m_typeConstraintData(btTypedConstraintData value)\nClass arguments details:\narg 1 ID = 98838043\n");
 		}
@@ -413,8 +413,8 @@ public:
 	}
 
 	// void btConeTwistConstraintData::m_rbAFrame(btTransformFloatData value)
-	static int _bind_setM_rbAFrame(lua_State *L) {
-		if (!_lg_typecheck_setM_rbAFrame(L)) {
+	static int _bind_setRbAFrame(lua_State *L) {
+		if (!_lg_typecheck_setRbAFrame(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConeTwistConstraintData::m_rbAFrame(btTransformFloatData value) function, expected prototype:\nvoid btConeTwistConstraintData::m_rbAFrame(btTransformFloatData value)\nClass arguments details:\narg 1 ID = 93855928\n");
 		}
@@ -436,8 +436,8 @@ public:
 	}
 
 	// void btConeTwistConstraintData::m_rbBFrame(btTransformFloatData value)
-	static int _bind_setM_rbBFrame(lua_State *L) {
-		if (!_lg_typecheck_setM_rbBFrame(L)) {
+	static int _bind_setRbBFrame(lua_State *L) {
+		if (!_lg_typecheck_setRbBFrame(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConeTwistConstraintData::m_rbBFrame(btTransformFloatData value) function, expected prototype:\nvoid btConeTwistConstraintData::m_rbBFrame(btTransformFloatData value)\nClass arguments details:\narg 1 ID = 93855928\n");
 		}
@@ -459,8 +459,8 @@ public:
 	}
 
 	// void btConeTwistConstraintData::m_swingSpan1(float value)
-	static int _bind_setM_swingSpan1(lua_State *L) {
-		if (!_lg_typecheck_setM_swingSpan1(L)) {
+	static int _bind_setSwingSpan1(lua_State *L) {
+		if (!_lg_typecheck_setSwingSpan1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConeTwistConstraintData::m_swingSpan1(float value) function, expected prototype:\nvoid btConeTwistConstraintData::m_swingSpan1(float value)\nClass arguments details:\n");
 		}
@@ -478,8 +478,8 @@ public:
 	}
 
 	// void btConeTwistConstraintData::m_swingSpan2(float value)
-	static int _bind_setM_swingSpan2(lua_State *L) {
-		if (!_lg_typecheck_setM_swingSpan2(L)) {
+	static int _bind_setSwingSpan2(lua_State *L) {
+		if (!_lg_typecheck_setSwingSpan2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConeTwistConstraintData::m_swingSpan2(float value) function, expected prototype:\nvoid btConeTwistConstraintData::m_swingSpan2(float value)\nClass arguments details:\n");
 		}
@@ -497,8 +497,8 @@ public:
 	}
 
 	// void btConeTwistConstraintData::m_twistSpan(float value)
-	static int _bind_setM_twistSpan(lua_State *L) {
-		if (!_lg_typecheck_setM_twistSpan(L)) {
+	static int _bind_setTwistSpan(lua_State *L) {
+		if (!_lg_typecheck_setTwistSpan(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConeTwistConstraintData::m_twistSpan(float value) function, expected prototype:\nvoid btConeTwistConstraintData::m_twistSpan(float value)\nClass arguments details:\n");
 		}
@@ -516,8 +516,8 @@ public:
 	}
 
 	// void btConeTwistConstraintData::m_limitSoftness(float value)
-	static int _bind_setM_limitSoftness(lua_State *L) {
-		if (!_lg_typecheck_setM_limitSoftness(L)) {
+	static int _bind_setLimitSoftness(lua_State *L) {
+		if (!_lg_typecheck_setLimitSoftness(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConeTwistConstraintData::m_limitSoftness(float value) function, expected prototype:\nvoid btConeTwistConstraintData::m_limitSoftness(float value)\nClass arguments details:\n");
 		}
@@ -535,8 +535,8 @@ public:
 	}
 
 	// void btConeTwistConstraintData::m_biasFactor(float value)
-	static int _bind_setM_biasFactor(lua_State *L) {
-		if (!_lg_typecheck_setM_biasFactor(L)) {
+	static int _bind_setBiasFactor(lua_State *L) {
+		if (!_lg_typecheck_setBiasFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConeTwistConstraintData::m_biasFactor(float value) function, expected prototype:\nvoid btConeTwistConstraintData::m_biasFactor(float value)\nClass arguments details:\n");
 		}
@@ -554,8 +554,8 @@ public:
 	}
 
 	// void btConeTwistConstraintData::m_relaxationFactor(float value)
-	static int _bind_setM_relaxationFactor(lua_State *L) {
-		if (!_lg_typecheck_setM_relaxationFactor(L)) {
+	static int _bind_setRelaxationFactor(lua_State *L) {
+		if (!_lg_typecheck_setRelaxationFactor(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConeTwistConstraintData::m_relaxationFactor(float value) function, expected prototype:\nvoid btConeTwistConstraintData::m_relaxationFactor(float value)\nClass arguments details:\n");
 		}
@@ -573,8 +573,8 @@ public:
 	}
 
 	// void btConeTwistConstraintData::m_damping(float value)
-	static int _bind_setM_damping(lua_State *L) {
-		if (!_lg_typecheck_setM_damping(L)) {
+	static int _bind_setDamping(lua_State *L) {
+		if (!_lg_typecheck_setDamping(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConeTwistConstraintData::m_damping(float value) function, expected prototype:\nvoid btConeTwistConstraintData::m_damping(float value)\nClass arguments details:\n");
 		}
@@ -612,26 +612,26 @@ const int LunaTraits< btConeTwistConstraintData >::hash = 59805690;
 const int LunaTraits< btConeTwistConstraintData >::uniqueIDs[] = {59805690,0};
 
 luna_RegType LunaTraits< btConeTwistConstraintData >::methods[] = {
-	{"getM_typeConstraintData", &luna_wrapper_btConeTwistConstraintData::_bind_getM_typeConstraintData},
-	{"getM_rbAFrame", &luna_wrapper_btConeTwistConstraintData::_bind_getM_rbAFrame},
-	{"getM_rbBFrame", &luna_wrapper_btConeTwistConstraintData::_bind_getM_rbBFrame},
-	{"getM_swingSpan1", &luna_wrapper_btConeTwistConstraintData::_bind_getM_swingSpan1},
-	{"getM_swingSpan2", &luna_wrapper_btConeTwistConstraintData::_bind_getM_swingSpan2},
-	{"getM_twistSpan", &luna_wrapper_btConeTwistConstraintData::_bind_getM_twistSpan},
-	{"getM_limitSoftness", &luna_wrapper_btConeTwistConstraintData::_bind_getM_limitSoftness},
-	{"getM_biasFactor", &luna_wrapper_btConeTwistConstraintData::_bind_getM_biasFactor},
-	{"getM_relaxationFactor", &luna_wrapper_btConeTwistConstraintData::_bind_getM_relaxationFactor},
-	{"getM_damping", &luna_wrapper_btConeTwistConstraintData::_bind_getM_damping},
-	{"setM_typeConstraintData", &luna_wrapper_btConeTwistConstraintData::_bind_setM_typeConstraintData},
-	{"setM_rbAFrame", &luna_wrapper_btConeTwistConstraintData::_bind_setM_rbAFrame},
-	{"setM_rbBFrame", &luna_wrapper_btConeTwistConstraintData::_bind_setM_rbBFrame},
-	{"setM_swingSpan1", &luna_wrapper_btConeTwistConstraintData::_bind_setM_swingSpan1},
-	{"setM_swingSpan2", &luna_wrapper_btConeTwistConstraintData::_bind_setM_swingSpan2},
-	{"setM_twistSpan", &luna_wrapper_btConeTwistConstraintData::_bind_setM_twistSpan},
-	{"setM_limitSoftness", &luna_wrapper_btConeTwistConstraintData::_bind_setM_limitSoftness},
-	{"setM_biasFactor", &luna_wrapper_btConeTwistConstraintData::_bind_setM_biasFactor},
-	{"setM_relaxationFactor", &luna_wrapper_btConeTwistConstraintData::_bind_setM_relaxationFactor},
-	{"setM_damping", &luna_wrapper_btConeTwistConstraintData::_bind_setM_damping},
+	{"getTypeConstraintData", &luna_wrapper_btConeTwistConstraintData::_bind_getTypeConstraintData},
+	{"getRbAFrame", &luna_wrapper_btConeTwistConstraintData::_bind_getRbAFrame},
+	{"getRbBFrame", &luna_wrapper_btConeTwistConstraintData::_bind_getRbBFrame},
+	{"getSwingSpan1", &luna_wrapper_btConeTwistConstraintData::_bind_getSwingSpan1},
+	{"getSwingSpan2", &luna_wrapper_btConeTwistConstraintData::_bind_getSwingSpan2},
+	{"getTwistSpan", &luna_wrapper_btConeTwistConstraintData::_bind_getTwistSpan},
+	{"getLimitSoftness", &luna_wrapper_btConeTwistConstraintData::_bind_getLimitSoftness},
+	{"getBiasFactor", &luna_wrapper_btConeTwistConstraintData::_bind_getBiasFactor},
+	{"getRelaxationFactor", &luna_wrapper_btConeTwistConstraintData::_bind_getRelaxationFactor},
+	{"getDamping", &luna_wrapper_btConeTwistConstraintData::_bind_getDamping},
+	{"setTypeConstraintData", &luna_wrapper_btConeTwistConstraintData::_bind_setTypeConstraintData},
+	{"setRbAFrame", &luna_wrapper_btConeTwistConstraintData::_bind_setRbAFrame},
+	{"setRbBFrame", &luna_wrapper_btConeTwistConstraintData::_bind_setRbBFrame},
+	{"setSwingSpan1", &luna_wrapper_btConeTwistConstraintData::_bind_setSwingSpan1},
+	{"setSwingSpan2", &luna_wrapper_btConeTwistConstraintData::_bind_setSwingSpan2},
+	{"setTwistSpan", &luna_wrapper_btConeTwistConstraintData::_bind_setTwistSpan},
+	{"setLimitSoftness", &luna_wrapper_btConeTwistConstraintData::_bind_setLimitSoftness},
+	{"setBiasFactor", &luna_wrapper_btConeTwistConstraintData::_bind_setBiasFactor},
+	{"setRelaxationFactor", &luna_wrapper_btConeTwistConstraintData::_bind_setRelaxationFactor},
+	{"setDamping", &luna_wrapper_btConeTwistConstraintData::_bind_setDamping},
 	{"dynCast", &luna_wrapper_btConeTwistConstraintData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btConeTwistConstraintData::_bind___eq},
 	{0,0}

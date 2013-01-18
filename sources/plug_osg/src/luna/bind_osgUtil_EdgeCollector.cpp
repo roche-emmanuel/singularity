@@ -154,65 +154,52 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_geometry(lua_State *L) {
+	inline static bool _lg_typecheck_getEdgeSet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_edgeSet(lua_State *L) {
+	inline static bool _lg_typecheck_getTriangleSet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_triangleSet(lua_State *L) {
+	inline static bool _lg_typecheck_getPointSet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_pointSet(lua_State *L) {
+	inline static bool _lg_typecheck_getOriginalPointList(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_originalPointList(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_geometry(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_edgeSet(lua_State *L) {
+	inline static bool _lg_typecheck_setEdgeSet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,17405453) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_triangleSet(lua_State *L) {
+	inline static bool _lg_typecheck_setTriangleSet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,71050428) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_pointSet(lua_State *L) {
+	inline static bool _lg_typecheck_setPointSet(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,14213870) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_originalPointList(lua_State *L) {
+	inline static bool _lg_typecheck_setOriginalPointList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,26981281) ) return false;
@@ -525,30 +512,9 @@ public:
 		return 0;
 	}
 
-	// osg::Geometry * osgUtil::EdgeCollector::_geometry()
-	static int _bind_get_geometry(lua_State *L) {
-		if (!_lg_typecheck_get_geometry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geometry * osgUtil::EdgeCollector::_geometry() function, expected prototype:\nosg::Geometry * osgUtil::EdgeCollector::_geometry()\nClass arguments details:\n");
-		}
-
-
-		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * osgUtil::EdgeCollector::_geometry(). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
-		}
-		osg::Geometry * lret = self->_geometry;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::Geometry >::push(L,lret,false);
-
-		return 1;
-	}
-
 	// osgUtil::EdgeCollector::EdgeSet osgUtil::EdgeCollector::_edgeSet()
-	static int _bind_get_edgeSet(lua_State *L) {
-		if (!_lg_typecheck_get_edgeSet(L)) {
+	static int _bind_getEdgeSet(lua_State *L) {
+		if (!_lg_typecheck_getEdgeSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::EdgeSet osgUtil::EdgeCollector::_edgeSet() function, expected prototype:\nosgUtil::EdgeCollector::EdgeSet osgUtil::EdgeCollector::_edgeSet()\nClass arguments details:\n");
 		}
@@ -568,8 +534,8 @@ public:
 	}
 
 	// osgUtil::EdgeCollector::TriangleSet osgUtil::EdgeCollector::_triangleSet()
-	static int _bind_get_triangleSet(lua_State *L) {
-		if (!_lg_typecheck_get_triangleSet(L)) {
+	static int _bind_getTriangleSet(lua_State *L) {
+		if (!_lg_typecheck_getTriangleSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::TriangleSet osgUtil::EdgeCollector::_triangleSet() function, expected prototype:\nosgUtil::EdgeCollector::TriangleSet osgUtil::EdgeCollector::_triangleSet()\nClass arguments details:\n");
 		}
@@ -589,8 +555,8 @@ public:
 	}
 
 	// osgUtil::EdgeCollector::PointSet osgUtil::EdgeCollector::_pointSet()
-	static int _bind_get_pointSet(lua_State *L) {
-		if (!_lg_typecheck_get_pointSet(L)) {
+	static int _bind_getPointSet(lua_State *L) {
+		if (!_lg_typecheck_getPointSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::PointSet osgUtil::EdgeCollector::_pointSet() function, expected prototype:\nosgUtil::EdgeCollector::PointSet osgUtil::EdgeCollector::_pointSet()\nClass arguments details:\n");
 		}
@@ -610,8 +576,8 @@ public:
 	}
 
 	// osgUtil::EdgeCollector::PointList osgUtil::EdgeCollector::_originalPointList()
-	static int _bind_get_originalPointList(lua_State *L) {
-		if (!_lg_typecheck_get_originalPointList(L)) {
+	static int _bind_getOriginalPointList(lua_State *L) {
+		if (!_lg_typecheck_getOriginalPointList(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::PointList osgUtil::EdgeCollector::_originalPointList() function, expected prototype:\nosgUtil::EdgeCollector::PointList osgUtil::EdgeCollector::_originalPointList()\nClass arguments details:\n");
 		}
@@ -630,28 +596,9 @@ public:
 		return 1;
 	}
 
-	// void osgUtil::EdgeCollector::_geometry(osg::Geometry * value)
-	static int _bind_set_geometry(lua_State *L) {
-		if (!_lg_typecheck_set_geometry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::_geometry(osg::Geometry * value) function, expected prototype:\nvoid osgUtil::EdgeCollector::_geometry(osg::Geometry * value)\nClass arguments details:\narg 1 ID = 50169651\n");
-		}
-
-		osg::Geometry* value=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
-
-		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::_geometry(osg::Geometry *). Got : '%s'",typeid(Luna< osgUtil::EdgeCollector >::check(L,1)).name());
-		}
-		self->_geometry = value;
-
-		return 0;
-	}
-
 	// void osgUtil::EdgeCollector::_edgeSet(osgUtil::EdgeCollector::EdgeSet value)
-	static int _bind_set_edgeSet(lua_State *L) {
-		if (!_lg_typecheck_set_edgeSet(L)) {
+	static int _bind_setEdgeSet(lua_State *L) {
+		if (!_lg_typecheck_setEdgeSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::_edgeSet(osgUtil::EdgeCollector::EdgeSet value) function, expected prototype:\nvoid osgUtil::EdgeCollector::_edgeSet(osgUtil::EdgeCollector::EdgeSet value)\nClass arguments details:\narg 1 ID = 50528172\n");
 		}
@@ -673,8 +620,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::_triangleSet(osgUtil::EdgeCollector::TriangleSet value)
-	static int _bind_set_triangleSet(lua_State *L) {
-		if (!_lg_typecheck_set_triangleSet(L)) {
+	static int _bind_setTriangleSet(lua_State *L) {
+		if (!_lg_typecheck_setTriangleSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::_triangleSet(osgUtil::EdgeCollector::TriangleSet value) function, expected prototype:\nvoid osgUtil::EdgeCollector::_triangleSet(osgUtil::EdgeCollector::TriangleSet value)\nClass arguments details:\narg 1 ID = 62987903\n");
 		}
@@ -696,8 +643,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::_pointSet(osgUtil::EdgeCollector::PointSet value)
-	static int _bind_set_pointSet(lua_State *L) {
-		if (!_lg_typecheck_set_pointSet(L)) {
+	static int _bind_setPointSet(lua_State *L) {
+		if (!_lg_typecheck_setPointSet(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::_pointSet(osgUtil::EdgeCollector::PointSet value) function, expected prototype:\nvoid osgUtil::EdgeCollector::_pointSet(osgUtil::EdgeCollector::PointSet value)\nClass arguments details:\narg 1 ID = 34110025\n");
 		}
@@ -719,8 +666,8 @@ public:
 	}
 
 	// void osgUtil::EdgeCollector::_originalPointList(osgUtil::EdgeCollector::PointList value)
-	static int _bind_set_originalPointList(lua_State *L) {
-		if (!_lg_typecheck_set_originalPointList(L)) {
+	static int _bind_setOriginalPointList(lua_State *L) {
+		if (!_lg_typecheck_setOriginalPointList(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::_originalPointList(osgUtil::EdgeCollector::PointList value) function, expected prototype:\nvoid osgUtil::EdgeCollector::_originalPointList(osgUtil::EdgeCollector::PointList value)\nClass arguments details:\narg 1 ID = 57205837\n");
 		}
@@ -772,16 +719,14 @@ luna_RegType LunaTraits< osgUtil::EdgeCollector >::methods[] = {
 	{"extractBoundaryEdgeloop", &luna_wrapper_osgUtil_EdgeCollector::_bind_extractBoundaryEdgeloop},
 	{"extractBoundaryEdgeloopList", &luna_wrapper_osgUtil_EdgeCollector::_bind_extractBoundaryEdgeloopList},
 	{"getEdgeloopIndexList", &luna_wrapper_osgUtil_EdgeCollector::_bind_getEdgeloopIndexList},
-	{"get_geometry", &luna_wrapper_osgUtil_EdgeCollector::_bind_get_geometry},
-	{"get_edgeSet", &luna_wrapper_osgUtil_EdgeCollector::_bind_get_edgeSet},
-	{"get_triangleSet", &luna_wrapper_osgUtil_EdgeCollector::_bind_get_triangleSet},
-	{"get_pointSet", &luna_wrapper_osgUtil_EdgeCollector::_bind_get_pointSet},
-	{"get_originalPointList", &luna_wrapper_osgUtil_EdgeCollector::_bind_get_originalPointList},
-	{"set_geometry", &luna_wrapper_osgUtil_EdgeCollector::_bind_set_geometry},
-	{"set_edgeSet", &luna_wrapper_osgUtil_EdgeCollector::_bind_set_edgeSet},
-	{"set_triangleSet", &luna_wrapper_osgUtil_EdgeCollector::_bind_set_triangleSet},
-	{"set_pointSet", &luna_wrapper_osgUtil_EdgeCollector::_bind_set_pointSet},
-	{"set_originalPointList", &luna_wrapper_osgUtil_EdgeCollector::_bind_set_originalPointList},
+	{"getEdgeSet", &luna_wrapper_osgUtil_EdgeCollector::_bind_getEdgeSet},
+	{"getTriangleSet", &luna_wrapper_osgUtil_EdgeCollector::_bind_getTriangleSet},
+	{"getPointSet", &luna_wrapper_osgUtil_EdgeCollector::_bind_getPointSet},
+	{"getOriginalPointList", &luna_wrapper_osgUtil_EdgeCollector::_bind_getOriginalPointList},
+	{"setEdgeSet", &luna_wrapper_osgUtil_EdgeCollector::_bind_setEdgeSet},
+	{"setTriangleSet", &luna_wrapper_osgUtil_EdgeCollector::_bind_setTriangleSet},
+	{"setPointSet", &luna_wrapper_osgUtil_EdgeCollector::_bind_setPointSet},
+	{"setOriginalPointList", &luna_wrapper_osgUtil_EdgeCollector::_bind_setOriginalPointList},
 	{"dynCast", &luna_wrapper_osgUtil_EdgeCollector::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgUtil_EdgeCollector::_bind___eq},
 	{0,0}

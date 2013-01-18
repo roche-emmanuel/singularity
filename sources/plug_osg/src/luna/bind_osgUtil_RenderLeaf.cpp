@@ -132,91 +132,85 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_parent(lua_State *L) {
+	inline static bool _lg_typecheck_getParent(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_drawable(lua_State *L) {
+	inline static bool _lg_typecheck_getProjection(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_projection(lua_State *L) {
+	inline static bool _lg_typecheck_getModelview(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_modelview(lua_State *L) {
+	inline static bool _lg_typecheck_getDepth(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_depth(lua_State *L) {
+	inline static bool _lg_typecheck_getDynamic(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_dynamic(lua_State *L) {
+	inline static bool _lg_typecheck_getTraversalNumber(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_traversalNumber(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_parent(lua_State *L) {
+	inline static bool _lg_typecheck_setParent(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_drawable(lua_State *L) {
+	inline static bool _lg_typecheck_setDrawable(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91334477) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_projection(lua_State *L) {
+	inline static bool _lg_typecheck_setProjection(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,24622227) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_modelview(lua_State *L) {
+	inline static bool _lg_typecheck_setModelview(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,24622227) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_depth(lua_State *L) {
+	inline static bool _lg_typecheck_setDepth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_dynamic(lua_State *L) {
+	inline static bool _lg_typecheck_setDynamic(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_traversalNumber(lua_State *L) {
+	inline static bool _lg_typecheck_setTraversalNumber(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -379,8 +373,8 @@ public:
 	}
 
 	// osgUtil::StateGraph * osgUtil::RenderLeaf::_parent()
-	static int _bind_get_parent(lua_State *L) {
-		if (!_lg_typecheck_get_parent(L)) {
+	static int _bind_getParent(lua_State *L) {
+		if (!_lg_typecheck_getParent(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StateGraph * osgUtil::RenderLeaf::_parent() function, expected prototype:\nosgUtil::StateGraph * osgUtil::RenderLeaf::_parent()\nClass arguments details:\n");
 		}
@@ -399,28 +393,9 @@ public:
 		return 1;
 	}
 
-	// osg::ref_ptr< osg::Drawable > osgUtil::RenderLeaf::_drawable()
-	static int _bind_get_drawable(lua_State *L) {
-		if (!_lg_typecheck_get_drawable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Drawable > osgUtil::RenderLeaf::_drawable() function, expected prototype:\nosg::ref_ptr< osg::Drawable > osgUtil::RenderLeaf::_drawable()\nClass arguments details:\n");
-		}
-
-
-		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Drawable > osgUtil::RenderLeaf::_drawable(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		osg::ref_ptr< osg::Drawable > lret = self->_drawable;
-		Luna< osg::Drawable >::push(L,lret.get(),false);
-
-		return 1;
-	}
-
 	// osg::ref_ptr< osg::RefMatrixd > osgUtil::RenderLeaf::_projection()
-	static int _bind_get_projection(lua_State *L) {
-		if (!_lg_typecheck_get_projection(L)) {
+	static int _bind_getProjection(lua_State *L) {
+		if (!_lg_typecheck_getProjection(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::RefMatrixd > osgUtil::RenderLeaf::_projection() function, expected prototype:\nosg::ref_ptr< osg::RefMatrixd > osgUtil::RenderLeaf::_projection()\nClass arguments details:\n");
 		}
@@ -438,8 +413,8 @@ public:
 	}
 
 	// osg::ref_ptr< osg::RefMatrixd > osgUtil::RenderLeaf::_modelview()
-	static int _bind_get_modelview(lua_State *L) {
-		if (!_lg_typecheck_get_modelview(L)) {
+	static int _bind_getModelview(lua_State *L) {
+		if (!_lg_typecheck_getModelview(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::RefMatrixd > osgUtil::RenderLeaf::_modelview() function, expected prototype:\nosg::ref_ptr< osg::RefMatrixd > osgUtil::RenderLeaf::_modelview()\nClass arguments details:\n");
 		}
@@ -457,8 +432,8 @@ public:
 	}
 
 	// float osgUtil::RenderLeaf::_depth()
-	static int _bind_get_depth(lua_State *L) {
-		if (!_lg_typecheck_get_depth(L)) {
+	static int _bind_getDepth(lua_State *L) {
+		if (!_lg_typecheck_getDepth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float osgUtil::RenderLeaf::_depth() function, expected prototype:\nfloat osgUtil::RenderLeaf::_depth()\nClass arguments details:\n");
 		}
@@ -476,8 +451,8 @@ public:
 	}
 
 	// bool osgUtil::RenderLeaf::_dynamic()
-	static int _bind_get_dynamic(lua_State *L) {
-		if (!_lg_typecheck_get_dynamic(L)) {
+	static int _bind_getDynamic(lua_State *L) {
+		if (!_lg_typecheck_getDynamic(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool osgUtil::RenderLeaf::_dynamic() function, expected prototype:\nbool osgUtil::RenderLeaf::_dynamic()\nClass arguments details:\n");
 		}
@@ -495,8 +470,8 @@ public:
 	}
 
 	// unsigned int osgUtil::RenderLeaf::_traversalNumber()
-	static int _bind_get_traversalNumber(lua_State *L) {
-		if (!_lg_typecheck_get_traversalNumber(L)) {
+	static int _bind_getTraversalNumber(lua_State *L) {
+		if (!_lg_typecheck_getTraversalNumber(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::RenderLeaf::_traversalNumber() function, expected prototype:\nunsigned int osgUtil::RenderLeaf::_traversalNumber()\nClass arguments details:\n");
 		}
@@ -514,8 +489,8 @@ public:
 	}
 
 	// void osgUtil::RenderLeaf::_parent(osgUtil::StateGraph * value)
-	static int _bind_set_parent(lua_State *L) {
-		if (!_lg_typecheck_set_parent(L)) {
+	static int _bind_setParent(lua_State *L) {
+		if (!_lg_typecheck_setParent(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::_parent(osgUtil::StateGraph * value) function, expected prototype:\nvoid osgUtil::RenderLeaf::_parent(osgUtil::StateGraph * value)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -533,8 +508,8 @@ public:
 	}
 
 	// void osgUtil::RenderLeaf::_drawable(osg::ref_ptr< osg::Drawable > value)
-	static int _bind_set_drawable(lua_State *L) {
-		if (!_lg_typecheck_set_drawable(L)) {
+	static int _bind_setDrawable(lua_State *L) {
+		if (!_lg_typecheck_setDrawable(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::_drawable(osg::ref_ptr< osg::Drawable > value) function, expected prototype:\nvoid osgUtil::RenderLeaf::_drawable(osg::ref_ptr< osg::Drawable > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -552,8 +527,8 @@ public:
 	}
 
 	// void osgUtil::RenderLeaf::_projection(osg::ref_ptr< osg::RefMatrixd > value)
-	static int _bind_set_projection(lua_State *L) {
-		if (!_lg_typecheck_set_projection(L)) {
+	static int _bind_setProjection(lua_State *L) {
+		if (!_lg_typecheck_setProjection(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::_projection(osg::ref_ptr< osg::RefMatrixd > value) function, expected prototype:\nvoid osgUtil::RenderLeaf::_projection(osg::ref_ptr< osg::RefMatrixd > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -571,8 +546,8 @@ public:
 	}
 
 	// void osgUtil::RenderLeaf::_modelview(osg::ref_ptr< osg::RefMatrixd > value)
-	static int _bind_set_modelview(lua_State *L) {
-		if (!_lg_typecheck_set_modelview(L)) {
+	static int _bind_setModelview(lua_State *L) {
+		if (!_lg_typecheck_setModelview(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::_modelview(osg::ref_ptr< osg::RefMatrixd > value) function, expected prototype:\nvoid osgUtil::RenderLeaf::_modelview(osg::ref_ptr< osg::RefMatrixd > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -590,8 +565,8 @@ public:
 	}
 
 	// void osgUtil::RenderLeaf::_depth(float value)
-	static int _bind_set_depth(lua_State *L) {
-		if (!_lg_typecheck_set_depth(L)) {
+	static int _bind_setDepth(lua_State *L) {
+		if (!_lg_typecheck_setDepth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::_depth(float value) function, expected prototype:\nvoid osgUtil::RenderLeaf::_depth(float value)\nClass arguments details:\n");
 		}
@@ -609,8 +584,8 @@ public:
 	}
 
 	// void osgUtil::RenderLeaf::_dynamic(bool value)
-	static int _bind_set_dynamic(lua_State *L) {
-		if (!_lg_typecheck_set_dynamic(L)) {
+	static int _bind_setDynamic(lua_State *L) {
+		if (!_lg_typecheck_setDynamic(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::_dynamic(bool value) function, expected prototype:\nvoid osgUtil::RenderLeaf::_dynamic(bool value)\nClass arguments details:\n");
 		}
@@ -628,8 +603,8 @@ public:
 	}
 
 	// void osgUtil::RenderLeaf::_traversalNumber(unsigned int value)
-	static int _bind_set_traversalNumber(lua_State *L) {
-		if (!_lg_typecheck_set_traversalNumber(L)) {
+	static int _bind_setTraversalNumber(lua_State *L) {
+		if (!_lg_typecheck_setTraversalNumber(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::_traversalNumber(unsigned int value) function, expected prototype:\nvoid osgUtil::RenderLeaf::_traversalNumber(unsigned int value)\nClass arguments details:\n");
 		}
@@ -714,20 +689,19 @@ luna_RegType LunaTraits< osgUtil::RenderLeaf >::methods[] = {
 	{"reset", &luna_wrapper_osgUtil_RenderLeaf::_bind_reset},
 	{"render", &luna_wrapper_osgUtil_RenderLeaf::_bind_render},
 	{"getDrawable", &luna_wrapper_osgUtil_RenderLeaf::_bind_getDrawable},
-	{"get_parent", &luna_wrapper_osgUtil_RenderLeaf::_bind_get_parent},
-	{"get_drawable", &luna_wrapper_osgUtil_RenderLeaf::_bind_get_drawable},
-	{"get_projection", &luna_wrapper_osgUtil_RenderLeaf::_bind_get_projection},
-	{"get_modelview", &luna_wrapper_osgUtil_RenderLeaf::_bind_get_modelview},
-	{"get_depth", &luna_wrapper_osgUtil_RenderLeaf::_bind_get_depth},
-	{"get_dynamic", &luna_wrapper_osgUtil_RenderLeaf::_bind_get_dynamic},
-	{"get_traversalNumber", &luna_wrapper_osgUtil_RenderLeaf::_bind_get_traversalNumber},
-	{"set_parent", &luna_wrapper_osgUtil_RenderLeaf::_bind_set_parent},
-	{"set_drawable", &luna_wrapper_osgUtil_RenderLeaf::_bind_set_drawable},
-	{"set_projection", &luna_wrapper_osgUtil_RenderLeaf::_bind_set_projection},
-	{"set_modelview", &luna_wrapper_osgUtil_RenderLeaf::_bind_set_modelview},
-	{"set_depth", &luna_wrapper_osgUtil_RenderLeaf::_bind_set_depth},
-	{"set_dynamic", &luna_wrapper_osgUtil_RenderLeaf::_bind_set_dynamic},
-	{"set_traversalNumber", &luna_wrapper_osgUtil_RenderLeaf::_bind_set_traversalNumber},
+	{"getParent", &luna_wrapper_osgUtil_RenderLeaf::_bind_getParent},
+	{"getProjection", &luna_wrapper_osgUtil_RenderLeaf::_bind_getProjection},
+	{"getModelview", &luna_wrapper_osgUtil_RenderLeaf::_bind_getModelview},
+	{"getDepth", &luna_wrapper_osgUtil_RenderLeaf::_bind_getDepth},
+	{"getDynamic", &luna_wrapper_osgUtil_RenderLeaf::_bind_getDynamic},
+	{"getTraversalNumber", &luna_wrapper_osgUtil_RenderLeaf::_bind_getTraversalNumber},
+	{"setParent", &luna_wrapper_osgUtil_RenderLeaf::_bind_setParent},
+	{"setDrawable", &luna_wrapper_osgUtil_RenderLeaf::_bind_setDrawable},
+	{"setProjection", &luna_wrapper_osgUtil_RenderLeaf::_bind_setProjection},
+	{"setModelview", &luna_wrapper_osgUtil_RenderLeaf::_bind_setModelview},
+	{"setDepth", &luna_wrapper_osgUtil_RenderLeaf::_bind_setDepth},
+	{"setDynamic", &luna_wrapper_osgUtil_RenderLeaf::_bind_setDynamic},
+	{"setTraversalNumber", &luna_wrapper_osgUtil_RenderLeaf::_bind_setTraversalNumber},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_RenderLeaf::_bind_base_setThreadSafeRefUnref},
 	{"base_render", &luna_wrapper_osgUtil_RenderLeaf::_bind_base_render},
 	{"__eq", &luna_wrapper_osgUtil_RenderLeaf::_bind___eq},

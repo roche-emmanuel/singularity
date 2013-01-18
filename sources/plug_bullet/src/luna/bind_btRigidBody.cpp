@@ -578,26 +578,26 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_contactSolverType(lua_State *L) {
+	inline static bool _lg_typecheck_getContactSolverType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_frictionSolverType(lua_State *L) {
+	inline static bool _lg_typecheck_getFrictionSolverType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_contactSolverType(lua_State *L) {
+	inline static bool _lg_typecheck_setContactSolverType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_frictionSolverType(lua_State *L) {
+	inline static bool _lg_typecheck_setFrictionSolverType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -2225,8 +2225,8 @@ public:
 	}
 
 	// int btRigidBody::m_contactSolverType()
-	static int _bind_getM_contactSolverType(lua_State *L) {
-		if (!_lg_typecheck_getM_contactSolverType(L)) {
+	static int _bind_getContactSolverType(lua_State *L) {
+		if (!_lg_typecheck_getContactSolverType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btRigidBody::m_contactSolverType() function, expected prototype:\nint btRigidBody::m_contactSolverType()\nClass arguments details:\n");
 		}
@@ -2244,8 +2244,8 @@ public:
 	}
 
 	// int btRigidBody::m_frictionSolverType()
-	static int _bind_getM_frictionSolverType(lua_State *L) {
-		if (!_lg_typecheck_getM_frictionSolverType(L)) {
+	static int _bind_getFrictionSolverType(lua_State *L) {
+		if (!_lg_typecheck_getFrictionSolverType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btRigidBody::m_frictionSolverType() function, expected prototype:\nint btRigidBody::m_frictionSolverType()\nClass arguments details:\n");
 		}
@@ -2263,8 +2263,8 @@ public:
 	}
 
 	// void btRigidBody::m_contactSolverType(int value)
-	static int _bind_setM_contactSolverType(lua_State *L) {
-		if (!_lg_typecheck_setM_contactSolverType(L)) {
+	static int _bind_setContactSolverType(lua_State *L) {
+		if (!_lg_typecheck_setContactSolverType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::m_contactSolverType(int value) function, expected prototype:\nvoid btRigidBody::m_contactSolverType(int value)\nClass arguments details:\n");
 		}
@@ -2282,8 +2282,8 @@ public:
 	}
 
 	// void btRigidBody::m_frictionSolverType(int value)
-	static int _bind_setM_frictionSolverType(lua_State *L) {
-		if (!_lg_typecheck_setM_frictionSolverType(L)) {
+	static int _bind_setFrictionSolverType(lua_State *L) {
+		if (!_lg_typecheck_setFrictionSolverType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btRigidBody::m_frictionSolverType(int value) function, expected prototype:\nvoid btRigidBody::m_frictionSolverType(int value)\nClass arguments details:\n");
 		}
@@ -2443,10 +2443,10 @@ luna_RegType LunaTraits< btRigidBody >::methods[] = {
 	{"computeGyroscopicForce", &luna_wrapper_btRigidBody::_bind_computeGyroscopicForce},
 	{"calculateSerializeBufferSize", &luna_wrapper_btRigidBody::_bind_calculateSerializeBufferSize},
 	{"upcast", &luna_wrapper_btRigidBody::_bind_upcast},
-	{"getM_contactSolverType", &luna_wrapper_btRigidBody::_bind_getM_contactSolverType},
-	{"getM_frictionSolverType", &luna_wrapper_btRigidBody::_bind_getM_frictionSolverType},
-	{"setM_contactSolverType", &luna_wrapper_btRigidBody::_bind_setM_contactSolverType},
-	{"setM_frictionSolverType", &luna_wrapper_btRigidBody::_bind_setM_frictionSolverType},
+	{"getContactSolverType", &luna_wrapper_btRigidBody::_bind_getContactSolverType},
+	{"getFrictionSolverType", &luna_wrapper_btRigidBody::_bind_getFrictionSolverType},
+	{"setContactSolverType", &luna_wrapper_btRigidBody::_bind_setContactSolverType},
+	{"setFrictionSolverType", &luna_wrapper_btRigidBody::_bind_setFrictionSolverType},
 	{"base_setCollisionShape", &luna_wrapper_btRigidBody::_bind_base_setCollisionShape},
 	{"base_checkCollideWithOverride", &luna_wrapper_btRigidBody::_bind_base_checkCollideWithOverride},
 	{"base_calculateSerializeBufferSize", &luna_wrapper_btRigidBody::_bind_base_calculateSerializeBufferSize},

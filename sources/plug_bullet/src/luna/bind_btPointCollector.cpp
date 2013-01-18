@@ -107,52 +107,52 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_normalOnBInWorld(lua_State *L) {
+	inline static bool _lg_typecheck_getNormalOnBInWorld(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_pointInWorld(lua_State *L) {
+	inline static bool _lg_typecheck_getPointInWorld(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_distance(lua_State *L) {
+	inline static bool _lg_typecheck_getDistance(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_hasResult(lua_State *L) {
+	inline static bool _lg_typecheck_getHasResult(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_normalOnBInWorld(lua_State *L) {
+	inline static bool _lg_typecheck_setNormalOnBInWorld(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_pointInWorld(lua_State *L) {
+	inline static bool _lg_typecheck_setPointInWorld(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_distance(lua_State *L) {
+	inline static bool _lg_typecheck_setDistance(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_hasResult(lua_State *L) {
+	inline static bool _lg_typecheck_setHasResult(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -292,8 +292,8 @@ public:
 	}
 
 	// btVector3 btPointCollector::m_normalOnBInWorld()
-	static int _bind_getM_normalOnBInWorld(lua_State *L) {
-		if (!_lg_typecheck_getM_normalOnBInWorld(L)) {
+	static int _bind_getNormalOnBInWorld(lua_State *L) {
+		if (!_lg_typecheck_getNormalOnBInWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btPointCollector::m_normalOnBInWorld() function, expected prototype:\nbtVector3 btPointCollector::m_normalOnBInWorld()\nClass arguments details:\n");
 		}
@@ -313,8 +313,8 @@ public:
 	}
 
 	// btVector3 btPointCollector::m_pointInWorld()
-	static int _bind_getM_pointInWorld(lua_State *L) {
-		if (!_lg_typecheck_getM_pointInWorld(L)) {
+	static int _bind_getPointInWorld(lua_State *L) {
+		if (!_lg_typecheck_getPointInWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btPointCollector::m_pointInWorld() function, expected prototype:\nbtVector3 btPointCollector::m_pointInWorld()\nClass arguments details:\n");
 		}
@@ -334,8 +334,8 @@ public:
 	}
 
 	// float btPointCollector::m_distance()
-	static int _bind_getM_distance(lua_State *L) {
-		if (!_lg_typecheck_getM_distance(L)) {
+	static int _bind_getDistance(lua_State *L) {
+		if (!_lg_typecheck_getDistance(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float btPointCollector::m_distance() function, expected prototype:\nfloat btPointCollector::m_distance()\nClass arguments details:\n");
 		}
@@ -353,8 +353,8 @@ public:
 	}
 
 	// bool btPointCollector::m_hasResult()
-	static int _bind_getM_hasResult(lua_State *L) {
-		if (!_lg_typecheck_getM_hasResult(L)) {
+	static int _bind_getHasResult(lua_State *L) {
+		if (!_lg_typecheck_getHasResult(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btPointCollector::m_hasResult() function, expected prototype:\nbool btPointCollector::m_hasResult()\nClass arguments details:\n");
 		}
@@ -372,8 +372,8 @@ public:
 	}
 
 	// void btPointCollector::m_normalOnBInWorld(btVector3 value)
-	static int _bind_setM_normalOnBInWorld(lua_State *L) {
-		if (!_lg_typecheck_setM_normalOnBInWorld(L)) {
+	static int _bind_setNormalOnBInWorld(lua_State *L) {
+		if (!_lg_typecheck_setNormalOnBInWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPointCollector::m_normalOnBInWorld(btVector3 value) function, expected prototype:\nvoid btPointCollector::m_normalOnBInWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -395,8 +395,8 @@ public:
 	}
 
 	// void btPointCollector::m_pointInWorld(btVector3 value)
-	static int _bind_setM_pointInWorld(lua_State *L) {
-		if (!_lg_typecheck_setM_pointInWorld(L)) {
+	static int _bind_setPointInWorld(lua_State *L) {
+		if (!_lg_typecheck_setPointInWorld(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPointCollector::m_pointInWorld(btVector3 value) function, expected prototype:\nvoid btPointCollector::m_pointInWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -418,8 +418,8 @@ public:
 	}
 
 	// void btPointCollector::m_distance(float value)
-	static int _bind_setM_distance(lua_State *L) {
-		if (!_lg_typecheck_setM_distance(L)) {
+	static int _bind_setDistance(lua_State *L) {
+		if (!_lg_typecheck_setDistance(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPointCollector::m_distance(float value) function, expected prototype:\nvoid btPointCollector::m_distance(float value)\nClass arguments details:\n");
 		}
@@ -437,8 +437,8 @@ public:
 	}
 
 	// void btPointCollector::m_hasResult(bool value)
-	static int _bind_setM_hasResult(lua_State *L) {
-		if (!_lg_typecheck_setM_hasResult(L)) {
+	static int _bind_setHasResult(lua_State *L) {
+		if (!_lg_typecheck_setHasResult(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btPointCollector::m_hasResult(bool value) function, expected prototype:\nvoid btPointCollector::m_hasResult(bool value)\nClass arguments details:\n");
 		}
@@ -548,14 +548,14 @@ luna_RegType LunaTraits< btPointCollector >::methods[] = {
 	{"setShapeIdentifiersA", &luna_wrapper_btPointCollector::_bind_setShapeIdentifiersA},
 	{"setShapeIdentifiersB", &luna_wrapper_btPointCollector::_bind_setShapeIdentifiersB},
 	{"addContactPoint", &luna_wrapper_btPointCollector::_bind_addContactPoint},
-	{"getM_normalOnBInWorld", &luna_wrapper_btPointCollector::_bind_getM_normalOnBInWorld},
-	{"getM_pointInWorld", &luna_wrapper_btPointCollector::_bind_getM_pointInWorld},
-	{"getM_distance", &luna_wrapper_btPointCollector::_bind_getM_distance},
-	{"getM_hasResult", &luna_wrapper_btPointCollector::_bind_getM_hasResult},
-	{"setM_normalOnBInWorld", &luna_wrapper_btPointCollector::_bind_setM_normalOnBInWorld},
-	{"setM_pointInWorld", &luna_wrapper_btPointCollector::_bind_setM_pointInWorld},
-	{"setM_distance", &luna_wrapper_btPointCollector::_bind_setM_distance},
-	{"setM_hasResult", &luna_wrapper_btPointCollector::_bind_setM_hasResult},
+	{"getNormalOnBInWorld", &luna_wrapper_btPointCollector::_bind_getNormalOnBInWorld},
+	{"getPointInWorld", &luna_wrapper_btPointCollector::_bind_getPointInWorld},
+	{"getDistance", &luna_wrapper_btPointCollector::_bind_getDistance},
+	{"getHasResult", &luna_wrapper_btPointCollector::_bind_getHasResult},
+	{"setNormalOnBInWorld", &luna_wrapper_btPointCollector::_bind_setNormalOnBInWorld},
+	{"setPointInWorld", &luna_wrapper_btPointCollector::_bind_setPointInWorld},
+	{"setDistance", &luna_wrapper_btPointCollector::_bind_setDistance},
+	{"setHasResult", &luna_wrapper_btPointCollector::_bind_setHasResult},
 	{"base_setShapeIdentifiersA", &luna_wrapper_btPointCollector::_bind_base_setShapeIdentifiersA},
 	{"base_setShapeIdentifiersB", &luna_wrapper_btPointCollector::_bind_base_setShapeIdentifiersB},
 	{"base_addContactPoint", &luna_wrapper_btPointCollector::_bind_base_addContactPoint},

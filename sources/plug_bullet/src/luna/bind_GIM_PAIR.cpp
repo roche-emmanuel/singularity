@@ -78,26 +78,26 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_index1(lua_State *L) {
+	inline static bool _lg_typecheck_getIndex1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_index2(lua_State *L) {
+	inline static bool _lg_typecheck_getIndex2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_index1(lua_State *L) {
+	inline static bool _lg_typecheck_setIndex1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_index2(lua_State *L) {
+	inline static bool _lg_typecheck_setIndex2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -162,8 +162,8 @@ public:
 
 	// Function binds:
 	// int GIM_PAIR::m_index1()
-	static int _bind_getM_index1(lua_State *L) {
-		if (!_lg_typecheck_getM_index1(L)) {
+	static int _bind_getIndex1(lua_State *L) {
+		if (!_lg_typecheck_getIndex1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int GIM_PAIR::m_index1() function, expected prototype:\nint GIM_PAIR::m_index1()\nClass arguments details:\n");
 		}
@@ -181,8 +181,8 @@ public:
 	}
 
 	// int GIM_PAIR::m_index2()
-	static int _bind_getM_index2(lua_State *L) {
-		if (!_lg_typecheck_getM_index2(L)) {
+	static int _bind_getIndex2(lua_State *L) {
+		if (!_lg_typecheck_getIndex2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int GIM_PAIR::m_index2() function, expected prototype:\nint GIM_PAIR::m_index2()\nClass arguments details:\n");
 		}
@@ -200,8 +200,8 @@ public:
 	}
 
 	// void GIM_PAIR::m_index1(int value)
-	static int _bind_setM_index1(lua_State *L) {
-		if (!_lg_typecheck_setM_index1(L)) {
+	static int _bind_setIndex1(lua_State *L) {
+		if (!_lg_typecheck_setIndex1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GIM_PAIR::m_index1(int value) function, expected prototype:\nvoid GIM_PAIR::m_index1(int value)\nClass arguments details:\n");
 		}
@@ -219,8 +219,8 @@ public:
 	}
 
 	// void GIM_PAIR::m_index2(int value)
-	static int _bind_setM_index2(lua_State *L) {
-		if (!_lg_typecheck_setM_index2(L)) {
+	static int _bind_setIndex2(lua_State *L) {
+		if (!_lg_typecheck_setIndex2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void GIM_PAIR::m_index2(int value) function, expected prototype:\nvoid GIM_PAIR::m_index2(int value)\nClass arguments details:\n");
 		}
@@ -258,10 +258,10 @@ const int LunaTraits< GIM_PAIR >::hash = 77876536;
 const int LunaTraits< GIM_PAIR >::uniqueIDs[] = {77876536,0};
 
 luna_RegType LunaTraits< GIM_PAIR >::methods[] = {
-	{"getM_index1", &luna_wrapper_GIM_PAIR::_bind_getM_index1},
-	{"getM_index2", &luna_wrapper_GIM_PAIR::_bind_getM_index2},
-	{"setM_index1", &luna_wrapper_GIM_PAIR::_bind_setM_index1},
-	{"setM_index2", &luna_wrapper_GIM_PAIR::_bind_setM_index2},
+	{"getIndex1", &luna_wrapper_GIM_PAIR::_bind_getIndex1},
+	{"getIndex2", &luna_wrapper_GIM_PAIR::_bind_getIndex2},
+	{"setIndex1", &luna_wrapper_GIM_PAIR::_bind_setIndex1},
+	{"setIndex2", &luna_wrapper_GIM_PAIR::_bind_setIndex2},
 	{"dynCast", &luna_wrapper_GIM_PAIR::_bind_dynCast},
 	{"__eq", &luna_wrapper_GIM_PAIR::_bind___eq},
 	{0,0}

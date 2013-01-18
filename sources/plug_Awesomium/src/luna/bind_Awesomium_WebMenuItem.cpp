@@ -86,13 +86,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getRight_to_left(lua_State *L) {
+	inline static bool _lg_typecheck_get_right_to_left(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getHas_directional_override(lua_State *L) {
+	inline static bool _lg_typecheck_get_has_directional_override(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -138,14 +138,14 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setRight_to_left(lua_State *L) {
+	inline static bool _lg_typecheck_set_right_to_left(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setHas_directional_override(lua_State *L) {
+	inline static bool _lg_typecheck_set_has_directional_override(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -263,8 +263,8 @@ public:
 	}
 
 	// bool Awesomium::WebMenuItem::right_to_left()
-	static int _bind_getRight_to_left(lua_State *L) {
-		if (!_lg_typecheck_getRight_to_left(L)) {
+	static int _bind_get_right_to_left(lua_State *L) {
+		if (!_lg_typecheck_get_right_to_left(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool Awesomium::WebMenuItem::right_to_left() function, expected prototype:\nbool Awesomium::WebMenuItem::right_to_left()\nClass arguments details:\n");
 		}
@@ -282,8 +282,8 @@ public:
 	}
 
 	// bool Awesomium::WebMenuItem::has_directional_override()
-	static int _bind_getHas_directional_override(lua_State *L) {
-		if (!_lg_typecheck_getHas_directional_override(L)) {
+	static int _bind_get_has_directional_override(lua_State *L) {
+		if (!_lg_typecheck_get_has_directional_override(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool Awesomium::WebMenuItem::has_directional_override() function, expected prototype:\nbool Awesomium::WebMenuItem::has_directional_override()\nClass arguments details:\n");
 		}
@@ -417,8 +417,8 @@ public:
 	}
 
 	// void Awesomium::WebMenuItem::right_to_left(bool value)
-	static int _bind_setRight_to_left(lua_State *L) {
-		if (!_lg_typecheck_setRight_to_left(L)) {
+	static int _bind_set_right_to_left(lua_State *L) {
+		if (!_lg_typecheck_set_right_to_left(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebMenuItem::right_to_left(bool value) function, expected prototype:\nvoid Awesomium::WebMenuItem::right_to_left(bool value)\nClass arguments details:\n");
 		}
@@ -436,8 +436,8 @@ public:
 	}
 
 	// void Awesomium::WebMenuItem::has_directional_override(bool value)
-	static int _bind_setHas_directional_override(lua_State *L) {
-		if (!_lg_typecheck_setHas_directional_override(L)) {
+	static int _bind_set_has_directional_override(lua_State *L) {
+		if (!_lg_typecheck_set_has_directional_override(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebMenuItem::has_directional_override(bool value) function, expected prototype:\nvoid Awesomium::WebMenuItem::has_directional_override(bool value)\nClass arguments details:\n");
 		}
@@ -517,16 +517,16 @@ luna_RegType LunaTraits< Awesomium::WebMenuItem >::methods[] = {
 	{"getLabel", &luna_wrapper_Awesomium_WebMenuItem::_bind_getLabel},
 	{"getTooltip", &luna_wrapper_Awesomium_WebMenuItem::_bind_getTooltip},
 	{"getAction", &luna_wrapper_Awesomium_WebMenuItem::_bind_getAction},
-	{"getRight_to_left", &luna_wrapper_Awesomium_WebMenuItem::_bind_getRight_to_left},
-	{"getHas_directional_override", &luna_wrapper_Awesomium_WebMenuItem::_bind_getHas_directional_override},
+	{"get_right_to_left", &luna_wrapper_Awesomium_WebMenuItem::_bind_get_right_to_left},
+	{"get_has_directional_override", &luna_wrapper_Awesomium_WebMenuItem::_bind_get_has_directional_override},
 	{"getEnabled", &luna_wrapper_Awesomium_WebMenuItem::_bind_getEnabled},
 	{"getChecked", &luna_wrapper_Awesomium_WebMenuItem::_bind_getChecked},
 	{"setType", &luna_wrapper_Awesomium_WebMenuItem::_bind_setType},
 	{"setLabel", &luna_wrapper_Awesomium_WebMenuItem::_bind_setLabel},
 	{"setTooltip", &luna_wrapper_Awesomium_WebMenuItem::_bind_setTooltip},
 	{"setAction", &luna_wrapper_Awesomium_WebMenuItem::_bind_setAction},
-	{"setRight_to_left", &luna_wrapper_Awesomium_WebMenuItem::_bind_setRight_to_left},
-	{"setHas_directional_override", &luna_wrapper_Awesomium_WebMenuItem::_bind_setHas_directional_override},
+	{"set_right_to_left", &luna_wrapper_Awesomium_WebMenuItem::_bind_set_right_to_left},
+	{"set_has_directional_override", &luna_wrapper_Awesomium_WebMenuItem::_bind_set_has_directional_override},
 	{"setEnabled", &luna_wrapper_Awesomium_WebMenuItem::_bind_setEnabled},
 	{"setChecked", &luna_wrapper_Awesomium_WebMenuItem::_bind_setChecked},
 	{"dynCast", &luna_wrapper_Awesomium_WebMenuItem::_bind_dynCast},

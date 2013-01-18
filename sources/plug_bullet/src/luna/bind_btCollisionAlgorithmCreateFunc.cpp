@@ -104,13 +104,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_swapped(lua_State *L) {
+	inline static bool _lg_typecheck_getSwapped(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_swapped(lua_State *L) {
+	inline static bool _lg_typecheck_setSwapped(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -193,8 +193,8 @@ public:
 	}
 
 	// bool btCollisionAlgorithmCreateFunc::m_swapped()
-	static int _bind_getM_swapped(lua_State *L) {
-		if (!_lg_typecheck_getM_swapped(L)) {
+	static int _bind_getSwapped(lua_State *L) {
+		if (!_lg_typecheck_getSwapped(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool btCollisionAlgorithmCreateFunc::m_swapped() function, expected prototype:\nbool btCollisionAlgorithmCreateFunc::m_swapped()\nClass arguments details:\n");
 		}
@@ -212,8 +212,8 @@ public:
 	}
 
 	// void btCollisionAlgorithmCreateFunc::m_swapped(bool value)
-	static int _bind_setM_swapped(lua_State *L) {
-		if (!_lg_typecheck_setM_swapped(L)) {
+	static int _bind_setSwapped(lua_State *L) {
+		if (!_lg_typecheck_setSwapped(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionAlgorithmCreateFunc::m_swapped(bool value) function, expected prototype:\nvoid btCollisionAlgorithmCreateFunc::m_swapped(bool value)\nClass arguments details:\n");
 		}
@@ -280,8 +280,8 @@ const int LunaTraits< btCollisionAlgorithmCreateFunc >::uniqueIDs[] = {67911425,
 
 luna_RegType LunaTraits< btCollisionAlgorithmCreateFunc >::methods[] = {
 	{"CreateCollisionAlgorithm", &luna_wrapper_btCollisionAlgorithmCreateFunc::_bind_CreateCollisionAlgorithm},
-	{"getM_swapped", &luna_wrapper_btCollisionAlgorithmCreateFunc::_bind_getM_swapped},
-	{"setM_swapped", &luna_wrapper_btCollisionAlgorithmCreateFunc::_bind_setM_swapped},
+	{"getSwapped", &luna_wrapper_btCollisionAlgorithmCreateFunc::_bind_getSwapped},
+	{"setSwapped", &luna_wrapper_btCollisionAlgorithmCreateFunc::_bind_setSwapped},
 	{"base_CreateCollisionAlgorithm", &luna_wrapper_btCollisionAlgorithmCreateFunc::_bind_base_CreateCollisionAlgorithm},
 	{"dynCast", &luna_wrapper_btCollisionAlgorithmCreateFunc::_bind_dynCast},
 	{"__eq", &luna_wrapper_btCollisionAlgorithmCreateFunc::_bind___eq},

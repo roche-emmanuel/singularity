@@ -140,26 +140,26 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_triangleCount(lua_State *L) {
+	inline static bool _lg_typecheck_getTriangleCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_manifoldPtr(lua_State *L) {
+	inline static bool _lg_typecheck_getManifoldPtr(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_triangleCount(lua_State *L) {
+	inline static bool _lg_typecheck_setTriangleCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_manifoldPtr(lua_State *L) {
+	inline static bool _lg_typecheck_setManifoldPtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,66271199)) ) return false;
@@ -348,8 +348,8 @@ public:
 	}
 
 	// int btConvexTriangleCallback::m_triangleCount()
-	static int _bind_getM_triangleCount(lua_State *L) {
-		if (!_lg_typecheck_getM_triangleCount(L)) {
+	static int _bind_getTriangleCount(lua_State *L) {
+		if (!_lg_typecheck_getTriangleCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btConvexTriangleCallback::m_triangleCount() function, expected prototype:\nint btConvexTriangleCallback::m_triangleCount()\nClass arguments details:\n");
 		}
@@ -367,8 +367,8 @@ public:
 	}
 
 	// btPersistentManifold * btConvexTriangleCallback::m_manifoldPtr()
-	static int _bind_getM_manifoldPtr(lua_State *L) {
-		if (!_lg_typecheck_getM_manifoldPtr(L)) {
+	static int _bind_getManifoldPtr(lua_State *L) {
+		if (!_lg_typecheck_getManifoldPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btPersistentManifold * btConvexTriangleCallback::m_manifoldPtr() function, expected prototype:\nbtPersistentManifold * btConvexTriangleCallback::m_manifoldPtr()\nClass arguments details:\n");
 		}
@@ -388,8 +388,8 @@ public:
 	}
 
 	// void btConvexTriangleCallback::m_triangleCount(int value)
-	static int _bind_setM_triangleCount(lua_State *L) {
-		if (!_lg_typecheck_setM_triangleCount(L)) {
+	static int _bind_setTriangleCount(lua_State *L) {
+		if (!_lg_typecheck_setTriangleCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexTriangleCallback::m_triangleCount(int value) function, expected prototype:\nvoid btConvexTriangleCallback::m_triangleCount(int value)\nClass arguments details:\n");
 		}
@@ -407,8 +407,8 @@ public:
 	}
 
 	// void btConvexTriangleCallback::m_manifoldPtr(btPersistentManifold * value)
-	static int _bind_setM_manifoldPtr(lua_State *L) {
-		if (!_lg_typecheck_setM_manifoldPtr(L)) {
+	static int _bind_setManifoldPtr(lua_State *L) {
+		if (!_lg_typecheck_setManifoldPtr(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btConvexTriangleCallback::m_manifoldPtr(btPersistentManifold * value) function, expected prototype:\nvoid btConvexTriangleCallback::m_manifoldPtr(btPersistentManifold * value)\nClass arguments details:\narg 1 ID = 66271199\n");
 		}
@@ -473,10 +473,10 @@ luna_RegType LunaTraits< btConvexTriangleCallback >::methods[] = {
 	{"clearCache", &luna_wrapper_btConvexTriangleCallback::_bind_clearCache},
 	{"getAabbMin", &luna_wrapper_btConvexTriangleCallback::_bind_getAabbMin},
 	{"getAabbMax", &luna_wrapper_btConvexTriangleCallback::_bind_getAabbMax},
-	{"getM_triangleCount", &luna_wrapper_btConvexTriangleCallback::_bind_getM_triangleCount},
-	{"getM_manifoldPtr", &luna_wrapper_btConvexTriangleCallback::_bind_getM_manifoldPtr},
-	{"setM_triangleCount", &luna_wrapper_btConvexTriangleCallback::_bind_setM_triangleCount},
-	{"setM_manifoldPtr", &luna_wrapper_btConvexTriangleCallback::_bind_setM_manifoldPtr},
+	{"getTriangleCount", &luna_wrapper_btConvexTriangleCallback::_bind_getTriangleCount},
+	{"getManifoldPtr", &luna_wrapper_btConvexTriangleCallback::_bind_getManifoldPtr},
+	{"setTriangleCount", &luna_wrapper_btConvexTriangleCallback::_bind_setTriangleCount},
+	{"setManifoldPtr", &luna_wrapper_btConvexTriangleCallback::_bind_setManifoldPtr},
 	{"base_processTriangle", &luna_wrapper_btConvexTriangleCallback::_bind_base_processTriangle},
 	{"__eq", &luna_wrapper_btConvexTriangleCallback::_bind___eq},
 	{"getTable", &luna_wrapper_btConvexTriangleCallback::_bind_getTable},

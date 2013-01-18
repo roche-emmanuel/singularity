@@ -139,91 +139,91 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_clientObject(lua_State *L) {
+	inline static bool _lg_typecheck_getClientObject(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_collisionFilterGroup(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionFilterGroup(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_collisionFilterMask(lua_State *L) {
+	inline static bool _lg_typecheck_getCollisionFilterMask(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_multiSapParentProxy(lua_State *L) {
+	inline static bool _lg_typecheck_getMultiSapParentProxy(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_uniqueId(lua_State *L) {
+	inline static bool _lg_typecheck_getUniqueId(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_aabbMin(lua_State *L) {
+	inline static bool _lg_typecheck_getAabbMin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_aabbMax(lua_State *L) {
+	inline static bool _lg_typecheck_getAabbMax(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_clientObject(lua_State *L) {
+	inline static bool _lg_typecheck_setClientObject(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionFilterGroup(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionFilterGroup(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_collisionFilterMask(lua_State *L) {
+	inline static bool _lg_typecheck_setCollisionFilterMask(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_multiSapParentProxy(lua_State *L) {
+	inline static bool _lg_typecheck_setMultiSapParentProxy(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_uniqueId(lua_State *L) {
+	inline static bool _lg_typecheck_setUniqueId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_aabbMin(lua_State *L) {
+	inline static bool _lg_typecheck_setAabbMin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_aabbMax(lua_State *L) {
+	inline static bool _lg_typecheck_setAabbMax(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
@@ -424,8 +424,8 @@ public:
 	}
 
 	// void * btBroadphaseProxy::m_clientObject()
-	static int _bind_getM_clientObject(lua_State *L) {
-		if (!_lg_typecheck_getM_clientObject(L)) {
+	static int _bind_getClientObject(lua_State *L) {
+		if (!_lg_typecheck_getClientObject(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void * btBroadphaseProxy::m_clientObject() function, expected prototype:\nvoid * btBroadphaseProxy::m_clientObject()\nClass arguments details:\n");
 		}
@@ -445,8 +445,8 @@ public:
 	}
 
 	// short int btBroadphaseProxy::m_collisionFilterGroup()
-	static int _bind_getM_collisionFilterGroup(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionFilterGroup(L)) {
+	static int _bind_getCollisionFilterGroup(lua_State *L) {
+		if (!_lg_typecheck_getCollisionFilterGroup(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in short int btBroadphaseProxy::m_collisionFilterGroup() function, expected prototype:\nshort int btBroadphaseProxy::m_collisionFilterGroup()\nClass arguments details:\n");
 		}
@@ -464,8 +464,8 @@ public:
 	}
 
 	// short int btBroadphaseProxy::m_collisionFilterMask()
-	static int _bind_getM_collisionFilterMask(lua_State *L) {
-		if (!_lg_typecheck_getM_collisionFilterMask(L)) {
+	static int _bind_getCollisionFilterMask(lua_State *L) {
+		if (!_lg_typecheck_getCollisionFilterMask(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in short int btBroadphaseProxy::m_collisionFilterMask() function, expected prototype:\nshort int btBroadphaseProxy::m_collisionFilterMask()\nClass arguments details:\n");
 		}
@@ -483,8 +483,8 @@ public:
 	}
 
 	// void * btBroadphaseProxy::m_multiSapParentProxy()
-	static int _bind_getM_multiSapParentProxy(lua_State *L) {
-		if (!_lg_typecheck_getM_multiSapParentProxy(L)) {
+	static int _bind_getMultiSapParentProxy(lua_State *L) {
+		if (!_lg_typecheck_getMultiSapParentProxy(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void * btBroadphaseProxy::m_multiSapParentProxy() function, expected prototype:\nvoid * btBroadphaseProxy::m_multiSapParentProxy()\nClass arguments details:\n");
 		}
@@ -504,8 +504,8 @@ public:
 	}
 
 	// int btBroadphaseProxy::m_uniqueId()
-	static int _bind_getM_uniqueId(lua_State *L) {
-		if (!_lg_typecheck_getM_uniqueId(L)) {
+	static int _bind_getUniqueId(lua_State *L) {
+		if (!_lg_typecheck_getUniqueId(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btBroadphaseProxy::m_uniqueId() function, expected prototype:\nint btBroadphaseProxy::m_uniqueId()\nClass arguments details:\n");
 		}
@@ -523,8 +523,8 @@ public:
 	}
 
 	// btVector3 btBroadphaseProxy::m_aabbMin()
-	static int _bind_getM_aabbMin(lua_State *L) {
-		if (!_lg_typecheck_getM_aabbMin(L)) {
+	static int _bind_getAabbMin(lua_State *L) {
+		if (!_lg_typecheck_getAabbMin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btBroadphaseProxy::m_aabbMin() function, expected prototype:\nbtVector3 btBroadphaseProxy::m_aabbMin()\nClass arguments details:\n");
 		}
@@ -544,8 +544,8 @@ public:
 	}
 
 	// btVector3 btBroadphaseProxy::m_aabbMax()
-	static int _bind_getM_aabbMax(lua_State *L) {
-		if (!_lg_typecheck_getM_aabbMax(L)) {
+	static int _bind_getAabbMax(lua_State *L) {
+		if (!_lg_typecheck_getAabbMax(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btVector3 btBroadphaseProxy::m_aabbMax() function, expected prototype:\nbtVector3 btBroadphaseProxy::m_aabbMax()\nClass arguments details:\n");
 		}
@@ -565,8 +565,8 @@ public:
 	}
 
 	// void btBroadphaseProxy::m_clientObject(void * value)
-	static int _bind_setM_clientObject(lua_State *L) {
-		if (!_lg_typecheck_setM_clientObject(L)) {
+	static int _bind_setClientObject(lua_State *L) {
+		if (!_lg_typecheck_setClientObject(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_clientObject(void * value) function, expected prototype:\nvoid btBroadphaseProxy::m_clientObject(void * value)\nClass arguments details:\n");
 		}
@@ -584,8 +584,8 @@ public:
 	}
 
 	// void btBroadphaseProxy::m_collisionFilterGroup(short int value)
-	static int _bind_setM_collisionFilterGroup(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionFilterGroup(L)) {
+	static int _bind_setCollisionFilterGroup(lua_State *L) {
+		if (!_lg_typecheck_setCollisionFilterGroup(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_collisionFilterGroup(short int value) function, expected prototype:\nvoid btBroadphaseProxy::m_collisionFilterGroup(short int value)\nClass arguments details:\n");
 		}
@@ -603,8 +603,8 @@ public:
 	}
 
 	// void btBroadphaseProxy::m_collisionFilterMask(short int value)
-	static int _bind_setM_collisionFilterMask(lua_State *L) {
-		if (!_lg_typecheck_setM_collisionFilterMask(L)) {
+	static int _bind_setCollisionFilterMask(lua_State *L) {
+		if (!_lg_typecheck_setCollisionFilterMask(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_collisionFilterMask(short int value) function, expected prototype:\nvoid btBroadphaseProxy::m_collisionFilterMask(short int value)\nClass arguments details:\n");
 		}
@@ -622,8 +622,8 @@ public:
 	}
 
 	// void btBroadphaseProxy::m_multiSapParentProxy(void * value)
-	static int _bind_setM_multiSapParentProxy(lua_State *L) {
-		if (!_lg_typecheck_setM_multiSapParentProxy(L)) {
+	static int _bind_setMultiSapParentProxy(lua_State *L) {
+		if (!_lg_typecheck_setMultiSapParentProxy(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_multiSapParentProxy(void * value) function, expected prototype:\nvoid btBroadphaseProxy::m_multiSapParentProxy(void * value)\nClass arguments details:\n");
 		}
@@ -641,8 +641,8 @@ public:
 	}
 
 	// void btBroadphaseProxy::m_uniqueId(int value)
-	static int _bind_setM_uniqueId(lua_State *L) {
-		if (!_lg_typecheck_setM_uniqueId(L)) {
+	static int _bind_setUniqueId(lua_State *L) {
+		if (!_lg_typecheck_setUniqueId(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_uniqueId(int value) function, expected prototype:\nvoid btBroadphaseProxy::m_uniqueId(int value)\nClass arguments details:\n");
 		}
@@ -660,8 +660,8 @@ public:
 	}
 
 	// void btBroadphaseProxy::m_aabbMin(btVector3 value)
-	static int _bind_setM_aabbMin(lua_State *L) {
-		if (!_lg_typecheck_setM_aabbMin(L)) {
+	static int _bind_setAabbMin(lua_State *L) {
+		if (!_lg_typecheck_setAabbMin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_aabbMin(btVector3 value) function, expected prototype:\nvoid btBroadphaseProxy::m_aabbMin(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -683,8 +683,8 @@ public:
 	}
 
 	// void btBroadphaseProxy::m_aabbMax(btVector3 value)
-	static int _bind_setM_aabbMax(lua_State *L) {
-		if (!_lg_typecheck_setM_aabbMax(L)) {
+	static int _bind_setAabbMax(lua_State *L) {
+		if (!_lg_typecheck_setAabbMax(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_aabbMax(btVector3 value) function, expected prototype:\nvoid btBroadphaseProxy::m_aabbMax(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
 		}
@@ -735,20 +735,20 @@ luna_RegType LunaTraits< btBroadphaseProxy >::methods[] = {
 	{"isSoftBody", &luna_wrapper_btBroadphaseProxy::_bind_isSoftBody},
 	{"isInfinite", &luna_wrapper_btBroadphaseProxy::_bind_isInfinite},
 	{"isConvex2d", &luna_wrapper_btBroadphaseProxy::_bind_isConvex2d},
-	{"getM_clientObject", &luna_wrapper_btBroadphaseProxy::_bind_getM_clientObject},
-	{"getM_collisionFilterGroup", &luna_wrapper_btBroadphaseProxy::_bind_getM_collisionFilterGroup},
-	{"getM_collisionFilterMask", &luna_wrapper_btBroadphaseProxy::_bind_getM_collisionFilterMask},
-	{"getM_multiSapParentProxy", &luna_wrapper_btBroadphaseProxy::_bind_getM_multiSapParentProxy},
-	{"getM_uniqueId", &luna_wrapper_btBroadphaseProxy::_bind_getM_uniqueId},
-	{"getM_aabbMin", &luna_wrapper_btBroadphaseProxy::_bind_getM_aabbMin},
-	{"getM_aabbMax", &luna_wrapper_btBroadphaseProxy::_bind_getM_aabbMax},
-	{"setM_clientObject", &luna_wrapper_btBroadphaseProxy::_bind_setM_clientObject},
-	{"setM_collisionFilterGroup", &luna_wrapper_btBroadphaseProxy::_bind_setM_collisionFilterGroup},
-	{"setM_collisionFilterMask", &luna_wrapper_btBroadphaseProxy::_bind_setM_collisionFilterMask},
-	{"setM_multiSapParentProxy", &luna_wrapper_btBroadphaseProxy::_bind_setM_multiSapParentProxy},
-	{"setM_uniqueId", &luna_wrapper_btBroadphaseProxy::_bind_setM_uniqueId},
-	{"setM_aabbMin", &luna_wrapper_btBroadphaseProxy::_bind_setM_aabbMin},
-	{"setM_aabbMax", &luna_wrapper_btBroadphaseProxy::_bind_setM_aabbMax},
+	{"getClientObject", &luna_wrapper_btBroadphaseProxy::_bind_getClientObject},
+	{"getCollisionFilterGroup", &luna_wrapper_btBroadphaseProxy::_bind_getCollisionFilterGroup},
+	{"getCollisionFilterMask", &luna_wrapper_btBroadphaseProxy::_bind_getCollisionFilterMask},
+	{"getMultiSapParentProxy", &luna_wrapper_btBroadphaseProxy::_bind_getMultiSapParentProxy},
+	{"getUniqueId", &luna_wrapper_btBroadphaseProxy::_bind_getUniqueId},
+	{"getAabbMin", &luna_wrapper_btBroadphaseProxy::_bind_getAabbMin},
+	{"getAabbMax", &luna_wrapper_btBroadphaseProxy::_bind_getAabbMax},
+	{"setClientObject", &luna_wrapper_btBroadphaseProxy::_bind_setClientObject},
+	{"setCollisionFilterGroup", &luna_wrapper_btBroadphaseProxy::_bind_setCollisionFilterGroup},
+	{"setCollisionFilterMask", &luna_wrapper_btBroadphaseProxy::_bind_setCollisionFilterMask},
+	{"setMultiSapParentProxy", &luna_wrapper_btBroadphaseProxy::_bind_setMultiSapParentProxy},
+	{"setUniqueId", &luna_wrapper_btBroadphaseProxy::_bind_setUniqueId},
+	{"setAabbMin", &luna_wrapper_btBroadphaseProxy::_bind_setAabbMin},
+	{"setAabbMax", &luna_wrapper_btBroadphaseProxy::_bind_setAabbMax},
 	{"dynCast", &luna_wrapper_btBroadphaseProxy::_bind_dynCast},
 	{"__eq", &luna_wrapper_btBroadphaseProxy::_bind___eq},
 	{0,0}

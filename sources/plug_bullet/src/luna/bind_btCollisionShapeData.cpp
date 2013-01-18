@@ -56,26 +56,26 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_name(lua_State *L) {
+	inline static bool _lg_typecheck_getName(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_shapeType(lua_State *L) {
+	inline static bool _lg_typecheck_getShapeType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_name(lua_State *L) {
+	inline static bool _lg_typecheck_setName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_shapeType(lua_State *L) {
+	inline static bool _lg_typecheck_setShapeType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -90,8 +90,8 @@ public:
 
 	// Function binds:
 	// char * btCollisionShapeData::m_name()
-	static int _bind_getM_name(lua_State *L) {
-		if (!_lg_typecheck_getM_name(L)) {
+	static int _bind_getName(lua_State *L) {
+		if (!_lg_typecheck_getName(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in char * btCollisionShapeData::m_name() function, expected prototype:\nchar * btCollisionShapeData::m_name()\nClass arguments details:\n");
 		}
@@ -109,8 +109,8 @@ public:
 	}
 
 	// int btCollisionShapeData::m_shapeType()
-	static int _bind_getM_shapeType(lua_State *L) {
-		if (!_lg_typecheck_getM_shapeType(L)) {
+	static int _bind_getShapeType(lua_State *L) {
+		if (!_lg_typecheck_getShapeType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btCollisionShapeData::m_shapeType() function, expected prototype:\nint btCollisionShapeData::m_shapeType()\nClass arguments details:\n");
 		}
@@ -128,8 +128,8 @@ public:
 	}
 
 	// void btCollisionShapeData::m_name(char * value)
-	static int _bind_setM_name(lua_State *L) {
-		if (!_lg_typecheck_setM_name(L)) {
+	static int _bind_setName(lua_State *L) {
+		if (!_lg_typecheck_setName(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionShapeData::m_name(char * value) function, expected prototype:\nvoid btCollisionShapeData::m_name(char * value)\nClass arguments details:\n");
 		}
@@ -147,8 +147,8 @@ public:
 	}
 
 	// void btCollisionShapeData::m_shapeType(int value)
-	static int _bind_setM_shapeType(lua_State *L) {
-		if (!_lg_typecheck_setM_shapeType(L)) {
+	static int _bind_setShapeType(lua_State *L) {
+		if (!_lg_typecheck_setShapeType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCollisionShapeData::m_shapeType(int value) function, expected prototype:\nvoid btCollisionShapeData::m_shapeType(int value)\nClass arguments details:\n");
 		}
@@ -186,10 +186,10 @@ const int LunaTraits< btCollisionShapeData >::hash = 94025107;
 const int LunaTraits< btCollisionShapeData >::uniqueIDs[] = {94025107,0};
 
 luna_RegType LunaTraits< btCollisionShapeData >::methods[] = {
-	{"getM_name", &luna_wrapper_btCollisionShapeData::_bind_getM_name},
-	{"getM_shapeType", &luna_wrapper_btCollisionShapeData::_bind_getM_shapeType},
-	{"setM_name", &luna_wrapper_btCollisionShapeData::_bind_setM_name},
-	{"setM_shapeType", &luna_wrapper_btCollisionShapeData::_bind_setM_shapeType},
+	{"getName", &luna_wrapper_btCollisionShapeData::_bind_getName},
+	{"getShapeType", &luna_wrapper_btCollisionShapeData::_bind_getShapeType},
+	{"setName", &luna_wrapper_btCollisionShapeData::_bind_setName},
+	{"setShapeType", &luna_wrapper_btCollisionShapeData::_bind_setShapeType},
 	{"dynCast", &luna_wrapper_btCollisionShapeData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btCollisionShapeData::_bind___eq},
 	{0,0}

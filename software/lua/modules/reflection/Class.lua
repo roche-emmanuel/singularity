@@ -366,7 +366,13 @@ function Class:addVariableGetters()
 		func:setReturnType(var:getType())
 		func:setIsGetter(true)
 		
-		self:addFunction(func)
+		local prevFuncs = self:getFunctions({"Name"},{func:getLuaName()})
+		
+		if prevFuncs:empty() then
+			self:addFunction(func)
+		else
+			self:warn("Ignoring getter with name ", func:getLuaName()," because of existing function in class ", self:getFullName())
+		end
 	end
 end
 
@@ -401,7 +407,13 @@ function Class:addVariableSetters()
 			func:setReturnType(rtype)
 			func:setIsSetter(true)
 			
-			self:addFunction(func)
+			local prevFuncs = self:getFunctions({"Name"},{func:getLuaName()})
+			
+			if prevFuncs:empty() then
+				self:addFunction(func)
+			else
+				self:warn("Ignoring setter with name ", func:getLuaName()," because of existing function in class ", self:getFullName())
+			end
 		end
 	end
 end

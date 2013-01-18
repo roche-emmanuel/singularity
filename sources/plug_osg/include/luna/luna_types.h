@@ -1158,25 +1158,6 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Class: osgUtil::EdgeCollector::Triangle
-template<>
-class LunaTraits< osgUtil::EdgeCollector::Triangle > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osgUtil::EdgeCollector::Triangle* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osgUtil::EdgeCollector::Triangle* obj);
-	typedef osg::Referenced parent_t;
-	typedef osgUtil::EdgeCollector::Triangle base_t;
-	static luna_ConverterType converters[];
-};
-
 // Class: osg::KdTree::Triangle
 template<>
 class LunaTraits< osg::KdTree::Triangle > {
@@ -1196,6 +1177,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osgUtil::EdgeCollector::Triangle
+template<>
+class LunaTraits< osgUtil::EdgeCollector::Triangle > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osgUtil::EdgeCollector::Triangle* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osgUtil::EdgeCollector::Triangle* obj);
+	typedef osg::Referenced parent_t;
+	typedef osgUtil::EdgeCollector::Triangle base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: osg::Program::UniformBlockInfo
 template<>
 class LunaTraits< osg::Program::UniformBlockInfo > {
@@ -1212,6 +1212,25 @@ public:
 	static void _bind_dtor(osg::Program::UniformBlockInfo* obj);
 	typedef osg::Program::UniformBlockInfo parent_t;
 	typedef osg::Program::UniformBlockInfo base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Drawable::UpdateCallback
+template<>
+class LunaTraits< osg::Drawable::UpdateCallback > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Drawable::UpdateCallback* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Drawable::UpdateCallback* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Drawable::UpdateCallback base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -1250,25 +1269,6 @@ public:
 	static void _bind_dtor(osg::Image::UpdateCallback* obj);
 	typedef osg::Referenced parent_t;
 	typedef osg::Image::UpdateCallback base_t;
-	static luna_ConverterType converters[];
-};
-
-// Class: osg::Drawable::UpdateCallback
-template<>
-class LunaTraits< osg::Drawable::UpdateCallback > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::Drawable::UpdateCallback* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::Drawable::UpdateCallback* obj);
-	typedef osg::Referenced parent_t;
-	typedef osg::Drawable::UpdateCallback base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -9309,6 +9309,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::ref_ptr< osg::AnimationPath >
+template<>
+class LunaTraits< osg::ref_ptr< osg::AnimationPath > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::ref_ptr< osg::AnimationPath >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::ref_ptr< osg::AnimationPath >* obj);
+	typedef osg::ref_ptr< osg::AnimationPath > parent_t;
+	typedef osg::ref_ptr< osg::AnimationPath > base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: osg::Vec2Array
 template<>
 class LunaTraits< osg::Vec2Array > {
@@ -17102,6 +17121,13 @@ template<>
 class LunaType< 88770621 > {
 public:
 	typedef osg::ref_ptr< osg::PrimitiveSet > type;
+	
+};
+
+template<>
+class LunaType< 50949526 > {
+public:
+	typedef osg::ref_ptr< osg::AnimationPath > type;
 	
 };
 

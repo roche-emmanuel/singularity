@@ -56,26 +56,26 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getM_convexInternalShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_getConvexInternalShapeData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_upAxis(lua_State *L) {
+	inline static bool _lg_typecheck_getUpAxis(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_convexInternalShapeData(lua_State *L) {
+	inline static bool _lg_typecheck_setConvexInternalShapeData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,7968673) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_upAxis(lua_State *L) {
+	inline static bool _lg_typecheck_setUpAxis(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -90,8 +90,8 @@ public:
 
 	// Function binds:
 	// btConvexInternalShapeData btCylinderShapeData::m_convexInternalShapeData()
-	static int _bind_getM_convexInternalShapeData(lua_State *L) {
-		if (!_lg_typecheck_getM_convexInternalShapeData(L)) {
+	static int _bind_getConvexInternalShapeData(lua_State *L) {
+		if (!_lg_typecheck_getConvexInternalShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in btConvexInternalShapeData btCylinderShapeData::m_convexInternalShapeData() function, expected prototype:\nbtConvexInternalShapeData btCylinderShapeData::m_convexInternalShapeData()\nClass arguments details:\n");
 		}
@@ -111,8 +111,8 @@ public:
 	}
 
 	// int btCylinderShapeData::m_upAxis()
-	static int _bind_getM_upAxis(lua_State *L) {
-		if (!_lg_typecheck_getM_upAxis(L)) {
+	static int _bind_getUpAxis(lua_State *L) {
+		if (!_lg_typecheck_getUpAxis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int btCylinderShapeData::m_upAxis() function, expected prototype:\nint btCylinderShapeData::m_upAxis()\nClass arguments details:\n");
 		}
@@ -130,8 +130,8 @@ public:
 	}
 
 	// void btCylinderShapeData::m_convexInternalShapeData(btConvexInternalShapeData value)
-	static int _bind_setM_convexInternalShapeData(lua_State *L) {
-		if (!_lg_typecheck_setM_convexInternalShapeData(L)) {
+	static int _bind_setConvexInternalShapeData(lua_State *L) {
+		if (!_lg_typecheck_setConvexInternalShapeData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCylinderShapeData::m_convexInternalShapeData(btConvexInternalShapeData value) function, expected prototype:\nvoid btCylinderShapeData::m_convexInternalShapeData(btConvexInternalShapeData value)\nClass arguments details:\narg 1 ID = 7968673\n");
 		}
@@ -153,8 +153,8 @@ public:
 	}
 
 	// void btCylinderShapeData::m_upAxis(int value)
-	static int _bind_setM_upAxis(lua_State *L) {
-		if (!_lg_typecheck_setM_upAxis(L)) {
+	static int _bind_setUpAxis(lua_State *L) {
+		if (!_lg_typecheck_setUpAxis(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void btCylinderShapeData::m_upAxis(int value) function, expected prototype:\nvoid btCylinderShapeData::m_upAxis(int value)\nClass arguments details:\n");
 		}
@@ -192,10 +192,10 @@ const int LunaTraits< btCylinderShapeData >::hash = 72584776;
 const int LunaTraits< btCylinderShapeData >::uniqueIDs[] = {72584776,0};
 
 luna_RegType LunaTraits< btCylinderShapeData >::methods[] = {
-	{"getM_convexInternalShapeData", &luna_wrapper_btCylinderShapeData::_bind_getM_convexInternalShapeData},
-	{"getM_upAxis", &luna_wrapper_btCylinderShapeData::_bind_getM_upAxis},
-	{"setM_convexInternalShapeData", &luna_wrapper_btCylinderShapeData::_bind_setM_convexInternalShapeData},
-	{"setM_upAxis", &luna_wrapper_btCylinderShapeData::_bind_setM_upAxis},
+	{"getConvexInternalShapeData", &luna_wrapper_btCylinderShapeData::_bind_getConvexInternalShapeData},
+	{"getUpAxis", &luna_wrapper_btCylinderShapeData::_bind_getUpAxis},
+	{"setConvexInternalShapeData", &luna_wrapper_btCylinderShapeData::_bind_setConvexInternalShapeData},
+	{"setUpAxis", &luna_wrapper_btCylinderShapeData::_bind_setUpAxis},
 	{"dynCast", &luna_wrapper_btCylinderShapeData::_bind_dynCast},
 	{"__eq", &luna_wrapper_btCylinderShapeData::_bind___eq},
 	{0,0}
