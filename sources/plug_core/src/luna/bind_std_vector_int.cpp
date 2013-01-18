@@ -62,7 +62,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get(lua_State *L) {
+	inline static bool _lg_typecheck_size(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,92299338)) ) return false;
@@ -86,8 +86,8 @@ public:
 	}
 
 	// unsigned int std::vector< int > *::size(std::vector< int > * vec)
-	static int _bind_get(lua_State *L) {
-		if (!_lg_typecheck_get(L)) {
+	static int _bind_size(lua_State *L) {
+		if (!_lg_typecheck_size(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int std::vector< int > *::size(std::vector< int > * vec) function, expected prototype:\nunsigned int std::vector< int > *::size(std::vector< int > * vec)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -122,7 +122,7 @@ luna_RegType LunaTraits< std::vector< int > >::methods[] = {
 	{"__eq", &luna_wrapper_std_vector_int::_bind___eq},
 	
 	{"push_back", &luna_wrapper_std_vector_int::_bind_push_back},
-	{"get", &luna_wrapper_std_vector_int::_bind_get},
+	{"size", &luna_wrapper_std_vector_int::_bind_size},
 	{0,0}
 };
 

@@ -301,6 +301,11 @@ end
 
 function Class:isVirtual()
 	-- return not self:getAbstractFunctions():empty() or not self:getAbstractOperators():empty()
+	local dtor = self:getDestructor()
+	if dtor and dtor:isVirtual() then
+		return true;
+	end
+
 	return not self:getVirtualFunctions():empty()
 end
 

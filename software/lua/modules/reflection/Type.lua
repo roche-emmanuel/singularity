@@ -187,7 +187,7 @@ end
 
 function Class:isVoid()
 	local str = self:getName()
-	return str:find("void")
+	return str:find("void%s*%*?&?%s*$") or str:find("void%s*%*?&?%s*const%s*$")
 end
 
 function Class:isEnum()

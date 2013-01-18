@@ -66,3 +66,5 @@
 - Added bullet sample test.
 - Changed getter/setter lua names : using "_" separator if already found in name. Ignore "m_"/"mXXX"/"_" prefix.
 - Ignoring getter/setter if already existing.
+- Added absolute base class support in SGT module.
+- Added micropather module.

@@ -7,6 +7,10 @@
 
 * Upgrade version of doxmlparser
 * Add fromVoid/toVoid converters.
+* ensure void type is not overriden.
+
+* Subtexture upload for awesomium surface.
+
 * Add minimal notebook app.
 * Implement all listeners for webview
 * Remove "<" as a ignoring function pattern (in wx module at least) ?

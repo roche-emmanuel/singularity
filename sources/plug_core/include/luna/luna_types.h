@@ -3,6 +3,7 @@
 
 #include <plug_common.h>
 
+#include <plug_extensions.h>
 #include <osg/Referenced>
 #include <osg/Object>
 #include <sgtCommon.h>
@@ -31,6 +32,25 @@ public:
 	static void _bind_dtor(__int64* obj);
 	typedef __int64 parent_t;
 	typedef __int64 base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: BaseClass
+template<>
+class LunaTraits< BaseClass > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static BaseClass* _bind_ctor(lua_State *L);
+	static void _bind_dtor(BaseClass* obj);
+	typedef BaseClass parent_t;
+	typedef BaseClass base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -629,6 +649,13 @@ template<>
 class LunaType< 32973728 > {
 public:
 	typedef __int64 type;
+	
+};
+
+template<>
+class LunaType< 48128592 > {
+public:
+	typedef BaseClass type;
 	
 };
 

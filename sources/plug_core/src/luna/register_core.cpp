@@ -19,6 +19,7 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 
 	luna_pushModule(L,"sgt");
 	Luna< __int64 >::Register(L);
+	Luna< BaseClass >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"boost");
 	Luna< boost::posix_time::ptime >::Register(L);

@@ -287,7 +287,7 @@ end
 
 function Class:containsClassTemplates()
 	-- check if the parent is a template class:
-	if not self:getParent():isClass() then
+	if self:getParent():getScopeType() ~= Scope.CLASS then
 		return false;
 	end
 	

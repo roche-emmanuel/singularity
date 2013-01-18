@@ -26,7 +26,7 @@ inline void push_back(std::vector<int>* vec, int val) {
 	vec->push_back(val);
 }
 
-/** LUNA_CLASS_EXTENSION LUNA_RENAME get */
+/** LUNA_CLASS_EXTENSION */
 inline unsigned int size(std::vector<int>* vec) {
 	return vec->size();
 }
@@ -50,5 +50,11 @@ inline void push_back(std::vector<double>* vec, double val) {
 inline unsigned int size(std::vector<double>* vec) {
 	return vec->size();
 }
+
+class BaseClass {
+public:	
+	BaseClass() {};
+	virtual ~BaseClass() {};
+};
 
 #endif
