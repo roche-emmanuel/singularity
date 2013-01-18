@@ -92,7 +92,7 @@ void LunaTraits< OpenThreads::ReentrantMutex >::_bind_dtor(OpenThreads::Reentran
 const char LunaTraits< OpenThreads::ReentrantMutex >::className[] = "ReentrantMutex";
 const char LunaTraits< OpenThreads::ReentrantMutex >::fullName[] = "OpenThreads::ReentrantMutex";
 const char LunaTraits< OpenThreads::ReentrantMutex >::moduleName[] = "OpenThreads";
-const char* LunaTraits< OpenThreads::ReentrantMutex >::parents[] = {"sgt.Mutex", 0};
+const char* LunaTraits< OpenThreads::ReentrantMutex >::parents[] = {"OpenThreads.Mutex", 0};
 const int LunaTraits< OpenThreads::ReentrantMutex >::hash = 12462362;
 const int LunaTraits< OpenThreads::ReentrantMutex >::uniqueIDs[] = {3168391,0};
 

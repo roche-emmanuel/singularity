@@ -25,6 +25,13 @@ struct luna_caster<boost::posix_time::ptime,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<OpenThreads::Mutex,dstType> {
+	static inline dstType* cast(OpenThreads::Mutex* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<osg::DeleteHandler,dstType> {
 	static inline dstType* cast(osg::DeleteHandler* ptr) {
 		return static_cast<dstType*>(ptr);

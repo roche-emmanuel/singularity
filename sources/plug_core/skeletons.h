@@ -19,6 +19,12 @@ namespace boost {
 
 };
 
+namespace OpenThreads {
+	class Mutex {
+	};
+
+};
+
 namespace osg {
 	class depends_on {
 	};

@@ -1,4 +1,11 @@
 
+namespace OpenThreads {
+
+class Mutex {
+};
+
+};
+
 // This is a trick to successfully export Referenced and Object classes from the core
 // module and use them from all other osg modules.
 namespace osg {

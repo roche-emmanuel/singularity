@@ -21,6 +21,9 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	luna_pushModule(L,"boost");
 	Luna< boost::posix_time::ptime >::Register(L);
 	luna_popModule(L);
+	luna_pushModule(L,"OpenThreads");
+	Luna< OpenThreads::Mutex >::Register(L);
+	luna_popModule(L);
 	luna_pushModule(L,"osg");
 	Luna< osg::Referenced >::Register(L);
 	Luna< osg::Object >::Register(L);
@@ -51,7 +54,6 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	Luna< std::vector< int > >::Register(L);
 	Luna< std::vector< float > >::Register(L);
 	Luna< std::vector< double > >::Register(L);
-	Luna< OpenThreads::Mutex >::Register(L);
 	luna_popModule(L);
 
 	luna_pushModule(L,"sgt");
@@ -66,6 +68,7 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 
 	luna_copyParents(L,"sgt");
 	luna_copyParents(L,"boost");
+	luna_copyParents(L,"OpenThreads");
 	luna_copyParents(L,"osg");
 	luna_copyParents(L,"std");
 

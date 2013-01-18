@@ -1,7 +1,5 @@
 #include <plug_common.h>
 
-#include <plug_common.h>
-
 class luna_wrapper_OpenThreads_Mutex {
 public:
 	typedef Luna< OpenThreads::Mutex > luna_t;
@@ -54,19 +52,33 @@ public:
 		return luna_dynamicCast(L,converters,"OpenThreads::Mutex",name);
 	}
 
+
+	// Constructor checkers:
+
+	// Function checkers:
+
+	// Operator checkers:
+	// (found 0 valid operators)
+
+	// Constructor binds:
+
+	// Function binds:
+
+	// Operator binds:
+
 };
 
 OpenThreads::Mutex* LunaTraits< OpenThreads::Mutex >::_bind_ctor(lua_State *L) {
-	return new OpenThreads::Mutex();
+	return NULL; // No valid default constructor.
 }
 
 void LunaTraits< OpenThreads::Mutex >::_bind_dtor(OpenThreads::Mutex* obj) {
 	delete obj;
 }
 
-const char LunaTraits< OpenThreads::Mutex >::className[] = "OpenThreads_Mutex";
+const char LunaTraits< OpenThreads::Mutex >::className[] = "Mutex";
 const char LunaTraits< OpenThreads::Mutex >::fullName[] = "OpenThreads::Mutex";
-const char LunaTraits< OpenThreads::Mutex >::moduleName[] = "sgt";
+const char LunaTraits< OpenThreads::Mutex >::moduleName[] = "OpenThreads";
 const char* LunaTraits< OpenThreads::Mutex >::parents[] = {0};
 const int LunaTraits< OpenThreads::Mutex >::hash = 3168391;
 const int LunaTraits< OpenThreads::Mutex >::uniqueIDs[] = {3168391,0};
@@ -74,7 +86,6 @@ const int LunaTraits< OpenThreads::Mutex >::uniqueIDs[] = {3168391,0};
 luna_RegType LunaTraits< OpenThreads::Mutex >::methods[] = {
 	{"dynCast", &luna_wrapper_OpenThreads_Mutex::_bind_dynCast},
 	{"__eq", &luna_wrapper_OpenThreads_Mutex::_bind___eq},
-	
 	{0,0}
 };
 
