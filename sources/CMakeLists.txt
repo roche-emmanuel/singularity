@@ -16,6 +16,7 @@ LINK_DIRECTORIES (${LUA_LIB_DIR})
 
 ADD_SUBDIRECTORY(sgtCore)
 
+ADD_SUBDIRECTORY(plug_byteconverter)
 # ADD_SUBDIRECTORY(plug_lpeg)
 # ADD_SUBDIRECTORY(plug_lfs)
 # ADD_SUBDIRECTORY(plug_sql)
@@ -28,7 +29,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_lanes)
 # ADD_SUBDIRECTORY(plug_ssl)
 
-ADD_SUBDIRECTORY(plug_core)
+# ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_doxmlparser)
 IF(MSVC)
 	# ADD_SUBDIRECTORY(plug_wx)
@@ -46,7 +47,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_box2d)
 # ADD_SUBDIRECTORY(plug_gizmo)
 # ADD_SUBDIRECTORY(plug_bullet)
-ADD_SUBDIRECTORY(plug_micropather)
+# ADD_SUBDIRECTORY(plug_micropather)
 
 # ToDo:
 # ADD_SUBDIRECTORY(plug_freenect)

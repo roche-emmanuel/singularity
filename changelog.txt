@@ -75,3 +75,5 @@
 - Added support for fromVoid/toVoid converters.
 - Removed some obsolete folders.
 - Added initial support for vector auto implementation.
+- Added byteconverter module.
+- Added simple RedBird mockup.
