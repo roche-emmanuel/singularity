@@ -21,6 +21,7 @@ unsigned int map_uint_get(std::map< std::string, unsigned int >* data, const std
 
 void setEnv(const std::string& var, const std::string& value);
 
+#if 0
 /** LUNA_CLASS_EXTENSION */
 inline void push_back(std::vector<int>* vec, int val) {
 	vec->push_back(val);
@@ -50,6 +51,8 @@ inline void push_back(std::vector<double>* vec, double val) {
 inline unsigned int size(std::vector<double>* vec) {
 	return vec->size();
 }
+
+#endif
 
 class BaseClass {
 public:	

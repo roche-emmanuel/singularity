@@ -158,25 +158,6 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Mapped type: std::vector< void * >
-template<>
-class LunaTraits< std::vector< void * > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::vector< void * >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::vector< void * >* obj);
-	typedef std::vector< void * > parent_t;
-	typedef std::vector< void * > base_t;
-	static luna_ConverterType converters[];
-};
-
 
 // Referenced external: void
 template<>
@@ -194,6 +175,25 @@ public:
 	static void _bind_dtor(void* obj);
 	typedef void parent_t;
 	typedef void base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: std::vector< void * >
+template<>
+class LunaTraits< std::vector< void * > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< void * >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< void * >* obj);
+	typedef std::vector< void * > parent_t;
+	typedef std::vector< void * > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -254,16 +254,16 @@ public:
 };
 
 template<>
-class LunaType< 87530881 > {
+class LunaType< 3625364 > {
 public:
-	typedef std::vector< void * > type;
+	typedef void type;
 	
 };
 
 template<>
-class LunaType< 3625364 > {
+class LunaType< 87530881 > {
 public:
-	typedef void type;
+	typedef std::vector< void * > type;
 	
 };
 

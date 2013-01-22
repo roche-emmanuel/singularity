@@ -587,25 +587,6 @@ public:
 };
 
 
-// Mapped type: std::map< std::string, unsigned int >
-template<>
-class LunaTraits< std::map< std::string, unsigned int > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::map< std::string, unsigned int >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::map< std::string, unsigned int >* obj);
-	typedef std::map< std::string, unsigned int > parent_t;
-	typedef std::map< std::string, unsigned int > base_t;
-	static luna_ConverterType converters[];
-};
-
 // Mapped type: std::vector< int >
 template<>
 class LunaTraits< std::vector< int > > {
@@ -660,6 +641,44 @@ public:
 	static void _bind_dtor(std::vector< double >* obj);
 	typedef std::vector< double > parent_t;
 	typedef std::vector< double > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: std::vector< void * >
+template<>
+class LunaTraits< std::vector< void * > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< void * >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< void * >* obj);
+	typedef std::vector< void * > parent_t;
+	typedef std::vector< void * > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: std::map< std::string, unsigned int >
+template<>
+class LunaTraits< std::map< std::string, unsigned int > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::map< std::string, unsigned int >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::map< std::string, unsigned int >* obj);
+	typedef std::map< std::string, unsigned int > parent_t;
+	typedef std::map< std::string, unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -791,20 +810,6 @@ public:
 };
 
 template<>
-class LunaType< 27704170 > {
-public:
-	typedef std::map< std::string, int > type;
-	
-};
-
-template<>
-class LunaType< 72783721 > {
-public:
-	typedef std::map< std::string, unsigned int > type;
-	
-};
-
-template<>
 class LunaType< 92299338 > {
 public:
 	typedef std::vector< int > type;
@@ -822,6 +827,27 @@ template<>
 class LunaType< 4564820 > {
 public:
 	typedef std::vector< double > type;
+	
+};
+
+template<>
+class LunaType< 87530881 > {
+public:
+	typedef std::vector< void * > type;
+	
+};
+
+template<>
+class LunaType< 27704170 > {
+public:
+	typedef std::map< std::string, int > type;
+	
+};
+
+template<>
+class LunaType< 72783721 > {
+public:
+	typedef std::map< std::string, unsigned int > type;
 	
 };
 

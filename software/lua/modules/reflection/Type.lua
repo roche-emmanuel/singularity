@@ -1,9 +1,12 @@
 local Class = require("classBuilder"){name="Type",bases="reflection.Holder"};
 
 local Scope = require "reflection.Scope"
+local Holder = require "reflection.Holder"
 
 local Enum = require "reflection.Enum"
-
+local Vector = require "std.Vector"
+local ItemLink = require "reflection.ItemLink"
+	
 local tm = require "bindings.TypeManager"
 local corr = require "bindings.TextCorrector"
 
@@ -14,6 +17,19 @@ function Class:initialize(options)
 	self._scopeType = Scope.TYPE
 
 	tm:registerType(self)
+end
+
+-- create a type from a string:
+function Class.createFromString(str)
+	
+	local link = ItemLink(str)
+	local links = Vector()
+	links:push_back(link)
+			
+	local rtype = Class{links=links}
+	rtype:parse();
+	
+	return rtype
 end
 
 -- check if a given string is a keyword
@@ -31,6 +47,11 @@ end
 
 function Class:getItemLinks()
 	return self._itemLinks;
+end
+
+function Class:addFunction(func)
+	tm:registerMappedTypeFunction(self:getBaseName(true),func)
+	Holder.addFunction(self,func)
 end
 
 function Class:extractBaseType(str)

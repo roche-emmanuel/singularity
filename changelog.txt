@@ -74,3 +74,4 @@
 - Fixed error on OpenThreads.ReentrantMutex dependency.
 - Added support for fromVoid/toVoid converters.
 - Removed some obsolete folders.
+- Added initial support for vector auto implementation.

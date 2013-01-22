@@ -217,7 +217,7 @@ function Class:writeFunctionCall(cname,func,args)
 			bname = tm:getAbsoluteBaseName(func:getParent())
 			self:info("Retrieving absolute base name=", bname," for external=",func:getParent():getTypeName())
 		else
-			bname = func:getParent():getFirstAbsoluteBase():getFullName();
+			bname = func:getParent():isType() and func:getParent():getName() or func:getParent():getFirstAbsoluteBase():getFullName();
 		end
 		
 		bname = tm:getBaseTypeMapping(bname)

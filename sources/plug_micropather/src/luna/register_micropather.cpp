@@ -21,7 +21,6 @@ int PLUG_EXPORT luaopen_micropather(lua_State* L) {
 	Luna< micropather::PathNodePool >::Register(L);
 	Luna< micropather::MicroPather >::Register(L);
 	Luna< std::vector< micropather::StateCost > >::Register(L);
-	Luna< std::vector< void * > >::Register(L);
 	luna_popModule(L);
 
 	luna_pushModule(L,"micropather");

@@ -12,4 +12,10 @@ const char LunaTraits< void >::moduleName[] = "sgt";
 const int LunaTraits< void >::hash = 3625364;
 const int LunaTraits< void >::uniqueIDs[] = {3625364,0};
 
+const char LunaTraits< std::vector< void * > >::className[] = "vector_void_ptr";
+const char LunaTraits< std::vector< void * > >::fullName[] = "std::vector< void * >";
+const char LunaTraits< std::vector< void * > >::moduleName[] = "sgt";
+const int LunaTraits< std::vector< void * > >::hash = 87530881;
+const int LunaTraits< std::vector< void * > >::uniqueIDs[] = {87530881,0};
+
 

@@ -719,6 +719,11 @@ function ReflectionGenerator:addScopeFunction(scope,mem)
 	local luaName = self:extractNewName(desc and desc:contents())
 	func:setLuaName(luaName) -- may be nil.
 	
+	if func:getName()== "LUNA_IMPLEMENT_VECTOR" then
+		self:implementVector(func)
+		return;
+	end
+	
 	-- Now decide where to store this function:
 	-- it could be a regular function or a class extension.
 	-- check the detailed description to find out:	
@@ -726,7 +731,7 @@ function ReflectionGenerator:addScopeFunction(scope,mem)
 		scope:addFunction(func)
 		return;
 	end
-
+	
 	-- this is a luna extension, find the parent class as the first argument
 	-- of the function:
 	log:warn("Found extension function " .. func:getName());
@@ -744,12 +749,70 @@ function ReflectionGenerator:addScopeFunction(scope,mem)
  	if bclass.isClass and bclass:isClass() then
  		bclass:addFunction(func);
 	else
-		tm:registerMappedTypeFunction(btype:getBaseName(),func)
 		btype:addFunction(func)
  	end
  	
     --local sig = func:getSignature(true)
     --log:info ("Function prototype is: ".. sig)
+end
+
+function ReflectionGenerator:implementVector(func)
+	local params = func:getParameters()
+	
+	self:check(params:size()>0,"Invalid parameter list size.")
+	
+	local baseType = func:getParameters():at(1):getType();
+	baseType:parse();
+	
+	self:warn("Implementing vector for type ",baseType:getName())
+	
+	local targetType = nil
+	if params:size() >1 then
+		-- the second parameter is the type description:
+		local btype = func:getParameters():at(2):getType() -- assume there are enough parameters!!!
+		btype:parse()
+		local bclass = btype:getBase()
+		if bclass.isClass and bclass:isClass() then
+			targetType = bclass
+		else
+			targetType = btype
+		end
+	else
+		-- We have to create the target type ourself:
+		targetType = Type.createFromString("std::vector< " .. baseType:getName() .. " >")
+	end
+	
+	
+	-- Now we should create the vector specific functions:
+	local voidType = Type.createFromString("void")
+	local boolType = Type.createFromString("bool")
+	local uintType = Type.createFromString("unsigned int")
+	
+	self:createSimpleMethod(targetType,boolType,"empty")
+	self:createSimpleMethod(targetType,uintType,"size")
+	self:createSimpleMethod(targetType,voidType,"resize",uintType)
+	self:createSimpleMethod(targetType,voidType,"push_back",baseType)
+	self:createSimpleMethod(targetType,baseType,"operator[]",uintType)
+end
+
+function ReflectionGenerator:createSimpleMethod(targetType,returnType,fname,...)
+	local func = Function()
+
+	local args = {}
+	for k,argType in ipairs({...}) do
+		local param = Parameter{type=argType,name="arg"..k};
+		func:getParameters():push_back(param)
+		table.insert(args,argType:getName() .. " arg"..k)
+	end
+	
+	func:setArgsString("(" .. table.concat(args,", ") .. ")")
+	func:setName(fname)
+	func:setSection("public")
+	func:setConstness(false)
+	func:setStatic(false)
+	func:setReturnType(returnType)
+				
+	targetType:addFunction(func)
 end
 
 function ReflectionGenerator:isPublic(mem)

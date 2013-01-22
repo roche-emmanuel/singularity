@@ -180,7 +180,8 @@ function Class:setExternal(external)
 end
 
 function Class:isExternal()
-	return tm:isExternal(self)
+	return self.externalModule or tm:getExternalBase(self:getName())
+	--return tm:isExternal(self)
 end
 
 function Class:isIgnored()
