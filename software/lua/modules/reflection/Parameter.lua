@@ -1,6 +1,7 @@
 local Class = require("classBuilder"){name="Parameter",bases="reflection.Entity"};
 
 local Entity = require "reflection.Entity"
+local Type = require "reflection.Type"
 
 function Class:initialize(options)
     self:setType(options.type)
@@ -15,6 +16,8 @@ end
 
 --- Assign the type of this parameter
 function Class:setType(type)
+	self:check(type,"Invalid type for parameter")
+	self:checkType(type,Type);
     self._type = type
 end
 

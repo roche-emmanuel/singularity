@@ -77,3 +77,4 @@
 - Added initial support for vector auto implementation.
 - Added byteconverter module.
 - Added simple RedBird mockup.
+- Added simple test for micropather module.

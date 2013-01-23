@@ -16,7 +16,7 @@ LINK_DIRECTORIES (${LUA_LIB_DIR})
 
 ADD_SUBDIRECTORY(sgtCore)
 
-ADD_SUBDIRECTORY(plug_byteconverter)
+# ADD_SUBDIRECTORY(plug_byteconverter)
 # ADD_SUBDIRECTORY(plug_lpeg)
 # ADD_SUBDIRECTORY(plug_lfs)
 # ADD_SUBDIRECTORY(plug_sql)
@@ -35,7 +35,7 @@ IF(MSVC)
 	# ADD_SUBDIRECTORY(plug_wx)
 ENDIF()
 
-# ADD_SUBDIRECTORY(plug_osg)
+ADD_SUBDIRECTORY(plug_osg)
 # ADD_SUBDIRECTORY(plug_osgWX)
 # ADD_SUBDIRECTORY(plug_FANN)
 # ADD_SUBDIRECTORY(plug_awesomium)

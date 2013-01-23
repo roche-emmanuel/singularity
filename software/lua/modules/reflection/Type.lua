@@ -95,6 +95,15 @@ function Class:expandTypedefs(linkvec)
 	end
 end
 
+function Class:clone()
+	local res = Type{links=self:getItemLinks()}
+	if self._base then
+		res:parse()
+	end
+	
+	return res;
+end
+
 --- Parse the input linkedtext vector.
 -- parsing the input linked text will generate the type definition.
 function Class:parse()
@@ -173,6 +182,14 @@ function Class:parse()
 	self._isPointer = (str:find("%*&?%s*$")~=nil)
 	self._isConstPointer = (str:find("%*&?%s*const%s*$")~=nil)
 	self._isPointerOnPointer = (str:find("%*%*%s*$")~=nil)
+end
+
+function Class:setIsConst(val)
+	self._isConst = val
+end
+
+function Class:setIsReference(val)
+	self._isReference = val
 end
 
 function Class:getFirstBase()

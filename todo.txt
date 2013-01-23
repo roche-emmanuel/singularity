@@ -6,6 +6,8 @@
 - Todo:
 
 * provide vector implementation system.
+* provide vector iterator support.
+* create double entry map.
 
 * Upgrade version of doxmlparser
 

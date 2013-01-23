@@ -766,33 +766,47 @@ function ReflectionGenerator:implementVector(func)
 	
 	self:warn("Implementing vector for type ",baseType:getName())
 	
+	local target = nil
 	local targetType = nil
+	
 	if params:size() >1 then
 		-- the second parameter is the type description:
 		local btype = func:getParameters():at(2):getType() -- assume there are enough parameters!!!
 		btype:parse()
 		local bclass = btype:getBase()
 		if bclass.isClass and bclass:isClass() then
-			targetType = bclass
+			target = bclass
+			targetType = bclass:asType()
 		else
-			targetType = btype
+			target = btype
+			targetType = target:clone()
 		end
 	else
 		-- We have to create the target type ourself:
-		targetType = Type.createFromString("std::vector< " .. baseType:getName() .. " >")
+		target = Type.createFromString("std::vector< " .. baseType:getName() .. " >")
 	end
 	
+	-- targetType:setIsReference(true) -- for referencing.
 	
 	-- Now we should create the vector specific functions:
 	local voidType = Type.createFromString("void")
 	local boolType = Type.createFromString("bool")
 	local uintType = Type.createFromString("unsigned int")
 	
-	self:createSimpleMethod(targetType,boolType,"empty")
-	self:createSimpleMethod(targetType,uintType,"size")
-	self:createSimpleMethod(targetType,voidType,"resize",uintType)
-	self:createSimpleMethod(targetType,voidType,"push_back",baseType)
-	self:createSimpleMethod(targetType,baseType,"operator[]",uintType)
+	self:createSimpleMethod(target,voidType,"assign",uintType,baseType)
+	-- self:createSimpleMethod(target,voidType,"insert",uintType,baseType) -- iterator needed.
+	self:createSimpleMethod(target,baseType,"at",uintType)
+	self:createSimpleMethod(target,baseType,"back")
+	self:createSimpleMethod(target,baseType,"front")
+	self:createSimpleMethod(target,voidType,"clear")
+	self:createSimpleMethod(target,boolType,"empty")
+	self:createSimpleMethod(target,uintType,"size")
+	self:createSimpleMethod(target,voidType,"resize",uintType)
+	self:createSimpleMethod(target,voidType,"pop_back")
+	self:createSimpleMethod(target,voidType,"push_back",baseType)
+	-- self:createSimpleMethod(target,voidType,"swap",targetType)
+	self:createSimpleMethod(target,baseType,"operator[]",uintType)
+	
 end
 
 function ReflectionGenerator:createSimpleMethod(targetType,returnType,fname,...)

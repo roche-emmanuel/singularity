@@ -2,6 +2,13 @@ module(..., package.seeall)
 
 local log = require "tracer"
 
+function test_number_format()
+	log:info("Tests","Testing number format")
+
+	local val = tonumber("-.998")
+	assert_equal(-.998,val,"Invalid number formating.")
+end
+
 function test_wrapper_destruction()
 	log:info("Tests","Testing wrapper destructor callback.")
 	

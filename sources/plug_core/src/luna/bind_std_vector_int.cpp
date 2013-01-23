@@ -54,6 +54,39 @@ public:
 		return luna_dynamicCast(L,converters,"std::vector< int >",name);
 	}
 
+	inline static bool _lg_typecheck_assign(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_at(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_back(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_front(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_clear(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_empty(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -73,10 +106,23 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_pop_back(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_push_back(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_swap(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92299338) ) return false;
 		return true;
 	}
 
@@ -87,6 +133,102 @@ public:
 		return true;
 	}
 
+
+	// void std::vector< int >::assign(unsigned int arg1, int arg2)
+	static int _bind_assign(lua_State *L) {
+		if (!_lg_typecheck_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void std::vector< int >::assign(unsigned int arg1, int arg2) function, expected prototype:\nvoid std::vector< int >::assign(unsigned int arg1, int arg2)\nClass arguments details:\n");
+		}
+
+		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
+		int arg2=(int)lua_tointeger(L,3);
+
+		std::vector< int >* self=(Luna< std::vector< int > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void std::vector< int >::assign(unsigned int, int). Got : '%s'",typeid(Luna< std::vector< int > >::check(L,1)).name());
+		}
+		self->assign(arg1, arg2);
+
+		return 0;
+	}
+
+	// int std::vector< int >::at(unsigned int arg1)
+	static int _bind_at(lua_State *L) {
+		if (!_lg_typecheck_at(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int std::vector< int >::at(unsigned int arg1) function, expected prototype:\nint std::vector< int >::at(unsigned int arg1)\nClass arguments details:\n");
+		}
+
+		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
+
+		std::vector< int >* self=(Luna< std::vector< int > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int std::vector< int >::at(unsigned int). Got : '%s'",typeid(Luna< std::vector< int > >::check(L,1)).name());
+		}
+		int lret = self->at(arg1);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int std::vector< int >::back()
+	static int _bind_back(lua_State *L) {
+		if (!_lg_typecheck_back(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int std::vector< int >::back() function, expected prototype:\nint std::vector< int >::back()\nClass arguments details:\n");
+		}
+
+
+		std::vector< int >* self=(Luna< std::vector< int > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int std::vector< int >::back(). Got : '%s'",typeid(Luna< std::vector< int > >::check(L,1)).name());
+		}
+		int lret = self->back();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int std::vector< int >::front()
+	static int _bind_front(lua_State *L) {
+		if (!_lg_typecheck_front(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int std::vector< int >::front() function, expected prototype:\nint std::vector< int >::front()\nClass arguments details:\n");
+		}
+
+
+		std::vector< int >* self=(Luna< std::vector< int > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int std::vector< int >::front(). Got : '%s'",typeid(Luna< std::vector< int > >::check(L,1)).name());
+		}
+		int lret = self->front();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void std::vector< int >::clear()
+	static int _bind_clear(lua_State *L) {
+		if (!_lg_typecheck_clear(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void std::vector< int >::clear() function, expected prototype:\nvoid std::vector< int >::clear()\nClass arguments details:\n");
+		}
+
+
+		std::vector< int >* self=(Luna< std::vector< int > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void std::vector< int >::clear(). Got : '%s'",typeid(Luna< std::vector< int > >::check(L,1)).name());
+		}
+		self->clear();
+
+		return 0;
+	}
 
 	// bool std::vector< int >::empty()
 	static int _bind_empty(lua_State *L) {
@@ -145,6 +287,24 @@ public:
 		return 0;
 	}
 
+	// void std::vector< int >::pop_back()
+	static int _bind_pop_back(lua_State *L) {
+		if (!_lg_typecheck_pop_back(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void std::vector< int >::pop_back() function, expected prototype:\nvoid std::vector< int >::pop_back()\nClass arguments details:\n");
+		}
+
+
+		std::vector< int >* self=(Luna< std::vector< int > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void std::vector< int >::pop_back(). Got : '%s'",typeid(Luna< std::vector< int > >::check(L,1)).name());
+		}
+		self->pop_back();
+
+		return 0;
+	}
+
 	// void std::vector< int >::push_back(int arg1)
 	static int _bind_push_back(lua_State *L) {
 		if (!_lg_typecheck_push_back(L)) {
@@ -160,6 +320,29 @@ public:
 			luaL_error(L, "Invalid object in function call void std::vector< int >::push_back(int). Got : '%s'",typeid(Luna< std::vector< int > >::check(L,1)).name());
 		}
 		self->push_back(arg1);
+
+		return 0;
+	}
+
+	// void std::vector< int >::swap(std::vector< int > arg1)
+	static int _bind_swap(lua_State *L) {
+		if (!_lg_typecheck_swap(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void std::vector< int >::swap(std::vector< int > arg1) function, expected prototype:\nvoid std::vector< int >::swap(std::vector< int > arg1)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		std::vector< int >* arg1_ptr=(Luna< std::vector< int > >::check(L,2));
+		if( !arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg arg1 in std::vector< int >::swap function");
+		}
+		std::vector< int > arg1=*arg1_ptr;
+
+		std::vector< int >* self=(Luna< std::vector< int > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void std::vector< int >::swap(std::vector< int >). Got : '%s'",typeid(Luna< std::vector< int > >::check(L,1)).name());
+		}
+		self->swap(arg1);
 
 		return 0;
 	}
@@ -205,10 +388,17 @@ luna_RegType LunaTraits< std::vector< int > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_int::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_int::_bind___eq},
 	
+	{"assign", &luna_wrapper_std_vector_int::_bind_assign},
+	{"at", &luna_wrapper_std_vector_int::_bind_at},
+	{"back", &luna_wrapper_std_vector_int::_bind_back},
+	{"front", &luna_wrapper_std_vector_int::_bind_front},
+	{"clear", &luna_wrapper_std_vector_int::_bind_clear},
 	{"empty", &luna_wrapper_std_vector_int::_bind_empty},
 	{"size", &luna_wrapper_std_vector_int::_bind_size},
 	{"resize", &luna_wrapper_std_vector_int::_bind_resize},
+	{"pop_back", &luna_wrapper_std_vector_int::_bind_pop_back},
 	{"push_back", &luna_wrapper_std_vector_int::_bind_push_back},
+	{"swap", &luna_wrapper_std_vector_int::_bind_swap},
 	{"op_index", &luna_wrapper_std_vector_int::_bind_op_index},
 	{0,0}
 };

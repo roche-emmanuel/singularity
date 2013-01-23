@@ -25,3 +25,14 @@ typedef Vec2f Vec2;
 
 };
 
+namespace micropather {
+
+struct StateCost {
+	StateCost();
+};
+
+};
+
+LUNA_IMPLEMENT_VECTOR(micropather::StateCost);
+
+

@@ -6,10 +6,13 @@ local Vector = require "std.Vector"
 local Set = require "std.Set"
 local utils = require "utils"
 
+
 local tm = require "bindings.TypeManager"
 local im = require "bindings.IgnoreManager"
 local rm = require "bindings.ReflectionManager"
 local ItemSet = require "reflection.ItemSet"
+local ItemLink = require "reflection.ItemLink"
+local Type = require "reflection.Type"
 
 function Class:initialize(options)
     self._scopeType = Scope.CLASS
@@ -20,6 +23,17 @@ end
 
 function Class:getMappedType()
 	return self.mappedType
+end
+
+function Class:asType()
+	local link = ItemLink(self)
+	local links = Vector()
+	links:push_back(link)
+			
+	local rtype = Type{links=links}
+	rtype:parse();
+	
+	return rtype
 end
 
 function Class:getFullLuaName(withModule)

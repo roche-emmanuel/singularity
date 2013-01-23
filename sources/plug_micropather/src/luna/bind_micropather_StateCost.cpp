@@ -98,6 +98,12 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_getState(lua_State *L) {
@@ -131,6 +137,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// micropather::StateCost::StateCost()
+	static micropather::StateCost* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in micropather::StateCost::StateCost() function, expected prototype:\nmicropather::StateCost::StateCost()\nClass arguments details:\n");
+		}
+
+
+		return new micropather::StateCost();
+	}
+
 
 	// Function binds:
 	// void * micropather::StateCost::state()
@@ -217,7 +234,7 @@ public:
 };
 
 micropather::StateCost* LunaTraits< micropather::StateCost >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_micropather_StateCost::_bind_ctor(L);
 }
 
 void LunaTraits< micropather::StateCost >::_bind_dtor(micropather::StateCost* obj) {

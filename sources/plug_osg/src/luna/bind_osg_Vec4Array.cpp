@@ -126,19 +126,6 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_push_back(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,92303235) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_size(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_accept_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -209,6 +196,71 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_assign(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303235) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_at(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_back(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_front(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_clear(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_empty(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_size(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_resize(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_pop_back(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_push_back(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303235) ) return false;
 		return true;
 	}
 
@@ -359,7 +411,14 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_index(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
 	// osg::Vec4Array::Vec4Array()
@@ -395,48 +454,6 @@ public:
 
 
 	// Function binds:
-	// void osg::Vec4Array::push_back(const osg::Vec4f & vec)
-	static int _bind_push_back(lua_State *L) {
-		if (!_lg_typecheck_push_back(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Vec4Array::push_back(const osg::Vec4f & vec) function, expected prototype:\nvoid osg::Vec4Array::push_back(const osg::Vec4f & vec)\nClass arguments details:\narg 1 ID = 92303235\n");
-		}
-
-		const osg::Vec4f* vec_ptr=(Luna< osg::Vec4f >::check(L,2));
-		if( !vec_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg vec in osg::Vec4Array::push_back function");
-		}
-		const osg::Vec4f & vec=*vec_ptr;
-
-		osg::Vec4Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Vec4Array::push_back(const osg::Vec4f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->push_back(vec);
-
-		return 0;
-	}
-
-	// unsigned int osg::Vec4Array::size()
-	static int _bind_size(lua_State *L) {
-		if (!_lg_typecheck_size(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::Vec4Array::size() function, expected prototype:\nunsigned int osg::Vec4Array::size()\nClass arguments details:\n");
-		}
-
-
-		osg::Vec4Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::Vec4Array::size(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		unsigned int lret = self->size();
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
 	// void osg::Vec4Array::accept(osg::ArrayVisitor & arg1)
 	static int _bind_accept_overload_1(lua_State *L) {
 		if (!_lg_typecheck_accept_overload_1(L)) {
@@ -667,6 +684,213 @@ public:
 		Luna< osg::Object >::push(L,lret,false);
 
 		return 1;
+	}
+
+	// void osg::Vec4Array::assign(unsigned int arg1, osg::Vec4f arg2)
+	static int _bind_assign(lua_State *L) {
+		if (!_lg_typecheck_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Vec4Array::assign(unsigned int arg1, osg::Vec4f arg2) function, expected prototype:\nvoid osg::Vec4Array::assign(unsigned int arg1, osg::Vec4f arg2)\nClass arguments details:\narg 2 ID = 92303235\n");
+		}
+
+		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
+		osg::Vec4f* arg2_ptr=(Luna< osg::Vec4f >::check(L,3));
+		if( !arg2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg arg2 in osg::Vec4Array::assign function");
+		}
+		osg::Vec4f arg2=*arg2_ptr;
+
+		osg::Vec4Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Vec4Array::assign(unsigned int, osg::Vec4f). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->assign(arg1, arg2);
+
+		return 0;
+	}
+
+	// osg::Vec4f osg::Vec4Array::at(unsigned int arg1)
+	static int _bind_at(lua_State *L) {
+		if (!_lg_typecheck_at(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec4f osg::Vec4Array::at(unsigned int arg1) function, expected prototype:\nosg::Vec4f osg::Vec4Array::at(unsigned int arg1)\nClass arguments details:\n");
+		}
+
+		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
+
+		osg::Vec4Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Vec4f osg::Vec4Array::at(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Vec4f stack_lret = self->at(arg1);
+		osg::Vec4f* lret = new osg::Vec4f(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec4f >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osg::Vec4f osg::Vec4Array::back()
+	static int _bind_back(lua_State *L) {
+		if (!_lg_typecheck_back(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec4f osg::Vec4Array::back() function, expected prototype:\nosg::Vec4f osg::Vec4Array::back()\nClass arguments details:\n");
+		}
+
+
+		osg::Vec4Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Vec4f osg::Vec4Array::back(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Vec4f stack_lret = self->back();
+		osg::Vec4f* lret = new osg::Vec4f(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec4f >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osg::Vec4f osg::Vec4Array::front()
+	static int _bind_front(lua_State *L) {
+		if (!_lg_typecheck_front(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec4f osg::Vec4Array::front() function, expected prototype:\nosg::Vec4f osg::Vec4Array::front()\nClass arguments details:\n");
+		}
+
+
+		osg::Vec4Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Vec4f osg::Vec4Array::front(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Vec4f stack_lret = self->front();
+		osg::Vec4f* lret = new osg::Vec4f(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec4f >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// void osg::Vec4Array::clear()
+	static int _bind_clear(lua_State *L) {
+		if (!_lg_typecheck_clear(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Vec4Array::clear() function, expected prototype:\nvoid osg::Vec4Array::clear()\nClass arguments details:\n");
+		}
+
+
+		osg::Vec4Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Vec4Array::clear(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->clear();
+
+		return 0;
+	}
+
+	// bool osg::Vec4Array::empty()
+	static int _bind_empty(lua_State *L) {
+		if (!_lg_typecheck_empty(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Vec4Array::empty() function, expected prototype:\nbool osg::Vec4Array::empty()\nClass arguments details:\n");
+		}
+
+
+		osg::Vec4Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Vec4Array::empty(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->empty();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// unsigned int osg::Vec4Array::size()
+	static int _bind_size(lua_State *L) {
+		if (!_lg_typecheck_size(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Vec4Array::size() function, expected prototype:\nunsigned int osg::Vec4Array::size()\nClass arguments details:\n");
+		}
+
+
+		osg::Vec4Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::Vec4Array::size(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->size();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::Vec4Array::resize(unsigned int arg1)
+	static int _bind_resize(lua_State *L) {
+		if (!_lg_typecheck_resize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Vec4Array::resize(unsigned int arg1) function, expected prototype:\nvoid osg::Vec4Array::resize(unsigned int arg1)\nClass arguments details:\n");
+		}
+
+		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
+
+		osg::Vec4Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Vec4Array::resize(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->resize(arg1);
+
+		return 0;
+	}
+
+	// void osg::Vec4Array::pop_back()
+	static int _bind_pop_back(lua_State *L) {
+		if (!_lg_typecheck_pop_back(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Vec4Array::pop_back() function, expected prototype:\nvoid osg::Vec4Array::pop_back()\nClass arguments details:\n");
+		}
+
+
+		osg::Vec4Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Vec4Array::pop_back(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->pop_back();
+
+		return 0;
+	}
+
+	// void osg::Vec4Array::push_back(osg::Vec4f arg1)
+	static int _bind_push_back(lua_State *L) {
+		if (!_lg_typecheck_push_back(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Vec4Array::push_back(osg::Vec4f arg1) function, expected prototype:\nvoid osg::Vec4Array::push_back(osg::Vec4f arg1)\nClass arguments details:\narg 1 ID = 92303235\n");
+		}
+
+		osg::Vec4f* arg1_ptr=(Luna< osg::Vec4f >::check(L,2));
+		if( !arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg arg1 in osg::Vec4Array::push_back function");
+		}
+		osg::Vec4f arg1=*arg1_ptr;
+
+		osg::Vec4Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Vec4Array::push_back(osg::Vec4f). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->push_back(arg1);
+
+		return 0;
 	}
 
 	// void osg::Vec4Array::base_setThreadSafeRefUnref(bool threadSafe)
@@ -1126,6 +1350,29 @@ public:
 
 
 	// Operator binds:
+	// osg::Vec4f osg::Vec4Array::operator[](unsigned int arg1)
+	static int _bind_op_index(lua_State *L) {
+		if (!_lg_typecheck_op_index(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec4f osg::Vec4Array::operator[](unsigned int arg1) function, expected prototype:\nosg::Vec4f osg::Vec4Array::operator[](unsigned int arg1)\nClass arguments details:\n");
+		}
+
+		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
+
+		osg::Vec4Array* self=Luna< osg::Referenced >::checkSubType< osg::Vec4Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Vec4f osg::Vec4Array::operator[](unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Vec4f stack_lret = self->operator[](arg1);
+		osg::Vec4f* lret = new osg::Vec4f(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec4f >::push(L,lret,true);
+
+		return 1;
+	}
+
 
 };
 
@@ -1145,8 +1392,6 @@ const int LunaTraits< osg::Vec4Array >::hash = 35833861;
 const int LunaTraits< osg::Vec4Array >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osg::Vec4Array >::methods[] = {
-	{"push_back", &luna_wrapper_osg_Vec4Array::_bind_push_back},
-	{"size", &luna_wrapper_osg_Vec4Array::_bind_size},
 	{"accept", &luna_wrapper_osg_Vec4Array::_bind_accept},
 	{"compare", &luna_wrapper_osg_Vec4Array::_bind_compare},
 	{"getDataPointer", &luna_wrapper_osg_Vec4Array::_bind_getDataPointer},
@@ -1154,6 +1399,16 @@ luna_RegType LunaTraits< osg::Vec4Array >::methods[] = {
 	{"getNumElements", &luna_wrapper_osg_Vec4Array::_bind_getNumElements},
 	{"cloneType", &luna_wrapper_osg_Vec4Array::_bind_cloneType},
 	{"clone", &luna_wrapper_osg_Vec4Array::_bind_clone},
+	{"assign", &luna_wrapper_osg_Vec4Array::_bind_assign},
+	{"at", &luna_wrapper_osg_Vec4Array::_bind_at},
+	{"back", &luna_wrapper_osg_Vec4Array::_bind_back},
+	{"front", &luna_wrapper_osg_Vec4Array::_bind_front},
+	{"clear", &luna_wrapper_osg_Vec4Array::_bind_clear},
+	{"empty", &luna_wrapper_osg_Vec4Array::_bind_empty},
+	{"size", &luna_wrapper_osg_Vec4Array::_bind_size},
+	{"resize", &luna_wrapper_osg_Vec4Array::_bind_resize},
+	{"pop_back", &luna_wrapper_osg_Vec4Array::_bind_pop_back},
+	{"push_back", &luna_wrapper_osg_Vec4Array::_bind_push_back},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_Vec4Array::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osg_Vec4Array::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_Vec4Array::_bind_base_computeDataVariance},
@@ -1171,6 +1426,7 @@ luna_RegType LunaTraits< osg::Vec4Array >::methods[] = {
 	{"base_getNumElements", &luna_wrapper_osg_Vec4Array::_bind_base_getNumElements},
 	{"base_cloneType", &luna_wrapper_osg_Vec4Array::_bind_base_cloneType},
 	{"base_clone", &luna_wrapper_osg_Vec4Array::_bind_base_clone},
+	{"op_index", &luna_wrapper_osg_Vec4Array::_bind_op_index},
 	{"__eq", &luna_wrapper_osg_Vec4Array::_bind___eq},
 	{"fromVoid", &luna_wrapper_osg_Vec4Array::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_osg_Vec4Array::_bind_asVoid},
