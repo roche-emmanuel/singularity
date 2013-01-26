@@ -28,41 +28,43 @@ local rawget       = rawget
 local setmetatable = setmetatable
 local getmetatable = getmetatable
 
-module "loop.base"
+local Class = {}
 
 --------------------------------------------------------------------------------
-function rawnew(class, object)
+function Class.rawnew(class, object)
 	return setmetatable(object or {}, class)
 end
 --------------------------------------------------------------------------------
-function new(class, ...)
+function Class.new(class, ...)
 	if class.__init
 		then return class:__init(...)
-		else return rawnew(class, ...)
+		else return Class.rawnew(class, ...)
 	end
 end
 --------------------------------------------------------------------------------
-function initclass(class)
+function Class.initclass(class)
 	if class == nil then class = {} end
 	if class.__index == nil then class.__index = class end
 	return class
 end
 --------------------------------------------------------------------------------
-local MetaClass = { __call = new }
-function class(class)
-	return setmetatable(initclass(class), MetaClass)
+local MetaClass = { __call = Class.new }
+function Class.class(class)
+	return setmetatable(Class.initclass(class), MetaClass)
 end
 --------------------------------------------------------------------------------
-classof = getmetatable
+Class.classof = getmetatable
 --------------------------------------------------------------------------------
-function isclass(class)
+function Class.isclass(class)
 	return classof(class) == MetaClass
 end
 --------------------------------------------------------------------------------
-function instanceof(object, class)
+function Class.instanceof(object, class)
 	return classof(object) == class
 end
 --------------------------------------------------------------------------------
-memberof = rawget
+Class.memberof = rawget
 --------------------------------------------------------------------------------
-members = pairs
+Class.members = pairs
+
+return Class

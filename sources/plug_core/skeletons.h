@@ -53,6 +53,12 @@ namespace sgt {
 	class TimeManager {
 	};
 
+	class ModuleProvider: public sgt::Object {
+	};
+
+	class ModuleManager {
+	};
+
 	class FileLogger: public sgt::LogSink {
 	};
 

@@ -34,6 +34,8 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	Luna< sgt::Referenced >::Register(L);
 	Luna< sgt::TimeProvider >::Register(L);
 	Luna< sgt::TimeManager >::Register(L);
+	Luna< sgt::ModuleProvider >::Register(L);
+	Luna< sgt::ModuleManager >::Register(L);
 	Luna< sgt::LogSink >::Register(L);
 	Luna< sgt::FileLogger >::Register(L);
 	Luna< sgt::LogManager >::Register(L);

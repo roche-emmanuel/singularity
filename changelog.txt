@@ -78,3 +78,5 @@
 - Added byteconverter module.
 - Added simple RedBird mockup.
 - Added simple test for micropather module.
+- Added initial vector implementation system.
+- Added lua package generation system.

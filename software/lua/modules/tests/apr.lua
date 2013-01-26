@@ -35,7 +35,7 @@ function test_lane_timer()
 	local apr = require "apr"
 	
 	-- perform the internal tests:
-	local tests = require "apr.test"
+	local tests = require "apr.test.init"
 	
 	tests()
 	

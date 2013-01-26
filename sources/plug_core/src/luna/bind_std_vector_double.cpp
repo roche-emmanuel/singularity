@@ -119,13 +119,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_swap(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,4564820) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_op_index(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -324,29 +317,6 @@ public:
 		return 0;
 	}
 
-	// void std::vector< double >::swap(std::vector< double > arg1)
-	static int _bind_swap(lua_State *L) {
-		if (!_lg_typecheck_swap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void std::vector< double >::swap(std::vector< double > arg1) function, expected prototype:\nvoid std::vector< double >::swap(std::vector< double > arg1)\nClass arguments details:\narg 1 ID = [unknown]\n");
-		}
-
-		std::vector< double >* arg1_ptr=(Luna< std::vector< double > >::check(L,2));
-		if( !arg1_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg arg1 in std::vector< double >::swap function");
-		}
-		std::vector< double > arg1=*arg1_ptr;
-
-		std::vector< double >* self=(Luna< std::vector< double > >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void std::vector< double >::swap(std::vector< double >). Got : '%s'",typeid(Luna< std::vector< double > >::check(L,1)).name());
-		}
-		self->swap(arg1);
-
-		return 0;
-	}
-
 	// double std::vector< double >::operator[](unsigned int arg1)
 	static int _bind_op_index(lua_State *L) {
 		if (!_lg_typecheck_op_index(L)) {
@@ -398,7 +368,6 @@ luna_RegType LunaTraits< std::vector< double > >::methods[] = {
 	{"resize", &luna_wrapper_std_vector_double::_bind_resize},
 	{"pop_back", &luna_wrapper_std_vector_double::_bind_pop_back},
 	{"push_back", &luna_wrapper_std_vector_double::_bind_push_back},
-	{"swap", &luna_wrapper_std_vector_double::_bind_swap},
 	{"op_index", &luna_wrapper_std_vector_double::_bind_op_index},
 	{0,0}
 };

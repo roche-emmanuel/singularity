@@ -9,12 +9,12 @@ log:notice "Executing init script..."
 local cfg = require "config"
 local core = require "core"
 
+--local man = core.LogManager.instance()
+--man:setNotifyLevel(core.LogManager.DEBUG2)
 core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG2)
 
--- local App = require "misc.RedBirdApp"
-local App = require "misc.RedBirdDumpApp"
-local app = App()
+require("utils.LuaCConverter")()
 
-app:run()
-	
+collectgarbage('collect')
+
 log:notice "Script execution done."

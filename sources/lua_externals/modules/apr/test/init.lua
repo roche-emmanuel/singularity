@@ -54,7 +54,7 @@ local modules = {
   'xml'
 }
 
-local modname = ...
+local modname = "apr.test"
 return function()
 
   local status, apr = pcall(require, 'apr')

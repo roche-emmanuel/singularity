@@ -155,24 +155,24 @@ function Class:traverse(options,sub_path)
 	self:check(self:isNil(sub_path) or self:isNonEmptyString(sub_path),"Invalid sub path.")
 	self:checkFunction(options.func,"Invalid function in dir traversal.")
 	
-	local path = self:formatPath(options.path) .. (sub_path and "/" .. sub_path or "") 
+	local path = self:formatPath(options.path) .. "/" .. (sub_path or "") 
 	self:checkFolder(path,"Invalid path for dir traversal");
 	
 	for file in lfs.dir(path) do
         if file ~= "." and file ~= ".." then
-            local fullpath = path ..'/'..file
+            local fullpath = path..file
 
 			if ( not options.pattern or fullpath:find(options.pattern)) 
 				 and (not options.type or options.type==self:getType(fullpath)) then
 				options.func{path=options.path,
-					 sub_path=sub_path,
+					 sub_path=sub_path or "",
 					 file=file,
 					 fullpath=fullpath,
 					 userdata=options.userdata}
 			end
 					            
             if self:isFolder(fullpath) and options.recursive then
-                self:traverse(options,(sub_path and sub_path.."/" or "")..file)
+                self:traverse(options,(sub_path or "").. file .. "/")
             end
         end
     end

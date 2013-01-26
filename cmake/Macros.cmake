@@ -235,6 +235,18 @@ MACRO(PRECOMPILE_LUA luafile)
 	ADD_DEPENDENCIES(${TARGET_NAME} "${TARGET_NAME}_${FileBasename}_lch")
 ENDMACRO(PRECOMPILE_LUA)
 
+MACRO(GENERATE_LUA_PACKAGE STUB_NAME)
+	ADD_CUSTOM_TARGET(
+		${TARGET_NAME}_package
+		COMMAND echo "Generating lua package..."
+		COMMAND ${LUA} -e "project='${TARGET_NAME}'; src_path='${CMAKE_CURRENT_SOURCE_DIR}/../modules/'; sgt_path='${SGT_DIR}/';" ${SGT_DIR}/scripts/generate_package.lua
+		COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/../CMakeLists.txt # touch the calling file.
+		COMMAND echo "Package generation done."
+	)	
+	
+	ADD_DEPENDENCIES(${STUB_NAME} ${TARGET_NAME}_package)
+ENDMACRO(GENERATE_LUA_PACKAGE)
+
 MACRO(GENERATE_REFLECTION STUB_NAME INTERFACE_FILES)
     SET(DOXFILE "doxyfile")
 	

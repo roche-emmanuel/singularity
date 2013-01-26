@@ -27,7 +27,7 @@ function Class:updateVisibility(show)
             end
         end
         
-        self:warn("Could not find page to hide (caption was '"),self._caption,"')");
+        self:warn("Could not find page to hide (caption was '",self._caption,"')");
     end
 end
 

@@ -67,6 +67,13 @@ struct luna_caster<sgt::TimeManager,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<sgt::ModuleManager,dstType> {
+	static inline dstType* cast(sgt::ModuleManager* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<std::vector< osg::ref_ptr< sgt::LogSink > >,dstType> {
 	static inline dstType* cast(std::vector< osg::ref_ptr< sgt::LogSink > >* ptr) {
 		return static_cast<dstType*>(ptr);

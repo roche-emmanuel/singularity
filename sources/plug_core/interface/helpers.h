@@ -93,6 +93,15 @@ public:
 	static bool isInstanciated();
 };
 
+class ModuleManager {
+protected:
+	~ModuleManager();
+public:
+	static ModuleProvider& instance();
+	static void destroy();
+	static bool isInstanciated();
+};
+
 class AnyVector : public sgt::Object {
 public:
 	AnyVector();

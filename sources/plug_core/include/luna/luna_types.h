@@ -10,6 +10,7 @@
 #include <base/Object.h>
 #include <base/Referenced.h>
 #include <base/TimeProvider.h>
+#include <lua/ModuleProvider.h>
 #include <log/LogSink.h>
 #include <log/FileLogger.h>
 #include <log/LogManager.h>
@@ -355,6 +356,44 @@ public:
 	static void _bind_dtor(sgt::TimeManager* obj);
 	typedef sgt::TimeManager parent_t;
 	typedef sgt::TimeManager base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::ModuleProvider
+template<>
+class LunaTraits< sgt::ModuleProvider > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::ModuleProvider* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::ModuleProvider* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::ModuleProvider base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::ModuleManager
+template<>
+class LunaTraits< sgt::ModuleManager > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::ModuleManager* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::ModuleManager* obj);
+	typedef sgt::ModuleManager parent_t;
+	typedef sgt::ModuleManager base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -757,6 +796,13 @@ template<>
 class LunaType< 10949480 > {
 public:
 	typedef sgt::TimeManager type;
+	
+};
+
+template<>
+class LunaType< 37264461 > {
+public:
+	typedef sgt::ModuleManager type;
 	
 };
 
