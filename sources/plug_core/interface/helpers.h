@@ -47,6 +47,9 @@ protected:
 class __int64 {
 };
 
+class uintptr_t {
+};
+
 class void {
 };
 

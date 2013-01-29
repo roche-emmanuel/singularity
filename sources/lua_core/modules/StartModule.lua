@@ -39,6 +39,16 @@ end
 sgt.doLog(level,"Loading external package...")
 sgt.ModuleProvider.loadPackage(root_path .. "bin/".. flavor .."/packages/externals.lpak")
 
+require "luna"
+
+_G.log = require "logger"
+
+-- retrieve config:
+local cfg = require "config"
+local core = require "core"
+
+core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG2)
+
 sgt.doLog(level,"Creating StartModule class.")
 local Class = require("classBuilder"){name="StartModule",bases="base.Object"};
 

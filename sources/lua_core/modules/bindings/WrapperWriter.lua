@@ -62,7 +62,8 @@ function Class:pushParam(param,k)
 	elseif rt:isEnum() and rt:isPointer() then
 		name = "(int*)"..name
 	else
-		name = (rt:isReference() and (rt:isClass() or external) and not rt:isPointer() and "&" or "") .. name
+		-- name = (rt:isReference() and (rt:isClass() or external) and not rt:isPointer() and "&" or "") .. name
+		name = ((rt:isClass() or external) and not rt:isPointer() and "&" or "") .. name
 	end
 	
 	self:writeSubLine("_obj.pushArg(${1});",name)

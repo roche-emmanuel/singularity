@@ -433,6 +433,11 @@ function Class:isNothing()
 end
 
 function Class:isValidForWrapping()
+	local str = self:getName()
+	if tonumber(str) or str=="-" then
+		return false;
+	end
+	
 	return (not self:isInstanceOf(require"reflection.Class",self._base) or self:getBase():isValidForWrapping()) 
 end
 

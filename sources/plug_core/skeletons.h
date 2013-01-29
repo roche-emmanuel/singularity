@@ -7,6 +7,9 @@ class __int64 {
 class BaseClass {
 };
 
+class uintptr_t {
+};
+
 class void {
 };
 
