@@ -4,6 +4,10 @@ function Class:initialize(options)
 	self:addWebPage("http://www.google.fr")
 	self:addWebPage("http://www.youtube.fr")
 	
+	for _,val in pairs(options.pages or {}) do
+		self:addWebPage(val)
+	end
+	
 	-- obj:loadURL("http://www.smashcat.org/av/canvas_test/")
 	-- obj:loadURL("http://oos.moxiecode.com/js_webgl/woods_xmas/")
 	-- obj:loadURL("http://www.asterank.com/3d/")

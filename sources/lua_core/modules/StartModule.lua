@@ -43,6 +43,8 @@ require "luna"
 
 _G.log = require "logger"
 
+_G.fs = require "base.FileSystem"
+
 -- retrieve config:
 local cfg = require "config"
 local core = require "core"

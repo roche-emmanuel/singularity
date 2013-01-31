@@ -14,11 +14,16 @@ function Class:initialize(options)
 	
 	self:info("RedBird app is running.")
 	
+	-- local ip ="singularityworld.info.tm"
+	local ip ="217.92.39.17"
+	self:info("Using target IP: ", ip)
+	
 	-- self._socket = require("network.UDPSocket"){localPort=31001,port=31000,address="192.168.0.17"}
-	self._socket = require("network.UDPSocket"){localPort=31001,port=31000,address="singularityworld.info.tm"}
+	self._socket = require("network.UDPSocket"){localPort=31001,port=31000,address=ip}
 	
 	self._startTick = osg.Timer.instance():tick()
 	self._packetID = 0;
+	self._absPacketID = 0;
 	
 	self._timer = osg.Timer.instance()
 	self._durations = {}
@@ -91,6 +96,7 @@ function Class:writeMessage()
 	self:resetBuffer()
 	
 	self._packetID = self._packetID+1
+	self._absPacketID = self._absPacketID+1
 	
 	if self._packetID > #self._packets then
 		self._packetID = 1
@@ -118,7 +124,8 @@ ACFT_PITCH=%f
 ACFT_ROLL=%f
 ACFT_TAS=90]]
 
-	str = str:format(packet.seq,packet.lat,packet.lon,packet.alt,packet.yaw,packet.pitch,packet.roll);
+	-- str = str:format(packet.seq,packet.lat,packet.lon,packet.alt,packet.yaw,packet.pitch,packet.roll);
+	str = str:format(self._absPacketID,packet.lat,packet.lon,packet.alt,packet.yaw,packet.pitch,packet.roll);
 	
 	--self:info("Sending packet:\n",str)
 	self:append(str)

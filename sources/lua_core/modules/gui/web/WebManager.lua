@@ -14,6 +14,8 @@ function Class:initialize(options)
 	self._prefs = awe.WebPreferences()
 	self._prefs:useWebGL(true)
 	
+	self._prefs:set_allow_file_access_from_file_url(true)
+	
 	self._core = awe.WebCore.Initialize(cfg)
 
 	self._session = self._core:CreateWebSession(fs:getRootPath(true).."cache/awesomium",self._prefs)
