@@ -81,3 +81,4 @@
 - Added initial vector implementation system.
 - Added lua package generation system.
 - Added mathgl module with simple test.
+- Adding some tests for awesomium module.
