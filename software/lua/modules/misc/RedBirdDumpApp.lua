@@ -109,6 +109,7 @@ function Class:writeMessage()
 		
 		elapsed = elapsed/#self._durations
 		self:info("Mean frequency: ",1.0/elapsed," Hz")
+		self._durations = {}
 	end
 	
 	local packet = self._packets[self._packetID]

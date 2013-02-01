@@ -12,9 +12,11 @@ function Class:initialize(options)
 	--cfg:addAdditionalOption("--use-gl=desktop");
 	
 	self._prefs = awe.WebPreferences()
-	self._prefs:useWebGL(true)
 	
+	self._prefs:set_enable_web_gl(false) -- disable webgl for now.
+	self._prefs:set_enable_databases(false)
 	self._prefs:set_allow_file_access_from_file_url(true)
+	self._prefs:set_allow_universal_access_from_file_url(true)
 	
 	self._core = awe.WebCore.Initialize(cfg)
 

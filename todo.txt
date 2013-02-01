@@ -5,6 +5,10 @@
 
 - Todo:
 
+* enforce proper timer frequency.
+
+* Implement OSG dedicated awesomium surface.
+
 * provide vector iterator support.
 * create double entry map.
 
