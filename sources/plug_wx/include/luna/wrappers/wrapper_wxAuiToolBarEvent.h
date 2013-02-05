@@ -59,13 +59,6 @@ public:
 		return wxAuiToolBarEvent::GetClassInfo();
 	};
 
-	// wxEvent * wxEvent::Clone() const
-	wxEvent * Clone() const {
-		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxEvent::Clone");
-		_obj.pushArg((wxAuiToolBarEvent*)this);
-		return (_obj.callFunction<wxEvent*>());
-	};
-
 	// wxEventCategory wxEvent::GetEventCategory() const
 	wxEventCategory GetEventCategory() const {
 		if(_obj.pushFunction("GetEventCategory")) {
@@ -74,6 +67,16 @@ public:
 		}
 
 		return wxAuiToolBarEvent::GetEventCategory();
+	};
+
+	// wxEvent * wxCommandEvent::Clone() const
+	wxEvent * Clone() const {
+		if(_obj.pushFunction("Clone")) {
+			_obj.pushArg((wxAuiToolBarEvent*)this);
+			return (_obj.callFunction<wxEvent*>());
+		}
+
+		return wxAuiToolBarEvent::Clone();
 	};
 
 

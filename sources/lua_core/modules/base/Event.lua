@@ -5,4 +5,11 @@ local Class = require("classBuilder"){name="Event",bases="base.Object"};
 Class.APP_CLOSING="AppClosing"
 Class.FRAME="Frame"
 
+Class.default_front = {}
+Class.default_front.AppClosing = true
+
+function Class.isFront(ename)
+	return Class.default_front[ename]
+end
+
 return Class

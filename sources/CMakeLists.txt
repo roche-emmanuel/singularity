@@ -32,7 +32,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_lanes)
 # ADD_SUBDIRECTORY(plug_ssl)
 
-# ADD_SUBDIRECTORY(plug_core)
+ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_doxmlparser)
 IF(MSVC)
 	# ADD_SUBDIRECTORY(plug_wx)

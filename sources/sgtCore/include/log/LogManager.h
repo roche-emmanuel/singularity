@@ -20,7 +20,11 @@ It is a "static only class" and thus do not need any memory management integrate
 */
 class SGTCORE_EXPORT LogManager : public sgtReferenced {
 public:
-	//Object_META_DEF(sgt,LogManager);
+	class LogHandler : public sgtReferenced {
+	public:
+		virtual void handle(int level, std::string trace, std::string msg) = 0;
+	};
+	
 
 	/** The available flags for each level or trace.
 	The flags specify how the messages should be rendered and which content should be prepended.*/
@@ -77,7 +81,9 @@ private:
 
 	/** The default level flags.*/
 	int _defaultLevelFlags;
-
+	
+	sgtPtr<LogHandler> _handler;
+	
 public:
 	LogManager() :
 		_notifyLevel(100),
@@ -91,7 +97,18 @@ public:
 	Log a given piece of information to the internal sinks.
 	*/
 	void log(int level, std::string trace, std::string msg);
+	
+	void doLog(int level, std::string trace, std::string msg);
 
+	/** assign the log handler if needed. */
+	inline void setLogHandler(LogHandler* handler) {
+		_handler = handler;
+	};
+	
+	inline LogHandler* getLogHandler() {
+		return _handler.get();
+	};
+	
 	/**
 	Returns the flags for a given level value.
 	*/

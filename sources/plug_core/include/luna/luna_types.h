@@ -302,6 +302,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: OpenThreads::ScopedLock< OpenThreads::Mutex >
+template<>
+class LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::ScopedLock< OpenThreads::Mutex >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::ScopedLock< OpenThreads::Mutex >* obj);
+	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > parent_t;
+	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: sgt::Object
 template<>
 class LunaTraits< sgt::Object > {
@@ -527,6 +546,25 @@ public:
 	static void _bind_dtor(std::map< std::string, int >* obj);
 	typedef std::map< std::string, int > parent_t;
 	typedef std::map< std::string, int > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::LogManager::LogHandler
+template<>
+class LunaTraits< sgt::LogManager::LogHandler > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::LogManager::LogHandler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::LogManager::LogHandler* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::LogManager::LogHandler base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -838,6 +876,13 @@ public:
 };
 
 template<>
+class LunaType< 77165148 > {
+public:
+	typedef sgt::sgtLock type;
+	
+};
+
+template<>
 class LunaType< 10949480 > {
 public:
 	typedef sgt::TimeManager type;
@@ -953,6 +998,13 @@ template<>
 class LunaType< 84922662 > {
 public:
 	typedef osg::ref_ptr< osg::Referenced > type;
+	
+};
+
+template<>
+class LunaType< 84875541 > {
+public:
+	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > type;
 	
 };
 

@@ -111,7 +111,18 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<0 || luatop>3 ) return false;
+
+		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !(Luna< wxObject >::checkSubType< wxRibbonPage >(L,3)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>4 ) return false;
 
@@ -119,6 +130,7 @@ public:
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !(Luna< wxObject >::checkSubType< wxRibbonPage >(L,4)) ) ) return false;
 		return true;
 	}
 
@@ -149,14 +161,36 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// wxRibbonBarEvent::wxRibbonBarEvent(int command_type = wxEVT_NULL, int win_id = 0, wxRibbonPage * page = NULL)
+	static wxRibbonBarEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRibbonBarEvent::wxRibbonBarEvent(int command_type = wxEVT_NULL, int win_id = 0, wxRibbonPage * page = NULL) function, expected prototype:\nwxRibbonBarEvent::wxRibbonBarEvent(int command_type = wxEVT_NULL, int win_id = 0, wxRibbonPage * page = NULL)\nClass arguments details:\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int command_type=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
+		int win_id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		wxRibbonPage* page=luatop>2 ? (Luna< wxObject >::checkSubType< wxRibbonPage >(L,3)) : (wxRibbonPage*)NULL;
+
+		return new wxRibbonBarEvent(command_type, win_id, page);
+	}
+
 	// wxRibbonBarEvent::wxRibbonBarEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonPage * page = NULL)
-	static wxRibbonBarEvent* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxRibbonBarEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxRibbonBarEvent::wxRibbonBarEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonPage * page = NULL) function, expected prototype:\nwxRibbonBarEvent::wxRibbonBarEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonPage * page = NULL)\nClass arguments details:\narg 4 ID = 56813631\n");
 		}
@@ -168,6 +202,15 @@ public:
 		wxRibbonPage* page=luatop>3 ? (Luna< wxObject >::checkSubType< wxRibbonPage >(L,4)) : (wxRibbonPage*)NULL;
 
 		return new wrapper_wxRibbonBarEvent(L,NULL, command_type, win_id, page);
+	}
+
+	// Overload binder for wxRibbonBarEvent::wxRibbonBarEvent
+	static wxRibbonBarEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxRibbonBarEvent, cannot match any of the overloads for function wxRibbonBarEvent:\n  wxRibbonBarEvent(int, int, wxRibbonPage *)\n  wxRibbonBarEvent(lua_Table *, int, int, wxRibbonPage *)\n");
+		return NULL;
 	}
 
 
@@ -252,6 +295,27 @@ public:
 		return 1;
 	}
 
+	// wxEvent * wxRibbonBarEvent::base_Clone() const
+	static int _bind_base_Clone(lua_State *L) {
+		if (!_lg_typecheck_base_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEvent * wxRibbonBarEvent::base_Clone() const function, expected prototype:\nwxEvent * wxRibbonBarEvent::base_Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxRibbonBarEvent* self=Luna< wxObject >::checkSubType< wxRibbonBarEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEvent * wxRibbonBarEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		wxEvent * lret = self->wxRibbonBarEvent::Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxEvent >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -259,9 +323,6 @@ public:
 
 wxRibbonBarEvent* LunaTraits< wxRibbonBarEvent >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxRibbonBarEvent::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// wxEvent * wxEvent::Clone() const
 }
 
 void LunaTraits< wxRibbonBarEvent >::_bind_dtor(wxRibbonBarEvent* obj) {
@@ -280,6 +341,7 @@ luna_RegType LunaTraits< wxRibbonBarEvent >::methods[] = {
 	{"SetPage", &luna_wrapper_wxRibbonBarEvent::_bind_SetPage},
 	{"base_GetClassInfo", &luna_wrapper_wxRibbonBarEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxRibbonBarEvent::_bind_base_GetEventCategory},
+	{"base_Clone", &luna_wrapper_wxRibbonBarEvent::_bind_base_Clone},
 	{"__eq", &luna_wrapper_wxRibbonBarEvent::_bind___eq},
 	{"fromVoid", &luna_wrapper_wxRibbonBarEvent::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_wxRibbonBarEvent::_bind_asVoid},

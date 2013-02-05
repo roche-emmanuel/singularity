@@ -22,6 +22,11 @@ function Class:initialize(options)
 	
 	self:create()
 
+	self:info("Installing wx log handler...")
+	local win = wx.wxGetApp():GetTopWindow()
+	self._prevLogHandler = sgt.LogManager.instance():getLogHandler()
+	sgt.LogManager.instance():setLogHandler(wx.createWxLogHandler(self._tc:GetEventHandler())) --win:GetEventHandler()))
+	
 	sgt.LogManager.instance():addSink(self._sink)
 	self:debug4("OutputPanel initialization done.")
 end
@@ -30,6 +35,10 @@ function Class:onAppClosing()
 	-- release all the images:
 	self:info("Removing OutputPanel Sink.")
 	sgt.LogManager.instance():removeSink(self._sink);
+
+	self:info("Removing wx log handler...")
+	sgt.LogManager.instance():setLogHandler(self._prevLogHandler)
+	self._prevLogHandler = nil;		
 end
 
 function Class:create()

@@ -4,7 +4,6 @@ local wx = require "wx"
 
 local Set = require "std.Set"
 
-local Scheduler = require "gui.wx.Scheduler" -- ensure the scheduler gets initialized.
 local Event = require "base.Event"
 
 -- Main class to manager all the windows/interfaces.

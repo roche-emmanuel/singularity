@@ -66,7 +66,7 @@ void LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::_bind_dtor(Ope
 
 const char LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::className[] = "OpenThreads_ScopedLock_OpenThreads_Mutex";
 const char LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::fullName[] = "OpenThreads::ScopedLock< OpenThreads::Mutex >";
-const char LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::moduleName[] = "osg";
+const char LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::moduleName[] = "sgt";
 const char* LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::parents[] = {0};
 const int LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::hash = 84875541;
 const int LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::uniqueIDs[] = {84875541,0};

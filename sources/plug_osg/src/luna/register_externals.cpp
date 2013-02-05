@@ -54,6 +54,12 @@ const char LunaTraits< osgDB::IntLookup::StringToValue >::moduleName[] = "sgt";
 const int LunaTraits< osgDB::IntLookup::StringToValue >::hash = 34334607;
 const int LunaTraits< osgDB::IntLookup::StringToValue >::uniqueIDs[] = {27704170,0};
 
+const char LunaTraits< osgParticle::ParticleSystem::ScopedReadLock >::className[] = "OpenThreads_ScopedLock_OpenThreads_Mutex";
+const char LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > >::fullName[] = "OpenThreads::ScopedLock< OpenThreads::Mutex >";
+const char LunaTraits< osgParticle::ParticleSystem::ScopedReadLock >::moduleName[] = "sgt";
+const int LunaTraits< osgParticle::ParticleSystem::ScopedReadLock >::hash = 61073220;
+const int LunaTraits< osgParticle::ParticleSystem::ScopedReadLock >::uniqueIDs[] = {84875541,0};
+
 const char LunaTraits< osgUtil::Hit::VecIndexList >::className[] = "std_vector_int";
 const char LunaTraits< std::vector< int > >::fullName[] = "std::vector< int >";
 const char LunaTraits< osgUtil::Hit::VecIndexList >::moduleName[] = "sgt";

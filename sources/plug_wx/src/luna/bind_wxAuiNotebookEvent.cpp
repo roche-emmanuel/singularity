@@ -111,7 +111,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<0 || luatop>2 ) return false;
+
+		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>3 ) return false;
 
@@ -141,14 +150,35 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// wxAuiNotebookEvent::wxAuiNotebookEvent(int command_type = wxEVT_NULL, int win_id = 0)
+	static wxAuiNotebookEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAuiNotebookEvent::wxAuiNotebookEvent(int command_type = wxEVT_NULL, int win_id = 0) function, expected prototype:\nwxAuiNotebookEvent::wxAuiNotebookEvent(int command_type = wxEVT_NULL, int win_id = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int command_type=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
+		int win_id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+
+		return new wxAuiNotebookEvent(command_type, win_id);
+	}
+
 	// wxAuiNotebookEvent::wxAuiNotebookEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0)
-	static wxAuiNotebookEvent* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxAuiNotebookEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxAuiNotebookEvent::wxAuiNotebookEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0) function, expected prototype:\nwxAuiNotebookEvent::wxAuiNotebookEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0)\nClass arguments details:\n");
 		}
@@ -159,6 +189,15 @@ public:
 		int win_id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 
 		return new wrapper_wxAuiNotebookEvent(L,NULL, command_type, win_id);
+	}
+
+	// Overload binder for wxAuiNotebookEvent::wxAuiNotebookEvent
+	static wxAuiNotebookEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxAuiNotebookEvent, cannot match any of the overloads for function wxAuiNotebookEvent:\n  wxAuiNotebookEvent(int, int)\n  wxAuiNotebookEvent(lua_Table *, int, int)\n");
+		return NULL;
 	}
 
 
@@ -224,6 +263,27 @@ public:
 		return 1;
 	}
 
+	// wxEvent * wxAuiNotebookEvent::base_Clone() const
+	static int _bind_base_Clone(lua_State *L) {
+		if (!_lg_typecheck_base_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEvent * wxAuiNotebookEvent::base_Clone() const function, expected prototype:\nwxEvent * wxAuiNotebookEvent::base_Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiNotebookEvent* self=Luna< wxObject >::checkSubType< wxAuiNotebookEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEvent * wxAuiNotebookEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		wxEvent * lret = self->wxAuiNotebookEvent::Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxEvent >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -231,9 +291,6 @@ public:
 
 wxAuiNotebookEvent* LunaTraits< wxAuiNotebookEvent >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxAuiNotebookEvent::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// wxEvent * wxEvent::Clone() const
 }
 
 void LunaTraits< wxAuiNotebookEvent >::_bind_dtor(wxAuiNotebookEvent* obj) {
@@ -251,6 +308,7 @@ luna_RegType LunaTraits< wxAuiNotebookEvent >::methods[] = {
 	{"Clone", &luna_wrapper_wxAuiNotebookEvent::_bind_Clone},
 	{"base_GetClassInfo", &luna_wrapper_wxAuiNotebookEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxAuiNotebookEvent::_bind_base_GetEventCategory},
+	{"base_Clone", &luna_wrapper_wxAuiNotebookEvent::_bind_base_Clone},
 	{"__eq", &luna_wrapper_wxAuiNotebookEvent::_bind___eq},
 	{"fromVoid", &luna_wrapper_wxAuiNotebookEvent::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_wxAuiNotebookEvent::_bind_asVoid},

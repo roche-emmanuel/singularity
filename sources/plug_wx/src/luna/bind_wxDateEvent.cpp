@@ -138,6 +138,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -229,6 +235,27 @@ public:
 		return 1;
 	}
 
+	// wxEvent * wxDateEvent::base_Clone() const
+	static int _bind_base_Clone(lua_State *L) {
+		if (!_lg_typecheck_base_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEvent * wxDateEvent::base_Clone() const function, expected prototype:\nwxEvent * wxDateEvent::base_Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxDateEvent* self=Luna< wxObject >::checkSubType< wxDateEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEvent * wxDateEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		wxEvent * lret = self->wxDateEvent::Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxEvent >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -236,9 +263,6 @@ public:
 
 wxDateEvent* LunaTraits< wxDateEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// wxEvent * wxEvent::Clone() const
 }
 
 void LunaTraits< wxDateEvent >::_bind_dtor(wxDateEvent* obj) {
@@ -257,6 +281,7 @@ luna_RegType LunaTraits< wxDateEvent >::methods[] = {
 	{"SetDate", &luna_wrapper_wxDateEvent::_bind_SetDate},
 	{"base_GetClassInfo", &luna_wrapper_wxDateEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxDateEvent::_bind_base_GetEventCategory},
+	{"base_Clone", &luna_wrapper_wxDateEvent::_bind_base_Clone},
 	{"__eq", &luna_wrapper_wxDateEvent::_bind___eq},
 	{"fromVoid", &luna_wrapper_wxDateEvent::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_wxDateEvent::_bind_asVoid},

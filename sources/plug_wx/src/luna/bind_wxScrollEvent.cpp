@@ -111,7 +111,18 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<0 || luatop>4 ) return false;
+
+		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>5 ) return false;
 
@@ -163,14 +174,37 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// wxScrollEvent::wxScrollEvent(int commandType = wxEVT_NULL, int id = 0, int pos = 0, int orientation = 0)
+	static wxScrollEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxScrollEvent::wxScrollEvent(int commandType = wxEVT_NULL, int id = 0, int pos = 0, int orientation = 0) function, expected prototype:\nwxScrollEvent::wxScrollEvent(int commandType = wxEVT_NULL, int id = 0, int pos = 0, int orientation = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int commandType=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int pos=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int orientation=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+
+		return new wxScrollEvent(commandType, id, pos, orientation);
+	}
+
 	// wxScrollEvent::wxScrollEvent(lua_Table * data, int commandType = wxEVT_NULL, int id = 0, int pos = 0, int orientation = 0)
-	static wxScrollEvent* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxScrollEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxScrollEvent::wxScrollEvent(lua_Table * data, int commandType = wxEVT_NULL, int id = 0, int pos = 0, int orientation = 0) function, expected prototype:\nwxScrollEvent::wxScrollEvent(lua_Table * data, int commandType = wxEVT_NULL, int id = 0, int pos = 0, int orientation = 0)\nClass arguments details:\n");
 		}
@@ -183,6 +217,15 @@ public:
 		int orientation=luatop>4 ? (int)lua_tointeger(L,5) : 0;
 
 		return new wrapper_wxScrollEvent(L,NULL, commandType, id, pos, orientation);
+	}
+
+	// Overload binder for wxScrollEvent::wxScrollEvent
+	static wxScrollEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxScrollEvent, cannot match any of the overloads for function wxScrollEvent:\n  wxScrollEvent(int, int, int, int)\n  wxScrollEvent(lua_Table *, int, int, int, int)\n");
+		return NULL;
 	}
 
 
@@ -303,6 +346,27 @@ public:
 		return 1;
 	}
 
+	// wxEvent * wxScrollEvent::base_Clone() const
+	static int _bind_base_Clone(lua_State *L) {
+		if (!_lg_typecheck_base_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEvent * wxScrollEvent::base_Clone() const function, expected prototype:\nwxEvent * wxScrollEvent::base_Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxScrollEvent* self=Luna< wxObject >::checkSubType< wxScrollEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEvent * wxScrollEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		wxEvent * lret = self->wxScrollEvent::Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxEvent >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -310,9 +374,6 @@ public:
 
 wxScrollEvent* LunaTraits< wxScrollEvent >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxScrollEvent::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// wxEvent * wxEvent::Clone() const
 }
 
 void LunaTraits< wxScrollEvent >::_bind_dtor(wxScrollEvent* obj) {
@@ -333,6 +394,7 @@ luna_RegType LunaTraits< wxScrollEvent >::methods[] = {
 	{"SetPosition", &luna_wrapper_wxScrollEvent::_bind_SetPosition},
 	{"base_GetClassInfo", &luna_wrapper_wxScrollEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxScrollEvent::_bind_base_GetEventCategory},
+	{"base_Clone", &luna_wrapper_wxScrollEvent::_bind_base_Clone},
 	{"__eq", &luna_wrapper_wxScrollEvent::_bind___eq},
 	{"fromVoid", &luna_wrapper_wxScrollEvent::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_wxScrollEvent::_bind_asVoid},

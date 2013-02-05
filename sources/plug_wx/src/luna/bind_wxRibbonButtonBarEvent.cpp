@@ -111,7 +111,18 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<0 || luatop>3 ) return false;
+
+		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !(Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,3)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>4 ) return false;
 
@@ -119,6 +130,7 @@ public:
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !(Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,4)) ) ) return false;
 		return true;
 	}
 
@@ -156,14 +168,36 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// wxRibbonButtonBarEvent::wxRibbonButtonBarEvent(int command_type = wxEVT_NULL, int win_id = 0, wxRibbonButtonBar * bar = NULL)
+	static wxRibbonButtonBarEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRibbonButtonBarEvent::wxRibbonButtonBarEvent(int command_type = wxEVT_NULL, int win_id = 0, wxRibbonButtonBar * bar = NULL) function, expected prototype:\nwxRibbonButtonBarEvent::wxRibbonButtonBarEvent(int command_type = wxEVT_NULL, int win_id = 0, wxRibbonButtonBar * bar = NULL)\nClass arguments details:\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int command_type=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
+		int win_id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		wxRibbonButtonBar* bar=luatop>2 ? (Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,3)) : (wxRibbonButtonBar*)NULL;
+
+		return new wxRibbonButtonBarEvent(command_type, win_id, bar);
+	}
+
 	// wxRibbonButtonBarEvent::wxRibbonButtonBarEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonButtonBar * bar = NULL)
-	static wxRibbonButtonBarEvent* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxRibbonButtonBarEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxRibbonButtonBarEvent::wxRibbonButtonBarEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonButtonBar * bar = NULL) function, expected prototype:\nwxRibbonButtonBarEvent::wxRibbonButtonBarEvent(lua_Table * data, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonButtonBar * bar = NULL)\nClass arguments details:\narg 4 ID = 56813631\n");
 		}
@@ -175,6 +209,15 @@ public:
 		wxRibbonButtonBar* bar=luatop>3 ? (Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,4)) : (wxRibbonButtonBar*)NULL;
 
 		return new wrapper_wxRibbonButtonBarEvent(L,NULL, command_type, win_id, bar);
+	}
+
+	// Overload binder for wxRibbonButtonBarEvent::wxRibbonButtonBarEvent
+	static wxRibbonButtonBarEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxRibbonButtonBarEvent, cannot match any of the overloads for function wxRibbonButtonBarEvent:\n  wxRibbonButtonBarEvent(int, int, wxRibbonButtonBar *)\n  wxRibbonButtonBarEvent(lua_Table *, int, int, wxRibbonButtonBar *)\n");
+		return NULL;
 	}
 
 
@@ -279,6 +322,27 @@ public:
 		return 1;
 	}
 
+	// wxEvent * wxRibbonButtonBarEvent::base_Clone() const
+	static int _bind_base_Clone(lua_State *L) {
+		if (!_lg_typecheck_base_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEvent * wxRibbonButtonBarEvent::base_Clone() const function, expected prototype:\nwxEvent * wxRibbonButtonBarEvent::base_Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxRibbonButtonBarEvent* self=Luna< wxObject >::checkSubType< wxRibbonButtonBarEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEvent * wxRibbonButtonBarEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		wxEvent * lret = self->wxRibbonButtonBarEvent::Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxEvent >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -286,9 +350,6 @@ public:
 
 wxRibbonButtonBarEvent* LunaTraits< wxRibbonButtonBarEvent >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxRibbonButtonBarEvent::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// wxEvent * wxEvent::Clone() const
 }
 
 void LunaTraits< wxRibbonButtonBarEvent >::_bind_dtor(wxRibbonButtonBarEvent* obj) {
@@ -308,6 +369,7 @@ luna_RegType LunaTraits< wxRibbonButtonBarEvent >::methods[] = {
 	{"PopupMenu", &luna_wrapper_wxRibbonButtonBarEvent::_bind_PopupMenu},
 	{"base_GetClassInfo", &luna_wrapper_wxRibbonButtonBarEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxRibbonButtonBarEvent::_bind_base_GetEventCategory},
+	{"base_Clone", &luna_wrapper_wxRibbonButtonBarEvent::_bind_base_Clone},
 	{"__eq", &luna_wrapper_wxRibbonButtonBarEvent::_bind___eq},
 	{"fromVoid", &luna_wrapper_wxRibbonButtonBarEvent::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_wxRibbonButtonBarEvent::_bind_asVoid},

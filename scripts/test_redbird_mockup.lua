@@ -13,7 +13,7 @@ core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG2)
 
 -- local App = require "misc.RedBirdApp"
 local App = require "misc.RedBirdDumpApp"
-local app = App()
+local app = App{profileFile="test_redbird_mockup_profile.log"}
 
 app:run()
 	

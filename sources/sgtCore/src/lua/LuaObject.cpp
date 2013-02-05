@@ -14,7 +14,7 @@ bool LuaObject::pushFunction(String name) const {
 
 	CHECK_RET(pushLuaItem(),false,"Cannot push lua item when calling "<<name);
 
-	CHECK_RET(lua_type(_state,-1)==LUA_TTABLE,false,"Invalid non table base for luaObject.");
+	CHECK_RET(lua_type(_state,-1)==LUA_TTABLE,false,"Invalid non table base for luaObject, type is: "<<lua_type(_state,-1) <<", while pushing function: '"<<name<<"'");
 
 	// table is on the stack:
 	// retrieve the function by name:

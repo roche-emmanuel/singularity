@@ -640,7 +640,6 @@ osgParticle::ModularProgram => osg::Referenced
 osgParticle::MultiSegmentPlacer => osg::Referenced
 osgParticle::OrbitOperator => osg::Referenced
 osgParticle::Particle => osgParticle::Particle
-OpenThreads::ScopedLock< OpenThreads::Mutex > => OpenThreads::ScopedLock< OpenThreads::Mutex >
 osgParticle::ParticleSystemUpdater => osg::Referenced
 osgParticle::PointPlacer => osg::Referenced
 osgParticle::PrecipitationEffect => osg::Referenced

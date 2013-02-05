@@ -7,7 +7,7 @@ local cfg = require "config"
 local evtman = require "base.EventManager"
 local Event = require "base.Event"
 local Set = require "std.Set"
-local Timer = require "gui.wx.Timer"
+local Timer = require "gui.wx.ThreadTimer"
 
 local prof = require "debugging.Profiler"
 
@@ -17,13 +17,20 @@ function Class:initialize(options)
 
 	self._timers = Set();
 	
+	local apr = require "apr"
+	
 	evtman:addListener{event=Event.APP_CLOSING,object=self}
 	
 	self:addTimer{frequency=cfg.master_framerate,callback=function(event) 
 		--self:info("Handing frame timer event...");
 		prof:start("Frame event")
 		evtman:fireEvent(Event.FRAME) 
-		collectgarbage('collect')
+		--apr.sleep(0.2);
+		--wx.wxGetApp():Yield(); -- useless ?
+		
+		--prof:start("garbage step")
+		collectgarbage('step')
+		--prof:stop()
 		--local mem = collectgarbage("count")
 		--self:info("Memory usage: ", mem, " KBs")
 		prof:stop()

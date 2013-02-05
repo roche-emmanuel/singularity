@@ -82,3 +82,5 @@
 - Added lua package generation system.
 - Added mathgl module with simple test.
 - Adding some tests for awesomium module.
+- Adding support for multithreads.
+- Built dedicated thread timer.

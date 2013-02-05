@@ -685,7 +685,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osgParticle::MultiSegmentPlacer >::Register(L);
 	Luna< osgParticle::OrbitOperator >::Register(L);
 	Luna< osgParticle::Particle >::Register(L);
-	Luna< OpenThreads::ScopedLock< OpenThreads::Mutex > >::Register(L);
 	Luna< osgParticle::ParticleSystemUpdater >::Register(L);
 	Luna< osgParticle::PointPlacer >::Register(L);
 	Luna< osgParticle::PrecipitationEffect >::Register(L);

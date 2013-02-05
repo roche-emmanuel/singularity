@@ -14917,6 +14917,44 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Referenced external: osg::Referenced
+template<>
+class LunaTraits< osg::Referenced > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Referenced* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Referenced* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Referenced base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: sgt::LogManager::LogHandler
+template<>
+class LunaTraits< sgt::LogManager::LogHandler > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::LogManager::LogHandler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::LogManager::LogHandler* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::LogManager::LogHandler base_t;
+	static luna_ConverterType converters[];
+};
+
 template<>
 class LunaType< 81056638 > {
 public:
@@ -16811,6 +16849,20 @@ template<>
 class LunaType< 92299338 > {
 public:
 	typedef std::vector< int > type;
+	
+};
+
+template<>
+class LunaType< 50169651 > {
+public:
+	typedef osg::Referenced type;
+	
+};
+
+template<>
+class LunaType< 84005267 > {
+public:
+	typedef sgt::LogManager::LogHandler type;
 	
 };
 

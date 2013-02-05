@@ -2339,12 +2339,6 @@ namespace osgParticle {
 
 	class ParticleSystem: public osg::Drawable {
 	public:
-		class ScopedReadLock {
-		};
-
-		class ScopedWriteLock {
-		};
-
 	};
 
 	class ParticleSystemUpdater: public osg::Node {

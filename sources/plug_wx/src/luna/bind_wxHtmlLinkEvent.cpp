@@ -111,12 +111,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
+		if( (!(Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,3))) ) return false;
 		return true;
 	}
 
@@ -140,14 +150,37 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// wxHtmlLinkEvent::wxHtmlLinkEvent(int id, const wxHtmlLinkInfo & linkinfo)
+	static wxHtmlLinkEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlLinkEvent::wxHtmlLinkEvent(int id, const wxHtmlLinkInfo & linkinfo) function, expected prototype:\nwxHtmlLinkEvent::wxHtmlLinkEvent(int id, const wxHtmlLinkInfo & linkinfo)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int id=(int)lua_tointeger(L,1);
+		const wxHtmlLinkInfo* linkinfo_ptr=(Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,2));
+		if( !linkinfo_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg linkinfo in wxHtmlLinkEvent::wxHtmlLinkEvent function");
+		}
+		const wxHtmlLinkInfo & linkinfo=*linkinfo_ptr;
+
+		return new wxHtmlLinkEvent(id, linkinfo);
+	}
+
 	// wxHtmlLinkEvent::wxHtmlLinkEvent(lua_Table * data, int id, const wxHtmlLinkInfo & linkinfo)
-	static wxHtmlLinkEvent* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxHtmlLinkEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxHtmlLinkEvent::wxHtmlLinkEvent(lua_Table * data, int id, const wxHtmlLinkInfo & linkinfo) function, expected prototype:\nwxHtmlLinkEvent::wxHtmlLinkEvent(lua_Table * data, int id, const wxHtmlLinkInfo & linkinfo)\nClass arguments details:\narg 3 ID = 56813631\n");
 		}
@@ -160,6 +193,15 @@ public:
 		const wxHtmlLinkInfo & linkinfo=*linkinfo_ptr;
 
 		return new wrapper_wxHtmlLinkEvent(L,NULL, id, linkinfo);
+	}
+
+	// Overload binder for wxHtmlLinkEvent::wxHtmlLinkEvent
+	static wxHtmlLinkEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxHtmlLinkEvent, cannot match any of the overloads for function wxHtmlLinkEvent:\n  wxHtmlLinkEvent(int, const wxHtmlLinkInfo &)\n  wxHtmlLinkEvent(lua_Table *, int, const wxHtmlLinkInfo &)\n");
+		return NULL;
 	}
 
 
@@ -225,6 +267,27 @@ public:
 		return 1;
 	}
 
+	// wxEvent * wxHtmlLinkEvent::base_Clone() const
+	static int _bind_base_Clone(lua_State *L) {
+		if (!_lg_typecheck_base_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEvent * wxHtmlLinkEvent::base_Clone() const function, expected prototype:\nwxEvent * wxHtmlLinkEvent::base_Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlLinkEvent* self=Luna< wxObject >::checkSubType< wxHtmlLinkEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEvent * wxHtmlLinkEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		wxEvent * lret = self->wxHtmlLinkEvent::Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxEvent >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -232,9 +295,6 @@ public:
 
 wxHtmlLinkEvent* LunaTraits< wxHtmlLinkEvent >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxHtmlLinkEvent::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// wxEvent * wxEvent::Clone() const
 }
 
 void LunaTraits< wxHtmlLinkEvent >::_bind_dtor(wxHtmlLinkEvent* obj) {
@@ -252,6 +312,7 @@ luna_RegType LunaTraits< wxHtmlLinkEvent >::methods[] = {
 	{"GetLinkInfo", &luna_wrapper_wxHtmlLinkEvent::_bind_GetLinkInfo},
 	{"base_GetClassInfo", &luna_wrapper_wxHtmlLinkEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxHtmlLinkEvent::_bind_base_GetEventCategory},
+	{"base_Clone", &luna_wrapper_wxHtmlLinkEvent::_bind_base_Clone},
 	{"__eq", &luna_wrapper_wxHtmlLinkEvent::_bind___eq},
 	{"fromVoid", &luna_wrapper_wxHtmlLinkEvent::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_wxHtmlLinkEvent::_bind_asVoid},

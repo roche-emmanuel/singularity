@@ -44,6 +44,9 @@ namespace sgt {
 	class RefPtr {
 	};
 
+	class sgtLock {
+	};
+
 	class Object: public osg::Object {
 	};
 
@@ -74,6 +77,9 @@ namespace sgt {
 		};
 
 		class TraceFlagMap {
+		};
+
+		class LogHandler: public sgt::Referenced {
 		};
 
 	};

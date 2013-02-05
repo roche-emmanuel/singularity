@@ -45,11 +45,15 @@ _G.log = require "logger"
 
 _G.fs = require "base.FileSystem"
 
+_G.profiler = require "debugging.Profiler"
+
 -- retrieve config:
 local cfg = require "config"
 local core = require "core"
 
 core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG2)
+core.LogManager.instance():setDefaultLevelFlags(core.LogManager.TIME_STAMP+core.LogManager.THREAD_ID)
+core.LogManager.instance():setDefaultTraceFlags(core.LogManager.TIME_STAMP+core.LogManager.THREAD_ID)
 
 sgt.doLog(level,"Creating StartModule class.")
 local Class = require("classBuilder"){name="StartModule",bases="base.Object"};

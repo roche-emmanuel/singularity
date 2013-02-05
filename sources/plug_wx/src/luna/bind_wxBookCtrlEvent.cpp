@@ -111,7 +111,18 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<0 || luatop>4 ) return false;
+
+		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>5 ) return false;
 
@@ -163,14 +174,37 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// wxBookCtrlEvent::wxBookCtrlEvent(int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND)
+	static wxBookCtrlEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxBookCtrlEvent::wxBookCtrlEvent(int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND) function, expected prototype:\nwxBookCtrlEvent::wxBookCtrlEvent(int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int eventType=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int sel=luatop>2 ? (int)lua_tointeger(L,3) : wxNOT_FOUND;
+		int oldSel=luatop>3 ? (int)lua_tointeger(L,4) : wxNOT_FOUND;
+
+		return new wxBookCtrlEvent(eventType, id, sel, oldSel);
+	}
+
 	// wxBookCtrlEvent::wxBookCtrlEvent(lua_Table * data, int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND)
-	static wxBookCtrlEvent* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxBookCtrlEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxBookCtrlEvent::wxBookCtrlEvent(lua_Table * data, int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND) function, expected prototype:\nwxBookCtrlEvent::wxBookCtrlEvent(lua_Table * data, int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND)\nClass arguments details:\n");
 		}
@@ -183,6 +217,15 @@ public:
 		int oldSel=luatop>4 ? (int)lua_tointeger(L,5) : wxNOT_FOUND;
 
 		return new wrapper_wxBookCtrlEvent(L,NULL, eventType, id, sel, oldSel);
+	}
+
+	// Overload binder for wxBookCtrlEvent::wxBookCtrlEvent
+	static wxBookCtrlEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxBookCtrlEvent, cannot match any of the overloads for function wxBookCtrlEvent:\n  wxBookCtrlEvent(int, int, int, int)\n  wxBookCtrlEvent(lua_Table *, int, int, int, int)\n");
+		return NULL;
 	}
 
 
@@ -303,6 +346,27 @@ public:
 		return 1;
 	}
 
+	// wxEvent * wxBookCtrlEvent::base_Clone() const
+	static int _bind_base_Clone(lua_State *L) {
+		if (!_lg_typecheck_base_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEvent * wxBookCtrlEvent::base_Clone() const function, expected prototype:\nwxEvent * wxBookCtrlEvent::base_Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxBookCtrlEvent* self=Luna< wxObject >::checkSubType< wxBookCtrlEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEvent * wxBookCtrlEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		wxEvent * lret = self->wxBookCtrlEvent::Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxEvent >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -310,9 +374,6 @@ public:
 
 wxBookCtrlEvent* LunaTraits< wxBookCtrlEvent >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxBookCtrlEvent::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// wxEvent * wxEvent::Clone() const
 }
 
 void LunaTraits< wxBookCtrlEvent >::_bind_dtor(wxBookCtrlEvent* obj) {
@@ -333,6 +394,7 @@ luna_RegType LunaTraits< wxBookCtrlEvent >::methods[] = {
 	{"SetSelection", &luna_wrapper_wxBookCtrlEvent::_bind_SetSelection},
 	{"base_GetClassInfo", &luna_wrapper_wxBookCtrlEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxBookCtrlEvent::_bind_base_GetEventCategory},
+	{"base_Clone", &luna_wrapper_wxBookCtrlEvent::_bind_base_Clone},
 	{"__eq", &luna_wrapper_wxBookCtrlEvent::_bind___eq},
 	{"fromVoid", &luna_wrapper_wxBookCtrlEvent::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_wxBookCtrlEvent::_bind_asVoid},

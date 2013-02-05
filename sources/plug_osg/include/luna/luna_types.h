@@ -19272,13 +19272,6 @@ public:
 };
 
 template<>
-class LunaType< 84875541 > {
-public:
-	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > type;
-	
-};
-
-template<>
 class LunaType< 98510513 > {
 public:
 	typedef std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime > type;

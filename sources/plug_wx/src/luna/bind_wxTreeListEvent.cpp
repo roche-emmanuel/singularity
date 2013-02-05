@@ -230,9 +230,6 @@ public:
 
 wxTreeListEvent* LunaTraits< wxTreeListEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// wxEvent * wxEvent::Clone() const
 }
 
 void LunaTraits< wxTreeListEvent >::_bind_dtor(wxTreeListEvent* obj) {

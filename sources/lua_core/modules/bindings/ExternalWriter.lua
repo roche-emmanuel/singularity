@@ -39,15 +39,21 @@ function Class:writeFile()
 	end
 		
 	for _,tname in tm:getReferencedExternals():sequence() do
-		if not im:ignore(tname,"class_declaration") and tm._externals:get(tname) and not written:contains(tname) then
+		local modName = tm._externals:get(tname)
+		if not im:ignore(tname,"class_declaration") and modName and not written:contains(tname) then
 			written:push_back(tname)
 			self:debug0_v("writing external declaration for type ", tname)
 			
 			local cname = tname
 			
-			local name = tname:gsub("(.*::)","")
+			local className = tname
+			if className:sub(1,modName:len()+2) == modName.."::" then
+				className = className:sub(modName:len()+3)
+			end
 			
-			buf:writeSubLine('const char LunaTraits< ${1} >::className[] = "${2}";',cname,corr:correct("filename",name));
+			--local name = tname:gsub("(.*::)","")
+			
+			buf:writeSubLine('const char LunaTraits< ${1} >::className[] = "${2}";',cname,corr:correct("filename",className));
 			buf:writeSubLine('const char LunaTraits< ${1} >::fullName[] = "${1}";',cname);
 			buf:writeSubLine('const char LunaTraits< ${1} >::moduleName[] = "${2}";',cname, tm._externals:get(tname));
 			--buf:writeSubLine('const char* LunaTraits< ${1} >::parents[] = {${2}0};',cname,parentList);

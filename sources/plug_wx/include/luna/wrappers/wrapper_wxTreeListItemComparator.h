@@ -42,8 +42,8 @@ public:
 		_obj.pushArg((wxTreeListItemComparator*)this);
 		_obj.pushArg(treelist);
 		_obj.pushArg(column);
-		_obj.pushArg(first);
-		_obj.pushArg(second);
+		_obj.pushArg(&first);
+		_obj.pushArg(&second);
 		return (_obj.callFunction<int>());
 	};
 

@@ -4,8 +4,6 @@ local wx = require "wx"
 
 local i18n = require "i18n"
 local cfg = require "config"
-local evtman = require "base.EventManager"
-local winman = require "gui.wx.WindowManager"
 local Event = require "base.Event"
 local prof = require "debugging.Profiler"
 
@@ -16,8 +14,6 @@ function Class:initialize(options)
 	options = options or {}
 	self._onStartFunc = options.onStart;
 	self._profileFile = options.profileFile
-	
-	self._eventManager = evtman
 	
 	-- create the mainframe:
     self._frame = wx.wxFrame:new( nil,            -- no parent for toplevel windows
@@ -46,7 +42,10 @@ function Class:initialize(options)
 		self:info("(idle) Memory usage: ", mem, " KBs")
 	end)]]
 
+	local winman = require "gui.wx.WindowManager"
 	winman:setMainFrame(self._frame)
+	
+	local Scheduler = require "gui.wx.Scheduler" -- ensure the scheduler gets initialized.
 	
 	self:debug("Mainframe initialization done.")
 end

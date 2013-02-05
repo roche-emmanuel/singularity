@@ -21,8 +21,10 @@ function Class:addListener(desc,cb,oneShot)
 	
 	local cb = EventCallback(desc);
 	
+	local front = desc.front; -- or Event.isFront(desc.event)
+	
 	-- register a callback into the current mapping:
-	if desc.front then
+	if front then
 		self._listeners:getOrCreate(desc.event,Set):push_front(cb)	
 	else
 		self._listeners:getOrCreate(desc.event,Set):push_back(cb)

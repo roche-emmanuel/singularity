@@ -111,12 +111,24 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< wxObject >::check(L,3)) ) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( lua_isstring(L,5)==0 ) return false;
 		return true;
@@ -149,14 +161,35 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// wxFileDirPickerEvent::wxFileDirPickerEvent(int type, wxObject * generator, int id, const wxString & path)
+	static wxFileDirPickerEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFileDirPickerEvent::wxFileDirPickerEvent(int type, wxObject * generator, int id, const wxString & path) function, expected prototype:\nwxFileDirPickerEvent::wxFileDirPickerEvent(int type, wxObject * generator, int id, const wxString & path)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\n");
+		}
+
+		int type=(int)lua_tointeger(L,1);
+		wxObject* generator=(Luna< wxObject >::check(L,2));
+		int id=(int)lua_tointeger(L,3);
+		wxString path(lua_tostring(L,4),lua_objlen(L,4));
+
+		return new wxFileDirPickerEvent(type, generator, id, path);
+	}
+
 	// wxFileDirPickerEvent::wxFileDirPickerEvent(lua_Table * data, int type, wxObject * generator, int id, const wxString & path)
-	static wxFileDirPickerEvent* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxFileDirPickerEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxFileDirPickerEvent::wxFileDirPickerEvent(lua_Table * data, int type, wxObject * generator, int id, const wxString & path) function, expected prototype:\nwxFileDirPickerEvent::wxFileDirPickerEvent(lua_Table * data, int type, wxObject * generator, int id, const wxString & path)\nClass arguments details:\narg 3 ID = 56813631\narg 5 ID = 88196105\n");
 		}
@@ -167,6 +200,15 @@ public:
 		wxString path(lua_tostring(L,5),lua_objlen(L,5));
 
 		return new wrapper_wxFileDirPickerEvent(L,NULL, type, generator, id, path);
+	}
+
+	// Overload binder for wxFileDirPickerEvent::wxFileDirPickerEvent
+	static wxFileDirPickerEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxFileDirPickerEvent, cannot match any of the overloads for function wxFileDirPickerEvent:\n  wxFileDirPickerEvent(int, wxObject *, int, const wxString &)\n  wxFileDirPickerEvent(lua_Table *, int, wxObject *, int, const wxString &)\n");
+		return NULL;
 	}
 
 
@@ -249,6 +291,27 @@ public:
 		return 1;
 	}
 
+	// wxEvent * wxFileDirPickerEvent::base_Clone() const
+	static int _bind_base_Clone(lua_State *L) {
+		if (!_lg_typecheck_base_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEvent * wxFileDirPickerEvent::base_Clone() const function, expected prototype:\nwxEvent * wxFileDirPickerEvent::base_Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxFileDirPickerEvent* self=Luna< wxObject >::checkSubType< wxFileDirPickerEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEvent * wxFileDirPickerEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		wxEvent * lret = self->wxFileDirPickerEvent::Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxEvent >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -256,9 +319,6 @@ public:
 
 wxFileDirPickerEvent* LunaTraits< wxFileDirPickerEvent >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxFileDirPickerEvent::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// wxEvent * wxEvent::Clone() const
 }
 
 void LunaTraits< wxFileDirPickerEvent >::_bind_dtor(wxFileDirPickerEvent* obj) {
@@ -277,6 +337,7 @@ luna_RegType LunaTraits< wxFileDirPickerEvent >::methods[] = {
 	{"SetPath", &luna_wrapper_wxFileDirPickerEvent::_bind_SetPath},
 	{"base_GetClassInfo", &luna_wrapper_wxFileDirPickerEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxFileDirPickerEvent::_bind_base_GetEventCategory},
+	{"base_Clone", &luna_wrapper_wxFileDirPickerEvent::_bind_base_Clone},
 	{"__eq", &luna_wrapper_wxFileDirPickerEvent::_bind___eq},
 	{"fromVoid", &luna_wrapper_wxFileDirPickerEvent::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_wxFileDirPickerEvent::_bind_asVoid},

@@ -14,8 +14,8 @@ function Class:initialize(options)
 	
 	self:info("RedBird app is running.")
 	
-	-- local ip ="singularityworld.info.tm"
-	local ip ="217.92.39.17"
+	local ip ="singularityworld.info.tm"
+	-- local ip ="217.92.39.17"
 	self:info("Using target IP: ", ip)
 	
 	-- self._socket = require("network.UDPSocket"){localPort=31001,port=31000,address="192.168.0.17"}
@@ -108,7 +108,17 @@ function Class:writeMessage()
 		end
 		
 		elapsed = elapsed/#self._durations
-		self:info("Mean frequency: ",1.0/elapsed," Hz")
+		
+		-- compute variance:
+		local sigma = 0.0
+		for _,v in ipairs(self._durations) do
+			sigma = sigma + (v-elapsed)*(v-elapsed)
+		end
+		
+		sigma = sigma/#self._durations
+		sigma = math.sqrt(sigma)
+		self:info("Mean frequency: ",1.0/elapsed," Hz, variation: ",sigma," secs.")
+		
 		self._durations = {}
 	end
 	
@@ -128,7 +138,7 @@ ACFT_TAS=90]]
 	-- str = str:format(packet.seq,packet.lat,packet.lon,packet.alt,packet.yaw,packet.pitch,packet.roll);
 	str = str:format(self._absPacketID,packet.lat,packet.lon,packet.alt,packet.yaw,packet.pitch,packet.roll);
 	
-	--self:info("Sending packet:\n",str)
+	-- self:info("Sending packet:\n",str)
 	self:append(str)
 	
 	local elapsed = self._timer:delta_s(self._lastTick,self._timer:tick())

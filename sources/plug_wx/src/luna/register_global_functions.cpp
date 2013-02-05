@@ -34,6 +34,7 @@
 #include <wx/persist/treebook.h>
 #include <wx/utils.h>
 #include <wx/window.h>
+#include <wx_extensions.h>
 #include <wx/wxcrt.h>
 
 // Function checkers:
@@ -1186,6 +1187,13 @@ inline static bool _lg_typecheck_wxGetActiveWindow(lua_State *L) {
 }
 
 inline static bool _lg_typecheck_wxGetTopLevelParent(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_createWxLogHandler(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
@@ -3781,6 +3789,23 @@ static int _bind_wxGetTopLevelParent(lua_State *L) {
 	return 1;
 }
 
+// sgt::LogManager::LogHandler * createWxLogHandler(wxEvtHandler * handler)
+static int _bind_createWxLogHandler(lua_State *L) {
+	if (!_lg_typecheck_createWxLogHandler(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in sgt::LogManager::LogHandler * createWxLogHandler(wxEvtHandler * handler) function, expected prototype:\nsgt::LogManager::LogHandler * createWxLogHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+	}
+
+	wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
+
+	sgt::LogManager::LogHandler * lret = createWxLogHandler(handler);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< sgt::LogManager::LogHandler >::push(L,lret,false);
+
+	return 1;
+}
+
 // bool wxIsEmpty(const char * s)
 static int _bind_wxIsEmpty_overload_1(lua_State *L) {
 	if (!_lg_typecheck_wxIsEmpty_overload_1(L)) {
@@ -4063,6 +4088,7 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_wxFindWindowAtPointer); lua_setfield(L,-2,"wxFindWindowAtPointer");
 	lua_pushcfunction(L, _bind_wxGetActiveWindow); lua_setfield(L,-2,"wxGetActiveWindow");
 	lua_pushcfunction(L, _bind_wxGetTopLevelParent); lua_setfield(L,-2,"wxGetTopLevelParent");
+	lua_pushcfunction(L, _bind_createWxLogHandler); lua_setfield(L,-2,"createWxLogHandler");
 	lua_pushcfunction(L, _bind_wxIsEmpty); lua_setfield(L,-2,"wxIsEmpty");
 	lua_pushcfunction(L, _bind_wxStrlen); lua_setfield(L,-2,"wxStrlen");
 	lua_pushcfunction(L, _bind_wxStrlcpy); lua_setfield(L,-2,"wxStrlcpy");

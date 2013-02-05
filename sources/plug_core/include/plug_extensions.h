@@ -60,4 +60,8 @@ public:
 	virtual ~BaseClass() {};
 };
 
+void* fromLightUserdata(lua_Any* dum, lua_State* L);
+
+int toLightUserdata(void* obj, lua_State* L);
+
 #endif

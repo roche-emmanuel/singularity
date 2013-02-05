@@ -9,7 +9,7 @@ TypeMap g_typenames;
 
 void luna_setTypeName(long hash,const std::string& className) {
 	TypeMap::iterator it = g_typenames.find(hash);
-	if(it!=g_typenames.end()) {
+	if(it!=g_typenames.end() && it->second!=className) {
 		trWARN("Luna","Overriding typename " << g_typenames[hash] << " with " << className << " under hash key " << hash);
 	}
 	g_typenames[hash] = className;

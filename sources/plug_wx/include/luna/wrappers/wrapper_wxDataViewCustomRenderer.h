@@ -149,7 +149,7 @@ public:
 	bool Render(wxRect cell, wxDC * dc, int state) {
 		THROW_IF(!_obj.pushFunction("Render"),"No implementation for abstract function wxDataViewCustomRenderer::Render");
 		_obj.pushArg((wxDataViewCustomRenderer*)this);
-		_obj.pushArg(cell);
+		_obj.pushArg(&cell);
 		_obj.pushArg(dc);
 		_obj.pushArg(state);
 		return (_obj.callFunction<bool>());

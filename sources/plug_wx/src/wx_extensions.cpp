@@ -125,3 +125,55 @@ void composeWith(wxImage* mainImg, wxImage* subImg, int corner) {
 			ptr2 += offset;
 	}	
 }
+
+wxDEFINE_EVENT(sgtEVT_LOG_MESSAGE,wxCommandEvent);
+
+void onPerformLog(wxCommandEvent& event) {
+	// std::cout << "Performing log of message: " << event.GetString() << std::endl;
+	sgt::LogManager::instance().doLog(event.GetInt(),"",event.GetString().ToStdString());
+};
+
+class wxLogHandler : public sgt::LogManager::LogHandler {
+public:
+	wxLogHandler(wxEvtHandler* handler) : _handler(handler) {
+		std::cout << "Binding onPerformLog." << std::endl;
+		_threadId = boost::this_thread::get_id();
+		_handler->Bind(sgtEVT_LOG_MESSAGE, &onPerformLog);
+		std::cout << "onPerformLog bound in thread " << _threadId << std::endl;
+	};
+	
+	~wxLogHandler() {
+		std::cout << "Not unbinding onPerformLog." << std::endl;
+		// std::cout << "Unbinding onPerformLog." << std::endl;
+		//_handler->Unbind(sgtEVT_LOG_MESSAGE, &onPerformLog);
+		// std::cout << "onPerformLog unbound." << std::endl;
+	}
+
+	virtual void handle(int level, std::string trace, std::string msg);
+	
+protected:
+	wxEvtHandler* _handler;
+	boost::thread::id _threadId;
+};
+
+void wxLogHandler::handle(int level, std::string trace, std::string msg) {
+	// std::cout << "WX handling message: " << msg << std::endl;
+	if(_threadId == boost::this_thread::get_id()) {
+		// Send this message to the logmanager directly:
+		sgt::LogManager::instance().doLog(level,trace,msg);
+		return;
+	}
+	
+	wxCommandEvent* event = new wxCommandEvent(sgtEVT_LOG_MESSAGE,0);
+	event->SetInt(level);
+	event->SetString(msg.c_str());
+	
+	_handler->QueueEvent(event);
+};
+
+sgt::LogManager::LogHandler* createWxLogHandler(wxEvtHandler* handler) {
+	CHECK_RET(handler,NULL,"Invalid handler.");
+	return new wxLogHandler(handler);
+}
+
+

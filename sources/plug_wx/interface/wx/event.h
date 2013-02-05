@@ -2771,6 +2771,9 @@ public:
         Sets the @b m_commandString member.
     */
     void SetString(const wxString& string);
+
+
+	wxEvent *Clone() const;	
 };
 
 

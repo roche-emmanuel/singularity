@@ -46,6 +46,19 @@ inline static bool _lg_typecheck_setEnv(lua_State *L) {
 	return true;
 }
 
+inline static bool _lg_typecheck_fromLightUserdata(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_toLightUserdata(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
+	return true;
+}
+
 
 // Function binds:
 // void doLog(int level, const std::string & msg)
@@ -125,6 +138,34 @@ static int _bind_setEnv(lua_State *L) {
 	return 0;
 }
 
+// void * fromLightUserdata(lua_Any * dum, lua_State * L)
+static int _bind_fromLightUserdata(lua_State *L) {
+	if (!_lg_typecheck_fromLightUserdata(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in void * fromLightUserdata(lua_Any * dum, lua_State * L) function, expected prototype:\nvoid * fromLightUserdata(lua_Any * dum, lua_State * L)\nClass arguments details:\n");
+	}
+
+
+	void * lret = fromLightUserdata(NULL, L);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< void >::push(L,lret,false);
+
+	return 1;
+}
+
+// int toLightUserdata(void * obj, lua_State * L)
+static int _bind_toLightUserdata(lua_State *L) {
+	if (!_lg_typecheck_toLightUserdata(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in int toLightUserdata(void * obj, lua_State * L) function, expected prototype:\nint toLightUserdata(void * obj, lua_State * L)\nClass arguments details:\narg 1 ID = 3625364\n");
+	}
+
+	void* obj=(Luna< void >::check(L,1));
+
+	return toLightUserdata(obj, L);
+}
+
 
 // Function checkers:
 inline static bool _lg_typecheck_intrusive_ptr_add_ref(lua_State *L) {
@@ -183,6 +224,8 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_doTrace); lua_setfield(L,-2,"doTrace");
 	lua_pushcfunction(L, _bind_doTraceV); lua_setfield(L,-2,"doTraceV");
 	lua_pushcfunction(L, _bind_setEnv); lua_setfield(L,-2,"setEnv");
+	lua_pushcfunction(L, _bind_fromLightUserdata); lua_setfield(L,-2,"fromLightUserdata");
+	lua_pushcfunction(L, _bind_toLightUserdata); lua_setfield(L,-2,"toLightUserdata");
 	luna_popModule(L);
 	luna_pushModule(L,"osg");
 	lua_pushcfunction(L, _bind_intrusive_ptr_add_ref); lua_setfield(L,-2,"intrusive_ptr_add_ref");

@@ -112,13 +112,37 @@ public:
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<5 || luatop>7 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,6476046) ) return false;
+		if( (!(Luna< wxGridCellCoords >::check(L,4))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,6476046) ) return false;
+		if( (!(Luna< wxGridCellCoords >::check(L,5))) ) return false;
+		if( luatop>5 && lua_isboolean(L,6)==0 ) return false;
+		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,56813631) ) return false;
+		if( luatop>6 && (!(Luna< wxObject >::checkSubType< wxKeyboardState >(L,7))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<6 || luatop>8 ) return false;
 
@@ -217,14 +241,63 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data)
+	// wxGridRangeSelectEvent::wxGridRangeSelectEvent()
 	static wxGridRangeSelectEvent* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridRangeSelectEvent::wxGridRangeSelectEvent() function, expected prototype:\nwxGridRangeSelectEvent::wxGridRangeSelectEvent()\nClass arguments details:\n");
+		}
+
+
+		return new wxGridRangeSelectEvent();
+	}
+
+	// wxGridRangeSelectEvent::wxGridRangeSelectEvent(int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())
+	static wxGridRangeSelectEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridRangeSelectEvent::wxGridRangeSelectEvent(int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) function, expected prototype:\nwxGridRangeSelectEvent::wxGridRangeSelectEvent(int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())\nClass arguments details:\narg 3 ID = 56813631\narg 4 ID = 6476046\narg 5 ID = 6476046\narg 7 ID = 92036952\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int id=(int)lua_tointeger(L,1);
+		int type=(int)lua_tointeger(L,2);
+		wxObject* obj=(Luna< wxObject >::check(L,3));
+		const wxGridCellCoords* topLeft_ptr=(Luna< wxGridCellCoords >::check(L,4));
+		if( !topLeft_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg topLeft in wxGridRangeSelectEvent::wxGridRangeSelectEvent function");
+		}
+		const wxGridCellCoords & topLeft=*topLeft_ptr;
+		const wxGridCellCoords* bottomRight_ptr=(Luna< wxGridCellCoords >::check(L,5));
+		if( !bottomRight_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bottomRight in wxGridRangeSelectEvent::wxGridRangeSelectEvent function");
+		}
+		const wxGridCellCoords & bottomRight=*bottomRight_ptr;
+		bool sel=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		const wxKeyboardState* kbd_ptr=luatop>6 ? (Luna< wxObject >::checkSubType< wxKeyboardState >(L,7)) : NULL;
+		if( luatop>6 && !kbd_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg kbd in wxGridRangeSelectEvent::wxGridRangeSelectEvent function");
+		}
+		const wxKeyboardState & kbd=luatop>6 ? *kbd_ptr : wxKeyboardState ();
+
+		return new wxGridRangeSelectEvent(id, type, obj, topLeft, bottomRight, sel, kbd);
+	}
+
+	// wxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data)
+	static wxGridRangeSelectEvent* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data) function, expected prototype:\nwxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data)\nClass arguments details:\n");
 		}
@@ -234,8 +307,8 @@ public:
 	}
 
 	// wxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data, int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())
-	static wxGridRangeSelectEvent* _bind_ctor_overload_2(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_2(L)) {
+	static wxGridRangeSelectEvent* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data, int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) function, expected prototype:\nwxGridRangeSelectEvent::wxGridRangeSelectEvent(lua_Table * data, int id, int type, wxObject * obj, const wxGridCellCoords & topLeft, const wxGridCellCoords & bottomRight, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())\nClass arguments details:\narg 4 ID = 56813631\narg 5 ID = 6476046\narg 6 ID = 6476046\narg 8 ID = 92036952\n");
 		}
@@ -269,8 +342,10 @@ public:
 	static wxGridRangeSelectEvent* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxGridRangeSelectEvent, cannot match any of the overloads for function wxGridRangeSelectEvent:\n  wxGridRangeSelectEvent(lua_Table *)\n  wxGridRangeSelectEvent(lua_Table *, int, int, wxObject *, const wxGridCellCoords &, const wxGridCellCoords &, bool, const wxKeyboardState &)\n");
+		luaL_error(L, "error in function wxGridRangeSelectEvent, cannot match any of the overloads for function wxGridRangeSelectEvent:\n  wxGridRangeSelectEvent()\n  wxGridRangeSelectEvent(int, int, wxObject *, const wxGridCellCoords &, const wxGridCellCoords &, bool, const wxKeyboardState &)\n  wxGridRangeSelectEvent(lua_Table *)\n  wxGridRangeSelectEvent(lua_Table *, int, int, wxObject *, const wxGridCellCoords &, const wxGridCellCoords &, bool, const wxKeyboardState &)\n");
 		return NULL;
 	}
 
@@ -531,6 +606,27 @@ public:
 		return 1;
 	}
 
+	// wxEvent * wxGridRangeSelectEvent::base_Clone() const
+	static int _bind_base_Clone(lua_State *L) {
+		if (!_lg_typecheck_base_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEvent * wxGridRangeSelectEvent::base_Clone() const function, expected prototype:\nwxEvent * wxGridRangeSelectEvent::base_Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxGridRangeSelectEvent* self=Luna< wxObject >::checkSubType< wxGridRangeSelectEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEvent * wxGridRangeSelectEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		wxEvent * lret = self->wxGridRangeSelectEvent::Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxEvent >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -538,9 +634,6 @@ public:
 
 wxGridRangeSelectEvent* LunaTraits< wxGridRangeSelectEvent >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxGridRangeSelectEvent::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// wxEvent * wxEvent::Clone() const
 }
 
 void LunaTraits< wxGridRangeSelectEvent >::_bind_dtor(wxGridRangeSelectEvent* obj) {
@@ -568,6 +661,7 @@ luna_RegType LunaTraits< wxGridRangeSelectEvent >::methods[] = {
 	{"ShiftDown", &luna_wrapper_wxGridRangeSelectEvent::_bind_ShiftDown},
 	{"base_GetClassInfo", &luna_wrapper_wxGridRangeSelectEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxGridRangeSelectEvent::_bind_base_GetEventCategory},
+	{"base_Clone", &luna_wrapper_wxGridRangeSelectEvent::_bind_base_Clone},
 	{"__eq", &luna_wrapper_wxGridRangeSelectEvent::_bind___eq},
 	{"fromVoid", &luna_wrapper_wxGridRangeSelectEvent::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_wxGridRangeSelectEvent::_bind_asVoid},
