@@ -41,8 +41,8 @@ function Class:initialize(options)
 		log:info("Loading wx module...")
 		local wx = require "wx"
 
-		log:info("Sending init flag...")
-		linda:send("wx_loaded",true);
+		--log:info("Sending init flag...")
+		--linda:send("wx_loaded",true);
 		
 		log:info("Retrieving handler object...")
 		
@@ -99,9 +99,9 @@ function Class:Start(interval)
 	
 	self:info("Starting timer thread with ID=",self._timerID," h=",tostring(h),", interval=",interval)
 	self._thread(h,self._timerID,interval)
-	self:info("Waiting for timer thread init...")
-	self._linda:receive(10.0,"wx_loaded")
-	self:info("Done waiting for timer init.")
+	--self:info("Waiting for timer thread init...")
+	--self._linda:receive(10.0,"wx_loaded")
+	--self:info("Done waiting for timer init.")
 end
 
 function Class:Stop()
