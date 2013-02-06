@@ -28,9 +28,9 @@ function Class:initialize(options)
 		--apr.sleep(0.2);
 		--wx.wxGetApp():Yield(); -- useless ?
 		
-		--prof:start("garbage step")
+		prof:start("garbage step")
 		collectgarbage('step')
-		--prof:stop()
+		prof:stop()
 		--local mem = collectgarbage("count")
 		--self:info("Memory usage: ", mem, " KBs")
 		prof:stop()

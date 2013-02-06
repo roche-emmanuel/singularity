@@ -75,6 +75,7 @@ function Class:fireEvent(eventName,...)
 	
 	self._currentEvent = eventName
 
+	profiler:start("fireEvent")
 	for _, cb in list:sequence() do
 		--if cb._name then
 		--	self:info("Calling cb: ",cb._name)
@@ -88,12 +89,15 @@ function Class:fireEvent(eventName,...)
 			self._markedForRemoval:push_back(cb)
 		end
 	end
+	profiler:stop()
 	
 	-- clear the once methods:
+	profiler:start("clearing once methods")
 	for _,cb in self._markedForRemoval:sequence() do
 		list:eraseValue(cb)
 	end
 	self._markedForRemoval:clear();
+	profiler:stop()
 	
 	self._currentEvent = nil
 end

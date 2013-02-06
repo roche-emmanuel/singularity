@@ -10,6 +10,7 @@
 
 #include "sgtCommon.h"
 #include "lua/LuaRef.h"
+#include <OpenThreads/Thread>
 
 namespace sgt {
 
@@ -63,7 +64,9 @@ struct luna_boxed<double> {
 class SGTCORE_EXPORT LuaObject : public sgt::LuaRef {
 protected:
 	mutable int _nargs;
-
+	// boost::thread::id _threadId;
+	// int _threadId;
+	
 public:
 	LuaObject(lua_State* L, int index) : LuaRef(L,index) {
 		THROW_IF(!pushLuaItem(),"Cannot push lua item.");
@@ -73,6 +76,12 @@ public:
 
 		// remove from stack:
 		lua_pop(_state,1);
+		
+		// Init the thread ID:
+		// _threadId = boost::this_thread::get_id();
+		// OpenThreads::Thread* th = OpenThreads::Thread::CurrentThread();
+		//THROW_IF(!th,"Invalid current Thread");
+		// _threadId = th ? th->getThreadId() : -1;
 		
 		reset();
 	}

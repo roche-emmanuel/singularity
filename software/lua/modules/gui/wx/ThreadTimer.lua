@@ -70,7 +70,7 @@ function Class:initialize(options)
 			local key,v= linda:receive( interval, "test_key")
 			-- apr.sleep(interval);
 			
-			--log:info("Creating new event...")
+			-- log:info("Creating new event...")
 			local event = wx.wxCommandEvent:new(sgtEVT_THREAD_TIMER,id);
 			--log:info("Queuing event...")
 			handler:QueueEvent(event)

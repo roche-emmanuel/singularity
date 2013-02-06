@@ -83,4 +83,5 @@
 - Added mathgl module with simple test.
 - Adding some tests for awesomium module.
 - Adding support for multithreads.
-- Built dedicated thread timer.
+- Built dedicated thread timer. (enforcing proper timer frequency).
+- Tested all samples with thread timer.

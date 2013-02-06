@@ -47,7 +47,7 @@ end
  
 function Class:getTotalTime()
 	if not self._totalTime then
-		self:check(#self._startTicks==#self._stopTicks,"Mismatch in section num cycles: ".. #self._startTicks .. "!=" .. #self._stopTicks)
+		self:check(#self._startTicks==#self._stopTicks,"Mismatch in section num cycles: ".. #self._startTicks .. "!=" .. #self._stopTicks.. " for section ".. self._name)
 		self._totalTime = 0.0
 		
 		for i=1,#self._stopTicks do

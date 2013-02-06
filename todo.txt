@@ -5,7 +5,6 @@
 
 - Todo:
 
-* enforce proper timer frequency.
 * add check on luaobject retrieval for virtual functions to ensure we are in the creator thread.
 
 * Implement OSG dedicated awesomium surface.

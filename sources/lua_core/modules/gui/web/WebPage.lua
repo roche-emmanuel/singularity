@@ -35,7 +35,7 @@ function Class:buildInterface(intf, options)
 end
 
 function Class:setupListeners()
-	self._tile:addListener{event="onChangeAddressBar",func=function(handler,event,caller,url)
+	self._tile:addListener{event="onChangeAddressBar",name="WebPage",func=function(handler,event,caller,url)
 		self._addressBar:ChangeValue(url:spec())
 		self._addressBar:SelectAll()
 	end}

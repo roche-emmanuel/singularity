@@ -25,6 +25,15 @@ function Class:initialize(desc)
 	self._oneShot = desc.oneShot
 	self._isValid = true;
 	
+	if not self._name and self._object then
+		self._name = self._object._CLASSNAME_
+	end
+	
+	if not self._name then
+		self:warn("No name provided for registered event callback.")
+		self:backtrace("warn");
+	end
+	
 	-- insert the object as first argument is available:
 	if self._object then
 		table.insert(self._args,1,self._object)
@@ -47,13 +56,17 @@ function Class:validate()
 	self._isValid = true;
 end
 
-function Class:__call(...)
+function Class:__call(handler,eventName,...)
 	if self._isValid then
+		profiler:start("EventCallback - ".. eventName .. " - " .. (self._name or "[unnamed cb]"))
+		local res;
 		if #self._args > 0 then
-			return self._func(unpack(self._args),...)		
+			res = self._func(unpack(self._args),handler,eventName,...)		
 		else
-			return self._func(...)		
+			res = self._func(handler,eventName,...)		
 		end
+		profiler:stop()
+		return res;
 	end
 end
 

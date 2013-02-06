@@ -197,6 +197,10 @@ end
 
 function Class:onFrame()
 	--self:info("Rendering frame...")
+	if not self._window:IsShownOnScreen() then
+		return
+	end
+	
 	prof:start("OSG frame")
 	if not self._initialized then
 		-- Need to change the start tick for the event queue here:
