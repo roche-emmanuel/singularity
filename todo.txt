@@ -5,16 +5,9 @@
 
 - Todo:
 
-* add check on luaobject retrieval for virtual functions to ensure we are in the creator thread.
-
-* Implement OSG dedicated awesomium surface.
-
 * create a C++ storage to share common values in multi lua states.
-
 * provide vector iterator support.
 * create double entry map.
-
-* Upgrade version of doxmlparser
 
 * Add integral types pointer support
 * Subtexture upload for awesomium surface.
@@ -42,4 +35,5 @@
     m_mgr.Update();
 
 	
+* Upgrade version of doxmlparser
 

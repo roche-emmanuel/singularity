@@ -22,11 +22,20 @@ function Class:initialize(options)
 
 	self._session = self._core:CreateWebSession(fs:getRootPath(true).."cache/awesomium",self._prefs)
 
+	self:info("Creating OSG surface factory");
+	self._surfaceFactory = awe.OSGSurfaceFactory()
+	
+	self._core:set_surface_factory(self._surfaceFactory);
+	
 	local Set = require "std.Set"
 	self._webViewList = Set();
 	
 	self:getEventManager():addListener{event=Event.FRAME,object=self}
 	self:getEventManager():addListener{event=Event.APP_CLOSING,object=self}
+end
+
+function Class:getSurfaceFactory()
+	return self._surfaceFactory
 end
 
 function Class:registerWebView(view)
@@ -51,6 +60,12 @@ function Class:createWebImage(options)
 	return res;
 end
 
+function Class:createWebTexture(options)
+	local WebTexture = require "gui.web.WebTexture"
+	local res = WebTexture(options)
+	return res;
+end
+
 function Class:onFrame()
 	--self:info("Updating webcore...");
 	prof:start("WebCore update")
@@ -72,8 +87,12 @@ function Class:onAppClosing()
 	self._core:Update()	
 	
 	self._session:Release();
-	
+		
 	awe.WebCore.Shutdown()	
+
+	self:info("Releasing OSG surface factory");
+	self._surfaceFactory = nil;
+
 	self:info("Web manager closed.")	
 end
 

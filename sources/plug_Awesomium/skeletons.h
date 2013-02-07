@@ -1,6 +1,26 @@
 #ifndef _Awesomium_SKELETONS_H_
 #define _Awesomium_SKELETONS_H_
 
+class Area: public osg::Referenced {
+};
+
+class OSGSurface: public Awesomium::Surface {
+};
+
+class OSGSurfaceFactory: public Awesomium::SurfaceFactory {
+public:
+	class SurfaceList {
+	};
+
+};
+
+class SubLoader {
+public:
+	class AreaList {
+	};
+
+};
+
 class SurfaceSubloadCallback {
 };
 

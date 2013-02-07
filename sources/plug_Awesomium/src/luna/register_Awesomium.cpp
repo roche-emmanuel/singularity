@@ -14,10 +14,16 @@ int PLUG_EXPORT luaopen_Awesomium(lua_State* L) {
 	luna_open(L);
 
 	luna_pushModule(L,"Awesomium");
-	Luna< SurfaceSubloadCallback >::Register(L);
+	Luna< Area >::Register(L);
 	Luna< Awesomium::Surface >::Register(L);
-	Luna< Awesomium::BitmapSurface >::Register(L);
+	Luna< OSGSurface >::Register(L);
 	Luna< Awesomium::SurfaceFactory >::Register(L);
+	Luna< OSGSurfaceFactory >::Register(L);
+	Luna< std::vector< OSGSurface * > >::Register(L);
+	Luna< SubLoader >::Register(L);
+	Luna< std::vector< osg::ref_ptr< Area > > >::Register(L);
+	Luna< SurfaceSubloadCallback >::Register(L);
+	Luna< Awesomium::BitmapSurface >::Register(L);
 	Luna< Awesomium::BitmapSurfaceFactory >::Register(L);
 	Luna< Awesomium::DataSource >::Register(L);
 	Luna< Awesomium::DataPakSource >::Register(L);

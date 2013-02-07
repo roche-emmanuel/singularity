@@ -256,13 +256,17 @@ function Class:createScreenQuad(options)
 	
 	local ss = geode:getOrCreateStateSet()
 	
+	local tex = options.texture
 	local img = options.image
 	
 	if img then
-		local tex=self:createTexture{image=img}
+		tex=self:createTexture{image=img}
+	end
+
+	if tex then
 		ss:setTextureAttributeAndModes(0,tex);
-		self:createTextureRectProgram{stateSet=ss,texture=tex,invertY=options.invertY}
-		--self:createTexture2DProgram{stateSet=ss,texture=tex,invertY=options.invertY}
+		--self:createTextureRectProgram{stateSet=ss,texture=tex,invertY=options.invertY}
+		self:createTexture2DProgram{stateSet=ss,texture=tex,invertY=options.invertY}
 	else
 		self:createColorProgram{stateSet=ss}
 	end

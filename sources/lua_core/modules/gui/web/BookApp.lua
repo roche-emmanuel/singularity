@@ -2,7 +2,7 @@ local Class = require("classBuilder"){name="WebBookApp",bases="gui.wx.NotebookAp
 
 function Class:initialize(options)
 	self:addWebPage("http://www.google.fr")
-	self:addWebPage("http://www.youtube.fr")
+	-- self:addWebPage("http://www.youtube.fr")
 	
 	for _,val in pairs(options.pages or {}) do
 		self:addWebPage(val)

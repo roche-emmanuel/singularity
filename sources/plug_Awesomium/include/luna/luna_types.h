@@ -3,8 +3,10 @@
 
 #include <plug_common.h>
 
-#include <plug_extensions.h>
+#include <OSGSurface.h>
 #include <Awesomium/Surface.h>
+#include <OSGSurfaceFactory.h>
+#include <plug_extensions.h>
 #include <Awesomium/BitmapSurface.h>
 #include <Awesomium/DataSource.h>
 #include <Awesomium/DataPak.h>
@@ -27,9 +29,9 @@
 #include <Awesomium/WebView.h>
 #include <Awesomium/WebViewListener.h>
 
-// Class: SurfaceSubloadCallback
+// Class: osg::Referenced
 template<>
-class LunaTraits< SurfaceSubloadCallback > {
+class LunaTraits< osg::Referenced > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -39,10 +41,29 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static SurfaceSubloadCallback* _bind_ctor(lua_State *L);
-	static void _bind_dtor(SurfaceSubloadCallback* obj);
-	typedef SurfaceSubloadCallback parent_t;
-	typedef SurfaceSubloadCallback base_t;
+	static osg::Referenced* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Referenced* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Referenced base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Area
+template<>
+class LunaTraits< Area > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Area* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Area* obj);
+	typedef osg::Referenced parent_t;
+	typedef Area base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -65,9 +86,9 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Class: Awesomium::BitmapSurface
+// Class: OSGSurface
 template<>
-class LunaTraits< Awesomium::BitmapSurface > {
+class LunaTraits< OSGSurface > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -77,10 +98,10 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static Awesomium::BitmapSurface* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::BitmapSurface* obj);
+	static OSGSurface* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OSGSurface* obj);
 	typedef Awesomium::Surface parent_t;
-	typedef Awesomium::BitmapSurface base_t;
+	typedef OSGSurface base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -100,6 +121,120 @@ public:
 	static void _bind_dtor(Awesomium::SurfaceFactory* obj);
 	typedef Awesomium::SurfaceFactory parent_t;
 	typedef Awesomium::SurfaceFactory base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: OSGSurfaceFactory
+template<>
+class LunaTraits< OSGSurfaceFactory > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OSGSurfaceFactory* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OSGSurfaceFactory* obj);
+	typedef Awesomium::SurfaceFactory parent_t;
+	typedef OSGSurfaceFactory base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: std::vector< OSGSurface * >
+template<>
+class LunaTraits< std::vector< OSGSurface * > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< OSGSurface * >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< OSGSurface * >* obj);
+	typedef std::vector< OSGSurface * > parent_t;
+	typedef std::vector< OSGSurface * > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: SubLoader
+template<>
+class LunaTraits< SubLoader > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static SubLoader* _bind_ctor(lua_State *L);
+	static void _bind_dtor(SubLoader* obj);
+	typedef SubLoader parent_t;
+	typedef SubLoader base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: std::vector< osg::ref_ptr< Area > >
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< Area > > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< osg::ref_ptr< Area > >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< osg::ref_ptr< Area > >* obj);
+	typedef std::vector< osg::ref_ptr< Area > > parent_t;
+	typedef std::vector< osg::ref_ptr< Area > > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: SurfaceSubloadCallback
+template<>
+class LunaTraits< SurfaceSubloadCallback > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static SurfaceSubloadCallback* _bind_ctor(lua_State *L);
+	static void _bind_dtor(SurfaceSubloadCallback* obj);
+	typedef SurfaceSubloadCallback parent_t;
+	typedef SurfaceSubloadCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::BitmapSurface
+template<>
+class LunaTraits< Awesomium::BitmapSurface > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::BitmapSurface* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::BitmapSurface* obj);
+	typedef Awesomium::Surface parent_t;
+	typedef Awesomium::BitmapSurface base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -825,25 +960,6 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Class: osg::Referenced
-template<>
-class LunaTraits< osg::Referenced > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::Referenced* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::Referenced* obj);
-	typedef osg::Referenced parent_t;
-	typedef osg::Referenced base_t;
-	static luna_ConverterType converters[];
-};
-
 // Class: osg::Image
 template<>
 class LunaTraits< osg::Image > {
@@ -923,9 +1039,9 @@ public:
 };
 
 template<>
-class LunaType< 92967815 > {
+class LunaType< 50169651 > {
 public:
-	typedef SurfaceSubloadCallback type;
+	typedef osg::Referenced type;
 	
 };
 
@@ -940,6 +1056,34 @@ template<>
 class LunaType< 86287934 > {
 public:
 	typedef Awesomium::SurfaceFactory type;
+	
+};
+
+template<>
+class LunaType< 92984376 > {
+public:
+	typedef OSGSurfaceFactory::SurfaceList type;
+	
+};
+
+template<>
+class LunaType< 84162755 > {
+public:
+	typedef SubLoader type;
+	
+};
+
+template<>
+class LunaType< 69910077 > {
+public:
+	typedef SubLoader::AreaList type;
+	
+};
+
+template<>
+class LunaType< 92967815 > {
+public:
+	typedef SurfaceSubloadCallback type;
 	
 };
 
@@ -1196,13 +1340,6 @@ public:
 };
 
 template<>
-class LunaType< 50169651 > {
-public:
-	typedef osg::Referenced type;
-	
-};
-
-template<>
 class LunaType< 80535448 > {
 public:
 	typedef osg::Image type;
@@ -1220,6 +1357,20 @@ template<>
 class LunaType< 89979598 > {
 public:
 	typedef osg::State type;
+	
+};
+
+template<>
+class LunaType< 64985157 > {
+public:
+	typedef std::vector< OSGSurface * > type;
+	
+};
+
+template<>
+class LunaType< 5192565 > {
+public:
+	typedef std::vector< osg::ref_ptr< Area > > type;
 	
 };
 

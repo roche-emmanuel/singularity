@@ -14,7 +14,6 @@ ADD_DEFINITIONS(${OSG_FLAGS})
 
 FILE(GLOB_RECURSE PUBLIC_HEADERS "../include/*.h")
 
-
 FILE(GLOB_RECURSE SOURCE_FILES "*.cpp" )
 
 ADD_MSVC_PRECOMPILED_HEADER("plug_common.h" "plug_common.cpp" SOURCE_FILES)
@@ -31,8 +30,11 @@ INSTALL(TARGETS ${TARGET_NAME}
 # step needed for the generation of the XML documentation:
 SET(INCLUDE_PATH ${SPICE_INC_DIR})
 
+
 SET(INTF_FILES)
 LIST(APPEND INTF_FILES "${AWESOMIUM_INC_DIR}")
+ADD_FILES(INTF_FILES "../include/OSGSurfaceFactory.h")
+ADD_FILES(INTF_FILES "../include/OSGSurface.h")
 ADD_FILES(INTF_FILES "../include/plug_extensions.h")
 ADD_FILES(INTF_FILES "../interface/helpers.h")
 

@@ -22,11 +22,13 @@ hScrollMap[osgGA.GUIEventAdapter.SCROLL_RIGHT] = scrollScale
 
 function Class:initialize(options)
 	-- create a webview for this tile:
-	self._webImage = webman:createWebImage(options);
+	-- self._webImage = webman:createWebImage(options);
+	self._webImage = webman:createWebTexture(options);
 	self._webView = self._webImage:getWebView();
 	
 	-- Also create the screen quad where to apply the image:
-	self._quad = tools:createScreenQuad{image=self._webImage:getImage()}
+	-- self._quad = tools:createScreenQuad{image=self._webImage:getImage()}
+	self._quad = tools:createScreenQuad{texture=self._webImage:getImage(),invertY=true}
 	
 	-- Register the update callback for this WebTile:
 	self:getEventManager():addListener{event=Event.FRAME,object=self}
@@ -199,9 +201,9 @@ function Class:getEventHandler()
 	return self._eventHandler
 end
 
-function Class:getImage()
-	return self._webImage:getImage()
-end
+--function Class:getImage()
+--	return self._webImage:getImage()
+--end
 
 function Class:buildObjectWrapper(wrapper)
 	-- nothing to serialize.

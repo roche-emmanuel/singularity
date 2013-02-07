@@ -4,6 +4,41 @@
 #include <plug_common.h>
 
 template <typename dstType>
+struct luna_caster<osg::Referenced,dstType> {
+	static inline dstType* cast(osg::Referenced* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<Area,dstType> {
+	static inline dstType* cast(Area* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<std::vector< OSGSurface * >,dstType> {
+	static inline dstType* cast(std::vector< OSGSurface * >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<SubLoader,dstType> {
+	static inline dstType* cast(SubLoader* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<std::vector< osg::ref_ptr< Area > >,dstType> {
+	static inline dstType* cast(std::vector< osg::ref_ptr< Area > >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<Awesomium::JSArray,dstType> {
 	static inline dstType* cast(Awesomium::JSArray* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -139,13 +174,6 @@ struct luna_caster<Awesomium::WebContextMenuInfo,dstType> {
 template <typename dstType>
 struct luna_caster<Awesomium::WebLoginDialogInfo,dstType> {
 	static inline dstType* cast(Awesomium::WebLoginDialogInfo* ptr) {
-		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <typename dstType>
-struct luna_caster<osg::Referenced,dstType> {
-	static inline dstType* cast(osg::Referenced* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };

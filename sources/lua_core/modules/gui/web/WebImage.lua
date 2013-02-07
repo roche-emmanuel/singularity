@@ -58,6 +58,14 @@ function Class:update()
 		return
 	end
 
+	--[[
+	if self._copiedOnce then
+		return
+	end
+	
+	self._copiedOnce = true;
+	]]
+	
 	--self:info("Updating image from webview...")
     surface:copyTo(self._image);
 	prof:stop()
