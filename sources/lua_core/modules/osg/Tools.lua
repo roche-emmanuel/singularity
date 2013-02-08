@@ -84,9 +84,10 @@ function Class:createTexture(options)
 	self:check(options.image,"Invalid image for texture creation.");
 	
 	-- we only support texture 2D for the moment.
-	--local tex = osg.Texture2D(options.image);
-	local tex = osg.TextureRectangle(options.image);
+	local tex = osg.Texture2D(options.image);
+	-- local tex = osg.TextureRectangle(options.image);
 	tex:setTextureSize(options.image:s(),options.image:t());
+	tex:setResizeNonPowerOfTwoHint(false);
 	
 	tex:setWrap(osg.Texture.WRAP_S,osg.Texture.CLAMP_TO_EDGE);
     tex:setWrap(osg.Texture.WRAP_T,osg.Texture.CLAMP_TO_EDGE);

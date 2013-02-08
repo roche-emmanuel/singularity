@@ -87,3 +87,4 @@
 - Tested all samples with thread timer.
 - Implemented OSG dedicated awesomium surface.
 - Added initial cursor control for Awesomium.
+- Fixed minor texture generation issue (Texture2D instead of TextureRectangle) in osg.Tools.
