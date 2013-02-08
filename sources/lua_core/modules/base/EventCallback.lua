@@ -58,7 +58,7 @@ end
 
 function Class:__call(handler,eventName,...)
 	if self._isValid then
-		profiler:start("EventCallback - ".. eventName .. " - " .. (self._name or "[unnamed cb]"))
+		profiler:start("EventCB - ".. eventName .. " - " .. (self._name or "[unnamed cb]"))
 		local res;
 		if #self._args > 0 then
 			res = self._func(unpack(self._args),handler,eventName,...)		

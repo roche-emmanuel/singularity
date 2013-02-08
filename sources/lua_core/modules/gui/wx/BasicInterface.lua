@@ -9,8 +9,6 @@ local Vector = require "std.Vector"
 local LicensedItem = require "gui.wx.LicensedItem"
 local prof = require "debugging.Profiler"
 
-wx.wxInitAllImageHandlers() -- init all image handlers.
-
 -- This class provides functions to add wx controls.
 function Class:initialize(options)
 	self:info("Executing initialize for BasicInterface...")

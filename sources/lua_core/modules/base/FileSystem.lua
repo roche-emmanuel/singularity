@@ -27,6 +27,11 @@ function Class:getRootPath(withSep)
 	return self._root_path .. (withSep and "/" or "")
 end
 
+-- Return the path of a data file:
+function Class:getDataPath(str)
+	return self:getRootPath(true) .. "data/" .. str
+end
+
 --- Retrieve a relative path from the root path.
 function Class:getPath(subpath)
 	self:checkString(subpath,"Invalid string argument")

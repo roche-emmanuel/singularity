@@ -86,3 +86,4 @@
 - Built dedicated thread timer. (enforcing proper timer frequency).
 - Tested all samples with thread timer.
 - Implemented OSG dedicated awesomium surface.
+- Added initial cursor control for Awesomium.

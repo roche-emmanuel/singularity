@@ -19,6 +19,9 @@ function Class:initialize(options)
 	self._defaultQuality = wx.wxIMAGE_QUALITY_HIGH
 	self._defaultLinkProp = 0.5 -- link taking half of the size of the image.
 	
+	self:info("Initializing all image handlers...")
+	wx.wxInitAllImageHandlers();
+	
 	evtman:addListener{event=Event.APP_CLOSING,object=self}
 end
 
@@ -30,6 +33,11 @@ function Class:onAppClosing()
 	end
 end
 
+local bitmapType = {}
+bitmapType.png = wx.wxBITMAP_TYPE_PNG
+bitmapType.cur = wx.wxBITMAP_TYPE_CUR
+bitmapType.gif = wx.wxBITMAP_TYPE_GIF
+
 function Class:createImage(options)
 	options = type(options)=="string" and {name=options} or options
 	
@@ -38,8 +46,8 @@ function Class:createImage(options)
 	local name = options.name
     local size = options.size or self._defaultSize
     local path = options.path or self._defaultPath
-    local btype = options.bitmapType or self._bitmapType
     local ext = options.ext or self._defaultExt
+    local btype = options.bitmapType or bitmapType[ext] or self._bitmapType
     local quality = options.quality or self._defaultQuality
     local linkProp = options.linkProp or self._defaultLinkProp
     
@@ -52,10 +60,10 @@ function Class:createImage(options)
         self:debug("Using link image: ",link," with main image: ", name);
     end
     
-    if ext ~= "png" then
+    --[[if ext ~= "png" then
         self:warn("Support for non PNG images not implemented yet here, need to set the BITMAP_TYPE flag to the appropriate type.")
         return;
-    end
+    end]]
     
     local img = wx.wxImage(path..name.."."..ext,btype)
     
@@ -100,6 +108,10 @@ function Class:getBitmap(options)
 end
 
 function Class:getCursor(options)
+	options = type(options)=="string" and {name=options} or options
+	options.path = options.path or fs:getDataPath("cursors/")
+	options.ext = options.ext or "cur"
+	options.size = options.size or -1 -- do not resize.
     local img = self:getImage(options);
     return wx.wxCursor(img);
 end

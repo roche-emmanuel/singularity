@@ -1,5 +1,7 @@
 local Class = require("classBuilder"){name="WebPage",bases="gui.wx.BasicWindow"};
 
+local awe = require "Awesomium"
+
 function Class:new(options)
 	self:info("Calling new for WebTestApp.")
 	local WebTile = require "gui.web.WebTile"
@@ -24,7 +26,7 @@ function Class:getWebTile()
 end
 
 function Class:buildInterface(intf, options)
-	intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
+	local panel = intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
 	self._addressBar = intf:addTextCtrl{prop=0,flags=wx.wxALL+wx.wxEXPAND,style=0}
 	local ctrl, canvas = intf:addOSGCtrl{prop=1}
 	intf:popParent(true)
@@ -34,10 +36,20 @@ function Class:buildInterface(intf, options)
 	self:setupListeners()
 end
 
+local cursor_map = {}
+cursor_map[awe.kCursor_Hand] = wx.wxCURSOR_HAND
+
 function Class:setupListeners()
 	self._tile:addListener{event="onChangeAddressBar",name="WebPage",func=function(handler,event,caller,url)
 		self._addressBar:ChangeValue(url:spec())
 		self._addressBar:SelectAll()
+	end}
+	self._tile:addListener{event="onChangeCursor",name="WebPage",func=function(handler,event,caller,cursor)
+		self:info("Setting hand cursor ",cursor)
+		local win = self._canvas:getWindow()
+		win:SetCursor(cursor_map[cursor] or wx.wxCURSOR_DEFAULT);
+		-- self._window:SetCursor(wx.wxCursor(wx.wxCURSOR_HAND));
+		--wx.wxSetCursor(wx.wxCursor(wx.wxCURSOR_HAND));
 	end}
 end
 

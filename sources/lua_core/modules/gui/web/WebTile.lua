@@ -33,7 +33,7 @@ function Class:initialize(options)
 	-- Register the update callback for this WebTile:
 	self:getEventManager():addListener{event=Event.FRAME,object=self}
 
-	self:info("DOne creating webtile.")
+	self:info("Done creating webtile.")
 	
 	self._viewListener = awe.View{
 		OnChangeTitle = function(tt, obj, caller, title) -- title: WebString
@@ -56,7 +56,8 @@ function Class:initialize(options)
 		end,
 		
 		OnChangeCursor = function(tt, obj, caller, cursor)
-			self:info("In OnChangeCursor(), cursor=",cursor);
+			-- self:info("In OnChangeCursor(), cursor=",cursor);
+			self:fireEvent("onChangeCursor",caller,cursor);
 		end,
 		
 		OnChangeFocus = function(tt, obj, caller, focused_type)

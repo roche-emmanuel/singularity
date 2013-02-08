@@ -18,6 +18,8 @@ local app = App()
 
 local parent = app:getFrame()
 
+parent:SetCursor(wx.wxCURSOR_HAND);
+
 local intf = BasicInterface{root=app:getFrame()}
 
 local panel = wx.wxPanel:new(parent,wx.wxID_ANY);

@@ -1,5 +1,4 @@
 
-local osg = require "osg"
 local wx = require "wx"
 
 -- Vec4f extensions:

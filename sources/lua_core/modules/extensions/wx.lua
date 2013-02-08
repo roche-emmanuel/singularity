@@ -1,5 +1,4 @@
 
-local wx = require "wx"
 local osg = require "osg"
 
 wx.wxColour.toVec4f = function(self,alpha)
@@ -44,3 +43,12 @@ wx.wxStatusBar.SetStatusStyles = function(self,styles)
 	local vec = sgt.IntVector.fromTable(styles)
 	self:setStatusStylesVector(vec)
 end
+
+wx.wxNullCursor = wx.wxCursor();
+
+local iman = require "gui.wx.ImageManager"
+wx.wxCURSOR_DEFAULT = wx.wxNullCursor
+
+wx.wxCURSOR_HAND = iman:getCursor{name="hand",ext="png"}
+
+
