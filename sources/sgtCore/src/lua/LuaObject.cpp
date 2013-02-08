@@ -11,10 +11,16 @@ using namespace sgt;
 
 bool LuaObject::pushFunction(String name) const {
 	//logINFO("Trying to push function '"<<name<<"'");
-
+	// OpenThreads::Thread* th = OpenThreads::Thread::CurrentThread();
+	//CHECK_RET(th,false,"Invalid current thread while retrieving function " << name << " in luaObject.");
+	
+	// CHECK_RET(_threadId == boost::this_thread::get_id(),false,"Trying to push LuaObject created on thread " << _threadId << " in thread " << boost::this_thread::get_id() << ", for function '"<<name<<"'");
+	// int id = th ? th->getThreadId() : -1;
+	// CHECK_RET(_threadId == id,false,"Trying to push LuaObject created on thread " << _threadId << " in thread " << id << ", for function '"<<name<<"'");
+	
 	CHECK_RET(pushLuaItem(),false,"Cannot push lua item when calling "<<name);
 
-	CHECK_RET(lua_type(_state,-1)==LUA_TTABLE,false,"Invalid non table base for luaObject.");
+	CHECK_RET(lua_type(_state,-1)==LUA_TTABLE,false,"Invalid non table base for luaObject, type is: "<<lua_type(_state,-1) <<", while pushing function: '"<<name<<"'");
 
 	// table is on the stack:
 	// retrieve the function by name:

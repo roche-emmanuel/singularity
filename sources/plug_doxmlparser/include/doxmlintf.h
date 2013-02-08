@@ -875,6 +875,9 @@ class ICompound
                         Exception, File, Namespace, Group, Page, Example, Dir
                       };
 
+    /*! Returns the protection of this compound */
+    virtual const IString * protection() const = 0;
+	
     /*! Returns the name of this compound */
     virtual const IString * name() const = 0;
 

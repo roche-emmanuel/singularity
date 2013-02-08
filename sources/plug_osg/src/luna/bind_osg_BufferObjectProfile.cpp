@@ -4,6 +4,50 @@ class luna_wrapper_osg_BufferObjectProfile {
 public:
 	typedef Luna< osg::BufferObjectProfile > luna_t;
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osg::BufferObjectProfile* self= (osg::BufferObjectProfile*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osg::BufferObjectProfile >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,12032151) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::BufferObjectProfile >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -66,39 +110,39 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_target(lua_State *L) {
+	inline static bool _lg_typecheck_getTarget(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_usage(lua_State *L) {
+	inline static bool _lg_typecheck_getUsage(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_size(lua_State *L) {
+	inline static bool _lg_typecheck_getSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_target(lua_State *L) {
+	inline static bool _lg_typecheck_setTarget(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_usage(lua_State *L) {
+	inline static bool _lg_typecheck_setUsage(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_size(lua_State *L) {
+	inline static bool _lg_typecheck_setSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -206,8 +250,8 @@ public:
 	}
 
 	// unsigned int osg::BufferObjectProfile::_target()
-	static int _bind_get_target(lua_State *L) {
-		if (!_lg_typecheck_get_target(L)) {
+	static int _bind_getTarget(lua_State *L) {
+		if (!_lg_typecheck_getTarget(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::BufferObjectProfile::_target() function, expected prototype:\nunsigned int osg::BufferObjectProfile::_target()\nClass arguments details:\n");
 		}
@@ -225,8 +269,8 @@ public:
 	}
 
 	// unsigned int osg::BufferObjectProfile::_usage()
-	static int _bind_get_usage(lua_State *L) {
-		if (!_lg_typecheck_get_usage(L)) {
+	static int _bind_getUsage(lua_State *L) {
+		if (!_lg_typecheck_getUsage(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::BufferObjectProfile::_usage() function, expected prototype:\nunsigned int osg::BufferObjectProfile::_usage()\nClass arguments details:\n");
 		}
@@ -244,8 +288,8 @@ public:
 	}
 
 	// unsigned int osg::BufferObjectProfile::_size()
-	static int _bind_get_size(lua_State *L) {
-		if (!_lg_typecheck_get_size(L)) {
+	static int _bind_getSize(lua_State *L) {
+		if (!_lg_typecheck_getSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::BufferObjectProfile::_size() function, expected prototype:\nunsigned int osg::BufferObjectProfile::_size()\nClass arguments details:\n");
 		}
@@ -263,8 +307,8 @@ public:
 	}
 
 	// void osg::BufferObjectProfile::_target(unsigned int value)
-	static int _bind_set_target(lua_State *L) {
-		if (!_lg_typecheck_set_target(L)) {
+	static int _bind_setTarget(lua_State *L) {
+		if (!_lg_typecheck_setTarget(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::BufferObjectProfile::_target(unsigned int value) function, expected prototype:\nvoid osg::BufferObjectProfile::_target(unsigned int value)\nClass arguments details:\n");
 		}
@@ -282,8 +326,8 @@ public:
 	}
 
 	// void osg::BufferObjectProfile::_usage(unsigned int value)
-	static int _bind_set_usage(lua_State *L) {
-		if (!_lg_typecheck_set_usage(L)) {
+	static int _bind_setUsage(lua_State *L) {
+		if (!_lg_typecheck_setUsage(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::BufferObjectProfile::_usage(unsigned int value) function, expected prototype:\nvoid osg::BufferObjectProfile::_usage(unsigned int value)\nClass arguments details:\n");
 		}
@@ -301,8 +345,8 @@ public:
 	}
 
 	// void osg::BufferObjectProfile::_size(unsigned int value)
-	static int _bind_set_size(lua_State *L) {
-		if (!_lg_typecheck_set_size(L)) {
+	static int _bind_setSize(lua_State *L) {
+		if (!_lg_typecheck_setSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::BufferObjectProfile::_size(unsigned int value) function, expected prototype:\nvoid osg::BufferObjectProfile::_size(unsigned int value)\nClass arguments details:\n");
 		}
@@ -400,8 +444,6 @@ public:
 
 osg::BufferObjectProfile* LunaTraits< osg::BufferObjectProfile >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_BufferObjectProfile::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::BufferObjectProfile >::_bind_dtor(osg::BufferObjectProfile* obj) {
@@ -417,16 +459,18 @@ const int LunaTraits< osg::BufferObjectProfile >::uniqueIDs[] = {12032151,0};
 
 luna_RegType LunaTraits< osg::BufferObjectProfile >::methods[] = {
 	{"setProfile", &luna_wrapper_osg_BufferObjectProfile::_bind_setProfile},
-	{"get_target", &luna_wrapper_osg_BufferObjectProfile::_bind_get_target},
-	{"get_usage", &luna_wrapper_osg_BufferObjectProfile::_bind_get_usage},
-	{"get_size", &luna_wrapper_osg_BufferObjectProfile::_bind_get_size},
-	{"set_target", &luna_wrapper_osg_BufferObjectProfile::_bind_set_target},
-	{"set_usage", &luna_wrapper_osg_BufferObjectProfile::_bind_set_usage},
-	{"set_size", &luna_wrapper_osg_BufferObjectProfile::_bind_set_size},
+	{"getTarget", &luna_wrapper_osg_BufferObjectProfile::_bind_getTarget},
+	{"getUsage", &luna_wrapper_osg_BufferObjectProfile::_bind_getUsage},
+	{"getSize", &luna_wrapper_osg_BufferObjectProfile::_bind_getSize},
+	{"setTarget", &luna_wrapper_osg_BufferObjectProfile::_bind_setTarget},
+	{"setUsage", &luna_wrapper_osg_BufferObjectProfile::_bind_setUsage},
+	{"setSize", &luna_wrapper_osg_BufferObjectProfile::_bind_setSize},
 	{"__lt", &luna_wrapper_osg_BufferObjectProfile::_bind___lt},
 	{"__eq", &luna_wrapper_osg_BufferObjectProfile::_bind___eq},
 	{"op_assign", &luna_wrapper_osg_BufferObjectProfile::_bind_op_assign},
 	{"dynCast", &luna_wrapper_osg_BufferObjectProfile::_bind_dynCast},
+	{"fromVoid", &luna_wrapper_osg_BufferObjectProfile::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osg_BufferObjectProfile::_bind_asVoid},
 	{0,0}
 };
 

@@ -1,8 +1,79 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_IDocHighlight.h>
+
 class luna_wrapper_IDocHighlight {
 public:
 	typedef Luna< IDocHighlight > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		IDoc* self=(Luna< IDoc >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<IDoc,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,2243631) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IDoc*)");
+		}
+
+		IDoc* rhs =(Luna< IDoc >::check(L,2));
+		IDoc* self=(Luna< IDoc >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Derived class converters:
+	static int _cast_from_IDoc(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		//IDocHighlight* ptr= dynamic_cast< IDocHighlight* >(Luna< IDoc >::check(L,1));
+		IDocHighlight* ptr= luna_caster< IDoc, IDocHighlight >::cast(Luna< IDoc >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< IDocHighlight >::push(L,ptr,false);
+		return 1;
+	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_highlightKind(lua_State *L) {
@@ -21,17 +92,32 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
-	// Function binds:
-	static int _bind_highlightKind(lua_State *L) {
-		if (!_lg_typecheck_highlightKind(L)) {
+	// Constructor binds:
+	// IDocHighlight::IDocHighlight(lua_Table * data)
+	static IDocHighlight* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in highlightKind function, expected prototype:\nhighlightKind()");
+			luaL_error(L, "luna typecheck failed in IDocHighlight::IDocHighlight(lua_Table * data) function, expected prototype:\nIDocHighlight::IDocHighlight(lua_Table * data)\nClass arguments details:\n");
 		}
 
 
-		IDocHighlight* self=dynamic_cast< IDocHighlight* >(Luna< IDoc >::check(L,1));
+		return new wrapper_IDocHighlight(L,NULL);
+	}
+
+
+	// Function binds:
+	// IDocHighlight::HighlightKind IDocHighlight::highlightKind() const
+	static int _bind_highlightKind(lua_State *L) {
+		if (!_lg_typecheck_highlightKind(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in IDocHighlight::HighlightKind IDocHighlight::highlightKind() const function, expected prototype:\nIDocHighlight::HighlightKind IDocHighlight::highlightKind() const\nClass arguments details:\n");
+		}
+
+
+		IDocHighlight* self=Luna< IDoc >::checkSubType< IDocHighlight >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call highlightKind(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IDocHighlight::HighlightKind IDocHighlight::highlightKind() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		IDocHighlight::HighlightKind lret = self->highlightKind();
 		lua_pushnumber(L,lret);
@@ -39,16 +125,18 @@ public:
 		return 1;
 	}
 
+	// IDocIterator * IDocHighlight::codeElements() const
 	static int _bind_codeElements(lua_State *L) {
 		if (!_lg_typecheck_codeElements(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in codeElements function, expected prototype:\ncodeElements()");
+			luaL_error(L, "luna typecheck failed in IDocIterator * IDocHighlight::codeElements() const function, expected prototype:\nIDocIterator * IDocHighlight::codeElements() const\nClass arguments details:\n");
 		}
 
 
-		IDocHighlight* self=dynamic_cast< IDocHighlight* >(Luna< IDoc >::check(L,1));
+		IDocHighlight* self=Luna< IDoc >::checkSubType< IDocHighlight >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call codeElements(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IDocIterator * IDocHighlight::codeElements() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		IDocIterator * lret = self->codeElements();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -64,7 +152,12 @@ public:
 };
 
 IDocHighlight* LunaTraits< IDocHighlight >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_IDocHighlight::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// IDocHighlight::HighlightKind IDocHighlight::highlightKind() const
+	// IDocIterator * IDocHighlight::codeElements() const
+	// IDoc::Kind IDoc::kind() const
 }
 
 void LunaTraits< IDocHighlight >::_bind_dtor(IDocHighlight* obj) {
@@ -72,13 +165,22 @@ void LunaTraits< IDocHighlight >::_bind_dtor(IDocHighlight* obj) {
 }
 
 const char LunaTraits< IDocHighlight >::className[] = "IDocHighlight";
+const char LunaTraits< IDocHighlight >::fullName[] = "IDocHighlight";
 const char LunaTraits< IDocHighlight >::moduleName[] = "doxmlparser";
 const char* LunaTraits< IDocHighlight >::parents[] = {"doxmlparser.IDoc", 0};
+const int LunaTraits< IDocHighlight >::hash = 80596603;
 const int LunaTraits< IDocHighlight >::uniqueIDs[] = {2243631,0};
 
 luna_RegType LunaTraits< IDocHighlight >::methods[] = {
 	{"highlightKind", &luna_wrapper_IDocHighlight::_bind_highlightKind},
 	{"codeElements", &luna_wrapper_IDocHighlight::_bind_codeElements},
+	{"__eq", &luna_wrapper_IDocHighlight::_bind___eq},
+	{"getTable", &luna_wrapper_IDocHighlight::_bind_getTable},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< IDocHighlight >::converters[] = {
+	{"IDoc", &luna_wrapper_IDocHighlight::_cast_from_IDoc},
 	{0,0}
 };
 

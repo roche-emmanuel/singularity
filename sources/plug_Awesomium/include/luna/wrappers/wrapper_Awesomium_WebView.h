@@ -57,124 +57,124 @@ public:
 		return (_obj.callFunction<int>());
 	};
 
-	// void Awesomium::WebView::set_view_listener(WebViewListener::View * listener)
-	void set_view_listener(WebViewListener::View * listener) {
+	// void Awesomium::WebView::set_view_listener(Awesomium::WebViewListener::View * listener)
+	void set_view_listener(Awesomium::WebViewListener::View * listener) {
 		THROW_IF(!_obj.pushFunction("set_view_listener"),"No implementation for abstract function Awesomium::WebView::set_view_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
 		_obj.pushArg(listener);
 		return (_obj.callFunction<void>());
 	};
 
-	// void Awesomium::WebView::set_load_listener(WebViewListener::Load * listener)
-	void set_load_listener(WebViewListener::Load * listener) {
+	// void Awesomium::WebView::set_load_listener(Awesomium::WebViewListener::Load * listener)
+	void set_load_listener(Awesomium::WebViewListener::Load * listener) {
 		THROW_IF(!_obj.pushFunction("set_load_listener"),"No implementation for abstract function Awesomium::WebView::set_load_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
 		_obj.pushArg(listener);
 		return (_obj.callFunction<void>());
 	};
 
-	// void Awesomium::WebView::set_process_listener(WebViewListener::Process * listener)
-	void set_process_listener(WebViewListener::Process * listener) {
+	// void Awesomium::WebView::set_process_listener(Awesomium::WebViewListener::Process * listener)
+	void set_process_listener(Awesomium::WebViewListener::Process * listener) {
 		THROW_IF(!_obj.pushFunction("set_process_listener"),"No implementation for abstract function Awesomium::WebView::set_process_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
 		_obj.pushArg(listener);
 		return (_obj.callFunction<void>());
 	};
 
-	// void Awesomium::WebView::set_menu_listener(WebViewListener::Menu * listener)
-	void set_menu_listener(WebViewListener::Menu * listener) {
+	// void Awesomium::WebView::set_menu_listener(Awesomium::WebViewListener::Menu * listener)
+	void set_menu_listener(Awesomium::WebViewListener::Menu * listener) {
 		THROW_IF(!_obj.pushFunction("set_menu_listener"),"No implementation for abstract function Awesomium::WebView::set_menu_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
 		_obj.pushArg(listener);
 		return (_obj.callFunction<void>());
 	};
 
-	// void Awesomium::WebView::set_dialog_listener(WebViewListener::Dialog * listener)
-	void set_dialog_listener(WebViewListener::Dialog * listener) {
+	// void Awesomium::WebView::set_dialog_listener(Awesomium::WebViewListener::Dialog * listener)
+	void set_dialog_listener(Awesomium::WebViewListener::Dialog * listener) {
 		THROW_IF(!_obj.pushFunction("set_dialog_listener"),"No implementation for abstract function Awesomium::WebView::set_dialog_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
 		_obj.pushArg(listener);
 		return (_obj.callFunction<void>());
 	};
 
-	// void Awesomium::WebView::set_print_listener(WebViewListener::Print * listener)
-	void set_print_listener(WebViewListener::Print * listener) {
+	// void Awesomium::WebView::set_print_listener(Awesomium::WebViewListener::Print * listener)
+	void set_print_listener(Awesomium::WebViewListener::Print * listener) {
 		THROW_IF(!_obj.pushFunction("set_print_listener"),"No implementation for abstract function Awesomium::WebView::set_print_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
 		_obj.pushArg(listener);
 		return (_obj.callFunction<void>());
 	};
 
-	// void Awesomium::WebView::set_download_listener(WebViewListener::Download * listener)
-	void set_download_listener(WebViewListener::Download * listener) {
+	// void Awesomium::WebView::set_download_listener(Awesomium::WebViewListener::Download * listener)
+	void set_download_listener(Awesomium::WebViewListener::Download * listener) {
 		THROW_IF(!_obj.pushFunction("set_download_listener"),"No implementation for abstract function Awesomium::WebView::set_download_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
 		_obj.pushArg(listener);
 		return (_obj.callFunction<void>());
 	};
 
-	// void Awesomium::WebView::set_input_method_editor_listener(WebViewListener::InputMethodEditor * listener)
-	void set_input_method_editor_listener(WebViewListener::InputMethodEditor * listener) {
+	// void Awesomium::WebView::set_input_method_editor_listener(Awesomium::WebViewListener::InputMethodEditor * listener)
+	void set_input_method_editor_listener(Awesomium::WebViewListener::InputMethodEditor * listener) {
 		THROW_IF(!_obj.pushFunction("set_input_method_editor_listener"),"No implementation for abstract function Awesomium::WebView::set_input_method_editor_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
 		_obj.pushArg(listener);
 		return (_obj.callFunction<void>());
 	};
 
-	// WebViewListener::View * Awesomium::WebView::view_listener()
-	WebViewListener::View * view_listener() {
+	// Awesomium::WebViewListener::View * Awesomium::WebView::view_listener()
+	Awesomium::WebViewListener::View * view_listener() {
 		THROW_IF(!_obj.pushFunction("view_listener"),"No implementation for abstract function Awesomium::WebView::view_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
-		return (_obj.callFunction<WebViewListener::View*>());
+		return (_obj.callFunction<Awesomium::WebViewListener::View*>());
 	};
 
-	// WebViewListener::Load * Awesomium::WebView::load_listener()
-	WebViewListener::Load * load_listener() {
+	// Awesomium::WebViewListener::Load * Awesomium::WebView::load_listener()
+	Awesomium::WebViewListener::Load * load_listener() {
 		THROW_IF(!_obj.pushFunction("load_listener"),"No implementation for abstract function Awesomium::WebView::load_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
-		return (_obj.callFunction<WebViewListener::Load*>());
+		return (_obj.callFunction<Awesomium::WebViewListener::Load*>());
 	};
 
-	// WebViewListener::Process * Awesomium::WebView::process_listener()
-	WebViewListener::Process * process_listener() {
+	// Awesomium::WebViewListener::Process * Awesomium::WebView::process_listener()
+	Awesomium::WebViewListener::Process * process_listener() {
 		THROW_IF(!_obj.pushFunction("process_listener"),"No implementation for abstract function Awesomium::WebView::process_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
-		return (_obj.callFunction<WebViewListener::Process*>());
+		return (_obj.callFunction<Awesomium::WebViewListener::Process*>());
 	};
 
-	// WebViewListener::Menu * Awesomium::WebView::menu_listener()
-	WebViewListener::Menu * menu_listener() {
+	// Awesomium::WebViewListener::Menu * Awesomium::WebView::menu_listener()
+	Awesomium::WebViewListener::Menu * menu_listener() {
 		THROW_IF(!_obj.pushFunction("menu_listener"),"No implementation for abstract function Awesomium::WebView::menu_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
-		return (_obj.callFunction<WebViewListener::Menu*>());
+		return (_obj.callFunction<Awesomium::WebViewListener::Menu*>());
 	};
 
-	// WebViewListener::Dialog * Awesomium::WebView::dialog_listener()
-	WebViewListener::Dialog * dialog_listener() {
+	// Awesomium::WebViewListener::Dialog * Awesomium::WebView::dialog_listener()
+	Awesomium::WebViewListener::Dialog * dialog_listener() {
 		THROW_IF(!_obj.pushFunction("dialog_listener"),"No implementation for abstract function Awesomium::WebView::dialog_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
-		return (_obj.callFunction<WebViewListener::Dialog*>());
+		return (_obj.callFunction<Awesomium::WebViewListener::Dialog*>());
 	};
 
-	// WebViewListener::Print * Awesomium::WebView::print_listener()
-	WebViewListener::Print * print_listener() {
+	// Awesomium::WebViewListener::Print * Awesomium::WebView::print_listener()
+	Awesomium::WebViewListener::Print * print_listener() {
 		THROW_IF(!_obj.pushFunction("print_listener"),"No implementation for abstract function Awesomium::WebView::print_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
-		return (_obj.callFunction<WebViewListener::Print*>());
+		return (_obj.callFunction<Awesomium::WebViewListener::Print*>());
 	};
 
-	// WebViewListener::Download * Awesomium::WebView::download_listener()
-	WebViewListener::Download * download_listener() {
+	// Awesomium::WebViewListener::Download * Awesomium::WebView::download_listener()
+	Awesomium::WebViewListener::Download * download_listener() {
 		THROW_IF(!_obj.pushFunction("download_listener"),"No implementation for abstract function Awesomium::WebView::download_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
-		return (_obj.callFunction<WebViewListener::Download*>());
+		return (_obj.callFunction<Awesomium::WebViewListener::Download*>());
 	};
 
-	// WebViewListener::InputMethodEditor * Awesomium::WebView::input_method_editor_listener()
-	WebViewListener::InputMethodEditor * input_method_editor_listener() {
+	// Awesomium::WebViewListener::InputMethodEditor * Awesomium::WebView::input_method_editor_listener()
+	Awesomium::WebViewListener::InputMethodEditor * input_method_editor_listener() {
 		THROW_IF(!_obj.pushFunction("input_method_editor_listener"),"No implementation for abstract function Awesomium::WebView::input_method_editor_listener");
 		_obj.pushArg((Awesomium::WebView*)this);
-		return (_obj.callFunction<WebViewListener::InputMethodEditor*>());
+		return (_obj.callFunction<Awesomium::WebViewListener::InputMethodEditor*>());
 	};
 
 	// void Awesomium::WebView::LoadURL(const Awesomium::WebURL & url)

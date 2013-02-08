@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osgViewer::Viewer* self= (osgViewer::Viewer*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osgViewer::Viewer >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -2576,8 +2620,6 @@ public:
 
 osgViewer::Viewer* LunaTraits< osgViewer::Viewer >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgViewer_Viewer::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgViewer::Viewer >::_bind_dtor(osgViewer::Viewer* obj) {
@@ -2670,6 +2712,8 @@ luna_RegType LunaTraits< osgViewer::Viewer >::methods[] = {
 	{"base_getViews", &luna_wrapper_osgViewer_Viewer::_bind_base_getViews},
 	{"base_getUsage", &luna_wrapper_osgViewer_Viewer::_bind_base_getUsage},
 	{"__eq", &luna_wrapper_osgViewer_Viewer::_bind___eq},
+	{"fromVoid", &luna_wrapper_osgViewer_Viewer::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osgViewer_Viewer::_bind_asVoid},
 	{"getTable", &luna_wrapper_osgViewer_Viewer::_bind_getTable},
 	{0,0}
 };

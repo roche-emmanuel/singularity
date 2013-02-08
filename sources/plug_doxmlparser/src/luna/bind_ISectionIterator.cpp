@@ -1,8 +1,92 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_ISectionIterator.h>
+
 class luna_wrapper_ISectionIterator {
 public:
 	typedef Luna< ISectionIterator > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		ISectionIterator* self=(Luna< ISectionIterator >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<ISectionIterator,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,74644830) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(ISectionIterator*)");
+		}
+
+		ISectionIterator* rhs =(Luna< ISectionIterator >::check(L,2));
+		ISectionIterator* self=(Luna< ISectionIterator >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Base class dynamic cast support:
+	inline static bool _lg_typecheck_dynCast(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+	
+	static int _bind_dynCast(lua_State *L) {
+		if (!_lg_typecheck_dynCast(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		ISectionIterator* self=(Luna< ISectionIterator >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call dynCast(...)");
+		}
+		
+		static LunaConverterMap& converters = luna_getConverterMap("ISectionIterator");
+		
+		return luna_dynamicCast(L,converters,"ISectionIterator",name);
+	}
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_toFirst(lua_State *L) {
@@ -45,17 +129,32 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
+	// Constructor binds:
+	// ISectionIterator::ISectionIterator(lua_Table * data)
+	static ISectionIterator* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in ISectionIterator::ISectionIterator(lua_Table * data) function, expected prototype:\nISectionIterator::ISectionIterator(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_ISectionIterator(L,NULL);
+	}
+
+
 	// Function binds:
+	// ISection * ISectionIterator::toFirst()
 	static int _bind_toFirst(lua_State *L) {
 		if (!_lg_typecheck_toFirst(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in toFirst function, expected prototype:\ntoFirst()");
+			luaL_error(L, "luna typecheck failed in ISection * ISectionIterator::toFirst() function, expected prototype:\nISection * ISectionIterator::toFirst()\nClass arguments details:\n");
 		}
 
 
 		ISectionIterator* self=(Luna< ISectionIterator >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call toFirst(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call ISection * ISectionIterator::toFirst(). Got : '%s'",typeid(Luna< ISectionIterator >::check(L,1)).name());
 		}
 		ISection * lret = self->toFirst();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -65,16 +164,18 @@ public:
 		return 1;
 	}
 
+	// ISection * ISectionIterator::toLast()
 	static int _bind_toLast(lua_State *L) {
 		if (!_lg_typecheck_toLast(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in toLast function, expected prototype:\ntoLast()");
+			luaL_error(L, "luna typecheck failed in ISection * ISectionIterator::toLast() function, expected prototype:\nISection * ISectionIterator::toLast()\nClass arguments details:\n");
 		}
 
 
 		ISectionIterator* self=(Luna< ISectionIterator >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call toLast(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call ISection * ISectionIterator::toLast(). Got : '%s'",typeid(Luna< ISectionIterator >::check(L,1)).name());
 		}
 		ISection * lret = self->toLast();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -84,16 +185,18 @@ public:
 		return 1;
 	}
 
+	// ISection * ISectionIterator::toNext()
 	static int _bind_toNext(lua_State *L) {
 		if (!_lg_typecheck_toNext(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in toNext function, expected prototype:\ntoNext()");
+			luaL_error(L, "luna typecheck failed in ISection * ISectionIterator::toNext() function, expected prototype:\nISection * ISectionIterator::toNext()\nClass arguments details:\n");
 		}
 
 
 		ISectionIterator* self=(Luna< ISectionIterator >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call toNext(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call ISection * ISectionIterator::toNext(). Got : '%s'",typeid(Luna< ISectionIterator >::check(L,1)).name());
 		}
 		ISection * lret = self->toNext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -103,16 +206,18 @@ public:
 		return 1;
 	}
 
+	// ISection * ISectionIterator::toPrev()
 	static int _bind_toPrev(lua_State *L) {
 		if (!_lg_typecheck_toPrev(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in toPrev function, expected prototype:\ntoPrev()");
+			luaL_error(L, "luna typecheck failed in ISection * ISectionIterator::toPrev() function, expected prototype:\nISection * ISectionIterator::toPrev()\nClass arguments details:\n");
 		}
 
 
 		ISectionIterator* self=(Luna< ISectionIterator >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call toPrev(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call ISection * ISectionIterator::toPrev(). Got : '%s'",typeid(Luna< ISectionIterator >::check(L,1)).name());
 		}
 		ISection * lret = self->toPrev();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -122,16 +227,18 @@ public:
 		return 1;
 	}
 
+	// ISection * ISectionIterator::current() const
 	static int _bind_current(lua_State *L) {
 		if (!_lg_typecheck_current(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in current function, expected prototype:\ncurrent()");
+			luaL_error(L, "luna typecheck failed in ISection * ISectionIterator::current() const function, expected prototype:\nISection * ISectionIterator::current() const\nClass arguments details:\n");
 		}
 
 
 		ISectionIterator* self=(Luna< ISectionIterator >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call current(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call ISection * ISectionIterator::current() const. Got : '%s'",typeid(Luna< ISectionIterator >::check(L,1)).name());
 		}
 		ISection * lret = self->current();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -141,16 +248,18 @@ public:
 		return 1;
 	}
 
+	// void ISectionIterator::release()
 	static int _bind_release(lua_State *L) {
 		if (!_lg_typecheck_release(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in release function, expected prototype:\nrelease()");
+			luaL_error(L, "luna typecheck failed in void ISectionIterator::release() function, expected prototype:\nvoid ISectionIterator::release()\nClass arguments details:\n");
 		}
 
 
 		ISectionIterator* self=(Luna< ISectionIterator >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call release(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void ISectionIterator::release(). Got : '%s'",typeid(Luna< ISectionIterator >::check(L,1)).name());
 		}
 		self->release();
 
@@ -163,7 +272,15 @@ public:
 };
 
 ISectionIterator* LunaTraits< ISectionIterator >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_ISectionIterator::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// ISection * ISectionIterator::toFirst()
+	// ISection * ISectionIterator::toLast()
+	// ISection * ISectionIterator::toNext()
+	// ISection * ISectionIterator::toPrev()
+	// ISection * ISectionIterator::current() const
+	// void ISectionIterator::release()
 }
 
 void LunaTraits< ISectionIterator >::_bind_dtor(ISectionIterator* obj) {
@@ -171,8 +288,10 @@ void LunaTraits< ISectionIterator >::_bind_dtor(ISectionIterator* obj) {
 }
 
 const char LunaTraits< ISectionIterator >::className[] = "ISectionIterator";
+const char LunaTraits< ISectionIterator >::fullName[] = "ISectionIterator";
 const char LunaTraits< ISectionIterator >::moduleName[] = "doxmlparser";
 const char* LunaTraits< ISectionIterator >::parents[] = {0};
+const int LunaTraits< ISectionIterator >::hash = 74644830;
 const int LunaTraits< ISectionIterator >::uniqueIDs[] = {74644830,0};
 
 luna_RegType LunaTraits< ISectionIterator >::methods[] = {
@@ -182,6 +301,13 @@ luna_RegType LunaTraits< ISectionIterator >::methods[] = {
 	{"toPrev", &luna_wrapper_ISectionIterator::_bind_toPrev},
 	{"current", &luna_wrapper_ISectionIterator::_bind_current},
 	{"release", &luna_wrapper_ISectionIterator::_bind_release},
+	{"dynCast", &luna_wrapper_ISectionIterator::_bind_dynCast},
+	{"__eq", &luna_wrapper_ISectionIterator::_bind___eq},
+	{"getTable", &luna_wrapper_ISectionIterator::_bind_getTable},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< ISectionIterator >::converters[] = {
 	{0,0}
 };
 

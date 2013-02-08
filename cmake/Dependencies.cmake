@@ -56,6 +56,26 @@ SET(MYSQL_INC_DIR 	${DEP_MYSQL}/include)
 SET(MYSQL_LIB_DIR 	${DEP_MYSQL}/lib)
 SET(MYSQL_LIBS 		mysqlclient)
 
+SET(MATHGL_INC_DIR 	${DEP_MATHGL}/include)
+SET(MATHGL_LIB_DIR 	${DEP_MATHGL}/lib)
+SET(MATHGL_LIBS 	mgl)
+
+SET(GIF_INC_DIR 	${DEP_GIF}/include)
+SET(GIF_LIB_DIR 	${DEP_GIF}/lib)
+SET(GIF_LIBS 		giflib)
+
+SET(PNG_INC_DIR 	${DEP_PNG}/include)
+SET(PNG_LIB_DIR 	${DEP_PNG}/lib)
+SET(PNG_LIBS 		libpng13)
+
+SET(JPEG_INC_DIR 	${DEP_JPEG}/include)
+SET(JPEG_LIB_DIR 	${DEP_JPEG}/lib)
+SET(JPEG_LIBS 		libjpeg)
+
+SET(ZLIB_INC_DIR 	${DEP_ZLIB}/include)
+SET(ZLIB_LIB_DIR 	${DEP_ZLIB}/lib)
+SET(ZLIB_LIBS 		zlib1)
+
 SET(FREENECT_INC_DIR 	${DEP_FREENECT}/include)
 SET(FREENECT_LIB_DIR 	${DEP_FREENECT}/lib)
 SET(FREENECT_LIBS 		freenect)
@@ -63,6 +83,36 @@ SET(FREENECT_LIBS 		freenect)
 SET(KINECT_INC_DIR 		${DEP_KINECT}/include)
 SET(KINECT_LIB_DIR 		${DEP_KINECT}/lib/x86)
 SET(KINECT_LIBS 		Kinect10)
+
+SET(ASSIMP_INC_DIR 		${DEP_ASSIMP}/include)
+SET(ASSIMP_LIB_DIR 		${DEP_ASSIMP}/lib/assimp_release-dll_win32)
+SET(ASSIMP_LIBS 		assimp)
+
+SET(BULLET_INC_DIR 		${DEP_BULLET}/include/bullet)
+SET(BULLET_LIB_DIR 		${DEP_BULLET}/lib)
+SET(BULLET_LIBS 		BulletCollision.lib 
+                        BulletDynamics.lib 
+						BulletFileLoader.lib
+						BulletMultiThreaded.lib
+						BulletSoftBody.lib
+						BulletSoftBodySolvers_OpenCL_Mini.lib
+						BulletWorldImporter.lib
+						BulletXmlWorldImporter.lib
+						ConvexDecomposition.lib
+						GIMPACTUtils.lib
+						HACD.lib
+						LinearMath.lib
+						MiniCL.lib
+						OpenGLSupport.lib
+						)
+
+SET(FREEIMAGE_INC_DIR 	${DEP_FREEIMAGE}/include)
+SET(FREEIMAGE_LIB_DIR 	${DEP_FREEIMAGE}/lib)
+SET(FREEIMAGE_LIBS 		FreeImage)
+
+SET(BOX2D_INC_DIR 		${DEP_BOX2D}/include)
+SET(BOX2D_LIB_DIR 		${DEP_BOX2D}/lib)
+SET(BOX2D_LIBS 			Box2D)
 
 SET(OPENSSL_INC_DIR 	${DEP_OPENSSL}/include)
 SET(OPENSSL_LIB_DIR 	${DEP_OPENSSL}/lib)

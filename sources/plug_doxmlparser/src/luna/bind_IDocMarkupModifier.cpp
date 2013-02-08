@@ -1,8 +1,79 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_IDocMarkupModifier.h>
+
 class luna_wrapper_IDocMarkupModifier {
 public:
 	typedef Luna< IDocMarkupModifier > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		IDoc* self=(Luna< IDoc >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<IDoc,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,2243631) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IDoc*)");
+		}
+
+		IDoc* rhs =(Luna< IDoc >::check(L,2));
+		IDoc* self=(Luna< IDoc >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Derived class converters:
+	static int _cast_from_IDoc(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		//IDocMarkupModifier* ptr= dynamic_cast< IDocMarkupModifier* >(Luna< IDoc >::check(L,1));
+		IDocMarkupModifier* ptr= luna_caster< IDoc, IDocMarkupModifier >::cast(Luna< IDoc >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< IDocMarkupModifier >::push(L,ptr,false);
+		return 1;
+	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_enabled(lua_State *L) {
@@ -27,17 +98,32 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
-	// Function binds:
-	static int _bind_enabled(lua_State *L) {
-		if (!_lg_typecheck_enabled(L)) {
+	// Constructor binds:
+	// IDocMarkupModifier::IDocMarkupModifier(lua_Table * data)
+	static IDocMarkupModifier* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in enabled function, expected prototype:\nenabled()");
+			luaL_error(L, "luna typecheck failed in IDocMarkupModifier::IDocMarkupModifier(lua_Table * data) function, expected prototype:\nIDocMarkupModifier::IDocMarkupModifier(lua_Table * data)\nClass arguments details:\n");
 		}
 
 
-		IDocMarkupModifier* self=dynamic_cast< IDocMarkupModifier* >(Luna< IDoc >::check(L,1));
+		return new wrapper_IDocMarkupModifier(L,NULL);
+	}
+
+
+	// Function binds:
+	// bool IDocMarkupModifier::enabled() const
+	static int _bind_enabled(lua_State *L) {
+		if (!_lg_typecheck_enabled(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool IDocMarkupModifier::enabled() const function, expected prototype:\nbool IDocMarkupModifier::enabled() const\nClass arguments details:\n");
+		}
+
+
+		IDocMarkupModifier* self=Luna< IDoc >::checkSubType< IDocMarkupModifier >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call enabled(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool IDocMarkupModifier::enabled() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		bool lret = self->enabled();
 		lua_pushboolean(L,lret?1:0);
@@ -45,16 +131,18 @@ public:
 		return 1;
 	}
 
+	// int IDocMarkupModifier::markup() const
 	static int _bind_markup(lua_State *L) {
 		if (!_lg_typecheck_markup(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in markup function, expected prototype:\nmarkup()");
+			luaL_error(L, "luna typecheck failed in int IDocMarkupModifier::markup() const function, expected prototype:\nint IDocMarkupModifier::markup() const\nClass arguments details:\n");
 		}
 
 
-		IDocMarkupModifier* self=dynamic_cast< IDocMarkupModifier* >(Luna< IDoc >::check(L,1));
+		IDocMarkupModifier* self=Luna< IDoc >::checkSubType< IDocMarkupModifier >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call markup(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int IDocMarkupModifier::markup() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		int lret = self->markup();
 		lua_pushnumber(L,lret);
@@ -62,16 +150,18 @@ public:
 		return 1;
 	}
 
+	// int IDocMarkupModifier::headingLevel() const
 	static int _bind_headingLevel(lua_State *L) {
 		if (!_lg_typecheck_headingLevel(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in headingLevel function, expected prototype:\nheadingLevel()");
+			luaL_error(L, "luna typecheck failed in int IDocMarkupModifier::headingLevel() const function, expected prototype:\nint IDocMarkupModifier::headingLevel() const\nClass arguments details:\n");
 		}
 
 
-		IDocMarkupModifier* self=dynamic_cast< IDocMarkupModifier* >(Luna< IDoc >::check(L,1));
+		IDocMarkupModifier* self=Luna< IDoc >::checkSubType< IDocMarkupModifier >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call headingLevel(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int IDocMarkupModifier::headingLevel() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		int lret = self->headingLevel();
 		lua_pushnumber(L,lret);
@@ -85,7 +175,13 @@ public:
 };
 
 IDocMarkupModifier* LunaTraits< IDocMarkupModifier >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_IDocMarkupModifier::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// bool IDocMarkupModifier::enabled() const
+	// int IDocMarkupModifier::markup() const
+	// int IDocMarkupModifier::headingLevel() const
+	// IDoc::Kind IDoc::kind() const
 }
 
 void LunaTraits< IDocMarkupModifier >::_bind_dtor(IDocMarkupModifier* obj) {
@@ -93,14 +189,23 @@ void LunaTraits< IDocMarkupModifier >::_bind_dtor(IDocMarkupModifier* obj) {
 }
 
 const char LunaTraits< IDocMarkupModifier >::className[] = "IDocMarkupModifier";
+const char LunaTraits< IDocMarkupModifier >::fullName[] = "IDocMarkupModifier";
 const char LunaTraits< IDocMarkupModifier >::moduleName[] = "doxmlparser";
 const char* LunaTraits< IDocMarkupModifier >::parents[] = {"doxmlparser.IDoc", 0};
+const int LunaTraits< IDocMarkupModifier >::hash = 61076921;
 const int LunaTraits< IDocMarkupModifier >::uniqueIDs[] = {2243631,0};
 
 luna_RegType LunaTraits< IDocMarkupModifier >::methods[] = {
 	{"enabled", &luna_wrapper_IDocMarkupModifier::_bind_enabled},
 	{"markup", &luna_wrapper_IDocMarkupModifier::_bind_markup},
 	{"headingLevel", &luna_wrapper_IDocMarkupModifier::_bind_headingLevel},
+	{"__eq", &luna_wrapper_IDocMarkupModifier::_bind___eq},
+	{"getTable", &luna_wrapper_IDocMarkupModifier::_bind_getTable},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< IDocMarkupModifier >::converters[] = {
+	{"IDoc", &luna_wrapper_IDocMarkupModifier::_cast_from_IDoc},
 	{0,0}
 };
 

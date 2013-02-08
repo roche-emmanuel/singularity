@@ -1,8 +1,92 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_IGraph.h>
+
 class luna_wrapper_IGraph {
 public:
 	typedef Luna< IGraph > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		IGraph* self=(Luna< IGraph >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<IGraph,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,58990855) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IGraph*)");
+		}
+
+		IGraph* rhs =(Luna< IGraph >::check(L,2));
+		IGraph* self=(Luna< IGraph >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Base class dynamic cast support:
+	inline static bool _lg_typecheck_dynCast(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+	
+	static int _bind_dynCast(lua_State *L) {
+		if (!_lg_typecheck_dynCast(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		IGraph* self=(Luna< IGraph >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call dynCast(...)");
+		}
+		
+		static LunaConverterMap& converters = luna_getConverterMap("IGraph");
+		
+		return luna_dynamicCast(L,converters,"IGraph",name);
+	}
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_nodes(lua_State *L) {
@@ -15,17 +99,32 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
+	// Constructor binds:
+	// IGraph::IGraph(lua_Table * data)
+	static IGraph* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in IGraph::IGraph(lua_Table * data) function, expected prototype:\nIGraph::IGraph(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_IGraph(L,NULL);
+	}
+
+
 	// Function binds:
+	// INodeIterator * IGraph::nodes() const
 	static int _bind_nodes(lua_State *L) {
 		if (!_lg_typecheck_nodes(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in nodes function, expected prototype:\nnodes()");
+			luaL_error(L, "luna typecheck failed in INodeIterator * IGraph::nodes() const function, expected prototype:\nINodeIterator * IGraph::nodes() const\nClass arguments details:\n");
 		}
 
 
 		IGraph* self=(Luna< IGraph >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call nodes(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call INodeIterator * IGraph::nodes() const. Got : '%s'",typeid(Luna< IGraph >::check(L,1)).name());
 		}
 		INodeIterator * lret = self->nodes();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -41,7 +140,10 @@ public:
 };
 
 IGraph* LunaTraits< IGraph >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_IGraph::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// INodeIterator * IGraph::nodes() const
 }
 
 void LunaTraits< IGraph >::_bind_dtor(IGraph* obj) {
@@ -49,12 +151,21 @@ void LunaTraits< IGraph >::_bind_dtor(IGraph* obj) {
 }
 
 const char LunaTraits< IGraph >::className[] = "IGraph";
+const char LunaTraits< IGraph >::fullName[] = "IGraph";
 const char LunaTraits< IGraph >::moduleName[] = "doxmlparser";
 const char* LunaTraits< IGraph >::parents[] = {0};
+const int LunaTraits< IGraph >::hash = 58990855;
 const int LunaTraits< IGraph >::uniqueIDs[] = {58990855,0};
 
 luna_RegType LunaTraits< IGraph >::methods[] = {
 	{"nodes", &luna_wrapper_IGraph::_bind_nodes},
+	{"dynCast", &luna_wrapper_IGraph::_bind_dynCast},
+	{"__eq", &luna_wrapper_IGraph::_bind___eq},
+	{"getTable", &luna_wrapper_IGraph::_bind_getTable},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< IGraph >::converters[] = {
 	{0,0}
 };
 

@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osg::KdTreeBuilder* self= (osg::KdTreeBuilder*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osg::KdTreeBuilder >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -124,26 +168,26 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_buildOptions(lua_State *L) {
+	inline static bool _lg_typecheck_getBuildOptions(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_kdTreePrototype(lua_State *L) {
+	inline static bool _lg_typecheck_getKdTreePrototype(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_buildOptions(lua_State *L) {
+	inline static bool _lg_typecheck_setBuildOptions(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,4714115) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_kdTreePrototype(lua_State *L) {
+	inline static bool _lg_typecheck_setKdTreePrototype(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,58004536) ) return false;
@@ -379,8 +423,8 @@ public:
 	}
 
 	// osg::KdTree::BuildOptions osg::KdTreeBuilder::_buildOptions()
-	static int _bind_get_buildOptions(lua_State *L) {
-		if (!_lg_typecheck_get_buildOptions(L)) {
+	static int _bind_getBuildOptions(lua_State *L) {
+		if (!_lg_typecheck_getBuildOptions(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::KdTree::BuildOptions osg::KdTreeBuilder::_buildOptions() function, expected prototype:\nosg::KdTree::BuildOptions osg::KdTreeBuilder::_buildOptions()\nClass arguments details:\n");
 		}
@@ -400,8 +444,8 @@ public:
 	}
 
 	// osg::ref_ptr< osg::KdTree > osg::KdTreeBuilder::_kdTreePrototype()
-	static int _bind_get_kdTreePrototype(lua_State *L) {
-		if (!_lg_typecheck_get_kdTreePrototype(L)) {
+	static int _bind_getKdTreePrototype(lua_State *L) {
+		if (!_lg_typecheck_getKdTreePrototype(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::KdTree > osg::KdTreeBuilder::_kdTreePrototype() function, expected prototype:\nosg::ref_ptr< osg::KdTree > osg::KdTreeBuilder::_kdTreePrototype()\nClass arguments details:\n");
 		}
@@ -419,8 +463,8 @@ public:
 	}
 
 	// void osg::KdTreeBuilder::_buildOptions(osg::KdTree::BuildOptions value)
-	static int _bind_set_buildOptions(lua_State *L) {
-		if (!_lg_typecheck_set_buildOptions(L)) {
+	static int _bind_setBuildOptions(lua_State *L) {
+		if (!_lg_typecheck_setBuildOptions(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::KdTreeBuilder::_buildOptions(osg::KdTree::BuildOptions value) function, expected prototype:\nvoid osg::KdTreeBuilder::_buildOptions(osg::KdTree::BuildOptions value)\nClass arguments details:\narg 1 ID = 4714115\n");
 		}
@@ -442,8 +486,8 @@ public:
 	}
 
 	// void osg::KdTreeBuilder::_kdTreePrototype(osg::ref_ptr< osg::KdTree > value)
-	static int _bind_set_kdTreePrototype(lua_State *L) {
-		if (!_lg_typecheck_set_kdTreePrototype(L)) {
+	static int _bind_setKdTreePrototype(lua_State *L) {
+		if (!_lg_typecheck_setKdTreePrototype(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::KdTreeBuilder::_kdTreePrototype(osg::ref_ptr< osg::KdTree > value) function, expected prototype:\nvoid osg::KdTreeBuilder::_kdTreePrototype(osg::ref_ptr< osg::KdTree > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -705,8 +749,6 @@ public:
 
 osg::KdTreeBuilder* LunaTraits< osg::KdTreeBuilder >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_KdTreeBuilder::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::KdTreeBuilder >::_bind_dtor(osg::KdTreeBuilder* obj) {
@@ -725,10 +767,10 @@ luna_RegType LunaTraits< osg::KdTreeBuilder >::methods[] = {
 	{"className", &luna_wrapper_osg_KdTreeBuilder::_bind_className},
 	{"clone", &luna_wrapper_osg_KdTreeBuilder::_bind_clone},
 	{"apply", &luna_wrapper_osg_KdTreeBuilder::_bind_apply},
-	{"get_buildOptions", &luna_wrapper_osg_KdTreeBuilder::_bind_get_buildOptions},
-	{"get_kdTreePrototype", &luna_wrapper_osg_KdTreeBuilder::_bind_get_kdTreePrototype},
-	{"set_buildOptions", &luna_wrapper_osg_KdTreeBuilder::_bind_set_buildOptions},
-	{"set_kdTreePrototype", &luna_wrapper_osg_KdTreeBuilder::_bind_set_kdTreePrototype},
+	{"getBuildOptions", &luna_wrapper_osg_KdTreeBuilder::_bind_getBuildOptions},
+	{"getKdTreePrototype", &luna_wrapper_osg_KdTreeBuilder::_bind_getKdTreePrototype},
+	{"setBuildOptions", &luna_wrapper_osg_KdTreeBuilder::_bind_setBuildOptions},
+	{"setKdTreePrototype", &luna_wrapper_osg_KdTreeBuilder::_bind_setKdTreePrototype},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_KdTreeBuilder::_bind_base_setThreadSafeRefUnref},
 	{"base_reset", &luna_wrapper_osg_KdTreeBuilder::_bind_base_reset},
 	{"base_getEyePoint", &luna_wrapper_osg_KdTreeBuilder::_bind_base_getEyePoint},
@@ -741,6 +783,8 @@ luna_RegType LunaTraits< osg::KdTreeBuilder >::methods[] = {
 	{"base_clone", &luna_wrapper_osg_KdTreeBuilder::_bind_base_clone},
 	{"base_apply", &luna_wrapper_osg_KdTreeBuilder::_bind_base_apply},
 	{"__eq", &luna_wrapper_osg_KdTreeBuilder::_bind___eq},
+	{"fromVoid", &luna_wrapper_osg_KdTreeBuilder::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osg_KdTreeBuilder::_bind_asVoid},
 	{"getTable", &luna_wrapper_osg_KdTreeBuilder::_bind_getTable},
 	{0,0}
 };

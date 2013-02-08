@@ -30,4 +30,16 @@ const char LunaTraits< wxWindow >::moduleName[] = "wx";
 const int LunaTraits< wxWindow >::hash = 92430048;
 const int LunaTraits< wxWindow >::uniqueIDs[] = {56813631,0};
 
+const char LunaTraits< void >::className[] = "void";
+const char LunaTraits< void >::fullName[] = "void";
+const char LunaTraits< void >::moduleName[] = "sgt";
+const int LunaTraits< void >::hash = 3625364;
+const int LunaTraits< void >::uniqueIDs[] = {3625364,0};
+
+const char LunaTraits< wxObject >::className[] = "wxObject";
+const char LunaTraits< wxObject >::fullName[] = "wxObject";
+const char LunaTraits< wxObject >::moduleName[] = "wx";
+const int LunaTraits< wxObject >::hash = 56813631;
+const int LunaTraits< wxObject >::uniqueIDs[] = {56813631,0};
+
 

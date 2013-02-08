@@ -10,9 +10,16 @@ LINK_DIRECTORIES (${OSG_LIB_DIR})
 INCLUDE_DIRECTORIES(${LUA_INC_DIR})
 LINK_DIRECTORIES (${LUA_LIB_DIR})
 
+# OSG plugins:
+# ADD_SUBDIRECTORY(osgdb_assimp)
+# ADD_SUBDIRECTORY(osgdb_freeimage)
 
 ADD_SUBDIRECTORY(sgtCore)
 
+ADD_SUBDIRECTORY(lua_core)
+# ADD_SUBDIRECTORY(lua_externals)
+
+# ADD_SUBDIRECTORY(plug_byteconverter)
 # ADD_SUBDIRECTORY(plug_lpeg)
 # ADD_SUBDIRECTORY(plug_lfs)
 # ADD_SUBDIRECTORY(plug_sql)
@@ -25,7 +32,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_lanes)
 # ADD_SUBDIRECTORY(plug_ssl)
 
-ADD_SUBDIRECTORY(plug_core)
+# ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_doxmlparser)
 IF(MSVC)
 	# ADD_SUBDIRECTORY(plug_wx)
@@ -33,21 +40,25 @@ ENDIF()
 
 # ADD_SUBDIRECTORY(plug_osg)
 # ADD_SUBDIRECTORY(plug_osgWX)
-# ADD_SUBDIRECTORY(plug_spice)
-# ADD_SUBDIRECTORY(plug_norad)
 # ADD_SUBDIRECTORY(plug_FANN)
 # ADD_SUBDIRECTORY(plug_awesomium)
 # ADD_SUBDIRECTORY(plug_spark)
 # ADD_SUBDIRECTORY(plug_tuio)
 # ADD_SUBDIRECTORY(plug_vlc)
 # ADD_SUBDIRECTORY(plug_atb)
-ADD_SUBDIRECTORY(plug_kinect)
+# ADD_SUBDIRECTORY(plug_kinect)
+# ADD_SUBDIRECTORY(plug_box2d)
+# ADD_SUBDIRECTORY(plug_gizmo)
+# ADD_SUBDIRECTORY(plug_bullet)
+# ADD_SUBDIRECTORY(plug_micropather)
+# ADD_SUBDIRECTORY(plug_mathgl)
 
 # ToDo:
 # ADD_SUBDIRECTORY(plug_freenect)
+# ADD_SUBDIRECTORY(plug_spice)
+# ADD_SUBDIRECTORY(plug_norad)
 
-
-ADD_SUBDIRECTORY(sgt_launcher)
+# ADD_SUBDIRECTORY(sgt_launcher)
 # ADD_SUBDIRECTORY(tests/virtual_base)
 
 # ADD_SUBDIRECTORY(wx)

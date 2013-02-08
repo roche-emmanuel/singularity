@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		Awesomium::WebLoginDialogInfo* self= (Awesomium::WebLoginDialogInfo*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< Awesomium::WebLoginDialogInfo >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,90938304) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -56,19 +100,19 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getRequest_id(lua_State *L) {
+	inline static bool _lg_typecheck_get_request_id(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getRequest_url(lua_State *L) {
+	inline static bool _lg_typecheck_get_request_url(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getIs_proxy(lua_State *L) {
+	inline static bool _lg_typecheck_get_is_proxy(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -98,21 +142,21 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setRequest_id(lua_State *L) {
+	inline static bool _lg_typecheck_set_request_id(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setRequest_url(lua_State *L) {
+	inline static bool _lg_typecheck_set_request_url(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13938525) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setIs_proxy(lua_State *L) {
+	inline static bool _lg_typecheck_set_is_proxy(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
@@ -155,8 +199,8 @@ public:
 
 	// Function binds:
 	// int Awesomium::WebLoginDialogInfo::request_id()
-	static int _bind_getRequest_id(lua_State *L) {
-		if (!_lg_typecheck_getRequest_id(L)) {
+	static int _bind_get_request_id(lua_State *L) {
+		if (!_lg_typecheck_get_request_id(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int Awesomium::WebLoginDialogInfo::request_id() function, expected prototype:\nint Awesomium::WebLoginDialogInfo::request_id()\nClass arguments details:\n");
 		}
@@ -174,8 +218,8 @@ public:
 	}
 
 	// Awesomium::WebString Awesomium::WebLoginDialogInfo::request_url()
-	static int _bind_getRequest_url(lua_State *L) {
-		if (!_lg_typecheck_getRequest_url(L)) {
+	static int _bind_get_request_url(lua_State *L) {
+		if (!_lg_typecheck_get_request_url(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebLoginDialogInfo::request_url() function, expected prototype:\nAwesomium::WebString Awesomium::WebLoginDialogInfo::request_url()\nClass arguments details:\n");
 		}
@@ -194,8 +238,8 @@ public:
 	}
 
 	// bool Awesomium::WebLoginDialogInfo::is_proxy()
-	static int _bind_getIs_proxy(lua_State *L) {
-		if (!_lg_typecheck_getIs_proxy(L)) {
+	static int _bind_get_is_proxy(lua_State *L) {
+		if (!_lg_typecheck_get_is_proxy(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool Awesomium::WebLoginDialogInfo::is_proxy() function, expected prototype:\nbool Awesomium::WebLoginDialogInfo::is_proxy()\nClass arguments details:\n");
 		}
@@ -292,8 +336,8 @@ public:
 	}
 
 	// void Awesomium::WebLoginDialogInfo::request_id(int value)
-	static int _bind_setRequest_id(lua_State *L) {
-		if (!_lg_typecheck_setRequest_id(L)) {
+	static int _bind_set_request_id(lua_State *L) {
+		if (!_lg_typecheck_set_request_id(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::request_id(int value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::request_id(int value)\nClass arguments details:\n");
 		}
@@ -311,8 +355,8 @@ public:
 	}
 
 	// void Awesomium::WebLoginDialogInfo::request_url(Awesomium::WebString value)
-	static int _bind_setRequest_url(lua_State *L) {
-		if (!_lg_typecheck_setRequest_url(L)) {
+	static int _bind_set_request_url(lua_State *L) {
+		if (!_lg_typecheck_set_request_url(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::request_url(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::request_url(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n");
 		}
@@ -331,8 +375,8 @@ public:
 	}
 
 	// void Awesomium::WebLoginDialogInfo::is_proxy(bool value)
-	static int _bind_setIs_proxy(lua_State *L) {
-		if (!_lg_typecheck_setIs_proxy(L)) {
+	static int _bind_set_is_proxy(lua_State *L) {
+		if (!_lg_typecheck_set_is_proxy(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::is_proxy(bool value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::is_proxy(bool value)\nClass arguments details:\n");
 		}
@@ -435,8 +479,6 @@ public:
 
 Awesomium::WebLoginDialogInfo* LunaTraits< Awesomium::WebLoginDialogInfo >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< Awesomium::WebLoginDialogInfo >::_bind_dtor(Awesomium::WebLoginDialogInfo* obj) {
@@ -451,22 +493,24 @@ const int LunaTraits< Awesomium::WebLoginDialogInfo >::hash = 90938304;
 const int LunaTraits< Awesomium::WebLoginDialogInfo >::uniqueIDs[] = {90938304,0};
 
 luna_RegType LunaTraits< Awesomium::WebLoginDialogInfo >::methods[] = {
-	{"getRequest_id", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_getRequest_id},
-	{"getRequest_url", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_getRequest_url},
-	{"getIs_proxy", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_getIs_proxy},
+	{"get_request_id", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_get_request_id},
+	{"get_request_url", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_get_request_url},
+	{"get_is_proxy", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_get_is_proxy},
 	{"getHost", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_getHost},
 	{"getPort", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_getPort},
 	{"getScheme", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_getScheme},
 	{"getRealm", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_getRealm},
-	{"setRequest_id", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_setRequest_id},
-	{"setRequest_url", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_setRequest_url},
-	{"setIs_proxy", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_setIs_proxy},
+	{"set_request_id", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_set_request_id},
+	{"set_request_url", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_set_request_url},
+	{"set_is_proxy", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_set_is_proxy},
 	{"setHost", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_setHost},
 	{"setPort", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_setPort},
 	{"setScheme", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_setScheme},
 	{"setRealm", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_setRealm},
 	{"dynCast", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind___eq},
+	{"fromVoid", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_Awesomium_WebLoginDialogInfo::_bind_asVoid},
 	{0,0}
 };
 

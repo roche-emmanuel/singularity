@@ -155,7 +155,7 @@ protected:
 		if(_obj.pushFunction("DoGetNextSmallerSize")) {
 			_obj.pushArg((wxRibbonBar*)this);
 			_obj.pushArg(direction);
-			_obj.pushArg(relative_to);
+			_obj.pushArg(&relative_to);
 			return *(_obj.callFunction<wxSize*>());
 		}
 
@@ -167,7 +167,7 @@ protected:
 		if(_obj.pushFunction("DoGetNextLargerSize")) {
 			_obj.pushArg((wxRibbonBar*)this);
 			_obj.pushArg(direction);
-			_obj.pushArg(relative_to);
+			_obj.pushArg(&relative_to);
 			return *(_obj.callFunction<wxSize*>());
 		}
 

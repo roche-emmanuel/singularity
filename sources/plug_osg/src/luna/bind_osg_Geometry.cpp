@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osg::Geometry* self= (osg::Geometry*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osg::Geometry >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -916,7 +960,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getS_InvalidArrayData(lua_State *L) {
+	inline static bool _lg_typecheck_get_s_InvalidArrayData(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -3942,8 +3986,8 @@ public:
 	}
 
 	// const osg::Geometry::ArrayData osg::Geometry::s_InvalidArrayData()
-	static int _bind_getS_InvalidArrayData(lua_State *L) {
-		if (!_lg_typecheck_getS_InvalidArrayData(L)) {
+	static int _bind_get_s_InvalidArrayData(lua_State *L) {
+		if (!_lg_typecheck_get_s_InvalidArrayData(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const osg::Geometry::ArrayData osg::Geometry::s_InvalidArrayData() function, expected prototype:\nconst osg::Geometry::ArrayData osg::Geometry::s_InvalidArrayData()\nClass arguments details:\n");
 		}
@@ -4472,8 +4516,6 @@ public:
 
 osg::Geometry* LunaTraits< osg::Geometry >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Geometry::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::Geometry >::_bind_dtor(osg::Geometry* obj) {
@@ -4585,7 +4627,7 @@ luna_RegType LunaTraits< osg::Geometry >::methods[] = {
 	{"getGLObjectSizeHint", &luna_wrapper_osg_Geometry::_bind_getGLObjectSizeHint},
 	{"compileGLObjects", &luna_wrapper_osg_Geometry::_bind_compileGLObjects},
 	{"drawImplementation", &luna_wrapper_osg_Geometry::_bind_drawImplementation},
-	{"getS_InvalidArrayData", &luna_wrapper_osg_Geometry::_bind_getS_InvalidArrayData},
+	{"get_s_InvalidArrayData", &luna_wrapper_osg_Geometry::_bind_get_s_InvalidArrayData},
 	{"base_setName", &luna_wrapper_osg_Geometry::_bind_base_setName},
 	{"base_setUserData", &luna_wrapper_osg_Geometry::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osg_Geometry::_bind_base_getUserData},
@@ -4609,6 +4651,8 @@ luna_RegType LunaTraits< osg::Geometry >::methods[] = {
 	{"base_compileGLObjects", &luna_wrapper_osg_Geometry::_bind_base_compileGLObjects},
 	{"base_drawImplementation", &luna_wrapper_osg_Geometry::_bind_base_drawImplementation},
 	{"__eq", &luna_wrapper_osg_Geometry::_bind___eq},
+	{"fromVoid", &luna_wrapper_osg_Geometry::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osg_Geometry::_bind_asVoid},
 	{"getTable", &luna_wrapper_osg_Geometry::_bind_getTable},
 	{0,0}
 };

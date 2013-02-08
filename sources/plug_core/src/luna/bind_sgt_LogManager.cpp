@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		sgt::LogManager* self= (sgt::LogManager*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< sgt::LogManager >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -88,6 +132,28 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_doLog(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setLogHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getLogHandler(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -301,6 +367,67 @@ public:
 		self->log(level, trace, msg);
 
 		return 0;
+	}
+
+	// void sgt::LogManager::doLog(int level, std::string trace, std::string msg)
+	static int _bind_doLog(lua_State *L) {
+		if (!_lg_typecheck_doLog(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void sgt::LogManager::doLog(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::LogManager::doLog(int level, std::string trace, std::string msg)\nClass arguments details:\n");
+		}
+
+		int level=(int)lua_tointeger(L,2);
+		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
+		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
+
+		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void sgt::LogManager::doLog(int, std::string, std::string). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->doLog(level, trace, msg);
+
+		return 0;
+	}
+
+	// void sgt::LogManager::setLogHandler(sgt::LogManager::LogHandler * handler)
+	static int _bind_setLogHandler(lua_State *L) {
+		if (!_lg_typecheck_setLogHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void sgt::LogManager::setLogHandler(sgt::LogManager::LogHandler * handler) function, expected prototype:\nvoid sgt::LogManager::setLogHandler(sgt::LogManager::LogHandler * handler)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		sgt::LogManager::LogHandler* handler=(Luna< osg::Referenced >::checkSubType< sgt::LogManager::LogHandler >(L,2));
+
+		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void sgt::LogManager::setLogHandler(sgt::LogManager::LogHandler *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setLogHandler(handler);
+
+		return 0;
+	}
+
+	// sgt::LogManager::LogHandler * sgt::LogManager::getLogHandler()
+	static int _bind_getLogHandler(lua_State *L) {
+		if (!_lg_typecheck_getLogHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::LogManager::LogHandler * sgt::LogManager::getLogHandler() function, expected prototype:\nsgt::LogManager::LogHandler * sgt::LogManager::getLogHandler()\nClass arguments details:\n");
+		}
+
+
+		sgt::LogManager* self=Luna< osg::Referenced >::checkSubType< sgt::LogManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call sgt::LogManager::LogHandler * sgt::LogManager::getLogHandler(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		sgt::LogManager::LogHandler * lret = self->getLogHandler();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< sgt::LogManager::LogHandler >::push(L,lret,false);
+
+		return 1;
 	}
 
 	// int sgt::LogManager::getLevelFlags(int level)
@@ -740,8 +867,6 @@ public:
 
 sgt::LogManager* LunaTraits< sgt::LogManager >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_sgt_LogManager::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< sgt::LogManager >::_bind_dtor(sgt::LogManager* obj) {
@@ -757,6 +882,9 @@ const int LunaTraits< sgt::LogManager >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< sgt::LogManager >::methods[] = {
 	{"log", &luna_wrapper_sgt_LogManager::_bind_log},
+	{"doLog", &luna_wrapper_sgt_LogManager::_bind_doLog},
+	{"setLogHandler", &luna_wrapper_sgt_LogManager::_bind_setLogHandler},
+	{"getLogHandler", &luna_wrapper_sgt_LogManager::_bind_getLogHandler},
 	{"getLevelFlags", &luna_wrapper_sgt_LogManager::_bind_getLevelFlags},
 	{"setLevelFlags", &luna_wrapper_sgt_LogManager::_bind_setLevelFlags},
 	{"addLevelFlags", &luna_wrapper_sgt_LogManager::_bind_addLevelFlags},
@@ -779,6 +907,8 @@ luna_RegType LunaTraits< sgt::LogManager >::methods[] = {
 	{"destroy", &luna_wrapper_sgt_LogManager::_bind_destroy},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_sgt_LogManager::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_sgt_LogManager::_bind___eq},
+	{"fromVoid", &luna_wrapper_sgt_LogManager::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_sgt_LogManager::_bind_asVoid},
 	{"getTable", &luna_wrapper_sgt_LogManager::_bind_getTable},
 	{0,0}
 };

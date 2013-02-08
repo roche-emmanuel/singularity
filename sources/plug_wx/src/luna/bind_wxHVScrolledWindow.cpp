@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		wxHVScrolledWindow* self= (wxHVScrolledWindow*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< wxHVScrolledWindow >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -2896,8 +2940,6 @@ public:
 
 wxHVScrolledWindow* LunaTraits< wxHVScrolledWindow >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxHVScrolledWindow >::_bind_dtor(wxHVScrolledWindow* obj) {
@@ -3013,6 +3055,8 @@ luna_RegType LunaTraits< wxHVScrolledWindow >::methods[] = {
 	{"base_Layout", &luna_wrapper_wxHVScrolledWindow::_bind_base_Layout},
 	{"base_SetFocus", &luna_wrapper_wxHVScrolledWindow::_bind_base_SetFocus},
 	{"__eq", &luna_wrapper_wxHVScrolledWindow::_bind___eq},
+	{"fromVoid", &luna_wrapper_wxHVScrolledWindow::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_wxHVScrolledWindow::_bind_asVoid},
 	{"getTable", &luna_wrapper_wxHVScrolledWindow::_bind_getTable},
 	{0,0}
 };

@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osg::ValueObjectClassNameTrait< unsigned char >* self= (osg::ValueObjectClassNameTrait< unsigned char >*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osg::ValueObjectClassNameTrait< unsigned char > >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,78346813) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::ValueObjectClassNameTrait< unsigned char > >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -90,8 +134,6 @@ public:
 
 osg::ValueObjectClassNameTrait< unsigned char >* LunaTraits< osg::ValueObjectClassNameTrait< unsigned char > >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::ValueObjectClassNameTrait< unsigned char > >::_bind_dtor(osg::ValueObjectClassNameTrait< unsigned char >* obj) {
@@ -109,6 +151,8 @@ luna_RegType LunaTraits< osg::ValueObjectClassNameTrait< unsigned char > >::meth
 	{"className", &luna_wrapper_osg_ValueObjectClassNameTrait_unsigned_char::_bind_className},
 	{"dynCast", &luna_wrapper_osg_ValueObjectClassNameTrait_unsigned_char::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_ValueObjectClassNameTrait_unsigned_char::_bind___eq},
+	{"fromVoid", &luna_wrapper_osg_ValueObjectClassNameTrait_unsigned_char::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osg_ValueObjectClassNameTrait_unsigned_char::_bind_asVoid},
 	{0,0}
 };
 

@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osgUtil::PositionalStateContainer* self= (osgUtil::PositionalStateContainer*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osgUtil::PositionalStateContainer >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -153,13 +197,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_attrList(lua_State *L) {
+	inline static bool _lg_typecheck_getAttrList(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_attrList(lua_State *L) {
+	inline static bool _lg_typecheck_setAttrList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,94794184) ) return false;
@@ -529,8 +573,8 @@ public:
 	}
 
 	// osgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList()
-	static int _bind_get_attrList(lua_State *L) {
-		if (!_lg_typecheck_get_attrList(L)) {
+	static int _bind_getAttrList(lua_State *L) {
+		if (!_lg_typecheck_getAttrList(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList() function, expected prototype:\nosgUtil::PositionalStateContainer::AttrMatrixList osgUtil::PositionalStateContainer::_attrList()\nClass arguments details:\n");
 		}
@@ -550,8 +594,8 @@ public:
 	}
 
 	// void osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value)
-	static int _bind_set_attrList(lua_State *L) {
-		if (!_lg_typecheck_set_attrList(L)) {
+	static int _bind_setAttrList(lua_State *L) {
+		if (!_lg_typecheck_setAttrList(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value)\nClass arguments details:\narg 1 ID = 92516775\n");
 		}
@@ -917,8 +961,6 @@ public:
 
 osgUtil::PositionalStateContainer* LunaTraits< osgUtil::PositionalStateContainer >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgUtil_PositionalStateContainer::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::PositionalStateContainer >::_bind_dtor(osgUtil::PositionalStateContainer* obj) {
@@ -943,8 +985,8 @@ luna_RegType LunaTraits< osgUtil::PositionalStateContainer >::methods[] = {
 	{"addPositionedAttribute", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_addPositionedAttribute},
 	{"addPositionedTextureAttribute", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_addPositionedTextureAttribute},
 	{"draw", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_draw},
-	{"get_attrList", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_get_attrList},
-	{"set_attrList", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_set_attrList},
+	{"getAttrList", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_getAttrList},
+	{"setAttrList", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_setAttrList},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_base_computeDataVariance},
@@ -961,6 +1003,8 @@ luna_RegType LunaTraits< osgUtil::PositionalStateContainer >::methods[] = {
 	{"base_addPositionedTextureAttribute", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_base_addPositionedTextureAttribute},
 	{"base_draw", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_base_draw},
 	{"__eq", &luna_wrapper_osgUtil_PositionalStateContainer::_bind___eq},
+	{"fromVoid", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_asVoid},
 	{"getTable", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_getTable},
 	{0,0}
 };

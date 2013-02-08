@@ -30,6 +30,7 @@
 #ifdef LUNA_BINDINGS
 #include <luna/luna.h>
 #include <luna/luna_types.h>
+#endif
 
 template <typename dstType>
 struct luna_caster<osg::RenderInfo,dstType> {
@@ -58,8 +59,6 @@ struct luna_caster<OpenThreads::BlockCount,dstType> {
 		return (dstType*)(ptr);
 	};
 };
-
-#endif
 
 
 #endif

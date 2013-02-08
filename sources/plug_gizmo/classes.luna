@@ -1,0 +1,4 @@
+module=gizmo
+gizmo::GizmoDrawable::GizmoEventCallback => osg::Drawable::EventCallback
+IGizmo => IGizmo
+gizmo::GizmoDrawable => osg::Drawable

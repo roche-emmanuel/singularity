@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osg::ClampedLinearCostFunction1D* self= (osg::ClampedLinearCostFunction1D*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osg::ClampedLinearCostFunction1D >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,49050770) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::ClampedLinearCostFunction1D >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -75,7 +119,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_cost0(lua_State *L) {
+	inline static bool _lg_typecheck_getCost0(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -93,7 +137,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_cost0(lua_State *L) {
+	inline static bool _lg_typecheck_setCost0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -166,8 +210,8 @@ public:
 	}
 
 	// double osg::ClampedLinearCostFunction1D::_cost0()
-	static int _bind_get_cost0(lua_State *L) {
-		if (!_lg_typecheck_get_cost0(L)) {
+	static int _bind_getCost0(lua_State *L) {
+		if (!_lg_typecheck_getCost0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double osg::ClampedLinearCostFunction1D::_cost0() function, expected prototype:\ndouble osg::ClampedLinearCostFunction1D::_cost0()\nClass arguments details:\n");
 		}
@@ -223,8 +267,8 @@ public:
 	}
 
 	// void osg::ClampedLinearCostFunction1D::_cost0(double value)
-	static int _bind_set_cost0(lua_State *L) {
-		if (!_lg_typecheck_set_cost0(L)) {
+	static int _bind_setCost0(lua_State *L) {
+		if (!_lg_typecheck_setCost0(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::ClampedLinearCostFunction1D::_cost0(double value) function, expected prototype:\nvoid osg::ClampedLinearCostFunction1D::_cost0(double value)\nClass arguments details:\n");
 		}
@@ -306,8 +350,6 @@ public:
 
 osg::ClampedLinearCostFunction1D* LunaTraits< osg::ClampedLinearCostFunction1D >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::ClampedLinearCostFunction1D >::_bind_dtor(osg::ClampedLinearCostFunction1D* obj) {
@@ -323,15 +365,17 @@ const int LunaTraits< osg::ClampedLinearCostFunction1D >::uniqueIDs[] = {4905077
 
 luna_RegType LunaTraits< osg::ClampedLinearCostFunction1D >::methods[] = {
 	{"set", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_set},
-	{"get_cost0", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_get_cost0},
+	{"getCost0", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_getCost0},
 	{"get_dcost_di", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_get_dcost_di},
 	{"get_min_input", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_get_min_input},
-	{"set_cost0", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_set_cost0},
+	{"setCost0", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_setCost0},
 	{"set_dcost_di", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_set_dcost_di},
 	{"set_min_input", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_set_min_input},
 	{"op_call", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_op_call},
 	{"dynCast", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind___eq},
+	{"fromVoid", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osg_ClampedLinearCostFunction1D::_bind_asVoid},
 	{0,0}
 };
 

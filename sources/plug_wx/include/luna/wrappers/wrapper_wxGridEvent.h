@@ -75,13 +75,6 @@ public:
 		return wxGridEvent::GetClassInfo();
 	};
 
-	// wxEvent * wxEvent::Clone() const
-	wxEvent * Clone() const {
-		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxEvent::Clone");
-		_obj.pushArg((wxGridEvent*)this);
-		return (_obj.callFunction<wxEvent*>());
-	};
-
 	// wxEventCategory wxEvent::GetEventCategory() const
 	wxEventCategory GetEventCategory() const {
 		if(_obj.pushFunction("GetEventCategory")) {
@@ -90,6 +83,16 @@ public:
 		}
 
 		return wxGridEvent::GetEventCategory();
+	};
+
+	// wxEvent * wxCommandEvent::Clone() const
+	wxEvent * Clone() const {
+		if(_obj.pushFunction("Clone")) {
+			_obj.pushArg((wxGridEvent*)this);
+			return (_obj.callFunction<wxEvent*>());
+		}
+
+		return wxGridEvent::Clone();
 	};
 
 	// int wxGridEvent::GetCol()

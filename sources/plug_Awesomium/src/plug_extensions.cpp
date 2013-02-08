@@ -14,10 +14,6 @@ void addAdditionalOption(Awesomium::WebConfig* config, std::string& option) {
 	config->additional_options.Push(WSLit(option.c_str()));
 };
 
-void useWebGL(Awesomium::WebPreferences* prefs, bool enabled) {
-	prefs->enable_web_gl = enabled;
-}
-
 SurfaceSubloadCallback::SurfaceSubloadCallback(Awesomium::WebView* view) : _view(view) {
 	_width = -1;
 	_height = -1;

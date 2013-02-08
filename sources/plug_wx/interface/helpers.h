@@ -33,6 +33,9 @@ class wxRibbonPageTabInfo {
 class wxToolBarToolBase {
 };
 
+class wxPointList {
+};
+
 class wxArrayTreeItemIds {};
 class wxTreeItemIdValue {};
 class wxRichTextFloatCollector {};
@@ -202,7 +205,7 @@ public:
     }
 
 private:
-    virtual ~wxPGChoicesData();
+    ~wxPGChoicesData();
 };
 
 class wxPGChoiceEntry : public wxPGCell

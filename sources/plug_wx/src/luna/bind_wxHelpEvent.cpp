@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		wxHelpEvent* self= (wxHelpEvent*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< wxHelpEvent >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -67,7 +111,19 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<0 || luatop>4 ) return false;
+
+		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,25723480) ) return false;
+		if( luatop>2 && (!(Luna< wxPoint >::check(L,3))) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>5 ) return false;
 
@@ -75,6 +131,7 @@ public:
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( luatop>3 && (!(Luna< wxPoint >::check(L,4))) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
@@ -119,14 +176,41 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// wxHelpEvent::wxHelpEvent(int type = wxEVT_NULL, int winid = 0, const wxPoint & pt = wxDefaultPosition, wxHelpEvent::Origin origin = wxHelpEvent::Origin_Unknown)
+	static wxHelpEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHelpEvent::wxHelpEvent(int type = wxEVT_NULL, int winid = 0, const wxPoint & pt = wxDefaultPosition, wxHelpEvent::Origin origin = wxHelpEvent::Origin_Unknown) function, expected prototype:\nwxHelpEvent::wxHelpEvent(int type = wxEVT_NULL, int winid = 0, const wxPoint & pt = wxDefaultPosition, wxHelpEvent::Origin origin = wxHelpEvent::Origin_Unknown)\nClass arguments details:\narg 3 ID = 25723480\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int type=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
+		int winid=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		const wxPoint* pt_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
+		if( luatop>2 && !pt_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pt in wxHelpEvent::wxHelpEvent function");
+		}
+		const wxPoint & pt=luatop>2 ? *pt_ptr : wxDefaultPosition;
+		wxHelpEvent::Origin origin=luatop>3 ? (wxHelpEvent::Origin)lua_tointeger(L,4) : wxHelpEvent::Origin_Unknown;
+
+		return new wxHelpEvent(type, winid, pt, origin);
+	}
+
 	// wxHelpEvent::wxHelpEvent(lua_Table * data, int type = wxEVT_NULL, int winid = 0, const wxPoint & pt = wxDefaultPosition, wxHelpEvent::Origin origin = wxHelpEvent::Origin_Unknown)
-	static wxHelpEvent* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxHelpEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxHelpEvent::wxHelpEvent(lua_Table * data, int type = wxEVT_NULL, int winid = 0, const wxPoint & pt = wxDefaultPosition, wxHelpEvent::Origin origin = wxHelpEvent::Origin_Unknown) function, expected prototype:\nwxHelpEvent::wxHelpEvent(lua_Table * data, int type = wxEVT_NULL, int winid = 0, const wxPoint & pt = wxDefaultPosition, wxHelpEvent::Origin origin = wxHelpEvent::Origin_Unknown)\nClass arguments details:\narg 4 ID = 25723480\n");
 		}
@@ -143,6 +227,15 @@ public:
 		wxHelpEvent::Origin origin=luatop>4 ? (wxHelpEvent::Origin)lua_tointeger(L,5) : wxHelpEvent::Origin_Unknown;
 
 		return new wrapper_wxHelpEvent(L,NULL, type, winid, pt, origin);
+	}
+
+	// Overload binder for wxHelpEvent::wxHelpEvent
+	static wxHelpEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxHelpEvent, cannot match any of the overloads for function wxHelpEvent:\n  wxHelpEvent(int, int, const wxPoint &, wxHelpEvent::Origin)\n  wxHelpEvent(lua_Table *, int, int, const wxPoint &, wxHelpEvent::Origin)\n");
+		return NULL;
 	}
 
 
@@ -269,6 +362,27 @@ public:
 		return 1;
 	}
 
+	// wxEvent * wxHelpEvent::base_Clone() const
+	static int _bind_base_Clone(lua_State *L) {
+		if (!_lg_typecheck_base_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEvent * wxHelpEvent::base_Clone() const function, expected prototype:\nwxEvent * wxHelpEvent::base_Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxHelpEvent* self=Luna< wxObject >::checkSubType< wxHelpEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEvent * wxHelpEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		wxEvent * lret = self->wxHelpEvent::Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxEvent >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -276,9 +390,6 @@ public:
 
 wxHelpEvent* LunaTraits< wxHelpEvent >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxHelpEvent::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// wxEvent * wxEvent::Clone() const
 }
 
 void LunaTraits< wxHelpEvent >::_bind_dtor(wxHelpEvent* obj) {
@@ -299,7 +410,10 @@ luna_RegType LunaTraits< wxHelpEvent >::methods[] = {
 	{"SetPosition", &luna_wrapper_wxHelpEvent::_bind_SetPosition},
 	{"base_GetClassInfo", &luna_wrapper_wxHelpEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxHelpEvent::_bind_base_GetEventCategory},
+	{"base_Clone", &luna_wrapper_wxHelpEvent::_bind_base_Clone},
 	{"__eq", &luna_wrapper_wxHelpEvent::_bind___eq},
+	{"fromVoid", &luna_wrapper_wxHelpEvent::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_wxHelpEvent::_bind_asVoid},
 	{"getTable", &luna_wrapper_wxHelpEvent::_bind_getTable},
 	{0,0}
 };

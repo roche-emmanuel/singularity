@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osg::AnimationPathCallback* self= (osg::AnimationPathCallback*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osg::AnimationPathCallback >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -284,117 +328,39 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_animationPath(lua_State *L) {
+	inline static bool _lg_typecheck_getFirstTime(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_pivotPoint(lua_State *L) {
+	inline static bool _lg_typecheck_getLatestTime(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_useInverseMatrix(lua_State *L) {
+	inline static bool _lg_typecheck_getPauseTime(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_timeOffset(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_get_timeMultiplier(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_get_firstTime(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_get_latestTime(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_get_pause(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_get_pauseTime(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_animationPath(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,50949526) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_pivotPoint(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_useInverseMatrix(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isboolean(L,2)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_timeOffset(lua_State *L) {
+	inline static bool _lg_typecheck_setFirstTime(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_timeMultiplier(lua_State *L) {
+	inline static bool _lg_typecheck_setLatestTime(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_firstTime(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isnumber(L,2)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_latestTime(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isnumber(L,2)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_pause(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isboolean(L,2)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_pauseTime(lua_State *L) {
+	inline static bool _lg_typecheck_setPauseTime(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -1093,106 +1059,9 @@ public:
 		return 0;
 	}
 
-	// osg::ref_ptr< osg::AnimationPath > osg::AnimationPathCallback::_animationPath()
-	static int _bind_get_animationPath(lua_State *L) {
-		if (!_lg_typecheck_get_animationPath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::AnimationPath > osg::AnimationPathCallback::_animationPath() function, expected prototype:\nosg::ref_ptr< osg::AnimationPath > osg::AnimationPathCallback::_animationPath()\nClass arguments details:\n");
-		}
-
-
-		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::AnimationPath > osg::AnimationPathCallback::_animationPath(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		osg::ref_ptr< osg::AnimationPath > lret = self->_animationPath;
-		Luna< osg::AnimationPath >::push(L,lret.get(),false);
-
-		return 1;
-	}
-
-	// osg::Vec3d osg::AnimationPathCallback::_pivotPoint()
-	static int _bind_get_pivotPoint(lua_State *L) {
-		if (!_lg_typecheck_get_pivotPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3d osg::AnimationPathCallback::_pivotPoint() function, expected prototype:\nosg::Vec3d osg::AnimationPathCallback::_pivotPoint()\nClass arguments details:\n");
-		}
-
-
-		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3d osg::AnimationPathCallback::_pivotPoint(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		const osg::Vec3d* lret = &self->_pivotPoint;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::Vec3d >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// bool osg::AnimationPathCallback::_useInverseMatrix()
-	static int _bind_get_useInverseMatrix(lua_State *L) {
-		if (!_lg_typecheck_get_useInverseMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AnimationPathCallback::_useInverseMatrix() function, expected prototype:\nbool osg::AnimationPathCallback::_useInverseMatrix()\nClass arguments details:\n");
-		}
-
-
-		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AnimationPathCallback::_useInverseMatrix(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		bool lret = self->_useInverseMatrix;
-		lua_pushboolean(L,lret?1:0);
-
-		return 1;
-	}
-
-	// double osg::AnimationPathCallback::_timeOffset()
-	static int _bind_get_timeOffset(lua_State *L) {
-		if (!_lg_typecheck_get_timeOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::_timeOffset() function, expected prototype:\ndouble osg::AnimationPathCallback::_timeOffset()\nClass arguments details:\n");
-		}
-
-
-		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::_timeOffset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		double lret = self->_timeOffset;
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
-	// double osg::AnimationPathCallback::_timeMultiplier()
-	static int _bind_get_timeMultiplier(lua_State *L) {
-		if (!_lg_typecheck_get_timeMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::_timeMultiplier() function, expected prototype:\ndouble osg::AnimationPathCallback::_timeMultiplier()\nClass arguments details:\n");
-		}
-
-
-		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double osg::AnimationPathCallback::_timeMultiplier(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		double lret = self->_timeMultiplier;
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
 	// double osg::AnimationPathCallback::_firstTime()
-	static int _bind_get_firstTime(lua_State *L) {
-		if (!_lg_typecheck_get_firstTime(L)) {
+	static int _bind_getFirstTime(lua_State *L) {
+		if (!_lg_typecheck_getFirstTime(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::_firstTime() function, expected prototype:\ndouble osg::AnimationPathCallback::_firstTime()\nClass arguments details:\n");
 		}
@@ -1210,8 +1079,8 @@ public:
 	}
 
 	// double osg::AnimationPathCallback::_latestTime()
-	static int _bind_get_latestTime(lua_State *L) {
-		if (!_lg_typecheck_get_latestTime(L)) {
+	static int _bind_getLatestTime(lua_State *L) {
+		if (!_lg_typecheck_getLatestTime(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::_latestTime() function, expected prototype:\ndouble osg::AnimationPathCallback::_latestTime()\nClass arguments details:\n");
 		}
@@ -1228,28 +1097,9 @@ public:
 		return 1;
 	}
 
-	// bool osg::AnimationPathCallback::_pause()
-	static int _bind_get_pause(lua_State *L) {
-		if (!_lg_typecheck_get_pause(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::AnimationPathCallback::_pause() function, expected prototype:\nbool osg::AnimationPathCallback::_pause()\nClass arguments details:\n");
-		}
-
-
-		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::AnimationPathCallback::_pause(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		bool lret = self->_pause;
-		lua_pushboolean(L,lret?1:0);
-
-		return 1;
-	}
-
 	// double osg::AnimationPathCallback::_pauseTime()
-	static int _bind_get_pauseTime(lua_State *L) {
-		if (!_lg_typecheck_get_pauseTime(L)) {
+	static int _bind_getPauseTime(lua_State *L) {
+		if (!_lg_typecheck_getPauseTime(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double osg::AnimationPathCallback::_pauseTime() function, expected prototype:\ndouble osg::AnimationPathCallback::_pauseTime()\nClass arguments details:\n");
 		}
@@ -1266,108 +1116,9 @@ public:
 		return 1;
 	}
 
-	// void osg::AnimationPathCallback::_animationPath(osg::ref_ptr< osg::AnimationPath > value)
-	static int _bind_set_animationPath(lua_State *L) {
-		if (!_lg_typecheck_set_animationPath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_animationPath(osg::ref_ptr< osg::AnimationPath > value) function, expected prototype:\nvoid osg::AnimationPathCallback::_animationPath(osg::ref_ptr< osg::AnimationPath > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
-		}
-
-		osg::ref_ptr< osg::AnimationPath > value = dynamic_cast< osg::AnimationPath* >(Luna< osg::Referenced >::check(L,2));
-
-		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::_animationPath(osg::ref_ptr< osg::AnimationPath >). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->_animationPath = value;
-
-		return 0;
-	}
-
-	// void osg::AnimationPathCallback::_pivotPoint(osg::Vec3d value)
-	static int _bind_set_pivotPoint(lua_State *L) {
-		if (!_lg_typecheck_set_pivotPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_pivotPoint(osg::Vec3d value) function, expected prototype:\nvoid osg::AnimationPathCallback::_pivotPoint(osg::Vec3d value)\nClass arguments details:\narg 1 ID = 92303202\n");
-		}
-
-		osg::Vec3d* value_ptr=(Luna< osg::Vec3d >::check(L,2));
-		if( !value_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg value in osg::AnimationPathCallback::_pivotPoint function");
-		}
-		osg::Vec3d value=*value_ptr;
-
-		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::_pivotPoint(osg::Vec3d). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->_pivotPoint = value;
-
-		return 0;
-	}
-
-	// void osg::AnimationPathCallback::_useInverseMatrix(bool value)
-	static int _bind_set_useInverseMatrix(lua_State *L) {
-		if (!_lg_typecheck_set_useInverseMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_useInverseMatrix(bool value) function, expected prototype:\nvoid osg::AnimationPathCallback::_useInverseMatrix(bool value)\nClass arguments details:\n");
-		}
-
-		bool value=(bool)(lua_toboolean(L,2)==1);
-
-		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::_useInverseMatrix(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->_useInverseMatrix = value;
-
-		return 0;
-	}
-
-	// void osg::AnimationPathCallback::_timeOffset(double value)
-	static int _bind_set_timeOffset(lua_State *L) {
-		if (!_lg_typecheck_set_timeOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_timeOffset(double value) function, expected prototype:\nvoid osg::AnimationPathCallback::_timeOffset(double value)\nClass arguments details:\n");
-		}
-
-		double value=(double)lua_tonumber(L,2);
-
-		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::_timeOffset(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->_timeOffset = value;
-
-		return 0;
-	}
-
-	// void osg::AnimationPathCallback::_timeMultiplier(double value)
-	static int _bind_set_timeMultiplier(lua_State *L) {
-		if (!_lg_typecheck_set_timeMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_timeMultiplier(double value) function, expected prototype:\nvoid osg::AnimationPathCallback::_timeMultiplier(double value)\nClass arguments details:\n");
-		}
-
-		double value=(double)lua_tonumber(L,2);
-
-		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::_timeMultiplier(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->_timeMultiplier = value;
-
-		return 0;
-	}
-
 	// void osg::AnimationPathCallback::_firstTime(double value)
-	static int _bind_set_firstTime(lua_State *L) {
-		if (!_lg_typecheck_set_firstTime(L)) {
+	static int _bind_setFirstTime(lua_State *L) {
+		if (!_lg_typecheck_setFirstTime(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_firstTime(double value) function, expected prototype:\nvoid osg::AnimationPathCallback::_firstTime(double value)\nClass arguments details:\n");
 		}
@@ -1385,8 +1136,8 @@ public:
 	}
 
 	// void osg::AnimationPathCallback::_latestTime(double value)
-	static int _bind_set_latestTime(lua_State *L) {
-		if (!_lg_typecheck_set_latestTime(L)) {
+	static int _bind_setLatestTime(lua_State *L) {
+		if (!_lg_typecheck_setLatestTime(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_latestTime(double value) function, expected prototype:\nvoid osg::AnimationPathCallback::_latestTime(double value)\nClass arguments details:\n");
 		}
@@ -1403,28 +1154,9 @@ public:
 		return 0;
 	}
 
-	// void osg::AnimationPathCallback::_pause(bool value)
-	static int _bind_set_pause(lua_State *L) {
-		if (!_lg_typecheck_set_pause(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_pause(bool value) function, expected prototype:\nvoid osg::AnimationPathCallback::_pause(bool value)\nClass arguments details:\n");
-		}
-
-		bool value=(bool)(lua_toboolean(L,2)==1);
-
-		osg::AnimationPathCallback* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPathCallback >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AnimationPathCallback::_pause(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->_pause = value;
-
-		return 0;
-	}
-
 	// void osg::AnimationPathCallback::_pauseTime(double value)
-	static int _bind_set_pauseTime(lua_State *L) {
-		if (!_lg_typecheck_set_pauseTime(L)) {
+	static int _bind_setPauseTime(lua_State *L) {
+		if (!_lg_typecheck_setPauseTime(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::AnimationPathCallback::_pauseTime(double value) function, expected prototype:\nvoid osg::AnimationPathCallback::_pauseTime(double value)\nClass arguments details:\n");
 		}
@@ -1757,8 +1489,6 @@ public:
 
 osg::AnimationPathCallback* LunaTraits< osg::AnimationPathCallback >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_AnimationPathCallback::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::AnimationPathCallback >::_bind_dtor(osg::AnimationPathCallback* obj) {
@@ -1793,24 +1523,12 @@ luna_RegType LunaTraits< osg::AnimationPathCallback >::methods[] = {
 	{"getPause", &luna_wrapper_osg_AnimationPathCallback::_bind_getPause},
 	{"getAnimationTime", &luna_wrapper_osg_AnimationPathCallback::_bind_getAnimationTime},
 	{"update", &luna_wrapper_osg_AnimationPathCallback::_bind_update},
-	{"get_animationPath", &luna_wrapper_osg_AnimationPathCallback::_bind_get_animationPath},
-	{"get_pivotPoint", &luna_wrapper_osg_AnimationPathCallback::_bind_get_pivotPoint},
-	{"get_useInverseMatrix", &luna_wrapper_osg_AnimationPathCallback::_bind_get_useInverseMatrix},
-	{"get_timeOffset", &luna_wrapper_osg_AnimationPathCallback::_bind_get_timeOffset},
-	{"get_timeMultiplier", &luna_wrapper_osg_AnimationPathCallback::_bind_get_timeMultiplier},
-	{"get_firstTime", &luna_wrapper_osg_AnimationPathCallback::_bind_get_firstTime},
-	{"get_latestTime", &luna_wrapper_osg_AnimationPathCallback::_bind_get_latestTime},
-	{"get_pause", &luna_wrapper_osg_AnimationPathCallback::_bind_get_pause},
-	{"get_pauseTime", &luna_wrapper_osg_AnimationPathCallback::_bind_get_pauseTime},
-	{"set_animationPath", &luna_wrapper_osg_AnimationPathCallback::_bind_set_animationPath},
-	{"set_pivotPoint", &luna_wrapper_osg_AnimationPathCallback::_bind_set_pivotPoint},
-	{"set_useInverseMatrix", &luna_wrapper_osg_AnimationPathCallback::_bind_set_useInverseMatrix},
-	{"set_timeOffset", &luna_wrapper_osg_AnimationPathCallback::_bind_set_timeOffset},
-	{"set_timeMultiplier", &luna_wrapper_osg_AnimationPathCallback::_bind_set_timeMultiplier},
-	{"set_firstTime", &luna_wrapper_osg_AnimationPathCallback::_bind_set_firstTime},
-	{"set_latestTime", &luna_wrapper_osg_AnimationPathCallback::_bind_set_latestTime},
-	{"set_pause", &luna_wrapper_osg_AnimationPathCallback::_bind_set_pause},
-	{"set_pauseTime", &luna_wrapper_osg_AnimationPathCallback::_bind_set_pauseTime},
+	{"getFirstTime", &luna_wrapper_osg_AnimationPathCallback::_bind_getFirstTime},
+	{"getLatestTime", &luna_wrapper_osg_AnimationPathCallback::_bind_getLatestTime},
+	{"getPauseTime", &luna_wrapper_osg_AnimationPathCallback::_bind_getPauseTime},
+	{"setFirstTime", &luna_wrapper_osg_AnimationPathCallback::_bind_setFirstTime},
+	{"setLatestTime", &luna_wrapper_osg_AnimationPathCallback::_bind_setLatestTime},
+	{"setPauseTime", &luna_wrapper_osg_AnimationPathCallback::_bind_setPauseTime},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_AnimationPathCallback::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osg_AnimationPathCallback::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_AnimationPathCallback::_bind_base_computeDataVariance},
@@ -1826,6 +1544,8 @@ luna_RegType LunaTraits< osg::AnimationPathCallback >::methods[] = {
 	{"base_getAnimationTime", &luna_wrapper_osg_AnimationPathCallback::_bind_base_getAnimationTime},
 	{"op_call", &luna_wrapper_osg_AnimationPathCallback::_bind_op_call},
 	{"__eq", &luna_wrapper_osg_AnimationPathCallback::_bind___eq},
+	{"fromVoid", &luna_wrapper_osg_AnimationPathCallback::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osg_AnimationPathCallback::_bind_asVoid},
 	{"getTable", &luna_wrapper_osg_AnimationPathCallback::_bind_getTable},
 	{0,0}
 };

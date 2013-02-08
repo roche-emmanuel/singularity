@@ -30,8 +30,11 @@ INSTALL(TARGETS ${TARGET_NAME}
 # step needed for the generation of the XML documentation:
 SET(INCLUDE_PATH ${SPICE_INC_DIR})
 
+
 SET(INTF_FILES)
 LIST(APPEND INTF_FILES "${AWESOMIUM_INC_DIR}")
+ADD_FILES(INTF_FILES "../include/OSGSurfaceFactory.h")
+ADD_FILES(INTF_FILES "../include/OSGSurface.h")
 ADD_FILES(INTF_FILES "../include/plug_extensions.h")
 ADD_FILES(INTF_FILES "../interface/helpers.h")
 

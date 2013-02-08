@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osg::Camera::Attachment* self= (osg::Camera::Attachment*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osg::Camera::Attachment >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,65796671) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::Camera::Attachment >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -80,104 +124,104 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_internalFormat(lua_State *L) {
+	inline static bool _lg_typecheck_getInternalFormat(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_image(lua_State *L) {
+	inline static bool _lg_typecheck_getImage(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_texture(lua_State *L) {
+	inline static bool _lg_typecheck_getTexture(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_level(lua_State *L) {
+	inline static bool _lg_typecheck_getLevel(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_face(lua_State *L) {
+	inline static bool _lg_typecheck_getFace(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_mipMapGeneration(lua_State *L) {
+	inline static bool _lg_typecheck_getMipMapGeneration(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_multisampleSamples(lua_State *L) {
+	inline static bool _lg_typecheck_getMultisampleSamples(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_multisampleColorSamples(lua_State *L) {
+	inline static bool _lg_typecheck_getMultisampleColorSamples(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_internalFormat(lua_State *L) {
+	inline static bool _lg_typecheck_setInternalFormat(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_image(lua_State *L) {
+	inline static bool _lg_typecheck_setImage(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,15557275) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_texture(lua_State *L) {
+	inline static bool _lg_typecheck_setTexture(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50788728) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_level(lua_State *L) {
+	inline static bool _lg_typecheck_setLevel(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_face(lua_State *L) {
+	inline static bool _lg_typecheck_setFace(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_mipMapGeneration(lua_State *L) {
+	inline static bool _lg_typecheck_setMipMapGeneration(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_multisampleSamples(lua_State *L) {
+	inline static bool _lg_typecheck_setMultisampleSamples(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_multisampleColorSamples(lua_State *L) {
+	inline static bool _lg_typecheck_setMultisampleColorSamples(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -260,8 +304,8 @@ public:
 	}
 
 	// unsigned int osg::Camera::Attachment::_internalFormat()
-	static int _bind_get_internalFormat(lua_State *L) {
-		if (!_lg_typecheck_get_internalFormat(L)) {
+	static int _bind_getInternalFormat(lua_State *L) {
+		if (!_lg_typecheck_getInternalFormat(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_internalFormat() function, expected prototype:\nunsigned int osg::Camera::Attachment::_internalFormat()\nClass arguments details:\n");
 		}
@@ -279,8 +323,8 @@ public:
 	}
 
 	// osg::ref_ptr< osg::Image > osg::Camera::Attachment::_image()
-	static int _bind_get_image(lua_State *L) {
-		if (!_lg_typecheck_get_image(L)) {
+	static int _bind_getImage(lua_State *L) {
+		if (!_lg_typecheck_getImage(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Image > osg::Camera::Attachment::_image() function, expected prototype:\nosg::ref_ptr< osg::Image > osg::Camera::Attachment::_image()\nClass arguments details:\n");
 		}
@@ -298,8 +342,8 @@ public:
 	}
 
 	// osg::ref_ptr< osg::Texture > osg::Camera::Attachment::_texture()
-	static int _bind_get_texture(lua_State *L) {
-		if (!_lg_typecheck_get_texture(L)) {
+	static int _bind_getTexture(lua_State *L) {
+		if (!_lg_typecheck_getTexture(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Texture > osg::Camera::Attachment::_texture() function, expected prototype:\nosg::ref_ptr< osg::Texture > osg::Camera::Attachment::_texture()\nClass arguments details:\n");
 		}
@@ -317,8 +361,8 @@ public:
 	}
 
 	// unsigned int osg::Camera::Attachment::_level()
-	static int _bind_get_level(lua_State *L) {
-		if (!_lg_typecheck_get_level(L)) {
+	static int _bind_getLevel(lua_State *L) {
+		if (!_lg_typecheck_getLevel(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_level() function, expected prototype:\nunsigned int osg::Camera::Attachment::_level()\nClass arguments details:\n");
 		}
@@ -336,8 +380,8 @@ public:
 	}
 
 	// unsigned int osg::Camera::Attachment::_face()
-	static int _bind_get_face(lua_State *L) {
-		if (!_lg_typecheck_get_face(L)) {
+	static int _bind_getFace(lua_State *L) {
+		if (!_lg_typecheck_getFace(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_face() function, expected prototype:\nunsigned int osg::Camera::Attachment::_face()\nClass arguments details:\n");
 		}
@@ -355,8 +399,8 @@ public:
 	}
 
 	// bool osg::Camera::Attachment::_mipMapGeneration()
-	static int _bind_get_mipMapGeneration(lua_State *L) {
-		if (!_lg_typecheck_get_mipMapGeneration(L)) {
+	static int _bind_getMipMapGeneration(lua_State *L) {
+		if (!_lg_typecheck_getMipMapGeneration(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool osg::Camera::Attachment::_mipMapGeneration() function, expected prototype:\nbool osg::Camera::Attachment::_mipMapGeneration()\nClass arguments details:\n");
 		}
@@ -374,8 +418,8 @@ public:
 	}
 
 	// unsigned int osg::Camera::Attachment::_multisampleSamples()
-	static int _bind_get_multisampleSamples(lua_State *L) {
-		if (!_lg_typecheck_get_multisampleSamples(L)) {
+	static int _bind_getMultisampleSamples(lua_State *L) {
+		if (!_lg_typecheck_getMultisampleSamples(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_multisampleSamples() function, expected prototype:\nunsigned int osg::Camera::Attachment::_multisampleSamples()\nClass arguments details:\n");
 		}
@@ -393,8 +437,8 @@ public:
 	}
 
 	// unsigned int osg::Camera::Attachment::_multisampleColorSamples()
-	static int _bind_get_multisampleColorSamples(lua_State *L) {
-		if (!_lg_typecheck_get_multisampleColorSamples(L)) {
+	static int _bind_getMultisampleColorSamples(lua_State *L) {
+		if (!_lg_typecheck_getMultisampleColorSamples(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::Camera::Attachment::_multisampleColorSamples() function, expected prototype:\nunsigned int osg::Camera::Attachment::_multisampleColorSamples()\nClass arguments details:\n");
 		}
@@ -412,8 +456,8 @@ public:
 	}
 
 	// void osg::Camera::Attachment::_internalFormat(unsigned int value)
-	static int _bind_set_internalFormat(lua_State *L) {
-		if (!_lg_typecheck_set_internalFormat(L)) {
+	static int _bind_setInternalFormat(lua_State *L) {
+		if (!_lg_typecheck_setInternalFormat(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_internalFormat(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_internalFormat(unsigned int value)\nClass arguments details:\n");
 		}
@@ -431,8 +475,8 @@ public:
 	}
 
 	// void osg::Camera::Attachment::_image(osg::ref_ptr< osg::Image > value)
-	static int _bind_set_image(lua_State *L) {
-		if (!_lg_typecheck_set_image(L)) {
+	static int _bind_setImage(lua_State *L) {
+		if (!_lg_typecheck_setImage(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_image(osg::ref_ptr< osg::Image > value) function, expected prototype:\nvoid osg::Camera::Attachment::_image(osg::ref_ptr< osg::Image > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -450,8 +494,8 @@ public:
 	}
 
 	// void osg::Camera::Attachment::_texture(osg::ref_ptr< osg::Texture > value)
-	static int _bind_set_texture(lua_State *L) {
-		if (!_lg_typecheck_set_texture(L)) {
+	static int _bind_setTexture(lua_State *L) {
+		if (!_lg_typecheck_setTexture(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_texture(osg::ref_ptr< osg::Texture > value) function, expected prototype:\nvoid osg::Camera::Attachment::_texture(osg::ref_ptr< osg::Texture > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -469,8 +513,8 @@ public:
 	}
 
 	// void osg::Camera::Attachment::_level(unsigned int value)
-	static int _bind_set_level(lua_State *L) {
-		if (!_lg_typecheck_set_level(L)) {
+	static int _bind_setLevel(lua_State *L) {
+		if (!_lg_typecheck_setLevel(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_level(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_level(unsigned int value)\nClass arguments details:\n");
 		}
@@ -488,8 +532,8 @@ public:
 	}
 
 	// void osg::Camera::Attachment::_face(unsigned int value)
-	static int _bind_set_face(lua_State *L) {
-		if (!_lg_typecheck_set_face(L)) {
+	static int _bind_setFace(lua_State *L) {
+		if (!_lg_typecheck_setFace(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_face(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_face(unsigned int value)\nClass arguments details:\n");
 		}
@@ -507,8 +551,8 @@ public:
 	}
 
 	// void osg::Camera::Attachment::_mipMapGeneration(bool value)
-	static int _bind_set_mipMapGeneration(lua_State *L) {
-		if (!_lg_typecheck_set_mipMapGeneration(L)) {
+	static int _bind_setMipMapGeneration(lua_State *L) {
+		if (!_lg_typecheck_setMipMapGeneration(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_mipMapGeneration(bool value) function, expected prototype:\nvoid osg::Camera::Attachment::_mipMapGeneration(bool value)\nClass arguments details:\n");
 		}
@@ -526,8 +570,8 @@ public:
 	}
 
 	// void osg::Camera::Attachment::_multisampleSamples(unsigned int value)
-	static int _bind_set_multisampleSamples(lua_State *L) {
-		if (!_lg_typecheck_set_multisampleSamples(L)) {
+	static int _bind_setMultisampleSamples(lua_State *L) {
+		if (!_lg_typecheck_setMultisampleSamples(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_multisampleSamples(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_multisampleSamples(unsigned int value)\nClass arguments details:\n");
 		}
@@ -545,8 +589,8 @@ public:
 	}
 
 	// void osg::Camera::Attachment::_multisampleColorSamples(unsigned int value)
-	static int _bind_set_multisampleColorSamples(lua_State *L) {
-		if (!_lg_typecheck_set_multisampleColorSamples(L)) {
+	static int _bind_setMultisampleColorSamples(lua_State *L) {
+		if (!_lg_typecheck_setMultisampleColorSamples(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Camera::Attachment::_multisampleColorSamples(unsigned int value) function, expected prototype:\nvoid osg::Camera::Attachment::_multisampleColorSamples(unsigned int value)\nClass arguments details:\n");
 		}
@@ -570,8 +614,6 @@ public:
 
 osg::Camera::Attachment* LunaTraits< osg::Camera::Attachment >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Camera_Attachment::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::Camera::Attachment >::_bind_dtor(osg::Camera::Attachment* obj) {
@@ -589,24 +631,26 @@ luna_RegType LunaTraits< osg::Camera::Attachment >::methods[] = {
 	{"width", &luna_wrapper_osg_Camera_Attachment::_bind_width},
 	{"height", &luna_wrapper_osg_Camera_Attachment::_bind_height},
 	{"depth", &luna_wrapper_osg_Camera_Attachment::_bind_depth},
-	{"get_internalFormat", &luna_wrapper_osg_Camera_Attachment::_bind_get_internalFormat},
-	{"get_image", &luna_wrapper_osg_Camera_Attachment::_bind_get_image},
-	{"get_texture", &luna_wrapper_osg_Camera_Attachment::_bind_get_texture},
-	{"get_level", &luna_wrapper_osg_Camera_Attachment::_bind_get_level},
-	{"get_face", &luna_wrapper_osg_Camera_Attachment::_bind_get_face},
-	{"get_mipMapGeneration", &luna_wrapper_osg_Camera_Attachment::_bind_get_mipMapGeneration},
-	{"get_multisampleSamples", &luna_wrapper_osg_Camera_Attachment::_bind_get_multisampleSamples},
-	{"get_multisampleColorSamples", &luna_wrapper_osg_Camera_Attachment::_bind_get_multisampleColorSamples},
-	{"set_internalFormat", &luna_wrapper_osg_Camera_Attachment::_bind_set_internalFormat},
-	{"set_image", &luna_wrapper_osg_Camera_Attachment::_bind_set_image},
-	{"set_texture", &luna_wrapper_osg_Camera_Attachment::_bind_set_texture},
-	{"set_level", &luna_wrapper_osg_Camera_Attachment::_bind_set_level},
-	{"set_face", &luna_wrapper_osg_Camera_Attachment::_bind_set_face},
-	{"set_mipMapGeneration", &luna_wrapper_osg_Camera_Attachment::_bind_set_mipMapGeneration},
-	{"set_multisampleSamples", &luna_wrapper_osg_Camera_Attachment::_bind_set_multisampleSamples},
-	{"set_multisampleColorSamples", &luna_wrapper_osg_Camera_Attachment::_bind_set_multisampleColorSamples},
+	{"getInternalFormat", &luna_wrapper_osg_Camera_Attachment::_bind_getInternalFormat},
+	{"getImage", &luna_wrapper_osg_Camera_Attachment::_bind_getImage},
+	{"getTexture", &luna_wrapper_osg_Camera_Attachment::_bind_getTexture},
+	{"getLevel", &luna_wrapper_osg_Camera_Attachment::_bind_getLevel},
+	{"getFace", &luna_wrapper_osg_Camera_Attachment::_bind_getFace},
+	{"getMipMapGeneration", &luna_wrapper_osg_Camera_Attachment::_bind_getMipMapGeneration},
+	{"getMultisampleSamples", &luna_wrapper_osg_Camera_Attachment::_bind_getMultisampleSamples},
+	{"getMultisampleColorSamples", &luna_wrapper_osg_Camera_Attachment::_bind_getMultisampleColorSamples},
+	{"setInternalFormat", &luna_wrapper_osg_Camera_Attachment::_bind_setInternalFormat},
+	{"setImage", &luna_wrapper_osg_Camera_Attachment::_bind_setImage},
+	{"setTexture", &luna_wrapper_osg_Camera_Attachment::_bind_setTexture},
+	{"setLevel", &luna_wrapper_osg_Camera_Attachment::_bind_setLevel},
+	{"setFace", &luna_wrapper_osg_Camera_Attachment::_bind_setFace},
+	{"setMipMapGeneration", &luna_wrapper_osg_Camera_Attachment::_bind_setMipMapGeneration},
+	{"setMultisampleSamples", &luna_wrapper_osg_Camera_Attachment::_bind_setMultisampleSamples},
+	{"setMultisampleColorSamples", &luna_wrapper_osg_Camera_Attachment::_bind_setMultisampleColorSamples},
 	{"dynCast", &luna_wrapper_osg_Camera_Attachment::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_Camera_Attachment::_bind___eq},
+	{"fromVoid", &luna_wrapper_osg_Camera_Attachment::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osg_Camera_Attachment::_bind_asVoid},
 	{0,0}
 };
 

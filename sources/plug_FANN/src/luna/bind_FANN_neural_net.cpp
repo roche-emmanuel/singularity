@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		FANN::neural_net* self= (FANN::neural_net*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< FANN::neural_net >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,71064061) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< FANN::neural_net >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -924,7 +968,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::destroy()");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::destroy(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->destroy();
 
@@ -943,7 +987,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float * FANN::neural_net::run(float *)");
+			luaL_error(L, "Invalid object in function call float * FANN::neural_net::run(float *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float * lret = self->run(&input);
 		lua_pushnumber(L,*lret);
@@ -985,7 +1029,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::randomize_weights(float, float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::randomize_weights(float, float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->randomize_weights(min_weight, max_weight);
 
@@ -1008,7 +1052,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::init_weights(const FANN::training_data &)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::init_weights(const FANN::training_data &). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->init_weights(data);
 
@@ -1026,7 +1070,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::print_connections()");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::print_connections(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->print_connections();
 
@@ -1045,7 +1089,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool FANN::neural_net::create_from_file(const std::string &)");
+			luaL_error(L, "Invalid object in function call bool FANN::neural_net::create_from_file(const std::string &). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		bool lret = self->create_from_file(configuration_file);
 		lua_pushboolean(L,lret?1:0);
@@ -1065,7 +1109,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool FANN::neural_net::save(const std::string &)");
+			luaL_error(L, "Invalid object in function call bool FANN::neural_net::save(const std::string &). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		bool lret = self->save(configuration_file);
 		lua_pushboolean(L,lret?1:0);
@@ -1085,7 +1129,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int FANN::neural_net::save_to_fixed(const std::string &)");
+			luaL_error(L, "Invalid object in function call int FANN::neural_net::save_to_fixed(const std::string &). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		int lret = self->save_to_fixed(configuration_file);
 		lua_pushnumber(L,lret);
@@ -1106,7 +1150,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::train(float *, float *)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::train(float *, float *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->train(&input, &desired_output);
 
@@ -1129,7 +1173,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::train_epoch(const FANN::training_data &)");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::train_epoch(const FANN::training_data &). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->train_epoch(data);
 		lua_pushnumber(L,lret);
@@ -1156,7 +1200,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::train_on_data(const FANN::training_data &, unsigned int, unsigned int, float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::train_on_data(const FANN::training_data &, unsigned int, unsigned int, float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->train_on_data(data, max_epochs, epochs_between_reports, desired_error);
 
@@ -1178,7 +1222,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::train_on_file(const std::string &, unsigned int, unsigned int, float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::train_on_file(const std::string &, unsigned int, unsigned int, float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->train_on_file(filename, max_epochs, epochs_between_reports, desired_error);
 
@@ -1198,7 +1242,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float * FANN::neural_net::test(float *, float *)");
+			luaL_error(L, "Invalid object in function call float * FANN::neural_net::test(float *, float *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float * lret = self->test(&input, &desired_output);
 		lua_pushnumber(L,*lret);
@@ -1222,7 +1266,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::test_data(const FANN::training_data &)");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::test_data(const FANN::training_data &). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->test_data(data);
 		lua_pushnumber(L,lret);
@@ -1241,7 +1285,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_MSE()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_MSE(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_MSE();
 		lua_pushnumber(L,lret);
@@ -1260,7 +1304,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::reset_MSE()");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::reset_MSE(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->reset_MSE();
 
@@ -1278,7 +1322,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::print_parameters()");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::print_parameters(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->print_parameters();
 
@@ -1296,7 +1340,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call FANN::training_algorithm_enum FANN::neural_net::get_training_algorithm()");
+			luaL_error(L, "Invalid object in function call FANN::training_algorithm_enum FANN::neural_net::get_training_algorithm(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		FANN::training_algorithm_enum lret = self->get_training_algorithm();
 		lua_pushnumber(L,lret);
@@ -1316,7 +1360,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_training_algorithm(FANN::training_algorithm_enum)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_training_algorithm(FANN::training_algorithm_enum). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_training_algorithm(training_algorithm);
 
@@ -1334,7 +1378,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_learning_rate()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_learning_rate(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_learning_rate();
 		lua_pushnumber(L,lret);
@@ -1354,7 +1398,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_learning_rate(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_learning_rate(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_learning_rate(learning_rate);
 
@@ -1374,7 +1418,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call FANN::activation_function_enum FANN::neural_net::get_activation_function(int, int)");
+			luaL_error(L, "Invalid object in function call FANN::activation_function_enum FANN::neural_net::get_activation_function(int, int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		FANN::activation_function_enum lret = self->get_activation_function(layer, neuron);
 		lua_pushnumber(L,lret);
@@ -1396,7 +1440,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_function(FANN::activation_function_enum, int, int)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_function(FANN::activation_function_enum, int, int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_activation_function(activation_function, layer, neuron);
 
@@ -1416,7 +1460,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_function_layer(FANN::activation_function_enum, int)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_function_layer(FANN::activation_function_enum, int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_activation_function_layer(activation_function, layer);
 
@@ -1435,7 +1479,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_function_hidden(FANN::activation_function_enum)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_function_hidden(FANN::activation_function_enum). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_activation_function_hidden(activation_function);
 
@@ -1454,7 +1498,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_function_output(FANN::activation_function_enum)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_function_output(FANN::activation_function_enum). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_activation_function_output(activation_function);
 
@@ -1474,7 +1518,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_activation_steepness(int, int)");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_activation_steepness(int, int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_activation_steepness(layer, neuron);
 		lua_pushnumber(L,lret);
@@ -1496,7 +1540,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_steepness(float, int, int)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_steepness(float, int, int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_activation_steepness(steepness, layer, neuron);
 
@@ -1516,7 +1560,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_steepness_layer(float, int)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_steepness_layer(float, int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_activation_steepness_layer(steepness, layer);
 
@@ -1535,7 +1579,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_steepness_hidden(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_steepness_hidden(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_activation_steepness_hidden(steepness);
 
@@ -1554,7 +1598,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_steepness_output(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_activation_steepness_output(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_activation_steepness_output(steepness);
 
@@ -1572,7 +1616,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call FANN::error_function_enum FANN::neural_net::get_train_error_function()");
+			luaL_error(L, "Invalid object in function call FANN::error_function_enum FANN::neural_net::get_train_error_function(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		FANN::error_function_enum lret = self->get_train_error_function();
 		lua_pushnumber(L,lret);
@@ -1592,7 +1636,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_train_error_function(FANN::error_function_enum)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_train_error_function(FANN::error_function_enum). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_train_error_function(train_error_function);
 
@@ -1610,7 +1654,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_quickprop_decay()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_quickprop_decay(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_quickprop_decay();
 		lua_pushnumber(L,lret);
@@ -1630,7 +1674,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_quickprop_decay(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_quickprop_decay(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_quickprop_decay(quickprop_decay);
 
@@ -1648,7 +1692,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_quickprop_mu()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_quickprop_mu(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_quickprop_mu();
 		lua_pushnumber(L,lret);
@@ -1668,7 +1712,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_quickprop_mu(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_quickprop_mu(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_quickprop_mu(quickprop_mu);
 
@@ -1686,7 +1730,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_rprop_increase_factor()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_rprop_increase_factor(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_rprop_increase_factor();
 		lua_pushnumber(L,lret);
@@ -1706,7 +1750,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_rprop_increase_factor(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_rprop_increase_factor(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_rprop_increase_factor(rprop_increase_factor);
 
@@ -1724,7 +1768,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_rprop_decrease_factor()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_rprop_decrease_factor(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_rprop_decrease_factor();
 		lua_pushnumber(L,lret);
@@ -1744,7 +1788,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_rprop_decrease_factor(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_rprop_decrease_factor(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_rprop_decrease_factor(rprop_decrease_factor);
 
@@ -1762,7 +1806,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_rprop_delta_zero()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_rprop_delta_zero(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_rprop_delta_zero();
 		lua_pushnumber(L,lret);
@@ -1782,7 +1826,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_rprop_delta_zero(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_rprop_delta_zero(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_rprop_delta_zero(rprop_delta_zero);
 
@@ -1800,7 +1844,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_rprop_delta_min()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_rprop_delta_min(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_rprop_delta_min();
 		lua_pushnumber(L,lret);
@@ -1820,7 +1864,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_rprop_delta_min(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_rprop_delta_min(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_rprop_delta_min(rprop_delta_min);
 
@@ -1838,7 +1882,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_rprop_delta_max()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_rprop_delta_max(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_rprop_delta_max();
 		lua_pushnumber(L,lret);
@@ -1858,7 +1902,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_rprop_delta_max(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_rprop_delta_max(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_rprop_delta_max(rprop_delta_max);
 
@@ -1876,7 +1920,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_sarprop_weight_decay_shift()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_sarprop_weight_decay_shift(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_sarprop_weight_decay_shift();
 		lua_pushnumber(L,lret);
@@ -1896,7 +1940,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_sarprop_weight_decay_shift(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_sarprop_weight_decay_shift(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_sarprop_weight_decay_shift(sarprop_weight_decay_shift);
 
@@ -1914,7 +1958,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_sarprop_step_error_threshold_factor()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_sarprop_step_error_threshold_factor(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_sarprop_step_error_threshold_factor();
 		lua_pushnumber(L,lret);
@@ -1934,7 +1978,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_sarprop_step_error_threshold_factor(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_sarprop_step_error_threshold_factor(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_sarprop_step_error_threshold_factor(sarprop_step_error_threshold_factor);
 
@@ -1952,7 +1996,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_sarprop_step_error_shift()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_sarprop_step_error_shift(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_sarprop_step_error_shift();
 		lua_pushnumber(L,lret);
@@ -1972,7 +2016,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_sarprop_step_error_shift(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_sarprop_step_error_shift(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_sarprop_step_error_shift(sarprop_step_error_shift);
 
@@ -1990,7 +2034,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_sarprop_temperature()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_sarprop_temperature(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_sarprop_temperature();
 		lua_pushnumber(L,lret);
@@ -2010,7 +2054,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_sarprop_temperature(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_sarprop_temperature(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_sarprop_temperature(sarprop_temperature);
 
@@ -2028,7 +2072,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_num_input()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_num_input(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_num_input();
 		lua_pushnumber(L,lret);
@@ -2047,7 +2091,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_num_output()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_num_output(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_num_output();
 		lua_pushnumber(L,lret);
@@ -2066,7 +2110,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_total_neurons()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_total_neurons(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_total_neurons();
 		lua_pushnumber(L,lret);
@@ -2085,7 +2129,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_total_connections()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_total_connections(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_total_connections();
 		lua_pushnumber(L,lret);
@@ -2104,7 +2148,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call FANN::network_type_enum FANN::neural_net::get_network_type()");
+			luaL_error(L, "Invalid object in function call FANN::network_type_enum FANN::neural_net::get_network_type(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		FANN::network_type_enum lret = self->get_network_type();
 		lua_pushnumber(L,lret);
@@ -2123,7 +2167,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_connection_rate()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_connection_rate(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_connection_rate();
 		lua_pushnumber(L,lret);
@@ -2142,7 +2186,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_num_layers()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_num_layers(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_num_layers();
 		lua_pushnumber(L,lret);
@@ -2162,7 +2206,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::get_layer_array(unsigned int *)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::get_layer_array(unsigned int *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->get_layer_array(&layers);
 
@@ -2181,7 +2225,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::get_bias_array(unsigned int *)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::get_bias_array(unsigned int *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->get_bias_array(&bias);
 
@@ -2202,7 +2246,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_weight(unsigned int, unsigned int, float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_weight(unsigned int, unsigned int, float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_weight(from_neuron, to_neuron, weight);
 
@@ -2220,7 +2264,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_learning_momentum()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_learning_momentum(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_learning_momentum();
 		lua_pushnumber(L,lret);
@@ -2240,7 +2284,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_learning_momentum(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_learning_momentum(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_learning_momentum(learning_momentum);
 
@@ -2258,7 +2302,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call FANN::stop_function_enum FANN::neural_net::get_train_stop_function()");
+			luaL_error(L, "Invalid object in function call FANN::stop_function_enum FANN::neural_net::get_train_stop_function(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		FANN::stop_function_enum lret = self->get_train_stop_function();
 		lua_pushnumber(L,lret);
@@ -2278,7 +2322,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_train_stop_function(FANN::stop_function_enum)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_train_stop_function(FANN::stop_function_enum). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_train_stop_function(train_stop_function);
 
@@ -2296,7 +2340,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_bit_fail_limit()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_bit_fail_limit(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_bit_fail_limit();
 		lua_pushnumber(L,lret);
@@ -2316,7 +2360,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_bit_fail_limit(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_bit_fail_limit(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_bit_fail_limit(bit_fail_limit);
 
@@ -2334,7 +2378,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_bit_fail()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_bit_fail(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_bit_fail();
 		lua_pushnumber(L,lret);
@@ -2361,7 +2405,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::cascadetrain_on_data(const FANN::training_data &, unsigned int, unsigned int, float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::cascadetrain_on_data(const FANN::training_data &, unsigned int, unsigned int, float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->cascadetrain_on_data(data, max_neurons, neurons_between_reports, desired_error);
 
@@ -2383,7 +2427,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::cascadetrain_on_file(const std::string &, unsigned int, unsigned int, float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::cascadetrain_on_file(const std::string &, unsigned int, unsigned int, float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->cascadetrain_on_file(filename, max_neurons, neurons_between_reports, desired_error);
 
@@ -2401,7 +2445,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_cascade_output_change_fraction()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_cascade_output_change_fraction(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_cascade_output_change_fraction();
 		lua_pushnumber(L,lret);
@@ -2421,7 +2465,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_output_change_fraction(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_output_change_fraction(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_cascade_output_change_fraction(cascade_output_change_fraction);
 
@@ -2439,7 +2483,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_output_stagnation_epochs()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_output_stagnation_epochs(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_cascade_output_stagnation_epochs();
 		lua_pushnumber(L,lret);
@@ -2459,7 +2503,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_output_stagnation_epochs(unsigned int)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_output_stagnation_epochs(unsigned int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_cascade_output_stagnation_epochs(cascade_output_stagnation_epochs);
 
@@ -2477,7 +2521,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_cascade_candidate_change_fraction()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_cascade_candidate_change_fraction(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_cascade_candidate_change_fraction();
 		lua_pushnumber(L,lret);
@@ -2497,7 +2541,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_candidate_change_fraction(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_candidate_change_fraction(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_cascade_candidate_change_fraction(cascade_candidate_change_fraction);
 
@@ -2515,7 +2559,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_candidate_stagnation_epochs()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_candidate_stagnation_epochs(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_cascade_candidate_stagnation_epochs();
 		lua_pushnumber(L,lret);
@@ -2535,7 +2579,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_candidate_stagnation_epochs(unsigned int)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_candidate_stagnation_epochs(unsigned int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_cascade_candidate_stagnation_epochs(cascade_candidate_stagnation_epochs);
 
@@ -2553,7 +2597,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_cascade_weight_multiplier()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_cascade_weight_multiplier(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_cascade_weight_multiplier();
 		lua_pushnumber(L,lret);
@@ -2573,7 +2617,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_weight_multiplier(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_weight_multiplier(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_cascade_weight_multiplier(cascade_weight_multiplier);
 
@@ -2591,7 +2635,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_cascade_candidate_limit()");
+			luaL_error(L, "Invalid object in function call float FANN::neural_net::get_cascade_candidate_limit(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float lret = self->get_cascade_candidate_limit();
 		lua_pushnumber(L,lret);
@@ -2611,7 +2655,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_candidate_limit(float)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_candidate_limit(float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_cascade_candidate_limit(cascade_candidate_limit);
 
@@ -2629,7 +2673,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_max_out_epochs()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_max_out_epochs(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_cascade_max_out_epochs();
 		lua_pushnumber(L,lret);
@@ -2649,7 +2693,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_max_out_epochs(unsigned int)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_max_out_epochs(unsigned int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_cascade_max_out_epochs(cascade_max_out_epochs);
 
@@ -2667,7 +2711,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_max_cand_epochs()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_max_cand_epochs(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_cascade_max_cand_epochs();
 		lua_pushnumber(L,lret);
@@ -2687,7 +2731,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_max_cand_epochs(unsigned int)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_max_cand_epochs(unsigned int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_cascade_max_cand_epochs(cascade_max_cand_epochs);
 
@@ -2705,7 +2749,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_num_candidates()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_num_candidates(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_cascade_num_candidates();
 		lua_pushnumber(L,lret);
@@ -2724,7 +2768,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_activation_functions_count()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_activation_functions_count(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_cascade_activation_functions_count();
 		lua_pushnumber(L,lret);
@@ -2743,7 +2787,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call FANN::activation_function_enum * FANN::neural_net::get_cascade_activation_functions()");
+			luaL_error(L, "Invalid object in function call FANN::activation_function_enum * FANN::neural_net::get_cascade_activation_functions(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		FANN::activation_function_enum * lret = self->get_cascade_activation_functions();
 		lua_pushnumber(L,*lret);
@@ -2764,7 +2808,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_activation_functions(FANN::activation_function_enum *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_activation_functions(FANN::activation_function_enum *, unsigned int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_cascade_activation_functions(&cascade_activation_functions, cascade_activation_functions_count);
 
@@ -2782,7 +2826,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_activation_steepnesses_count()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_activation_steepnesses_count(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_cascade_activation_steepnesses_count();
 		lua_pushnumber(L,lret);
@@ -2801,7 +2845,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float * FANN::neural_net::get_cascade_activation_steepnesses()");
+			luaL_error(L, "Invalid object in function call float * FANN::neural_net::get_cascade_activation_steepnesses(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		float * lret = self->get_cascade_activation_steepnesses();
 		lua_pushnumber(L,*lret);
@@ -2822,7 +2866,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_activation_steepnesses(float *, unsigned int)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_activation_steepnesses(float *, unsigned int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_cascade_activation_steepnesses(&cascade_activation_steepnesses, cascade_activation_steepnesses_count);
 
@@ -2840,7 +2884,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_num_candidate_groups()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_cascade_num_candidate_groups(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_cascade_num_candidate_groups();
 		lua_pushnumber(L,lret);
@@ -2860,7 +2904,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_num_candidate_groups(unsigned int)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_num_candidate_groups(unsigned int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->set_cascade_num_candidate_groups(cascade_num_candidate_groups);
 
@@ -2883,7 +2927,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::scale_train(FANN::training_data &)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::scale_train(FANN::training_data &). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->scale_train(data);
 
@@ -2906,7 +2950,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::descale_train(FANN::training_data &)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::descale_train(FANN::training_data &). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->descale_train(data);
 
@@ -2931,7 +2975,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool FANN::neural_net::set_input_scaling_params(const FANN::training_data &, float, float)");
+			luaL_error(L, "Invalid object in function call bool FANN::neural_net::set_input_scaling_params(const FANN::training_data &, float, float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		bool lret = self->set_input_scaling_params(data, new_input_min, new_input_max);
 		lua_pushboolean(L,lret?1:0);
@@ -2957,7 +3001,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool FANN::neural_net::set_output_scaling_params(const FANN::training_data &, float, float)");
+			luaL_error(L, "Invalid object in function call bool FANN::neural_net::set_output_scaling_params(const FANN::training_data &, float, float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		bool lret = self->set_output_scaling_params(data, new_output_min, new_output_max);
 		lua_pushboolean(L,lret?1:0);
@@ -2985,7 +3029,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool FANN::neural_net::set_scaling_params(const FANN::training_data &, float, float, float, float)");
+			luaL_error(L, "Invalid object in function call bool FANN::neural_net::set_scaling_params(const FANN::training_data &, float, float, float, float). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		bool lret = self->set_scaling_params(data, new_input_min, new_input_max, new_output_min, new_output_max);
 		lua_pushboolean(L,lret?1:0);
@@ -3004,7 +3048,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool FANN::neural_net::clear_scaling_params()");
+			luaL_error(L, "Invalid object in function call bool FANN::neural_net::clear_scaling_params(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		bool lret = self->clear_scaling_params();
 		lua_pushboolean(L,lret?1:0);
@@ -3024,7 +3068,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::scale_input(float *)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::scale_input(float *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->scale_input(&input_vector);
 
@@ -3043,7 +3087,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::scale_output(float *)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::scale_output(float *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->scale_output(&output_vector);
 
@@ -3062,7 +3106,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::descale_input(float *)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::descale_input(float *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->descale_input(&input_vector);
 
@@ -3081,7 +3125,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::descale_output(float *)");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::descale_output(float *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->descale_output(&output_vector);
 
@@ -3099,7 +3143,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_errno()");
+			luaL_error(L, "Invalid object in function call unsigned int FANN::neural_net::get_errno(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		unsigned int lret = self->get_errno();
 		lua_pushnumber(L,lret);
@@ -3118,7 +3162,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::reset_errno()");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::reset_errno(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->reset_errno();
 
@@ -3136,7 +3180,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::reset_errstr()");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::reset_errstr(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->reset_errstr();
 
@@ -3154,7 +3198,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string FANN::neural_net::get_errstr()");
+			luaL_error(L, "Invalid object in function call std::string FANN::neural_net::get_errstr(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		std::string lret = self->get_errstr();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3173,7 +3217,7 @@ public:
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::neural_net::print_error()");
+			luaL_error(L, "Invalid object in function call void FANN::neural_net::print_error(). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
 		self->print_error();
 
@@ -3199,8 +3243,6 @@ public:
 
 FANN::neural_net* LunaTraits< FANN::neural_net >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_FANN_neural_net::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< FANN::neural_net >::_bind_dtor(FANN::neural_net* obj) {
@@ -3332,6 +3374,8 @@ luna_RegType LunaTraits< FANN::neural_net >::methods[] = {
 	{"create_standard", &luna_wrapper_FANN_neural_net::_bind_create_standard},
 	{"dynCast", &luna_wrapper_FANN_neural_net::_bind_dynCast},
 	{"__eq", &luna_wrapper_FANN_neural_net::_bind___eq},
+	{"fromVoid", &luna_wrapper_FANN_neural_net::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_FANN_neural_net::_bind_asVoid},
 	{0,0}
 };
 

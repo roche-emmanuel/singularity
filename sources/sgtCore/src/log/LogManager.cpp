@@ -5,7 +5,7 @@
 #include "log/StdLogger.h"
 
 static osg::ref_ptr<sgtLogManager> singleton;
-
+	
 namespace sgt {
 
 LogManager::~LogManager() {
@@ -16,8 +16,15 @@ LogManager::~LogManager() {
 Log a given piece of information to the internal sinks.
 */
 void LogManager::log(int level, std::string trace, std::string msg)
-{
-  // Bouml preserved body begin 0002EB0B
+{	
+	if(_handler.valid())
+		_handler->handle(level,trace,msg);
+	else
+		doLog(level,trace,msg);
+}
+
+void LogManager::doLog(int level, std::string trace, std::string msg)
+{	
 	if(_sinks.empty())
 		_sinks.push_back(new StdLogger); // add a console logger by default.
 
@@ -25,7 +32,6 @@ void LogManager::log(int level, std::string trace, std::string msg)
 	for(SinkVector::iterator it = _sinks.begin(); it != _sinks.end(); ++it) {
 		(*it)->process(level,trace,msg);
 	}
-  // Bouml preserved body end 0002EB0B
 }
 
 /**

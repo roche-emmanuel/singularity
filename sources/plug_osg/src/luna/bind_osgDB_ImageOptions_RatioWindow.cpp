@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osgDB::ImageOptions::RatioWindow* self= (osgDB::ImageOptions::RatioWindow*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osgDB::ImageOptions::RatioWindow >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,44466488) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osgDB::ImageOptions::RatioWindow >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -323,8 +367,6 @@ public:
 
 osgDB::ImageOptions::RatioWindow* LunaTraits< osgDB::ImageOptions::RatioWindow >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgDB_ImageOptions_RatioWindow::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgDB::ImageOptions::RatioWindow >::_bind_dtor(osgDB::ImageOptions::RatioWindow* obj) {
@@ -350,6 +392,8 @@ luna_RegType LunaTraits< osgDB::ImageOptions::RatioWindow >::methods[] = {
 	{"setWindowHeight", &luna_wrapper_osgDB_ImageOptions_RatioWindow::_bind_setWindowHeight},
 	{"dynCast", &luna_wrapper_osgDB_ImageOptions_RatioWindow::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgDB_ImageOptions_RatioWindow::_bind___eq},
+	{"fromVoid", &luna_wrapper_osgDB_ImageOptions_RatioWindow::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osgDB_ImageOptions_RatioWindow::_bind_asVoid},
 	{0,0}
 };
 

@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osg::BarrierOperation* self= (osg::BarrierOperation*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osg::BarrierOperation >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -108,13 +152,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_preBlockOp(lua_State *L) {
+	inline static bool _lg_typecheck_getPreBlockOp(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_preBlockOp(lua_State *L) {
+	inline static bool _lg_typecheck_setPreBlockOp(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -228,8 +272,8 @@ public:
 	}
 
 	// osg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp()
-	static int _bind_get_preBlockOp(lua_State *L) {
-		if (!_lg_typecheck_get_preBlockOp(L)) {
+	static int _bind_getPreBlockOp(lua_State *L) {
+		if (!_lg_typecheck_getPreBlockOp(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp() function, expected prototype:\nosg::BarrierOperation::PreBlockOp osg::BarrierOperation::_preBlockOp()\nClass arguments details:\n");
 		}
@@ -247,8 +291,8 @@ public:
 	}
 
 	// void osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp value)
-	static int _bind_set_preBlockOp(lua_State *L) {
-		if (!_lg_typecheck_set_preBlockOp(L)) {
+	static int _bind_setPreBlockOp(lua_State *L) {
+		if (!_lg_typecheck_setPreBlockOp(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp value) function, expected prototype:\nvoid osg::BarrierOperation::_preBlockOp(osg::BarrierOperation::PreBlockOp value)\nClass arguments details:\n");
 		}
@@ -412,8 +456,6 @@ public:
 
 osg::BarrierOperation* LunaTraits< osg::BarrierOperation >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_BarrierOperation::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::BarrierOperation >::_bind_dtor(osg::BarrierOperation* obj) {
@@ -429,8 +471,8 @@ const int LunaTraits< osg::BarrierOperation >::uniqueIDs[] = {50169651, 8229717,
 
 luna_RegType LunaTraits< osg::BarrierOperation >::methods[] = {
 	{"release", &luna_wrapper_osg_BarrierOperation::_bind_release},
-	{"get_preBlockOp", &luna_wrapper_osg_BarrierOperation::_bind_get_preBlockOp},
-	{"set_preBlockOp", &luna_wrapper_osg_BarrierOperation::_bind_set_preBlockOp},
+	{"getPreBlockOp", &luna_wrapper_osg_BarrierOperation::_bind_getPreBlockOp},
+	{"setPreBlockOp", &luna_wrapper_osg_BarrierOperation::_bind_setPreBlockOp},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_BarrierOperation::_bind_base_setThreadSafeRefUnref},
 	{"base_reset", &luna_wrapper_osg_BarrierOperation::_bind_base_reset},
 	{"base_block", &luna_wrapper_osg_BarrierOperation::_bind_base_block},
@@ -438,6 +480,8 @@ luna_RegType LunaTraits< osg::BarrierOperation >::methods[] = {
 	{"base_release", &luna_wrapper_osg_BarrierOperation::_bind_base_release},
 	{"op_call", &luna_wrapper_osg_BarrierOperation::_bind_op_call},
 	{"__eq", &luna_wrapper_osg_BarrierOperation::_bind___eq},
+	{"fromVoid", &luna_wrapper_osg_BarrierOperation::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osg_BarrierOperation::_bind_asVoid},
 	{"getTable", &luna_wrapper_osg_BarrierOperation::_bind_getTable},
 	{"asBarrier", &luna_wrapper_osg_BarrierOperation::_bind_baseCast_OpenThreads_Barrier},
 	{0,0}

@@ -57,11 +57,11 @@ public:
 };
 
 std::map< std::string, spark::SparkDrawable::ImageAttribute >* LunaTraits< std::map< std::string, spark::SparkDrawable::ImageAttribute > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return new std::map< std::string, spark::SparkDrawable::ImageAttribute >();
 }
 
 void LunaTraits< std::map< std::string, spark::SparkDrawable::ImageAttribute > >::_bind_dtor(std::map< std::string, spark::SparkDrawable::ImageAttribute >* obj) {
-	//delete obj; // do not delete by default.
+	delete obj;
 }
 
 const char LunaTraits< std::map< std::string, spark::SparkDrawable::ImageAttribute > >::className[] = "std_map_std_string_spark_SparkDrawable_ImageAttribute";

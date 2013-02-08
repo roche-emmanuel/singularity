@@ -4,6 +4,50 @@ class luna_wrapper_wxRect2DDouble {
 public:
 	typedef Luna< wxRect2DDouble > luna_t;
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		wxRect2DDouble* self= (wxRect2DDouble*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< wxRect2DDouble >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,21099623) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< wxRect2DDouble >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -409,52 +453,52 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_x(lua_State *L) {
+	inline static bool _lg_typecheck_getX(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_y(lua_State *L) {
+	inline static bool _lg_typecheck_getY(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_width(lua_State *L) {
+	inline static bool _lg_typecheck_getWidth(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_height(lua_State *L) {
+	inline static bool _lg_typecheck_getHeight(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_x(lua_State *L) {
+	inline static bool _lg_typecheck_setX(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_y(lua_State *L) {
+	inline static bool _lg_typecheck_setY(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_width(lua_State *L) {
+	inline static bool _lg_typecheck_setWidth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_height(lua_State *L) {
+	inline static bool _lg_typecheck_setHeight(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -1668,8 +1712,8 @@ public:
 	}
 
 	// double wxRect2DDouble::m_x()
-	static int _bind_getM_x(lua_State *L) {
-		if (!_lg_typecheck_getM_x(L)) {
+	static int _bind_getX(lua_State *L) {
+		if (!_lg_typecheck_getX(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_x() function, expected prototype:\ndouble wxRect2DDouble::m_x()\nClass arguments details:\n");
 		}
@@ -1687,8 +1731,8 @@ public:
 	}
 
 	// double wxRect2DDouble::m_y()
-	static int _bind_getM_y(lua_State *L) {
-		if (!_lg_typecheck_getM_y(L)) {
+	static int _bind_getY(lua_State *L) {
+		if (!_lg_typecheck_getY(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_y() function, expected prototype:\ndouble wxRect2DDouble::m_y()\nClass arguments details:\n");
 		}
@@ -1706,8 +1750,8 @@ public:
 	}
 
 	// double wxRect2DDouble::m_width()
-	static int _bind_getM_width(lua_State *L) {
-		if (!_lg_typecheck_getM_width(L)) {
+	static int _bind_getWidth(lua_State *L) {
+		if (!_lg_typecheck_getWidth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_width() function, expected prototype:\ndouble wxRect2DDouble::m_width()\nClass arguments details:\n");
 		}
@@ -1725,8 +1769,8 @@ public:
 	}
 
 	// double wxRect2DDouble::m_height()
-	static int _bind_getM_height(lua_State *L) {
-		if (!_lg_typecheck_getM_height(L)) {
+	static int _bind_getHeight(lua_State *L) {
+		if (!_lg_typecheck_getHeight(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double wxRect2DDouble::m_height() function, expected prototype:\ndouble wxRect2DDouble::m_height()\nClass arguments details:\n");
 		}
@@ -1744,8 +1788,8 @@ public:
 	}
 
 	// void wxRect2DDouble::m_x(double value)
-	static int _bind_setM_x(lua_State *L) {
-		if (!_lg_typecheck_setM_x(L)) {
+	static int _bind_setX(lua_State *L) {
+		if (!_lg_typecheck_setX(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_x(double value) function, expected prototype:\nvoid wxRect2DDouble::m_x(double value)\nClass arguments details:\n");
 		}
@@ -1763,8 +1807,8 @@ public:
 	}
 
 	// void wxRect2DDouble::m_y(double value)
-	static int _bind_setM_y(lua_State *L) {
-		if (!_lg_typecheck_setM_y(L)) {
+	static int _bind_setY(lua_State *L) {
+		if (!_lg_typecheck_setY(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_y(double value) function, expected prototype:\nvoid wxRect2DDouble::m_y(double value)\nClass arguments details:\n");
 		}
@@ -1782,8 +1826,8 @@ public:
 	}
 
 	// void wxRect2DDouble::m_width(double value)
-	static int _bind_setM_width(lua_State *L) {
-		if (!_lg_typecheck_setM_width(L)) {
+	static int _bind_setWidth(lua_State *L) {
+		if (!_lg_typecheck_setWidth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_width(double value) function, expected prototype:\nvoid wxRect2DDouble::m_width(double value)\nClass arguments details:\n");
 		}
@@ -1801,8 +1845,8 @@ public:
 	}
 
 	// void wxRect2DDouble::m_height(double value)
-	static int _bind_setM_height(lua_State *L) {
-		if (!_lg_typecheck_setM_height(L)) {
+	static int _bind_setHeight(lua_State *L) {
+		if (!_lg_typecheck_setHeight(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxRect2DDouble::m_height(double value) function, expected prototype:\nvoid wxRect2DDouble::m_height(double value)\nClass arguments details:\n");
 		}
@@ -1900,8 +1944,6 @@ public:
 
 wxRect2DDouble* LunaTraits< wxRect2DDouble >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxRect2DDouble::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxRect2DDouble >::_bind_dtor(wxRect2DDouble* obj) {
@@ -1960,18 +2002,20 @@ luna_RegType LunaTraits< wxRect2DDouble >::methods[] = {
 	{"Union", &luna_wrapper_wxRect2DDouble::_bind_Union},
 	{"CreateUnion", &luna_wrapper_wxRect2DDouble::_bind_CreateUnion},
 	{"Scale", &luna_wrapper_wxRect2DDouble::_bind_Scale},
-	{"getM_x", &luna_wrapper_wxRect2DDouble::_bind_getM_x},
-	{"getM_y", &luna_wrapper_wxRect2DDouble::_bind_getM_y},
-	{"getM_width", &luna_wrapper_wxRect2DDouble::_bind_getM_width},
-	{"getM_height", &luna_wrapper_wxRect2DDouble::_bind_getM_height},
-	{"setM_x", &luna_wrapper_wxRect2DDouble::_bind_setM_x},
-	{"setM_y", &luna_wrapper_wxRect2DDouble::_bind_setM_y},
-	{"setM_width", &luna_wrapper_wxRect2DDouble::_bind_setM_width},
-	{"setM_height", &luna_wrapper_wxRect2DDouble::_bind_setM_height},
+	{"getX", &luna_wrapper_wxRect2DDouble::_bind_getX},
+	{"getY", &luna_wrapper_wxRect2DDouble::_bind_getY},
+	{"getWidth", &luna_wrapper_wxRect2DDouble::_bind_getWidth},
+	{"getHeight", &luna_wrapper_wxRect2DDouble::_bind_getHeight},
+	{"setX", &luna_wrapper_wxRect2DDouble::_bind_setX},
+	{"setY", &luna_wrapper_wxRect2DDouble::_bind_setY},
+	{"setWidth", &luna_wrapper_wxRect2DDouble::_bind_setWidth},
+	{"setHeight", &luna_wrapper_wxRect2DDouble::_bind_setHeight},
 	{"op_assign", &luna_wrapper_wxRect2DDouble::_bind_op_assign},
 	{"__eq", &luna_wrapper_wxRect2DDouble::_bind___eq},
 	{"op_neq", &luna_wrapper_wxRect2DDouble::_bind_op_neq},
 	{"dynCast", &luna_wrapper_wxRect2DDouble::_bind_dynCast},
+	{"fromVoid", &luna_wrapper_wxRect2DDouble::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_wxRect2DDouble::_bind_asVoid},
 	{0,0}
 };
 

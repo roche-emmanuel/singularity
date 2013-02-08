@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osgDB::ImageOptions::TexCoordRange* self= (osgDB::ImageOptions::TexCoordRange*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osgDB::ImageOptions::TexCoordRange >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -92,52 +136,52 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_x(lua_State *L) {
+	inline static bool _lg_typecheck_getX(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_y(lua_State *L) {
+	inline static bool _lg_typecheck_getY(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_w(lua_State *L) {
+	inline static bool _lg_typecheck_getW(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_h(lua_State *L) {
+	inline static bool _lg_typecheck_getH(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_x(lua_State *L) {
+	inline static bool _lg_typecheck_setX(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_y(lua_State *L) {
+	inline static bool _lg_typecheck_setY(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_w(lua_State *L) {
+	inline static bool _lg_typecheck_setW(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_h(lua_State *L) {
+	inline static bool _lg_typecheck_setH(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -212,8 +256,8 @@ public:
 	}
 
 	// double osgDB::ImageOptions::TexCoordRange::_x()
-	static int _bind_get_x(lua_State *L) {
-		if (!_lg_typecheck_get_x(L)) {
+	static int _bind_getX(lua_State *L) {
+		if (!_lg_typecheck_getX(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double osgDB::ImageOptions::TexCoordRange::_x() function, expected prototype:\ndouble osgDB::ImageOptions::TexCoordRange::_x()\nClass arguments details:\n");
 		}
@@ -231,8 +275,8 @@ public:
 	}
 
 	// double osgDB::ImageOptions::TexCoordRange::_y()
-	static int _bind_get_y(lua_State *L) {
-		if (!_lg_typecheck_get_y(L)) {
+	static int _bind_getY(lua_State *L) {
+		if (!_lg_typecheck_getY(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double osgDB::ImageOptions::TexCoordRange::_y() function, expected prototype:\ndouble osgDB::ImageOptions::TexCoordRange::_y()\nClass arguments details:\n");
 		}
@@ -250,8 +294,8 @@ public:
 	}
 
 	// double osgDB::ImageOptions::TexCoordRange::_w()
-	static int _bind_get_w(lua_State *L) {
-		if (!_lg_typecheck_get_w(L)) {
+	static int _bind_getW(lua_State *L) {
+		if (!_lg_typecheck_getW(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double osgDB::ImageOptions::TexCoordRange::_w() function, expected prototype:\ndouble osgDB::ImageOptions::TexCoordRange::_w()\nClass arguments details:\n");
 		}
@@ -269,8 +313,8 @@ public:
 	}
 
 	// double osgDB::ImageOptions::TexCoordRange::_h()
-	static int _bind_get_h(lua_State *L) {
-		if (!_lg_typecheck_get_h(L)) {
+	static int _bind_getH(lua_State *L) {
+		if (!_lg_typecheck_getH(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in double osgDB::ImageOptions::TexCoordRange::_h() function, expected prototype:\ndouble osgDB::ImageOptions::TexCoordRange::_h()\nClass arguments details:\n");
 		}
@@ -288,8 +332,8 @@ public:
 	}
 
 	// void osgDB::ImageOptions::TexCoordRange::_x(double value)
-	static int _bind_set_x(lua_State *L) {
-		if (!_lg_typecheck_set_x(L)) {
+	static int _bind_setX(lua_State *L) {
+		if (!_lg_typecheck_setX(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::TexCoordRange::_x(double value) function, expected prototype:\nvoid osgDB::ImageOptions::TexCoordRange::_x(double value)\nClass arguments details:\n");
 		}
@@ -307,8 +351,8 @@ public:
 	}
 
 	// void osgDB::ImageOptions::TexCoordRange::_y(double value)
-	static int _bind_set_y(lua_State *L) {
-		if (!_lg_typecheck_set_y(L)) {
+	static int _bind_setY(lua_State *L) {
+		if (!_lg_typecheck_setY(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::TexCoordRange::_y(double value) function, expected prototype:\nvoid osgDB::ImageOptions::TexCoordRange::_y(double value)\nClass arguments details:\n");
 		}
@@ -326,8 +370,8 @@ public:
 	}
 
 	// void osgDB::ImageOptions::TexCoordRange::_w(double value)
-	static int _bind_set_w(lua_State *L) {
-		if (!_lg_typecheck_set_w(L)) {
+	static int _bind_setW(lua_State *L) {
+		if (!_lg_typecheck_setW(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::TexCoordRange::_w(double value) function, expected prototype:\nvoid osgDB::ImageOptions::TexCoordRange::_w(double value)\nClass arguments details:\n");
 		}
@@ -345,8 +389,8 @@ public:
 	}
 
 	// void osgDB::ImageOptions::TexCoordRange::_h(double value)
-	static int _bind_set_h(lua_State *L) {
-		if (!_lg_typecheck_set_h(L)) {
+	static int _bind_setH(lua_State *L) {
+		if (!_lg_typecheck_setH(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgDB::ImageOptions::TexCoordRange::_h(double value) function, expected prototype:\nvoid osgDB::ImageOptions::TexCoordRange::_h(double value)\nClass arguments details:\n");
 		}
@@ -389,8 +433,6 @@ public:
 
 osgDB::ImageOptions::TexCoordRange* LunaTraits< osgDB::ImageOptions::TexCoordRange >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgDB::ImageOptions::TexCoordRange >::_bind_dtor(osgDB::ImageOptions::TexCoordRange* obj) {
@@ -406,16 +448,18 @@ const int LunaTraits< osgDB::ImageOptions::TexCoordRange >::uniqueIDs[] = {50169
 
 luna_RegType LunaTraits< osgDB::ImageOptions::TexCoordRange >::methods[] = {
 	{"set", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_set},
-	{"get_x", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_get_x},
-	{"get_y", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_get_y},
-	{"get_w", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_get_w},
-	{"get_h", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_get_h},
-	{"set_x", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_set_x},
-	{"set_y", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_set_y},
-	{"set_w", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_set_w},
-	{"set_h", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_set_h},
+	{"getX", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_getX},
+	{"getY", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_getY},
+	{"getW", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_getW},
+	{"getH", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_getH},
+	{"setX", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_setX},
+	{"setY", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_setY},
+	{"setW", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_setW},
+	{"setH", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_setH},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind___eq},
+	{"fromVoid", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_asVoid},
 	{"getTable", &luna_wrapper_osgDB_ImageOptions_TexCoordRange::_bind_getTable},
 	{0,0}
 };

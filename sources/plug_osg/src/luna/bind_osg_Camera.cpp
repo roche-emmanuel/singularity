@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osg::Camera* self= (osg::Camera*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osg::Camera >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -905,7 +949,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getFACE_CONTROLLED_BY_GEOMETRY_SHADER(lua_State *L) {
+	inline static bool _lg_typecheck_get_FACE_CONTROLLED_BY_GEOMETRY_SHADER(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -3732,8 +3776,8 @@ public:
 	}
 
 	// const unsigned int osg::Camera::FACE_CONTROLLED_BY_GEOMETRY_SHADER()
-	static int _bind_getFACE_CONTROLLED_BY_GEOMETRY_SHADER(lua_State *L) {
-		if (!_lg_typecheck_getFACE_CONTROLLED_BY_GEOMETRY_SHADER(L)) {
+	static int _bind_get_FACE_CONTROLLED_BY_GEOMETRY_SHADER(lua_State *L) {
+		if (!_lg_typecheck_get_FACE_CONTROLLED_BY_GEOMETRY_SHADER(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in const unsigned int osg::Camera::FACE_CONTROLLED_BY_GEOMETRY_SHADER() function, expected prototype:\nconst unsigned int osg::Camera::FACE_CONTROLLED_BY_GEOMETRY_SHADER()\nClass arguments details:\n");
 		}
@@ -4628,8 +4672,6 @@ public:
 
 osg::Camera* LunaTraits< osg::Camera >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Camera::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::Camera >::_bind_dtor(osg::Camera* obj) {
@@ -4729,7 +4771,7 @@ luna_RegType LunaTraits< osg::Camera >::methods[] = {
 	{"computeLocalToWorldMatrix", &luna_wrapper_osg_Camera::_bind_computeLocalToWorldMatrix},
 	{"computeWorldToLocalMatrix", &luna_wrapper_osg_Camera::_bind_computeWorldToLocalMatrix},
 	{"inheritCullSettings", &luna_wrapper_osg_Camera::_bind_inheritCullSettings},
-	{"getFACE_CONTROLLED_BY_GEOMETRY_SHADER", &luna_wrapper_osg_Camera::_bind_getFACE_CONTROLLED_BY_GEOMETRY_SHADER},
+	{"get_FACE_CONTROLLED_BY_GEOMETRY_SHADER", &luna_wrapper_osg_Camera::_bind_get_FACE_CONTROLLED_BY_GEOMETRY_SHADER},
 	{"base_setName", &luna_wrapper_osg_Camera::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_Camera::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_Camera::_bind_base_setUserData},
@@ -4761,6 +4803,8 @@ luna_RegType LunaTraits< osg::Camera >::methods[] = {
 	{"base_computeWorldToLocalMatrix", &luna_wrapper_osg_Camera::_bind_base_computeWorldToLocalMatrix},
 	{"base_inheritCullSettings", &luna_wrapper_osg_Camera::_bind_base_inheritCullSettings},
 	{"__eq", &luna_wrapper_osg_Camera::_bind___eq},
+	{"fromVoid", &luna_wrapper_osg_Camera::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osg_Camera::_bind_asVoid},
 	{"getTable", &luna_wrapper_osg_Camera::_bind_getTable},
 	{"asCullSettings", &luna_wrapper_osg_Camera::_bind_baseCast_osg_CullSettings},
 	{0,0}

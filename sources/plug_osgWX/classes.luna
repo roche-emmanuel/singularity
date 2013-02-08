@@ -1,3 +1,2 @@
 module=osgWX
 GraphicsWindowWX => osg::Referenced
-

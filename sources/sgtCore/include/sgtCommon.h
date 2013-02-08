@@ -47,6 +47,7 @@
 #include <osg/observer_ptr>
 #include <osg/Math>
 #include <OpenThreads/Mutex>
+#include <OpenThreads/ScopedLock>
 
 // Smart pointers definitions:
 #define sgtPtr osg::ref_ptr
@@ -98,6 +99,10 @@ typedef double Double;
 typedef sgtPtr<sgtReferencedBase> RefPtr;
 
 typedef OpenThreads::Mutex sgtMutex;
+
+typedef OpenThreads::ScopedLock<sgtMutex> sgtLock;
+
+#define SCOPELOCK(m) sgtLock lock(m); 
 
 //typedef boost::any Any;
 

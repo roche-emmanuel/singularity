@@ -1,8 +1,79 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_IDocEntry.h>
+
 class luna_wrapper_IDocEntry {
 public:
 	typedef Luna< IDocEntry > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		IDoc* self=(Luna< IDoc >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<IDoc,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,2243631) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IDoc*)");
+		}
+
+		IDoc* rhs =(Luna< IDoc >::check(L,2));
+		IDoc* self=(Luna< IDoc >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Derived class converters:
+	static int _cast_from_IDoc(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		//IDocEntry* ptr= dynamic_cast< IDocEntry* >(Luna< IDoc >::check(L,1));
+		IDocEntry* ptr= luna_caster< IDoc, IDocEntry >::cast(Luna< IDoc >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< IDocEntry >::push(L,ptr,false);
+		return 1;
+	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_contents(lua_State *L) {
@@ -15,17 +86,32 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
-	// Function binds:
-	static int _bind_contents(lua_State *L) {
-		if (!_lg_typecheck_contents(L)) {
+	// Constructor binds:
+	// IDocEntry::IDocEntry(lua_Table * data)
+	static IDocEntry* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in contents function, expected prototype:\ncontents()");
+			luaL_error(L, "luna typecheck failed in IDocEntry::IDocEntry(lua_Table * data) function, expected prototype:\nIDocEntry::IDocEntry(lua_Table * data)\nClass arguments details:\n");
 		}
 
 
-		IDocEntry* self=dynamic_cast< IDocEntry* >(Luna< IDoc >::check(L,1));
+		return new wrapper_IDocEntry(L,NULL);
+	}
+
+
+	// Function binds:
+	// IDocIterator * IDocEntry::contents() const
+	static int _bind_contents(lua_State *L) {
+		if (!_lg_typecheck_contents(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in IDocIterator * IDocEntry::contents() const function, expected prototype:\nIDocIterator * IDocEntry::contents() const\nClass arguments details:\n");
+		}
+
+
+		IDocEntry* self=Luna< IDoc >::checkSubType< IDocEntry >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call contents(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IDocIterator * IDocEntry::contents() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		IDocIterator * lret = self->contents();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -41,7 +127,11 @@ public:
 };
 
 IDocEntry* LunaTraits< IDocEntry >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_IDocEntry::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// IDocIterator * IDocEntry::contents() const
+	// IDoc::Kind IDoc::kind() const
 }
 
 void LunaTraits< IDocEntry >::_bind_dtor(IDocEntry* obj) {
@@ -49,12 +139,21 @@ void LunaTraits< IDocEntry >::_bind_dtor(IDocEntry* obj) {
 }
 
 const char LunaTraits< IDocEntry >::className[] = "IDocEntry";
+const char LunaTraits< IDocEntry >::fullName[] = "IDocEntry";
 const char LunaTraits< IDocEntry >::moduleName[] = "doxmlparser";
 const char* LunaTraits< IDocEntry >::parents[] = {"doxmlparser.IDoc", 0};
+const int LunaTraits< IDocEntry >::hash = 13931253;
 const int LunaTraits< IDocEntry >::uniqueIDs[] = {2243631,0};
 
 luna_RegType LunaTraits< IDocEntry >::methods[] = {
 	{"contents", &luna_wrapper_IDocEntry::_bind_contents},
+	{"__eq", &luna_wrapper_IDocEntry::_bind___eq},
+	{"getTable", &luna_wrapper_IDocEntry::_bind_getTable},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< IDocEntry >::converters[] = {
+	{"IDoc", &luna_wrapper_IDocEntry::_cast_from_IDoc},
 	{0,0}
 };
 

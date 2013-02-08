@@ -13,17 +13,13 @@ extern void register_global_functions(lua_State* L);
 int PLUG_EXPORT luaopen_spark(lua_State* L) {
 	luna_open(L);
 
-	luna_pushModule(L,"luna");
-	Luna< void >::Register(L);
-	luna_popModule(L);
-
 	luna_pushModule(L,"spark");
+	Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::Register(L);
 	Luna< spark::SparkDrawable >::Register(L);
 	Luna< std::vector< SPK::System * > >::Register(L);
 	Luna< std::map< std::string, spark::SparkDrawable::ImageAttribute > >::Register(L);
 	Luna< spark::SparkDrawable::BaseSystemCreator >::Register(L);
 	Luna< spark::SparkDrawable::DeferredSystemHandler >::Register(L);
-	Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::Register(L);
 	Luna< spark::SparkDrawable::ImageAttribute >::Register(L);
 	Luna< spark::SparkDrawable::SortParticlesOperator >::Register(L);
 	Luna< spark::SparkUpdatingHandler >::Register(L);
@@ -72,12 +68,13 @@ int PLUG_EXPORT luaopen_spark(lua_State* L) {
 	Luna< SPK::Point >::Register(L);
 	Luna< SPK::Ring >::Register(L);
 	Luna< SPK::Sphere >::Register(L);
-	Luna< GL::GLExtHandler >::Register(L);
-	Luna< GL::GLRenderer >::Register(L);
-	Luna< GL::GLLineRenderer >::Register(L);
-	Luna< GL::GLLineTrailRenderer >::Register(L);
-	Luna< GL::GLPointRenderer >::Register(L);
-	Luna< GL::GLQuadRenderer >::Register(L);
+	Luna< SPK::GL::GLExtHandler >::Register(L);
+	Luna< SPK::GL::GLRenderer >::Register(L);
+	Luna< SPK::GL::GLLineRenderer >::Register(L);
+	Luna< SPK::GL::GLLineTrailRenderer >::Register(L);
+	Luna< SPK::GL::GLPointRenderer >::Register(L);
+	Luna< SPK::GL::GLQuadRenderer >::Register(L);
+	Luna< SPK::Pool< SPK::Particle > >::Register(L);
 	luna_popModule(L);
 
 	luna_pushModule(L,"spark");

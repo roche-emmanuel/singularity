@@ -1,8 +1,34 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_SPK_Oriented3DRendererInterface.h>
+
 class luna_wrapper_SPK_Oriented3DRendererInterface {
 public:
 	typedef Luna< SPK::Oriented3DRendererInterface > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<SPK::Oriented3DRendererInterface,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
 
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -25,6 +51,50 @@ public:
 		
 		return self==rhs;
 	}
+
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		SPK::Oriented3DRendererInterface* self= (SPK::Oriented3DRendererInterface*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< SPK::Oriented3DRendererInterface >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,95637678) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
 
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
@@ -54,9 +124,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -112,20 +189,52 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getLookVector(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getUpVector(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
 	// SPK::Oriented3DRendererInterface::Oriented3DRendererInterface()
-	static SPK::Oriented3DRendererInterface* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static SPK::Oriented3DRendererInterface* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in SPK::Oriented3DRendererInterface::Oriented3DRendererInterface() function, expected prototype:\nSPK::Oriented3DRendererInterface::Oriented3DRendererInterface()\nClass arguments details:\n");
 		}
 
 
 		return new SPK::Oriented3DRendererInterface();
+	}
+
+	// SPK::Oriented3DRendererInterface::Oriented3DRendererInterface(lua_Table * data)
+	static SPK::Oriented3DRendererInterface* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in SPK::Oriented3DRendererInterface::Oriented3DRendererInterface(lua_Table * data) function, expected prototype:\nSPK::Oriented3DRendererInterface::Oriented3DRendererInterface(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_SPK_Oriented3DRendererInterface(L,NULL);
+	}
+
+	// Overload binder for SPK::Oriented3DRendererInterface::Oriented3DRendererInterface
+	static SPK::Oriented3DRendererInterface* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Oriented3DRendererInterface, cannot match any of the overloads for function Oriented3DRendererInterface:\n  Oriented3DRendererInterface()\n  Oriented3DRendererInterface(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -266,6 +375,48 @@ public:
 		return 0;
 	}
 
+	// SPK::Vector3D SPK::Oriented3DRendererInterface::lookVector()
+	static int _bind_getLookVector(lua_State *L) {
+		if (!_lg_typecheck_getLookVector(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in SPK::Vector3D SPK::Oriented3DRendererInterface::lookVector() function, expected prototype:\nSPK::Vector3D SPK::Oriented3DRendererInterface::lookVector()\nClass arguments details:\n");
+		}
+
+
+		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Oriented3DRendererInterface::lookVector(). Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+		}
+		const SPK::Vector3D* lret = &self->lookVector;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< SPK::Vector3D >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// SPK::Vector3D SPK::Oriented3DRendererInterface::upVector()
+	static int _bind_getUpVector(lua_State *L) {
+		if (!_lg_typecheck_getUpVector(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in SPK::Vector3D SPK::Oriented3DRendererInterface::upVector() function, expected prototype:\nSPK::Vector3D SPK::Oriented3DRendererInterface::upVector()\nClass arguments details:\n");
+		}
+
+
+		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Oriented3DRendererInterface::upVector(). Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+		}
+		const SPK::Vector3D* lret = &self->upVector;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< SPK::Vector3D >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -273,8 +424,6 @@ public:
 
 SPK::Oriented3DRendererInterface* LunaTraits< SPK::Oriented3DRendererInterface >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_SPK_Oriented3DRendererInterface::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< SPK::Oriented3DRendererInterface >::_bind_dtor(SPK::Oriented3DRendererInterface* obj) {
@@ -295,8 +444,13 @@ luna_RegType LunaTraits< SPK::Oriented3DRendererInterface >::methods[] = {
 	{"getLockedAxis", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_getLockedAxis},
 	{"setLookVector", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_setLookVector},
 	{"setUpVector", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_setUpVector},
+	{"getLookVector", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_getLookVector},
+	{"getUpVector", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_getUpVector},
 	{"dynCast", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_dynCast},
 	{"__eq", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind___eq},
+	{"fromVoid", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_asVoid},
+	{"getTable", &luna_wrapper_SPK_Oriented3DRendererInterface::_bind_getTable},
 	{0,0}
 };
 

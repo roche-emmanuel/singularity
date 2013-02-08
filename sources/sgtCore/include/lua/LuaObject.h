@@ -10,6 +10,7 @@
 
 #include "sgtCommon.h"
 #include "lua/LuaRef.h"
+#include <OpenThreads/Thread>
 
 namespace sgt {
 
@@ -25,11 +26,47 @@ struct remove_pointer<T*>
 	typedef typename remove_pointer<T>::type type;
 };
 
+template <typename T>
+struct luna_boxed {
+	typedef T Type;
+};
+
+template <>
+struct luna_boxed<int> {
+	typedef void Type;
+};
+
+template <>
+struct luna_boxed<unsigned int> {
+	typedef void Type;
+};
+
+template <>
+struct luna_boxed<long> {
+	typedef void Type;
+};
+
+template <>
+struct luna_boxed<unsigned long> {
+	typedef void Type;
+};
+
+template <>
+struct luna_boxed<float> {
+	typedef void Type;
+};
+
+template <>
+struct luna_boxed<double> {
+	typedef void Type;
+};
 
 class SGTCORE_EXPORT LuaObject : public sgt::LuaRef {
 protected:
 	mutable int _nargs;
-
+	// boost::thread::id _threadId;
+	// int _threadId;
+	
 public:
 	LuaObject(lua_State* L, int index) : LuaRef(L,index) {
 		THROW_IF(!pushLuaItem(),"Cannot push lua item.");
@@ -39,6 +76,12 @@ public:
 
 		// remove from stack:
 		lua_pop(_state,1);
+		
+		// Init the thread ID:
+		// _threadId = boost::this_thread::get_id();
+		// OpenThreads::Thread* th = OpenThreads::Thread::CurrentThread();
+		//THROW_IF(!th,"Invalid current Thread");
+		// _threadId = th ? th->getThreadId() : -1;
 		
 		reset();
 	}
@@ -87,12 +130,12 @@ public:
 
 template <typename ArgType>
 void pushValue(lua_State* L, ArgType* arg) {
-	Luna< ArgType >::push(L,arg,false);
+	Luna< luna_boxed<ArgType>::Type >::push(L,(luna_boxed<ArgType>::Type *)arg,false);
 };
 
 template <typename ArgType>
 void pushValue(lua_State* L, const ArgType* arg) {
-	Luna< ArgType >::push(L,arg,false);
+	Luna< luna_boxed<ArgType>::Type >::push(L,(const luna_boxed<ArgType>::Type *)arg,false);
 };
 
 template <typename ArgType>
@@ -231,6 +274,11 @@ inline long getValue(lua_State* L, int index) {
 template <>
 inline unsigned int getValue(lua_State* L, int index) {
 	return (unsigned int)lua_tointeger(L,index);
+}
+
+template <>
+inline unsigned short getValue(lua_State* L, int index) {
+	return (unsigned short)lua_tointeger(L,index);
 }
 
 template <>

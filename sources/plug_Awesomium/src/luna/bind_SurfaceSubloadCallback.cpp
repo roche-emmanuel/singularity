@@ -1,8 +1,34 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_SurfaceSubloadCallback.h>
+
 class luna_wrapper_SurfaceSubloadCallback {
 public:
 	typedef Luna< SurfaceSubloadCallback > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		SurfaceSubloadCallback* self=(Luna< SurfaceSubloadCallback >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<SurfaceSubloadCallback,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
 
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -25,6 +51,50 @@ public:
 		
 		return self==rhs;
 	}
+
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		SurfaceSubloadCallback* self= (SurfaceSubloadCallback*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< SurfaceSubloadCallback >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,92967815) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< SurfaceSubloadCallback >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
 
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
@@ -54,10 +124,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,613205)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< Awesomium::WebView >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,613205)) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< Awesomium::WebView >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -85,8 +165,8 @@ public:
 
 	// Constructor binds:
 	// SurfaceSubloadCallback::SurfaceSubloadCallback(Awesomium::WebView * view)
-	static SurfaceSubloadCallback* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static SurfaceSubloadCallback* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in SurfaceSubloadCallback::SurfaceSubloadCallback(Awesomium::WebView * view) function, expected prototype:\nSurfaceSubloadCallback::SurfaceSubloadCallback(Awesomium::WebView * view)\nClass arguments details:\narg 1 ID = 613205\n");
 		}
@@ -94,6 +174,27 @@ public:
 		Awesomium::WebView* view=(Luna< Awesomium::WebView >::check(L,1));
 
 		return new SurfaceSubloadCallback(view);
+	}
+
+	// SurfaceSubloadCallback::SurfaceSubloadCallback(lua_Table * data, Awesomium::WebView * view)
+	static SurfaceSubloadCallback* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in SurfaceSubloadCallback::SurfaceSubloadCallback(lua_Table * data, Awesomium::WebView * view) function, expected prototype:\nSurfaceSubloadCallback::SurfaceSubloadCallback(lua_Table * data, Awesomium::WebView * view)\nClass arguments details:\narg 2 ID = 613205\n");
+		}
+
+		Awesomium::WebView* view=(Luna< Awesomium::WebView >::check(L,2));
+
+		return new wrapper_SurfaceSubloadCallback(L,NULL, view);
+	}
+
+	// Overload binder for SurfaceSubloadCallback::SurfaceSubloadCallback
+	static SurfaceSubloadCallback* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function SurfaceSubloadCallback, cannot match any of the overloads for function SurfaceSubloadCallback:\n  SurfaceSubloadCallback(Awesomium::WebView *)\n  SurfaceSubloadCallback(lua_Table *, Awesomium::WebView *)\n");
+		return NULL;
 	}
 
 
@@ -161,8 +262,6 @@ public:
 
 SurfaceSubloadCallback* LunaTraits< SurfaceSubloadCallback >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_SurfaceSubloadCallback::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< SurfaceSubloadCallback >::_bind_dtor(SurfaceSubloadCallback* obj) {
@@ -181,6 +280,9 @@ luna_RegType LunaTraits< SurfaceSubloadCallback >::methods[] = {
 	{"subload", &luna_wrapper_SurfaceSubloadCallback::_bind_subload},
 	{"dynCast", &luna_wrapper_SurfaceSubloadCallback::_bind_dynCast},
 	{"__eq", &luna_wrapper_SurfaceSubloadCallback::_bind___eq},
+	{"fromVoid", &luna_wrapper_SurfaceSubloadCallback::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_SurfaceSubloadCallback::_bind_asVoid},
+	{"getTable", &luna_wrapper_SurfaceSubloadCallback::_bind_getTable},
 	{0,0}
 };
 

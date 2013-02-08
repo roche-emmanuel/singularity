@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		spark::SparkDrawable::BaseSystemCreator* self= (spark::SparkDrawable::BaseSystemCreator*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< spark::SparkDrawable::BaseSystemCreator >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -82,7 +126,7 @@ public:
 	inline static bool _lg_typecheck_op_call(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,14771105) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,72783721) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
@@ -112,7 +156,7 @@ public:
 			luaL_error(L, "luna typecheck failed in unsigned long spark::SparkDrawable::BaseSystemCreator::operator()(const spark::SparkDrawable::TextureIDMap & arg1, int width, int height) function, expected prototype:\nunsigned long spark::SparkDrawable::BaseSystemCreator::operator()(const spark::SparkDrawable::TextureIDMap & arg1, int width, int height)\nClass arguments details:\narg 1 ID = 72783721\n");
 		}
 
-		const spark::SparkDrawable::TextureIDMap* _arg1_ptr=(Luna< spark::SparkDrawable::TextureIDMap >::check(L,2));
+		const spark::SparkDrawable::TextureIDMap* _arg1_ptr=(Luna< std::map< std::string, unsigned int > >::checkSubType< spark::SparkDrawable::TextureIDMap >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in spark::SparkDrawable::BaseSystemCreator::operator() function");
 		}
@@ -155,6 +199,8 @@ const int LunaTraits< spark::SparkDrawable::BaseSystemCreator >::uniqueIDs[] = {
 luna_RegType LunaTraits< spark::SparkDrawable::BaseSystemCreator >::methods[] = {
 	{"op_call", &luna_wrapper_spark_SparkDrawable_BaseSystemCreator::_bind_op_call},
 	{"__eq", &luna_wrapper_spark_SparkDrawable_BaseSystemCreator::_bind___eq},
+	{"fromVoid", &luna_wrapper_spark_SparkDrawable_BaseSystemCreator::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_spark_SparkDrawable_BaseSystemCreator::_bind_asVoid},
 	{"getTable", &luna_wrapper_spark_SparkDrawable_BaseSystemCreator::_bind_getTable},
 	{0,0}
 };

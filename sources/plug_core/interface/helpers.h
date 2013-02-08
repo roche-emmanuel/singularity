@@ -1,4 +1,11 @@
 
+namespace OpenThreads {
+
+class Mutex {
+};
+
+};
+
 // This is a trick to successfully export Referenced and Object classes from the core
 // module and use them from all other osg modules.
 namespace osg {
@@ -38,6 +45,12 @@ protected:
 };
 
 class __int64 {
+};
+
+class uintptr_t {
+};
+
+class void {
 };
 
 namespace std {
@@ -83,6 +96,15 @@ public:
 	static bool isInstanciated();
 };
 
+class ModuleManager {
+protected:
+	~ModuleManager();
+public:
+	static ModuleProvider& instance();
+	static void destroy();
+	static bool isInstanciated();
+};
+
 class AnyVector : public sgt::Object {
 public:
 	AnyVector();
@@ -90,3 +112,7 @@ public:
 
 };
 
+LUNA_IMPLEMENT_VECTOR(int);
+LUNA_IMPLEMENT_VECTOR(float);
+LUNA_IMPLEMENT_VECTOR(double);
+LUNA_IMPLEMENT_VECTOR(void*);

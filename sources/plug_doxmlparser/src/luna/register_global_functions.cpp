@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <doxmlintf.h>
+
 // Function checkers:
 inline static bool _lg_typecheck_createObjectModel(lua_State *L) {
 	if( lua_gettop(L)!=0 ) return false;
@@ -65,10 +67,11 @@ inline static bool _lg_typecheck_toDocPara(lua_State *L) {
 
 
 // Function binds:
+// IDoxygen * createObjectModel()
 static int _bind_createObjectModel(lua_State *L) {
 	if (!_lg_typecheck_createObjectModel(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in createObjectModel function, expected prototype:\ncreateObjectModel()");
+		luaL_error(L, "luna typecheck failed in IDoxygen * createObjectModel() function, expected prototype:\nIDoxygen * createObjectModel()\nClass arguments details:\n");
 	}
 
 
@@ -80,10 +83,11 @@ static int _bind_createObjectModel(lua_State *L) {
 	return 1;
 }
 
+// IClass * toClass(ICompound * comp)
 static int _bind_toClass(lua_State *L) {
 	if (!_lg_typecheck_toClass(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in toClass function, expected prototype:\ntoClass(ICompound *)");
+		luaL_error(L, "luna typecheck failed in IClass * toClass(ICompound * comp) function, expected prototype:\nIClass * toClass(ICompound * comp)\nClass arguments details:\narg 1 ID = 27352831\n");
 	}
 
 	ICompound* comp=(Luna< ICompound >::check(L,1));
@@ -96,10 +100,11 @@ static int _bind_toClass(lua_State *L) {
 	return 1;
 }
 
+// IFile * toFile(ICompound * comp)
 static int _bind_toFile(lua_State *L) {
 	if (!_lg_typecheck_toFile(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in toFile function, expected prototype:\ntoFile(ICompound *)");
+		luaL_error(L, "luna typecheck failed in IFile * toFile(ICompound * comp) function, expected prototype:\nIFile * toFile(ICompound * comp)\nClass arguments details:\narg 1 ID = 27352831\n");
 	}
 
 	ICompound* comp=(Luna< ICompound >::check(L,1));
@@ -112,10 +117,11 @@ static int _bind_toFile(lua_State *L) {
 	return 1;
 }
 
+// IEnum * toEnum(IMember * comp)
 static int _bind_toEnum(lua_State *L) {
 	if (!_lg_typecheck_toEnum(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in toEnum function, expected prototype:\ntoEnum(IMember *)");
+		luaL_error(L, "luna typecheck failed in IEnum * toEnum(IMember * comp) function, expected prototype:\nIEnum * toEnum(IMember * comp)\nClass arguments details:\narg 1 ID = 88829564\n");
 	}
 
 	IMember* comp=(Luna< IMember >::check(L,1));
@@ -128,10 +134,11 @@ static int _bind_toEnum(lua_State *L) {
 	return 1;
 }
 
+// INamespace * toNamespace(ICompound * comp)
 static int _bind_toNamespace(lua_State *L) {
 	if (!_lg_typecheck_toNamespace(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in toNamespace function, expected prototype:\ntoNamespace(ICompound *)");
+		luaL_error(L, "luna typecheck failed in INamespace * toNamespace(ICompound * comp) function, expected prototype:\nINamespace * toNamespace(ICompound * comp)\nClass arguments details:\narg 1 ID = 27352831\n");
 	}
 
 	ICompound* comp=(Luna< ICompound >::check(L,1));
@@ -144,10 +151,11 @@ static int _bind_toNamespace(lua_State *L) {
 	return 1;
 }
 
+// ILT_Text * toLinkText(ILinkedText * ilt)
 static int _bind_toLinkText(lua_State *L) {
 	if (!_lg_typecheck_toLinkText(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in toLinkText function, expected prototype:\ntoLinkText(ILinkedText *)");
+		luaL_error(L, "luna typecheck failed in ILT_Text * toLinkText(ILinkedText * ilt) function, expected prototype:\nILT_Text * toLinkText(ILinkedText * ilt)\nClass arguments details:\narg 1 ID = 94836970\n");
 	}
 
 	ILinkedText* ilt=(Luna< ILinkedText >::check(L,1));
@@ -160,10 +168,11 @@ static int _bind_toLinkText(lua_State *L) {
 	return 1;
 }
 
+// ILT_Ref * toLinkRef(ILinkedText * ilt)
 static int _bind_toLinkRef(lua_State *L) {
 	if (!_lg_typecheck_toLinkRef(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in toLinkRef function, expected prototype:\ntoLinkRef(ILinkedText *)");
+		luaL_error(L, "luna typecheck failed in ILT_Ref * toLinkRef(ILinkedText * ilt) function, expected prototype:\nILT_Ref * toLinkRef(ILinkedText * ilt)\nClass arguments details:\narg 1 ID = 94836970\n");
 	}
 
 	ILinkedText* ilt=(Luna< ILinkedText >::check(L,1));
@@ -176,10 +185,11 @@ static int _bind_toLinkRef(lua_State *L) {
 	return 1;
 }
 
+// IDocText * toDocText(IDoc * doc)
 static int _bind_toDocText(lua_State *L) {
 	if (!_lg_typecheck_toDocText(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in toDocText function, expected prototype:\ntoDocText(IDoc *)");
+		luaL_error(L, "luna typecheck failed in IDocText * toDocText(IDoc * doc) function, expected prototype:\nIDocText * toDocText(IDoc * doc)\nClass arguments details:\narg 1 ID = 2243631\n");
 	}
 
 	IDoc* doc=(Luna< IDoc >::check(L,1));
@@ -192,10 +202,11 @@ static int _bind_toDocText(lua_State *L) {
 	return 1;
 }
 
+// IDocPara * toDocPara(IDoc * doc)
 static int _bind_toDocPara(lua_State *L) {
 	if (!_lg_typecheck_toDocPara(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in toDocPara function, expected prototype:\ntoDocPara(IDoc *)");
+		luaL_error(L, "luna typecheck failed in IDocPara * toDocPara(IDoc * doc) function, expected prototype:\nIDocPara * toDocPara(IDoc * doc)\nClass arguments details:\narg 1 ID = 2243631\n");
 	}
 
 	IDoc* doc=(Luna< IDoc >::check(L,1));
@@ -214,6 +225,7 @@ extern "C" {
 #endif
 
 void register_global_functions(lua_State* L) {
+	luna_pushModule(L,"doxmlparser");
 	lua_pushcfunction(L, _bind_createObjectModel); lua_setfield(L,-2,"createObjectModel");
 	lua_pushcfunction(L, _bind_toClass); lua_setfield(L,-2,"toClass");
 	lua_pushcfunction(L, _bind_toFile); lua_setfield(L,-2,"toFile");
@@ -223,6 +235,7 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_toLinkRef); lua_setfield(L,-2,"toLinkRef");
 	lua_pushcfunction(L, _bind_toDocText); lua_setfield(L,-2,"toDocText");
 	lua_pushcfunction(L, _bind_toDocPara); lua_setfield(L,-2,"toDocPara");
+	luna_popModule(L);
 }
 
 #ifdef __cplusplus

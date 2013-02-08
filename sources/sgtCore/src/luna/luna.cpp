@@ -9,7 +9,7 @@ TypeMap g_typenames;
 
 void luna_setTypeName(long hash,const std::string& className) {
 	TypeMap::iterator it = g_typenames.find(hash);
-	if(it!=g_typenames.end()) {
+	if(it!=g_typenames.end() && it->second!=className) {
 		trWARN("Luna","Overriding typename " << g_typenames[hash] << " with " << className << " under hash key " << hash);
 	}
 	g_typenames[hash] = className;
@@ -97,6 +97,7 @@ lunaStack::~lunaStack()
 }
 
 
+#if 0
 /// Implementation of void type:
 template <>
 void* LunaTraits< void >::_bind_ctor(lua_State *L) {
@@ -140,6 +141,8 @@ template <>
 luna_ConverterType LunaTraits< void >::converters[] = {
 	{0,0}
 };
+
+#endif
 
 void luna_copyParents(lua_State* L, const char* modName) {
 	std::ostringstream os;

@@ -1,8 +1,34 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTextFile.h>
+
 class luna_wrapper_wxTextFile {
 public:
 	typedef Luna< wxTextFile > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<wxTextFile,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
 
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -25,6 +51,50 @@ public:
 		
 		return self==rhs;
 	}
+
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		wxTextFile* self= (wxTextFile*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< wxTextFile >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,37255181) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< wxTextFile >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
 
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
@@ -64,6 +134,21 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -248,12 +333,37 @@ public:
 		return new wxTextFile(strFile);
 	}
 
+	// wxTextFile::wxTextFile(lua_Table * data)
+	static wxTextFile* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextFile::wxTextFile(lua_Table * data) function, expected prototype:\nwxTextFile::wxTextFile(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxTextFile(L,NULL);
+	}
+
+	// wxTextFile::wxTextFile(lua_Table * data, const wxString & strFile)
+	static wxTextFile* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextFile::wxTextFile(lua_Table * data, const wxString & strFile) function, expected prototype:\nwxTextFile::wxTextFile(lua_Table * data, const wxString & strFile)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		wxString strFile(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_wxTextFile(L,NULL, strFile);
+	}
+
 	// Overload binder for wxTextFile::wxTextFile
 	static wxTextFile* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxTextFile, cannot match any of the overloads for function wxTextFile:\n  wxTextFile()\n  wxTextFile(const wxString &)\n");
+		luaL_error(L, "error in function wxTextFile, cannot match any of the overloads for function wxTextFile:\n  wxTextFile()\n  wxTextFile(const wxString &)\n  wxTextFile(lua_Table *)\n  wxTextFile(lua_Table *, const wxString &)\n");
 		return NULL;
 	}
 
@@ -722,8 +832,6 @@ public:
 
 wxTextFile* LunaTraits< wxTextFile >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxTextFile::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxTextFile >::_bind_dtor(wxTextFile* obj) {
@@ -762,6 +870,9 @@ luna_RegType LunaTraits< wxTextFile >::methods[] = {
 	{"op_index", &luna_wrapper_wxTextFile::_bind_op_index},
 	{"dynCast", &luna_wrapper_wxTextFile::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxTextFile::_bind___eq},
+	{"fromVoid", &luna_wrapper_wxTextFile::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_wxTextFile::_bind_asVoid},
+	{"getTable", &luna_wrapper_wxTextFile::_bind_getTable},
 	{0,0}
 };
 

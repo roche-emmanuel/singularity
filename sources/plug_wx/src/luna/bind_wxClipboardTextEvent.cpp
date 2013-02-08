@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		wxClipboardTextEvent* self= (wxClipboardTextEvent*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< wxClipboardTextEvent >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -67,7 +111,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<0 || luatop>2 ) return false;
+
+		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>3 ) return false;
 
@@ -91,14 +144,35 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// wxClipboardTextEvent::wxClipboardTextEvent(int commandType = wxEVT_NULL, int id = 0)
+	static wxClipboardTextEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClipboardTextEvent::wxClipboardTextEvent(int commandType = wxEVT_NULL, int id = 0) function, expected prototype:\nwxClipboardTextEvent::wxClipboardTextEvent(int commandType = wxEVT_NULL, int id = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int commandType=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+
+		return new wxClipboardTextEvent(commandType, id);
+	}
+
 	// wxClipboardTextEvent::wxClipboardTextEvent(lua_Table * data, int commandType = wxEVT_NULL, int id = 0)
-	static wxClipboardTextEvent* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxClipboardTextEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxClipboardTextEvent::wxClipboardTextEvent(lua_Table * data, int commandType = wxEVT_NULL, int id = 0) function, expected prototype:\nwxClipboardTextEvent::wxClipboardTextEvent(lua_Table * data, int commandType = wxEVT_NULL, int id = 0)\nClass arguments details:\n");
 		}
@@ -109,6 +183,15 @@ public:
 		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 
 		return new wrapper_wxClipboardTextEvent(L,NULL, commandType, id);
+	}
+
+	// Overload binder for wxClipboardTextEvent::wxClipboardTextEvent
+	static wxClipboardTextEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxClipboardTextEvent, cannot match any of the overloads for function wxClipboardTextEvent:\n  wxClipboardTextEvent(int, int)\n  wxClipboardTextEvent(lua_Table *, int, int)\n");
+		return NULL;
 	}
 
 
@@ -153,6 +236,27 @@ public:
 		return 1;
 	}
 
+	// wxEvent * wxClipboardTextEvent::base_Clone() const
+	static int _bind_base_Clone(lua_State *L) {
+		if (!_lg_typecheck_base_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEvent * wxClipboardTextEvent::base_Clone() const function, expected prototype:\nwxEvent * wxClipboardTextEvent::base_Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxClipboardTextEvent* self=Luna< wxObject >::checkSubType< wxClipboardTextEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEvent * wxClipboardTextEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		wxEvent * lret = self->wxClipboardTextEvent::Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxEvent >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -160,9 +264,6 @@ public:
 
 wxClipboardTextEvent* LunaTraits< wxClipboardTextEvent >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxClipboardTextEvent::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// wxEvent * wxEvent::Clone() const
 }
 
 void LunaTraits< wxClipboardTextEvent >::_bind_dtor(wxClipboardTextEvent* obj) {
@@ -179,7 +280,10 @@ const int LunaTraits< wxClipboardTextEvent >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxClipboardTextEvent >::methods[] = {
 	{"base_GetClassInfo", &luna_wrapper_wxClipboardTextEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxClipboardTextEvent::_bind_base_GetEventCategory},
+	{"base_Clone", &luna_wrapper_wxClipboardTextEvent::_bind_base_Clone},
 	{"__eq", &luna_wrapper_wxClipboardTextEvent::_bind___eq},
+	{"fromVoid", &luna_wrapper_wxClipboardTextEvent::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_wxClipboardTextEvent::_bind_asVoid},
 	{"getTable", &luna_wrapper_wxClipboardTextEvent::_bind_getTable},
 	{0,0}
 };

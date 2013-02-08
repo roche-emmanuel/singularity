@@ -36,26 +36,8 @@ protected:
 		return wxTreeListEvent::CreateRefData();
 	};
 
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
-		if(_obj.pushFunction("CloneRefData")) {
-			_obj.pushArg((wxTreeListEvent*)this);
-			_obj.pushArg(data);
-			return (_obj.callFunction<wxObjectRefData*>());
-		}
-
-		return wxTreeListEvent::CloneRefData(data);
-	};
-
 public:
 	// Public virtual methods:
-	// wxEvent * wxEvent::Clone() const
-	wxEvent * Clone() const {
-		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxEvent::Clone");
-		_obj.pushArg((wxTreeListEvent*)this);
-		return (_obj.callFunction<wxEvent*>());
-	};
-
 	// wxEventCategory wxEvent::GetEventCategory() const
 	wxEventCategory GetEventCategory() const {
 		if(_obj.pushFunction("GetEventCategory")) {

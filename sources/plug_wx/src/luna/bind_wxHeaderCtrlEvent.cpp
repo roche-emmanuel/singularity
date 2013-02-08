@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		wxHeaderCtrlEvent* self= (wxHeaderCtrlEvent*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< wxHeaderCtrlEvent >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -94,6 +138,12 @@ public:
 	}
 
 	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Clone(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -203,6 +253,27 @@ public:
 		return 1;
 	}
 
+	// wxEvent * wxHeaderCtrlEvent::base_Clone() const
+	static int _bind_base_Clone(lua_State *L) {
+		if (!_lg_typecheck_base_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEvent * wxHeaderCtrlEvent::base_Clone() const function, expected prototype:\nwxEvent * wxHeaderCtrlEvent::base_Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEvent * wxHeaderCtrlEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+		}
+		wxEvent * lret = self->wxHeaderCtrlEvent::Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxEvent >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -210,9 +281,6 @@ public:
 
 wxHeaderCtrlEvent* LunaTraits< wxHeaderCtrlEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// wxEvent * wxEvent::Clone() const
 }
 
 void LunaTraits< wxHeaderCtrlEvent >::_bind_dtor(wxHeaderCtrlEvent* obj) {
@@ -232,7 +300,10 @@ luna_RegType LunaTraits< wxHeaderCtrlEvent >::methods[] = {
 	{"GetNewOrder", &luna_wrapper_wxHeaderCtrlEvent::_bind_GetNewOrder},
 	{"base_GetClassInfo", &luna_wrapper_wxHeaderCtrlEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxHeaderCtrlEvent::_bind_base_GetEventCategory},
+	{"base_Clone", &luna_wrapper_wxHeaderCtrlEvent::_bind_base_Clone},
 	{"__eq", &luna_wrapper_wxHeaderCtrlEvent::_bind___eq},
+	{"fromVoid", &luna_wrapper_wxHeaderCtrlEvent::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_wxHeaderCtrlEvent::_bind_asVoid},
 	{"getTable", &luna_wrapper_wxHeaderCtrlEvent::_bind_getTable},
 	{0,0}
 };

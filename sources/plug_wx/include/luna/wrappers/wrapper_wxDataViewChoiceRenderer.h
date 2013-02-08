@@ -78,7 +78,7 @@ public:
 	bool Render(wxRect arg1, wxDC * arg2, int arg3) {
 		THROW_IF(!_obj.pushFunction("Render"),"No implementation for abstract function wxDataViewRenderer::Render");
 		_obj.pushArg((wxDataViewChoiceRenderer*)this);
-		_obj.pushArg(arg1);
+		_obj.pushArg(&arg1);
 		_obj.pushArg(arg2);
 		_obj.pushArg(arg3);
 		return (_obj.callFunction<bool>());

@@ -4,6 +4,50 @@ class luna_wrapper_wxTextAttrBorder {
 public:
 	typedef Luna< wxTextAttrBorder > luna_t;
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		wxTextAttrBorder* self= (wxTextAttrBorder*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< wxTextAttrBorder >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,59699915) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< wxTextAttrBorder >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -204,52 +248,52 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_borderStyle(lua_State *L) {
+	inline static bool _lg_typecheck_getBorderStyle(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_borderColour(lua_State *L) {
+	inline static bool _lg_typecheck_getBorderColour(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_borderWidth(lua_State *L) {
+	inline static bool _lg_typecheck_getBorderWidth(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_flags(lua_State *L) {
+	inline static bool _lg_typecheck_getFlags(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_borderStyle(lua_State *L) {
+	inline static bool _lg_typecheck_setBorderStyle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_borderColour(lua_State *L) {
+	inline static bool _lg_typecheck_setBorderColour(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_borderWidth(lua_State *L) {
+	inline static bool _lg_typecheck_setBorderWidth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,25580455) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_flags(lua_State *L) {
+	inline static bool _lg_typecheck_setFlags(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -813,8 +857,8 @@ public:
 	}
 
 	// int wxTextAttrBorder::m_borderStyle()
-	static int _bind_getM_borderStyle(lua_State *L) {
-		if (!_lg_typecheck_getM_borderStyle(L)) {
+	static int _bind_getBorderStyle(lua_State *L) {
+		if (!_lg_typecheck_getBorderStyle(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int wxTextAttrBorder::m_borderStyle() function, expected prototype:\nint wxTextAttrBorder::m_borderStyle()\nClass arguments details:\n");
 		}
@@ -832,8 +876,8 @@ public:
 	}
 
 	// unsigned long wxTextAttrBorder::m_borderColour()
-	static int _bind_getM_borderColour(lua_State *L) {
-		if (!_lg_typecheck_getM_borderColour(L)) {
+	static int _bind_getBorderColour(lua_State *L) {
+		if (!_lg_typecheck_getBorderColour(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned long wxTextAttrBorder::m_borderColour() function, expected prototype:\nunsigned long wxTextAttrBorder::m_borderColour()\nClass arguments details:\n");
 		}
@@ -851,8 +895,8 @@ public:
 	}
 
 	// wxTextAttrDimension wxTextAttrBorder::m_borderWidth()
-	static int _bind_getM_borderWidth(lua_State *L) {
-		if (!_lg_typecheck_getM_borderWidth(L)) {
+	static int _bind_getBorderWidth(lua_State *L) {
+		if (!_lg_typecheck_getBorderWidth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxTextAttrDimension wxTextAttrBorder::m_borderWidth() function, expected prototype:\nwxTextAttrDimension wxTextAttrBorder::m_borderWidth()\nClass arguments details:\n");
 		}
@@ -872,8 +916,8 @@ public:
 	}
 
 	// int wxTextAttrBorder::m_flags()
-	static int _bind_getM_flags(lua_State *L) {
-		if (!_lg_typecheck_getM_flags(L)) {
+	static int _bind_getFlags(lua_State *L) {
+		if (!_lg_typecheck_getFlags(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int wxTextAttrBorder::m_flags() function, expected prototype:\nint wxTextAttrBorder::m_flags()\nClass arguments details:\n");
 		}
@@ -891,8 +935,8 @@ public:
 	}
 
 	// void wxTextAttrBorder::m_borderStyle(int value)
-	static int _bind_setM_borderStyle(lua_State *L) {
-		if (!_lg_typecheck_setM_borderStyle(L)) {
+	static int _bind_setBorderStyle(lua_State *L) {
+		if (!_lg_typecheck_setBorderStyle(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::m_borderStyle(int value) function, expected prototype:\nvoid wxTextAttrBorder::m_borderStyle(int value)\nClass arguments details:\n");
 		}
@@ -910,8 +954,8 @@ public:
 	}
 
 	// void wxTextAttrBorder::m_borderColour(unsigned long value)
-	static int _bind_setM_borderColour(lua_State *L) {
-		if (!_lg_typecheck_setM_borderColour(L)) {
+	static int _bind_setBorderColour(lua_State *L) {
+		if (!_lg_typecheck_setBorderColour(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::m_borderColour(unsigned long value) function, expected prototype:\nvoid wxTextAttrBorder::m_borderColour(unsigned long value)\nClass arguments details:\n");
 		}
@@ -929,8 +973,8 @@ public:
 	}
 
 	// void wxTextAttrBorder::m_borderWidth(wxTextAttrDimension value)
-	static int _bind_setM_borderWidth(lua_State *L) {
-		if (!_lg_typecheck_setM_borderWidth(L)) {
+	static int _bind_setBorderWidth(lua_State *L) {
+		if (!_lg_typecheck_setBorderWidth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::m_borderWidth(wxTextAttrDimension value) function, expected prototype:\nvoid wxTextAttrBorder::m_borderWidth(wxTextAttrDimension value)\nClass arguments details:\narg 1 ID = 25580455\n");
 		}
@@ -952,8 +996,8 @@ public:
 	}
 
 	// void wxTextAttrBorder::m_flags(int value)
-	static int _bind_setM_flags(lua_State *L) {
-		if (!_lg_typecheck_setM_flags(L)) {
+	static int _bind_setFlags(lua_State *L) {
+		if (!_lg_typecheck_setFlags(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::m_flags(int value) function, expected prototype:\nvoid wxTextAttrBorder::m_flags(int value)\nClass arguments details:\n");
 		}
@@ -1001,8 +1045,6 @@ public:
 
 wxTextAttrBorder* LunaTraits< wxTextAttrBorder >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxTextAttrBorder::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxTextAttrBorder >::_bind_dtor(wxTextAttrBorder* obj) {
@@ -1038,16 +1080,18 @@ luna_RegType LunaTraits< wxTextAttrBorder >::methods[] = {
 	{"SetFlags", &luna_wrapper_wxTextAttrBorder::_bind_SetFlags},
 	{"AddFlag", &luna_wrapper_wxTextAttrBorder::_bind_AddFlag},
 	{"RemoveFlag", &luna_wrapper_wxTextAttrBorder::_bind_RemoveFlag},
-	{"getM_borderStyle", &luna_wrapper_wxTextAttrBorder::_bind_getM_borderStyle},
-	{"getM_borderColour", &luna_wrapper_wxTextAttrBorder::_bind_getM_borderColour},
-	{"getM_borderWidth", &luna_wrapper_wxTextAttrBorder::_bind_getM_borderWidth},
-	{"getM_flags", &luna_wrapper_wxTextAttrBorder::_bind_getM_flags},
-	{"setM_borderStyle", &luna_wrapper_wxTextAttrBorder::_bind_setM_borderStyle},
-	{"setM_borderColour", &luna_wrapper_wxTextAttrBorder::_bind_setM_borderColour},
-	{"setM_borderWidth", &luna_wrapper_wxTextAttrBorder::_bind_setM_borderWidth},
-	{"setM_flags", &luna_wrapper_wxTextAttrBorder::_bind_setM_flags},
+	{"getBorderStyle", &luna_wrapper_wxTextAttrBorder::_bind_getBorderStyle},
+	{"getBorderColour", &luna_wrapper_wxTextAttrBorder::_bind_getBorderColour},
+	{"getBorderWidth", &luna_wrapper_wxTextAttrBorder::_bind_getBorderWidth},
+	{"getFlags", &luna_wrapper_wxTextAttrBorder::_bind_getFlags},
+	{"setBorderStyle", &luna_wrapper_wxTextAttrBorder::_bind_setBorderStyle},
+	{"setBorderColour", &luna_wrapper_wxTextAttrBorder::_bind_setBorderColour},
+	{"setBorderWidth", &luna_wrapper_wxTextAttrBorder::_bind_setBorderWidth},
+	{"setFlags", &luna_wrapper_wxTextAttrBorder::_bind_setFlags},
 	{"__eq", &luna_wrapper_wxTextAttrBorder::_bind___eq},
 	{"dynCast", &luna_wrapper_wxTextAttrBorder::_bind_dynCast},
+	{"fromVoid", &luna_wrapper_wxTextAttrBorder::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_wxTextAttrBorder::_bind_asVoid},
 	{0,0}
 };
 

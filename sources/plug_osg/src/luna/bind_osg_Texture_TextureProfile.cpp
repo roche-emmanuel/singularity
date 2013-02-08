@@ -4,6 +4,50 @@ class luna_wrapper_osg_Texture_TextureProfile {
 public:
 	typedef Luna< osg::Texture::TextureProfile > luna_t;
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osg::Texture::TextureProfile* self= (osg::Texture::TextureProfile*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osg::Texture::TextureProfile >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,69361645) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::Texture::TextureProfile >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -85,104 +129,104 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_target(lua_State *L) {
+	inline static bool _lg_typecheck_getTarget(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_numMipmapLevels(lua_State *L) {
+	inline static bool _lg_typecheck_getNumMipmapLevels(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_internalFormat(lua_State *L) {
+	inline static bool _lg_typecheck_getInternalFormat(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_width(lua_State *L) {
+	inline static bool _lg_typecheck_getWidth(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_height(lua_State *L) {
+	inline static bool _lg_typecheck_getHeight(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_depth(lua_State *L) {
+	inline static bool _lg_typecheck_getDepth(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_border(lua_State *L) {
+	inline static bool _lg_typecheck_getBorder(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_size(lua_State *L) {
+	inline static bool _lg_typecheck_getSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_target(lua_State *L) {
+	inline static bool _lg_typecheck_setTarget(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_numMipmapLevels(lua_State *L) {
+	inline static bool _lg_typecheck_setNumMipmapLevels(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_internalFormat(lua_State *L) {
+	inline static bool _lg_typecheck_setInternalFormat(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_width(lua_State *L) {
+	inline static bool _lg_typecheck_setWidth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_height(lua_State *L) {
+	inline static bool _lg_typecheck_setHeight(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_depth(lua_State *L) {
+	inline static bool _lg_typecheck_setDepth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_border(lua_State *L) {
+	inline static bool _lg_typecheck_setBorder(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_size(lua_State *L) {
+	inline static bool _lg_typecheck_setSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -318,8 +362,8 @@ public:
 	}
 
 	// unsigned int osg::Texture::TextureProfile::_target()
-	static int _bind_get_target(lua_State *L) {
-		if (!_lg_typecheck_get_target(L)) {
+	static int _bind_getTarget(lua_State *L) {
+		if (!_lg_typecheck_getTarget(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture::TextureProfile::_target() function, expected prototype:\nunsigned int osg::Texture::TextureProfile::_target()\nClass arguments details:\n");
 		}
@@ -337,8 +381,8 @@ public:
 	}
 
 	// int osg::Texture::TextureProfile::_numMipmapLevels()
-	static int _bind_get_numMipmapLevels(lua_State *L) {
-		if (!_lg_typecheck_get_numMipmapLevels(L)) {
+	static int _bind_getNumMipmapLevels(lua_State *L) {
+		if (!_lg_typecheck_getNumMipmapLevels(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int osg::Texture::TextureProfile::_numMipmapLevels() function, expected prototype:\nint osg::Texture::TextureProfile::_numMipmapLevels()\nClass arguments details:\n");
 		}
@@ -356,8 +400,8 @@ public:
 	}
 
 	// unsigned int osg::Texture::TextureProfile::_internalFormat()
-	static int _bind_get_internalFormat(lua_State *L) {
-		if (!_lg_typecheck_get_internalFormat(L)) {
+	static int _bind_getInternalFormat(lua_State *L) {
+		if (!_lg_typecheck_getInternalFormat(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture::TextureProfile::_internalFormat() function, expected prototype:\nunsigned int osg::Texture::TextureProfile::_internalFormat()\nClass arguments details:\n");
 		}
@@ -375,8 +419,8 @@ public:
 	}
 
 	// int osg::Texture::TextureProfile::_width()
-	static int _bind_get_width(lua_State *L) {
-		if (!_lg_typecheck_get_width(L)) {
+	static int _bind_getWidth(lua_State *L) {
+		if (!_lg_typecheck_getWidth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int osg::Texture::TextureProfile::_width() function, expected prototype:\nint osg::Texture::TextureProfile::_width()\nClass arguments details:\n");
 		}
@@ -394,8 +438,8 @@ public:
 	}
 
 	// int osg::Texture::TextureProfile::_height()
-	static int _bind_get_height(lua_State *L) {
-		if (!_lg_typecheck_get_height(L)) {
+	static int _bind_getHeight(lua_State *L) {
+		if (!_lg_typecheck_getHeight(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int osg::Texture::TextureProfile::_height() function, expected prototype:\nint osg::Texture::TextureProfile::_height()\nClass arguments details:\n");
 		}
@@ -413,8 +457,8 @@ public:
 	}
 
 	// int osg::Texture::TextureProfile::_depth()
-	static int _bind_get_depth(lua_State *L) {
-		if (!_lg_typecheck_get_depth(L)) {
+	static int _bind_getDepth(lua_State *L) {
+		if (!_lg_typecheck_getDepth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int osg::Texture::TextureProfile::_depth() function, expected prototype:\nint osg::Texture::TextureProfile::_depth()\nClass arguments details:\n");
 		}
@@ -432,8 +476,8 @@ public:
 	}
 
 	// int osg::Texture::TextureProfile::_border()
-	static int _bind_get_border(lua_State *L) {
-		if (!_lg_typecheck_get_border(L)) {
+	static int _bind_getBorder(lua_State *L) {
+		if (!_lg_typecheck_getBorder(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int osg::Texture::TextureProfile::_border() function, expected prototype:\nint osg::Texture::TextureProfile::_border()\nClass arguments details:\n");
 		}
@@ -451,8 +495,8 @@ public:
 	}
 
 	// unsigned int osg::Texture::TextureProfile::_size()
-	static int _bind_get_size(lua_State *L) {
-		if (!_lg_typecheck_get_size(L)) {
+	static int _bind_getSize(lua_State *L) {
+		if (!_lg_typecheck_getSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osg::Texture::TextureProfile::_size() function, expected prototype:\nunsigned int osg::Texture::TextureProfile::_size()\nClass arguments details:\n");
 		}
@@ -470,8 +514,8 @@ public:
 	}
 
 	// void osg::Texture::TextureProfile::_target(unsigned int value)
-	static int _bind_set_target(lua_State *L) {
-		if (!_lg_typecheck_set_target(L)) {
+	static int _bind_setTarget(lua_State *L) {
+		if (!_lg_typecheck_setTarget(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureProfile::_target(unsigned int value) function, expected prototype:\nvoid osg::Texture::TextureProfile::_target(unsigned int value)\nClass arguments details:\n");
 		}
@@ -489,8 +533,8 @@ public:
 	}
 
 	// void osg::Texture::TextureProfile::_numMipmapLevels(int value)
-	static int _bind_set_numMipmapLevels(lua_State *L) {
-		if (!_lg_typecheck_set_numMipmapLevels(L)) {
+	static int _bind_setNumMipmapLevels(lua_State *L) {
+		if (!_lg_typecheck_setNumMipmapLevels(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureProfile::_numMipmapLevels(int value) function, expected prototype:\nvoid osg::Texture::TextureProfile::_numMipmapLevels(int value)\nClass arguments details:\n");
 		}
@@ -508,8 +552,8 @@ public:
 	}
 
 	// void osg::Texture::TextureProfile::_internalFormat(unsigned int value)
-	static int _bind_set_internalFormat(lua_State *L) {
-		if (!_lg_typecheck_set_internalFormat(L)) {
+	static int _bind_setInternalFormat(lua_State *L) {
+		if (!_lg_typecheck_setInternalFormat(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureProfile::_internalFormat(unsigned int value) function, expected prototype:\nvoid osg::Texture::TextureProfile::_internalFormat(unsigned int value)\nClass arguments details:\n");
 		}
@@ -527,8 +571,8 @@ public:
 	}
 
 	// void osg::Texture::TextureProfile::_width(int value)
-	static int _bind_set_width(lua_State *L) {
-		if (!_lg_typecheck_set_width(L)) {
+	static int _bind_setWidth(lua_State *L) {
+		if (!_lg_typecheck_setWidth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureProfile::_width(int value) function, expected prototype:\nvoid osg::Texture::TextureProfile::_width(int value)\nClass arguments details:\n");
 		}
@@ -546,8 +590,8 @@ public:
 	}
 
 	// void osg::Texture::TextureProfile::_height(int value)
-	static int _bind_set_height(lua_State *L) {
-		if (!_lg_typecheck_set_height(L)) {
+	static int _bind_setHeight(lua_State *L) {
+		if (!_lg_typecheck_setHeight(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureProfile::_height(int value) function, expected prototype:\nvoid osg::Texture::TextureProfile::_height(int value)\nClass arguments details:\n");
 		}
@@ -565,8 +609,8 @@ public:
 	}
 
 	// void osg::Texture::TextureProfile::_depth(int value)
-	static int _bind_set_depth(lua_State *L) {
-		if (!_lg_typecheck_set_depth(L)) {
+	static int _bind_setDepth(lua_State *L) {
+		if (!_lg_typecheck_setDepth(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureProfile::_depth(int value) function, expected prototype:\nvoid osg::Texture::TextureProfile::_depth(int value)\nClass arguments details:\n");
 		}
@@ -584,8 +628,8 @@ public:
 	}
 
 	// void osg::Texture::TextureProfile::_border(int value)
-	static int _bind_set_border(lua_State *L) {
-		if (!_lg_typecheck_set_border(L)) {
+	static int _bind_setBorder(lua_State *L) {
+		if (!_lg_typecheck_setBorder(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureProfile::_border(int value) function, expected prototype:\nvoid osg::Texture::TextureProfile::_border(int value)\nClass arguments details:\n");
 		}
@@ -603,8 +647,8 @@ public:
 	}
 
 	// void osg::Texture::TextureProfile::_size(unsigned int value)
-	static int _bind_set_size(lua_State *L) {
-		if (!_lg_typecheck_set_size(L)) {
+	static int _bind_setSize(lua_State *L) {
+		if (!_lg_typecheck_setSize(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureProfile::_size(unsigned int value) function, expected prototype:\nvoid osg::Texture::TextureProfile::_size(unsigned int value)\nClass arguments details:\n");
 		}
@@ -676,8 +720,6 @@ public:
 
 osg::Texture::TextureProfile* LunaTraits< osg::Texture::TextureProfile >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Texture_TextureProfile::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::Texture::TextureProfile >::_bind_dtor(osg::Texture::TextureProfile* obj) {
@@ -695,25 +737,27 @@ luna_RegType LunaTraits< osg::Texture::TextureProfile >::methods[] = {
 	{"set", &luna_wrapper_osg_Texture_TextureProfile::_bind_set},
 	{"match", &luna_wrapper_osg_Texture_TextureProfile::_bind_match},
 	{"computeSize", &luna_wrapper_osg_Texture_TextureProfile::_bind_computeSize},
-	{"get_target", &luna_wrapper_osg_Texture_TextureProfile::_bind_get_target},
-	{"get_numMipmapLevels", &luna_wrapper_osg_Texture_TextureProfile::_bind_get_numMipmapLevels},
-	{"get_internalFormat", &luna_wrapper_osg_Texture_TextureProfile::_bind_get_internalFormat},
-	{"get_width", &luna_wrapper_osg_Texture_TextureProfile::_bind_get_width},
-	{"get_height", &luna_wrapper_osg_Texture_TextureProfile::_bind_get_height},
-	{"get_depth", &luna_wrapper_osg_Texture_TextureProfile::_bind_get_depth},
-	{"get_border", &luna_wrapper_osg_Texture_TextureProfile::_bind_get_border},
-	{"get_size", &luna_wrapper_osg_Texture_TextureProfile::_bind_get_size},
-	{"set_target", &luna_wrapper_osg_Texture_TextureProfile::_bind_set_target},
-	{"set_numMipmapLevels", &luna_wrapper_osg_Texture_TextureProfile::_bind_set_numMipmapLevels},
-	{"set_internalFormat", &luna_wrapper_osg_Texture_TextureProfile::_bind_set_internalFormat},
-	{"set_width", &luna_wrapper_osg_Texture_TextureProfile::_bind_set_width},
-	{"set_height", &luna_wrapper_osg_Texture_TextureProfile::_bind_set_height},
-	{"set_depth", &luna_wrapper_osg_Texture_TextureProfile::_bind_set_depth},
-	{"set_border", &luna_wrapper_osg_Texture_TextureProfile::_bind_set_border},
-	{"set_size", &luna_wrapper_osg_Texture_TextureProfile::_bind_set_size},
+	{"getTarget", &luna_wrapper_osg_Texture_TextureProfile::_bind_getTarget},
+	{"getNumMipmapLevels", &luna_wrapper_osg_Texture_TextureProfile::_bind_getNumMipmapLevels},
+	{"getInternalFormat", &luna_wrapper_osg_Texture_TextureProfile::_bind_getInternalFormat},
+	{"getWidth", &luna_wrapper_osg_Texture_TextureProfile::_bind_getWidth},
+	{"getHeight", &luna_wrapper_osg_Texture_TextureProfile::_bind_getHeight},
+	{"getDepth", &luna_wrapper_osg_Texture_TextureProfile::_bind_getDepth},
+	{"getBorder", &luna_wrapper_osg_Texture_TextureProfile::_bind_getBorder},
+	{"getSize", &luna_wrapper_osg_Texture_TextureProfile::_bind_getSize},
+	{"setTarget", &luna_wrapper_osg_Texture_TextureProfile::_bind_setTarget},
+	{"setNumMipmapLevels", &luna_wrapper_osg_Texture_TextureProfile::_bind_setNumMipmapLevels},
+	{"setInternalFormat", &luna_wrapper_osg_Texture_TextureProfile::_bind_setInternalFormat},
+	{"setWidth", &luna_wrapper_osg_Texture_TextureProfile::_bind_setWidth},
+	{"setHeight", &luna_wrapper_osg_Texture_TextureProfile::_bind_setHeight},
+	{"setDepth", &luna_wrapper_osg_Texture_TextureProfile::_bind_setDepth},
+	{"setBorder", &luna_wrapper_osg_Texture_TextureProfile::_bind_setBorder},
+	{"setSize", &luna_wrapper_osg_Texture_TextureProfile::_bind_setSize},
 	{"__lt", &luna_wrapper_osg_Texture_TextureProfile::_bind___lt},
 	{"__eq", &luna_wrapper_osg_Texture_TextureProfile::_bind___eq},
 	{"dynCast", &luna_wrapper_osg_Texture_TextureProfile::_bind_dynCast},
+	{"fromVoid", &luna_wrapper_osg_Texture_TextureProfile::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osg_Texture_TextureProfile::_bind_asVoid},
 	{0,0}
 };
 

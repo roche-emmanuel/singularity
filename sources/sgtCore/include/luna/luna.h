@@ -125,7 +125,11 @@ struct luna_container<osg::Referenced> {
 	};
 
 	static inline void set(container_type& cont, osg::Referenced* ptr) {
-		//std::cout << "Setting object ptr=" << (const void*)ptr << " over previous object: " << (const void*)cont.get() << std::endl;
+		/*while(ptr && ptr->referenceCount()<0) {
+			logWARN("Invalid ref count=" <<ptr->referenceCount() << " for ptr=" << (const void*)ptr);
+			ptr->ref();
+		}*/
+		
 		cont = ptr;
 	};
 	
@@ -768,7 +772,9 @@ int Luna<T>::new_modified_T(lua_State *L) {
 	return 1;  // userdata containing pointer to T object
 }
 
+#if 0
 //EXPIMP_TEMPLATE 
 template class SGTCORE_EXPORT LunaTraits< void >;
+#endif
 
 #endif

@@ -13,6 +13,7 @@
 #include "sgtCommon.h"
 #include "log/FileLogger.h"
 #include "log/StdLogger.h"
+#include "lua/ModuleProvider.h"
 
 #include <boost/program_options.hpp>
 
@@ -206,7 +207,9 @@ int main(int argc, char *argv[]) {
 		std::string path = getExecutablePath();
 		std::replace(path.begin(), path.end(), '\\', '/');
 
+		
 		int index = path.rfind("/");
+		std::string exepath = path.substr(0,index+1);
 		index = path.rfind("/",index-1);
 		index = path.rfind("/",index-1);
 
@@ -229,7 +232,37 @@ int main(int argc, char *argv[]) {
 			lua_close(L);
 			return 1;
 		}
+		
+		// load the core package:
+		// logDEBUG0_V("Loading externals package from " << exepath+"packages/externals.lpak" << "...");
+		// sgtModuleProvider::loadPackage(exepath+"packages/externals.lpak");
 
+		logDEBUG0_V("Loading core package from " << exepath+"packages/core.lpak" << "...");
+		sgtModuleProvider::loadPackage(exepath+"packages/core.lpak");
+		
+		sgt::String startModule = sgtModuleProvider::getModule("StartModule");
+		
+		// load main module:
+		if(!startModule.empty()) {
+			logDEBUG0_V("Executing start module...");
+			
+			if(luaL_loadbuffer(L,(const char*)startModule.data(),startModule.size(),"startModule")==0) {
+				int res = lua_pcall(L, 0, 0, 0);
+				if(res!=0) {
+					logERROR("Error occurred in StartModule execution:\n" << (res==LUA_ERRRUN ? lua_tostring(L,-1) : "[no message]"));
+					sgt::LogManager::instance().removeAllSinks(); // This is needed to prevent issues with
+					lua_close(L);
+					return 1;				
+				}
+			}
+			else {
+				logERROR("Error occurred in StartModule loading:\n" << lua_tostring(L,-1));
+				sgt::LogManager::instance().removeAllSinks(); // This is needed to prevent issues with
+				lua_close(L);
+				return 1;
+			}		
+		}
+		
 		if(initScript.empty()) {
 			initScript = path+"sgt_init.lua";
 		}

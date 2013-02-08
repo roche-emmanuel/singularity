@@ -53,7 +53,7 @@ public:
 		_obj.pushArg((osgViewer::OpenGLQuerySupport*)this);
 		_obj.pushArg(stats);
 		_obj.pushArg(state);
-		_obj.pushArg(startTick);
+		_obj.pushArg(&startTick);
 		return (_obj.callFunction<void>());
 	};
 
@@ -79,7 +79,7 @@ public:
 		if(_obj.pushFunction("initialize")) {
 			_obj.pushArg((osgViewer::OpenGLQuerySupport*)this);
 			_obj.pushArg(state);
-			_obj.pushArg(startTick);
+			_obj.pushArg(&startTick);
 			return (_obj.callFunction<void>());
 		}
 

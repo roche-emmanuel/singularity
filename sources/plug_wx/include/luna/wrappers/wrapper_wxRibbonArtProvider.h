@@ -322,7 +322,7 @@ public:
 		_obj.pushArg((wxRibbonArtProvider*)this);
 		_obj.pushArg(&dc);
 		_obj.pushArg(wnd);
-		_obj.pushArg(client_size);
+		_obj.pushArg(&client_size);
 		_obj.pushArg(client_offset);
 		return *(_obj.callFunction<wxSize*>());
 	};
@@ -333,7 +333,7 @@ public:
 		_obj.pushArg((wxRibbonArtProvider*)this);
 		_obj.pushArg(&dc);
 		_obj.pushArg(wnd);
-		_obj.pushArg(size);
+		_obj.pushArg(&size);
 		_obj.pushArg(client_offset);
 		return *(_obj.callFunction<wxSize*>());
 	};
@@ -344,7 +344,7 @@ public:
 		_obj.pushArg((wxRibbonArtProvider*)this);
 		_obj.pushArg(&dc);
 		_obj.pushArg(wnd);
-		_obj.pushArg(client_size);
+		_obj.pushArg(&client_size);
 		return *(_obj.callFunction<wxSize*>());
 	};
 
@@ -354,7 +354,7 @@ public:
 		_obj.pushArg((wxRibbonArtProvider*)this);
 		_obj.pushArg(&dc);
 		_obj.pushArg(wnd);
-		_obj.pushArg(size);
+		_obj.pushArg(&size);
 		_obj.pushArg(client_offset);
 		_obj.pushArg(scroll_up_button);
 		_obj.pushArg(scroll_down_button);
@@ -368,8 +368,8 @@ public:
 		_obj.pushArg((wxRibbonArtProvider*)this);
 		_obj.pushArg(&dc);
 		_obj.pushArg(wnd);
-		_obj.pushArg(page_old_size);
-		_obj.pushArg(page_new_size);
+		_obj.pushArg(&page_old_size);
+		_obj.pushArg(&page_new_size);
 		return *(_obj.callFunction<wxRect*>());
 	};
 
@@ -382,8 +382,8 @@ public:
 		_obj.pushArg(kind);
 		_obj.pushArg(size);
 		_obj.pushArg(label);
-		_obj.pushArg(bitmap_size_large);
-		_obj.pushArg(bitmap_size_small);
+		_obj.pushArg(&bitmap_size_large);
+		_obj.pushArg(&bitmap_size_small);
 		_obj.pushArg(button_size);
 		_obj.pushArg(normal_region);
 		_obj.pushArg(dropdown_region);
@@ -407,7 +407,7 @@ public:
 		_obj.pushArg((wxRibbonArtProvider*)this);
 		_obj.pushArg(&dc);
 		_obj.pushArg(wnd);
-		_obj.pushArg(bitmap_size);
+		_obj.pushArg(&bitmap_size);
 		_obj.pushArg(kind);
 		_obj.pushArg(is_first);
 		_obj.pushArg(is_last);

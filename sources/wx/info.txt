@@ -1,9 +1,0 @@
-For reflection generation use the command line:
-
-./generate_xml_reflection.sh mingw32 -t wx_core -v -f __WXMSW__ -d -x "*dvrenderer*"
-./generate_xml_reflection.sh mingw32 -t wx_core -v -f "__WXMSW__=1 __WIN32__=1 __WXMSW__=1 __WINDOWS__=1 wxUSE_CONTROLS=1 WXDLLEXPORT_DATA(name)=name WXUNUSED(x)=x" -d -x "*dvrenderer*"
-
-==> Otherwise we get the following doxygen error:
-Possible recursive class relation while inside wxDataViewCustomRendererBase and looking for wxDataViewRendererBase
-
-==> In fact this doesnt work either! use the internal doc generation process for the wxWidgets library.

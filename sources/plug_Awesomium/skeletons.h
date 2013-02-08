@@ -1,6 +1,26 @@
 #ifndef _Awesomium_SKELETONS_H_
 #define _Awesomium_SKELETONS_H_
 
+class Area: public osg::Referenced {
+};
+
+class OSGSurface: public Awesomium::Surface {
+};
+
+class OSGSurfaceFactory: public Awesomium::SurfaceFactory {
+public:
+	class SurfaceList {
+	};
+
+};
+
+class SubLoader {
+public:
+	class AreaList {
+	};
+
+};
+
 class SurfaceSubloadCallback {
 };
 
@@ -104,34 +124,34 @@ namespace Awesomium {
 	class WebLoginDialogInfo {
 	};
 
-};
-
-namespace KeyCodes {
-};
-
-namespace WebViewListener {
-	class View {
+	namespace KeyCodes {
 	};
 
-	class Load {
-	};
+	namespace WebViewListener {
+		class View {
+		};
 
-	class Process {
-	};
+		class Load {
+		};
 
-	class Menu {
-	};
+		class Process {
+		};
 
-	class Dialog {
-	};
+		class Menu {
+		};
 
-	class Print {
-	};
+		class Dialog {
+		};
 
-	class Download {
-	};
+		class Print {
+		};
 
-	class InputMethodEditor {
+		class Download {
+		};
+
+		class InputMethodEditor {
+		};
+
 	};
 
 };

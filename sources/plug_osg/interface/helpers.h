@@ -51,6 +51,9 @@ class osg::ref_ptr<osg::Image> {
 class osg::ref_ptr<osg::PrimitiveSet> {
 };
 
+class osg::ref_ptr<osg::AnimationPath> {
+};
+
 namespace osg {
 
 
@@ -60,8 +63,8 @@ class Vec2Array : public osg::Array {
 public:
 	Vec2Array();
 	
-	void push_back(const osg::Vec2& vec);
-	unsigned int size();
+	// void push_back(const osg::Vec2& vec);
+	// unsigned int size();
 	
 	void accept(osg::ArrayVisitor & arg1);
 	void accept(osg::ConstArrayVisitor & arg1) const;
@@ -84,8 +87,8 @@ class Vec3Array : public osg::Array {
 public:
 	Vec3Array();
 	
-	void push_back(const osg::Vec3& vec);
-	unsigned int size();
+	// void push_back(const osg::Vec3& vec);
+	// unsigned int size();
 	
 	void accept(osg::ArrayVisitor & arg1);
 	void accept(osg::ConstArrayVisitor & arg1) const;
@@ -108,8 +111,8 @@ class Vec4Array : public osg::Array {
 public:
 	Vec4Array();
 	
-	void push_back(const osg::Vec4& vec);
-	unsigned int size();
+	// void push_back(const osg::Vec4& vec);
+	// unsigned int size();
 
 	void accept(osg::ArrayVisitor & arg1);
 	void accept(osg::ConstArrayVisitor & arg1) const;
@@ -129,3 +132,7 @@ protected:
 };
 
 };
+
+LUNA_IMPLEMENT_VECTOR(osg::Vec2f,osg::Vec2Array);
+LUNA_IMPLEMENT_VECTOR(osg::Vec3f,osg::Vec3Array);
+LUNA_IMPLEMENT_VECTOR(osg::Vec4f,osg::Vec4Array);

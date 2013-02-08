@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		wxImage::RGBValue* self= (wxImage::RGBValue*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< wxImage::RGBValue >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,45106465) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< wxImage::RGBValue >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -249,8 +293,6 @@ public:
 
 wxImage::RGBValue* LunaTraits< wxImage::RGBValue >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxImage_RGBValue::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxImage::RGBValue >::_bind_dtor(wxImage::RGBValue* obj) {
@@ -259,7 +301,7 @@ void LunaTraits< wxImage::RGBValue >::_bind_dtor(wxImage::RGBValue* obj) {
 
 const char LunaTraits< wxImage::RGBValue >::className[] = "wxImage_RGBValue";
 const char LunaTraits< wxImage::RGBValue >::fullName[] = "wxImage::RGBValue";
-const char LunaTraits< wxImage::RGBValue >::moduleName[] = "wxImage";
+const char LunaTraits< wxImage::RGBValue >::moduleName[] = "wx";
 const char* LunaTraits< wxImage::RGBValue >::parents[] = {0};
 const int LunaTraits< wxImage::RGBValue >::hash = 45106465;
 const int LunaTraits< wxImage::RGBValue >::uniqueIDs[] = {45106465,0};
@@ -273,6 +315,8 @@ luna_RegType LunaTraits< wxImage::RGBValue >::methods[] = {
 	{"setBlue", &luna_wrapper_wxImage_RGBValue::_bind_setBlue},
 	{"dynCast", &luna_wrapper_wxImage_RGBValue::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxImage_RGBValue::_bind___eq},
+	{"fromVoid", &luna_wrapper_wxImage_RGBValue::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_wxImage_RGBValue::_bind_asVoid},
 	{0,0}
 };
 

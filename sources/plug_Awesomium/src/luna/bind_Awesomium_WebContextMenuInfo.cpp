@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		Awesomium::WebContextMenuInfo* self= (Awesomium::WebContextMenuInfo*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< Awesomium::WebContextMenuInfo >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,8209039) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -56,156 +100,156 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getPos_x(lua_State *L) {
+	inline static bool _lg_typecheck_get_pos_x(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getPos_y(lua_State *L) {
+	inline static bool _lg_typecheck_get_pos_y(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMedia_type(lua_State *L) {
+	inline static bool _lg_typecheck_get_media_type(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getMedia_state(lua_State *L) {
+	inline static bool _lg_typecheck_get_media_state(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getLink_url(lua_State *L) {
+	inline static bool _lg_typecheck_get_link_url(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getSrc_url(lua_State *L) {
+	inline static bool _lg_typecheck_get_src_url(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getPage_url(lua_State *L) {
+	inline static bool _lg_typecheck_get_page_url(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getFrame_url(lua_State *L) {
+	inline static bool _lg_typecheck_get_frame_url(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getFrame_id(lua_State *L) {
+	inline static bool _lg_typecheck_get_frame_id(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getSelection_text(lua_State *L) {
+	inline static bool _lg_typecheck_get_selection_text(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getIs_editable(lua_State *L) {
+	inline static bool _lg_typecheck_get_is_editable(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getEdit_flags(lua_State *L) {
+	inline static bool _lg_typecheck_get_edit_flags(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setPos_x(lua_State *L) {
+	inline static bool _lg_typecheck_set_pos_x(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setPos_y(lua_State *L) {
+	inline static bool _lg_typecheck_set_pos_y(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMedia_type(lua_State *L) {
+	inline static bool _lg_typecheck_set_media_type(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setMedia_state(lua_State *L) {
+	inline static bool _lg_typecheck_set_media_state(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setLink_url(lua_State *L) {
+	inline static bool _lg_typecheck_set_link_url(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,3243885) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setSrc_url(lua_State *L) {
+	inline static bool _lg_typecheck_set_src_url(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,3243885) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setPage_url(lua_State *L) {
+	inline static bool _lg_typecheck_set_page_url(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,3243885) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setFrame_url(lua_State *L) {
+	inline static bool _lg_typecheck_set_frame_url(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,3243885) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setFrame_id(lua_State *L) {
+	inline static bool _lg_typecheck_set_frame_id(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setSelection_text(lua_State *L) {
+	inline static bool _lg_typecheck_set_selection_text(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13938525) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setIs_editable(lua_State *L) {
+	inline static bool _lg_typecheck_set_is_editable(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setEdit_flags(lua_State *L) {
+	inline static bool _lg_typecheck_set_edit_flags(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -220,8 +264,8 @@ public:
 
 	// Function binds:
 	// int Awesomium::WebContextMenuInfo::pos_x()
-	static int _bind_getPos_x(lua_State *L) {
-		if (!_lg_typecheck_getPos_x(L)) {
+	static int _bind_get_pos_x(lua_State *L) {
+		if (!_lg_typecheck_get_pos_x(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int Awesomium::WebContextMenuInfo::pos_x() function, expected prototype:\nint Awesomium::WebContextMenuInfo::pos_x()\nClass arguments details:\n");
 		}
@@ -239,8 +283,8 @@ public:
 	}
 
 	// int Awesomium::WebContextMenuInfo::pos_y()
-	static int _bind_getPos_y(lua_State *L) {
-		if (!_lg_typecheck_getPos_y(L)) {
+	static int _bind_get_pos_y(lua_State *L) {
+		if (!_lg_typecheck_get_pos_y(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int Awesomium::WebContextMenuInfo::pos_y() function, expected prototype:\nint Awesomium::WebContextMenuInfo::pos_y()\nClass arguments details:\n");
 		}
@@ -258,8 +302,8 @@ public:
 	}
 
 	// Awesomium::MediaType Awesomium::WebContextMenuInfo::media_type()
-	static int _bind_getMedia_type(lua_State *L) {
-		if (!_lg_typecheck_getMedia_type(L)) {
+	static int _bind_get_media_type(lua_State *L) {
+		if (!_lg_typecheck_get_media_type(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::MediaType Awesomium::WebContextMenuInfo::media_type() function, expected prototype:\nAwesomium::MediaType Awesomium::WebContextMenuInfo::media_type()\nClass arguments details:\n");
 		}
@@ -277,8 +321,8 @@ public:
 	}
 
 	// int Awesomium::WebContextMenuInfo::media_state()
-	static int _bind_getMedia_state(lua_State *L) {
-		if (!_lg_typecheck_getMedia_state(L)) {
+	static int _bind_get_media_state(lua_State *L) {
+		if (!_lg_typecheck_get_media_state(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int Awesomium::WebContextMenuInfo::media_state() function, expected prototype:\nint Awesomium::WebContextMenuInfo::media_state()\nClass arguments details:\n");
 		}
@@ -296,8 +340,8 @@ public:
 	}
 
 	// Awesomium::WebURL Awesomium::WebContextMenuInfo::link_url()
-	static int _bind_getLink_url(lua_State *L) {
-		if (!_lg_typecheck_getLink_url(L)) {
+	static int _bind_get_link_url(lua_State *L) {
+		if (!_lg_typecheck_get_link_url(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::WebURL Awesomium::WebContextMenuInfo::link_url() function, expected prototype:\nAwesomium::WebURL Awesomium::WebContextMenuInfo::link_url()\nClass arguments details:\n");
 		}
@@ -317,8 +361,8 @@ public:
 	}
 
 	// Awesomium::WebURL Awesomium::WebContextMenuInfo::src_url()
-	static int _bind_getSrc_url(lua_State *L) {
-		if (!_lg_typecheck_getSrc_url(L)) {
+	static int _bind_get_src_url(lua_State *L) {
+		if (!_lg_typecheck_get_src_url(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::WebURL Awesomium::WebContextMenuInfo::src_url() function, expected prototype:\nAwesomium::WebURL Awesomium::WebContextMenuInfo::src_url()\nClass arguments details:\n");
 		}
@@ -338,8 +382,8 @@ public:
 	}
 
 	// Awesomium::WebURL Awesomium::WebContextMenuInfo::page_url()
-	static int _bind_getPage_url(lua_State *L) {
-		if (!_lg_typecheck_getPage_url(L)) {
+	static int _bind_get_page_url(lua_State *L) {
+		if (!_lg_typecheck_get_page_url(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::WebURL Awesomium::WebContextMenuInfo::page_url() function, expected prototype:\nAwesomium::WebURL Awesomium::WebContextMenuInfo::page_url()\nClass arguments details:\n");
 		}
@@ -359,8 +403,8 @@ public:
 	}
 
 	// Awesomium::WebURL Awesomium::WebContextMenuInfo::frame_url()
-	static int _bind_getFrame_url(lua_State *L) {
-		if (!_lg_typecheck_getFrame_url(L)) {
+	static int _bind_get_frame_url(lua_State *L) {
+		if (!_lg_typecheck_get_frame_url(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::WebURL Awesomium::WebContextMenuInfo::frame_url() function, expected prototype:\nAwesomium::WebURL Awesomium::WebContextMenuInfo::frame_url()\nClass arguments details:\n");
 		}
@@ -380,8 +424,8 @@ public:
 	}
 
 	// long long Awesomium::WebContextMenuInfo::frame_id()
-	static int _bind_getFrame_id(lua_State *L) {
-		if (!_lg_typecheck_getFrame_id(L)) {
+	static int _bind_get_frame_id(lua_State *L) {
+		if (!_lg_typecheck_get_frame_id(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in long long Awesomium::WebContextMenuInfo::frame_id() function, expected prototype:\nlong long Awesomium::WebContextMenuInfo::frame_id()\nClass arguments details:\n");
 		}
@@ -399,8 +443,8 @@ public:
 	}
 
 	// Awesomium::WebString Awesomium::WebContextMenuInfo::selection_text()
-	static int _bind_getSelection_text(lua_State *L) {
-		if (!_lg_typecheck_getSelection_text(L)) {
+	static int _bind_get_selection_text(lua_State *L) {
+		if (!_lg_typecheck_get_selection_text(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebContextMenuInfo::selection_text() function, expected prototype:\nAwesomium::WebString Awesomium::WebContextMenuInfo::selection_text()\nClass arguments details:\n");
 		}
@@ -419,8 +463,8 @@ public:
 	}
 
 	// bool Awesomium::WebContextMenuInfo::is_editable()
-	static int _bind_getIs_editable(lua_State *L) {
-		if (!_lg_typecheck_getIs_editable(L)) {
+	static int _bind_get_is_editable(lua_State *L) {
+		if (!_lg_typecheck_get_is_editable(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool Awesomium::WebContextMenuInfo::is_editable() function, expected prototype:\nbool Awesomium::WebContextMenuInfo::is_editable()\nClass arguments details:\n");
 		}
@@ -438,8 +482,8 @@ public:
 	}
 
 	// int Awesomium::WebContextMenuInfo::edit_flags()
-	static int _bind_getEdit_flags(lua_State *L) {
-		if (!_lg_typecheck_getEdit_flags(L)) {
+	static int _bind_get_edit_flags(lua_State *L) {
+		if (!_lg_typecheck_get_edit_flags(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int Awesomium::WebContextMenuInfo::edit_flags() function, expected prototype:\nint Awesomium::WebContextMenuInfo::edit_flags()\nClass arguments details:\n");
 		}
@@ -457,8 +501,8 @@ public:
 	}
 
 	// void Awesomium::WebContextMenuInfo::pos_x(int value)
-	static int _bind_setPos_x(lua_State *L) {
-		if (!_lg_typecheck_setPos_x(L)) {
+	static int _bind_set_pos_x(lua_State *L) {
+		if (!_lg_typecheck_set_pos_x(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::pos_x(int value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::pos_x(int value)\nClass arguments details:\n");
 		}
@@ -476,8 +520,8 @@ public:
 	}
 
 	// void Awesomium::WebContextMenuInfo::pos_y(int value)
-	static int _bind_setPos_y(lua_State *L) {
-		if (!_lg_typecheck_setPos_y(L)) {
+	static int _bind_set_pos_y(lua_State *L) {
+		if (!_lg_typecheck_set_pos_y(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::pos_y(int value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::pos_y(int value)\nClass arguments details:\n");
 		}
@@ -495,8 +539,8 @@ public:
 	}
 
 	// void Awesomium::WebContextMenuInfo::media_type(Awesomium::MediaType value)
-	static int _bind_setMedia_type(lua_State *L) {
-		if (!_lg_typecheck_setMedia_type(L)) {
+	static int _bind_set_media_type(lua_State *L) {
+		if (!_lg_typecheck_set_media_type(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::media_type(Awesomium::MediaType value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::media_type(Awesomium::MediaType value)\nClass arguments details:\n");
 		}
@@ -514,8 +558,8 @@ public:
 	}
 
 	// void Awesomium::WebContextMenuInfo::media_state(int value)
-	static int _bind_setMedia_state(lua_State *L) {
-		if (!_lg_typecheck_setMedia_state(L)) {
+	static int _bind_set_media_state(lua_State *L) {
+		if (!_lg_typecheck_set_media_state(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::media_state(int value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::media_state(int value)\nClass arguments details:\n");
 		}
@@ -533,8 +577,8 @@ public:
 	}
 
 	// void Awesomium::WebContextMenuInfo::link_url(Awesomium::WebURL value)
-	static int _bind_setLink_url(lua_State *L) {
-		if (!_lg_typecheck_setLink_url(L)) {
+	static int _bind_set_link_url(lua_State *L) {
+		if (!_lg_typecheck_set_link_url(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::link_url(Awesomium::WebURL value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::link_url(Awesomium::WebURL value)\nClass arguments details:\narg 1 ID = 3243885\n");
 		}
@@ -556,8 +600,8 @@ public:
 	}
 
 	// void Awesomium::WebContextMenuInfo::src_url(Awesomium::WebURL value)
-	static int _bind_setSrc_url(lua_State *L) {
-		if (!_lg_typecheck_setSrc_url(L)) {
+	static int _bind_set_src_url(lua_State *L) {
+		if (!_lg_typecheck_set_src_url(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::src_url(Awesomium::WebURL value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::src_url(Awesomium::WebURL value)\nClass arguments details:\narg 1 ID = 3243885\n");
 		}
@@ -579,8 +623,8 @@ public:
 	}
 
 	// void Awesomium::WebContextMenuInfo::page_url(Awesomium::WebURL value)
-	static int _bind_setPage_url(lua_State *L) {
-		if (!_lg_typecheck_setPage_url(L)) {
+	static int _bind_set_page_url(lua_State *L) {
+		if (!_lg_typecheck_set_page_url(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::page_url(Awesomium::WebURL value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::page_url(Awesomium::WebURL value)\nClass arguments details:\narg 1 ID = 3243885\n");
 		}
@@ -602,8 +646,8 @@ public:
 	}
 
 	// void Awesomium::WebContextMenuInfo::frame_url(Awesomium::WebURL value)
-	static int _bind_setFrame_url(lua_State *L) {
-		if (!_lg_typecheck_setFrame_url(L)) {
+	static int _bind_set_frame_url(lua_State *L) {
+		if (!_lg_typecheck_set_frame_url(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::frame_url(Awesomium::WebURL value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::frame_url(Awesomium::WebURL value)\nClass arguments details:\narg 1 ID = 3243885\n");
 		}
@@ -625,8 +669,8 @@ public:
 	}
 
 	// void Awesomium::WebContextMenuInfo::frame_id(long long value)
-	static int _bind_setFrame_id(lua_State *L) {
-		if (!_lg_typecheck_setFrame_id(L)) {
+	static int _bind_set_frame_id(lua_State *L) {
+		if (!_lg_typecheck_set_frame_id(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::frame_id(long long value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::frame_id(long long value)\nClass arguments details:\n");
 		}
@@ -644,8 +688,8 @@ public:
 	}
 
 	// void Awesomium::WebContextMenuInfo::selection_text(Awesomium::WebString value)
-	static int _bind_setSelection_text(lua_State *L) {
-		if (!_lg_typecheck_setSelection_text(L)) {
+	static int _bind_set_selection_text(lua_State *L) {
+		if (!_lg_typecheck_set_selection_text(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::selection_text(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::selection_text(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n");
 		}
@@ -664,8 +708,8 @@ public:
 	}
 
 	// void Awesomium::WebContextMenuInfo::is_editable(bool value)
-	static int _bind_setIs_editable(lua_State *L) {
-		if (!_lg_typecheck_setIs_editable(L)) {
+	static int _bind_set_is_editable(lua_State *L) {
+		if (!_lg_typecheck_set_is_editable(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::is_editable(bool value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::is_editable(bool value)\nClass arguments details:\n");
 		}
@@ -683,8 +727,8 @@ public:
 	}
 
 	// void Awesomium::WebContextMenuInfo::edit_flags(int value)
-	static int _bind_setEdit_flags(lua_State *L) {
-		if (!_lg_typecheck_setEdit_flags(L)) {
+	static int _bind_set_edit_flags(lua_State *L) {
+		if (!_lg_typecheck_set_edit_flags(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::edit_flags(int value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::edit_flags(int value)\nClass arguments details:\n");
 		}
@@ -708,8 +752,6 @@ public:
 
 Awesomium::WebContextMenuInfo* LunaTraits< Awesomium::WebContextMenuInfo >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< Awesomium::WebContextMenuInfo >::_bind_dtor(Awesomium::WebContextMenuInfo* obj) {
@@ -724,32 +766,34 @@ const int LunaTraits< Awesomium::WebContextMenuInfo >::hash = 8209039;
 const int LunaTraits< Awesomium::WebContextMenuInfo >::uniqueIDs[] = {8209039,0};
 
 luna_RegType LunaTraits< Awesomium::WebContextMenuInfo >::methods[] = {
-	{"getPos_x", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_getPos_x},
-	{"getPos_y", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_getPos_y},
-	{"getMedia_type", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_getMedia_type},
-	{"getMedia_state", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_getMedia_state},
-	{"getLink_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_getLink_url},
-	{"getSrc_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_getSrc_url},
-	{"getPage_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_getPage_url},
-	{"getFrame_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_getFrame_url},
-	{"getFrame_id", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_getFrame_id},
-	{"getSelection_text", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_getSelection_text},
-	{"getIs_editable", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_getIs_editable},
-	{"getEdit_flags", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_getEdit_flags},
-	{"setPos_x", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_setPos_x},
-	{"setPos_y", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_setPos_y},
-	{"setMedia_type", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_setMedia_type},
-	{"setMedia_state", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_setMedia_state},
-	{"setLink_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_setLink_url},
-	{"setSrc_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_setSrc_url},
-	{"setPage_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_setPage_url},
-	{"setFrame_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_setFrame_url},
-	{"setFrame_id", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_setFrame_id},
-	{"setSelection_text", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_setSelection_text},
-	{"setIs_editable", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_setIs_editable},
-	{"setEdit_flags", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_setEdit_flags},
+	{"get_pos_x", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_get_pos_x},
+	{"get_pos_y", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_get_pos_y},
+	{"get_media_type", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_get_media_type},
+	{"get_media_state", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_get_media_state},
+	{"get_link_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_get_link_url},
+	{"get_src_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_get_src_url},
+	{"get_page_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_get_page_url},
+	{"get_frame_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_get_frame_url},
+	{"get_frame_id", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_get_frame_id},
+	{"get_selection_text", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_get_selection_text},
+	{"get_is_editable", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_get_is_editable},
+	{"get_edit_flags", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_get_edit_flags},
+	{"set_pos_x", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_set_pos_x},
+	{"set_pos_y", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_set_pos_y},
+	{"set_media_type", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_set_media_type},
+	{"set_media_state", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_set_media_state},
+	{"set_link_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_set_link_url},
+	{"set_src_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_set_src_url},
+	{"set_page_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_set_page_url},
+	{"set_frame_url", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_set_frame_url},
+	{"set_frame_id", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_set_frame_id},
+	{"set_selection_text", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_set_selection_text},
+	{"set_is_editable", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_set_is_editable},
+	{"set_edit_flags", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_set_edit_flags},
 	{"dynCast", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind___eq},
+	{"fromVoid", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_Awesomium_WebContextMenuInfo::_bind_asVoid},
 	{0,0}
 };
 

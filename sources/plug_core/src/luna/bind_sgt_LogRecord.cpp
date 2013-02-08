@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		sgt::LogRecord* self= (sgt::LogRecord*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< sgt::LogRecord >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,34788330) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< sgt::LogRecord >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -87,8 +131,6 @@ public:
 
 sgt::LogRecord* LunaTraits< sgt::LogRecord >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_sgt_LogRecord::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< sgt::LogRecord >::_bind_dtor(sgt::LogRecord* obj) {
@@ -105,6 +147,8 @@ const int LunaTraits< sgt::LogRecord >::uniqueIDs[] = {34788330,0};
 luna_RegType LunaTraits< sgt::LogRecord >::methods[] = {
 	{"dynCast", &luna_wrapper_sgt_LogRecord::_bind_dynCast},
 	{"__eq", &luna_wrapper_sgt_LogRecord::_bind___eq},
+	{"fromVoid", &luna_wrapper_sgt_LogRecord::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_sgt_LogRecord::_bind_asVoid},
 	{0,0}
 };
 

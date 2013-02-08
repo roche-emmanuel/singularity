@@ -3,8 +3,10 @@
 
 #include <plug_common.h>
 
-#include <plug_extensions.h>
+#include <OSGSurface.h>
 #include <Awesomium/Surface.h>
+#include <OSGSurfaceFactory.h>
+#include <plug_extensions.h>
 #include <Awesomium/BitmapSurface.h>
 #include <Awesomium/DataSource.h>
 #include <Awesomium/DataPak.h>
@@ -27,762 +29,7 @@
 #include <Awesomium/WebView.h>
 #include <Awesomium/WebViewListener.h>
 
-template<>
-class LunaTraits< SurfaceSubloadCallback > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static SurfaceSubloadCallback* _bind_ctor(lua_State *L);
-	static void _bind_dtor(SurfaceSubloadCallback* obj);
-	typedef SurfaceSubloadCallback parent_t;
-	typedef SurfaceSubloadCallback base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::Surface > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::Surface* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::Surface* obj);
-	typedef Awesomium::Surface parent_t;
-	typedef Awesomium::Surface base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::BitmapSurface > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::BitmapSurface* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::BitmapSurface* obj);
-	typedef Awesomium::Surface parent_t;
-	typedef Awesomium::BitmapSurface base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::SurfaceFactory > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::SurfaceFactory* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::SurfaceFactory* obj);
-	typedef Awesomium::SurfaceFactory parent_t;
-	typedef Awesomium::SurfaceFactory base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::BitmapSurfaceFactory > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::BitmapSurfaceFactory* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::BitmapSurfaceFactory* obj);
-	typedef Awesomium::SurfaceFactory parent_t;
-	typedef Awesomium::BitmapSurfaceFactory base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::DataSource > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::DataSource* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::DataSource* obj);
-	typedef Awesomium::DataSource parent_t;
-	typedef Awesomium::DataSource base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::DataPakSource > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::DataPakSource* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::DataPakSource* obj);
-	typedef Awesomium::DataSource parent_t;
-	typedef Awesomium::DataPakSource base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::JSArray > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::JSArray* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::JSArray* obj);
-	typedef Awesomium::JSArray parent_t;
-	typedef Awesomium::JSArray base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::JSObject > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::JSObject* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::JSObject* obj);
-	typedef Awesomium::JSObject parent_t;
-	typedef Awesomium::JSObject base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::JSMethodHandler > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::JSMethodHandler* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::JSMethodHandler* obj);
-	typedef Awesomium::JSMethodHandler parent_t;
-	typedef Awesomium::JSMethodHandler base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::JSValue > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::JSValue* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::JSValue* obj);
-	typedef Awesomium::JSValue parent_t;
-	typedef Awesomium::JSValue base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::Rect > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::Rect* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::Rect* obj);
-	typedef Awesomium::Rect parent_t;
-	typedef Awesomium::Rect base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::PrintConfig > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::PrintConfig* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::PrintConfig* obj);
-	typedef Awesomium::PrintConfig parent_t;
-	typedef Awesomium::PrintConfig base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::ResourceInterceptor > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::ResourceInterceptor* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::ResourceInterceptor* obj);
-	typedef Awesomium::ResourceInterceptor parent_t;
-	typedef Awesomium::ResourceInterceptor base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::ResourceRequest > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::ResourceRequest* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::ResourceRequest* obj);
-	typedef Awesomium::ResourceRequest parent_t;
-	typedef Awesomium::ResourceRequest base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::ResourceResponse > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::ResourceResponse* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::ResourceResponse* obj);
-	typedef Awesomium::ResourceResponse parent_t;
-	typedef Awesomium::ResourceResponse base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::UploadElement > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::UploadElement* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::UploadElement* obj);
-	typedef Awesomium::UploadElement parent_t;
-	typedef Awesomium::UploadElement base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebConfig > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebConfig* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebConfig* obj);
-	typedef Awesomium::WebConfig parent_t;
-	typedef Awesomium::WebConfig base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebCore > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebCore* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebCore* obj);
-	typedef Awesomium::WebCore parent_t;
-	typedef Awesomium::WebCore base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebKeyboardEvent > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebKeyboardEvent* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebKeyboardEvent* obj);
-	typedef Awesomium::WebKeyboardEvent parent_t;
-	typedef Awesomium::WebKeyboardEvent base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebMenuItem > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebMenuItem* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebMenuItem* obj);
-	typedef Awesomium::WebMenuItem parent_t;
-	typedef Awesomium::WebMenuItem base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebMenuItemArray > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebMenuItemArray* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebMenuItemArray* obj);
-	typedef Awesomium::WebMenuItemArray parent_t;
-	typedef Awesomium::WebMenuItemArray base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebPreferences > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebPreferences* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebPreferences* obj);
-	typedef Awesomium::WebPreferences parent_t;
-	typedef Awesomium::WebPreferences base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebSession > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebSession* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebSession* obj);
-	typedef Awesomium::WebSession parent_t;
-	typedef Awesomium::WebSession base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebString > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebString* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebString* obj);
-	typedef Awesomium::WebString parent_t;
-	typedef Awesomium::WebString base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebStringArray > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebStringArray* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebStringArray* obj);
-	typedef Awesomium::WebStringArray parent_t;
-	typedef Awesomium::WebStringArray base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebTouchPoint > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebTouchPoint* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebTouchPoint* obj);
-	typedef Awesomium::WebTouchPoint parent_t;
-	typedef Awesomium::WebTouchPoint base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebTouchEvent > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebTouchEvent* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebTouchEvent* obj);
-	typedef Awesomium::WebTouchEvent parent_t;
-	typedef Awesomium::WebTouchEvent base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebURL > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebURL* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebURL* obj);
-	typedef Awesomium::WebURL parent_t;
-	typedef Awesomium::WebURL base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebView > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebView* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebView* obj);
-	typedef Awesomium::WebView parent_t;
-	typedef Awesomium::WebView base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebFileChooserInfo > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebFileChooserInfo* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebFileChooserInfo* obj);
-	typedef Awesomium::WebFileChooserInfo parent_t;
-	typedef Awesomium::WebFileChooserInfo base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebPopupMenuInfo > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebPopupMenuInfo* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebPopupMenuInfo* obj);
-	typedef Awesomium::WebPopupMenuInfo parent_t;
-	typedef Awesomium::WebPopupMenuInfo base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebContextMenuInfo > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebContextMenuInfo* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebContextMenuInfo* obj);
-	typedef Awesomium::WebContextMenuInfo parent_t;
-	typedef Awesomium::WebContextMenuInfo base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< Awesomium::WebLoginDialogInfo > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static Awesomium::WebLoginDialogInfo* _bind_ctor(lua_State *L);
-	static void _bind_dtor(Awesomium::WebLoginDialogInfo* obj);
-	typedef Awesomium::WebLoginDialogInfo parent_t;
-	typedef Awesomium::WebLoginDialogInfo base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< WebViewListener::View > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static WebViewListener::View* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::View* obj);
-	typedef WebViewListener::View parent_t;
-	typedef WebViewListener::View base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< WebViewListener::Load > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static WebViewListener::Load* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::Load* obj);
-	typedef WebViewListener::Load parent_t;
-	typedef WebViewListener::Load base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< WebViewListener::Process > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static WebViewListener::Process* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::Process* obj);
-	typedef WebViewListener::Process parent_t;
-	typedef WebViewListener::Process base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< WebViewListener::Menu > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static WebViewListener::Menu* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::Menu* obj);
-	typedef WebViewListener::Menu parent_t;
-	typedef WebViewListener::Menu base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< WebViewListener::Dialog > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static WebViewListener::Dialog* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::Dialog* obj);
-	typedef WebViewListener::Dialog parent_t;
-	typedef WebViewListener::Dialog base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< WebViewListener::Print > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static WebViewListener::Print* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::Print* obj);
-	typedef WebViewListener::Print parent_t;
-	typedef WebViewListener::Print base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< WebViewListener::Download > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static WebViewListener::Download* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::Download* obj);
-	typedef WebViewListener::Download parent_t;
-	typedef WebViewListener::Download base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< WebViewListener::InputMethodEditor > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static WebViewListener::InputMethodEditor* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WebViewListener::InputMethodEditor* obj);
-	typedef WebViewListener::InputMethodEditor parent_t;
-	typedef WebViewListener::InputMethodEditor base_t;
-	static luna_ConverterType converters[];
-};
-
+// Class: osg::Referenced
 template<>
 class LunaTraits< osg::Referenced > {
 public:
@@ -801,6 +48,919 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: Area
+template<>
+class LunaTraits< Area > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Area* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Area* obj);
+	typedef osg::Referenced parent_t;
+	typedef Area base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::Surface
+template<>
+class LunaTraits< Awesomium::Surface > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::Surface* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::Surface* obj);
+	typedef Awesomium::Surface parent_t;
+	typedef Awesomium::Surface base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: OSGSurface
+template<>
+class LunaTraits< OSGSurface > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OSGSurface* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OSGSurface* obj);
+	typedef Awesomium::Surface parent_t;
+	typedef OSGSurface base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::SurfaceFactory
+template<>
+class LunaTraits< Awesomium::SurfaceFactory > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::SurfaceFactory* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::SurfaceFactory* obj);
+	typedef Awesomium::SurfaceFactory parent_t;
+	typedef Awesomium::SurfaceFactory base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: OSGSurfaceFactory
+template<>
+class LunaTraits< OSGSurfaceFactory > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OSGSurfaceFactory* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OSGSurfaceFactory* obj);
+	typedef Awesomium::SurfaceFactory parent_t;
+	typedef OSGSurfaceFactory base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: std::vector< OSGSurface * >
+template<>
+class LunaTraits< std::vector< OSGSurface * > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< OSGSurface * >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< OSGSurface * >* obj);
+	typedef std::vector< OSGSurface * > parent_t;
+	typedef std::vector< OSGSurface * > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: SubLoader
+template<>
+class LunaTraits< SubLoader > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static SubLoader* _bind_ctor(lua_State *L);
+	static void _bind_dtor(SubLoader* obj);
+	typedef SubLoader parent_t;
+	typedef SubLoader base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: std::vector< osg::ref_ptr< Area > >
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< Area > > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< osg::ref_ptr< Area > >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< osg::ref_ptr< Area > >* obj);
+	typedef std::vector< osg::ref_ptr< Area > > parent_t;
+	typedef std::vector< osg::ref_ptr< Area > > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: SurfaceSubloadCallback
+template<>
+class LunaTraits< SurfaceSubloadCallback > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static SurfaceSubloadCallback* _bind_ctor(lua_State *L);
+	static void _bind_dtor(SurfaceSubloadCallback* obj);
+	typedef SurfaceSubloadCallback parent_t;
+	typedef SurfaceSubloadCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::BitmapSurface
+template<>
+class LunaTraits< Awesomium::BitmapSurface > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::BitmapSurface* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::BitmapSurface* obj);
+	typedef Awesomium::Surface parent_t;
+	typedef Awesomium::BitmapSurface base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::BitmapSurfaceFactory
+template<>
+class LunaTraits< Awesomium::BitmapSurfaceFactory > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::BitmapSurfaceFactory* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::BitmapSurfaceFactory* obj);
+	typedef Awesomium::SurfaceFactory parent_t;
+	typedef Awesomium::BitmapSurfaceFactory base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::DataSource
+template<>
+class LunaTraits< Awesomium::DataSource > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::DataSource* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::DataSource* obj);
+	typedef Awesomium::DataSource parent_t;
+	typedef Awesomium::DataSource base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::DataPakSource
+template<>
+class LunaTraits< Awesomium::DataPakSource > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::DataPakSource* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::DataPakSource* obj);
+	typedef Awesomium::DataSource parent_t;
+	typedef Awesomium::DataPakSource base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::JSArray
+template<>
+class LunaTraits< Awesomium::JSArray > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::JSArray* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::JSArray* obj);
+	typedef Awesomium::JSArray parent_t;
+	typedef Awesomium::JSArray base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::JSObject
+template<>
+class LunaTraits< Awesomium::JSObject > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::JSObject* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::JSObject* obj);
+	typedef Awesomium::JSObject parent_t;
+	typedef Awesomium::JSObject base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::JSMethodHandler
+template<>
+class LunaTraits< Awesomium::JSMethodHandler > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::JSMethodHandler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::JSMethodHandler* obj);
+	typedef Awesomium::JSMethodHandler parent_t;
+	typedef Awesomium::JSMethodHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::JSValue
+template<>
+class LunaTraits< Awesomium::JSValue > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::JSValue* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::JSValue* obj);
+	typedef Awesomium::JSValue parent_t;
+	typedef Awesomium::JSValue base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::Rect
+template<>
+class LunaTraits< Awesomium::Rect > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::Rect* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::Rect* obj);
+	typedef Awesomium::Rect parent_t;
+	typedef Awesomium::Rect base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::PrintConfig
+template<>
+class LunaTraits< Awesomium::PrintConfig > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::PrintConfig* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::PrintConfig* obj);
+	typedef Awesomium::PrintConfig parent_t;
+	typedef Awesomium::PrintConfig base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::ResourceInterceptor
+template<>
+class LunaTraits< Awesomium::ResourceInterceptor > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::ResourceInterceptor* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::ResourceInterceptor* obj);
+	typedef Awesomium::ResourceInterceptor parent_t;
+	typedef Awesomium::ResourceInterceptor base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::ResourceRequest
+template<>
+class LunaTraits< Awesomium::ResourceRequest > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::ResourceRequest* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::ResourceRequest* obj);
+	typedef Awesomium::ResourceRequest parent_t;
+	typedef Awesomium::ResourceRequest base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::ResourceResponse
+template<>
+class LunaTraits< Awesomium::ResourceResponse > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::ResourceResponse* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::ResourceResponse* obj);
+	typedef Awesomium::ResourceResponse parent_t;
+	typedef Awesomium::ResourceResponse base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::UploadElement
+template<>
+class LunaTraits< Awesomium::UploadElement > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::UploadElement* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::UploadElement* obj);
+	typedef Awesomium::UploadElement parent_t;
+	typedef Awesomium::UploadElement base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebConfig
+template<>
+class LunaTraits< Awesomium::WebConfig > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebConfig* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebConfig* obj);
+	typedef Awesomium::WebConfig parent_t;
+	typedef Awesomium::WebConfig base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebCore
+template<>
+class LunaTraits< Awesomium::WebCore > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebCore* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebCore* obj);
+	typedef Awesomium::WebCore parent_t;
+	typedef Awesomium::WebCore base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebKeyboardEvent
+template<>
+class LunaTraits< Awesomium::WebKeyboardEvent > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebKeyboardEvent* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebKeyboardEvent* obj);
+	typedef Awesomium::WebKeyboardEvent parent_t;
+	typedef Awesomium::WebKeyboardEvent base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebMenuItem
+template<>
+class LunaTraits< Awesomium::WebMenuItem > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebMenuItem* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebMenuItem* obj);
+	typedef Awesomium::WebMenuItem parent_t;
+	typedef Awesomium::WebMenuItem base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebMenuItemArray
+template<>
+class LunaTraits< Awesomium::WebMenuItemArray > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebMenuItemArray* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebMenuItemArray* obj);
+	typedef Awesomium::WebMenuItemArray parent_t;
+	typedef Awesomium::WebMenuItemArray base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebPreferences
+template<>
+class LunaTraits< Awesomium::WebPreferences > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebPreferences* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebPreferences* obj);
+	typedef Awesomium::WebPreferences parent_t;
+	typedef Awesomium::WebPreferences base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebSession
+template<>
+class LunaTraits< Awesomium::WebSession > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebSession* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebSession* obj);
+	typedef Awesomium::WebSession parent_t;
+	typedef Awesomium::WebSession base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebString
+template<>
+class LunaTraits< Awesomium::WebString > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebString* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebString* obj);
+	typedef Awesomium::WebString parent_t;
+	typedef Awesomium::WebString base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebStringArray
+template<>
+class LunaTraits< Awesomium::WebStringArray > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebStringArray* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebStringArray* obj);
+	typedef Awesomium::WebStringArray parent_t;
+	typedef Awesomium::WebStringArray base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebTouchPoint
+template<>
+class LunaTraits< Awesomium::WebTouchPoint > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebTouchPoint* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebTouchPoint* obj);
+	typedef Awesomium::WebTouchPoint parent_t;
+	typedef Awesomium::WebTouchPoint base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebTouchEvent
+template<>
+class LunaTraits< Awesomium::WebTouchEvent > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebTouchEvent* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebTouchEvent* obj);
+	typedef Awesomium::WebTouchEvent parent_t;
+	typedef Awesomium::WebTouchEvent base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebURL
+template<>
+class LunaTraits< Awesomium::WebURL > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebURL* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebURL* obj);
+	typedef Awesomium::WebURL parent_t;
+	typedef Awesomium::WebURL base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebView
+template<>
+class LunaTraits< Awesomium::WebView > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebView* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebView* obj);
+	typedef Awesomium::WebView parent_t;
+	typedef Awesomium::WebView base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebFileChooserInfo
+template<>
+class LunaTraits< Awesomium::WebFileChooserInfo > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebFileChooserInfo* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebFileChooserInfo* obj);
+	typedef Awesomium::WebFileChooserInfo parent_t;
+	typedef Awesomium::WebFileChooserInfo base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebPopupMenuInfo
+template<>
+class LunaTraits< Awesomium::WebPopupMenuInfo > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebPopupMenuInfo* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebPopupMenuInfo* obj);
+	typedef Awesomium::WebPopupMenuInfo parent_t;
+	typedef Awesomium::WebPopupMenuInfo base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebContextMenuInfo
+template<>
+class LunaTraits< Awesomium::WebContextMenuInfo > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebContextMenuInfo* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebContextMenuInfo* obj);
+	typedef Awesomium::WebContextMenuInfo parent_t;
+	typedef Awesomium::WebContextMenuInfo base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebLoginDialogInfo
+template<>
+class LunaTraits< Awesomium::WebLoginDialogInfo > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebLoginDialogInfo* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebLoginDialogInfo* obj);
+	typedef Awesomium::WebLoginDialogInfo parent_t;
+	typedef Awesomium::WebLoginDialogInfo base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebViewListener::View
+template<>
+class LunaTraits< Awesomium::WebViewListener::View > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebViewListener::View* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::View* obj);
+	typedef Awesomium::WebViewListener::View parent_t;
+	typedef Awesomium::WebViewListener::View base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebViewListener::Load
+template<>
+class LunaTraits< Awesomium::WebViewListener::Load > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebViewListener::Load* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::Load* obj);
+	typedef Awesomium::WebViewListener::Load parent_t;
+	typedef Awesomium::WebViewListener::Load base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebViewListener::Process
+template<>
+class LunaTraits< Awesomium::WebViewListener::Process > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebViewListener::Process* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::Process* obj);
+	typedef Awesomium::WebViewListener::Process parent_t;
+	typedef Awesomium::WebViewListener::Process base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebViewListener::Menu
+template<>
+class LunaTraits< Awesomium::WebViewListener::Menu > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebViewListener::Menu* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::Menu* obj);
+	typedef Awesomium::WebViewListener::Menu parent_t;
+	typedef Awesomium::WebViewListener::Menu base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebViewListener::Dialog
+template<>
+class LunaTraits< Awesomium::WebViewListener::Dialog > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebViewListener::Dialog* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::Dialog* obj);
+	typedef Awesomium::WebViewListener::Dialog parent_t;
+	typedef Awesomium::WebViewListener::Dialog base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebViewListener::Print
+template<>
+class LunaTraits< Awesomium::WebViewListener::Print > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebViewListener::Print* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::Print* obj);
+	typedef Awesomium::WebViewListener::Print parent_t;
+	typedef Awesomium::WebViewListener::Print base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebViewListener::Download
+template<>
+class LunaTraits< Awesomium::WebViewListener::Download > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebViewListener::Download* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::Download* obj);
+	typedef Awesomium::WebViewListener::Download parent_t;
+	typedef Awesomium::WebViewListener::Download base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: Awesomium::WebViewListener::InputMethodEditor
+template<>
+class LunaTraits< Awesomium::WebViewListener::InputMethodEditor > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static Awesomium::WebViewListener::InputMethodEditor* _bind_ctor(lua_State *L);
+	static void _bind_dtor(Awesomium::WebViewListener::InputMethodEditor* obj);
+	typedef Awesomium::WebViewListener::InputMethodEditor parent_t;
+	typedef Awesomium::WebViewListener::InputMethodEditor base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Image
 template<>
 class LunaTraits< osg::Image > {
 public:
@@ -819,6 +979,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Texture2D
 template<>
 class LunaTraits< osg::Texture2D > {
 public:
@@ -837,6 +998,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::State
 template<>
 class LunaTraits< osg::State > {
 public:
@@ -857,10 +1019,29 @@ public:
 
 
 
+// Referenced external: void
 template<>
-class LunaType< 92967815 > {
+class LunaTraits< void > {
 public:
-	typedef SurfaceSubloadCallback type;
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static void* _bind_ctor(lua_State *L);
+	static void _bind_dtor(void* obj);
+	typedef void parent_t;
+	typedef void base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaType< 50169651 > {
+public:
+	typedef osg::Referenced type;
 	
 };
 
@@ -875,6 +1056,34 @@ template<>
 class LunaType< 86287934 > {
 public:
 	typedef Awesomium::SurfaceFactory type;
+	
+};
+
+template<>
+class LunaType< 92984376 > {
+public:
+	typedef OSGSurfaceFactory::SurfaceList type;
+	
+};
+
+template<>
+class LunaType< 84162755 > {
+public:
+	typedef SubLoader type;
+	
+};
+
+template<>
+class LunaType< 69910077 > {
+public:
+	typedef SubLoader::AreaList type;
+	
+};
+
+template<>
+class LunaType< 92967815 > {
+public:
+	typedef SurfaceSubloadCallback type;
 	
 };
 
@@ -1075,65 +1284,58 @@ public:
 };
 
 template<>
-class LunaType< 66232947 > {
+class LunaType< 9977401 > {
 public:
-	typedef WebViewListener::View type;
+	typedef Awesomium::WebViewListener::View type;
 	
 };
 
 template<>
-class LunaType< 65940660 > {
+class LunaType< 9685114 > {
 public:
-	typedef WebViewListener::Load type;
+	typedef Awesomium::WebViewListener::Load type;
 	
 };
 
 template<>
-class LunaType< 86671035 > {
+class LunaType< 78037157 > {
 public:
-	typedef WebViewListener::Process type;
+	typedef Awesomium::WebViewListener::Process type;
 	
 };
 
 template<>
-class LunaType< 65961261 > {
+class LunaType< 9705715 > {
 public:
-	typedef WebViewListener::Menu type;
+	typedef Awesomium::WebViewListener::Menu type;
 	
 };
 
 template<>
-class LunaType< 34397265 > {
+class LunaType< 72828454 > {
 public:
-	typedef WebViewListener::Dialog type;
+	typedef Awesomium::WebViewListener::Dialog type;
 	
 };
 
 template<>
-class LunaType< 47951591 > {
+class LunaType< 4030006 > {
 public:
-	typedef WebViewListener::Print type;
+	typedef Awesomium::WebViewListener::Print type;
 	
 };
 
 template<>
-class LunaType< 12394159 > {
+class LunaType< 44749586 > {
 public:
-	typedef WebViewListener::Download type;
+	typedef Awesomium::WebViewListener::Download type;
 	
 };
 
 template<>
-class LunaType< 85723603 > {
+class LunaType< 9490281 > {
 public:
-	typedef WebViewListener::InputMethodEditor type;
-	
-};
-
-template<>
-class LunaType< 50169651 > {
-public:
-	typedef osg::Referenced type;
+	typedef Awesomium::WebViewListener::InputMethodEditor type;
 	
 };
 
@@ -1155,6 +1357,27 @@ template<>
 class LunaType< 89979598 > {
 public:
 	typedef osg::State type;
+	
+};
+
+template<>
+class LunaType< 64985157 > {
+public:
+	typedef std::vector< OSGSurface * > type;
+	
+};
+
+template<>
+class LunaType< 5192565 > {
+public:
+	typedef std::vector< osg::ref_ptr< Area > > type;
+	
+};
+
+template<>
+class LunaType< 3625364 > {
+public:
+	typedef void type;
 	
 };
 

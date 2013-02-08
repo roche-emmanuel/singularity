@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osgUtil::RenderStage::Attachment* self= (osgUtil::RenderStage::Attachment*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osgUtil::RenderStage::Attachment >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,25782964) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osgUtil::RenderStage::Attachment >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -56,39 +100,39 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_get_image(lua_State *L) {
+	inline static bool _lg_typecheck_getImage(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_imageReadPixelFormat(lua_State *L) {
+	inline static bool _lg_typecheck_getImageReadPixelFormat(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_imageReadPixelDataType(lua_State *L) {
+	inline static bool _lg_typecheck_getImageReadPixelDataType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_image(lua_State *L) {
+	inline static bool _lg_typecheck_setImage(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,15557275) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_imageReadPixelFormat(lua_State *L) {
+	inline static bool _lg_typecheck_setImageReadPixelFormat(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_imageReadPixelDataType(lua_State *L) {
+	inline static bool _lg_typecheck_setImageReadPixelDataType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -103,8 +147,8 @@ public:
 
 	// Function binds:
 	// osg::ref_ptr< osg::Image > osgUtil::RenderStage::Attachment::_image()
-	static int _bind_get_image(lua_State *L) {
-		if (!_lg_typecheck_get_image(L)) {
+	static int _bind_getImage(lua_State *L) {
+		if (!_lg_typecheck_getImage(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Image > osgUtil::RenderStage::Attachment::_image() function, expected prototype:\nosg::ref_ptr< osg::Image > osgUtil::RenderStage::Attachment::_image()\nClass arguments details:\n");
 		}
@@ -122,8 +166,8 @@ public:
 	}
 
 	// unsigned int osgUtil::RenderStage::Attachment::_imageReadPixelFormat()
-	static int _bind_get_imageReadPixelFormat(lua_State *L) {
-		if (!_lg_typecheck_get_imageReadPixelFormat(L)) {
+	static int _bind_getImageReadPixelFormat(lua_State *L) {
+		if (!_lg_typecheck_getImageReadPixelFormat(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::RenderStage::Attachment::_imageReadPixelFormat() function, expected prototype:\nunsigned int osgUtil::RenderStage::Attachment::_imageReadPixelFormat()\nClass arguments details:\n");
 		}
@@ -141,8 +185,8 @@ public:
 	}
 
 	// unsigned int osgUtil::RenderStage::Attachment::_imageReadPixelDataType()
-	static int _bind_get_imageReadPixelDataType(lua_State *L) {
-		if (!_lg_typecheck_get_imageReadPixelDataType(L)) {
+	static int _bind_getImageReadPixelDataType(lua_State *L) {
+		if (!_lg_typecheck_getImageReadPixelDataType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::RenderStage::Attachment::_imageReadPixelDataType() function, expected prototype:\nunsigned int osgUtil::RenderStage::Attachment::_imageReadPixelDataType()\nClass arguments details:\n");
 		}
@@ -160,8 +204,8 @@ public:
 	}
 
 	// void osgUtil::RenderStage::Attachment::_image(osg::ref_ptr< osg::Image > value)
-	static int _bind_set_image(lua_State *L) {
-		if (!_lg_typecheck_set_image(L)) {
+	static int _bind_setImage(lua_State *L) {
+		if (!_lg_typecheck_setImage(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::RenderStage::Attachment::_image(osg::ref_ptr< osg::Image > value) function, expected prototype:\nvoid osgUtil::RenderStage::Attachment::_image(osg::ref_ptr< osg::Image > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
@@ -179,8 +223,8 @@ public:
 	}
 
 	// void osgUtil::RenderStage::Attachment::_imageReadPixelFormat(unsigned int value)
-	static int _bind_set_imageReadPixelFormat(lua_State *L) {
-		if (!_lg_typecheck_set_imageReadPixelFormat(L)) {
+	static int _bind_setImageReadPixelFormat(lua_State *L) {
+		if (!_lg_typecheck_setImageReadPixelFormat(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::RenderStage::Attachment::_imageReadPixelFormat(unsigned int value) function, expected prototype:\nvoid osgUtil::RenderStage::Attachment::_imageReadPixelFormat(unsigned int value)\nClass arguments details:\n");
 		}
@@ -198,8 +242,8 @@ public:
 	}
 
 	// void osgUtil::RenderStage::Attachment::_imageReadPixelDataType(unsigned int value)
-	static int _bind_set_imageReadPixelDataType(lua_State *L) {
-		if (!_lg_typecheck_set_imageReadPixelDataType(L)) {
+	static int _bind_setImageReadPixelDataType(lua_State *L) {
+		if (!_lg_typecheck_setImageReadPixelDataType(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::RenderStage::Attachment::_imageReadPixelDataType(unsigned int value) function, expected prototype:\nvoid osgUtil::RenderStage::Attachment::_imageReadPixelDataType(unsigned int value)\nClass arguments details:\n");
 		}
@@ -223,8 +267,6 @@ public:
 
 osgUtil::RenderStage::Attachment* LunaTraits< osgUtil::RenderStage::Attachment >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::RenderStage::Attachment >::_bind_dtor(osgUtil::RenderStage::Attachment* obj) {
@@ -239,14 +281,16 @@ const int LunaTraits< osgUtil::RenderStage::Attachment >::hash = 25782964;
 const int LunaTraits< osgUtil::RenderStage::Attachment >::uniqueIDs[] = {25782964,0};
 
 luna_RegType LunaTraits< osgUtil::RenderStage::Attachment >::methods[] = {
-	{"get_image", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_get_image},
-	{"get_imageReadPixelFormat", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_get_imageReadPixelFormat},
-	{"get_imageReadPixelDataType", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_get_imageReadPixelDataType},
-	{"set_image", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_set_image},
-	{"set_imageReadPixelFormat", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_set_imageReadPixelFormat},
-	{"set_imageReadPixelDataType", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_set_imageReadPixelDataType},
+	{"getImage", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_getImage},
+	{"getImageReadPixelFormat", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_getImageReadPixelFormat},
+	{"getImageReadPixelDataType", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_getImageReadPixelDataType},
+	{"setImage", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_setImage},
+	{"setImageReadPixelFormat", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_setImageReadPixelFormat},
+	{"setImageReadPixelDataType", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_setImageReadPixelDataType},
 	{"dynCast", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind___eq},
+	{"fromVoid", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osgUtil_RenderStage_Attachment::_bind_asVoid},
 	{0,0}
 };
 

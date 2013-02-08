@@ -403,7 +403,7 @@ public:
 	void setStartTick(__int64 tick) {
 		if(_obj.pushFunction("setStartTick")) {
 			_obj.pushArg((osgViewer::Viewer*)this);
-			_obj.pushArg(tick);
+			_obj.pushArg(&tick);
 			return (_obj.callFunction<void>());
 		}
 

@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		wxGridSizesInfo* self= (wxGridSizesInfo*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< wxGridSizesInfo >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,73467241) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< wxGridSizesInfo >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -78,13 +122,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getM_sizeDefault(lua_State *L) {
+	inline static bool _lg_typecheck_getSizeDefault(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setM_sizeDefault(lua_State *L) {
+	inline static bool _lg_typecheck_setSizeDefault(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -156,8 +200,8 @@ public:
 	}
 
 	// int wxGridSizesInfo::m_sizeDefault()
-	static int _bind_getM_sizeDefault(lua_State *L) {
-		if (!_lg_typecheck_getM_sizeDefault(L)) {
+	static int _bind_getSizeDefault(lua_State *L) {
+		if (!_lg_typecheck_getSizeDefault(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int wxGridSizesInfo::m_sizeDefault() function, expected prototype:\nint wxGridSizesInfo::m_sizeDefault()\nClass arguments details:\n");
 		}
@@ -175,8 +219,8 @@ public:
 	}
 
 	// void wxGridSizesInfo::m_sizeDefault(int value)
-	static int _bind_setM_sizeDefault(lua_State *L) {
-		if (!_lg_typecheck_setM_sizeDefault(L)) {
+	static int _bind_setSizeDefault(lua_State *L) {
+		if (!_lg_typecheck_setSizeDefault(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxGridSizesInfo::m_sizeDefault(int value) function, expected prototype:\nvoid wxGridSizesInfo::m_sizeDefault(int value)\nClass arguments details:\n");
 		}
@@ -200,8 +244,6 @@ public:
 
 wxGridSizesInfo* LunaTraits< wxGridSizesInfo >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxGridSizesInfo::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxGridSizesInfo >::_bind_dtor(wxGridSizesInfo* obj) {
@@ -217,10 +259,12 @@ const int LunaTraits< wxGridSizesInfo >::uniqueIDs[] = {73467241,0};
 
 luna_RegType LunaTraits< wxGridSizesInfo >::methods[] = {
 	{"GetSize", &luna_wrapper_wxGridSizesInfo::_bind_GetSize},
-	{"getM_sizeDefault", &luna_wrapper_wxGridSizesInfo::_bind_getM_sizeDefault},
-	{"setM_sizeDefault", &luna_wrapper_wxGridSizesInfo::_bind_setM_sizeDefault},
+	{"getSizeDefault", &luna_wrapper_wxGridSizesInfo::_bind_getSizeDefault},
+	{"setSizeDefault", &luna_wrapper_wxGridSizesInfo::_bind_setSizeDefault},
 	{"dynCast", &luna_wrapper_wxGridSizesInfo::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxGridSizesInfo::_bind___eq},
+	{"fromVoid", &luna_wrapper_wxGridSizesInfo::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_wxGridSizesInfo::_bind_asVoid},
 	{0,0}
 };
 

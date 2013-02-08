@@ -17,9 +17,6 @@ void copyTo(Awesomium::BitmapSurface* surface, osg::Image* img, bool to_rgba = t
 void addAdditionalOption(Awesomium::WebConfig* config, std::string& option);
 
 /** LUNA_CLASS_EXTENSION */
-void useWebGL(Awesomium::WebPreferences* prefs, bool enabled);
-
-/** LUNA_CLASS_EXTENSION */
 inline void setType(Awesomium::WebKeyboardEvent* ke, int type) {
 	ke->type = (WebKeyboardEvent::Type)type;
 };

@@ -54,4 +54,6 @@ inline void setStatusStylesVector(wxStatusBar* bar, std::vector<int>* styles) {
 	bar->SetStatusStyles(styles->size(),&(*styles)[0]);
 };
 
+sgt::LogManager::LogHandler* createWxLogHandler(wxEvtHandler* handler);
+
 #endif

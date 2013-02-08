@@ -8,12 +8,12 @@ extern void register_defines(lua_State* L);
 extern void register_enums(lua_State* L);
 extern void register_global_functions(lua_State* L);
 
+	
+	
 int PLUG_EXPORT luaopen_doxmlparser(lua_State* L) {
 	luna_open(L);
 
-	lua_newtable(L); // container class
-
-	Luna< void >::Register(L);
+	luna_pushModule(L,"doxmlparser");
 	Luna< IChildNode >::Register(L);
 	Luna< IChildNodeIterator >::Register(L);
 	Luna< ICompound >::Register(L);
@@ -104,18 +104,21 @@ int PLUG_EXPORT luaopen_doxmlparser(lua_State* L) {
 	Luna< IUnion >::Register(L);
 	Luna< IUserDefined >::Register(L);
 	Luna< IVariable >::Register(L);
+	luna_popModule(L);
+
+	luna_pushModule(L,"doxmlparser");
 
 	register_defines(L);
 
 	register_enums(L);
 
-	register_global_functions(L);
+	luna_popModule(L);
 
-	lua_setglobal(L,"doxmlparser");
-	lua_getglobal(L,"doxmlparser");
+	register_global_functions(L);
 
 	luna_copyParents(L,"doxmlparser");
 
+	luna_pushModule(L,"doxmlparser");
 	return 1;
 }
 

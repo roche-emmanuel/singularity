@@ -52,6 +52,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osg::NodeCallback* self= (osg::NodeCallback*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osg::NodeCallback >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -173,19 +217,6 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_get_nestedCallback(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_set_nestedCallback(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,27479277) ) return false;
 		return true;
 	}
 
@@ -591,44 +622,6 @@ public:
 		return 0;
 	}
 
-	// osg::ref_ptr< osg::NodeCallback > osg::NodeCallback::_nestedCallback()
-	static int _bind_get_nestedCallback(lua_State *L) {
-		if (!_lg_typecheck_get_nestedCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::NodeCallback > osg::NodeCallback::_nestedCallback() function, expected prototype:\nosg::ref_ptr< osg::NodeCallback > osg::NodeCallback::_nestedCallback()\nClass arguments details:\n");
-		}
-
-
-		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::NodeCallback > osg::NodeCallback::_nestedCallback(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		osg::ref_ptr< osg::NodeCallback > lret = self->_nestedCallback;
-		Luna< osg::NodeCallback >::push(L,lret.get(),false);
-
-		return 1;
-	}
-
-	// void osg::NodeCallback::_nestedCallback(osg::ref_ptr< osg::NodeCallback > value)
-	static int _bind_set_nestedCallback(lua_State *L) {
-		if (!_lg_typecheck_set_nestedCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::NodeCallback::_nestedCallback(osg::ref_ptr< osg::NodeCallback > value) function, expected prototype:\nvoid osg::NodeCallback::_nestedCallback(osg::ref_ptr< osg::NodeCallback > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
-		}
-
-		osg::ref_ptr< osg::NodeCallback > value = dynamic_cast< osg::NodeCallback* >(Luna< osg::Referenced >::check(L,2));
-
-		osg::NodeCallback* self=Luna< osg::Referenced >::checkSubType< osg::NodeCallback >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeCallback::_nestedCallback(osg::ref_ptr< osg::NodeCallback >). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->_nestedCallback = value;
-
-		return 0;
-	}
-
 	// void osg::NodeCallback::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
@@ -908,8 +901,6 @@ public:
 
 osg::NodeCallback* LunaTraits< osg::NodeCallback >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_NodeCallback::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osg::NodeCallback >::_bind_dtor(osg::NodeCallback* obj) {
@@ -934,8 +925,6 @@ luna_RegType LunaTraits< osg::NodeCallback >::methods[] = {
 	{"getNestedCallback", &luna_wrapper_osg_NodeCallback::_bind_getNestedCallback},
 	{"addNestedCallback", &luna_wrapper_osg_NodeCallback::_bind_addNestedCallback},
 	{"removeNestedCallback", &luna_wrapper_osg_NodeCallback::_bind_removeNestedCallback},
-	{"get_nestedCallback", &luna_wrapper_osg_NodeCallback::_bind_get_nestedCallback},
-	{"set_nestedCallback", &luna_wrapper_osg_NodeCallback::_bind_set_nestedCallback},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_NodeCallback::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osg_NodeCallback::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_NodeCallback::_bind_base_computeDataVariance},
@@ -949,6 +938,8 @@ luna_RegType LunaTraits< osg::NodeCallback >::methods[] = {
 	{"base_className", &luna_wrapper_osg_NodeCallback::_bind_base_className},
 	{"op_call", &luna_wrapper_osg_NodeCallback::_bind_op_call},
 	{"__eq", &luna_wrapper_osg_NodeCallback::_bind___eq},
+	{"fromVoid", &luna_wrapper_osg_NodeCallback::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osg_NodeCallback::_bind_asVoid},
 	{"getTable", &luna_wrapper_osg_NodeCallback::_bind_getTable},
 	{0,0}
 };

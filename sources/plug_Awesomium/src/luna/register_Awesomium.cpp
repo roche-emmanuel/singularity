@@ -13,15 +13,17 @@ extern void register_global_functions(lua_State* L);
 int PLUG_EXPORT luaopen_Awesomium(lua_State* L) {
 	luna_open(L);
 
-	luna_pushModule(L,"luna");
-	Luna< void >::Register(L);
-	luna_popModule(L);
-
 	luna_pushModule(L,"Awesomium");
-	Luna< SurfaceSubloadCallback >::Register(L);
+	Luna< Area >::Register(L);
 	Luna< Awesomium::Surface >::Register(L);
-	Luna< Awesomium::BitmapSurface >::Register(L);
+	Luna< OSGSurface >::Register(L);
 	Luna< Awesomium::SurfaceFactory >::Register(L);
+	Luna< OSGSurfaceFactory >::Register(L);
+	Luna< std::vector< OSGSurface * > >::Register(L);
+	Luna< SubLoader >::Register(L);
+	Luna< std::vector< osg::ref_ptr< Area > > >::Register(L);
+	Luna< SurfaceSubloadCallback >::Register(L);
+	Luna< Awesomium::BitmapSurface >::Register(L);
 	Luna< Awesomium::BitmapSurfaceFactory >::Register(L);
 	Luna< Awesomium::DataSource >::Register(L);
 	Luna< Awesomium::DataPakSource >::Register(L);
@@ -52,14 +54,14 @@ int PLUG_EXPORT luaopen_Awesomium(lua_State* L) {
 	Luna< Awesomium::WebPopupMenuInfo >::Register(L);
 	Luna< Awesomium::WebContextMenuInfo >::Register(L);
 	Luna< Awesomium::WebLoginDialogInfo >::Register(L);
-	Luna< WebViewListener::View >::Register(L);
-	Luna< WebViewListener::Load >::Register(L);
-	Luna< WebViewListener::Process >::Register(L);
-	Luna< WebViewListener::Menu >::Register(L);
-	Luna< WebViewListener::Dialog >::Register(L);
-	Luna< WebViewListener::Print >::Register(L);
-	Luna< WebViewListener::Download >::Register(L);
-	Luna< WebViewListener::InputMethodEditor >::Register(L);
+	Luna< Awesomium::WebViewListener::View >::Register(L);
+	Luna< Awesomium::WebViewListener::Load >::Register(L);
+	Luna< Awesomium::WebViewListener::Process >::Register(L);
+	Luna< Awesomium::WebViewListener::Menu >::Register(L);
+	Luna< Awesomium::WebViewListener::Dialog >::Register(L);
+	Luna< Awesomium::WebViewListener::Print >::Register(L);
+	Luna< Awesomium::WebViewListener::Download >::Register(L);
+	Luna< Awesomium::WebViewListener::InputMethodEditor >::Register(L);
 	luna_popModule(L);
 
 	luna_pushModule(L,"Awesomium");

@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		osgUtil::AddRangeOperator* self= (osgUtil::AddRangeOperator*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< osgUtil::AddRangeOperator >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,12139482) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< osgUtil::AddRangeOperator >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -56,39 +100,39 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck_get_begin(lua_State *L) {
+	inline static bool _lg_typecheck_getBegin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_count(lua_State *L) {
+	inline static bool _lg_typecheck_getCount(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_get_vector(lua_State *L) {
+	inline static bool _lg_typecheck_getVector(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_begin(lua_State *L) {
+	inline static bool _lg_typecheck_setBegin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_count(lua_State *L) {
+	inline static bool _lg_typecheck_setCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_set_vector(lua_State *L) {
+	inline static bool _lg_typecheck_setVector(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
@@ -103,8 +147,8 @@ public:
 
 	// Function binds:
 	// unsigned int osgUtil::AddRangeOperator::_begin()
-	static int _bind_get_begin(lua_State *L) {
-		if (!_lg_typecheck_get_begin(L)) {
+	static int _bind_getBegin(lua_State *L) {
+		if (!_lg_typecheck_getBegin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::AddRangeOperator::_begin() function, expected prototype:\nunsigned int osgUtil::AddRangeOperator::_begin()\nClass arguments details:\n");
 		}
@@ -122,8 +166,8 @@ public:
 	}
 
 	// unsigned int osgUtil::AddRangeOperator::_count()
-	static int _bind_get_count(lua_State *L) {
-		if (!_lg_typecheck_get_count(L)) {
+	static int _bind_getCount(lua_State *L) {
+		if (!_lg_typecheck_getCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::AddRangeOperator::_count() function, expected prototype:\nunsigned int osgUtil::AddRangeOperator::_count()\nClass arguments details:\n");
 		}
@@ -141,8 +185,8 @@ public:
 	}
 
 	// osg::Vec3d osgUtil::AddRangeOperator::_vector()
-	static int _bind_get_vector(lua_State *L) {
-		if (!_lg_typecheck_get_vector(L)) {
+	static int _bind_getVector(lua_State *L) {
+		if (!_lg_typecheck_getVector(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::Vec3d osgUtil::AddRangeOperator::_vector() function, expected prototype:\nosg::Vec3d osgUtil::AddRangeOperator::_vector()\nClass arguments details:\n");
 		}
@@ -162,8 +206,8 @@ public:
 	}
 
 	// void osgUtil::AddRangeOperator::_begin(unsigned int value)
-	static int _bind_set_begin(lua_State *L) {
-		if (!_lg_typecheck_set_begin(L)) {
+	static int _bind_setBegin(lua_State *L) {
+		if (!_lg_typecheck_setBegin(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::AddRangeOperator::_begin(unsigned int value) function, expected prototype:\nvoid osgUtil::AddRangeOperator::_begin(unsigned int value)\nClass arguments details:\n");
 		}
@@ -181,8 +225,8 @@ public:
 	}
 
 	// void osgUtil::AddRangeOperator::_count(unsigned int value)
-	static int _bind_set_count(lua_State *L) {
-		if (!_lg_typecheck_set_count(L)) {
+	static int _bind_setCount(lua_State *L) {
+		if (!_lg_typecheck_setCount(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::AddRangeOperator::_count(unsigned int value) function, expected prototype:\nvoid osgUtil::AddRangeOperator::_count(unsigned int value)\nClass arguments details:\n");
 		}
@@ -200,8 +244,8 @@ public:
 	}
 
 	// void osgUtil::AddRangeOperator::_vector(osg::Vec3d value)
-	static int _bind_set_vector(lua_State *L) {
-		if (!_lg_typecheck_set_vector(L)) {
+	static int _bind_setVector(lua_State *L) {
+		if (!_lg_typecheck_setVector(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgUtil::AddRangeOperator::_vector(osg::Vec3d value) function, expected prototype:\nvoid osgUtil::AddRangeOperator::_vector(osg::Vec3d value)\nClass arguments details:\narg 1 ID = 92303202\n");
 		}
@@ -229,8 +273,6 @@ public:
 
 osgUtil::AddRangeOperator* LunaTraits< osgUtil::AddRangeOperator >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::AddRangeOperator >::_bind_dtor(osgUtil::AddRangeOperator* obj) {
@@ -245,14 +287,16 @@ const int LunaTraits< osgUtil::AddRangeOperator >::hash = 12139482;
 const int LunaTraits< osgUtil::AddRangeOperator >::uniqueIDs[] = {12139482,0};
 
 luna_RegType LunaTraits< osgUtil::AddRangeOperator >::methods[] = {
-	{"get_begin", &luna_wrapper_osgUtil_AddRangeOperator::_bind_get_begin},
-	{"get_count", &luna_wrapper_osgUtil_AddRangeOperator::_bind_get_count},
-	{"get_vector", &luna_wrapper_osgUtil_AddRangeOperator::_bind_get_vector},
-	{"set_begin", &luna_wrapper_osgUtil_AddRangeOperator::_bind_set_begin},
-	{"set_count", &luna_wrapper_osgUtil_AddRangeOperator::_bind_set_count},
-	{"set_vector", &luna_wrapper_osgUtil_AddRangeOperator::_bind_set_vector},
+	{"getBegin", &luna_wrapper_osgUtil_AddRangeOperator::_bind_getBegin},
+	{"getCount", &luna_wrapper_osgUtil_AddRangeOperator::_bind_getCount},
+	{"getVector", &luna_wrapper_osgUtil_AddRangeOperator::_bind_getVector},
+	{"setBegin", &luna_wrapper_osgUtil_AddRangeOperator::_bind_setBegin},
+	{"setCount", &luna_wrapper_osgUtil_AddRangeOperator::_bind_setCount},
+	{"setVector", &luna_wrapper_osgUtil_AddRangeOperator::_bind_setVector},
 	{"dynCast", &luna_wrapper_osgUtil_AddRangeOperator::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgUtil_AddRangeOperator::_bind___eq},
+	{"fromVoid", &luna_wrapper_osgUtil_AddRangeOperator::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_osgUtil_AddRangeOperator::_bind_asVoid},
 	{0,0}
 };
 

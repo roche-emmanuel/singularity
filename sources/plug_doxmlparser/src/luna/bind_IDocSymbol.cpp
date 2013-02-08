@@ -1,8 +1,79 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_IDocSymbol.h>
+
 class luna_wrapper_IDocSymbol {
 public:
 	typedef Luna< IDocSymbol > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		IDoc* self=(Luna< IDoc >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<IDoc,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,2243631) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IDoc*)");
+		}
+
+		IDoc* rhs =(Luna< IDoc >::check(L,2));
+		IDoc* self=(Luna< IDoc >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Derived class converters:
+	static int _cast_from_IDoc(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		//IDocSymbol* ptr= dynamic_cast< IDocSymbol* >(Luna< IDoc >::check(L,1));
+		IDocSymbol* ptr= luna_caster< IDoc, IDocSymbol >::cast(Luna< IDoc >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< IDocSymbol >::push(L,ptr,false);
+		return 1;
+	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_type(lua_State *L) {
@@ -27,17 +98,32 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
-	// Function binds:
-	static int _bind_type(lua_State *L) {
-		if (!_lg_typecheck_type(L)) {
+	// Constructor binds:
+	// IDocSymbol::IDocSymbol(lua_Table * data)
+	static IDocSymbol* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in type function, expected prototype:\ntype()");
+			luaL_error(L, "luna typecheck failed in IDocSymbol::IDocSymbol(lua_Table * data) function, expected prototype:\nIDocSymbol::IDocSymbol(lua_Table * data)\nClass arguments details:\n");
 		}
 
 
-		IDocSymbol* self=dynamic_cast< IDocSymbol* >(Luna< IDoc >::check(L,1));
+		return new wrapper_IDocSymbol(L,NULL);
+	}
+
+
+	// Function binds:
+	// IDocSymbol::Types IDocSymbol::type() const
+	static int _bind_type(lua_State *L) {
+		if (!_lg_typecheck_type(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in IDocSymbol::Types IDocSymbol::type() const function, expected prototype:\nIDocSymbol::Types IDocSymbol::type() const\nClass arguments details:\n");
+		}
+
+
+		IDocSymbol* self=Luna< IDoc >::checkSubType< IDocSymbol >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call type(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IDocSymbol::Types IDocSymbol::type() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		IDocSymbol::Types lret = self->type();
 		lua_pushnumber(L,lret);
@@ -45,16 +131,18 @@ public:
 		return 1;
 	}
 
+	// const IString * IDocSymbol::typeString() const
 	static int _bind_typeString(lua_State *L) {
 		if (!_lg_typecheck_typeString(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in typeString function, expected prototype:\ntypeString()");
+			luaL_error(L, "luna typecheck failed in const IString * IDocSymbol::typeString() const function, expected prototype:\nconst IString * IDocSymbol::typeString() const\nClass arguments details:\n");
 		}
 
 
-		IDocSymbol* self=dynamic_cast< IDocSymbol* >(Luna< IDoc >::check(L,1));
+		IDocSymbol* self=Luna< IDoc >::checkSubType< IDocSymbol >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call typeString(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const IString * IDocSymbol::typeString() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		const IString * lret = self->typeString();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -64,16 +152,18 @@ public:
 		return 1;
 	}
 
+	// char IDocSymbol::letter() const
 	static int _bind_letter(lua_State *L) {
 		if (!_lg_typecheck_letter(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in letter function, expected prototype:\nletter()");
+			luaL_error(L, "luna typecheck failed in char IDocSymbol::letter() const function, expected prototype:\nchar IDocSymbol::letter() const\nClass arguments details:\n");
 		}
 
 
-		IDocSymbol* self=dynamic_cast< IDocSymbol* >(Luna< IDoc >::check(L,1));
+		IDocSymbol* self=Luna< IDoc >::checkSubType< IDocSymbol >(L,1);
 		if(!self) {
-			luaL_error(L, "Invalid object in function call letter(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call char IDocSymbol::letter() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
 		}
 		char lret = self->letter();
 		lua_pushnumber(L,lret);
@@ -87,7 +177,13 @@ public:
 };
 
 IDocSymbol* LunaTraits< IDocSymbol >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_IDocSymbol::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// IDocSymbol::Types IDocSymbol::type() const
+	// const IString * IDocSymbol::typeString() const
+	// char IDocSymbol::letter() const
+	// IDoc::Kind IDoc::kind() const
 }
 
 void LunaTraits< IDocSymbol >::_bind_dtor(IDocSymbol* obj) {
@@ -95,14 +191,23 @@ void LunaTraits< IDocSymbol >::_bind_dtor(IDocSymbol* obj) {
 }
 
 const char LunaTraits< IDocSymbol >::className[] = "IDocSymbol";
+const char LunaTraits< IDocSymbol >::fullName[] = "IDocSymbol";
 const char LunaTraits< IDocSymbol >::moduleName[] = "doxmlparser";
 const char* LunaTraits< IDocSymbol >::parents[] = {"doxmlparser.IDoc", 0};
+const int LunaTraits< IDocSymbol >::hash = 42611493;
 const int LunaTraits< IDocSymbol >::uniqueIDs[] = {2243631,0};
 
 luna_RegType LunaTraits< IDocSymbol >::methods[] = {
 	{"type", &luna_wrapper_IDocSymbol::_bind_type},
 	{"typeString", &luna_wrapper_IDocSymbol::_bind_typeString},
 	{"letter", &luna_wrapper_IDocSymbol::_bind_letter},
+	{"__eq", &luna_wrapper_IDocSymbol::_bind___eq},
+	{"getTable", &luna_wrapper_IDocSymbol::_bind_getTable},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< IDocSymbol >::converters[] = {
+	{"IDoc", &luna_wrapper_IDocSymbol::_cast_from_IDoc},
 	{0,0}
 };
 

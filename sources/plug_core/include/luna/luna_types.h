@@ -3,18 +3,21 @@
 
 #include <plug_common.h>
 
+#include <plug_extensions.h>
 #include <osg/Referenced>
 #include <osg/Object>
 #include <sgtCommon.h>
 #include <base/Object.h>
 #include <base/Referenced.h>
 #include <base/TimeProvider.h>
+#include <lua/ModuleProvider.h>
 #include <log/LogSink.h>
 #include <log/FileLogger.h>
 #include <log/LogManager.h>
 #include <log/LogRecord.h>
 #include <log/StdLogger.h>
 
+// Class: __int64
 template<>
 class LunaTraits< __int64 > {
 public:
@@ -33,8 +36,9 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: BaseClass
 template<>
-class LunaTraits< posix_time::ptime > {
+class LunaTraits< BaseClass > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -44,13 +48,90 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static posix_time::ptime* _bind_ctor(lua_State *L);
-	static void _bind_dtor(posix_time::ptime* obj);
-	typedef posix_time::ptime parent_t;
-	typedef posix_time::ptime base_t;
+	static BaseClass* _bind_ctor(lua_State *L);
+	static void _bind_dtor(BaseClass* obj);
+	typedef BaseClass parent_t;
+	typedef BaseClass base_t;
 	static luna_ConverterType converters[];
 };
 
+// Class: uintptr_t
+template<>
+class LunaTraits< uintptr_t > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static uintptr_t* _bind_ctor(lua_State *L);
+	static void _bind_dtor(uintptr_t* obj);
+	typedef uintptr_t parent_t;
+	typedef uintptr_t base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: void
+template<>
+class LunaTraits< void > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static void* _bind_ctor(lua_State *L);
+	static void _bind_dtor(void* obj);
+	typedef void parent_t;
+	typedef void base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: boost::posix_time::ptime
+template<>
+class LunaTraits< boost::posix_time::ptime > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::posix_time::ptime* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::posix_time::ptime* obj);
+	typedef boost::posix_time::ptime parent_t;
+	typedef boost::posix_time::ptime base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: OpenThreads::Mutex
+template<>
+class LunaTraits< OpenThreads::Mutex > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::Mutex* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::Mutex* obj);
+	typedef OpenThreads::Mutex parent_t;
+	typedef OpenThreads::Mutex base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Referenced
 template<>
 class LunaTraits< osg::Referenced > {
 public:
@@ -69,6 +150,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Object
 template<>
 class LunaTraits< osg::Object > {
 public:
@@ -87,6 +169,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::DeleteHandler
 template<>
 class LunaTraits< osg::DeleteHandler > {
 public:
@@ -105,6 +188,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Observer
 template<>
 class LunaTraits< osg::Observer > {
 public:
@@ -123,6 +207,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::ObserverSet
 template<>
 class LunaTraits< osg::ObserverSet > {
 public:
@@ -141,6 +226,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::UserDataContainer
 template<>
 class LunaTraits< osg::UserDataContainer > {
 public:
@@ -159,6 +245,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::CopyOp
 template<>
 class LunaTraits< osg::CopyOp > {
 public:
@@ -177,6 +264,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::State
 template<>
 class LunaTraits< osg::State > {
 public:
@@ -195,6 +283,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::ref_ptr< osg::Referenced >
 template<>
 class LunaTraits< osg::ref_ptr< osg::Referenced > > {
 public:
@@ -213,6 +302,26 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: OpenThreads::ScopedLock< OpenThreads::Mutex >
+template<>
+class LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::ScopedLock< OpenThreads::Mutex >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::ScopedLock< OpenThreads::Mutex >* obj);
+	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > parent_t;
+	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::Object
 template<>
 class LunaTraits< sgt::Object > {
 public:
@@ -231,6 +340,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::Referenced
 template<>
 class LunaTraits< sgt::Referenced > {
 public:
@@ -249,6 +359,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::TimeProvider
 template<>
 class LunaTraits< sgt::TimeProvider > {
 public:
@@ -267,6 +378,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::TimeManager
 template<>
 class LunaTraits< sgt::TimeManager > {
 public:
@@ -285,6 +397,45 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::ModuleProvider
+template<>
+class LunaTraits< sgt::ModuleProvider > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::ModuleProvider* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::ModuleProvider* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::ModuleProvider base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::ModuleManager
+template<>
+class LunaTraits< sgt::ModuleManager > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::ModuleManager* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::ModuleManager* obj);
+	typedef sgt::ModuleManager parent_t;
+	typedef sgt::ModuleManager base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::LogSink
 template<>
 class LunaTraits< sgt::LogSink > {
 public:
@@ -303,6 +454,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::FileLogger
 template<>
 class LunaTraits< sgt::FileLogger > {
 public:
@@ -321,6 +473,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::LogManager
 template<>
 class LunaTraits< sgt::LogManager > {
 public:
@@ -339,6 +492,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: std::vector< osg::ref_ptr< sgt::LogSink > >
 template<>
 class LunaTraits< std::vector< osg::ref_ptr< sgt::LogSink > > > {
 public:
@@ -357,6 +511,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: std::map< int, int >
 template<>
 class LunaTraits< std::map< int, int > > {
 public:
@@ -375,6 +530,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: std::map< std::string, int >
 template<>
 class LunaTraits< std::map< std::string, int > > {
 public:
@@ -393,6 +549,26 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::LogManager::LogHandler
+template<>
+class LunaTraits< sgt::LogManager::LogHandler > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::LogManager::LogHandler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::LogManager::LogHandler* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::LogManager::LogHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::LogRecord
 template<>
 class LunaTraits< sgt::LogRecord > {
 public:
@@ -411,6 +587,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: std::set< std::string >
 template<>
 class LunaTraits< std::set< std::string > > {
 public:
@@ -429,6 +606,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::StdLogger
 template<>
 class LunaTraits< sgt::StdLogger > {
 public:
@@ -447,6 +625,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::AnyVector
 template<>
 class LunaTraits< sgt::AnyVector > {
 public:
@@ -465,6 +644,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: std::istream
 template<>
 class LunaTraits< std::istream > {
 public:
@@ -483,6 +663,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: std::ostream
 template<>
 class LunaTraits< std::ostream > {
 public:
@@ -502,8 +683,9 @@ public:
 };
 
 
+// Mapped type: unsigned __int64
 template<>
-class LunaTraits< std::map< std::string, unsigned int > > {
+class LunaTraits< unsigned __int64 > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -513,13 +695,14 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static std::map< std::string, unsigned int >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::map< std::string, unsigned int >* obj);
-	typedef std::map< std::string, unsigned int > parent_t;
-	typedef std::map< std::string, unsigned int > base_t;
+	static unsigned __int64* _bind_ctor(lua_State *L);
+	static void _bind_dtor(unsigned __int64* obj);
+	typedef unsigned __int64 parent_t;
+	typedef unsigned __int64 base_t;
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: std::vector< int >
 template<>
 class LunaTraits< std::vector< int > > {
 public:
@@ -538,6 +721,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: std::vector< float >
 template<>
 class LunaTraits< std::vector< float > > {
 public:
@@ -556,6 +740,7 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: std::vector< double >
 template<>
 class LunaTraits< std::vector< double > > {
 public:
@@ -574,8 +759,9 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: std::vector< void * >
 template<>
-class LunaTraits< OpenThreads::Mutex > {
+class LunaTraits< std::vector< void * > > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -585,10 +771,29 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static OpenThreads::Mutex* _bind_ctor(lua_State *L);
-	static void _bind_dtor(OpenThreads::Mutex* obj);
-	typedef OpenThreads::Mutex parent_t;
-	typedef OpenThreads::Mutex base_t;
+	static std::vector< void * >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< void * >* obj);
+	typedef std::vector< void * > parent_t;
+	typedef std::vector< void * > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: std::map< std::string, unsigned int >
+template<>
+class LunaTraits< std::map< std::string, unsigned int > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::map< std::string, unsigned int >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::map< std::string, unsigned int >* obj);
+	typedef std::map< std::string, unsigned int > parent_t;
+	typedef std::map< std::string, unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -601,9 +806,37 @@ public:
 };
 
 template<>
-class LunaType< 12269219 > {
+class LunaType< 48128592 > {
 public:
-	typedef posix_time::ptime type;
+	typedef BaseClass type;
+	
+};
+
+template<>
+class LunaType< 23992870 > {
+public:
+	typedef uintptr_t type;
+	
+};
+
+template<>
+class LunaType< 3625364 > {
+public:
+	typedef void type;
+	
+};
+
+template<>
+class LunaType< 16567808 > {
+public:
+	typedef boost::posix_time::ptime type;
+	
+};
+
+template<>
+class LunaType< 3168391 > {
+public:
+	typedef OpenThreads::Mutex type;
 	
 };
 
@@ -643,9 +876,23 @@ public:
 };
 
 template<>
+class LunaType< 77165148 > {
+public:
+	typedef sgt::sgtLock type;
+	
+};
+
+template<>
 class LunaType< 10949480 > {
 public:
 	typedef sgt::TimeManager type;
+	
+};
+
+template<>
+class LunaType< 37264461 > {
+public:
+	typedef sgt::ModuleManager type;
 	
 };
 
@@ -699,16 +946,9 @@ public:
 };
 
 template<>
-class LunaType< 27704170 > {
+class LunaType< 84351388 > {
 public:
-	typedef std::map< std::string, int > type;
-	
-};
-
-template<>
-class LunaType< 72783721 > {
-public:
-	typedef std::map< std::string, unsigned int > type;
+	typedef unsigned __int64 type;
 	
 };
 
@@ -734,9 +974,37 @@ public:
 };
 
 template<>
+class LunaType< 87530881 > {
+public:
+	typedef std::vector< void * > type;
+	
+};
+
+template<>
+class LunaType< 27704170 > {
+public:
+	typedef std::map< std::string, int > type;
+	
+};
+
+template<>
+class LunaType< 72783721 > {
+public:
+	typedef std::map< std::string, unsigned int > type;
+	
+};
+
+template<>
 class LunaType< 84922662 > {
 public:
 	typedef osg::ref_ptr< osg::Referenced > type;
+	
+};
+
+template<>
+class LunaType< 84875541 > {
+public:
+	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > type;
 	
 };
 
@@ -758,13 +1026,6 @@ template<>
 class LunaType< 74170402 > {
 public:
 	typedef std::set< std::string > type;
-	
-};
-
-template<>
-class LunaType< 3168391 > {
-public:
-	typedef OpenThreads::Mutex type;
 	
 };
 

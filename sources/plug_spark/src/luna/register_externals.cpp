@@ -1,16 +1,16 @@
 #include <plug_common.h>
 
-const char LunaTraits< osg::Drawable >::className[] = "Drawable";
-const char LunaTraits< osg::Drawable >::fullName[] = "osg::Drawable";
-const char LunaTraits< osg::Drawable >::moduleName[] = "osg";
-const int LunaTraits< osg::Drawable >::hash = 20484188;
-const int LunaTraits< osg::Drawable >::uniqueIDs[] = {50169651,0};
-
 const char LunaTraits< osg::Drawable::UpdateCallback >::className[] = "Drawable_UpdateCallback";
 const char LunaTraits< osg::Drawable::UpdateCallback >::fullName[] = "osg::Drawable::UpdateCallback";
 const char LunaTraits< osg::Drawable::UpdateCallback >::moduleName[] = "osg";
 const int LunaTraits< osg::Drawable::UpdateCallback >::hash = 5213827;
 const int LunaTraits< osg::Drawable::UpdateCallback >::uniqueIDs[] = {50169651,0};
+
+const char LunaTraits< osg::Drawable >::className[] = "Drawable";
+const char LunaTraits< osg::Drawable >::fullName[] = "osg::Drawable";
+const char LunaTraits< osg::Drawable >::moduleName[] = "osg";
+const int LunaTraits< osg::Drawable >::hash = 20484188;
+const int LunaTraits< osg::Drawable >::uniqueIDs[] = {50169651,0};
 
 const char LunaTraits< osg::Referenced >::className[] = "Referenced";
 const char LunaTraits< osg::Referenced >::fullName[] = "osg::Referenced";
@@ -35,6 +35,12 @@ const char LunaTraits< std::map< std::string, unsigned int > >::fullName[] = "st
 const char LunaTraits< spark::SparkDrawable::TextureIDMap >::moduleName[] = "sgt";
 const int LunaTraits< spark::SparkDrawable::TextureIDMap >::hash = 14771105;
 const int LunaTraits< spark::SparkDrawable::TextureIDMap >::uniqueIDs[] = {72783721,0};
+
+const char LunaTraits< void >::className[] = "void";
+const char LunaTraits< void >::fullName[] = "void";
+const char LunaTraits< void >::moduleName[] = "sgt";
+const int LunaTraits< void >::hash = 3625364;
+const int LunaTraits< void >::uniqueIDs[] = {3625364,0};
 
 const char LunaTraits< osg::CopyOp >::className[] = "CopyOp";
 const char LunaTraits< osg::CopyOp >::fullName[] = "osg::CopyOp";
@@ -107,5 +113,11 @@ const char LunaTraits< osg::Quat >::fullName[] = "osg::Quat";
 const char LunaTraits< osg::Quat >::moduleName[] = "osg";
 const int LunaTraits< osg::Quat >::hash = 80263306;
 const int LunaTraits< osg::Quat >::uniqueIDs[] = {80263306,0};
+
+const char LunaTraits< osg::ref_ptr< osg::Image > >::className[] = "Image";
+const char LunaTraits< osg::ref_ptr< osg::Image > >::fullName[] = "osg::ref_ptr< osg::Image >";
+const char LunaTraits< osg::ref_ptr< osg::Image > >::moduleName[] = "osg";
+const int LunaTraits< osg::ref_ptr< osg::Image > >::hash = 15557275;
+const int LunaTraits< osg::ref_ptr< osg::Image > >::uniqueIDs[] = {15557275,0};
 
 

@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		Awesomium::WebTouchPoint* self= (Awesomium::WebTouchPoint*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< Awesomium::WebTouchPoint >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3335349) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< Awesomium::WebTouchPoint >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -74,43 +118,43 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getScreen_position_x(lua_State *L) {
+	inline static bool _lg_typecheck_get_screen_position_x(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getScreen_position_y(lua_State *L) {
+	inline static bool _lg_typecheck_get_screen_position_y(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getPosition_x(lua_State *L) {
+	inline static bool _lg_typecheck_get_position_x(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getPosition_y(lua_State *L) {
+	inline static bool _lg_typecheck_get_position_y(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getRadius_x(lua_State *L) {
+	inline static bool _lg_typecheck_get_radius_x(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getRadius_y(lua_State *L) {
+	inline static bool _lg_typecheck_get_radius_y(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getRotation_angle(lua_State *L) {
+	inline static bool _lg_typecheck_get_rotation_angle(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -136,49 +180,49 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setScreen_position_x(lua_State *L) {
+	inline static bool _lg_typecheck_set_screen_position_x(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setScreen_position_y(lua_State *L) {
+	inline static bool _lg_typecheck_set_screen_position_y(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setPosition_x(lua_State *L) {
+	inline static bool _lg_typecheck_set_position_x(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setPosition_y(lua_State *L) {
+	inline static bool _lg_typecheck_set_position_y(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setRadius_x(lua_State *L) {
+	inline static bool _lg_typecheck_set_radius_x(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setRadius_y(lua_State *L) {
+	inline static bool _lg_typecheck_set_radius_y(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setRotation_angle(lua_State *L) {
+	inline static bool _lg_typecheck_set_rotation_angle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -249,8 +293,8 @@ public:
 	}
 
 	// int Awesomium::WebTouchPoint::screen_position_x()
-	static int _bind_getScreen_position_x(lua_State *L) {
-		if (!_lg_typecheck_getScreen_position_x(L)) {
+	static int _bind_get_screen_position_x(lua_State *L) {
+		if (!_lg_typecheck_get_screen_position_x(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::screen_position_x() function, expected prototype:\nint Awesomium::WebTouchPoint::screen_position_x()\nClass arguments details:\n");
 		}
@@ -268,8 +312,8 @@ public:
 	}
 
 	// int Awesomium::WebTouchPoint::screen_position_y()
-	static int _bind_getScreen_position_y(lua_State *L) {
-		if (!_lg_typecheck_getScreen_position_y(L)) {
+	static int _bind_get_screen_position_y(lua_State *L) {
+		if (!_lg_typecheck_get_screen_position_y(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::screen_position_y() function, expected prototype:\nint Awesomium::WebTouchPoint::screen_position_y()\nClass arguments details:\n");
 		}
@@ -287,8 +331,8 @@ public:
 	}
 
 	// int Awesomium::WebTouchPoint::position_x()
-	static int _bind_getPosition_x(lua_State *L) {
-		if (!_lg_typecheck_getPosition_x(L)) {
+	static int _bind_get_position_x(lua_State *L) {
+		if (!_lg_typecheck_get_position_x(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::position_x() function, expected prototype:\nint Awesomium::WebTouchPoint::position_x()\nClass arguments details:\n");
 		}
@@ -306,8 +350,8 @@ public:
 	}
 
 	// int Awesomium::WebTouchPoint::position_y()
-	static int _bind_getPosition_y(lua_State *L) {
-		if (!_lg_typecheck_getPosition_y(L)) {
+	static int _bind_get_position_y(lua_State *L) {
+		if (!_lg_typecheck_get_position_y(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::position_y() function, expected prototype:\nint Awesomium::WebTouchPoint::position_y()\nClass arguments details:\n");
 		}
@@ -325,8 +369,8 @@ public:
 	}
 
 	// int Awesomium::WebTouchPoint::radius_x()
-	static int _bind_getRadius_x(lua_State *L) {
-		if (!_lg_typecheck_getRadius_x(L)) {
+	static int _bind_get_radius_x(lua_State *L) {
+		if (!_lg_typecheck_get_radius_x(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::radius_x() function, expected prototype:\nint Awesomium::WebTouchPoint::radius_x()\nClass arguments details:\n");
 		}
@@ -344,8 +388,8 @@ public:
 	}
 
 	// int Awesomium::WebTouchPoint::radius_y()
-	static int _bind_getRadius_y(lua_State *L) {
-		if (!_lg_typecheck_getRadius_y(L)) {
+	static int _bind_get_radius_y(lua_State *L) {
+		if (!_lg_typecheck_get_radius_y(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::radius_y() function, expected prototype:\nint Awesomium::WebTouchPoint::radius_y()\nClass arguments details:\n");
 		}
@@ -363,8 +407,8 @@ public:
 	}
 
 	// float Awesomium::WebTouchPoint::rotation_angle()
-	static int _bind_getRotation_angle(lua_State *L) {
-		if (!_lg_typecheck_getRotation_angle(L)) {
+	static int _bind_get_rotation_angle(lua_State *L) {
+		if (!_lg_typecheck_get_rotation_angle(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in float Awesomium::WebTouchPoint::rotation_angle() function, expected prototype:\nfloat Awesomium::WebTouchPoint::rotation_angle()\nClass arguments details:\n");
 		}
@@ -439,8 +483,8 @@ public:
 	}
 
 	// void Awesomium::WebTouchPoint::screen_position_x(int value)
-	static int _bind_setScreen_position_x(lua_State *L) {
-		if (!_lg_typecheck_setScreen_position_x(L)) {
+	static int _bind_set_screen_position_x(lua_State *L) {
+		if (!_lg_typecheck_set_screen_position_x(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::screen_position_x(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::screen_position_x(int value)\nClass arguments details:\n");
 		}
@@ -458,8 +502,8 @@ public:
 	}
 
 	// void Awesomium::WebTouchPoint::screen_position_y(int value)
-	static int _bind_setScreen_position_y(lua_State *L) {
-		if (!_lg_typecheck_setScreen_position_y(L)) {
+	static int _bind_set_screen_position_y(lua_State *L) {
+		if (!_lg_typecheck_set_screen_position_y(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::screen_position_y(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::screen_position_y(int value)\nClass arguments details:\n");
 		}
@@ -477,8 +521,8 @@ public:
 	}
 
 	// void Awesomium::WebTouchPoint::position_x(int value)
-	static int _bind_setPosition_x(lua_State *L) {
-		if (!_lg_typecheck_setPosition_x(L)) {
+	static int _bind_set_position_x(lua_State *L) {
+		if (!_lg_typecheck_set_position_x(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::position_x(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::position_x(int value)\nClass arguments details:\n");
 		}
@@ -496,8 +540,8 @@ public:
 	}
 
 	// void Awesomium::WebTouchPoint::position_y(int value)
-	static int _bind_setPosition_y(lua_State *L) {
-		if (!_lg_typecheck_setPosition_y(L)) {
+	static int _bind_set_position_y(lua_State *L) {
+		if (!_lg_typecheck_set_position_y(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::position_y(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::position_y(int value)\nClass arguments details:\n");
 		}
@@ -515,8 +559,8 @@ public:
 	}
 
 	// void Awesomium::WebTouchPoint::radius_x(int value)
-	static int _bind_setRadius_x(lua_State *L) {
-		if (!_lg_typecheck_setRadius_x(L)) {
+	static int _bind_set_radius_x(lua_State *L) {
+		if (!_lg_typecheck_set_radius_x(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::radius_x(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::radius_x(int value)\nClass arguments details:\n");
 		}
@@ -534,8 +578,8 @@ public:
 	}
 
 	// void Awesomium::WebTouchPoint::radius_y(int value)
-	static int _bind_setRadius_y(lua_State *L) {
-		if (!_lg_typecheck_setRadius_y(L)) {
+	static int _bind_set_radius_y(lua_State *L) {
+		if (!_lg_typecheck_set_radius_y(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::radius_y(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::radius_y(int value)\nClass arguments details:\n");
 		}
@@ -553,8 +597,8 @@ public:
 	}
 
 	// void Awesomium::WebTouchPoint::rotation_angle(float value)
-	static int _bind_setRotation_angle(lua_State *L) {
-		if (!_lg_typecheck_setRotation_angle(L)) {
+	static int _bind_set_rotation_angle(lua_State *L) {
+		if (!_lg_typecheck_set_rotation_angle(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::rotation_angle(float value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::rotation_angle(float value)\nClass arguments details:\n");
 		}
@@ -597,8 +641,6 @@ public:
 
 Awesomium::WebTouchPoint* LunaTraits< Awesomium::WebTouchPoint >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_Awesomium_WebTouchPoint::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< Awesomium::WebTouchPoint >::_bind_dtor(Awesomium::WebTouchPoint* obj) {
@@ -615,26 +657,28 @@ const int LunaTraits< Awesomium::WebTouchPoint >::uniqueIDs[] = {3335349,0};
 luna_RegType LunaTraits< Awesomium::WebTouchPoint >::methods[] = {
 	{"getId", &luna_wrapper_Awesomium_WebTouchPoint::_bind_getId},
 	{"getState", &luna_wrapper_Awesomium_WebTouchPoint::_bind_getState},
-	{"getScreen_position_x", &luna_wrapper_Awesomium_WebTouchPoint::_bind_getScreen_position_x},
-	{"getScreen_position_y", &luna_wrapper_Awesomium_WebTouchPoint::_bind_getScreen_position_y},
-	{"getPosition_x", &luna_wrapper_Awesomium_WebTouchPoint::_bind_getPosition_x},
-	{"getPosition_y", &luna_wrapper_Awesomium_WebTouchPoint::_bind_getPosition_y},
-	{"getRadius_x", &luna_wrapper_Awesomium_WebTouchPoint::_bind_getRadius_x},
-	{"getRadius_y", &luna_wrapper_Awesomium_WebTouchPoint::_bind_getRadius_y},
-	{"getRotation_angle", &luna_wrapper_Awesomium_WebTouchPoint::_bind_getRotation_angle},
+	{"get_screen_position_x", &luna_wrapper_Awesomium_WebTouchPoint::_bind_get_screen_position_x},
+	{"get_screen_position_y", &luna_wrapper_Awesomium_WebTouchPoint::_bind_get_screen_position_y},
+	{"get_position_x", &luna_wrapper_Awesomium_WebTouchPoint::_bind_get_position_x},
+	{"get_position_y", &luna_wrapper_Awesomium_WebTouchPoint::_bind_get_position_y},
+	{"get_radius_x", &luna_wrapper_Awesomium_WebTouchPoint::_bind_get_radius_x},
+	{"get_radius_y", &luna_wrapper_Awesomium_WebTouchPoint::_bind_get_radius_y},
+	{"get_rotation_angle", &luna_wrapper_Awesomium_WebTouchPoint::_bind_get_rotation_angle},
 	{"getForce", &luna_wrapper_Awesomium_WebTouchPoint::_bind_getForce},
 	{"setId", &luna_wrapper_Awesomium_WebTouchPoint::_bind_setId},
 	{"setState", &luna_wrapper_Awesomium_WebTouchPoint::_bind_setState},
-	{"setScreen_position_x", &luna_wrapper_Awesomium_WebTouchPoint::_bind_setScreen_position_x},
-	{"setScreen_position_y", &luna_wrapper_Awesomium_WebTouchPoint::_bind_setScreen_position_y},
-	{"setPosition_x", &luna_wrapper_Awesomium_WebTouchPoint::_bind_setPosition_x},
-	{"setPosition_y", &luna_wrapper_Awesomium_WebTouchPoint::_bind_setPosition_y},
-	{"setRadius_x", &luna_wrapper_Awesomium_WebTouchPoint::_bind_setRadius_x},
-	{"setRadius_y", &luna_wrapper_Awesomium_WebTouchPoint::_bind_setRadius_y},
-	{"setRotation_angle", &luna_wrapper_Awesomium_WebTouchPoint::_bind_setRotation_angle},
+	{"set_screen_position_x", &luna_wrapper_Awesomium_WebTouchPoint::_bind_set_screen_position_x},
+	{"set_screen_position_y", &luna_wrapper_Awesomium_WebTouchPoint::_bind_set_screen_position_y},
+	{"set_position_x", &luna_wrapper_Awesomium_WebTouchPoint::_bind_set_position_x},
+	{"set_position_y", &luna_wrapper_Awesomium_WebTouchPoint::_bind_set_position_y},
+	{"set_radius_x", &luna_wrapper_Awesomium_WebTouchPoint::_bind_set_radius_x},
+	{"set_radius_y", &luna_wrapper_Awesomium_WebTouchPoint::_bind_set_radius_y},
+	{"set_rotation_angle", &luna_wrapper_Awesomium_WebTouchPoint::_bind_set_rotation_angle},
 	{"setForce", &luna_wrapper_Awesomium_WebTouchPoint::_bind_setForce},
 	{"dynCast", &luna_wrapper_Awesomium_WebTouchPoint::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_WebTouchPoint::_bind___eq},
+	{"fromVoid", &luna_wrapper_Awesomium_WebTouchPoint::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_Awesomium_WebTouchPoint::_bind_asVoid},
 	{0,0}
 };
 

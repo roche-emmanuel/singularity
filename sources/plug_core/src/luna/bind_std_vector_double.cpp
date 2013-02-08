@@ -54,47 +54,284 @@ public:
 		return luna_dynamicCast(L,converters,"std::vector< double >",name);
 	}
 
-	inline static bool _lg_typecheck_push_back(lua_State *L) {
+	inline static bool _lg_typecheck_assign(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_at(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,4564820)) ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_back(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_front(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_clear(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_empty(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
 	inline static bool _lg_typecheck_size(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,4564820)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_resize(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_pop_back(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_push_back(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_index(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 
-	// void std::vector< double > *::push_back(std::vector< double > * vec, double val)
-	static int _bind_push_back(lua_State *L) {
-		if (!_lg_typecheck_push_back(L)) {
+	// void std::vector< double >::assign(unsigned int arg1, double arg2)
+	static int _bind_assign(lua_State *L) {
+		if (!_lg_typecheck_assign(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void std::vector< double > *::push_back(std::vector< double > * vec, double val) function, expected prototype:\nvoid std::vector< double > *::push_back(std::vector< double > * vec, double val)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void std::vector< double >::assign(unsigned int arg1, double arg2) function, expected prototype:\nvoid std::vector< double >::assign(unsigned int arg1, double arg2)\nClass arguments details:\n");
 		}
 
-		std::vector< double >* vec=(Luna< std::vector< double > >::check(L,1));
-		double val=(double)lua_tonumber(L,2);
+		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
+		double arg2=(double)lua_tonumber(L,3);
 
-		push_back(vec, val);
+		std::vector< double >* self=(Luna< std::vector< double > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void std::vector< double >::assign(unsigned int, double). Got : '%s'",typeid(Luna< std::vector< double > >::check(L,1)).name());
+		}
+		self->assign(arg1, arg2);
 
 		return 0;
 	}
 
-	// unsigned int std::vector< double > *::size(std::vector< double > * vec)
+	// double std::vector< double >::at(unsigned int arg1)
+	static int _bind_at(lua_State *L) {
+		if (!_lg_typecheck_at(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double std::vector< double >::at(unsigned int arg1) function, expected prototype:\ndouble std::vector< double >::at(unsigned int arg1)\nClass arguments details:\n");
+		}
+
+		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
+
+		std::vector< double >* self=(Luna< std::vector< double > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double std::vector< double >::at(unsigned int). Got : '%s'",typeid(Luna< std::vector< double > >::check(L,1)).name());
+		}
+		double lret = self->at(arg1);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// double std::vector< double >::back()
+	static int _bind_back(lua_State *L) {
+		if (!_lg_typecheck_back(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double std::vector< double >::back() function, expected prototype:\ndouble std::vector< double >::back()\nClass arguments details:\n");
+		}
+
+
+		std::vector< double >* self=(Luna< std::vector< double > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double std::vector< double >::back(). Got : '%s'",typeid(Luna< std::vector< double > >::check(L,1)).name());
+		}
+		double lret = self->back();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// double std::vector< double >::front()
+	static int _bind_front(lua_State *L) {
+		if (!_lg_typecheck_front(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double std::vector< double >::front() function, expected prototype:\ndouble std::vector< double >::front()\nClass arguments details:\n");
+		}
+
+
+		std::vector< double >* self=(Luna< std::vector< double > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double std::vector< double >::front(). Got : '%s'",typeid(Luna< std::vector< double > >::check(L,1)).name());
+		}
+		double lret = self->front();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void std::vector< double >::clear()
+	static int _bind_clear(lua_State *L) {
+		if (!_lg_typecheck_clear(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void std::vector< double >::clear() function, expected prototype:\nvoid std::vector< double >::clear()\nClass arguments details:\n");
+		}
+
+
+		std::vector< double >* self=(Luna< std::vector< double > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void std::vector< double >::clear(). Got : '%s'",typeid(Luna< std::vector< double > >::check(L,1)).name());
+		}
+		self->clear();
+
+		return 0;
+	}
+
+	// bool std::vector< double >::empty()
+	static int _bind_empty(lua_State *L) {
+		if (!_lg_typecheck_empty(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool std::vector< double >::empty() function, expected prototype:\nbool std::vector< double >::empty()\nClass arguments details:\n");
+		}
+
+
+		std::vector< double >* self=(Luna< std::vector< double > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool std::vector< double >::empty(). Got : '%s'",typeid(Luna< std::vector< double > >::check(L,1)).name());
+		}
+		bool lret = self->empty();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// unsigned int std::vector< double >::size()
 	static int _bind_size(lua_State *L) {
 		if (!_lg_typecheck_size(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int std::vector< double > *::size(std::vector< double > * vec) function, expected prototype:\nunsigned int std::vector< double > *::size(std::vector< double > * vec)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in unsigned int std::vector< double >::size() function, expected prototype:\nunsigned int std::vector< double >::size()\nClass arguments details:\n");
 		}
 
-		std::vector< double >* vec=(Luna< std::vector< double > >::check(L,1));
 
-		unsigned int lret = size(vec);
+		std::vector< double >* self=(Luna< std::vector< double > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int std::vector< double >::size(). Got : '%s'",typeid(Luna< std::vector< double > >::check(L,1)).name());
+		}
+		unsigned int lret = self->size();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void std::vector< double >::resize(unsigned int arg1)
+	static int _bind_resize(lua_State *L) {
+		if (!_lg_typecheck_resize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void std::vector< double >::resize(unsigned int arg1) function, expected prototype:\nvoid std::vector< double >::resize(unsigned int arg1)\nClass arguments details:\n");
+		}
+
+		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
+
+		std::vector< double >* self=(Luna< std::vector< double > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void std::vector< double >::resize(unsigned int). Got : '%s'",typeid(Luna< std::vector< double > >::check(L,1)).name());
+		}
+		self->resize(arg1);
+
+		return 0;
+	}
+
+	// void std::vector< double >::pop_back()
+	static int _bind_pop_back(lua_State *L) {
+		if (!_lg_typecheck_pop_back(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void std::vector< double >::pop_back() function, expected prototype:\nvoid std::vector< double >::pop_back()\nClass arguments details:\n");
+		}
+
+
+		std::vector< double >* self=(Luna< std::vector< double > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void std::vector< double >::pop_back(). Got : '%s'",typeid(Luna< std::vector< double > >::check(L,1)).name());
+		}
+		self->pop_back();
+
+		return 0;
+	}
+
+	// void std::vector< double >::push_back(double arg1)
+	static int _bind_push_back(lua_State *L) {
+		if (!_lg_typecheck_push_back(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void std::vector< double >::push_back(double arg1) function, expected prototype:\nvoid std::vector< double >::push_back(double arg1)\nClass arguments details:\n");
+		}
+
+		double arg1=(double)lua_tonumber(L,2);
+
+		std::vector< double >* self=(Luna< std::vector< double > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void std::vector< double >::push_back(double). Got : '%s'",typeid(Luna< std::vector< double > >::check(L,1)).name());
+		}
+		self->push_back(arg1);
+
+		return 0;
+	}
+
+	// double std::vector< double >::operator[](unsigned int arg1)
+	static int _bind_op_index(lua_State *L) {
+		if (!_lg_typecheck_op_index(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double std::vector< double >::operator[](unsigned int arg1) function, expected prototype:\ndouble std::vector< double >::operator[](unsigned int arg1)\nClass arguments details:\n");
+		}
+
+		unsigned int arg1=(unsigned int)lua_tointeger(L,2);
+
+		std::vector< double >* self=(Luna< std::vector< double > >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double std::vector< double >::operator[](unsigned int). Got : '%s'",typeid(Luna< std::vector< double > >::check(L,1)).name());
+		}
+		double lret = self->operator[](arg1);
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -121,8 +358,17 @@ luna_RegType LunaTraits< std::vector< double > >::methods[] = {
 	{"dynCast", &luna_wrapper_std_vector_double::_bind_dynCast},
 	{"__eq", &luna_wrapper_std_vector_double::_bind___eq},
 	
-	{"push_back", &luna_wrapper_std_vector_double::_bind_push_back},
+	{"assign", &luna_wrapper_std_vector_double::_bind_assign},
+	{"at", &luna_wrapper_std_vector_double::_bind_at},
+	{"back", &luna_wrapper_std_vector_double::_bind_back},
+	{"front", &luna_wrapper_std_vector_double::_bind_front},
+	{"clear", &luna_wrapper_std_vector_double::_bind_clear},
+	{"empty", &luna_wrapper_std_vector_double::_bind_empty},
 	{"size", &luna_wrapper_std_vector_double::_bind_size},
+	{"resize", &luna_wrapper_std_vector_double::_bind_resize},
+	{"pop_back", &luna_wrapper_std_vector_double::_bind_pop_back},
+	{"push_back", &luna_wrapper_std_vector_double::_bind_push_back},
+	{"op_index", &luna_wrapper_std_vector_double::_bind_op_index},
 	{0,0}
 };
 

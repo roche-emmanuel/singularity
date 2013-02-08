@@ -26,6 +26,50 @@ public:
 		return self==rhs;
 	}
 
+	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,3625364) ) return false;
+		return true;
+	}
+	
+	static int _bind_fromVoid(lua_State *L) {
+		if (!_lg_typecheck_fromVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+		}
+
+		wxImage::HSVValue* self= (wxImage::HSVValue*)(Luna< void >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call fromVoid(...)");
+		}
+		
+		Luna< wxImage::HSVValue >::push(L,self,false);
+		return 1;
+	}
+	
+	inline static bool _lg_typecheck_asVoid(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,41631892) ) return false;
+		return true;
+	}
+	
+	static int _bind_asVoid(lua_State *L) {
+		if (!_lg_typecheck_asVoid(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+		}
+
+		void* self= (void*)(Luna< wxImage::HSVValue >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call asVoid(...)");
+		}
+		
+		Luna< void >::push(L,self,false);
+		return 1;
+	}	
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -249,8 +293,6 @@ public:
 
 wxImage::HSVValue* LunaTraits< wxImage::HSVValue >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxImage_HSVValue::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
 }
 
 void LunaTraits< wxImage::HSVValue >::_bind_dtor(wxImage::HSVValue* obj) {
@@ -259,7 +301,7 @@ void LunaTraits< wxImage::HSVValue >::_bind_dtor(wxImage::HSVValue* obj) {
 
 const char LunaTraits< wxImage::HSVValue >::className[] = "wxImage_HSVValue";
 const char LunaTraits< wxImage::HSVValue >::fullName[] = "wxImage::HSVValue";
-const char LunaTraits< wxImage::HSVValue >::moduleName[] = "wxImage";
+const char LunaTraits< wxImage::HSVValue >::moduleName[] = "wx";
 const char* LunaTraits< wxImage::HSVValue >::parents[] = {0};
 const int LunaTraits< wxImage::HSVValue >::hash = 41631892;
 const int LunaTraits< wxImage::HSVValue >::uniqueIDs[] = {41631892,0};
@@ -273,6 +315,8 @@ luna_RegType LunaTraits< wxImage::HSVValue >::methods[] = {
 	{"setValue", &luna_wrapper_wxImage_HSVValue::_bind_setValue},
 	{"dynCast", &luna_wrapper_wxImage_HSVValue::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxImage_HSVValue::_bind___eq},
+	{"fromVoid", &luna_wrapper_wxImage_HSVValue::_bind_fromVoid},
+	{"asVoid", &luna_wrapper_wxImage_HSVValue::_bind_asVoid},
 	{0,0}
 };
 

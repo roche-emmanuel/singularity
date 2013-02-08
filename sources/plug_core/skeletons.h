@@ -4,11 +4,26 @@
 class __int64 {
 };
 
-namespace boost {
+class BaseClass {
 };
 
-namespace posix_time {
-	class ptime {
+class uintptr_t {
+};
+
+class void {
+};
+
+namespace boost {
+	namespace posix_time {
+		class ptime {
+		};
+
+	};
+
+};
+
+namespace OpenThreads {
+	class Mutex {
 	};
 
 };
@@ -29,6 +44,9 @@ namespace sgt {
 	class RefPtr {
 	};
 
+	class sgtLock {
+	};
+
 	class Object: public osg::Object {
 	};
 
@@ -39,6 +57,12 @@ namespace sgt {
 	};
 
 	class TimeManager {
+	};
+
+	class ModuleProvider: public sgt::Object {
+	};
+
+	class ModuleManager {
 	};
 
 	class FileLogger: public sgt::LogSink {
@@ -53,6 +77,9 @@ namespace sgt {
 		};
 
 		class TraceFlagMap {
+		};
+
+		class LogHandler: public sgt::Referenced {
 		};
 
 	};

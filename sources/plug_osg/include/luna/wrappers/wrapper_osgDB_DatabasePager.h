@@ -178,11 +178,6 @@ public:
 
 
 	// Protected non-virtual methods:
-	// void osgDB::DatabasePager::compileCompleted(osgDB::DatabasePager::DatabaseRequest * databaseRequest)
-	void public_compileCompleted(osgDB::DatabasePager::DatabaseRequest * databaseRequest) {
-		return osgDB::DatabasePager::compileCompleted(databaseRequest);
-	};
-
 	// void osgDB::DatabasePager::addLoadedDataToSceneGraph(const osg::FrameStamp & frameStamp)
 	void public_addLoadedDataToSceneGraph(const osg::FrameStamp & frameStamp) {
 		return osgDB::DatabasePager::addLoadedDataToSceneGraph(frameStamp);
@@ -200,13 +195,6 @@ public:
 
 
 	// Protected non-virtual checkers:
-	inline static bool _lg_typecheck_public_compileCompleted(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_public_addLoadedDataToSceneGraph(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -230,25 +218,6 @@ public:
 
 
 	// Protected non-virtual function binds:
-	// void osgDB::DatabasePager::public_compileCompleted(osgDB::DatabasePager::DatabaseRequest * databaseRequest)
-	static int _bind_public_compileCompleted(lua_State *L) {
-		if (!_lg_typecheck_public_compileCompleted(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::public_compileCompleted(osgDB::DatabasePager::DatabaseRequest * databaseRequest) function, expected prototype:\nvoid osgDB::DatabasePager::public_compileCompleted(osgDB::DatabasePager::DatabaseRequest * databaseRequest)\nClass arguments details:\narg 1 ID = 50169651\n");
-		}
-
-		osgDB::DatabasePager::DatabaseRequest* databaseRequest=(Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager::DatabaseRequest >(L,2));
-
-		wrapper_osgDB_DatabasePager* self=Luna< osg::Referenced >::checkSubType< wrapper_osgDB_DatabasePager >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::public_compileCompleted(osgDB::DatabasePager::DatabaseRequest *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		self->public_compileCompleted(databaseRequest);
-
-		return 0;
-	}
-
 	// void osgDB::DatabasePager::public_addLoadedDataToSceneGraph(const osg::FrameStamp & frameStamp)
 	static int _bind_public_addLoadedDataToSceneGraph(lua_State *L) {
 		if (!_lg_typecheck_public_addLoadedDataToSceneGraph(L)) {
@@ -313,7 +282,6 @@ public:
 
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
-		{"compileCompleted",_bind_public_compileCompleted},
 		{"addLoadedDataToSceneGraph",_bind_public_addLoadedDataToSceneGraph},
 		{"signalObserversAndDelete",_bind_public_signalObserversAndDelete},
 		{"deleteUsingDeleteHandler",_bind_public_deleteUsingDeleteHandler},

@@ -1,8 +1,92 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_IMemberReference.h>
+
 class luna_wrapper_IMemberReference {
 public:
 	typedef Luna< IMemberReference > luna_t;
+
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = luna_caster<IMemberReference,luna_wrapper_base>::cast(self); //dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,16821774) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IMemberReference*)");
+		}
+
+		IMemberReference* rhs =(Luna< IMemberReference >::check(L,2));
+		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Base class dynamic cast support:
+	inline static bool _lg_typecheck_dynCast(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+	
+	static int _bind_dynCast(lua_State *L) {
+		if (!_lg_typecheck_dynCast(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call dynCast(...)");
+		}
+		
+		static LunaConverterMap& converters = luna_getConverterMap("IMemberReference");
+		
+		return luna_dynamicCast(L,converters,"IMemberReference",name);
+	}
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_member(lua_State *L) {
@@ -45,17 +129,32 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
+	// Constructor binds:
+	// IMemberReference::IMemberReference(lua_Table * data)
+	static IMemberReference* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in IMemberReference::IMemberReference(lua_Table * data) function, expected prototype:\nIMemberReference::IMemberReference(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_IMemberReference(L,NULL);
+	}
+
+
 	// Function binds:
+	// IMember * IMemberReference::member() const
 	static int _bind_member(lua_State *L) {
 		if (!_lg_typecheck_member(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in member function, expected prototype:\nmember()");
+			luaL_error(L, "luna typecheck failed in IMember * IMemberReference::member() const function, expected prototype:\nIMember * IMemberReference::member() const\nClass arguments details:\n");
 		}
 
 
 		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call member(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call IMember * IMemberReference::member() const. Got : '%s'",typeid(Luna< IMemberReference >::check(L,1)).name());
 		}
 		IMember * lret = self->member();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -65,16 +164,18 @@ public:
 		return 1;
 	}
 
+	// const IString * IMemberReference::name() const
 	static int _bind_name(lua_State *L) {
 		if (!_lg_typecheck_name(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in name function, expected prototype:\nname()");
+			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::name() const function, expected prototype:\nconst IString * IMemberReference::name() const\nClass arguments details:\n");
 		}
 
 
 		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call name(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const IString * IMemberReference::name() const. Got : '%s'",typeid(Luna< IMemberReference >::check(L,1)).name());
 		}
 		const IString * lret = self->name();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -84,16 +185,18 @@ public:
 		return 1;
 	}
 
+	// const IString * IMemberReference::scope() const
 	static int _bind_scope(lua_State *L) {
 		if (!_lg_typecheck_scope(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in scope function, expected prototype:\nscope()");
+			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::scope() const function, expected prototype:\nconst IString * IMemberReference::scope() const\nClass arguments details:\n");
 		}
 
 
 		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call scope(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const IString * IMemberReference::scope() const. Got : '%s'",typeid(Luna< IMemberReference >::check(L,1)).name());
 		}
 		const IString * lret = self->scope();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -103,16 +206,18 @@ public:
 		return 1;
 	}
 
+	// const IString * IMemberReference::protection() const
 	static int _bind_protection(lua_State *L) {
 		if (!_lg_typecheck_protection(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in protection function, expected prototype:\nprotection()");
+			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::protection() const function, expected prototype:\nconst IString * IMemberReference::protection() const\nClass arguments details:\n");
 		}
 
 
 		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call protection(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const IString * IMemberReference::protection() const. Got : '%s'",typeid(Luna< IMemberReference >::check(L,1)).name());
 		}
 		const IString * lret = self->protection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -122,16 +227,18 @@ public:
 		return 1;
 	}
 
+	// const IString * IMemberReference::virtualness() const
 	static int _bind_virtualness(lua_State *L) {
 		if (!_lg_typecheck_virtualness(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in virtualness function, expected prototype:\nvirtualness()");
+			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::virtualness() const function, expected prototype:\nconst IString * IMemberReference::virtualness() const\nClass arguments details:\n");
 		}
 
 
 		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call virtualness(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const IString * IMemberReference::virtualness() const. Got : '%s'",typeid(Luna< IMemberReference >::check(L,1)).name());
 		}
 		const IString * lret = self->virtualness();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -141,16 +248,18 @@ public:
 		return 1;
 	}
 
+	// const IString * IMemberReference::ambiguityScope() const
 	static int _bind_ambiguityScope(lua_State *L) {
 		if (!_lg_typecheck_ambiguityScope(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ambiguityScope function, expected prototype:\nambiguityScope()");
+			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::ambiguityScope() const function, expected prototype:\nconst IString * IMemberReference::ambiguityScope() const\nClass arguments details:\n");
 		}
 
 
 		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
 		if(!self) {
-			luaL_error(L, "Invalid object in function call ambiguityScope(...)");
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const IString * IMemberReference::ambiguityScope() const. Got : '%s'",typeid(Luna< IMemberReference >::check(L,1)).name());
 		}
 		const IString * lret = self->ambiguityScope();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -166,7 +275,15 @@ public:
 };
 
 IMemberReference* LunaTraits< IMemberReference >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_IMemberReference::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// IMember * IMemberReference::member() const
+	// const IString * IMemberReference::name() const
+	// const IString * IMemberReference::scope() const
+	// const IString * IMemberReference::protection() const
+	// const IString * IMemberReference::virtualness() const
+	// const IString * IMemberReference::ambiguityScope() const
 }
 
 void LunaTraits< IMemberReference >::_bind_dtor(IMemberReference* obj) {
@@ -174,8 +291,10 @@ void LunaTraits< IMemberReference >::_bind_dtor(IMemberReference* obj) {
 }
 
 const char LunaTraits< IMemberReference >::className[] = "IMemberReference";
+const char LunaTraits< IMemberReference >::fullName[] = "IMemberReference";
 const char LunaTraits< IMemberReference >::moduleName[] = "doxmlparser";
 const char* LunaTraits< IMemberReference >::parents[] = {0};
+const int LunaTraits< IMemberReference >::hash = 16821774;
 const int LunaTraits< IMemberReference >::uniqueIDs[] = {16821774,0};
 
 luna_RegType LunaTraits< IMemberReference >::methods[] = {
@@ -185,6 +304,13 @@ luna_RegType LunaTraits< IMemberReference >::methods[] = {
 	{"protection", &luna_wrapper_IMemberReference::_bind_protection},
 	{"virtualness", &luna_wrapper_IMemberReference::_bind_virtualness},
 	{"ambiguityScope", &luna_wrapper_IMemberReference::_bind_ambiguityScope},
+	{"dynCast", &luna_wrapper_IMemberReference::_bind_dynCast},
+	{"__eq", &luna_wrapper_IMemberReference::_bind___eq},
+	{"getTable", &luna_wrapper_IMemberReference::_bind_getTable},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< IMemberReference >::converters[] = {
 	{0,0}
 };
 
