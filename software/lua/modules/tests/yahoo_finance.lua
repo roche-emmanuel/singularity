@@ -6,8 +6,17 @@ local log = require "tracer"
 --	return
 --end
 
+function test_quote_retriever()
+	log:info("Tests","Testing quote handler");
 
-local fs = require "base.FileSystem"
+	local handler = require("finance.yahoo.QuoteHandler")()
+	
+	local res = handler:getQuotes{"MSFT","AAPL"}
+	
+	log:info("Tests","Retrieved quotes are: ",res)
+	
+	log:info("Tests","Done testing quote handler.")
+end
 
 function test_retrieve_data()
 	log:info("Tests","Retrieving data from yahoo finance...");
