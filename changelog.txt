@@ -89,3 +89,4 @@
 - Added initial cursor control for Awesomium.
 - Fixed minor texture generation issue (Texture2D instead of TextureRectangle) in osg.Tools.
 - Preparing finance quote retriever app
+- Added yahoo symbol table from investor hub.

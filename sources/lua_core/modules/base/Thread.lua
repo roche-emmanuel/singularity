@@ -1,7 +1,6 @@
 local Class = require("classBuilder"){name="Thread",bases="base.Object"};
 
 local loaders = {}
-local tman = require "base.ThreadManager"
 local apr = require "apr"
 
 local lanes = require "lanes"
@@ -80,6 +79,7 @@ function Class:__call(...)
 	data.threadFunc = self._func
 	data.args = {...}
 	
+	local tman = require "base.ThreadManager"
 	tman:registerThread(self)
 	
 	self._handle = self._lane(data)
@@ -136,6 +136,7 @@ function Class:cancel(timeout, kill)
 		--self:check(res,"Could not kill the thread ", self._name)
 	end
 	
+	local tman = require "base.ThreadManager"
 	tman:unregisterThread(self)
 	
 	-- remove the handle:
@@ -144,6 +145,10 @@ end
 
 function Class.newLinda()
 	return lanes.linda()
+end
+
+function Class.getTime()
+	return lanes.now_secs()
 end
 
 return Class

@@ -6,6 +6,17 @@ local log = require "tracer"
 --	return
 --end
 
+function test_investorhub_symbol_retriever()
+	log:info("Tests","Testing investor hub symbol retriever.");
+	
+	local ret = require("finance.yahoo.InvestorHubSymbolRetriever")()
+	
+	local syms = require("finance.yahoo.SymbolTable")
+	log:info("Tests","Found ", #syms, " Investor hub symbols.");
+	
+	log:info("Tests","Investor hub symbol retriever test done.");
+end
+
 function test_quote_retriever()
 	log:info("Tests","Testing quote handler");
 

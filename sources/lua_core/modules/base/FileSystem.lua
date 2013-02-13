@@ -27,9 +27,20 @@ function Class:getRootPath(withSep)
 	return self._root_path .. (withSep and "/" or "")
 end
 
+
 -- Return the path of a data file:
 function Class:getDataPath(str)
 	return self:getRootPath(true) .. "data/" .. str
+end
+
+-- Return the path of an asset file:
+function Class:getAssetPath(str)
+	return self:getRootPath(true) .. "assets/" .. str
+end
+
+-- Return the path of a module file:
+function Class:getModulePath(str)
+	return self:getRootPath(true) .. "lua/modules/" .. str
 end
 
 --- Retrieve a relative path from the root path.
