@@ -94,3 +94,4 @@
 - Build mysql connection class.
 - Preparing packaging system.
 - Added support for build number auto-increment.
+- Using version number for package generation.
