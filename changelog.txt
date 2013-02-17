@@ -92,4 +92,5 @@
 - Added yahoo symbol table from investor hub.
 - Add time management support as lua class.
 - Build mysql connection class.
-- preparing packaging system.
+- Preparing packaging system.
+- Added support for build number auto-increment.

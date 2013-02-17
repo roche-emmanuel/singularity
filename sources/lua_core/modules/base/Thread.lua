@@ -132,7 +132,8 @@ function Class:cancel(timeout, kill)
 	if not res then
 		self:warn("Could not stop thread ", self._name," gracefully, now trying to kill it...")
 		self._handle:cancel(0.0, true);
-		self:check(self:getStatus()=="killed","Invalid thread status after kill: ", self:getStatus())
+		local stat = self:getStatus()
+		self:check(stat=="killed" or stat=="cancelled","Invalid thread status after kill: ", stat)
 		--self:check(res,"Could not kill the thread ", self._name)
 	end
 	

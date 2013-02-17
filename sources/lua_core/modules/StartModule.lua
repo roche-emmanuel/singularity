@@ -56,6 +56,9 @@ sgt.ModuleProvider.loadPackage(root_path .. "bin/".. flavor .."/packages/externa
 
 require "luna"
 
+local v = require "version"
+sgt.doLog(level,("Starting Singularity v%d.%d.%d build %d - %s"):format(v.major,v.minor,v.patch,v.build,v.date));
+
 require "extensions.core" -- this one should be loaded manually.
 
 _G.log = require "logger"
