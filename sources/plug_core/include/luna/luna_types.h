@@ -93,6 +93,253 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: boost::gregorian::date_duration
+template<>
+class LunaTraits< boost::gregorian::date_duration > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::gregorian::date_duration* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::gregorian::date_duration* obj);
+	typedef boost::gregorian::date_duration parent_t;
+	typedef boost::gregorian::date_duration base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: boost::gregorian::date_period
+template<>
+class LunaTraits< boost::gregorian::date_period > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::gregorian::date_period* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::gregorian::date_period* obj);
+	typedef boost::gregorian::date_period parent_t;
+	typedef boost::gregorian::date_period base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: boost::gregorian::date
+template<>
+class LunaTraits< boost::gregorian::date > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::gregorian::date* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::gregorian::date* obj);
+	typedef boost::gregorian::date parent_t;
+	typedef boost::gregorian::date base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: boost::gregorian::day_iterator
+template<>
+class LunaTraits< boost::gregorian::day_iterator > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::gregorian::day_iterator* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::gregorian::day_iterator* obj);
+	typedef boost::gregorian::day_iterator parent_t;
+	typedef boost::gregorian::day_iterator base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: boost::gregorian::week_iterator
+template<>
+class LunaTraits< boost::gregorian::week_iterator > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::gregorian::week_iterator* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::gregorian::week_iterator* obj);
+	typedef boost::gregorian::week_iterator parent_t;
+	typedef boost::gregorian::week_iterator base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: boost::gregorian::month_iterator
+template<>
+class LunaTraits< boost::gregorian::month_iterator > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::gregorian::month_iterator* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::gregorian::month_iterator* obj);
+	typedef boost::gregorian::month_iterator parent_t;
+	typedef boost::gregorian::month_iterator base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: boost::gregorian::year_iterator
+template<>
+class LunaTraits< boost::gregorian::year_iterator > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::gregorian::year_iterator* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::gregorian::year_iterator* obj);
+	typedef boost::gregorian::year_iterator parent_t;
+	typedef boost::gregorian::year_iterator base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: boost::posix_time::time_duration
+template<>
+class LunaTraits< boost::posix_time::time_duration > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::posix_time::time_duration* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::posix_time::time_duration* obj);
+	typedef boost::posix_time::time_duration parent_t;
+	typedef boost::posix_time::time_duration base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: boost::posix_time::hours
+template<>
+class LunaTraits< boost::posix_time::hours > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::posix_time::hours* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::posix_time::hours* obj);
+	typedef boost::posix_time::time_duration parent_t;
+	typedef boost::posix_time::hours base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: boost::posix_time::minutes
+template<>
+class LunaTraits< boost::posix_time::minutes > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::posix_time::minutes* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::posix_time::minutes* obj);
+	typedef boost::posix_time::time_duration parent_t;
+	typedef boost::posix_time::minutes base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: boost::posix_time::seconds
+template<>
+class LunaTraits< boost::posix_time::seconds > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::posix_time::seconds* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::posix_time::seconds* obj);
+	typedef boost::posix_time::time_duration parent_t;
+	typedef boost::posix_time::seconds base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: boost::posix_time::milliseconds
+template<>
+class LunaTraits< boost::posix_time::milliseconds > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::posix_time::milliseconds* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::posix_time::milliseconds* obj);
+	typedef boost::posix_time::time_duration parent_t;
+	typedef boost::posix_time::milliseconds base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: boost::posix_time::microseconds
+template<>
+class LunaTraits< boost::posix_time::microseconds > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::posix_time::microseconds* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::posix_time::microseconds* obj);
+	typedef boost::posix_time::time_duration parent_t;
+	typedef boost::posix_time::microseconds base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: boost::posix_time::ptime
 template<>
 class LunaTraits< boost::posix_time::ptime > {
@@ -109,6 +356,25 @@ public:
 	static void _bind_dtor(boost::posix_time::ptime* obj);
 	typedef boost::posix_time::ptime parent_t;
 	typedef boost::posix_time::ptime base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: boost::posix_time::time_period
+template<>
+class LunaTraits< boost::posix_time::time_period > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static boost::posix_time::time_period* _bind_ctor(lua_State *L);
+	static void _bind_dtor(boost::posix_time::time_period* obj);
+	typedef boost::posix_time::time_period parent_t;
+	typedef boost::posix_time::time_period base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -827,9 +1093,72 @@ public:
 };
 
 template<>
+class LunaType< 51049289 > {
+public:
+	typedef boost::gregorian::date_duration type;
+	
+};
+
+template<>
+class LunaType< 8854841 > {
+public:
+	typedef boost::gregorian::date_period type;
+	
+};
+
+template<>
+class LunaType< 50186404 > {
+public:
+	typedef boost::gregorian::date type;
+	
+};
+
+template<>
+class LunaType< 82468619 > {
+public:
+	typedef boost::gregorian::day_iterator type;
+	
+};
+
+template<>
+class LunaType< 4758388 > {
+public:
+	typedef boost::gregorian::week_iterator type;
+	
+};
+
+template<>
+class LunaType< 3585981 > {
+public:
+	typedef boost::gregorian::month_iterator type;
+	
+};
+
+template<>
+class LunaType< 91273136 > {
+public:
+	typedef boost::gregorian::year_iterator type;
+	
+};
+
+template<>
+class LunaType< 3585892 > {
+public:
+	typedef boost::posix_time::time_duration type;
+	
+};
+
+template<>
 class LunaType< 16567808 > {
 public:
 	typedef boost::posix_time::ptime type;
+	
+};
+
+template<>
+class LunaType< 2249806 > {
+public:
+	typedef boost::posix_time::time_period type;
 	
 };
 

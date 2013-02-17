@@ -66,7 +66,7 @@ function Class:writeFile()
 		local visited = Set();
 		
 		for _,func in funcs:sequence() do
-			local fname = func:getName()
+			local fname = func:getLuaName()
 			if not visited:contains(fname) and func:isValidForWrapping() and not func:isExternal() then
 				local rns = func:getRootNamespace()
 				local modName = rns and rns:getName() or rm:getDefaultModuleName()

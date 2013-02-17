@@ -62,3 +62,27 @@ ENDIF()
 ADD_SUBDIRECTORY(sources)
 
 
+# Define the packaging structure:
+install(DIRECTORY 
+	software/assets 
+	software/data 
+	software/images 
+	software/locales 
+	software/lua 
+	DESTINATION "." COMPONENT Core) # )
+
+install(DIRECTORY software/bin/${FLAVOR} DESTINATION "bin" COMPONENT Core REGEX "upx|\.log" EXCLUDE)
+
+SET(CPACK_GENERATOR "ZIP;TBZ2")
+
+SET(CPACK_OUTPUT_FILE_PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/releases)
+
+SET(CPACK_PACKAGE_NAME "singularity")
+SET(CPACK_PACKAGE_VERSION_MAJOR "0")
+SET(CPACK_PACKAGE_VERSION_MINOR "1")
+SET(CPACK_PACKAGE_VERSION_PATCH "0")
+
+# SET(CPACK_PACKAGE_INSTALL_DIRECTORY releases)
+
+INCLUDE(CPack)
+

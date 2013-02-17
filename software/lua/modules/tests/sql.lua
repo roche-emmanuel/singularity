@@ -9,6 +9,38 @@ local log = require "tracer"
 
 local fs = require "base.FileSystem"
 
+function test_mysql_connection()
+	log:info("Tests","Testing MySQL connection establishment.")
+	-- local con = require("db.MySQLConnection"){host="192.168.0.50",port=3306}
+	local db = require("db.MySQLConnection"){host="singularityworld.info.tm",port=3306}
+	
+	log:info("Tests","Connecting MySQL connection.")
+	db:connect{user="finance_data",password="7finance81rD"}
+	
+	local tname = "test_quotes"
+	
+	-- check if we have the quotes table:
+	local res = db:hasTable(tname)
+	assert_equal(false,res,tname .. " table was found before creation.")
+	
+	-- test creating the test_quotes table:
+	db:createTable(tname,{"Symbol char(10)","Bid real","Ask real","Price real","TradeTime datetime"})
+	
+	local res = db:hasTable(tname)
+	assert_equal(true,res,tname .. " table was not found after creation.")
+	
+	-- drop the table
+	db:dropTable(tname)
+
+	local res = db:hasTable(tname)
+	assert_equal(false,res,tname .. " table was found after drop.")
+	
+	log:info("Tests","Disconnecting MySQL connection.")
+	db:disconnect()
+	
+	log:info("Tests","Done testing MySQL connection establishment.")
+end
+
 function test_mysql_saving_loading_data()
 	log:info("Tests","Testing saving loading mysql data.")
 

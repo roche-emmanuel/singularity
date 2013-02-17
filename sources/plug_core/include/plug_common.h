@@ -44,4 +44,11 @@ void doLogV(int level, const std::string& msg);
 void doTrace(int level, const std::string& trace, const std::string& msg);
 void doTraceV(int level, const std::string& trace, const std::string& msg);
 
+template <typename dstType>
+struct luna_caster<boost::posix_time::time_duration, dstType> {
+	static inline dstType* cast(boost::posix_time::time_duration* ptr) {
+		return (dstType*)(ptr);
+	};
+};
+
 #endif

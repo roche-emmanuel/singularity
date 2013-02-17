@@ -95,7 +95,7 @@ property_map.YearLow="j0"
 property_map.YearRange="w0"
 
 function Class:initialize(options)
-	self:setProperties{"Ask","Bid","AskRealtime","BidRealtime"} -- set the default properties.
+	self:setProperties{"Ask","Bid","AskRealtime","BidRealtime","LastTradePriceOnly"} -- set the default properties.
 end
 
 function Class:setProperties(props)
@@ -123,7 +123,7 @@ function Class:retrieveCSV(symbols)
 	 local url = "http://download.finance.yahoo.com/d/quotes.csv?s=%s&f=%s"
 	 url = url:format(table.concat(symbols,"+"),self._propertyStr)
 	 
-	 self:info("Requesting quotes from url=",url)
+	 self:debug1_v("Requesting quotes from url=",url)
 	 
 	local body, res = http.request(url)
 	self:check(body,"Invalid body in HTTP request. Error: ", res)
@@ -155,10 +155,10 @@ function Class:getQuotes(symbols)
 			
 			if val:find("^N/A") then
 				val = nil
-				self:info("Ignoring N/A value for property ",prop," for symbol ",sym) 
+				self:debug2_v("Ignoring N/A value for property ",prop," for symbol ",sym) 
 			else
 				val = tonumber(val) or val
-				self:info("Setting ",prop,"=",val," for symbol ",sym)
+				self:debug2_v("Setting ",prop,"=",val," for symbol ",sym)
 				symdata[prop] = val
 			end
 		end

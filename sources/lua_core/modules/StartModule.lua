@@ -68,7 +68,8 @@ _G.profiler = require "debugging.Profiler"
 local cfg = require "config"
 local core = require "core"
 
-core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG2)
+core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG0)
+core.LogManager.instance():setVerbose(false)
 core.LogManager.instance():setDefaultLevelFlags(core.LogManager.TIME_STAMP+core.LogManager.THREAD_ID)
 core.LogManager.instance():setDefaultTraceFlags(core.LogManager.TIME_STAMP+core.LogManager.THREAD_ID)
 

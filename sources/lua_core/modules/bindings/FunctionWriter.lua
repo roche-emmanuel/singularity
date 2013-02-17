@@ -240,7 +240,7 @@ function Class:writeFunctionCall(cname,func,args)
 	end
 	
 	local force_gc = false;
-	local prefix = (useself and "self->") or ((func:isGlobal() or func:isExtension()) and "") or (func:getParent():getFullName().."::")
+	local prefix = (useself and "self->") or (func:isExtension() and "") or (func:getParent():getFullName().."::")
 	--local useBase =  --func:getName():sub(1,5)=="base_"; --func:getUseBase()
 	
 	local fname = func:getUseBase() and (func:getParent():getName() .. "::" ..func:getName():sub(6)) or func:getName()

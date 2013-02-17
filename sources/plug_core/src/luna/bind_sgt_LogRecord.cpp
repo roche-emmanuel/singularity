@@ -106,6 +106,16 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_GetStream(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_isstring(L,5)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -124,6 +134,31 @@ public:
 
 
 	// Function binds:
+	// std::ostream & sgt::LogRecord::GetStream(int level, std::string filename, int line, std::string trace)
+	static int _bind_GetStream(lua_State *L) {
+		if (!_lg_typecheck_GetStream(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::ostream & sgt::LogRecord::GetStream(int level, std::string filename, int line, std::string trace) function, expected prototype:\nstd::ostream & sgt::LogRecord::GetStream(int level, std::string filename, int line, std::string trace)\nClass arguments details:\n");
+		}
+
+		int level=(int)lua_tointeger(L,2);
+		std::string filename(lua_tostring(L,3),lua_objlen(L,3));
+		int line=(int)lua_tointeger(L,4);
+		std::string trace(lua_tostring(L,5),lua_objlen(L,5));
+
+		sgt::LogRecord* self=(Luna< sgt::LogRecord >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::ostream & sgt::LogRecord::GetStream(int, std::string, int, std::string). Got : '%s'",typeid(Luna< sgt::LogRecord >::check(L,1)).name());
+		}
+		const std::ostream* lret = &self->GetStream(level, filename, line, trace);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< std::ostream >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -145,6 +180,7 @@ const int LunaTraits< sgt::LogRecord >::hash = 34788330;
 const int LunaTraits< sgt::LogRecord >::uniqueIDs[] = {34788330,0};
 
 luna_RegType LunaTraits< sgt::LogRecord >::methods[] = {
+	{"GetStream", &luna_wrapper_sgt_LogRecord::_bind_GetStream},
 	{"dynCast", &luna_wrapper_sgt_LogRecord::_bind_dynCast},
 	{"__eq", &luna_wrapper_sgt_LogRecord::_bind___eq},
 	{"fromVoid", &luna_wrapper_sgt_LogRecord::_bind_fromVoid},

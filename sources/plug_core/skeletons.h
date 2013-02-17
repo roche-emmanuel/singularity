@@ -14,8 +14,62 @@ class void {
 };
 
 namespace boost {
+	namespace gregorian {
+		class date_duration {
+		};
+
+		class date_period {
+		};
+
+		class date {
+		};
+
+		class day_iterator {
+		};
+
+		class week_iterator {
+		};
+
+		class month_iterator {
+		};
+
+		class year_iterator {
+		};
+
+		namespace day_clock {
+		};
+
+	};
+
 	namespace posix_time {
+		class time_duration {
+		};
+
+		class hours: public boost::posix_time::time_duration {
+		};
+
+		class minutes: public boost::posix_time::time_duration {
+		};
+
+		class seconds: public boost::posix_time::time_duration {
+		};
+
+		class milliseconds: public boost::posix_time::time_duration {
+		};
+
+		class microseconds: public boost::posix_time::time_duration {
+		};
+
 		class ptime {
+		};
+
+		class time_period {
+		};
+
+		namespace microsec_clock {
+		};
+
+		namespace second_clock {
 		};
 
 	};

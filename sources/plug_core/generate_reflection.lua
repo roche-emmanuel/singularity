@@ -17,8 +17,6 @@ ReflectionGenerator.generate{
 	ignoreFunctions={
 		"boost::any",
 		"slot_type",
-		"iterator",
-		"std::ostream",
 		"registerKeyObserver",
 		" Any ",
 		"DECLARE_SINGLETON"

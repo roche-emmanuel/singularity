@@ -90,3 +90,6 @@
 - Fixed minor texture generation issue (Texture2D instead of TextureRectangle) in osg.Tools.
 - Preparing finance quote retriever app
 - Added yahoo symbol table from investor hub.
+- Add time management support as lua class.
+- Build mysql connection class.
+- preparing packaging system.
