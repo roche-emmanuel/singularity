@@ -39,6 +39,8 @@ SET(DEP_IUP ${DEPS_DIR}/${FLAVOR}/IUP-3.6_vc9_lib CACHE STRING "iup path")
 SET(DEP_SDL ${DEPS_DIR}/${FLAVOR}/SDL-1.2.15 CACHE STRING "SDL path")
 SET(DEP_SPICE ${DEPS_DIR}/${FLAVOR}/CSpice-N0064 CACHE STRING "cspice path")
 
+SET(ECHO "W:/Cloud/Dev/Cygwin/bin/echo.exe" CACHE STRING "echo executable")
+SET(SED "W:/Cloud/Dev/Cygwin/bin/sed.exe" CACHE STRING "sed executable")
 SET(LUA "W:/Cloud/Dev/Deps/win32/LuaJIT-2.0.0-beta9/bin/luajit.exe" CACHE STRING "Lua executable")
 SET(LUAC "W:/Cloud/Dev/Tools/win32/lua-5.1.4/luac5.1.exe" CACHE STRING "Luac executable")
 SET(BIN2C_LUA "W:/Cloud/Dev/Tools/win32/lua-5.1.4/bin2c.lua" CACHE STRING "bin2c lua script")

@@ -52,7 +52,7 @@ public:
 		if(_obj.pushFunction("openArchive")) {
 			_obj.pushArg((osgDB::ReadFileCallback*)this);
 			_obj.pushArg(filename);
-			_obj.pushArg(status);
+			_obj.pushArg((int)status);
 			_obj.pushArg(indexBlockSizeHint);
 			_obj.pushArg(useObjectCache);
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());

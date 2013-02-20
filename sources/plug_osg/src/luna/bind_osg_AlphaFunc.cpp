@@ -450,7 +450,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::AlphaFunc::AlphaFunc function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::AlphaFunc(af, copyop);
 	}
@@ -497,7 +497,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::AlphaFunc::AlphaFunc function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_AlphaFunc(L,NULL, af, copyop);
 	}

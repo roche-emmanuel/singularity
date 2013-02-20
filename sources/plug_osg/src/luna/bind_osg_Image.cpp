@@ -967,7 +967,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Image::Image function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::Image(image, copyop);
 	}
@@ -1001,7 +1001,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Image::Image function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_Image(L,NULL, image, copyop);
 	}
@@ -1316,7 +1316,7 @@ public:
 		int r=(int)lua_tointeger(L,4);
 		unsigned int pixelFormat=(unsigned int)lua_tointeger(L,5);
 		unsigned int type=(unsigned int)lua_tointeger(L,6);
-		int packing=luatop>6 ? (int)lua_tointeger(L,7) : 1;
+		int packing=luatop>6 ? (int)lua_tointeger(L,7) : (int)1;
 
 		osg::Image* self=Luna< osg::Referenced >::checkSubType< osg::Image >(L,1);
 		if(!self) {
@@ -1345,7 +1345,7 @@ public:
 		unsigned int type=(unsigned int)lua_tointeger(L,7);
 		unsigned char data = (unsigned char)(lua_tointeger(L,8));
 		osg::Image::AllocationMode mode=(osg::Image::AllocationMode)lua_tointeger(L,9);
-		int packing=luatop>9 ? (int)lua_tointeger(L,10) : 1;
+		int packing=luatop>9 ? (int)lua_tointeger(L,10) : (int)1;
 
 		osg::Image* self=Luna< osg::Referenced >::checkSubType< osg::Image >(L,1);
 		if(!self) {
@@ -1392,7 +1392,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 		bool copyMipMapsIfAvailable=(bool)(lua_toboolean(L,3)==1);
-		unsigned int type=luatop>3 ? (unsigned int)lua_tointeger(L,4) : GL_UNSIGNED_BYTE;
+		unsigned int type=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)GL_UNSIGNED_BYTE;
 
 		osg::Image* self=Luna< osg::Referenced >::checkSubType< osg::Image >(L,1);
 		if(!self) {
@@ -1944,8 +1944,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		int column=(int)lua_tointeger(L,2);
-		int row=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int image=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int row=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int image=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		osg::Image* self=Luna< osg::Referenced >::checkSubType< osg::Image >(L,1);
 		if(!self) {
@@ -1968,8 +1968,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		int column=(int)lua_tointeger(L,2);
-		int row=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int image=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int row=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int image=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		osg::Image* self=Luna< osg::Referenced >::checkSubType< osg::Image >(L,1);
 		if(!self) {
@@ -2003,8 +2003,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned int s=(unsigned int)lua_tointeger(L,2);
-		unsigned t=luatop>2 ? (unsigned)lua_tointeger(L,3) : 0;
-		unsigned r=luatop>3 ? (unsigned)lua_tointeger(L,4) : 0;
+		unsigned t=luatop>2 ? (unsigned)lua_tointeger(L,3) : (unsigned)0;
+		unsigned r=luatop>3 ? (unsigned)lua_tointeger(L,4) : (unsigned)0;
 
 		osg::Image* self=Luna< osg::Referenced >::checkSubType< osg::Image >(L,1);
 		if(!self) {
@@ -2603,7 +2603,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int s=(int)lua_tointeger(L,1);
-		float bias=luatop>1 ? (float)lua_tonumber(L,2) : 0.5f;
+		float bias=luatop>1 ? (float)lua_tonumber(L,2) : (float)0.5f;
 
 		int lret = osg::Image::computeNearestPowerOfTwo(s, bias);
 		lua_pushnumber(L,lret);
@@ -2621,8 +2621,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		int s=(int)lua_tointeger(L,1);
-		int t=luatop>1 ? (int)lua_tointeger(L,2) : 1;
-		int r=luatop>2 ? (int)lua_tointeger(L,3) : 1;
+		int t=luatop>1 ? (int)lua_tointeger(L,2) : (int)1;
+		int r=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
 
 		int lret = osg::Image::computeNumberOfMipmapLevels(s, t, r);
 		lua_pushnumber(L,lret);
@@ -2960,7 +2960,7 @@ public:
 		int r=(int)lua_tointeger(L,4);
 		unsigned int pixelFormat=(unsigned int)lua_tointeger(L,5);
 		unsigned int type=(unsigned int)lua_tointeger(L,6);
-		int packing=luatop>6 ? (int)lua_tointeger(L,7) : 1;
+		int packing=luatop>6 ? (int)lua_tointeger(L,7) : (int)1;
 
 		osg::Image* self=Luna< osg::Referenced >::checkSubType< osg::Image >(L,1);
 		if(!self) {
@@ -2989,7 +2989,7 @@ public:
 		unsigned int type=(unsigned int)lua_tointeger(L,7);
 		unsigned char data = (unsigned char)(lua_tointeger(L,8));
 		osg::Image::AllocationMode mode=(osg::Image::AllocationMode)lua_tointeger(L,9);
-		int packing=luatop>9 ? (int)lua_tointeger(L,10) : 1;
+		int packing=luatop>9 ? (int)lua_tointeger(L,10) : (int)1;
 
 		osg::Image* self=Luna< osg::Referenced >::checkSubType< osg::Image >(L,1);
 		if(!self) {
@@ -3036,7 +3036,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 		bool copyMipMapsIfAvailable=(bool)(lua_toboolean(L,3)==1);
-		unsigned int type=luatop>3 ? (unsigned int)lua_tointeger(L,4) : GL_UNSIGNED_BYTE;
+		unsigned int type=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)GL_UNSIGNED_BYTE;
 
 		osg::Image* self=Luna< osg::Referenced >::checkSubType< osg::Image >(L,1);
 		if(!self) {

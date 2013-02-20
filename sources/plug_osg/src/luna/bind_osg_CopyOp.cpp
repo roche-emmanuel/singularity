@@ -282,7 +282,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int flags=luatop>0 ? (unsigned int)lua_tointeger(L,1) : osg::CopyOp::SHALLOW_COPY;
+		unsigned int flags=luatop>0 ? (unsigned int)lua_tointeger(L,1) : (unsigned int)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::CopyOp(flags);
 	}
@@ -296,7 +296,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int flags=luatop>1 ? (unsigned int)lua_tointeger(L,2) : osg::CopyOp::SHALLOW_COPY;
+		unsigned int flags=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_CopyOp(L,NULL, flags);
 	}

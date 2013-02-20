@@ -220,7 +220,7 @@ public:
 			_obj.pushArg(pixelFormat);
 			_obj.pushArg(type);
 			_obj.pushArg((void*)data);
-			_obj.pushArg(mode);
+			_obj.pushArg((int)mode);
 			_obj.pushArg(packing);
 			return (_obj.callFunction<void>());
 		}

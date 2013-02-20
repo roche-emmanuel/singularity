@@ -185,7 +185,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int mode=luatop>0 ? (unsigned int)lua_tointeger(L,1) : osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES;
+		unsigned int mode=luatop>0 ? (unsigned int)lua_tointeger(L,1) : (unsigned int)osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES;
 
 		return new osgUtil::GLObjectsOperation(mode);
 	}
@@ -200,7 +200,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::Node* subgraph=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,1));
-		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES;
+		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES;
 
 		return new osgUtil::GLObjectsOperation(subgraph, mode);
 	}
@@ -214,7 +214,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES;
+		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES;
 
 		return new wrapper_osgUtil_GLObjectsOperation(L,NULL, mode);
 	}
@@ -229,7 +229,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::Node* subgraph=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
-		unsigned int mode=luatop>2 ? (unsigned int)lua_tointeger(L,3) : osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES;
+		unsigned int mode=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES;
 
 		return new wrapper_osgUtil_GLObjectsOperation(L,NULL, subgraph, mode);
 	}

@@ -36,6 +36,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: __uint64
+template<>
+class LunaTraits< __uint64 > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static __uint64* _bind_ctor(lua_State *L);
+	static void _bind_dtor(__uint64* obj);
+	typedef __uint64 parent_t;
+	typedef __uint64 base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: BaseClass
 template<>
 class LunaTraits< BaseClass > {
@@ -949,25 +968,6 @@ public:
 };
 
 
-// Mapped type: unsigned __int64
-template<>
-class LunaTraits< unsigned __int64 > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static unsigned __int64* _bind_ctor(lua_State *L);
-	static void _bind_dtor(unsigned __int64* obj);
-	typedef unsigned __int64 parent_t;
-	typedef unsigned __int64 base_t;
-	static luna_ConverterType converters[];
-};
-
 // Mapped type: std::vector< int >
 template<>
 class LunaTraits< std::vector< int > > {
@@ -1068,6 +1068,13 @@ template<>
 class LunaType< 32973728 > {
 public:
 	typedef __int64 type;
+	
+};
+
+template<>
+class LunaType< 60998621 > {
+public:
+	typedef __uint64 type;
 	
 };
 
@@ -1271,13 +1278,6 @@ template<>
 class LunaType< 2993706 > {
 public:
 	typedef std::ostream type;
-	
-};
-
-template<>
-class LunaType< 84351388 > {
-public:
-	typedef unsigned __int64 type;
 	
 };
 

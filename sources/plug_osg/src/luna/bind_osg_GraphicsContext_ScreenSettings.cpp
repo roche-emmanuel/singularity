@@ -196,8 +196,8 @@ public:
 
 		int width=(int)lua_tointeger(L,1);
 		int height=(int)lua_tointeger(L,2);
-		double refreshRate=luatop>2 ? (double)lua_tonumber(L,3) : 0;
-		unsigned int colorDepth=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
+		double refreshRate=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
+		unsigned int colorDepth=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
 
 		return new osg::GraphicsContext::ScreenSettings(width, height, refreshRate, colorDepth);
 	}

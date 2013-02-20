@@ -239,7 +239,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgUtil::Intersector::CoordinateFrame cf=luatop>1 ? (osgUtil::Intersector::CoordinateFrame)lua_tointeger(L,2) : osgUtil::Intersector::MODEL;
+		osgUtil::Intersector::CoordinateFrame cf=luatop>1 ? (osgUtil::Intersector::CoordinateFrame)lua_tointeger(L,2) : (osgUtil::Intersector::CoordinateFrame)osgUtil::Intersector::MODEL;
 
 		return new wrapper_osgUtil_Intersector(L,NULL, cf);
 	}

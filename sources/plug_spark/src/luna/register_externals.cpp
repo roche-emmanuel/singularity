@@ -114,7 +114,7 @@ const char LunaTraits< osg::Quat >::moduleName[] = "osg";
 const int LunaTraits< osg::Quat >::hash = 80263306;
 const int LunaTraits< osg::Quat >::uniqueIDs[] = {80263306,0};
 
-const char LunaTraits< osg::ref_ptr< osg::Image > >::className[] = "Image";
+const char LunaTraits< osg::ref_ptr< osg::Image > >::className[] = "ref_ptr_osg_Image";
 const char LunaTraits< osg::ref_ptr< osg::Image > >::fullName[] = "osg::ref_ptr< osg::Image >";
 const char LunaTraits< osg::ref_ptr< osg::Image > >::moduleName[] = "osg";
 const int LunaTraits< osg::ref_ptr< osg::Image > >::hash = 15557275;

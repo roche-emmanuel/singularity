@@ -80,9 +80,13 @@ function Class:writeArgument(v,k)
 	local defStrPre = self._defaultOffset and ((k-1)<self._defaultOffset and "" or "luatop>"..(index-1).." ? ") or ""
 	local defStrAnd = self._defaultOffset and ((k-1)<self._defaultOffset and "" or "luatop>"..(index-1).." && ") or ""
 	local constPre = isConst and "const " or "";
+	local ptrSym = pt:isPointer() and "*" or ""
 
-	local defStrPost = self._defaultOffset and ((k-1)<self._defaultOffset and "" or " : "..(pt:isClass() and pt:isPointer() and "("..constPre..bname.."*)" or "").. v:getDefaultValue():getName()) or ""
+	local defStrPost = self._defaultOffset and ((k-1)<self._defaultOffset and "" or " : ".. "("..constPre..bname..ptrSym..")" .. v:getDefaultValue():getName()) or ""
 	local defStrPostNull = self._defaultOffset and ((k-1)<self._defaultOffset and "" or " : NULL") or ""
+	
+	
+	local ptrOverride = pt:isPointer() and "Luna< void >::check"
 	
 	if converter then
 		isPointer = converter(self,index,pt,argname)
@@ -95,12 +99,18 @@ function Class:writeArgument(v,k)
 		argname = "NULL"
 	elseif pt:isInteger() then
 		-- check if we have a number:int _arg1=(int)lua_tonumber(L,2);
-		self:writeSubLine("${3} ${1}=${4}(${3})lua_tointeger(L,${2})${5};",argname,index,bname,defStrPre,defStrPost)
+		self:writeSubLine("${3} ${1}=${4}(${3})${6}(L,${2})${5};",argname,index,bname..ptrSym,defStrPre,defStrPost,ptrOverride or "lua_tointeger")
+		isPointer=pt:isPointer()
+		-- self:writeSubLine("${3} ${1}=${4}(${3})(L,${2})${5};",argname,index,bname,defStrPre,defStrPost)
 	elseif pt:isNumber() then
 		-- check if we have a number:int _arg1=(int)lua_tonumber(L,2);
-		self:writeSubLine("${3} ${1}=${4}(${3})lua_tonumber(L,${2})${5};",argname,index,bname,defStrPre,defStrPost)
+		self:writeSubLine("${3} ${1}=${4}(${3})${6}(L,${2})${5};",argname,index,bname..ptrSym,defStrPre,defStrPost,ptrOverride or "lua_tonumber")
+		isPointer=pt:isPointer()
+		-- self:writeSubLine("${3} ${1}=${4}(${3})lua_tointeger(L,${2})${5};",argname,index,bname,defStrPre,defStrPost)
 	elseif pt:isBoolean() then
-		self:writeSubLine("${3} ${1}=${4}(${3})(lua_toboolean(L,${2})==1)${5};",argname,index,bname,defStrPre,defStrPost)
+		self:writeSubLine("${3} ${1}=${4}(${3})(${6}(L,${2})${7})${5};",argname,index,bname..ptrSym,defStrPre,defStrPost,ptrOverride or "lua_toboolean",pt:isPointer() and "" or "==1")	
+		isPointer=pt:isPointer()
+		-- self:writeSubLine("${3} ${1}=${4}(${3})(lua_toboolean(L,${2})==1)${5};",argname,index,bname,defStrPre,defStrPost)
 	elseif pt:isString() then
 		self:writeSubLine("${3} ${1}=${4}(${3})lua_tostring(L,${2})${5};",argname,index,typename,defStrPre,defStrPost)
 		isPointer=true

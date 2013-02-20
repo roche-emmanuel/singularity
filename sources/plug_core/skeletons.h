@@ -4,6 +4,9 @@
 class __int64 {
 };
 
+class __uint64 {
+};
+
 class BaseClass {
 };
 

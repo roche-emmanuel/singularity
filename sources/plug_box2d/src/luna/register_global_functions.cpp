@@ -451,7 +451,7 @@ static int _bind_b2PairLessThan(lua_State *L) {
 	}
 	const b2Pair & pair2=*pair2_ptr;
 
-	bool lret = b2PairLessThan(pair1, pair2);
+	bool lret = ::b2PairLessThan(pair1, pair2);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -478,7 +478,7 @@ static int _bind_b2CollideCircles(lua_State *L) {
 	}
 	const b2Transform & xfB=*xfB_ptr;
 
-	b2CollideCircles(manifold, circleA, xfA, circleB, xfB);
+	::b2CollideCircles(manifold, circleA, xfA, circleB, xfB);
 
 	return 0;
 }
@@ -504,7 +504,7 @@ static int _bind_b2CollidePolygonAndCircle(lua_State *L) {
 	}
 	const b2Transform & xfB=*xfB_ptr;
 
-	b2CollidePolygonAndCircle(manifold, polygonA, xfA, circleB, xfB);
+	::b2CollidePolygonAndCircle(manifold, polygonA, xfA, circleB, xfB);
 
 	return 0;
 }
@@ -530,7 +530,7 @@ static int _bind_b2CollidePolygons(lua_State *L) {
 	}
 	const b2Transform & xfB=*xfB_ptr;
 
-	b2CollidePolygons(manifold, polygonA, xfA, polygonB, xfB);
+	::b2CollidePolygons(manifold, polygonA, xfA, polygonB, xfB);
 
 	return 0;
 }
@@ -556,7 +556,7 @@ static int _bind_b2CollideEdgeAndCircle(lua_State *L) {
 	}
 	const b2Transform & xfB=*xfB_ptr;
 
-	b2CollideEdgeAndCircle(manifold, polygonA, xfA, circleB, xfB);
+	::b2CollideEdgeAndCircle(manifold, polygonA, xfA, circleB, xfB);
 
 	return 0;
 }
@@ -582,7 +582,7 @@ static int _bind_b2CollideEdgeAndPolygon(lua_State *L) {
 	}
 	const b2Transform & xfB=*xfB_ptr;
 
-	b2CollideEdgeAndPolygon(manifold, edgeA, xfA, circleB, xfB);
+	::b2CollideEdgeAndPolygon(manifold, edgeA, xfA, circleB, xfB);
 
 	return 0;
 }
@@ -609,7 +609,7 @@ static int _bind_b2TestOverlap_overload_1(lua_State *L) {
 	}
 	const b2Transform & xfB=*xfB_ptr;
 
-	bool lret = b2TestOverlap(shapeA, indexA, shapeB, indexB, xfA, xfB);
+	bool lret = ::b2TestOverlap(shapeA, indexA, shapeB, indexB, xfA, xfB);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -633,7 +633,7 @@ static int _bind_b2TestOverlap_overload_2(lua_State *L) {
 	}
 	const b2AABB & b=*b_ptr;
 
-	bool lret = b2TestOverlap(a, b);
+	bool lret = ::b2TestOverlap(a, b);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -658,7 +658,7 @@ static int _bind_b2MixFriction(lua_State *L) {
 	float friction1=(float)lua_tonumber(L,1);
 	float friction2=(float)lua_tonumber(L,2);
 
-	float lret = b2MixFriction(friction1, friction2);
+	float lret = ::b2MixFriction(friction1, friction2);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -674,7 +674,7 @@ static int _bind_b2MixRestitution(lua_State *L) {
 	float restitution1=(float)lua_tonumber(L,1);
 	float restitution2=(float)lua_tonumber(L,2);
 
-	float lret = b2MixRestitution(restitution1, restitution2);
+	float lret = ::b2MixRestitution(restitution1, restitution2);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -691,7 +691,7 @@ static int _bind_b2Distance_overload_1(lua_State *L) {
 	b2SimplexCache* cache=(Luna< b2SimplexCache >::check(L,2));
 	const b2DistanceInput* input=(Luna< b2DistanceInput >::check(L,3));
 
-	b2Distance(output, cache, input);
+	::b2Distance(output, cache, input);
 
 	return 0;
 }
@@ -714,7 +714,7 @@ static int _bind_b2Distance_overload_2(lua_State *L) {
 	}
 	const b2Vec2 & b=*b_ptr;
 
-	float lret = b2Distance(a, b);
+	float lret = ::b2Distance(a, b);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -738,7 +738,7 @@ static int _bind_b2IsValid(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	bool lret = b2IsValid(x);
+	bool lret = ::b2IsValid(x);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -753,7 +753,7 @@ static int _bind_b2InvSqrt(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	float lret = b2InvSqrt(x);
+	float lret = ::b2InvSqrt(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -777,7 +777,7 @@ static int _bind_b2Dot_overload_1(lua_State *L) {
 	}
 	const b2Vec2 & b=*b_ptr;
 
-	float lret = b2Dot(a, b);
+	float lret = ::b2Dot(a, b);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -801,7 +801,7 @@ static int _bind_b2Dot_overload_2(lua_State *L) {
 	}
 	const b2Vec3 & b=*b_ptr;
 
-	float lret = b2Dot(a, b);
+	float lret = ::b2Dot(a, b);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -834,7 +834,7 @@ static int _bind_b2Cross_overload_1(lua_State *L) {
 	}
 	const b2Vec2 & b=*b_ptr;
 
-	float lret = b2Cross(a, b);
+	float lret = ::b2Cross(a, b);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -854,7 +854,7 @@ static int _bind_b2Cross_overload_2(lua_State *L) {
 	const b2Vec2 & a=*a_ptr;
 	float s=(float)lua_tonumber(L,2);
 
-	b2Vec2 stack_lret = b2Cross(a, s);
+	b2Vec2 stack_lret = ::b2Cross(a, s);
 	b2Vec2* lret = new b2Vec2(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -877,7 +877,7 @@ static int _bind_b2Cross_overload_3(lua_State *L) {
 	}
 	const b2Vec2 & a=*a_ptr;
 
-	b2Vec2 stack_lret = b2Cross(s, a);
+	b2Vec2 stack_lret = ::b2Cross(s, a);
 	b2Vec2* lret = new b2Vec2(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -904,7 +904,7 @@ static int _bind_b2Cross_overload_4(lua_State *L) {
 	}
 	const b2Vec3 & b=*b_ptr;
 
-	b2Vec3 stack_lret = b2Cross(a, b);
+	b2Vec3 stack_lret = ::b2Cross(a, b);
 	b2Vec3* lret = new b2Vec3(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -942,7 +942,7 @@ static int _bind_b2Mul_overload_1(lua_State *L) {
 	}
 	const b2Vec2 & v=*v_ptr;
 
-	b2Vec2 stack_lret = b2Mul(A, v);
+	b2Vec2 stack_lret = ::b2Mul(A, v);
 	b2Vec2* lret = new b2Vec2(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -969,7 +969,7 @@ static int _bind_b2Mul_overload_2(lua_State *L) {
 	}
 	const b2Mat22 & B=*B_ptr;
 
-	b2Mat22 stack_lret = b2Mul(A, B);
+	b2Mat22 stack_lret = ::b2Mul(A, B);
 	b2Mat22* lret = new b2Mat22(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -996,7 +996,7 @@ static int _bind_b2Mul_overload_3(lua_State *L) {
 	}
 	const b2Vec3 & v=*v_ptr;
 
-	b2Vec3 stack_lret = b2Mul(A, v);
+	b2Vec3 stack_lret = ::b2Mul(A, v);
 	b2Vec3* lret = new b2Vec3(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1023,7 +1023,7 @@ static int _bind_b2Mul_overload_4(lua_State *L) {
 	}
 	const b2Rot & r=*r_ptr;
 
-	b2Rot stack_lret = b2Mul(q, r);
+	b2Rot stack_lret = ::b2Mul(q, r);
 	b2Rot* lret = new b2Rot(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1050,7 +1050,7 @@ static int _bind_b2Mul_overload_5(lua_State *L) {
 	}
 	const b2Vec2 & v=*v_ptr;
 
-	b2Vec2 stack_lret = b2Mul(q, v);
+	b2Vec2 stack_lret = ::b2Mul(q, v);
 	b2Vec2* lret = new b2Vec2(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1077,7 +1077,7 @@ static int _bind_b2Mul_overload_6(lua_State *L) {
 	}
 	const b2Vec2 & v=*v_ptr;
 
-	b2Vec2 stack_lret = b2Mul(T, v);
+	b2Vec2 stack_lret = ::b2Mul(T, v);
 	b2Vec2* lret = new b2Vec2(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1104,7 +1104,7 @@ static int _bind_b2Mul_overload_7(lua_State *L) {
 	}
 	const b2Transform & B=*B_ptr;
 
-	b2Transform stack_lret = b2Mul(A, B);
+	b2Transform stack_lret = ::b2Mul(A, B);
 	b2Transform* lret = new b2Transform(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1145,7 +1145,7 @@ static int _bind_b2MulT_overload_1(lua_State *L) {
 	}
 	const b2Vec2 & v=*v_ptr;
 
-	b2Vec2 stack_lret = b2MulT(A, v);
+	b2Vec2 stack_lret = ::b2MulT(A, v);
 	b2Vec2* lret = new b2Vec2(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1172,7 +1172,7 @@ static int _bind_b2MulT_overload_2(lua_State *L) {
 	}
 	const b2Mat22 & B=*B_ptr;
 
-	b2Mat22 stack_lret = b2MulT(A, B);
+	b2Mat22 stack_lret = ::b2MulT(A, B);
 	b2Mat22* lret = new b2Mat22(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1199,7 +1199,7 @@ static int _bind_b2MulT_overload_3(lua_State *L) {
 	}
 	const b2Rot & r=*r_ptr;
 
-	b2Rot stack_lret = b2MulT(q, r);
+	b2Rot stack_lret = ::b2MulT(q, r);
 	b2Rot* lret = new b2Rot(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1226,7 +1226,7 @@ static int _bind_b2MulT_overload_4(lua_State *L) {
 	}
 	const b2Vec2 & v=*v_ptr;
 
-	b2Vec2 stack_lret = b2MulT(q, v);
+	b2Vec2 stack_lret = ::b2MulT(q, v);
 	b2Vec2* lret = new b2Vec2(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1253,7 +1253,7 @@ static int _bind_b2MulT_overload_5(lua_State *L) {
 	}
 	const b2Vec2 & v=*v_ptr;
 
-	b2Vec2 stack_lret = b2MulT(T, v);
+	b2Vec2 stack_lret = ::b2MulT(T, v);
 	b2Vec2* lret = new b2Vec2(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1280,7 +1280,7 @@ static int _bind_b2MulT_overload_6(lua_State *L) {
 	}
 	const b2Transform & B=*B_ptr;
 
-	b2Transform stack_lret = b2MulT(A, B);
+	b2Transform stack_lret = ::b2MulT(A, B);
 	b2Transform* lret = new b2Transform(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1320,7 +1320,7 @@ static int _bind_b2DistanceSquared(lua_State *L) {
 	}
 	const b2Vec2 & b=*b_ptr;
 
-	float lret = b2DistanceSquared(a, b);
+	float lret = ::b2DistanceSquared(a, b);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1344,7 +1344,7 @@ static int _bind_b2Mul22(lua_State *L) {
 	}
 	const b2Vec2 & v=*v_ptr;
 
-	b2Vec2 stack_lret = b2Mul22(A, v);
+	b2Vec2 stack_lret = ::b2Mul22(A, v);
 	b2Vec2* lret = new b2Vec2(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1366,7 +1366,7 @@ static int _bind_b2Abs_overload_1(lua_State *L) {
 	}
 	const b2Vec2 & a=*a_ptr;
 
-	b2Vec2 stack_lret = b2Abs(a);
+	b2Vec2 stack_lret = ::b2Abs(a);
 	b2Vec2* lret = new b2Vec2(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1388,7 +1388,7 @@ static int _bind_b2Abs_overload_2(lua_State *L) {
 	}
 	const b2Mat22 & A=*A_ptr;
 
-	b2Mat22 stack_lret = b2Abs(A);
+	b2Mat22 stack_lret = ::b2Abs(A);
 	b2Mat22* lret = new b2Mat22(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1424,7 +1424,7 @@ static int _bind_b2Min(lua_State *L) {
 	}
 	const b2Vec2 & b=*b_ptr;
 
-	b2Vec2 stack_lret = b2Min(a, b);
+	b2Vec2 stack_lret = ::b2Min(a, b);
 	b2Vec2* lret = new b2Vec2(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1451,7 +1451,7 @@ static int _bind_b2Max(lua_State *L) {
 	}
 	const b2Vec2 & b=*b_ptr;
 
-	b2Vec2 stack_lret = b2Max(a, b);
+	b2Vec2 stack_lret = ::b2Max(a, b);
 	b2Vec2* lret = new b2Vec2(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1483,7 +1483,7 @@ static int _bind_b2Clamp(lua_State *L) {
 	}
 	const b2Vec2 & high=*high_ptr;
 
-	b2Vec2 stack_lret = b2Clamp(a, low, high);
+	b2Vec2 stack_lret = ::b2Clamp(a, low, high);
 	b2Vec2* lret = new b2Vec2(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1501,7 +1501,7 @@ static int _bind_b2NextPowerOfTwo(lua_State *L) {
 
 	unsigned int x=(unsigned int)lua_tointeger(L,1);
 
-	unsigned int lret = b2NextPowerOfTwo(x);
+	unsigned int lret = ::b2NextPowerOfTwo(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1516,7 +1516,7 @@ static int _bind_b2IsPowerOfTwo(lua_State *L) {
 
 	unsigned int x=(unsigned int)lua_tointeger(L,1);
 
-	bool lret = b2IsPowerOfTwo(x);
+	bool lret = ::b2IsPowerOfTwo(x);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1531,7 +1531,7 @@ static int _bind_b2Alloc(lua_State *L) {
 
 	signed int size=(signed int)lua_tointeger(L,1);
 
-	void * lret = b2Alloc(size);
+	void * lret = ::b2Alloc(size);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< void >::push(L,lret,false);
@@ -1548,7 +1548,7 @@ static int _bind_b2Free(lua_State *L) {
 
 	void* mem=(Luna< void >::check(L,1));
 
-	b2Free(mem);
+	::b2Free(mem);
 
 	return 0;
 }
@@ -1563,7 +1563,7 @@ static int _bind_b2TimeOfImpact(lua_State *L) {
 	b2TOIOutput* output=(Luna< b2TOIOutput >::check(L,1));
 	const b2TOIInput* input=(Luna< b2TOIInput >::check(L,2));
 
-	b2TimeOfImpact(output, input);
+	::b2TimeOfImpact(output, input);
 
 	return 0;
 }

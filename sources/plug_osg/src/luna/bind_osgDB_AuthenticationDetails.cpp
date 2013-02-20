@@ -196,7 +196,7 @@ public:
 
 		std::string u(lua_tostring(L,1),lua_objlen(L,1));
 		std::string p(lua_tostring(L,2),lua_objlen(L,2));
-		osgDB::AuthenticationDetails::HttpAuthentication auth=luatop>2 ? (osgDB::AuthenticationDetails::HttpAuthentication)lua_tointeger(L,3) : osgDB::AuthenticationDetails::BASIC;
+		osgDB::AuthenticationDetails::HttpAuthentication auth=luatop>2 ? (osgDB::AuthenticationDetails::HttpAuthentication)lua_tointeger(L,3) : (osgDB::AuthenticationDetails::HttpAuthentication)osgDB::AuthenticationDetails::BASIC;
 
 		return new osgDB::AuthenticationDetails(u, p, auth);
 	}
@@ -212,7 +212,7 @@ public:
 
 		std::string u(lua_tostring(L,2),lua_objlen(L,2));
 		std::string p(lua_tostring(L,3),lua_objlen(L,3));
-		osgDB::AuthenticationDetails::HttpAuthentication auth=luatop>3 ? (osgDB::AuthenticationDetails::HttpAuthentication)lua_tointeger(L,4) : osgDB::AuthenticationDetails::BASIC;
+		osgDB::AuthenticationDetails::HttpAuthentication auth=luatop>3 ? (osgDB::AuthenticationDetails::HttpAuthentication)lua_tointeger(L,4) : (osgDB::AuthenticationDetails::HttpAuthentication)osgDB::AuthenticationDetails::BASIC;
 
 		return new wrapper_osgDB_AuthenticationDetails(L,NULL, u, p, auth);
 	}

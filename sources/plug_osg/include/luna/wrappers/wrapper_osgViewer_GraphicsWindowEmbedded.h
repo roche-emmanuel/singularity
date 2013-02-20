@@ -268,7 +268,7 @@ public:
 	void setCursor(osgViewer::GraphicsWindow::MouseCursor arg1) {
 		if(_obj.pushFunction("setCursor")) {
 			_obj.pushArg((osgViewer::GraphicsWindowEmbedded*)this);
-			_obj.pushArg(arg1);
+			_obj.pushArg((int)arg1);
 			return (_obj.callFunction<void>());
 		}
 

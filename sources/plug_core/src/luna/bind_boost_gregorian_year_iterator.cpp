@@ -128,7 +128,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg start_date in boost::gregorian::year_iterator::year_iterator function");
 		}
 		boost::gregorian::date & start_date=*start_date_ptr;
-		int year_count=luatop>1 ? (int)lua_tointeger(L,2) : 1;
+		int year_count=luatop>1 ? (int)lua_tointeger(L,2) : (int)1;
 
 		return new boost::gregorian::year_iterator(start_date, year_count);
 	}

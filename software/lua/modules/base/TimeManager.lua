@@ -1,10 +1,7 @@
 local Class = require("classBuilder"){name="TimeManager",bases="base.Object"};
-
-local osg = require "osg"
 	
 function Class:initialize(options)
 	self._epoch = boost.ptime(boost.date(1970,1,1));
-	self._timer = osg.Timer.instance();
 end
 	
 function Class:getSeconds(since)
@@ -15,6 +12,11 @@ function Class:getSeconds(since)
 end
 
 function Class:tick()
+	if not self._timer then
+		local osg = require "osg"
+		self._timer = osg.Timer.instance();
+	end
+	
 	return self._timer:tick()
 end
 

@@ -342,7 +342,7 @@ public:
 		if( luatop>1 && !_arg2_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in osgDB::DatabaseRevisions::DatabaseRevisions function");
 		}
-		const osg::CopyOp _arg2=luatop>1 ? *_arg2_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp _arg2=luatop>1 ? *_arg2_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgDB::DatabaseRevisions(revisions, _arg2);
 	}
@@ -376,7 +376,7 @@ public:
 		if( luatop>2 && !_arg3_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg3 in osgDB::DatabaseRevisions::DatabaseRevisions function");
 		}
-		const osg::CopyOp _arg3=luatop>2 ? *_arg3_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp _arg3=luatop>2 ? *_arg3_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgDB_DatabaseRevisions(L,NULL, revisions, _arg3);
 	}

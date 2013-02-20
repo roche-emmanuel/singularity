@@ -61,81 +61,32 @@ struct luna_boxed<double> {
 	typedef void Type;
 };
 
-class SGTCORE_EXPORT LuaObject : public sgt::LuaRef {
-protected:
-	mutable int _nargs;
-	// boost::thread::id _threadId;
-	// int _threadId;
-	
-public:
-	LuaObject(lua_State* L, int index) : LuaRef(L,index) {
-		THROW_IF(!pushLuaItem(),"Cannot push lua item.");
-
-		// ensure this object is a table:
-		THROW_IF(lua_type(_state,index)!=LUA_TTABLE,"Invalid non table base for luaObject, type is: "<<lua_type(_state,index));
-
-		// remove from stack:
-		lua_pop(_state,1);
-		
-		// Init the thread ID:
-		// _threadId = boost::this_thread::get_id();
-		// OpenThreads::Thread* th = OpenThreads::Thread::CurrentThread();
-		//THROW_IF(!th,"Invalid current Thread");
-		// _threadId = th ? th->getThreadId() : -1;
-		
-		reset();
-	}
-
-	inline lua_State* getState() {
-		return _state;
-	}
-
-	inline void reset() const {
-		_nargs = 1;
-	}
-
-	inline void incrementNArgs() {
-		++_nargs;
-	}
-
-	virtual ~LuaObject() {
-	};
-
-	// Will push the function and table on the stack if found and return true in that case.
-	// returns false otherwise.
-	bool pushFunction(String name) const;
-
-	template <typename ArgType>
-	void pushArg(ArgType arg) const {
-		++_nargs;
-		sgt::pushValue(_state,arg);
-	};
-
-	template < typename ResultType>
-	ResultType callFunction() const {
-		lua_call(_state,_nargs,1);
-		reset();
-
-		ResultType res = sgt::getValue<ResultType>(_state,-1);
-		lua_pop(_state,1);
-		return res;
-	}
-
-	template <>
-	void callFunction() const {
-		lua_call(_state,_nargs,0);
-		reset();
-	}
-};
-
 template <typename ArgType>
 void pushValue(lua_State* L, ArgType* arg) {
-	Luna< luna_boxed<ArgType>::Type >::push(L,(luna_boxed<ArgType>::Type *)arg,false);
+	Luna< typename luna_boxed<ArgType>::Type >::push(L,(typename luna_boxed<ArgType>::Type *)arg,false);
+};
+
+template < typename ResultType>
+inline ResultType getValue(lua_State* L, int index) {
+	typedef typename remove_pointer<ResultType>::type RealType;
+	
+	// Retrieve the result from the stack:
+	return (Luna< RealType >::check(L,index));
+};
+
+class LuaObject;
+
+template < typename ResultType>
+inline ResultType callFunction(const LuaObject& obj, lua_State* L, int nargs);
+
+template <typename ArgType>
+void pushValue(lua_State* L, ArgType arg) {
+	lua_pushnumber(L,arg);
 };
 
 template <typename ArgType>
 void pushValue(lua_State* L, const ArgType* arg) {
-	Luna< luna_boxed<ArgType>::Type >::push(L,(const luna_boxed<ArgType>::Type *)arg,false);
+	Luna< typename luna_boxed<ArgType>::Type >::push(L,(const typename luna_boxed<ArgType>::Type *)arg,false);
 };
 
 template <typename ArgType>
@@ -158,57 +109,61 @@ void pushValue(lua_State* L,const osg::observer_ptr<ArgType>& arg) {
 	Luna< ArgType >::push(L,arg.get(),false);
 };
 
-inline void pushValue(lua_State* L, bool arg) {
+inline void pushValue(lua_State* L, bool& arg) {
 	lua_pushboolean(L,arg?1:0);
 }
 
-inline void pushValue(lua_State* L, char arg) {
+inline void pushValue(lua_State* L, char& arg) {
 	lua_pushinteger(L,arg);
 }
 
-inline void pushValue(lua_State* L, unsigned char arg) {
+inline void pushValue(lua_State* L, signed char& arg) {
 	lua_pushinteger(L,arg);
 }
 
-inline void pushValue(lua_State* L, short arg) {
+inline void pushValue(lua_State* L, unsigned char& arg) {
 	lua_pushinteger(L,arg);
 }
 
-inline void pushValue(lua_State* L, unsigned short arg) {
+inline void pushValue(lua_State* L, short& arg) {
 	lua_pushinteger(L,arg);
 }
 
-inline void pushValue(lua_State* L, long arg) {
+inline void pushValue(lua_State* L, unsigned short& arg) {
 	lua_pushinteger(L,arg);
 }
 
-inline void pushValue(lua_State* L, int arg) {
+inline void pushValue(lua_State* L, long& arg) {
 	lua_pushinteger(L,arg);
 }
 
-inline void pushValue(lua_State* L, unsigned long arg) {
+inline void pushValue(lua_State* L, int& arg) {
 	lua_pushinteger(L,arg);
 }
 
-inline void pushValue(lua_State* L, unsigned int arg) {
+inline void pushValue(lua_State* L, unsigned long& arg) {
 	lua_pushinteger(L,arg);
 }
 
-inline void pushValue(lua_State* L, long long arg) {
+inline void pushValue(lua_State* L, unsigned int& arg) {
+	lua_pushinteger(L,arg);
+}
+
+inline void pushValue(lua_State* L, long long& arg) {
 	logWARN("LuaObject: pushing long long as integer.");
 	lua_pushinteger(L,arg);
 }
 
-inline void pushValue(lua_State* L, unsigned long long arg) {
+inline void pushValue(lua_State* L, unsigned long long& arg) {
 	logWARN("LuaObject: pushing unsigned long long as integer.");
 	lua_pushinteger(L,arg);
 }
 
-inline void pushValue(lua_State* L, float arg) {
+inline void pushValue(lua_State* L, float& arg) {
 	lua_pushnumber(L,arg);
 }
 
-inline void pushValue(lua_State* L, double arg) {
+inline void pushValue(lua_State* L, double& arg) {
 	lua_pushnumber(L,arg);
 }
 
@@ -241,14 +196,6 @@ inline void pushValue(lua_State* L, const char* arg) {
 inline void pushValue(lua_State* L, const String& arg) {
 	lua_pushlstring(L,arg.data(),arg.size());
 }
-
-template < typename ResultType>
-inline ResultType getValue(lua_State* L, int index) {
-	typedef typename remove_pointer<ResultType>::type RealType;
-	
-	// Retrieve the result from the stack:
-	return (Luna< RealType >::check(L,index));
-};
 
 template <>
 inline int getValue(lua_State* L, int index) {
@@ -321,7 +268,92 @@ inline const char* getValue(lua_State* L, int index) {
 	return lua_tostring(L,index);
 }
 
+class SGTCORE_EXPORT LuaObject : public sgt::LuaRef {
+protected:
+	mutable int _nargs;
+	// boost::thread::id _threadId;
+	// int _threadId;
+	
+public:
+	LuaObject(lua_State* L, int index) : LuaRef(L,index) {
+		THROW_IF(!pushLuaItem(),"Cannot push lua item.");
+
+		// ensure this object is a table:
+		THROW_IF(lua_type(_state,index)!=LUA_TTABLE,"Invalid non table base for luaObject, type is: "<<lua_type(_state,index));
+
+		// remove from stack:
+		lua_pop(_state,1);
+		
+		// Init the thread ID:
+		// _threadId = boost::this_thread::get_id();
+		// OpenThreads::Thread* th = OpenThreads::Thread::CurrentThread();
+		//THROW_IF(!th,"Invalid current Thread");
+		// _threadId = th ? th->getThreadId() : -1;
+		
+		reset();
+	}
+
+	inline lua_State* getState() {
+		return _state;
+	}
+
+	inline void reset() const {
+		_nargs = 1;
+	}
+
+	inline void incrementNArgs() {
+		++_nargs;
+	}
+
+	virtual ~LuaObject() {
+	};
+
+	// Will push the function and table on the stack if found and return true in that case.
+	// returns false otherwise.
+	bool pushFunction(String name) const;
+
+	template <typename ArgType>
+	void pushArg(ArgType arg) const {
+		++_nargs;
+		sgt::pushValue((lua_State*)_state,arg);
+	};
+
+	template < typename ResultType>
+	ResultType callFunction() const {
+		return sgt::callFunction<ResultType>(*this,_state,_nargs);
+	}
 };
 
+template < typename ResultType>
+inline ResultType callFunction(const LuaObject& obj, lua_State* L, int nargs) {
+	lua_call(L,nargs,1);
+	obj.reset();
+
+	ResultType res = sgt::getValue<ResultType>(L,-1);
+	lua_pop(L,1);
+	return res;
+}
+
+template <>
+inline void callFunction(const LuaObject& obj, lua_State* L, int nargs) {
+	lua_call(L,nargs,0);
+	obj.reset();
+}
+
+};
+
+// wrapper class is outside the sgt namespace for now.
+
+class SGTCORE_EXPORT luna_wrapper_base {
+protected:
+	sgt::LuaObject _obj;
+
+public:
+	luna_wrapper_base(lua_State* L) : _obj(L,1) {};
+
+	inline bool pushTable() { return _obj.pushLuaItem(); };
+
+	virtual ~luna_wrapper_base() {};
+};
 
 #endif /* LUAOBJECT_H_ */

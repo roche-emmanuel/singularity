@@ -51,7 +51,7 @@ public:
 	void notify(osg::NotifySeverity severity, const char * message) {
 		if(_obj.pushFunction("notify")) {
 			_obj.pushArg((osg::StandardNotifyHandler*)this);
-			_obj.pushArg(severity);
+			_obj.pushArg((int)severity);
 			_obj.pushArg(message);
 			return (_obj.callFunction<void>());
 		}

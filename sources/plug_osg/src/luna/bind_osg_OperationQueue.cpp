@@ -254,7 +254,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool blockIfEmpty=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool blockIfEmpty=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		osg::OperationQueue* self=Luna< osg::Referenced >::checkSubType< osg::OperationQueue >(L,1);
 		if(!self) {

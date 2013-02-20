@@ -364,9 +364,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double sampleRatio=luatop>0 ? (double)lua_tonumber(L,1) : 1.0;
-		double maximumError=luatop>1 ? (double)lua_tonumber(L,2) : FLT_MAX;
-		double maximumLength=luatop>2 ? (double)lua_tonumber(L,3) : 0.0;
+		double sampleRatio=luatop>0 ? (double)lua_tonumber(L,1) : (double)1.0;
+		double maximumError=luatop>1 ? (double)lua_tonumber(L,2) : (double)FLT_MAX;
+		double maximumLength=luatop>2 ? (double)lua_tonumber(L,3) : (double)0.0;
 
 		return new osgUtil::Simplifier(sampleRatio, maximumError, maximumLength);
 	}
@@ -380,9 +380,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double sampleRatio=luatop>1 ? (double)lua_tonumber(L,2) : 1.0;
-		double maximumError=luatop>2 ? (double)lua_tonumber(L,3) : FLT_MAX;
-		double maximumLength=luatop>3 ? (double)lua_tonumber(L,4) : 0.0;
+		double sampleRatio=luatop>1 ? (double)lua_tonumber(L,2) : (double)1.0;
+		double maximumError=luatop>2 ? (double)lua_tonumber(L,3) : (double)FLT_MAX;
+		double maximumLength=luatop>3 ? (double)lua_tonumber(L,4) : (double)0.0;
 
 		return new wrapper_osgUtil_Simplifier(L,NULL, sampleRatio, maximumError, maximumLength);
 	}

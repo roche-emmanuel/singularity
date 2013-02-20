@@ -2,7 +2,6 @@
 
 #include <osg/Object>
 #include <osg/Referenced>
-#include <sgtCommon.h>
 
 #ifdef __cplusplus
 extern "C" {

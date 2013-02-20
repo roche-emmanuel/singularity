@@ -441,8 +441,8 @@ public:
 		int width=(int)lua_tointeger(L,1);
 		int height=(int)lua_tointeger(L,2);
 		unsigned int internalFormat=(unsigned int)lua_tointeger(L,3);
-		int samples=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		int colorSamples=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int samples=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		int colorSamples=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		return new osg::RenderBuffer(width, height, internalFormat, samples, colorSamples);
 	}
@@ -465,7 +465,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::RenderBuffer::RenderBuffer function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::RenderBuffer(copy, copyop);
 	}
@@ -493,8 +493,8 @@ public:
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
 		unsigned int internalFormat=(unsigned int)lua_tointeger(L,4);
-		int samples=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		int colorSamples=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		int samples=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		int colorSamples=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
 
 		return new wrapper_osg_RenderBuffer(L,NULL, width, height, internalFormat, samples, colorSamples);
 	}
@@ -517,7 +517,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::RenderBuffer::RenderBuffer function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_RenderBuffer(L,NULL, copy, copyop);
 	}

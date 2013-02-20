@@ -1855,7 +1855,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg drawable in osgUtil::CullVisitor::updateCalculatedNearFar function");
 		}
 		const osg::Drawable & drawable=*drawable_ptr;
-		bool isBillboard=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool isBillboard=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		osgUtil::CullVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::CullVisitor >(L,1);
 		if(!self) {

@@ -175,11 +175,11 @@ public:
 		if(_obj.pushFunction("compress")) {
 			_obj.pushArg((osgDB::ImageProcessor*)this);
 			_obj.pushArg(&arg1);
-			_obj.pushArg(arg2);
+			_obj.pushArg((int)arg2);
 			_obj.pushArg(arg3);
 			_obj.pushArg(arg4);
-			_obj.pushArg(arg5);
-			_obj.pushArg(arg6);
+			_obj.pushArg((int)arg5);
+			_obj.pushArg((int)arg6);
 			return (_obj.callFunction<void>());
 		}
 

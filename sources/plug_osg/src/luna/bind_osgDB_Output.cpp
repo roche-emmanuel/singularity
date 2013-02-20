@@ -1180,7 +1180,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-		bool hasBeenWritten=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool hasBeenWritten=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {

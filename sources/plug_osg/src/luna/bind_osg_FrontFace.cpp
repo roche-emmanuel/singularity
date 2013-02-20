@@ -376,7 +376,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::FrontFace::Mode face=luatop>0 ? (osg::FrontFace::Mode)lua_tointeger(L,1) : osg::FrontFace::COUNTER_CLOCKWISE;
+		osg::FrontFace::Mode face=luatop>0 ? (osg::FrontFace::Mode)lua_tointeger(L,1) : (osg::FrontFace::Mode)osg::FrontFace::COUNTER_CLOCKWISE;
 
 		return new osg::FrontFace(face);
 	}
@@ -399,7 +399,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::FrontFace::FrontFace function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::FrontFace(ff, copyop);
 	}
@@ -413,7 +413,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::FrontFace::Mode face=luatop>1 ? (osg::FrontFace::Mode)lua_tointeger(L,2) : osg::FrontFace::COUNTER_CLOCKWISE;
+		osg::FrontFace::Mode face=luatop>1 ? (osg::FrontFace::Mode)lua_tointeger(L,2) : (osg::FrontFace::Mode)osg::FrontFace::COUNTER_CLOCKWISE;
 
 		return new wrapper_osg_FrontFace(L,NULL, face);
 	}
@@ -436,7 +436,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::FrontFace::FrontFace function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_FrontFace(L,NULL, ff, copyop);
 	}

@@ -344,7 +344,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgText::Bevel::Bevel function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgText::Bevel(bevel, copyop);
 	}
@@ -378,7 +378,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgText::Bevel::Bevel function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgText_Bevel(L,NULL, bevel, copyop);
 	}
@@ -548,7 +548,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float width=luatop>1 ? (float)lua_tonumber(L,2) : 0.25f;
+		float width=luatop>1 ? (float)lua_tonumber(L,2) : (float)0.25f;
 
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
@@ -569,8 +569,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float width=luatop>1 ? (float)lua_tonumber(L,2) : 0.5f;
-		unsigned int numSteps=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 10;
+		float width=luatop>1 ? (float)lua_tonumber(L,2) : (float)0.5f;
+		unsigned int numSteps=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)10;
 
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {
@@ -591,8 +591,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float width=luatop>1 ? (float)lua_tonumber(L,2) : 0.5f;
-		unsigned int numSteps=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 10;
+		float width=luatop>1 ? (float)lua_tonumber(L,2) : (float)0.5f;
+		unsigned int numSteps=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)10;
 
 		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
 		if(!self) {

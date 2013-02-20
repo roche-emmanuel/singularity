@@ -180,7 +180,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double availableTime=(double)lua_tonumber(L,1);
-		bool keep=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool keep=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		return new osg::FlushDeletedGLObjectsOperation(availableTime, keep);
 	}
@@ -195,7 +195,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double availableTime=(double)lua_tonumber(L,2);
-		bool keep=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool keep=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		return new wrapper_osg_FlushDeletedGLObjectsOperation(L,NULL, availableTime, keep);
 	}

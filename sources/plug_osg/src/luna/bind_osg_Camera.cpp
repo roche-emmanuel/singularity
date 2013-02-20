@@ -1236,7 +1236,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Camera::Camera function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::Camera(_arg1, copyop);
 	}
@@ -1270,7 +1270,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Camera::Camera function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_Camera(L,NULL, _arg2, copyop);
 	}
@@ -2578,7 +2578,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg up in osg::Camera::getViewMatrixAsLookAt function");
 		}
 		osg::Vec3d & up=*up_ptr;
-		double lookDistance=luatop>4 ? (double)lua_tonumber(L,5) : 1.0;
+		double lookDistance=luatop>4 ? (double)lua_tonumber(L,5) : (double)1.0;
 
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
@@ -2614,7 +2614,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg up in osg::Camera::getViewMatrixAsLookAt function");
 		}
 		osg::Vec3f & up=*up_ptr;
-		float lookDistance=luatop>4 ? (float)lua_tonumber(L,5) : 1.0f;
+		float lookDistance=luatop>4 ? (float)lua_tonumber(L,5) : (float)1.0f;
 
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
@@ -2667,7 +2667,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::Camera::RenderOrder order=(osg::Camera::RenderOrder)lua_tointeger(L,2);
-		int orderNum=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int orderNum=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
@@ -2929,11 +2929,11 @@ public:
 
 		osg::Camera::BufferComponent buffer=(osg::Camera::BufferComponent)lua_tointeger(L,2);
 		osg::Texture* texture=(Luna< osg::Referenced >::checkSubType< osg::Texture >(L,3));
-		unsigned int level=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
-		unsigned int face=luatop>4 ? (unsigned int)lua_tointeger(L,5) : 0;
-		bool mipMapGeneration=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
-		unsigned int multisampleSamples=luatop>6 ? (unsigned int)lua_tointeger(L,7) : 0;
-		unsigned int multisampleColorSamples=luatop>7 ? (unsigned int)lua_tointeger(L,8) : 0;
+		unsigned int level=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
+		unsigned int face=luatop>4 ? (unsigned int)lua_tointeger(L,5) : (unsigned int)0;
+		bool mipMapGeneration=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)false;
+		unsigned int multisampleSamples=luatop>6 ? (unsigned int)lua_tointeger(L,7) : (unsigned int)0;
+		unsigned int multisampleColorSamples=luatop>7 ? (unsigned int)lua_tointeger(L,8) : (unsigned int)0;
 
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
@@ -2956,8 +2956,8 @@ public:
 
 		osg::Camera::BufferComponent buffer=(osg::Camera::BufferComponent)lua_tointeger(L,2);
 		osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,3));
-		unsigned int multisampleSamples=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
-		unsigned int multisampleColorSamples=luatop>4 ? (unsigned int)lua_tointeger(L,5) : 0;
+		unsigned int multisampleSamples=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
+		unsigned int multisampleColorSamples=luatop>4 ? (unsigned int)lua_tointeger(L,5) : (unsigned int)0;
 
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
@@ -3007,8 +3007,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int renderMask=luatop>1 ? (int)lua_tointeger(L,2) : osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT;
-		int resolveMask=luatop>2 ? (int)lua_tointeger(L,3) : osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT;
+		int renderMask=luatop>1 ? (int)lua_tointeger(L,2) : (int)osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT;
+		int resolveMask=luatop>2 ? (int)lua_tointeger(L,3) : (int)osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT;
 
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
@@ -3067,7 +3067,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool effectiveMask=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool effectiveMask=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {
@@ -3089,7 +3089,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool effectiveMask=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool effectiveMask=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		osg::Camera* self=Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1);
 		if(!self) {

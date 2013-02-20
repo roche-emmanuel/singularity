@@ -232,7 +232,7 @@ static int _bind_TwNewBar(lua_State *L) {
 
 	const char * barName=(const char *)lua_tostring(L,1);
 
-	TwBar * lret = TwNewBar(barName);
+	TwBar * lret = ::TwNewBar(barName);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< TwBar >::push(L,lret,false);
@@ -249,7 +249,7 @@ static int _bind_TwDeleteBar(lua_State *L) {
 
 	TwBar* bar=(Luna< TwBar >::check(L,1));
 
-	int lret = TwDeleteBar(bar);
+	int lret = ::TwDeleteBar(bar);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -263,7 +263,7 @@ static int _bind_TwDeleteAllBars(lua_State *L) {
 	}
 
 
-	int lret = TwDeleteAllBars();
+	int lret = ::TwDeleteAllBars();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -278,7 +278,7 @@ static int _bind_TwSetTopBar(lua_State *L) {
 
 	const TwBar* bar=(Luna< TwBar >::check(L,1));
 
-	int lret = TwSetTopBar(bar);
+	int lret = ::TwSetTopBar(bar);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -292,7 +292,7 @@ static int _bind_TwGetTopBar(lua_State *L) {
 	}
 
 
-	TwBar * lret = TwGetTopBar();
+	TwBar * lret = ::TwGetTopBar();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< TwBar >::push(L,lret,false);
@@ -309,7 +309,7 @@ static int _bind_TwSetBottomBar(lua_State *L) {
 
 	const TwBar* bar=(Luna< TwBar >::check(L,1));
 
-	int lret = TwSetBottomBar(bar);
+	int lret = ::TwSetBottomBar(bar);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -323,7 +323,7 @@ static int _bind_TwGetBottomBar(lua_State *L) {
 	}
 
 
-	TwBar * lret = TwGetBottomBar();
+	TwBar * lret = ::TwGetBottomBar();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< TwBar >::push(L,lret,false);
@@ -339,7 +339,7 @@ static int _bind_TwGetBarCount(lua_State *L) {
 	}
 
 
-	int lret = TwGetBarCount();
+	int lret = ::TwGetBarCount();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -354,7 +354,7 @@ static int _bind_TwGetBarByIndex(lua_State *L) {
 
 	int barIndex=(int)lua_tointeger(L,1);
 
-	TwBar * lret = TwGetBarByIndex(barIndex);
+	TwBar * lret = ::TwGetBarByIndex(barIndex);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< TwBar >::push(L,lret,false);
@@ -371,7 +371,7 @@ static int _bind_TwGetBarByName(lua_State *L) {
 
 	const char * barName=(const char *)lua_tostring(L,1);
 
-	TwBar * lret = TwGetBarByName(barName);
+	TwBar * lret = ::TwGetBarByName(barName);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< TwBar >::push(L,lret,false);
@@ -388,7 +388,7 @@ static int _bind_TwRefreshBar(lua_State *L) {
 
 	TwBar* bar=(Luna< TwBar >::check(L,1));
 
-	int lret = TwRefreshBar(bar);
+	int lret = ::TwRefreshBar(bar);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -405,7 +405,7 @@ static int _bind_TwAddSeparator(lua_State *L) {
 	const char * name=(const char *)lua_tostring(L,2);
 	const char * def=(const char *)lua_tostring(L,3);
 
-	int lret = TwAddSeparator(bar, name, def);
+	int lret = ::TwAddSeparator(bar, name, def);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -421,7 +421,7 @@ static int _bind_TwRemoveVar(lua_State *L) {
 	TwBar* bar=(Luna< TwBar >::check(L,1));
 	const char * name=(const char *)lua_tostring(L,2);
 
-	int lret = TwRemoveVar(bar, name);
+	int lret = ::TwRemoveVar(bar, name);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -436,7 +436,7 @@ static int _bind_TwRemoveAllVars(lua_State *L) {
 
 	TwBar* bar=(Luna< TwBar >::check(L,1));
 
-	int lret = TwRemoveAllVars(bar);
+	int lret = ::TwRemoveAllVars(bar);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -451,7 +451,7 @@ static int _bind_TwDefine(lua_State *L) {
 
 	const char * def=(const char *)lua_tostring(L,1);
 
-	int lret = TwDefine(def);
+	int lret = ::TwDefine(def);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -467,7 +467,7 @@ static int _bind_TwDefineEnumFromString(lua_State *L) {
 	const char * name=(const char *)lua_tostring(L,1);
 	const char * enumString=(const char *)lua_tostring(L,2);
 
-	TwType lret = TwDefineEnumFromString(name, enumString);
+	TwType lret = ::TwDefineEnumFromString(name, enumString);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -483,7 +483,7 @@ static int _bind_TwInit(lua_State *L) {
 	TwGraphAPI graphAPI=(TwGraphAPI)lua_tointeger(L,1);
 	void* device=(Luna< void >::check(L,2));
 
-	int lret = TwInit(graphAPI, device);
+	int lret = ::TwInit(graphAPI, device);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -497,7 +497,7 @@ static int _bind_TwTerminate(lua_State *L) {
 	}
 
 
-	int lret = TwTerminate();
+	int lret = ::TwTerminate();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -511,7 +511,7 @@ static int _bind_TwDraw(lua_State *L) {
 	}
 
 
-	int lret = TwDraw();
+	int lret = ::TwDraw();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -527,7 +527,7 @@ static int _bind_TwWindowSize(lua_State *L) {
 	int width=(int)lua_tointeger(L,1);
 	int height=(int)lua_tointeger(L,2);
 
-	int lret = TwWindowSize(width, height);
+	int lret = ::TwWindowSize(width, height);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -542,7 +542,7 @@ static int _bind_TwSetCurrentWindow(lua_State *L) {
 
 	int windowID=(int)lua_tointeger(L,1);
 
-	int lret = TwSetCurrentWindow(windowID);
+	int lret = ::TwSetCurrentWindow(windowID);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -556,7 +556,7 @@ static int _bind_TwGetCurrentWindow(lua_State *L) {
 	}
 
 
-	int lret = TwGetCurrentWindow();
+	int lret = ::TwGetCurrentWindow();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -571,7 +571,7 @@ static int _bind_TwWindowExists(lua_State *L) {
 
 	int windowID=(int)lua_tointeger(L,1);
 
-	int lret = TwWindowExists(windowID);
+	int lret = ::TwWindowExists(windowID);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -587,7 +587,7 @@ static int _bind_TwKeyPressed(lua_State *L) {
 	int key=(int)lua_tointeger(L,1);
 	int modifiers=(int)lua_tointeger(L,2);
 
-	int lret = TwKeyPressed(key, modifiers);
+	int lret = ::TwKeyPressed(key, modifiers);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -603,7 +603,7 @@ static int _bind_TwKeyTest(lua_State *L) {
 	int key=(int)lua_tointeger(L,1);
 	int modifiers=(int)lua_tointeger(L,2);
 
-	int lret = TwKeyTest(key, modifiers);
+	int lret = ::TwKeyTest(key, modifiers);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -619,7 +619,7 @@ static int _bind_TwMouseButton(lua_State *L) {
 	TwMouseAction action=(TwMouseAction)lua_tointeger(L,1);
 	TwMouseButtonID button=(TwMouseButtonID)lua_tointeger(L,2);
 
-	int lret = TwMouseButton(action, button);
+	int lret = ::TwMouseButton(action, button);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -635,7 +635,7 @@ static int _bind_TwMouseMotion(lua_State *L) {
 	int mouseX=(int)lua_tointeger(L,1);
 	int mouseY=(int)lua_tointeger(L,2);
 
-	int lret = TwMouseMotion(mouseX, mouseY);
+	int lret = ::TwMouseMotion(mouseX, mouseY);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -650,7 +650,7 @@ static int _bind_TwMouseWheel(lua_State *L) {
 
 	int pos=(int)lua_tointeger(L,1);
 
-	int lret = TwMouseWheel(pos);
+	int lret = ::TwMouseWheel(pos);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -664,7 +664,7 @@ static int _bind_TwGetLastError(lua_State *L) {
 	}
 
 
-	const char * lret = TwGetLastError();
+	const char * lret = ::TwGetLastError();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -678,7 +678,7 @@ static int _bind_setupErrorHandler(lua_State *L) {
 	}
 
 
-	setupErrorHandler();
+	::setupErrorHandler();
 
 	return 0;
 }
@@ -691,7 +691,7 @@ static int _bind_setupStringCopy(lua_State *L) {
 	}
 
 
-	setupStringCopy();
+	::setupStringCopy();
 
 	return 0;
 }

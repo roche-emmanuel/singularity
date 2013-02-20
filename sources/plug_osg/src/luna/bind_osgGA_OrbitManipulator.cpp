@@ -359,7 +359,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -731,7 +731,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>0 ? (int)lua_tointeger(L,1) : osgGA::StandardManipulator::DEFAULT_SETTINGS;
+		int flags=luatop>0 ? (int)lua_tointeger(L,1) : (int)osgGA::StandardManipulator::DEFAULT_SETTINGS;
 
 		return new osgGA::OrbitManipulator(flags);
 	}
@@ -754,7 +754,7 @@ public:
 		if( luatop>1 && !copyOp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::OrbitManipulator::OrbitManipulator function");
 		}
-		const osg::CopyOp & copyOp=luatop>1 ? *copyOp_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyOp=luatop>1 ? *copyOp_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgGA::OrbitManipulator(om, copyOp);
 	}
@@ -768,7 +768,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : osgGA::StandardManipulator::DEFAULT_SETTINGS;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)osgGA::StandardManipulator::DEFAULT_SETTINGS;
 
 		return new wrapper_osgGA_OrbitManipulator(L,NULL, flags);
 	}
@@ -791,7 +791,7 @@ public:
 		if( luatop>2 && !copyOp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::OrbitManipulator::OrbitManipulator function");
 		}
-		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgGA_OrbitManipulator(L,NULL, om, copyOp);
 	}
@@ -1432,7 +1432,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double minimumDistance=(double)lua_tonumber(L,2);
-		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : ((void *) 0);
+		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)((void *) 0);
 
 		osgGA::OrbitManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::OrbitManipulator >(L,1);
 		if(!self) {
@@ -1453,14 +1453,14 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool relativeToModelSize=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : ((void *) 0);
+		bool* relativeToModelSize=luatop>1 ? (bool*)(Luna< void >::check(L,2)) : (bool*)((void *) 0);
 
 		osgGA::OrbitManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::OrbitManipulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double osgGA::OrbitManipulator::getMinimumDistance(bool *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		double lret = self->getMinimumDistance(&relativeToModelSize);
+		double lret = self->getMinimumDistance(relativeToModelSize);
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -1714,7 +1714,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg up in osgGA::OrbitManipulator::base_setHomePosition function");
 		}
 		const osg::Vec3d & up=*up_ptr;
-		bool autoComputeHomePosition=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool autoComputeHomePosition=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		osgGA::OrbitManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::OrbitManipulator >(L,1);
 		if(!self) {
@@ -1788,7 +1788,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const osg::Camera* camera=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2)) : (const osg::Camera*)((void *) 0);
-		bool useBoundingBox=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool useBoundingBox=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		osgGA::OrbitManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::OrbitManipulator >(L,1);
 		if(!self) {
@@ -2529,7 +2529,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double minimumDistance=(double)lua_tonumber(L,2);
-		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : ((void *) 0);
+		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)((void *) 0);
 
 		osgGA::OrbitManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::OrbitManipulator >(L,1);
 		if(!self) {

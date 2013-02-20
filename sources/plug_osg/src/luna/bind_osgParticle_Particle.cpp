@@ -1593,7 +1593,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg py in osgParticle::Particle::render function");
 		}
 		const osg::Vec3f & py=*py_ptr;
-		float scale=luatop>5 ? (float)lua_tonumber(L,6) : 1.0f;
+		float scale=luatop>5 ? (float)lua_tonumber(L,6) : (float)1.0f;
 
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
@@ -1718,7 +1718,7 @@ public:
 
 		int sTile=(int)lua_tointeger(L,2);
 		int tTile=(int)lua_tointeger(L,3);
-		int end=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int end=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {

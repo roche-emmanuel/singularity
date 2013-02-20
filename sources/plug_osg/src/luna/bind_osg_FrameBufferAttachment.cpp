@@ -333,7 +333,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::Texture1D* target=(Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1));
-		unsigned int level=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int level=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		return new osg::FrameBufferAttachment(target, level);
 	}
@@ -348,7 +348,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::Texture2D* target=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,1));
-		unsigned int level=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int level=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		return new osg::FrameBufferAttachment(target, level);
 	}
@@ -363,7 +363,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::Texture2DMultisample* target=(Luna< osg::Referenced >::checkSubType< osg::Texture2DMultisample >(L,1));
-		unsigned int level=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int level=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		return new osg::FrameBufferAttachment(target, level);
 	}
@@ -379,7 +379,7 @@ public:
 
 		osg::Texture3D* target=(Luna< osg::Referenced >::checkSubType< osg::Texture3D >(L,1));
 		unsigned int zoffset=(unsigned int)lua_tointeger(L,2);
-		unsigned int level=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int level=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		return new osg::FrameBufferAttachment(target, zoffset, level);
 	}
@@ -395,7 +395,7 @@ public:
 
 		osg::Texture2DArray* target=(Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1));
 		unsigned int layer=(unsigned int)lua_tointeger(L,2);
-		unsigned int level=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int level=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		return new osg::FrameBufferAttachment(target, layer, level);
 	}
@@ -411,7 +411,7 @@ public:
 
 		osg::TextureCubeMap* target=(Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap >(L,1));
 		unsigned int face=(unsigned int)lua_tointeger(L,2);
-		unsigned int level=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int level=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		return new osg::FrameBufferAttachment(target, face, level);
 	}

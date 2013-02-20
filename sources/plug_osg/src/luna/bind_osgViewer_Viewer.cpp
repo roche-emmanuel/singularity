@@ -796,7 +796,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgViewer::Viewer::Viewer function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgViewer::Viewer(viewer, copyop);
 	}
@@ -846,7 +846,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgViewer::Viewer::Viewer function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgViewer_Viewer(L,NULL, viewer, copyop);
 	}
@@ -1153,7 +1153,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double time=luatop>1 ? (double)lua_tonumber(L,2) : 0.0;
+		double time=luatop>1 ? (double)lua_tonumber(L,2) : (double)0.0;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -1296,7 +1296,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double simulationTime=luatop>1 ? (double)lua_tonumber(L,2) : DBL_MAX;
+		double simulationTime=luatop>1 ? (double)lua_tonumber(L,2) : (double)DBL_MAX;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -1428,7 +1428,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg cameras in osgViewer::Viewer::getCameras function");
 		}
 		osgViewer::ViewerBase::Cameras & cameras=*cameras_ptr;
-		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -1454,7 +1454,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg contexts in osgViewer::Viewer::getContexts function");
 		}
 		osgViewer::ViewerBase::Contexts & contexts=*contexts_ptr;
-		bool onlyValid=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool onlyValid=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -1480,7 +1480,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg threads in osgViewer::Viewer::getAllThreads function");
 		}
 		osgViewer::ViewerBase::Threads & threads=*threads_ptr;
-		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -1506,7 +1506,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg threads in osgViewer::Viewer::getOperationThreads function");
 		}
 		osgViewer::ViewerBase::OperationThreads & threads=*threads_ptr;
-		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -1532,7 +1532,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg scenes in osgViewer::Viewer::getScenes function");
 		}
 		osgViewer::ViewerBase::Scenes & scenes=*scenes_ptr;
-		bool onlyValid=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool onlyValid=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -1558,7 +1558,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg views in osgViewer::Viewer::getViews function");
 		}
 		osgViewer::ViewerBase::Views & views=*views_ptr;
-		bool onlyValid=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool onlyValid=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -1841,7 +1841,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double simulationTime=luatop>1 ? (double)lua_tonumber(L,2) : DBL_MAX;
+		double simulationTime=luatop>1 ? (double)lua_tonumber(L,2) : (double)DBL_MAX;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -1885,7 +1885,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg windows in osgViewer::Viewer::base_getWindows function");
 		}
 		osgViewer::ViewerBase::Windows & windows=*windows_ptr;
-		bool onlyValid=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool onlyValid=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -1945,7 +1945,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool needed=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool needed=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -2386,7 +2386,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double simulationTime=luatop>1 ? (double)lua_tonumber(L,2) : DBL_MAX;
+		double simulationTime=luatop>1 ? (double)lua_tonumber(L,2) : (double)DBL_MAX;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -2448,7 +2448,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg cameras in osgViewer::Viewer::base_getCameras function");
 		}
 		osgViewer::ViewerBase::Cameras & cameras=*cameras_ptr;
-		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -2474,7 +2474,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg contexts in osgViewer::Viewer::base_getContexts function");
 		}
 		osgViewer::ViewerBase::Contexts & contexts=*contexts_ptr;
-		bool onlyValid=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool onlyValid=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -2500,7 +2500,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg threads in osgViewer::Viewer::base_getAllThreads function");
 		}
 		osgViewer::ViewerBase::Threads & threads=*threads_ptr;
-		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -2526,7 +2526,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg threads in osgViewer::Viewer::base_getOperationThreads function");
 		}
 		osgViewer::ViewerBase::OperationThreads & threads=*threads_ptr;
-		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool onlyActive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -2552,7 +2552,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg scenes in osgViewer::Viewer::base_getScenes function");
 		}
 		osgViewer::ViewerBase::Scenes & scenes=*scenes_ptr;
-		bool onlyValid=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool onlyValid=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
@@ -2578,7 +2578,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg views in osgViewer::Viewer::base_getViews function");
 		}
 		osgViewer::ViewerBase::Views & views=*views_ptr;
-		bool onlyValid=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool onlyValid=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {

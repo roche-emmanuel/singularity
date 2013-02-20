@@ -228,7 +228,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-		bool append=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool append=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 		std::string name(lua_tostring(L,3),lua_objlen(L,3));
 
 		return new sgt::FileLogger(filename, append, name);
@@ -255,7 +255,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-		bool append=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool append=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 		std::string name(lua_tostring(L,4),lua_objlen(L,4));
 
 		return new wrapper_sgt_FileLogger(L,NULL, filename, append, name);
@@ -305,7 +305,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-		bool append=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool append=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {

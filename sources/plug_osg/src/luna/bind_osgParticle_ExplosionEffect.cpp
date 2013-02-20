@@ -500,7 +500,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool automaticSetup=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
+		bool automaticSetup=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)true;
 
 		return new osgParticle::ExplosionEffect(automaticSetup);
 	}
@@ -519,8 +519,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg position in osgParticle::ExplosionEffect::ExplosionEffect function");
 		}
 		const osg::Vec3f & position=*position_ptr;
-		float scale=luatop>1 ? (float)lua_tonumber(L,2) : 1.0f;
-		float intensity=luatop>2 ? (float)lua_tonumber(L,3) : 1.0f;
+		float scale=luatop>1 ? (float)lua_tonumber(L,2) : (float)1.0f;
+		float intensity=luatop>2 ? (float)lua_tonumber(L,3) : (float)1.0f;
 
 		return new osgParticle::ExplosionEffect(position, scale, intensity);
 	}
@@ -543,7 +543,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgParticle::ExplosionEffect::ExplosionEffect function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgParticle::ExplosionEffect(copy, copyop);
 	}
@@ -557,7 +557,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool automaticSetup=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool automaticSetup=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		return new wrapper_osgParticle_ExplosionEffect(L,NULL, automaticSetup);
 	}
@@ -576,8 +576,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg position in osgParticle::ExplosionEffect::ExplosionEffect function");
 		}
 		const osg::Vec3f & position=*position_ptr;
-		float scale=luatop>2 ? (float)lua_tonumber(L,3) : 1.0f;
-		float intensity=luatop>3 ? (float)lua_tonumber(L,4) : 1.0f;
+		float scale=luatop>2 ? (float)lua_tonumber(L,3) : (float)1.0f;
+		float intensity=luatop>3 ? (float)lua_tonumber(L,4) : (float)1.0f;
 
 		return new wrapper_osgParticle_ExplosionEffect(L,NULL, position, scale, intensity);
 	}
@@ -600,7 +600,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgParticle::ExplosionEffect::ExplosionEffect function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgParticle_ExplosionEffect(L,NULL, copy, copyop);
 	}

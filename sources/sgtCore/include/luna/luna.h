@@ -17,7 +17,6 @@ extern "C" {
 #include <string>
 #include <iostream>
 #include <sstream>
-#include "lua/LuaObject.h"
 
 // Dummy struct used to declare a lua function parameter for a function.
 struct lua_Function {};
@@ -43,18 +42,6 @@ SGTCORE_EXPORT int luna_dynamicCast(lua_State* L, LunaConverterMap& converters, 
 
 SGTCORE_EXPORT int luna_pushModule(lua_State* L, const std::string& mname, int index = LUA_GLOBALSINDEX);
 SGTCORE_EXPORT int luna_popModule(lua_State* L);
-
-class SGTCORE_EXPORT luna_wrapper_base {
-protected:
-	sgt::LuaObject _obj;
-
-public:
-	luna_wrapper_base(lua_State* L) : _obj(L,1) {};
-
-	inline bool pushTable() { return _obj.pushLuaItem(); };
-
-	virtual ~luna_wrapper_base() {};
-};
 
 struct luna_eqstr{
 	bool operator()(const char* s1, const char* s2) const {
@@ -451,7 +438,9 @@ template <typename T> class Luna {
 		UserData *ud = static_cast<UserData*>(lua_newuserdata(L, sizeof(UserData)));
 		
 		// create a new container at the proper location:
-		void* res = new(&(ud->pT)) luna_container<ParentType>::container_type();
+		typedef typename luna_container<ParentType>::container_type ContainerType;
+		
+		void* res = new((void*)(&(ud->pT))) ContainerType();
 		
 		if(res!=&(ud->pT)) {
 			luaL_error(L,"Invalid placement new result : res=%d, pT=%d",res,&(ud->pT));
@@ -565,7 +554,7 @@ template <typename T> class Luna {
 		//T *obj = (T*)(ud->pT);
 		ParentType* pobj = luna_container<ParentType>::get(ud->pT);
 
-		sprintf(buff, "%p", obj);
+		sprintf(buff, "%p", pobj);
 		lua_pushfstring(L, "%s (%s)", T_interface::className, buff);
 		return 1;
 	}
@@ -776,5 +765,7 @@ int Luna<T>::new_modified_T(lua_State *L) {
 //EXPIMP_TEMPLATE 
 template class SGTCORE_EXPORT LunaTraits< void >;
 #endif
+
+#include "lua/LuaObject.h"
 
 #endif

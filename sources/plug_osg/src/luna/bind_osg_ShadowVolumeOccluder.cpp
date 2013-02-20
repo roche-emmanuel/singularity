@@ -304,7 +304,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg cullStack in osg::ShadowVolumeOccluder::computeOccluder function");
 		}
 		osg::CullStack & cullStack=*cullStack_ptr;
-		bool createDrawables=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool createDrawables=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		osg::ShadowVolumeOccluder* self=(Luna< osg::ShadowVolumeOccluder >::check(L,1));
 		if(!self) {

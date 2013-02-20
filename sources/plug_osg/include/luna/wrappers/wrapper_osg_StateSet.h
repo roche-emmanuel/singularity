@@ -664,7 +664,7 @@ public:
 		}
 		osg::StateSet::AttributeList & attributeList=*attributeList_ptr;
 		osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,3));
-		unsigned int value=luatop>3 ? (unsigned int)lua_tointeger(L,4) : osg::StateAttribute::OFF;
+		unsigned int value=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (const unsigned int)osg::StateAttribute::OFF;
 
 		wrapper_osg_StateSet* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_StateSet >(L,1);
 		if(!self) {

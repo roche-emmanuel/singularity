@@ -24,7 +24,7 @@ static int _bind_createGLCanvas(lua_State *L) {
 	wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 	int id=(int)lua_tointeger(L,2);
 
-	wxGLCanvas * lret = createGLCanvas(parent, id, NULL, L);
+	wxGLCanvas * lret = ::createGLCanvas(parent, id, NULL, L);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< wxGLCanvas >::push(L,lret,false);

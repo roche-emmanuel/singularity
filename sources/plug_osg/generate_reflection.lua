@@ -21,6 +21,13 @@ ReflectionGenerator.generate{
 	luaOpenName=project,
 	headers={"plug_common.h"},
 	destpath=dest_path,
+	ignoreFiles={"osgViewer/api/"},
+	ignoreDefines={
+		"GL_MAX_MAX_",
+		"GL_FRAMEBUFFER_INCOMPLETE_DUPLICATE_ATTACHMENT_EXT",
+		"GL_MIN_PROGRAM_TEXEL_OFFSET_EXT",
+		"GL_MAX_PROGRAM_TEXEL_OFFSET_EXT",
+	},
 	ignoreFunctions={
 		"iterator",
 		"GLTexImage3DProc",

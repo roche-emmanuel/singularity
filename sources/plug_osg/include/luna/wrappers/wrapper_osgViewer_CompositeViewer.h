@@ -140,7 +140,7 @@ public:
 	void setThreadingModel(osgViewer::ViewerBase::ThreadingModel threadingModel) {
 		if(_obj.pushFunction("setThreadingModel")) {
 			_obj.pushArg((osgViewer::CompositeViewer*)this);
-			_obj.pushArg(threadingModel);
+			_obj.pushArg((int)threadingModel);
 			return (_obj.callFunction<void>());
 		}
 

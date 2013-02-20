@@ -70,7 +70,7 @@ static int _bind_CopyBuffers(lua_State *L) {
 	bool convert_to_rgba=(bool)(lua_toboolean(L,8)==1);
 	bool flip_y=(bool)(lua_toboolean(L,9)==1);
 
-	CopyBuffers(width, height, &src, src_row_span, &dest, dest_row_span, dest_depth, convert_to_rgba, flip_y);
+	Awesomium::CopyBuffers(width, height, &src, src_row_span, &dest, dest_row_span, dest_depth, convert_to_rgba, flip_y);
 
 	return 0;
 }
@@ -90,7 +90,7 @@ static int _bind_WriteDataPak(lua_State *L) {
 	Awesomium::WebString ignore_ext = Awesomium::ToWebString(ignore_ext_str);
 	unsigned short num_files_written=(unsigned short)lua_tointeger(L,4);
 
-	bool lret = WriteDataPak(out_file, in_dir, ignore_ext, num_files_written);
+	bool lret = Awesomium::WriteDataPak(out_file, in_dir, ignore_ext, num_files_written);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -106,7 +106,7 @@ static int _bind_ToString(lua_State *L) {
 	std::string str_str(lua_tostring(L,1),lua_objlen(L,1));
 	Awesomium::WebString str = Awesomium::ToWebString(str_str);
 
-	std::string lret = ToString(str);
+	std::string lret = Awesomium::ToString(str);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -121,7 +121,7 @@ static int _bind_ToWebString(lua_State *L) {
 
 	std::string str(lua_tostring(L,1),lua_objlen(L,1));
 
-	Awesomium::WebString lret = ToWebString(str);
+	Awesomium::WebString lret = Awesomium::ToWebString(str);
 	std::string lret_str = Awesomium::ToString(lret);
 	lua_pushlstring(L,lret_str.data(),lret_str.size());
 
@@ -137,7 +137,7 @@ static int _bind_WSLit(lua_State *L) {
 
 	const char * string_literal=(const char *)lua_tostring(L,1);
 
-	Awesomium::WebString lret = WSLit(string_literal);
+	Awesomium::WebString lret = Awesomium::WSLit(string_literal);
 	std::string lret_str = Awesomium::ToString(lret);
 	lua_pushlstring(L,lret_str.data(),lret_str.size());
 

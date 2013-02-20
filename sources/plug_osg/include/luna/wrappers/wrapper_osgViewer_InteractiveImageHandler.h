@@ -375,7 +375,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg intersections in osgViewer::InteractiveImageHandler::public_computeIntersections function");
 		}
 		osgUtil::LineSegmentIntersector::Intersections & intersections=*intersections_ptr;
-		unsigned int traversalMask=luatop>6 ? (unsigned int)lua_tointeger(L,7) : 0xffffffff;
+		unsigned int traversalMask=luatop>6 ? (unsigned int)lua_tointeger(L,7) : (unsigned int)0xffffffff;
 
 		wrapper_osgViewer_InteractiveImageHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_InteractiveImageHandler >(L,1);
 		if(!self) {

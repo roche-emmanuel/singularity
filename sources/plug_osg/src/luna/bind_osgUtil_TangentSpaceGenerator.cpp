@@ -262,7 +262,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgUtil::TangentSpaceGenerator::TangentSpaceGenerator function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgUtil::TangentSpaceGenerator(copy, copyop);
 	}
@@ -296,7 +296,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgUtil::TangentSpaceGenerator::TangentSpaceGenerator function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgUtil_TangentSpaceGenerator(L,NULL, copy, copyop);
 	}
@@ -324,7 +324,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::Geometry* geo=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
-		int normal_map_tex_unit=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int normal_map_tex_unit=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		osgUtil::TangentSpaceGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::TangentSpaceGenerator >(L,1);
 		if(!self) {

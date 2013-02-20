@@ -125,7 +125,7 @@ public:
 // double osgUtil::IncrementalCompileOperation::CompileOp::estimatedTimeForCompile(osgUtil::IncrementalCompileOperation::CompileInfo & compileInfo) const
 double estimatedTimeForCompile(osgUtil::IncrementalCompileOperation::CompileInfo &) const {
 	THROW_IF(true,"The function call double osgUtil::IncrementalCompileOperation::CompileOp::estimatedTimeForCompile(osgUtil::IncrementalCompileOperation::CompileInfo &) const is not implemented in wrapper.");
-	return double();
+	return (double)0;
 };
 
 public:

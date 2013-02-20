@@ -434,7 +434,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int mode=luatop>0 ? (unsigned int)lua_tointeger(L,1) : 0;
+		unsigned int mode=luatop>0 ? (unsigned int)lua_tointeger(L,1) : (unsigned int)0;
 
 		return new osg::DrawArrays(mode);
 	}
@@ -451,7 +451,7 @@ public:
 		unsigned int mode=(unsigned int)lua_tointeger(L,1);
 		int first=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		int numInstances=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int numInstances=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		return new osg::DrawArrays(mode, first, count, numInstances);
 	}
@@ -474,7 +474,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::DrawArrays::DrawArrays function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::DrawArrays(da, copyop);
 	}
@@ -488,7 +488,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		return new wrapper_osg_DrawArrays(L,NULL, mode);
 	}
@@ -505,7 +505,7 @@ public:
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		int first=(int)lua_tointeger(L,3);
 		int count=(int)lua_tointeger(L,4);
-		int numInstances=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int numInstances=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		return new wrapper_osg_DrawArrays(L,NULL, mode, first, count, numInstances);
 	}
@@ -528,7 +528,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::DrawArrays::DrawArrays function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_DrawArrays(L,NULL, da, copyop);
 	}

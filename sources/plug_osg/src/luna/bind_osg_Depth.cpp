@@ -436,10 +436,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Depth::Function func=luatop>0 ? (osg::Depth::Function)lua_tointeger(L,1) : osg::Depth::LESS;
-		double zNear=luatop>1 ? (double)lua_tonumber(L,2) : 0.0;
-		double zFar=luatop>2 ? (double)lua_tonumber(L,3) : 1.0;
-		bool writeMask=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		osg::Depth::Function func=luatop>0 ? (osg::Depth::Function)lua_tointeger(L,1) : (osg::Depth::Function)osg::Depth::LESS;
+		double zNear=luatop>1 ? (double)lua_tonumber(L,2) : (double)0.0;
+		double zFar=luatop>2 ? (double)lua_tonumber(L,3) : (double)1.0;
+		bool writeMask=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		return new osg::Depth(func, zNear, zFar, writeMask);
 	}
@@ -462,7 +462,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Depth::Depth function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::Depth(dp, copyop);
 	}
@@ -476,10 +476,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Depth::Function func=luatop>1 ? (osg::Depth::Function)lua_tointeger(L,2) : osg::Depth::LESS;
-		double zNear=luatop>2 ? (double)lua_tonumber(L,3) : 0.0;
-		double zFar=luatop>3 ? (double)lua_tonumber(L,4) : 1.0;
-		bool writeMask=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		osg::Depth::Function func=luatop>1 ? (osg::Depth::Function)lua_tointeger(L,2) : (osg::Depth::Function)osg::Depth::LESS;
+		double zNear=luatop>2 ? (double)lua_tonumber(L,3) : (double)0.0;
+		double zFar=luatop>3 ? (double)lua_tonumber(L,4) : (double)1.0;
+		bool writeMask=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		return new wrapper_osg_Depth(L,NULL, func, zNear, zFar, writeMask);
 	}
@@ -502,7 +502,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Depth::Depth function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_Depth(L,NULL, dp, copyop);
 	}

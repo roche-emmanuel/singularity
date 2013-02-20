@@ -223,7 +223,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::DepthPartitionSettings::DepthMode mode=luatop>0 ? (osgViewer::DepthPartitionSettings::DepthMode)lua_tointeger(L,1) : osgViewer::DepthPartitionSettings::BOUNDING_VOLUME;
+		osgViewer::DepthPartitionSettings::DepthMode mode=luatop>0 ? (osgViewer::DepthPartitionSettings::DepthMode)lua_tointeger(L,1) : (osgViewer::DepthPartitionSettings::DepthMode)osgViewer::DepthPartitionSettings::BOUNDING_VOLUME;
 
 		return new osgViewer::DepthPartitionSettings(mode);
 	}
@@ -237,7 +237,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgViewer::DepthPartitionSettings::DepthMode mode=luatop>1 ? (osgViewer::DepthPartitionSettings::DepthMode)lua_tointeger(L,2) : osgViewer::DepthPartitionSettings::BOUNDING_VOLUME;
+		osgViewer::DepthPartitionSettings::DepthMode mode=luatop>1 ? (osgViewer::DepthPartitionSettings::DepthMode)lua_tointeger(L,2) : (osgViewer::DepthPartitionSettings::DepthMode)osgViewer::DepthPartitionSettings::BOUNDING_VOLUME;
 
 		return new wrapper_osgViewer_DepthPartitionSettings(L,NULL, mode);
 	}

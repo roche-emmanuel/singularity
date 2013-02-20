@@ -4,7 +4,8 @@
  *  Created on: 30 nov. 2012
  *      Author: kenshin
  */
-
+#include "sgtCommon.h"
+#include "luna/luna.h"
 #include "lua/LuaObject.h"
 
 using namespace sgt;

@@ -220,8 +220,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		int numThreads=(int)lua_tointeger(L,1);
-		osg::BarrierOperation::PreBlockOp op=luatop>1 ? (osg::BarrierOperation::PreBlockOp)lua_tointeger(L,2) : osg::BarrierOperation::NO_OPERATION;
-		bool keep=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		osg::BarrierOperation::PreBlockOp op=luatop>1 ? (osg::BarrierOperation::PreBlockOp)lua_tointeger(L,2) : (osg::BarrierOperation::PreBlockOp)osg::BarrierOperation::NO_OPERATION;
+		bool keep=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		return new osg::BarrierOperation(numThreads, op, keep);
 	}
@@ -236,8 +236,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		int numThreads=(int)lua_tointeger(L,2);
-		osg::BarrierOperation::PreBlockOp op=luatop>2 ? (osg::BarrierOperation::PreBlockOp)lua_tointeger(L,3) : osg::BarrierOperation::NO_OPERATION;
-		bool keep=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		osg::BarrierOperation::PreBlockOp op=luatop>2 ? (osg::BarrierOperation::PreBlockOp)lua_tointeger(L,3) : (osg::BarrierOperation::PreBlockOp)osg::BarrierOperation::NO_OPERATION;
+		bool keep=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		return new wrapper_osg_BarrierOperation(L,NULL, numThreads, op, keep);
 	}
@@ -355,7 +355,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int numThreads=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int numThreads=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {

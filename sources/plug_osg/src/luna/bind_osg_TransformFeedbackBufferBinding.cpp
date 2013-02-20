@@ -379,7 +379,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int index=luatop>0 ? (unsigned int)lua_tointeger(L,1) : 0;
+		unsigned int index=luatop>0 ? (unsigned int)lua_tointeger(L,1) : (unsigned int)0;
 
 		return new osg::TransformFeedbackBufferBinding(index);
 	}
@@ -417,7 +417,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::TransformFeedbackBufferBinding::TransformFeedbackBufferBinding function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::TransformFeedbackBufferBinding(rhs, copyop);
 	}
@@ -431,7 +431,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int index=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int index=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		return new wrapper_osg_TransformFeedbackBufferBinding(L,NULL, index);
 	}
@@ -469,7 +469,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::TransformFeedbackBufferBinding::TransformFeedbackBufferBinding function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_TransformFeedbackBufferBinding(L,NULL, rhs, copyop);
 	}

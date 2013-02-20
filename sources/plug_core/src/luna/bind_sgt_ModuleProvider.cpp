@@ -351,7 +351,7 @@ public:
 		if( luatop>1 && !co_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg co in sgt::ModuleProvider::ModuleProvider function");
 		}
-		const osg::CopyOp & co=luatop>1 ? *co_ptr : sgtCopyOp::SHALLOW_COPY;
+		const osg::CopyOp & co=luatop>1 ? *co_ptr : (const osg::CopyOp)sgtCopyOp::SHALLOW_COPY;
 
 		return new sgt::ModuleProvider(tm, co);
 	}
@@ -385,7 +385,7 @@ public:
 		if( luatop>2 && !co_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg co in sgt::ModuleProvider::ModuleProvider function");
 		}
-		const osg::CopyOp & co=luatop>2 ? *co_ptr : sgtCopyOp::SHALLOW_COPY;
+		const osg::CopyOp & co=luatop>2 ? *co_ptr : (const osg::CopyOp)sgtCopyOp::SHALLOW_COPY;
 
 		return new wrapper_sgt_ModuleProvider(L,NULL, tm, co);
 	}

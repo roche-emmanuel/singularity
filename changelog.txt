@@ -95,3 +95,4 @@
 - Preparing packaging system.
 - Added support for build number auto-increment.
 - Using version number for package generation.
+- Rebuilt core packages needed for ds411 port.

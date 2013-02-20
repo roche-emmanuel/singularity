@@ -393,7 +393,7 @@ public:
 		if( luatop>1 && !co_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg co in sgt::TimeProvider::TimeProvider function");
 		}
-		const osg::CopyOp & co=luatop>1 ? *co_ptr : sgtCopyOp::SHALLOW_COPY;
+		const osg::CopyOp & co=luatop>1 ? *co_ptr : (const osg::CopyOp)sgtCopyOp::SHALLOW_COPY;
 
 		return new sgt::TimeProvider(tm, co);
 	}
@@ -427,7 +427,7 @@ public:
 		if( luatop>2 && !co_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg co in sgt::TimeProvider::TimeProvider function");
 		}
-		const osg::CopyOp & co=luatop>2 ? *co_ptr : sgtCopyOp::SHALLOW_COPY;
+		const osg::CopyOp & co=luatop>2 ? *co_ptr : (const osg::CopyOp)sgtCopyOp::SHALLOW_COPY;
 
 		return new wrapper_sgt_TimeProvider(L,NULL, tm, co);
 	}
@@ -616,7 +616,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg value in sgt::TimeProvider::setCurrentTime function");
 		}
 		const boost::posix_time::ptime & value=*value_ptr;
-		bool utc=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool utc=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
@@ -757,7 +757,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool utc=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : false;
+		bool utc=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)false;
 
 		boost::posix_time::ptime stack_lret = sgt::TimeProvider::getRealTime(utc);
 		boost::posix_time::ptime* lret = new boost::posix_time::ptime(stack_lret);
@@ -778,7 +778,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		sgt::TimeProvider* provider=luatop>0 ? (Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1)) : (sgt::TimeProvider*)NULL;
-		bool utc=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool utc=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		boost::posix_time::ptime stack_lret = sgt::TimeProvider::getTime(provider, utc);
 		boost::posix_time::ptime* lret = new boost::posix_time::ptime(stack_lret);

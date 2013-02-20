@@ -915,7 +915,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::StateSet::StateSet function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::StateSet(_arg1, copyop);
 	}
@@ -949,7 +949,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::StateSet::StateSet function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_StateSet(L,NULL, _arg2, copyop);
 	}
@@ -1086,7 +1086,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::StateSet::compare function");
 		}
 		const osg::StateSet & rhs=*rhs_ptr;
-		bool compareAttributeContents=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool compareAttributeContents=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
@@ -1443,7 +1443,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
-		unsigned int value=luatop>2 ? (unsigned int)lua_tointeger(L,3) : osg::StateAttribute::OFF;
+		unsigned int value=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)osg::StateAttribute::OFF;
 
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
@@ -1465,7 +1465,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
-		unsigned int value=luatop>2 ? (unsigned int)lua_tointeger(L,3) : osg::StateAttribute::ON;
+		unsigned int value=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)osg::StateAttribute::ON;
 
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
@@ -1487,7 +1487,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,2);
-		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
@@ -1537,7 +1537,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,2);
-		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
@@ -1562,7 +1562,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,2);
-		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
@@ -1596,7 +1596,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,2);
-		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
@@ -1851,7 +1851,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 		osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,3));
-		unsigned int value=luatop>3 ? (unsigned int)lua_tointeger(L,4) : osg::StateAttribute::OFF;
+		unsigned int value=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)osg::StateAttribute::OFF;
 
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
@@ -1874,7 +1874,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 		osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,3));
-		unsigned int value=luatop>3 ? (unsigned int)lua_tointeger(L,4) : osg::StateAttribute::ON;
+		unsigned int value=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)osg::StateAttribute::ON;
 
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
@@ -2196,7 +2196,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::Uniform* uniform=(Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,2));
-		unsigned int value=luatop>2 ? (unsigned int)lua_tointeger(L,3) : osg::StateAttribute::ON;
+		unsigned int value=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)osg::StateAttribute::ON;
 
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
@@ -2319,7 +2319,7 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 		osg::Uniform::Type type=(osg::Uniform::Type)lua_tointeger(L,3);
-		unsigned int numElements=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 1;
+		unsigned int numElements=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)1;
 
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {
@@ -2479,7 +2479,7 @@ public:
 
 		int binNum=(int)lua_tointeger(L,2);
 		std::string binName(lua_tostring(L,3),lua_objlen(L,3));
-		osg::StateSet::RenderBinMode mode=luatop>3 ? (osg::StateSet::RenderBinMode)lua_tointeger(L,4) : osg::StateSet::USE_RENDERBIN_DETAILS;
+		osg::StateSet::RenderBinMode mode=luatop>3 ? (osg::StateSet::RenderBinMode)lua_tointeger(L,4) : (osg::StateSet::RenderBinMode)osg::StateSet::USE_RENDERBIN_DETAILS;
 
 		osg::StateSet* self=Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,1);
 		if(!self) {

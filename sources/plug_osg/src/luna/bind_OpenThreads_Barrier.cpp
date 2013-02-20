@@ -215,7 +215,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int numThreads=luatop>0 ? (int)lua_tointeger(L,1) : 0;
+		int numThreads=luatop>0 ? (int)lua_tointeger(L,1) : (int)0;
 
 		return new OpenThreads::Barrier(numThreads);
 	}
@@ -229,7 +229,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int numThreads=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int numThreads=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		return new wrapper_OpenThreads_Barrier(L,NULL, numThreads);
 	}
@@ -272,7 +272,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int numThreads=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int numThreads=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		OpenThreads::Barrier* self=(Luna< OpenThreads::Barrier >::check(L,1));
 		if(!self) {
@@ -366,7 +366,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int numThreads=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int numThreads=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		OpenThreads::Barrier* self=(Luna< OpenThreads::Barrier >::check(L,1));
 		if(!self) {

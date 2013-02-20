@@ -697,7 +697,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::PagedLOD::PagedLOD function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::PagedLOD(_arg1, copyop);
 	}
@@ -731,7 +731,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::PagedLOD::PagedLOD function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_PagedLOD(L,NULL, _arg2, copyop);
 	}
@@ -955,8 +955,8 @@ public:
 		float min=(float)lua_tonumber(L,3);
 		float max=(float)lua_tonumber(L,4);
 		std::string filename(lua_tostring(L,5),lua_objlen(L,5));
-		float priorityOffset=luatop>5 ? (float)lua_tonumber(L,6) : 0.0f;
-		float priorityScale=luatop>6 ? (float)lua_tonumber(L,7) : 1.0f;
+		float priorityOffset=luatop>5 ? (float)lua_tonumber(L,6) : (float)0.0f;
+		float priorityScale=luatop>6 ? (float)lua_tonumber(L,7) : (float)1.0f;
 
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
@@ -989,7 +989,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned int pos=(unsigned int)lua_tointeger(L,2);
-		unsigned int numChildrenToRemove=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 1;
+		unsigned int numChildrenToRemove=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)1;
 
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
@@ -2259,8 +2259,8 @@ public:
 		float min=(float)lua_tonumber(L,3);
 		float max=(float)lua_tonumber(L,4);
 		std::string filename(lua_tostring(L,5),lua_objlen(L,5));
-		float priorityOffset=luatop>5 ? (float)lua_tonumber(L,6) : 0.0f;
-		float priorityScale=luatop>6 ? (float)lua_tonumber(L,7) : 1.0f;
+		float priorityOffset=luatop>5 ? (float)lua_tonumber(L,6) : (float)0.0f;
+		float priorityScale=luatop>6 ? (float)lua_tonumber(L,7) : (float)1.0f;
 
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {
@@ -2293,7 +2293,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned int pos=(unsigned int)lua_tointeger(L,2);
-		unsigned int numChildrenToRemove=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 1;
+		unsigned int numChildrenToRemove=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)1;
 
 		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
 		if(!self) {

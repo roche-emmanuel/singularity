@@ -3,7 +3,7 @@ dofile(sgt_path .. "scripts/generate_common.lua")
 local tm = require "bindings.TypeManager"
 tm:registerDeleter("osg::Referenced","osg::ref_ptr<osg::Referenced> refptr = ${1};")
 
-tm:registerMappedType("unsigned __int64");
+-- tm:registerMappedType("unsigned __int64");
 tm:setTypeConstructor("OpenThreads::ScopedLock< OpenThreads::Mutex >","NULL;")
 
 local ReflectionGenerator = require "bindings.LunaReflectionGenerator"

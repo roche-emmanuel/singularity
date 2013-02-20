@@ -688,7 +688,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool allocated=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool allocated=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		osg::Texture::TextureObject* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObject >(L,1);
 		if(!self) {

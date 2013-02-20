@@ -128,7 +128,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg start_date in boost::gregorian::month_iterator::month_iterator function");
 		}
 		boost::gregorian::date & start_date=*start_date_ptr;
-		int month_count=luatop>1 ? (int)lua_tointeger(L,2) : 1;
+		int month_count=luatop>1 ? (int)lua_tointeger(L,2) : (int)1;
 
 		return new boost::gregorian::month_iterator(start_date, month_count);
 	}

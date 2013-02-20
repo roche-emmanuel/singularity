@@ -376,7 +376,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::ShadeModel::Mode mode=luatop>0 ? (osg::ShadeModel::Mode)lua_tointeger(L,1) : osg::ShadeModel::SMOOTH;
+		osg::ShadeModel::Mode mode=luatop>0 ? (osg::ShadeModel::Mode)lua_tointeger(L,1) : (osg::ShadeModel::Mode)osg::ShadeModel::SMOOTH;
 
 		return new osg::ShadeModel(mode);
 	}
@@ -399,7 +399,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::ShadeModel::ShadeModel function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::ShadeModel(sm, copyop);
 	}
@@ -413,7 +413,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::ShadeModel::Mode mode=luatop>1 ? (osg::ShadeModel::Mode)lua_tointeger(L,2) : osg::ShadeModel::SMOOTH;
+		osg::ShadeModel::Mode mode=luatop>1 ? (osg::ShadeModel::Mode)lua_tointeger(L,2) : (osg::ShadeModel::Mode)osg::ShadeModel::SMOOTH;
 
 		return new wrapper_osg_ShadeModel(L,NULL, mode);
 	}
@@ -436,7 +436,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::ShadeModel::ShadeModel function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_ShadeModel(L,NULL, sm, copyop);
 	}

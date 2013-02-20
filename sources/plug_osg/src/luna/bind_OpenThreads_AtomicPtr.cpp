@@ -136,7 +136,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		void* ptr=luatop>0 ? (Luna< void >::check(L,1)) : 0;
+		void* ptr=luatop>0 ? (Luna< void >::check(L,1)) : (void*)0;
 
 		return new OpenThreads::AtomicPtr(ptr);
 	}

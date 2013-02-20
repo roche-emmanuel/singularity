@@ -178,7 +178,7 @@ public:
 
 		std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 		std::string extension(lua_tostring(L,2),lua_objlen(L,2));
-		osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy savePolicy=luatop>2 ? (osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy)lua_tointeger(L,3) : osgViewer::ScreenCaptureHandler::WriteToFile::SEQUENTIAL_NUMBER;
+		osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy savePolicy=luatop>2 ? (osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy)lua_tointeger(L,3) : (osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy)osgViewer::ScreenCaptureHandler::WriteToFile::SEQUENTIAL_NUMBER;
 
 		return new osgViewer::ScreenCaptureHandler::WriteToFile(filename, extension, savePolicy);
 	}
@@ -194,7 +194,7 @@ public:
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 		std::string extension(lua_tostring(L,3),lua_objlen(L,3));
-		osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy savePolicy=luatop>3 ? (osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy)lua_tointeger(L,4) : osgViewer::ScreenCaptureHandler::WriteToFile::SEQUENTIAL_NUMBER;
+		osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy savePolicy=luatop>3 ? (osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy)lua_tointeger(L,4) : (osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy)osgViewer::ScreenCaptureHandler::WriteToFile::SEQUENTIAL_NUMBER;
 
 		return new wrapper_osgViewer_ScreenCaptureHandler_WriteToFile(L,NULL, filename, extension, savePolicy);
 	}

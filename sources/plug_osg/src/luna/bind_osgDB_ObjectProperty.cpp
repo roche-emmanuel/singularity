@@ -192,8 +192,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * name=(const char *)lua_tostring(L,1);
-		int value=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		bool useMap=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		int value=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		bool useMap=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		return new osgDB::ObjectProperty(name, value, useMap);
 	}

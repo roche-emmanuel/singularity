@@ -233,7 +233,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool needed=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool needed=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		osgGA::GUIActionAdapter* self=(Luna< osgGA::GUIActionAdapter >::check(L,1));
 		if(!self) {

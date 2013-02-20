@@ -84,7 +84,7 @@ const char LunaTraits< void >::moduleName[] = "sgt";
 const int LunaTraits< void >::hash = 3625364;
 const int LunaTraits< void >::uniqueIDs[] = {3625364,0};
 
-const char LunaTraits< osg::ref_ptr< osg::Referenced > >::className[] = "Referenced";
+const char LunaTraits< osg::ref_ptr< osg::Referenced > >::className[] = "osg_ref_ptr_osg_Referenced";
 const char LunaTraits< osg::ref_ptr< osg::Referenced > >::fullName[] = "osg::ref_ptr< osg::Referenced >";
 const char LunaTraits< osg::ref_ptr< osg::Referenced > >::moduleName[] = "sgt";
 const int LunaTraits< osg::ref_ptr< osg::Referenced > >::hash = 84922662;

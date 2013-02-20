@@ -86,7 +86,7 @@ static int _bind_isFurtherToCamera(lua_State *L) {
 	}
 	const SPK::Particle & b=*b_ptr;
 
-	bool lret = isFurtherToCamera(a, b);
+	bool lret = SPK::isFurtherToCamera(a, b);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -110,7 +110,7 @@ static int _bind_swapParticles(lua_State *L) {
 	}
 	SPK::Particle & b=*b_ptr;
 
-	swapParticles(a, b);
+	SPK::swapParticles(a, b);
 
 	return 0;
 }
@@ -133,7 +133,7 @@ static int _bind_getSqrDist(lua_State *L) {
 	}
 	const SPK::Vector3D & v1=*v1_ptr;
 
-	float lret = getSqrDist(v0, v1);
+	float lret = SPK::getSqrDist(v0, v1);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -157,7 +157,7 @@ static int _bind_getDist(lua_State *L) {
 	}
 	const SPK::Vector3D & v1=*v1_ptr;
 
-	float lret = getDist(v0, v1);
+	float lret = SPK::getDist(v0, v1);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -181,7 +181,7 @@ static int _bind_dotProduct(lua_State *L) {
 	}
 	const SPK::Vector3D & v1=*v1_ptr;
 
-	float lret = dotProduct(v0, v1);
+	float lret = SPK::dotProduct(v0, v1);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -205,7 +205,7 @@ static int _bind_crossProduct_overload_1(lua_State *L) {
 	}
 	const SPK::Vector3D & v1=*v1_ptr;
 
-	SPK::Vector3D stack_lret = crossProduct(v0, v1);
+	SPK::Vector3D stack_lret = SPK::crossProduct(v0, v1);
 	SPK::Vector3D* lret = new SPK::Vector3D(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -237,7 +237,7 @@ static int _bind_crossProduct_overload_2(lua_State *L) {
 	}
 	SPK::Vector3D & result=*result_ptr;
 
-	crossProduct(v0, v1, result);
+	SPK::crossProduct(v0, v1, result);
 
 	return 0;
 }

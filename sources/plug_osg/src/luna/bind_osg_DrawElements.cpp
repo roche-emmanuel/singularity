@@ -318,9 +318,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::PrimitiveSet::Type primType=luatop>1 ? (osg::PrimitiveSet::Type)lua_tointeger(L,2) : osg::PrimitiveSet::PrimitiveType;
-		unsigned int mode=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
-		int numInstances=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		osg::PrimitiveSet::Type primType=luatop>1 ? (osg::PrimitiveSet::Type)lua_tointeger(L,2) : (osg::PrimitiveSet::Type)osg::PrimitiveSet::PrimitiveType;
+		unsigned int mode=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
+		int numInstances=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		return new wrapper_osg_DrawElements(L,NULL, primType, mode, numInstances);
 	}
@@ -343,7 +343,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::DrawElements::DrawElements function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_DrawElements(L,NULL, copy, copyop);
 	}

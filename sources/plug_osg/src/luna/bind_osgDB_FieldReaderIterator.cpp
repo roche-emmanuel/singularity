@@ -401,7 +401,7 @@ public:
 
 
 	// Operator checkers:
-	// (found 3 valid operators)
+	// (found 4 valid operators)
 	inline static bool _lg_typecheck_op_assign(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -413,6 +413,12 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_inc(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -1269,6 +1275,27 @@ public:
 		return 1;
 	}
 
+	// osgDB::FieldReaderIterator & osgDB::FieldReaderIterator::operator++()
+	static int _bind_op_inc(lua_State *L) {
+		if (!_lg_typecheck_op_inc(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::FieldReaderIterator & osgDB::FieldReaderIterator::operator++() function, expected prototype:\nosgDB::FieldReaderIterator & osgDB::FieldReaderIterator::operator++()\nClass arguments details:\n");
+		}
+
+
+		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::FieldReaderIterator & osgDB::FieldReaderIterator::operator++(). Got : '%s'",typeid(Luna< osgDB::FieldReaderIterator >::check(L,1)).name());
+		}
+		const osgDB::FieldReaderIterator* lret = &self->operator++();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::FieldReaderIterator >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// osgDB::FieldReaderIterator & osgDB::FieldReaderIterator::operator+=(int no)
 	static int _bind_op_add(lua_State *L) {
 		if (!_lg_typecheck_op_add(L)) {
@@ -1324,6 +1351,7 @@ luna_RegType LunaTraits< osgDB::FieldReaderIterator >::methods[] = {
 	{"base_eof", &luna_wrapper_osgDB_FieldReaderIterator::_bind_base_eof},
 	{"op_assign", &luna_wrapper_osgDB_FieldReaderIterator::_bind_op_assign},
 	{"op_index", &luna_wrapper_osgDB_FieldReaderIterator::_bind_op_index},
+	{"op_inc", &luna_wrapper_osgDB_FieldReaderIterator::_bind_op_inc},
 	{"op_add", &luna_wrapper_osgDB_FieldReaderIterator::_bind_op_add},
 	{"dynCast", &luna_wrapper_osgDB_FieldReaderIterator::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgDB_FieldReaderIterator::_bind___eq},

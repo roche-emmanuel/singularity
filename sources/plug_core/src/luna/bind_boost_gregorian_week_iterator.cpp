@@ -128,7 +128,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg start_date in boost::gregorian::week_iterator::week_iterator function");
 		}
 		boost::gregorian::date & start_date=*start_date_ptr;
-		int week_count=luatop>1 ? (int)lua_tointeger(L,2) : 1;
+		int week_count=luatop>1 ? (int)lua_tointeger(L,2) : (int)1;
 
 		return new boost::gregorian::week_iterator(start_date, week_count);
 	}

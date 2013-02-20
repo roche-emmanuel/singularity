@@ -571,7 +571,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>0 ? (int)lua_tointeger(L,1) : osgGA::StandardManipulator::DEFAULT_SETTINGS;
+		int flags=luatop>0 ? (int)lua_tointeger(L,1) : (int)osgGA::StandardManipulator::DEFAULT_SETTINGS;
 
 		return new osgGA::TerrainManipulator(flags);
 	}
@@ -594,7 +594,7 @@ public:
 		if( luatop>1 && !copyOp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::TerrainManipulator::TerrainManipulator function");
 		}
-		const osg::CopyOp & copyOp=luatop>1 ? *copyOp_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyOp=luatop>1 ? *copyOp_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgGA::TerrainManipulator(tm, copyOp);
 	}
@@ -608,7 +608,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : osgGA::StandardManipulator::DEFAULT_SETTINGS;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)osgGA::StandardManipulator::DEFAULT_SETTINGS;
 
 		return new wrapper_osgGA_TerrainManipulator(L,NULL, flags);
 	}
@@ -631,7 +631,7 @@ public:
 		if( luatop>2 && !copyOp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::TerrainManipulator::TerrainManipulator function");
 		}
-		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgGA_TerrainManipulator(L,NULL, tm, copyOp);
 	}
@@ -1077,7 +1077,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg up in osgGA::TerrainManipulator::base_setHomePosition function");
 		}
 		const osg::Vec3d & up=*up_ptr;
-		bool autoComputeHomePosition=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool autoComputeHomePosition=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		osgGA::TerrainManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TerrainManipulator >(L,1);
 		if(!self) {
@@ -1151,7 +1151,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const osg::Camera* camera=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2)) : (const osg::Camera*)((void *) 0);
-		bool useBoundingBox=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool useBoundingBox=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		osgGA::TerrainManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TerrainManipulator >(L,1);
 		if(!self) {
@@ -1675,7 +1675,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double minimumDistance=(double)lua_tonumber(L,2);
-		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : ((void *) 0);
+		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)((void *) 0);
 
 		osgGA::TerrainManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::TerrainManipulator >(L,1);
 		if(!self) {

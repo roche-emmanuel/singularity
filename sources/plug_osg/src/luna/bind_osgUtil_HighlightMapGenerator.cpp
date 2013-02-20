@@ -195,7 +195,7 @@ public:
 		}
 		const osg::Vec4f & light_color=*light_color_ptr;
 		float specular_exponent=(float)lua_tonumber(L,3);
-		int texture_size=luatop>3 ? (int)lua_tointeger(L,4) : 64;
+		int texture_size=luatop>3 ? (int)lua_tointeger(L,4) : (int)64;
 
 		return new osgUtil::HighlightMapGenerator(light_direction, light_color, specular_exponent, texture_size);
 	}
@@ -218,7 +218,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgUtil::HighlightMapGenerator::HighlightMapGenerator function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgUtil::HighlightMapGenerator(copy, copyop);
 	}
@@ -243,7 +243,7 @@ public:
 		}
 		const osg::Vec4f & light_color=*light_color_ptr;
 		float specular_exponent=(float)lua_tonumber(L,4);
-		int texture_size=luatop>4 ? (int)lua_tointeger(L,5) : 64;
+		int texture_size=luatop>4 ? (int)lua_tointeger(L,5) : (int)64;
 
 		return new wrapper_osgUtil_HighlightMapGenerator(L,NULL, light_direction, light_color, specular_exponent, texture_size);
 	}
@@ -266,7 +266,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgUtil::HighlightMapGenerator::HighlightMapGenerator function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgUtil_HighlightMapGenerator(L,NULL, copy, copyop);
 	}

@@ -37,3 +37,8 @@
 	
 * Upgrade version of doxmlparser
 
+* Implement financial market predictor with:
+  - neural network
+  - colline society
+  - opencog system from: https://github.com/opencog/opencog
+  

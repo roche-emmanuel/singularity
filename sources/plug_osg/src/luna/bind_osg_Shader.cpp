@@ -491,7 +491,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Shader::Type type=luatop>0 ? (osg::Shader::Type)lua_tointeger(L,1) : osg::Shader::UNDEFINED;
+		osg::Shader::Type type=luatop>0 ? (osg::Shader::Type)lua_tointeger(L,1) : (osg::Shader::Type)osg::Shader::UNDEFINED;
 
 		return new osg::Shader(type);
 	}
@@ -540,7 +540,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Shader::Shader function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::Shader(rhs, copyop);
 	}
@@ -554,7 +554,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Shader::Type type=luatop>1 ? (osg::Shader::Type)lua_tointeger(L,2) : osg::Shader::UNDEFINED;
+		osg::Shader::Type type=luatop>1 ? (osg::Shader::Type)lua_tointeger(L,2) : (osg::Shader::Type)osg::Shader::UNDEFINED;
 
 		return new wrapper_osg_Shader(L,NULL, type);
 	}
@@ -603,7 +603,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Shader::Shader function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_Shader(L,NULL, rhs, copyop);
 	}

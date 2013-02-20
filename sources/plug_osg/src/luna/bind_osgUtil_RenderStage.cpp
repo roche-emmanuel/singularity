@@ -945,7 +945,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgUtil::RenderStage::RenderStage function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgUtil::RenderStage(rhs, copyop);
 	}
@@ -991,7 +991,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgUtil::RenderStage::RenderStage function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgUtil_RenderStage(L,NULL, rhs, copyop);
 	}
@@ -1125,7 +1125,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned int buffer=(unsigned int)lua_tointeger(L,2);
-		bool applyMask=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool applyMask=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgUtil::RenderStage* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderStage >(L,1);
 		if(!self) {
@@ -1204,7 +1204,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned int buffer=(unsigned int)lua_tointeger(L,2);
-		bool applyMask=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool applyMask=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgUtil::RenderStage* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderStage >(L,1);
 		if(!self) {
@@ -1796,8 +1796,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::Texture* texture=(Luna< osg::Referenced >::checkSubType< osg::Texture >(L,2));
-		unsigned int level=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
-		unsigned int face=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
+		unsigned int level=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
+		unsigned int face=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
 
 		osgUtil::RenderStage* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderStage >(L,1);
 		if(!self) {
@@ -2550,7 +2550,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osgUtil::RenderStage* rs=(Luna< osg::Referenced >::checkSubType< osgUtil::RenderStage >(L,2));
-		int order=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int order=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		osgUtil::RenderStage* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderStage >(L,1);
 		if(!self) {
@@ -2572,7 +2572,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osgUtil::RenderStage* rs=(Luna< osg::Referenced >::checkSubType< osgUtil::RenderStage >(L,2));
-		int order=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int order=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		osgUtil::RenderStage* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderStage >(L,1);
 		if(!self) {

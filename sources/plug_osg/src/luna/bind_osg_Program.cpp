@@ -282,7 +282,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -612,7 +612,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Program::Program function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::Program(rhs, copyop);
 	}
@@ -646,7 +646,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Program::Program function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_Program(L,NULL, rhs, copyop);
 	}
@@ -1076,14 +1076,14 @@ public:
 		}
 
 		unsigned int pname=(unsigned int)lua_tointeger(L,2);
-		float value=(float)lua_tonumber(L,3);
+		float* value=(float*)Luna< void >::check(L,3);
 
 		osg::Program* self=Luna< osg::Referenced >::checkSubType< osg::Program >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Program::setParameterfv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->setParameterfv(pname, &value);
+		self->setParameterfv(pname, value);
 
 		return 0;
 	}

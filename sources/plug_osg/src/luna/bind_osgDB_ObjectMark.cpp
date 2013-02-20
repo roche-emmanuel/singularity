@@ -158,7 +158,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * name=(const char *)lua_tostring(L,1);
-		int delta=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int delta=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		return new osgDB::ObjectMark(name, delta);
 	}

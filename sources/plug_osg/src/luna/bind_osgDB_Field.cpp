@@ -506,7 +506,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool withinQuotes=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool withinQuotes=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		osgDB::Field* self=(Luna< osgDB::Field >::check(L,1));
 		if(!self) {
@@ -1062,7 +1062,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * str=(const char *)lua_tostring(L,1);
-		bool withinQuotes=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool withinQuotes=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		osgDB::Field::FieldType lret = osgDB::Field::calculateFieldType(str, withinQuotes);
 		lua_pushnumber(L,lret);

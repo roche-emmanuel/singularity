@@ -102,7 +102,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,90586498)) ) return false;
 		if( luatop>1 && (lua_isnil(L,2)==0 && !(Luna< osg::Timer >::check(L,2)) ) ) return false;
 		return true;
@@ -169,10 +169,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double elapsedTime=(double)lua_tonumber(L,1);
+		double* elapsedTime=(double*)Luna< void >::check(L,1);
 		osg::Timer* timer=luatop>1 ? (Luna< osg::Timer >::check(L,2)) : (osg::Timer*)0;
 
-		return new osg::ElapsedTime(&elapsedTime, timer);
+		return new osg::ElapsedTime(elapsedTime, timer);
 	}
 
 	// osg::ElapsedTime::ElapsedTime(osg::Timer * timer = 0)

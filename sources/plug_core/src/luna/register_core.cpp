@@ -15,6 +15,7 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 
 	luna_pushModule(L,"sgt");
 	Luna< __int64 >::Register(L);
+	Luna< __uint64 >::Register(L);
 	Luna< BaseClass >::Register(L);
 	Luna< uintptr_t >::Register(L);
 	Luna< void >::Register(L);
@@ -69,7 +70,6 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	Luna< std::ostream >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"sgt");
-	Luna< unsigned __int64 >::Register(L);
 	Luna< std::vector< int > >::Register(L);
 	Luna< std::vector< float > >::Register(L);
 	Luna< std::vector< double > >::Register(L);

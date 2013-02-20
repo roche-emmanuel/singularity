@@ -181,7 +181,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg light_direction in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator function");
 		}
 		const osg::Vec3f & light_direction=*light_direction_ptr;
-		int texture_size=luatop>1 ? (int)lua_tointeger(L,2) : 64;
+		int texture_size=luatop>1 ? (int)lua_tointeger(L,2) : (int)64;
 
 		return new osgUtil::HalfWayMapGenerator(light_direction, texture_size);
 	}
@@ -221,7 +221,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg light_direction in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator function");
 		}
 		const osg::Vec3f & light_direction=*light_direction_ptr;
-		int texture_size=luatop>2 ? (int)lua_tointeger(L,3) : 64;
+		int texture_size=luatop>2 ? (int)lua_tointeger(L,3) : (int)64;
 
 		return new wrapper_osgUtil_HalfWayMapGenerator(L,NULL, light_direction, texture_size);
 	}

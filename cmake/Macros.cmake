@@ -236,13 +236,38 @@ MACRO(PRECOMPILE_LUA luafile)
 ENDMACRO(PRECOMPILE_LUA)
 
 MACRO(GENERATE_LUA_PACKAGE STUB_NAME)
-	ADD_CUSTOM_TARGET(
-		${TARGET_NAME}_package
-		COMMAND echo "Generating lua package..."
-		COMMAND ${LUA} -e "project='${TARGET_NAME}'; src_path='${CMAKE_CURRENT_SOURCE_DIR}/../modules/'; sgt_path='${SGT_DIR}/';" ${SGT_DIR}/scripts/generate_package.lua
-		COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/../CMakeLists.txt # touch the calling file.
-		COMMAND echo "Package generation done."
-	)	
+	IF(MSVC)
+		ADD_CUSTOM_TARGET(
+			${TARGET_NAME}_package
+			COMMAND echo "Generating lua package..."
+			COMMAND ${LUA} -e "project='${TARGET_NAME}'; src_path='${CMAKE_CURRENT_SOURCE_DIR}/../modules/'; sgt_path='${SGT_DIR}/';" ${SGT_DIR}/scripts/generate_package.lua
+			COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/../CMakeLists.txt # touch the calling file.
+			COMMAND echo "Package generation done."
+		)	
+	ELSE()
+		SET(LUAFILE "gen_lua_package.lua")
+		
+		ADD_CUSTOM_TARGET(
+			${TARGET_NAME}_package
+			COMMAND ${ECHO} "Generating lua package..."
+			COMMAND ${ECHO} -n "project=\'" > ${LUAFILE}
+			COMMAND ${ECHO} -n ${TARGET_NAME} >> ${LUAFILE}
+			COMMAND ${ECHO} \'; >> ${LUAFILE}
+			COMMAND ${ECHO} -n "src_path=\'" >> ${LUAFILE}
+			COMMAND ${ECHO} -n `cygpath -w "${CMAKE_CURRENT_SOURCE_DIR}/../modules/"` >> ${LUAFILE}
+			COMMAND ${ECHO} \' >> ${LUAFILE}
+			COMMAND ${ECHO} -n "sgt_path=\'" >> ${LUAFILE}
+			COMMAND ${ECHO} -n ${SGT_DIR}/ >> ${LUAFILE}
+			COMMAND ${ECHO} \' >> ${LUAFILE}
+			COMMAND ${ECHO} -n "dofile\(\'" >> ${LUAFILE}
+			COMMAND ${ECHO} -n ${SGT_DIR}/scripts/generate_package.lua >> ${LUAFILE}
+			COMMAND ${ECHO} \'\) >> ${LUAFILE}
+			COMMAND ${SED} -i 's/\\\\/\\//g' ${LUAFILE}
+			COMMAND ${LUA} ${LUAFILE} 
+			COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/../CMakeLists.txt # touch the calling file.
+			COMMAND ${ECHO} "Package generation done."
+		)	
+	ENDIF()
 	
 	ADD_DEPENDENCIES(${STUB_NAME} ${TARGET_NAME}_package)
 ENDMACRO(GENERATE_LUA_PACKAGE)
@@ -317,7 +342,9 @@ MACRO(GENERATE_REFLECTION STUB_NAME INTERFACE_FILES)
 			# COMMAND ${DOXYGEN} ${DOXFILE}
 			COMMAND echo "Generating lua reflection..."
 			# COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${MOD_NAME}'; xml_path='${CMAKE_CURRENT_BINARY_DIR}/xml/'; sgt_path='${SGT_DIR}/';" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
-			COMMAND echo "project=\'${TARGET_NAME}\'" > ${CFGFILE}
+			COMMAND echo -n "project=\'" > ${CFGFILE}
+			COMMAND echo -n ${TARGET_NAME} >> ${CFGFILE}
+			COMMAND echo  "\'" >> ${CFGFILE}
 			COMMAND echo -n "xml_path=\'" >> ${CFGFILE}
 			COMMAND echo -n	`cygpath -w "${CMAKE_CURRENT_BINARY_DIR}/xml/"` >> ${CFGFILE}
 			COMMAND echo "\'" >> ${CFGFILE}

@@ -558,7 +558,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgDB::Options::Options function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgDB::Options(options, copyop);
 	}
@@ -604,7 +604,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgDB::Options::Options function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgDB_Options(L,NULL, options, copyop);
 	}
@@ -742,7 +742,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgDB::Options::cloneOptions function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {
@@ -1207,8 +1207,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
-		char separator1=luatop>2 ? (char)lua_tointeger(L,3) : ' ';
-		char separator2=luatop>3 ? (char)lua_tointeger(L,4) : '=';
+		char separator1=luatop>2 ? (char)lua_tointeger(L,3) : (char)' ';
+		char separator2=luatop>3 ? (char)lua_tointeger(L,4) : (char)'=';
 
 		osgDB::Options* self=Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1);
 		if(!self) {

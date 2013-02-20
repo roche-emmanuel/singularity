@@ -520,7 +520,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::ClipNode::ClipNode function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::ClipNode(es, copyop);
 	}
@@ -554,7 +554,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::ClipNode::ClipNode function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_ClipNode(L,NULL, es, copyop);
 	}
@@ -752,7 +752,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::ClipNode::createClipBox function");
 		}
 		const osg::BoundingBoxd & bb=*bb_ptr;
-		unsigned int clipPlaneNumberBase=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int clipPlaneNumberBase=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		osg::ClipNode* self=Luna< osg::Referenced >::checkSubType< osg::ClipNode >(L,1);
 		if(!self) {
@@ -1012,7 +1012,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int _arg1=luatop>1 ? (unsigned int)lua_tointeger(L,2) : osg::StateAttribute::ON;
+		unsigned int _arg1=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)osg::StateAttribute::ON;
 
 		osg::ClipNode* self=Luna< osg::Referenced >::checkSubType< osg::ClipNode >(L,1);
 		if(!self) {

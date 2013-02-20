@@ -47,6 +47,9 @@ protected:
 class __int64 {
 };
 
+class __uint64 {
+};
+
 class uintptr_t {
 };
 

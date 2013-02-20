@@ -24,6 +24,8 @@
 #include "log/FileLogger.h"
 #include "log/StdLogger.h"
 #include "base/Container.h"
+#include "lua/ModuleProvider.h"
+#include "base/TimeProvider.h"
 
 using namespace boost;
 using namespace sgt;

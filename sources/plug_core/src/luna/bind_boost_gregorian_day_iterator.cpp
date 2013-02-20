@@ -128,7 +128,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg start_date in boost::gregorian::day_iterator::day_iterator function");
 		}
 		boost::gregorian::date & start_date=*start_date_ptr;
-		int day_count=luatop>1 ? (int)lua_tointeger(L,2) : 1;
+		int day_count=luatop>1 ? (int)lua_tointeger(L,2) : (int)1;
 
 		return new boost::gregorian::day_iterator(start_date, day_count);
 	}

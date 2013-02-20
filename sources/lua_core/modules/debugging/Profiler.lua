@@ -1,7 +1,8 @@
 local Class = require("classBuilder"){name="Profiler",bases="base.Object"};
 
-local osg = require "osg"
+-- local osg = require "osg"
 local Section = require "debugging.Section"
+local tm = require "base.TimeManager"
 
 function Class:initialize()
 	local Map = require "std.Map"
@@ -10,15 +11,17 @@ function Class:initialize()
 	self._sections = {} --Map();
 	self._sectionStack = Vector()
 	self._enabled = true
-	self._timer = osg.Timer.instance()
+	--self._timer = osg.Timer.instance()
 end
 
 function Class:begin()
-	self._beginTick = self._timer:tick()
+	-- self._beginTick = self._timer:tick()
+	self._beginTick = tm:tick()
 end
 
 function Class:finish()
-	self._totalTime = self._timer:delta_s(self._beginTick,self._timer:tick());
+	-- self._totalTime = self._timer:delta_s(self._beginTick,self._timer:tick());
+	self._totalTime =tm:delta_s(self._beginTick);
 end
 
 function Class:start(sname)

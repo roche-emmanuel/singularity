@@ -15,8 +15,9 @@ function Class:writeFile()
 
 	local headers = Set();
 	for _,def in defs:sequence() do
-		local header = def:getHeaderFile()
-		if header and not im:ignoreHeader(header) then
+		header = def:getHeaderFile()
+		
+		if not def:isIgnored() then
 			headers:push_back(header)
 		end		
 	end

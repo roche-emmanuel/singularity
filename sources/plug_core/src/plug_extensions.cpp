@@ -112,8 +112,8 @@ void setEnv(const std::string& var, const std::string& value) {
 	std::string str = var + "=" + value;
 	_putenv(str.c_str());
 #else
-	std::string str = var + "=" + value
-	putenv(str.c_str());
+	std::string str = var + "=" + value;
+	putenv((char*)str.c_str());
 #endif
 };
 

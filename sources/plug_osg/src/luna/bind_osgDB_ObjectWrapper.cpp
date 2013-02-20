@@ -368,7 +368,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osgDB::BaseSerializer* s=(Luna< osg::Referenced >::checkSubType< osgDB::BaseSerializer >(L,2));
-		osgDB::BaseSerializer::Type t=luatop>2 ? (osgDB::BaseSerializer::Type)lua_tointeger(L,3) : osgDB::BaseSerializer::RW_UNDEFINED;
+		osgDB::BaseSerializer::Type t=luatop>2 ? (osgDB::BaseSerializer::Type)lua_tointeger(L,3) : (osgDB::BaseSerializer::Type)osgDB::BaseSerializer::RW_UNDEFINED;
 
 		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
 		if(!self) {

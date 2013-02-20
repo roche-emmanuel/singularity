@@ -1360,7 +1360,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgUtil::SceneView::SceneView function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp ();
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp ();
 
 		return new osgUtil::SceneView(sceneview, copyop);
 	}
@@ -1397,7 +1397,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgUtil::SceneView::SceneView function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp ();
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp ();
 
 		return new wrapper_osgUtil_SceneView(L,NULL, sceneview, copyop);
 	}
@@ -1576,7 +1576,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
-		bool assumeOwnershipOfCamera=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool assumeOwnershipOfCamera=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgUtil::SceneView* self=Luna< osg::Referenced >::checkSubType< osgUtil::SceneView >(L,1);
 		if(!self) {
@@ -1667,7 +1667,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int childNo=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int childNo=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		osgUtil::SceneView* self=Luna< osg::Referenced >::checkSubType< osgUtil::SceneView >(L,1);
 		if(!self) {
@@ -1691,7 +1691,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int childNo=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int childNo=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		osgUtil::SceneView* self=Luna< osg::Referenced >::checkSubType< osgUtil::SceneView >(L,1);
 		if(!self) {
@@ -3009,7 +3009,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg up in osgUtil::SceneView::getViewMatrixAsLookAt function");
 		}
 		osg::Vec3f & up=*up_ptr;
-		float lookDistance=luatop>4 ? (float)lua_tonumber(L,5) : 1.0f;
+		float lookDistance=luatop>4 ? (float)lua_tonumber(L,5) : (float)1.0f;
 
 		osgUtil::SceneView* self=Luna< osg::Referenced >::checkSubType< osgUtil::SceneView >(L,1);
 		if(!self) {
@@ -3945,7 +3945,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osgUtil::SceneView::FusionDistanceMode mode=(osgUtil::SceneView::FusionDistanceMode)lua_tointeger(L,2);
-		float value=luatop>2 ? (float)lua_tonumber(L,3) : 1.0f;
+		float value=luatop>2 ? (float)lua_tonumber(L,3) : (float)1.0f;
 
 		osgUtil::SceneView* self=Luna< osg::Referenced >::checkSubType< osgUtil::SceneView >(L,1);
 		if(!self) {

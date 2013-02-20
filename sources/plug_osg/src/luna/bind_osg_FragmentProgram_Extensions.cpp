@@ -160,7 +160,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -168,7 +168,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -187,7 +187,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -323,14 +323,14 @@ public:
 		}
 
 		int n=(int)lua_tointeger(L,2);
-		unsigned int programs=(unsigned int)lua_tointeger(L,3);
+		unsigned int* programs=(unsigned int*)Luna< void >::check(L,3);
 
 		osg::FragmentProgram::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::Extensions::glGenPrograms(int, unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGenPrograms(n, &programs);
+		self->glGenPrograms(n, programs);
 
 		return 0;
 	}
@@ -343,14 +343,14 @@ public:
 		}
 
 		int n=(int)lua_tointeger(L,2);
-		unsigned int programs=(unsigned int)lua_tointeger(L,3);
+		unsigned int* programs=(unsigned int*)Luna< void >::check(L,3);
 
 		osg::FragmentProgram::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::Extensions::glDeletePrograms(int, unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glDeletePrograms(n, &programs);
+		self->glDeletePrograms(n, programs);
 
 		return 0;
 	}
@@ -386,14 +386,14 @@ public:
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		unsigned int index=(unsigned int)lua_tointeger(L,3);
-		float params=(float)lua_tonumber(L,4);
+		float* params=(float*)Luna< void >::check(L,4);
 
 		osg::FragmentProgram::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::FragmentProgram::Extensions::glProgramLocalParameter4fv(unsigned int, unsigned int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glProgramLocalParameter4fv(target, index, &params);
+		self->glProgramLocalParameter4fv(target, index, params);
 
 		return 0;
 	}

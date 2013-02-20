@@ -310,7 +310,7 @@ public:
 		if( luatop>1 && !boundingPolytope_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg boundingPolytope in osgUtil::PlaneIntersector::PlaneIntersector function");
 		}
-		const osg::Polytope & boundingPolytope=luatop>1 ? *boundingPolytope_ptr : osg::Polytope ();
+		const osg::Polytope & boundingPolytope=luatop>1 ? *boundingPolytope_ptr : (const osg::Polytope)osg::Polytope ();
 
 		return new osgUtil::PlaneIntersector(plane, boundingPolytope);
 	}
@@ -334,7 +334,7 @@ public:
 		if( luatop>2 && !boundingPolytope_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg boundingPolytope in osgUtil::PlaneIntersector::PlaneIntersector function");
 		}
-		const osg::Polytope & boundingPolytope=luatop>2 ? *boundingPolytope_ptr : osg::Polytope ();
+		const osg::Polytope & boundingPolytope=luatop>2 ? *boundingPolytope_ptr : (const osg::Polytope)osg::Polytope ();
 
 		return new osgUtil::PlaneIntersector(cf, plane, boundingPolytope);
 	}
@@ -357,7 +357,7 @@ public:
 		if( luatop>2 && !boundingPolytope_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg boundingPolytope in osgUtil::PlaneIntersector::PlaneIntersector function");
 		}
-		const osg::Polytope & boundingPolytope=luatop>2 ? *boundingPolytope_ptr : osg::Polytope ();
+		const osg::Polytope & boundingPolytope=luatop>2 ? *boundingPolytope_ptr : (const osg::Polytope)osg::Polytope ();
 
 		return new wrapper_osgUtil_PlaneIntersector(L,NULL, plane, boundingPolytope);
 	}
@@ -381,7 +381,7 @@ public:
 		if( luatop>3 && !boundingPolytope_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg boundingPolytope in osgUtil::PlaneIntersector::PlaneIntersector function");
 		}
-		const osg::Polytope & boundingPolytope=luatop>3 ? *boundingPolytope_ptr : osg::Polytope ();
+		const osg::Polytope & boundingPolytope=luatop>3 ? *boundingPolytope_ptr : (const osg::Polytope)osg::Polytope ();
 
 		return new wrapper_osgUtil_PlaneIntersector(L,NULL, cf, plane, boundingPolytope);
 	}

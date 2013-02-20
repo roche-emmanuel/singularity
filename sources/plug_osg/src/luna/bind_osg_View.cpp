@@ -468,7 +468,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::View::View function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::View(view, copyop);
 	}
@@ -502,7 +502,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::View::View function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_View(L,NULL, view, copyop);
 	}
@@ -976,7 +976,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
-		bool useMastersSceneData=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool useMastersSceneData=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
@@ -1009,7 +1009,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg viewOffset in osg::View::addSlave function");
 		}
 		const osg::Matrixd & viewOffset=*viewOffset_ptr;
-		bool useMastersSceneData=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		bool useMastersSceneData=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
