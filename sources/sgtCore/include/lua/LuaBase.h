@@ -14,7 +14,7 @@ namespace sgt {
 
 class SGTCORE_EXPORT LuaBase : public sgt::Referenced {
 protected:
-	lua_State* _state;
+	mutable lua_State* _state;
 
 public:
 	LuaBase(lua_State* L) : _state(L) {

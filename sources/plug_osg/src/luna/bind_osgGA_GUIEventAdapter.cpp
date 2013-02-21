@@ -684,7 +684,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgGA::GUIEventAdapter::GUIEventAdapter function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgGA::GUIEventAdapter(rhs, copyop);
 	}
@@ -718,7 +718,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgGA::GUIEventAdapter::GUIEventAdapter function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgGA_GUIEventAdapter(L,NULL, rhs, copyop);
 	}
@@ -1027,7 +1027,7 @@ public:
 		int y=(int)lua_tointeger(L,3);
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
-		bool updateMouseRange=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool updateMouseRange=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 
 		osgGA::GUIEventAdapter* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,1);
 		if(!self) {
@@ -1876,7 +1876,7 @@ public:
 		osgGA::GUIEventAdapter::TouchPhase phase=(osgGA::GUIEventAdapter::TouchPhase)lua_tointeger(L,3);
 		float x=(float)lua_tonumber(L,4);
 		float y=(float)lua_tonumber(L,5);
-		unsigned int tapCount=luatop>5 ? (unsigned int)lua_tointeger(L,6) : 0;
+		unsigned int tapCount=luatop>5 ? (unsigned int)lua_tointeger(L,6) : (unsigned int)0;
 
 		osgGA::GUIEventAdapter* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,1);
 		if(!self) {

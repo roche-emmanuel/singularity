@@ -561,7 +561,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgText::Text::Text function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgText::Text(text, copyop);
 	}
@@ -595,7 +595,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgText::Text::Text function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgText_Text(L,NULL, text, copyop);
 	}
@@ -852,7 +852,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float offset=luatop>1 ? (float)lua_tonumber(L,2) : 0.07f;
+		float offset=luatop>1 ? (float)lua_tonumber(L,2) : (float)0.07f;
 
 		osgText::Text* self=Luna< osg::Referenced >::checkSubType< osgText::Text >(L,1);
 		if(!self) {

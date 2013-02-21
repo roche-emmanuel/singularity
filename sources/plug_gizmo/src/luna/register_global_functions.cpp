@@ -31,7 +31,7 @@ static int _bind_CreateMoveGizmo(lua_State *L) {
 	}
 
 
-	IGizmo * lret = CreateMoveGizmo();
+	IGizmo * lret = ::CreateMoveGizmo();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< IGizmo >::push(L,lret,false);
@@ -47,7 +47,7 @@ static int _bind_CreateRotateGizmo(lua_State *L) {
 	}
 
 
-	IGizmo * lret = CreateRotateGizmo();
+	IGizmo * lret = ::CreateRotateGizmo();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< IGizmo >::push(L,lret,false);
@@ -63,7 +63,7 @@ static int _bind_CreateScaleGizmo(lua_State *L) {
 	}
 
 
-	IGizmo * lret = CreateScaleGizmo();
+	IGizmo * lret = ::CreateScaleGizmo();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< IGizmo >::push(L,lret,false);

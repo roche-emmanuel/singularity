@@ -258,12 +258,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getStateSetStack(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_captureCurrentState(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1221,13 +1215,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getAttributeVec(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_setFrameStamp(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1263,7 +1250,7 @@ public:
 	inline static bool _lg_typecheck_setAbortRenderingPtr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isboolean(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -1761,7 +1748,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const osg::Uniform* uniform=(Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,2));
-		unsigned int value=luatop>2 ? (unsigned int)lua_tointeger(L,3) : osg::StateAttribute::ON;
+		unsigned int value=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)osg::StateAttribute::ON;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -1903,27 +1890,6 @@ public:
 		self->popStateSetStackToSize(size);
 
 		return 0;
-	}
-
-	// osg::State::StateSetStack & osg::State::getStateSetStack()
-	static int _bind_getStateSetStack(lua_State *L) {
-		if (!_lg_typecheck_getStateSetStack(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::State::StateSetStack & osg::State::getStateSetStack() function, expected prototype:\nosg::State::StateSetStack & osg::State::getStateSetStack()\nClass arguments details:\n");
-		}
-
-
-		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::State::StateSetStack & osg::State::getStateSetStack(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		const osg::State::StateSetStack* lret = &self->getStateSetStack();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::State::StateSetStack >::push(L,lret,false);
-
-		return 1;
 	}
 
 	// void osg::State::captureCurrentState(osg::StateSet & stateset) const
@@ -2762,7 +2728,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,2);
-		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -2828,7 +2794,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,3);
-		unsigned int member=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
+		unsigned int member=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -2941,7 +2907,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,2);
-		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -2992,7 +2958,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,2);
-		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -3088,7 +3054,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,3);
-		unsigned int member=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
+		unsigned int member=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -3141,7 +3107,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,3);
-		unsigned int member=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
+		unsigned int member=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -3470,7 +3436,7 @@ public:
 
 		int first=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		int primCount=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int primCount=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -3539,7 +3505,7 @@ public:
 		float x=(float)lua_tonumber(L,2);
 		float y=(float)lua_tonumber(L,3);
 		float z=(float)lua_tonumber(L,4);
-		float w=luatop>4 ? (float)lua_tonumber(L,5) : 1.0f;
+		float w=luatop>4 ? (float)lua_tonumber(L,5) : (float)1.0f;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -3563,7 +3529,7 @@ public:
 		float r=(float)lua_tonumber(L,2);
 		float g=(float)lua_tonumber(L,3);
 		float b=(float)lua_tonumber(L,4);
-		float a=luatop>4 ? (float)lua_tonumber(L,5) : 1.0f;
+		float a=luatop>4 ? (float)lua_tonumber(L,5) : (float)1.0f;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -3606,9 +3572,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		float x=(float)lua_tonumber(L,2);
-		float y=luatop>2 ? (float)lua_tonumber(L,3) : 0.0f;
-		float z=luatop>3 ? (float)lua_tonumber(L,4) : 0.0f;
-		float w=luatop>4 ? (float)lua_tonumber(L,5) : 1.0f;
+		float y=luatop>2 ? (float)lua_tonumber(L,3) : (float)0.0f;
+		float z=luatop>3 ? (float)lua_tonumber(L,4) : (float)0.0f;
+		float w=luatop>4 ? (float)lua_tonumber(L,5) : (float)1.0f;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -3631,9 +3597,9 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 		float x=(float)lua_tonumber(L,3);
-		float y=luatop>3 ? (float)lua_tonumber(L,4) : 0.0f;
-		float z=luatop>4 ? (float)lua_tonumber(L,5) : 0.0f;
-		float w=luatop>5 ? (float)lua_tonumber(L,6) : 1.0f;
+		float y=luatop>3 ? (float)lua_tonumber(L,4) : (float)0.0f;
+		float z=luatop>4 ? (float)lua_tonumber(L,5) : (float)0.0f;
+		float w=luatop>5 ? (float)lua_tonumber(L,6) : (float)1.0f;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -3656,9 +3622,9 @@ public:
 
 		unsigned int location=(unsigned int)lua_tointeger(L,2);
 		float x=(float)lua_tonumber(L,3);
-		float y=luatop>3 ? (float)lua_tonumber(L,4) : 0.0f;
-		float z=luatop>4 ? (float)lua_tonumber(L,5) : 0.0f;
-		float w=luatop>5 ? (float)lua_tonumber(L,6) : 0.0f;
+		float y=luatop>3 ? (float)lua_tonumber(L,4) : (float)0.0f;
+		float z=luatop>4 ? (float)lua_tonumber(L,5) : (float)0.0f;
+		float w=luatop>5 ? (float)lua_tonumber(L,6) : (float)0.0f;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -4657,28 +4623,6 @@ public:
 		return 1;
 	}
 
-	// osg::State::AttributeVec & osg::State::getAttributeVec(const osg::StateAttribute * attribute)
-	static int _bind_getAttributeVec(lua_State *L) {
-		if (!_lg_typecheck_getAttributeVec(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::State::AttributeVec & osg::State::getAttributeVec(const osg::StateAttribute * attribute) function, expected prototype:\nosg::State::AttributeVec & osg::State::getAttributeVec(const osg::StateAttribute * attribute)\nClass arguments details:\narg 1 ID = 50169651\n");
-		}
-
-		const osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
-
-		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::State::AttributeVec & osg::State::getAttributeVec(const osg::StateAttribute *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
-		}
-		const osg::State::AttributeVec* lret = &self->getAttributeVec(attribute);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::State::AttributeVec >::push(L,lret,false);
-
-		return 1;
-	}
-
 	// void osg::State::setFrameStamp(osg::FrameStamp * fs)
 	static int _bind_setFrameStamp(lua_State *L) {
 		if (!_lg_typecheck_setFrameStamp(L)) {
@@ -4796,14 +4740,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setAbortRenderingPtr(bool * abortPtr) function, expected prototype:\nvoid osg::State::setAbortRenderingPtr(bool * abortPtr)\nClass arguments details:\n");
 		}
 
-		bool abortPtr=(bool)(lua_toboolean(L,2)==1);
+		bool* abortPtr=(bool*)(Luna< void >::check(L,2));
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setAbortRenderingPtr(bool *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->setAbortRenderingPtr(&abortPtr);
+		self->setAbortRenderingPtr(abortPtr);
 
 		return 0;
 	}
@@ -4877,7 +4821,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned int count=(unsigned int)lua_tointeger(L,2);
-		bool callCallbackOnZero=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool callCallbackOnZero=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
@@ -5586,7 +5530,6 @@ luna_RegType LunaTraits< osg::State >::methods[] = {
 	{"removeStateSet", &luna_wrapper_osg_State::_bind_removeStateSet},
 	{"getStateSetStackSize", &luna_wrapper_osg_State::_bind_getStateSetStackSize},
 	{"popStateSetStackToSize", &luna_wrapper_osg_State::_bind_popStateSetStackToSize},
-	{"getStateSetStack", &luna_wrapper_osg_State::_bind_getStateSetStack},
 	{"captureCurrentState", &luna_wrapper_osg_State::_bind_captureCurrentState},
 	{"reset", &luna_wrapper_osg_State::_bind_reset},
 	{"getCurrentViewport", &luna_wrapper_osg_State::_bind_getCurrentViewport},
@@ -5702,7 +5645,6 @@ luna_RegType LunaTraits< osg::State >::methods[] = {
 	{"getLastAppliedProgramObject", &luna_wrapper_osg_State::_bind_getLastAppliedProgramObject},
 	{"getUniformLocation", &luna_wrapper_osg_State::_bind_getUniformLocation},
 	{"getAttribLocation", &luna_wrapper_osg_State::_bind_getAttribLocation},
-	{"getAttributeVec", &luna_wrapper_osg_State::_bind_getAttributeVec},
 	{"setFrameStamp", &luna_wrapper_osg_State::_bind_setFrameStamp},
 	{"getFrameStamp", &luna_wrapper_osg_State::_bind_getFrameStamp},
 	{"setDisplaySettings", &luna_wrapper_osg_State::_bind_setDisplaySettings},

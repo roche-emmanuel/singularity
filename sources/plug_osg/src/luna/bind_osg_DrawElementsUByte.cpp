@@ -492,7 +492,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int mode=luatop>0 ? (unsigned int)lua_tointeger(L,1) : 0;
+		unsigned int mode=luatop>0 ? (unsigned int)lua_tointeger(L,1) : (unsigned int)0;
 
 		return new osg::DrawElementsUByte(mode);
 	}
@@ -515,7 +515,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::DrawElementsUByte::DrawElementsUByte function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::DrawElementsUByte(array, copyop);
 	}
@@ -532,7 +532,7 @@ public:
 		unsigned int mode=(unsigned int)lua_tointeger(L,1);
 		unsigned int no=(unsigned int)lua_tointeger(L,2);
 		unsigned char ptr = (unsigned char)(lua_tointeger(L,3));
-		int numInstances=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int numInstances=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		return new osg::DrawElementsUByte(mode, no, &ptr, numInstances);
 	}
@@ -559,7 +559,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		return new wrapper_osg_DrawElementsUByte(L,NULL, mode);
 	}
@@ -582,7 +582,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::DrawElementsUByte::DrawElementsUByte function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_DrawElementsUByte(L,NULL, array, copyop);
 	}
@@ -599,7 +599,7 @@ public:
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		unsigned int no=(unsigned int)lua_tointeger(L,3);
 		unsigned char ptr = (unsigned char)(lua_tointeger(L,4));
-		int numInstances=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int numInstances=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		return new wrapper_osg_DrawElementsUByte(L,NULL, mode, no, &ptr, numInstances);
 	}

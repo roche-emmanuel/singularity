@@ -382,7 +382,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float lodBias=luatop>0 ? (float)lua_tonumber(L,1) : 0.0f;
+		float lodBias=luatop>0 ? (float)lua_tonumber(L,1) : (float)0.0f;
 
 		return new osg::TexEnvFilter(lodBias);
 	}
@@ -405,7 +405,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::TexEnvFilter::TexEnvFilter function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::TexEnvFilter(texenv, copyop);
 	}
@@ -419,7 +419,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float lodBias=luatop>1 ? (float)lua_tonumber(L,2) : 0.0f;
+		float lodBias=luatop>1 ? (float)lua_tonumber(L,2) : (float)0.0f;
 
 		return new wrapper_osg_TexEnvFilter(L,NULL, lodBias);
 	}
@@ -442,7 +442,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::TexEnvFilter::TexEnvFilter function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_TexEnvFilter(L,NULL, texenv, copyop);
 	}

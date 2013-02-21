@@ -293,8 +293,8 @@ public:
 		osg::Drawable* drawable=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,1));
 		osg::RefMatrixd* projection=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,2));
 		osg::RefMatrixd* modelview=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,3));
-		float depth=luatop>3 ? (float)lua_tonumber(L,4) : 0.0f;
-		unsigned int traversalNumber=luatop>4 ? (unsigned int)lua_tointeger(L,5) : 0;
+		float depth=luatop>3 ? (float)lua_tonumber(L,4) : (float)0.0f;
+		unsigned int traversalNumber=luatop>4 ? (unsigned int)lua_tointeger(L,5) : (unsigned int)0;
 
 		return new osgUtil::RenderLeaf(drawable, projection, modelview, depth, traversalNumber);
 	}
@@ -311,8 +311,8 @@ public:
 		osg::Drawable* drawable=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
 		osg::RefMatrixd* projection=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,3));
 		osg::RefMatrixd* modelview=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,4));
-		float depth=luatop>4 ? (float)lua_tonumber(L,5) : 0.0f;
-		unsigned int traversalNumber=luatop>5 ? (unsigned int)lua_tointeger(L,6) : 0;
+		float depth=luatop>4 ? (float)lua_tonumber(L,5) : (float)0.0f;
+		unsigned int traversalNumber=luatop>5 ? (unsigned int)lua_tointeger(L,6) : (unsigned int)0;
 
 		return new wrapper_osgUtil_RenderLeaf(L,NULL, drawable, projection, modelview, depth, traversalNumber);
 	}
@@ -340,8 +340,8 @@ public:
 		osg::Drawable* drawable=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
 		osg::RefMatrixd* projection=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,3));
 		osg::RefMatrixd* modelview=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,4));
-		float depth=luatop>4 ? (float)lua_tonumber(L,5) : 0.0f;
-		unsigned int traversalNumber=luatop>5 ? (unsigned int)lua_tointeger(L,6) : 0;
+		float depth=luatop>4 ? (float)lua_tonumber(L,5) : (float)0.0f;
+		unsigned int traversalNumber=luatop>5 ? (unsigned int)lua_tointeger(L,6) : (unsigned int)0;
 
 		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
 		if(!self) {

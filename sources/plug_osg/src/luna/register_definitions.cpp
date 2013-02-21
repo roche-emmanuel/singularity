@@ -3,7 +3,6 @@
 #include <osgParticle/AccelOperator>
 #include <osg/AlphaFunc>
 #include <osgParticle/AngularAccelOperator>
-#include <osgParticle/AngularDampingOperator>
 #include <osg/AnimationPath>
 #include <osgGA/AnimationPathManipulator>
 #include <osg/ApplicationUsage>
@@ -11,17 +10,13 @@
 #include <osg/ArgumentParser>
 #include <osg/Array>
 #include <osg/ArrayDispatchers>
-#include <OpenThreads/Atomic>
 #include <osg/AudioStream>
 #include <osgDB/AuthenticationMap>
 #include <osg/AutoTransform>
-#include <OpenThreads/Barrier>
 #include <osg/Billboard>
 #include <osg/BlendColor>
 #include <osg/BlendEquation>
 #include <osg/BlendFunc>
-#include <OpenThreads/Block>
-#include <osgParticle/BounceOperator>
 #include <osg/BoundingBox>
 #include <osg/BoundingSphere>
 #include <osg/BoundsChecking>
@@ -44,11 +39,8 @@
 #include <osg/CollectOccludersVisitor>
 #include <osg/ColorMask>
 #include <osg/ColorMatrix>
-#include <osgParticle/CompositePlacer>
 #include <osgViewer/CompositeViewer>
 #include <osg/ComputeBoundsVisitor>
-#include <OpenThreads/Condition>
-#include <OpenThreads/Config>
 #include <osg/Config>
 #include <osgParticle/ConnectedParticleSystem>
 #include <osgParticle/ConstantRateCounter>
@@ -59,25 +51,20 @@
 #include <osg/CoordinateSystemNode>
 #include <osg/CopyOp>
 #include <osgParticle/Counter>
-#include <osgUtil/CubeMapGenerator>
 #include <osg/CullFace>
 #include <osg/CullingSet>
 #include <osg/CullSettings>
 #include <osg/CullStack>
 #include <osgUtil/CullVisitor>
-#include <osgParticle/DampingOperator>
 #include <osgDB/DatabasePager>
 #include <osgDB/DatabaseRevisions>
 #include <osgDB/DataTypes>
-#include <osgUtil/DelaunayTriangulator>
 #include <osg/DeleteHandler>
 #include <osg/Depth>
 #include <osgUtil/DisplayRequirementsVisitor>
 #include <osg/DisplaySettings>
-#include <osgParticle/DomainOperator>
 #include <osgDB/DotOsgWrapper>
 #include <osg/Drawable>
-#include <osgUtil/DrawElementTypeSimplifier>
 #include <osg/DrawPixels>
 #include <osgGA/DriveManipulator>
 #include <osgDB/DynamicLibrary>
@@ -86,9 +73,6 @@
 #include <osg/Endian>
 #include <osgGA/EventQueue>
 #include <osgGA/EventVisitor>
-#include <osgParticle/ExplosionDebrisEffect>
-#include <osgParticle/ExplosionEffect>
-#include <osgParticle/ExplosionOperator>
 #include <osg/Export>
 #include <osgDB/Export>
 #include <osgGA/Export>
@@ -96,14 +80,12 @@
 #include <osgText/Export>
 #include <osgUtil/Export>
 #include <osgViewer/Export>
-#include <OpenThreads/Exports>
 #include <osgDB/ExternalFileWriter>
 #include <osgText/FadeText>
 #include <osg/fast_back_stack>
 #include <osgDB/FileCache>
 #include <osgDB/FileNameUtils>
 #include <osgDB/FileUtils>
-#include <osgParticle/FireEffect>
 #include <osgGA/FirstPersonManipulator>
 #include <osgGA/FlightManipulator>
 #include <osgParticle/FluidFrictionOperator>
@@ -128,17 +110,12 @@
 #include <osg/GLU>
 #include <osgText/Glyph>
 #include <osg/GraphicsContext>
-#include <osg/GraphicsCostEstimator>
-#include <osgViewer/api/Win32/GraphicsHandleWin32>
 #include <osg/GraphicsThread>
 #include <osgViewer/GraphicsWindow>
-#include <osgViewer/api/Win32/GraphicsWindowWin32>
 #include <osg/Group>
 #include <osgGA/GUIActionAdapter>
 #include <osgGA/GUIEventAdapter>
 #include <osgGA/GUIEventHandler>
-#include <osgUtil/HalfWayMapGenerator>
-#include <osgUtil/HighlightMapGenerator>
 #include <osg/Hint>
 #include <osg/Image>
 #include <osgDB/ImageOptions>
@@ -147,20 +124,15 @@
 #include <osg/ImageSequence>
 #include <osg/ImageStream>
 #include <osg/ImageUtils>
-#include <osgUtil/IncrementalCompileOperation>
 #include <osgDB/Input>
-#include <osgDB/InputStream>
-#include <osgParticle/Interpolator>
 #include <osgUtil/IntersectionVisitor>
 #include <osgUtil/IntersectVisitor>
 #include <osg/io_utils>
 #include <osg/KdTree>
-#include <osgText/KerningType>
 #include <osgGA/KeySwitchMatrixManipulator>
 #include <osg/Light>
 #include <osg/LightModel>
 #include <osg/LightSource>
-#include <osgParticle/LinearInterpolator>
 #include <osg/LineSegment>
 #include <osgUtil/LineSegmentIntersector>
 #include <osg/LineStipple>
@@ -168,7 +140,6 @@
 #include <osg/LOD>
 #include <osg/LogicOp>
 #include <osg/Material>
-#include <osg/Math>
 #include <osg/Matrix>
 #include <osg/Matrixd>
 #include <osg/Matrixf>
@@ -180,7 +151,6 @@
 #include <osg/Multisample>
 #include <osgParticle/MultiSegmentPlacer>
 #include <osgGA/MultiTouchTrackballManipulator>
-#include <OpenThreads/Mutex>
 #include <osg/Node>
 #include <osg/NodeCallback>
 #include <osg/NodeTrackerCallback>
@@ -188,33 +158,25 @@
 #include <osg/NodeVisitor>
 #include <osg/Notify>
 #include <osg/Object>
-#include <osgDB/ObjectWrapper>
 #include <osg/Observer>
-#include <osg/observer_ptr>
 #include <osg/ObserverNodePath>
 #include <osg/OccluderNode>
 #include <osg/OcclusionQueryNode>
 #include <osgUtil/OperationArrayFunctor>
 #include <osg/OperationThread>
 #include <osgParticle/Operator>
-#include <osgUtil/Optimizer>
 #include <osgDB/Options>
 #include <osgGA/OrbitManipulator>
-#include <osgParticle/OrbitOperator>
 #include <osgDB/Output>
-#include <osgDB/OutputStream>
 #include <osg/PagedLOD>
 #include <osgDB/ParameterOutput>
 #include <osgParticle/Particle>
-#include <osgParticle/ParticleEffect>
 #include <osgParticle/ParticleProcessor>
 #include <osgParticle/ParticleSystem>
 #include <osgParticle/ParticleSystemUpdater>
-#include <osgViewer/api/Win32/PixelBufferWin32>
 #include <osgParticle/Placer>
 #include <osg/Plane>
 #include <osgUtil/PlaneIntersector>
-#include <osgDB/PluginQuery>
 #include <osg/Point>
 #include <osgParticle/PointPlacer>
 #include <osg/PointSprite>
@@ -225,7 +187,6 @@
 #include <osgUtil/PolytopeIntersector>
 #include <osgUtil/PositionalStateContainer>
 #include <osg/PositionAttitudeTransform>
-#include <osgParticle/PrecipitationEffect>
 #include <osg/PrimitiveSet>
 #include <osgUtil/PrintVisitor>
 #include <osg/Program>
@@ -238,11 +199,8 @@
 #include <osgParticle/range>
 #include <osgDB/ReaderWriter>
 #include <osgDB/ReadFile>
-#include <OpenThreads/ReadWriteMutex>
-#include <OpenThreads/ReentrantMutex>
 #include <osg/ref_ptr>
 #include <osg/Referenced>
-#include <osgUtil/ReflectionMapGenerator>
 #include <osgDB/Registry>
 #include <osgUtil/RenderBin>
 #include <osgViewer/Renderer>
@@ -254,11 +212,9 @@
 #include <osgUtil/SceneGraphBuilder>
 #include <osgUtil/SceneView>
 #include <osg/Scissor>
-#include <OpenThreads/ScopedLock>
 #include <osgParticle/SectorPlacer>
 #include <osgParticle/SegmentPlacer>
 #include <osg/Sequence>
-#include <osgDB/Serializer>
 #include <osg/ShadeModel>
 #include <osg/Shader>
 #include <osg/ShaderAttribute>
@@ -270,11 +226,7 @@
 #include <osgDB/SharedStateManager>
 #include <osgParticle/Shooter>
 #include <osgUtil/Simplifier>
-#include <osgParticle/SinkOperator>
-#include <osgParticle/SmokeEffect>
-#include <osgParticle/SmokeTrailEffect>
 #include <osgUtil/SmoothingVisitor>
-#include <osgGA/SphericalManipulator>
 #include <osgGA/StandardManipulator>
 #include <osg/State>
 #include <osg/StateAttribute>
@@ -286,14 +238,11 @@
 #include <osg/Stats>
 #include <osg/Stencil>
 #include <osg/StencilTwoSided>
-#include <osgDB/StreamOperator>
 #include <osgText/String>
 #include <osgText/Style>
 #include <osg/Switch>
-#include <osgUtil/TangentSpaceGenerator>
 #include <osg/TemplatePrimitiveFunctor>
 #include <osgGA/TerrainManipulator>
-#include <osgUtil/Tessellator>
 #include <osg/TexEnv>
 #include <osg/TexEnvCombine>
 #include <osg/TexEnvFilter>
@@ -311,7 +260,6 @@
 #include <osg/Texture3D>
 #include <osg/TextureCubeMap>
 #include <osg/TextureRectangle>
-#include <OpenThreads/Thread>
 #include <osg/Timer>
 #include <osgGA/TrackballManipulator>
 #include <osg/TransferFunction>
@@ -686,7 +634,6 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_FRAMEBUFFER_COMPLETE_EXT); lua_setfield(L,-2,"GL_FRAMEBUFFER_COMPLETE_EXT");
 	lua_pushnumber(L,GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT_EXT); lua_setfield(L,-2,"GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT_EXT");
 	lua_pushnumber(L,GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_EXT); lua_setfield(L,-2,"GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_EXT");
-	lua_pushnumber(L,GL_FRAMEBUFFER_INCOMPLETE_DUPLICATE_ATTACHMENT_EXT); lua_setfield(L,-2,"GL_FRAMEBUFFER_INCOMPLETE_DUPLICATE_ATTACHMENT_EXT");
 	lua_pushnumber(L,GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_EXT); lua_setfield(L,-2,"GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_EXT");
 	lua_pushnumber(L,GL_FRAMEBUFFER_INCOMPLETE_FORMATS_EXT); lua_setfield(L,-2,"GL_FRAMEBUFFER_INCOMPLETE_FORMATS_EXT");
 	lua_pushnumber(L,GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER_EXT); lua_setfield(L,-2,"GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER_EXT");
@@ -879,17 +826,6 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS); lua_setfield(L,-2,"GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS");
 	lua_pushnumber(L,GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS); lua_setfield(L,-2,"GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS");
 	lua_pushnumber(L,GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS); lua_setfield(L,-2,"GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS");
-	lua_pushnumber(L,GL_MAX_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS); lua_setfield(L,-2,"GL_MAX_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS");
-	lua_pushnumber(L,GL_MAX_MAX_TESS_CONTROL_OUTPUT_COMPONENTS); lua_setfield(L,-2,"GL_MAX_MAX_TESS_CONTROL_OUTPUT_COMPONENTS");
-	lua_pushnumber(L,GL_MAX_MAX_TESS_PATCH_COMPONENTS); lua_setfield(L,-2,"GL_MAX_MAX_TESS_PATCH_COMPONENTS");
-	lua_pushnumber(L,GL_MAX_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS); lua_setfield(L,-2,"GL_MAX_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS");
-	lua_pushnumber(L,GL_MAX_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS); lua_setfield(L,-2,"GL_MAX_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS");
-	lua_pushnumber(L,GL_MAX_MAX_TESS_CONTROL_UNIFORM_BLOCKS); lua_setfield(L,-2,"GL_MAX_MAX_TESS_CONTROL_UNIFORM_BLOCKS");
-	lua_pushnumber(L,GL_MAX_MAX_TESS_EVALUATION_UNIFORM_BLOCKS); lua_setfield(L,-2,"GL_MAX_MAX_TESS_EVALUATION_UNIFORM_BLOCKS");
-	lua_pushnumber(L,GL_MAX_MAX_TESS_CONTROL_INPUT_COMPONENTS); lua_setfield(L,-2,"GL_MAX_MAX_TESS_CONTROL_INPUT_COMPONENTS");
-	lua_pushnumber(L,GL_MAX_MAX_TESS_EVALUATION_INPUT_COMPONENTS); lua_setfield(L,-2,"GL_MAX_MAX_TESS_EVALUATION_INPUT_COMPONENTS");
-	lua_pushnumber(L,GL_MAX_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS); lua_setfield(L,-2,"GL_MAX_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS");
-	lua_pushnumber(L,GL_MAX_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS); lua_setfield(L,-2,"GL_MAX_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS");
 	lua_pushnumber(L,GL_TESS_EVALUATION_SHADER); lua_setfield(L,-2,"GL_TESS_EVALUATION_SHADER");
 	lua_pushnumber(L,GL_TESS_CONTROL_SHADER); lua_setfield(L,-2,"GL_TESS_CONTROL_SHADER");
 	lua_pushnumber(L,GL_TESS_CONTROL_OUTPUT_VERTICES); lua_setfield(L,-2,"GL_TESS_CONTROL_OUTPUT_VERTICES");
@@ -923,8 +859,6 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_UNSIGNED_INT_SAMPLER_1D_ARRAY_EXT); lua_setfield(L,-2,"GL_UNSIGNED_INT_SAMPLER_1D_ARRAY_EXT");
 	lua_pushnumber(L,GL_UNSIGNED_INT_SAMPLER_2D_ARRAY_EXT); lua_setfield(L,-2,"GL_UNSIGNED_INT_SAMPLER_2D_ARRAY_EXT");
 	lua_pushnumber(L,GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT); lua_setfield(L,-2,"GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT");
-	lua_pushnumber(L,GL_MIN_PROGRAM_TEXEL_OFFSET_EXT); lua_setfield(L,-2,"GL_MIN_PROGRAM_TEXEL_OFFSET_EXT");
-	lua_pushnumber(L,GL_MAX_PROGRAM_TEXEL_OFFSET_EXT); lua_setfield(L,-2,"GL_MAX_PROGRAM_TEXEL_OFFSET_EXT");
 	lua_pushnumber(L,GL_UNIFORM_BUFFER); lua_setfield(L,-2,"GL_UNIFORM_BUFFER");
 	lua_pushnumber(L,GL_UNIFORM_BUFFER_BINDING); lua_setfield(L,-2,"GL_UNIFORM_BUFFER_BINDING");
 	lua_pushnumber(L,GL_UNIFORM_BUFFER_START); lua_setfield(L,-2,"GL_UNIFORM_BUFFER_START");
@@ -1029,63 +963,8 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GLU_TESS_MAX_COORD); lua_setfield(L,-2,"GLU_TESS_MAX_COORD");
 	lua_pushnumber(L,OSGTEXT_GLYPH); lua_setfield(L,-2,"OSGTEXT_GLYPH");
 	lua_pushnumber(L,OSG_GRAPHICSCONTEXT); lua_setfield(L,-2,"OSG_GRAPHICSCONTEXT");
-	lua_pushnumber(L,OSGVIEWER_GRAPHICSHANDLEWIN32); lua_setfield(L,-2,"OSGVIEWER_GRAPHICSHANDLEWIN32");
-	lua_pushnumber(L,_WIN32_WINNT); lua_setfield(L,-2,"_WIN32_WINNT");
-	lua_pushnumber(L,WGL_ARB_pixel_format); lua_setfield(L,-2,"WGL_ARB_pixel_format");
-	lua_pushnumber(L,WGL_NUMBER_PIXEL_FORMATS_ARB); lua_setfield(L,-2,"WGL_NUMBER_PIXEL_FORMATS_ARB");
-	lua_pushnumber(L,WGL_DRAW_TO_WINDOW_ARB); lua_setfield(L,-2,"WGL_DRAW_TO_WINDOW_ARB");
-	lua_pushnumber(L,WGL_DRAW_TO_BITMAP_ARB); lua_setfield(L,-2,"WGL_DRAW_TO_BITMAP_ARB");
-	lua_pushnumber(L,WGL_ACCELERATION_ARB); lua_setfield(L,-2,"WGL_ACCELERATION_ARB");
-	lua_pushnumber(L,WGL_NEED_PALETTE_ARB); lua_setfield(L,-2,"WGL_NEED_PALETTE_ARB");
-	lua_pushnumber(L,WGL_NEED_SYSTEM_PALETTE_ARB); lua_setfield(L,-2,"WGL_NEED_SYSTEM_PALETTE_ARB");
-	lua_pushnumber(L,WGL_SWAP_LAYER_BUFFERS_ARB); lua_setfield(L,-2,"WGL_SWAP_LAYER_BUFFERS_ARB");
-	lua_pushnumber(L,WGL_SWAP_METHOD_ARB); lua_setfield(L,-2,"WGL_SWAP_METHOD_ARB");
-	lua_pushnumber(L,WGL_NUMBER_OVERLAYS_ARB); lua_setfield(L,-2,"WGL_NUMBER_OVERLAYS_ARB");
-	lua_pushnumber(L,WGL_NUMBER_UNDERLAYS_ARB); lua_setfield(L,-2,"WGL_NUMBER_UNDERLAYS_ARB");
-	lua_pushnumber(L,WGL_TRANSPARENT_ARB); lua_setfield(L,-2,"WGL_TRANSPARENT_ARB");
-	lua_pushnumber(L,WGL_TRANSPARENT_RED_VALUE_ARB); lua_setfield(L,-2,"WGL_TRANSPARENT_RED_VALUE_ARB");
-	lua_pushnumber(L,WGL_TRANSPARENT_GREEN_VALUE_ARB); lua_setfield(L,-2,"WGL_TRANSPARENT_GREEN_VALUE_ARB");
-	lua_pushnumber(L,WGL_TRANSPARENT_BLUE_VALUE_ARB); lua_setfield(L,-2,"WGL_TRANSPARENT_BLUE_VALUE_ARB");
-	lua_pushnumber(L,WGL_TRANSPARENT_ALPHA_VALUE_ARB); lua_setfield(L,-2,"WGL_TRANSPARENT_ALPHA_VALUE_ARB");
-	lua_pushnumber(L,WGL_TRANSPARENT_INDEX_VALUE_ARB); lua_setfield(L,-2,"WGL_TRANSPARENT_INDEX_VALUE_ARB");
-	lua_pushnumber(L,WGL_SHARE_DEPTH_ARB); lua_setfield(L,-2,"WGL_SHARE_DEPTH_ARB");
-	lua_pushnumber(L,WGL_SHARE_STENCIL_ARB); lua_setfield(L,-2,"WGL_SHARE_STENCIL_ARB");
-	lua_pushnumber(L,WGL_SHARE_ACCUM_ARB); lua_setfield(L,-2,"WGL_SHARE_ACCUM_ARB");
-	lua_pushnumber(L,WGL_SUPPORT_GDI_ARB); lua_setfield(L,-2,"WGL_SUPPORT_GDI_ARB");
-	lua_pushnumber(L,WGL_SUPPORT_OPENGL_ARB); lua_setfield(L,-2,"WGL_SUPPORT_OPENGL_ARB");
-	lua_pushnumber(L,WGL_DOUBLE_BUFFER_ARB); lua_setfield(L,-2,"WGL_DOUBLE_BUFFER_ARB");
-	lua_pushnumber(L,WGL_STEREO_ARB); lua_setfield(L,-2,"WGL_STEREO_ARB");
-	lua_pushnumber(L,WGL_PIXEL_TYPE_ARB); lua_setfield(L,-2,"WGL_PIXEL_TYPE_ARB");
-	lua_pushnumber(L,WGL_COLOR_BITS_ARB); lua_setfield(L,-2,"WGL_COLOR_BITS_ARB");
-	lua_pushnumber(L,WGL_RED_BITS_ARB); lua_setfield(L,-2,"WGL_RED_BITS_ARB");
-	lua_pushnumber(L,WGL_RED_SHIFT_ARB); lua_setfield(L,-2,"WGL_RED_SHIFT_ARB");
-	lua_pushnumber(L,WGL_GREEN_BITS_ARB); lua_setfield(L,-2,"WGL_GREEN_BITS_ARB");
-	lua_pushnumber(L,WGL_GREEN_SHIFT_ARB); lua_setfield(L,-2,"WGL_GREEN_SHIFT_ARB");
-	lua_pushnumber(L,WGL_BLUE_BITS_ARB); lua_setfield(L,-2,"WGL_BLUE_BITS_ARB");
-	lua_pushnumber(L,WGL_BLUE_SHIFT_ARB); lua_setfield(L,-2,"WGL_BLUE_SHIFT_ARB");
-	lua_pushnumber(L,WGL_ALPHA_BITS_ARB); lua_setfield(L,-2,"WGL_ALPHA_BITS_ARB");
-	lua_pushnumber(L,WGL_ALPHA_SHIFT_ARB); lua_setfield(L,-2,"WGL_ALPHA_SHIFT_ARB");
-	lua_pushnumber(L,WGL_ACCUM_BITS_ARB); lua_setfield(L,-2,"WGL_ACCUM_BITS_ARB");
-	lua_pushnumber(L,WGL_ACCUM_RED_BITS_ARB); lua_setfield(L,-2,"WGL_ACCUM_RED_BITS_ARB");
-	lua_pushnumber(L,WGL_ACCUM_GREEN_BITS_ARB); lua_setfield(L,-2,"WGL_ACCUM_GREEN_BITS_ARB");
-	lua_pushnumber(L,WGL_ACCUM_BLUE_BITS_ARB); lua_setfield(L,-2,"WGL_ACCUM_BLUE_BITS_ARB");
-	lua_pushnumber(L,WGL_ACCUM_ALPHA_BITS_ARB); lua_setfield(L,-2,"WGL_ACCUM_ALPHA_BITS_ARB");
-	lua_pushnumber(L,WGL_DEPTH_BITS_ARB); lua_setfield(L,-2,"WGL_DEPTH_BITS_ARB");
-	lua_pushnumber(L,WGL_STENCIL_BITS_ARB); lua_setfield(L,-2,"WGL_STENCIL_BITS_ARB");
-	lua_pushnumber(L,WGL_AUX_BUFFERS_ARB); lua_setfield(L,-2,"WGL_AUX_BUFFERS_ARB");
-	lua_pushnumber(L,WGL_NO_ACCELERATION_ARB); lua_setfield(L,-2,"WGL_NO_ACCELERATION_ARB");
-	lua_pushnumber(L,WGL_GENERIC_ACCELERATION_ARB); lua_setfield(L,-2,"WGL_GENERIC_ACCELERATION_ARB");
-	lua_pushnumber(L,WGL_FULL_ACCELERATION_ARB); lua_setfield(L,-2,"WGL_FULL_ACCELERATION_ARB");
-	lua_pushnumber(L,WGL_SWAP_EXCHANGE_ARB); lua_setfield(L,-2,"WGL_SWAP_EXCHANGE_ARB");
-	lua_pushnumber(L,WGL_SWAP_COPY_ARB); lua_setfield(L,-2,"WGL_SWAP_COPY_ARB");
-	lua_pushnumber(L,WGL_SWAP_UNDEFINED_ARB); lua_setfield(L,-2,"WGL_SWAP_UNDEFINED_ARB");
-	lua_pushnumber(L,WGL_TYPE_RGBA_ARB); lua_setfield(L,-2,"WGL_TYPE_RGBA_ARB");
-	lua_pushnumber(L,WGL_TYPE_COLORINDEX_ARB); lua_setfield(L,-2,"WGL_TYPE_COLORINDEX_ARB");
-	lua_pushnumber(L,WGL_SAMPLE_BUFFERS_ARB); lua_setfield(L,-2,"WGL_SAMPLE_BUFFERS_ARB");
-	lua_pushnumber(L,WGL_SAMPLES_ARB); lua_setfield(L,-2,"WGL_SAMPLES_ARB");
 	lua_pushnumber(L,OSG_GRAPHICSTHREAD); lua_setfield(L,-2,"OSG_GRAPHICSTHREAD");
 	lua_pushnumber(L,OSGVIEWER_GRAPHICWINDOW); lua_setfield(L,-2,"OSGVIEWER_GRAPHICWINDOW");
-	lua_pushnumber(L,OSGVIEWER_GRAPHICSWINDOWWIN32); lua_setfield(L,-2,"OSGVIEWER_GRAPHICSWINDOWWIN32");
 	lua_pushnumber(L,OSG_GROUP); lua_setfield(L,-2,"OSG_GROUP");
 	lua_pushnumber(L,OSGGA_GUIACTIONADAPTER); lua_setfield(L,-2,"OSGGA_GUIACTIONADAPTER");
 	lua_pushnumber(L,OSGGA_EVENT); lua_setfield(L,-2,"OSGGA_EVENT");
@@ -1193,7 +1072,6 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSGPARTICLE_PARTICLEPROCESSOR); lua_setfield(L,-2,"OSGPARTICLE_PARTICLEPROCESSOR");
 	lua_pushnumber(L,OSGPARTICLE_PARTICLESYSTEM); lua_setfield(L,-2,"OSGPARTICLE_PARTICLESYSTEM");
 	lua_pushnumber(L,OSGPARTICLE_PARTICLESYSTEMUPDATER); lua_setfield(L,-2,"OSGPARTICLE_PARTICLESYSTEMUPDATER");
-	lua_pushnumber(L,OSGVIEWER_PIXELBUFFERWIN32); lua_setfield(L,-2,"OSGVIEWER_PIXELBUFFERWIN32");
 	lua_pushnumber(L,OSGPARTICLE_PLACER); lua_setfield(L,-2,"OSGPARTICLE_PLACER");
 	lua_pushnumber(L,OSG_PLANE); lua_setfield(L,-2,"OSG_PLANE");
 	lua_pushnumber(L,OSGUTIL_PLANEINTERSECTOR); lua_setfield(L,-2,"OSGUTIL_PLANEINTERSECTOR");

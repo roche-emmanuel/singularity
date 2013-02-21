@@ -105,6 +105,7 @@ function ReflectionGenerator:processFile(comp)
     comp = dxp.toFile(comp) --:dynamicCast("IFile")
 	
 	local filename = comp:name():latin1()
+	self:check(filename,"Invalid filename retrieved.")
 	if im:ignore(filename,"file") then
 		self:notice("Ignoring file ",filename," on user request.")
 		return;

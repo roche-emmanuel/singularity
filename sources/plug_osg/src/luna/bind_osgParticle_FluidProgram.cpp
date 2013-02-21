@@ -448,7 +448,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgParticle::FluidProgram::FluidProgram function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgParticle::FluidProgram(copy, copyop);
 	}
@@ -482,7 +482,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgParticle::FluidProgram::FluidProgram function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgParticle_FluidProgram(L,NULL, copy, copyop);
 	}
@@ -801,7 +801,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float scale=luatop>1 ? (float)lua_tonumber(L,2) : 1.0f;
+		float scale=luatop>1 ? (float)lua_tonumber(L,2) : (float)1.0f;
 
 		osgParticle::FluidProgram* self=Luna< osg::Referenced >::checkSubType< osgParticle::FluidProgram >(L,1);
 		if(!self) {

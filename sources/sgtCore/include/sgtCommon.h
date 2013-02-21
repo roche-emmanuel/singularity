@@ -58,6 +58,12 @@ typedef osg::CopyOp sgtCopyOp;
 typedef osg::Referenced sgtReferencedBase; 
 typedef osg::Object sgtObjectBase; // it is assumed that the object base class is derived from sgtReferenced.
 
+#ifndef _MSC_VER
+typedef boost::int64_t __int64;
+#endif
+
+typedef boost::uint64_t __uint64;
+
 // Core definitions and classes:
 namespace sgt {
 

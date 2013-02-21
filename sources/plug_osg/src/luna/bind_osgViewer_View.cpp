@@ -745,7 +745,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgViewer::View::View function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgViewer::View(view, copyop);
 	}
@@ -779,7 +779,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgViewer::View::View function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgViewer_View(L,NULL, view, copyop);
 	}
@@ -1353,7 +1353,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osgGA::CameraManipulator* manipulator=(Luna< osg::Referenced >::checkSubType< osgGA::CameraManipulator >(L,2));
-		bool resetPosition=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool resetPosition=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
 		if(!self) {
@@ -1666,7 +1666,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osgUtil::SceneView::FusionDistanceMode mode=(osgUtil::SceneView::FusionDistanceMode)lua_tointeger(L,2);
-		float value=luatop>2 ? (float)lua_tonumber(L,3) : 1.0f;
+		float value=luatop>2 ? (float)lua_tonumber(L,3) : (float)1.0f;
 
 		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
 		if(!self) {
@@ -1747,7 +1747,7 @@ public:
 		int y=(int)lua_tointeger(L,3);
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
-		unsigned int screenNum=luatop>5 ? (unsigned int)lua_tointeger(L,6) : 0;
+		unsigned int screenNum=luatop>5 ? (unsigned int)lua_tointeger(L,6) : (unsigned int)0;
 
 		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
 		if(!self) {
@@ -1768,7 +1768,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int screenNum=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int screenNum=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
 		if(!self) {
@@ -1789,15 +1789,15 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double radius=luatop>1 ? (double)lua_tonumber(L,2) : 1.0;
-		double collar=luatop>2 ? (double)lua_tonumber(L,3) : 0.45;
-		unsigned int screenNum=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
+		double radius=luatop>1 ? (double)lua_tonumber(L,2) : (double)1.0;
+		double collar=luatop>2 ? (double)lua_tonumber(L,3) : (double)0.45;
+		unsigned int screenNum=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
 		osg::Image* intensityMap=luatop>4 ? (Luna< osg::Referenced >::checkSubType< osg::Image >(L,5)) : (osg::Image*)0;
 		const osg::Matrixd* projectorMatrix_ptr=luatop>5 ? (Luna< osg::Matrixd >::check(L,6)) : NULL;
 		if( luatop>5 && !projectorMatrix_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg projectorMatrix in osgViewer::View::setUpViewFor3DSphericalDisplay function");
 		}
-		const osg::Matrixd & projectorMatrix=luatop>5 ? *projectorMatrix_ptr : osg::Matrixd ();
+		const osg::Matrixd & projectorMatrix=luatop>5 ? *projectorMatrix_ptr : (const osg::Matrixd)osg::Matrixd ();
 
 		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
 		if(!self) {
@@ -1818,15 +1818,15 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double radius=luatop>1 ? (double)lua_tonumber(L,2) : 1.0;
-		double collar=luatop>2 ? (double)lua_tonumber(L,3) : 0.45;
-		unsigned int screenNum=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
+		double radius=luatop>1 ? (double)lua_tonumber(L,2) : (double)1.0;
+		double collar=luatop>2 ? (double)lua_tonumber(L,3) : (double)0.45;
+		unsigned int screenNum=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
 		osg::Image* intensityMap=luatop>4 ? (Luna< osg::Referenced >::checkSubType< osg::Image >(L,5)) : (osg::Image*)0;
 		const osg::Matrixd* projectorMatrix_ptr=luatop>5 ? (Luna< osg::Matrixd >::check(L,6)) : NULL;
 		if( luatop>5 && !projectorMatrix_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg projectorMatrix in osgViewer::View::setUpViewForPanoramicSphericalDisplay function");
 		}
-		const osg::Matrixd & projectorMatrix=luatop>5 ? *projectorMatrix_ptr : osg::Matrixd ();
+		const osg::Matrixd & projectorMatrix=luatop>5 ? *projectorMatrix_ptr : (const osg::Matrixd)osg::Matrixd ();
 
 		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
 		if(!self) {
@@ -1970,7 +1970,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg intersections in osgViewer::View::computeIntersections function");
 		}
 		osgUtil::LineSegmentIntersector::Intersections & intersections=*intersections_ptr;
-		unsigned int traversalMask=luatop>4 ? (unsigned int)lua_tointeger(L,5) : 0xffffffff;
+		unsigned int traversalMask=luatop>4 ? (unsigned int)lua_tointeger(L,5) : (unsigned int)0xffffffff;
 
 		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
 		if(!self) {
@@ -2004,7 +2004,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg intersections in osgViewer::View::computeIntersections function");
 		}
 		osgUtil::LineSegmentIntersector::Intersections & intersections=*intersections_ptr;
-		unsigned int traversalMask=luatop>5 ? (unsigned int)lua_tointeger(L,6) : 0xffffffff;
+		unsigned int traversalMask=luatop>5 ? (unsigned int)lua_tointeger(L,6) : (unsigned int)0xffffffff;
 
 		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
 		if(!self) {
@@ -2053,7 +2053,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool needed=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool needed=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
 		if(!self) {
@@ -2486,7 +2486,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool needed=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool needed=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
 		if(!self) {

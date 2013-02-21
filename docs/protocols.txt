@@ -1,0 +1,17 @@
+== Release tag ==
+
+  1. Update version number to proper value.
+	 > Update file manually: /sources/lua_core/modules/version.lua
+  2. Build packages for all platforms (win32/ds411)
+     > ensure that lua_core project is built from /sources/CMakeList.txt
+     > prj_sgt.sh ${flavor} release
+  3. Update changelog.txt with the release date.
+  4. Commit changes:
+     > git commit -a -m "Preparing release vX.Y.Z"
+  3. Create branch for this release (if needed): 
+     > git checkout -b vX.Y
+	 > git push origin vX.Y
+  4. Create tag for this release:
+     > git tag -a -m "message" vX.Y.Z
+	 > git push --tags origin
+	 

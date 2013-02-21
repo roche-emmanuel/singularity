@@ -296,7 +296,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool useMastersSceneData=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
+		bool useMastersSceneData=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)true;
 
 		return new osg::View::Slave(useMastersSceneData);
 	}
@@ -321,7 +321,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg viewOffset in osg::View::Slave::Slave function");
 		}
 		const osg::Matrixd & viewOffset=*viewOffset_ptr;
-		bool useMastersSceneData=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool useMastersSceneData=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		return new osg::View::Slave(camera, projectionOffset, viewOffset, useMastersSceneData);
 	}
@@ -351,7 +351,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool useMastersSceneData=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool useMastersSceneData=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		return new wrapper_osg_View_Slave(L,NULL, useMastersSceneData);
 	}
@@ -376,7 +376,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg viewOffset in osg::View::Slave::Slave function");
 		}
 		const osg::Matrixd & viewOffset=*viewOffset_ptr;
-		bool useMastersSceneData=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		bool useMastersSceneData=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		return new wrapper_osg_View_Slave(L,NULL, camera, projectionOffset, viewOffset, useMastersSceneData);
 	}

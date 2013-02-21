@@ -55,11 +55,12 @@ function TypeCheckerBase:handle(writer,func,name, completeCheck)
 			
 			local checker = tc:getTypeChecker(pt:getName()) or tc:getTypeChecker(bname)
 			
+			local ptr = pt:isPointer()
 			if checker then
 				isPointer = checker(writer,index,pt,defStr)	
-			elseif pt:isInteger() then
+			elseif pt:isInteger() and not ptr then
 				writer:writeSubLine("if( ${2}(lua_isnumber(L,${1})==0 || lua_tointeger(L,${1}) != lua_tonumber(L,${1})) ) return false;",index,defStr)
-			elseif pt:isNumber() then
+			elseif pt:isNumber() and not ptr then
 				-- check if we have a number:
 				writer:writeSubLine("if( ${2}lua_isnumber(L,${1})==0 ) return false;",index,defStr)
 			elseif pt:isLuaFunction() then
@@ -70,11 +71,11 @@ function TypeCheckerBase:handle(writer,func,name, completeCheck)
 			elseif pt:isLuaTable() then
 				-- check if we have a table:
 				writer:writeSubLine("if( ${2}lua_istable(L,${1})==0 ) return false;",index,defStr)
-			elseif pt:isBoolean() then
+			elseif pt:isBoolean() and not ptr then
 				writer:writeSubLine("if( ${2}lua_isboolean(L,${1})==0 ) return false;",index,defStr)
 			elseif pt:isString() then
 				writer:writeSubLine("if( ${2}lua_isstring(L,${1})==0 ) return false;",index,defStr)
-			elseif pt:isVoid() and pt:isPointer() then
+			elseif (pt:isVoid() or pt:isInteger() or pt:isNumber() or pt:isBoolean()) and ptr then
 				-- We may consider void as a base class:
 				local bhash = utils.getHash("void")
 				writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !Luna<void>::has_uniqueid(L,${1},${2})) ) return false;",index,bhash,defStr)

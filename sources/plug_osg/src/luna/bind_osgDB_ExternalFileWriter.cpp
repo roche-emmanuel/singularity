@@ -152,7 +152,7 @@ public:
 		std::string srcDirectory(lua_tostring(L,1),lua_objlen(L,1));
 		std::string destDirectory(lua_tostring(L,2),lua_objlen(L,2));
 		bool keepRelativePaths=(bool)(lua_toboolean(L,3)==1);
-		unsigned int allowUpDirs=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
+		unsigned int allowUpDirs=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
 
 		return new osgDB::ExternalFileWriter(srcDirectory, destDirectory, keepRelativePaths, allowUpDirs);
 	}

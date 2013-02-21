@@ -229,7 +229,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -238,7 +238,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -624,7 +624,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -633,7 +633,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -960,14 +960,14 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned short indices=(unsigned short)lua_tointeger(L,4);
+		unsigned short* indices=(unsigned short*)Luna< void >::check(L,4);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawElements(unsigned int, int, const unsigned short *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
-		self->drawElements(mode, count, &indices);
+		self->drawElements(mode, count, indices);
 
 		return 0;
 	}
@@ -981,14 +981,14 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned int indices=(unsigned int)lua_tointeger(L,4);
+		unsigned int* indices=(unsigned int*)Luna< void >::check(L,4);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::drawElements(unsigned int, int, const unsigned int *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
-		self->drawElements(mode, count, &indices);
+		self->drawElements(mode, count, indices);
 
 		return 0;
 	}
@@ -2079,14 +2079,14 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned short indices=(unsigned short)lua_tointeger(L,4);
+		unsigned short* indices=(unsigned short*)Luna< void >::check(L,4);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned short *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
-		self->Statistics::drawElements(mode, count, &indices);
+		self->Statistics::drawElements(mode, count, indices);
 
 		return 0;
 	}
@@ -2100,14 +2100,14 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned int indices=(unsigned int)lua_tointeger(L,4);
+		unsigned int* indices=(unsigned int*)Luna< void >::check(L,4);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned int *). Got : '%s'",typeid(Luna< osgUtil::Statistics >::check(L,1)).name());
 		}
-		self->Statistics::drawElements(mode, count, &indices);
+		self->Statistics::drawElements(mode, count, indices);
 
 		return 0;
 	}

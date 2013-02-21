@@ -181,7 +181,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -375,14 +375,14 @@ public:
 		}
 
 		unsigned int pname=(unsigned int)lua_tointeger(L,2);
-		float params=(float)lua_tonumber(L,3);
+		float* params=(float*)Luna< void >::check(L,3);
 
 		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::glPointParameterfv(unsigned int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glPointParameterfv(pname, &params);
+		self->glPointParameterfv(pname, params);
 
 		return 0;
 	}

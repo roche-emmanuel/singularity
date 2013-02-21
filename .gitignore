@@ -54,6 +54,9 @@ software/cache
 # Ignore generated wrapping files:
 #luna/
 
+# Ignore releases folder:
+releases/
+
 # Ignore tests:
 plug_doxmlparser2/
 

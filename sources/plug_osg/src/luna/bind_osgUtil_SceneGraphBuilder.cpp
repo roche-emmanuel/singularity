@@ -127,14 +127,14 @@ public:
 	inline static bool _lg_typecheck_LoadMatrixd(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_MultMatrixd(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -274,7 +274,7 @@ public:
 	inline static bool _lg_typecheck_Color4fv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -290,7 +290,7 @@ public:
 	inline static bool _lg_typecheck_Vertex3fv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -306,7 +306,7 @@ public:
 	inline static bool _lg_typecheck_Normal3fv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -320,7 +320,7 @@ public:
 	inline static bool _lg_typecheck_TexCoord1fv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -335,7 +335,7 @@ public:
 	inline static bool _lg_typecheck_TexCoord2fv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -351,7 +351,7 @@ public:
 	inline static bool _lg_typecheck_TexCoord3fv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -368,7 +368,7 @@ public:
 	inline static bool _lg_typecheck_TexCoord4fv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -546,14 +546,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::SceneGraphBuilder::LoadMatrixd(const double * m) function, expected prototype:\nvoid osgUtil::SceneGraphBuilder::LoadMatrixd(const double * m)\nClass arguments details:\n");
 		}
 
-		double m=(double)lua_tonumber(L,2);
+		double* m=(double*)Luna< void >::check(L,2);
 
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::LoadMatrixd(const double *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
-		self->LoadMatrixd(&m);
+		self->LoadMatrixd(m);
 
 		return 0;
 	}
@@ -565,14 +565,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::SceneGraphBuilder::MultMatrixd(const double * m) function, expected prototype:\nvoid osgUtil::SceneGraphBuilder::MultMatrixd(const double * m)\nClass arguments details:\n");
 		}
 
-		double m=(double)lua_tonumber(L,2);
+		double* m=(double*)Luna< void >::check(L,2);
 
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::MultMatrixd(const double *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
-		self->MultMatrixd(&m);
+		self->MultMatrixd(m);
 
 		return 0;
 	}
@@ -921,14 +921,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::SceneGraphBuilder::Color4fv(float * c) function, expected prototype:\nvoid osgUtil::SceneGraphBuilder::Color4fv(float * c)\nClass arguments details:\n");
 		}
 
-		float c=(float)lua_tonumber(L,2);
+		float* c=(float*)Luna< void >::check(L,2);
 
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Color4fv(float *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
-		self->Color4fv(&c);
+		self->Color4fv(c);
 
 		return 0;
 	}
@@ -961,14 +961,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::SceneGraphBuilder::Vertex3fv(float * v) function, expected prototype:\nvoid osgUtil::SceneGraphBuilder::Vertex3fv(float * v)\nClass arguments details:\n");
 		}
 
-		float v=(float)lua_tonumber(L,2);
+		float* v=(float*)Luna< void >::check(L,2);
 
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Vertex3fv(float *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
-		self->Vertex3fv(&v);
+		self->Vertex3fv(v);
 
 		return 0;
 	}
@@ -1001,14 +1001,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::SceneGraphBuilder::Normal3fv(float * n) function, expected prototype:\nvoid osgUtil::SceneGraphBuilder::Normal3fv(float * n)\nClass arguments details:\n");
 		}
 
-		float n=(float)lua_tonumber(L,2);
+		float* n=(float*)Luna< void >::check(L,2);
 
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::Normal3fv(float *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
-		self->Normal3fv(&n);
+		self->Normal3fv(n);
 
 		return 0;
 	}
@@ -1039,14 +1039,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::SceneGraphBuilder::TexCoord1fv(float * tc) function, expected prototype:\nvoid osgUtil::SceneGraphBuilder::TexCoord1fv(float * tc)\nClass arguments details:\n");
 		}
 
-		float tc=(float)lua_tonumber(L,2);
+		float* tc=(float*)Luna< void >::check(L,2);
 
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord1fv(float *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
-		self->TexCoord1fv(&tc);
+		self->TexCoord1fv(tc);
 
 		return 0;
 	}
@@ -1078,14 +1078,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::SceneGraphBuilder::TexCoord2fv(float * tc) function, expected prototype:\nvoid osgUtil::SceneGraphBuilder::TexCoord2fv(float * tc)\nClass arguments details:\n");
 		}
 
-		float tc=(float)lua_tonumber(L,2);
+		float* tc=(float*)Luna< void >::check(L,2);
 
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord2fv(float *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
-		self->TexCoord2fv(&tc);
+		self->TexCoord2fv(tc);
 
 		return 0;
 	}
@@ -1118,14 +1118,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::SceneGraphBuilder::TexCoord3fv(float * tc) function, expected prototype:\nvoid osgUtil::SceneGraphBuilder::TexCoord3fv(float * tc)\nClass arguments details:\n");
 		}
 
-		float tc=(float)lua_tonumber(L,2);
+		float* tc=(float*)Luna< void >::check(L,2);
 
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord3fv(float *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
-		self->TexCoord3fv(&tc);
+		self->TexCoord3fv(tc);
 
 		return 0;
 	}
@@ -1159,14 +1159,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::SceneGraphBuilder::TexCoord4fv(float * tc) function, expected prototype:\nvoid osgUtil::SceneGraphBuilder::TexCoord4fv(float * tc)\nClass arguments details:\n");
 		}
 
-		float tc=(float)lua_tonumber(L,2);
+		float* tc=(float*)Luna< void >::check(L,2);
 
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::SceneGraphBuilder::TexCoord4fv(float *). Got : '%s'",typeid(Luna< osgUtil::SceneGraphBuilder >::check(L,1)).name());
 		}
-		self->TexCoord4fv(&tc);
+		self->TexCoord4fv(tc);
 
 		return 0;
 	}

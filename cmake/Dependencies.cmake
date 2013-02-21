@@ -197,7 +197,7 @@ ELSE()
 	SET(GL_INC_DIR 		${DEP_GL}/include)
 	SET(GL_LIB_DIR 		${DEP_GL}/lib)
 	
-	SET(BOOST_LIBS 		boost_system boost_thread boost_program_options)
+	SET(BOOST_LIBS 		boost_system boost_thread boost_program_options boost_date_time)
 	
 	INCLUDE_DIRECTORIES(${GL_INC_DIR})
 	LINK_DIRECTORIES (${GL_LIB_DIR})

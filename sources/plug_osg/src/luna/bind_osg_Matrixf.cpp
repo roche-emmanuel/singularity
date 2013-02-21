@@ -2218,7 +2218,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg up in osg::Matrixf::getLookAt function");
 		}
 		osg::Vec3f & up=*up_ptr;
-		float lookDistance=luatop>4 ? (float)lua_tonumber(L,5) : 1.0f;
+		float lookDistance=luatop>4 ? (float)lua_tonumber(L,5) : (float)1.0f;
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {
@@ -2254,7 +2254,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg up in osg::Matrixf::getLookAt function");
 		}
 		osg::Vec3d & up=*up_ptr;
-		float lookDistance=luatop>4 ? (float)lua_tonumber(L,5) : 1.0f;
+		float lookDistance=luatop>4 ? (float)lua_tonumber(L,5) : (float)1.0f;
 
 		osg::Matrixf* self=(Luna< osg::Matrixf >::check(L,1));
 		if(!self) {

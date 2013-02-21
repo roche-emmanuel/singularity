@@ -15,12 +15,27 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 
 	luna_pushModule(L,"sgt");
 	Luna< __int64 >::Register(L);
+	Luna< __uint64 >::Register(L);
 	Luna< BaseClass >::Register(L);
 	Luna< uintptr_t >::Register(L);
 	Luna< void >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"boost");
+	Luna< boost::gregorian::date_duration >::Register(L);
+	Luna< boost::gregorian::date_period >::Register(L);
+	Luna< boost::gregorian::date >::Register(L);
+	Luna< boost::gregorian::day_iterator >::Register(L);
+	Luna< boost::gregorian::week_iterator >::Register(L);
+	Luna< boost::gregorian::month_iterator >::Register(L);
+	Luna< boost::gregorian::year_iterator >::Register(L);
+	Luna< boost::posix_time::time_duration >::Register(L);
+	Luna< boost::posix_time::hours >::Register(L);
+	Luna< boost::posix_time::minutes >::Register(L);
+	Luna< boost::posix_time::seconds >::Register(L);
+	Luna< boost::posix_time::milliseconds >::Register(L);
+	Luna< boost::posix_time::microseconds >::Register(L);
 	Luna< boost::posix_time::ptime >::Register(L);
+	Luna< boost::posix_time::time_period >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"OpenThreads");
 	Luna< OpenThreads::Mutex >::Register(L);
@@ -55,7 +70,6 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	Luna< std::ostream >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"sgt");
-	Luna< unsigned __int64 >::Register(L);
 	Luna< std::vector< int > >::Register(L);
 	Luna< std::vector< float > >::Register(L);
 	Luna< std::vector< double > >::Register(L);

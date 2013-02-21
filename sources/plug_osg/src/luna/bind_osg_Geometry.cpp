@@ -1158,7 +1158,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Geometry::Geometry function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::Geometry(geometry, copyop);
 	}
@@ -1192,7 +1192,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Geometry::Geometry function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_Geometry(L,NULL, geometry, copyop);
 	}
@@ -2921,7 +2921,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
-		unsigned int numElementsToRemove=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 1;
+		unsigned int numElementsToRemove=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)1;
 
 		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {

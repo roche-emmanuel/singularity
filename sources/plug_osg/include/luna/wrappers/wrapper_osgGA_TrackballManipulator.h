@@ -1265,7 +1265,7 @@ public:
 		if( luatop>3 && !localUp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localUp in osgGA::StandardManipulator::public_rotateYawPitch function");
 		}
-		const osg::Vec3d & localUp=luatop>3 ? *localUp_ptr : osg::Vec3d (0., 0., 0.);
+		const osg::Vec3d & localUp=luatop>3 ? *localUp_ptr : (const osg::Vec3d)osg::Vec3d (0., 0., 0.);
 
 		wrapper_osgGA_TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_TrackballManipulator >(L,1);
 		if(!self) {

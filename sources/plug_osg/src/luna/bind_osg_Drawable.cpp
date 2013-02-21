@@ -766,7 +766,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Drawable::Drawable function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_Drawable(L,NULL, drawable, copyop);
 	}
@@ -2002,7 +2002,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
-		unsigned int sizeHint=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int sizeHint=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		unsigned int lret = osg::Drawable::generateDisplayList(contextID, sizeHint);
 		lua_pushnumber(L,lret);
@@ -2049,7 +2049,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
 		unsigned int globj=(unsigned int)lua_tointeger(L,2);
-		unsigned int sizeHint=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int sizeHint=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		osg::Drawable::deleteDisplayList(contextID, globj, sizeHint);
 

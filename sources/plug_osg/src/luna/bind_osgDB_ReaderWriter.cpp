@@ -909,7 +909,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgDB::ReaderWriter::ReaderWriter function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgDB::ReaderWriter(rw, copyop);
 	}
@@ -943,7 +943,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgDB::ReaderWriter::ReaderWriter function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgDB_ReaderWriter(L,NULL, rw, copyop);
 	}
@@ -1200,7 +1200,7 @@ public:
 
 		std::string _arg1(lua_tostring(L,2),lua_objlen(L,2));
 		osgDB::ReaderWriter::ArchiveStatus _arg2=(osgDB::ReaderWriter::ArchiveStatus)lua_tointeger(L,3);
-		unsigned _arg3=luatop>3 ? (unsigned)lua_tointeger(L,4) : 4096;
+		unsigned _arg3=luatop>3 ? (unsigned)lua_tointeger(L,4) : (unsigned)4096;
 		const osgDB::Options* _arg4=luatop>4 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,5)) : (const osgDB::Options*)((void *) 0);
 
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
@@ -2420,7 +2420,7 @@ public:
 
 		std::string _arg1(lua_tostring(L,2),lua_objlen(L,2));
 		osgDB::ReaderWriter::ArchiveStatus _arg2=(osgDB::ReaderWriter::ArchiveStatus)lua_tointeger(L,3);
-		unsigned _arg3=luatop>3 ? (unsigned)lua_tointeger(L,4) : 4096;
+		unsigned _arg3=luatop>3 ? (unsigned)lua_tointeger(L,4) : (unsigned)4096;
 		const osgDB::Options* _arg4=luatop>4 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,5)) : (const osgDB::Options*)((void *) 0);
 
 		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);

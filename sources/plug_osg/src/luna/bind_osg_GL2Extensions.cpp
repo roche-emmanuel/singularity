@@ -282,7 +282,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -393,10 +393,10 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+		if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
+		if( lua_isstring(L,8)==0 ) return false;
 		return true;
 	}
 
@@ -406,10 +406,10 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+		if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
+		if( lua_isstring(L,8)==0 ) return false;
 		return true;
 	}
 
@@ -418,8 +418,8 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -436,7 +436,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -445,8 +445,8 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		if( lua_isstring(L,5)==0 ) return false;
 		return true;
 	}
 
@@ -455,7 +455,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -464,8 +464,8 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		if( lua_isstring(L,5)==0 ) return false;
 		return true;
 	}
 
@@ -474,8 +474,8 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		if( lua_isstring(L,5)==0 ) return false;
 		return true;
 	}
 
@@ -492,7 +492,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -501,7 +501,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -510,7 +510,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -519,7 +519,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -528,7 +528,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -641,7 +641,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -650,7 +650,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -659,7 +659,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -668,7 +668,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -677,7 +677,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -686,7 +686,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -695,7 +695,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -704,7 +704,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -714,7 +714,7 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -724,7 +724,7 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -734,7 +734,7 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -757,7 +757,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -773,7 +773,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -789,7 +789,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -806,7 +806,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -823,7 +823,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -840,7 +840,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -858,7 +858,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -876,7 +876,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -894,7 +894,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -902,7 +902,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -910,7 +910,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -918,7 +918,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -945,7 +945,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -953,7 +953,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -961,7 +961,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -980,7 +980,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -999,7 +999,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -1007,7 +1007,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -1026,7 +1026,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -1042,7 +1042,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -1050,7 +1050,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -1110,7 +1110,7 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -1120,7 +1120,7 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -1130,7 +1130,7 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -1140,7 +1140,7 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -1150,7 +1150,7 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -1160,7 +1160,7 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -1217,7 +1217,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -1226,7 +1226,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -1290,7 +1290,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -1299,7 +1299,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -1308,7 +1308,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -1317,7 +1317,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -1326,9 +1326,9 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 		return true;
 	}
 
@@ -1338,8 +1338,8 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		if( lua_isstring(L,6)==0 ) return false;
 		return true;
 	}
 
@@ -1357,7 +1357,7 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -1367,8 +1367,8 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		if( lua_isstring(L,6)==0 ) return false;
 		return true;
 	}
 
@@ -1386,8 +1386,8 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 		return true;
 	}
@@ -1911,14 +1911,14 @@ public:
 		}
 
 		int n=(int)lua_tointeger(L,2);
-		unsigned int bufs=(unsigned int)lua_tointeger(L,3);
+		unsigned int* bufs=(unsigned int*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glDrawBuffers(int, const unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glDrawBuffers(n, &bufs);
+		self->glDrawBuffers(n, bufs);
 
 		return 0;
 	}
@@ -2192,17 +2192,17 @@ public:
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 		unsigned int index=(unsigned int)lua_tointeger(L,3);
 		int bufSize=(int)lua_tointeger(L,4);
-		int length=(int)lua_tointeger(L,5);
-		int size=(int)lua_tointeger(L,6);
-		unsigned int type=(unsigned int)lua_tointeger(L,7);
-		char name=(char)lua_tointeger(L,8);
+		int* length=(int*)Luna< void >::check(L,5);
+		int* size=(int*)Luna< void >::check(L,6);
+		unsigned int* type=(unsigned int*)Luna< void >::check(L,7);
+		char* name=(char*)Luna< void >::check(L,8);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetActiveAttrib(unsigned int, unsigned int, int, int *, int *, unsigned int *, char *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetActiveAttrib(program, index, bufSize, &length, &size, &type, &name);
+		self->glGetActiveAttrib(program, index, bufSize, length, size, type, name);
 
 		return 0;
 	}
@@ -2217,17 +2217,17 @@ public:
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 		unsigned int index=(unsigned int)lua_tointeger(L,3);
 		int bufSize=(int)lua_tointeger(L,4);
-		int length=(int)lua_tointeger(L,5);
-		int size=(int)lua_tointeger(L,6);
-		unsigned int type=(unsigned int)lua_tointeger(L,7);
-		char name=(char)lua_tointeger(L,8);
+		int* length=(int*)Luna< void >::check(L,5);
+		int* size=(int*)Luna< void >::check(L,6);
+		unsigned int* type=(unsigned int*)Luna< void >::check(L,7);
+		char* name=(char*)Luna< void >::check(L,8);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetActiveUniform(unsigned int, unsigned int, int, int *, int *, unsigned int *, char *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetActiveUniform(program, index, bufSize, &length, &size, &type, &name);
+		self->glGetActiveUniform(program, index, bufSize, length, size, type, name);
 
 		return 0;
 	}
@@ -2241,15 +2241,15 @@ public:
 
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 		int maxCount=(int)lua_tointeger(L,3);
-		int count=(int)lua_tointeger(L,4);
-		unsigned int obj=(unsigned int)lua_tointeger(L,5);
+		int* count=(int*)Luna< void >::check(L,4);
+		unsigned int* obj=(unsigned int*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetAttachedShaders(unsigned int, int, int *, unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetAttachedShaders(program, maxCount, &count, &obj);
+		self->glGetAttachedShaders(program, maxCount, count, obj);
 
 		return 0;
 	}
@@ -2284,14 +2284,14 @@ public:
 
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 		unsigned int pname=(unsigned int)lua_tointeger(L,3);
-		int params=(int)lua_tointeger(L,4);
+		int* params=(int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetProgramiv(unsigned int, unsigned int, int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetProgramiv(program, pname, &params);
+		self->glGetProgramiv(program, pname, params);
 
 		return 0;
 	}
@@ -2305,15 +2305,15 @@ public:
 
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 		int bufSize=(int)lua_tointeger(L,3);
-		int length=(int)lua_tointeger(L,4);
-		char infoLog=(char)lua_tointeger(L,5);
+		int* length=(int*)Luna< void >::check(L,4);
+		char* infoLog=(char*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetProgramInfoLog(unsigned int, int, int *, char *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetProgramInfoLog(program, bufSize, &length, &infoLog);
+		self->glGetProgramInfoLog(program, bufSize, length, infoLog);
 
 		return 0;
 	}
@@ -2327,14 +2327,14 @@ public:
 
 		unsigned int shader=(unsigned int)lua_tointeger(L,2);
 		unsigned int pname=(unsigned int)lua_tointeger(L,3);
-		int params=(int)lua_tointeger(L,4);
+		int* params=(int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetShaderiv(unsigned int, unsigned int, int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetShaderiv(shader, pname, &params);
+		self->glGetShaderiv(shader, pname, params);
 
 		return 0;
 	}
@@ -2348,15 +2348,15 @@ public:
 
 		unsigned int shader=(unsigned int)lua_tointeger(L,2);
 		int bufSize=(int)lua_tointeger(L,3);
-		int length=(int)lua_tointeger(L,4);
-		char infoLog=(char)lua_tointeger(L,5);
+		int* length=(int*)Luna< void >::check(L,4);
+		char* infoLog=(char*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetShaderInfoLog(unsigned int, int, int *, char *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetShaderInfoLog(shader, bufSize, &length, &infoLog);
+		self->glGetShaderInfoLog(shader, bufSize, length, infoLog);
 
 		return 0;
 	}
@@ -2370,15 +2370,15 @@ public:
 
 		unsigned int shader=(unsigned int)lua_tointeger(L,2);
 		int bufSize=(int)lua_tointeger(L,3);
-		int length=(int)lua_tointeger(L,4);
-		char source=(char)lua_tointeger(L,5);
+		int* length=(int*)Luna< void >::check(L,4);
+		char* source=(char*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetShaderSource(unsigned int, int, int *, char *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetShaderSource(shader, bufSize, &length, &source);
+		self->glGetShaderSource(shader, bufSize, length, source);
 
 		return 0;
 	}
@@ -2413,14 +2413,14 @@ public:
 
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 		int location=(int)lua_tointeger(L,3);
-		float params=(float)lua_tonumber(L,4);
+		float* params=(float*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetUniformfv(unsigned int, int, float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetUniformfv(program, location, &params);
+		self->glGetUniformfv(program, location, params);
 
 		return 0;
 	}
@@ -2434,14 +2434,14 @@ public:
 
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 		int location=(int)lua_tointeger(L,3);
-		int params=(int)lua_tointeger(L,4);
+		int* params=(int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetUniformiv(unsigned int, int, int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetUniformiv(program, location, &params);
+		self->glGetUniformiv(program, location, params);
 
 		return 0;
 	}
@@ -2455,14 +2455,14 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		unsigned int pname=(unsigned int)lua_tointeger(L,3);
-		double params=(double)lua_tonumber(L,4);
+		double* params=(double*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetVertexAttribdv(unsigned int, unsigned int, double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetVertexAttribdv(index, pname, &params);
+		self->glGetVertexAttribdv(index, pname, params);
 
 		return 0;
 	}
@@ -2476,14 +2476,14 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		unsigned int pname=(unsigned int)lua_tointeger(L,3);
-		float params=(float)lua_tonumber(L,4);
+		float* params=(float*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetVertexAttribfv(unsigned int, unsigned int, float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetVertexAttribfv(index, pname, &params);
+		self->glGetVertexAttribfv(index, pname, params);
 
 		return 0;
 	}
@@ -2497,14 +2497,14 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		unsigned int pname=(unsigned int)lua_tointeger(L,3);
-		int params=(int)lua_tointeger(L,4);
+		int* params=(int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetVertexAttribiv(unsigned int, unsigned int, int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetVertexAttribiv(index, pname, &params);
+		self->glGetVertexAttribiv(index, pname, params);
 
 		return 0;
 	}
@@ -2768,14 +2768,14 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		float value=(float)lua_tonumber(L,4);
+		float* value=(float*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform1fv(int, int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniform1fv(location, count, &value);
+		self->glUniform1fv(location, count, value);
 
 		return 0;
 	}
@@ -2789,14 +2789,14 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		float value=(float)lua_tonumber(L,4);
+		float* value=(float*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform2fv(int, int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniform2fv(location, count, &value);
+		self->glUniform2fv(location, count, value);
 
 		return 0;
 	}
@@ -2810,14 +2810,14 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		float value=(float)lua_tonumber(L,4);
+		float* value=(float*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform3fv(int, int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniform3fv(location, count, &value);
+		self->glUniform3fv(location, count, value);
 
 		return 0;
 	}
@@ -2831,14 +2831,14 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		float value=(float)lua_tonumber(L,4);
+		float* value=(float*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform4fv(int, int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniform4fv(location, count, &value);
+		self->glUniform4fv(location, count, value);
 
 		return 0;
 	}
@@ -2852,14 +2852,14 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		int value=(int)lua_tointeger(L,4);
+		int* value=(int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform1iv(int, int, const int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniform1iv(location, count, &value);
+		self->glUniform1iv(location, count, value);
 
 		return 0;
 	}
@@ -2873,14 +2873,14 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		int value=(int)lua_tointeger(L,4);
+		int* value=(int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform2iv(int, int, const int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniform2iv(location, count, &value);
+		self->glUniform2iv(location, count, value);
 
 		return 0;
 	}
@@ -2894,14 +2894,14 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		int value=(int)lua_tointeger(L,4);
+		int* value=(int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform3iv(int, int, const int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniform3iv(location, count, &value);
+		self->glUniform3iv(location, count, value);
 
 		return 0;
 	}
@@ -2915,14 +2915,14 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		int value=(int)lua_tointeger(L,4);
+		int* value=(int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform4iv(int, int, const int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniform4iv(location, count, &value);
+		self->glUniform4iv(location, count, value);
 
 		return 0;
 	}
@@ -2937,14 +2937,14 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float value=(float)lua_tonumber(L,5);
+		float* value=(float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix2fv(int, int, unsigned char, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniformMatrix2fv(location, count, transpose, &value);
+		self->glUniformMatrix2fv(location, count, transpose, value);
 
 		return 0;
 	}
@@ -2959,14 +2959,14 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float value=(float)lua_tonumber(L,5);
+		float* value=(float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix3fv(int, int, unsigned char, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniformMatrix3fv(location, count, transpose, &value);
+		self->glUniformMatrix3fv(location, count, transpose, value);
 
 		return 0;
 	}
@@ -2981,14 +2981,14 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float value=(float)lua_tonumber(L,5);
+		float* value=(float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix4fv(int, int, unsigned char, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniformMatrix4fv(location, count, transpose, &value);
+		self->glUniformMatrix4fv(location, count, transpose, value);
 
 		return 0;
 	}
@@ -3040,14 +3040,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		double v=(double)lua_tonumber(L,3);
+		double* v=(double*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib1dv(unsigned int, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib1dv(index, &v);
+		self->glVertexAttrib1dv(index, v);
 
 		return 0;
 	}
@@ -3080,14 +3080,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		float v=(float)lua_tonumber(L,3);
+		float* v=(float*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib1fv(unsigned int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib1fv(index, &v);
+		self->glVertexAttrib1fv(index, v);
 
 		return 0;
 	}
@@ -3120,14 +3120,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		short v=(short)lua_tointeger(L,3);
+		short* v=(short*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib1sv(unsigned int, const short *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib1sv(index, &v);
+		self->glVertexAttrib1sv(index, v);
 
 		return 0;
 	}
@@ -3161,14 +3161,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		double v=(double)lua_tonumber(L,3);
+		double* v=(double*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib2dv(unsigned int, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib2dv(index, &v);
+		self->glVertexAttrib2dv(index, v);
 
 		return 0;
 	}
@@ -3202,14 +3202,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		float v=(float)lua_tonumber(L,3);
+		float* v=(float*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib2fv(unsigned int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib2fv(index, &v);
+		self->glVertexAttrib2fv(index, v);
 
 		return 0;
 	}
@@ -3243,14 +3243,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		short v=(short)lua_tointeger(L,3);
+		short* v=(short*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib2sv(unsigned int, const short *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib2sv(index, &v);
+		self->glVertexAttrib2sv(index, v);
 
 		return 0;
 	}
@@ -3285,14 +3285,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		double v=(double)lua_tonumber(L,3);
+		double* v=(double*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib3dv(unsigned int, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib3dv(index, &v);
+		self->glVertexAttrib3dv(index, v);
 
 		return 0;
 	}
@@ -3327,14 +3327,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		float v=(float)lua_tonumber(L,3);
+		float* v=(float*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib3fv(unsigned int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib3fv(index, &v);
+		self->glVertexAttrib3fv(index, v);
 
 		return 0;
 	}
@@ -3369,14 +3369,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		short v=(short)lua_tointeger(L,3);
+		short* v=(short*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib3sv(unsigned int, const short *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib3sv(index, &v);
+		self->glVertexAttrib3sv(index, v);
 
 		return 0;
 	}
@@ -3389,14 +3389,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		signed char v=(signed char)lua_tointeger(L,3);
+		signed char* v=(signed char*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib4Nbv(unsigned int, const signed char *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib4Nbv(index, &v);
+		self->glVertexAttrib4Nbv(index, v);
 
 		return 0;
 	}
@@ -3409,14 +3409,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		int v=(int)lua_tointeger(L,3);
+		int* v=(int*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib4Niv(unsigned int, const int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib4Niv(index, &v);
+		self->glVertexAttrib4Niv(index, v);
 
 		return 0;
 	}
@@ -3429,14 +3429,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		short v=(short)lua_tointeger(L,3);
+		short* v=(short*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib4Nsv(unsigned int, const short *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib4Nsv(index, &v);
+		self->glVertexAttrib4Nsv(index, v);
 
 		return 0;
 	}
@@ -3492,14 +3492,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		unsigned int v=(unsigned int)lua_tointeger(L,3);
+		unsigned int* v=(unsigned int*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib4Nuiv(unsigned int, const unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib4Nuiv(index, &v);
+		self->glVertexAttrib4Nuiv(index, v);
 
 		return 0;
 	}
@@ -3512,14 +3512,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		unsigned short v=(unsigned short)lua_tointeger(L,3);
+		unsigned short* v=(unsigned short*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib4Nusv(unsigned int, const unsigned short *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib4Nusv(index, &v);
+		self->glVertexAttrib4Nusv(index, v);
 
 		return 0;
 	}
@@ -3532,14 +3532,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		signed char v=(signed char)lua_tointeger(L,3);
+		signed char* v=(signed char*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib4bv(unsigned int, const signed char *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib4bv(index, &v);
+		self->glVertexAttrib4bv(index, v);
 
 		return 0;
 	}
@@ -3575,14 +3575,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		double v=(double)lua_tonumber(L,3);
+		double* v=(double*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib4dv(unsigned int, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib4dv(index, &v);
+		self->glVertexAttrib4dv(index, v);
 
 		return 0;
 	}
@@ -3618,14 +3618,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		float v=(float)lua_tonumber(L,3);
+		float* v=(float*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib4fv(unsigned int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib4fv(index, &v);
+		self->glVertexAttrib4fv(index, v);
 
 		return 0;
 	}
@@ -3638,14 +3638,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		int v=(int)lua_tointeger(L,3);
+		int* v=(int*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib4iv(unsigned int, const int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib4iv(index, &v);
+		self->glVertexAttrib4iv(index, v);
 
 		return 0;
 	}
@@ -3681,14 +3681,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		short v=(short)lua_tointeger(L,3);
+		short* v=(short*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib4sv(unsigned int, const short *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib4sv(index, &v);
+		self->glVertexAttrib4sv(index, v);
 
 		return 0;
 	}
@@ -3721,14 +3721,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		unsigned int v=(unsigned int)lua_tointeger(L,3);
+		unsigned int* v=(unsigned int*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib4uiv(unsigned int, const unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib4uiv(index, &v);
+		self->glVertexAttrib4uiv(index, v);
 
 		return 0;
 	}
@@ -3741,14 +3741,14 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		unsigned short v=(unsigned short)lua_tointeger(L,3);
+		unsigned short* v=(unsigned short*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glVertexAttrib4usv(unsigned int, const unsigned short *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glVertexAttrib4usv(index, &v);
+		self->glVertexAttrib4usv(index, v);
 
 		return 0;
 	}
@@ -3890,14 +3890,14 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float value=(float)lua_tonumber(L,5);
+		float* value=(float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix2x3fv(int, int, unsigned char, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniformMatrix2x3fv(location, count, transpose, &value);
+		self->glUniformMatrix2x3fv(location, count, transpose, value);
 
 		return 0;
 	}
@@ -3912,14 +3912,14 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float value=(float)lua_tonumber(L,5);
+		float* value=(float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix3x2fv(int, int, unsigned char, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniformMatrix3x2fv(location, count, transpose, &value);
+		self->glUniformMatrix3x2fv(location, count, transpose, value);
 
 		return 0;
 	}
@@ -3934,14 +3934,14 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float value=(float)lua_tonumber(L,5);
+		float* value=(float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix2x4fv(int, int, unsigned char, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniformMatrix2x4fv(location, count, transpose, &value);
+		self->glUniformMatrix2x4fv(location, count, transpose, value);
 
 		return 0;
 	}
@@ -3956,14 +3956,14 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float value=(float)lua_tonumber(L,5);
+		float* value=(float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix4x2fv(int, int, unsigned char, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniformMatrix4x2fv(location, count, transpose, &value);
+		self->glUniformMatrix4x2fv(location, count, transpose, value);
 
 		return 0;
 	}
@@ -3978,14 +3978,14 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float value=(float)lua_tonumber(L,5);
+		float* value=(float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix3x4fv(int, int, unsigned char, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniformMatrix3x4fv(location, count, transpose, &value);
+		self->glUniformMatrix3x4fv(location, count, transpose, value);
 
 		return 0;
 	}
@@ -4000,14 +4000,14 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float value=(float)lua_tonumber(L,5);
+		float* value=(float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix4x3fv(int, int, unsigned char, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniformMatrix4x3fv(location, count, transpose, &value);
+		self->glUniformMatrix4x3fv(location, count, transpose, value);
 
 		return 0;
 	}
@@ -4129,14 +4129,14 @@ public:
 		}
 
 		unsigned int pname=(unsigned int)lua_tointeger(L,2);
-		float values=(float)lua_tonumber(L,3);
+		float* values=(float*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glPatchParameterfv(unsigned int, const float *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glPatchParameterfv(pname, &values);
+		self->glPatchParameterfv(pname, values);
 
 		return 0;
 	}
@@ -4150,14 +4150,14 @@ public:
 
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 		int location=(int)lua_tointeger(L,3);
-		unsigned int params=(unsigned int)lua_tointeger(L,4);
+		unsigned int* params=(unsigned int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetUniformuiv(unsigned int, int, unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetUniformuiv(program, location, &params);
+		self->glGetUniformuiv(program, location, params);
 
 		return 0;
 	}
@@ -4299,14 +4299,14 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned int value=(unsigned int)lua_tointeger(L,4);
+		unsigned int* value=(unsigned int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform1uiv(int, int, const unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniform1uiv(location, count, &value);
+		self->glUniform1uiv(location, count, value);
 
 		return 0;
 	}
@@ -4320,14 +4320,14 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned int value=(unsigned int)lua_tointeger(L,4);
+		unsigned int* value=(unsigned int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform2uiv(int, int, const unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniform2uiv(location, count, &value);
+		self->glUniform2uiv(location, count, value);
 
 		return 0;
 	}
@@ -4341,14 +4341,14 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned int value=(unsigned int)lua_tointeger(L,4);
+		unsigned int* value=(unsigned int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform3uiv(int, int, const unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniform3uiv(location, count, &value);
+		self->glUniform3uiv(location, count, value);
 
 		return 0;
 	}
@@ -4362,14 +4362,14 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned int value=(unsigned int)lua_tointeger(L,4);
+		unsigned int* value=(unsigned int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform4uiv(int, int, const unsigned int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glUniform4uiv(location, count, &value);
+		self->glUniform4uiv(location, count, value);
 
 		return 0;
 	}
@@ -4383,16 +4383,16 @@ public:
 
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 		int uniformCount=(int)lua_tointeger(L,3);
-		unsigned int uniformIndices=(unsigned int)lua_tointeger(L,4);
+		unsigned int* uniformIndices=(unsigned int*)Luna< void >::check(L,4);
 		unsigned int pname=(unsigned int)lua_tointeger(L,5);
-		int params=(int)lua_tointeger(L,6);
+		int* params=(int*)Luna< void >::check(L,6);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetActiveUniformsiv(unsigned int, int, const unsigned int *, unsigned int, int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetActiveUniformsiv(program, uniformCount, &uniformIndices, pname, &params);
+		self->glGetActiveUniformsiv(program, uniformCount, uniformIndices, pname, params);
 
 		return 0;
 	}
@@ -4407,15 +4407,15 @@ public:
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 		unsigned int uniformIndex=(unsigned int)lua_tointeger(L,3);
 		int bufSize=(int)lua_tointeger(L,4);
-		int length=(int)lua_tointeger(L,5);
-		char uniformName=(char)lua_tointeger(L,6);
+		int* length=(int*)Luna< void >::check(L,5);
+		char* uniformName=(char*)Luna< void >::check(L,6);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetActiveUniformName(unsigned int, unsigned int, int, int *, char *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetActiveUniformName(program, uniformIndex, bufSize, &length, &uniformName);
+		self->glGetActiveUniformName(program, uniformIndex, bufSize, length, uniformName);
 
 		return 0;
 	}
@@ -4451,14 +4451,14 @@ public:
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 		unsigned int uniformBlockIndex=(unsigned int)lua_tointeger(L,3);
 		unsigned int pname=(unsigned int)lua_tointeger(L,4);
-		int params=(int)lua_tointeger(L,5);
+		int* params=(int*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetActiveUniformBlockiv(unsigned int, unsigned int, unsigned int, int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetActiveUniformBlockiv(program, uniformBlockIndex, pname, &params);
+		self->glGetActiveUniformBlockiv(program, uniformBlockIndex, pname, params);
 
 		return 0;
 	}
@@ -4473,15 +4473,15 @@ public:
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 		unsigned int uniformBlockIndex=(unsigned int)lua_tointeger(L,3);
 		int bufSize=(int)lua_tointeger(L,4);
-		int length=(int)lua_tointeger(L,5);
-		char uniformBlockName=(char)lua_tointeger(L,6);
+		int* length=(int*)Luna< void >::check(L,5);
+		char* uniformBlockName=(char*)Luna< void >::check(L,6);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetActiveUniformBlockName(unsigned int, unsigned int, int, int *, char *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, &length, &uniformBlockName);
+		self->glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, length, uniformBlockName);
 
 		return 0;
 	}
@@ -4516,8 +4516,8 @@ public:
 
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 		int bufSize=(int)lua_tointeger(L,3);
-		int length=(int)lua_tointeger(L,4);
-		unsigned int binaryFormat=(unsigned int)lua_tointeger(L,5);
+		int* length=(int*)Luna< void >::check(L,4);
+		unsigned int* binaryFormat=(unsigned int*)Luna< void >::check(L,5);
 		void* binary=(Luna< void >::check(L,6));
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
@@ -4525,7 +4525,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetProgramBinary(unsigned int, int, int *, unsigned int *, void *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->glGetProgramBinary(program, bufSize, &length, &binaryFormat, binary);
+		self->glGetProgramBinary(program, bufSize, length, binaryFormat, binary);
 
 		return 0;
 	}

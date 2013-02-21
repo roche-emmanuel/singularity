@@ -1,0 +1,44 @@
+- Libraries:
+
+* SFML : http://www.sfml-dev.org/index-fr.php
+* ngPlant
+
+- Todo:
+
+* create a C++ storage to share common values in multi lua states.
+* provide vector iterator support.
+* create double entry map.
+
+* Add integral types pointer support
+* Subtexture upload for awesomium surface.
+
+* Add minimal notebook app.
+* Implement all listeners for webview
+* Remove "<" as a ignoring function pattern (in wx module at least) ?
+
+* Add support for array public variable access (like float _values[3];)
+* return arguments passed by reference if they are not pointed classes.
+* Create a more versatile loader from AssImp as lua module.
+
+
+* Implement LUA IDE with module parsing support and auto completion/Function help.
+* improve subclass registration to add class access in parent class (like osg.Drawable.CullCallback = osg.Drawable_CullCallback)
+* add type auto-registration in wrapper writer when pushing args and results.
+* add support for int variables in namespaces (like const in AK_KEY_1 = 0x89;)
+* Find how to remove circular dependency in wrapper/table creation process.
+* integrate AuiManager usage in ControlInterface ?: 
+
+    wxTextCtrl* text1 = new wxTextCtrl(this, -1);
+    wxTextCtrl* text2 = new wxTextCtrl(this, -1);
+    m_mgr.AddPane(text1, wxLEFT, "Pane Caption");
+    m_mgr.AddPane(text2, wxBOTTOM, "Pane Caption");
+    m_mgr.Update();
+
+	
+* Upgrade version of doxmlparser
+
+* Implement financial market predictor with:
+  - neural network
+  - colline society
+  - opencog system from: https://github.com/opencog/opencog
+  

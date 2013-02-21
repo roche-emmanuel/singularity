@@ -1990,8 +1990,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int renderMask=luatop>1 ? (int)lua_tointeger(L,2) : osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT;
-		int resolveMask=luatop>2 ? (int)lua_tointeger(L,3) : osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT;
+		int renderMask=luatop>1 ? (int)lua_tointeger(L,2) : (int)osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT;
+		int resolveMask=luatop>2 ? (int)lua_tointeger(L,3) : (int)osg::DisplaySettings::DEFAULT_IMPLICIT_BUFFER_ATTACHMENT;
 
 		osg::DisplaySettings* self=Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1);
 		if(!self) {

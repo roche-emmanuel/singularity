@@ -40,7 +40,7 @@ public:
 	void setValue(osg::Quat val) {
 		THROW_IF(!_obj.pushFunction("setValue"),"No implementation for abstract function QuatCallback::setValue");
 		_obj.pushArg((QuatCallback*)this);
-		_obj.pushArg(val);
+		_obj.pushArg(&val);
 		return (_obj.callFunction<void>());
 	};
 

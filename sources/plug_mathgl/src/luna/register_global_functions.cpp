@@ -12622,7 +12622,7 @@ static int _bind_mgl_ipowc(lua_State *L) {
 	dual x=*x_ptr;
 	int n=(int)lua_tointeger(L,2);
 
-	dual stack_lret = mgl_ipowc(x, n);
+	dual stack_lret = ::mgl_ipowc(x, n);
 	dual* lret = new dual(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -12644,7 +12644,7 @@ static int _bind_expi_overload_1(lua_State *L) {
 	}
 	dual a=*a_ptr;
 
-	dual stack_lret = expi(a);
+	dual stack_lret = ::expi(a);
 	dual* lret = new dual(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -12662,7 +12662,7 @@ static int _bind_expi_overload_2(lua_State *L) {
 
 	double a=(double)lua_tonumber(L,1);
 
-	dual stack_lret = expi(a);
+	dual stack_lret = ::expi(a);
 	dual* lret = new dual(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -12700,7 +12700,7 @@ static int _bind_mgl_difr_axial(lua_State *L) {
 	int kk=(int)lua_tointeger(L,7);
 	double di=(double)lua_tonumber(L,8);
 
-	bool lret = mgl_difr_axial(a, n, q, Border, b, d, kk, di);
+	bool lret = ::mgl_difr_axial(a, n, q, Border, b, d, kk, di);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -12725,7 +12725,7 @@ static int _bind_mgl_difr_grid(lua_State *L) {
 	dual* d=(Luna< std::complex< double > >::checkSubType< dual >(L,6));
 	int kk=(int)lua_tointeger(L,7);
 
-	bool lret = mgl_difr_grid(a, n, q, Border, b, d, kk);
+	bool lret = ::mgl_difr_grid(a, n, q, Border, b, d, kk);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -12739,7 +12739,7 @@ static int _bind_mgl_gauss_rnd(lua_State *L) {
 	}
 
 
-	double lret = mgl_gauss_rnd();
+	double lret = ::mgl_gauss_rnd();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -12755,7 +12755,7 @@ static int _bind_mgl_fft_freq(lua_State *L) {
 	double freq=(double)lua_tonumber(L,1);
 	size_t nn=(size_t)lua_tointeger(L,2);
 
-	mgl_fft_freq(&freq, nn);
+	::mgl_fft_freq(&freq, nn);
 
 	return 0;
 }
@@ -12769,7 +12769,7 @@ static int _bind_mgl_strcls(lua_State *L) {
 
 	char str=(char)lua_tointeger(L,1);
 
-	mgl_strcls(&str);
+	::mgl_strcls(&str);
 
 	return 0;
 }
@@ -12784,7 +12784,7 @@ static int _bind_mgl_strpos(lua_State *L) {
 	const char * str=(const char *)lua_tostring(L,1);
 	char fnd=(char)lua_tointeger(L,2);
 
-	int lret = mgl_strpos(str, &fnd);
+	int lret = ::mgl_strpos(str, &fnd);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -12800,7 +12800,7 @@ static int _bind_mgl_chrpos(lua_State *L) {
 	const char * str=(const char *)lua_tostring(L,1);
 	char fnd=(char)lua_tointeger(L,2);
 
-	int lret = mgl_chrpos(str, fnd);
+	int lret = ::mgl_chrpos(str, fnd);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -12815,7 +12815,7 @@ static int _bind_mgl_istrue(lua_State *L) {
 
 	char ch=(char)lua_tointeger(L,1);
 
-	int lret = mgl_istrue(ch);
+	int lret = ::mgl_istrue(ch);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -12832,7 +12832,7 @@ static int _bind_mgl_d(lua_State *L) {
 	double v1=(double)lua_tonumber(L,2);
 	double v2=(double)lua_tonumber(L,3);
 
-	double lret = mgl_d(v, v1, v2);
+	double lret = ::mgl_d(v, v1, v2);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -12852,7 +12852,7 @@ static int _bind_GetX(lua_State *L) {
 	int j=(int)lua_tointeger(L,3);
 	int k=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 
-	mglPoint stack_lret = GetX(x, i, j, k);
+	mglPoint stack_lret = ::GetX(x, i, j, k);
 	mglPoint* lret = new mglPoint(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -12875,7 +12875,7 @@ static int _bind_GetY(lua_State *L) {
 	int j=(int)lua_tointeger(L,3);
 	int k=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 
-	mglPoint stack_lret = GetY(y, i, j, k);
+	mglPoint stack_lret = ::GetY(y, i, j, k);
 	mglPoint* lret = new mglPoint(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -12898,7 +12898,7 @@ static int _bind_GetZ(lua_State *L) {
 	int j=(int)lua_tointeger(L,3);
 	int k=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 
-	mglPoint stack_lret = GetZ(z, i, j, k);
+	mglPoint stack_lret = ::GetZ(z, i, j, k);
 	mglPoint* lret = new mglPoint(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -12916,7 +12916,7 @@ static int _bind_mgl_have_color(lua_State *L) {
 
 	const char * stl=(const char *)lua_tostring(L,1);
 
-	long lret = mgl_have_color(stl);
+	long lret = ::mgl_have_color(stl);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -12939,7 +12939,7 @@ static int _bind_mgl_check_dim0(lua_State *L) {
 	const char * name=(const char *)lua_tostring(L,6);
 	bool less=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : false;
 
-	bool lret = mgl_check_dim0(gr, x, y, z, r, name, less);
+	bool lret = ::mgl_check_dim0(gr, x, y, z, r, name, less);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -12962,7 +12962,7 @@ static int _bind_mgl_check_dim1(lua_State *L) {
 	const char * name=(const char *)lua_tostring(L,6);
 	bool less=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : false;
 
-	bool lret = mgl_check_dim1(gr, x, y, z, r, name, less);
+	bool lret = ::mgl_check_dim1(gr, x, y, z, r, name, less);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -12985,7 +12985,7 @@ static int _bind_mgl_check_dim2(lua_State *L) {
 	const char * name=(const char *)lua_tostring(L,6);
 	bool less=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : false;
 
-	bool lret = mgl_check_dim2(gr, x, y, z, a, name, less);
+	bool lret = ::mgl_check_dim2(gr, x, y, z, a, name, less);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -13007,7 +13007,7 @@ static int _bind_mgl_check_dim3(lua_State *L) {
 	const mglDataA* b=(Luna< mglDataA >::check(L,7));
 	const char * name=(const char *)lua_tostring(L,8);
 
-	bool lret = mgl_check_dim3(gr, both, x, y, z, a, b, name);
+	bool lret = ::mgl_check_dim3(gr, both, x, y, z, a, b, name);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -13029,7 +13029,7 @@ static int _bind_mgl_check_vec3(lua_State *L) {
 	const mglDataA* az=(Luna< mglDataA >::check(L,7));
 	const char * name=(const char *)lua_tostring(L,8);
 
-	bool lret = mgl_check_vec3(gr, x, y, z, ax, ay, az, name);
+	bool lret = ::mgl_check_vec3(gr, x, y, z, ax, ay, az, name);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -13053,7 +13053,7 @@ static int _bind_mgl_check_trig(lua_State *L) {
 	const char * name=(const char *)lua_tostring(L,7);
 	int d=luatop>7 ? (int)lua_tointeger(L,8) : 3;
 
-	bool lret = mgl_check_trig(gr, nums, x, y, z, a, name, d);
+	bool lret = ::mgl_check_trig(gr, nums, x, y, z, a, name, d);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -13071,7 +13071,7 @@ static int _bind_mgl_isboth(lua_State *L) {
 	const mglDataA* z=(Luna< mglDataA >::check(L,3));
 	const mglDataA* a=(Luna< mglDataA >::check(L,4));
 
-	bool lret = mgl_isboth(x, y, z, a);
+	bool lret = ::mgl_isboth(x, y, z, a);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -13086,7 +13086,7 @@ static int _bind_mgl_get_warn(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	int lret = mgl_get_warn(gr);
+	int lret = ::mgl_get_warn(gr);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -13101,7 +13101,7 @@ static int _bind_mgl_get_warn_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	int lret = mgl_get_warn_(gr);
+	int lret = ::mgl_get_warn_(gr);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -13118,7 +13118,7 @@ static int _bind_mgl_set_warn(lua_State *L) {
 	int code=(int)lua_tointeger(L,2);
 	const char * text=(const char *)lua_tostring(L,3);
 
-	mgl_set_warn(gr, code, text);
+	::mgl_set_warn(gr, code, text);
 
 	return 0;
 }
@@ -13135,7 +13135,7 @@ static int _bind_mgl_set_warn_(lua_State *L) {
 	const char * text=(const char *)lua_tostring(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_set_warn_(gr, &code, text, _arg4);
+	::mgl_set_warn_(gr, &code, text, _arg4);
 
 	return 0;
 }
@@ -13149,7 +13149,7 @@ static int _bind_mgl_get_mess(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	const char * lret = mgl_get_mess(gr);
+	const char * lret = ::mgl_get_mess(gr);
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -13165,7 +13165,7 @@ static int _bind_mgl_get_flag(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	long flag=(long)lua_tointeger(L,2);
 
-	int lret = mgl_get_flag(gr, flag);
+	int lret = ::mgl_get_flag(gr, flag);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -13182,7 +13182,7 @@ static int _bind_mgl_set_flag(lua_State *L) {
 	int val=(int)lua_tointeger(L,2);
 	long flag=(long)lua_tointeger(L,3);
 
-	mgl_set_flag(gr, val, flag);
+	::mgl_set_flag(gr, val, flag);
 
 	return 0;
 }
@@ -13197,7 +13197,7 @@ static int _bind_mgl_use_graph(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int inc=(int)lua_tointeger(L,2);
 
-	long lret = mgl_use_graph(gr, inc);
+	long lret = ::mgl_use_graph(gr, inc);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -13213,7 +13213,7 @@ static int _bind_mgl_use_graph_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int inc=(int)lua_tointeger(L,2);
 
-	long lret = mgl_use_graph_(gr, &inc);
+	long lret = ::mgl_use_graph_(gr, &inc);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -13229,7 +13229,7 @@ static int _bind_mgl_set_rdc_acc(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int reduce=(int)lua_tointeger(L,2);
 
-	mgl_set_rdc_acc(gr, reduce);
+	::mgl_set_rdc_acc(gr, reduce);
 
 	return 0;
 }
@@ -13244,7 +13244,7 @@ static int _bind_mgl_set_rdc_acc_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int reduce=(int)lua_tointeger(L,2);
 
-	mgl_set_rdc_acc_(gr, &reduce);
+	::mgl_set_rdc_acc_(gr, &reduce);
 
 	return 0;
 }
@@ -13259,7 +13259,7 @@ static int _bind_mgl_start_group(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	const char * _arg2=(const char *)lua_tostring(L,2);
 
-	mgl_start_group(gr, _arg2);
+	::mgl_start_group(gr, _arg2);
 
 	return 0;
 }
@@ -13275,7 +13275,7 @@ static int _bind_mgl_start_group_(lua_State *L) {
 	const char * _arg2=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_start_group_(gr, _arg2, _arg3);
+	::mgl_start_group_(gr, _arg2, _arg3);
 
 	return 0;
 }
@@ -13289,7 +13289,7 @@ static int _bind_mgl_end_group(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_end_group(gr);
+	::mgl_end_group(gr);
 
 	return 0;
 }
@@ -13303,7 +13303,7 @@ static int _bind_mgl_end_group_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_end_group_(gr);
+	::mgl_end_group_(gr);
 
 	return 0;
 }
@@ -13318,7 +13318,7 @@ static int _bind_mgl_highlight(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int id=(int)lua_tointeger(L,2);
 
-	mgl_highlight(gr, id);
+	::mgl_highlight(gr, id);
 
 	return 0;
 }
@@ -13333,7 +13333,7 @@ static int _bind_mgl_highlight_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int id=(int)lua_tointeger(L,2);
 
-	mgl_highlight_(gr, &id);
+	::mgl_highlight_(gr, &id);
 
 	return 0;
 }
@@ -13348,7 +13348,7 @@ static int _bind_mgl_set_palette(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	const char * colors=(const char *)lua_tostring(L,2);
 
-	mgl_set_palette(gr, colors);
+	::mgl_set_palette(gr, colors);
 
 	return 0;
 }
@@ -13364,7 +13364,7 @@ static int _bind_mgl_set_palette_(lua_State *L) {
 	const char * colors=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_set_palette_(gr, colors, _arg3);
+	::mgl_set_palette_(gr, colors, _arg3);
 
 	return 0;
 }
@@ -13381,7 +13381,7 @@ static int _bind_mgl_set_color(lua_State *L) {
 	double g=(double)lua_tonumber(L,3);
 	double b=(double)lua_tonumber(L,4);
 
-	mgl_set_color(id, r, g, b);
+	::mgl_set_color(id, r, g, b);
 
 	return 0;
 }
@@ -13399,7 +13399,7 @@ static int _bind_mgl_set_color_(lua_State *L) {
 	double b=(double)lua_tonumber(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_set_color_(&id, &r, &g, &b, _arg5);
+	::mgl_set_color_(&id, &r, &g, &b, _arg5);
 
 	return 0;
 }
@@ -13414,7 +13414,7 @@ static int _bind_mgl_set_def_sch(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	const char * sch=(const char *)lua_tostring(L,2);
 
-	mgl_set_def_sch(gr, sch);
+	::mgl_set_def_sch(gr, sch);
 
 	return 0;
 }
@@ -13430,7 +13430,7 @@ static int _bind_mgl_set_def_sch_(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_set_def_sch_(gr, sch, _arg3);
+	::mgl_set_def_sch_(gr, sch, _arg3);
 
 	return 0;
 }
@@ -13445,7 +13445,7 @@ static int _bind_mgl_set_alpha_default(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	double alpha=(double)lua_tonumber(L,2);
 
-	mgl_set_alpha_default(gr, alpha);
+	::mgl_set_alpha_default(gr, alpha);
 
 	return 0;
 }
@@ -13460,7 +13460,7 @@ static int _bind_mgl_set_alpha_default_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	double alpha=(double)lua_tonumber(L,2);
 
-	mgl_set_alpha_default_(gr, &alpha);
+	::mgl_set_alpha_default_(gr, &alpha);
 
 	return 0;
 }
@@ -13475,7 +13475,7 @@ static int _bind_mgl_set_bar_width(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	double width=(double)lua_tonumber(L,2);
 
-	mgl_set_bar_width(gr, width);
+	::mgl_set_bar_width(gr, width);
 
 	return 0;
 }
@@ -13490,7 +13490,7 @@ static int _bind_mgl_set_bar_width_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	double width=(double)lua_tonumber(L,2);
 
-	mgl_set_bar_width_(gr, &width);
+	::mgl_set_bar_width_(gr, &width);
 
 	return 0;
 }
@@ -13505,7 +13505,7 @@ static int _bind_mgl_set_meshnum(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int num=(int)lua_tointeger(L,2);
 
-	mgl_set_meshnum(gr, num);
+	::mgl_set_meshnum(gr, num);
 
 	return 0;
 }
@@ -13520,7 +13520,7 @@ static int _bind_mgl_set_meshnum_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int num=(int)lua_tointeger(L,2);
 
-	mgl_set_meshnum_(gr, &num);
+	::mgl_set_meshnum_(gr, &num);
 
 	return 0;
 }
@@ -13535,7 +13535,7 @@ static int _bind_mgl_set_facenum(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int num=(int)lua_tointeger(L,2);
 
-	mgl_set_facenum(gr, num);
+	::mgl_set_facenum(gr, num);
 
 	return 0;
 }
@@ -13550,7 +13550,7 @@ static int _bind_mgl_set_facenum_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int num=(int)lua_tointeger(L,2);
 
-	mgl_set_facenum_(gr, &num);
+	::mgl_set_facenum_(gr, &num);
 
 	return 0;
 }
@@ -13564,7 +13564,7 @@ static int _bind_mgl_clear_unused(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_clear_unused(gr);
+	::mgl_clear_unused(gr);
 
 	return 0;
 }
@@ -13578,7 +13578,7 @@ static int _bind_mgl_clear_unused_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_clear_unused_(gr);
+	::mgl_clear_unused_(gr);
 
 	return 0;
 }
@@ -13593,7 +13593,7 @@ static int _bind_mgl_set_ambbr(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	double i=(double)lua_tonumber(L,2);
 
-	mgl_set_ambbr(gr, i);
+	::mgl_set_ambbr(gr, i);
 
 	return 0;
 }
@@ -13608,7 +13608,7 @@ static int _bind_mgl_set_ambbr_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	double i=(double)lua_tonumber(L,2);
 
-	mgl_set_ambbr_(gr, &i);
+	::mgl_set_ambbr_(gr, &i);
 
 	return 0;
 }
@@ -13623,7 +13623,7 @@ static int _bind_mgl_set_light_dif(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int enable=(int)lua_tointeger(L,2);
 
-	mgl_set_light_dif(gr, enable);
+	::mgl_set_light_dif(gr, enable);
 
 	return 0;
 }
@@ -13638,7 +13638,7 @@ static int _bind_mgl_set_light_dif_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int enable=(int)lua_tointeger(L,2);
 
-	mgl_set_light_dif_(gr, &enable);
+	::mgl_set_light_dif_(gr, &enable);
 
 	return 0;
 }
@@ -13653,7 +13653,7 @@ static int _bind_mgl_set_cut(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int cut=(int)lua_tointeger(L,2);
 
-	mgl_set_cut(gr, cut);
+	::mgl_set_cut(gr, cut);
 
 	return 0;
 }
@@ -13668,7 +13668,7 @@ static int _bind_mgl_set_cut_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int cut=(int)lua_tointeger(L,2);
 
-	mgl_set_cut_(gr, &cut);
+	::mgl_set_cut_(gr, &cut);
 
 	return 0;
 }
@@ -13688,7 +13688,7 @@ static int _bind_mgl_set_cut_box(lua_State *L) {
 	double y2=(double)lua_tonumber(L,6);
 	double z2=(double)lua_tonumber(L,7);
 
-	mgl_set_cut_box(gr, x1, y1, z1, x2, y2, z2);
+	::mgl_set_cut_box(gr, x1, y1, z1, x2, y2, z2);
 
 	return 0;
 }
@@ -13708,7 +13708,7 @@ static int _bind_mgl_set_cut_box_(lua_State *L) {
 	double y2=(double)lua_tonumber(L,6);
 	double z2=(double)lua_tonumber(L,7);
 
-	mgl_set_cut_box_(gr, &x1, &y1, &z1, &x2, &y2, &z2);
+	::mgl_set_cut_box_(gr, &x1, &y1, &z1, &x2, &y2, &z2);
 
 	return 0;
 }
@@ -13723,7 +13723,7 @@ static int _bind_mgl_set_cutoff(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	const char * EqC=(const char *)lua_tostring(L,2);
 
-	mgl_set_cutoff(gr, EqC);
+	::mgl_set_cutoff(gr, EqC);
 
 	return 0;
 }
@@ -13739,7 +13739,7 @@ static int _bind_mgl_set_cutoff_(lua_State *L) {
 	const char * EqC=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_set_cutoff_(gr, EqC, _arg3);
+	::mgl_set_cutoff_(gr, EqC, _arg3);
 
 	return 0;
 }
@@ -13759,7 +13759,7 @@ static int _bind_mgl_set_ranges(lua_State *L) {
 	double z1=(double)lua_tonumber(L,6);
 	double z2=(double)lua_tonumber(L,7);
 
-	mgl_set_ranges(gr, x1, x2, y1, y2, z1, z2);
+	::mgl_set_ranges(gr, x1, x2, y1, y2, z1, z2);
 
 	return 0;
 }
@@ -13779,7 +13779,7 @@ static int _bind_mgl_set_ranges_(lua_State *L) {
 	double z1=(double)lua_tonumber(L,6);
 	double z2=(double)lua_tonumber(L,7);
 
-	mgl_set_ranges_(gr, &x1, &x2, &y1, &y2, &z1, &z2);
+	::mgl_set_ranges_(gr, &x1, &x2, &y1, &y2, &z1, &z2);
 
 	return 0;
 }
@@ -13796,7 +13796,7 @@ static int _bind_mgl_set_range_val(lua_State *L) {
 	double v1=(double)lua_tonumber(L,3);
 	double v2=(double)lua_tonumber(L,4);
 
-	mgl_set_range_val(gr, dir, v1, v2);
+	::mgl_set_range_val(gr, dir, v1, v2);
 
 	return 0;
 }
@@ -13814,7 +13814,7 @@ static int _bind_mgl_set_range_val_(lua_State *L) {
 	double v2=(double)lua_tonumber(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_set_range_val_(gr, dir, &v1, &v2, _arg5);
+	::mgl_set_range_val_(gr, dir, &v1, &v2, _arg5);
 
 	return 0;
 }
@@ -13831,7 +13831,7 @@ static int _bind_mgl_set_range_dat(lua_State *L) {
 	const mglDataA* a=(Luna< mglDataA >::check(L,3));
 	int add=(int)lua_tointeger(L,4);
 
-	mgl_set_range_dat(gr, dir, a, add);
+	::mgl_set_range_dat(gr, dir, a, add);
 
 	return 0;
 }
@@ -13849,7 +13849,7 @@ static int _bind_mgl_set_range_dat_(lua_State *L) {
 	int add=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_set_range_dat_(gr, dir, a, &add, _arg5);
+	::mgl_set_range_dat_(gr, dir, a, &add, _arg5);
 
 	return 0;
 }
@@ -13871,7 +13871,7 @@ static int _bind_mgl_zoom_axis(lua_State *L) {
 	double z2=(double)lua_tonumber(L,8);
 	double c2=(double)lua_tonumber(L,9);
 
-	mgl_zoom_axis(gr, x1, y1, z1, c1, x2, y2, z2, c2);
+	::mgl_zoom_axis(gr, x1, y1, z1, c1, x2, y2, z2, c2);
 
 	return 0;
 }
@@ -13893,7 +13893,7 @@ static int _bind_mgl_zoom_axis_(lua_State *L) {
 	double z2=(double)lua_tonumber(L,8);
 	double c2=(double)lua_tonumber(L,9);
 
-	mgl_zoom_axis_(gr, &x1, &y1, &z1, &c1, &x2, &y2, &z2, &c2);
+	::mgl_zoom_axis_(gr, &x1, &y1, &z1, &c1, &x2, &y2, &z2, &c2);
 
 	return 0;
 }
@@ -13910,7 +13910,7 @@ static int _bind_mgl_set_origin(lua_State *L) {
 	double y0=(double)lua_tonumber(L,3);
 	double z0=(double)lua_tonumber(L,4);
 
-	mgl_set_origin(gr, x0, y0, z0);
+	::mgl_set_origin(gr, x0, y0, z0);
 
 	return 0;
 }
@@ -13927,7 +13927,7 @@ static int _bind_mgl_set_origin_(lua_State *L) {
 	double y0=(double)lua_tonumber(L,3);
 	double z0=(double)lua_tonumber(L,4);
 
-	mgl_set_origin_(gr, &x0, &y0, &z0);
+	::mgl_set_origin_(gr, &x0, &y0, &z0);
 
 	return 0;
 }
@@ -13945,7 +13945,7 @@ static int _bind_mgl_set_func(lua_State *L) {
 	const char * EqZ=(const char *)lua_tostring(L,4);
 	const char * EqA=(const char *)lua_tostring(L,5);
 
-	mgl_set_func(gr, EqX, EqY, EqZ, EqA);
+	::mgl_set_func(gr, EqX, EqY, EqZ, EqA);
 
 	return 0;
 }
@@ -13967,7 +13967,7 @@ static int _bind_mgl_set_func_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_set_func_(gr, EqX, EqY, EqZ, EqA, _arg6, _arg7, _arg8, _arg9);
+	::mgl_set_func_(gr, EqX, EqY, EqZ, EqA, _arg6, _arg7, _arg8, _arg9);
 
 	return 0;
 }
@@ -13982,7 +13982,7 @@ static int _bind_mgl_set_coor(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int how=(int)lua_tointeger(L,2);
 
-	mgl_set_coor(gr, how);
+	::mgl_set_coor(gr, how);
 
 	return 0;
 }
@@ -13997,7 +13997,7 @@ static int _bind_mgl_set_coor_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int how=(int)lua_tointeger(L,2);
 
-	mgl_set_coor_(gr, &how);
+	::mgl_set_coor_(gr, &how);
 
 	return 0;
 }
@@ -14012,7 +14012,7 @@ static int _bind_mgl_set_ternary(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int enable=(int)lua_tointeger(L,2);
 
-	mgl_set_ternary(gr, enable);
+	::mgl_set_ternary(gr, enable);
 
 	return 0;
 }
@@ -14027,7 +14027,7 @@ static int _bind_mgl_set_ternary_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int enable=(int)lua_tointeger(L,2);
 
-	mgl_set_ternary_(gr, &enable);
+	::mgl_set_ternary_(gr, &enable);
 
 	return 0;
 }
@@ -14042,7 +14042,7 @@ static int _bind_mgl_set_tick_rotate(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int enable=(int)lua_tointeger(L,2);
 
-	mgl_set_tick_rotate(gr, enable);
+	::mgl_set_tick_rotate(gr, enable);
 
 	return 0;
 }
@@ -14057,7 +14057,7 @@ static int _bind_mgl_set_tick_rotate_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int enable=(int)lua_tointeger(L,2);
 
-	mgl_set_tick_rotate_(gr, &enable);
+	::mgl_set_tick_rotate_(gr, &enable);
 
 	return 0;
 }
@@ -14072,7 +14072,7 @@ static int _bind_mgl_set_tick_skip(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int enable=(int)lua_tointeger(L,2);
 
-	mgl_set_tick_skip(gr, enable);
+	::mgl_set_tick_skip(gr, enable);
 
 	return 0;
 }
@@ -14087,7 +14087,7 @@ static int _bind_mgl_set_tick_skip_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int enable=(int)lua_tointeger(L,2);
 
-	mgl_set_tick_skip_(gr, &enable);
+	::mgl_set_tick_skip_(gr, &enable);
 
 	return 0;
 }
@@ -14102,7 +14102,7 @@ static int _bind_mgl_def_font(lua_State *L) {
 	const char * name=(const char *)lua_tostring(L,1);
 	const char * path=(const char *)lua_tostring(L,2);
 
-	mgl_def_font(name, path);
+	::mgl_def_font(name, path);
 
 	return 0;
 }
@@ -14119,7 +14119,7 @@ static int _bind_mgl_def_font_(lua_State *L) {
 	int _arg3=(int)lua_tointeger(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_def_font_(name, path, _arg3, _arg4);
+	::mgl_def_font_(name, path, _arg3, _arg4);
 
 	return 0;
 }
@@ -14134,7 +14134,7 @@ static int _bind_mgl_set_mark_size(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	double size=(double)lua_tonumber(L,2);
 
-	mgl_set_mark_size(gr, size);
+	::mgl_set_mark_size(gr, size);
 
 	return 0;
 }
@@ -14149,7 +14149,7 @@ static int _bind_mgl_set_mark_size_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	double size=(double)lua_tonumber(L,2);
 
-	mgl_set_mark_size_(gr, &size);
+	::mgl_set_mark_size_(gr, &size);
 
 	return 0;
 }
@@ -14164,7 +14164,7 @@ static int _bind_mgl_set_arrow_size(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	double size=(double)lua_tonumber(L,2);
 
-	mgl_set_arrow_size(gr, size);
+	::mgl_set_arrow_size(gr, size);
 
 	return 0;
 }
@@ -14179,7 +14179,7 @@ static int _bind_mgl_set_arrow_size_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	double size=(double)lua_tonumber(L,2);
 
-	mgl_set_arrow_size_(gr, &size);
+	::mgl_set_arrow_size_(gr, &size);
 
 	return 0;
 }
@@ -14194,7 +14194,7 @@ static int _bind_mgl_set_font_size(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	double size=(double)lua_tonumber(L,2);
 
-	mgl_set_font_size(gr, size);
+	::mgl_set_font_size(gr, size);
 
 	return 0;
 }
@@ -14209,7 +14209,7 @@ static int _bind_mgl_set_font_size_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	double size=(double)lua_tonumber(L,2);
 
-	mgl_set_font_size_(gr, &size);
+	::mgl_set_font_size_(gr, &size);
 
 	return 0;
 }
@@ -14224,7 +14224,7 @@ static int _bind_mgl_set_rotated_text(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int enable=(int)lua_tointeger(L,2);
 
-	mgl_set_rotated_text(gr, enable);
+	::mgl_set_rotated_text(gr, enable);
 
 	return 0;
 }
@@ -14239,7 +14239,7 @@ static int _bind_mgl_set_rotated_text_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int enable=(int)lua_tointeger(L,2);
 
-	mgl_set_rotated_text_(gr, &enable);
+	::mgl_set_rotated_text_(gr, &enable);
 
 	return 0;
 }
@@ -14255,7 +14255,7 @@ static int _bind_mgl_load_font(lua_State *L) {
 	const char * name=(const char *)lua_tostring(L,2);
 	const char * path=(const char *)lua_tostring(L,3);
 
-	mgl_load_font(gr, name, path);
+	::mgl_load_font(gr, name, path);
 
 	return 0;
 }
@@ -14273,7 +14273,7 @@ static int _bind_mgl_load_font_(lua_State *L) {
 	int l=(int)lua_tointeger(L,4);
 	int n=(int)lua_tointeger(L,5);
 
-	mgl_load_font_(gr, &name, &path, l, n);
+	::mgl_load_font_(gr, &name, &path, l, n);
 
 	return 0;
 }
@@ -14288,7 +14288,7 @@ static int _bind_mgl_copy_font(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	mglBase* gr_from=(Luna< mglBase >::check(L,2));
 
-	mgl_copy_font(gr, gr_from);
+	::mgl_copy_font(gr, gr_from);
 
 	return 0;
 }
@@ -14303,7 +14303,7 @@ static int _bind_mgl_copy_font_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* gr_from=(Luna< uintptr_t >::check(L,2));
 
-	mgl_copy_font_(gr, gr_from);
+	::mgl_copy_font_(gr, gr_from);
 
 	return 0;
 }
@@ -14317,7 +14317,7 @@ static int _bind_mgl_restore_font(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_restore_font(gr);
+	::mgl_restore_font(gr);
 
 	return 0;
 }
@@ -14331,7 +14331,7 @@ static int _bind_mgl_restore_font_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_restore_font_(gr);
+	::mgl_restore_font_(gr);
 
 	return 0;
 }
@@ -14346,7 +14346,7 @@ static int _bind_mgl_create_graph(lua_State *L) {
 	int width=(int)lua_tointeger(L,1);
 	int height=(int)lua_tointeger(L,2);
 
-	mglBase * lret = mgl_create_graph(width, height);
+	mglBase * lret = ::mgl_create_graph(width, height);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglBase >::push(L,lret,false);
@@ -14364,7 +14364,7 @@ static int _bind_mgl_create_graph_(lua_State *L) {
 	int width=(int)lua_tointeger(L,1);
 	int height=(int)lua_tointeger(L,2);
 
-	uintptr_t stack_lret = mgl_create_graph_(&width, &height);
+	uintptr_t stack_lret = ::mgl_create_graph_(&width, &height);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -14382,7 +14382,7 @@ static int _bind_mgl_delete_graph(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_delete_graph(gr);
+	::mgl_delete_graph(gr);
 
 	return 0;
 }
@@ -14396,7 +14396,7 @@ static int _bind_mgl_delete_graph_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_delete_graph_(gr);
+	::mgl_delete_graph_(gr);
 
 	return 0;
 }
@@ -14412,7 +14412,7 @@ static int _bind_mgl_set_size(lua_State *L) {
 	int width=(int)lua_tointeger(L,2);
 	int height=(int)lua_tointeger(L,3);
 
-	mgl_set_size(gr, width, height);
+	::mgl_set_size(gr, width, height);
 
 	return 0;
 }
@@ -14428,7 +14428,7 @@ static int _bind_mgl_set_size_(lua_State *L) {
 	int width=(int)lua_tointeger(L,2);
 	int height=(int)lua_tointeger(L,3);
 
-	mgl_set_size_(gr, &width, &height);
+	::mgl_set_size_(gr, &width, &height);
 
 	return 0;
 }
@@ -14442,7 +14442,7 @@ static int _bind_mgl_set_def_param(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_set_def_param(gr);
+	::mgl_set_def_param(gr);
 
 	return 0;
 }
@@ -14456,7 +14456,7 @@ static int _bind_mgl_set_def_param_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_set_def_param_(gr);
+	::mgl_set_def_param_(gr);
 
 	return 0;
 }
@@ -14471,7 +14471,7 @@ static int _bind_mgl_set_quality(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int qual=(int)lua_tointeger(L,2);
 
-	mgl_set_quality(gr, qual);
+	::mgl_set_quality(gr, qual);
 
 	return 0;
 }
@@ -14486,7 +14486,7 @@ static int _bind_mgl_set_quality_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int qual=(int)lua_tointeger(L,2);
 
-	mgl_set_quality_(gr, &qual);
+	::mgl_set_quality_(gr, &qual);
 
 	return 0;
 }
@@ -14501,7 +14501,7 @@ static int _bind_mgl_combine_gr(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	mglBase* in=(Luna< mglBase >::check(L,2));
 
-	mgl_combine_gr(gr, in);
+	::mgl_combine_gr(gr, in);
 
 	return 0;
 }
@@ -14516,7 +14516,7 @@ static int _bind_mgl_combine_gr_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* in=(Luna< uintptr_t >::check(L,2));
 
-	mgl_combine_gr_(gr, in);
+	::mgl_combine_gr_(gr, in);
 
 	return 0;
 }
@@ -14530,7 +14530,7 @@ static int _bind_mgl_finish(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_finish(gr);
+	::mgl_finish(gr);
 
 	return 0;
 }
@@ -14544,7 +14544,7 @@ static int _bind_mgl_finish_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_finish_(gr);
+	::mgl_finish_(gr);
 
 	return 0;
 }
@@ -14560,7 +14560,7 @@ static int _bind_mgl_set_tick_len(lua_State *L) {
 	double len=(double)lua_tonumber(L,2);
 	double stt=(double)lua_tonumber(L,3);
 
-	mgl_set_tick_len(gr, len, stt);
+	::mgl_set_tick_len(gr, len, stt);
 
 	return 0;
 }
@@ -14576,7 +14576,7 @@ static int _bind_mgl_set_tick_len_(lua_State *L) {
 	double len=(double)lua_tonumber(L,2);
 	double stt=(double)lua_tonumber(L,3);
 
-	mgl_set_tick_len_(gr, &len, &stt);
+	::mgl_set_tick_len_(gr, &len, &stt);
 
 	return 0;
 }
@@ -14593,7 +14593,7 @@ static int _bind_mgl_set_axis_stl(lua_State *L) {
 	const char * tck=(const char *)lua_tostring(L,3);
 	const char * sub=(const char *)lua_tostring(L,4);
 
-	mgl_set_axis_stl(gr, stl, tck, sub);
+	::mgl_set_axis_stl(gr, stl, tck, sub);
 
 	return 0;
 }
@@ -14613,7 +14613,7 @@ static int _bind_mgl_set_axis_stl_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_set_axis_stl_(gr, stl, tck, sub, _arg5, _arg6, _arg7);
+	::mgl_set_axis_stl_(gr, stl, tck, sub, _arg5, _arg6, _arg7);
 
 	return 0;
 }
@@ -14628,7 +14628,7 @@ static int _bind_mgl_adjust_ticks(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_adjust_ticks(gr, dir);
+	::mgl_adjust_ticks(gr, dir);
 
 	return 0;
 }
@@ -14644,7 +14644,7 @@ static int _bind_mgl_adjust_ticks_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_adjust_ticks_(gr, dir, _arg3);
+	::mgl_adjust_ticks_(gr, dir, _arg3);
 
 	return 0;
 }
@@ -14662,7 +14662,7 @@ static int _bind_mgl_set_ticks(lua_State *L) {
 	int ns=(int)lua_tointeger(L,4);
 	double org=(double)lua_tonumber(L,5);
 
-	mgl_set_ticks(gr, dir, d, ns, org);
+	::mgl_set_ticks(gr, dir, d, ns, org);
 
 	return 0;
 }
@@ -14681,7 +14681,7 @@ static int _bind_mgl_set_ticks_(lua_State *L) {
 	double org=(double)lua_tonumber(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_set_ticks_(gr, &dir, &d, &ns, &org, _arg6);
+	::mgl_set_ticks_(gr, &dir, &d, &ns, &org, _arg6);
 
 	return 0;
 }
@@ -14698,7 +14698,7 @@ static int _bind_mgl_set_ticks_str(lua_State *L) {
 	const char * lbl=(const char *)lua_tostring(L,3);
 	int add=(int)lua_tointeger(L,4);
 
-	mgl_set_ticks_str(gr, dir, lbl, add);
+	::mgl_set_ticks_str(gr, dir, lbl, add);
 
 	return 0;
 }
@@ -14717,7 +14717,7 @@ static int _bind_mgl_set_ticks_str_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_set_ticks_str_(gr, dir, lbl, &add, _arg5, _arg6);
+	::mgl_set_ticks_str_(gr, dir, lbl, &add, _arg5, _arg6);
 
 	return 0;
 }
@@ -14735,7 +14735,7 @@ static int _bind_mgl_set_ticks_val(lua_State *L) {
 	const char * lbl=(const char *)lua_tostring(L,4);
 	int add=(int)lua_tointeger(L,5);
 
-	mgl_set_ticks_val(gr, dir, val, lbl, add);
+	::mgl_set_ticks_val(gr, dir, val, lbl, add);
 
 	return 0;
 }
@@ -14755,7 +14755,7 @@ static int _bind_mgl_set_ticks_val_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_set_ticks_val_(gr, dir, val, lbl, &add, _arg6, _arg7);
+	::mgl_set_ticks_val_(gr, dir, val, lbl, &add, _arg6, _arg7);
 
 	return 0;
 }
@@ -14771,7 +14771,7 @@ static int _bind_mgl_tune_ticks(lua_State *L) {
 	int tune=(int)lua_tointeger(L,2);
 	double fact_pos=(double)lua_tonumber(L,3);
 
-	mgl_tune_ticks(gr, tune, fact_pos);
+	::mgl_tune_ticks(gr, tune, fact_pos);
 
 	return 0;
 }
@@ -14787,7 +14787,7 @@ static int _bind_mgl_tune_ticks_(lua_State *L) {
 	int tune=(int)lua_tointeger(L,2);
 	double fact_pos=(double)lua_tonumber(L,3);
 
-	mgl_tune_ticks_(gr, &tune, &fact_pos);
+	::mgl_tune_ticks_(gr, &tune, &fact_pos);
 
 	return 0;
 }
@@ -14803,7 +14803,7 @@ static int _bind_mgl_set_tick_templ(lua_State *L) {
 	char dir=(char)lua_tointeger(L,2);
 	const char * templ=(const char *)lua_tostring(L,3);
 
-	mgl_set_tick_templ(gr, dir, templ);
+	::mgl_set_tick_templ(gr, dir, templ);
 
 	return 0;
 }
@@ -14821,7 +14821,7 @@ static int _bind_mgl_set_tick_templ_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_set_tick_templ_(gr, dir, templ, _arg4, _arg5);
+	::mgl_set_tick_templ_(gr, dir, templ, _arg4, _arg5);
 
 	return 0;
 }
@@ -14838,7 +14838,7 @@ static int _bind_mgl_set_ticks_time(lua_State *L) {
 	double d=(double)lua_tonumber(L,3);
 	const char * t=(const char *)lua_tostring(L,4);
 
-	mgl_set_ticks_time(gr, dir, d, t);
+	::mgl_set_ticks_time(gr, dir, d, t);
 
 	return 0;
 }
@@ -14857,7 +14857,7 @@ static int _bind_mgl_set_ticks_time_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_set_ticks_time_(gr, dir, &d, t, _arg5, _arg6);
+	::mgl_set_ticks_time_(gr, dir, &d, t, _arg5, _arg6);
 
 	return 0;
 }
@@ -14875,7 +14875,7 @@ static int _bind_mgl_set_tick_shift(lua_State *L) {
 	double sz=(double)lua_tonumber(L,4);
 	double sc=(double)lua_tonumber(L,5);
 
-	mgl_set_tick_shift(gr, sx, sy, sz, sc);
+	::mgl_set_tick_shift(gr, sx, sy, sz, sc);
 
 	return 0;
 }
@@ -14893,7 +14893,7 @@ static int _bind_mgl_set_tick_shift_(lua_State *L) {
 	double sz=(double)lua_tonumber(L,4);
 	double sc=(double)lua_tonumber(L,5);
 
-	mgl_set_tick_shift_(gr, &sx, &sy, &sz, &sc);
+	::mgl_set_tick_shift_(gr, &sx, &sy, &sz, &sc);
 
 	return 0;
 }
@@ -14907,7 +14907,7 @@ static int _bind_mgl_box(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_box(gr);
+	::mgl_box(gr);
 
 	return 0;
 }
@@ -14921,7 +14921,7 @@ static int _bind_mgl_box_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_box_(gr);
+	::mgl_box_(gr);
 
 	return 0;
 }
@@ -14937,7 +14937,7 @@ static int _bind_mgl_box_str(lua_State *L) {
 	const char * col=(const char *)lua_tostring(L,2);
 	int ticks=(int)lua_tointeger(L,3);
 
-	mgl_box_str(gr, col, ticks);
+	::mgl_box_str(gr, col, ticks);
 
 	return 0;
 }
@@ -14954,7 +14954,7 @@ static int _bind_mgl_box_str_(lua_State *L) {
 	int ticks=(int)lua_tointeger(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_box_str_(gr, col, &ticks, _arg4);
+	::mgl_box_str_(gr, col, &ticks, _arg4);
 
 	return 0;
 }
@@ -14971,7 +14971,7 @@ static int _bind_mgl_axis(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_axis(gr, dir, stl, opt);
+	::mgl_axis(gr, dir, stl, opt);
 
 	return 0;
 }
@@ -14991,7 +14991,7 @@ static int _bind_mgl_axis_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_axis_(gr, dir, stl, opt, _arg5, _arg6, _arg7);
+	::mgl_axis_(gr, dir, stl, opt, _arg5, _arg6, _arg7);
 
 	return 0;
 }
@@ -15008,7 +15008,7 @@ static int _bind_mgl_axis_grid(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_axis_grid(gr, dir, pen, opt);
+	::mgl_axis_grid(gr, dir, pen, opt);
 
 	return 0;
 }
@@ -15028,7 +15028,7 @@ static int _bind_mgl_axis_grid_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_axis_grid_(gr, dir, pen, opt, _arg5, _arg6, _arg7);
+	::mgl_axis_grid_(gr, dir, pen, opt, _arg5, _arg6, _arg7);
 
 	return 0;
 }
@@ -15043,7 +15043,7 @@ static int _bind_mgl_colorbar(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	const char * sch=(const char *)lua_tostring(L,2);
 
-	mgl_colorbar(gr, sch);
+	::mgl_colorbar(gr, sch);
 
 	return 0;
 }
@@ -15059,7 +15059,7 @@ static int _bind_mgl_colorbar_(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_colorbar_(gr, sch, _arg3);
+	::mgl_colorbar_(gr, sch, _arg3);
 
 	return 0;
 }
@@ -15078,7 +15078,7 @@ static int _bind_mgl_colorbar_ext(lua_State *L) {
 	double w=(double)lua_tonumber(L,5);
 	double h=(double)lua_tonumber(L,6);
 
-	mgl_colorbar_ext(gr, sch, x, y, w, h);
+	::mgl_colorbar_ext(gr, sch, x, y, w, h);
 
 	return 0;
 }
@@ -15098,7 +15098,7 @@ static int _bind_mgl_colorbar_ext_(lua_State *L) {
 	double h=(double)lua_tonumber(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_colorbar_ext_(gr, sch, &x, &y, &w, &h, _arg7);
+	::mgl_colorbar_ext_(gr, sch, &x, &y, &w, &h, _arg7);
 
 	return 0;
 }
@@ -15114,7 +15114,7 @@ static int _bind_mgl_colorbar_val(lua_State *L) {
 	const mglDataA* dat=(Luna< mglDataA >::check(L,2));
 	const char * sch=(const char *)lua_tostring(L,3);
 
-	mgl_colorbar_val(gr, dat, sch);
+	::mgl_colorbar_val(gr, dat, sch);
 
 	return 0;
 }
@@ -15131,7 +15131,7 @@ static int _bind_mgl_colorbar_val_(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_colorbar_val_(gr, dat, sch, _arg4);
+	::mgl_colorbar_val_(gr, dat, sch, _arg4);
 
 	return 0;
 }
@@ -15151,7 +15151,7 @@ static int _bind_mgl_colorbar_val_ext(lua_State *L) {
 	double w=(double)lua_tonumber(L,6);
 	double h=(double)lua_tonumber(L,7);
 
-	mgl_colorbar_val_ext(gr, dat, sch, x, y, w, h);
+	::mgl_colorbar_val_ext(gr, dat, sch, x, y, w, h);
 
 	return 0;
 }
@@ -15172,7 +15172,7 @@ static int _bind_mgl_colorbar_val_ext_(lua_State *L) {
 	double h=(double)lua_tonumber(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_colorbar_val_ext_(gr, dat, sch, &x, &y, &w, &h, _arg8);
+	::mgl_colorbar_val_ext_(gr, dat, sch, &x, &y, &w, &h, _arg8);
 
 	return 0;
 }
@@ -15188,7 +15188,7 @@ static int _bind_mgl_add_legend(lua_State *L) {
 	const char * text=(const char *)lua_tostring(L,2);
 	const char * style=(const char *)lua_tostring(L,3);
 
-	mgl_add_legend(gr, text, style);
+	::mgl_add_legend(gr, text, style);
 
 	return 0;
 }
@@ -15206,7 +15206,7 @@ static int _bind_mgl_add_legend_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_add_legend_(gr, text, style, _arg4, _arg5);
+	::mgl_add_legend_(gr, text, style, _arg4, _arg5);
 
 	return 0;
 }
@@ -15220,7 +15220,7 @@ static int _bind_mgl_clear_legend(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_clear_legend(gr);
+	::mgl_clear_legend(gr);
 
 	return 0;
 }
@@ -15234,7 +15234,7 @@ static int _bind_mgl_clear_legend_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_clear_legend_(gr);
+	::mgl_clear_legend_(gr);
 
 	return 0;
 }
@@ -15252,7 +15252,7 @@ static int _bind_mgl_legend_pos(lua_State *L) {
 	const char * font=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_legend_pos(gr, x, y, font, opt);
+	::mgl_legend_pos(gr, x, y, font, opt);
 
 	return 0;
 }
@@ -15272,7 +15272,7 @@ static int _bind_mgl_legend_pos_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_legend_pos_(gr, &x, &y, font, opt, _arg6, _arg7);
+	::mgl_legend_pos_(gr, &x, &y, font, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -15289,7 +15289,7 @@ static int _bind_mgl_legend(lua_State *L) {
 	const char * font=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_legend(gr, where, font, opt);
+	::mgl_legend(gr, where, font, opt);
 
 	return 0;
 }
@@ -15308,7 +15308,7 @@ static int _bind_mgl_legend_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_legend_(gr, &where, font, opt, _arg5, _arg6);
+	::mgl_legend_(gr, &where, font, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -15323,7 +15323,7 @@ static int _bind_mgl_set_legend_marks(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int num=(int)lua_tointeger(L,2);
 
-	mgl_set_legend_marks(gr, num);
+	::mgl_set_legend_marks(gr, num);
 
 	return 0;
 }
@@ -15338,7 +15338,7 @@ static int _bind_mgl_set_legend_marks_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int num=(int)lua_tointeger(L,2);
 
-	mgl_set_legend_marks_(gr, &num);
+	::mgl_set_legend_marks_(gr, &num);
 
 	return 0;
 }
@@ -15354,7 +15354,7 @@ static int _bind_mgl_show_image(lua_State *L) {
 	const char * viewer=(const char *)lua_tostring(L,2);
 	int keep=(int)lua_tointeger(L,3);
 
-	mgl_show_image(gr, viewer, keep);
+	::mgl_show_image(gr, viewer, keep);
 
 	return 0;
 }
@@ -15371,7 +15371,7 @@ static int _bind_mgl_show_image_(lua_State *L) {
 	int keep=(int)lua_tointeger(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_show_image_(gr, viewer, &keep, _arg4);
+	::mgl_show_image_(gr, viewer, &keep, _arg4);
 
 	return 0;
 }
@@ -15387,7 +15387,7 @@ static int _bind_mgl_write_frame(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
 
-	mgl_write_frame(gr, fname, descr);
+	::mgl_write_frame(gr, fname, descr);
 
 	return 0;
 }
@@ -15405,7 +15405,7 @@ static int _bind_mgl_write_frame_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_write_frame_(gr, fname, descr, _arg4, _arg5);
+	::mgl_write_frame_(gr, fname, descr, _arg4, _arg5);
 
 	return 0;
 }
@@ -15421,7 +15421,7 @@ static int _bind_mgl_write_tga(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
 
-	mgl_write_tga(gr, fname, descr);
+	::mgl_write_tga(gr, fname, descr);
 
 	return 0;
 }
@@ -15439,7 +15439,7 @@ static int _bind_mgl_write_tga_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_write_tga_(gr, fname, descr, _arg4, _arg5);
+	::mgl_write_tga_(gr, fname, descr, _arg4, _arg5);
 
 	return 0;
 }
@@ -15455,7 +15455,7 @@ static int _bind_mgl_write_bmp(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
 
-	mgl_write_bmp(gr, fname, descr);
+	::mgl_write_bmp(gr, fname, descr);
 
 	return 0;
 }
@@ -15473,7 +15473,7 @@ static int _bind_mgl_write_bmp_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_write_bmp_(gr, fname, descr, _arg4, _arg5);
+	::mgl_write_bmp_(gr, fname, descr, _arg4, _arg5);
 
 	return 0;
 }
@@ -15489,7 +15489,7 @@ static int _bind_mgl_write_jpg(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
 
-	mgl_write_jpg(gr, fname, descr);
+	::mgl_write_jpg(gr, fname, descr);
 
 	return 0;
 }
@@ -15507,7 +15507,7 @@ static int _bind_mgl_write_jpg_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_write_jpg_(gr, fname, descr, _arg4, _arg5);
+	::mgl_write_jpg_(gr, fname, descr, _arg4, _arg5);
 
 	return 0;
 }
@@ -15523,7 +15523,7 @@ static int _bind_mgl_write_png(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
 
-	mgl_write_png(gr, fname, descr);
+	::mgl_write_png(gr, fname, descr);
 
 	return 0;
 }
@@ -15541,7 +15541,7 @@ static int _bind_mgl_write_png_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_write_png_(gr, fname, descr, _arg4, _arg5);
+	::mgl_write_png_(gr, fname, descr, _arg4, _arg5);
 
 	return 0;
 }
@@ -15557,7 +15557,7 @@ static int _bind_mgl_write_png_solid(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
 
-	mgl_write_png_solid(gr, fname, descr);
+	::mgl_write_png_solid(gr, fname, descr);
 
 	return 0;
 }
@@ -15575,7 +15575,7 @@ static int _bind_mgl_write_png_solid_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_write_png_solid_(gr, fname, descr, _arg4, _arg5);
+	::mgl_write_png_solid_(gr, fname, descr, _arg4, _arg5);
 
 	return 0;
 }
@@ -15591,7 +15591,7 @@ static int _bind_mgl_write_bps(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
 
-	mgl_write_bps(gr, fname, descr);
+	::mgl_write_bps(gr, fname, descr);
 
 	return 0;
 }
@@ -15609,7 +15609,7 @@ static int _bind_mgl_write_bps_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_write_bps_(gr, fname, descr, _arg4, _arg5);
+	::mgl_write_bps_(gr, fname, descr, _arg4, _arg5);
 
 	return 0;
 }
@@ -15625,7 +15625,7 @@ static int _bind_mgl_write_eps(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
 
-	mgl_write_eps(gr, fname, descr);
+	::mgl_write_eps(gr, fname, descr);
 
 	return 0;
 }
@@ -15643,7 +15643,7 @@ static int _bind_mgl_write_eps_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_write_eps_(gr, fname, descr, _arg4, _arg5);
+	::mgl_write_eps_(gr, fname, descr, _arg4, _arg5);
 
 	return 0;
 }
@@ -15659,7 +15659,7 @@ static int _bind_mgl_write_svg(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
 
-	mgl_write_svg(gr, fname, descr);
+	::mgl_write_svg(gr, fname, descr);
 
 	return 0;
 }
@@ -15677,7 +15677,7 @@ static int _bind_mgl_write_svg_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_write_svg_(gr, fname, descr, _arg4, _arg5);
+	::mgl_write_svg_(gr, fname, descr, _arg4, _arg5);
 
 	return 0;
 }
@@ -15694,7 +15694,7 @@ static int _bind_mgl_write_obj(lua_State *L) {
 	const char * descr=(const char *)lua_tostring(L,3);
 	int use_png=(int)lua_tointeger(L,4);
 
-	mgl_write_obj(gr, fname, descr, use_png);
+	::mgl_write_obj(gr, fname, descr, use_png);
 
 	return 0;
 }
@@ -15713,7 +15713,7 @@ static int _bind_mgl_write_obj_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_write_obj_(gr, fname, descr, &use_png, _arg5, _arg6);
+	::mgl_write_obj_(gr, fname, descr, &use_png, _arg5, _arg6);
 
 	return 0;
 }
@@ -15729,7 +15729,7 @@ static int _bind_mgl_write_stl(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
 
-	mgl_write_stl(gr, fname, descr);
+	::mgl_write_stl(gr, fname, descr);
 
 	return 0;
 }
@@ -15747,7 +15747,7 @@ static int _bind_mgl_write_stl_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_write_stl_(gr, fname, descr, _arg4, _arg5);
+	::mgl_write_stl_(gr, fname, descr, _arg4, _arg5);
 
 	return 0;
 }
@@ -15764,7 +15764,7 @@ static int _bind_mgl_write_off(lua_State *L) {
 	const char * descr=(const char *)lua_tostring(L,3);
 	int colored=(int)lua_tointeger(L,4);
 
-	mgl_write_off(gr, fname, descr, colored);
+	::mgl_write_off(gr, fname, descr, colored);
 
 	return 0;
 }
@@ -15783,7 +15783,7 @@ static int _bind_mgl_write_off_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_write_off_(gr, fname, descr, &colored, _arg5, _arg6);
+	::mgl_write_off_(gr, fname, descr, &colored, _arg5, _arg6);
 
 	return 0;
 }
@@ -15799,7 +15799,7 @@ static int _bind_mgl_write_xyz(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
 
-	mgl_write_xyz(gr, fname, descr);
+	::mgl_write_xyz(gr, fname, descr);
 
 	return 0;
 }
@@ -15817,7 +15817,7 @@ static int _bind_mgl_write_xyz_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_write_xyz_(gr, fname, descr, _arg4, _arg5);
+	::mgl_write_xyz_(gr, fname, descr, _arg4, _arg5);
 
 	return 0;
 }
@@ -15834,7 +15834,7 @@ static int _bind_mgl_write_prc(lua_State *L) {
 	const char * descr=(const char *)lua_tostring(L,3);
 	int make_pdf=(int)lua_tointeger(L,4);
 
-	mgl_write_prc(gr, fname, descr, make_pdf);
+	::mgl_write_prc(gr, fname, descr, make_pdf);
 
 	return 0;
 }
@@ -15853,7 +15853,7 @@ static int _bind_mgl_write_prc_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_write_prc_(gr, fname, descr, &make_pdf, _arg5, _arg6);
+	::mgl_write_prc_(gr, fname, descr, &make_pdf, _arg5, _arg6);
 
 	return 0;
 }
@@ -15869,7 +15869,7 @@ static int _bind_mgl_write_gif(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
 
-	mgl_write_gif(gr, fname, descr);
+	::mgl_write_gif(gr, fname, descr);
 
 	return 0;
 }
@@ -15887,7 +15887,7 @@ static int _bind_mgl_write_gif_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_write_gif_(gr, fname, descr, _arg4, _arg5);
+	::mgl_write_gif_(gr, fname, descr, _arg4, _arg5);
 
 	return 0;
 }
@@ -15903,7 +15903,7 @@ static int _bind_mgl_start_gif(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	int ms=(int)lua_tointeger(L,3);
 
-	mgl_start_gif(gr, fname, ms);
+	::mgl_start_gif(gr, fname, ms);
 
 	return 0;
 }
@@ -15920,7 +15920,7 @@ static int _bind_mgl_start_gif_(lua_State *L) {
 	int ms=(int)lua_tointeger(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_start_gif_(gr, fname, &ms, _arg4);
+	::mgl_start_gif_(gr, fname, &ms, _arg4);
 
 	return 0;
 }
@@ -15934,7 +15934,7 @@ static int _bind_mgl_close_gif(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_close_gif(gr);
+	::mgl_close_gif(gr);
 
 	return 0;
 }
@@ -15948,7 +15948,7 @@ static int _bind_mgl_close_gif_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_close_gif_(gr);
+	::mgl_close_gif_(gr);
 
 	return 0;
 }
@@ -15963,7 +15963,7 @@ static int _bind_mgl_set_plotid(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	const char * id=(const char *)lua_tostring(L,2);
 
-	mgl_set_plotid(gr, id);
+	::mgl_set_plotid(gr, id);
 
 	return 0;
 }
@@ -15979,7 +15979,7 @@ static int _bind_mgl_set_plotid_(lua_State *L) {
 	const char * id=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_set_plotid_(gr, id, _arg3);
+	::mgl_set_plotid_(gr, id, _arg3);
 
 	return 0;
 }
@@ -15995,7 +15995,7 @@ static int _bind_mgl_export_mgld(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
 
-	mgl_export_mgld(gr, fname, descr);
+	::mgl_export_mgld(gr, fname, descr);
 
 	return 0;
 }
@@ -16013,7 +16013,7 @@ static int _bind_mgl_export_mgld_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_export_mgld_(gr, fname, descr, _arg4, _arg5);
+	::mgl_export_mgld_(gr, fname, descr, _arg4, _arg5);
 
 	return 0;
 }
@@ -16029,7 +16029,7 @@ static int _bind_mgl_import_mgld(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	int add=(int)lua_tointeger(L,3);
 
-	mgl_import_mgld(gr, fname, add);
+	::mgl_import_mgld(gr, fname, add);
 
 	return 0;
 }
@@ -16046,7 +16046,7 @@ static int _bind_mgl_import_mgld_(lua_State *L) {
 	int add=(int)lua_tointeger(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_import_mgld_(gr, fname, &add, _arg4);
+	::mgl_import_mgld_(gr, fname, &add, _arg4);
 
 	return 0;
 }
@@ -16062,7 +16062,7 @@ static int _bind_mgl_write_json(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
 
-	mgl_write_json(gr, fname, descr);
+	::mgl_write_json(gr, fname, descr);
 
 	return 0;
 }
@@ -16080,7 +16080,7 @@ static int _bind_mgl_write_json_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_write_json_(gr, fname, descr, _arg4, _arg5);
+	::mgl_write_json_(gr, fname, descr, _arg4, _arg5);
 
 	return 0;
 }
@@ -16094,7 +16094,7 @@ static int _bind_mgl_get_rgb(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	const unsigned char * lret = mgl_get_rgb(gr);
+	const unsigned char * lret = ::mgl_get_rgb(gr);
 	luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
 
 	return 1;
@@ -16109,7 +16109,7 @@ static int _bind_mgl_get_rgb_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	const unsigned char * lret = mgl_get_rgb_(gr);
+	const unsigned char * lret = ::mgl_get_rgb_(gr);
 	luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
 
 	return 1;
@@ -16124,7 +16124,7 @@ static int _bind_mgl_get_rgba(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	const unsigned char * lret = mgl_get_rgba(gr);
+	const unsigned char * lret = ::mgl_get_rgba(gr);
 	luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
 
 	return 1;
@@ -16139,7 +16139,7 @@ static int _bind_mgl_get_rgba_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	const unsigned char * lret = mgl_get_rgba_(gr);
+	const unsigned char * lret = ::mgl_get_rgba_(gr);
 	luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
 
 	return 1;
@@ -16155,7 +16155,7 @@ static int _bind_mgl_set_obj_id(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int id=(int)lua_tointeger(L,2);
 
-	mgl_set_obj_id(gr, id);
+	::mgl_set_obj_id(gr, id);
 
 	return 0;
 }
@@ -16170,7 +16170,7 @@ static int _bind_mgl_set_obj_id_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int id=(int)lua_tointeger(L,2);
 
-	mgl_set_obj_id_(gr, &id);
+	::mgl_set_obj_id_(gr, &id);
 
 	return 0;
 }
@@ -16186,7 +16186,7 @@ static int _bind_mgl_get_obj_id(lua_State *L) {
 	int x=(int)lua_tointeger(L,2);
 	int y=(int)lua_tointeger(L,3);
 
-	int lret = mgl_get_obj_id(gr, x, y);
+	int lret = ::mgl_get_obj_id(gr, x, y);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16203,7 +16203,7 @@ static int _bind_mgl_get_obj_id_(lua_State *L) {
 	int x=(int)lua_tointeger(L,2);
 	int y=(int)lua_tointeger(L,3);
 
-	int lret = mgl_get_obj_id_(gr, &x, &y);
+	int lret = ::mgl_get_obj_id_(gr, &x, &y);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16220,7 +16220,7 @@ static int _bind_mgl_get_spl_id(lua_State *L) {
 	int x=(int)lua_tointeger(L,2);
 	int y=(int)lua_tointeger(L,3);
 
-	int lret = mgl_get_spl_id(gr, x, y);
+	int lret = ::mgl_get_spl_id(gr, x, y);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16237,7 +16237,7 @@ static int _bind_mgl_get_spl_id_(lua_State *L) {
 	int x=(int)lua_tointeger(L,2);
 	int y=(int)lua_tointeger(L,3);
 
-	int lret = mgl_get_spl_id_(gr, &x, &y);
+	int lret = ::mgl_get_spl_id_(gr, &x, &y);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16252,7 +16252,7 @@ static int _bind_mgl_get_width(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	int lret = mgl_get_width(gr);
+	int lret = ::mgl_get_width(gr);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16267,7 +16267,7 @@ static int _bind_mgl_get_width_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	int lret = mgl_get_width_(gr);
+	int lret = ::mgl_get_width_(gr);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16282,7 +16282,7 @@ static int _bind_mgl_get_height(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	int lret = mgl_get_height(gr);
+	int lret = ::mgl_get_height(gr);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16297,7 +16297,7 @@ static int _bind_mgl_get_height_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	int lret = mgl_get_height_(gr);
+	int lret = ::mgl_get_height_(gr);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16317,7 +16317,7 @@ static int _bind_mgl_calc_xyz(lua_State *L) {
 	double y=(double)lua_tonumber(L,5);
 	double z=(double)lua_tonumber(L,6);
 
-	mgl_calc_xyz(gr, xs, ys, &x, &y, &z);
+	::mgl_calc_xyz(gr, xs, ys, &x, &y, &z);
 
 	return 0;
 }
@@ -16336,7 +16336,7 @@ static int _bind_mgl_calc_xyz_(lua_State *L) {
 	double y=(double)lua_tonumber(L,5);
 	double z=(double)lua_tonumber(L,6);
 
-	mgl_calc_xyz_(gr, &xs, &ys, &x, &y, &z);
+	::mgl_calc_xyz_(gr, &xs, &ys, &x, &y, &z);
 
 	return 0;
 }
@@ -16355,7 +16355,7 @@ static int _bind_mgl_calc_scr(lua_State *L) {
 	int xs=(int)lua_tointeger(L,5);
 	int ys=(int)lua_tointeger(L,6);
 
-	mgl_calc_scr(gr, x, y, z, &xs, &ys);
+	::mgl_calc_scr(gr, x, y, z, &xs, &ys);
 
 	return 0;
 }
@@ -16374,7 +16374,7 @@ static int _bind_mgl_calc_scr_(lua_State *L) {
 	int xs=(int)lua_tointeger(L,5);
 	int ys=(int)lua_tointeger(L,6);
 
-	mgl_calc_scr_(gr, &x, &y, &z, &xs, &ys);
+	::mgl_calc_scr_(gr, &x, &y, &z, &xs, &ys);
 
 	return 0;
 }
@@ -16391,7 +16391,7 @@ static int _bind_mgl_is_active(lua_State *L) {
 	int ys=(int)lua_tointeger(L,3);
 	int d=(int)lua_tointeger(L,4);
 
-	long lret = mgl_is_active(gr, xs, ys, d);
+	long lret = ::mgl_is_active(gr, xs, ys, d);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16409,7 +16409,7 @@ static int _bind_mgl_is_active_(lua_State *L) {
 	int ys=(int)lua_tointeger(L,3);
 	int d=(int)lua_tointeger(L,4);
 
-	long lret = mgl_is_active_(gr, &xs, &ys, &d);
+	long lret = ::mgl_is_active_(gr, &xs, &ys, &d);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16424,7 +16424,7 @@ static int _bind_mgl_new_frame(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	int lret = mgl_new_frame(gr);
+	int lret = ::mgl_new_frame(gr);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16439,7 +16439,7 @@ static int _bind_mgl_new_frame_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	int lret = mgl_new_frame_(gr);
+	int lret = ::mgl_new_frame_(gr);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16454,7 +16454,7 @@ static int _bind_mgl_end_frame(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_end_frame(gr);
+	::mgl_end_frame(gr);
 
 	return 0;
 }
@@ -16468,7 +16468,7 @@ static int _bind_mgl_end_frame_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_end_frame_(gr);
+	::mgl_end_frame_(gr);
 
 	return 0;
 }
@@ -16482,7 +16482,7 @@ static int _bind_mgl_get_num_frame(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	int lret = mgl_get_num_frame(gr);
+	int lret = ::mgl_get_num_frame(gr);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16497,7 +16497,7 @@ static int _bind_mgl_get_num_frame_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	int lret = mgl_get_num_frame_(gr);
+	int lret = ::mgl_get_num_frame_(gr);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16512,7 +16512,7 @@ static int _bind_mgl_reset_frames(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_reset_frames(gr);
+	::mgl_reset_frames(gr);
 
 	return 0;
 }
@@ -16526,7 +16526,7 @@ static int _bind_mgl_reset_frames_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_reset_frames_(gr);
+	::mgl_reset_frames_(gr);
 
 	return 0;
 }
@@ -16541,7 +16541,7 @@ static int _bind_mgl_get_frame(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int i=(int)lua_tointeger(L,2);
 
-	mgl_get_frame(gr, i);
+	::mgl_get_frame(gr, i);
 
 	return 0;
 }
@@ -16556,7 +16556,7 @@ static int _bind_mgl_get_frame_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int i=(int)lua_tointeger(L,2);
 
-	mgl_get_frame_(gr, &i);
+	::mgl_get_frame_(gr, &i);
 
 	return 0;
 }
@@ -16571,7 +16571,7 @@ static int _bind_mgl_set_frame(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int i=(int)lua_tointeger(L,2);
 
-	mgl_set_frame(gr, i);
+	::mgl_set_frame(gr, i);
 
 	return 0;
 }
@@ -16586,7 +16586,7 @@ static int _bind_mgl_set_frame_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int i=(int)lua_tointeger(L,2);
 
-	mgl_set_frame_(gr, &i);
+	::mgl_set_frame_(gr, &i);
 
 	return 0;
 }
@@ -16601,7 +16601,7 @@ static int _bind_mgl_show_frame(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int i=(int)lua_tointeger(L,2);
 
-	mgl_show_frame(gr, i);
+	::mgl_show_frame(gr, i);
 
 	return 0;
 }
@@ -16616,7 +16616,7 @@ static int _bind_mgl_show_frame_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int i=(int)lua_tointeger(L,2);
 
-	mgl_show_frame_(gr, &i);
+	::mgl_show_frame_(gr, &i);
 
 	return 0;
 }
@@ -16631,7 +16631,7 @@ static int _bind_mgl_del_frame(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int i=(int)lua_tointeger(L,2);
 
-	mgl_del_frame(gr, i);
+	::mgl_del_frame(gr, i);
 
 	return 0;
 }
@@ -16646,7 +16646,7 @@ static int _bind_mgl_del_frame_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int i=(int)lua_tointeger(L,2);
 
-	mgl_del_frame_(gr, &i);
+	::mgl_del_frame_(gr, &i);
 
 	return 0;
 }
@@ -16661,7 +16661,7 @@ static int _bind_mgl_set_transp_type(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int type=(int)lua_tointeger(L,2);
 
-	mgl_set_transp_type(gr, type);
+	::mgl_set_transp_type(gr, type);
 
 	return 0;
 }
@@ -16676,7 +16676,7 @@ static int _bind_mgl_set_transp_type_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int type=(int)lua_tointeger(L,2);
 
-	mgl_set_transp_type_(gr, &type);
+	::mgl_set_transp_type_(gr, &type);
 
 	return 0;
 }
@@ -16691,7 +16691,7 @@ static int _bind_mgl_set_alpha(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int enable=(int)lua_tointeger(L,2);
 
-	mgl_set_alpha(gr, enable);
+	::mgl_set_alpha(gr, enable);
 
 	return 0;
 }
@@ -16706,7 +16706,7 @@ static int _bind_mgl_set_alpha_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int enable=(int)lua_tointeger(L,2);
 
-	mgl_set_alpha_(gr, &enable);
+	::mgl_set_alpha_(gr, &enable);
 
 	return 0;
 }
@@ -16722,7 +16722,7 @@ static int _bind_mgl_set_fog(lua_State *L) {
 	double d=(double)lua_tonumber(L,2);
 	double dz=(double)lua_tonumber(L,3);
 
-	mgl_set_fog(gr, d, dz);
+	::mgl_set_fog(gr, d, dz);
 
 	return 0;
 }
@@ -16738,7 +16738,7 @@ static int _bind_mgl_set_fog_(lua_State *L) {
 	double dist=(double)lua_tonumber(L,2);
 	double dz=(double)lua_tonumber(L,3);
 
-	mgl_set_fog_(gr, &dist, &dz);
+	::mgl_set_fog_(gr, &dist, &dz);
 
 	return 0;
 }
@@ -16753,7 +16753,7 @@ static int _bind_mgl_set_light(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int enable=(int)lua_tointeger(L,2);
 
-	mgl_set_light(gr, enable);
+	::mgl_set_light(gr, enable);
 
 	return 0;
 }
@@ -16768,7 +16768,7 @@ static int _bind_mgl_set_light_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int enable=(int)lua_tointeger(L,2);
 
-	mgl_set_light_(gr, &enable);
+	::mgl_set_light_(gr, &enable);
 
 	return 0;
 }
@@ -16784,7 +16784,7 @@ static int _bind_mgl_set_light_n(lua_State *L) {
 	int n=(int)lua_tointeger(L,2);
 	int enable=(int)lua_tointeger(L,3);
 
-	mgl_set_light_n(gr, n, enable);
+	::mgl_set_light_n(gr, n, enable);
 
 	return 0;
 }
@@ -16800,7 +16800,7 @@ static int _bind_mgl_set_light_n_(lua_State *L) {
 	int n=(int)lua_tointeger(L,2);
 	int enable=(int)lua_tointeger(L,3);
 
-	mgl_set_light_n_(gr, &n, &enable);
+	::mgl_set_light_n_(gr, &n, &enable);
 
 	return 0;
 }
@@ -16818,7 +16818,7 @@ static int _bind_mgl_add_light(lua_State *L) {
 	double y=(double)lua_tonumber(L,4);
 	double z=(double)lua_tonumber(L,5);
 
-	mgl_add_light(gr, n, x, y, z);
+	::mgl_add_light(gr, n, x, y, z);
 
 	return 0;
 }
@@ -16836,7 +16836,7 @@ static int _bind_mgl_add_light_(lua_State *L) {
 	double y=(double)lua_tonumber(L,4);
 	double z=(double)lua_tonumber(L,5);
 
-	mgl_add_light_(gr, &n, &x, &y, &z);
+	::mgl_add_light_(gr, &n, &x, &y, &z);
 
 	return 0;
 }
@@ -16857,7 +16857,7 @@ static int _bind_mgl_add_light_ext(lua_State *L) {
 	double br=(double)lua_tonumber(L,7);
 	double ap=(double)lua_tonumber(L,8);
 
-	mgl_add_light_ext(gr, n, x, y, z, c, br, ap);
+	::mgl_add_light_ext(gr, n, x, y, z, c, br, ap);
 
 	return 0;
 }
@@ -16879,7 +16879,7 @@ static int _bind_mgl_add_light_ext_(lua_State *L) {
 	double ap=(double)lua_tonumber(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_add_light_ext_(gr, &n, &x, &y, &z, &c, &br, &ap, _arg9);
+	::mgl_add_light_ext_(gr, &n, &x, &y, &z, &c, &br, &ap, _arg9);
 
 	return 0;
 }
@@ -16903,7 +16903,7 @@ static int _bind_mgl_add_light_loc(lua_State *L) {
 	double br=(double)lua_tonumber(L,10);
 	double ap=(double)lua_tonumber(L,11);
 
-	mgl_add_light_loc(gr, n, x, y, z, dx, dy, dz, c, br, ap);
+	::mgl_add_light_loc(gr, n, x, y, z, dx, dy, dz, c, br, ap);
 
 	return 0;
 }
@@ -16928,7 +16928,7 @@ static int _bind_mgl_add_light_loc_(lua_State *L) {
 	double ap=(double)lua_tonumber(L,11);
 	int _arg12=(int)lua_tointeger(L,12);
 
-	mgl_add_light_loc_(gr, &n, &x, &y, &z, &dx, &dy, &dz, &c, &br, &ap, _arg12);
+	::mgl_add_light_loc_(gr, &n, &x, &y, &z, &dx, &dy, &dz, &c, &br, &ap, _arg12);
 
 	return 0;
 }
@@ -16942,7 +16942,7 @@ static int _bind_mgl_mat_pop(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_mat_pop(gr);
+	::mgl_mat_pop(gr);
 
 	return 0;
 }
@@ -16956,7 +16956,7 @@ static int _bind_mgl_mat_pop_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_mat_pop_(gr);
+	::mgl_mat_pop_(gr);
 
 	return 0;
 }
@@ -16970,7 +16970,7 @@ static int _bind_mgl_mat_push(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_mat_push(gr);
+	::mgl_mat_push(gr);
 
 	return 0;
 }
@@ -16984,7 +16984,7 @@ static int _bind_mgl_mat_push_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_mat_push_(gr);
+	::mgl_mat_push_(gr);
 
 	return 0;
 }
@@ -16998,7 +16998,7 @@ static int _bind_mgl_clf(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_clf(gr);
+	::mgl_clf(gr);
 
 	return 0;
 }
@@ -17012,7 +17012,7 @@ static int _bind_mgl_clf_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_clf_(gr);
+	::mgl_clf_(gr);
 
 	return 0;
 }
@@ -17029,7 +17029,7 @@ static int _bind_mgl_clf_rgb(lua_State *L) {
 	double g=(double)lua_tonumber(L,3);
 	double b=(double)lua_tonumber(L,4);
 
-	mgl_clf_rgb(gr, r, g, b);
+	::mgl_clf_rgb(gr, r, g, b);
 
 	return 0;
 }
@@ -17046,7 +17046,7 @@ static int _bind_mgl_clf_rgb_(lua_State *L) {
 	double g=(double)lua_tonumber(L,3);
 	double b=(double)lua_tonumber(L,4);
 
-	mgl_clf_rgb_(gr, &r, &g, &b);
+	::mgl_clf_rgb_(gr, &r, &g, &b);
 
 	return 0;
 }
@@ -17064,7 +17064,7 @@ static int _bind_mgl_subplot(lua_State *L) {
 	int m=(int)lua_tointeger(L,4);
 	const char * style=(const char *)lua_tostring(L,5);
 
-	mgl_subplot(gr, nx, ny, m, style);
+	::mgl_subplot(gr, nx, ny, m, style);
 
 	return 0;
 }
@@ -17083,7 +17083,7 @@ static int _bind_mgl_subplot_(lua_State *L) {
 	const char * s=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_subplot_(gr, &nx, &ny, &m, s, _arg6);
+	::mgl_subplot_(gr, &nx, &ny, &m, s, _arg6);
 
 	return 0;
 }
@@ -17103,7 +17103,7 @@ static int _bind_mgl_multiplot(lua_State *L) {
 	int dy=(int)lua_tointeger(L,6);
 	const char * style=(const char *)lua_tostring(L,7);
 
-	mgl_multiplot(gr, nx, ny, m, dx, dy, style);
+	::mgl_multiplot(gr, nx, ny, m, dx, dy, style);
 
 	return 0;
 }
@@ -17124,7 +17124,7 @@ static int _bind_mgl_multiplot_(lua_State *L) {
 	const char * s=(const char *)lua_tostring(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_multiplot_(gr, &nx, &ny, &m, &dx, &dy, s, _arg8);
+	::mgl_multiplot_(gr, &nx, &ny, &m, &dx, &dy, s, _arg8);
 
 	return 0;
 }
@@ -17142,7 +17142,7 @@ static int _bind_mgl_inplot(lua_State *L) {
 	double y1=(double)lua_tonumber(L,4);
 	double y2=(double)lua_tonumber(L,5);
 
-	mgl_inplot(gr, x1, x2, y1, y2);
+	::mgl_inplot(gr, x1, x2, y1, y2);
 
 	return 0;
 }
@@ -17160,7 +17160,7 @@ static int _bind_mgl_inplot_(lua_State *L) {
 	double y1=(double)lua_tonumber(L,4);
 	double y2=(double)lua_tonumber(L,5);
 
-	mgl_inplot_(gr, &x1, &x2, &y1, &y2);
+	::mgl_inplot_(gr, &x1, &x2, &y1, &y2);
 
 	return 0;
 }
@@ -17178,7 +17178,7 @@ static int _bind_mgl_relplot(lua_State *L) {
 	double y1=(double)lua_tonumber(L,4);
 	double y2=(double)lua_tonumber(L,5);
 
-	mgl_relplot(gr, x1, x2, y1, y2);
+	::mgl_relplot(gr, x1, x2, y1, y2);
 
 	return 0;
 }
@@ -17196,7 +17196,7 @@ static int _bind_mgl_relplot_(lua_State *L) {
 	double y1=(double)lua_tonumber(L,4);
 	double y2=(double)lua_tonumber(L,5);
 
-	mgl_relplot_(gr, &x1, &x2, &y1, &y2);
+	::mgl_relplot_(gr, &x1, &x2, &y1, &y2);
 
 	return 0;
 }
@@ -17213,7 +17213,7 @@ static int _bind_mgl_columnplot(lua_State *L) {
 	int ind=(int)lua_tointeger(L,3);
 	double d=(double)lua_tonumber(L,4);
 
-	mgl_columnplot(gr, num, ind, d);
+	::mgl_columnplot(gr, num, ind, d);
 
 	return 0;
 }
@@ -17230,7 +17230,7 @@ static int _bind_mgl_columnplot_(lua_State *L) {
 	int i=(int)lua_tointeger(L,3);
 	double d=(double)lua_tonumber(L,4);
 
-	mgl_columnplot_(gr, &num, &i, &d);
+	::mgl_columnplot_(gr, &num, &i, &d);
 
 	return 0;
 }
@@ -17248,7 +17248,7 @@ static int _bind_mgl_stickplot(lua_State *L) {
 	double tet=(double)lua_tonumber(L,4);
 	double phi=(double)lua_tonumber(L,5);
 
-	mgl_stickplot(gr, num, ind, tet, phi);
+	::mgl_stickplot(gr, num, ind, tet, phi);
 
 	return 0;
 }
@@ -17266,7 +17266,7 @@ static int _bind_mgl_stickplot_(lua_State *L) {
 	double tet=(double)lua_tonumber(L,4);
 	double phi=(double)lua_tonumber(L,5);
 
-	mgl_stickplot_(gr, &num, &i, &tet, &phi);
+	::mgl_stickplot_(gr, &num, &i, &tet, &phi);
 
 	return 0;
 }
@@ -17283,7 +17283,7 @@ static int _bind_mgl_title(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,3);
 	double size=(double)lua_tonumber(L,4);
 
-	mgl_title(gr, title, stl, size);
+	::mgl_title(gr, title, stl, size);
 
 	return 0;
 }
@@ -17302,7 +17302,7 @@ static int _bind_mgl_title_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_title_(gr, title, stl, &size, _arg5, _arg6);
+	::mgl_title_(gr, title, stl, &size, _arg5, _arg6);
 
 	return 0;
 }
@@ -17317,7 +17317,7 @@ static int _bind_mgl_set_plotfactor(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	double val=(double)lua_tonumber(L,2);
 
-	mgl_set_plotfactor(gr, val);
+	::mgl_set_plotfactor(gr, val);
 
 	return 0;
 }
@@ -17332,7 +17332,7 @@ static int _bind_mgl_set_plotfactor_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	double val=(double)lua_tonumber(L,2);
 
-	mgl_set_plotfactor_(gr, &val);
+	::mgl_set_plotfactor_(gr, &val);
 
 	return 0;
 }
@@ -17349,7 +17349,7 @@ static int _bind_mgl_aspect(lua_State *L) {
 	double Ay=(double)lua_tonumber(L,3);
 	double Az=(double)lua_tonumber(L,4);
 
-	mgl_aspect(gr, Ax, Ay, Az);
+	::mgl_aspect(gr, Ax, Ay, Az);
 
 	return 0;
 }
@@ -17366,7 +17366,7 @@ static int _bind_mgl_aspect_(lua_State *L) {
 	double Ay=(double)lua_tonumber(L,3);
 	double Az=(double)lua_tonumber(L,4);
 
-	mgl_aspect_(gr, &Ax, &Ay, &Az);
+	::mgl_aspect_(gr, &Ax, &Ay, &Az);
 
 	return 0;
 }
@@ -17383,7 +17383,7 @@ static int _bind_mgl_rotate(lua_State *L) {
 	double TetZ=(double)lua_tonumber(L,3);
 	double TetY=(double)lua_tonumber(L,4);
 
-	mgl_rotate(gr, TetX, TetZ, TetY);
+	::mgl_rotate(gr, TetX, TetZ, TetY);
 
 	return 0;
 }
@@ -17400,7 +17400,7 @@ static int _bind_mgl_rotate_(lua_State *L) {
 	double TetZ=(double)lua_tonumber(L,3);
 	double TetY=(double)lua_tonumber(L,4);
 
-	mgl_rotate_(gr, &TetX, &TetZ, &TetY);
+	::mgl_rotate_(gr, &TetX, &TetZ, &TetY);
 
 	return 0;
 }
@@ -17418,7 +17418,7 @@ static int _bind_mgl_rotate_vector(lua_State *L) {
 	double y=(double)lua_tonumber(L,4);
 	double z=(double)lua_tonumber(L,5);
 
-	mgl_rotate_vector(gr, Tet, x, y, z);
+	::mgl_rotate_vector(gr, Tet, x, y, z);
 
 	return 0;
 }
@@ -17436,7 +17436,7 @@ static int _bind_mgl_rotate_vector_(lua_State *L) {
 	double y=(double)lua_tonumber(L,4);
 	double z=(double)lua_tonumber(L,5);
 
-	mgl_rotate_vector_(gr, &Tet, &x, &y, &z);
+	::mgl_rotate_vector_(gr, &Tet, &x, &y, &z);
 
 	return 0;
 }
@@ -17451,7 +17451,7 @@ static int _bind_mgl_perspective(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	double val=(double)lua_tonumber(L,2);
 
-	mgl_perspective(gr, val);
+	::mgl_perspective(gr, val);
 
 	return 0;
 }
@@ -17466,7 +17466,7 @@ static int _bind_mgl_perspective_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	double val=(double)lua_tonumber(L,2);
 
-	mgl_perspective_(gr, val);
+	::mgl_perspective_(gr, val);
 
 	return 0;
 }
@@ -17483,7 +17483,7 @@ static int _bind_mgl_view(lua_State *L) {
 	double TetZ=(double)lua_tonumber(L,3);
 	double TetY=(double)lua_tonumber(L,4);
 
-	mgl_view(gr, TetX, TetZ, TetY);
+	::mgl_view(gr, TetX, TetZ, TetY);
 
 	return 0;
 }
@@ -17500,7 +17500,7 @@ static int _bind_mgl_view_(lua_State *L) {
 	double TetZ=(double)lua_tonumber(L,3);
 	double TetY=(double)lua_tonumber(L,4);
 
-	mgl_view_(gr, &TetX, &TetZ, &TetY);
+	::mgl_view_(gr, &TetX, &TetZ, &TetY);
 
 	return 0;
 }
@@ -17518,7 +17518,7 @@ static int _bind_mgl_zoom(lua_State *L) {
 	double x2=(double)lua_tonumber(L,4);
 	double y2=(double)lua_tonumber(L,5);
 
-	mgl_zoom(gr, x1, y1, x2, y2);
+	::mgl_zoom(gr, x1, y1, x2, y2);
 
 	return 0;
 }
@@ -17536,7 +17536,7 @@ static int _bind_mgl_zoom_(lua_State *L) {
 	double x2=(double)lua_tonumber(L,4);
 	double y2=(double)lua_tonumber(L,5);
 
-	mgl_zoom_(gr, &x1, &y1, &x2, &y2);
+	::mgl_zoom_(gr, &x1, &y1, &x2, &y2);
 
 	return 0;
 }
@@ -17551,7 +17551,7 @@ static int _bind_mgl_mpi_send(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int id=(int)lua_tointeger(L,2);
 
-	mgl_mpi_send(gr, id);
+	::mgl_mpi_send(gr, id);
 
 	return 0;
 }
@@ -17566,7 +17566,7 @@ static int _bind_mgl_mpi_send_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int id=(int)lua_tointeger(L,2);
 
-	mgl_mpi_send_(gr, &id);
+	::mgl_mpi_send_(gr, &id);
 
 	return 0;
 }
@@ -17581,7 +17581,7 @@ static int _bind_mgl_mpi_recv(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int id=(int)lua_tointeger(L,2);
 
-	mgl_mpi_recv(gr, id);
+	::mgl_mpi_recv(gr, id);
 
 	return 0;
 }
@@ -17596,7 +17596,7 @@ static int _bind_mgl_mpi_recv_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	int id=(int)lua_tointeger(L,2);
 
-	mgl_mpi_recv_(gr, &id);
+	::mgl_mpi_recv_(gr, &id);
 
 	return 0;
 }
@@ -17610,7 +17610,7 @@ static int _bind_mgl_draw_thr(lua_State *L) {
 
 	void* _arg1=(Luna< void >::check(L,1));
 
-	mgl_draw_thr(_arg1);
+	::mgl_draw_thr(_arg1);
 
 	return 0;
 }
@@ -17625,7 +17625,7 @@ static int _bind_mgl_wnd_set_delay(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	double dt=(double)lua_tonumber(L,2);
 
-	mgl_wnd_set_delay(gr, dt);
+	::mgl_wnd_set_delay(gr, dt);
 
 	return 0;
 }
@@ -17640,7 +17640,7 @@ static int _bind_mgl_wnd_set_delay_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	double dt=(double)lua_tonumber(L,2);
 
-	mgl_wnd_set_delay_(gr, &dt);
+	::mgl_wnd_set_delay_(gr, &dt);
 
 	return 0;
 }
@@ -17656,7 +17656,7 @@ static int _bind_mgl_setup_window(lua_State *L) {
 	int clf_upd=(int)lua_tointeger(L,2);
 	int showpos=(int)lua_tointeger(L,3);
 
-	mgl_setup_window(gr, clf_upd, showpos);
+	::mgl_setup_window(gr, clf_upd, showpos);
 
 	return 0;
 }
@@ -17672,7 +17672,7 @@ static int _bind_mgl_setup_window_(lua_State *L) {
 	int clf_upd=(int)lua_tointeger(L,2);
 	int showpos=(int)lua_tointeger(L,3);
 
-	mgl_setup_window_(gr, &clf_upd, &showpos);
+	::mgl_setup_window_(gr, &clf_upd, &showpos);
 
 	return 0;
 }
@@ -17686,7 +17686,7 @@ static int _bind_mgl_wnd_toggle_alpha(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_wnd_toggle_alpha(gr);
+	::mgl_wnd_toggle_alpha(gr);
 
 	return 0;
 }
@@ -17700,7 +17700,7 @@ static int _bind_mgl_wnd_toggle_alpha_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_wnd_toggle_alpha_(gr);
+	::mgl_wnd_toggle_alpha_(gr);
 
 	return 0;
 }
@@ -17714,7 +17714,7 @@ static int _bind_mgl_wnd_toggle_light(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_wnd_toggle_light(gr);
+	::mgl_wnd_toggle_light(gr);
 
 	return 0;
 }
@@ -17728,7 +17728,7 @@ static int _bind_mgl_wnd_toggle_light_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_wnd_toggle_light_(gr);
+	::mgl_wnd_toggle_light_(gr);
 
 	return 0;
 }
@@ -17742,7 +17742,7 @@ static int _bind_mgl_wnd_toggle_zoom(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_wnd_toggle_zoom(gr);
+	::mgl_wnd_toggle_zoom(gr);
 
 	return 0;
 }
@@ -17756,7 +17756,7 @@ static int _bind_mgl_wnd_toggle_zoom_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_wnd_toggle_zoom_(gr);
+	::mgl_wnd_toggle_zoom_(gr);
 
 	return 0;
 }
@@ -17770,7 +17770,7 @@ static int _bind_mgl_wnd_toggle_rotate(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_wnd_toggle_rotate(gr);
+	::mgl_wnd_toggle_rotate(gr);
 
 	return 0;
 }
@@ -17784,7 +17784,7 @@ static int _bind_mgl_wnd_toggle_rotate_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_wnd_toggle_rotate_(gr);
+	::mgl_wnd_toggle_rotate_(gr);
 
 	return 0;
 }
@@ -17798,7 +17798,7 @@ static int _bind_mgl_wnd_toggle_no(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_wnd_toggle_no(gr);
+	::mgl_wnd_toggle_no(gr);
 
 	return 0;
 }
@@ -17812,7 +17812,7 @@ static int _bind_mgl_wnd_toggle_no_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_wnd_toggle_no_(gr);
+	::mgl_wnd_toggle_no_(gr);
 
 	return 0;
 }
@@ -17826,7 +17826,7 @@ static int _bind_mgl_wnd_update(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_wnd_update(gr);
+	::mgl_wnd_update(gr);
 
 	return 0;
 }
@@ -17840,7 +17840,7 @@ static int _bind_mgl_wnd_update_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_wnd_update_(gr);
+	::mgl_wnd_update_(gr);
 
 	return 0;
 }
@@ -17854,7 +17854,7 @@ static int _bind_mgl_wnd_reload(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_wnd_reload(gr);
+	::mgl_wnd_reload(gr);
 
 	return 0;
 }
@@ -17868,7 +17868,7 @@ static int _bind_mgl_wnd_reload_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_wnd_reload_(gr);
+	::mgl_wnd_reload_(gr);
 
 	return 0;
 }
@@ -17882,7 +17882,7 @@ static int _bind_mgl_wnd_adjust(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_wnd_adjust(gr);
+	::mgl_wnd_adjust(gr);
 
 	return 0;
 }
@@ -17896,7 +17896,7 @@ static int _bind_mgl_wnd_adjust_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_wnd_adjust_(gr);
+	::mgl_wnd_adjust_(gr);
 
 	return 0;
 }
@@ -17910,7 +17910,7 @@ static int _bind_mgl_wnd_next_frame(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_wnd_next_frame(gr);
+	::mgl_wnd_next_frame(gr);
 
 	return 0;
 }
@@ -17924,7 +17924,7 @@ static int _bind_mgl_wnd_next_frame_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_wnd_next_frame_(gr);
+	::mgl_wnd_next_frame_(gr);
 
 	return 0;
 }
@@ -17938,7 +17938,7 @@ static int _bind_mgl_wnd_prev_frame(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_wnd_prev_frame(gr);
+	::mgl_wnd_prev_frame(gr);
 
 	return 0;
 }
@@ -17952,7 +17952,7 @@ static int _bind_mgl_wnd_prev_frame_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_wnd_prev_frame_(gr);
+	::mgl_wnd_prev_frame_(gr);
 
 	return 0;
 }
@@ -17966,7 +17966,7 @@ static int _bind_mgl_wnd_animation(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	mgl_wnd_animation(gr);
+	::mgl_wnd_animation(gr);
 
 	return 0;
 }
@@ -17980,7 +17980,7 @@ static int _bind_mgl_wnd_animation_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 
-	mgl_wnd_animation_(gr);
+	::mgl_wnd_animation_(gr);
 
 	return 0;
 }
@@ -17997,7 +17997,7 @@ static int _bind_mgl_get_last_mouse_pos(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	mgl_get_last_mouse_pos(gr, &x, &y, &z);
+	::mgl_get_last_mouse_pos(gr, &x, &y, &z);
 
 	return 0;
 }
@@ -18014,7 +18014,7 @@ static int _bind_mgl_get_last_mouse_pos_(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	mgl_get_last_mouse_pos_(gr, &x, &y, &z);
+	::mgl_get_last_mouse_pos_(gr, &x, &y, &z);
 
 	return 0;
 }
@@ -18027,7 +18027,7 @@ static int _bind_mgl_create_parser(lua_State *L) {
 	}
 
 
-	mglParser * lret = mgl_create_parser();
+	mglParser * lret = ::mgl_create_parser();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglParser >::push(L,lret,false);
@@ -18043,7 +18043,7 @@ static int _bind_mgl_create_parser_(lua_State *L) {
 	}
 
 
-	uintptr_t stack_lret = mgl_create_parser_();
+	uintptr_t stack_lret = ::mgl_create_parser_();
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -18062,7 +18062,7 @@ static int _bind_mgl_use_parser(lua_State *L) {
 	mglParser* p=(Luna< mglParser >::check(L,1));
 	int inc=(int)lua_tointeger(L,2);
 
-	long lret = mgl_use_parser(p, inc);
+	long lret = ::mgl_use_parser(p, inc);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18078,7 +18078,7 @@ static int _bind_mgl_use_parser_(lua_State *L) {
 	uintptr_t* _arg1=(Luna< uintptr_t >::check(L,1));
 	int inc=(int)lua_tointeger(L,2);
 
-	long lret = mgl_use_parser_(_arg1, &inc);
+	long lret = ::mgl_use_parser_(_arg1, &inc);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18093,7 +18093,7 @@ static int _bind_mgl_delete_parser(lua_State *L) {
 
 	mglParser* p=(Luna< mglParser >::check(L,1));
 
-	mgl_delete_parser(p);
+	::mgl_delete_parser(p);
 
 	return 0;
 }
@@ -18107,7 +18107,7 @@ static int _bind_mgl_delete_parser_(lua_State *L) {
 
 	uintptr_t* p=(Luna< uintptr_t >::check(L,1));
 
-	mgl_delete_parser_(p);
+	::mgl_delete_parser_(p);
 
 	return 0;
 }
@@ -18123,7 +18123,7 @@ static int _bind_mgl_parser_add_param(lua_State *L) {
 	int id=(int)lua_tointeger(L,2);
 	const char * str=(const char *)lua_tostring(L,3);
 
-	mgl_parser_add_param(p, id, str);
+	::mgl_parser_add_param(p, id, str);
 
 	return 0;
 }
@@ -18140,7 +18140,7 @@ static int _bind_mgl_parser_add_param_(lua_State *L) {
 	const char * str=(const char *)lua_tostring(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_parser_add_param_(p, &id, str, _arg4);
+	::mgl_parser_add_param_(p, &id, str, _arg4);
 
 	return 0;
 }
@@ -18155,7 +18155,7 @@ static int _bind_mgl_parser_add_var(lua_State *L) {
 	mglParser* p=(Luna< mglParser >::check(L,1));
 	const char * name=(const char *)lua_tostring(L,2);
 
-	mglData * lret = mgl_parser_add_var(p, name);
+	mglData * lret = ::mgl_parser_add_var(p, name);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -18174,7 +18174,7 @@ static int _bind_mgl_parser_add_var_(lua_State *L) {
 	const char * name=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	uintptr_t stack_lret = mgl_parser_add_var_(p, name, _arg3);
+	uintptr_t stack_lret = ::mgl_parser_add_var_(p, name, _arg3);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -18193,7 +18193,7 @@ static int _bind_mgl_parser_find_var(lua_State *L) {
 	mglParser* p=(Luna< mglParser >::check(L,1));
 	const char * name=(const char *)lua_tostring(L,2);
 
-	mglData * lret = mgl_parser_find_var(p, name);
+	mglData * lret = ::mgl_parser_find_var(p, name);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -18212,7 +18212,7 @@ static int _bind_mgl_parser_find_var_(lua_State *L) {
 	const char * name=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	uintptr_t stack_lret = mgl_parser_find_var_(p, name, _arg3);
+	uintptr_t stack_lret = ::mgl_parser_find_var_(p, name, _arg3);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -18230,7 +18230,7 @@ static int _bind_mgl_parser_del_all(lua_State *L) {
 
 	mglParser* p=(Luna< mglParser >::check(L,1));
 
-	mgl_parser_del_all(p);
+	::mgl_parser_del_all(p);
 
 	return 0;
 }
@@ -18244,7 +18244,7 @@ static int _bind_mgl_parser_del_all_(lua_State *L) {
 
 	uintptr_t* p=(Luna< uintptr_t >::check(L,1));
 
-	mgl_parser_del_all_(p);
+	::mgl_parser_del_all_(p);
 
 	return 0;
 }
@@ -18261,7 +18261,7 @@ static int _bind_mgl_parse_line(lua_State *L) {
 	const char * str=(const char *)lua_tostring(L,3);
 	int pos=(int)lua_tointeger(L,4);
 
-	int lret = mgl_parse_line(gr, p, str, pos);
+	int lret = ::mgl_parse_line(gr, p, str, pos);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18280,7 +18280,7 @@ static int _bind_mgl_parse_line_(lua_State *L) {
 	int pos=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	int lret = mgl_parse_line_(gr, p, str, &pos, _arg5);
+	int lret = ::mgl_parse_line_(gr, p, str, &pos, _arg5);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18297,7 +18297,7 @@ static int _bind_mgl_parse_text(lua_State *L) {
 	mglParser* p=(Luna< mglParser >::check(L,2));
 	const char * str=(const char *)lua_tostring(L,3);
 
-	mgl_parse_text(gr, p, str);
+	::mgl_parse_text(gr, p, str);
 
 	return 0;
 }
@@ -18314,7 +18314,7 @@ static int _bind_mgl_parse_text_(lua_State *L) {
 	const char * str=(const char *)lua_tostring(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_parse_text_(gr, p, str, _arg4);
+	::mgl_parse_text_(gr, p, str, _arg4);
 
 	return 0;
 }
@@ -18328,7 +18328,7 @@ static int _bind_mgl_parser_restore_once(lua_State *L) {
 
 	mglParser* p=(Luna< mglParser >::check(L,1));
 
-	mgl_parser_restore_once(p);
+	::mgl_parser_restore_once(p);
 
 	return 0;
 }
@@ -18342,7 +18342,7 @@ static int _bind_mgl_parser_restore_once_(lua_State *L) {
 
 	uintptr_t* p=(Luna< uintptr_t >::check(L,1));
 
-	mgl_parser_restore_once_(p);
+	::mgl_parser_restore_once_(p);
 
 	return 0;
 }
@@ -18357,7 +18357,7 @@ static int _bind_mgl_parser_allow_setsize(lua_State *L) {
 	mglParser* p=(Luna< mglParser >::check(L,1));
 	int a=(int)lua_tointeger(L,2);
 
-	mgl_parser_allow_setsize(p, a);
+	::mgl_parser_allow_setsize(p, a);
 
 	return 0;
 }
@@ -18372,7 +18372,7 @@ static int _bind_mgl_parser_allow_setsize_(lua_State *L) {
 	uintptr_t* p=(Luna< uintptr_t >::check(L,1));
 	int a=(int)lua_tointeger(L,2);
 
-	mgl_parser_allow_setsize_(p, &a);
+	::mgl_parser_allow_setsize_(p, &a);
 
 	return 0;
 }
@@ -18387,7 +18387,7 @@ static int _bind_mgl_parser_allow_file_io(lua_State *L) {
 	mglParser* p=(Luna< mglParser >::check(L,1));
 	int a=(int)lua_tointeger(L,2);
 
-	mgl_parser_allow_file_io(p, a);
+	::mgl_parser_allow_file_io(p, a);
 
 	return 0;
 }
@@ -18402,7 +18402,7 @@ static int _bind_mgl_parser_allow_file_io_(lua_State *L) {
 	uintptr_t* p=(Luna< uintptr_t >::check(L,1));
 	int a=(int)lua_tointeger(L,2);
 
-	mgl_parser_allow_file_io_(p, &a);
+	::mgl_parser_allow_file_io_(p, &a);
 
 	return 0;
 }
@@ -18416,7 +18416,7 @@ static int _bind_mgl_parser_stop(lua_State *L) {
 
 	mglParser* p=(Luna< mglParser >::check(L,1));
 
-	mgl_parser_stop(p);
+	::mgl_parser_stop(p);
 
 	return 0;
 }
@@ -18430,7 +18430,7 @@ static int _bind_mgl_parser_stop_(lua_State *L) {
 
 	uintptr_t* p=(Luna< uintptr_t >::check(L,1));
 
-	mgl_parser_stop_(p);
+	::mgl_parser_stop_(p);
 
 	return 0;
 }
@@ -18445,7 +18445,7 @@ static int _bind_mgl_parser_cmd_type(lua_State *L) {
 	mglParser* pr=(Luna< mglParser >::check(L,1));
 	const char * name=(const char *)lua_tostring(L,2);
 
-	int lret = mgl_parser_cmd_type(pr, name);
+	int lret = ::mgl_parser_cmd_type(pr, name);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18462,7 +18462,7 @@ static int _bind_mgl_parser_cmd_type_(lua_State *L) {
 	const char * name=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	int lret = mgl_parser_cmd_type_(p, name, _arg3);
+	int lret = ::mgl_parser_cmd_type_(p, name, _arg3);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18478,7 +18478,7 @@ static int _bind_mgl_parser_cmd_desc(lua_State *L) {
 	mglParser* pr=(Luna< mglParser >::check(L,1));
 	const char * name=(const char *)lua_tostring(L,2);
 
-	const char * lret = mgl_parser_cmd_desc(pr, name);
+	const char * lret = ::mgl_parser_cmd_desc(pr, name);
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -18494,7 +18494,7 @@ static int _bind_mgl_parser_cmd_frmt(lua_State *L) {
 	mglParser* pr=(Luna< mglParser >::check(L,1));
 	const char * name=(const char *)lua_tostring(L,2);
 
-	const char * lret = mgl_parser_cmd_frmt(pr, name);
+	const char * lret = ::mgl_parser_cmd_frmt(pr, name);
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -18510,7 +18510,7 @@ static int _bind_mgl_parser_cmd_name(lua_State *L) {
 	mglParser* pr=(Luna< mglParser >::check(L,1));
 	long id=(long)lua_tointeger(L,2);
 
-	const char * lret = mgl_parser_cmd_name(pr, id);
+	const char * lret = ::mgl_parser_cmd_name(pr, id);
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -18525,7 +18525,7 @@ static int _bind_mgl_parser_cmd_num(lua_State *L) {
 
 	mglParser* pr=(Luna< mglParser >::check(L,1));
 
-	long lret = mgl_parser_cmd_num(pr);
+	long lret = ::mgl_parser_cmd_num(pr);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18541,7 +18541,7 @@ static int _bind_mgl_parser_calc(lua_State *L) {
 	mglParser* pr=(Luna< mglParser >::check(L,1));
 	const char * formula=(const char *)lua_tostring(L,2);
 
-	mglData * lret = mgl_parser_calc(pr, formula);
+	mglData * lret = ::mgl_parser_calc(pr, formula);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -18560,7 +18560,7 @@ static int _bind_mgl_parser_calc_(lua_State *L) {
 	const char * formula=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	uintptr_t stack_lret = mgl_parser_calc_(pr, formula, _arg3);
+	uintptr_t stack_lret = ::mgl_parser_calc_(pr, formula, _arg3);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -18578,7 +18578,7 @@ static int _bind_mgl_create_expr(lua_State *L) {
 
 	const char * expr=(const char *)lua_tostring(L,1);
 
-	mglFormula * lret = mgl_create_expr(expr);
+	mglFormula * lret = ::mgl_create_expr(expr);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglFormula >::push(L,lret,false);
@@ -18596,7 +18596,7 @@ static int _bind_mgl_create_expr_(lua_State *L) {
 	const char * expr=(const char *)lua_tostring(L,1);
 	int _arg2=(int)lua_tointeger(L,2);
 
-	uintptr_t stack_lret = mgl_create_expr_(expr, _arg2);
+	uintptr_t stack_lret = ::mgl_create_expr_(expr, _arg2);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -18614,7 +18614,7 @@ static int _bind_mgl_delete_expr(lua_State *L) {
 
 	mglFormula* ex=(Luna< mglFormula >::check(L,1));
 
-	mgl_delete_expr(ex);
+	::mgl_delete_expr(ex);
 
 	return 0;
 }
@@ -18628,7 +18628,7 @@ static int _bind_mgl_delete_expr_(lua_State *L) {
 
 	uintptr_t* ex=(Luna< uintptr_t >::check(L,1));
 
-	mgl_delete_expr_(ex);
+	::mgl_delete_expr_(ex);
 
 	return 0;
 }
@@ -18645,7 +18645,7 @@ static int _bind_mgl_expr_eval(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	double lret = mgl_expr_eval(ex, x, y, z);
+	double lret = ::mgl_expr_eval(ex, x, y, z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18663,7 +18663,7 @@ static int _bind_mgl_eval_expr_(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	double lret = mgl_eval_expr_(ex, &x, &y, &z);
+	double lret = ::mgl_eval_expr_(ex, &x, &y, &z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18679,7 +18679,7 @@ static int _bind_mgl_expr_eval_v(lua_State *L) {
 	mglFormula* ex=(Luna< mglFormula >::check(L,1));
 	double var=(double)lua_tonumber(L,2);
 
-	double lret = mgl_expr_eval_v(ex, &var);
+	double lret = ::mgl_expr_eval_v(ex, &var);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18698,7 +18698,7 @@ static int _bind_mgl_expr_diff(lua_State *L) {
 	double y=(double)lua_tonumber(L,4);
 	double z=(double)lua_tonumber(L,5);
 
-	double lret = mgl_expr_diff(ex, dir, x, y, z);
+	double lret = ::mgl_expr_diff(ex, dir, x, y, z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18718,7 +18718,7 @@ static int _bind_mgl_diff_expr_(lua_State *L) {
 	double z=(double)lua_tonumber(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	double lret = mgl_diff_expr_(ex, dir, &x, &y, &z, _arg6);
+	double lret = ::mgl_diff_expr_(ex, dir, &x, &y, &z, _arg6);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18735,7 +18735,7 @@ static int _bind_mgl_expr_diff_v(lua_State *L) {
 	char dir=(char)lua_tointeger(L,2);
 	double var=(double)lua_tonumber(L,3);
 
-	double lret = mgl_expr_diff_v(ex, dir, &var);
+	double lret = ::mgl_expr_diff_v(ex, dir, &var);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18756,7 +18756,7 @@ static int _bind_mgl_text_xyz(lua_State *L) {
 	const char * font=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_text_xyz(gr, x, y, z, text, font, opt);
+	::mgl_text_xyz(gr, x, y, z, text, font, opt);
 
 	return 0;
 }
@@ -18779,7 +18779,7 @@ static int _bind_mgl_text_xyz_(lua_State *L) {
 	int l=(int)lua_tointeger(L,9);
 	int n=(int)lua_tointeger(L,10);
 
-	mgl_text_xyz_(gr, x, y, z, text, font, opt, _arg8, l, n);
+	::mgl_text_xyz_(gr, x, y, z, text, font, opt, _arg8, l, n);
 
 	return 0;
 }
@@ -18798,7 +18798,7 @@ static int _bind_mgl_text_xy(lua_State *L) {
 	const char * font=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_text_xy(gr, x, y, text, font, opt);
+	::mgl_text_xy(gr, x, y, text, font, opt);
 
 	return 0;
 }
@@ -18820,7 +18820,7 @@ static int _bind_mgl_text_xy_(lua_State *L) {
 	int l=(int)lua_tointeger(L,8);
 	int n=(int)lua_tointeger(L,9);
 
-	mgl_text_xy_(gr, x, y, text, font, opt, _arg7, l, n);
+	::mgl_text_xy_(gr, x, y, text, font, opt, _arg7, l, n);
 
 	return 0;
 }
@@ -18838,7 +18838,7 @@ static int _bind_mgl_text_y(lua_State *L) {
 	const char * font=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_text_y(gr, y, text, font, opt);
+	::mgl_text_y(gr, y, text, font, opt);
 
 	return 0;
 }
@@ -18859,7 +18859,7 @@ static int _bind_mgl_text_y_(lua_State *L) {
 	int l=(int)lua_tointeger(L,7);
 	int n=(int)lua_tointeger(L,8);
 
-	mgl_text_y_(gr, y, text, font, opt, _arg6, l, n);
+	::mgl_text_y_(gr, y, text, font, opt, _arg6, l, n);
 
 	return 0;
 }
@@ -18879,7 +18879,7 @@ static int _bind_mgl_cont_gen(lua_State *L) {
 	const mglDataA* z=(Luna< mglDataA >::check(L,6));
 	const char * stl=(const char *)lua_tostring(L,7);
 
-	mgl_cont_gen(gr, val, a, x, y, z, stl);
+	::mgl_cont_gen(gr, val, a, x, y, z, stl);
 
 	return 0;
 }
@@ -18900,7 +18900,7 @@ static int _bind_mgl_contf_gen(lua_State *L) {
 	const mglDataA* z=(Luna< mglDataA >::check(L,7));
 	const char * stl=(const char *)lua_tostring(L,8);
 
-	mgl_contf_gen(gr, v1, v2, a, x, y, z, stl);
+	::mgl_contf_gen(gr, v1, v2, a, x, y, z, stl);
 
 	return 0;
 }
@@ -18920,7 +18920,7 @@ static int _bind_mgl_cont_xy_val(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_cont_xy_val(gr, v, x, y, z, sch, opt);
+	::mgl_cont_xy_val(gr, v, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -18942,7 +18942,7 @@ static int _bind_mgl_cont_xy_val_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_cont_xy_val_(gr, v, x, y, z, sch, opt, _arg8, _arg9);
+	::mgl_cont_xy_val_(gr, v, x, y, z, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -18960,7 +18960,7 @@ static int _bind_mgl_cont_val(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_cont_val(gr, v, z, sch, opt);
+	::mgl_cont_val(gr, v, z, sch, opt);
 
 	return 0;
 }
@@ -18980,7 +18980,7 @@ static int _bind_mgl_cont_val_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_cont_val_(gr, v, z, sch, opt, _arg6, _arg7);
+	::mgl_cont_val_(gr, v, z, sch, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -18999,7 +18999,7 @@ static int _bind_mgl_cont_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_cont_xy(gr, x, y, z, sch, opt);
+	::mgl_cont_xy(gr, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -19020,7 +19020,7 @@ static int _bind_mgl_cont_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_cont_xy_(gr, x, y, z, sch, opt, _arg7, _arg8);
+	::mgl_cont_xy_(gr, x, y, z, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -19037,7 +19037,7 @@ static int _bind_mgl_cont(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_cont(gr, z, sch, opt);
+	::mgl_cont(gr, z, sch, opt);
 
 	return 0;
 }
@@ -19056,7 +19056,7 @@ static int _bind_mgl_cont_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_cont_(gr, z, sch, opt, _arg5, _arg6);
+	::mgl_cont_(gr, z, sch, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -19076,7 +19076,7 @@ static int _bind_mgl_contf_xy_val(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_contf_xy_val(gr, v, x, y, z, sch, opt);
+	::mgl_contf_xy_val(gr, v, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -19098,7 +19098,7 @@ static int _bind_mgl_contf_xy_val_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_contf_xy_val_(gr, v, x, y, z, sch, opt, _arg8, _arg9);
+	::mgl_contf_xy_val_(gr, v, x, y, z, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -19116,7 +19116,7 @@ static int _bind_mgl_contf_val(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_contf_val(gr, v, z, sch, opt);
+	::mgl_contf_val(gr, v, z, sch, opt);
 
 	return 0;
 }
@@ -19136,7 +19136,7 @@ static int _bind_mgl_contf_val_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_contf_val_(gr, v, z, sch, opt, _arg6, _arg7);
+	::mgl_contf_val_(gr, v, z, sch, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -19155,7 +19155,7 @@ static int _bind_mgl_contf_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_contf_xy(gr, x, y, z, sch, opt);
+	::mgl_contf_xy(gr, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -19176,7 +19176,7 @@ static int _bind_mgl_contf_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_contf_xy_(gr, x, y, z, sch, opt, _arg7, _arg8);
+	::mgl_contf_xy_(gr, x, y, z, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -19193,7 +19193,7 @@ static int _bind_mgl_contf(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_contf(gr, z, sch, opt);
+	::mgl_contf(gr, z, sch, opt);
 
 	return 0;
 }
@@ -19212,7 +19212,7 @@ static int _bind_mgl_contf_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_contf_(gr, z, sch, opt, _arg5, _arg6);
+	::mgl_contf_(gr, z, sch, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -19232,7 +19232,7 @@ static int _bind_mgl_contd_xy_val(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_contd_xy_val(gr, v, x, y, z, sch, opt);
+	::mgl_contd_xy_val(gr, v, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -19254,7 +19254,7 @@ static int _bind_mgl_contd_xy_val_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_contd_xy_val_(gr, v, x, y, z, sch, opt, _arg8, _arg9);
+	::mgl_contd_xy_val_(gr, v, x, y, z, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -19272,7 +19272,7 @@ static int _bind_mgl_contd_val(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_contd_val(gr, v, z, sch, opt);
+	::mgl_contd_val(gr, v, z, sch, opt);
 
 	return 0;
 }
@@ -19292,7 +19292,7 @@ static int _bind_mgl_contd_val_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_contd_val_(gr, v, z, sch, opt, _arg6, _arg7);
+	::mgl_contd_val_(gr, v, z, sch, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -19311,7 +19311,7 @@ static int _bind_mgl_contd_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_contd_xy(gr, x, y, z, sch, opt);
+	::mgl_contd_xy(gr, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -19332,7 +19332,7 @@ static int _bind_mgl_contd_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_contd_xy_(gr, x, y, z, sch, opt, _arg7, _arg8);
+	::mgl_contd_xy_(gr, x, y, z, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -19349,7 +19349,7 @@ static int _bind_mgl_contd(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_contd(gr, z, sch, opt);
+	::mgl_contd(gr, z, sch, opt);
 
 	return 0;
 }
@@ -19368,7 +19368,7 @@ static int _bind_mgl_contd_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_contd_(gr, z, sch, opt, _arg5, _arg6);
+	::mgl_contd_(gr, z, sch, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -19388,7 +19388,7 @@ static int _bind_mgl_contv_xy_val(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_contv_xy_val(gr, v, x, y, z, sch, opt);
+	::mgl_contv_xy_val(gr, v, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -19410,7 +19410,7 @@ static int _bind_mgl_contv_xy_val_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_contv_xy_val_(gr, v, x, y, z, sch, opt, _arg8, _arg9);
+	::mgl_contv_xy_val_(gr, v, x, y, z, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -19428,7 +19428,7 @@ static int _bind_mgl_contv_val(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_contv_val(gr, v, z, sch, opt);
+	::mgl_contv_val(gr, v, z, sch, opt);
 
 	return 0;
 }
@@ -19448,7 +19448,7 @@ static int _bind_mgl_contv_val_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_contv_val_(gr, v, z, sch, opt, _arg6, _arg7);
+	::mgl_contv_val_(gr, v, z, sch, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -19467,7 +19467,7 @@ static int _bind_mgl_contv_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_contv_xy(gr, x, y, z, sch, opt);
+	::mgl_contv_xy(gr, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -19488,7 +19488,7 @@ static int _bind_mgl_contv_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_contv_xy_(gr, x, y, z, sch, opt, _arg7, _arg8);
+	::mgl_contv_xy_(gr, x, y, z, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -19505,7 +19505,7 @@ static int _bind_mgl_contv(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_contv(gr, z, sch, opt);
+	::mgl_contv(gr, z, sch, opt);
 
 	return 0;
 }
@@ -19524,7 +19524,7 @@ static int _bind_mgl_contv_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_contv_(gr, z, sch, opt, _arg5, _arg6);
+	::mgl_contv_(gr, z, sch, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -19544,7 +19544,7 @@ static int _bind_mgl_axial_xy_val(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_axial_xy_val(gr, v, x, y, a, sch, opt);
+	::mgl_axial_xy_val(gr, v, x, y, a, sch, opt);
 
 	return 0;
 }
@@ -19566,7 +19566,7 @@ static int _bind_mgl_axial_xy_val_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_axial_xy_val_(gr, v, x, y, a, sch, opt, _arg8, _arg9);
+	::mgl_axial_xy_val_(gr, v, x, y, a, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -19584,7 +19584,7 @@ static int _bind_mgl_axial_val(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_axial_val(gr, v, a, sch, opt);
+	::mgl_axial_val(gr, v, a, sch, opt);
 
 	return 0;
 }
@@ -19604,7 +19604,7 @@ static int _bind_mgl_axial_val_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_axial_val_(gr, v, a, sch, opt, _arg6, _arg7);
+	::mgl_axial_val_(gr, v, a, sch, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -19623,7 +19623,7 @@ static int _bind_mgl_axial_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_axial_xy(gr, x, y, a, sch, opt);
+	::mgl_axial_xy(gr, x, y, a, sch, opt);
 
 	return 0;
 }
@@ -19644,7 +19644,7 @@ static int _bind_mgl_axial_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_axial_xy_(gr, x, y, a, sch, opt, _arg7, _arg8);
+	::mgl_axial_xy_(gr, x, y, a, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -19661,7 +19661,7 @@ static int _bind_mgl_axial(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_axial(gr, a, sch, opt);
+	::mgl_axial(gr, a, sch, opt);
 
 	return 0;
 }
@@ -19680,7 +19680,7 @@ static int _bind_mgl_axial_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_axial_(gr, a, sch, opt, _arg5, _arg6);
+	::mgl_axial_(gr, a, sch, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -19698,7 +19698,7 @@ static int _bind_mgl_torus(lua_State *L) {
 	const char * col=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_torus(gr, r, z, col, opt);
+	::mgl_torus(gr, r, z, col, opt);
 
 	return 0;
 }
@@ -19718,7 +19718,7 @@ static int _bind_mgl_torus_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_torus_(gr, r, z, pen, opt, _arg6, _arg7);
+	::mgl_torus_(gr, r, z, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -19739,7 +19739,7 @@ static int _bind_mgl_grid3_xyz(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_grid3_xyz(gr, x, y, z, a, stl, sVal, opt);
+	::mgl_grid3_xyz(gr, x, y, z, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -19762,7 +19762,7 @@ static int _bind_mgl_grid3_xyz_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_grid3_xyz_(gr, x, y, z, a, sch, &sVal, opt, _arg9, _arg10);
+	::mgl_grid3_xyz_(gr, x, y, z, a, sch, &sVal, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -19780,7 +19780,7 @@ static int _bind_mgl_grid3(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_grid3(gr, a, stl, sVal, opt);
+	::mgl_grid3(gr, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -19800,7 +19800,7 @@ static int _bind_mgl_grid3_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_grid3_(gr, a, sch, &sVal, opt, _arg6, _arg7);
+	::mgl_grid3_(gr, a, sch, &sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -19821,7 +19821,7 @@ static int _bind_mgl_dens3_xyz(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_dens3_xyz(gr, x, y, z, a, stl, sVal, opt);
+	::mgl_dens3_xyz(gr, x, y, z, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -19844,7 +19844,7 @@ static int _bind_mgl_dens3_xyz_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_dens3_xyz_(gr, x, y, z, a, sch, &sVal, opt, _arg9, _arg10);
+	::mgl_dens3_xyz_(gr, x, y, z, a, sch, &sVal, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -19862,7 +19862,7 @@ static int _bind_mgl_dens3(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_dens3(gr, a, stl, sVal, opt);
+	::mgl_dens3(gr, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -19882,7 +19882,7 @@ static int _bind_mgl_dens3_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_dens3_(gr, a, sch, &sVal, opt, _arg6, _arg7);
+	::mgl_dens3_(gr, a, sch, &sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -19904,7 +19904,7 @@ static int _bind_mgl_cont3_xyz_val(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,8);
 	const char * opt=(const char *)lua_tostring(L,9);
 
-	mgl_cont3_xyz_val(gr, v, x, y, z, a, sch, sVal, opt);
+	::mgl_cont3_xyz_val(gr, v, x, y, z, a, sch, sVal, opt);
 
 	return 0;
 }
@@ -19928,7 +19928,7 @@ static int _bind_mgl_cont3_xyz_val_(lua_State *L) {
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	mgl_cont3_xyz_val_(gr, v, x, y, z, a, sch, &sVal, opt, _arg10, _arg11);
+	::mgl_cont3_xyz_val_(gr, v, x, y, z, a, sch, &sVal, opt, _arg10, _arg11);
 
 	return 0;
 }
@@ -19947,7 +19947,7 @@ static int _bind_mgl_cont3_val(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_cont3_val(gr, v, a, sch, sVal, opt);
+	::mgl_cont3_val(gr, v, a, sch, sVal, opt);
 
 	return 0;
 }
@@ -19968,7 +19968,7 @@ static int _bind_mgl_cont3_val_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_cont3_val_(gr, v, a, sch, &sVal, opt, _arg7, _arg8);
+	::mgl_cont3_val_(gr, v, a, sch, &sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -19989,7 +19989,7 @@ static int _bind_mgl_cont3_xyz(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_cont3_xyz(gr, x, y, z, a, sch, sVal, opt);
+	::mgl_cont3_xyz(gr, x, y, z, a, sch, sVal, opt);
 
 	return 0;
 }
@@ -20012,7 +20012,7 @@ static int _bind_mgl_cont3_xyz_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_cont3_xyz_(gr, x, y, z, a, sch, &sVal, opt, _arg9, _arg10);
+	::mgl_cont3_xyz_(gr, x, y, z, a, sch, &sVal, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -20030,7 +20030,7 @@ static int _bind_mgl_cont3(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_cont3(gr, a, sch, sVal, opt);
+	::mgl_cont3(gr, a, sch, sVal, opt);
 
 	return 0;
 }
@@ -20050,7 +20050,7 @@ static int _bind_mgl_cont3_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_cont3_(gr, a, sch, &sVal, opt, _arg6, _arg7);
+	::mgl_cont3_(gr, a, sch, &sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -20072,7 +20072,7 @@ static int _bind_mgl_contf3_xyz_val(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,8);
 	const char * opt=(const char *)lua_tostring(L,9);
 
-	mgl_contf3_xyz_val(gr, v, x, y, z, a, sch, sVal, opt);
+	::mgl_contf3_xyz_val(gr, v, x, y, z, a, sch, sVal, opt);
 
 	return 0;
 }
@@ -20096,7 +20096,7 @@ static int _bind_mgl_contf3_xyz_val_(lua_State *L) {
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	mgl_contf3_xyz_val_(gr, v, x, y, z, a, sch, &sVal, opt, _arg10, _arg11);
+	::mgl_contf3_xyz_val_(gr, v, x, y, z, a, sch, &sVal, opt, _arg10, _arg11);
 
 	return 0;
 }
@@ -20115,7 +20115,7 @@ static int _bind_mgl_contf3_val(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_contf3_val(gr, v, a, sch, sVal, opt);
+	::mgl_contf3_val(gr, v, a, sch, sVal, opt);
 
 	return 0;
 }
@@ -20136,7 +20136,7 @@ static int _bind_mgl_contf3_val_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_contf3_val_(gr, v, a, sch, &sVal, opt, _arg7, _arg8);
+	::mgl_contf3_val_(gr, v, a, sch, &sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -20157,7 +20157,7 @@ static int _bind_mgl_contf3_xyz(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_contf3_xyz(gr, x, y, z, a, sch, sVal, opt);
+	::mgl_contf3_xyz(gr, x, y, z, a, sch, sVal, opt);
 
 	return 0;
 }
@@ -20180,7 +20180,7 @@ static int _bind_mgl_contf3_xyz_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_contf3_xyz_(gr, x, y, z, a, sch, &sVal, opt, _arg9, _arg10);
+	::mgl_contf3_xyz_(gr, x, y, z, a, sch, &sVal, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -20198,7 +20198,7 @@ static int _bind_mgl_contf3(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_contf3(gr, a, sch, sVal, opt);
+	::mgl_contf3(gr, a, sch, sVal, opt);
 
 	return 0;
 }
@@ -20218,7 +20218,7 @@ static int _bind_mgl_contf3_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_contf3_(gr, a, sch, &sVal, opt, _arg6, _arg7);
+	::mgl_contf3_(gr, a, sch, &sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -20238,7 +20238,7 @@ static int _bind_mglLinear(lua_State *L) {
 	double y=(double)lua_tonumber(L,6);
 	double z=(double)lua_tonumber(L,7);
 
-	double lret = mglLinear(&a, nx, ny, nz, x, y, z);
+	double lret = ::mglLinear(&a, nx, ny, nz, x, y, z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -20264,7 +20264,7 @@ static int _bind_mglSpline3(lua_State *L) {
 	double dy=luatop>8 ? (double)lua_tonumber(L,9) : 0;
 	double dz=luatop>9 ? (double)lua_tonumber(L,10) : 0;
 
-	double lret = mglSpline3(&a, nx, ny, nz, x, y, z, &dx, &dy, &dz);
+	double lret = ::mglSpline3(&a, nx, ny, nz, x, y, z, &dx, &dy, &dz);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -20289,7 +20289,7 @@ static int _bind_mglTransformA(lua_State *L) {
 	const mglDataA & ph=*ph_ptr;
 	const char * tr=(const char *)lua_tostring(L,3);
 
-	mglData stack_lret = mglTransformA(am, ph, tr);
+	mglData stack_lret = ::mglTransformA(am, ph, tr);
 	mglData* lret = new mglData(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20317,7 +20317,7 @@ static int _bind_mglTransform(lua_State *L) {
 	const mglDataA & im=*im_ptr;
 	const char * tr=(const char *)lua_tostring(L,3);
 
-	mglData stack_lret = mglTransform(re, im, tr);
+	mglData stack_lret = ::mglTransform(re, im, tr);
 	mglData* lret = new mglData(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20345,7 +20345,7 @@ static int _bind_mglFourier(lua_State *L) {
 	mglData & im=*im_ptr;
 	const char * dir=(const char *)lua_tostring(L,3);
 
-	mglFourier(re, im, dir);
+	::mglFourier(re, im, dir);
 
 	return 0;
 }
@@ -20372,7 +20372,7 @@ static int _bind_mglSTFA(lua_State *L) {
 	long dn=(long)lua_tointeger(L,3);
 	char dir=luatop>3 ? (char)lua_tointeger(L,4) : 'x';
 
-	mglData stack_lret = mglSTFA(re, im, dn, dir);
+	mglData stack_lret = ::mglSTFA(re, im, dn, dir);
 	mglData* lret = new mglData(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20406,7 +20406,7 @@ static int _bind_mglPDE(lua_State *L) {
 	double k0=luatop>5 ? (double)lua_tonumber(L,6) : 100;
 	const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
 
-	mglData stack_lret = mglPDE(gr, ham, ini_re, ini_im, dz, k0, opt);
+	mglData stack_lret = ::mglPDE(gr, ham, ini_re, ini_im, dz, k0, opt);
 	mglData* lret = new mglData(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20443,7 +20443,7 @@ static int _bind_mglQO2d_overload_1(lua_State *L) {
 	double r=luatop>4 ? (double)lua_tonumber(L,5) : 1;
 	double k0=luatop>5 ? (double)lua_tonumber(L,6) : 100;
 
-	mglData stack_lret = mglQO2d(ham, ini_re, ini_im, ray, r, k0);
+	mglData stack_lret = ::mglQO2d(ham, ini_re, ini_im, ray, r, k0);
 	mglData* lret = new mglData(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20490,7 +20490,7 @@ static int _bind_mglQO2d_overload_2(lua_State *L) {
 	double r=luatop>6 ? (double)lua_tonumber(L,7) : 1;
 	double k0=luatop>7 ? (double)lua_tonumber(L,8) : 100;
 
-	mglData stack_lret = mglQO2d(ham, ini_re, ini_im, ray, xx, yy, r, k0);
+	mglData stack_lret = ::mglQO2d(ham, ini_re, ini_im, ray, xx, yy, r, k0);
 	mglData* lret = new mglData(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20531,7 +20531,7 @@ static int _bind_mglRay(lua_State *L) {
 	double dt=luatop>3 ? (double)lua_tonumber(L,4) : 0.1;
 	double tmax=luatop>4 ? (double)lua_tonumber(L,5) : 10;
 
-	mglData stack_lret = mglRay(ham, r0, p0, dt, tmax);
+	mglData stack_lret = ::mglRay(ham, r0, p0, dt, tmax);
 	mglData* lret = new mglData(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20558,7 +20558,7 @@ static int _bind_mglJacobian_overload_1(lua_State *L) {
 	}
 	const mglDataA & y=*y_ptr;
 
-	mglData stack_lret = mglJacobian(x, y);
+	mglData stack_lret = ::mglJacobian(x, y);
 	mglData* lret = new mglData(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20590,7 +20590,7 @@ static int _bind_mglJacobian_overload_2(lua_State *L) {
 	}
 	const mglDataA & z=*z_ptr;
 
-	mglData stack_lret = mglJacobian(x, y, z);
+	mglData stack_lret = ::mglJacobian(x, y, z);
 	mglData* lret = new mglData(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20631,7 +20631,7 @@ static int _bind_mglTriangulation_overload_1(lua_State *L) {
 	}
 	const mglDataA & z=*z_ptr;
 
-	mglData stack_lret = mglTriangulation(x, y, z);
+	mglData stack_lret = ::mglTriangulation(x, y, z);
 	mglData* lret = new mglData(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20658,7 +20658,7 @@ static int _bind_mglTriangulation_overload_2(lua_State *L) {
 	}
 	const mglDataA & y=*y_ptr;
 
-	mglData stack_lret = mglTriangulation(x, y);
+	mglData stack_lret = ::mglTriangulation(x, y);
 	mglData* lret = new mglData(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20685,7 +20685,7 @@ static int _bind_mgl_srnd(lua_State *L) {
 
 	long seed=(long)lua_tointeger(L,1);
 
-	mgl_srnd(seed);
+	::mgl_srnd(seed);
 
 	return 0;
 }
@@ -20698,7 +20698,7 @@ static int _bind_mgl_rnd(lua_State *L) {
 	}
 
 
-	double lret = mgl_rnd();
+	double lret = ::mgl_rnd();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -20714,7 +20714,7 @@ static int _bind_mgl_ipow(lua_State *L) {
 	double x=(double)lua_tonumber(L,1);
 	int n=(int)lua_tointeger(L,2);
 
-	double lret = mgl_ipow(x, n);
+	double lret = ::mgl_ipow(x, n);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -20728,7 +20728,7 @@ static int _bind_mgl_create_data(lua_State *L) {
 	}
 
 
-	mglData * lret = mgl_create_data();
+	mglData * lret = ::mgl_create_data();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -20744,7 +20744,7 @@ static int _bind_mgl_create_data_(lua_State *L) {
 	}
 
 
-	uintptr_t stack_lret = mgl_create_data_();
+	uintptr_t stack_lret = ::mgl_create_data_();
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20764,7 +20764,7 @@ static int _bind_mgl_create_data_size(lua_State *L) {
 	long ny=(long)lua_tointeger(L,2);
 	long nz=(long)lua_tointeger(L,3);
 
-	mglData * lret = mgl_create_data_size(nx, ny, nz);
+	mglData * lret = ::mgl_create_data_size(nx, ny, nz);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -20783,7 +20783,7 @@ static int _bind_mgl_create_data_size_(lua_State *L) {
 	int ny=(int)lua_tointeger(L,2);
 	int nz=(int)lua_tointeger(L,3);
 
-	uintptr_t stack_lret = mgl_create_data_size_(&nx, &ny, &nz);
+	uintptr_t stack_lret = ::mgl_create_data_size_(&nx, &ny, &nz);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20801,7 +20801,7 @@ static int _bind_mgl_create_data_file(lua_State *L) {
 
 	const char * fname=(const char *)lua_tostring(L,1);
 
-	mglData * lret = mgl_create_data_file(fname);
+	mglData * lret = ::mgl_create_data_file(fname);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -20819,7 +20819,7 @@ static int _bind_mgl_create_data_file_(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,1);
 	int len=(int)lua_tointeger(L,2);
 
-	uintptr_t stack_lret = mgl_create_data_file_(fname, len);
+	uintptr_t stack_lret = ::mgl_create_data_file_(fname, len);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20837,7 +20837,7 @@ static int _bind_mgl_delete_data(lua_State *L) {
 
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 
-	mgl_delete_data(dat);
+	::mgl_delete_data(dat);
 
 	return 0;
 }
@@ -20851,7 +20851,7 @@ static int _bind_mgl_delete_data_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 
-	mgl_delete_data_(dat);
+	::mgl_delete_data_(dat);
 
 	return 0;
 }
@@ -20865,7 +20865,7 @@ static int _bind_mgl_data_info(lua_State *L) {
 
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
 
-	const char * lret = mgl_data_info(dat);
+	const char * lret = ::mgl_data_info(dat);
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -20883,7 +20883,7 @@ static int _bind_mgl_data_rearrange(lua_State *L) {
 	long my=(long)lua_tointeger(L,3);
 	long mz=(long)lua_tointeger(L,4);
 
-	mgl_data_rearrange(dat, mx, my, mz);
+	::mgl_data_rearrange(dat, mx, my, mz);
 
 	return 0;
 }
@@ -20900,7 +20900,7 @@ static int _bind_mgl_data_rearrange_(lua_State *L) {
 	int my=(int)lua_tointeger(L,3);
 	int mz=(int)lua_tointeger(L,4);
 
-	mgl_data_rearrange_(dat, &mx, &my, &mz);
+	::mgl_data_rearrange_(dat, &mx, &my, &mz);
 
 	return 0;
 }
@@ -20918,7 +20918,7 @@ static int _bind_mgl_data_set_float(lua_State *L) {
 	long my=(long)lua_tointeger(L,4);
 	long mz=(long)lua_tointeger(L,5);
 
-	mgl_data_set_float(dat, &A, mx, my, mz);
+	::mgl_data_set_float(dat, &A, mx, my, mz);
 
 	return 0;
 }
@@ -20936,7 +20936,7 @@ static int _bind_mgl_data_set_float_(lua_State *L) {
 	int NY=(int)lua_tointeger(L,4);
 	int NZ=(int)lua_tointeger(L,5);
 
-	mgl_data_set_float_(dat, &A, &NX, &NY, &NZ);
+	::mgl_data_set_float_(dat, &A, &NX, &NY, &NZ);
 
 	return 0;
 }
@@ -20952,7 +20952,7 @@ static int _bind_mgl_data_set_float1_(lua_State *L) {
 	float A=(float)lua_tonumber(L,2);
 	int N1=(int)lua_tointeger(L,3);
 
-	mgl_data_set_float1_(d, &A, &N1);
+	::mgl_data_set_float1_(d, &A, &N1);
 
 	return 0;
 }
@@ -20970,7 +20970,7 @@ static int _bind_mgl_data_set_double(lua_State *L) {
 	long my=(long)lua_tointeger(L,4);
 	long mz=(long)lua_tointeger(L,5);
 
-	mgl_data_set_double(dat, &A, mx, my, mz);
+	::mgl_data_set_double(dat, &A, mx, my, mz);
 
 	return 0;
 }
@@ -20988,7 +20988,7 @@ static int _bind_mgl_data_set_double_(lua_State *L) {
 	int NY=(int)lua_tointeger(L,4);
 	int NZ=(int)lua_tointeger(L,5);
 
-	mgl_data_set_double_(dat, &A, &NX, &NY, &NZ);
+	::mgl_data_set_double_(dat, &A, &NX, &NY, &NZ);
 
 	return 0;
 }
@@ -21004,7 +21004,7 @@ static int _bind_mgl_data_set_double1_(lua_State *L) {
 	double A=(double)lua_tonumber(L,2);
 	int N1=(int)lua_tointeger(L,3);
 
-	mgl_data_set_double1_(d, &A, &N1);
+	::mgl_data_set_double1_(d, &A, &N1);
 
 	return 0;
 }
@@ -21021,7 +21021,7 @@ static int _bind_mgl_data_set_float2_(lua_State *L) {
 	int N1=(int)lua_tointeger(L,3);
 	int N2=(int)lua_tointeger(L,4);
 
-	mgl_data_set_float2_(d, &A, &N1, &N2);
+	::mgl_data_set_float2_(d, &A, &N1, &N2);
 
 	return 0;
 }
@@ -21038,7 +21038,7 @@ static int _bind_mgl_data_set_double2_(lua_State *L) {
 	int N1=(int)lua_tointeger(L,3);
 	int N2=(int)lua_tointeger(L,4);
 
-	mgl_data_set_double2_(d, &A, &N1, &N2);
+	::mgl_data_set_double2_(d, &A, &N1, &N2);
 
 	return 0;
 }
@@ -21056,7 +21056,7 @@ static int _bind_mgl_data_set_float3_(lua_State *L) {
 	int N2=(int)lua_tointeger(L,4);
 	int N3=(int)lua_tointeger(L,5);
 
-	mgl_data_set_float3_(d, &A, &N1, &N2, &N3);
+	::mgl_data_set_float3_(d, &A, &N1, &N2, &N3);
 
 	return 0;
 }
@@ -21074,7 +21074,7 @@ static int _bind_mgl_data_set_double3_(lua_State *L) {
 	int N2=(int)lua_tointeger(L,4);
 	int N3=(int)lua_tointeger(L,5);
 
-	mgl_data_set_double3_(d, &A, &N1, &N2, &N3);
+	::mgl_data_set_double3_(d, &A, &N1, &N2, &N3);
 
 	return 0;
 }
@@ -21089,7 +21089,7 @@ static int _bind_mgl_data_set(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const mglDataA* a=(Luna< mglDataA >::check(L,2));
 
-	mgl_data_set(dat, a);
+	::mgl_data_set(dat, a);
 
 	return 0;
 }
@@ -21104,7 +21104,7 @@ static int _bind_mgl_data_set_(lua_State *L) {
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 
-	mgl_data_set_(dat, a);
+	::mgl_data_set_(dat, a);
 
 	return 0;
 }
@@ -21122,7 +21122,7 @@ static int _bind_mgl_data_set_value(lua_State *L) {
 	long j=(long)lua_tointeger(L,4);
 	long k=(long)lua_tointeger(L,5);
 
-	mgl_data_set_value(dat, v, i, j, k);
+	::mgl_data_set_value(dat, v, i, j, k);
 
 	return 0;
 }
@@ -21140,7 +21140,7 @@ static int _bind_mgl_data_set_value_(lua_State *L) {
 	int j=(int)lua_tointeger(L,4);
 	int k=(int)lua_tointeger(L,5);
 
-	mgl_data_set_value_(d, &v, &i, &j, &k);
+	::mgl_data_set_value_(d, &v, &i, &j, &k);
 
 	return 0;
 }
@@ -21157,7 +21157,7 @@ static int _bind_mgl_data_get_value(lua_State *L) {
 	long j=(long)lua_tointeger(L,3);
 	long k=(long)lua_tointeger(L,4);
 
-	double lret = mgl_data_get_value(dat, i, j, k);
+	double lret = ::mgl_data_get_value(dat, i, j, k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21175,7 +21175,7 @@ static int _bind_mgl_data_get_value_(lua_State *L) {
 	int j=(int)lua_tointeger(L,3);
 	int k=(int)lua_tointeger(L,4);
 
-	double lret = mgl_data_get_value_(d, &i, &j, &k);
+	double lret = ::mgl_data_get_value_(d, &i, &j, &k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21194,7 +21194,7 @@ static int _bind_mgl_data_set_values(lua_State *L) {
 	long ny=(long)lua_tointeger(L,4);
 	long nz=(long)lua_tointeger(L,5);
 
-	mgl_data_set_values(dat, val, nx, ny, nz);
+	::mgl_data_set_values(dat, val, nx, ny, nz);
 
 	return 0;
 }
@@ -21213,7 +21213,7 @@ static int _bind_mgl_data_set_values_(lua_State *L) {
 	int nz=(int)lua_tointeger(L,5);
 	int l=(int)lua_tointeger(L,6);
 
-	mgl_data_set_values_(d, val, &nx, &ny, &nz, l);
+	::mgl_data_set_values_(d, val, &nx, &ny, &nz, l);
 
 	return 0;
 }
@@ -21229,7 +21229,7 @@ static int _bind_mgl_data_read_hdf(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * data=(const char *)lua_tostring(L,3);
 
-	int lret = mgl_data_read_hdf(d, fname, data);
+	int lret = ::mgl_data_read_hdf(d, fname, data);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21248,7 +21248,7 @@ static int _bind_mgl_data_read_hdf_(lua_State *L) {
 	int l=(int)lua_tointeger(L,4);
 	int n=(int)lua_tointeger(L,5);
 
-	int lret = mgl_data_read_hdf_(d, fname, data, l, n);
+	int lret = ::mgl_data_read_hdf_(d, fname, data, l, n);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21266,7 +21266,7 @@ static int _bind_mgl_data_save_hdf(lua_State *L) {
 	const char * data=(const char *)lua_tostring(L,3);
 	int rewrite=(int)lua_tointeger(L,4);
 
-	mgl_data_save_hdf(d, fname, data, rewrite);
+	::mgl_data_save_hdf(d, fname, data, rewrite);
 
 	return 0;
 }
@@ -21285,7 +21285,7 @@ static int _bind_mgl_data_save_hdf_(lua_State *L) {
 	int l=(int)lua_tointeger(L,5);
 	int n=(int)lua_tointeger(L,6);
 
-	mgl_data_save_hdf_(d, fname, data, &rewrite, l, n);
+	::mgl_data_save_hdf_(d, fname, data, &rewrite, l, n);
 
 	return 0;
 }
@@ -21301,7 +21301,7 @@ static int _bind_mgl_datas_hdf(lua_State *L) {
 	char buf=(char)lua_tointeger(L,2);
 	long size=(long)lua_tointeger(L,3);
 
-	int lret = mgl_datas_hdf(fname, &buf, size);
+	int lret = ::mgl_datas_hdf(fname, &buf, size);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21317,7 +21317,7 @@ static int _bind_mgl_data_read(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
 
-	int lret = mgl_data_read(dat, fname);
+	int lret = ::mgl_data_read(dat, fname);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21334,7 +21334,7 @@ static int _bind_mgl_data_read_(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	int l=(int)lua_tointeger(L,3);
 
-	int lret = mgl_data_read_(d, fname, l);
+	int lret = ::mgl_data_read_(d, fname, l);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21351,7 +21351,7 @@ static int _bind_mgl_data_read_mat(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	long dim=(long)lua_tointeger(L,3);
 
-	int lret = mgl_data_read_mat(dat, fname, dim);
+	int lret = ::mgl_data_read_mat(dat, fname, dim);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21369,7 +21369,7 @@ static int _bind_mgl_data_read_mat_(lua_State *L) {
 	int dim=(int)lua_tointeger(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	int lret = mgl_data_read_mat_(dat, fname, &dim, _arg4);
+	int lret = ::mgl_data_read_mat_(dat, fname, &dim, _arg4);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21388,7 +21388,7 @@ static int _bind_mgl_data_read_dim(lua_State *L) {
 	long my=(long)lua_tointeger(L,4);
 	long mz=(long)lua_tointeger(L,5);
 
-	int lret = mgl_data_read_dim(dat, fname, mx, my, mz);
+	int lret = ::mgl_data_read_dim(dat, fname, mx, my, mz);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21408,7 +21408,7 @@ static int _bind_mgl_data_read_dim_(lua_State *L) {
 	int mz=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	int lret = mgl_data_read_dim_(dat, fname, &mx, &my, &mz, _arg6);
+	int lret = ::mgl_data_read_dim_(dat, fname, &mx, &my, &mz, _arg6);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21428,7 +21428,7 @@ static int _bind_mgl_data_read_range(lua_State *L) {
 	double step=(double)lua_tonumber(L,5);
 	int as_slice=(int)lua_tointeger(L,6);
 
-	int lret = mgl_data_read_range(d, templ, from, to, step, as_slice);
+	int lret = ::mgl_data_read_range(d, templ, from, to, step, as_slice);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21449,7 +21449,7 @@ static int _bind_mgl_data_read_range__overload_1(lua_State *L) {
 	int as_slice=(int)lua_tointeger(L,6);
 	int l=(int)lua_tointeger(L,7);
 
-	int lret = mgl_data_read_range_(d, fname, &from, &to, &step, &as_slice, l);
+	int lret = ::mgl_data_read_range_(d, fname, &from, &to, &step, &as_slice, l);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21470,7 +21470,7 @@ static int _bind_mgl_data_read_range__overload_2(lua_State *L) {
 	int as_slice=(int)lua_tointeger(L,6);
 	int l=(int)lua_tointeger(L,7);
 
-	int lret = mgl_data_read_range_(d, fname, &from, &to, &step, &as_slice, l);
+	int lret = ::mgl_data_read_range_(d, fname, &from, &to, &step, &as_slice, l);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21496,7 +21496,7 @@ static int _bind_mgl_data_read_all(lua_State *L) {
 	const char * templ=(const char *)lua_tostring(L,2);
 	int as_slice=(int)lua_tointeger(L,3);
 
-	int lret = mgl_data_read_all(dat, templ, as_slice);
+	int lret = ::mgl_data_read_all(dat, templ, as_slice);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21514,7 +21514,7 @@ static int _bind_mgl_data_read_all__overload_1(lua_State *L) {
 	int as_slice=(int)lua_tointeger(L,3);
 	int l=(int)lua_tointeger(L,4);
 
-	int lret = mgl_data_read_all_(d, fname, &as_slice, l);
+	int lret = ::mgl_data_read_all_(d, fname, &as_slice, l);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21532,7 +21532,7 @@ static int _bind_mgl_data_read_all__overload_2(lua_State *L) {
 	int as_slice=(int)lua_tointeger(L,3);
 	int l=(int)lua_tointeger(L,4);
 
-	int lret = mgl_data_read_all_(d, fname, &as_slice, l);
+	int lret = ::mgl_data_read_all_(d, fname, &as_slice, l);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21558,7 +21558,7 @@ static int _bind_mgl_data_save(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	long ns=(long)lua_tointeger(L,3);
 
-	mgl_data_save(dat, fname, ns);
+	::mgl_data_save(dat, fname, ns);
 
 	return 0;
 }
@@ -21575,7 +21575,7 @@ static int _bind_mgl_data_save_(lua_State *L) {
 	int ns=(int)lua_tointeger(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_data_save_(dat, fname, &ns, _arg4);
+	::mgl_data_save_(dat, fname, &ns, _arg4);
 
 	return 0;
 }
@@ -21594,7 +21594,7 @@ static int _bind_mgl_data_export(lua_State *L) {
 	double v2=(double)lua_tonumber(L,5);
 	long ns=(long)lua_tointeger(L,6);
 
-	mgl_data_export(dat, fname, scheme, v1, v2, ns);
+	::mgl_data_export(dat, fname, scheme, v1, v2, ns);
 
 	return 0;
 }
@@ -21615,7 +21615,7 @@ static int _bind_mgl_data_export_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_data_export_(dat, fname, scheme, &v1, &v2, &ns, _arg7, _arg8);
+	::mgl_data_export_(dat, fname, scheme, &v1, &v2, &ns, _arg7, _arg8);
 
 	return 0;
 }
@@ -21633,7 +21633,7 @@ static int _bind_mgl_data_import(lua_State *L) {
 	double v1=(double)lua_tonumber(L,4);
 	double v2=(double)lua_tonumber(L,5);
 
-	mgl_data_import(dat, fname, scheme, v1, v2);
+	::mgl_data_import(dat, fname, scheme, v1, v2);
 
 	return 0;
 }
@@ -21653,7 +21653,7 @@ static int _bind_mgl_data_import_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_data_import_(dat, fname, scheme, &v1, &v2, _arg6, _arg7);
+	::mgl_data_import_(dat, fname, scheme, &v1, &v2, _arg6, _arg7);
 
 	return 0;
 }
@@ -21670,7 +21670,7 @@ static int _bind_mgl_data_create(lua_State *L) {
 	long ny=(long)lua_tointeger(L,3);
 	long nz=(long)lua_tointeger(L,4);
 
-	mgl_data_create(dat, nx, ny, nz);
+	::mgl_data_create(dat, nx, ny, nz);
 
 	return 0;
 }
@@ -21687,7 +21687,7 @@ static int _bind_mgl_data_create_(lua_State *L) {
 	int ny=(int)lua_tointeger(L,3);
 	int nz=(int)lua_tointeger(L,4);
 
-	mgl_data_create_(dat, &nx, &ny, &nz);
+	::mgl_data_create_(dat, &nx, &ny, &nz);
 
 	return 0;
 }
@@ -21702,7 +21702,7 @@ static int _bind_mgl_data_transpose(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const char * dim=(const char *)lua_tostring(L,2);
 
-	mgl_data_transpose(dat, dim);
+	::mgl_data_transpose(dat, dim);
 
 	return 0;
 }
@@ -21718,7 +21718,7 @@ static int _bind_mgl_data_transpose_(lua_State *L) {
 	const char * dim=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_data_transpose_(dat, dim, _arg3);
+	::mgl_data_transpose_(dat, dim, _arg3);
 
 	return 0;
 }
@@ -21736,7 +21736,7 @@ static int _bind_mgl_data_norm(lua_State *L) {
 	long sym=(long)lua_tointeger(L,4);
 	long dim=(long)lua_tointeger(L,5);
 
-	mgl_data_norm(dat, v1, v2, sym, dim);
+	::mgl_data_norm(dat, v1, v2, sym, dim);
 
 	return 0;
 }
@@ -21754,7 +21754,7 @@ static int _bind_mgl_data_norm_(lua_State *L) {
 	int sym=(int)lua_tointeger(L,4);
 	int dim=(int)lua_tointeger(L,5);
 
-	mgl_data_norm_(dat, &v1, &v2, &sym, &dim);
+	::mgl_data_norm_(dat, &v1, &v2, &sym, &dim);
 
 	return 0;
 }
@@ -21773,7 +21773,7 @@ static int _bind_mgl_data_norm_slice(lua_State *L) {
 	long keep_en=(long)lua_tointeger(L,5);
 	long sym=(long)lua_tointeger(L,6);
 
-	mgl_data_norm_slice(dat, v1, v2, dir, keep_en, sym);
+	::mgl_data_norm_slice(dat, v1, v2, dir, keep_en, sym);
 
 	return 0;
 }
@@ -21793,7 +21793,7 @@ static int _bind_mgl_data_norm_slice_(lua_State *L) {
 	int sym=(int)lua_tointeger(L,6);
 	int l=(int)lua_tointeger(L,7);
 
-	mgl_data_norm_slice_(dat, &v1, &v2, &dir, &keep_en, &sym, l);
+	::mgl_data_norm_slice_(dat, &v1, &v2, &dir, &keep_en, &sym, l);
 
 	return 0;
 }
@@ -21810,7 +21810,7 @@ static int _bind_mgl_data_subdata(lua_State *L) {
 	long yy=(long)lua_tointeger(L,3);
 	long zz=(long)lua_tointeger(L,4);
 
-	mglData * lret = mgl_data_subdata(dat, xx, yy, zz);
+	mglData * lret = ::mgl_data_subdata(dat, xx, yy, zz);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -21830,7 +21830,7 @@ static int _bind_mgl_data_subdata_(lua_State *L) {
 	int yy=(int)lua_tointeger(L,3);
 	int zz=(int)lua_tointeger(L,4);
 
-	uintptr_t stack_lret = mgl_data_subdata_(dat, &xx, &yy, &zz);
+	uintptr_t stack_lret = ::mgl_data_subdata_(dat, &xx, &yy, &zz);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -21851,7 +21851,7 @@ static int _bind_mgl_data_subdata_ext(lua_State *L) {
 	const mglDataA* yy=(Luna< mglDataA >::check(L,3));
 	const mglDataA* zz=(Luna< mglDataA >::check(L,4));
 
-	mglData * lret = mgl_data_subdata_ext(dat, xx, yy, zz);
+	mglData * lret = ::mgl_data_subdata_ext(dat, xx, yy, zz);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -21871,7 +21871,7 @@ static int _bind_mgl_data_subdata_ext_(lua_State *L) {
 	uintptr_t* yy=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* zz=(Luna< uintptr_t >::check(L,4));
 
-	uintptr_t stack_lret = mgl_data_subdata_ext_(dat, xx, yy, zz);
+	uintptr_t stack_lret = ::mgl_data_subdata_ext_(dat, xx, yy, zz);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -21890,7 +21890,7 @@ static int _bind_mgl_data_column(lua_State *L) {
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
 	const char * eq=(const char *)lua_tostring(L,2);
 
-	mglData * lret = mgl_data_column(dat, eq);
+	mglData * lret = ::mgl_data_column(dat, eq);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -21909,7 +21909,7 @@ static int _bind_mgl_data_column_(lua_State *L) {
 	const char * eq=(const char *)lua_tostring(L,2);
 	int l=(int)lua_tointeger(L,3);
 
-	uintptr_t stack_lret = mgl_data_column_(dat, eq, l);
+	uintptr_t stack_lret = ::mgl_data_column_(dat, eq, l);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -21928,7 +21928,7 @@ static int _bind_mgl_data_set_id(lua_State *L) {
 	mglData* d=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const char * id=(const char *)lua_tostring(L,2);
 
-	mgl_data_set_id(d, id);
+	::mgl_data_set_id(d, id);
 
 	return 0;
 }
@@ -21944,7 +21944,7 @@ static int _bind_mgl_data_set_id_(lua_State *L) {
 	const char * id=(const char *)lua_tostring(L,2);
 	int l=(int)lua_tointeger(L,3);
 
-	mgl_data_set_id_(dat, id, l);
+	::mgl_data_set_id_(dat, id, l);
 
 	return 0;
 }
@@ -21961,7 +21961,7 @@ static int _bind_mgl_data_fill(lua_State *L) {
 	double x2=(double)lua_tonumber(L,3);
 	char dir=(char)lua_tointeger(L,4);
 
-	mgl_data_fill(dat, x1, x2, dir);
+	::mgl_data_fill(dat, x1, x2, dir);
 
 	return 0;
 }
@@ -21979,7 +21979,7 @@ static int _bind_mgl_data_fill_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_data_fill_(dat, &x1, &x2, dir, _arg5);
+	::mgl_data_fill_(dat, &x1, &x2, dir, _arg5);
 
 	return 0;
 }
@@ -21998,7 +21998,7 @@ static int _bind_mgl_data_fill_eq(lua_State *L) {
 	const mglDataA* wdat=(Luna< mglDataA >::check(L,5));
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_data_fill_eq(gr, dat, eq, vdat, wdat, opt);
+	::mgl_data_fill_eq(gr, dat, eq, vdat, wdat, opt);
 
 	return 0;
 }
@@ -22019,7 +22019,7 @@ static int _bind_mgl_data_fill_eq_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_data_fill_eq_(gr, dat, eq, vdat, wdat, opt, _arg7, _arg8);
+	::mgl_data_fill_eq_(gr, dat, eq, vdat, wdat, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -22038,7 +22038,7 @@ static int _bind_mgl_data_grid(lua_State *L) {
 	const mglDataA* zdat=(Luna< mglDataA >::check(L,5));
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_data_grid(gr, d, xdat, ydat, zdat, opt);
+	::mgl_data_grid(gr, d, xdat, ydat, zdat, opt);
 
 	return 0;
 }
@@ -22058,7 +22058,7 @@ static int _bind_mgl_data_grid_(lua_State *L) {
 	const char * opt=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_data_grid_(gr, dat, xdat, ydat, zdat, opt, _arg7);
+	::mgl_data_grid_(gr, dat, xdat, ydat, zdat, opt, _arg7);
 
 	return 0;
 }
@@ -22076,7 +22076,7 @@ static int _bind_mgl_data_put_val(lua_State *L) {
 	long j=(long)lua_tointeger(L,4);
 	long k=(long)lua_tointeger(L,5);
 
-	mgl_data_put_val(dat, val, i, j, k);
+	::mgl_data_put_val(dat, val, i, j, k);
 
 	return 0;
 }
@@ -22094,7 +22094,7 @@ static int _bind_mgl_data_put_val_(lua_State *L) {
 	int j=(int)lua_tointeger(L,4);
 	int k=(int)lua_tointeger(L,5);
 
-	mgl_data_put_val_(dat, &val, &i, &j, &k);
+	::mgl_data_put_val_(dat, &val, &i, &j, &k);
 
 	return 0;
 }
@@ -22112,7 +22112,7 @@ static int _bind_mgl_data_put_dat(lua_State *L) {
 	long j=(long)lua_tointeger(L,4);
 	long k=(long)lua_tointeger(L,5);
 
-	mgl_data_put_dat(dat, val, i, j, k);
+	::mgl_data_put_dat(dat, val, i, j, k);
 
 	return 0;
 }
@@ -22130,7 +22130,7 @@ static int _bind_mgl_data_put_dat_(lua_State *L) {
 	int j=(int)lua_tointeger(L,4);
 	int k=(int)lua_tointeger(L,5);
 
-	mgl_data_put_dat_(dat, val, &i, &j, &k);
+	::mgl_data_put_dat_(dat, val, &i, &j, &k);
 
 	return 0;
 }
@@ -22146,7 +22146,7 @@ static int _bind_mgl_data_modify(lua_State *L) {
 	const char * eq=(const char *)lua_tostring(L,2);
 	long dim=(long)lua_tointeger(L,3);
 
-	mgl_data_modify(dat, eq, dim);
+	::mgl_data_modify(dat, eq, dim);
 
 	return 0;
 }
@@ -22163,7 +22163,7 @@ static int _bind_mgl_data_modify_(lua_State *L) {
 	int dim=(int)lua_tointeger(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_data_modify_(dat, eq, &dim, _arg4);
+	::mgl_data_modify_(dat, eq, &dim, _arg4);
 
 	return 0;
 }
@@ -22180,7 +22180,7 @@ static int _bind_mgl_data_modify_vw(lua_State *L) {
 	const mglDataA* vdat=(Luna< mglDataA >::check(L,3));
 	const mglDataA* wdat=(Luna< mglDataA >::check(L,4));
 
-	mgl_data_modify_vw(dat, eq, vdat, wdat);
+	::mgl_data_modify_vw(dat, eq, vdat, wdat);
 
 	return 0;
 }
@@ -22198,7 +22198,7 @@ static int _bind_mgl_data_modify_vw_(lua_State *L) {
 	uintptr_t* wdat=(Luna< uintptr_t >::check(L,4));
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_data_modify_vw_(dat, eq, vdat, wdat, _arg5);
+	::mgl_data_modify_vw_(dat, eq, vdat, wdat, _arg5);
 
 	return 0;
 }
@@ -22216,7 +22216,7 @@ static int _bind_mgl_data_squeeze(lua_State *L) {
 	long rz=(long)lua_tointeger(L,4);
 	long smooth=(long)lua_tointeger(L,5);
 
-	mgl_data_squeeze(dat, rx, ry, rz, smooth);
+	::mgl_data_squeeze(dat, rx, ry, rz, smooth);
 
 	return 0;
 }
@@ -22234,7 +22234,7 @@ static int _bind_mgl_data_squeeze_(lua_State *L) {
 	int rz=(int)lua_tointeger(L,4);
 	int smooth=(int)lua_tointeger(L,5);
 
-	mgl_data_squeeze_(dat, &rx, &ry, &rz, &smooth);
+	::mgl_data_squeeze_(dat, &rx, &ry, &rz, &smooth);
 
 	return 0;
 }
@@ -22248,7 +22248,7 @@ static int _bind_mgl_data_max(lua_State *L) {
 
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
 
-	double lret = mgl_data_max(dat);
+	double lret = ::mgl_data_max(dat);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22263,7 +22263,7 @@ static int _bind_mgl_data_max_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 
-	double lret = mgl_data_max_(dat);
+	double lret = ::mgl_data_max_(dat);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22278,7 +22278,7 @@ static int _bind_mgl_data_min(lua_State *L) {
 
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
 
-	double lret = mgl_data_min(dat);
+	double lret = ::mgl_data_min(dat);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22293,7 +22293,7 @@ static int _bind_mgl_data_min_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 
-	double lret = mgl_data_min_(dat);
+	double lret = ::mgl_data_min_(dat);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22311,7 +22311,7 @@ static int _bind_mgl_data_value(lua_State *L) {
 	long j=(long)lua_tointeger(L,3);
 	long k=(long)lua_tointeger(L,4);
 
-	double * lret = mgl_data_value(dat, i, j, k);
+	double * lret = ::mgl_data_value(dat, i, j, k);
 	lua_pushnumber(L,*lret);
 
 	return 1;
@@ -22326,7 +22326,7 @@ static int _bind_mgl_data_data(lua_State *L) {
 
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 
-	double * lret = mgl_data_data(dat);
+	double * lret = ::mgl_data_data(dat);
 	lua_pushnumber(L,*lret);
 
 	return 1;
@@ -22341,7 +22341,7 @@ static int _bind_mgl_data_get_nx(lua_State *L) {
 
 	const mglDataA* d=(Luna< mglDataA >::check(L,1));
 
-	long lret = mgl_data_get_nx(d);
+	long lret = ::mgl_data_get_nx(d);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22356,7 +22356,7 @@ static int _bind_mgl_data_get_nx_(lua_State *L) {
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
 
-	long lret = mgl_data_get_nx_(d);
+	long lret = ::mgl_data_get_nx_(d);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22371,7 +22371,7 @@ static int _bind_mgl_data_get_ny(lua_State *L) {
 
 	const mglDataA* d=(Luna< mglDataA >::check(L,1));
 
-	long lret = mgl_data_get_ny(d);
+	long lret = ::mgl_data_get_ny(d);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22386,7 +22386,7 @@ static int _bind_mgl_data_get_ny_(lua_State *L) {
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
 
-	long lret = mgl_data_get_ny_(d);
+	long lret = ::mgl_data_get_ny_(d);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22401,7 +22401,7 @@ static int _bind_mgl_data_get_nz(lua_State *L) {
 
 	const mglDataA* d=(Luna< mglDataA >::check(L,1));
 
-	long lret = mgl_data_get_nz(d);
+	long lret = ::mgl_data_get_nz(d);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22416,7 +22416,7 @@ static int _bind_mgl_data_get_nz_(lua_State *L) {
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
 
-	long lret = mgl_data_get_nz_(d);
+	long lret = ::mgl_data_get_nz_(d);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22435,7 +22435,7 @@ static int _bind_mgl_data_first(lua_State *L) {
 	long j=(long)lua_tointeger(L,4);
 	long k=(long)lua_tointeger(L,5);
 
-	double lret = mgl_data_first(dat, cond, &i, &j, &k);
+	double lret = ::mgl_data_first(dat, cond, &i, &j, &k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22455,7 +22455,7 @@ static int _bind_mgl_data_first_(lua_State *L) {
 	int k=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	double lret = mgl_data_first_(dat, cond, &i, &j, &k, _arg6);
+	double lret = ::mgl_data_first_(dat, cond, &i, &j, &k, _arg6);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22474,7 +22474,7 @@ static int _bind_mgl_data_last(lua_State *L) {
 	long j=(long)lua_tointeger(L,4);
 	long k=(long)lua_tointeger(L,5);
 
-	double lret = mgl_data_last(dat, cond, &i, &j, &k);
+	double lret = ::mgl_data_last(dat, cond, &i, &j, &k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22494,7 +22494,7 @@ static int _bind_mgl_data_last_(lua_State *L) {
 	int k=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	double lret = mgl_data_last_(dat, cond, &i, &j, &k, _arg6);
+	double lret = ::mgl_data_last_(dat, cond, &i, &j, &k, _arg6);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22514,7 +22514,7 @@ static int _bind_mgl_data_find(lua_State *L) {
 	long j=(long)lua_tointeger(L,5);
 	long k=(long)lua_tointeger(L,6);
 
-	long lret = mgl_data_find(dat, cond, dir, i, j, k);
+	long lret = ::mgl_data_find(dat, cond, dir, i, j, k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22536,7 +22536,7 @@ static int _bind_mgl_data_find_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	int lret = mgl_data_find_(dat, cond, &dir, &i, &j, &k, _arg7, _arg8);
+	int lret = ::mgl_data_find_(dat, cond, &dir, &i, &j, &k, _arg7, _arg8);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22552,7 +22552,7 @@ static int _bind_mgl_data_find_any(lua_State *L) {
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
 	const char * cond=(const char *)lua_tostring(L,2);
 
-	int lret = mgl_data_find_any(dat, cond);
+	int lret = ::mgl_data_find_any(dat, cond);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22569,7 +22569,7 @@ static int _bind_mgl_data_find_any_(lua_State *L) {
 	const char * cond=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	int lret = mgl_data_find_any_(dat, cond, _arg3);
+	int lret = ::mgl_data_find_any_(dat, cond, _arg3);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22587,7 +22587,7 @@ static int _bind_mgl_data_max_int(lua_State *L) {
 	long j=(long)lua_tointeger(L,3);
 	long k=(long)lua_tointeger(L,4);
 
-	double lret = mgl_data_max_int(dat, &i, &j, &k);
+	double lret = ::mgl_data_max_int(dat, &i, &j, &k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22605,7 +22605,7 @@ static int _bind_mgl_data_max_int_(lua_State *L) {
 	int j=(int)lua_tointeger(L,3);
 	int k=(int)lua_tointeger(L,4);
 
-	double lret = mgl_data_max_int_(dat, &i, &j, &k);
+	double lret = ::mgl_data_max_int_(dat, &i, &j, &k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22623,7 +22623,7 @@ static int _bind_mgl_data_max_real(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	double lret = mgl_data_max_real(dat, &x, &y, &z);
+	double lret = ::mgl_data_max_real(dat, &x, &y, &z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22641,7 +22641,7 @@ static int _bind_mgl_data_max_real_(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	double lret = mgl_data_max_real_(dat, &x, &y, &z);
+	double lret = ::mgl_data_max_real_(dat, &x, &y, &z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22659,7 +22659,7 @@ static int _bind_mgl_data_min_int(lua_State *L) {
 	long j=(long)lua_tointeger(L,3);
 	long k=(long)lua_tointeger(L,4);
 
-	double lret = mgl_data_min_int(dat, &i, &j, &k);
+	double lret = ::mgl_data_min_int(dat, &i, &j, &k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22677,7 +22677,7 @@ static int _bind_mgl_data_min_int_(lua_State *L) {
 	int j=(int)lua_tointeger(L,3);
 	int k=(int)lua_tointeger(L,4);
 
-	double lret = mgl_data_min_int_(dat, &i, &j, &k);
+	double lret = ::mgl_data_min_int_(dat, &i, &j, &k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22695,7 +22695,7 @@ static int _bind_mgl_data_min_real(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	double lret = mgl_data_min_real(dat, &x, &y, &z);
+	double lret = ::mgl_data_min_real(dat, &x, &y, &z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22713,7 +22713,7 @@ static int _bind_mgl_data_min_real_(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	double lret = mgl_data_min_real_(dat, &x, &y, &z);
+	double lret = ::mgl_data_min_real_(dat, &x, &y, &z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22733,7 +22733,7 @@ static int _bind_mgl_data_momentum_val(lua_State *L) {
 	double s=(double)lua_tonumber(L,5);
 	double k=(double)lua_tonumber(L,6);
 
-	double lret = mgl_data_momentum_val(d, dir, &m, &w, &s, &k);
+	double lret = ::mgl_data_momentum_val(d, dir, &m, &w, &s, &k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22754,7 +22754,7 @@ static int _bind_mgl_data_momentum_val_(lua_State *L) {
 	double k=(double)lua_tonumber(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	double lret = mgl_data_momentum_val_(dat, &dir, &m, &w, &s, &k, _arg7);
+	double lret = ::mgl_data_momentum_val_(dat, &dir, &m, &w, &s, &k, _arg7);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22770,7 +22770,7 @@ static int _bind_mgl_data_combine(lua_State *L) {
 	const mglDataA* dat1=(Luna< mglDataA >::check(L,1));
 	const mglDataA* dat2=(Luna< mglDataA >::check(L,2));
 
-	mglData * lret = mgl_data_combine(dat1, dat2);
+	mglData * lret = ::mgl_data_combine(dat1, dat2);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -22788,7 +22788,7 @@ static int _bind_mgl_data_combine_(lua_State *L) {
 	uintptr_t* dat1=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* dat2=(Luna< uintptr_t >::check(L,2));
 
-	uintptr_t stack_lret = mgl_data_combine_(dat1, dat2);
+	uintptr_t stack_lret = ::mgl_data_combine_(dat1, dat2);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -22808,7 +22808,7 @@ static int _bind_mgl_data_extend(lua_State *L) {
 	long n1=(long)lua_tointeger(L,2);
 	long n2=(long)lua_tointeger(L,3);
 
-	mgl_data_extend(dat, n1, n2);
+	::mgl_data_extend(dat, n1, n2);
 
 	return 0;
 }
@@ -22824,7 +22824,7 @@ static int _bind_mgl_data_extend_(lua_State *L) {
 	int n1=(int)lua_tointeger(L,2);
 	int n2=(int)lua_tointeger(L,3);
 
-	mgl_data_extend_(dat, &n1, &n2);
+	::mgl_data_extend_(dat, &n1, &n2);
 
 	return 0;
 }
@@ -22841,7 +22841,7 @@ static int _bind_mgl_data_insert(lua_State *L) {
 	long at=(long)lua_tointeger(L,3);
 	long num=(long)lua_tointeger(L,4);
 
-	mgl_data_insert(dat, dir, at, num);
+	::mgl_data_insert(dat, dir, at, num);
 
 	return 0;
 }
@@ -22859,7 +22859,7 @@ static int _bind_mgl_data_insert_(lua_State *L) {
 	int num=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_data_insert_(dat, dir, &at, &num, _arg5);
+	::mgl_data_insert_(dat, dir, &at, &num, _arg5);
 
 	return 0;
 }
@@ -22876,7 +22876,7 @@ static int _bind_mgl_data_delete(lua_State *L) {
 	long at=(long)lua_tointeger(L,3);
 	long num=(long)lua_tointeger(L,4);
 
-	mgl_data_delete(dat, dir, at, num);
+	::mgl_data_delete(dat, dir, at, num);
 
 	return 0;
 }
@@ -22894,7 +22894,7 @@ static int _bind_mgl_data_delete_(lua_State *L) {
 	int num=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_data_delete_(dat, dir, &at, &num, _arg5);
+	::mgl_data_delete_(dat, dir, &at, &num, _arg5);
 
 	return 0;
 }
@@ -22910,7 +22910,7 @@ static int _bind_mgl_data_smooth(lua_State *L) {
 	const char * dirs=(const char *)lua_tostring(L,2);
 	double delta=(double)lua_tonumber(L,3);
 
-	mgl_data_smooth(d, dirs, delta);
+	::mgl_data_smooth(d, dirs, delta);
 
 	return 0;
 }
@@ -22927,7 +22927,7 @@ static int _bind_mgl_data_smooth_(lua_State *L) {
 	double delta=(double)lua_tonumber(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_data_smooth_(dat, dirs, &delta, _arg4);
+	::mgl_data_smooth_(dat, dirs, &delta, _arg4);
 
 	return 0;
 }
@@ -22942,7 +22942,7 @@ static int _bind_mgl_data_sum(lua_State *L) {
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mglData * lret = mgl_data_sum(dat, dir);
+	mglData * lret = ::mgl_data_sum(dat, dir);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -22961,7 +22961,7 @@ static int _bind_mgl_data_sum_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	uintptr_t stack_lret = mgl_data_sum_(dat, dir, _arg3);
+	uintptr_t stack_lret = ::mgl_data_sum_(dat, dir, _arg3);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -22980,7 +22980,7 @@ static int _bind_mgl_data_max_dir(lua_State *L) {
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mglData * lret = mgl_data_max_dir(dat, dir);
+	mglData * lret = ::mgl_data_max_dir(dat, dir);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -22999,7 +22999,7 @@ static int _bind_mgl_data_max_dir_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	uintptr_t stack_lret = mgl_data_max_dir_(dat, dir, _arg3);
+	uintptr_t stack_lret = ::mgl_data_max_dir_(dat, dir, _arg3);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23018,7 +23018,7 @@ static int _bind_mgl_data_min_dir(lua_State *L) {
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mglData * lret = mgl_data_min_dir(dat, dir);
+	mglData * lret = ::mgl_data_min_dir(dat, dir);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -23037,7 +23037,7 @@ static int _bind_mgl_data_min_dir_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	uintptr_t stack_lret = mgl_data_min_dir_(dat, dir, _arg3);
+	uintptr_t stack_lret = ::mgl_data_min_dir_(dat, dir, _arg3);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23056,7 +23056,7 @@ static int _bind_mgl_data_cumsum(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_data_cumsum(dat, dir);
+	::mgl_data_cumsum(dat, dir);
 
 	return 0;
 }
@@ -23072,7 +23072,7 @@ static int _bind_mgl_data_cumsum_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_data_cumsum_(dat, dir, _arg3);
+	::mgl_data_cumsum_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -23087,7 +23087,7 @@ static int _bind_mgl_data_integral(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_data_integral(dat, dir);
+	::mgl_data_integral(dat, dir);
 
 	return 0;
 }
@@ -23103,7 +23103,7 @@ static int _bind_mgl_data_integral_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_data_integral_(dat, dir, _arg3);
+	::mgl_data_integral_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -23118,7 +23118,7 @@ static int _bind_mgl_data_diff(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_data_diff(dat, dir);
+	::mgl_data_diff(dat, dir);
 
 	return 0;
 }
@@ -23134,7 +23134,7 @@ static int _bind_mgl_data_diff_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_data_diff_(dat, dir, _arg3);
+	::mgl_data_diff_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -23151,7 +23151,7 @@ static int _bind_mgl_data_diff_par(lua_State *L) {
 	const mglDataA* v2=(Luna< mglDataA >::check(L,3));
 	const mglDataA* v3=(Luna< mglDataA >::check(L,4));
 
-	mgl_data_diff_par(dat, v1, v2, v3);
+	::mgl_data_diff_par(dat, v1, v2, v3);
 
 	return 0;
 }
@@ -23168,7 +23168,7 @@ static int _bind_mgl_data_diff_par_(lua_State *L) {
 	uintptr_t* v2=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* v3=(Luna< uintptr_t >::check(L,4));
 
-	mgl_data_diff_par_(dat, v1, v2, v3);
+	::mgl_data_diff_par_(dat, v1, v2, v3);
 
 	return 0;
 }
@@ -23183,7 +23183,7 @@ static int _bind_mgl_data_diff2(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_data_diff2(dat, dir);
+	::mgl_data_diff2(dat, dir);
 
 	return 0;
 }
@@ -23199,7 +23199,7 @@ static int _bind_mgl_data_diff2_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_data_diff2_(dat, dir, _arg3);
+	::mgl_data_diff2_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -23214,7 +23214,7 @@ static int _bind_mgl_data_swap(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_data_swap(dat, dir);
+	::mgl_data_swap(dat, dir);
 
 	return 0;
 }
@@ -23230,7 +23230,7 @@ static int _bind_mgl_data_swap_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_data_swap_(dat, dir, _arg3);
+	::mgl_data_swap_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -23246,7 +23246,7 @@ static int _bind_mgl_data_roll(lua_State *L) {
 	char dir=(char)lua_tointeger(L,2);
 	long num=(long)lua_tointeger(L,3);
 
-	mgl_data_roll(dat, dir, num);
+	::mgl_data_roll(dat, dir, num);
 
 	return 0;
 }
@@ -23263,7 +23263,7 @@ static int _bind_mgl_data_roll_(lua_State *L) {
 	int num=(int)lua_tointeger(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_data_roll_(dat, dir, &num, _arg4);
+	::mgl_data_roll_(dat, dir, &num, _arg4);
 
 	return 0;
 }
@@ -23278,7 +23278,7 @@ static int _bind_mgl_data_mirror(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_data_mirror(dat, dir);
+	::mgl_data_mirror(dat, dir);
 
 	return 0;
 }
@@ -23294,7 +23294,7 @@ static int _bind_mgl_data_mirror_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_data_mirror_(dat, dir, _arg3);
+	::mgl_data_mirror_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -23310,7 +23310,7 @@ static int _bind_mgl_data_sort(lua_State *L) {
 	long idx=(long)lua_tointeger(L,2);
 	long idy=(long)lua_tointeger(L,3);
 
-	mgl_data_sort(dat, idx, idy);
+	::mgl_data_sort(dat, idx, idy);
 
 	return 0;
 }
@@ -23326,7 +23326,7 @@ static int _bind_mgl_data_sort_(lua_State *L) {
 	int idx=(int)lua_tointeger(L,2);
 	int idy=(int)lua_tointeger(L,3);
 
-	mgl_data_sort_(dat, &idx, &idy);
+	::mgl_data_sort_(dat, &idx, &idy);
 
 	return 0;
 }
@@ -23341,7 +23341,7 @@ static int _bind_mgl_data_hankel(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_data_hankel(dat, dir);
+	::mgl_data_hankel(dat, dir);
 
 	return 0;
 }
@@ -23357,7 +23357,7 @@ static int _bind_mgl_data_hankel_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_data_hankel_(dat, dir, _arg3);
+	::mgl_data_hankel_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -23372,7 +23372,7 @@ static int _bind_mgl_data_sinfft(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_data_sinfft(dat, dir);
+	::mgl_data_sinfft(dat, dir);
 
 	return 0;
 }
@@ -23388,7 +23388,7 @@ static int _bind_mgl_data_sinfft_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_data_sinfft_(dat, dir, _arg3);
+	::mgl_data_sinfft_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -23403,7 +23403,7 @@ static int _bind_mgl_data_cosfft(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_data_cosfft(dat, dir);
+	::mgl_data_cosfft(dat, dir);
 
 	return 0;
 }
@@ -23419,7 +23419,7 @@ static int _bind_mgl_data_cosfft_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_data_cosfft_(dat, dir, _arg3);
+	::mgl_data_cosfft_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -23434,7 +23434,7 @@ static int _bind_mgl_data_fill_sample(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const char * how=(const char *)lua_tostring(L,2);
 
-	mgl_data_fill_sample(dat, how);
+	::mgl_data_fill_sample(dat, how);
 
 	return 0;
 }
@@ -23450,7 +23450,7 @@ static int _bind_mgl_data_fill_sample_(lua_State *L) {
 	const char * how=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_data_fill_sample_(dat, how, _arg3);
+	::mgl_data_fill_sample_(dat, how, _arg3);
 
 	return 0;
 }
@@ -23467,7 +23467,7 @@ static int _bind_mgl_data_spline(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	double lret = mgl_data_spline(dat, x, y, z);
+	double lret = ::mgl_data_spline(dat, x, y, z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23485,7 +23485,7 @@ static int _bind_mgl_data_spline_(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	double lret = mgl_data_spline_(dat, &x, &y, &z);
+	double lret = ::mgl_data_spline_(dat, &x, &y, &z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23503,7 +23503,7 @@ static int _bind_mgl_data_linear(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	double lret = mgl_data_linear(dat, x, y, z);
+	double lret = ::mgl_data_linear(dat, x, y, z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23521,7 +23521,7 @@ static int _bind_mgl_data_linear_(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	double lret = mgl_data_linear_(dat, &x, &y, &z);
+	double lret = ::mgl_data_linear_(dat, &x, &y, &z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23542,7 +23542,7 @@ static int _bind_mgl_data_spline_ext(lua_State *L) {
 	double dy=(double)lua_tonumber(L,6);
 	double dz=(double)lua_tonumber(L,7);
 
-	double lret = mgl_data_spline_ext(dat, x, y, z, &dx, &dy, &dz);
+	double lret = ::mgl_data_spline_ext(dat, x, y, z, &dx, &dy, &dz);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23563,7 +23563,7 @@ static int _bind_mgl_data_spline_ext_(lua_State *L) {
 	double dy=(double)lua_tonumber(L,6);
 	double dz=(double)lua_tonumber(L,7);
 
-	double lret = mgl_data_spline_ext_(dat, &x, &y, &z, &dx, &dy, &dz);
+	double lret = ::mgl_data_spline_ext_(dat, &x, &y, &z, &dx, &dy, &dz);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23584,7 +23584,7 @@ static int _bind_mgl_data_linear_ext(lua_State *L) {
 	double dy=(double)lua_tonumber(L,6);
 	double dz=(double)lua_tonumber(L,7);
 
-	double lret = mgl_data_linear_ext(dat, x, y, z, &dx, &dy, &dz);
+	double lret = ::mgl_data_linear_ext(dat, x, y, z, &dx, &dy, &dz);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23605,7 +23605,7 @@ static int _bind_mgl_data_linear_ext_(lua_State *L) {
 	double dy=(double)lua_tonumber(L,6);
 	double dz=(double)lua_tonumber(L,7);
 
-	double lret = mgl_data_linear_ext_(dat, &x, &y, &z, &dx, &dy, &dz);
+	double lret = ::mgl_data_linear_ext_(dat, &x, &y, &z, &dx, &dy, &dz);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23623,7 +23623,7 @@ static int _bind_mgl_data_solve_1d(lua_State *L) {
 	int spl=(int)lua_tointeger(L,3);
 	long i0=(long)lua_tointeger(L,4);
 
-	double lret = mgl_data_solve_1d(dat, val, spl, i0);
+	double lret = ::mgl_data_solve_1d(dat, val, spl, i0);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23641,7 +23641,7 @@ static int _bind_mgl_data_solve_1d_(lua_State *L) {
 	int spl=(int)lua_tointeger(L,3);
 	int i0=(int)lua_tointeger(L,4);
 
-	double lret = mgl_data_solve_1d_(dat, &val, &spl, &i0);
+	double lret = ::mgl_data_solve_1d_(dat, &val, &spl, &i0);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23660,7 +23660,7 @@ static int _bind_mgl_data_solve(lua_State *L) {
 	const mglDataA* i0=(Luna< mglDataA >::check(L,4));
 	int norm=(int)lua_tointeger(L,5);
 
-	mglData * lret = mgl_data_solve(dat, val, dir, i0, norm);
+	mglData * lret = ::mgl_data_solve(dat, val, dir, i0, norm);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -23682,7 +23682,7 @@ static int _bind_mgl_data_solve_(lua_State *L) {
 	int norm=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	uintptr_t stack_lret = mgl_data_solve_(dat, &val, dir, i0, &norm, _arg6);
+	uintptr_t stack_lret = ::mgl_data_solve_(dat, &val, dir, i0, &norm, _arg6);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23700,7 +23700,7 @@ static int _bind_mgl_data_trace(lua_State *L) {
 
 	const mglDataA* d=(Luna< mglDataA >::check(L,1));
 
-	mglData * lret = mgl_data_trace(d);
+	mglData * lret = ::mgl_data_trace(d);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -23717,7 +23717,7 @@ static int _bind_mgl_data_trace_(lua_State *L) {
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
 
-	uintptr_t stack_lret = mgl_data_trace_(d);
+	uintptr_t stack_lret = ::mgl_data_trace_(d);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23738,7 +23738,7 @@ static int _bind_mgl_data_resize(lua_State *L) {
 	long my=(long)lua_tointeger(L,3);
 	long mz=(long)lua_tointeger(L,4);
 
-	mglData * lret = mgl_data_resize(dat, mx, my, mz);
+	mglData * lret = ::mgl_data_resize(dat, mx, my, mz);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -23758,7 +23758,7 @@ static int _bind_mgl_data_resize_(lua_State *L) {
 	int my=(int)lua_tointeger(L,3);
 	int mz=(int)lua_tointeger(L,4);
 
-	uintptr_t stack_lret = mgl_data_resize_(dat, &mx, &my, &mz);
+	uintptr_t stack_lret = ::mgl_data_resize_(dat, &mx, &my, &mz);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23785,7 +23785,7 @@ static int _bind_mgl_data_resize_box(lua_State *L) {
 	double z1=(double)lua_tonumber(L,9);
 	double z2=(double)lua_tonumber(L,10);
 
-	mglData * lret = mgl_data_resize_box(dat, mx, my, mz, x1, x2, y1, y2, z1, z2);
+	mglData * lret = ::mgl_data_resize_box(dat, mx, my, mz, x1, x2, y1, y2, z1, z2);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -23811,7 +23811,7 @@ static int _bind_mgl_data_resize_box_(lua_State *L) {
 	double z1=(double)lua_tonumber(L,9);
 	double z2=(double)lua_tonumber(L,10);
 
-	uintptr_t stack_lret = mgl_data_resize_box_(dat, &mx, &my, &mz, &x1, &x2, &y1, &y2, &z1, &z2);
+	uintptr_t stack_lret = ::mgl_data_resize_box_(dat, &mx, &my, &mz, &x1, &x2, &y1, &y2, &z1, &z2);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23833,7 +23833,7 @@ static int _bind_mgl_data_hist(lua_State *L) {
 	double v2=(double)lua_tonumber(L,4);
 	long nsub=(long)lua_tointeger(L,5);
 
-	mglData * lret = mgl_data_hist(dat, n, v1, v2, nsub);
+	mglData * lret = ::mgl_data_hist(dat, n, v1, v2, nsub);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -23854,7 +23854,7 @@ static int _bind_mgl_data_momentum_(lua_State *L) {
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	uintptr_t stack_lret = mgl_data_momentum_(dat, &dir, how, _arg4, _arg5);
+	uintptr_t stack_lret = ::mgl_data_momentum_(dat, &dir, how, _arg4, _arg5);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23877,7 +23877,7 @@ static int _bind_mgl_data_hist_w(lua_State *L) {
 	double v2=(double)lua_tonumber(L,5);
 	long nsub=(long)lua_tointeger(L,6);
 
-	mglData * lret = mgl_data_hist_w(dat, weight, n, v1, v2, nsub);
+	mglData * lret = ::mgl_data_hist_w(dat, weight, n, v1, v2, nsub);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -23898,7 +23898,7 @@ static int _bind_mgl_data_hist_(lua_State *L) {
 	double v2=(double)lua_tonumber(L,4);
 	int nsub=(int)lua_tointeger(L,5);
 
-	uintptr_t stack_lret = mgl_data_hist_(dat, &n, &v1, &v2, &nsub);
+	uintptr_t stack_lret = ::mgl_data_hist_(dat, &n, &v1, &v2, &nsub);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23918,7 +23918,7 @@ static int _bind_mgl_data_momentum(lua_State *L) {
 	char dir=(char)lua_tointeger(L,2);
 	const char * how=(const char *)lua_tostring(L,3);
 
-	mglData * lret = mgl_data_momentum(dat, dir, how);
+	mglData * lret = ::mgl_data_momentum(dat, dir, how);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -23940,7 +23940,7 @@ static int _bind_mgl_data_hist_w_(lua_State *L) {
 	double v2=(double)lua_tonumber(L,5);
 	int nsub=(int)lua_tointeger(L,6);
 
-	uintptr_t stack_lret = mgl_data_hist_w_(dat, weight, &n, &v1, &v2, &nsub);
+	uintptr_t stack_lret = ::mgl_data_hist_w_(dat, weight, &n, &v1, &v2, &nsub);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23962,7 +23962,7 @@ static int _bind_mgl_data_evaluate(lua_State *L) {
 	const mglDataA* kdat=(Luna< mglDataA >::check(L,4));
 	int norm=(int)lua_tointeger(L,5);
 
-	mglData * lret = mgl_data_evaluate(dat, idat, jdat, kdat, norm);
+	mglData * lret = ::mgl_data_evaluate(dat, idat, jdat, kdat, norm);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -23983,7 +23983,7 @@ static int _bind_mgl_data_evaluate_(lua_State *L) {
 	uintptr_t* kdat=(Luna< uintptr_t >::check(L,4));
 	int norm=(int)lua_tointeger(L,5);
 
-	uintptr_t stack_lret = mgl_data_evaluate_(dat, idat, jdat, kdat, &norm);
+	uintptr_t stack_lret = ::mgl_data_evaluate_(dat, idat, jdat, kdat, &norm);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24002,7 +24002,7 @@ static int _bind_mgl_data_envelop(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	char dir=(char)lua_tointeger(L,2);
 
-	mgl_data_envelop(dat, dir);
+	::mgl_data_envelop(dat, dir);
 
 	return 0;
 }
@@ -24018,7 +24018,7 @@ static int _bind_mgl_data_envelop_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_data_envelop_(dat, dir, _arg3);
+	::mgl_data_envelop_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -24034,7 +24034,7 @@ static int _bind_mgl_data_sew(lua_State *L) {
 	const char * dirs=(const char *)lua_tostring(L,2);
 	double da=(double)lua_tonumber(L,3);
 
-	mgl_data_sew(dat, dirs, da);
+	::mgl_data_sew(dat, dirs, da);
 
 	return 0;
 }
@@ -24051,7 +24051,7 @@ static int _bind_mgl_data_sew_(lua_State *L) {
 	double da=(double)lua_tonumber(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_data_sew_(dat, dirs, &da, _arg4);
+	::mgl_data_sew_(dat, dirs, &da, _arg4);
 
 	return 0;
 }
@@ -24068,7 +24068,7 @@ static int _bind_mgl_data_crop(lua_State *L) {
 	long n2=(long)lua_tointeger(L,3);
 	char dir=(char)lua_tointeger(L,4);
 
-	mgl_data_crop(dat, n1, n2, dir);
+	::mgl_data_crop(dat, n1, n2, dir);
 
 	return 0;
 }
@@ -24086,7 +24086,7 @@ static int _bind_mgl_data_crop__overload_1(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_data_crop_(dat, &n1, &n2, dir, _arg5);
+	::mgl_data_crop_(dat, &n1, &n2, dir, _arg5);
 
 	return 0;
 }
@@ -24104,7 +24104,7 @@ static int _bind_mgl_data_crop__overload_2(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_data_crop_(dat, &n1, &n2, dir, _arg5);
+	::mgl_data_crop_(dat, &n1, &n2, dir, _arg5);
 
 	return 0;
 }
@@ -24128,7 +24128,7 @@ static int _bind_mgl_data_clean(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	long id=(long)lua_tointeger(L,2);
 
-	mgl_data_clean(dat, id);
+	::mgl_data_clean(dat, id);
 
 	return 0;
 }
@@ -24143,7 +24143,7 @@ static int _bind_mgl_data_clean_(lua_State *L) {
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	int id=(int)lua_tointeger(L,2);
 
-	mgl_data_clean_(dat, &id);
+	::mgl_data_clean_(dat, &id);
 
 	return 0;
 }
@@ -24158,7 +24158,7 @@ static int _bind_mgl_data_mul_dat(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const mglDataA* d=(Luna< mglDataA >::check(L,2));
 
-	mgl_data_mul_dat(dat, d);
+	::mgl_data_mul_dat(dat, d);
 
 	return 0;
 }
@@ -24173,7 +24173,7 @@ static int _bind_mgl_data_mul_dat_(lua_State *L) {
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* d=(Luna< uintptr_t >::check(L,2));
 
-	mgl_data_mul_dat_(dat, d);
+	::mgl_data_mul_dat_(dat, d);
 
 	return 0;
 }
@@ -24188,7 +24188,7 @@ static int _bind_mgl_data_div_dat(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const mglDataA* d=(Luna< mglDataA >::check(L,2));
 
-	mgl_data_div_dat(dat, d);
+	::mgl_data_div_dat(dat, d);
 
 	return 0;
 }
@@ -24203,7 +24203,7 @@ static int _bind_mgl_data_div_dat_(lua_State *L) {
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* d=(Luna< uintptr_t >::check(L,2));
 
-	mgl_data_div_dat_(dat, d);
+	::mgl_data_div_dat_(dat, d);
 
 	return 0;
 }
@@ -24218,7 +24218,7 @@ static int _bind_mgl_data_add_dat(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const mglDataA* d=(Luna< mglDataA >::check(L,2));
 
-	mgl_data_add_dat(dat, d);
+	::mgl_data_add_dat(dat, d);
 
 	return 0;
 }
@@ -24233,7 +24233,7 @@ static int _bind_mgl_data_add_dat_(lua_State *L) {
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* d=(Luna< uintptr_t >::check(L,2));
 
-	mgl_data_add_dat_(dat, d);
+	::mgl_data_add_dat_(dat, d);
 
 	return 0;
 }
@@ -24248,7 +24248,7 @@ static int _bind_mgl_data_sub_dat(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	const mglDataA* d=(Luna< mglDataA >::check(L,2));
 
-	mgl_data_sub_dat(dat, d);
+	::mgl_data_sub_dat(dat, d);
 
 	return 0;
 }
@@ -24263,7 +24263,7 @@ static int _bind_mgl_data_sub_dat_(lua_State *L) {
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* d=(Luna< uintptr_t >::check(L,2));
 
-	mgl_data_sub_dat_(dat, d);
+	::mgl_data_sub_dat_(dat, d);
 
 	return 0;
 }
@@ -24278,7 +24278,7 @@ static int _bind_mgl_data_mul_num(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	double d=(double)lua_tonumber(L,2);
 
-	mgl_data_mul_num(dat, d);
+	::mgl_data_mul_num(dat, d);
 
 	return 0;
 }
@@ -24293,7 +24293,7 @@ static int _bind_mgl_data_mul_num_(lua_State *L) {
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	double d=(double)lua_tonumber(L,2);
 
-	mgl_data_mul_num_(dat, &d);
+	::mgl_data_mul_num_(dat, &d);
 
 	return 0;
 }
@@ -24308,7 +24308,7 @@ static int _bind_mgl_data_div_num(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	double d=(double)lua_tonumber(L,2);
 
-	mgl_data_div_num(dat, d);
+	::mgl_data_div_num(dat, d);
 
 	return 0;
 }
@@ -24323,7 +24323,7 @@ static int _bind_mgl_data_div_num_(lua_State *L) {
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	double d=(double)lua_tonumber(L,2);
 
-	mgl_data_div_num_(dat, &d);
+	::mgl_data_div_num_(dat, &d);
 
 	return 0;
 }
@@ -24338,7 +24338,7 @@ static int _bind_mgl_data_add_num(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	double d=(double)lua_tonumber(L,2);
 
-	mgl_data_add_num(dat, d);
+	::mgl_data_add_num(dat, d);
 
 	return 0;
 }
@@ -24353,7 +24353,7 @@ static int _bind_mgl_data_add_num_(lua_State *L) {
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	double d=(double)lua_tonumber(L,2);
 
-	mgl_data_add_num_(dat, &d);
+	::mgl_data_add_num_(dat, &d);
 
 	return 0;
 }
@@ -24368,7 +24368,7 @@ static int _bind_mgl_data_sub_num(lua_State *L) {
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
 	double d=(double)lua_tonumber(L,2);
 
-	mgl_data_sub_num(dat, d);
+	::mgl_data_sub_num(dat, d);
 
 	return 0;
 }
@@ -24383,7 +24383,7 @@ static int _bind_mgl_data_sub_num_(lua_State *L) {
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	double d=(double)lua_tonumber(L,2);
 
-	mgl_data_sub_num_(dat, &d);
+	::mgl_data_sub_num_(dat, &d);
 
 	return 0;
 }
@@ -24403,7 +24403,7 @@ static int _bind_mgl_pde_solve(lua_State *L) {
 	double k0=(double)lua_tonumber(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mglData * lret = mgl_pde_solve(gr, ham, ini_re, ini_im, dz, k0, opt);
+	mglData * lret = ::mgl_pde_solve(gr, ham, ini_re, ini_im, dz, k0, opt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -24428,7 +24428,7 @@ static int _bind_mgl_pde_solve_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	uintptr_t stack_lret = mgl_pde_solve_(gr, ham, ini_re, ini_im, &dz, &k0, opt, _arg8, _arg9);
+	uintptr_t stack_lret = ::mgl_pde_solve_(gr, ham, ini_re, ini_im, &dz, &k0, opt, _arg8, _arg9);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24453,7 +24453,7 @@ static int _bind_mgl_qo2d_solve(lua_State *L) {
 	mglData* xx=(Luna< mglDataA >::checkSubType< mglData >(L,7));
 	mglData* yy=(Luna< mglDataA >::checkSubType< mglData >(L,8));
 
-	mglData * lret = mgl_qo2d_solve(ham, ini_re, ini_im, ray, r, k0, xx, yy);
+	mglData * lret = ::mgl_qo2d_solve(ham, ini_re, ini_im, ray, r, k0, xx, yy);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -24478,7 +24478,7 @@ static int _bind_mgl_qo2d_solve_(lua_State *L) {
 	uintptr_t* yy=(Luna< uintptr_t >::check(L,8));
 	int _arg9=(int)lua_tointeger(L,9);
 
-	uintptr_t stack_lret = mgl_qo2d_solve_(ham, ini_re, ini_im, ray, &r, &k0, xx, yy, _arg9);
+	uintptr_t stack_lret = ::mgl_qo2d_solve_(ham, ini_re, ini_im, ray, &r, &k0, xx, yy, _arg9);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24504,7 +24504,7 @@ static int _bind_mgl_ray_trace(lua_State *L) {
 	double dt=(double)lua_tonumber(L,8);
 	double tmax=(double)lua_tonumber(L,9);
 
-	mglData * lret = mgl_ray_trace(ham, x0, y0, z0, px, py, pz, dt, tmax);
+	mglData * lret = ::mgl_ray_trace(ham, x0, y0, z0, px, py, pz, dt, tmax);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -24530,7 +24530,7 @@ static int _bind_mgl_ray_trace_(lua_State *L) {
 	double tmax=(double)lua_tonumber(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	uintptr_t stack_lret = mgl_ray_trace_(ham, &x0, &y0, &z0, &px, &py, &pz, &dt, &tmax, _arg10);
+	uintptr_t stack_lret = ::mgl_ray_trace_(ham, &x0, &y0, &z0, &px, &py, &pz, &dt, &tmax, _arg10);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24549,7 +24549,7 @@ static int _bind_mgl_jacobian_2d(lua_State *L) {
 	const mglDataA* x=(Luna< mglDataA >::check(L,1));
 	const mglDataA* y=(Luna< mglDataA >::check(L,2));
 
-	mglData * lret = mgl_jacobian_2d(x, y);
+	mglData * lret = ::mgl_jacobian_2d(x, y);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -24567,7 +24567,7 @@ static int _bind_mgl_jacobian_2d_(lua_State *L) {
 	uintptr_t* x=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* y=(Luna< uintptr_t >::check(L,2));
 
-	uintptr_t stack_lret = mgl_jacobian_2d_(x, y);
+	uintptr_t stack_lret = ::mgl_jacobian_2d_(x, y);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24587,7 +24587,7 @@ static int _bind_mgl_jacobian_3d(lua_State *L) {
 	const mglDataA* y=(Luna< mglDataA >::check(L,2));
 	const mglDataA* z=(Luna< mglDataA >::check(L,3));
 
-	mglData * lret = mgl_jacobian_3d(x, y, z);
+	mglData * lret = ::mgl_jacobian_3d(x, y, z);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -24606,7 +24606,7 @@ static int _bind_mgl_jacobian_3d_(lua_State *L) {
 	uintptr_t* y=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* z=(Luna< uintptr_t >::check(L,3));
 
-	uintptr_t stack_lret = mgl_jacobian_3d_(x, y, z);
+	uintptr_t stack_lret = ::mgl_jacobian_3d_(x, y, z);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24626,7 +24626,7 @@ static int _bind_mgl_transform_a(lua_State *L) {
 	const mglDataA* ph=(Luna< mglDataA >::check(L,2));
 	const char * tr=(const char *)lua_tostring(L,3);
 
-	mglData * lret = mgl_transform_a(am, ph, tr);
+	mglData * lret = ::mgl_transform_a(am, ph, tr);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -24646,7 +24646,7 @@ static int _bind_mgl_transform_a_(lua_State *L) {
 	const char * tr=(const char *)lua_tostring(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	uintptr_t stack_lret = mgl_transform_a_(am, ph, tr, _arg4);
+	uintptr_t stack_lret = ::mgl_transform_a_(am, ph, tr, _arg4);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24666,7 +24666,7 @@ static int _bind_mgl_transform(lua_State *L) {
 	const mglDataA* im=(Luna< mglDataA >::check(L,2));
 	const char * tr=(const char *)lua_tostring(L,3);
 
-	mglData * lret = mgl_transform(re, im, tr);
+	mglData * lret = ::mgl_transform(re, im, tr);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -24686,7 +24686,7 @@ static int _bind_mgl_transform_(lua_State *L) {
 	const char * tr=(const char *)lua_tostring(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	uintptr_t stack_lret = mgl_transform_(re, im, tr, _arg4);
+	uintptr_t stack_lret = ::mgl_transform_(re, im, tr, _arg4);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24706,7 +24706,7 @@ static int _bind_mgl_data_fourier(lua_State *L) {
 	mglData* im=(Luna< mglDataA >::checkSubType< mglData >(L,2));
 	const char * dir=(const char *)lua_tostring(L,3);
 
-	mgl_data_fourier(re, im, dir);
+	::mgl_data_fourier(re, im, dir);
 
 	return 0;
 }
@@ -24723,7 +24723,7 @@ static int _bind_mgl_data_fourier_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,3);
 	int l=(int)lua_tointeger(L,4);
 
-	mgl_data_fourier_(re, im, dir, l);
+	::mgl_data_fourier_(re, im, dir, l);
 
 	return 0;
 }
@@ -24740,7 +24740,7 @@ static int _bind_mgl_data_stfa(lua_State *L) {
 	long dn=(long)lua_tointeger(L,3);
 	char dir=(char)lua_tointeger(L,4);
 
-	mglData * lret = mgl_data_stfa(re, im, dn, dir);
+	mglData * lret = ::mgl_data_stfa(re, im, dn, dir);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -24761,7 +24761,7 @@ static int _bind_mgl_data_stfa_(lua_State *L) {
 	char dir=(char)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	uintptr_t stack_lret = mgl_data_stfa_(re, im, &dn, &dir, _arg5);
+	uintptr_t stack_lret = ::mgl_data_stfa_(re, im, &dn, &dir, _arg5);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24781,7 +24781,7 @@ static int _bind_mgl_triangulation_3d(lua_State *L) {
 	const mglDataA* y=(Luna< mglDataA >::check(L,2));
 	const mglDataA* z=(Luna< mglDataA >::check(L,3));
 
-	mglData * lret = mgl_triangulation_3d(x, y, z);
+	mglData * lret = ::mgl_triangulation_3d(x, y, z);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -24800,7 +24800,7 @@ static int _bind_mgl_triangulation_3d_(lua_State *L) {
 	uintptr_t* y=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* z=(Luna< uintptr_t >::check(L,3));
 
-	uintptr_t stack_lret = mgl_triangulation_3d_(x, y, z);
+	uintptr_t stack_lret = ::mgl_triangulation_3d_(x, y, z);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24819,7 +24819,7 @@ static int _bind_mgl_triangulation_2d(lua_State *L) {
 	const mglDataA* x=(Luna< mglDataA >::check(L,1));
 	const mglDataA* y=(Luna< mglDataA >::check(L,2));
 
-	mglData * lret = mgl_triangulation_2d(x, y);
+	mglData * lret = ::mgl_triangulation_2d(x, y);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -24837,7 +24837,7 @@ static int _bind_mgl_triangulation_2d_(lua_State *L) {
 	uintptr_t* x=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* y=(Luna< uintptr_t >::check(L,2));
 
-	uintptr_t stack_lret = mgl_triangulation_2d_(x, y);
+	uintptr_t stack_lret = ::mgl_triangulation_2d_(x, y);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24854,7 +24854,7 @@ static int _bind_mgl_create_datac(lua_State *L) {
 	}
 
 
-	mglDataC * lret = mgl_create_datac();
+	mglDataC * lret = ::mgl_create_datac();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglDataC >::push(L,lret,false);
@@ -24870,7 +24870,7 @@ static int _bind_mgl_create_datac_(lua_State *L) {
 	}
 
 
-	uintptr_t stack_lret = mgl_create_datac_();
+	uintptr_t stack_lret = ::mgl_create_datac_();
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24890,7 +24890,7 @@ static int _bind_mgl_create_datac_size(lua_State *L) {
 	long ny=(long)lua_tointeger(L,2);
 	long nz=(long)lua_tointeger(L,3);
 
-	mglDataC * lret = mgl_create_datac_size(nx, ny, nz);
+	mglDataC * lret = ::mgl_create_datac_size(nx, ny, nz);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglDataC >::push(L,lret,false);
@@ -24909,7 +24909,7 @@ static int _bind_mgl_create_datac_size_(lua_State *L) {
 	int ny=(int)lua_tointeger(L,2);
 	int nz=(int)lua_tointeger(L,3);
 
-	uintptr_t stack_lret = mgl_create_datac_size_(&nx, &ny, &nz);
+	uintptr_t stack_lret = ::mgl_create_datac_size_(&nx, &ny, &nz);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24927,7 +24927,7 @@ static int _bind_mgl_create_datac_file(lua_State *L) {
 
 	const char * fname=(const char *)lua_tostring(L,1);
 
-	mglDataC * lret = mgl_create_datac_file(fname);
+	mglDataC * lret = ::mgl_create_datac_file(fname);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglDataC >::push(L,lret,false);
@@ -24945,7 +24945,7 @@ static int _bind_mgl_create_datac_file_(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,1);
 	int len=(int)lua_tointeger(L,2);
 
-	uintptr_t stack_lret = mgl_create_datac_file_(fname, len);
+	uintptr_t stack_lret = ::mgl_create_datac_file_(fname, len);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24963,7 +24963,7 @@ static int _bind_mgl_delete_datac(lua_State *L) {
 
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
 
-	mgl_delete_datac(dat);
+	::mgl_delete_datac(dat);
 
 	return 0;
 }
@@ -24977,7 +24977,7 @@ static int _bind_mgl_delete_datac_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 
-	mgl_delete_datac_(dat);
+	::mgl_delete_datac_(dat);
 
 	return 0;
 }
@@ -24994,7 +24994,7 @@ static int _bind_mgl_datac_rearrange(lua_State *L) {
 	long my=(long)lua_tointeger(L,3);
 	long mz=(long)lua_tointeger(L,4);
 
-	mgl_datac_rearrange(dat, mx, my, mz);
+	::mgl_datac_rearrange(dat, mx, my, mz);
 
 	return 0;
 }
@@ -25011,7 +25011,7 @@ static int _bind_mgl_datac_rearrange_(lua_State *L) {
 	int my=(int)lua_tointeger(L,3);
 	int mz=(int)lua_tointeger(L,4);
 
-	mgl_datac_rearrange_(dat, &mx, &my, &mz);
+	::mgl_datac_rearrange_(dat, &mx, &my, &mz);
 
 	return 0;
 }
@@ -25029,7 +25029,7 @@ static int _bind_mgl_datac_link(lua_State *L) {
 	long my=(long)lua_tointeger(L,4);
 	long mz=(long)lua_tointeger(L,5);
 
-	mgl_datac_link(dat, A, mx, my, mz);
+	::mgl_datac_link(dat, A, mx, my, mz);
 
 	return 0;
 }
@@ -25047,7 +25047,7 @@ static int _bind_mgl_datac_link_(lua_State *L) {
 	int ny=(int)lua_tointeger(L,4);
 	int nz=(int)lua_tointeger(L,5);
 
-	mgl_datac_link_(d, A, &nx, &ny, &nz);
+	::mgl_datac_link_(d, A, &nx, &ny, &nz);
 
 	return 0;
 }
@@ -25065,7 +25065,7 @@ static int _bind_mgl_datac_set_float(lua_State *L) {
 	long my=(long)lua_tointeger(L,4);
 	long mz=(long)lua_tointeger(L,5);
 
-	mgl_datac_set_float(dat, &A, mx, my, mz);
+	::mgl_datac_set_float(dat, &A, mx, my, mz);
 
 	return 0;
 }
@@ -25083,7 +25083,7 @@ static int _bind_mgl_datac_set_float_(lua_State *L) {
 	int NY=(int)lua_tointeger(L,4);
 	int NZ=(int)lua_tointeger(L,5);
 
-	mgl_datac_set_float_(dat, &A, &NX, &NY, &NZ);
+	::mgl_datac_set_float_(dat, &A, &NX, &NY, &NZ);
 
 	return 0;
 }
@@ -25101,7 +25101,7 @@ static int _bind_mgl_datac_set_double(lua_State *L) {
 	long my=(long)lua_tointeger(L,4);
 	long mz=(long)lua_tointeger(L,5);
 
-	mgl_datac_set_double(dat, &A, mx, my, mz);
+	::mgl_datac_set_double(dat, &A, mx, my, mz);
 
 	return 0;
 }
@@ -25119,7 +25119,7 @@ static int _bind_mgl_datac_set_double_(lua_State *L) {
 	int NY=(int)lua_tointeger(L,4);
 	int NZ=(int)lua_tointeger(L,5);
 
-	mgl_datac_set_double_(dat, &A, &NX, &NY, &NZ);
+	::mgl_datac_set_double_(dat, &A, &NX, &NY, &NZ);
 
 	return 0;
 }
@@ -25137,7 +25137,7 @@ static int _bind_mgl_datac_set_complex(lua_State *L) {
 	long my=(long)lua_tointeger(L,4);
 	long mz=(long)lua_tointeger(L,5);
 
-	mgl_datac_set_complex(dat, A, mx, my, mz);
+	::mgl_datac_set_complex(dat, A, mx, my, mz);
 
 	return 0;
 }
@@ -25155,7 +25155,7 @@ static int _bind_mgl_datac_set_complex_(lua_State *L) {
 	int NY=(int)lua_tointeger(L,4);
 	int NZ=(int)lua_tointeger(L,5);
 
-	mgl_datac_set_complex_(d, A, &NX, &NY, &NZ);
+	::mgl_datac_set_complex_(d, A, &NX, &NY, &NZ);
 
 	return 0;
 }
@@ -25170,7 +25170,7 @@ static int _bind_mgl_datac_set(lua_State *L) {
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
 	const mglDataA* a=(Luna< mglDataA >::check(L,2));
 
-	mgl_datac_set(dat, a);
+	::mgl_datac_set(dat, a);
 
 	return 0;
 }
@@ -25185,7 +25185,7 @@ static int _bind_mgl_datac_set_(lua_State *L) {
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 
-	mgl_datac_set_(dat, a);
+	::mgl_datac_set_(dat, a);
 
 	return 0;
 }
@@ -25202,7 +25202,7 @@ static int _bind_mgl_datac_get_value(lua_State *L) {
 	long j=(long)lua_tointeger(L,3);
 	long k=(long)lua_tointeger(L,4);
 
-	dual stack_lret = mgl_datac_get_value(dat, i, j, k);
+	dual stack_lret = ::mgl_datac_get_value(dat, i, j, k);
 	dual* lret = new dual(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -25220,7 +25220,7 @@ static int _bind_mgl_datac_data(lua_State *L) {
 
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
 
-	dual * lret = mgl_datac_data(dat);
+	dual * lret = ::mgl_datac_data(dat);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< dual >::push(L,lret,false);
@@ -25240,7 +25240,7 @@ static int _bind_mgl_datac_value(lua_State *L) {
 	long j=(long)lua_tointeger(L,3);
 	long k=(long)lua_tointeger(L,4);
 
-	dual * lret = mgl_datac_value(dat, i, j, k);
+	dual * lret = ::mgl_datac_value(dat, i, j, k);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< dual >::push(L,lret,false);
@@ -25259,7 +25259,7 @@ static int _bind_mgl_datac_set_ri(lua_State *L) {
 	const mglDataA* re=(Luna< mglDataA >::check(L,2));
 	const mglDataA* im=(Luna< mglDataA >::check(L,3));
 
-	mgl_datac_set_ri(dat, re, im);
+	::mgl_datac_set_ri(dat, re, im);
 
 	return 0;
 }
@@ -25275,7 +25275,7 @@ static int _bind_mgl_datac_set_ri_(lua_State *L) {
 	uintptr_t* re=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* im=(Luna< uintptr_t >::check(L,3));
 
-	mgl_datac_set_ri_(dat, re, im);
+	::mgl_datac_set_ri_(dat, re, im);
 
 	return 0;
 }
@@ -25291,7 +25291,7 @@ static int _bind_mgl_datac_set_ap(lua_State *L) {
 	const mglDataA* abs=(Luna< mglDataA >::check(L,2));
 	const mglDataA* phi=(Luna< mglDataA >::check(L,3));
 
-	mgl_datac_set_ap(dat, abs, phi);
+	::mgl_datac_set_ap(dat, abs, phi);
 
 	return 0;
 }
@@ -25307,7 +25307,7 @@ static int _bind_mgl_datac_set_ap_(lua_State *L) {
 	uintptr_t* abs=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* phi=(Luna< uintptr_t >::check(L,3));
 
-	mgl_datac_set_ap_(dat, abs, phi);
+	::mgl_datac_set_ap_(dat, abs, phi);
 
 	return 0;
 }
@@ -25322,7 +25322,7 @@ static int _bind_mgl_datac_read(lua_State *L) {
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
 
-	int lret = mgl_datac_read(dat, fname);
+	int lret = ::mgl_datac_read(dat, fname);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -25339,7 +25339,7 @@ static int _bind_mgl_datac_read_(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	int l=(int)lua_tointeger(L,3);
 
-	int lret = mgl_datac_read_(d, fname, l);
+	int lret = ::mgl_datac_read_(d, fname, l);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -25356,7 +25356,7 @@ static int _bind_mgl_datac_read_mat(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	long dim=(long)lua_tointeger(L,3);
 
-	int lret = mgl_datac_read_mat(dat, fname, dim);
+	int lret = ::mgl_datac_read_mat(dat, fname, dim);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -25374,7 +25374,7 @@ static int _bind_mgl_datac_read_mat_(lua_State *L) {
 	int dim=(int)lua_tointeger(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	int lret = mgl_datac_read_mat_(dat, fname, &dim, _arg4);
+	int lret = ::mgl_datac_read_mat_(dat, fname, &dim, _arg4);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -25393,7 +25393,7 @@ static int _bind_mgl_datac_read_dim(lua_State *L) {
 	long my=(long)lua_tointeger(L,4);
 	long mz=(long)lua_tointeger(L,5);
 
-	int lret = mgl_datac_read_dim(dat, fname, mx, my, mz);
+	int lret = ::mgl_datac_read_dim(dat, fname, mx, my, mz);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -25413,7 +25413,7 @@ static int _bind_mgl_datac_read_dim_(lua_State *L) {
 	int mz=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	int lret = mgl_datac_read_dim_(dat, fname, &mx, &my, &mz, _arg6);
+	int lret = ::mgl_datac_read_dim_(dat, fname, &mx, &my, &mz, _arg6);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -25433,7 +25433,7 @@ static int _bind_mgl_datac_read_range(lua_State *L) {
 	double step=(double)lua_tonumber(L,5);
 	int as_slice=(int)lua_tointeger(L,6);
 
-	int lret = mgl_datac_read_range(d, templ, from, to, step, as_slice);
+	int lret = ::mgl_datac_read_range(d, templ, from, to, step, as_slice);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -25450,7 +25450,7 @@ static int _bind_mgl_datac_read_all(lua_State *L) {
 	const char * templ=(const char *)lua_tostring(L,2);
 	int as_slice=(int)lua_tointeger(L,3);
 
-	int lret = mgl_datac_read_all(dat, templ, as_slice);
+	int lret = ::mgl_datac_read_all(dat, templ, as_slice);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -25467,7 +25467,7 @@ static int _bind_mgl_datac_save(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	long ns=(long)lua_tointeger(L,3);
 
-	mgl_datac_save(dat, fname, ns);
+	::mgl_datac_save(dat, fname, ns);
 
 	return 0;
 }
@@ -25484,7 +25484,7 @@ static int _bind_mgl_datac_save_(lua_State *L) {
 	int ns=(int)lua_tointeger(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_datac_save_(dat, fname, &ns, _arg4);
+	::mgl_datac_save_(dat, fname, &ns, _arg4);
 
 	return 0;
 }
@@ -25500,7 +25500,7 @@ static int _bind_mgl_datac_read_hdf(lua_State *L) {
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * data=(const char *)lua_tostring(L,3);
 
-	int lret = mgl_datac_read_hdf(d, fname, data);
+	int lret = ::mgl_datac_read_hdf(d, fname, data);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -25519,7 +25519,7 @@ static int _bind_mgl_datac_read_hdf_(lua_State *L) {
 	int l=(int)lua_tointeger(L,4);
 	int n=(int)lua_tointeger(L,5);
 
-	int lret = mgl_datac_read_hdf_(d, fname, data, l, n);
+	int lret = ::mgl_datac_read_hdf_(d, fname, data, l, n);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -25537,7 +25537,7 @@ static int _bind_mgl_datac_save_hdf(lua_State *L) {
 	const char * data=(const char *)lua_tostring(L,3);
 	int rewrite=(int)lua_tointeger(L,4);
 
-	mgl_datac_save_hdf(d, fname, data, rewrite);
+	::mgl_datac_save_hdf(d, fname, data, rewrite);
 
 	return 0;
 }
@@ -25556,7 +25556,7 @@ static int _bind_mgl_datac_save_hdf_(lua_State *L) {
 	int l=(int)lua_tointeger(L,5);
 	int n=(int)lua_tointeger(L,6);
 
-	mgl_datac_save_hdf_(d, fname, data, &rewrite, l, n);
+	::mgl_datac_save_hdf_(d, fname, data, &rewrite, l, n);
 
 	return 0;
 }
@@ -25573,7 +25573,7 @@ static int _bind_mgl_datac_create(lua_State *L) {
 	long ny=(long)lua_tointeger(L,3);
 	long nz=(long)lua_tointeger(L,4);
 
-	mgl_datac_create(dat, nx, ny, nz);
+	::mgl_datac_create(dat, nx, ny, nz);
 
 	return 0;
 }
@@ -25590,7 +25590,7 @@ static int _bind_mgl_datac_create_(lua_State *L) {
 	int ny=(int)lua_tointeger(L,3);
 	int nz=(int)lua_tointeger(L,4);
 
-	mgl_datac_create_(dat, &nx, &ny, &nz);
+	::mgl_datac_create_(dat, &nx, &ny, &nz);
 
 	return 0;
 }
@@ -25605,7 +25605,7 @@ static int _bind_mgl_datac_transpose(lua_State *L) {
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
 	const char * dim=(const char *)lua_tostring(L,2);
 
-	mgl_datac_transpose(dat, dim);
+	::mgl_datac_transpose(dat, dim);
 
 	return 0;
 }
@@ -25621,7 +25621,7 @@ static int _bind_mgl_datac_transpose_(lua_State *L) {
 	const char * dim=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_datac_transpose_(dat, dim, _arg3);
+	::mgl_datac_transpose_(dat, dim, _arg3);
 
 	return 0;
 }
@@ -25636,7 +25636,7 @@ static int _bind_mgl_datac_set_id(lua_State *L) {
 	mglDataC* d=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
 	const char * id=(const char *)lua_tostring(L,2);
 
-	mgl_datac_set_id(d, id);
+	::mgl_datac_set_id(d, id);
 
 	return 0;
 }
@@ -25652,7 +25652,7 @@ static int _bind_mgl_datac_set_id_(lua_State *L) {
 	const char * id=(const char *)lua_tostring(L,2);
 	int l=(int)lua_tointeger(L,3);
 
-	mgl_datac_set_id_(dat, id, l);
+	::mgl_datac_set_id_(dat, id, l);
 
 	return 0;
 }
@@ -25668,7 +25668,7 @@ static int _bind_mgl_datac_modify(lua_State *L) {
 	const char * eq=(const char *)lua_tostring(L,2);
 	long dim=(long)lua_tointeger(L,3);
 
-	mgl_datac_modify(dat, eq, dim);
+	::mgl_datac_modify(dat, eq, dim);
 
 	return 0;
 }
@@ -25685,7 +25685,7 @@ static int _bind_mgl_datac_modify_(lua_State *L) {
 	int dim=(int)lua_tointeger(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_datac_modify_(dat, eq, &dim, _arg4);
+	::mgl_datac_modify_(dat, eq, &dim, _arg4);
 
 	return 0;
 }
@@ -25702,7 +25702,7 @@ static int _bind_mgl_datac_modify_vw(lua_State *L) {
 	const mglDataA* vdat=(Luna< mglDataA >::check(L,3));
 	const mglDataA* wdat=(Luna< mglDataA >::check(L,4));
 
-	mgl_datac_modify_vw(dat, eq, vdat, wdat);
+	::mgl_datac_modify_vw(dat, eq, vdat, wdat);
 
 	return 0;
 }
@@ -25720,7 +25720,7 @@ static int _bind_mgl_datac_modify_vw_(lua_State *L) {
 	uintptr_t* wdat=(Luna< uintptr_t >::check(L,4));
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_datac_modify_vw_(dat, eq, vdat, wdat, _arg5);
+	::mgl_datac_modify_vw_(dat, eq, vdat, wdat, _arg5);
 
 	return 0;
 }
@@ -25738,7 +25738,7 @@ static int _bind_mgl_datac_squeeze(lua_State *L) {
 	long rz=(long)lua_tointeger(L,4);
 	long smooth=(long)lua_tointeger(L,5);
 
-	mgl_datac_squeeze(dat, rx, ry, rz, smooth);
+	::mgl_datac_squeeze(dat, rx, ry, rz, smooth);
 
 	return 0;
 }
@@ -25756,7 +25756,7 @@ static int _bind_mgl_datac_squeeze_(lua_State *L) {
 	int rz=(int)lua_tointeger(L,4);
 	int smooth=(int)lua_tointeger(L,5);
 
-	mgl_datac_squeeze_(dat, &rx, &ry, &rz, &smooth);
+	::mgl_datac_squeeze_(dat, &rx, &ry, &rz, &smooth);
 
 	return 0;
 }
@@ -25772,7 +25772,7 @@ static int _bind_mgl_datac_extend(lua_State *L) {
 	long n1=(long)lua_tointeger(L,2);
 	long n2=(long)lua_tointeger(L,3);
 
-	mgl_datac_extend(dat, n1, n2);
+	::mgl_datac_extend(dat, n1, n2);
 
 	return 0;
 }
@@ -25788,7 +25788,7 @@ static int _bind_mgl_datac_extend_(lua_State *L) {
 	int n1=(int)lua_tointeger(L,2);
 	int n2=(int)lua_tointeger(L,3);
 
-	mgl_datac_extend_(dat, &n1, &n2);
+	::mgl_datac_extend_(dat, &n1, &n2);
 
 	return 0;
 }
@@ -25805,7 +25805,7 @@ static int _bind_mgl_datac_insert(lua_State *L) {
 	long at=(long)lua_tointeger(L,3);
 	long num=(long)lua_tointeger(L,4);
 
-	mgl_datac_insert(dat, dir, at, num);
+	::mgl_datac_insert(dat, dir, at, num);
 
 	return 0;
 }
@@ -25823,7 +25823,7 @@ static int _bind_mgl_datac_insert_(lua_State *L) {
 	int num=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_datac_insert_(dat, dir, &at, &num, _arg5);
+	::mgl_datac_insert_(dat, dir, &at, &num, _arg5);
 
 	return 0;
 }
@@ -25840,7 +25840,7 @@ static int _bind_mgl_datac_delete(lua_State *L) {
 	long at=(long)lua_tointeger(L,3);
 	long num=(long)lua_tointeger(L,4);
 
-	mgl_datac_delete(dat, dir, at, num);
+	::mgl_datac_delete(dat, dir, at, num);
 
 	return 0;
 }
@@ -25858,7 +25858,7 @@ static int _bind_mgl_datac_delete_(lua_State *L) {
 	int num=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	mgl_datac_delete_(dat, dir, &at, &num, _arg5);
+	::mgl_datac_delete_(dat, dir, &at, &num, _arg5);
 
 	return 0;
 }
@@ -25874,7 +25874,7 @@ static int _bind_mgl_datac_smooth(lua_State *L) {
 	const char * dirs=(const char *)lua_tostring(L,2);
 	double delta=(double)lua_tonumber(L,3);
 
-	mgl_datac_smooth(d, dirs, delta);
+	::mgl_datac_smooth(d, dirs, delta);
 
 	return 0;
 }
@@ -25891,7 +25891,7 @@ static int _bind_mgl_datac_smooth_(lua_State *L) {
 	double delta=(double)lua_tonumber(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_datac_smooth_(dat, dirs, &delta, _arg4);
+	::mgl_datac_smooth_(dat, dirs, &delta, _arg4);
 
 	return 0;
 }
@@ -25906,7 +25906,7 @@ static int _bind_mgl_datac_cumsum(lua_State *L) {
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_datac_cumsum(dat, dir);
+	::mgl_datac_cumsum(dat, dir);
 
 	return 0;
 }
@@ -25922,7 +25922,7 @@ static int _bind_mgl_datac_cumsum_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_datac_cumsum_(dat, dir, _arg3);
+	::mgl_datac_cumsum_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -25937,7 +25937,7 @@ static int _bind_mgl_datac_integral(lua_State *L) {
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_datac_integral(dat, dir);
+	::mgl_datac_integral(dat, dir);
 
 	return 0;
 }
@@ -25953,7 +25953,7 @@ static int _bind_mgl_datac_integral_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_datac_integral_(dat, dir, _arg3);
+	::mgl_datac_integral_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -25968,7 +25968,7 @@ static int _bind_mgl_datac_diff(lua_State *L) {
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_datac_diff(dat, dir);
+	::mgl_datac_diff(dat, dir);
 
 	return 0;
 }
@@ -25984,7 +25984,7 @@ static int _bind_mgl_datac_diff_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_datac_diff_(dat, dir, _arg3);
+	::mgl_datac_diff_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -25999,7 +25999,7 @@ static int _bind_mgl_datac_diff2(lua_State *L) {
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_datac_diff2(dat, dir);
+	::mgl_datac_diff2(dat, dir);
 
 	return 0;
 }
@@ -26015,7 +26015,7 @@ static int _bind_mgl_datac_diff2_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_datac_diff2_(dat, dir, _arg3);
+	::mgl_datac_diff2_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -26030,7 +26030,7 @@ static int _bind_mgl_datac_swap(lua_State *L) {
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_datac_swap(dat, dir);
+	::mgl_datac_swap(dat, dir);
 
 	return 0;
 }
@@ -26046,7 +26046,7 @@ static int _bind_mgl_datac_swap_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_datac_swap_(dat, dir, _arg3);
+	::mgl_datac_swap_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -26062,7 +26062,7 @@ static int _bind_mgl_datac_roll(lua_State *L) {
 	char dir=(char)lua_tointeger(L,2);
 	long num=(long)lua_tointeger(L,3);
 
-	mgl_datac_roll(dat, dir, num);
+	::mgl_datac_roll(dat, dir, num);
 
 	return 0;
 }
@@ -26079,7 +26079,7 @@ static int _bind_mgl_datac_roll_(lua_State *L) {
 	int num=(int)lua_tointeger(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	mgl_datac_roll_(dat, dir, &num, _arg4);
+	::mgl_datac_roll_(dat, dir, &num, _arg4);
 
 	return 0;
 }
@@ -26094,7 +26094,7 @@ static int _bind_mgl_datac_mirror(lua_State *L) {
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_datac_mirror(dat, dir);
+	::mgl_datac_mirror(dat, dir);
 
 	return 0;
 }
@@ -26110,7 +26110,7 @@ static int _bind_mgl_datac_mirror_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_datac_mirror_(dat, dir, _arg3);
+	::mgl_datac_mirror_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -26127,7 +26127,7 @@ static int _bind_mgl_datac_crop(lua_State *L) {
 	long n2=(long)lua_tointeger(L,3);
 	char dir=(char)lua_tointeger(L,4);
 
-	mgl_datac_crop(dat, n1, n2, dir);
+	::mgl_datac_crop(dat, n1, n2, dir);
 
 	return 0;
 }
@@ -26142,7 +26142,7 @@ static int _bind_mgl_datac_hankel(lua_State *L) {
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_datac_hankel(dat, dir);
+	::mgl_datac_hankel(dat, dir);
 
 	return 0;
 }
@@ -26158,7 +26158,7 @@ static int _bind_mgl_datac_hankel_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_datac_hankel_(dat, dir, _arg3);
+	::mgl_datac_hankel_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -26173,7 +26173,7 @@ static int _bind_mgl_datac_fft(lua_State *L) {
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 
-	mgl_datac_fft(dat, dir);
+	::mgl_datac_fft(dat, dir);
 
 	return 0;
 }
@@ -26189,7 +26189,7 @@ static int _bind_mgl_datac_fft_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	int _arg3=(int)lua_tointeger(L,3);
 
-	mgl_datac_fft_(dat, dir, _arg3);
+	::mgl_datac_fft_(dat, dir, _arg3);
 
 	return 0;
 }
@@ -26203,7 +26203,7 @@ static int _bind_mgl_datac_real(lua_State *L) {
 
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
 
-	mglData * lret = mgl_datac_real(dat);
+	mglData * lret = ::mgl_datac_real(dat);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26220,7 +26220,7 @@ static int _bind_mgl_datac_real_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 
-	uintptr_t stack_lret = mgl_datac_real_(dat);
+	uintptr_t stack_lret = ::mgl_datac_real_(dat);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26238,7 +26238,7 @@ static int _bind_mgl_datac_imag(lua_State *L) {
 
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
 
-	mglData * lret = mgl_datac_imag(dat);
+	mglData * lret = ::mgl_datac_imag(dat);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26255,7 +26255,7 @@ static int _bind_mgl_datac_imag_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 
-	uintptr_t stack_lret = mgl_datac_imag_(dat);
+	uintptr_t stack_lret = ::mgl_datac_imag_(dat);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26273,7 +26273,7 @@ static int _bind_mgl_datac_abs(lua_State *L) {
 
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
 
-	mglData * lret = mgl_datac_abs(dat);
+	mglData * lret = ::mgl_datac_abs(dat);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26290,7 +26290,7 @@ static int _bind_mgl_datac_abs_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 
-	uintptr_t stack_lret = mgl_datac_abs_(dat);
+	uintptr_t stack_lret = ::mgl_datac_abs_(dat);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26308,7 +26308,7 @@ static int _bind_mgl_datac_arg(lua_State *L) {
 
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
 
-	mglData * lret = mgl_datac_arg(dat);
+	mglData * lret = ::mgl_datac_arg(dat);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26325,7 +26325,7 @@ static int _bind_mgl_datac_arg_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 
-	uintptr_t stack_lret = mgl_datac_arg_(dat);
+	uintptr_t stack_lret = ::mgl_datac_arg_(dat);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26346,7 +26346,7 @@ static int _bind_mgl_datac_linear(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	dual stack_lret = mgl_datac_linear(d, x, y, z);
+	dual stack_lret = ::mgl_datac_linear(d, x, y, z);
 	dual* lret = new dual(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26367,7 +26367,7 @@ static int _bind_mgl_datac_linear_(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	dual stack_lret = mgl_datac_linear_(d, &x, &y, &z);
+	dual stack_lret = ::mgl_datac_linear_(d, &x, &y, &z);
 	dual* lret = new dual(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26391,7 +26391,7 @@ static int _bind_mgl_datac_linear_ext(lua_State *L) {
 	dual* dy=(Luna< std::complex< double > >::checkSubType< dual >(L,6));
 	dual* dz=(Luna< std::complex< double > >::checkSubType< dual >(L,7));
 
-	dual stack_lret = mgl_datac_linear_ext(d, x, y, z, dx, dy, dz);
+	dual stack_lret = ::mgl_datac_linear_ext(d, x, y, z, dx, dy, dz);
 	dual* lret = new dual(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26415,7 +26415,7 @@ static int _bind_mgl_datac_linear_ext_(lua_State *L) {
 	dual* dy=(Luna< std::complex< double > >::checkSubType< dual >(L,6));
 	dual* dz=(Luna< std::complex< double > >::checkSubType< dual >(L,7));
 
-	dual stack_lret = mgl_datac_linear_ext_(d, &x, &y, &z, dx, dy, dz);
+	dual stack_lret = ::mgl_datac_linear_ext_(d, &x, &y, &z, dx, dy, dz);
 	dual* lret = new dual(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26434,7 +26434,7 @@ static int _bind_mglchr(lua_State *L) {
 	const char * str=(const char *)lua_tostring(L,1);
 	char ch=(char)lua_tointeger(L,2);
 
-	const char * lret = mglchr(str, ch);
+	const char * lret = ::mglchr(str, ch);
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -26449,7 +26449,7 @@ static int _bind_mgl_set_num_thr(lua_State *L) {
 
 	int n=(int)lua_tointeger(L,1);
 
-	mgl_set_num_thr(n);
+	::mgl_set_num_thr(n);
 
 	return 0;
 }
@@ -26463,7 +26463,7 @@ static int _bind_mgl_set_test_mode(lua_State *L) {
 
 	int enable=(int)lua_tointeger(L,1);
 
-	mgl_set_test_mode(enable);
+	::mgl_set_test_mode(enable);
 
 	return 0;
 }
@@ -26477,7 +26477,7 @@ static int _bind_mgl_strtrim(lua_State *L) {
 
 	char str=(char)lua_tointeger(L,1);
 
-	mgl_strtrim(&str);
+	::mgl_strtrim(&str);
 
 	return 0;
 }
@@ -26491,7 +26491,7 @@ static int _bind_mgl_strlwr(lua_State *L) {
 
 	char str=(char)lua_tointeger(L,1);
 
-	mgl_strlwr(&str);
+	::mgl_strlwr(&str);
 
 	return 0;
 }
@@ -26510,7 +26510,7 @@ static int _bind_mgl_fit_1(lua_State *L) {
 	mglData* ini=(Luna< mglDataA >::checkSubType< mglData >(L,5));
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mglData * lret = mgl_fit_1(gr, y, eq, var, ini, opt);
+	mglData * lret = ::mgl_fit_1(gr, y, eq, var, ini, opt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26532,7 +26532,7 @@ static int _bind_mgl_fit_2(lua_State *L) {
 	mglData* ini=(Luna< mglDataA >::checkSubType< mglData >(L,5));
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mglData * lret = mgl_fit_2(gr, z, eq, var, ini, opt);
+	mglData * lret = ::mgl_fit_2(gr, z, eq, var, ini, opt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26554,7 +26554,7 @@ static int _bind_mgl_fit_3(lua_State *L) {
 	mglData* ini=(Luna< mglDataA >::checkSubType< mglData >(L,5));
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mglData * lret = mgl_fit_3(gr, a, eq, var, ini, opt);
+	mglData * lret = ::mgl_fit_3(gr, a, eq, var, ini, opt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26577,7 +26577,7 @@ static int _bind_mgl_fit_xy(lua_State *L) {
 	mglData* ini=(Luna< mglDataA >::checkSubType< mglData >(L,6));
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mglData * lret = mgl_fit_xy(gr, x, y, eq, var, ini, opt);
+	mglData * lret = ::mgl_fit_xy(gr, x, y, eq, var, ini, opt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26601,7 +26601,7 @@ static int _bind_mgl_fit_xyz(lua_State *L) {
 	mglData* ini=(Luna< mglDataA >::checkSubType< mglData >(L,7));
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mglData * lret = mgl_fit_xyz(gr, x, y, z, eq, var, ini, opt);
+	mglData * lret = ::mgl_fit_xyz(gr, x, y, z, eq, var, ini, opt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26626,7 +26626,7 @@ static int _bind_mgl_fit_xyza(lua_State *L) {
 	mglData* ini=(Luna< mglDataA >::checkSubType< mglData >(L,8));
 	const char * opt=(const char *)lua_tostring(L,9);
 
-	mglData * lret = mgl_fit_xyza(gr, x, y, z, a, eq, var, ini, opt);
+	mglData * lret = ::mgl_fit_xyza(gr, x, y, z, a, eq, var, ini, opt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26649,7 +26649,7 @@ static int _bind_mgl_fit_ys(lua_State *L) {
 	mglData* ini=(Luna< mglDataA >::checkSubType< mglData >(L,6));
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mglData * lret = mgl_fit_ys(gr, y, s, eq, var, ini, opt);
+	mglData * lret = ::mgl_fit_ys(gr, y, s, eq, var, ini, opt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26673,7 +26673,7 @@ static int _bind_mgl_fit_xys(lua_State *L) {
 	mglData* ini=(Luna< mglDataA >::checkSubType< mglData >(L,7));
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mglData * lret = mgl_fit_xys(gr, x, y, s, eq, var, ini, opt);
+	mglData * lret = ::mgl_fit_xys(gr, x, y, s, eq, var, ini, opt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26698,7 +26698,7 @@ static int _bind_mgl_fit_xyzs(lua_State *L) {
 	mglData* ini=(Luna< mglDataA >::checkSubType< mglData >(L,8));
 	const char * opt=(const char *)lua_tostring(L,9);
 
-	mglData * lret = mgl_fit_xyzs(gr, x, y, z, s, eq, var, ini, opt);
+	mglData * lret = ::mgl_fit_xyzs(gr, x, y, z, s, eq, var, ini, opt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26724,7 +26724,7 @@ static int _bind_mgl_fit_xyzas(lua_State *L) {
 	mglData* ini=(Luna< mglDataA >::checkSubType< mglData >(L,9));
 	const char * opt=(const char *)lua_tostring(L,10);
 
-	mglData * lret = mgl_fit_xyzas(gr, x, y, z, a, s, eq, var, ini, opt);
+	mglData * lret = ::mgl_fit_xyzas(gr, x, y, z, a, s, eq, var, ini, opt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26741,7 +26741,7 @@ static int _bind_mgl_get_fit(lua_State *L) {
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 
-	const char * lret = mgl_get_fit(gr);
+	const char * lret = ::mgl_get_fit(gr);
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -26759,7 +26759,7 @@ static int _bind_mgl_hist_x(lua_State *L) {
 	const mglDataA* a=(Luna< mglDataA >::check(L,3));
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mglData * lret = mgl_hist_x(gr, x, a, opt);
+	mglData * lret = ::mgl_hist_x(gr, x, a, opt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26780,7 +26780,7 @@ static int _bind_mgl_hist_xy(lua_State *L) {
 	const mglDataA* a=(Luna< mglDataA >::check(L,4));
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mglData * lret = mgl_hist_xy(gr, x, y, a, opt);
+	mglData * lret = ::mgl_hist_xy(gr, x, y, a, opt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26802,7 +26802,7 @@ static int _bind_mgl_hist_xyz(lua_State *L) {
 	const mglDataA* a=(Luna< mglDataA >::check(L,5));
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mglData * lret = mgl_hist_xyz(gr, x, y, z, a, opt);
+	mglData * lret = ::mgl_hist_xyz(gr, x, y, z, a, opt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglData >::push(L,lret,false);
@@ -26825,7 +26825,7 @@ static int _bind_mgl_puts_fit(lua_State *L) {
 	const char * font=(const char *)lua_tostring(L,6);
 	double size=(double)lua_tonumber(L,7);
 
-	mgl_puts_fit(gr, x, y, z, prefix, font, size);
+	::mgl_puts_fit(gr, x, y, z, prefix, font, size);
 
 	return 0;
 }
@@ -26847,7 +26847,7 @@ static int _bind_mgl_fit_1_(lua_State *L) {
 	int l=(int)lua_tointeger(L,8);
 	int n=(int)lua_tointeger(L,9);
 
-	uintptr_t stack_lret = mgl_fit_1_(gr, y, eq, var, ini, opt, _arg7, l, n);
+	uintptr_t stack_lret = ::mgl_fit_1_(gr, y, eq, var, ini, opt, _arg7, l, n);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26873,7 +26873,7 @@ static int _bind_mgl_fit_2_(lua_State *L) {
 	int l=(int)lua_tointeger(L,8);
 	int n=(int)lua_tointeger(L,9);
 
-	uintptr_t stack_lret = mgl_fit_2_(gr, z, eq, var, ini, opt, _arg7, l, n);
+	uintptr_t stack_lret = ::mgl_fit_2_(gr, z, eq, var, ini, opt, _arg7, l, n);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26899,7 +26899,7 @@ static int _bind_mgl_fit_3_(lua_State *L) {
 	int l=(int)lua_tointeger(L,8);
 	int n=(int)lua_tointeger(L,9);
 
-	uintptr_t stack_lret = mgl_fit_3_(gr, a, eq, var, ini, opt, _arg7, l, n);
+	uintptr_t stack_lret = ::mgl_fit_3_(gr, a, eq, var, ini, opt, _arg7, l, n);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26926,7 +26926,7 @@ static int _bind_mgl_fit_xy_(lua_State *L) {
 	int l=(int)lua_tointeger(L,9);
 	int n=(int)lua_tointeger(L,10);
 
-	uintptr_t stack_lret = mgl_fit_xy_(gr, x, y, eq, var, ini, opt, _arg8, l, n);
+	uintptr_t stack_lret = ::mgl_fit_xy_(gr, x, y, eq, var, ini, opt, _arg8, l, n);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26954,7 +26954,7 @@ static int _bind_mgl_fit_xyz_(lua_State *L) {
 	int l=(int)lua_tointeger(L,10);
 	int n=(int)lua_tointeger(L,11);
 
-	uintptr_t stack_lret = mgl_fit_xyz_(gr, x, y, z, eq, var, ini, opt, _arg9, l, n);
+	uintptr_t stack_lret = ::mgl_fit_xyz_(gr, x, y, z, eq, var, ini, opt, _arg9, l, n);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26983,7 +26983,7 @@ static int _bind_mgl_fit_xyza_(lua_State *L) {
 	int l=(int)lua_tointeger(L,11);
 	int n=(int)lua_tointeger(L,12);
 
-	uintptr_t stack_lret = mgl_fit_xyza_(gr, x, y, z, a, eq, var, ini, opt, _arg10, l, n);
+	uintptr_t stack_lret = ::mgl_fit_xyza_(gr, x, y, z, a, eq, var, ini, opt, _arg10, l, n);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -27010,7 +27010,7 @@ static int _bind_mgl_fit_ys_(lua_State *L) {
 	int l=(int)lua_tointeger(L,9);
 	int n=(int)lua_tointeger(L,10);
 
-	uintptr_t stack_lret = mgl_fit_ys_(gr, y, ss, eq, var, ini, opt, _arg8, l, n);
+	uintptr_t stack_lret = ::mgl_fit_ys_(gr, y, ss, eq, var, ini, opt, _arg8, l, n);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -27038,7 +27038,7 @@ static int _bind_mgl_fit_xys_(lua_State *L) {
 	int l=(int)lua_tointeger(L,10);
 	int n=(int)lua_tointeger(L,11);
 
-	uintptr_t stack_lret = mgl_fit_xys_(gr, x, y, ss, eq, var, ini, opt, _arg9, l, n);
+	uintptr_t stack_lret = ::mgl_fit_xys_(gr, x, y, ss, eq, var, ini, opt, _arg9, l, n);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -27067,7 +27067,7 @@ static int _bind_mgl_fit_xyzs_(lua_State *L) {
 	int l=(int)lua_tointeger(L,11);
 	int n=(int)lua_tointeger(L,12);
 
-	uintptr_t stack_lret = mgl_fit_xyzs_(gr, x, y, z, ss, eq, var, ini, opt, _arg10, l, n);
+	uintptr_t stack_lret = ::mgl_fit_xyzs_(gr, x, y, z, ss, eq, var, ini, opt, _arg10, l, n);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -27097,7 +27097,7 @@ static int _bind_mgl_fit_xyzas_(lua_State *L) {
 	int l=(int)lua_tointeger(L,12);
 	int n=(int)lua_tointeger(L,13);
 
-	uintptr_t stack_lret = mgl_fit_xyzas_(gr, x, y, z, a, ss, eq, var, ini, opt, _arg11, l, n);
+	uintptr_t stack_lret = ::mgl_fit_xyzas_(gr, x, y, z, a, ss, eq, var, ini, opt, _arg11, l, n);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -27119,7 +27119,7 @@ static int _bind_mgl_hist_x_(lua_State *L) {
 	const char * opt=(const char *)lua_tostring(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	uintptr_t stack_lret = mgl_hist_x_(gr, x, a, opt, _arg5);
+	uintptr_t stack_lret = ::mgl_hist_x_(gr, x, a, opt, _arg5);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -27142,7 +27142,7 @@ static int _bind_mgl_hist_xy_(lua_State *L) {
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	uintptr_t stack_lret = mgl_hist_xy_(gr, x, y, a, opt, _arg6);
+	uintptr_t stack_lret = ::mgl_hist_xy_(gr, x, y, a, opt, _arg6);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -27166,7 +27166,7 @@ static int _bind_mgl_hist_xyz_(lua_State *L) {
 	const char * opt=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	uintptr_t stack_lret = mgl_hist_xyz_(gr, x, y, z, a, opt, _arg7);
+	uintptr_t stack_lret = ::mgl_hist_xyz_(gr, x, y, z, a, opt, _arg7);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -27192,7 +27192,7 @@ static int _bind_mgl_puts_fit_(lua_State *L) {
 	int l=(int)lua_tointeger(L,8);
 	int n=(int)lua_tointeger(L,9);
 
-	mgl_puts_fit_(gr, &x, &y, &z, prefix, font, &size, l, n);
+	::mgl_puts_fit_(gr, &x, &y, &z, prefix, font, &size, l, n);
 
 	return 0;
 }
@@ -27210,7 +27210,7 @@ static int _bind_mglGetStyle(lua_State *L) {
 	int font=(int)lua_tointeger(L,2);
 	int align=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 
-	char lret = mglGetStyle(how, &font, &align);
+	char lret = ::mglGetStyle(how, &font, &align);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -27224,7 +27224,7 @@ static int _bind_mgl_create_graph_gl(lua_State *L) {
 	}
 
 
-	mglBase * lret = mgl_create_graph_gl();
+	mglBase * lret = ::mgl_create_graph_gl();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< mglBase >::push(L,lret,false);
@@ -27240,7 +27240,7 @@ static int _bind_mgl_create_graph_gl_(lua_State *L) {
 	}
 
 
-	uintptr_t stack_lret = mgl_create_graph_gl_();
+	uintptr_t stack_lret = ::mgl_create_graph_gl_();
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -27265,7 +27265,7 @@ static int _bind_mgl_triplot_xyzc(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_triplot_xyzc(gr, nums, x, y, z, c, sch, opt);
+	::mgl_triplot_xyzc(gr, nums, x, y, z, c, sch, opt);
 
 	return 0;
 }
@@ -27288,7 +27288,7 @@ static int _bind_mgl_triplot_xyzc_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_triplot_xyzc_(gr, nums, x, y, z, c, sch, opt, _arg9, _arg10);
+	::mgl_triplot_xyzc_(gr, nums, x, y, z, c, sch, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -27308,7 +27308,7 @@ static int _bind_mgl_triplot_xyz(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_triplot_xyz(gr, nums, x, y, z, sch, opt);
+	::mgl_triplot_xyz(gr, nums, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -27330,7 +27330,7 @@ static int _bind_mgl_triplot_xyz_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_triplot_xyz_(gr, nums, x, y, z, sch, opt, _arg8, _arg9);
+	::mgl_triplot_xyz_(gr, nums, x, y, z, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -27349,7 +27349,7 @@ static int _bind_mgl_triplot_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_triplot_xy(gr, nums, x, y, sch, opt);
+	::mgl_triplot_xy(gr, nums, x, y, sch, opt);
 
 	return 0;
 }
@@ -27370,7 +27370,7 @@ static int _bind_mgl_triplot_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_triplot_xy_(gr, nums, x, y, sch, opt, _arg7, _arg8);
+	::mgl_triplot_xy_(gr, nums, x, y, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -27391,7 +27391,7 @@ static int _bind_mgl_quadplot_xyzc(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_quadplot_xyzc(gr, nums, x, y, z, c, sch, opt);
+	::mgl_quadplot_xyzc(gr, nums, x, y, z, c, sch, opt);
 
 	return 0;
 }
@@ -27414,7 +27414,7 @@ static int _bind_mgl_quadplot_xyzc_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_quadplot_xyzc_(gr, nums, x, y, z, c, sch, opt, _arg9, _arg10);
+	::mgl_quadplot_xyzc_(gr, nums, x, y, z, c, sch, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -27434,7 +27434,7 @@ static int _bind_mgl_quadplot_xyz(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_quadplot_xyz(gr, nums, x, y, z, sch, opt);
+	::mgl_quadplot_xyz(gr, nums, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -27456,7 +27456,7 @@ static int _bind_mgl_quadplot_xyz_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_quadplot_xyz_(gr, nums, x, y, z, sch, opt, _arg8, _arg9);
+	::mgl_quadplot_xyz_(gr, nums, x, y, z, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -27475,7 +27475,7 @@ static int _bind_mgl_quadplot_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_quadplot_xy(gr, nums, x, y, sch, opt);
+	::mgl_quadplot_xy(gr, nums, x, y, sch, opt);
 
 	return 0;
 }
@@ -27496,7 +27496,7 @@ static int _bind_mgl_quadplot_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_quadplot_xy_(gr, nums, x, y, sch, opt, _arg7, _arg8);
+	::mgl_quadplot_xy_(gr, nums, x, y, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -27518,7 +27518,7 @@ static int _bind_mgl_tricont_xyzcv(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,8);
 	const char * opt=(const char *)lua_tostring(L,9);
 
-	mgl_tricont_xyzcv(gr, v, nums, x, y, z, c, sch, opt);
+	::mgl_tricont_xyzcv(gr, v, nums, x, y, z, c, sch, opt);
 
 	return 0;
 }
@@ -27542,7 +27542,7 @@ static int _bind_mgl_tricont_xyzcv_(lua_State *L) {
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	mgl_tricont_xyzcv_(gr, v, nums, x, y, z, c, sch, opt, _arg10, _arg11);
+	::mgl_tricont_xyzcv_(gr, v, nums, x, y, z, c, sch, opt, _arg10, _arg11);
 
 	return 0;
 }
@@ -27563,7 +27563,7 @@ static int _bind_mgl_tricont_xycv(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_tricont_xycv(gr, v, nums, x, y, z, sch, opt);
+	::mgl_tricont_xycv(gr, v, nums, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -27586,7 +27586,7 @@ static int _bind_mgl_tricont_xycv_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_tricont_xycv_(gr, v, nums, x, y, z, sch, opt, _arg9, _arg10);
+	::mgl_tricont_xycv_(gr, v, nums, x, y, z, sch, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -27607,7 +27607,7 @@ static int _bind_mgl_tricont_xyzc(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_tricont_xyzc(gr, nums, x, y, z, c, sch, opt);
+	::mgl_tricont_xyzc(gr, nums, x, y, z, c, sch, opt);
 
 	return 0;
 }
@@ -27630,7 +27630,7 @@ static int _bind_mgl_tricont_xyzc_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_tricont_xyzc_(gr, nums, x, y, z, c, sch, opt, _arg9, _arg10);
+	::mgl_tricont_xyzc_(gr, nums, x, y, z, c, sch, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -27650,7 +27650,7 @@ static int _bind_mgl_tricont_xyc(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_tricont_xyc(gr, nums, x, y, z, sch, opt);
+	::mgl_tricont_xyc(gr, nums, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -27672,7 +27672,7 @@ static int _bind_mgl_tricont_xyc_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_tricont_xyc_(gr, nums, x, y, z, sch, opt, _arg8, _arg9);
+	::mgl_tricont_xyc_(gr, nums, x, y, z, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -27691,7 +27691,7 @@ static int _bind_mgl_dots(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_dots(gr, x, y, z, sch, opt);
+	::mgl_dots(gr, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -27712,7 +27712,7 @@ static int _bind_mgl_dots_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_dots_(gr, x, y, z, sch, opt, _arg7, _arg8);
+	::mgl_dots_(gr, x, y, z, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -27732,7 +27732,7 @@ static int _bind_mgl_dots_a(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_dots_a(gr, x, y, z, a, sch, opt);
+	::mgl_dots_a(gr, x, y, z, a, sch, opt);
 
 	return 0;
 }
@@ -27754,7 +27754,7 @@ static int _bind_mgl_dots_a_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_dots_a_(gr, x, y, z, a, sch, opt, _arg8, _arg9);
+	::mgl_dots_a_(gr, x, y, z, a, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -27773,7 +27773,7 @@ static int _bind_mgl_crust(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_crust(gr, x, y, z, sch, opt);
+	::mgl_crust(gr, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -27794,7 +27794,7 @@ static int _bind_mgl_crust_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_crust_(gr, x, y, z, sch, opt, _arg7, _arg8);
+	::mgl_crust_(gr, x, y, z, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -27812,7 +27812,7 @@ static int _bind_mgl_dens_x(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_dens_x(graph, a, stl, sVal, opt);
+	::mgl_dens_x(graph, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -27832,7 +27832,7 @@ static int _bind_mgl_dens_x_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_dens_x_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_dens_x_(graph, a, stl, &sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -27850,7 +27850,7 @@ static int _bind_mgl_dens_y(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_dens_y(graph, a, stl, sVal, opt);
+	::mgl_dens_y(graph, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -27870,7 +27870,7 @@ static int _bind_mgl_dens_y_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_dens_y_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_dens_y_(graph, a, stl, &sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -27888,7 +27888,7 @@ static int _bind_mgl_dens_z(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_dens_z(graph, a, stl, sVal, opt);
+	::mgl_dens_z(graph, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -27908,7 +27908,7 @@ static int _bind_mgl_dens_z_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_dens_z_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_dens_z_(graph, a, stl, &sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -27926,7 +27926,7 @@ static int _bind_mgl_cont_x(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_cont_x(graph, a, stl, sVal, opt);
+	::mgl_cont_x(graph, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -27946,7 +27946,7 @@ static int _bind_mgl_cont_x_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_cont_x_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_cont_x_(graph, a, stl, &sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -27964,7 +27964,7 @@ static int _bind_mgl_cont_y(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_cont_y(graph, a, stl, sVal, opt);
+	::mgl_cont_y(graph, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -27984,7 +27984,7 @@ static int _bind_mgl_cont_y_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_cont_y_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_cont_y_(graph, a, stl, &sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -28002,7 +28002,7 @@ static int _bind_mgl_cont_z(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_cont_z(graph, a, stl, sVal, opt);
+	::mgl_cont_z(graph, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -28022,7 +28022,7 @@ static int _bind_mgl_cont_z_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_cont_z_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_cont_z_(graph, a, stl, &sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -28041,7 +28041,7 @@ static int _bind_mgl_cont_x_val(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_cont_x_val(graph, v, a, stl, sVal, opt);
+	::mgl_cont_x_val(graph, v, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -28062,7 +28062,7 @@ static int _bind_mgl_cont_x_val_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_cont_x_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
+	::mgl_cont_x_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28081,7 +28081,7 @@ static int _bind_mgl_cont_y_val(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_cont_y_val(graph, v, a, stl, sVal, opt);
+	::mgl_cont_y_val(graph, v, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -28102,7 +28102,7 @@ static int _bind_mgl_cont_y_val_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_cont_y_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
+	::mgl_cont_y_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28121,7 +28121,7 @@ static int _bind_mgl_cont_z_val(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_cont_z_val(graph, v, a, stl, sVal, opt);
+	::mgl_cont_z_val(graph, v, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -28142,7 +28142,7 @@ static int _bind_mgl_cont_z_val_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_cont_z_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
+	::mgl_cont_z_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28160,7 +28160,7 @@ static int _bind_mgl_contf_x(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_contf_x(graph, a, stl, sVal, opt);
+	::mgl_contf_x(graph, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -28180,7 +28180,7 @@ static int _bind_mgl_contf_x_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_contf_x_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_contf_x_(graph, a, stl, &sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -28198,7 +28198,7 @@ static int _bind_mgl_contf_y(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_contf_y(graph, a, stl, sVal, opt);
+	::mgl_contf_y(graph, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -28218,7 +28218,7 @@ static int _bind_mgl_contf_y_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_contf_y_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_contf_y_(graph, a, stl, &sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -28236,7 +28236,7 @@ static int _bind_mgl_contf_z(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_contf_z(graph, a, stl, sVal, opt);
+	::mgl_contf_z(graph, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -28256,7 +28256,7 @@ static int _bind_mgl_contf_z_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_contf_z_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_contf_z_(graph, a, stl, &sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -28275,7 +28275,7 @@ static int _bind_mgl_contf_x_val(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_contf_x_val(graph, v, a, stl, sVal, opt);
+	::mgl_contf_x_val(graph, v, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -28296,7 +28296,7 @@ static int _bind_mgl_contf_x_val_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_contf_x_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
+	::mgl_contf_x_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28315,7 +28315,7 @@ static int _bind_mgl_contf_y_val(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_contf_y_val(graph, v, a, stl, sVal, opt);
+	::mgl_contf_y_val(graph, v, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -28336,7 +28336,7 @@ static int _bind_mgl_contf_y_val_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_contf_y_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
+	::mgl_contf_y_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28355,7 +28355,7 @@ static int _bind_mgl_contf_z_val(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_contf_z_val(graph, v, a, stl, sVal, opt);
+	::mgl_contf_z_val(graph, v, a, stl, sVal, opt);
 
 	return 0;
 }
@@ -28376,7 +28376,7 @@ static int _bind_mgl_contf_z_val_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_contf_z_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
+	::mgl_contf_z_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28393,7 +28393,7 @@ static int _bind_mgl_fplot(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_fplot(gr, eqY, pen, opt);
+	::mgl_fplot(gr, eqY, pen, opt);
 
 	return 0;
 }
@@ -28413,7 +28413,7 @@ static int _bind_mgl_fplot_(lua_State *L) {
 	int ls=(int)lua_tointeger(L,6);
 	int lo=(int)lua_tointeger(L,7);
 
-	mgl_fplot_(gr, fy, stl, opt, ly, ls, lo);
+	::mgl_fplot_(gr, fy, stl, opt, ly, ls, lo);
 
 	return 0;
 }
@@ -28432,7 +28432,7 @@ static int _bind_mgl_fplot_xyz(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_fplot_xyz(gr, eqX, eqY, eqZ, pen, opt);
+	::mgl_fplot_xyz(gr, eqX, eqY, eqZ, pen, opt);
 
 	return 0;
 }
@@ -28456,7 +28456,7 @@ static int _bind_mgl_fplot_xyz_(lua_State *L) {
 	int ls=(int)lua_tointeger(L,10);
 	int lo=(int)lua_tointeger(L,11);
 
-	mgl_fplot_xyz_(gr, fx, fy, fz, stl, opt, lx, ly, lz, ls, lo);
+	::mgl_fplot_xyz_(gr, fx, fy, fz, stl, opt, lx, ly, lz, ls, lo);
 
 	return 0;
 }
@@ -28473,7 +28473,7 @@ static int _bind_mgl_radar(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_radar(graph, a, pen, opt);
+	::mgl_radar(graph, a, pen, opt);
 
 	return 0;
 }
@@ -28492,7 +28492,7 @@ static int _bind_mgl_radar_(lua_State *L) {
 	int l=(int)lua_tointeger(L,5);
 	int lo=(int)lua_tointeger(L,6);
 
-	mgl_radar_(gr, a, pen, opt, l, lo);
+	::mgl_radar_(gr, a, pen, opt, l, lo);
 
 	return 0;
 }
@@ -28511,7 +28511,7 @@ static int _bind_mgl_plot_xyz(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_plot_xyz(graph, x, y, z, pen, opt);
+	::mgl_plot_xyz(graph, x, y, z, pen, opt);
 
 	return 0;
 }
@@ -28532,7 +28532,7 @@ static int _bind_mgl_plot_xyz_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_plot_xyz_(graph, x, y, z, pen, opt, _arg7, _arg8);
+	::mgl_plot_xyz_(graph, x, y, z, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28550,7 +28550,7 @@ static int _bind_mgl_plot_xy(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_plot_xy(graph, x, y, pen, opt);
+	::mgl_plot_xy(graph, x, y, pen, opt);
 
 	return 0;
 }
@@ -28570,7 +28570,7 @@ static int _bind_mgl_plot_xy_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_plot_xy_(graph, x, y, pen, opt, _arg6, _arg7);
+	::mgl_plot_xy_(graph, x, y, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -28587,7 +28587,7 @@ static int _bind_mgl_plot(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_plot(graph, y, pen, opt);
+	::mgl_plot(graph, y, pen, opt);
 
 	return 0;
 }
@@ -28606,7 +28606,7 @@ static int _bind_mgl_plot_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_plot_(graph, y, pen, opt, _arg5, _arg6);
+	::mgl_plot_(graph, y, pen, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -28626,7 +28626,7 @@ static int _bind_mgl_tens_xyz(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_tens_xyz(graph, x, y, z, c, pen, opt);
+	::mgl_tens_xyz(graph, x, y, z, c, pen, opt);
 
 	return 0;
 }
@@ -28648,7 +28648,7 @@ static int _bind_mgl_tens_xyz_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_tens_xyz_(graph, x, y, z, c, pen, opt, _arg8, _arg9);
+	::mgl_tens_xyz_(graph, x, y, z, c, pen, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -28667,7 +28667,7 @@ static int _bind_mgl_tens_xy(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_tens_xy(graph, x, y, c, pen, opt);
+	::mgl_tens_xy(graph, x, y, c, pen, opt);
 
 	return 0;
 }
@@ -28688,7 +28688,7 @@ static int _bind_mgl_tens_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_tens_xy_(graph, x, y, c, pen, opt, _arg7, _arg8);
+	::mgl_tens_xy_(graph, x, y, c, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28706,7 +28706,7 @@ static int _bind_mgl_tens(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_tens(graph, y, c, pen, opt);
+	::mgl_tens(graph, y, c, pen, opt);
 
 	return 0;
 }
@@ -28726,7 +28726,7 @@ static int _bind_mgl_tens_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_tens_(graph, y, c, pen, opt, _arg6, _arg7);
+	::mgl_tens_(graph, y, c, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -28745,7 +28745,7 @@ static int _bind_mgl_tape_xyz(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_tape_xyz(graph, x, y, z, pen, opt);
+	::mgl_tape_xyz(graph, x, y, z, pen, opt);
 
 	return 0;
 }
@@ -28766,7 +28766,7 @@ static int _bind_mgl_tape_xyz_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_tape_xyz_(graph, x, y, z, pen, opt, _arg7, _arg8);
+	::mgl_tape_xyz_(graph, x, y, z, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28784,7 +28784,7 @@ static int _bind_mgl_tape_xy(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_tape_xy(graph, x, y, pen, opt);
+	::mgl_tape_xy(graph, x, y, pen, opt);
 
 	return 0;
 }
@@ -28804,7 +28804,7 @@ static int _bind_mgl_tape_xy_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_tape_xy_(graph, x, y, pen, opt, _arg6, _arg7);
+	::mgl_tape_xy_(graph, x, y, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -28821,7 +28821,7 @@ static int _bind_mgl_tape(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_tape(graph, y, pen, opt);
+	::mgl_tape(graph, y, pen, opt);
 
 	return 0;
 }
@@ -28840,7 +28840,7 @@ static int _bind_mgl_tape_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_tape_(graph, y, pen, opt, _arg5, _arg6);
+	::mgl_tape_(graph, y, pen, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -28858,7 +28858,7 @@ static int _bind_mgl_boxplot_xy(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_boxplot_xy(graph, x, a, pen, opt);
+	::mgl_boxplot_xy(graph, x, a, pen, opt);
 
 	return 0;
 }
@@ -28878,7 +28878,7 @@ static int _bind_mgl_boxplot_xy_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_boxplot_xy_(graph, x, y, pen, opt, _arg6, _arg7);
+	::mgl_boxplot_xy_(graph, x, y, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -28895,7 +28895,7 @@ static int _bind_mgl_boxplot(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_boxplot(graph, a, pen, opt);
+	::mgl_boxplot(graph, a, pen, opt);
 
 	return 0;
 }
@@ -28914,7 +28914,7 @@ static int _bind_mgl_boxplot_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_boxplot_(graph, y, pen, opt, _arg5, _arg6);
+	::mgl_boxplot_(graph, y, pen, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -28933,7 +28933,7 @@ static int _bind_mgl_area_xyz(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_area_xyz(graph, x, y, z, pen, opt);
+	::mgl_area_xyz(graph, x, y, z, pen, opt);
 
 	return 0;
 }
@@ -28954,7 +28954,7 @@ static int _bind_mgl_area_xyz_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_area_xyz_(graph, x, y, z, pen, opt, _arg7, _arg8);
+	::mgl_area_xyz_(graph, x, y, z, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28972,7 +28972,7 @@ static int _bind_mgl_area_xy(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_area_xy(graph, x, y, pen, opt);
+	::mgl_area_xy(graph, x, y, pen, opt);
 
 	return 0;
 }
@@ -28992,7 +28992,7 @@ static int _bind_mgl_area_xy_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_area_xy_(graph, x, y, pen, opt, _arg6, _arg7);
+	::mgl_area_xy_(graph, x, y, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -29009,7 +29009,7 @@ static int _bind_mgl_area(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_area(graph, y, pen, opt);
+	::mgl_area(graph, y, pen, opt);
 
 	return 0;
 }
@@ -29028,7 +29028,7 @@ static int _bind_mgl_area_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_area_(graph, y, pen, opt, _arg5, _arg6);
+	::mgl_area_(graph, y, pen, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -29047,7 +29047,7 @@ static int _bind_mgl_region_xy(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_region_xy(graph, x, y1, y2, pen, opt);
+	::mgl_region_xy(graph, x, y1, y2, pen, opt);
 
 	return 0;
 }
@@ -29068,7 +29068,7 @@ static int _bind_mgl_region_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_region_xy_(graph, x, y1, y2, pen, opt, _arg7, _arg8);
+	::mgl_region_xy_(graph, x, y1, y2, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -29086,7 +29086,7 @@ static int _bind_mgl_region(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_region(graph, y1, y2, pen, opt);
+	::mgl_region(graph, y1, y2, pen, opt);
 
 	return 0;
 }
@@ -29106,7 +29106,7 @@ static int _bind_mgl_region_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_region_(graph, y1, y2, pen, opt, _arg6, _arg7);
+	::mgl_region_(graph, y1, y2, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -29125,7 +29125,7 @@ static int _bind_mgl_stem_xyz(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_stem_xyz(graph, x, y, z, pen, opt);
+	::mgl_stem_xyz(graph, x, y, z, pen, opt);
 
 	return 0;
 }
@@ -29146,7 +29146,7 @@ static int _bind_mgl_stem_xyz_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_stem_xyz_(graph, x, y, z, pen, opt, _arg7, _arg8);
+	::mgl_stem_xyz_(graph, x, y, z, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -29164,7 +29164,7 @@ static int _bind_mgl_stem_xy(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_stem_xy(graph, x, y, pen, opt);
+	::mgl_stem_xy(graph, x, y, pen, opt);
 
 	return 0;
 }
@@ -29184,7 +29184,7 @@ static int _bind_mgl_stem_xy_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_stem_xy_(graph, x, y, pen, opt, _arg6, _arg7);
+	::mgl_stem_xy_(graph, x, y, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -29201,7 +29201,7 @@ static int _bind_mgl_stem(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_stem(graph, y, pen, opt);
+	::mgl_stem(graph, y, pen, opt);
 
 	return 0;
 }
@@ -29220,7 +29220,7 @@ static int _bind_mgl_stem_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_stem_(graph, y, pen, opt, _arg5, _arg6);
+	::mgl_stem_(graph, y, pen, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -29239,7 +29239,7 @@ static int _bind_mgl_step_xyz(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_step_xyz(graph, x, y, z, pen, opt);
+	::mgl_step_xyz(graph, x, y, z, pen, opt);
 
 	return 0;
 }
@@ -29260,7 +29260,7 @@ static int _bind_mgl_step_xyz_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_step_xyz_(graph, x, y, z, pen, opt, _arg7, _arg8);
+	::mgl_step_xyz_(graph, x, y, z, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -29278,7 +29278,7 @@ static int _bind_mgl_step_xy(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_step_xy(graph, x, y, pen, opt);
+	::mgl_step_xy(graph, x, y, pen, opt);
 
 	return 0;
 }
@@ -29298,7 +29298,7 @@ static int _bind_mgl_step_xy_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_step_xy_(graph, x, y, pen, opt, _arg6, _arg7);
+	::mgl_step_xy_(graph, x, y, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -29315,7 +29315,7 @@ static int _bind_mgl_step(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_step(graph, y, pen, opt);
+	::mgl_step(graph, y, pen, opt);
 
 	return 0;
 }
@@ -29334,7 +29334,7 @@ static int _bind_mgl_step_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_step_(graph, y, pen, opt, _arg5, _arg6);
+	::mgl_step_(graph, y, pen, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -29353,7 +29353,7 @@ static int _bind_mgl_bars_xyz(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_bars_xyz(graph, x, y, z, pen, opt);
+	::mgl_bars_xyz(graph, x, y, z, pen, opt);
 
 	return 0;
 }
@@ -29374,7 +29374,7 @@ static int _bind_mgl_bars_xyz_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_bars_xyz_(graph, x, y, z, pen, opt, _arg7, _arg8);
+	::mgl_bars_xyz_(graph, x, y, z, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -29392,7 +29392,7 @@ static int _bind_mgl_bars_xy(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_bars_xy(graph, x, y, pen, opt);
+	::mgl_bars_xy(graph, x, y, pen, opt);
 
 	return 0;
 }
@@ -29412,7 +29412,7 @@ static int _bind_mgl_bars_xy_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_bars_xy_(graph, x, y, pen, opt, _arg6, _arg7);
+	::mgl_bars_xy_(graph, x, y, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -29429,7 +29429,7 @@ static int _bind_mgl_bars(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_bars(graph, y, pen, opt);
+	::mgl_bars(graph, y, pen, opt);
 
 	return 0;
 }
@@ -29448,7 +29448,7 @@ static int _bind_mgl_bars_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_bars_(graph, y, pen, opt, _arg5, _arg6);
+	::mgl_bars_(graph, y, pen, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -29466,7 +29466,7 @@ static int _bind_mgl_barh_yx(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_barh_yx(graph, y, v, pen, opt);
+	::mgl_barh_yx(graph, y, v, pen, opt);
 
 	return 0;
 }
@@ -29486,7 +29486,7 @@ static int _bind_mgl_barh_yx_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_barh_yx_(graph, y, v, pen, opt, _arg6, _arg7);
+	::mgl_barh_yx_(graph, y, v, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -29503,7 +29503,7 @@ static int _bind_mgl_barh(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_barh(graph, v, pen, opt);
+	::mgl_barh(graph, v, pen, opt);
 
 	return 0;
 }
@@ -29522,7 +29522,7 @@ static int _bind_mgl_barh_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_barh_(graph, v, pen, opt, _arg5, _arg6);
+	::mgl_barh_(graph, v, pen, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -29539,7 +29539,7 @@ static int _bind_mgl_chart(lua_State *L) {
 	const char * col=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_chart(graph, a, col, opt);
+	::mgl_chart(graph, a, col, opt);
 
 	return 0;
 }
@@ -29558,7 +29558,7 @@ static int _bind_mgl_chart_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_chart_(graph, a, col, opt, _arg5, _arg6);
+	::mgl_chart_(graph, a, col, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -29578,7 +29578,7 @@ static int _bind_mgl_error_exy(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_error_exy(graph, x, y, ex, ey, pen, opt);
+	::mgl_error_exy(graph, x, y, ex, ey, pen, opt);
 
 	return 0;
 }
@@ -29600,7 +29600,7 @@ static int _bind_mgl_error_exy_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_error_exy_(graph, x, y, ex, ey, pen, opt, _arg8, _arg9);
+	::mgl_error_exy_(graph, x, y, ex, ey, pen, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -29619,7 +29619,7 @@ static int _bind_mgl_error_xy(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_error_xy(graph, x, y, ey, pen, opt);
+	::mgl_error_xy(graph, x, y, ey, pen, opt);
 
 	return 0;
 }
@@ -29640,7 +29640,7 @@ static int _bind_mgl_error_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_error_xy_(graph, x, y, ey, pen, opt, _arg7, _arg8);
+	::mgl_error_xy_(graph, x, y, ey, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -29658,7 +29658,7 @@ static int _bind_mgl_error(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_error(graph, y, ey, pen, opt);
+	::mgl_error(graph, y, ey, pen, opt);
 
 	return 0;
 }
@@ -29678,7 +29678,7 @@ static int _bind_mgl_error_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_error_(graph, y, ey, pen, opt, _arg6, _arg7);
+	::mgl_error_(graph, y, ey, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -29698,7 +29698,7 @@ static int _bind_mgl_mark_xyz(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_mark_xyz(graph, x, y, z, r, pen, opt);
+	::mgl_mark_xyz(graph, x, y, z, r, pen, opt);
 
 	return 0;
 }
@@ -29720,7 +29720,7 @@ static int _bind_mgl_mark_xyz_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_mark_xyz_(graph, x, y, z, r, pen, opt, _arg8, _arg9);
+	::mgl_mark_xyz_(graph, x, y, z, r, pen, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -29739,7 +29739,7 @@ static int _bind_mgl_mark_xy(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_mark_xy(graph, x, y, r, pen, opt);
+	::mgl_mark_xy(graph, x, y, r, pen, opt);
 
 	return 0;
 }
@@ -29760,7 +29760,7 @@ static int _bind_mgl_mark_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_mark_xy_(graph, x, y, r, pen, opt, _arg7, _arg8);
+	::mgl_mark_xy_(graph, x, y, r, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -29778,7 +29778,7 @@ static int _bind_mgl_mark_y(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_mark_y(graph, y, r, pen, opt);
+	::mgl_mark_y(graph, y, r, pen, opt);
 
 	return 0;
 }
@@ -29798,7 +29798,7 @@ static int _bind_mgl_mark_y_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_mark_y_(graph, y, r, pen, opt, _arg6, _arg7);
+	::mgl_mark_y_(graph, y, r, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -29818,7 +29818,7 @@ static int _bind_mgl_tube_xyzr(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_tube_xyzr(graph, x, y, z, r, pen, opt);
+	::mgl_tube_xyzr(graph, x, y, z, r, pen, opt);
 
 	return 0;
 }
@@ -29840,7 +29840,7 @@ static int _bind_mgl_tube_xyzr_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_tube_xyzr_(graph, x, y, z, r, pen, opt, _arg8, _arg9);
+	::mgl_tube_xyzr_(graph, x, y, z, r, pen, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -29859,7 +29859,7 @@ static int _bind_mgl_tube_xyr(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_tube_xyr(graph, x, y, r, pen, opt);
+	::mgl_tube_xyr(graph, x, y, r, pen, opt);
 
 	return 0;
 }
@@ -29880,7 +29880,7 @@ static int _bind_mgl_tube_xyr_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_tube_xyr_(graph, x, y, r, pen, opt, _arg7, _arg8);
+	::mgl_tube_xyr_(graph, x, y, r, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -29898,7 +29898,7 @@ static int _bind_mgl_tube_r(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_tube_r(graph, y, r, pen, opt);
+	::mgl_tube_r(graph, y, r, pen, opt);
 
 	return 0;
 }
@@ -29918,7 +29918,7 @@ static int _bind_mgl_tube_r_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_tube_r_(graph, y, r, pen, opt, _arg6, _arg7);
+	::mgl_tube_r_(graph, y, r, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -29938,7 +29938,7 @@ static int _bind_mgl_tube_xyz(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_tube_xyz(graph, x, y, z, r, pen, opt);
+	::mgl_tube_xyz(graph, x, y, z, r, pen, opt);
 
 	return 0;
 }
@@ -29960,7 +29960,7 @@ static int _bind_mgl_tube_xyz_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_tube_xyz_(graph, x, y, z, &r, pen, opt, _arg8, _arg9);
+	::mgl_tube_xyz_(graph, x, y, z, &r, pen, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -29979,7 +29979,7 @@ static int _bind_mgl_tube_xy(lua_State *L) {
 	const char * penl=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_tube_xy(graph, x, y, r, penl, opt);
+	::mgl_tube_xy(graph, x, y, r, penl, opt);
 
 	return 0;
 }
@@ -30000,7 +30000,7 @@ static int _bind_mgl_tube_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_tube_xy_(graph, x, y, &r, pen, opt, _arg7, _arg8);
+	::mgl_tube_xy_(graph, x, y, &r, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -30018,7 +30018,7 @@ static int _bind_mgl_tube(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_tube(graph, y, r, pen, opt);
+	::mgl_tube(graph, y, r, pen, opt);
 
 	return 0;
 }
@@ -30038,7 +30038,7 @@ static int _bind_mgl_tube_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_tube_(graph, y, &r, pen, opt, _arg6, _arg7);
+	::mgl_tube_(graph, y, &r, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -30059,7 +30059,7 @@ static int _bind_mgl_candle_xyv(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_candle_xyv(gr, x, v1, v2, y1, y2, pen, opt);
+	::mgl_candle_xyv(gr, x, v1, v2, y1, y2, pen, opt);
 
 	return 0;
 }
@@ -30082,7 +30082,7 @@ static int _bind_mgl_candle_xyv_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_candle_xyv_(gr, x, v1, v2, y1, y2, pen, opt, _arg9, _arg10);
+	::mgl_candle_xyv_(gr, x, v1, v2, y1, y2, pen, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -30102,7 +30102,7 @@ static int _bind_mgl_candle_yv(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_candle_yv(gr, v1, v2, y1, y2, pen, opt);
+	::mgl_candle_yv(gr, v1, v2, y1, y2, pen, opt);
 
 	return 0;
 }
@@ -30124,7 +30124,7 @@ static int _bind_mgl_candle_yv_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_candle_yv_(gr, v1, v2, y1, y2, pen, opt, _arg8, _arg9);
+	::mgl_candle_yv_(gr, v1, v2, y1, y2, pen, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -30143,7 +30143,7 @@ static int _bind_mgl_candle(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_candle(gr, v, y1, y2, pen, opt);
+	::mgl_candle(gr, v, y1, y2, pen, opt);
 
 	return 0;
 }
@@ -30164,7 +30164,7 @@ static int _bind_mgl_candle_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_candle_(gr, y, y1, y2, pen, opt, _arg7, _arg8);
+	::mgl_candle_(gr, y, y1, y2, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -30182,7 +30182,7 @@ static int _bind_mgl_mark(lua_State *L) {
 	double z=(double)lua_tonumber(L,4);
 	const char * mark=(const char *)lua_tostring(L,5);
 
-	mgl_mark(gr, x, y, z, mark);
+	::mgl_mark(gr, x, y, z, mark);
 
 	return 0;
 }
@@ -30201,7 +30201,7 @@ static int _bind_mgl_mark_(lua_State *L) {
 	const char * mark=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_mark_(gr, &x, &y, &z, mark, _arg6);
+	::mgl_mark_(gr, &x, &y, &z, mark, _arg6);
 
 	return 0;
 }
@@ -30218,7 +30218,7 @@ static int _bind_mgl_ball(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	mgl_ball(gr, x, y, z);
+	::mgl_ball(gr, x, y, z);
 
 	return 0;
 }
@@ -30235,7 +30235,7 @@ static int _bind_mgl_ball_(lua_State *L) {
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
 
-	mgl_ball_(gr, &x, &y, &z);
+	::mgl_ball_(gr, &x, &y, &z);
 
 	return 0;
 }
@@ -30257,7 +30257,7 @@ static int _bind_mgl_line(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,8);
 	int n=(int)lua_tointeger(L,9);
 
-	mgl_line(gr, x1, y1, z1, x2, y2, z2, pen, n);
+	::mgl_line(gr, x1, y1, z1, x2, y2, z2, pen, n);
 
 	return 0;
 }
@@ -30280,7 +30280,7 @@ static int _bind_mgl_line_(lua_State *L) {
 	int n=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_line_(gr, &x1, &y1, &z1, &x2, &y2, &z2, pen, &n, _arg10);
+	::mgl_line_(gr, &x1, &y1, &z1, &x2, &y2, &z2, pen, &n, _arg10);
 
 	return 0;
 }
@@ -30308,7 +30308,7 @@ static int _bind_mgl_curve(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,14);
 	int n=(int)lua_tointeger(L,15);
 
-	mgl_curve(gr, x1, y1, z1, dx1, dy1, dz1, x2, y2, z2, dx2, dy2, dz2, pen, n);
+	::mgl_curve(gr, x1, y1, z1, dx1, dy1, dz1, x2, y2, z2, dx2, dy2, dz2, pen, n);
 
 	return 0;
 }
@@ -30337,7 +30337,7 @@ static int _bind_mgl_curve_(lua_State *L) {
 	int n=(int)lua_tointeger(L,15);
 	int l=(int)lua_tointeger(L,16);
 
-	mgl_curve_(gr, &x1, &y1, &z1, &dx1, &dy1, &dz1, &x2, &y2, &z2, &dx2, &dy2, &dz2, pen, &n, l);
+	::mgl_curve_(gr, &x1, &y1, &z1, &dx1, &dy1, &dz1, &x2, &y2, &z2, &dx2, &dy2, &dz2, pen, &n, l);
 
 	return 0;
 }
@@ -30358,7 +30358,7 @@ static int _bind_mgl_error_box(lua_State *L) {
 	double ez=(double)lua_tonumber(L,7);
 	const char * pen=(const char *)lua_tostring(L,8);
 
-	mgl_error_box(gr, x, y, z, ex, ey, ez, pen);
+	::mgl_error_box(gr, x, y, z, ex, ey, ez, pen);
 
 	return 0;
 }
@@ -30380,7 +30380,7 @@ static int _bind_mgl_error_box_(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_error_box_(gr, &x, &y, &z, &ex, &ey, &ez, pen, _arg9);
+	::mgl_error_box_(gr, &x, &y, &z, &ex, &ey, &ez, pen, _arg9);
 
 	return 0;
 }
@@ -30407,7 +30407,7 @@ static int _bind_mgl_face(lua_State *L) {
 	double z3=(double)lua_tonumber(L,13);
 	const char * stl=(const char *)lua_tostring(L,14);
 
-	mgl_face(gr, x0, y0, z0, x1, y1, z1, x2, y2, z2, x3, y3, z3, stl);
+	::mgl_face(gr, x0, y0, z0, x1, y1, z1, x2, y2, z2, x3, y3, z3, stl);
 
 	return 0;
 }
@@ -30435,7 +30435,7 @@ static int _bind_mgl_face_(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,14);
 	int _arg15=(int)lua_tointeger(L,15);
 
-	mgl_face_(gr, &x0, &y0, &z0, &x1, &y1, &z1, &x2, &y2, &z2, &x3, &y3, &z3, stl, _arg15);
+	::mgl_face_(gr, &x0, &y0, &z0, &x1, &y1, &z1, &x2, &y2, &z2, &x3, &y3, &z3, stl, _arg15);
 
 	return 0;
 }
@@ -30457,7 +30457,7 @@ static int _bind_mgl_facex(lua_State *L) {
 	double dx=(double)lua_tonumber(L,8);
 	double dy=(double)lua_tonumber(L,9);
 
-	mgl_facex(gr, x0, y0, z0, wy, wz, stl, dx, dy);
+	::mgl_facex(gr, x0, y0, z0, wy, wz, stl, dx, dy);
 
 	return 0;
 }
@@ -30480,7 +30480,7 @@ static int _bind_mgl_facex_(lua_State *L) {
 	double dy=(double)lua_tonumber(L,9);
 	int l=(int)lua_tointeger(L,10);
 
-	mgl_facex_(gr, &x0, &y0, &z0, &wy, &wz, stl, &dx, &dy, l);
+	::mgl_facex_(gr, &x0, &y0, &z0, &wy, &wz, stl, &dx, &dy, l);
 
 	return 0;
 }
@@ -30502,7 +30502,7 @@ static int _bind_mgl_facey(lua_State *L) {
 	double dx=(double)lua_tonumber(L,8);
 	double dy=(double)lua_tonumber(L,9);
 
-	mgl_facey(gr, x0, y0, z0, wx, wz, stl, dx, dy);
+	::mgl_facey(gr, x0, y0, z0, wx, wz, stl, dx, dy);
 
 	return 0;
 }
@@ -30525,7 +30525,7 @@ static int _bind_mgl_facey_(lua_State *L) {
 	double dy=(double)lua_tonumber(L,9);
 	int l=(int)lua_tointeger(L,10);
 
-	mgl_facey_(gr, &x0, &y0, &z0, &wx, &wz, stl, &dx, &dy, l);
+	::mgl_facey_(gr, &x0, &y0, &z0, &wx, &wz, stl, &dx, &dy, l);
 
 	return 0;
 }
@@ -30547,7 +30547,7 @@ static int _bind_mgl_facez(lua_State *L) {
 	double dx=(double)lua_tonumber(L,8);
 	double dy=(double)lua_tonumber(L,9);
 
-	mgl_facez(gr, x0, y0, z0, wx, wy, stl, dx, dy);
+	::mgl_facez(gr, x0, y0, z0, wx, wy, stl, dx, dy);
 
 	return 0;
 }
@@ -30570,7 +30570,7 @@ static int _bind_mgl_facez_(lua_State *L) {
 	double dy=(double)lua_tonumber(L,9);
 	int l=(int)lua_tointeger(L,10);
 
-	mgl_facez_(gr, &x0, &y0, &z0, &wx, &wy, stl, &dx, &dy, l);
+	::mgl_facez_(gr, &x0, &y0, &z0, &wx, &wy, stl, &dx, &dy, l);
 
 	return 0;
 }
@@ -30589,7 +30589,7 @@ static int _bind_mgl_sphere(lua_State *L) {
 	double r=(double)lua_tonumber(L,5);
 	const char * stl=(const char *)lua_tostring(L,6);
 
-	mgl_sphere(gr, x, y, z, r, stl);
+	::mgl_sphere(gr, x, y, z, r, stl);
 
 	return 0;
 }
@@ -30609,7 +30609,7 @@ static int _bind_mgl_sphere_(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_sphere_(gr, &x, &y, &z, &r, stl, _arg7);
+	::mgl_sphere_(gr, &x, &y, &z, &r, stl, _arg7);
 
 	return 0;
 }
@@ -30633,7 +30633,7 @@ static int _bind_mgl_drop(lua_State *L) {
 	double shift=(double)lua_tonumber(L,10);
 	double ap=(double)lua_tonumber(L,11);
 
-	mgl_drop(gr, x, y, z, dx, dy, dz, r, stl, shift, ap);
+	::mgl_drop(gr, x, y, z, dx, dy, dz, r, stl, shift, ap);
 
 	return 0;
 }
@@ -30658,7 +30658,7 @@ static int _bind_mgl_drop_(lua_State *L) {
 	double ap=(double)lua_tonumber(L,11);
 	int _arg12=(int)lua_tointeger(L,12);
 
-	mgl_drop_(gr, &x1, &y1, &z1, &x2, &y2, &z2, &r, stl, &shift, &ap, _arg12);
+	::mgl_drop_(gr, &x1, &y1, &z1, &x2, &y2, &z2, &r, stl, &shift, &ap, _arg12);
 
 	return 0;
 }
@@ -30681,7 +30681,7 @@ static int _bind_mgl_cone(lua_State *L) {
 	double r2=(double)lua_tonumber(L,9);
 	const char * stl=(const char *)lua_tostring(L,10);
 
-	mgl_cone(gr, x1, y1, z1, x2, y2, z2, r1, r2, stl);
+	::mgl_cone(gr, x1, y1, z1, x2, y2, z2, r1, r2, stl);
 
 	return 0;
 }
@@ -30705,7 +30705,7 @@ static int _bind_mgl_cone_(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	mgl_cone_(gr, &x1, &y1, &z1, &x2, &y2, &z2, &r1, &r2, stl, _arg11);
+	::mgl_cone_(gr, &x1, &y1, &z1, &x2, &y2, &z2, &r1, &r2, stl, _arg11);
 
 	return 0;
 }
@@ -30727,7 +30727,7 @@ static int _bind_mgl_ellipse(lua_State *L) {
 	double r=(double)lua_tonumber(L,8);
 	const char * stl=(const char *)lua_tostring(L,9);
 
-	mgl_ellipse(gr, x1, y1, z1, x2, y2, z2, r, stl);
+	::mgl_ellipse(gr, x1, y1, z1, x2, y2, z2, r, stl);
 
 	return 0;
 }
@@ -30750,7 +30750,7 @@ static int _bind_mgl_ellipse_(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_ellipse_(gr, &x1, &y1, &z1, &x2, &y2, &z2, &r, stl, _arg10);
+	::mgl_ellipse_(gr, &x1, &y1, &z1, &x2, &y2, &z2, &r, stl, _arg10);
 
 	return 0;
 }
@@ -30772,7 +30772,7 @@ static int _bind_mgl_rhomb(lua_State *L) {
 	double r=(double)lua_tonumber(L,8);
 	const char * stl=(const char *)lua_tostring(L,9);
 
-	mgl_rhomb(gr, x1, y1, z1, x2, y2, z2, r, stl);
+	::mgl_rhomb(gr, x1, y1, z1, x2, y2, z2, r, stl);
 
 	return 0;
 }
@@ -30795,7 +30795,7 @@ static int _bind_mgl_rhomb_(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_rhomb_(gr, &x1, &y1, &z1, &x2, &y2, &z2, &r, stl, _arg10);
+	::mgl_rhomb_(gr, &x1, &y1, &z1, &x2, &y2, &z2, &r, stl, _arg10);
 
 	return 0;
 }
@@ -30814,7 +30814,7 @@ static int _bind_mgl_cones_xyz(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_cones_xyz(graph, x, y, z, pen, opt);
+	::mgl_cones_xyz(graph, x, y, z, pen, opt);
 
 	return 0;
 }
@@ -30835,7 +30835,7 @@ static int _bind_mgl_cones_xyz_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_cones_xyz_(graph, x, y, z, pen, opt, _arg7, _arg8);
+	::mgl_cones_xyz_(graph, x, y, z, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -30853,7 +30853,7 @@ static int _bind_mgl_cones_xz(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_cones_xz(graph, x, z, pen, opt);
+	::mgl_cones_xz(graph, x, z, pen, opt);
 
 	return 0;
 }
@@ -30870,7 +30870,7 @@ static int _bind_mgl_cones(lua_State *L) {
 	const char * pen=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_cones(graph, z, pen, opt);
+	::mgl_cones(graph, z, pen, opt);
 
 	return 0;
 }
@@ -30889,7 +30889,7 @@ static int _bind_mgl_cones_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_cones_(graph, z, pen, opt, _arg5, _arg6);
+	::mgl_cones_(graph, z, pen, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -30909,7 +30909,7 @@ static int _bind_mgl_dew_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_dew_xy(gr, x, y, ax, ay, sch, opt);
+	::mgl_dew_xy(gr, x, y, ax, ay, sch, opt);
 
 	return 0;
 }
@@ -30931,7 +30931,7 @@ static int _bind_mgl_dew_xy_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_dew_xy_(gr, x, y, ax, ay, sch, opt, _arg8, _arg9);
+	::mgl_dew_xy_(gr, x, y, ax, ay, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -30949,7 +30949,7 @@ static int _bind_mgl_dew_2d(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,4);
 	const char * optl=(const char *)lua_tostring(L,5);
 
-	mgl_dew_2d(gr, ax, ay, sch, optl);
+	::mgl_dew_2d(gr, ax, ay, sch, optl);
 
 	return 0;
 }
@@ -30969,7 +30969,7 @@ static int _bind_mgl_dew_2d_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int l=(int)lua_tointeger(L,7);
 
-	mgl_dew_2d_(gr, ax, ay, sch, opt, _arg6, l);
+	::mgl_dew_2d_(gr, ax, ay, sch, opt, _arg6, l);
 
 	return 0;
 }
@@ -30989,7 +30989,7 @@ static int _bind_mgl_puts(lua_State *L) {
 	const char * font=(const char *)lua_tostring(L,6);
 	double size=(double)lua_tonumber(L,7);
 
-	mgl_puts(graph, x, y, z, text, font, size);
+	::mgl_puts(graph, x, y, z, text, font, size);
 
 	return 0;
 }
@@ -31011,7 +31011,7 @@ static int _bind_mgl_puts_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_puts_(graph, &x, &y, &z, text, font, &size, _arg8, _arg9);
+	::mgl_puts_(graph, &x, &y, &z, text, font, &size, _arg8, _arg9);
 
 	return 0;
 }
@@ -31034,7 +31034,7 @@ static int _bind_mgl_puts_dir(lua_State *L) {
 	const char * font=(const char *)lua_tostring(L,9);
 	double size=(double)lua_tonumber(L,10);
 
-	mgl_puts_dir(graph, x, y, z, dx, dy, dz, text, font, size);
+	::mgl_puts_dir(graph, x, y, z, dx, dy, dz, text, font, size);
 
 	return 0;
 }
@@ -31059,7 +31059,7 @@ static int _bind_mgl_puts_dir_(lua_State *L) {
 	int _arg11=(int)lua_tointeger(L,11);
 	int _arg12=(int)lua_tointeger(L,12);
 
-	mgl_puts_dir_(graph, &x, &y, &z, &dx, &dy, &dz, text, font, &size, _arg11, _arg12);
+	::mgl_puts_dir_(graph, &x, &y, &z, &dx, &dy, &dz, text, font, &size, _arg11, _arg12);
 
 	return 0;
 }
@@ -31080,7 +31080,7 @@ static int _bind_mgl_textmark_xyzr(lua_State *L) {
 	const char * fnt=(const char *)lua_tostring(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_textmark_xyzr(graph, x, y, z, r, text, fnt, opt);
+	::mgl_textmark_xyzr(graph, x, y, z, r, text, fnt, opt);
 
 	return 0;
 }
@@ -31104,7 +31104,7 @@ static int _bind_mgl_textmark_xyzr_(lua_State *L) {
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	mgl_textmark_xyzr_(graph, x, y, z, r, text, fnt, opt, _arg9, _arg10, _arg11);
+	::mgl_textmark_xyzr_(graph, x, y, z, r, text, fnt, opt, _arg9, _arg10, _arg11);
 
 	return 0;
 }
@@ -31124,7 +31124,7 @@ static int _bind_mgl_textmark_xyr(lua_State *L) {
 	const char * fnt=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_textmark_xyr(graph, x, y, r, text, fnt, opt);
+	::mgl_textmark_xyr(graph, x, y, r, text, fnt, opt);
 
 	return 0;
 }
@@ -31147,7 +31147,7 @@ static int _bind_mgl_textmark_xyr_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_textmark_xyr_(graph, x, y, r, text, fnt, opt, _arg8, _arg9, _arg10);
+	::mgl_textmark_xyr_(graph, x, y, r, text, fnt, opt, _arg8, _arg9, _arg10);
 
 	return 0;
 }
@@ -31166,7 +31166,7 @@ static int _bind_mgl_textmark_yr(lua_State *L) {
 	const char * fnt=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_textmark_yr(graph, y, r, text, fnt, opt);
+	::mgl_textmark_yr(graph, y, r, text, fnt, opt);
 
 	return 0;
 }
@@ -31188,7 +31188,7 @@ static int _bind_mgl_textmark_yr_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_textmark_yr_(graph, y, r, text, fnt, opt, _arg7, _arg8, _arg9);
+	::mgl_textmark_yr_(graph, y, r, text, fnt, opt, _arg7, _arg8, _arg9);
 
 	return 0;
 }
@@ -31206,7 +31206,7 @@ static int _bind_mgl_textmark(lua_State *L) {
 	const char * fnt=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_textmark(graph, y, text, fnt, opt);
+	::mgl_textmark(graph, y, text, fnt, opt);
 
 	return 0;
 }
@@ -31227,7 +31227,7 @@ static int _bind_mgl_textmark_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_textmark_(graph, y, text, fnt, opt, _arg6, _arg7, _arg8);
+	::mgl_textmark_(graph, y, text, fnt, opt, _arg6, _arg7, _arg8);
 
 	return 0;
 }
@@ -31247,7 +31247,7 @@ static int _bind_mgl_table(lua_State *L) {
 	const char * fnt=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_table(gr, x, y, val, text, fnt, opt);
+	::mgl_table(gr, x, y, val, text, fnt, opt);
 
 	return 0;
 }
@@ -31270,7 +31270,7 @@ static int _bind_mgl_table_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_table_(gr, &x, &y, val, text, fnt, opt, _arg8, _arg9, _arg10);
+	::mgl_table_(gr, &x, &y, val, text, fnt, opt, _arg8, _arg9, _arg10);
 
 	return 0;
 }
@@ -31287,7 +31287,7 @@ static int _bind_mgl_fsurf(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_fsurf(graph, fz, stl, opt);
+	::mgl_fsurf(graph, fz, stl, opt);
 
 	return 0;
 }
@@ -31307,7 +31307,7 @@ static int _bind_mgl_fsurf_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_fsurf_(graph, fz, stl, opt, _arg5, _arg6, _arg7);
+	::mgl_fsurf_(graph, fz, stl, opt, _arg5, _arg6, _arg7);
 
 	return 0;
 }
@@ -31326,7 +31326,7 @@ static int _bind_mgl_fsurf_xyz(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_fsurf_xyz(graph, fx, fy, fz, stl, opt);
+	::mgl_fsurf_xyz(graph, fx, fy, fz, stl, opt);
 
 	return 0;
 }
@@ -31350,7 +31350,7 @@ static int _bind_mgl_fsurf_xyz_(lua_State *L) {
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	mgl_fsurf_xyz_(graph, fx, fy, fz, stl, opt, _arg7, _arg8, _arg9, _arg10, _arg11);
+	::mgl_fsurf_xyz_(graph, fx, fy, fz, stl, opt, _arg7, _arg8, _arg9, _arg10, _arg11);
 
 	return 0;
 }
@@ -31369,7 +31369,7 @@ static int _bind_mgl_grid_xy(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_grid_xy(graph, x, y, z, stl, opt);
+	::mgl_grid_xy(graph, x, y, z, stl, opt);
 
 	return 0;
 }
@@ -31390,7 +31390,7 @@ static int _bind_mgl_grid_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_grid_xy_(graph, x, y, z, stl, opt, _arg7, _arg8);
+	::mgl_grid_xy_(graph, x, y, z, stl, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -31407,7 +31407,7 @@ static int _bind_mgl_grid(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_grid(graph, a, stl, opt);
+	::mgl_grid(graph, a, stl, opt);
 
 	return 0;
 }
@@ -31426,7 +31426,7 @@ static int _bind_mgl_grid_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_grid_(graph, a, stl, opt, _arg5, _arg6);
+	::mgl_grid_(graph, a, stl, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -31445,7 +31445,7 @@ static int _bind_mgl_mesh_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_mesh_xy(graph, x, y, z, sch, opt);
+	::mgl_mesh_xy(graph, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -31466,7 +31466,7 @@ static int _bind_mgl_mesh_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_mesh_xy_(graph, x, y, z, sch, opt, _arg7, _arg8);
+	::mgl_mesh_xy_(graph, x, y, z, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -31483,7 +31483,7 @@ static int _bind_mgl_mesh(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_mesh(graph, z, sch, opt);
+	::mgl_mesh(graph, z, sch, opt);
 
 	return 0;
 }
@@ -31502,7 +31502,7 @@ static int _bind_mgl_mesh_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_mesh_(graph, z, sch, opt, _arg5, _arg6);
+	::mgl_mesh_(graph, z, sch, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -31521,7 +31521,7 @@ static int _bind_mgl_fall_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_fall_xy(graph, x, y, z, sch, opt);
+	::mgl_fall_xy(graph, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -31542,7 +31542,7 @@ static int _bind_mgl_fall_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_fall_xy_(graph, x, y, z, sch, opt, _arg7, _arg8);
+	::mgl_fall_xy_(graph, x, y, z, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -31559,7 +31559,7 @@ static int _bind_mgl_fall(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_fall(graph, z, sch, opt);
+	::mgl_fall(graph, z, sch, opt);
 
 	return 0;
 }
@@ -31578,7 +31578,7 @@ static int _bind_mgl_fall_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_fall_(graph, z, sch, opt, _arg5, _arg6);
+	::mgl_fall_(graph, z, sch, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -31597,7 +31597,7 @@ static int _bind_mgl_belt_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_belt_xy(graph, x, y, z, sch, opt);
+	::mgl_belt_xy(graph, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -31618,7 +31618,7 @@ static int _bind_mgl_belt_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_belt_xy_(graph, x, y, z, sch, opt, _arg7, _arg8);
+	::mgl_belt_xy_(graph, x, y, z, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -31635,7 +31635,7 @@ static int _bind_mgl_belt(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_belt(graph, z, sch, opt);
+	::mgl_belt(graph, z, sch, opt);
 
 	return 0;
 }
@@ -31654,7 +31654,7 @@ static int _bind_mgl_belt_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_belt_(graph, z, sch, opt, _arg5, _arg6);
+	::mgl_belt_(graph, z, sch, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -31673,7 +31673,7 @@ static int _bind_mgl_surf_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_surf_xy(graph, x, y, z, sch, opt);
+	::mgl_surf_xy(graph, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -31694,7 +31694,7 @@ static int _bind_mgl_surf_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_surf_xy_(graph, x, y, z, sch, opt, _arg7, _arg8);
+	::mgl_surf_xy_(graph, x, y, z, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -31711,7 +31711,7 @@ static int _bind_mgl_surf(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_surf(graph, z, sch, opt);
+	::mgl_surf(graph, z, sch, opt);
 
 	return 0;
 }
@@ -31730,7 +31730,7 @@ static int _bind_mgl_surf_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_surf_(graph, z, sch, opt, _arg5, _arg6);
+	::mgl_surf_(graph, z, sch, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -31749,7 +31749,7 @@ static int _bind_mgl_dens_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_dens_xy(graph, x, y, z, sch, opt);
+	::mgl_dens_xy(graph, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -31770,7 +31770,7 @@ static int _bind_mgl_dens_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_dens_xy_(graph, x, y, z, sch, opt, _arg7, _arg8);
+	::mgl_dens_xy_(graph, x, y, z, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -31787,7 +31787,7 @@ static int _bind_mgl_dens(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_dens(graph, z, sch, opt);
+	::mgl_dens(graph, z, sch, opt);
 
 	return 0;
 }
@@ -31806,7 +31806,7 @@ static int _bind_mgl_dens_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_dens_(graph, z, sch, opt, _arg5, _arg6);
+	::mgl_dens_(graph, z, sch, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -31825,7 +31825,7 @@ static int _bind_mgl_boxs_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_boxs_xy(graph, x, y, z, sch, opt);
+	::mgl_boxs_xy(graph, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -31846,7 +31846,7 @@ static int _bind_mgl_boxs_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_boxs_xy_(graph, x, y, z, sch, opt, _arg7, _arg8);
+	::mgl_boxs_xy_(graph, x, y, z, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -31863,7 +31863,7 @@ static int _bind_mgl_boxs(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_boxs(graph, z, sch, opt);
+	::mgl_boxs(graph, z, sch, opt);
 
 	return 0;
 }
@@ -31882,7 +31882,7 @@ static int _bind_mgl_boxs_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_boxs_(graph, z, sch, opt, _arg5, _arg6);
+	::mgl_boxs_(graph, z, sch, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -31901,7 +31901,7 @@ static int _bind_mgl_tile_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_tile_xy(graph, x, y, z, sch, opt);
+	::mgl_tile_xy(graph, x, y, z, sch, opt);
 
 	return 0;
 }
@@ -31922,7 +31922,7 @@ static int _bind_mgl_tile_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_tile_xy_(gr, x, y, a, sch, opt, _arg7, _arg8);
+	::mgl_tile_xy_(gr, x, y, a, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -31939,7 +31939,7 @@ static int _bind_mgl_tile(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_tile(graph, z, sch, opt);
+	::mgl_tile(graph, z, sch, opt);
 
 	return 0;
 }
@@ -31958,7 +31958,7 @@ static int _bind_mgl_tile_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_tile_(graph, z, sch, opt, _arg5, _arg6);
+	::mgl_tile_(graph, z, sch, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -31978,7 +31978,7 @@ static int _bind_mgl_tiles_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_tiles_xy(graph, x, y, z, r, sch, opt);
+	::mgl_tiles_xy(graph, x, y, z, r, sch, opt);
 
 	return 0;
 }
@@ -32000,7 +32000,7 @@ static int _bind_mgl_tiles_xy_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_tiles_xy_(graph, x, y, z, c, sch, opt, _arg8, _arg9);
+	::mgl_tiles_xy_(graph, x, y, z, c, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -32018,7 +32018,7 @@ static int _bind_mgl_tiles(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_tiles(graph, z, r, sch, opt);
+	::mgl_tiles(graph, z, r, sch, opt);
 
 	return 0;
 }
@@ -32038,7 +32038,7 @@ static int _bind_mgl_tiles_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_tiles_(graph, z, r, sch, opt, _arg6, _arg7);
+	::mgl_tiles_(graph, z, r, sch, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -32058,7 +32058,7 @@ static int _bind_mgl_surfc_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_surfc_xy(graph, x, y, z, c, sch, opt);
+	::mgl_surfc_xy(graph, x, y, z, c, sch, opt);
 
 	return 0;
 }
@@ -32080,7 +32080,7 @@ static int _bind_mgl_surfc_xy_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_surfc_xy_(graph, x, y, z, c, sch, opt, _arg8, _arg9);
+	::mgl_surfc_xy_(graph, x, y, z, c, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -32098,7 +32098,7 @@ static int _bind_mgl_surfc(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_surfc(graph, z, c, sch, opt);
+	::mgl_surfc(graph, z, c, sch, opt);
 
 	return 0;
 }
@@ -32118,7 +32118,7 @@ static int _bind_mgl_surfc_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_surfc_(graph, z, c, sch, opt, _arg6, _arg7);
+	::mgl_surfc_(graph, z, c, sch, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -32138,7 +32138,7 @@ static int _bind_mgl_surfa_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_surfa_xy(graph, x, y, z, c, sch, opt);
+	::mgl_surfa_xy(graph, x, y, z, c, sch, opt);
 
 	return 0;
 }
@@ -32160,7 +32160,7 @@ static int _bind_mgl_surfa_xy_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_surfa_xy_(graph, x, y, z, c, sch, opt, _arg8, _arg9);
+	::mgl_surfa_xy_(graph, x, y, z, c, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -32178,7 +32178,7 @@ static int _bind_mgl_surfa(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_surfa(graph, z, c, sch, opt);
+	::mgl_surfa(graph, z, c, sch, opt);
 
 	return 0;
 }
@@ -32198,7 +32198,7 @@ static int _bind_mgl_surfa_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_surfa_(graph, z, c, sch, opt, _arg6, _arg7);
+	::mgl_surfa_(graph, z, c, sch, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -32219,7 +32219,7 @@ static int _bind_mgl_stfa_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_stfa_xy(graph, x, y, re, im, dn, sch, opt);
+	::mgl_stfa_xy(graph, x, y, re, im, dn, sch, opt);
 
 	return 0;
 }
@@ -32242,7 +32242,7 @@ static int _bind_mgl_stfa_xy_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_stfa_xy_(graph, x, y, re, im, &dn, sch, opt, _arg9, _arg10);
+	::mgl_stfa_xy_(graph, x, y, re, im, &dn, sch, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -32261,7 +32261,7 @@ static int _bind_mgl_stfa(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_stfa(graph, re, im, dn, sch, opt);
+	::mgl_stfa(graph, re, im, dn, sch, opt);
 
 	return 0;
 }
@@ -32282,7 +32282,7 @@ static int _bind_mgl_stfa_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_stfa_(graph, re, im, &dn, sch, opt, _arg7, _arg8);
+	::mgl_stfa_(graph, re, im, &dn, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -32302,7 +32302,7 @@ static int _bind_mgl_map_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_map_xy(graph, x, y, a, b, sch, opt);
+	::mgl_map_xy(graph, x, y, a, b, sch, opt);
 
 	return 0;
 }
@@ -32324,7 +32324,7 @@ static int _bind_mgl_map_xy_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_map_xy_(graph, x, y, a, b, sch, opt, _arg8, _arg9);
+	::mgl_map_xy_(graph, x, y, a, b, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -32342,7 +32342,7 @@ static int _bind_mgl_map(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_map(graph, a, b, sch, opt);
+	::mgl_map(graph, a, b, sch, opt);
 
 	return 0;
 }
@@ -32362,7 +32362,7 @@ static int _bind_mgl_map_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_map_(graph, a, b, sch, opt, _arg6, _arg7);
+	::mgl_map_(graph, a, b, sch, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -32380,7 +32380,7 @@ static int _bind_mgl_norm(lua_State *L) {
 	}
 	const mglPoint & p=*p_ptr;
 
-	double lret = mgl_norm(p);
+	double lret = ::mgl_norm(p);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -32401,7 +32401,7 @@ static int _bind_mgl_traj_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_traj_xy(gr, x, y, ax, ay, sch, opt);
+	::mgl_traj_xy(gr, x, y, ax, ay, sch, opt);
 
 	return 0;
 }
@@ -32423,7 +32423,7 @@ static int _bind_mgl_traj_xy_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_traj_xy_(gr, x, y, ax, ay, sch, opt, _arg8, _arg9);
+	::mgl_traj_xy_(gr, x, y, ax, ay, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -32445,7 +32445,7 @@ static int _bind_mgl_traj_xyz(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,8);
 	const char * opt=(const char *)lua_tostring(L,9);
 
-	mgl_traj_xyz(gr, x, y, z, ax, ay, az, sch, opt);
+	::mgl_traj_xyz(gr, x, y, z, ax, ay, az, sch, opt);
 
 	return 0;
 }
@@ -32469,7 +32469,7 @@ static int _bind_mgl_traj_xyz_(lua_State *L) {
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	mgl_traj_xyz_(gr, x, y, z, ax, ay, az, sch, opt, _arg10, _arg11);
+	::mgl_traj_xyz_(gr, x, y, z, ax, ay, az, sch, opt, _arg10, _arg11);
 
 	return 0;
 }
@@ -32489,7 +32489,7 @@ static int _bind_mgl_vect_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_vect_xy(gr, x, y, ax, ay, sch, opt);
+	::mgl_vect_xy(gr, x, y, ax, ay, sch, opt);
 
 	return 0;
 }
@@ -32511,7 +32511,7 @@ static int _bind_mgl_vect_xy_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_vect_xy_(gr, x, y, ax, ay, sch, opt, _arg8, _arg9);
+	::mgl_vect_xy_(gr, x, y, ax, ay, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -32529,7 +32529,7 @@ static int _bind_mgl_vect_2d(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_vect_2d(gr, ax, ay, sch, opt);
+	::mgl_vect_2d(gr, ax, ay, sch, opt);
 
 	return 0;
 }
@@ -32549,7 +32549,7 @@ static int _bind_mgl_vect_2d_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_vect_2d_(gr, ax, ay, sch, opt, _arg6, _arg7);
+	::mgl_vect_2d_(gr, ax, ay, sch, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -32571,7 +32571,7 @@ static int _bind_mgl_vect_xyz(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,8);
 	const char * opt=(const char *)lua_tostring(L,9);
 
-	mgl_vect_xyz(gr, x, y, z, ax, ay, az, sch, opt);
+	::mgl_vect_xyz(gr, x, y, z, ax, ay, az, sch, opt);
 
 	return 0;
 }
@@ -32595,7 +32595,7 @@ static int _bind_mgl_vect_xyz_(lua_State *L) {
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	mgl_vect_xyz_(gr, x, y, z, ax, ay, az, sch, opt, _arg10, _arg11);
+	::mgl_vect_xyz_(gr, x, y, z, ax, ay, az, sch, opt, _arg10, _arg11);
 
 	return 0;
 }
@@ -32614,7 +32614,7 @@ static int _bind_mgl_vect_3d(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_vect_3d(gr, ax, ay, az, sch, opt);
+	::mgl_vect_3d(gr, ax, ay, az, sch, opt);
 
 	return 0;
 }
@@ -32635,7 +32635,7 @@ static int _bind_mgl_vect_3d_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_vect_3d_(gr, ax, ay, az, sch, opt, _arg7, _arg8);
+	::mgl_vect_3d_(gr, ax, ay, az, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -32655,7 +32655,7 @@ static int _bind_mgl_flow_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_flow_xy(gr, x, y, ax, ay, sch, opt);
+	::mgl_flow_xy(gr, x, y, ax, ay, sch, opt);
 
 	return 0;
 }
@@ -32677,7 +32677,7 @@ static int _bind_mgl_flow_xy_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_flow_xy_(gr, x, y, ax, ay, sch, opt, _arg8, _arg9);
+	::mgl_flow_xy_(gr, x, y, ax, ay, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -32695,7 +32695,7 @@ static int _bind_mgl_flow_2d(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_flow_2d(gr, ax, ay, sch, opt);
+	::mgl_flow_2d(gr, ax, ay, sch, opt);
 
 	return 0;
 }
@@ -32715,7 +32715,7 @@ static int _bind_mgl_flow_2d_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_flow_2d_(gr, ax, ay, sch, opt, _arg6, _arg7);
+	::mgl_flow_2d_(gr, ax, ay, sch, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -32737,7 +32737,7 @@ static int _bind_mgl_flow_xyz(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,8);
 	const char * opt=(const char *)lua_tostring(L,9);
 
-	mgl_flow_xyz(gr, x, y, z, ax, ay, az, sch, opt);
+	::mgl_flow_xyz(gr, x, y, z, ax, ay, az, sch, opt);
 
 	return 0;
 }
@@ -32761,7 +32761,7 @@ static int _bind_mgl_flow_xyz_(lua_State *L) {
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	mgl_flow_xyz_(gr, x, y, z, ax, ay, az, sch, opt, _arg10, _arg11);
+	::mgl_flow_xyz_(gr, x, y, z, ax, ay, az, sch, opt, _arg10, _arg11);
 
 	return 0;
 }
@@ -32780,7 +32780,7 @@ static int _bind_mgl_flow_3d(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_flow_3d(gr, ax, ay, az, sch, opt);
+	::mgl_flow_3d(gr, ax, ay, az, sch, opt);
 
 	return 0;
 }
@@ -32801,7 +32801,7 @@ static int _bind_mgl_flow_3d_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_flow_3d_(gr, ax, ay, az, sch, opt, _arg7, _arg8);
+	::mgl_flow_3d_(gr, ax, ay, az, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -32824,7 +32824,7 @@ static int _bind_mgl_flowp_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,9);
 	const char * opt=(const char *)lua_tostring(L,10);
 
-	mgl_flowp_xy(gr, x0, y0, z0, x, y, ax, ay, sch, opt);
+	::mgl_flowp_xy(gr, x0, y0, z0, x, y, ax, ay, sch, opt);
 
 	return 0;
 }
@@ -32849,7 +32849,7 @@ static int _bind_mgl_flowp_xy_(lua_State *L) {
 	int _arg11=(int)lua_tointeger(L,11);
 	int _arg12=(int)lua_tointeger(L,12);
 
-	mgl_flowp_xy_(gr, &x0, &y0, &z0, x, y, ax, ay, sch, opt, _arg11, _arg12);
+	::mgl_flowp_xy_(gr, &x0, &y0, &z0, x, y, ax, ay, sch, opt, _arg11, _arg12);
 
 	return 0;
 }
@@ -32870,7 +32870,7 @@ static int _bind_mgl_flowp_2d(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_flowp_2d(gr, x0, y0, z0, ax, ay, sch, opt);
+	::mgl_flowp_2d(gr, x0, y0, z0, ax, ay, sch, opt);
 
 	return 0;
 }
@@ -32893,7 +32893,7 @@ static int _bind_mgl_flowp_2d_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_flowp_2d_(gr, &x0, &y0, &z0, ax, ay, sch, opt, _arg9, _arg10);
+	::mgl_flowp_2d_(gr, &x0, &y0, &z0, ax, ay, sch, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -32918,7 +32918,7 @@ static int _bind_mgl_flowp_xyz(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,11);
 	const char * opt=(const char *)lua_tostring(L,12);
 
-	mgl_flowp_xyz(gr, x0, y0, z0, x, y, z, ax, ay, az, sch, opt);
+	::mgl_flowp_xyz(gr, x0, y0, z0, x, y, z, ax, ay, az, sch, opt);
 
 	return 0;
 }
@@ -32945,7 +32945,7 @@ static int _bind_mgl_flowp_xyz_(lua_State *L) {
 	int _arg13=(int)lua_tointeger(L,13);
 	int _arg14=(int)lua_tointeger(L,14);
 
-	mgl_flowp_xyz_(gr, &x0, &y0, &z0, x, y, z, ax, ay, az, sch, opt, _arg13, _arg14);
+	::mgl_flowp_xyz_(gr, &x0, &y0, &z0, x, y, z, ax, ay, az, sch, opt, _arg13, _arg14);
 
 	return 0;
 }
@@ -32967,7 +32967,7 @@ static int _bind_mgl_flowp_3d(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,8);
 	const char * opt=(const char *)lua_tostring(L,9);
 
-	mgl_flowp_3d(gr, x0, y0, z0, ax, ay, az, sch, opt);
+	::mgl_flowp_3d(gr, x0, y0, z0, ax, ay, az, sch, opt);
 
 	return 0;
 }
@@ -32991,7 +32991,7 @@ static int _bind_mgl_flowp_3d_(lua_State *L) {
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	mgl_flowp_3d_(gr, &x0, &y0, &z0, ax, ay, az, sch, opt, _arg10, _arg11);
+	::mgl_flowp_3d_(gr, &x0, &y0, &z0, ax, ay, az, sch, opt, _arg10, _arg11);
 
 	return 0;
 }
@@ -33012,7 +33012,7 @@ static int _bind_mgl_pipe_xy(lua_State *L) {
 	double r0=(double)lua_tonumber(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_pipe_xy(gr, x, y, ax, ay, sch, r0, opt);
+	::mgl_pipe_xy(gr, x, y, ax, ay, sch, r0, opt);
 
 	return 0;
 }
@@ -33035,7 +33035,7 @@ static int _bind_mgl_pipe_xy_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_pipe_xy_(gr, x, y, ax, ay, sch, &r0, opt, _arg9, _arg10);
+	::mgl_pipe_xy_(gr, x, y, ax, ay, sch, &r0, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -33054,7 +33054,7 @@ static int _bind_mgl_pipe_2d(lua_State *L) {
 	double r0=(double)lua_tonumber(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_pipe_2d(gr, ax, ay, sch, r0, opt);
+	::mgl_pipe_2d(gr, ax, ay, sch, r0, opt);
 
 	return 0;
 }
@@ -33075,7 +33075,7 @@ static int _bind_mgl_pipe_2d_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_pipe_2d_(gr, ax, ay, sch, &r0, opt, _arg7, _arg8);
+	::mgl_pipe_2d_(gr, ax, ay, sch, &r0, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -33098,7 +33098,7 @@ static int _bind_mgl_pipe_xyz(lua_State *L) {
 	double r0=(double)lua_tonumber(L,9);
 	const char * opt=(const char *)lua_tostring(L,10);
 
-	mgl_pipe_xyz(gr, x, y, z, ax, ay, az, sch, r0, opt);
+	::mgl_pipe_xyz(gr, x, y, z, ax, ay, az, sch, r0, opt);
 
 	return 0;
 }
@@ -33123,7 +33123,7 @@ static int _bind_mgl_pipe_xyz_(lua_State *L) {
 	int _arg11=(int)lua_tointeger(L,11);
 	int _arg12=(int)lua_tointeger(L,12);
 
-	mgl_pipe_xyz_(gr, x, y, z, ax, ay, az, sch, &r0, opt, _arg11, _arg12);
+	::mgl_pipe_xyz_(gr, x, y, z, ax, ay, az, sch, &r0, opt, _arg11, _arg12);
 
 	return 0;
 }
@@ -33143,7 +33143,7 @@ static int _bind_mgl_pipe_3d(lua_State *L) {
 	double r0=(double)lua_tonumber(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_pipe_3d(gr, ax, ay, az, sch, r0, opt);
+	::mgl_pipe_3d(gr, ax, ay, az, sch, r0, opt);
 
 	return 0;
 }
@@ -33165,7 +33165,7 @@ static int _bind_mgl_pipe_3d_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_pipe_3d_(gr, ax, ay, az, sch, &r0, opt, _arg8, _arg9);
+	::mgl_pipe_3d_(gr, ax, ay, az, sch, &r0, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -33185,7 +33185,7 @@ static int _bind_mgl_grad_xyz(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_grad_xyz(gr, x, y, z, ph, sch, opt);
+	::mgl_grad_xyz(gr, x, y, z, ph, sch, opt);
 
 	return 0;
 }
@@ -33207,7 +33207,7 @@ static int _bind_mgl_grad_xyz_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_grad_xyz_(gr, x, y, z, ph, sch, opt, _arg8, _arg9);
+	::mgl_grad_xyz_(gr, x, y, z, ph, sch, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -33226,7 +33226,7 @@ static int _bind_mgl_grad_xy(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_grad_xy(gr, x, y, ph, sch, opt);
+	::mgl_grad_xy(gr, x, y, ph, sch, opt);
 
 	return 0;
 }
@@ -33247,7 +33247,7 @@ static int _bind_mgl_grad_xy_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_grad_xy_(gr, x, y, ph, sch, opt, _arg7, _arg8);
+	::mgl_grad_xy_(gr, x, y, ph, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -33264,7 +33264,7 @@ static int _bind_mgl_grad(lua_State *L) {
 	const char * sch=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_grad(gr, ph, sch, opt);
+	::mgl_grad(gr, ph, sch, opt);
 
 	return 0;
 }
@@ -33283,7 +33283,7 @@ static int _bind_mgl_grad_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_grad_(gr, ph, sch, opt, _arg5, _arg6);
+	::mgl_grad_(gr, ph, sch, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -33306,7 +33306,7 @@ static int _bind_mgl_vect3_xyz(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,9);
 	const char * opt=(const char *)lua_tostring(L,10);
 
-	mgl_vect3_xyz(gr, x, y, z, ax, ay, az, sch, sVal, opt);
+	::mgl_vect3_xyz(gr, x, y, z, ax, ay, az, sch, sVal, opt);
 
 	return 0;
 }
@@ -33331,7 +33331,7 @@ static int _bind_mgl_vect3_xyz_(lua_State *L) {
 	int _arg11=(int)lua_tointeger(L,11);
 	int _arg12=(int)lua_tointeger(L,12);
 
-	mgl_vect3_xyz_(gr, x, y, z, ax, ay, az, sch, &sVal, opt, _arg11, _arg12);
+	::mgl_vect3_xyz_(gr, x, y, z, ax, ay, az, sch, &sVal, opt, _arg11, _arg12);
 
 	return 0;
 }
@@ -33351,7 +33351,7 @@ static int _bind_mgl_vect3(lua_State *L) {
 	double sVal=(double)lua_tonumber(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_vect3(gr, ax, ay, az, sch, sVal, opt);
+	::mgl_vect3(gr, ax, ay, az, sch, sVal, opt);
 
 	return 0;
 }
@@ -33373,7 +33373,7 @@ static int _bind_mgl_vect3_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_vect3_(gr, ax, ay, az, sch, &sVal, opt, _arg8, _arg9);
+	::mgl_vect3_(gr, ax, ay, az, sch, &sVal, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -33394,7 +33394,7 @@ static int _bind_mgl_surf3_xyz_val(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_surf3_xyz_val(graph, Val, x, y, z, a, stl, opt);
+	::mgl_surf3_xyz_val(graph, Val, x, y, z, a, stl, opt);
 
 	return 0;
 }
@@ -33417,7 +33417,7 @@ static int _bind_mgl_surf3_xyz_val_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_surf3_xyz_val_(graph, &Val, x, y, z, a, stl, opt, _arg9, _arg10);
+	::mgl_surf3_xyz_val_(graph, &Val, x, y, z, a, stl, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -33435,7 +33435,7 @@ static int _bind_mgl_surf3_val(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_surf3_val(graph, Val, a, stl, opt);
+	::mgl_surf3_val(graph, Val, a, stl, opt);
 
 	return 0;
 }
@@ -33455,7 +33455,7 @@ static int _bind_mgl_surf3_val_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_surf3_val_(graph, &Val, a, stl, opt, _arg6, _arg7);
+	::mgl_surf3_val_(graph, &Val, a, stl, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -33475,7 +33475,7 @@ static int _bind_mgl_surf3_xyz(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_surf3_xyz(graph, x, y, z, a, stl, opt);
+	::mgl_surf3_xyz(graph, x, y, z, a, stl, opt);
 
 	return 0;
 }
@@ -33497,7 +33497,7 @@ static int _bind_mgl_surf3_xyz_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_surf3_xyz_(graph, x, y, z, a, stl, opt, _arg8, _arg9);
+	::mgl_surf3_xyz_(graph, x, y, z, a, stl, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -33514,7 +33514,7 @@ static int _bind_mgl_surf3(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_surf3(graph, a, stl, opt);
+	::mgl_surf3(graph, a, stl, opt);
 
 	return 0;
 }
@@ -33533,7 +33533,7 @@ static int _bind_mgl_surf3_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_surf3_(graph, a, stl, opt, _arg5, _arg6);
+	::mgl_surf3_(graph, a, stl, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -33555,7 +33555,7 @@ static int _bind_mgl_surf3a_xyz_val(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,8);
 	const char * opt=(const char *)lua_tostring(L,9);
 
-	mgl_surf3a_xyz_val(graph, Val, x, y, z, a, b, stl, opt);
+	::mgl_surf3a_xyz_val(graph, Val, x, y, z, a, b, stl, opt);
 
 	return 0;
 }
@@ -33579,7 +33579,7 @@ static int _bind_mgl_surf3a_xyz_val_(lua_State *L) {
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	mgl_surf3a_xyz_val_(graph, &Val, x, y, z, a, b, stl, opt, _arg10, _arg11);
+	::mgl_surf3a_xyz_val_(graph, &Val, x, y, z, a, b, stl, opt, _arg10, _arg11);
 
 	return 0;
 }
@@ -33598,7 +33598,7 @@ static int _bind_mgl_surf3a_val(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_surf3a_val(graph, Val, a, b, stl, opt);
+	::mgl_surf3a_val(graph, Val, a, b, stl, opt);
 
 	return 0;
 }
@@ -33619,7 +33619,7 @@ static int _bind_mgl_surf3a_val_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_surf3a_val_(graph, &Val, a, b, stl, opt, _arg7, _arg8);
+	::mgl_surf3a_val_(graph, &Val, a, b, stl, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -33640,7 +33640,7 @@ static int _bind_mgl_surf3a_xyz(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_surf3a_xyz(graph, x, y, z, a, b, stl, opt);
+	::mgl_surf3a_xyz(graph, x, y, z, a, b, stl, opt);
 
 	return 0;
 }
@@ -33663,7 +33663,7 @@ static int _bind_mgl_surf3a_xyz_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_surf3a_xyz_(graph, x, y, z, a, b, stl, opt, _arg9, _arg10);
+	::mgl_surf3a_xyz_(graph, x, y, z, a, b, stl, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -33681,7 +33681,7 @@ static int _bind_mgl_surf3a(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_surf3a(graph, a, b, stl, opt);
+	::mgl_surf3a(graph, a, b, stl, opt);
 
 	return 0;
 }
@@ -33701,7 +33701,7 @@ static int _bind_mgl_surf3a_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_surf3a_(graph, a, b, stl, opt, _arg6, _arg7);
+	::mgl_surf3a_(graph, a, b, stl, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -33723,7 +33723,7 @@ static int _bind_mgl_surf3c_xyz_val(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,8);
 	const char * opt=(const char *)lua_tostring(L,9);
 
-	mgl_surf3c_xyz_val(graph, Val, x, y, z, a, b, stl, opt);
+	::mgl_surf3c_xyz_val(graph, Val, x, y, z, a, b, stl, opt);
 
 	return 0;
 }
@@ -33747,7 +33747,7 @@ static int _bind_mgl_surf3c_xyz_val_(lua_State *L) {
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	mgl_surf3c_xyz_val_(graph, &Val, x, y, z, a, b, stl, opt, _arg10, _arg11);
+	::mgl_surf3c_xyz_val_(graph, &Val, x, y, z, a, b, stl, opt, _arg10, _arg11);
 
 	return 0;
 }
@@ -33766,7 +33766,7 @@ static int _bind_mgl_surf3c_val(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 
-	mgl_surf3c_val(graph, Val, a, b, stl, opt);
+	::mgl_surf3c_val(graph, Val, a, b, stl, opt);
 
 	return 0;
 }
@@ -33787,7 +33787,7 @@ static int _bind_mgl_surf3c_val_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	mgl_surf3c_val_(graph, &Val, a, b, stl, opt, _arg7, _arg8);
+	::mgl_surf3c_val_(graph, &Val, a, b, stl, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -33808,7 +33808,7 @@ static int _bind_mgl_surf3c_xyz(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 
-	mgl_surf3c_xyz(graph, x, y, z, a, b, stl, opt);
+	::mgl_surf3c_xyz(graph, x, y, z, a, b, stl, opt);
 
 	return 0;
 }
@@ -33831,7 +33831,7 @@ static int _bind_mgl_surf3c_xyz_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	mgl_surf3c_xyz_(graph, x, y, z, a, b, stl, opt, _arg9, _arg10);
+	::mgl_surf3c_xyz_(graph, x, y, z, a, b, stl, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -33849,7 +33849,7 @@ static int _bind_mgl_surf3c(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 
-	mgl_surf3c(graph, a, b, stl, opt);
+	::mgl_surf3c(graph, a, b, stl, opt);
 
 	return 0;
 }
@@ -33869,7 +33869,7 @@ static int _bind_mgl_surf3c_(lua_State *L) {
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	mgl_surf3c_(graph, a, b, stl, opt, _arg6, _arg7);
+	::mgl_surf3c_(graph, a, b, stl, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -33889,7 +33889,7 @@ static int _bind_mgl_cloud_xyz(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 
-	mgl_cloud_xyz(graph, x, y, z, a, stl, opt);
+	::mgl_cloud_xyz(graph, x, y, z, a, stl, opt);
 
 	return 0;
 }
@@ -33911,7 +33911,7 @@ static int _bind_mgl_cloud_xyz_(lua_State *L) {
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	mgl_cloud_xyz_(graph, x, y, z, a, stl, opt, _arg8, _arg9);
+	::mgl_cloud_xyz_(graph, x, y, z, a, stl, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -33928,7 +33928,7 @@ static int _bind_mgl_cloud(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 
-	mgl_cloud(graph, a, stl, opt);
+	::mgl_cloud(graph, a, stl, opt);
 
 	return 0;
 }
@@ -33947,7 +33947,7 @@ static int _bind_mgl_cloud_(lua_State *L) {
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	mgl_cloud_(graph, a, stl, opt, _arg5, _arg6);
+	::mgl_cloud_(graph, a, stl, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -33969,7 +33969,7 @@ static int _bind_mgl_beam_val(lua_State *L) {
 	const char * stl=(const char *)lua_tostring(L,8);
 	int norm=(int)lua_tointeger(L,9);
 
-	mgl_beam_val(graph, Val, tr, g1, g2, a, r, stl, norm);
+	::mgl_beam_val(graph, Val, tr, g1, g2, a, r, stl, norm);
 
 	return 0;
 }
@@ -33992,7 +33992,7 @@ static int _bind_mgl_beam_val_(lua_State *L) {
 	int norm=(int)lua_tointeger(L,9);
 	int l=(int)lua_tointeger(L,10);
 
-	mgl_beam_val_(gr, &val, tr, g1, g2, a, &r, sch, &norm, l);
+	::mgl_beam_val_(gr, &val, tr, g1, g2, a, &r, sch, &norm, l);
 
 	return 0;
 }
@@ -34014,7 +34014,7 @@ static int _bind_mgl_beam(lua_State *L) {
 	int norm=(int)lua_tointeger(L,8);
 	int num=(int)lua_tointeger(L,9);
 
-	mgl_beam(graph, tr, g1, g2, a, r, stl, norm, num);
+	::mgl_beam(graph, tr, g1, g2, a, r, stl, norm, num);
 
 	return 0;
 }
@@ -34037,7 +34037,7 @@ static int _bind_mgl_beam_(lua_State *L) {
 	int num=(int)lua_tointeger(L,9);
 	int l=(int)lua_tointeger(L,10);
 
-	mgl_beam_(gr, tr, g1, g2, a, &r, sch, &norm, &num, l);
+	::mgl_beam_(gr, tr, g1, g2, a, &r, sch, &norm, &num, l);
 
 	return 0;
 }
@@ -34052,7 +34052,7 @@ static int _bind_mgl_draw_graph(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	void* p=(Luna< void >::check(L,2));
 
-	int lret = mgl_draw_graph(gr, p);
+	int lret = ::mgl_draw_graph(gr, p);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -34068,7 +34068,7 @@ static int _bind_mgl_draw_class(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	void* p=(Luna< void >::check(L,2));
 
-	int lret = mgl_draw_class(gr, p);
+	int lret = ::mgl_draw_class(gr, p);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -34083,7 +34083,7 @@ static int _bind_mgl_click_class(lua_State *L) {
 
 	void* p=(Luna< void >::check(L,1));
 
-	mgl_click_class(p);
+	::mgl_click_class(p);
 
 	return 0;
 }
@@ -34097,7 +34097,7 @@ static int _bind_mgl_reload_class(lua_State *L) {
 
 	void* p=(Luna< void >::check(L,1));
 
-	mgl_reload_class(p);
+	::mgl_reload_class(p);
 
 	return 0;
 }

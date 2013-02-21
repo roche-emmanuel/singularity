@@ -1280,7 +1280,7 @@ static int _bind_wxAboutBox(lua_State *L) {
 	const wxAboutDialogInfo & info=*info_ptr;
 	wxWindow* parent=luatop>1 ? (Luna< wxObject >::checkSubType< wxWindow >(L,2)) : (wxWindow*)NULL;
 
-	wxAboutBox(info, parent);
+	::wxAboutBox(info, parent);
 
 	return 0;
 }
@@ -1296,7 +1296,7 @@ static int _bind_wxHandleFatalExceptions(lua_State *L) {
 
 	bool doIt=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
 
-	bool lret = wxHandleFatalExceptions(doIt);
+	bool lret = ::wxHandleFatalExceptions(doIt);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1310,7 +1310,7 @@ static int _bind_wxInitialize(lua_State *L) {
 	}
 
 
-	bool lret = wxInitialize();
+	bool lret = ::wxInitialize();
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1324,7 +1324,7 @@ static int _bind_wxUninitialize_overload_1(lua_State *L) {
 	}
 
 
-	wxUninitialize();
+	::wxUninitialize();
 
 	return 0;
 }
@@ -1337,7 +1337,7 @@ static int _bind_wxUninitialize_overload_2(lua_State *L) {
 	}
 
 
-	wxUninitialize();
+	::wxUninitialize();
 
 	return 0;
 }
@@ -1359,7 +1359,7 @@ static int _bind_wxWakeUpIdle(lua_State *L) {
 	}
 
 
-	wxWakeUpIdle();
+	::wxWakeUpIdle();
 
 	return 0;
 }
@@ -1372,7 +1372,7 @@ static int _bind_wxYield(lua_State *L) {
 	}
 
 
-	bool lret = wxYield();
+	bool lret = ::wxYield();
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1390,7 +1390,7 @@ static int _bind_wxSafeYield(lua_State *L) {
 	wxWindow* win=luatop>0 ? (Luna< wxObject >::checkSubType< wxWindow >(L,1)) : (wxWindow*)NULL;
 	bool onlyIfNeeded=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
 
-	bool lret = wxSafeYield(win, onlyIfNeeded);
+	bool lret = ::wxSafeYield(win, onlyIfNeeded);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1404,7 +1404,7 @@ static int _bind_wxExit(lua_State *L) {
 	}
 
 
-	wxExit();
+	::wxExit();
 
 	return 0;
 }
@@ -1421,7 +1421,7 @@ static int _bind_wxBase64Encode_overload_1(lua_State *L) {
 	void* src=(Luna< void >::check(L,3));
 	size_t srcLen=(size_t)lua_tointeger(L,4);
 
-	size_t lret = wxBase64Encode(&dst, dstLen, src, srcLen);
+	size_t lret = ::wxBase64Encode(&dst, dstLen, src, srcLen);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1437,7 +1437,7 @@ static int _bind_wxBase64Encode_overload_2(lua_State *L) {
 	void* src=(Luna< void >::check(L,1));
 	size_t srcLen=(size_t)lua_tointeger(L,2);
 
-	wxString lret = wxBase64Encode(src, srcLen);
+	wxString lret = ::wxBase64Encode(src, srcLen);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -1461,7 +1461,7 @@ static int _bind_wxBase64EncodedSize(lua_State *L) {
 
 	size_t len=(size_t)lua_tointeger(L,1);
 
-	size_t lret = wxBase64EncodedSize(len);
+	size_t lret = ::wxBase64EncodedSize(len);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1476,7 +1476,7 @@ static int _bind_wxCreatePersistentObject_overload_1(lua_State *L) {
 
 	wxBookCtrlBase* book=(Luna< wxObject >::checkSubType< wxBookCtrlBase >(L,1));
 
-	wxPersistentObject * lret = wxCreatePersistentObject(book);
+	wxPersistentObject * lret = ::wxCreatePersistentObject(book);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< wxPersistentObject >::push(L,lret,false);
@@ -1493,7 +1493,7 @@ static int _bind_wxCreatePersistentObject_overload_2(lua_State *L) {
 
 	wxTopLevelWindow* book=(Luna< wxObject >::checkSubType< wxTopLevelWindow >(L,1));
 
-	wxPersistentObject * lret = wxCreatePersistentObject(book);
+	wxPersistentObject * lret = ::wxCreatePersistentObject(book);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< wxPersistentObject >::push(L,lret,false);
@@ -1510,7 +1510,7 @@ static int _bind_wxCreatePersistentObject_overload_3(lua_State *L) {
 
 	wxTreebook* book=(Luna< wxObject >::checkSubType< wxTreebook >(L,1));
 
-	wxPersistentObject * lret = wxCreatePersistentObject(book);
+	wxPersistentObject * lret = ::wxCreatePersistentObject(book);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< wxPersistentObject >::push(L,lret,false);
@@ -1552,7 +1552,7 @@ static int _bind_wxGetSingleChoiceIndex_overload_1(lua_State *L) {
 	int height=luatop>8 ? (int)lua_tointeger(L,9) : 200;
 	int initialSelection=luatop>9 ? (int)lua_tointeger(L,10) : 0;
 
-	int lret = wxGetSingleChoiceIndex(message, caption, aChoices, parent, x, y, centre, width, height, initialSelection);
+	int lret = ::wxGetSingleChoiceIndex(message, caption, aChoices, parent, x, y, centre, width, height, initialSelection);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1577,7 +1577,7 @@ static int _bind_wxGetSingleChoiceIndex_overload_2(lua_State *L) {
 	int initialSelection=(int)lua_tointeger(L,4);
 	wxWindow* parent=luatop>4 ? (Luna< wxObject >::checkSubType< wxWindow >(L,5)) : (wxWindow*)NULL;
 
-	int lret = wxGetSingleChoiceIndex(message, caption, choices, initialSelection, parent);
+	int lret = ::wxGetSingleChoiceIndex(message, caption, choices, initialSelection, parent);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1599,7 +1599,7 @@ static int _bind_wxGetSingleChoiceIndex_overload_3(lua_State *L) {
 	int initialSelection=(int)lua_tointeger(L,5);
 	wxWindow* parent=luatop>5 ? (Luna< wxObject >::checkSubType< wxWindow >(L,6)) : (wxWindow*)NULL;
 
-	int lret = wxGetSingleChoiceIndex(message, caption, n, &choices, initialSelection, parent);
+	int lret = ::wxGetSingleChoiceIndex(message, caption, n, &choices, initialSelection, parent);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1639,7 +1639,7 @@ static int _bind_wxGetSingleChoice_overload_1(lua_State *L) {
 	int height=luatop>8 ? (int)lua_tointeger(L,9) : 200;
 	int initialSelection=luatop>9 ? (int)lua_tointeger(L,10) : 0;
 
-	wxString lret = wxGetSingleChoice(message, caption, aChoices, parent, x, y, centre, width, height, initialSelection);
+	wxString lret = ::wxGetSingleChoice(message, caption, aChoices, parent, x, y, centre, width, height, initialSelection);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -1664,7 +1664,7 @@ static int _bind_wxGetSingleChoice_overload_2(lua_State *L) {
 	int initialSelection=(int)lua_tointeger(L,4);
 	wxWindow* parent=luatop>4 ? (Luna< wxObject >::checkSubType< wxWindow >(L,5)) : (wxWindow*)NULL;
 
-	wxString lret = wxGetSingleChoice(message, caption, choices, initialSelection, parent);
+	wxString lret = ::wxGetSingleChoice(message, caption, choices, initialSelection, parent);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -1686,7 +1686,7 @@ static int _bind_wxGetSingleChoice_overload_3(lua_State *L) {
 	int initialSelection=(int)lua_tointeger(L,5);
 	wxWindow* parent=luatop>5 ? (Luna< wxObject >::checkSubType< wxWindow >(L,6)) : (wxWindow*)NULL;
 
-	wxString lret = wxGetSingleChoice(message, caption, n, &choices, initialSelection, parent);
+	wxString lret = ::wxGetSingleChoice(message, caption, n, &choices, initialSelection, parent);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -1730,7 +1730,7 @@ static int _bind_wxGetSelectedChoices(lua_State *L) {
 	int width=luatop>8 ? (int)lua_tointeger(L,9) : 150;
 	int height=luatop>9 ? (int)lua_tointeger(L,10) : 200;
 
-	int lret = wxGetSelectedChoices(selections, message, caption, aChoices, parent, x, y, centre, width, height);
+	int lret = ::wxGetSelectedChoices(selections, message, caption, aChoices, parent, x, y, centre, width, height);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1754,7 +1754,7 @@ static int _bind_wxGetColourFromUser(lua_State *L) {
 	wxString caption(lua_tostring(L,3),lua_objlen(L,3));
 	wxColourData* data=luatop>3 ? (Luna< wxObject >::checkSubType< wxColourData >(L,4)) : (wxColourData*)NULL;
 
-	wxColour stack_lret = wxGetColourFromUser(parent, colInit, caption, data);
+	wxColour stack_lret = ::wxGetColourFromUser(parent, colInit, caption, data);
 	wxColour* lret = new wxColour(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1773,7 +1773,7 @@ static int _bind_wxFromString_overload_1(lua_State *L) {
 	wxString string(lua_tostring(L,1),lua_objlen(L,1));
 	wxColour* colour=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 
-	bool lret = wxFromString(string, colour);
+	bool lret = ::wxFromString(string, colour);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1789,7 +1789,7 @@ static int _bind_wxFromString_overload_2(lua_State *L) {
 	wxString string(lua_tostring(L,1),lua_objlen(L,1));
 	wxFont* font=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 
-	bool lret = wxFromString(string, font);
+	bool lret = ::wxFromString(string, font);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1817,7 +1817,7 @@ static int _bind_wxToString_overload_1(lua_State *L) {
 	}
 	const wxColour & colour=*colour_ptr;
 
-	wxString lret = wxToString(colour);
+	wxString lret = ::wxToString(colour);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -1836,7 +1836,7 @@ static int _bind_wxToString_overload_2(lua_State *L) {
 	}
 	const wxFont & font=*font_ptr;
 
-	wxString lret = wxToString(font);
+	wxString lret = ::wxToString(font);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -1859,7 +1859,7 @@ static int _bind_wxDDECleanUp(lua_State *L) {
 	}
 
 
-	wxDDECleanUp();
+	::wxDDECleanUp();
 
 	return 0;
 }
@@ -1872,7 +1872,7 @@ static int _bind_wxDDEInitialize(lua_State *L) {
 	}
 
 
-	wxDDEInitialize();
+	::wxDDEInitialize();
 
 	return 0;
 }
@@ -1885,7 +1885,7 @@ static int _bind_wxDisableAsserts(lua_State *L) {
 	}
 
 
-	wxDisableAsserts();
+	::wxDisableAsserts();
 
 	return 0;
 }
@@ -1898,7 +1898,7 @@ static int _bind_wxIsDebuggerRunning(lua_State *L) {
 	}
 
 
-	bool lret = wxIsDebuggerRunning();
+	bool lret = ::wxIsDebuggerRunning();
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1912,7 +1912,7 @@ static int _bind_wxSetDefaultAssertHandler(lua_State *L) {
 	}
 
 
-	wxSetDefaultAssertHandler();
+	::wxSetDefaultAssertHandler();
 
 	return 0;
 }
@@ -1925,7 +1925,7 @@ static int _bind_wxTrap(lua_State *L) {
 	}
 
 
-	wxTrap();
+	::wxTrap();
 
 	return 0;
 }
@@ -1949,7 +1949,7 @@ static int _bind_wxDirSelector(lua_State *L) {
 	const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
 	wxWindow* parent=luatop>4 ? (Luna< wxObject >::checkSubType< wxWindow >(L,5)) : (wxWindow*)NULL;
 
-	wxString lret = wxDirSelector(message, default_path, style, pos, parent);
+	wxString lret = ::wxDirSelector(message, default_path, style, pos, parent);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -1963,7 +1963,7 @@ static int _bind_wxNewEventType(lua_State *L) {
 	}
 
 
-	int lret = wxNewEventType();
+	int lret = ::wxNewEventType();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1983,7 +1983,7 @@ static int _bind_wxPostEvent(lua_State *L) {
 	}
 	const wxEvent & event=*event_ptr;
 
-	wxPostEvent(dest, event);
+	::wxPostEvent(dest, event);
 
 	return 0;
 }
@@ -1998,7 +1998,7 @@ static int _bind_wxQueueEvent(lua_State *L) {
 	wxEvtHandler* dest=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
 	wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
 
-	wxQueueEvent(dest, event);
+	::wxQueueEvent(dest, event);
 
 	return 0;
 }
@@ -2022,7 +2022,7 @@ static int _bind_wxFileSelector(lua_State *L) {
 	int x=luatop>7 ? (int)lua_tointeger(L,8) : -1;
 	int y=luatop>8 ? (int)lua_tointeger(L,9) : -1;
 
-	wxString lret = wxFileSelector(message, default_path, default_filename, default_extension, wildcard, flags, parent, x, y);
+	wxString lret = ::wxFileSelector(message, default_path, default_filename, default_extension, wildcard, flags, parent, x, y);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -2036,7 +2036,7 @@ static int _bind_wxGetOSDirectory(lua_State *L) {
 	}
 
 
-	wxString lret = wxGetOSDirectory();
+	wxString lret = ::wxGetOSDirectory();
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -2061,7 +2061,7 @@ static int _bind_wxParseCommonDialogsFilter(lua_State *L) {
 	}
 	wxArrayString & filters=*filters_ptr;
 
-	int lret = wxParseCommonDialogsFilter(wildCard, descriptions, filters);
+	int lret = ::wxParseCommonDialogsFilter(wildCard, descriptions, filters);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2076,7 +2076,7 @@ static int _bind_wxDos2UnixFilename(lua_State *L) {
 
 	wxChar * s=(wxChar *)lua_tostring(L,1);
 
-	wxDos2UnixFilename(s);
+	::wxDos2UnixFilename(s);
 
 	return 0;
 }
@@ -2090,7 +2090,7 @@ static int _bind_wxUnix2DosFilename(lua_State *L) {
 
 	wxChar * s=(wxChar *)lua_tostring(L,1);
 
-	wxUnix2DosFilename(s);
+	::wxUnix2DosFilename(s);
 
 	return 0;
 }
@@ -2104,7 +2104,7 @@ static int _bind_wxDirExists(lua_State *L) {
 
 	wxString dirname(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = wxDirExists(dirname);
+	bool lret = ::wxDirExists(dirname);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2123,7 +2123,7 @@ static int _bind_wxCopyFile(lua_State *L) {
 	wxString file2(lua_tostring(L,2),lua_objlen(L,2));
 	bool overwrite=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
 
-	bool lret = wxCopyFile(file1, file2, overwrite);
+	bool lret = ::wxCopyFile(file1, file2, overwrite);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2138,7 +2138,7 @@ static int _bind_wxFileExists(lua_State *L) {
 
 	wxString filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = wxFileExists(filename);
+	bool lret = ::wxFileExists(filename);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2155,7 +2155,7 @@ static int _bind_wxMatchWild(lua_State *L) {
 	wxString text(lua_tostring(L,2),lua_objlen(L,2));
 	bool dot_special=(bool)(lua_toboolean(L,3)==1);
 
-	bool lret = wxMatchWild(pattern, text, dot_special);
+	bool lret = ::wxMatchWild(pattern, text, dot_special);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2170,7 +2170,7 @@ static int _bind_wxPathOnly(lua_State *L) {
 
 	wxString path(lua_tostring(L,1),lua_objlen(L,1));
 
-	wxString lret = wxPathOnly(path);
+	wxString lret = ::wxPathOnly(path);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -2185,7 +2185,7 @@ static int _bind_wxIsWild(lua_State *L) {
 
 	wxString pattern(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = wxIsWild(pattern);
+	bool lret = ::wxIsWild(pattern);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2200,7 +2200,7 @@ static int _bind_wxIsAbsolutePath(lua_State *L) {
 
 	wxString filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = wxIsAbsolutePath(filename);
+	bool lret = ::wxIsAbsolutePath(filename);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2214,7 +2214,7 @@ static int _bind_wxGetCwd(lua_State *L) {
 	}
 
 
-	wxString lret = wxGetCwd();
+	wxString lret = ::wxGetCwd();
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -2229,7 +2229,7 @@ static int _bind_wxSetWorkingDirectory(lua_State *L) {
 
 	wxString dir(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = wxSetWorkingDirectory(dir);
+	bool lret = ::wxSetWorkingDirectory(dir);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2246,7 +2246,7 @@ static int _bind_wxConcatFiles(lua_State *L) {
 	wxString file2(lua_tostring(L,2),lua_objlen(L,2));
 	wxString file3(lua_tostring(L,3),lua_objlen(L,3));
 
-	bool lret = wxConcatFiles(file1, file2, file3);
+	bool lret = ::wxConcatFiles(file1, file2, file3);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2264,7 +2264,7 @@ static int _bind_wxMkdir(lua_State *L) {
 	wxString dir(lua_tostring(L,1),lua_objlen(L,1));
 	int perm=luatop>1 ? (int)lua_tointeger(L,2) : ::wxS_DIR_DEFAULT;
 
-	bool lret = wxMkdir(dir, perm);
+	bool lret = ::wxMkdir(dir, perm);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2282,7 +2282,7 @@ static int _bind_wxRmdir(lua_State *L) {
 	wxString dir(lua_tostring(L,1),lua_objlen(L,1));
 	int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
 
-	bool lret = wxRmdir(dir, flags);
+	bool lret = ::wxRmdir(dir, flags);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2296,7 +2296,7 @@ static int _bind_wxFindNextFile(lua_State *L) {
 	}
 
 
-	wxString lret = wxFindNextFile();
+	wxString lret = ::wxFindNextFile();
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -2314,7 +2314,7 @@ static int _bind_wxFindFirstFile(lua_State *L) {
 	wxString spec(lua_tostring(L,1),lua_objlen(L,1));
 	int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
 
-	wxString lret = wxFindFirstFile(spec, flags);
+	wxString lret = ::wxFindFirstFile(spec, flags);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -2329,7 +2329,7 @@ static int _bind_wxGetFileKind(lua_State *L) {
 
 	int fd=(int)lua_tointeger(L,1);
 
-	wxFileKind lret = wxGetFileKind(fd);
+	wxFileKind lret = ::wxGetFileKind(fd);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2352,7 +2352,7 @@ static int _bind_wxGetFontFromUser(lua_State *L) {
 	const wxFont & fontInit=*fontInit_ptr;
 	wxString caption(lua_tostring(L,3),lua_objlen(L,3));
 
-	wxFont stack_lret = wxGetFontFromUser(parent, fontInit, caption);
+	wxFont stack_lret = ::wxGetFontFromUser(parent, fontInit, caption);
 	wxFont* lret = new wxFont(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2369,7 +2369,7 @@ static int _bind_wxColourDisplay(lua_State *L) {
 	}
 
 
-	bool lret = wxColourDisplay();
+	bool lret = ::wxColourDisplay();
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2383,7 +2383,7 @@ static int _bind_wxDisplayDepth(lua_State *L) {
 	}
 
 
-	int lret = wxDisplayDepth();
+	int lret = ::wxDisplayDepth();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2402,7 +2402,7 @@ static int _bind_wxSetCursor(lua_State *L) {
 	}
 	const wxCursor & cursor=*cursor_ptr;
 
-	wxSetCursor(cursor);
+	::wxSetCursor(cursor);
 
 	return 0;
 }
@@ -2419,7 +2419,7 @@ static int _bind_wxClientDisplayRect(lua_State *L) {
 	int width=(int)lua_tointeger(L,3);
 	int height=(int)lua_tointeger(L,4);
 
-	wxClientDisplayRect(&x, &y, &width, &height);
+	::wxClientDisplayRect(&x, &y, &width, &height);
 
 	return 0;
 }
@@ -2432,7 +2432,7 @@ static int _bind_wxGetClientDisplayRect(lua_State *L) {
 	}
 
 
-	wxRect stack_lret = wxGetClientDisplayRect();
+	wxRect stack_lret = ::wxGetClientDisplayRect();
 	wxRect* lret = new wxRect(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2449,7 +2449,7 @@ static int _bind_wxGetDisplayPPI(lua_State *L) {
 	}
 
 
-	wxSize stack_lret = wxGetDisplayPPI();
+	wxSize stack_lret = ::wxGetDisplayPPI();
 	wxSize* lret = new wxSize(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2468,7 +2468,7 @@ static int _bind_wxDisplaySize(lua_State *L) {
 	int width=(int)lua_tointeger(L,1);
 	int height=(int)lua_tointeger(L,2);
 
-	wxDisplaySize(&width, &height);
+	::wxDisplaySize(&width, &height);
 
 	return 0;
 }
@@ -2481,7 +2481,7 @@ static int _bind_wxGetDisplaySize(lua_State *L) {
 	}
 
 
-	wxSize stack_lret = wxGetDisplaySize();
+	wxSize stack_lret = ::wxGetDisplaySize();
 	wxSize* lret = new wxSize(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2500,7 +2500,7 @@ static int _bind_wxDisplaySizeMM(lua_State *L) {
 	int width=(int)lua_tointeger(L,1);
 	int height=(int)lua_tointeger(L,2);
 
-	wxDisplaySizeMM(&width, &height);
+	::wxDisplaySizeMM(&width, &height);
 
 	return 0;
 }
@@ -2513,7 +2513,7 @@ static int _bind_wxGetDisplaySizeMM(lua_State *L) {
 	}
 
 
-	wxSize stack_lret = wxGetDisplaySizeMM();
+	wxSize stack_lret = ::wxGetDisplaySizeMM();
 	wxSize* lret = new wxSize(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2530,7 +2530,7 @@ static int _bind_wxGetApp(lua_State *L) {
 	}
 
 
-	const sgtApp* lret = &wxGetApp();
+	const sgtApp* lret = &::wxGetApp();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< sgtApp >::push(L,lret,false);
@@ -2546,7 +2546,7 @@ static int _bind_wxInitAllImageHandlers(lua_State *L) {
 	}
 
 
-	wxInitAllImageHandlers();
+	::wxInitAllImageHandlers();
 
 	return 0;
 }
@@ -2559,7 +2559,7 @@ static int _bind_wxEntryCleanup(lua_State *L) {
 	}
 
 
-	wxEntryCleanup();
+	::wxEntryCleanup();
 
 	return 0;
 }
@@ -2574,7 +2574,7 @@ static int _bind_wxSafeShowMessage(lua_State *L) {
 	wxString title(lua_tostring(L,1),lua_objlen(L,1));
 	wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
-	wxSafeShowMessage(title, text);
+	::wxSafeShowMessage(title, text);
 
 	return 0;
 }
@@ -2587,7 +2587,7 @@ static int _bind_wxSysErrorCode(lua_State *L) {
 	}
 
 
-	unsigned long lret = wxSysErrorCode();
+	unsigned long lret = ::wxSysErrorCode();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2602,7 +2602,7 @@ static int _bind_wxFinite(lua_State *L) {
 
 	double x=(double)lua_tonumber(L,1);
 
-	int lret = wxFinite(x);
+	int lret = ::wxFinite(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2617,7 +2617,7 @@ static int _bind_wxIsNaN(lua_State *L) {
 
 	double x=(double)lua_tonumber(L,1);
 
-	bool lret = wxIsNaN(x);
+	bool lret = ::wxIsNaN(x);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2633,7 +2633,7 @@ static int _bind_wxIsSameDouble(lua_State *L) {
 	double x=(double)lua_tonumber(L,1);
 	double y=(double)lua_tonumber(L,2);
 
-	bool lret = wxIsSameDouble(x, y);
+	bool lret = ::wxIsSameDouble(x, y);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2648,7 +2648,7 @@ static int _bind_wxIsNullDouble(lua_State *L) {
 
 	double x=(double)lua_tonumber(L,1);
 
-	bool lret = wxIsNullDouble(x);
+	bool lret = ::wxIsNullDouble(x);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2670,7 +2670,7 @@ static int _bind_wxMessageBox(lua_State *L) {
 	int x=luatop>4 ? (int)lua_tointeger(L,5) : ::wxDefaultCoord;
 	int y=luatop>5 ? (int)lua_tointeger(L,6) : ::wxDefaultCoord;
 
-	int lret = wxMessageBox(message, caption, style, parent, x, y);
+	int lret = ::wxMessageBox(message, caption, style, parent, x, y);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2698,7 +2698,7 @@ static int _bind_wxGetNumberFromUser(lua_State *L) {
 	}
 	const wxPoint & pos=luatop>7 ? *pos_ptr : wxDefaultPosition;
 
-	long lret = wxGetNumberFromUser(message, prompt, caption, value, min, max, parent, pos);
+	long lret = ::wxGetNumberFromUser(message, prompt, caption, value, min, max, parent, pos);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2713,7 +2713,7 @@ static int _bind_wxCreateDynamicObject(lua_State *L) {
 
 	wxString className(lua_tostring(L,1),lua_objlen(L,1));
 
-	wxObject * lret = wxCreateDynamicObject(className);
+	wxObject * lret = ::wxCreateDynamicObject(className);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< wxObject >::push(L,lret,false);
@@ -2749,7 +2749,7 @@ static int _bind_wxTextAttrCollectCommonAttributes(lua_State *L) {
 	}
 	wxTextAttr & absentAttr=*absentAttr_ptr;
 
-	wxTextAttrCollectCommonAttributes(currentStyle, attr, clashingAttr, absentAttr);
+	::wxTextAttrCollectCommonAttributes(currentStyle, attr, clashingAttr, absentAttr);
 
 	return 0;
 }
@@ -2766,7 +2766,7 @@ static int _bind_wxGetStockLabel(lua_State *L) {
 	int id=(int)lua_tointeger(L,1);
 	long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxSTOCK_WITH_MNEMONIC;
 
-	wxString lret = wxGetStockLabel(id, flags);
+	wxString lret = ::wxGetStockLabel(id, flags);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -2789,7 +2789,7 @@ static int _bind_wxGetTextFromUser(lua_State *L) {
 	int y=luatop>5 ? (int)lua_tointeger(L,6) : ::wxDefaultCoord;
 	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
 
-	wxString lret = wxGetTextFromUser(message, caption, default_value, parent, x, y, centre);
+	wxString lret = ::wxGetTextFromUser(message, caption, default_value, parent, x, y, centre);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -2812,7 +2812,7 @@ static int _bind_wxGetPasswordFromUser(lua_State *L) {
 	int y=luatop>5 ? (int)lua_tointeger(L,6) : ::wxDefaultCoord;
 	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
 
-	wxString lret = wxGetPasswordFromUser(message, caption, default_value, parent, x, y, centre);
+	wxString lret = ::wxGetPasswordFromUser(message, caption, default_value, parent, x, y, centre);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -2826,7 +2826,7 @@ static int _bind_wxIsMainThread(lua_State *L) {
 	}
 
 
-	bool lret = wxIsMainThread();
+	bool lret = ::wxIsMainThread();
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2840,7 +2840,7 @@ static int _bind_wxGetTimeZone(lua_State *L) {
 	}
 
 
-	int lret = wxGetTimeZone();
+	int lret = ::wxGetTimeZone();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2854,7 +2854,7 @@ static int _bind_wxGetLocalTime(lua_State *L) {
 	}
 
 
-	long lret = wxGetLocalTime();
+	long lret = ::wxGetLocalTime();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2868,7 +2868,7 @@ static int _bind_wxGetLocalTimeMillis(lua_State *L) {
 	}
 
 
-	wxLongLong stack_lret = wxGetLocalTimeMillis();
+	wxLongLong stack_lret = ::wxGetLocalTimeMillis();
 	wxLongLong* lret = new wxLongLong(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2885,7 +2885,7 @@ static int _bind_wxGetUTCTime(lua_State *L) {
 	}
 
 
-	long lret = wxGetUTCTime();
+	long lret = ::wxGetUTCTime();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2899,7 +2899,7 @@ static int _bind_wxGetUTCTimeMillis(lua_State *L) {
 	}
 
 
-	wxLongLong stack_lret = wxGetUTCTimeMillis();
+	wxLongLong stack_lret = ::wxGetUTCTimeMillis();
 	wxLongLong* lret = new wxLongLong(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2916,7 +2916,7 @@ static int _bind_wxGetUTCTimeUSec(lua_State *L) {
 	}
 
 
-	wxLongLong stack_lret = wxGetUTCTimeUSec();
+	wxLongLong stack_lret = ::wxGetUTCTimeUSec();
 	wxLongLong* lret = new wxLongLong(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2935,7 +2935,7 @@ static int _bind_wxCreateFileTipProvider(lua_State *L) {
 	wxString filename(lua_tostring(L,1),lua_objlen(L,1));
 	size_t currentTip=(size_t)lua_tointeger(L,2);
 
-	wxTipProvider * lret = wxCreateFileTipProvider(filename, currentTip);
+	wxTipProvider * lret = ::wxCreateFileTipProvider(filename, currentTip);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< wxTipProvider >::push(L,lret,false);
@@ -2956,7 +2956,7 @@ static int _bind_wxShowTip(lua_State *L) {
 	wxTipProvider* tipProvider=(Luna< wxTipProvider >::check(L,2));
 	bool showAtStartup=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
 
-	bool lret = wxShowTip(parent, tipProvider, showAtStartup);
+	bool lret = ::wxShowTip(parent, tipProvider, showAtStartup);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2974,7 +2974,7 @@ static int _bind_wxGetTranslation_overload_1(lua_State *L) {
 	wxString string(lua_tostring(L,1),lua_objlen(L,1));
 	wxString domain(lua_tostring(L,2),lua_objlen(L,2));
 
-	const wxString & lret = wxGetTranslation(string, domain);
+	const wxString & lret = ::wxGetTranslation(string, domain);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -2994,7 +2994,7 @@ static int _bind_wxGetTranslation_overload_2(lua_State *L) {
 	unsigned n=(unsigned)lua_tointeger(L,3);
 	wxString domain(lua_tostring(L,4),lua_objlen(L,4));
 
-	const wxString & lret = wxGetTranslation(string, plural, n, domain);
+	const wxString & lret = ::wxGetTranslation(string, plural, n, domain);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -3018,7 +3018,7 @@ static int _bind__(lua_State *L) {
 
 	wxString string(lua_tostring(L,1),lua_objlen(L,1));
 
-	const wxString & lret = _(string);
+	const wxString & lret = ::_(string);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -3035,7 +3035,7 @@ static int _bind_wxBeginBusyCursor(lua_State *L) {
 
 	const wxCursor* cursor=luatop>0 ? (Luna< wxObject >::checkSubType< wxCursor >(L,1)) : (const wxCursor*)wxHOURGLASS_CURSOR;
 
-	wxBeginBusyCursor(cursor);
+	::wxBeginBusyCursor(cursor);
 
 	return 0;
 }
@@ -3048,7 +3048,7 @@ static int _bind_wxEndBusyCursor(lua_State *L) {
 	}
 
 
-	wxEndBusyCursor();
+	::wxEndBusyCursor();
 
 	return 0;
 }
@@ -3061,7 +3061,7 @@ static int _bind_wxIsBusy(lua_State *L) {
 	}
 
 
-	bool lret = wxIsBusy();
+	bool lret = ::wxIsBusy();
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -3075,7 +3075,7 @@ static int _bind_wxBell(lua_State *L) {
 	}
 
 
-	wxBell();
+	::wxBell();
 
 	return 0;
 }
@@ -3089,7 +3089,7 @@ static int _bind_wxInfoMessageBox(lua_State *L) {
 
 	wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 
-	wxInfoMessageBox(parent);
+	::wxInfoMessageBox(parent);
 
 	return 0;
 }
@@ -3104,7 +3104,7 @@ static int _bind_wxGetEnv(lua_State *L) {
 	wxString var(lua_tostring(L,1),lua_objlen(L,1));
 	wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
-	bool lret = wxGetEnv(var, &value);
+	bool lret = ::wxGetEnv(var, &value);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -3120,7 +3120,7 @@ static int _bind_wxSetEnv(lua_State *L) {
 	wxString var(lua_tostring(L,1),lua_objlen(L,1));
 	wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
-	bool lret = wxSetEnv(var, value);
+	bool lret = ::wxSetEnv(var, value);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -3135,7 +3135,7 @@ static int _bind_wxUnsetEnv(lua_State *L) {
 
 	wxString var(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = wxUnsetEnv(var);
+	bool lret = ::wxUnsetEnv(var);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -3149,7 +3149,7 @@ static int _bind_wxGetBatteryState(lua_State *L) {
 	}
 
 
-	wxBatteryState lret = wxGetBatteryState();
+	wxBatteryState lret = ::wxGetBatteryState();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3163,7 +3163,7 @@ static int _bind_wxGetPowerType(lua_State *L) {
 	}
 
 
-	wxPowerType lret = wxGetPowerType();
+	wxPowerType lret = ::wxGetPowerType();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3178,7 +3178,7 @@ static int _bind_wxGetKeyState(lua_State *L) {
 
 	wxKeyCode key=(wxKeyCode)lua_tointeger(L,1);
 
-	bool lret = wxGetKeyState(key);
+	bool lret = ::wxGetKeyState(key);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -3192,7 +3192,7 @@ static int _bind_wxGetMousePosition(lua_State *L) {
 	}
 
 
-	wxPoint stack_lret = wxGetMousePosition();
+	wxPoint stack_lret = ::wxGetMousePosition();
 	wxPoint* lret = new wxPoint(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3209,7 +3209,7 @@ static int _bind_wxGetMouseState(lua_State *L) {
 	}
 
 
-	wxMouseState stack_lret = wxGetMouseState();
+	wxMouseState stack_lret = ::wxGetMouseState();
 	wxMouseState* lret = new wxMouseState(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3229,7 +3229,7 @@ static int _bind_wxEnableTopLevelWindows(lua_State *L) {
 
 	bool enable=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
 
-	wxEnableTopLevelWindows(enable);
+	::wxEnableTopLevelWindows(enable);
 
 	return 0;
 }
@@ -3247,7 +3247,7 @@ static int _bind_wxFindWindowAtPoint(lua_State *L) {
 	}
 	const wxPoint & pt=*pt_ptr;
 
-	wxWindow * lret = wxFindWindowAtPoint(pt);
+	wxWindow * lret = ::wxFindWindowAtPoint(pt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< wxWindow >::push(L,lret,false);
@@ -3267,7 +3267,7 @@ static int _bind_wxFindWindowByLabel(lua_State *L) {
 	wxString label(lua_tostring(L,1),lua_objlen(L,1));
 	wxWindow* parent=luatop>1 ? (Luna< wxObject >::checkSubType< wxWindow >(L,2)) : (wxWindow*)NULL;
 
-	wxWindow * lret = wxFindWindowByLabel(label, parent);
+	wxWindow * lret = ::wxFindWindowByLabel(label, parent);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< wxWindow >::push(L,lret,false);
@@ -3287,7 +3287,7 @@ static int _bind_wxFindWindowByName(lua_State *L) {
 	wxString name(lua_tostring(L,1),lua_objlen(L,1));
 	wxWindow* parent=luatop>1 ? (Luna< wxObject >::checkSubType< wxWindow >(L,2)) : (wxWindow*)NULL;
 
-	wxWindow * lret = wxFindWindowByName(name, parent);
+	wxWindow * lret = ::wxFindWindowByName(name, parent);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< wxWindow >::push(L,lret,false);
@@ -3306,7 +3306,7 @@ static int _bind_wxFindMenuItemId(lua_State *L) {
 	wxString menuString(lua_tostring(L,2),lua_objlen(L,2));
 	wxString itemString(lua_tostring(L,3),lua_objlen(L,3));
 
-	int lret = wxFindMenuItemId(frame, menuString, itemString);
+	int lret = ::wxFindMenuItemId(frame, menuString, itemString);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3320,7 +3320,7 @@ static int _bind_wxNewId(lua_State *L) {
 	}
 
 
-	long lret = wxNewId();
+	long lret = ::wxNewId();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3335,7 +3335,7 @@ static int _bind_wxRegisterId(lua_State *L) {
 
 	long id=(long)lua_tointeger(L,1);
 
-	wxRegisterId(id);
+	::wxRegisterId(id);
 
 	return 0;
 }
@@ -3352,7 +3352,7 @@ static int _bind_wxLaunchDefaultApplication(lua_State *L) {
 	wxString document(lua_tostring(L,1),lua_objlen(L,1));
 	int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
 
-	bool lret = wxLaunchDefaultApplication(document, flags);
+	bool lret = ::wxLaunchDefaultApplication(document, flags);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -3370,7 +3370,7 @@ static int _bind_wxLaunchDefaultBrowser(lua_State *L) {
 	wxString url(lua_tostring(L,1),lua_objlen(L,1));
 	int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
 
-	bool lret = wxLaunchDefaultBrowser(url, flags);
+	bool lret = ::wxLaunchDefaultBrowser(url, flags);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -3388,7 +3388,7 @@ static int _bind_wxLoadUserResource(lua_State *L) {
 	wxString resourceName(lua_tostring(L,1),lua_objlen(L,1));
 	wxString resourceType(lua_tostring(L,2),lua_objlen(L,2));
 
-	wxString lret = wxLoadUserResource(resourceName, resourceType);
+	wxString lret = ::wxLoadUserResource(resourceName, resourceType);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -3406,7 +3406,7 @@ static int _bind_wxStripMenuCodes(lua_State *L) {
 	wxString str(lua_tostring(L,1),lua_objlen(L,1));
 	int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxStrip_All;
 
-	wxString lret = wxStripMenuCodes(str, flags);
+	wxString lret = ::wxStripMenuCodes(str, flags);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -3420,7 +3420,7 @@ static int _bind_wxGetFreeMemory(lua_State *L) {
 	}
 
 
-	wxLongLong stack_lret = wxGetFreeMemory();
+	wxLongLong stack_lret = ::wxGetFreeMemory();
 	wxLongLong* lret = new wxLongLong(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3437,7 +3437,7 @@ static int _bind_wxGetHomeDir(lua_State *L) {
 	}
 
 
-	wxString lret = wxGetHomeDir();
+	wxString lret = ::wxGetHomeDir();
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -3451,7 +3451,7 @@ static int _bind_wxGetFullHostName(lua_State *L) {
 	}
 
 
-	wxString lret = wxGetFullHostName();
+	wxString lret = ::wxGetFullHostName();
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -3468,7 +3468,7 @@ static int _bind_wxGetUserHome(lua_State *L) {
 
 	wxString user(lua_tostring(L,1),lua_objlen(L,1));
 
-	wxString lret = wxGetUserHome(user);
+	wxString lret = ::wxGetUserHome(user);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -3482,7 +3482,7 @@ static int _bind_wxGetOsDescription(lua_State *L) {
 	}
 
 
-	wxString lret = wxGetOsDescription();
+	wxString lret = ::wxGetOsDescription();
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -3500,7 +3500,7 @@ static int _bind_wxGetOsVersion(lua_State *L) {
 	int major=luatop>0 ? (int)lua_tointeger(L,1) : NULL;
 	int minor=luatop>1 ? (int)lua_tointeger(L,2) : NULL;
 
-	wxOperatingSystemId lret = wxGetOsVersion(&major, &minor);
+	wxOperatingSystemId lret = ::wxGetOsVersion(&major, &minor);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3514,7 +3514,7 @@ static int _bind_wxIsPlatform64Bit(lua_State *L) {
 	}
 
 
-	bool lret = wxIsPlatform64Bit();
+	bool lret = ::wxIsPlatform64Bit();
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -3528,7 +3528,7 @@ static int _bind_wxIsPlatformLittleEndian(lua_State *L) {
 	}
 
 
-	bool lret = wxIsPlatformLittleEndian();
+	bool lret = ::wxIsPlatformLittleEndian();
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -3548,7 +3548,7 @@ static int _bind_wxExecute_overload_1(lua_State *L) {
 	wxProcess* callback=luatop>2 ? (Luna< wxObject >::checkSubType< wxProcess >(L,3)) : (wxProcess*)NULL;
 	const wxExecuteEnv* env=luatop>3 ? (Luna< wxExecuteEnv >::check(L,4)) : (const wxExecuteEnv*)NULL;
 
-	long lret = wxExecute(command, flags, callback, env);
+	long lret = ::wxExecute(command, flags, callback, env);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3572,7 +3572,7 @@ static int _bind_wxExecute_overload_2(lua_State *L) {
 	int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 	const wxExecuteEnv* env=luatop>3 ? (Luna< wxExecuteEnv >::check(L,4)) : (const wxExecuteEnv*)NULL;
 
-	long lret = wxExecute(command, output, flags, env);
+	long lret = ::wxExecute(command, output, flags, env);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3601,7 +3601,7 @@ static int _bind_wxExecute_overload_3(lua_State *L) {
 	int flags=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 	const wxExecuteEnv* env=luatop>4 ? (Luna< wxExecuteEnv >::check(L,5)) : (const wxExecuteEnv*)NULL;
 
-	long lret = wxExecute(command, output, errors, flags, env);
+	long lret = ::wxExecute(command, output, errors, flags, env);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3625,7 +3625,7 @@ static int _bind_wxGetProcessId(lua_State *L) {
 	}
 
 
-	unsigned long lret = wxGetProcessId();
+	unsigned long lret = ::wxGetProcessId();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3642,7 +3642,7 @@ static int _bind_wxShell(lua_State *L) {
 
 	wxString command(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = wxShell(command);
+	bool lret = ::wxShell(command);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -3659,7 +3659,7 @@ static int _bind_wxShutdown(lua_State *L) {
 
 	int flags=luatop>0 ? (int)lua_tointeger(L,1) : ::wxSHUTDOWN_POWEROFF;
 
-	bool lret = wxShutdown(flags);
+	bool lret = ::wxShutdown(flags);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -3674,7 +3674,7 @@ static int _bind_wxMicroSleep(lua_State *L) {
 
 	unsigned long microseconds=(unsigned long)lua_tointeger(L,1);
 
-	wxMicroSleep(microseconds);
+	::wxMicroSleep(microseconds);
 
 	return 0;
 }
@@ -3688,7 +3688,7 @@ static int _bind_wxMilliSleep(lua_State *L) {
 
 	unsigned long milliseconds=(unsigned long)lua_tointeger(L,1);
 
-	wxMilliSleep(milliseconds);
+	::wxMilliSleep(milliseconds);
 
 	return 0;
 }
@@ -3701,7 +3701,7 @@ static int _bind_wxNow(lua_State *L) {
 	}
 
 
-	wxString lret = wxNow();
+	wxString lret = ::wxNow();
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -3716,7 +3716,7 @@ static int _bind_wxSleep(lua_State *L) {
 
 	int secs=(int)lua_tointeger(L,1);
 
-	wxSleep(secs);
+	::wxSleep(secs);
 
 	return 0;
 }
@@ -3730,7 +3730,7 @@ static int _bind_wxUsleep(lua_State *L) {
 
 	unsigned long milliseconds=(unsigned long)lua_tointeger(L,1);
 
-	wxUsleep(milliseconds);
+	::wxUsleep(milliseconds);
 
 	return 0;
 }
@@ -3748,7 +3748,7 @@ static int _bind_wxFindWindowAtPointer(lua_State *L) {
 	}
 	wxPoint & pt=*pt_ptr;
 
-	wxWindow * lret = wxFindWindowAtPointer(pt);
+	wxWindow * lret = ::wxFindWindowAtPointer(pt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< wxWindow >::push(L,lret,false);
@@ -3764,7 +3764,7 @@ static int _bind_wxGetActiveWindow(lua_State *L) {
 	}
 
 
-	wxWindow * lret = wxGetActiveWindow();
+	wxWindow * lret = ::wxGetActiveWindow();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< wxWindow >::push(L,lret,false);
@@ -3781,7 +3781,7 @@ static int _bind_wxGetTopLevelParent(lua_State *L) {
 
 	wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 
-	wxWindow * lret = wxGetTopLevelParent(window);
+	wxWindow * lret = ::wxGetTopLevelParent(window);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< wxWindow >::push(L,lret,false);
@@ -3798,7 +3798,7 @@ static int _bind_createWxLogHandler(lua_State *L) {
 
 	wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
 
-	sgt::LogManager::LogHandler * lret = createWxLogHandler(handler);
+	sgt::LogManager::LogHandler * lret = ::createWxLogHandler(handler);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< sgt::LogManager::LogHandler >::push(L,lret,false);
@@ -3815,7 +3815,7 @@ static int _bind_wxIsEmpty_overload_1(lua_State *L) {
 
 	const char * s=(const char *)lua_tostring(L,1);
 
-	bool lret = wxIsEmpty(s);
+	bool lret = ::wxIsEmpty(s);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -3830,7 +3830,7 @@ static int _bind_wxIsEmpty_overload_2(lua_State *L) {
 
 	wxString s(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = wxIsEmpty(s);
+	bool lret = ::wxIsEmpty(s);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -3854,7 +3854,7 @@ static int _bind_wxStrlen(lua_State *L) {
 
 	wxString s(lua_tostring(L,1),lua_objlen(L,1));
 
-	size_t lret = wxStrlen(s);
+	size_t lret = ::wxStrlen(s);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3871,7 +3871,7 @@ static int _bind_wxStrlcpy(lua_State *L) {
 	const char * src=(const char *)lua_tostring(L,2);
 	size_t n=(size_t)lua_tointeger(L,3);
 
-	size_t lret = wxStrlcpy(&dest, src, n);
+	size_t lret = ::wxStrlcpy(&dest, src, n);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3887,7 +3887,7 @@ static int _bind_wxStrrchr_overload_1(lua_State *L) {
 	const char * s=(const char *)lua_tostring(L,1);
 	char c=(char)lua_tointeger(L,2);
 
-	const char * lret = wxStrrchr(s, c);
+	const char * lret = ::wxStrrchr(s, c);
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -3903,7 +3903,7 @@ static int _bind_wxStrrchr_overload_2(lua_State *L) {
 	wxString s(lua_tostring(L,1),lua_objlen(L,1));
 	char c=(char)lua_tointeger(L,2);
 
-	const char * lret = wxStrrchr(s, c);
+	const char * lret = ::wxStrrchr(s, c);
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -3919,7 +3919,7 @@ static int _bind_wxStrrchr_overload_3(lua_State *L) {
 	wxString s(lua_tostring(L,1),lua_objlen(L,1));
 	int c=(int)lua_tointeger(L,2);
 
-	const char * lret = wxStrrchr(s, c);
+	const char * lret = ::wxStrrchr(s, c);
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -3935,7 +3935,7 @@ static int _bind_wxStrrchr_overload_4(lua_State *L) {
 	char s=(char)lua_tointeger(L,1);
 	char c=(char)lua_tointeger(L,2);
 
-	char * lret = wxStrrchr(&s, c);
+	char * lret = ::wxStrrchr(&s, c);
 	lua_pushnumber(L,*lret);
 
 	return 1;

@@ -906,7 +906,7 @@ static int _bind_AabbExpand(lua_State *L) {
 	}
 	const btVector3 & expansionMax=*expansionMax_ptr;
 
-	AabbExpand(aabbMin, aabbMax, expansionMin, expansionMax);
+	::AabbExpand(aabbMin, aabbMax, expansionMin, expansionMax);
 
 	return 0;
 }
@@ -934,7 +934,7 @@ static int _bind_TestPointAgainstAabb2(lua_State *L) {
 	}
 	const btVector3 & point=*point_ptr;
 
-	bool lret = TestPointAgainstAabb2(aabbMin1, aabbMax1, point);
+	bool lret = ::TestPointAgainstAabb2(aabbMin1, aabbMax1, point);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -968,7 +968,7 @@ static int _bind_TestAabbAgainstAabb2(lua_State *L) {
 	}
 	const btVector3 & aabbMax2=*aabbMax2_ptr;
 
-	bool lret = TestAabbAgainstAabb2(aabbMin1, aabbMax1, aabbMin2, aabbMax2);
+	bool lret = ::TestAabbAgainstAabb2(aabbMin1, aabbMax1, aabbMin2, aabbMax2);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -993,7 +993,7 @@ static int _bind_TestTriangleAgainstAabb2(lua_State *L) {
 	}
 	const btVector3 & aabbMax=*aabbMax_ptr;
 
-	bool lret = TestTriangleAgainstAabb2(vertices, aabbMin, aabbMax);
+	bool lret = ::TestTriangleAgainstAabb2(vertices, aabbMin, aabbMax);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1017,7 +1017,7 @@ static int _bind_btOutcode(lua_State *L) {
 	}
 	const btVector3 & halfExtent=*halfExtent_ptr;
 
-	int lret = btOutcode(p, halfExtent);
+	int lret = ::btOutcode(p, halfExtent);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1057,7 +1057,7 @@ static int _bind_btRayAabb(lua_State *L) {
 	}
 	btVector3 & normal=*normal_ptr;
 
-	bool lret = btRayAabb(rayFrom, rayTo, aabbMin, aabbMax, param, normal);
+	bool lret = ::btRayAabb(rayFrom, rayTo, aabbMin, aabbMax, param, normal);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1092,7 +1092,7 @@ static int _bind_btTransformAabb_overload_1(lua_State *L) {
 	}
 	btVector3 & aabbMaxOut=*aabbMaxOut_ptr;
 
-	btTransformAabb(halfExtents, margin, t, aabbMinOut, aabbMaxOut);
+	::btTransformAabb(halfExtents, margin, t, aabbMinOut, aabbMaxOut);
 
 	return 0;
 }
@@ -1131,7 +1131,7 @@ static int _bind_btTransformAabb_overload_2(lua_State *L) {
 	}
 	btVector3 & aabbMaxOut=*aabbMaxOut_ptr;
 
-	btTransformAabb(localAabbMin, localAabbMax, margin, trans, aabbMinOut, aabbMaxOut);
+	::btTransformAabb(localAabbMin, localAabbMax, margin, trans, aabbMinOut, aabbMaxOut);
 
 	return 0;
 }
@@ -1157,7 +1157,7 @@ static int _bind_testQuantizedAabbAgainstQuantizedAabb(lua_State *L) {
 	unsigned short int aabbMin2=(unsigned short int)lua_tointeger(L,3);
 	unsigned short int aabbMax2=(unsigned short int)lua_tointeger(L,4);
 
-	unsigned int lret = testQuantizedAabbAgainstQuantizedAabb(&aabbMin1, &aabbMax1, &aabbMin2, &aabbMax2);
+	unsigned int lret = ::testQuantizedAabbAgainstQuantizedAabb(&aabbMin1, &aabbMax1, &aabbMin2, &aabbMax2);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1173,7 +1173,7 @@ static int _bind_btAlignedAllocInternal(lua_State *L) {
 	size_t size=(size_t)lua_tointeger(L,1);
 	int alignment=(int)lua_tointeger(L,2);
 
-	void * lret = btAlignedAllocInternal(size, alignment);
+	void * lret = ::btAlignedAllocInternal(size, alignment);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< void >::push(L,lret,false);
@@ -1190,7 +1190,7 @@ static int _bind_btAlignedFreeInternal(lua_State *L) {
 
 	void* ptr=(Luna< void >::check(L,1));
 
-	btAlignedFreeInternal(ptr);
+	::btAlignedFreeInternal(ptr);
 
 	return 0;
 }
@@ -1214,7 +1214,7 @@ static int _bind_bt_mat3_dot_col(lua_State *L) {
 	const btVector3 & vec3=*vec3_ptr;
 	int colindex=(int)lua_tointeger(L,3);
 
-	float lret = bt_mat3_dot_col(mat, vec3, colindex);
+	float lret = ::bt_mat3_dot_col(mat, vec3, colindex);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1238,7 +1238,7 @@ static int _bind_btCompareTransformsEqual(lua_State *L) {
 	}
 	const btTransform & t2=*t2_ptr;
 
-	bool lret = btCompareTransformsEqual(t1, t2);
+	bool lret = ::btCompareTransformsEqual(t1, t2);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1262,7 +1262,7 @@ static int _bind_bt_distance_point_plane(lua_State *L) {
 	}
 	const btVector3 & point=*point_ptr;
 
-	float lret = bt_distance_point_plane(plane, point);
+	float lret = ::bt_distance_point_plane(plane, point);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1292,7 +1292,7 @@ static int _bind_bt_vec_blend(lua_State *L) {
 	const btVector3 & vb=*vb_ptr;
 	float blend_factor=(float)lua_tonumber(L,4);
 
-	bt_vec_blend(vr, va, vb, blend_factor);
+	::bt_vec_blend(vr, va, vb, blend_factor);
 
 	return 0;
 }
@@ -1319,7 +1319,7 @@ static int _bind_bt_plane_clip_polygon_collect(lua_State *L) {
 	btVector3* clipped=(Luna< btVector3 >::check(L,5));
 	int clipped_count=(int)lua_tointeger(L,6);
 
-	bt_plane_clip_polygon_collect(point0, point1, dist0, dist1, clipped, clipped_count);
+	::bt_plane_clip_polygon_collect(point0, point1, dist0, dist1, clipped, clipped_count);
 
 	return 0;
 }
@@ -1340,7 +1340,7 @@ static int _bind_bt_plane_clip_polygon(lua_State *L) {
 	int polygon_point_count=(int)lua_tointeger(L,3);
 	btVector3* clipped=(Luna< btVector3 >::check(L,4));
 
-	int lret = bt_plane_clip_polygon(plane, polygon_points, polygon_point_count, clipped);
+	int lret = ::bt_plane_clip_polygon(plane, polygon_points, polygon_point_count, clipped);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1375,7 +1375,7 @@ static int _bind_bt_plane_clip_triangle(lua_State *L) {
 	const btVector3 & point2=*point2_ptr;
 	btVector3* clipped=(Luna< btVector3 >::check(L,5));
 
-	int lret = bt_plane_clip_triangle(plane, point0, point1, point2, clipped);
+	int lret = ::bt_plane_clip_triangle(plane, point0, point1, point2, clipped);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1407,7 +1407,7 @@ static int _bind_resolveSingleCollision(lua_State *L) {
 	const btContactSolverInfo & solverInfo=*solverInfo_ptr;
 	float distance=(float)lua_tonumber(L,6);
 
-	float lret = resolveSingleCollision(body1, colObj2, contactPositionWorld, contactNormalOnB, solverInfo, distance);
+	float lret = ::resolveSingleCollision(body1, colObj2, contactPositionWorld, contactNormalOnB, solverInfo, distance);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1449,7 +1449,7 @@ static int _bind_resolveSingleBilateral(lua_State *L) {
 	float impulse=(float)lua_tonumber(L,7);
 	float timeStep=(float)lua_tonumber(L,8);
 
-	resolveSingleBilateral(body1, pos1, body2, pos2, distance, normal, impulse, timeStep);
+	::resolveSingleBilateral(body1, pos1, body2, pos2, distance, normal, impulse, timeStep);
 
 	return 0;
 }
@@ -1472,7 +1472,7 @@ static int _bind_Intersect_overload_1(lua_State *L) {
 	}
 	const btDbvtAabbMm & b=*b_ptr;
 
-	bool lret = Intersect(a, b);
+	bool lret = ::Intersect(a, b);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1496,7 +1496,7 @@ static int _bind_Intersect_overload_2(lua_State *L) {
 	}
 	const btVector3 & b=*b_ptr;
 
-	bool lret = Intersect(a, b);
+	bool lret = ::Intersect(a, b);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1529,7 +1529,7 @@ static int _bind_Proximity(lua_State *L) {
 	}
 	const btDbvtAabbMm & b=*b_ptr;
 
-	float lret = Proximity(a, b);
+	float lret = ::Proximity(a, b);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1558,7 +1558,7 @@ static int _bind_Select(lua_State *L) {
 	}
 	const btDbvtAabbMm & b=*b_ptr;
 
-	int lret = Select(o, a, b);
+	int lret = ::Select(o, a, b);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1587,7 +1587,7 @@ static int _bind_Merge(lua_State *L) {
 	}
 	btDbvtAabbMm & r=*r_ptr;
 
-	Merge(a, b, r);
+	::Merge(a, b, r);
 
 	return 0;
 }
@@ -1610,7 +1610,7 @@ static int _bind_NotEqual(lua_State *L) {
 	}
 	const btDbvtAabbMm & b=*b_ptr;
 
-	bool lret = NotEqual(a, b);
+	bool lret = ::NotEqual(a, b);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1625,7 +1625,7 @@ static int _bind_btPoolAlloc(lua_State *L) {
 
 	size_t size=(size_t)lua_tointeger(L,1);
 
-	void * lret = btPoolAlloc(size);
+	void * lret = ::btPoolAlloc(size);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< void >::push(L,lret,false);
@@ -1644,7 +1644,7 @@ static int _bind_btPoolRealloc(lua_State *L) {
 	size_t oldsize=(size_t)lua_tointeger(L,2);
 	size_t newsize=(size_t)lua_tointeger(L,3);
 
-	void * lret = btPoolRealloc(ptr, oldsize, newsize);
+	void * lret = ::btPoolRealloc(ptr, oldsize, newsize);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< void >::push(L,lret,false);
@@ -1661,7 +1661,7 @@ static int _bind_btPoolFree(lua_State *L) {
 
 	void* ptr=(Luna< void >::check(L,1));
 
-	btPoolFree(ptr);
+	::btPoolFree(ptr);
 
 	return 0;
 }
@@ -1694,7 +1694,7 @@ static int _bind_bt_edge_plane(lua_State *L) {
 	}
 	btVector4 & plane=*plane_ptr;
 
-	bt_edge_plane(e1, e2, normal, plane);
+	::bt_edge_plane(e1, e2, normal, plane);
 
 	return 0;
 }
@@ -1727,7 +1727,7 @@ static int _bind_bt_closest_point_on_segment(lua_State *L) {
 	}
 	const btVector3 & e2=*e2_ptr;
 
-	bt_closest_point_on_segment(cp, v, e1, e2);
+	::bt_closest_point_on_segment(cp, v, e1, e2);
 
 	return 0;
 }
@@ -1763,7 +1763,7 @@ static int _bind_bt_line_plane_collision(lua_State *L) {
 	float tmin=(float)lua_tonumber(L,6);
 	float tmax=(float)lua_tonumber(L,7);
 
-	int lret = bt_line_plane_collision(plane, vDir, vPoint, pout, tparam, tmin, tmax);
+	int lret = ::bt_line_plane_collision(plane, vDir, vPoint, pout, tparam, tmin, tmax);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1807,7 +1807,7 @@ static int _bind_bt_segment_collision(lua_State *L) {
 	}
 	btVector3 & vPointB=*vPointB_ptr;
 
-	bt_segment_collision(vA1, vA2, vB1, vB2, vPointA, vPointB);
+	::bt_segment_collision(vA1, vA2, vB1, vB2, vPointA, vPointB);
 
 	return 0;
 }
@@ -1835,7 +1835,7 @@ static int _bind_gim_inertia_add_transformed(lua_State *L) {
 	}
 	const btTransform & transform=*transform_ptr;
 
-	btVector3 stack_lret = gim_inertia_add_transformed(source_inertia, added_inertia, transform);
+	btVector3 stack_lret = ::gim_inertia_add_transformed(source_inertia, added_inertia, transform);
 	btVector3* lret = new btVector3(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1858,7 +1858,7 @@ static int _bind_gim_get_point_inertia(lua_State *L) {
 	const btVector3 & point=*point_ptr;
 	float mass=(float)lua_tonumber(L,2);
 
-	btVector3 stack_lret = gim_get_point_inertia(point, mass);
+	btVector3 stack_lret = ::gim_get_point_inertia(point, mass);
 	btVector3* lret = new btVector3(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -1890,7 +1890,7 @@ static int _bind_GrahamScanConvexHull2D(lua_State *L) {
 	}
 	const btVector3 & normalAxis=*normalAxis_ptr;
 
-	GrahamScanConvexHull2D(originalPoints, hull, normalAxis);
+	::GrahamScanConvexHull2D(originalPoints, hull, normalAxis);
 
 	return 0;
 }
@@ -1915,7 +1915,7 @@ static int _bind_btAdjustInternalEdgeContacts(lua_State *L) {
 	int index0=(int)lua_tointeger(L,5);
 	int normalAdjustFlags=luatop>5 ? (int)lua_tointeger(L,6) : 0;
 
-	btAdjustInternalEdgeContacts(cp, trimeshColObj0Wrap, otherColObj1Wrap, partId0, index0, normalAdjustFlags);
+	::btAdjustInternalEdgeContacts(cp, trimeshColObj0Wrap, otherColObj1Wrap, partId0, index0, normalAdjustFlags);
 
 	return 0;
 }
@@ -1943,7 +1943,7 @@ static int _bind_polarDecompose(lua_State *L) {
 	}
 	btMatrix3x3 & h=*h_ptr;
 
-	unsigned int lret = polarDecompose(a, u, h);
+	unsigned int lret = ::polarDecompose(a, u, h);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1983,7 +1983,7 @@ static int _bind_bt_calc_quantization_parameters(lua_State *L) {
 	const btVector3 & srcMaxBound=*srcMaxBound_ptr;
 	float quantizationMargin=(float)lua_tonumber(L,6);
 
-	bt_calc_quantization_parameters(outMinBound, outMaxBound, bvhQuantization, srcMinBound, srcMaxBound, quantizationMargin);
+	::bt_calc_quantization_parameters(outMinBound, outMaxBound, bvhQuantization, srcMinBound, srcMaxBound, quantizationMargin);
 
 	return 0;
 }
@@ -2017,7 +2017,7 @@ static int _bind_bt_quantize_clamp(lua_State *L) {
 	}
 	const btVector3 & bvhQuantization=*bvhQuantization_ptr;
 
-	bt_quantize_clamp(&out, point, min_bound, max_bound, bvhQuantization);
+	::bt_quantize_clamp(&out, point, min_bound, max_bound, bvhQuantization);
 
 	return 0;
 }
@@ -2041,7 +2041,7 @@ static int _bind_bt_unquantize(lua_State *L) {
 	}
 	const btVector3 & bvhQuantization=*bvhQuantization_ptr;
 
-	btVector3 stack_lret = bt_unquantize(&vecIn, offset, bvhQuantization);
+	btVector3 stack_lret = ::bt_unquantize(&vecIn, offset, bvhQuantization);
 	btVector3* lret = new btVector3(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2068,7 +2068,7 @@ static int _bind_dot(lua_State *L) {
 	}
 	const btQuaternion & q2=*q2_ptr;
 
-	float lret = dot(q1, q2);
+	float lret = ::dot(q1, q2);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2087,7 +2087,7 @@ static int _bind_length(lua_State *L) {
 	}
 	const btQuaternion & q=*q_ptr;
 
-	float lret = length(q);
+	float lret = ::length(q);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2111,7 +2111,7 @@ static int _bind_btAngle_overload_1(lua_State *L) {
 	}
 	const btQuaternion & q2=*q2_ptr;
 
-	float lret = btAngle(q1, q2);
+	float lret = ::btAngle(q1, q2);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2135,7 +2135,7 @@ static int _bind_btAngle_overload_2(lua_State *L) {
 	}
 	const btVector3 & v2=*v2_ptr;
 
-	float lret = btAngle(v1, v2);
+	float lret = ::btAngle(v1, v2);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2163,7 +2163,7 @@ static int _bind_inverse(lua_State *L) {
 	}
 	const btQuaternion & q=*q_ptr;
 
-	btQuaternion stack_lret = inverse(q);
+	btQuaternion stack_lret = ::inverse(q);
 	btQuaternion* lret = new btQuaternion(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2191,7 +2191,7 @@ static int _bind_slerp(lua_State *L) {
 	const btQuaternion & q2=*q2_ptr;
 	float t=(float)lua_tonumber(L,3);
 
-	btQuaternion stack_lret = slerp(q1, q2, t);
+	btQuaternion stack_lret = ::slerp(q1, q2, t);
 	btQuaternion* lret = new btQuaternion(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2218,7 +2218,7 @@ static int _bind_quatRotate(lua_State *L) {
 	}
 	const btVector3 & v=*v_ptr;
 
-	btVector3 stack_lret = quatRotate(rotation, v);
+	btVector3 stack_lret = ::quatRotate(rotation, v);
 	btVector3* lret = new btVector3(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2245,7 +2245,7 @@ static int _bind_shortestArcQuat(lua_State *L) {
 	}
 	const btVector3 & v1=*v1_ptr;
 
-	btQuaternion stack_lret = shortestArcQuat(v0, v1);
+	btQuaternion stack_lret = ::shortestArcQuat(v0, v1);
 	btQuaternion* lret = new btQuaternion(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2272,7 +2272,7 @@ static int _bind_shortestArcQuatNormalize2(lua_State *L) {
 	}
 	btVector3 & v1=*v1_ptr;
 
-	btQuaternion stack_lret = shortestArcQuatNormalize2(v0, v1);
+	btQuaternion stack_lret = ::shortestArcQuatNormalize2(v0, v1);
 	btQuaternion* lret = new btQuaternion(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2290,7 +2290,7 @@ static int _bind_GEN_srand(lua_State *L) {
 
 	unsigned int seed=(unsigned int)lua_tointeger(L,1);
 
-	GEN_srand(seed);
+	::GEN_srand(seed);
 
 	return 0;
 }
@@ -2303,7 +2303,7 @@ static int _bind_GEN_rand(lua_State *L) {
 	}
 
 
-	unsigned int lret = GEN_rand();
+	unsigned int lret = ::GEN_rand();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2317,7 +2317,7 @@ static int _bind_btGetVersion(lua_State *L) {
 	}
 
 
-	int lret = btGetVersion();
+	int lret = ::btGetVersion();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2332,7 +2332,7 @@ static int _bind_btSqrt(lua_State *L) {
 
 	float y=(float)lua_tonumber(L,1);
 
-	float lret = btSqrt(y);
+	float lret = ::btSqrt(y);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2347,7 +2347,7 @@ static int _bind_btFabs(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	float lret = btFabs(x);
+	float lret = ::btFabs(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2362,7 +2362,7 @@ static int _bind_btCos(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	float lret = btCos(x);
+	float lret = ::btCos(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2377,7 +2377,7 @@ static int _bind_btSin(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	float lret = btSin(x);
+	float lret = ::btSin(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2392,7 +2392,7 @@ static int _bind_btTan(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	float lret = btTan(x);
+	float lret = ::btTan(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2407,7 +2407,7 @@ static int _bind_btAcos(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	float lret = btAcos(x);
+	float lret = ::btAcos(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2422,7 +2422,7 @@ static int _bind_btAsin(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	float lret = btAsin(x);
+	float lret = ::btAsin(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2437,7 +2437,7 @@ static int _bind_btAtan(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	float lret = btAtan(x);
+	float lret = ::btAtan(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2453,7 +2453,7 @@ static int _bind_btAtan2(lua_State *L) {
 	float x=(float)lua_tonumber(L,1);
 	float y=(float)lua_tonumber(L,2);
 
-	float lret = btAtan2(x, y);
+	float lret = ::btAtan2(x, y);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2468,7 +2468,7 @@ static int _bind_btExp(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	float lret = btExp(x);
+	float lret = ::btExp(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2483,7 +2483,7 @@ static int _bind_btLog(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	float lret = btLog(x);
+	float lret = ::btLog(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2499,7 +2499,7 @@ static int _bind_btPow(lua_State *L) {
 	float x=(float)lua_tonumber(L,1);
 	float y=(float)lua_tonumber(L,2);
 
-	float lret = btPow(x, y);
+	float lret = ::btPow(x, y);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2515,7 +2515,7 @@ static int _bind_btFmod(lua_State *L) {
 	float x=(float)lua_tonumber(L,1);
 	float y=(float)lua_tonumber(L,2);
 
-	float lret = btFmod(x, y);
+	float lret = ::btFmod(x, y);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2531,7 +2531,7 @@ static int _bind_btAtan2Fast(lua_State *L) {
 	float y=(float)lua_tonumber(L,1);
 	float x=(float)lua_tonumber(L,2);
 
-	float lret = btAtan2Fast(y, x);
+	float lret = ::btAtan2Fast(y, x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2546,7 +2546,7 @@ static int _bind_btFuzzyZero(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	bool lret = btFuzzyZero(x);
+	bool lret = ::btFuzzyZero(x);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2562,7 +2562,7 @@ static int _bind_btEqual(lua_State *L) {
 	float a=(float)lua_tonumber(L,1);
 	float eps=(float)lua_tonumber(L,2);
 
-	bool lret = btEqual(a, eps);
+	bool lret = ::btEqual(a, eps);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2578,7 +2578,7 @@ static int _bind_btGreaterEqual(lua_State *L) {
 	float a=(float)lua_tonumber(L,1);
 	float eps=(float)lua_tonumber(L,2);
 
-	bool lret = btGreaterEqual(a, eps);
+	bool lret = ::btGreaterEqual(a, eps);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2593,7 +2593,7 @@ static int _bind_btIsNegative(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	int lret = btIsNegative(x);
+	int lret = ::btIsNegative(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2608,7 +2608,7 @@ static int _bind_btRadians(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	float lret = btRadians(x);
+	float lret = ::btRadians(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2623,7 +2623,7 @@ static int _bind_btDegrees(lua_State *L) {
 
 	float x=(float)lua_tonumber(L,1);
 
-	float lret = btDegrees(x);
+	float lret = ::btDegrees(x);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2640,7 +2640,7 @@ static int _bind_btFsel(lua_State *L) {
 	float b=(float)lua_tonumber(L,2);
 	float c=(float)lua_tonumber(L,3);
 
-	float lret = btFsel(a, b, c);
+	float lret = ::btFsel(a, b, c);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2654,7 +2654,7 @@ static int _bind_btMachineIsLittleEndian(lua_State *L) {
 	}
 
 
-	bool lret = btMachineIsLittleEndian();
+	bool lret = ::btMachineIsLittleEndian();
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2671,7 +2671,7 @@ static int _bind_btSelect_overload_1(lua_State *L) {
 	unsigned valueIfConditionNonZero=(unsigned)lua_tointeger(L,2);
 	unsigned valueIfConditionZero=(unsigned)lua_tointeger(L,3);
 
-	unsigned int lret = btSelect(condition, valueIfConditionNonZero, valueIfConditionZero);
+	unsigned int lret = ::btSelect(condition, valueIfConditionNonZero, valueIfConditionZero);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2688,7 +2688,7 @@ static int _bind_btSelect_overload_2(lua_State *L) {
 	int valueIfConditionNonZero=(int)lua_tointeger(L,2);
 	int valueIfConditionZero=(int)lua_tointeger(L,3);
 
-	int lret = btSelect(condition, valueIfConditionNonZero, valueIfConditionZero);
+	int lret = ::btSelect(condition, valueIfConditionNonZero, valueIfConditionZero);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2705,7 +2705,7 @@ static int _bind_btSelect_overload_3(lua_State *L) {
 	float valueIfConditionNonZero=(float)lua_tonumber(L,2);
 	float valueIfConditionZero=(float)lua_tonumber(L,3);
 
-	float lret = btSelect(condition, valueIfConditionNonZero, valueIfConditionZero);
+	float lret = ::btSelect(condition, valueIfConditionNonZero, valueIfConditionZero);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2730,7 +2730,7 @@ static int _bind_btSwapEndian_overload_1(lua_State *L) {
 
 	unsigned val=(unsigned)lua_tointeger(L,1);
 
-	unsigned int lret = btSwapEndian(val);
+	unsigned int lret = ::btSwapEndian(val);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2745,7 +2745,7 @@ static int _bind_btSwapEndian_overload_2(lua_State *L) {
 
 	unsigned short val=(unsigned short)lua_tointeger(L,1);
 
-	unsigned short lret = btSwapEndian(val);
+	unsigned short lret = ::btSwapEndian(val);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2760,7 +2760,7 @@ static int _bind_btSwapEndian_overload_3(lua_State *L) {
 
 	int val=(int)lua_tointeger(L,1);
 
-	unsigned int lret = btSwapEndian(val);
+	unsigned int lret = ::btSwapEndian(val);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2775,7 +2775,7 @@ static int _bind_btSwapEndian_overload_4(lua_State *L) {
 
 	short val=(short)lua_tointeger(L,1);
 
-	unsigned short lret = btSwapEndian(val);
+	unsigned short lret = ::btSwapEndian(val);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2801,7 +2801,7 @@ static int _bind_btSwapEndianFloat(lua_State *L) {
 
 	float d=(float)lua_tonumber(L,1);
 
-	unsigned int lret = btSwapEndianFloat(d);
+	unsigned int lret = ::btSwapEndianFloat(d);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2816,7 +2816,7 @@ static int _bind_btUnswapEndianFloat(lua_State *L) {
 
 	unsigned int a=(unsigned int)lua_tointeger(L,1);
 
-	float lret = btUnswapEndianFloat(a);
+	float lret = ::btUnswapEndianFloat(a);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2832,7 +2832,7 @@ static int _bind_btSwapEndianDouble(lua_State *L) {
 	double d=(double)lua_tonumber(L,1);
 	unsigned char dst = (unsigned char)(lua_tointeger(L,2));
 
-	btSwapEndianDouble(d, &dst);
+	::btSwapEndianDouble(d, &dst);
 
 	return 0;
 }
@@ -2846,7 +2846,7 @@ static int _bind_btUnswapEndianDouble(lua_State *L) {
 
 	unsigned char src = (unsigned char)(lua_tointeger(L,1));
 
-	double lret = btUnswapEndianDouble(&src);
+	double lret = ::btUnswapEndianDouble(&src);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2861,7 +2861,7 @@ static int _bind_btNormalizeAngle(lua_State *L) {
 
 	float angleInRadians=(float)lua_tonumber(L,1);
 
-	float lret = btNormalizeAngle(angleInRadians);
+	float lret = ::btNormalizeAngle(angleInRadians);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2876,7 +2876,7 @@ static int _bind_btStrLen(lua_State *L) {
 
 	const char * str=(const char *)lua_tostring(L,1);
 
-	int lret = btStrLen(str);
+	int lret = ::btStrLen(str);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2900,7 +2900,7 @@ static int _bind_btAabbSupport(lua_State *L) {
 	}
 	const btVector3 & supportDir=*supportDir_ptr;
 
-	btVector3 stack_lret = btAabbSupport(halfExtents, supportDir);
+	btVector3 stack_lret = ::btAabbSupport(halfExtents, supportDir);
 	btVector3* lret = new btVector3(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2920,7 +2920,7 @@ static int _bind_btAdjustAngleToLimits(lua_State *L) {
 	float angleLowerLimitInRadians=(float)lua_tonumber(L,2);
 	float angleUpperLimitInRadians=(float)lua_tonumber(L,3);
 
-	float lret = btAdjustAngleToLimits(angleInRadians, angleLowerLimitInRadians, angleUpperLimitInRadians);
+	float lret = ::btAdjustAngleToLimits(angleInRadians, angleLowerLimitInRadians, angleUpperLimitInRadians);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2944,7 +2944,7 @@ static int _bind_btDot(lua_State *L) {
 	}
 	const btVector3 & v2=*v2_ptr;
 
-	float lret = btDot(v1, v2);
+	float lret = ::btDot(v1, v2);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2968,7 +2968,7 @@ static int _bind_btDistance2(lua_State *L) {
 	}
 	const btVector3 & v2=*v2_ptr;
 
-	float lret = btDistance2(v1, v2);
+	float lret = ::btDistance2(v1, v2);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2992,7 +2992,7 @@ static int _bind_btDistance(lua_State *L) {
 	}
 	const btVector3 & v2=*v2_ptr;
 
-	float lret = btDistance(v1, v2);
+	float lret = ::btDistance(v1, v2);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3016,7 +3016,7 @@ static int _bind_btCross(lua_State *L) {
 	}
 	const btVector3 & v2=*v2_ptr;
 
-	btVector3 stack_lret = btCross(v1, v2);
+	btVector3 stack_lret = ::btCross(v1, v2);
 	btVector3* lret = new btVector3(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3048,7 +3048,7 @@ static int _bind_btTriple(lua_State *L) {
 	}
 	const btVector3 & v3=*v3_ptr;
 
-	float lret = btTriple(v1, v2, v3);
+	float lret = ::btTriple(v1, v2, v3);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3073,7 +3073,7 @@ static int _bind_lerp(lua_State *L) {
 	const btVector3 & v2=*v2_ptr;
 	float t=(float)lua_tonumber(L,3);
 
-	btVector3 stack_lret = lerp(v1, v2, t);
+	btVector3 stack_lret = ::lerp(v1, v2, t);
 	btVector3* lret = new btVector3(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3092,7 +3092,7 @@ static int _bind_btSwapScalarEndian(lua_State *L) {
 	float sourceVal=(float)lua_tonumber(L,1);
 	float destVal=(float)lua_tonumber(L,2);
 
-	btSwapScalarEndian(sourceVal, destVal);
+	::btSwapScalarEndian(sourceVal, destVal);
 
 	return 0;
 }
@@ -3115,7 +3115,7 @@ static int _bind_btSwapVector3Endian(lua_State *L) {
 	}
 	btVector3 & destVec=*destVec_ptr;
 
-	btSwapVector3Endian(sourceVec, destVec);
+	::btSwapVector3Endian(sourceVec, destVec);
 
 	return 0;
 }
@@ -3133,7 +3133,7 @@ static int _bind_btUnSwapVector3Endian(lua_State *L) {
 	}
 	btVector3 & vector=*vector_ptr;
 
-	btUnSwapVector3Endian(vector);
+	::btUnSwapVector3Endian(vector);
 
 	return 0;
 }

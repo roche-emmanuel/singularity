@@ -609,7 +609,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation=luatop>0 ? (osgGA::GUIEventAdapter::MouseYOrientation)lua_tointeger(L,1) : osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS;
+		osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation=luatop>0 ? (osgGA::GUIEventAdapter::MouseYOrientation)lua_tointeger(L,1) : (osgGA::GUIEventAdapter::MouseYOrientation)osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS;
 
 		return new osgGA::EventQueue(mouseYOrientation);
 	}
@@ -623,7 +623,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation=luatop>1 ? (osgGA::GUIEventAdapter::MouseYOrientation)lua_tointeger(L,2) : osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS;
+		osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation=luatop>1 ? (osgGA::GUIEventAdapter::MouseYOrientation)lua_tointeger(L,2) : (osgGA::GUIEventAdapter::MouseYOrientation)osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS;
 
 		return new wrapper_osgGA_EventQueue(L,NULL, mouseYOrientation);
 	}
@@ -1403,7 +1403,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int key=(int)lua_tointeger(L,2);
-		int unmodifiedKey=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int unmodifiedKey=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
@@ -1426,7 +1426,7 @@ public:
 
 		int key=(int)lua_tointeger(L,2);
 		double time=(double)lua_tonumber(L,3);
-		int unmodifiedKey=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int unmodifiedKey=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
@@ -1457,7 +1457,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int key=(int)lua_tointeger(L,2);
-		int unmodifiedKey=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int unmodifiedKey=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
@@ -1480,7 +1480,7 @@ public:
 
 		int key=(int)lua_tointeger(L,2);
 		double time=(double)lua_tonumber(L,3);
-		int unmodifiedKey=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int unmodifiedKey=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {

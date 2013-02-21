@@ -53,7 +53,7 @@ public:
 			_obj.pushArg((osgDB::FindFileCallback*)this);
 			_obj.pushArg(filename);
 			_obj.pushArg(options);
-			_obj.pushArg(caseSensitivity);
+			_obj.pushArg((int)caseSensitivity);
 			return (_obj.callFunction<std::string>());
 		}
 
@@ -66,7 +66,7 @@ public:
 			_obj.pushArg((osgDB::FindFileCallback*)this);
 			_obj.pushArg(filename);
 			_obj.pushArg(options);
-			_obj.pushArg(caseSensitivity);
+			_obj.pushArg((int)caseSensitivity);
 			return (_obj.callFunction<std::string>());
 		}
 

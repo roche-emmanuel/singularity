@@ -18546,9 +18546,9 @@ static const unsigned char buf_StackTracePlus[]={
  99, 97,108,115,  0,  1,  8,  0,  0,
 };
 
-class Loader {
+class Loader_externals {
 public:
-	Loader() {
+	Loader_externals() {
 		logDEBUG3("Now loading all modules for package 'externals'");
 
 		sgtModuleProvider::registerModule("apr.test.base64",sgt::String((const char*)buf_apr_test_base64,sizeof(buf_apr_test_base64)));
@@ -18663,11 +18663,11 @@ public:
 		sgtModuleProvider::registerModule("StackTracePlus",sgt::String((const char*)buf_StackTracePlus,sizeof(buf_StackTracePlus)));
 	}
 	
-	~Loader() {
+	~Loader_externals() {
 		logDEBUG3("Unloading module loader for package 'externals'");
 	}
 };
 	
-static Loader loader_object;
+static Loader_externals loader_object;
 
 	

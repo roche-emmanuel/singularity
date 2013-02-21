@@ -139,7 +139,19 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 2 valid operators)
+	inline static bool _lg_typecheck_op_inc(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_op_dec(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Constructor binds:
 	// OpenThreads::Atomic::Atomic(unsigned int value = 0)
@@ -151,7 +163,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned value=luatop>0 ? (unsigned)lua_tointeger(L,1) : 0;
+		unsigned value=luatop>0 ? (unsigned)lua_tointeger(L,1) : (unsigned)0;
 
 		return new OpenThreads::Atomic(value);
 	}
@@ -227,7 +239,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned value=luatop>1 ? (unsigned)lua_tointeger(L,2) : 0;
+		unsigned value=luatop>1 ? (unsigned)lua_tointeger(L,2) : (unsigned)0;
 
 		OpenThreads::Atomic* self=(Luna< OpenThreads::Atomic >::check(L,1));
 		if(!self) {
@@ -242,6 +254,44 @@ public:
 
 
 	// Operator binds:
+	// unsigned int OpenThreads::Atomic::operator++()
+	static int _bind_op_inc(lua_State *L) {
+		if (!_lg_typecheck_op_inc(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::Atomic::operator++() function, expected prototype:\nunsigned int OpenThreads::Atomic::operator++()\nClass arguments details:\n");
+		}
+
+
+		OpenThreads::Atomic* self=(Luna< OpenThreads::Atomic >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::Atomic::operator++(). Got : '%s'",typeid(Luna< OpenThreads::Atomic >::check(L,1)).name());
+		}
+		unsigned int lret = self->operator++();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int OpenThreads::Atomic::operator--()
+	static int _bind_op_dec(lua_State *L) {
+		if (!_lg_typecheck_op_dec(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int OpenThreads::Atomic::operator--() function, expected prototype:\nunsigned int OpenThreads::Atomic::operator--()\nClass arguments details:\n");
+		}
+
+
+		OpenThreads::Atomic* self=(Luna< OpenThreads::Atomic >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int OpenThreads::Atomic::operator--(). Got : '%s'",typeid(Luna< OpenThreads::Atomic >::check(L,1)).name());
+		}
+		unsigned int lret = self->operator--();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 
 };
 
@@ -265,6 +315,8 @@ luna_RegType LunaTraits< OpenThreads::Atomic >::methods[] = {
 	{"OR", &luna_wrapper_OpenThreads_Atomic::_bind_OR},
 	{"XOR", &luna_wrapper_OpenThreads_Atomic::_bind_XOR},
 	{"exchange", &luna_wrapper_OpenThreads_Atomic::_bind_exchange},
+	{"op_inc", &luna_wrapper_OpenThreads_Atomic::_bind_op_inc},
+	{"op_dec", &luna_wrapper_OpenThreads_Atomic::_bind_op_dec},
 	{"dynCast", &luna_wrapper_OpenThreads_Atomic::_bind_dynCast},
 	{"__eq", &luna_wrapper_OpenThreads_Atomic::_bind___eq},
 	{"fromVoid", &luna_wrapper_OpenThreads_Atomic::_bind_fromVoid},

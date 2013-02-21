@@ -153,7 +153,7 @@ osgDB::OutputStream& writeQuat(osgDB::OutputStream& os, const osg::Quat& val) {
 }
 
 osgDB::OutputStream& writeProperty(osgDB::OutputStream& os, const std::string& val) {
-	os << PROPERTY(val.c_str());
+	os << osgDB::PROPERTY(val.c_str());
 	return os;
 }
 

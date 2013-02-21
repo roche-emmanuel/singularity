@@ -1304,7 +1304,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool needed=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool needed=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {
@@ -2031,7 +2031,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool needed=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool needed=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		osgViewer::GraphicsWindow* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindow >(L,1);
 		if(!self) {

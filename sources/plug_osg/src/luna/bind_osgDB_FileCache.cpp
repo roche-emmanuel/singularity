@@ -666,7 +666,7 @@ public:
 
 		std::string originalFileName(lua_tostring(L,2),lua_objlen(L,2));
 		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
-		bool buildKdTreeIfRequired=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool buildKdTreeIfRequired=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		osgDB::FileCache* self=Luna< osg::Referenced >::checkSubType< osgDB::FileCache >(L,1);
 		if(!self) {
@@ -1074,7 +1074,7 @@ public:
 
 		std::string originalFileName(lua_tostring(L,2),lua_objlen(L,2));
 		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
-		bool buildKdTreeIfRequired=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool buildKdTreeIfRequired=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		osgDB::FileCache* self=Luna< osg::Referenced >::checkSubType< osgDB::FileCache >(L,1);
 		if(!self) {

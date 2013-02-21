@@ -7,7 +7,7 @@ local max_count = 50
 local delay = 0.001
 
 function test_lane_computation()
-	log:info("Stating lane computation test.")
+	log:info("Starting lane computation test.")
 		
 	local f= lanes.gen( function(n) return 2*n end )
 	local a= f(1)
@@ -16,6 +16,21 @@ function test_lane_computation()
 	log:info("Tests","Lane results are, a=",a[1],", b=",b[1] )
 	
 	log:info("Lane computation test done.")
+end
+
+function test_timemanager_seconds()
+	log:info("Testing lua timemanager seconds.")
+
+	local tm = require "base.TimeManager"
+	
+	local secs = tm:getSeconds()
+	local lsecs = lanes.now_secs();
+	
+	log:info("Manager time=",secs, " lanes time=",lsecs)
+	
+	assert_equal(secs,math.floor(lsecs),"Time values do not match.")
+	
+	log:info("Done testing timemanager seconds.")
 end
 
 function test_lane_loop()

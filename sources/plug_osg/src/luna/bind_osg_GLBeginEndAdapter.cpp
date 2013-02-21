@@ -161,14 +161,14 @@ public:
 	inline static bool _lg_typecheck_LoadMatrixd(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_MultMatrixd(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -240,7 +240,7 @@ public:
 	inline static bool _lg_typecheck_Vertex3fv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -257,7 +257,7 @@ public:
 	inline static bool _lg_typecheck_Color4fv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -280,7 +280,7 @@ public:
 	inline static bool _lg_typecheck_Normal3fv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -294,7 +294,7 @@ public:
 	inline static bool _lg_typecheck_TexCoord1fv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -309,7 +309,7 @@ public:
 	inline static bool _lg_typecheck_TexCoord2fv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -325,7 +325,7 @@ public:
 	inline static bool _lg_typecheck_TexCoord3fv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -342,7 +342,7 @@ public:
 	inline static bool _lg_typecheck_TexCoord4fv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -358,7 +358,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -375,7 +375,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -393,7 +393,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -412,7 +412,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -428,7 +428,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -445,7 +445,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -463,7 +463,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -482,7 +482,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -698,14 +698,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::LoadMatrixd(const double * m) function, expected prototype:\nvoid osg::GLBeginEndAdapter::LoadMatrixd(const double * m)\nClass arguments details:\n");
 		}
 
-		double m=(double)lua_tonumber(L,2);
+		double* m=(double*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::LoadMatrixd(const double *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->LoadMatrixd(&m);
+		self->LoadMatrixd(m);
 
 		return 0;
 	}
@@ -717,14 +717,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::MultMatrixd(const double * m) function, expected prototype:\nvoid osg::GLBeginEndAdapter::MultMatrixd(const double * m)\nClass arguments details:\n");
 		}
 
-		double m=(double)lua_tonumber(L,2);
+		double* m=(double*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultMatrixd(const double *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->MultMatrixd(&m);
+		self->MultMatrixd(m);
 
 		return 0;
 	}
@@ -885,14 +885,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::Vertex3fv(const float * v) function, expected prototype:\nvoid osg::GLBeginEndAdapter::Vertex3fv(const float * v)\nClass arguments details:\n");
 		}
 
-		float v=(float)lua_tonumber(L,2);
+		float* v=(float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Vertex3fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->Vertex3fv(&v);
+		self->Vertex3fv(v);
 
 		return 0;
 	}
@@ -926,14 +926,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::Color4fv(const float * c) function, expected prototype:\nvoid osg::GLBeginEndAdapter::Color4fv(const float * c)\nClass arguments details:\n");
 		}
 
-		float c=(float)lua_tonumber(L,2);
+		float* c=(float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Color4fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->Color4fv(&c);
+		self->Color4fv(c);
 
 		return 0;
 	}
@@ -985,14 +985,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::Normal3fv(const float * n) function, expected prototype:\nvoid osg::GLBeginEndAdapter::Normal3fv(const float * n)\nClass arguments details:\n");
 		}
 
-		float n=(float)lua_tonumber(L,2);
+		float* n=(float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Normal3fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->Normal3fv(&n);
+		self->Normal3fv(n);
 
 		return 0;
 	}
@@ -1023,14 +1023,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::TexCoord1fv(const float * tc) function, expected prototype:\nvoid osg::GLBeginEndAdapter::TexCoord1fv(const float * tc)\nClass arguments details:\n");
 		}
 
-		float tc=(float)lua_tonumber(L,2);
+		float* tc=(float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord1fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->TexCoord1fv(&tc);
+		self->TexCoord1fv(tc);
 
 		return 0;
 	}
@@ -1062,14 +1062,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::TexCoord2fv(const float * tc) function, expected prototype:\nvoid osg::GLBeginEndAdapter::TexCoord2fv(const float * tc)\nClass arguments details:\n");
 		}
 
-		float tc=(float)lua_tonumber(L,2);
+		float* tc=(float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord2fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->TexCoord2fv(&tc);
+		self->TexCoord2fv(tc);
 
 		return 0;
 	}
@@ -1102,14 +1102,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::TexCoord3fv(const float * tc) function, expected prototype:\nvoid osg::GLBeginEndAdapter::TexCoord3fv(const float * tc)\nClass arguments details:\n");
 		}
 
-		float tc=(float)lua_tonumber(L,2);
+		float* tc=(float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord3fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->TexCoord3fv(&tc);
+		self->TexCoord3fv(tc);
 
 		return 0;
 	}
@@ -1143,14 +1143,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::TexCoord4fv(const float * tc) function, expected prototype:\nvoid osg::GLBeginEndAdapter::TexCoord4fv(const float * tc)\nClass arguments details:\n");
 		}
 
-		float tc=(float)lua_tonumber(L,2);
+		float* tc=(float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::TexCoord4fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->TexCoord4fv(&tc);
+		self->TexCoord4fv(tc);
 
 		return 0;
 	}
@@ -1183,14 +1183,14 @@ public:
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
-		float tc=(float)lua_tonumber(L,3);
+		float* tc=(float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord1fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->MultiTexCoord1fv(target, &tc);
+		self->MultiTexCoord1fv(target, tc);
 
 		return 0;
 	}
@@ -1224,14 +1224,14 @@ public:
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
-		float tc=(float)lua_tonumber(L,3);
+		float* tc=(float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord2fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->MultiTexCoord2fv(target, &tc);
+		self->MultiTexCoord2fv(target, tc);
 
 		return 0;
 	}
@@ -1266,14 +1266,14 @@ public:
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
-		float tc=(float)lua_tonumber(L,3);
+		float* tc=(float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord3fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->MultiTexCoord3fv(target, &tc);
+		self->MultiTexCoord3fv(target, tc);
 
 		return 0;
 	}
@@ -1309,14 +1309,14 @@ public:
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
-		float tc=(float)lua_tonumber(L,3);
+		float* tc=(float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::MultiTexCoord4fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->MultiTexCoord4fv(target, &tc);
+		self->MultiTexCoord4fv(target, tc);
 
 		return 0;
 	}
@@ -1349,14 +1349,14 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		float tc=(float)lua_tonumber(L,3);
+		float* tc=(float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib1fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->VertexAttrib1fv(unit, &tc);
+		self->VertexAttrib1fv(unit, tc);
 
 		return 0;
 	}
@@ -1390,14 +1390,14 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		float tc=(float)lua_tonumber(L,3);
+		float* tc=(float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib2fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->VertexAttrib2fv(unit, &tc);
+		self->VertexAttrib2fv(unit, tc);
 
 		return 0;
 	}
@@ -1432,14 +1432,14 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		float tc=(float)lua_tonumber(L,3);
+		float* tc=(float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib3fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->VertexAttrib3fv(unit, &tc);
+		self->VertexAttrib3fv(unit, tc);
 
 		return 0;
 	}
@@ -1475,14 +1475,14 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		float tc=(float)lua_tonumber(L,3);
+		float* tc=(float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::VertexAttrib4fv(unsigned int, const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
-		self->VertexAttrib4fv(unit, &tc);
+		self->VertexAttrib4fv(unit, tc);
 
 		return 0;
 	}

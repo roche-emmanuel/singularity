@@ -386,7 +386,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
 		osg::BufferObject* bufferObject=(Luna< osg::Referenced >::checkSubType< osg::BufferObject >(L,2));
-		unsigned int glObjectID=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int glObjectID=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		return new osg::GLBufferObject(contextID, bufferObject, glObjectID);
 	}
@@ -402,7 +402,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 		osg::BufferObject* bufferObject=(Luna< osg::Referenced >::checkSubType< osg::BufferObject >(L,3));
-		unsigned int glObjectID=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
+		unsigned int glObjectID=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
 
 		return new wrapper_osg_GLBufferObject(L,NULL, contextID, bufferObject, glObjectID);
 	}

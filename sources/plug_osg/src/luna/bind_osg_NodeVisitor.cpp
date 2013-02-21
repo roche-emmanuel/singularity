@@ -788,7 +788,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::NodeVisitor::TraversalMode tm=luatop>0 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,1) : osg::NodeVisitor::TRAVERSE_NONE;
+		osg::NodeVisitor::TraversalMode tm=luatop>0 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,1) : (osg::NodeVisitor::TraversalMode)osg::NodeVisitor::TRAVERSE_NONE;
 
 		return new osg::NodeVisitor(tm);
 	}
@@ -803,7 +803,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::NodeVisitor::VisitorType type=(osg::NodeVisitor::VisitorType)lua_tointeger(L,1);
-		osg::NodeVisitor::TraversalMode tm=luatop>1 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,2) : osg::NodeVisitor::TRAVERSE_NONE;
+		osg::NodeVisitor::TraversalMode tm=luatop>1 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,2) : (osg::NodeVisitor::TraversalMode)osg::NodeVisitor::TRAVERSE_NONE;
 
 		return new osg::NodeVisitor(type, tm);
 	}
@@ -817,7 +817,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::NodeVisitor::TraversalMode tm=luatop>1 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,2) : osg::NodeVisitor::TRAVERSE_NONE;
+		osg::NodeVisitor::TraversalMode tm=luatop>1 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,2) : (osg::NodeVisitor::TraversalMode)osg::NodeVisitor::TRAVERSE_NONE;
 
 		return new wrapper_osg_NodeVisitor(L,NULL, tm);
 	}
@@ -832,7 +832,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::NodeVisitor::VisitorType type=(osg::NodeVisitor::VisitorType)lua_tointeger(L,2);
-		osg::NodeVisitor::TraversalMode tm=luatop>2 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,3) : osg::NodeVisitor::TRAVERSE_NONE;
+		osg::NodeVisitor::TraversalMode tm=luatop>2 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,3) : (osg::NodeVisitor::TraversalMode)osg::NodeVisitor::TRAVERSE_NONE;
 
 		return new wrapper_osg_NodeVisitor(L,NULL, type, tm);
 	}

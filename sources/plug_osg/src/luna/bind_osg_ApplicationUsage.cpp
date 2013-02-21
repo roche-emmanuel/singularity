@@ -678,9 +678,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg output in osg::ApplicationUsage::write function");
 		}
 		std::ostream & output=*output_ptr;
-		unsigned int type=luatop>2 ? (unsigned int)lua_tointeger(L,3) : osg::ApplicationUsage::COMMAND_LINE_OPTION;
-		unsigned int widthOfOutput=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 80;
-		bool showDefaults=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		unsigned int type=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)osg::ApplicationUsage::COMMAND_LINE_OPTION;
+		unsigned int widthOfOutput=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)80;
+		bool showDefaults=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {

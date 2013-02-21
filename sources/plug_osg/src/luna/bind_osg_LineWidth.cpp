@@ -376,7 +376,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float width=luatop>0 ? (float)lua_tonumber(L,1) : 1.0f;
+		float width=luatop>0 ? (float)lua_tonumber(L,1) : (float)1.0f;
 
 		return new osg::LineWidth(width);
 	}
@@ -399,7 +399,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::LineWidth::LineWidth function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::LineWidth(lw, copyop);
 	}
@@ -413,7 +413,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float width=luatop>1 ? (float)lua_tonumber(L,2) : 1.0f;
+		float width=luatop>1 ? (float)lua_tonumber(L,2) : (float)1.0f;
 
 		return new wrapper_osg_LineWidth(L,NULL, width);
 	}
@@ -436,7 +436,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::LineWidth::LineWidth function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_LineWidth(L,NULL, lw, copyop);
 	}

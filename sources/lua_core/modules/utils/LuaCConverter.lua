@@ -74,31 +74,31 @@ function Class:writeBindings()
 	
 	file:write("\n")
 	-- now register a module loader:
-	local str1 = [[class Loader {
+	local str1 = [[class Loader_${1} {
 public:
-	Loader() {
-		logDEBUG3("Now loading all modules for package ']] .. self._packageName .. [['");
+	Loader_${1}() {
+		logDEBUG3("Now loading all modules for package '${1}'");
 
 ]]
 		
 	local str2 = [[
 	}
 	
-	~Loader() {
-		logDEBUG3("Unloading module loader for package ']] .. self._packageName .. [['");
+	~Loader_${1}() {
+		logDEBUG3("Unloading module loader for package '${1}'");
 	}
 };
 	
-static Loader loader_object;
+static Loader_${1} loader_object;
 
 	]];
 	
-	file:write(str1)
+	file:write((str1:gsub("%${1}",self._packageName)))
 	for _,v in self._modules:sequence() do
 		local name = "buf_" .. v:gsub("[%.%-]","_")
 		file:write('\t\tsgtModuleProvider::registerModule("'.. v ..'",sgt::String((const char*)'.. name ..',sizeof('..name..')));\n')
 	end
-	file:write(str2)
+	file:write((str2:gsub("%${1}",self._packageName)))
 	
 	file:close()
 end

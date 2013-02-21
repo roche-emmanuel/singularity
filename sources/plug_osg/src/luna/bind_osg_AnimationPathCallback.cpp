@@ -513,8 +513,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::AnimationPath* ap=(Luna< osg::Referenced >::checkSubType< osg::AnimationPath >(L,1));
-		double timeOffset=luatop>1 ? (double)lua_tonumber(L,2) : 0.0;
-		double timeMultiplier=luatop>2 ? (double)lua_tonumber(L,3) : 1.0;
+		double timeOffset=luatop>1 ? (double)lua_tonumber(L,2) : (double)0.0;
+		double timeMultiplier=luatop>2 ? (double)lua_tonumber(L,3) : (double)1.0;
 
 		return new osg::AnimationPathCallback(ap, timeOffset, timeMultiplier);
 	}
@@ -583,8 +583,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::AnimationPath* ap=(Luna< osg::Referenced >::checkSubType< osg::AnimationPath >(L,2));
-		double timeOffset=luatop>2 ? (double)lua_tonumber(L,3) : 0.0;
-		double timeMultiplier=luatop>3 ? (double)lua_tonumber(L,4) : 1.0;
+		double timeOffset=luatop>2 ? (double)lua_tonumber(L,3) : (double)0.0;
+		double timeMultiplier=luatop>3 ? (double)lua_tonumber(L,4) : (double)1.0;
 
 		return new wrapper_osg_AnimationPathCallback(L,NULL, ap, timeOffset, timeMultiplier);
 	}

@@ -444,7 +444,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgParticle::DomainOperator::DomainOperator function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgParticle::DomainOperator(copy, copyop);
 	}
@@ -478,7 +478,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgParticle::DomainOperator::DomainOperator function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgParticle_DomainOperator(L,NULL, copy, copyop);
 	}
@@ -813,7 +813,7 @@ public:
 		}
 		const osg::Vec3f & n=*n_ptr;
 		float r1=(float)lua_tonumber(L,4);
-		float r2=luatop>4 ? (float)lua_tonumber(L,5) : 0.0f;
+		float r2=luatop>4 ? (float)lua_tonumber(L,5) : (float)0.0f;
 
 		osgParticle::DomainOperator* self=Luna< osg::Referenced >::checkSubType< osgParticle::DomainOperator >(L,1);
 		if(!self) {

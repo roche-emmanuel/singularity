@@ -184,7 +184,7 @@ public:
 	inline static bool _lg_typecheck_readCharArray(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -847,7 +847,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgDB::InputStream::readCharArray(char * s, unsigned int size) function, expected prototype:\nvoid osgDB::InputStream::readCharArray(char * s, unsigned int size)\nClass arguments details:\n");
 		}
 
-		char s=(char)lua_tointeger(L,2);
+		char* s=(char*)Luna< void >::check(L,2);
 		unsigned int size=(unsigned int)lua_tointeger(L,3);
 
 		osgDB::InputStream* self=(Luna< osgDB::InputStream >::check(L,1));
@@ -855,7 +855,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::InputStream::readCharArray(char *, unsigned int). Got : '%s'",typeid(Luna< osgDB::InputStream >::check(L,1)).name());
 		}
-		self->readCharArray(&s, size);
+		self->readCharArray(s, size);
 
 		return 0;
 	}
@@ -930,7 +930,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool readFromExternal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool readFromExternal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		osgDB::InputStream* self=(Luna< osgDB::InputStream >::check(L,1));
 		if(!self) {

@@ -51,7 +51,7 @@ public:
 	void notify(osg::NotifySeverity severity, const char * message) {
 		THROW_IF(!_obj.pushFunction("notify"),"No implementation for abstract function osg::NotifyHandler::notify");
 		_obj.pushArg((osg::NotifyHandler*)this);
-		_obj.pushArg(severity);
+		_obj.pushArg((int)severity);
 		_obj.pushArg(message);
 		return (_obj.callFunction<void>());
 	};

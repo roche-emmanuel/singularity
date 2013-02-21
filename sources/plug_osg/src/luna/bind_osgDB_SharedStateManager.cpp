@@ -291,7 +291,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int mode=luatop>0 ? (unsigned int)lua_tointeger(L,1) : osgDB::SharedStateManager::SHARE_ALL;
+		unsigned int mode=luatop>0 ? (unsigned int)lua_tointeger(L,1) : (unsigned int)osgDB::SharedStateManager::SHARE_ALL;
 
 		return new osgDB::SharedStateManager(mode);
 	}
@@ -305,7 +305,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : osgDB::SharedStateManager::SHARE_ALL;
+		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)osgDB::SharedStateManager::SHARE_ALL;
 
 		return new wrapper_osgDB_SharedStateManager(L,NULL, mode);
 	}

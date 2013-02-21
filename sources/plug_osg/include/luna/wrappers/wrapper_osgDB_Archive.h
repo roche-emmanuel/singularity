@@ -187,7 +187,7 @@ public:
 		if(_obj.pushFunction("openArchive")) {
 			_obj.pushArg((osgDB::Archive*)this);
 			_obj.pushArg(arg1);
-			_obj.pushArg(arg2);
+			_obj.pushArg((int)arg2);
 			_obj.pushArg(arg3);
 			_obj.pushArg(arg4);
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());

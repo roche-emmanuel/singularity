@@ -401,7 +401,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::TexEnv::Mode mode=luatop>0 ? (osg::TexEnv::Mode)lua_tointeger(L,1) : osg::TexEnv::MODULATE;
+		osg::TexEnv::Mode mode=luatop>0 ? (osg::TexEnv::Mode)lua_tointeger(L,1) : (osg::TexEnv::Mode)osg::TexEnv::MODULATE;
 
 		return new osg::TexEnv(mode);
 	}
@@ -424,7 +424,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::TexEnv::TexEnv function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::TexEnv(texenv, copyop);
 	}
@@ -438,7 +438,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::TexEnv::Mode mode=luatop>1 ? (osg::TexEnv::Mode)lua_tointeger(L,2) : osg::TexEnv::MODULATE;
+		osg::TexEnv::Mode mode=luatop>1 ? (osg::TexEnv::Mode)lua_tointeger(L,2) : (osg::TexEnv::Mode)osg::TexEnv::MODULATE;
 
 		return new wrapper_osg_TexEnv(L,NULL, mode);
 	}
@@ -461,7 +461,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::TexEnv::TexEnv function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_TexEnv(L,NULL, texenv, copyop);
 	}

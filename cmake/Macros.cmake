@@ -236,13 +236,32 @@ MACRO(PRECOMPILE_LUA luafile)
 ENDMACRO(PRECOMPILE_LUA)
 
 MACRO(GENERATE_LUA_PACKAGE STUB_NAME)
-	ADD_CUSTOM_TARGET(
-		${TARGET_NAME}_package
-		COMMAND echo "Generating lua package..."
-		COMMAND ${LUA} -e "project='${TARGET_NAME}'; src_path='${CMAKE_CURRENT_SOURCE_DIR}/../modules/'; sgt_path='${SGT_DIR}/';" ${SGT_DIR}/scripts/generate_package.lua
-		COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/../CMakeLists.txt # touch the calling file.
-		COMMAND echo "Package generation done."
-	)	
+	IF(MSVC)
+		ADD_CUSTOM_TARGET(
+			${TARGET_NAME}_package
+			COMMAND echo "Generating lua package..."
+			COMMAND ${LUA} -e "project='${TARGET_NAME}'; src_path='${CMAKE_CURRENT_SOURCE_DIR}/../modules/'; sgt_path='${SGT_DIR}/';" ${SGT_DIR}/scripts/generate_package.lua
+			COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/../CMakeLists.txt # touch the calling file.
+			COMMAND echo "Package generation done."
+		)	
+	ELSE()
+		SET(LUAFILE "gen_lua_package.lua")
+		
+		ADD_CUSTOM_TARGET(
+			${TARGET_NAME}_package
+			COMMAND ${ECHO} "Generating lua package..."
+			COMMAND ${ECHO} "project=\\'${TARGET_NAME}\\'" > ${LUAFILE}
+			COMMAND ${ECHO} -n "src_path=\\'" >> ${LUAFILE}
+			COMMAND ${ECHO} -n `cygpath -w "${CMAKE_CURRENT_SOURCE_DIR}/../modules/"` >> ${LUAFILE}
+			COMMAND ${ECHO} "\\'" >> ${LUAFILE}
+			COMMAND ${ECHO} "sgt_path=\\'${SGT_DIR}/\\'" >> ${LUAFILE}
+			COMMAND ${ECHO} -n "dofile\\(\\'${SGT_DIR}/scripts/generate_package.lua\\'\\)" >> ${LUAFILE}
+			COMMAND ${SED} -i 's/\\\\/\\//g' ${LUAFILE}
+			COMMAND ${LUA} ${LUAFILE} 
+			COMMAND  -E touch ${CMAKE_CURRENT_SOURCE_DIR}/../CMakeLists.txt # touch the calling file.
+			COMMAND ${ECHO} "Package generation done."
+		)	
+	ENDIF()
 	
 	ADD_DEPENDENCIES(${STUB_NAME} ${TARGET_NAME}_package)
 ENDMACRO(GENERATE_LUA_PACKAGE)
@@ -312,22 +331,22 @@ MACRO(GENERATE_REFLECTION STUB_NAME INTERFACE_FILES)
 			COMMAND echo EXCLUDE_PATTERNS= >> ${DOXFILE}
 			COMMAND echo DOT_PATH=${DOT_DIR} >> ${DOXFILE}
 			COMMAND ${CAT_EXEC} "${DOX_TEMPLATE}" >> ${DOXFILE}
+			
 			# Call doxygen on this file:
 			COMMAND ${DOXYGEN} ${DOXFILE} > ${CMAKE_CURRENT_BINARY_DIR}/doxygen.log 2>&1
-			# COMMAND ${DOXYGEN} ${DOXFILE}
+
 			COMMAND echo "Generating lua reflection..."
-			# COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${MOD_NAME}'; xml_path='${CMAKE_CURRENT_BINARY_DIR}/xml/'; sgt_path='${SGT_DIR}/';" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
-			COMMAND echo "project=\'${TARGET_NAME}\'" > ${CFGFILE}
-			COMMAND echo -n "xml_path=\'" >> ${CFGFILE}
-			COMMAND echo -n	`cygpath -w "${CMAKE_CURRENT_BINARY_DIR}/xml/"` >> ${CFGFILE}
-			COMMAND echo "\'" >> ${CFGFILE}
-			COMMAND echo -n "sgt_path=\'" >> ${CFGFILE}
-			COMMAND echo -n ${SGT_DIR}/ >> ${CFGFILE}
-			COMMAND echo "\'"  >> ${CFGFILE}
-			COMMAND echo -n "dofile\(\'" >> ${CFGFILE}
-			COMMAND echo -n `cygpath -w "${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua"`  >> ${CFGFILE}
-			COMMAND echo "\'\)" >> ${CFGFILE}
-			COMMAND sed -i 's/\\/\//g' ${CFGFILE}
+			COMMAND ${ECHO} "project=\\'${TARGET_NAME}\\'" > ${CFGFILE}
+			COMMAND ${ECHO} -n "xml_path=\\'" >> ${CFGFILE}
+			COMMAND ${ECHO} -n `cygpath -w "${CMAKE_CURRENT_BINARY_DIR}/xml/"` >> ${CFGFILE}
+			COMMAND ${ECHO} "\\'" >> ${CFGFILE}
+			COMMAND ${ECHO} "sgt_path=\\'${SGT_DIR}/\\'" >> ${CFGFILE}
+			COMMAND ${ECHO} -n "dofile\\(\\'" >> ${CFGFILE}
+			COMMAND ${ECHO} -n `cygpath -w "${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua"` >> ${CFGFILE}
+			COMMAND ${ECHO} "\\'\\)" >> ${CFGFILE}
+			
+			COMMAND ${SED} -i 's/\\\\/\\//g' ${CFGFILE}
+			
 			COMMAND cd ${SGT_PATH} && ${LUA} `cygpath -w "${CMAKE_CURRENT_BINARY_DIR}/${CFGFILE}"`
 			COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt # touch the calling file.
 			COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/../CMakeLists.txt # touch the calling file.

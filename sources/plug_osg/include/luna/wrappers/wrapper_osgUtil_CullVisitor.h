@@ -550,7 +550,7 @@ public:
 		osg::Drawable* drawable=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
 		osg::RefMatrixd* projection=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,3));
 		osg::RefMatrixd* matrix=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,4));
-		float depth=luatop>4 ? (float)lua_tonumber(L,5) : 0.0f;
+		float depth=luatop>4 ? (float)lua_tonumber(L,5) : (float)0.0f;
 
 		wrapper_osgUtil_CullVisitor* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_CullVisitor >(L,1);
 		if(!self) {

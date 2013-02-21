@@ -248,8 +248,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg out in osgUtil::PrintVisitor::PrintVisitor function");
 		}
 		std::ostream & out=*out_ptr;
-		int indent=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int step=luatop>2 ? (int)lua_tointeger(L,3) : 2;
+		int indent=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int step=luatop>2 ? (int)lua_tointeger(L,3) : (int)2;
 
 		return new osgUtil::PrintVisitor(out, indent, step);
 	}
@@ -268,8 +268,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg out in osgUtil::PrintVisitor::PrintVisitor function");
 		}
 		std::ostream & out=*out_ptr;
-		int indent=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int step=luatop>3 ? (int)lua_tointeger(L,4) : 2;
+		int indent=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int step=luatop>3 ? (int)lua_tointeger(L,4) : (int)2;
 
 		return new wrapper_osgUtil_PrintVisitor(L,NULL, out, indent, step);
 	}

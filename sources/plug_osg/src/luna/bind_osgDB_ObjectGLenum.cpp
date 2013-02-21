@@ -156,7 +156,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int value=luatop>0 ? (unsigned int)lua_tointeger(L,1) : 0;
+		unsigned int value=luatop>0 ? (unsigned int)lua_tointeger(L,1) : (unsigned int)0;
 
 		return new osgDB::ObjectGLenum(value);
 	}

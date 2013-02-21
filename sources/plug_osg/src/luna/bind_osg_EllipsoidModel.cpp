@@ -374,8 +374,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double radiusEquator=luatop>0 ? (double)lua_tonumber(L,1) : osg::WGS_84_RADIUS_EQUATOR;
-		double radiusPolar=luatop>1 ? (double)lua_tonumber(L,2) : osg::WGS_84_RADIUS_POLAR;
+		double radiusEquator=luatop>0 ? (double)lua_tonumber(L,1) : (double)osg::WGS_84_RADIUS_EQUATOR;
+		double radiusPolar=luatop>1 ? (double)lua_tonumber(L,2) : (double)osg::WGS_84_RADIUS_POLAR;
 
 		return new osg::EllipsoidModel(radiusEquator, radiusPolar);
 	}
@@ -398,7 +398,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::EllipsoidModel::EllipsoidModel function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::EllipsoidModel(et, copyop);
 	}
@@ -412,8 +412,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double radiusEquator=luatop>1 ? (double)lua_tonumber(L,2) : osg::WGS_84_RADIUS_EQUATOR;
-		double radiusPolar=luatop>2 ? (double)lua_tonumber(L,3) : osg::WGS_84_RADIUS_POLAR;
+		double radiusEquator=luatop>1 ? (double)lua_tonumber(L,2) : (double)osg::WGS_84_RADIUS_EQUATOR;
+		double radiusPolar=luatop>2 ? (double)lua_tonumber(L,3) : (double)osg::WGS_84_RADIUS_POLAR;
 
 		return new wrapper_osg_EllipsoidModel(L,NULL, radiusEquator, radiusPolar);
 	}
@@ -436,7 +436,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::EllipsoidModel::EllipsoidModel function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_EllipsoidModel(L,NULL, et, copyop);
 	}

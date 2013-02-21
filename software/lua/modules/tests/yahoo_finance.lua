@@ -6,8 +6,28 @@ local log = require "tracer"
 --	return
 --end
 
+function test_investorhub_symbol_retriever()
+	log:info("Tests","Testing investor hub symbol retriever.");
+	
+	local ret = require("finance.yahoo.InvestorHubSymbolRetriever")()
+	
+	local syms = require("finance.yahoo.SymbolTable")
+	log:info("Tests","Found ", #syms, " Investor hub symbols.");
+	
+	log:info("Tests","Investor hub symbol retriever test done.");
+end
 
-local fs = require "base.FileSystem"
+function test_quote_retriever()
+	log:info("Tests","Testing quote handler");
+
+	local handler = require("finance.yahoo.QuoteHandler")()
+	
+	local res = handler:getQuotes{"MSFT","AAPL"}
+	
+	log:info("Tests","Retrieved quotes are: ",res)
+	
+	log:info("Tests","Done testing quote handler.")
+end
 
 function test_retrieve_data()
 	log:info("Tests","Retrieving data from yahoo finance...");

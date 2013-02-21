@@ -1254,7 +1254,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool callCloseImplementation=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool callCloseImplementation=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		osg::GraphicsContext* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,1);
 		if(!self) {

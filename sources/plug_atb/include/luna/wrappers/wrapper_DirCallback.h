@@ -40,7 +40,7 @@ public:
 	void setValue(osg::Vec3d val) {
 		THROW_IF(!_obj.pushFunction("setValue"),"No implementation for abstract function DirCallback::setValue");
 		_obj.pushArg((DirCallback*)this);
-		_obj.pushArg(val);
+		_obj.pushArg(&val);
 		return (_obj.callFunction<void>());
 	};
 

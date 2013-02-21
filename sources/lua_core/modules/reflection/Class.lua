@@ -334,9 +334,10 @@ end
 function Class:isValidForWrapping()
 	local abase = self:getFirstAbsoluteBase()
 	return not self:isTemplated()
-		and not im:ignore(self:getHeaderFile(),"file")
+		and (self:getHeaderFile() and not im:ignore(self:getHeaderFile(),"file"))
 		and ((not self:getParent()) or self:getParent():isValidForWrapping())
 		and self:isPublic()
+		and not self:isIgnored()
 		and (abase==self or abase:isValidForWrapping())
 end
 

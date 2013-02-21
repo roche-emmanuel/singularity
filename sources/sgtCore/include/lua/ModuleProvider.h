@@ -19,9 +19,12 @@ protected:
 public:
     ModuleProvider()
 	{	
+		logINFO("Creating Module provider instance.");
 	};
 
-    ~ModuleProvider() {};
+    ~ModuleProvider() {
+		logINFO("Destroying module provider instance.");	
+	};
 
 	ModuleProvider(const ModuleProvider& tm, const sgtCopyOp& co = sgtCopyOp::SHALLOW_COPY):
 		sgtObject(tm,co)

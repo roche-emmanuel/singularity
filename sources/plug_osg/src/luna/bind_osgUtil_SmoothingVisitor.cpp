@@ -336,7 +336,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg geoset in osgUtil::SmoothingVisitor::smooth function");
 		}
 		osg::Geometry & geoset=*geoset_ptr;
-		double creaseAngle=luatop>1 ? (double)lua_tonumber(L,2) : osg::PI;
+		double creaseAngle=luatop>1 ? (double)lua_tonumber(L,2) : (double)osg::PI;
 
 		osgUtil::SmoothingVisitor::smooth(geoset, creaseAngle);
 

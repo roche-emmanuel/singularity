@@ -84,7 +84,7 @@ public:
 		_obj.pushArg((osgText::Font::FontImplementation*)this);
 		_obj.pushArg(leftcharcode);
 		_obj.pushArg(rightcharcode);
-		_obj.pushArg(kerningType);
+		_obj.pushArg((int)kerningType);
 		return *(_obj.callFunction<osg::Vec2f*>());
 	};
 

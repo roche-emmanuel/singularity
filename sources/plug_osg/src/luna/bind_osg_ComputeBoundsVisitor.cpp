@@ -315,7 +315,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::NodeVisitor::TraversalMode traversalMode=luatop>0 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,1) : osg::NodeVisitor::TRAVERSE_ALL_CHILDREN;
+		osg::NodeVisitor::TraversalMode traversalMode=luatop>0 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,1) : (osg::NodeVisitor::TraversalMode)osg::NodeVisitor::TRAVERSE_ALL_CHILDREN;
 
 		return new osg::ComputeBoundsVisitor(traversalMode);
 	}
@@ -329,7 +329,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::NodeVisitor::TraversalMode traversalMode=luatop>1 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,2) : osg::NodeVisitor::TRAVERSE_ALL_CHILDREN;
+		osg::NodeVisitor::TraversalMode traversalMode=luatop>1 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,2) : (osg::NodeVisitor::TraversalMode)osg::NodeVisitor::TRAVERSE_ALL_CHILDREN;
 
 		return new wrapper_osg_ComputeBoundsVisitor(L,NULL, traversalMode);
 	}
@@ -436,7 +436,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg polytope in osg::ComputeBoundsVisitor::getPolytope function");
 		}
 		osg::Polytope & polytope=*polytope_ptr;
-		float margin=luatop>2 ? (float)lua_tonumber(L,3) : 0.1;
+		float margin=luatop>2 ? (float)lua_tonumber(L,3) : (float)0.1;
 
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {
@@ -462,7 +462,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg polytope in osg::ComputeBoundsVisitor::getBase function");
 		}
 		osg::Polytope & polytope=*polytope_ptr;
-		float margin=luatop>2 ? (float)lua_tonumber(L,3) : 0.1;
+		float margin=luatop>2 ? (float)lua_tonumber(L,3) : (float)0.1;
 
 		osg::ComputeBoundsVisitor* self=Luna< osg::Referenced >::checkSubType< osg::ComputeBoundsVisitor >(L,1);
 		if(!self) {

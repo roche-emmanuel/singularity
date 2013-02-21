@@ -659,7 +659,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::ImageStream::ImageStream function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::ImageStream(image, copyop);
 	}
@@ -693,7 +693,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::ImageStream::ImageStream function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_ImageStream(L,NULL, image, copyop);
 	}
@@ -922,7 +922,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool _arg1=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool _arg1=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
@@ -1437,7 +1437,7 @@ public:
 		int r=(int)lua_tointeger(L,4);
 		unsigned int pixelFormat=(unsigned int)lua_tointeger(L,5);
 		unsigned int type=(unsigned int)lua_tointeger(L,6);
-		int packing=luatop>6 ? (int)lua_tointeger(L,7) : 1;
+		int packing=luatop>6 ? (int)lua_tointeger(L,7) : (int)1;
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
@@ -1466,7 +1466,7 @@ public:
 		unsigned int type=(unsigned int)lua_tointeger(L,7);
 		unsigned char data = (unsigned char)(lua_tointeger(L,8));
 		osg::Image::AllocationMode mode=(osg::Image::AllocationMode)lua_tointeger(L,9);
-		int packing=luatop>9 ? (int)lua_tointeger(L,10) : 1;
+		int packing=luatop>9 ? (int)lua_tointeger(L,10) : (int)1;
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
@@ -1513,7 +1513,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 		bool copyMipMapsIfAvailable=(bool)(lua_toboolean(L,3)==1);
-		unsigned int type=luatop>3 ? (unsigned int)lua_tointeger(L,4) : GL_UNSIGNED_BYTE;
+		unsigned int type=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)GL_UNSIGNED_BYTE;
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
@@ -1919,7 +1919,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool _arg1=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool _arg1=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {

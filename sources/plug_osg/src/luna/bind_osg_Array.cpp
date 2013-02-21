@@ -344,9 +344,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Array::Type arrayType=luatop>1 ? (osg::Array::Type)lua_tointeger(L,2) : osg::Array::ArrayType;
-		int dataSize=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		unsigned int dataType=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
+		osg::Array::Type arrayType=luatop>1 ? (osg::Array::Type)lua_tointeger(L,2) : (osg::Array::Type)osg::Array::ArrayType;
+		int dataSize=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		unsigned int dataType=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
 
 		return new wrapper_osg_Array(L,NULL, arrayType, dataSize, dataType);
 	}
@@ -369,7 +369,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Array::Array function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_Array(L,NULL, array, copyop);
 	}

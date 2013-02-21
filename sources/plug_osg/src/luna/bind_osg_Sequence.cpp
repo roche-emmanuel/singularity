@@ -713,7 +713,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Sequence::Sequence function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::Sequence(_arg1, copyop);
 	}
@@ -747,7 +747,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Sequence::Sequence function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_Sequence(L,NULL, _arg2, copyop);
 	}
@@ -1518,7 +1518,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		float speed=(float)lua_tonumber(L,2);
-		int nreps=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int nreps=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {

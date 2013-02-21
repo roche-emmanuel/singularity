@@ -422,8 +422,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool withNear=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
-		bool withFar=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool withNear=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
+		bool withFar=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {

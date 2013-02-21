@@ -1692,7 +1692,7 @@ public:
 
 		osg::Uniform::Type type=(osg::Uniform::Type)lua_tointeger(L,1);
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
-		int numElements=luatop>2 ? (int)lua_tointeger(L,3) : 1;
+		int numElements=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
 
 		return new osg::Uniform(type, name, numElements);
 	}
@@ -1715,7 +1715,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Uniform::Uniform function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::Uniform(rhs, copyop);
 	}
@@ -2048,7 +2048,7 @@ public:
 
 		osg::Uniform::Type type=(osg::Uniform::Type)lua_tointeger(L,2);
 		std::string name(lua_tostring(L,3),lua_objlen(L,3));
-		int numElements=luatop>3 ? (int)lua_tointeger(L,4) : 1;
+		int numElements=luatop>3 ? (int)lua_tointeger(L,4) : (int)1;
 
 		return new wrapper_osg_Uniform(L,NULL, type, name, numElements);
 	}
@@ -2071,7 +2071,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Uniform::Uniform function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_Uniform(L,NULL, rhs, copyop);
 	}

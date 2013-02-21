@@ -910,7 +910,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool erase=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : false;
+		bool erase=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)false;
 
 		osgDB::Registry * lret = osgDB::Registry::instance(erase);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1677,7 +1677,7 @@ public:
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
-		bool buildKdTreeIfRequired=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool buildKdTreeIfRequired=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
 		if(!self) {
@@ -1824,7 +1824,7 @@ public:
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
-		bool buildKdTreeIfRequired=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool buildKdTreeIfRequired=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
 		if(!self) {
@@ -2963,7 +2963,7 @@ public:
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 		osg::Object* object=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,3));
-		double timestamp=luatop>3 ? (double)lua_tonumber(L,4) : 0.0;
+		double timestamp=luatop>3 ? (double)lua_tonumber(L,4) : (double)0.0;
 
 		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
 		if(!self) {

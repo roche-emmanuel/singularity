@@ -1068,7 +1068,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg up in osgGA::KeySwitchMatrixManipulator::setHomePosition function");
 		}
 		const osg::Vec3d & up=*up_ptr;
-		bool autoComputeHomePosition=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool autoComputeHomePosition=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {
@@ -1771,7 +1771,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg up in osgGA::KeySwitchMatrixManipulator::base_setHomePosition function");
 		}
 		const osg::Vec3d & up=*up_ptr;
-		bool autoComputeHomePosition=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool autoComputeHomePosition=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
 		if(!self) {

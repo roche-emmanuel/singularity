@@ -854,7 +854,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int pos=(int)lua_tointeger(L,2);
-		int num=luatop>2 ? (int)lua_tointeger(L,3) : 1;
+		int num=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
@@ -1650,7 +1650,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::ArgumentParser::ErrorSeverity severity=luatop>1 ? (osg::ArgumentParser::ErrorSeverity)lua_tointeger(L,2) : osg::ArgumentParser::BENIGN;
+		osg::ArgumentParser::ErrorSeverity severity=luatop>1 ? (osg::ArgumentParser::ErrorSeverity)lua_tointeger(L,2) : (osg::ArgumentParser::ErrorSeverity)osg::ArgumentParser::BENIGN;
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
@@ -1673,7 +1673,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string message(lua_tostring(L,2),lua_objlen(L,2));
-		osg::ArgumentParser::ErrorSeverity severity=luatop>2 ? (osg::ArgumentParser::ErrorSeverity)lua_tointeger(L,3) : osg::ArgumentParser::CRITICAL;
+		osg::ArgumentParser::ErrorSeverity severity=luatop>2 ? (osg::ArgumentParser::ErrorSeverity)lua_tointeger(L,3) : (osg::ArgumentParser::ErrorSeverity)osg::ArgumentParser::CRITICAL;
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
@@ -1694,7 +1694,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::ArgumentParser::ErrorSeverity severity=luatop>1 ? (osg::ArgumentParser::ErrorSeverity)lua_tointeger(L,2) : osg::ArgumentParser::BENIGN;
+		osg::ArgumentParser::ErrorSeverity severity=luatop>1 ? (osg::ArgumentParser::ErrorSeverity)lua_tointeger(L,2) : (osg::ArgumentParser::ErrorSeverity)osg::ArgumentParser::BENIGN;
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {
@@ -1720,7 +1720,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg output in osg::ArgumentParser::writeErrorMessages function");
 		}
 		std::ostream & output=*output_ptr;
-		osg::ArgumentParser::ErrorSeverity sevrity=luatop>2 ? (osg::ArgumentParser::ErrorSeverity)lua_tointeger(L,3) : osg::ArgumentParser::BENIGN;
+		osg::ArgumentParser::ErrorSeverity sevrity=luatop>2 ? (osg::ArgumentParser::ErrorSeverity)lua_tointeger(L,3) : (osg::ArgumentParser::ErrorSeverity)osg::ArgumentParser::BENIGN;
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {

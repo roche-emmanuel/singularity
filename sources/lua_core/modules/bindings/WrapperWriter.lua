@@ -59,8 +59,8 @@ function Class:pushParam(param,k)
 		name = "(void*)"..name
 	elseif rtname:find("osg::ref_ptr") then
 		-- do nothing.
-	elseif rt:isEnum() and rt:isPointer() then
-		name = "(int*)"..name
+	elseif rt:isEnum() then
+		name = (rt:isPointer() and "(int*)" or "(int)") .. name
 	else
 		-- name = (rt:isReference() and (rt:isClass() or external) and not rt:isPointer() and "&" or "") .. name
 		name = ((rt:isClass() or external) and not rt:isPointer() and "&" or "") .. name
@@ -160,6 +160,8 @@ function Class:writeInvalidFunction(func)
 	if not rt:isVoid() then
 		if rt:isPointer() then
 			buf:writeLine("return NULL;");
+		elseif rt:isNumber() then
+			buf:writeLine("return (".. rt:getName() ..")0;");
 		else
 			buf:writeLine("return ".. rt:getName() .."();");		
 		end

@@ -712,7 +712,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgParticle::ParticleSystem::ParticleSystem function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgParticle::ParticleSystem(copy, copyop);
 	}
@@ -746,7 +746,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgParticle::ParticleSystem::ParticleSystem function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgParticle_ParticleSystem(L,NULL, copy, copyop);
 	}
@@ -1607,9 +1607,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string texturefile(lua_tostring(L,2),lua_objlen(L,2));
-		bool emissive_particles=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
-		bool lighting=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
-		int texture_unit=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		bool emissive_particles=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
+		bool lighting=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
+		int texture_unit=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		osgParticle::ParticleSystem* self=Luna< osg::Referenced >::checkSubType< osgParticle::ParticleSystem >(L,1);
 		if(!self) {
@@ -1631,8 +1631,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string texturefile(lua_tostring(L,2),lua_objlen(L,2));
-		bool emissive_particles=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
-		int texture_unit=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		bool emissive_particles=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
+		int texture_unit=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		osgParticle::ParticleSystem* self=Luna< osg::Referenced >::checkSubType< osgParticle::ParticleSystem >(L,1);
 		if(!self) {

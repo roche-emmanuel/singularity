@@ -715,8 +715,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int totalNumThreads=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 2;
-		unsigned int numHttpThreads=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 1;
+		unsigned int totalNumThreads=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)2;
+		unsigned int numHttpThreads=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)1;
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
@@ -870,7 +870,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::Node* subgraph=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
-		unsigned int frameNumber=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int frameNumber=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
@@ -1527,7 +1527,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osg::Node* subgraph=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
-		unsigned int frameNumber=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int frameNumber=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {

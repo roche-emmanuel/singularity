@@ -47,28 +47,28 @@
 inline static bool _lg_typecheck_glLoadMatrix_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glLoadMatrix_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glMultMatrix_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glMultMatrix_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 	return true;
 }
 
@@ -189,9 +189,9 @@ static int _bind_glLoadMatrix_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void glLoadMatrix(const float * mat) function, expected prototype:\nvoid glLoadMatrix(const float * mat)\nClass arguments details:\n");
 	}
 
-	float mat=(float)lua_tonumber(L,1);
+	float* mat=(float*)Luna< void >::check(L,1);
 
-	glLoadMatrix(&mat);
+	::glLoadMatrix(mat);
 
 	return 0;
 }
@@ -203,9 +203,9 @@ static int _bind_glLoadMatrix_overload_2(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void glLoadMatrix(const double * mat) function, expected prototype:\nvoid glLoadMatrix(const double * mat)\nClass arguments details:\n");
 	}
 
-	double mat=(double)lua_tonumber(L,1);
+	double* mat=(double*)Luna< void >::check(L,1);
 
-	glLoadMatrix(&mat);
+	::glLoadMatrix(mat);
 
 	return 0;
 }
@@ -226,9 +226,9 @@ static int _bind_glMultMatrix_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void glMultMatrix(const float * mat) function, expected prototype:\nvoid glMultMatrix(const float * mat)\nClass arguments details:\n");
 	}
 
-	float mat=(float)lua_tonumber(L,1);
+	float* mat=(float*)Luna< void >::check(L,1);
 
-	glMultMatrix(&mat);
+	::glMultMatrix(mat);
 
 	return 0;
 }
@@ -240,9 +240,9 @@ static int _bind_glMultMatrix_overload_2(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void glMultMatrix(const double * mat) function, expected prototype:\nvoid glMultMatrix(const double * mat)\nClass arguments details:\n");
 	}
 
-	double mat=(double)lua_tonumber(L,1);
+	double* mat=(double*)Luna< void >::check(L,1);
 
-	glMultMatrix(&mat);
+	::glMultMatrix(mat);
 
 	return 0;
 }
@@ -264,7 +264,7 @@ static int _bind_OpenThreadsGetVersion(lua_State *L) {
 	}
 
 
-	const char * lret = OpenThreadsGetVersion();
+	const char * lret = ::OpenThreadsGetVersion();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -278,7 +278,7 @@ static int _bind_OpenThreadsGetSOVersion(lua_State *L) {
 	}
 
 
-	const char * lret = OpenThreadsGetSOVersion();
+	const char * lret = ::OpenThreadsGetSOVersion();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -292,7 +292,7 @@ static int _bind_OpenThreadsGetLibraryName(lua_State *L) {
 	}
 
 
-	const char * lret = OpenThreadsGetLibraryName();
+	const char * lret = ::OpenThreadsGetLibraryName();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -306,7 +306,7 @@ static int _bind_osgGetVersion(lua_State *L) {
 	}
 
 
-	const char * lret = osgGetVersion();
+	const char * lret = ::osgGetVersion();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -320,7 +320,7 @@ static int _bind_osgGetSOVersion(lua_State *L) {
 	}
 
 
-	const char * lret = osgGetSOVersion();
+	const char * lret = ::osgGetSOVersion();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -334,7 +334,7 @@ static int _bind_osgGetLibraryName(lua_State *L) {
 	}
 
 
-	const char * lret = osgGetLibraryName();
+	const char * lret = ::osgGetLibraryName();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -348,7 +348,7 @@ static int _bind_osgDBGetVersion(lua_State *L) {
 	}
 
 
-	const char * lret = osgDBGetVersion();
+	const char * lret = ::osgDBGetVersion();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -362,7 +362,7 @@ static int _bind_osgDBGetLibraryName(lua_State *L) {
 	}
 
 
-	const char * lret = osgDBGetLibraryName();
+	const char * lret = ::osgDBGetLibraryName();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -376,7 +376,7 @@ static int _bind_osgGAGetVersion(lua_State *L) {
 	}
 
 
-	const char * lret = osgGAGetVersion();
+	const char * lret = ::osgGAGetVersion();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -390,7 +390,7 @@ static int _bind_osgGAGetLibraryName(lua_State *L) {
 	}
 
 
-	const char * lret = osgGAGetLibraryName();
+	const char * lret = ::osgGAGetLibraryName();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -404,7 +404,7 @@ static int _bind_osgParticleGetVersion(lua_State *L) {
 	}
 
 
-	const char * lret = osgParticleGetVersion();
+	const char * lret = ::osgParticleGetVersion();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -418,7 +418,7 @@ static int _bind_osgParticleGetLibraryName(lua_State *L) {
 	}
 
 
-	const char * lret = osgParticleGetLibraryName();
+	const char * lret = ::osgParticleGetLibraryName();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -432,7 +432,7 @@ static int _bind_osgTextGetVersion(lua_State *L) {
 	}
 
 
-	const char * lret = osgTextGetVersion();
+	const char * lret = ::osgTextGetVersion();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -446,7 +446,7 @@ static int _bind_osgTextGetLibraryName(lua_State *L) {
 	}
 
 
-	const char * lret = osgTextGetLibraryName();
+	const char * lret = ::osgTextGetLibraryName();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -460,7 +460,7 @@ static int _bind_osgUtilGetVersion(lua_State *L) {
 	}
 
 
-	const char * lret = osgUtilGetVersion();
+	const char * lret = ::osgUtilGetVersion();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -474,7 +474,7 @@ static int _bind_osgUtilGetLibraryName(lua_State *L) {
 	}
 
 
-	const char * lret = osgUtilGetLibraryName();
+	const char * lret = ::osgUtilGetLibraryName();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -488,7 +488,7 @@ static int _bind_osgViewerGetVersion(lua_State *L) {
 	}
 
 
-	const char * lret = osgViewerGetVersion();
+	const char * lret = ::osgViewerGetVersion();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -502,7 +502,7 @@ static int _bind_osgViewerGetLibraryName(lua_State *L) {
 	}
 
 
-	const char * lret = osgViewerGetLibraryName();
+	const char * lret = ::osgViewerGetLibraryName();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -533,7 +533,7 @@ static int _bind_GetNumberOfProcessors(lua_State *L) {
 	}
 
 
-	int lret = GetNumberOfProcessors();
+	int lret = OpenThreads::GetNumberOfProcessors();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -548,7 +548,7 @@ static int _bind_SetProcessorAffinityOfCurrentThread(lua_State *L) {
 
 	unsigned int cpunum=(unsigned int)lua_tointeger(L,1);
 
-	int lret = SetProcessorAffinityOfCurrentThread(cpunum);
+	int lret = OpenThreads::SetProcessorAffinityOfCurrentThread(cpunum);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -565,7 +565,7 @@ inline static bool _lg_typecheck_getCpuByteOrder(lua_State *L) {
 inline static bool _lg_typecheck_swapBytes(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
@@ -573,28 +573,28 @@ inline static bool _lg_typecheck_swapBytes(lua_State *L) {
 inline static bool _lg_typecheck_swapBytes2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isstring(L,1)==0 ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_swapBytes4(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isstring(L,1)==0 ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_swapBytes8(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isstring(L,1)==0 ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_swapBytes16(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isstring(L,1)==0 ) return false;
 	return true;
 }
 
@@ -872,7 +872,7 @@ inline static bool _lg_typecheck_gluTessVertex(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,37525689)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -897,7 +897,7 @@ inline static bool _lg_typecheck_gluGetTessProperty(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,37525689)) ) return false;
 	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -1401,7 +1401,7 @@ static int _bind_getCpuByteOrder(lua_State *L) {
 	}
 
 
-	osg::Endian lret = getCpuByteOrder();
+	osg::Endian lret = osg::getCpuByteOrder();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1414,10 +1414,10 @@ static int _bind_swapBytes(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void osg::swapBytes(char * in, unsigned int size) function, expected prototype:\nvoid osg::swapBytes(char * in, unsigned int size)\nClass arguments details:\n");
 	}
 
-	char in=(char)lua_tointeger(L,1);
+	char* in=(char*)Luna< void >::check(L,1);
 	unsigned int size=(unsigned int)lua_tointeger(L,2);
 
-	swapBytes(&in, size);
+	osg::swapBytes(in, size);
 
 	return 0;
 }
@@ -1429,9 +1429,9 @@ static int _bind_swapBytes2(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void osg::swapBytes2(char * in) function, expected prototype:\nvoid osg::swapBytes2(char * in)\nClass arguments details:\n");
 	}
 
-	char in=(char)lua_tointeger(L,1);
+	char* in=(char*)Luna< void >::check(L,1);
 
-	swapBytes2(&in);
+	osg::swapBytes2(in);
 
 	return 0;
 }
@@ -1443,9 +1443,9 @@ static int _bind_swapBytes4(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void osg::swapBytes4(char * in) function, expected prototype:\nvoid osg::swapBytes4(char * in)\nClass arguments details:\n");
 	}
 
-	char in=(char)lua_tointeger(L,1);
+	char* in=(char*)Luna< void >::check(L,1);
 
-	swapBytes4(&in);
+	osg::swapBytes4(in);
 
 	return 0;
 }
@@ -1457,9 +1457,9 @@ static int _bind_swapBytes8(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void osg::swapBytes8(char * in) function, expected prototype:\nvoid osg::swapBytes8(char * in)\nClass arguments details:\n");
 	}
 
-	char in=(char)lua_tointeger(L,1);
+	char* in=(char*)Luna< void >::check(L,1);
 
-	swapBytes8(&in);
+	osg::swapBytes8(in);
 
 	return 0;
 }
@@ -1471,9 +1471,9 @@ static int _bind_swapBytes16(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void osg::swapBytes16(char * in) function, expected prototype:\nvoid osg::swapBytes16(char * in)\nClass arguments details:\n");
 	}
 
-	char in=(char)lua_tointeger(L,1);
+	char* in=(char*)Luna< void >::check(L,1);
 
-	swapBytes16(&in);
+	osg::swapBytes16(in);
 
 	return 0;
 }
@@ -1505,7 +1505,7 @@ static int _bind_createTexturedQuadGeometry_overload_1(lua_State *L) {
 	float r=(float)lua_tonumber(L,6);
 	float t=(float)lua_tonumber(L,7);
 
-	osg::Geometry * lret = createTexturedQuadGeometry(corner, widthVec, heightVec, l, b, r, t);
+	osg::Geometry * lret = osg::createTexturedQuadGeometry(corner, widthVec, heightVec, l, b, r, t);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Geometry >::push(L,lret,false);
@@ -1537,10 +1537,10 @@ static int _bind_createTexturedQuadGeometry_overload_2(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg heightVec in osg::createTexturedQuadGeometry function");
 	}
 	const osg::Vec3f & heightVec=*heightVec_ptr;
-	float s=luatop>3 ? (float)lua_tonumber(L,4) : 1.0f;
-	float t=luatop>4 ? (float)lua_tonumber(L,5) : 1.0f;
+	float s=luatop>3 ? (float)lua_tonumber(L,4) : (float)1.0f;
+	float t=luatop>4 ? (float)lua_tonumber(L,5) : (float)1.0f;
 
-	osg::Geometry * lret = createTexturedQuadGeometry(corner, widthVec, heightVec, s, t);
+	osg::Geometry * lret = osg::createTexturedQuadGeometry(corner, widthVec, heightVec, s, t);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Geometry >::push(L,lret,false);
@@ -1565,7 +1565,7 @@ static int _bind_getGLVersionNumber(lua_State *L) {
 	}
 
 
-	float lret = getGLVersionNumber();
+	float lret = osg::getGLVersionNumber();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1581,7 +1581,7 @@ static int _bind_isExtensionInExtensionString(lua_State *L) {
 	const char * extension=(const char *)lua_tostring(L,1);
 	const char * extensionString=(const char *)lua_tostring(L,2);
 
-	bool lret = isExtensionInExtensionString(extension, extensionString);
+	bool lret = osg::isExtensionInExtensionString(extension, extensionString);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1597,7 +1597,7 @@ static int _bind_isGLExtensionSupported(lua_State *L) {
 	unsigned int contextID=(unsigned int)lua_tointeger(L,1);
 	const char * extension=(const char *)lua_tostring(L,2);
 
-	bool lret = isGLExtensionSupported(contextID, extension);
+	bool lret = osg::isGLExtensionSupported(contextID, extension);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1614,7 +1614,7 @@ static int _bind_isGLExtensionOrVersionSupported(lua_State *L) {
 	const char * extension=(const char *)lua_tostring(L,2);
 	float requiredGlVersion=(float)lua_tonumber(L,3);
 
-	bool lret = isGLExtensionOrVersionSupported(contextID, extension, requiredGlVersion);
+	bool lret = osg::isGLExtensionOrVersionSupported(contextID, extension, requiredGlVersion);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -1629,7 +1629,7 @@ static int _bind_getGLExtensionFuncPtr_overload_1(lua_State *L) {
 
 	const char * funcName=(const char *)lua_tostring(L,1);
 
-	void * lret = getGLExtensionFuncPtr(funcName);
+	void * lret = osg::getGLExtensionFuncPtr(funcName);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< void >::push(L,lret,false);
@@ -1647,7 +1647,7 @@ static int _bind_getGLExtensionFuncPtr_overload_2(lua_State *L) {
 	const char * funcName=(const char *)lua_tostring(L,1);
 	const char * fallbackFuncName=(const char *)lua_tostring(L,2);
 
-	void * lret = getGLExtensionFuncPtr(funcName, fallbackFuncName);
+	void * lret = osg::getGLExtensionFuncPtr(funcName, fallbackFuncName);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< void >::push(L,lret,false);
@@ -1666,7 +1666,7 @@ static int _bind_getGLExtensionFuncPtr_overload_3(lua_State *L) {
 	const char * funcName2=(const char *)lua_tostring(L,2);
 	const char * funcName3=(const char *)lua_tostring(L,3);
 
-	void * lret = getGLExtensionFuncPtr(funcName1, funcName2, funcName3);
+	void * lret = osg::getGLExtensionFuncPtr(funcName1, funcName2, funcName3);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< void >::push(L,lret,false);
@@ -1693,7 +1693,7 @@ static int _bind_setGLExtensionDisableString(lua_State *L) {
 
 	std::string disableString(lua_tostring(L,1),lua_objlen(L,1));
 
-	setGLExtensionDisableString(disableString);
+	osg::setGLExtensionDisableString(disableString);
 
 	return 0;
 }
@@ -1706,7 +1706,7 @@ static int _bind_getGLExtensionDisableString(lua_State *L) {
 	}
 
 
-	std::string & lret = getGLExtensionDisableString();
+	std::string & lret = osg::getGLExtensionDisableString();
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -1723,7 +1723,7 @@ static int _bind_flushDeletedGLObjects(lua_State *L) {
 	double currentTime=(double)lua_tonumber(L,2);
 	double availableTime=(double)lua_tonumber(L,3);
 
-	flushDeletedGLObjects(contextID, currentTime, availableTime);
+	osg::flushDeletedGLObjects(contextID, currentTime, availableTime);
 
 	return 0;
 }
@@ -1737,7 +1737,7 @@ static int _bind_flushAllDeletedGLObjects(lua_State *L) {
 
 	unsigned int contextID=(unsigned int)lua_tointeger(L,1);
 
-	flushAllDeletedGLObjects(contextID);
+	osg::flushAllDeletedGLObjects(contextID);
 
 	return 0;
 }
@@ -1751,7 +1751,7 @@ static int _bind_deleteAllGLObjects(lua_State *L) {
 
 	unsigned int contextID=(unsigned int)lua_tointeger(L,1);
 
-	deleteAllGLObjects(contextID);
+	osg::deleteAllGLObjects(contextID);
 
 	return 0;
 }
@@ -1765,7 +1765,7 @@ static int _bind_discardAllGLObjects(lua_State *L) {
 
 	unsigned int contextID=(unsigned int)lua_tointeger(L,1);
 
-	discardAllGLObjects(contextID);
+	osg::discardAllGLObjects(contextID);
 
 	return 0;
 }
@@ -1779,7 +1779,7 @@ static int _bind_gluErrorString(lua_State *L) {
 
 	unsigned int error=(unsigned int)lua_tointeger(L,1);
 
-	const unsigned char * lret = gluErrorString(error);
+	const unsigned char * lret = osg::gluErrorString(error);
 	luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
 
 	return 1;
@@ -1803,7 +1803,7 @@ static int _bind_gluScaleImage_overload_1(lua_State *L) {
 	unsigned int typeOut=(unsigned int)lua_tointeger(L,9);
 	void* dataOut=(Luna< void >::check(L,10));
 
-	int lret = gluScaleImage(psm, format, wIn, hIn, typeIn, dataIn, wOut, hOut, typeOut, dataOut);
+	int lret = osg::gluScaleImage(psm, format, wIn, hIn, typeIn, dataIn, wOut, hOut, typeOut, dataOut);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1826,7 +1826,7 @@ static int _bind_gluScaleImage_overload_2(lua_State *L) {
 	unsigned int typeOut=(unsigned int)lua_tointeger(L,8);
 	void* dataOut=(Luna< void >::check(L,9));
 
-	int lret = gluScaleImage(format, wIn, hIn, typeIn, dataIn, wOut, hOut, typeOut, dataOut);
+	int lret = osg::gluScaleImage(format, wIn, hIn, typeIn, dataIn, wOut, hOut, typeOut, dataOut);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1858,7 +1858,7 @@ static int _bind_gluBuild1DMipmapLevels(lua_State *L) {
 	int max=(int)lua_tointeger(L,8);
 	void* data=(Luna< void >::check(L,9));
 
-	int lret = gluBuild1DMipmapLevels(target, internalFormat, width, format, type, level, base, max, data);
+	int lret = osg::gluBuild1DMipmapLevels(target, internalFormat, width, format, type, level, base, max, data);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1878,7 +1878,7 @@ static int _bind_gluBuild1DMipmaps(lua_State *L) {
 	unsigned int type=(unsigned int)lua_tointeger(L,5);
 	void* data=(Luna< void >::check(L,6));
 
-	int lret = gluBuild1DMipmaps(target, internalFormat, width, format, type, data);
+	int lret = osg::gluBuild1DMipmaps(target, internalFormat, width, format, type, data);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1902,7 +1902,7 @@ static int _bind_gluBuild2DMipmapLevels(lua_State *L) {
 	int max=(int)lua_tointeger(L,9);
 	void* data=(Luna< void >::check(L,10));
 
-	int lret = gluBuild2DMipmapLevels(target, internalFormat, width, height, format, type, level, base, max, data);
+	int lret = osg::gluBuild2DMipmapLevels(target, internalFormat, width, height, format, type, level, base, max, data);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1923,7 +1923,7 @@ static int _bind_gluBuild2DMipmaps(lua_State *L) {
 	unsigned int type=(unsigned int)lua_tointeger(L,6);
 	void* data=(Luna< void >::check(L,7));
 
-	int lret = gluBuild2DMipmaps(target, internalFormat, width, height, format, type, data);
+	int lret = osg::gluBuild2DMipmaps(target, internalFormat, width, height, format, type, data);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1937,7 +1937,7 @@ static int _bind_gluNewTess(lua_State *L) {
 	}
 
 
-	GLUtesselator * lret = gluNewTess();
+	GLUtesselator * lret = osg::gluNewTess();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< GLUtesselator >::push(L,lret,false);
@@ -1954,7 +1954,7 @@ static int _bind_gluDeleteTess(lua_State *L) {
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
 
-	gluDeleteTess(tess);
+	osg::gluDeleteTess(tess);
 
 	return 0;
 }
@@ -1968,7 +1968,7 @@ static int _bind_gluTessBeginContour(lua_State *L) {
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
 
-	gluTessBeginContour(tess);
+	osg::gluTessBeginContour(tess);
 
 	return 0;
 }
@@ -1982,7 +1982,7 @@ static int _bind_gluTessEndContour(lua_State *L) {
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
 
-	gluTessEndContour(tess);
+	osg::gluTessEndContour(tess);
 
 	return 0;
 }
@@ -1999,7 +1999,7 @@ static int _bind_gluTessNormal(lua_State *L) {
 	double valueY=(double)lua_tonumber(L,3);
 	double valueZ=(double)lua_tonumber(L,4);
 
-	gluTessNormal(tess, valueX, valueY, valueZ);
+	osg::gluTessNormal(tess, valueX, valueY, valueZ);
 
 	return 0;
 }
@@ -2015,7 +2015,7 @@ static int _bind_gluTessProperty(lua_State *L) {
 	unsigned int which=(unsigned int)lua_tointeger(L,2);
 	double data=(double)lua_tonumber(L,3);
 
-	gluTessProperty(tess, which, data);
+	osg::gluTessProperty(tess, which, data);
 
 	return 0;
 }
@@ -2028,10 +2028,10 @@ static int _bind_gluTessVertex(lua_State *L) {
 	}
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
-	double location=(double)lua_tonumber(L,2);
+	double* location=(double*)Luna< void >::check(L,2);
 	void* data=(Luna< void >::check(L,3));
 
-	gluTessVertex(tess, &location, data);
+	osg::gluTessVertex(tess, location, data);
 
 	return 0;
 }
@@ -2046,7 +2046,7 @@ static int _bind_gluTessBeginPolygon(lua_State *L) {
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
 	void* data=(Luna< void >::check(L,2));
 
-	gluTessBeginPolygon(tess, data);
+	osg::gluTessBeginPolygon(tess, data);
 
 	return 0;
 }
@@ -2060,7 +2060,7 @@ static int _bind_gluTessEndPolygon(lua_State *L) {
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
 
-	gluTessEndPolygon(tess);
+	osg::gluTessEndPolygon(tess);
 
 	return 0;
 }
@@ -2074,9 +2074,9 @@ static int _bind_gluGetTessProperty(lua_State *L) {
 
 	GLUtesselator* tess=(Luna< GLUtesselator >::check(L,1));
 	unsigned int which=(unsigned int)lua_tointeger(L,2);
-	double value=(double)lua_tonumber(L,3);
+	double* value=(double*)Luna< void >::check(L,3);
 
-	gluGetTessProperty(tess, which, &value);
+	osg::gluGetTessProperty(tess, which, value);
 
 	return 0;
 }
@@ -2090,7 +2090,7 @@ static int _bind_createGeodeForImage_overload_1(lua_State *L) {
 
 	osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
 
-	osg::Geode * lret = createGeodeForImage(image);
+	osg::Geode * lret = osg::createGeodeForImage(image);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Geode >::push(L,lret,false);
@@ -2109,7 +2109,7 @@ static int _bind_createGeodeForImage_overload_2(lua_State *L) {
 	float s=(float)lua_tonumber(L,2);
 	float t=(float)lua_tonumber(L,3);
 
-	osg::Geode * lret = createGeodeForImage(image, s, t);
+	osg::Geode * lret = osg::createGeodeForImage(image, s, t);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Geode >::push(L,lret,false);
@@ -2145,7 +2145,7 @@ static int _bind_computeMinMax(lua_State *L) {
 	}
 	osg::Vec4f & max=*max_ptr;
 
-	bool lret = computeMinMax(image, min, max);
+	bool lret = osg::computeMinMax(image, min, max);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2170,7 +2170,7 @@ static int _bind_offsetAndScaleImage(lua_State *L) {
 	}
 	const osg::Vec4f & scale=*scale_ptr;
 
-	bool lret = offsetAndScaleImage(image, offset, scale);
+	bool lret = osg::offsetAndScaleImage(image, offset, scale);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2196,9 +2196,9 @@ static int _bind_copyImage(lua_State *L) {
 	int dest_s=(int)lua_tointeger(L,9);
 	int dest_t=(int)lua_tointeger(L,10);
 	int dest_r=(int)lua_tointeger(L,11);
-	bool doRescale=luatop>11 ? (bool)(lua_toboolean(L,12)==1) : false;
+	bool doRescale=luatop>11 ? (bool)(lua_toboolean(L,12)==1) : (bool)false;
 
-	bool lret = copyImage(srcImage, src_s, src_t, src_r, width, height, depth, destImage, dest_s, dest_t, dest_r, doRescale);
+	bool lret = osg::copyImage(srcImage, src_s, src_t, src_r, width, height, depth, destImage, dest_s, dest_t, dest_r, doRescale);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2218,7 +2218,7 @@ static int _bind_clearImageToColor(lua_State *L) {
 	}
 	const osg::Vec4f & colour=*colour_ptr;
 
-	bool lret = clearImageToColor(image, colour);
+	bool lret = osg::clearImageToColor(image, colour);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2237,7 +2237,7 @@ static int _bind_maximimNumOfComponents(lua_State *L) {
 	}
 	const osg::ImageList & imageList=*imageList_ptr;
 
-	unsigned int lret = maximimNumOfComponents(imageList);
+	unsigned int lret = osg::maximimNumOfComponents(imageList);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2258,12 +2258,12 @@ static int _bind_createImage3D(lua_State *L) {
 	}
 	const osg::ImageList & imageList=*imageList_ptr;
 	unsigned int desiredPixelFormat=(unsigned int)lua_tointeger(L,2);
-	int s_maximumImageSize=luatop>2 ? (int)lua_tointeger(L,3) : 1024;
-	int t_maximumImageSize=luatop>3 ? (int)lua_tointeger(L,4) : 1024;
-	int r_maximumImageSize=luatop>4 ? (int)lua_tointeger(L,5) : 1024;
-	bool resizeToPowerOfTwo=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
+	int s_maximumImageSize=luatop>2 ? (int)lua_tointeger(L,3) : (int)1024;
+	int t_maximumImageSize=luatop>3 ? (int)lua_tointeger(L,4) : (int)1024;
+	int r_maximumImageSize=luatop>4 ? (int)lua_tointeger(L,5) : (int)1024;
+	bool resizeToPowerOfTwo=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)false;
 
-	osg::Image * lret = createImage3D(imageList, desiredPixelFormat, s_maximumImageSize, t_maximumImageSize, r_maximumImageSize, resizeToPowerOfTwo);
+	osg::Image * lret = osg::createImage3D(imageList, desiredPixelFormat, s_maximumImageSize, t_maximumImageSize, r_maximumImageSize, resizeToPowerOfTwo);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Image >::push(L,lret,false);
@@ -2285,12 +2285,12 @@ static int _bind_createImage3DWithAlpha(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg imageList in osg::createImage3DWithAlpha function");
 	}
 	const osg::ImageList & imageList=*imageList_ptr;
-	int s_maximumImageSize=luatop>1 ? (int)lua_tointeger(L,2) : 1024;
-	int t_maximumImageSize=luatop>2 ? (int)lua_tointeger(L,3) : 1024;
-	int r_maximumImageSize=luatop>3 ? (int)lua_tointeger(L,4) : 1024;
-	bool resizeToPowerOfTwo=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+	int s_maximumImageSize=luatop>1 ? (int)lua_tointeger(L,2) : (int)1024;
+	int t_maximumImageSize=luatop>2 ? (int)lua_tointeger(L,3) : (int)1024;
+	int r_maximumImageSize=luatop>3 ? (int)lua_tointeger(L,4) : (int)1024;
+	bool resizeToPowerOfTwo=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
-	osg::Image * lret = createImage3DWithAlpha(imageList, s_maximumImageSize, t_maximumImageSize, r_maximumImageSize, resizeToPowerOfTwo);
+	osg::Image * lret = osg::createImage3DWithAlpha(imageList, s_maximumImageSize, t_maximumImageSize, r_maximumImageSize, resizeToPowerOfTwo);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Image >::push(L,lret,false);
@@ -2309,9 +2309,9 @@ static int _bind_equivalent_overload_1(lua_State *L) {
 
 	float lhs=(float)lua_tonumber(L,1);
 	float rhs=(float)lua_tonumber(L,2);
-	float epsilon=luatop>2 ? (float)lua_tonumber(L,3) : 1e-6;
+	float epsilon=luatop>2 ? (float)lua_tonumber(L,3) : (float)1e-6;
 
-	bool lret = equivalent(lhs, rhs, epsilon);
+	bool lret = osg::equivalent(lhs, rhs, epsilon);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2328,9 +2328,9 @@ static int _bind_equivalent_overload_2(lua_State *L) {
 
 	double lhs=(double)lua_tonumber(L,1);
 	double rhs=(double)lua_tonumber(L,2);
-	double epsilon=luatop>2 ? (double)lua_tonumber(L,3) : 1e-6;
+	double epsilon=luatop>2 ? (double)lua_tonumber(L,3) : (double)1e-6;
 
-	bool lret = equivalent(lhs, rhs, epsilon);
+	bool lret = osg::equivalent(lhs, rhs, epsilon);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2354,7 +2354,7 @@ static int _bind_inDegrees_overload_1(lua_State *L) {
 
 	float angle=(float)lua_tonumber(L,1);
 
-	float lret = inDegrees(angle);
+	float lret = osg::inDegrees(angle);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2369,7 +2369,7 @@ static int _bind_inDegrees_overload_2(lua_State *L) {
 
 	double angle=(double)lua_tonumber(L,1);
 
-	double lret = inDegrees(angle);
+	double lret = osg::inDegrees(angle);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2393,7 +2393,7 @@ static int _bind_DegreesToRadians_overload_1(lua_State *L) {
 
 	float angle=(float)lua_tonumber(L,1);
 
-	float lret = DegreesToRadians(angle);
+	float lret = osg::DegreesToRadians(angle);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2408,7 +2408,7 @@ static int _bind_DegreesToRadians_overload_2(lua_State *L) {
 
 	double angle=(double)lua_tonumber(L,1);
 
-	double lret = DegreesToRadians(angle);
+	double lret = osg::DegreesToRadians(angle);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2432,7 +2432,7 @@ static int _bind_RadiansToDegrees_overload_1(lua_State *L) {
 
 	float angle=(float)lua_tonumber(L,1);
 
-	float lret = RadiansToDegrees(angle);
+	float lret = osg::RadiansToDegrees(angle);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2447,7 +2447,7 @@ static int _bind_RadiansToDegrees_overload_2(lua_State *L) {
 
 	double angle=(double)lua_tonumber(L,1);
 
-	double lret = RadiansToDegrees(angle);
+	double lret = osg::RadiansToDegrees(angle);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2471,7 +2471,7 @@ static int _bind_round_overload_1(lua_State *L) {
 
 	float v=(float)lua_tonumber(L,1);
 
-	float lret = round(v);
+	float lret = osg::round(v);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2486,7 +2486,7 @@ static int _bind_round_overload_2(lua_State *L) {
 
 	double v=(double)lua_tonumber(L,1);
 
-	double lret = round(v);
+	double lret = osg::round(v);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2510,7 +2510,7 @@ static int _bind_isNaN_overload_1(lua_State *L) {
 
 	float v=(float)lua_tonumber(L,1);
 
-	bool lret = isNaN(v);
+	bool lret = osg::isNaN(v);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2525,7 +2525,7 @@ static int _bind_isNaN_overload_2(lua_State *L) {
 
 	double v=(double)lua_tonumber(L,1);
 
-	bool lret = isNaN(v);
+	bool lret = osg::isNaN(v);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2549,7 +2549,7 @@ static int _bind_asciiToDouble(lua_State *L) {
 
 	const char * str=(const char *)lua_tostring(L,1);
 
-	double lret = asciiToDouble(str);
+	double lret = osg::asciiToDouble(str);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2564,7 +2564,7 @@ static int _bind_asciiToFloat(lua_State *L) {
 
 	const char * str=(const char *)lua_tostring(L,1);
 
-	float lret = asciiToFloat(str);
+	float lret = osg::asciiToFloat(str);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2579,7 +2579,7 @@ static int _bind_findAsciiToDouble(lua_State *L) {
 
 	const char * str=(const char *)lua_tostring(L,1);
 
-	double lret = findAsciiToDouble(str);
+	double lret = osg::findAsciiToDouble(str);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2594,7 +2594,7 @@ static int _bind_findAsciiToFloat(lua_State *L) {
 
 	const char * str=(const char *)lua_tostring(L,1);
 
-	float lret = findAsciiToFloat(str);
+	float lret = osg::findAsciiToFloat(str);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2609,7 +2609,7 @@ static int _bind_setNotifyLevel(lua_State *L) {
 
 	osg::NotifySeverity severity=(osg::NotifySeverity)lua_tointeger(L,1);
 
-	setNotifyLevel(severity);
+	osg::setNotifyLevel(severity);
 
 	return 0;
 }
@@ -2622,7 +2622,7 @@ static int _bind_getNotifyLevel(lua_State *L) {
 	}
 
 
-	osg::NotifySeverity lret = getNotifyLevel();
+	osg::NotifySeverity lret = osg::getNotifyLevel();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -2636,7 +2636,7 @@ static int _bind_initNotifyLevel(lua_State *L) {
 	}
 
 
-	bool lret = initNotifyLevel();
+	bool lret = osg::initNotifyLevel();
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2651,7 +2651,7 @@ static int _bind_isNotifyEnabled(lua_State *L) {
 
 	osg::NotifySeverity severity=(osg::NotifySeverity)lua_tointeger(L,1);
 
-	bool lret = isNotifyEnabled(severity);
+	bool lret = osg::isNotifyEnabled(severity);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2666,7 +2666,7 @@ static int _bind_notify_overload_1(lua_State *L) {
 
 	osg::NotifySeverity severity=(osg::NotifySeverity)lua_tointeger(L,1);
 
-	const std::ostream* lret = &notify(severity);
+	const std::ostream* lret = &osg::notify(severity);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< std::ostream >::push(L,lret,false);
@@ -2682,7 +2682,7 @@ static int _bind_notify_overload_2(lua_State *L) {
 	}
 
 
-	const std::ostream* lret = &notify();
+	const std::ostream* lret = &osg::notify();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< std::ostream >::push(L,lret,false);
@@ -2708,7 +2708,7 @@ static int _bind_setNotifyHandler(lua_State *L) {
 
 	osg::NotifyHandler* handler=(Luna< osg::Referenced >::checkSubType< osg::NotifyHandler >(L,1));
 
-	setNotifyHandler(handler);
+	osg::setNotifyHandler(handler);
 
 	return 0;
 }
@@ -2721,7 +2721,7 @@ static int _bind_getNotifyHandler(lua_State *L) {
 	}
 
 
-	osg::NotifyHandler * lret = getNotifyHandler();
+	osg::NotifyHandler * lret = osg::getNotifyHandler();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::NotifyHandler >::push(L,lret,false);
@@ -2738,7 +2738,7 @@ static int _bind_isTextureMode(lua_State *L) {
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
 
-	bool lret = isTextureMode(mode);
+	bool lret = osg::isTextureMode(mode);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -2758,9 +2758,9 @@ static int _bind_computeLocalToWorld(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::computeLocalToWorld function");
 	}
 	const osg::NodePath & nodePath=*nodePath_ptr;
-	bool ignoreCameras=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+	bool ignoreCameras=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
-	osg::Matrixd stack_lret = computeLocalToWorld(nodePath, ignoreCameras);
+	osg::Matrixd stack_lret = osg::computeLocalToWorld(nodePath, ignoreCameras);
 	osg::Matrixd* lret = new osg::Matrixd(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2783,9 +2783,9 @@ static int _bind_computeWorldToLocal(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::computeWorldToLocal function");
 	}
 	const osg::NodePath & nodePath=*nodePath_ptr;
-	bool ignoreCameras=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+	bool ignoreCameras=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
-	osg::Matrixd stack_lret = computeWorldToLocal(nodePath, ignoreCameras);
+	osg::Matrixd stack_lret = osg::computeWorldToLocal(nodePath, ignoreCameras);
 	osg::Matrixd* lret = new osg::Matrixd(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2813,9 +2813,9 @@ static int _bind_computeLocalToEye(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::computeLocalToEye function");
 	}
 	const osg::NodePath & nodePath=*nodePath_ptr;
-	bool ignoreCameras=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+	bool ignoreCameras=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
-	osg::Matrixd stack_lret = computeLocalToEye(modelview, nodePath, ignoreCameras);
+	osg::Matrixd stack_lret = osg::computeLocalToEye(modelview, nodePath, ignoreCameras);
 	osg::Matrixd* lret = new osg::Matrixd(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2843,9 +2843,9 @@ static int _bind_computeEyeToLocal(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::computeEyeToLocal function");
 	}
 	const osg::NodePath & nodePath=*nodePath_ptr;
-	bool ignoreCameras=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+	bool ignoreCameras=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
-	osg::Matrixd stack_lret = computeEyeToLocal(modelview, nodePath, ignoreCameras);
+	osg::Matrixd stack_lret = osg::computeEyeToLocal(modelview, nodePath, ignoreCameras);
 	osg::Matrixd* lret = new osg::Matrixd(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2872,7 +2872,7 @@ static int _bind_componentMultiply_overload_1(lua_State *L) {
 	}
 	const osg::Vec2d & rhs=*rhs_ptr;
 
-	osg::Vec2d stack_lret = componentMultiply(lhs, rhs);
+	osg::Vec2d stack_lret = osg::componentMultiply(lhs, rhs);
 	osg::Vec2d* lret = new osg::Vec2d(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2899,7 +2899,7 @@ static int _bind_componentMultiply_overload_2(lua_State *L) {
 	}
 	const osg::Vec2f & rhs=*rhs_ptr;
 
-	osg::Vec2f stack_lret = componentMultiply(lhs, rhs);
+	osg::Vec2f stack_lret = osg::componentMultiply(lhs, rhs);
 	osg::Vec2f* lret = new osg::Vec2f(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2926,7 +2926,7 @@ static int _bind_componentMultiply_overload_3(lua_State *L) {
 	}
 	const osg::Vec2s & rhs=*rhs_ptr;
 
-	osg::Vec2s stack_lret = componentMultiply(lhs, rhs);
+	osg::Vec2s stack_lret = osg::componentMultiply(lhs, rhs);
 	osg::Vec2s* lret = new osg::Vec2s(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2953,7 +2953,7 @@ static int _bind_componentMultiply_overload_4(lua_State *L) {
 	}
 	const osg::Vec3d & rhs=*rhs_ptr;
 
-	osg::Vec3d stack_lret = componentMultiply(lhs, rhs);
+	osg::Vec3d stack_lret = osg::componentMultiply(lhs, rhs);
 	osg::Vec3d* lret = new osg::Vec3d(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2980,7 +2980,7 @@ static int _bind_componentMultiply_overload_5(lua_State *L) {
 	}
 	const osg::Vec3f & rhs=*rhs_ptr;
 
-	osg::Vec3f stack_lret = componentMultiply(lhs, rhs);
+	osg::Vec3f stack_lret = osg::componentMultiply(lhs, rhs);
 	osg::Vec3f* lret = new osg::Vec3f(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3007,7 +3007,7 @@ static int _bind_componentMultiply_overload_6(lua_State *L) {
 	}
 	const osg::Vec3s & rhs=*rhs_ptr;
 
-	osg::Vec3s stack_lret = componentMultiply(lhs, rhs);
+	osg::Vec3s stack_lret = osg::componentMultiply(lhs, rhs);
 	osg::Vec3s* lret = new osg::Vec3s(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3034,7 +3034,7 @@ static int _bind_componentMultiply_overload_7(lua_State *L) {
 	}
 	const osg::Vec4d & rhs=*rhs_ptr;
 
-	osg::Vec4d stack_lret = componentMultiply(lhs, rhs);
+	osg::Vec4d stack_lret = osg::componentMultiply(lhs, rhs);
 	osg::Vec4d* lret = new osg::Vec4d(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3061,7 +3061,7 @@ static int _bind_componentMultiply_overload_8(lua_State *L) {
 	}
 	const osg::Vec4f & rhs=*rhs_ptr;
 
-	osg::Vec4f stack_lret = componentMultiply(lhs, rhs);
+	osg::Vec4f stack_lret = osg::componentMultiply(lhs, rhs);
 	osg::Vec4f* lret = new osg::Vec4f(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3088,7 +3088,7 @@ static int _bind_componentMultiply_overload_9(lua_State *L) {
 	}
 	const osg::Vec4s & rhs=*rhs_ptr;
 
-	osg::Vec4s stack_lret = componentMultiply(lhs, rhs);
+	osg::Vec4s stack_lret = osg::componentMultiply(lhs, rhs);
 	osg::Vec4s* lret = new osg::Vec4s(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3131,7 +3131,7 @@ static int _bind_componentDivide_overload_1(lua_State *L) {
 	}
 	const osg::Vec2d & rhs=*rhs_ptr;
 
-	osg::Vec2d stack_lret = componentDivide(lhs, rhs);
+	osg::Vec2d stack_lret = osg::componentDivide(lhs, rhs);
 	osg::Vec2d* lret = new osg::Vec2d(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3158,7 +3158,7 @@ static int _bind_componentDivide_overload_2(lua_State *L) {
 	}
 	const osg::Vec2f & rhs=*rhs_ptr;
 
-	osg::Vec2f stack_lret = componentDivide(lhs, rhs);
+	osg::Vec2f stack_lret = osg::componentDivide(lhs, rhs);
 	osg::Vec2f* lret = new osg::Vec2f(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3185,7 +3185,7 @@ static int _bind_componentDivide_overload_3(lua_State *L) {
 	}
 	const osg::Vec2s & rhs=*rhs_ptr;
 
-	osg::Vec2s stack_lret = componentDivide(lhs, rhs);
+	osg::Vec2s stack_lret = osg::componentDivide(lhs, rhs);
 	osg::Vec2s* lret = new osg::Vec2s(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3212,7 +3212,7 @@ static int _bind_componentDivide_overload_4(lua_State *L) {
 	}
 	const osg::Vec3d & rhs=*rhs_ptr;
 
-	osg::Vec3d stack_lret = componentDivide(lhs, rhs);
+	osg::Vec3d stack_lret = osg::componentDivide(lhs, rhs);
 	osg::Vec3d* lret = new osg::Vec3d(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3239,7 +3239,7 @@ static int _bind_componentDivide_overload_5(lua_State *L) {
 	}
 	const osg::Vec3f & rhs=*rhs_ptr;
 
-	osg::Vec3f stack_lret = componentDivide(lhs, rhs);
+	osg::Vec3f stack_lret = osg::componentDivide(lhs, rhs);
 	osg::Vec3f* lret = new osg::Vec3f(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3266,7 +3266,7 @@ static int _bind_componentDivide_overload_6(lua_State *L) {
 	}
 	const osg::Vec3s & rhs=*rhs_ptr;
 
-	osg::Vec3s stack_lret = componentDivide(lhs, rhs);
+	osg::Vec3s stack_lret = osg::componentDivide(lhs, rhs);
 	osg::Vec3s* lret = new osg::Vec3s(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3293,7 +3293,7 @@ static int _bind_componentDivide_overload_7(lua_State *L) {
 	}
 	const osg::Vec4d & rhs=*rhs_ptr;
 
-	osg::Vec4d stack_lret = componentDivide(lhs, rhs);
+	osg::Vec4d stack_lret = osg::componentDivide(lhs, rhs);
 	osg::Vec4d* lret = new osg::Vec4d(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3320,7 +3320,7 @@ static int _bind_componentDivide_overload_8(lua_State *L) {
 	}
 	const osg::Vec4f & rhs=*rhs_ptr;
 
-	osg::Vec4f stack_lret = componentDivide(lhs, rhs);
+	osg::Vec4f stack_lret = osg::componentDivide(lhs, rhs);
 	osg::Vec4f* lret = new osg::Vec4f(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -3347,7 +3347,7 @@ static int _bind_componentDivide_overload_9(lua_State *L) {
 	}
 	const osg::Vec4s & rhs=*rhs_ptr;
 
-	osg::Vec4s stack_lret = componentDivide(lhs, rhs);
+	osg::Vec4s stack_lret = osg::componentDivide(lhs, rhs);
 	osg::Vec4s* lret = new osg::Vec4s(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -4146,9 +4146,9 @@ static int _bind_openArchive_overload_1(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	osgDB::ReaderWriter::ArchiveStatus status=(osgDB::ReaderWriter::ArchiveStatus)lua_tointeger(L,2);
-	unsigned int indexBlockSizeHint=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 4096;
+	unsigned int indexBlockSizeHint=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)4096;
 
-	osgDB::Archive * lret = openArchive(filename, status, indexBlockSizeHint);
+	osgDB::Archive * lret = osgDB::openArchive(filename, status, indexBlockSizeHint);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osgDB::Archive >::push(L,lret,false);
@@ -4168,7 +4168,7 @@ static int _bind_openArchive_overload_2(lua_State *L) {
 	unsigned int indexBlockSizeHint=(unsigned int)lua_tointeger(L,3);
 	osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,4));
 
-	osgDB::Archive * lret = openArchive(filename, status, indexBlockSizeHint, options);
+	osgDB::Archive * lret = osgDB::openArchive(filename, status, indexBlockSizeHint, options);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osgDB::Archive >::push(L,lret,false);
@@ -4195,7 +4195,7 @@ static int _bind_convertStringFromCurrentCodePageToUTF8_overload_1(lua_State *L)
 	const char * source=(const char *)lua_tostring(L,1);
 	unsigned sourceLength=(unsigned)lua_tointeger(L,2);
 
-	std::string lret = convertStringFromCurrentCodePageToUTF8(source, sourceLength);
+	std::string lret = osgDB::convertStringFromCurrentCodePageToUTF8(source, sourceLength);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4210,7 +4210,7 @@ static int _bind_convertStringFromCurrentCodePageToUTF8_overload_2(lua_State *L)
 
 	std::string s(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = convertStringFromCurrentCodePageToUTF8(s);
+	std::string lret = osgDB::convertStringFromCurrentCodePageToUTF8(s);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4225,7 +4225,7 @@ static int _bind_convertStringFromCurrentCodePageToUTF8_overload_3(lua_State *L)
 
 	const char * s=(const char *)lua_tostring(L,1);
 
-	std::string lret = convertStringFromCurrentCodePageToUTF8(s);
+	std::string lret = osgDB::convertStringFromCurrentCodePageToUTF8(s);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4251,7 +4251,7 @@ static int _bind_convertStringFromUTF8toCurrentCodePage_overload_1(lua_State *L)
 	const char * source=(const char *)lua_tostring(L,1);
 	unsigned sourceLength=(unsigned)lua_tointeger(L,2);
 
-	std::string lret = convertStringFromUTF8toCurrentCodePage(source, sourceLength);
+	std::string lret = osgDB::convertStringFromUTF8toCurrentCodePage(source, sourceLength);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4266,7 +4266,7 @@ static int _bind_convertStringFromUTF8toCurrentCodePage_overload_2(lua_State *L)
 
 	std::string s(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = convertStringFromUTF8toCurrentCodePage(s);
+	std::string lret = osgDB::convertStringFromUTF8toCurrentCodePage(s);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4281,7 +4281,7 @@ static int _bind_convertStringFromUTF8toCurrentCodePage_overload_3(lua_State *L)
 
 	const char * s=(const char *)lua_tostring(L,1);
 
-	std::string lret = convertStringFromUTF8toCurrentCodePage(s);
+	std::string lret = osgDB::convertStringFromUTF8toCurrentCodePage(s);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4306,7 +4306,7 @@ static int _bind_getFilePath(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = getFilePath(filename);
+	std::string lret = osgDB::getFilePath(filename);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4321,7 +4321,7 @@ static int _bind_getFileExtension(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = getFileExtension(filename);
+	std::string lret = osgDB::getFileExtension(filename);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4336,7 +4336,7 @@ static int _bind_getFileExtensionIncludingDot(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = getFileExtensionIncludingDot(filename);
+	std::string lret = osgDB::getFileExtensionIncludingDot(filename);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4351,7 +4351,7 @@ static int _bind_getLowerCaseFileExtension(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = getLowerCaseFileExtension(filename);
+	std::string lret = osgDB::getLowerCaseFileExtension(filename);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4366,7 +4366,7 @@ static int _bind_getSimpleFileName(lua_State *L) {
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = getSimpleFileName(fileName);
+	std::string lret = osgDB::getSimpleFileName(fileName);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4381,7 +4381,7 @@ static int _bind_getNameLessExtension(lua_State *L) {
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = getNameLessExtension(fileName);
+	std::string lret = osgDB::getNameLessExtension(fileName);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4396,7 +4396,7 @@ static int _bind_getStrippedName(lua_State *L) {
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = getStrippedName(fileName);
+	std::string lret = osgDB::getStrippedName(fileName);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4412,7 +4412,7 @@ static int _bind_getPathRelative(lua_State *L) {
 	std::string from(lua_tostring(L,1),lua_objlen(L,1));
 	std::string to(lua_tostring(L,2),lua_objlen(L,2));
 
-	std::string lret = getPathRelative(from, to);
+	std::string lret = osgDB::getPathRelative(from, to);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4427,7 +4427,7 @@ static int _bind_getPathRoot(lua_State *L) {
 
 	std::string path(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = getPathRoot(path);
+	std::string lret = osgDB::getPathRoot(path);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4442,7 +4442,7 @@ static int _bind_isAbsolutePath(lua_State *L) {
 
 	std::string path(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = isAbsolutePath(path);
+	bool lret = osgDB::isAbsolutePath(path);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -4457,7 +4457,7 @@ static int _bind_convertFileNameToWindowsStyle(lua_State *L) {
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = convertFileNameToWindowsStyle(fileName);
+	std::string lret = osgDB::convertFileNameToWindowsStyle(fileName);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4472,7 +4472,7 @@ static int _bind_convertFileNameToUnixStyle(lua_State *L) {
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = convertFileNameToUnixStyle(fileName);
+	std::string lret = osgDB::convertFileNameToUnixStyle(fileName);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4487,7 +4487,7 @@ static int _bind_convertToLowerCase(lua_State *L) {
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = convertToLowerCase(fileName);
+	std::string lret = osgDB::convertToLowerCase(fileName);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4501,7 +4501,7 @@ static int _bind_getNativePathSeparator(lua_State *L) {
 	}
 
 
-	char lret = getNativePathSeparator();
+	char lret = osgDB::getNativePathSeparator();
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -4516,7 +4516,7 @@ static int _bind_isFileNameNativeStyle(lua_State *L) {
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = isFileNameNativeStyle(fileName);
+	bool lret = osgDB::isFileNameNativeStyle(fileName);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -4531,7 +4531,7 @@ static int _bind_convertFileNameToNativeStyle(lua_State *L) {
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = convertFileNameToNativeStyle(fileName);
+	std::string lret = osgDB::convertFileNameToNativeStyle(fileName);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4547,7 +4547,7 @@ static int _bind_equalCaseInsensitive_overload_1(lua_State *L) {
 	std::string lhs(lua_tostring(L,1),lua_objlen(L,1));
 	std::string rhs(lua_tostring(L,2),lua_objlen(L,2));
 
-	bool lret = equalCaseInsensitive(lhs, rhs);
+	bool lret = osgDB::equalCaseInsensitive(lhs, rhs);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -4563,7 +4563,7 @@ static int _bind_equalCaseInsensitive_overload_2(lua_State *L) {
 	std::string lhs(lua_tostring(L,1),lua_objlen(L,1));
 	const char * rhs=(const char *)lua_tostring(L,2);
 
-	bool lret = equalCaseInsensitive(lhs, rhs);
+	bool lret = osgDB::equalCaseInsensitive(lhs, rhs);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -4587,7 +4587,7 @@ static int _bind_containsServerAddress(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = containsServerAddress(filename);
+	bool lret = osgDB::containsServerAddress(filename);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -4602,7 +4602,7 @@ static int _bind_getServerProtocol(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = getServerProtocol(filename);
+	std::string lret = osgDB::getServerProtocol(filename);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4617,7 +4617,7 @@ static int _bind_getServerAddress(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = getServerAddress(filename);
+	std::string lret = osgDB::getServerAddress(filename);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4632,7 +4632,7 @@ static int _bind_getServerFileName(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = getServerFileName(filename);
+	std::string lret = osgDB::getServerFileName(filename);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4648,7 +4648,7 @@ static int _bind_concatPaths(lua_State *L) {
 	std::string left(lua_tostring(L,1),lua_objlen(L,1));
 	std::string right(lua_tostring(L,2),lua_objlen(L,2));
 
-	std::string lret = concatPaths(left, right);
+	std::string lret = osgDB::concatPaths(left, right);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4663,7 +4663,7 @@ static int _bind_getRealPath(lua_State *L) {
 
 	std::string path(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = getRealPath(path);
+	std::string lret = osgDB::getRealPath(path);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4678,7 +4678,7 @@ static int _bind_makeDirectory(lua_State *L) {
 
 	std::string directoryPath(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = makeDirectory(directoryPath);
+	bool lret = osgDB::makeDirectory(directoryPath);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -4693,7 +4693,7 @@ static int _bind_makeDirectoryForFile(lua_State *L) {
 
 	std::string filePath(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = makeDirectoryForFile(filePath);
+	bool lret = osgDB::makeDirectoryForFile(filePath);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -4707,7 +4707,7 @@ static int _bind_getCurrentWorkingDirectory(lua_State *L) {
 	}
 
 
-	std::string lret = getCurrentWorkingDirectory();
+	std::string lret = osgDB::getCurrentWorkingDirectory();
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4722,7 +4722,7 @@ static int _bind_setCurrentWorkingDirectory(lua_State *L) {
 
 	std::string newCurrentWorkingDirectory(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = setCurrentWorkingDirectory(newCurrentWorkingDirectory);
+	bool lret = osgDB::setCurrentWorkingDirectory(newCurrentWorkingDirectory);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -4737,7 +4737,7 @@ static int _bind_fileExists(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	bool lret = fileExists(filename);
+	bool lret = osgDB::fileExists(filename);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -4752,7 +4752,7 @@ static int _bind_fileType(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	osgDB::FileType lret = fileType(filename);
+	osgDB::FileType lret = osgDB::fileType(filename);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -4773,9 +4773,9 @@ static int _bind_findFileInPath(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg filePath in osgDB::findFileInPath function");
 	}
 	const osgDB::FilePathList & filePath=*filePath_ptr;
-	osgDB::CaseSensitivity caseSensitivity=luatop>2 ? (osgDB::CaseSensitivity)lua_tointeger(L,3) : osgDB::CASE_SENSITIVE;
+	osgDB::CaseSensitivity caseSensitivity=luatop>2 ? (osgDB::CaseSensitivity)lua_tointeger(L,3) : (osgDB::CaseSensitivity)osgDB::CASE_SENSITIVE;
 
-	std::string lret = findFileInPath(filename, filePath, caseSensitivity);
+	std::string lret = osgDB::findFileInPath(filename, filePath, caseSensitivity);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4792,9 +4792,9 @@ static int _bind_findFileInDirectory(lua_State *L) {
 
 	std::string fileName(lua_tostring(L,1),lua_objlen(L,1));
 	std::string dirName(lua_tostring(L,2),lua_objlen(L,2));
-	osgDB::CaseSensitivity caseSensitivity=luatop>2 ? (osgDB::CaseSensitivity)lua_tointeger(L,3) : osgDB::CASE_SENSITIVE;
+	osgDB::CaseSensitivity caseSensitivity=luatop>2 ? (osgDB::CaseSensitivity)lua_tointeger(L,3) : (osgDB::CaseSensitivity)osgDB::CASE_SENSITIVE;
 
-	std::string lret = findFileInDirectory(fileName, dirName, caseSensitivity);
+	std::string lret = osgDB::findFileInDirectory(fileName, dirName, caseSensitivity);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4809,7 +4809,7 @@ static int _bind_getDirectoryContents(lua_State *L) {
 
 	std::string dirName(lua_tostring(L,1),lua_objlen(L,1));
 
-	osgDB::DirectoryContents stack_lret = getDirectoryContents(dirName);
+	osgDB::DirectoryContents stack_lret = osgDB::getDirectoryContents(dirName);
 	osgDB::DirectoryContents* lret = new osgDB::DirectoryContents(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -4827,7 +4827,7 @@ static int _bind_expandWildcardsInFilename(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	osgDB::DirectoryContents stack_lret = expandWildcardsInFilename(filename);
+	osgDB::DirectoryContents stack_lret = osgDB::expandWildcardsInFilename(filename);
 	osgDB::DirectoryContents* lret = new osgDB::DirectoryContents(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -4846,7 +4846,7 @@ static int _bind_copyFile(lua_State *L) {
 	std::string source(lua_tostring(L,1),lua_objlen(L,1));
 	std::string destination(lua_tostring(L,2),lua_objlen(L,2));
 
-	osgDB::FileOpResult::Value lret = copyFile(source, destination);
+	osgDB::FileOpResult::Value lret = osgDB::copyFile(source, destination);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -4865,7 +4865,7 @@ static int _bind_setDataFilePathList_overload_1(lua_State *L) {
 	}
 	const osgDB::FilePathList & filepath=*filepath_ptr;
 
-	setDataFilePathList(filepath);
+	osgDB::setDataFilePathList(filepath);
 
 	return 0;
 }
@@ -4879,7 +4879,7 @@ static int _bind_setDataFilePathList_overload_2(lua_State *L) {
 
 	std::string paths(lua_tostring(L,1),lua_objlen(L,1));
 
-	setDataFilePathList(paths);
+	osgDB::setDataFilePathList(paths);
 
 	return 0;
 }
@@ -4901,7 +4901,7 @@ static int _bind_getDataFilePathList(lua_State *L) {
 	}
 
 
-	const osgDB::FilePathList* lret = &getDataFilePathList();
+	const osgDB::FilePathList* lret = &osgDB::getDataFilePathList();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osgDB::FilePathList >::push(L,lret,false);
@@ -4919,9 +4919,9 @@ static int _bind_findDataFile_overload_1(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	osgDB::CaseSensitivity caseSensitivity=luatop>1 ? (osgDB::CaseSensitivity)lua_tointeger(L,2) : osgDB::CASE_SENSITIVE;
+	osgDB::CaseSensitivity caseSensitivity=luatop>1 ? (osgDB::CaseSensitivity)lua_tointeger(L,2) : (osgDB::CaseSensitivity)osgDB::CASE_SENSITIVE;
 
-	std::string lret = findDataFile(filename, caseSensitivity);
+	std::string lret = osgDB::findDataFile(filename, caseSensitivity);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4938,9 +4938,9 @@ static int _bind_findDataFile_overload_2(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
-	osgDB::CaseSensitivity caseSensitivity=luatop>2 ? (osgDB::CaseSensitivity)lua_tointeger(L,3) : osgDB::CASE_SENSITIVE;
+	osgDB::CaseSensitivity caseSensitivity=luatop>2 ? (osgDB::CaseSensitivity)lua_tointeger(L,3) : (osgDB::CaseSensitivity)osgDB::CASE_SENSITIVE;
 
-	std::string lret = findDataFile(filename, options, caseSensitivity);
+	std::string lret = osgDB::findDataFile(filename, options, caseSensitivity);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -4968,7 +4968,7 @@ static int _bind_setLibraryFilePathList_overload_1(lua_State *L) {
 	}
 	const osgDB::FilePathList & filepaths=*filepaths_ptr;
 
-	setLibraryFilePathList(filepaths);
+	osgDB::setLibraryFilePathList(filepaths);
 
 	return 0;
 }
@@ -4982,7 +4982,7 @@ static int _bind_setLibraryFilePathList_overload_2(lua_State *L) {
 
 	std::string paths(lua_tostring(L,1),lua_objlen(L,1));
 
-	setLibraryFilePathList(paths);
+	osgDB::setLibraryFilePathList(paths);
 
 	return 0;
 }
@@ -5004,7 +5004,7 @@ static int _bind_getLibraryFilePathList(lua_State *L) {
 	}
 
 
-	const osgDB::FilePathList* lret = &getLibraryFilePathList();
+	const osgDB::FilePathList* lret = &osgDB::getLibraryFilePathList();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osgDB::FilePathList >::push(L,lret,false);
@@ -5022,9 +5022,9 @@ static int _bind_findLibraryFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	osgDB::CaseSensitivity caseSensitivity=luatop>1 ? (osgDB::CaseSensitivity)lua_tointeger(L,2) : osgDB::CASE_SENSITIVE;
+	osgDB::CaseSensitivity caseSensitivity=luatop>1 ? (osgDB::CaseSensitivity)lua_tointeger(L,2) : (osgDB::CaseSensitivity)osgDB::CASE_SENSITIVE;
 
-	std::string lret = findLibraryFile(filename, caseSensitivity);
+	std::string lret = osgDB::findLibraryFile(filename, caseSensitivity);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -5044,7 +5044,7 @@ static int _bind_convertStringPathIntoFilePathList(lua_State *L) {
 	}
 	osgDB::FilePathList & filepath=*filepath_ptr;
 
-	convertStringPathIntoFilePathList(paths, filepath);
+	osgDB::convertStringPathIntoFilePathList(paths, filepath);
 
 	return 0;
 }
@@ -5062,7 +5062,7 @@ static int _bind_appendPlatformSpecificLibraryFilePaths(lua_State *L) {
 	}
 	osgDB::FilePathList & filepath=*filepath_ptr;
 
-	appendPlatformSpecificLibraryFilePaths(filepath);
+	osgDB::appendPlatformSpecificLibraryFilePaths(filepath);
 
 	return 0;
 }
@@ -5080,7 +5080,7 @@ static int _bind_appendPlatformSpecificResourceFilePaths(lua_State *L) {
 	}
 	osgDB::FilePathList & filepath=*filepath_ptr;
 
-	appendPlatformSpecificResourceFilePaths(filepath);
+	osgDB::appendPlatformSpecificResourceFilePaths(filepath);
 
 	return 0;
 }
@@ -5100,9 +5100,9 @@ static int _bind_split(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg list in osgDB::split function");
 	}
 	osgDB::StringList & list=*list_ptr;
-	char separator=luatop>2 ? (char)lua_tointeger(L,3) : ' ';
+	char separator=luatop>2 ? (char)lua_tointeger(L,3) : (char)' ';
 
-	split(src, list, separator);
+	osgDB::split(src, list, separator);
 
 	return 0;
 }
@@ -5115,7 +5115,7 @@ static int _bind_listAllAvailablePlugins(lua_State *L) {
 	}
 
 
-	osgDB::FileNameList stack_lret = listAllAvailablePlugins();
+	osgDB::FileNameList stack_lret = osgDB::listAllAvailablePlugins();
 	osgDB::FileNameList* lret = new osgDB::FileNameList(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -5138,7 +5138,7 @@ static int _bind_queryPlugin(lua_State *L) {
 	}
 	osgDB::ReaderWriterInfoList & infoList=*infoList_ptr;
 
-	bool lret = queryPlugin(fileName, infoList);
+	bool lret = osgDB::queryPlugin(fileName, infoList);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -5158,7 +5158,7 @@ static int _bind_outputPluginDetails(lua_State *L) {
 	std::ostream & out=*out_ptr;
 	std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 
-	bool lret = outputPluginDetails(out, fileName);
+	bool lret = osgDB::outputPluginDetails(out, fileName);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -5174,7 +5174,7 @@ static int _bind_readObjectFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
-	osg::Object * lret = readObjectFile(filename, options);
+	osg::Object * lret = osgDB::readObjectFile(filename, options);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Object >::push(L,lret,false);
@@ -5191,7 +5191,7 @@ static int _bind_readObjectFile_overload_2(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	osg::Object * lret = readObjectFile(filename);
+	osg::Object * lret = osgDB::readObjectFile(filename);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Object >::push(L,lret,false);
@@ -5218,7 +5218,7 @@ static int _bind_readImageFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
-	osg::Image * lret = readImageFile(filename, options);
+	osg::Image * lret = osgDB::readImageFile(filename, options);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Image >::push(L,lret,false);
@@ -5235,7 +5235,7 @@ static int _bind_readImageFile_overload_2(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	osg::Image * lret = readImageFile(filename);
+	osg::Image * lret = osgDB::readImageFile(filename);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Image >::push(L,lret,false);
@@ -5262,7 +5262,7 @@ static int _bind_readHeightFieldFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
-	osg::HeightField * lret = readHeightFieldFile(filename, options);
+	osg::HeightField * lret = osgDB::readHeightFieldFile(filename, options);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::HeightField >::push(L,lret,false);
@@ -5279,7 +5279,7 @@ static int _bind_readHeightFieldFile_overload_2(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	osg::HeightField * lret = readHeightFieldFile(filename);
+	osg::HeightField * lret = osgDB::readHeightFieldFile(filename);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::HeightField >::push(L,lret,false);
@@ -5306,7 +5306,7 @@ static int _bind_readNodeFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
-	osg::Node * lret = readNodeFile(filename, options);
+	osg::Node * lret = osgDB::readNodeFile(filename, options);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Node >::push(L,lret,false);
@@ -5323,7 +5323,7 @@ static int _bind_readNodeFile_overload_2(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	osg::Node * lret = readNodeFile(filename);
+	osg::Node * lret = osgDB::readNodeFile(filename);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Node >::push(L,lret,false);
@@ -5350,7 +5350,7 @@ static int _bind_readShaderFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
-	osg::Shader * lret = readShaderFile(filename, options);
+	osg::Shader * lret = osgDB::readShaderFile(filename, options);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Shader >::push(L,lret,false);
@@ -5367,7 +5367,7 @@ static int _bind_readShaderFile_overload_2(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	osg::Shader * lret = readShaderFile(filename);
+	osg::Shader * lret = osgDB::readShaderFile(filename);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Shader >::push(L,lret,false);
@@ -5386,7 +5386,7 @@ static int _bind_readShaderFile_overload_3(lua_State *L) {
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
-	osg::Shader * lret = readShaderFile(type, filename, options);
+	osg::Shader * lret = osgDB::readShaderFile(type, filename, options);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Shader >::push(L,lret,false);
@@ -5404,7 +5404,7 @@ static int _bind_readShaderFile_overload_4(lua_State *L) {
 	osg::Shader::Type type=(osg::Shader::Type)lua_tointeger(L,1);
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 
-	osg::Shader * lret = readShaderFile(type, filename);
+	osg::Shader * lret = osgDB::readShaderFile(type, filename);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osg::Shader >::push(L,lret,false);
@@ -5433,7 +5433,7 @@ static int _bind_readRefObjectFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
-	osg::ref_ptr< osg::Object > lret = readRefObjectFile(filename, options);
+	osg::ref_ptr< osg::Object > lret = osgDB::readRefObjectFile(filename, options);
 	Luna< osg::Object >::push(L,lret.get(),false);
 
 	return 1;
@@ -5448,7 +5448,7 @@ static int _bind_readRefObjectFile_overload_2(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	osg::ref_ptr< osg::Object > lret = readRefObjectFile(filename);
+	osg::ref_ptr< osg::Object > lret = osgDB::readRefObjectFile(filename);
 	Luna< osg::Object >::push(L,lret.get(),false);
 
 	return 1;
@@ -5473,7 +5473,7 @@ static int _bind_readRefImageFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
-	osg::ref_ptr< osg::Image > lret = readRefImageFile(filename, options);
+	osg::ref_ptr< osg::Image > lret = osgDB::readRefImageFile(filename, options);
 	Luna< osg::Image >::push(L,lret.get(),false);
 
 	return 1;
@@ -5488,7 +5488,7 @@ static int _bind_readRefImageFile_overload_2(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	osg::ref_ptr< osg::Image > lret = readRefImageFile(filename);
+	osg::ref_ptr< osg::Image > lret = osgDB::readRefImageFile(filename);
 	Luna< osg::Image >::push(L,lret.get(),false);
 
 	return 1;
@@ -5513,7 +5513,7 @@ static int _bind_readRefHeightFieldFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
-	osg::ref_ptr< osg::HeightField > lret = readRefHeightFieldFile(filename, options);
+	osg::ref_ptr< osg::HeightField > lret = osgDB::readRefHeightFieldFile(filename, options);
 	Luna< osg::HeightField >::push(L,lret.get(),false);
 
 	return 1;
@@ -5528,7 +5528,7 @@ static int _bind_readRefHeightFieldFile_overload_2(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	osg::ref_ptr< osg::HeightField > lret = readRefHeightFieldFile(filename);
+	osg::ref_ptr< osg::HeightField > lret = osgDB::readRefHeightFieldFile(filename);
 	Luna< osg::HeightField >::push(L,lret.get(),false);
 
 	return 1;
@@ -5553,7 +5553,7 @@ static int _bind_readRefNodeFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
-	osg::ref_ptr< osg::Node > lret = readRefNodeFile(filename, options);
+	osg::ref_ptr< osg::Node > lret = osgDB::readRefNodeFile(filename, options);
 	Luna< osg::Node >::push(L,lret.get(),false);
 
 	return 1;
@@ -5568,7 +5568,7 @@ static int _bind_readRefNodeFile_overload_2(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	osg::ref_ptr< osg::Node > lret = readRefNodeFile(filename);
+	osg::ref_ptr< osg::Node > lret = osgDB::readRefNodeFile(filename);
 	Luna< osg::Node >::push(L,lret.get(),false);
 
 	return 1;
@@ -5593,7 +5593,7 @@ static int _bind_readRefShaderFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
-	osg::ref_ptr< osg::Shader > lret = readRefShaderFile(filename, options);
+	osg::ref_ptr< osg::Shader > lret = osgDB::readRefShaderFile(filename, options);
 	Luna< osg::Shader >::push(L,lret.get(),false);
 
 	return 1;
@@ -5608,7 +5608,7 @@ static int _bind_readRefShaderFile_overload_2(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	osg::ref_ptr< osg::Shader > lret = readRefShaderFile(filename);
+	osg::ref_ptr< osg::Shader > lret = osgDB::readRefShaderFile(filename);
 	Luna< osg::Shader >::push(L,lret.get(),false);
 
 	return 1;
@@ -5636,7 +5636,7 @@ static int _bind_readCommandLine(lua_State *L) {
 	}
 	osg::ArgumentParser & parser=*parser_ptr;
 
-	readCommandLine(parser);
+	osgDB::readCommandLine(parser);
 
 	return 0;
 }
@@ -5656,7 +5656,7 @@ static int _bind_writeObjectFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
-	bool lret = writeObjectFile(object, filename, options);
+	bool lret = osgDB::writeObjectFile(object, filename, options);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -5676,7 +5676,7 @@ static int _bind_writeObjectFile_overload_2(lua_State *L) {
 	const osg::Object & object=*object_ptr;
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 
-	bool lret = writeObjectFile(object, filename);
+	bool lret = osgDB::writeObjectFile(object, filename);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -5706,7 +5706,7 @@ static int _bind_writeImageFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
-	bool lret = writeImageFile(image, filename, options);
+	bool lret = osgDB::writeImageFile(image, filename, options);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -5726,7 +5726,7 @@ static int _bind_writeImageFile_overload_2(lua_State *L) {
 	const osg::Image & image=*image_ptr;
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 
-	bool lret = writeImageFile(image, filename);
+	bool lret = osgDB::writeImageFile(image, filename);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -5756,7 +5756,7 @@ static int _bind_writeHeightFieldFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
-	bool lret = writeHeightFieldFile(hf, filename, options);
+	bool lret = osgDB::writeHeightFieldFile(hf, filename, options);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -5776,7 +5776,7 @@ static int _bind_writeHeightFieldFile_overload_2(lua_State *L) {
 	const osg::HeightField & hf=*hf_ptr;
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 
-	bool lret = writeHeightFieldFile(hf, filename);
+	bool lret = osgDB::writeHeightFieldFile(hf, filename);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -5806,7 +5806,7 @@ static int _bind_writeNodeFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
-	bool lret = writeNodeFile(node, filename, options);
+	bool lret = osgDB::writeNodeFile(node, filename, options);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -5826,7 +5826,7 @@ static int _bind_writeNodeFile_overload_2(lua_State *L) {
 	const osg::Node & node=*node_ptr;
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 
-	bool lret = writeNodeFile(node, filename);
+	bool lret = osgDB::writeNodeFile(node, filename);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -5856,7 +5856,7 @@ static int _bind_writeShaderFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
-	bool lret = writeShaderFile(shader, filename, options);
+	bool lret = osgDB::writeShaderFile(shader, filename, options);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -5876,7 +5876,7 @@ static int _bind_writeShaderFile_overload_2(lua_State *L) {
 	const osg::Shader & shader=*shader_ptr;
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 
-	bool lret = writeShaderFile(shader, filename);
+	bool lret = osgDB::writeShaderFile(shader, filename);
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
@@ -5901,7 +5901,7 @@ static int _bind_readXmlFile_overload_1(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
-	osgDB::XmlNode * lret = readXmlFile(filename, options);
+	osgDB::XmlNode * lret = osgDB::readXmlFile(filename, options);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osgDB::XmlNode >::push(L,lret,false);
@@ -5918,7 +5918,7 @@ static int _bind_readXmlFile_overload_2(lua_State *L) {
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 
-	osgDB::XmlNode * lret = readXmlFile(filename);
+	osgDB::XmlNode * lret = osgDB::readXmlFile(filename);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osgDB::XmlNode >::push(L,lret,false);
@@ -5948,7 +5948,7 @@ static int _bind_readXmlStream(lua_State *L) {
 	}
 	std::istream & fin=*fin_ptr;
 
-	osgDB::XmlNode * lret = readXmlStream(fin);
+	osgDB::XmlNode * lret = osgDB::readXmlStream(fin);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osgDB::XmlNode >::push(L,lret,false);
@@ -5965,7 +5965,7 @@ static int _bind_trimEnclosingSpaces(lua_State *L) {
 
 	std::string str(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = trimEnclosingSpaces(str);
+	std::string lret = osgDB::trimEnclosingSpaces(str);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -6077,7 +6077,7 @@ static int _bind_readFontFile(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
 
-	osgText::Font * lret = readFontFile(filename, userOptions);
+	osgText::Font * lret = osgText::readFontFile(filename, userOptions);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osgText::Font >::push(L,lret,false);
@@ -6101,7 +6101,7 @@ static int _bind_readFontStream(lua_State *L) {
 	std::istream & stream=*stream_ptr;
 	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
 
-	osgText::Font * lret = readFontStream(stream, userOptions);
+	osgText::Font * lret = osgText::readFontStream(stream, userOptions);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osgText::Font >::push(L,lret,false);
@@ -6121,7 +6121,7 @@ static int _bind_readRefFontFile(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
 
-	osg::ref_ptr< osgText::Font > lret = readRefFontFile(filename, userOptions);
+	osg::ref_ptr< osgText::Font > lret = osgText::readRefFontFile(filename, userOptions);
 	Luna< osgText::Font >::push(L,lret.get(),false);
 
 	return 1;
@@ -6143,7 +6143,7 @@ static int _bind_readRefFontStream(lua_State *L) {
 	std::istream & stream=*stream_ptr;
 	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
 
-	osg::ref_ptr< osgText::Font > lret = readRefFontStream(stream, userOptions);
+	osg::ref_ptr< osgText::Font > lret = osgText::readRefFontStream(stream, userOptions);
 	Luna< osgText::Font >::push(L,lret.get(),false);
 
 	return 1;
@@ -6158,7 +6158,7 @@ static int _bind_findFontFile(lua_State *L) {
 
 	std::string str(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = findFontFile(str);
+	std::string lret = osgText::findFontFile(str);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;
@@ -6176,7 +6176,7 @@ static int _bind_readFont3DFile(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
 
-	osgText::Font * lret = readFont3DFile(filename, userOptions);
+	osgText::Font * lret = osgText::readFont3DFile(filename, userOptions);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osgText::Font >::push(L,lret,false);
@@ -6200,7 +6200,7 @@ static int _bind_readFont3DStream(lua_State *L) {
 	std::istream & stream=*stream_ptr;
 	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
 
-	osgText::Font * lret = readFont3DStream(stream, userOptions);
+	osgText::Font * lret = osgText::readFont3DStream(stream, userOptions);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< osgText::Font >::push(L,lret,false);
@@ -6220,7 +6220,7 @@ static int _bind_readRefFont3DFile(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
 
-	osg::ref_ptr< osgText::Font > lret = readRefFont3DFile(filename, userOptions);
+	osg::ref_ptr< osgText::Font > lret = osgText::readRefFont3DFile(filename, userOptions);
 	Luna< osgText::Font >::push(L,lret.get(),false);
 
 	return 1;
@@ -6242,7 +6242,7 @@ static int _bind_readRefFont3DStream(lua_State *L) {
 	std::istream & stream=*stream_ptr;
 	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
 
-	osg::ref_ptr< osgText::Font > lret = readRefFont3DStream(stream, userOptions);
+	osg::ref_ptr< osgText::Font > lret = osgText::readRefFont3DStream(stream, userOptions);
 	Luna< osgText::Font >::push(L,lret.get(),false);
 
 	return 1;
@@ -6257,7 +6257,7 @@ static int _bind_findFont3DFile(lua_State *L) {
 
 	std::string str(lua_tostring(L,1),lua_objlen(L,1));
 
-	std::string lret = findFont3DFile(str);
+	std::string lret = osgText::findFont3DFile(str);
 	lua_pushlstring(L,lret.data(),lret.size());
 
 	return 1;

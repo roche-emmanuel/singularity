@@ -179,9 +179,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double cost0=luatop>0 ? (double)lua_tonumber(L,1) : 0.0;
-		double dcost_di=luatop>1 ? (double)lua_tonumber(L,2) : 0.0;
-		unsigned int min_input=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		double cost0=luatop>0 ? (double)lua_tonumber(L,1) : (double)0.0;
+		double dcost_di=luatop>1 ? (double)lua_tonumber(L,2) : (double)0.0;
+		unsigned int min_input=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		return new osg::ClampedLinearCostFunction1D(cost0, dcost_di, min_input);
 	}

@@ -141,7 +141,7 @@ public:
 // unsigned int osg::GraphicsContext::WindowingSystemInterface::getNumScreens(const osg::GraphicsContext::ScreenIdentifier & screenIdentifier = osg::GraphicsContext::ScreenIdentifier ())
 unsigned int getNumScreens(const osg::GraphicsContext::ScreenIdentifier &) {
 	THROW_IF(true,"The function call unsigned int osg::GraphicsContext::WindowingSystemInterface::getNumScreens(const osg::GraphicsContext::ScreenIdentifier &) is not implemented in wrapper.");
-	return unsigned int();
+	return (unsigned int)0;
 };
 
 public:

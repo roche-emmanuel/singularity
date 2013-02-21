@@ -478,7 +478,7 @@ public:
 
 		std::string attributeName(lua_tostring(L,2),lua_objlen(L,2));
 		double value=(double)lua_tonumber(L,3);
-		bool averageInInverseSpace=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool averageInInverseSpace=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
@@ -504,7 +504,7 @@ public:
 		unsigned int endFrameNumber=(unsigned int)lua_tointeger(L,3);
 		std::string attributeName(lua_tostring(L,4),lua_objlen(L,4));
 		double value=(double)lua_tonumber(L,5);
-		bool averageInInverseSpace=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
+		bool averageInInverseSpace=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)false;
 
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
@@ -589,7 +589,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg out in osg::Stats::report function");
 		}
 		std::ostream & out=*out_ptr;
-		const char * indent=luatop>2 ? (const char *)lua_tostring(L,3) : 0;
+		const char * indent=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)0;
 
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
@@ -616,7 +616,7 @@ public:
 		}
 		std::ostream & out=*out_ptr;
 		unsigned int frameNumber=(unsigned int)lua_tointeger(L,3);
-		const char * indent=luatop>3 ? (const char *)lua_tostring(L,4) : 0;
+		const char * indent=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)0;
 
 		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {

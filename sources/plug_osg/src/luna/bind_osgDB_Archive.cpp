@@ -1231,7 +1231,7 @@ public:
 
 		std::string _arg1(lua_tostring(L,2),lua_objlen(L,2));
 		osgDB::ReaderWriter::ArchiveStatus _arg2=(osgDB::ReaderWriter::ArchiveStatus)lua_tointeger(L,3);
-		unsigned _arg3=luatop>3 ? (unsigned)lua_tointeger(L,4) : 4096;
+		unsigned _arg3=luatop>3 ? (unsigned)lua_tointeger(L,4) : (unsigned)4096;
 		const osgDB::Options* _arg4=luatop>4 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,5)) : (const osgDB::Options*)((void *) 0);
 
 		osgDB::Archive* self=Luna< osg::Referenced >::checkSubType< osgDB::Archive >(L,1);

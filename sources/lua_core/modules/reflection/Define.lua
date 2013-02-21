@@ -38,6 +38,12 @@ function Class:getInitStr()
 end
 
 function Class:isIgnored()
+	local header = self:getHeaderFile()
+	
+	if not header or im:ignoreHeader(header) or im:ignore(header,"file") then
+		return true;
+	end
+	
 	local str =  self:getInitStr()
 
 	if im:ignoreDefine(self) then

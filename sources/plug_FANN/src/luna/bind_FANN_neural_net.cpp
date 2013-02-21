@@ -123,7 +123,7 @@ public:
 	inline static bool _lg_typecheck_run_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -181,8 +181,8 @@ public:
 	inline static bool _lg_typecheck_train(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -216,8 +216,8 @@ public:
 	inline static bool _lg_typecheck_test(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -551,14 +551,14 @@ public:
 	inline static bool _lg_typecheck_get_layer_array(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_get_bias_array(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -761,7 +761,7 @@ public:
 	inline static bool _lg_typecheck_set_cascade_activation_functions(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -781,7 +781,7 @@ public:
 	inline static bool _lg_typecheck_set_cascade_activation_steepnesses(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -851,28 +851,28 @@ public:
 	inline static bool _lg_typecheck_scale_input(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_scale_output(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_descale_input(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_descale_output(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -982,14 +982,14 @@ public:
 			luaL_error(L, "luna typecheck failed in float * FANN::neural_net::run(float * input) function, expected prototype:\nfloat * FANN::neural_net::run(float * input)\nClass arguments details:\n");
 		}
 
-		float input=(float)lua_tonumber(L,2);
+		float* input=(float*)Luna< void >::check(L,2);
 
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float * FANN::neural_net::run(float *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
-		float * lret = self->run(&input);
+		float * lret = self->run(input);
 		lua_pushnumber(L,*lret);
 
 		return 1;
@@ -1144,15 +1144,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void FANN::neural_net::train(float * input, float * desired_output) function, expected prototype:\nvoid FANN::neural_net::train(float * input, float * desired_output)\nClass arguments details:\n");
 		}
 
-		float input=(float)lua_tonumber(L,2);
-		float desired_output=(float)lua_tonumber(L,3);
+		float* input=(float*)Luna< void >::check(L,2);
+		float* desired_output=(float*)Luna< void >::check(L,3);
 
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void FANN::neural_net::train(float *, float *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
-		self->train(&input, &desired_output);
+		self->train(input, desired_output);
 
 		return 0;
 	}
@@ -1236,15 +1236,15 @@ public:
 			luaL_error(L, "luna typecheck failed in float * FANN::neural_net::test(float * input, float * desired_output) function, expected prototype:\nfloat * FANN::neural_net::test(float * input, float * desired_output)\nClass arguments details:\n");
 		}
 
-		float input=(float)lua_tonumber(L,2);
-		float desired_output=(float)lua_tonumber(L,3);
+		float* input=(float*)Luna< void >::check(L,2);
+		float* desired_output=(float*)Luna< void >::check(L,3);
 
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float * FANN::neural_net::test(float *, float *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
-		float * lret = self->test(&input, &desired_output);
+		float * lret = self->test(input, desired_output);
 		lua_pushnumber(L,*lret);
 
 		return 1;
@@ -2201,14 +2201,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void FANN::neural_net::get_layer_array(unsigned int * layers) function, expected prototype:\nvoid FANN::neural_net::get_layer_array(unsigned int * layers)\nClass arguments details:\n");
 		}
 
-		unsigned int layers=(unsigned int)lua_tointeger(L,2);
+		unsigned int* layers=(unsigned int*)Luna< void >::check(L,2);
 
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void FANN::neural_net::get_layer_array(unsigned int *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
-		self->get_layer_array(&layers);
+		self->get_layer_array(layers);
 
 		return 0;
 	}
@@ -2220,14 +2220,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void FANN::neural_net::get_bias_array(unsigned int * bias) function, expected prototype:\nvoid FANN::neural_net::get_bias_array(unsigned int * bias)\nClass arguments details:\n");
 		}
 
-		unsigned int bias=(unsigned int)lua_tointeger(L,2);
+		unsigned int* bias=(unsigned int*)Luna< void >::check(L,2);
 
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void FANN::neural_net::get_bias_array(unsigned int *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
-		self->get_bias_array(&bias);
+		self->get_bias_array(bias);
 
 		return 0;
 	}
@@ -2802,7 +2802,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void FANN::neural_net::set_cascade_activation_functions(FANN::activation_function_enum * cascade_activation_functions, unsigned int cascade_activation_functions_count) function, expected prototype:\nvoid FANN::neural_net::set_cascade_activation_functions(FANN::activation_function_enum * cascade_activation_functions, unsigned int cascade_activation_functions_count)\nClass arguments details:\n");
 		}
 
-		FANN::activation_function_enum cascade_activation_functions=(FANN::activation_function_enum)lua_tointeger(L,2);
+		FANN::activation_function_enum* cascade_activation_functions=(FANN::activation_function_enum*)Luna< void >::check(L,2);
 		unsigned int cascade_activation_functions_count=(unsigned int)lua_tointeger(L,3);
 
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
@@ -2810,7 +2810,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_activation_functions(FANN::activation_function_enum *, unsigned int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
-		self->set_cascade_activation_functions(&cascade_activation_functions, cascade_activation_functions_count);
+		self->set_cascade_activation_functions(cascade_activation_functions, cascade_activation_functions_count);
 
 		return 0;
 	}
@@ -2860,7 +2860,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void FANN::neural_net::set_cascade_activation_steepnesses(float * cascade_activation_steepnesses, unsigned int cascade_activation_steepnesses_count) function, expected prototype:\nvoid FANN::neural_net::set_cascade_activation_steepnesses(float * cascade_activation_steepnesses, unsigned int cascade_activation_steepnesses_count)\nClass arguments details:\n");
 		}
 
-		float cascade_activation_steepnesses=(float)lua_tonumber(L,2);
+		float* cascade_activation_steepnesses=(float*)Luna< void >::check(L,2);
 		unsigned int cascade_activation_steepnesses_count=(unsigned int)lua_tointeger(L,3);
 
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
@@ -2868,7 +2868,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void FANN::neural_net::set_cascade_activation_steepnesses(float *, unsigned int). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
-		self->set_cascade_activation_steepnesses(&cascade_activation_steepnesses, cascade_activation_steepnesses_count);
+		self->set_cascade_activation_steepnesses(cascade_activation_steepnesses, cascade_activation_steepnesses_count);
 
 		return 0;
 	}
@@ -3063,14 +3063,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void FANN::neural_net::scale_input(float * input_vector) function, expected prototype:\nvoid FANN::neural_net::scale_input(float * input_vector)\nClass arguments details:\n");
 		}
 
-		float input_vector=(float)lua_tonumber(L,2);
+		float* input_vector=(float*)Luna< void >::check(L,2);
 
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void FANN::neural_net::scale_input(float *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
-		self->scale_input(&input_vector);
+		self->scale_input(input_vector);
 
 		return 0;
 	}
@@ -3082,14 +3082,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void FANN::neural_net::scale_output(float * output_vector) function, expected prototype:\nvoid FANN::neural_net::scale_output(float * output_vector)\nClass arguments details:\n");
 		}
 
-		float output_vector=(float)lua_tonumber(L,2);
+		float* output_vector=(float*)Luna< void >::check(L,2);
 
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void FANN::neural_net::scale_output(float *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
-		self->scale_output(&output_vector);
+		self->scale_output(output_vector);
 
 		return 0;
 	}
@@ -3101,14 +3101,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void FANN::neural_net::descale_input(float * input_vector) function, expected prototype:\nvoid FANN::neural_net::descale_input(float * input_vector)\nClass arguments details:\n");
 		}
 
-		float input_vector=(float)lua_tonumber(L,2);
+		float* input_vector=(float*)Luna< void >::check(L,2);
 
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void FANN::neural_net::descale_input(float *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
-		self->descale_input(&input_vector);
+		self->descale_input(input_vector);
 
 		return 0;
 	}
@@ -3120,14 +3120,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void FANN::neural_net::descale_output(float * output_vector) function, expected prototype:\nvoid FANN::neural_net::descale_output(float * output_vector)\nClass arguments details:\n");
 		}
 
-		float output_vector=(float)lua_tonumber(L,2);
+		float* output_vector=(float*)Luna< void >::check(L,2);
 
 		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void FANN::neural_net::descale_output(float *). Got : '%s'",typeid(Luna< FANN::neural_net >::check(L,1)).name());
 		}
-		self->descale_output(&output_vector);
+		self->descale_output(output_vector);
 
 		return 0;
 	}

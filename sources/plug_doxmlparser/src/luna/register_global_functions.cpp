@@ -75,7 +75,7 @@ static int _bind_createObjectModel(lua_State *L) {
 	}
 
 
-	IDoxygen * lret = createObjectModel();
+	IDoxygen * lret = ::createObjectModel();
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< IDoxygen >::push(L,lret,false);
@@ -92,7 +92,7 @@ static int _bind_toClass(lua_State *L) {
 
 	ICompound* comp=(Luna< ICompound >::check(L,1));
 
-	IClass * lret = toClass(comp);
+	IClass * lret = ::toClass(comp);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< IClass >::push(L,lret,false);
@@ -109,7 +109,7 @@ static int _bind_toFile(lua_State *L) {
 
 	ICompound* comp=(Luna< ICompound >::check(L,1));
 
-	IFile * lret = toFile(comp);
+	IFile * lret = ::toFile(comp);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< IFile >::push(L,lret,false);
@@ -126,7 +126,7 @@ static int _bind_toEnum(lua_State *L) {
 
 	IMember* comp=(Luna< IMember >::check(L,1));
 
-	IEnum * lret = toEnum(comp);
+	IEnum * lret = ::toEnum(comp);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< IEnum >::push(L,lret,false);
@@ -143,7 +143,7 @@ static int _bind_toNamespace(lua_State *L) {
 
 	ICompound* comp=(Luna< ICompound >::check(L,1));
 
-	INamespace * lret = toNamespace(comp);
+	INamespace * lret = ::toNamespace(comp);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< INamespace >::push(L,lret,false);
@@ -160,7 +160,7 @@ static int _bind_toLinkText(lua_State *L) {
 
 	ILinkedText* ilt=(Luna< ILinkedText >::check(L,1));
 
-	ILT_Text * lret = toLinkText(ilt);
+	ILT_Text * lret = ::toLinkText(ilt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< ILT_Text >::push(L,lret,false);
@@ -177,7 +177,7 @@ static int _bind_toLinkRef(lua_State *L) {
 
 	ILinkedText* ilt=(Luna< ILinkedText >::check(L,1));
 
-	ILT_Ref * lret = toLinkRef(ilt);
+	ILT_Ref * lret = ::toLinkRef(ilt);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< ILT_Ref >::push(L,lret,false);
@@ -194,7 +194,7 @@ static int _bind_toDocText(lua_State *L) {
 
 	IDoc* doc=(Luna< IDoc >::check(L,1));
 
-	IDocText * lret = toDocText(doc);
+	IDocText * lret = ::toDocText(doc);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< IDocText >::push(L,lret,false);
@@ -211,7 +211,7 @@ static int _bind_toDocPara(lua_State *L) {
 
 	IDoc* doc=(Luna< IDoc >::check(L,1));
 
-	IDocPara * lret = toDocPara(doc);
+	IDocPara * lret = ::toDocPara(doc);
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< IDocPara >::push(L,lret,false);

@@ -344,7 +344,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osgViewer::ScreenCaptureHandler::CaptureOperation* defaultOperation=luatop>0 ? (Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler::CaptureOperation >(L,1)) : (osgViewer::ScreenCaptureHandler::CaptureOperation*)0;
-		int numFrames=luatop>1 ? (int)lua_tointeger(L,2) : 1;
+		int numFrames=luatop>1 ? (int)lua_tointeger(L,2) : (int)1;
 
 		return new osgViewer::ScreenCaptureHandler(defaultOperation, numFrames);
 	}
@@ -359,7 +359,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		osgViewer::ScreenCaptureHandler::CaptureOperation* defaultOperation=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler::CaptureOperation >(L,2)) : (osgViewer::ScreenCaptureHandler::CaptureOperation*)0;
-		int numFrames=luatop>2 ? (int)lua_tointeger(L,3) : 1;
+		int numFrames=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
 
 		return new wrapper_osgViewer_ScreenCaptureHandler(L,NULL, defaultOperation, numFrames);
 	}

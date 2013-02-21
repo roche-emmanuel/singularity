@@ -258,7 +258,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned cacheSize=luatop>0 ? (unsigned)lua_tointeger(L,1) : 16;
+		unsigned cacheSize=luatop>0 ? (unsigned)lua_tointeger(L,1) : (unsigned)16;
 
 		return new osgUtil::VertexCacheMissVisitor(cacheSize);
 	}
@@ -272,7 +272,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned cacheSize=luatop>1 ? (unsigned)lua_tointeger(L,2) : 16;
+		unsigned cacheSize=luatop>1 ? (unsigned)lua_tointeger(L,2) : (unsigned)16;
 
 		return new wrapper_osgUtil_VertexCacheMissVisitor(L,NULL, cacheSize);
 	}

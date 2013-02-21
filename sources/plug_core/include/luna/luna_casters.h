@@ -11,6 +11,13 @@ struct luna_caster<__int64,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<__uint64,dstType> {
+	static inline dstType* cast(__uint64* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<uintptr_t,dstType> {
 	static inline dstType* cast(uintptr_t* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -25,8 +32,106 @@ struct luna_caster<void,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<boost::gregorian::date_duration,dstType> {
+	static inline dstType* cast(boost::gregorian::date_duration* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<boost::gregorian::date_period,dstType> {
+	static inline dstType* cast(boost::gregorian::date_period* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<boost::gregorian::date,dstType> {
+	static inline dstType* cast(boost::gregorian::date* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<boost::gregorian::day_iterator,dstType> {
+	static inline dstType* cast(boost::gregorian::day_iterator* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<boost::gregorian::week_iterator,dstType> {
+	static inline dstType* cast(boost::gregorian::week_iterator* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<boost::gregorian::month_iterator,dstType> {
+	static inline dstType* cast(boost::gregorian::month_iterator* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<boost::gregorian::year_iterator,dstType> {
+	static inline dstType* cast(boost::gregorian::year_iterator* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<boost::posix_time::time_duration,dstType> {
+	static inline dstType* cast(boost::posix_time::time_duration* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<boost::posix_time::hours,dstType> {
+	static inline dstType* cast(boost::posix_time::hours* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<boost::posix_time::minutes,dstType> {
+	static inline dstType* cast(boost::posix_time::minutes* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<boost::posix_time::seconds,dstType> {
+	static inline dstType* cast(boost::posix_time::seconds* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<boost::posix_time::milliseconds,dstType> {
+	static inline dstType* cast(boost::posix_time::milliseconds* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<boost::posix_time::microseconds,dstType> {
+	static inline dstType* cast(boost::posix_time::microseconds* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<boost::posix_time::ptime,dstType> {
 	static inline dstType* cast(boost::posix_time::ptime* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<boost::posix_time::time_period,dstType> {
+	static inline dstType* cast(boost::posix_time::time_period* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };

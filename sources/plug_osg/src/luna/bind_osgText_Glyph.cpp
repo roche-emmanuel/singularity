@@ -1434,7 +1434,7 @@ public:
 		int r=(int)lua_tointeger(L,4);
 		unsigned int pixelFormat=(unsigned int)lua_tointeger(L,5);
 		unsigned int type=(unsigned int)lua_tointeger(L,6);
-		int packing=luatop>6 ? (int)lua_tointeger(L,7) : 1;
+		int packing=luatop>6 ? (int)lua_tointeger(L,7) : (int)1;
 
 		osgText::Glyph* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,1);
 		if(!self) {
@@ -1463,7 +1463,7 @@ public:
 		unsigned int type=(unsigned int)lua_tointeger(L,7);
 		unsigned char data = (unsigned char)(lua_tointeger(L,8));
 		osg::Image::AllocationMode mode=(osg::Image::AllocationMode)lua_tointeger(L,9);
-		int packing=luatop>9 ? (int)lua_tointeger(L,10) : 1;
+		int packing=luatop>9 ? (int)lua_tointeger(L,10) : (int)1;
 
 		osgText::Glyph* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,1);
 		if(!self) {
@@ -1510,7 +1510,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 		bool copyMipMapsIfAvailable=(bool)(lua_toboolean(L,3)==1);
-		unsigned int type=luatop>3 ? (unsigned int)lua_tointeger(L,4) : GL_UNSIGNED_BYTE;
+		unsigned int type=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)GL_UNSIGNED_BYTE;
 
 		osgText::Glyph* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,1);
 		if(!self) {

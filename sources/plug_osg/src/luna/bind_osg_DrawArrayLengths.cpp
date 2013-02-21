@@ -136,7 +136,7 @@ public:
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -185,7 +185,7 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -452,7 +452,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int mode=luatop>0 ? (unsigned int)lua_tointeger(L,1) : 0;
+		unsigned int mode=luatop>0 ? (unsigned int)lua_tointeger(L,1) : (unsigned int)0;
 
 		return new osg::DrawArrayLengths(mode);
 	}
@@ -475,7 +475,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::DrawArrayLengths::DrawArrayLengths function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::DrawArrayLengths(dal, copyop);
 	}
@@ -490,9 +490,9 @@ public:
 		unsigned int mode=(unsigned int)lua_tointeger(L,1);
 		int first=(int)lua_tointeger(L,2);
 		unsigned int no=(unsigned int)lua_tointeger(L,3);
-		int ptr=(int)lua_tointeger(L,4);
+		int* ptr=(int*)Luna< void >::check(L,4);
 
-		return new osg::DrawArrayLengths(mode, first, no, &ptr);
+		return new osg::DrawArrayLengths(mode, first, no, ptr);
 	}
 
 	// osg::DrawArrayLengths::DrawArrayLengths(unsigned int mode, int first, unsigned int no)
@@ -531,7 +531,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		return new wrapper_osg_DrawArrayLengths(L,NULL, mode);
 	}
@@ -554,7 +554,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::DrawArrayLengths::DrawArrayLengths function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_DrawArrayLengths(L,NULL, dal, copyop);
 	}
@@ -569,9 +569,9 @@ public:
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		int first=(int)lua_tointeger(L,3);
 		unsigned int no=(unsigned int)lua_tointeger(L,4);
-		int ptr=(int)lua_tointeger(L,5);
+		int* ptr=(int*)Luna< void >::check(L,5);
 
-		return new wrapper_osg_DrawArrayLengths(L,NULL, mode, first, no, &ptr);
+		return new wrapper_osg_DrawArrayLengths(L,NULL, mode, first, no, ptr);
 	}
 
 	// osg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, unsigned int mode, int first, unsigned int no)

@@ -298,7 +298,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-		float fps=luatop>1 ? (float)lua_tonumber(L,2) : 25.0f;
+		float fps=luatop>1 ? (float)lua_tonumber(L,2) : (float)25.0f;
 
 		return new osgViewer::RecordCameraPathHandler(filename, fps);
 	}
@@ -313,7 +313,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-		float fps=luatop>2 ? (float)lua_tonumber(L,3) : 25.0f;
+		float fps=luatop>2 ? (float)lua_tonumber(L,3) : (float)25.0f;
 
 		return new wrapper_osgViewer_RecordCameraPathHandler(L,NULL, filename, fps);
 	}
@@ -414,7 +414,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool autoinc=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool autoinc=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		osgViewer::RecordCameraPathHandler* self=Luna< osg::Referenced >::checkSubType< osgViewer::RecordCameraPathHandler >(L,1);
 		if(!self) {

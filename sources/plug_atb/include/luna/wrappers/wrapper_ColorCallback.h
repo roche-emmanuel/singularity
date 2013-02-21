@@ -40,7 +40,7 @@ public:
 	void setValue(osg::Vec4f val) {
 		THROW_IF(!_obj.pushFunction("setValue"),"No implementation for abstract function ColorCallback::setValue");
 		_obj.pushArg((ColorCallback*)this);
-		_obj.pushArg(val);
+		_obj.pushArg(&val);
 		return (_obj.callFunction<void>());
 	};
 
