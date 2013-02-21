@@ -9,9 +9,9 @@
   4. Commit changes:
      > git commit -a -m "Preparing release vX.Y.Z"
   3. Create branch for this release: 
-     > git checkout -b vX.Y.Z
-	 > git push origin vX.Y.Z
+     > git checkout -b vX.Y.Z_dev
+	 > git push origin vX.Y.Z_dev
   4. Create tag for this release:
-     > git tag -a -m "message" vX.Y.Z
+     > git tag -a -m "Creating release vX.Y.Z" release_vX.Y.Z
 	 > git push --tags origin
 	 
