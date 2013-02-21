@@ -1,7 +1,12 @@
+== Singularity release v0.1.1 - 21/02/2013 ==
 
-== Singularity release v0.1.0 - ??? ==
+- rebuilt sgtLauncher for ds411
+- rebuilt core module with boost date time linkage for ds411
+- rebuilt external package for ds411
+- Added documentation folder.
+- Preparing protocol descriptions.
 
-   * Changes:
+== Singularity release v0.1.0 - 20/02/2013 ==
    
 - Now using complete name for sub class registration in modules (like osg.Drawable_CullCallback).
 - Auto generation of LunaTraits for needed types.

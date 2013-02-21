@@ -40,6 +40,7 @@ String ModuleProvider::getModule(const String& moduleName) {
 }
 
 void ModuleProvider::loadPackage(const String& packageFile) {
+	logDEBUG2_V("Trying to load library from " << packageFile);
 	osgDB::DynamicLibrary* lib = osgDB::DynamicLibrary::loadLibrary(packageFile);
 	if(lib) {
 		logINFO("Successfully loaded library from " << packageFile);

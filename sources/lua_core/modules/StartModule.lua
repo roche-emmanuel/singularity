@@ -51,7 +51,16 @@ _G.require = function(modName)
 	return res;
 end
 
-sgt.doLog(level,"Loading external package...")
+-- retrieve config:
+local cfg = require "config"
+
+sgt.LogManager.instance():setNotifyLevel(sgt.LogManager[cfg.log_level or "INFO"])
+sgt.LogManager.instance():setVerbose(cfg.log_verbose)
+sgt.LogManager.instance():setDefaultLevelFlags(sgt.LogManager.TIME_STAMP+sgt.LogManager.THREAD_ID)
+sgt.LogManager.instance():setDefaultTraceFlags(sgt.LogManager.TIME_STAMP+sgt.LogManager.THREAD_ID)
+
+
+sgt.doLog(level,"Loading external package from " .. root_path .. "bin/".. flavor .."/packages/externals.lpak")
 sgt.ModuleProvider.loadPackage(root_path .. "bin/".. flavor .."/packages/externals.lpak")
 
 require "luna"
@@ -66,15 +75,6 @@ _G.log = require "logger"
 _G.fs = require "base.FileSystem"
 
 _G.profiler = require "debugging.Profiler"
-
--- retrieve config:
-local cfg = require "config"
-local core = require "core"
-
-core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG0)
-core.LogManager.instance():setVerbose(false)
-core.LogManager.instance():setDefaultLevelFlags(core.LogManager.TIME_STAMP+core.LogManager.THREAD_ID)
-core.LogManager.instance():setDefaultTraceFlags(core.LogManager.TIME_STAMP+core.LogManager.THREAD_ID)
 
 sgt.doLog(level,"Creating StartModule class.")
 local Class = require("classBuilder"){name="StartModule",bases="base.Object"};
