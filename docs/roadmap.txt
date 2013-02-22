@@ -1,0 +1,5 @@
+== Plan for release v0.2.0 ==
+
+  - stock_retriever: add support for symbol selection from database table.
+  - stock_retriever: add support for column retrieval from database table.
+  
