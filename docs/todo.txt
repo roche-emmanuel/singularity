@@ -5,6 +5,8 @@
 
 - Todo:
 
+* try to build for linux32/linux64
+
 * create a C++ storage to share common values in multi lua states.
 * provide vector iterator support.
 * create double entry map.
