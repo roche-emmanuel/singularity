@@ -40,12 +40,20 @@ String ModuleProvider::getModule(const String& moduleName) {
 }
 
 void ModuleProvider::loadPackage(const String& packageFile) {
-	logDEBUG2_V("Trying to load library from " << packageFile);
+	ModuleProvider& prov = sgtModuleManager::instance();
+	if(prov._packages.find(packageFile)!=prov._packages.end()) {
+		logDEBUG3_V("Package " << packageFile << " is already loaded.");
+		return;
+	}
+
+	logDEBUG3_V("Trying to load library from " << packageFile);
 	osgDB::DynamicLibrary* lib = osgDB::DynamicLibrary::loadLibrary(packageFile);
 	if(lib) {
-		logINFO("Successfully loaded library from " << packageFile);
-		ModuleProvider& prov = sgtModuleManager::instance();
-		prov._packages.push_back(lib);
+		logDEBUG_V("Successfully loaded library from " << packageFile);
+		prov._packages[packageFile] = lib;
+	}
+	else {
+		logERROR("Could not load library from " << packageFile);
 	}
 }
 

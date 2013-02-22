@@ -5,6 +5,8 @@
 
 - Todo:
 
+* investigate comboreduct implementation in lua.
+
 * try to build for linux32/linux64
 
 * create a C++ storage to share common values in multi lua states.

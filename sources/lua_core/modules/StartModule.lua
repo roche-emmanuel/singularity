@@ -51,6 +51,11 @@ _G.require = function(modName)
 	return res;
 end
 
+-- This function can be used to load a package easily:
+_G.requirePackage = function(packName)
+	sgt.ModuleProvider.loadPackage(root_path .. "bin/" .. flavor .. "/packages/" .. packName .. ".lpak")
+end
+
 -- retrieve config:
 local cfg = require "config"
 
@@ -60,8 +65,9 @@ sgt.LogManager.instance():setDefaultLevelFlags(sgt.LogManager.TIME_STAMP+sgt.Log
 sgt.LogManager.instance():setDefaultTraceFlags(sgt.LogManager.TIME_STAMP+sgt.LogManager.THREAD_ID)
 
 
-sgt.doLog(level,"Loading external package from " .. root_path .. "bin/".. flavor .."/packages/externals.lpak")
-sgt.ModuleProvider.loadPackage(root_path .. "bin/".. flavor .."/packages/externals.lpak")
+sgt.doLog(level,"Loading external package...")
+-- sgt.ModuleProvider.loadPackage(root_path .. "bin/".. flavor .."/packages/externals.lpak")
+requirePackage "externals"
 
 require "luna"
 

@@ -11,10 +11,10 @@ namespace sgt {
 class SGTCORE_EXPORT ModuleProvider : public sgtObject {
 protected:
 	typedef std::map<String,String> ModuleMap;
-	typedef std::vector<osg::ref_ptr<osgDB::DynamicLibrary> > PackageList;
+	typedef std::map<String,osg::ref_ptr<osgDB::DynamicLibrary> > PackageMap;
 	
 	ModuleMap _modules;
-	PackageList _packages;
+	PackageMap _packages;
 	
 public:
     ModuleProvider()
