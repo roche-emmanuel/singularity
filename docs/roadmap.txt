@@ -3,3 +3,6 @@
   - stock_retriever: add support for symbol selection from database table.
   - stock_retriever: add support for column retrieval from database table.
   - Implement initial version of ComboReduct
+  - command line implementation for reflection generator.
+  - gui implementation reflection generator.
+  

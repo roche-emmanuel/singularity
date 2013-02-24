@@ -213,3 +213,27 @@ function test_vector_erase()
 	
 	assert_equal(4,vec[3],"Invalid vector value at index 3.")	
 end
+
+function test_tree_creation()
+	log:info("Testing tree creation.")
+	
+	local Tree = require "std.Tree"
+	local tree = Tree()
+	
+	log:info("Done testing tree creation.")
+end
+
+function test_tree_iterator_dereference()
+	log:info("Testing tree iterator dereference")
+	
+	local myobj = {"thetable"}
+	
+	log:info("Testing default data() method access.")
+	local it = require("std.tree.Iterator"){node={data=myobj}}
+	assert_equal(myobj,it:data(),"Missmatch between iterator object and original value")
+
+	log:info("Now testing __len() metamethod access")
+	assert_equal(myobj,#it,"Missmatch between #iterator original value")
+	
+	log:info("Done testing tree iterator dereference.")
+end

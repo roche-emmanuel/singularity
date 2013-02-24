@@ -6,6 +6,7 @@ local log = require "tracer"
 --	return
 --end
 
+--[=[
 
 local fs = require "base.FileSystem"
 
@@ -92,3 +93,5 @@ function test_mysql_saving_loading_data()
 	
 	log:info("Tests","Saving loading mysql data test done.")
 end
+
+]=]

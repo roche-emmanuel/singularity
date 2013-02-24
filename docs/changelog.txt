@@ -3,6 +3,8 @@
 - Added cog lua package.
 - Added requirePackage support
 - Mapped package library to package name to avoid reloading trials.
+- Rebuild luaJIT v2.0.1 (with lua 5.2 features).
+
 
 == Singularity release v0.1.1 - 21/02/2013 ==
 
