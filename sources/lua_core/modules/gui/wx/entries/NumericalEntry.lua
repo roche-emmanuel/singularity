@@ -328,7 +328,7 @@ function Class:setupColorSwatch(area)
         
         for i=0,11 do
             for j=0,3 do
-                if math.mod(i+j,2)==1 then
+                if math.fmod(i+j,2)==1 then
                     -- this is a grey square:
                     dc:DrawRectangle(i*size,j*size,size,size);
                 end

@@ -20,7 +20,7 @@ function Class:inc()
     if( not self._skip_children and self._node.first_child ) then
         self._node=self._node.first_child;
     else
-        this._skip_children = false;
+        self._skip_children = false;
         while( not self._node.next_sibling) do
             self._node=self._node.parent;
             if( not self._node) then

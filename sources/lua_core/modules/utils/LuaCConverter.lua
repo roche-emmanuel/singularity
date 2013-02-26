@@ -57,7 +57,7 @@ function Class:processFile(file,modName)
 		local c= data:sub(i,i)
 		self:append(string.format( '%3d,', string.byte(c) ))
 
-		if math.mod(i,20)==0 then
+		if math.fmod(i,20)==0 then
 			self:append("\n")
 		end
     end

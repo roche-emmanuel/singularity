@@ -57,7 +57,7 @@ function utils.getHash(str)
 	local h=0
 	for i=1,n do
 		h=31*h+string.byte(str,i)
-		h=math.mod(h,100000000+i)
+		h=math.fmod(h,100000000+i)
 	end
 	return h
 end
@@ -102,6 +102,17 @@ function utils.subLine(str,...)
 		str = str:gsub("%${"..id.."}",v)
 	end
 	return str
+end
+
+function utils.findIterator(from,to,val)
+	local it = from:clone()
+	while (it~=to) do
+		if #it == val then 
+			return it
+		end
+		it:inc()
+	end
+	return it
 end
 
 return utils

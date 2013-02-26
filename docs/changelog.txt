@@ -4,6 +4,10 @@
 - Added requirePackage support
 - Mapped package library to package name to avoid reloading trials.
 - Rebuild luaJIT v2.0.1 (with lua 5.2 features).
+- Added Vector:__tostring support
+- Added config entry to enable/disable stack plus support
+- Added suport for quick unit testing.
+- Implemented most tests for tree container.
 
 
 == Singularity release v0.1.1 - 21/02/2013 ==

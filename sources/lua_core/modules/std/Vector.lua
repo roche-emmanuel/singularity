@@ -58,6 +58,32 @@ function Class:insert(index,item)
     table.insert(self._data,index,item)
 end
 
+local lessFunc = function(x,y) return x<y; end
+
+function Class:ordered_insert(item,sortfn)
+	self:check(item,"Cannot insert nil item.")
+	
+	-- we should have: sortfn(x,y) return x<y end 
+	sortfn = sortfn or lessFunc
+	
+	-- use the function to find where to item should be inserted:
+	if #self._data==0 then
+		table.insert(self._data,1,item);
+		return 1;		
+	end
+	
+	-- the vector is not empty, so we need to check the values:
+	for k,v in ipairs(self._data) do
+		if sortfn(item,v) then
+			table.insert(self._data,k,item);
+			return k;
+		end
+	end
+	
+	table.insert(self._data,item);
+	return #self._data
+end
+
 --- Pop the latest item from the vector.
 -- This function will remove the lastest item from the vector and return it.
 -- @return the popped item
@@ -88,6 +114,14 @@ end
 -- @return vector size
 function Class:size()
     return #self._data
+end
+
+--function Class:__eq(rhs)
+--	return rhs and rhs:isInstanceOf(Class) and self._data = rhs._data
+--end
+
+function Class:__tostring()
+	return "{" .. table.concat(self._data,", ") .. "}"
 end
 
 --- Check vector emptyness.

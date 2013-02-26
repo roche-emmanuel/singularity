@@ -92,7 +92,7 @@ end
 function LoggerBase:writeItem(item)
 	if type(item) == "table" then
 		-- concatenate table:
-		return self:writeTable(item)
+		return item.__tostring and tostring(item) or self:writeTable(item)
 	elseif item==false then
 		return "false";
 	else

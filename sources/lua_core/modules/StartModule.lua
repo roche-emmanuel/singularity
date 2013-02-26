@@ -57,10 +57,10 @@ _G.requirePackage = function(packName)
 end
 
 -- retrieve config:
-local cfg = require "config"
+_G.config = require "config"
 
-sgt.LogManager.instance():setNotifyLevel(sgt.LogManager[cfg.log_level or "INFO"])
-sgt.LogManager.instance():setVerbose(cfg.log_verbose)
+sgt.LogManager.instance():setNotifyLevel(sgt.LogManager[config.log_level or "INFO"])
+sgt.LogManager.instance():setVerbose(config.log_verbose)
 sgt.LogManager.instance():setDefaultLevelFlags(sgt.LogManager.TIME_STAMP+sgt.LogManager.THREAD_ID)
 sgt.LogManager.instance():setDefaultTraceFlags(sgt.LogManager.TIME_STAMP+sgt.LogManager.THREAD_ID)
 

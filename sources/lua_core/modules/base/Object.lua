@@ -4,8 +4,10 @@ local oo = require "loop.cached"
 
 local log = require "tracer"
 
-local STP = require "StackTracePlus"
-debug.traceback = STP.stacktrace
+if not config or config.use_stack_plus then
+	local STP = require "StackTracePlus"
+	debug.traceback = STP.stacktrace
+end
 
 require("logger"):debug0_v("Generating class ",className)
 

@@ -37,14 +37,12 @@ end
 	
 function Class:dec()
     if(self._node) then
-        if (not self._node.prev_sibling) then
-            self._parent = self._node.parent;
-            self._node=nil;
-        else
-            self._node=self._node.prev_sibling;
-        end
+		self._node=self._node.prev_sibling;
+    else
+        self:check(self._parent,"Invalid parent object");
+        self._node=self._parent.last_child;
     end
-    return self;
+	return self
 end	
 
 function Class:range_first()

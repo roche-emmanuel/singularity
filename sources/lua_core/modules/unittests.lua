@@ -3,18 +3,23 @@ local log = require "logger"
 local Class = require("classBuilder"):create{name="UnitTester",bases="base.Object"};
 local fs = require "base.FileSystem"
 
-function Class:initialize()
+function Class:initialize(options)
 	self:notice("Starting tests.")
 
+	local tpath = options and options.path or "tests/suites"
+	local mpath = tpath:gsub("/",".")
+	
+	self:info("Performing unit tests from path: ", tpath)
+	
 	require "lunatest"
 
 	local func = function(data) 
-		local path = "tests.".. data.file:gsub("(.-)%.lua$","%1")
+		local path = mpath .. "." .. data.file:gsub("(.-)%.lua$","%1")
 		log:info("Loading test suite ",path)
 		lunatest.suite(path)
 	end
 	
-	fs:traverse{path=root_path.."lua/modules/tests",
+	fs:traverse{path=root_path.."lua/modules/"..tpath,
 		func=func,
 		pattern="%.lua$"}
 	
@@ -23,4 +28,4 @@ function Class:initialize()
 	self:notice("Tests done.")
 end
 
-return Class()
+return Class

@@ -29,5 +29,7 @@ cfg.log_level = "DEBUG3"
 
 cfg.osg_log_level = "NOTICE"
 
+-- Display advanced stack details on error:
+cfg.use_stack_plus = false;
 
 return cfg

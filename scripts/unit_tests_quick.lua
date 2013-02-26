@@ -1,6 +1,6 @@
 #!/bin/sgt
 
-require("unittests")()
+require("unittests"){path="tests/dev"}
 
 local sm = require "serialization.SerializationManager"
 sm:uninitialize()

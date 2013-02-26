@@ -1,11 +1,34 @@
 local Class = require("classBuilder"){name="TreeIterator",bases="std.Iterator"};
 
 function Class:initialize(rhs)
-	self._node = rhs and ((self:isInstanceOf(Class,rhs) and rhs._node) or rhs.node) ;
+	self._node = rhs and ((self:isInstanceOf(Class,rhs) and rhs._node) or rhs.node or rhs[1]) ;
 end
 
 function Class:valid()
 	return self._node~=nil
+end
+
+function Class:clone(node)
+	return self:getClassOf(){node or self._node}
+end
+
+function Class:asSibling()
+	local SiblingIterator = require "std.tree.SiblingIterator"
+	return SiblingIterator(self)
+end
+
+function Class:cloneType()
+	return self:getClassOf()()
+end
+
+function Class:swap(rhs)
+	self:check(rhs and rhs:isInstanceOf(Class),"mismatch in iterator classes.")
+	local tmp = rhs._node
+	rhs._node = self._node
+	self._node = tmp
+	local tmp = rhs._parent
+	rhs._parent = self._parent
+	self._parent = tmp
 end
 
 -- return the data available in the corresponding tree node
@@ -52,13 +75,18 @@ end
 
 
 function Class:begin()
-	local SiblingIterator = require "std.TreeSiblingIterator"
+	local SiblingIterator = require "std.tree.SiblingIterator"
 	local it = SiblingIterator{node=self._node.first_child, parent=self._node};
 	return it;
 end
 
+function Class:at_end()
+	local SiblingIterator = require "std.tree.SiblingIterator"
+	return SiblingIterator{parent=self._node};
+end
+
 function Class:last_child()
-	local SiblingIterator = require "std.TreeSiblingIterator"
+	local SiblingIterator = require "std.tree.SiblingIterator"
 	local it = SiblingIterator{node=self._node.last_child, parent=self._node};
 	return it;
 end
@@ -75,6 +103,7 @@ end
 -- Check equality of two sibling nodes.
 function Class:__eq(rhs)
 	return self:isInstanceOf(self:getClassOf(),rhs) and self._node==rhs._node
+	-- return self._node==rhs._node and self._parent == rhs._parent
 end
 	
 function Class:__add(num)

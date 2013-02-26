@@ -131,7 +131,7 @@ function Command.lua(which, ...)
 	end
 end
 
-function Command.goto(where)
+function Command.go_to(where)
 	local kind = type(where)
 	if kind == "thread" then
 		local status = coroutine.status(where)
