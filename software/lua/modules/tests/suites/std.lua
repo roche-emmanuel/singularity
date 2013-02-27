@@ -680,3 +680,373 @@ function test_tree_erase_children()
 	
 	log:info("Done testing tree erase_children")
 end
+
+function test_tree_flatten()
+	log:info("Testing tree flatten")
+	
+	local tree2 = Tree{root="A"}
+	local it = tree2:append_child(tree2:begin(),"B")
+	local it1 = tree2:append_child(tree2:begin(),"C")
+	tree2:append_child(tree2:begin(),"F")
+	tree2:append_child(it,"D")
+	tree2:append_child(it,"E")
+
+	assert_equal("{A (B (D, E), C, F)}",tostring(tree2),"Invalid tree2 before flatten.")
+	
+	tree2:flatten(it)
+
+	assert_equal("{A (B, D, E, C, F)}",tostring(tree2),"Invalid tree2 after flatten 1.")
+
+	tree2:flatten(tree2:begin())
+
+	assert_equal("{A, B, D, E, C, F}",tostring(tree2),"Invalid tree2 after flatten 2.")
+	
+	log:info("Done testing tree flatten")
+end
+
+function test_tree_reparent()
+	log:info("Testing tree reparent")
+	
+	local tree2 = Tree{root="A"}
+	local it = tree2:append_child(tree2:begin(),"B")
+	local it1 = tree2:append_child(tree2:begin(),"C")
+	local it2 = tree2:append_child(tree2:begin(),"F")
+	tree2:append_child(it,"D")
+	tree2:append_child(it,"E")
+	tree2:append_child(it2,"G")
+	tree2:append_child(it2,"H")
+	tree2:append_child(it2,"I")
+
+	assert_equal("{A (B (D, E), C, F (G, H, I))}",tostring(tree2),"Invalid tree2 before reparent.")
+	
+	tree2:reparent(it,it1,it1:asSibling():inc())
+
+	assert_equal("{A (B (D, E, C), F (G, H, I))}",tostring(tree2),"Invalid tree2 after reparent 1.")
+
+	tree2:reparent(it1,it2) --:begin(),it2:at_end())
+
+	assert_equal("{A (B (D, E, C (G, H, I)), F)}",tostring(tree2),"Invalid tree2 after reparent 2.")
+	
+	log:info("Done testing tree reparent")
+end
+
+function test_tree_wrap()
+	log:info("Testing tree wrap")
+	
+	local tree = Tree{root="A"}
+	local it = tree:append_child(tree:begin(),"B")
+	local it1 = tree:append_child(tree:begin(),"C")
+	local it2 = tree:append_child(tree:begin(),"F")
+	tree:append_child(it,"D")
+	tree:append_child(it,"E")
+
+	assert_equal("{A (B (D, E), C, F)}",tostring(tree),"Invalid tree before wrap.")
+	
+	tree:wrap(it2,"G")
+
+	assert_equal("{A (B (D, E), C, G (F))}",tostring(tree),"Invalid tree after wrap 1.")
+
+	tree:wrap(it,"H")
+
+	assert_equal("{A (H (B (D, E)), C, G (F))}",tostring(tree),"Invalid tree after wrap 2.")
+	
+	log:info("Done testing tree wrap")
+end
+
+function test_tree_move_after()
+	log:info("Testing tree move_after")
+	
+	local tree = Tree{root="A"}
+	local it = tree:append_child(tree:begin(),"B")
+	local it1 = tree:append_child(tree:begin(),"C")
+	local it2 = tree:append_child(tree:begin(),"F")
+	tree:append_child(it,"D")
+	tree:append_child(it,"E")
+
+	assert_equal("{A (B (D, E), C, F)}",tostring(tree),"Invalid tree before move_after.")
+	
+	tree:move_after(it,it2)
+
+	assert_equal("{A (B (D, E), F, C)}",tostring(tree),"Invalid tree after move_after 1.")
+
+	tree:move_after(it1,it)
+
+	assert_equal("{A (F, C, B (D, E))}",tostring(tree),"Invalid tree after move_after 2.")
+	
+	log:info("Done testing tree move_after")
+end
+
+function test_tree_move_before()
+	log:info("Testing tree move_before")
+	
+	local tree = Tree{root="A"}
+	local it = tree:append_child(tree:begin(),"B")
+	local it1 = tree:append_child(tree:begin(),"C")
+	local it2 = tree:append_child(tree:begin(),"F")
+	tree:append_child(it,"D")
+	tree:append_child(it,"E")
+
+	assert_equal("{A (B (D, E), C, F)}",tostring(tree),"Invalid tree before move_before.")
+	
+	tree:move_before(it:asSibling(),it2:asSibling())
+
+	assert_equal("{A (F, B (D, E), C)}",tostring(tree),"Invalid tree after move_before 1.")
+
+	tree:move_before(it1,it) -- not changing anything
+
+	assert_equal("{A (F, B (D, E), C)}",tostring(tree),"Invalid tree after move_before 2.")
+	
+	tree:move_before(tree:begin(),it1) -- not changing anything
+
+	assert_equal("{C, A (F, B (D, E))}",tostring(tree),"Invalid tree after move_before 3.")
+
+	log:info("Done testing tree move_before")
+end
+
+function test_tree_move_ontop()
+	log:info("Testing tree move_ontop")
+	
+	local tree = Tree{root="A"}
+	local it = tree:append_child(tree:begin(),"B")
+	local it1 = tree:append_child(tree:begin(),"C")
+	local it2 = tree:append_child(tree:begin(),"F")
+	tree:append_child(it,"D")
+	tree:append_child(it,"E")
+
+	assert_equal("{A (B (D, E), C, F)}",tostring(tree),"Invalid tree before move_ontop.")
+	
+	tree:move_ontop(it1,it2)
+	
+	assert_equal("{A (B (D, E), F)}",tostring(tree),"Invalid tree after move_ontop 1.")
+
+	tree:append_child(it2,"G")
+	tree:append_child(it2,"H")
+	
+	tree:move_ontop(it,it2)
+
+	assert_equal("{A (F (G, H))}",tostring(tree),"Invalid tree after move_ontop 2.")
+	
+	tree:append_child(tree:begin(),"B")
+	tree:append_child(tree:begin(),"C")
+	local it3 = tree:append_child(tree:begin(),"D")
+	tree:append_child(it3,"E")
+
+	assert_equal("{A (F (G, H), B, C, D (E))}",tostring(tree),"Invalid tree after move_ontop 3.")
+
+	tree:move_ontop(it2,it3)
+	
+	assert_equal("{A (D (E), B, C)}",tostring(tree),"Invalid tree after move_ontop 4.")
+
+	log:info("Done testing tree move_ontop")
+end
+
+function test_tree_merge()
+	log:info("Testing tree merge")
+	local tree = Tree()
+	
+	-- now add some content:
+	tree:insert(tree:begin(),0)
+	
+	-- insert a child into the first element:
+	tree:append_child(tree:begin(),1)
+	local it0 = tree:append_child(tree:begin(),2)
+	tree:append_child(tree:begin(),3)
+	tree:append_child(it0,4)
+	tree:append_child(it0,5)
+	
+	local tree2 = Tree{root="A"}
+	local it = tree2:append_child(tree2:begin(),"B")
+	tree2:append_child(tree2:begin(),"C")
+	tree2:append_child(tree2:begin(),"F")
+	tree2:append_child(it,"D")
+	tree2:append_child(it,"E")
+
+	assert_equal("{0 (1, 2 (4, 5), 3)}",tostring(tree),"Invalid tree before merge.")
+	assert_equal("{A (B (D, E), C, F)}",tostring(tree2),"Invalid tree2 before merge.")
+	
+	-- tree2:merge(tree2:begin(),tree2:at_end(),tree:begin(),tree:at_end())
+	tree2:merge(it:begin(),it:at_end(),tree:begin(),tree:at_end())
+
+	log:info("Checking tree merge result with tree2=",tostring(tree2)," and tree=",tostring(tree))
+	
+	-- assert_equal("{A (B (D, E), C, F), 0 (1, 2 (4, 5), 3)}",tostring(tree2),"Invalid tree merge result.")
+	assert_equal("{A (B (D, E, 0 (1, 2 (4, 5), 3)), C, F)}",tostring(tree2),"Invalid tree merge result.")
+	
+	log:info("Done testing tree merge")
+end
+
+function test_tree_sort()
+	log:info("Testing tree sort")
+	local tree = Tree()
+	
+	-- now add some content:
+	tree:insert(tree:begin(),0)
+	
+	-- insert a child into the first element:
+	tree:append_child(tree:begin(),3)
+	local it0 = tree:append_child(tree:begin(),2)
+	tree:append_child(tree:begin(),1)
+	tree:append_child(it0,5)
+	tree:append_child(it0,4)
+	
+	assert_equal("{0 (3, 2 (5, 4), 1)}",tostring(tree),"Invalid tree before sort.")
+	
+	tree:sort(tree:begin(),tree:at_end()) --,nil,true)
+
+	log:info("Checking tree sort result with tree=",tostring(tree))
+	
+	assert_equal("{0 (3, 2 (5, 4), 1)}",tostring(tree),"Invalid tree before sort.")
+
+	local tree2 = Tree()
+	tree2:insert(tree2:at_end(),3)
+	tree2:insert(tree2:at_end(),1)
+	tree2:insert(tree2:at_end(),7)
+	tree2:insert(tree2:at_end(),4)
+	tree2:insert(tree2:at_end(),6)
+	tree2:insert(tree2:at_end(),5)
+	tree2:insert(tree2:at_end(),2)
+	
+	assert_equal("{3, 1, 7, 4, 6, 5, 2}",tostring(tree2),"Invalid tree sort original.")
+	
+	tree2:sort(tree2:begin(),tree2:at_end()) --,nil,true)
+	assert_equal("{1, 2, 3, 4, 5, 6, 7}",tostring(tree2),"Invalid tree sort result.")
+
+	tree:sort(tree:begin(),tree:at_end(),nil,true)
+	assert_equal("{0 (1, 2 (4, 5), 3)}",tostring(tree),"Invalid tree sort result.")
+	
+	log:info("Done testing tree sort")
+end
+
+function test_tree_subtree()
+	log:info("Testing tree subtree")
+	local tree = Tree()
+	
+	-- now add some content:
+	tree:insert(tree:begin(),0)
+	
+	-- insert a child into the first element:
+	local it1 = tree:append_child(tree:begin(),1)
+	local it0 = tree:append_child(tree:begin(),2)
+	local it2 = tree:append_child(tree:begin(),3)
+	tree:append_child(it0,4)
+	tree:append_child(it0,5)
+	
+
+	assert_equal("{0 (1, 2 (4, 5), 3)}",tostring(tree),"Invalid tree before subtree.")
+	
+	local tree2 = tree:subtree(it1,it1:at_end())
+
+	log:info("Checking tree subtree result with tree2=",tostring(tree2)," and tree=",tostring(tree))
+	
+	assert_equal("{1, 2 (4, 5), 3}",tostring(tree2),"Invalid tree subtree result.")
+	
+	log:info("Done testing tree subtree")
+end
+
+function test_tree_swap_next()
+	log:info("Testing tree swap_next")
+	local tree = Tree()
+	
+	-- now add some content:
+	tree:insert(tree:begin(),0)
+	
+	-- insert a child into the first element:
+	local it1 = tree:append_child(tree:begin(),1)
+	local it0 = tree:append_child(tree:begin(),2)
+	tree:append_child(it0,4)
+	tree:append_child(it0,5)
+	local it2 = tree:append_child(tree:begin(),3)
+	tree:append_child(it2,6)
+	tree:append_child(it2,7)
+	
+
+	assert_equal("{0 (1, 2 (4, 5), 3 (6, 7))}",tostring(tree),"Invalid tree before swap_next.")
+	
+	tree:swap_next(it2)
+	
+	log:info("Checking tree swap_next result with tree=",tostring(tree))
+
+	assert_equal("{0 (1, 2 (4, 5), 3 (6, 7))}",tostring(tree),"Invalid tree after swap_next 1.")
+
+	tree:swap_next(it0)
+
+	log:info("Checking tree swap_next result with tree=",tostring(tree))
+	
+	assert_equal("{0 (1, 3 (6, 7), 2 (4, 5))}",tostring(tree),"Invalid tree swap_next result.")
+	
+	log:info("Done testing tree swap_next")
+end
+
+function test_tree_swap()
+	log:info("Testing tree swap")
+	local tree = Tree()
+	
+	-- now add some content:
+	tree:insert(tree:begin(),0)
+	
+	-- insert a child into the first element:
+	local it1 = tree:append_child(tree:begin(),1)
+	local it0 = tree:append_child(tree:begin(),2)
+	tree:append_child(it0,4)
+	tree:append_child(it0,5)
+	local it2 = tree:append_child(tree:begin(),3)
+	tree:append_child(it2,6)
+	tree:append_child(it2,7)
+	
+
+	assert_equal("{0 (1, 2 (4, 5), 3 (6, 7))}",tostring(tree),"Invalid tree before swap.")
+	
+	tree:swap(it0, it2)
+	
+	log:info("Checking tree swap result with tree=",tostring(tree))
+	
+	assert_equal("{0 (1, 3 (6, 7), 2 (4, 5))}",tostring(tree),"Invalid tree swap result.")
+	
+	tree:swap(it0, it1)
+	
+	log:info("Checking tree swap result with tree=",tostring(tree))
+	
+	assert_equal("{0 (2 (4, 5), 3 (6, 7), 1)}",tostring(tree),"Invalid tree swap result 2.")
+
+	log:info("Done testing tree swap")
+end
+
+function test_tree_depth()
+	log:info("Testing tree depth")
+	local tree = Tree()
+	
+	-- now add some content:
+	tree:insert(tree:begin(),0)
+	
+	-- insert a child into the first element:
+	local it1 = tree:append_child(tree:begin(),1)
+	local it0 = tree:append_child(tree:begin(),2)
+	tree:append_child(it0,4)
+	tree:append_child(it0,5)
+	local it2 = tree:append_child(tree:begin(),3)
+	tree:append_child(it2,6)
+	local it3 = tree:append_child(it2,7)
+	
+	assert_equal("{0 (1, 2 (4, 5), 3 (6, 7))}",tostring(tree),"Invalid tree before depth.")
+	
+	assert_equal(1,tree:depth(it1),"Invalid level one depth.")
+	assert_equal(2,tree:depth(it3),"Invalid level two depth.")
+	
+	assert_equal(0,tree:number_of_children(it3),"Invalid num children.")
+	assert_equal(2,tree:number_of_children(it2),"Invalid num children 2.")
+	assert_equal(3,tree:number_of_children(tree:begin()),"Invalid num children 3.")
+	
+	assert_equal(1,tree:number_of_siblings(it3),"Invalid num siblings.")
+	assert_equal(2,tree:number_of_siblings(it2),"Invalid num siblings 2.")
+	assert_equal(0,tree:number_of_siblings(tree:begin()),"Invalid num siblings 3.")
+	
+	assert_equal(true,tree:is_in_subtree(it1,tree:begin(), tree:at_end()),"Invalid is_in_subtree result.")
+	assert_equal(false,tree:is_in_subtree(it3,it0:begin(), it0:at_end()),"Invalid is_in_subtree result 2.")
+	assert_equal(false,tree:is_in_subtree(it0,it0:begin(), it0:at_end()),"Invalid is_in_subtree result 3.")
+	assert_equal(true,tree:is_in_subtree(it3,it2:begin(), it2:at_end()),"Invalid is_in_subtree result 4.")
+	assert_equal(true,tree:is_in_subtree(it3,it2, tree:begin():at_end()),"Invalid is_in_subtree result 5.")
+
+	
+	log:info("Done testing tree depth")
+end
+
