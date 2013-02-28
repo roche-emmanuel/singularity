@@ -23,6 +23,10 @@ function Class:initialize(rhs)
 			self:copy(rhs.tree)
 		end
 	end
+	
+	self._openSymbol = "{"
+	self._closeSymbol = "}"
+	
 end
 
 function Class:subtree_to_table(it,tt,indent,indentStr,sep,indexed)
@@ -74,7 +78,7 @@ function Class:toString(indentStr, sep)
 		it:inc()
 	end
 	
-	local str = "{".. sep .. table.concat(tt) .. "}" .. sep
+	local str = self._openSymbol .. sep .. table.concat(tt) .. self._closeSymbol
 	return (str:gsub(", ([%)}])","%1"));	
 end
 
@@ -514,8 +518,8 @@ end
 -- Return iterator to the parent of a node.
 -- If no parent return a NULL iter	
 function Class:parent(it)
-	self:check(it:valid(),"Invalid iterator")
-	return it:getClassOf(){it._node.parent}
+	self:check(it:valid() or it._parent,"Invalid iterator")
+	return it:getClassOf(){it._node and it._node.parent or it._parent}
 end
 
 -- Return iterator to the last child of a node.
@@ -1205,5 +1209,76 @@ function Class:is_in_subtree(it, from, to)
     end
     return false;
 end
-					   			  							
+	
+function Class:parse(str,sep)
+	sep = sep or ","
+	
+	local it = self:begin()
+	
+	-- prepare the grammar:
+	local V = lpeg.V
+	local P = lpeg.P
+	local S = lpeg.S
+	
+	local stack = Vector();
+	local current;
+	
+	local write_item = function(val)
+		-- log:info("Writing item: ",val)
+		local parent = stack:back()
+		if parent then
+			current = self:append_child(parent,val)
+		else
+			current = self:insert(self:at_end(),val)
+		end
+	end
+	
+	local open_item = function()
+		-- log:info("Entering item...")
+		self:check(current,"Invalid current iterator.")
+		stack:push_back(current)
+	end
+	
+	local close_item = function()
+		-- log:info("Closing item...")
+		local iter = stack:pop_back()
+		self:check(iter,"Invalid current iterator.")
+	end
+	
+	local space = S(" \t\n");
+	local item = (1 - S(sep.."(){}") - space)^1;
+	
+	local trim = function(pat)
+		return (space^0)*P(pat)*(space^0);
+		-- return P(pat);
+	end
+	
+	local G = lpeg.P{ 
+	  "Tree";
+	  Exp = lpeg.C(item) / write_item;
+	  Open = trim("(") / open_item;
+	  Close = trim(")") / close_item;
+	  Term = V"Exp"*(space^0*V"Open"*V"TermList"*V"Close")^0;
+	  TermList = V"Term"*(trim(sep)* V"Term")^0;
+	  Tree = P("{")^-1*(V"TermList"+P(""))*P("}")^-1;
+	}
+	
+	return lpeg.match(G, str)
+end
+	
+function Class:sequence(options)
+	local it = self:begin()
+	local ite = self:at_end()
+	
+	local iteratorFunc = function(state,current)
+		current = current and current:inc() or self:begin()
+		
+		if current~=ite then
+			return current;
+		end
+	end
+	
+	return iteratorFunc, nil, nil
+end
+
 return Class
