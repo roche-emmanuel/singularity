@@ -519,13 +519,13 @@ end
 -- If no parent return a NULL iter	
 function Class:parent(it)
 	self:check(it:valid() or it._parent,"Invalid iterator")
-	return it:getClassOf(){it._node and it._node.parent or it._parent}
+	return it:getClassOf(){node=(it._node and it._node.parent or it._parent)}
 end
 
 -- Return iterator to the last child of a node.
 function Class:last_child(it)
 	self:check(it:valid(),"Invalid iterator")
-	return it:getClassOf(){it._node.last_child}
+	return it:getClassOf(){node=it._node.last_child,parent=it._node}
 end
 
 -- Return iterator to the previous sibling of a node.

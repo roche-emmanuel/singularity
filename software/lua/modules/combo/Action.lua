@@ -48,6 +48,17 @@ for k,v in pairs(actions) do
 	--log:debug("Checking begin node of type: ",#it, "lamdba_type=",TypeNode.LAMBDA_TYPE)
 	v.output_type = (#it):equals(TypeNode.LAMBDA_TYPE) and #(it:last_child()) or #it; 
 	log:debug("Retrieved output_type=", v.output_type ," for ", k)
+	
+	-- retrieve the arguments:
+	local last_child = it:last_child()
+	local sib = it:begin()
+	v.args = {}
+	while(sib~=last_child) do
+		local arg = (#sib):equals(TypeNode.ARG_LIST_TYPE) and sib:begin() or sib
+		log:debug("Found argument: ",#arg)
+		sib:inc()
+		table.insert(v.args,TypeTree(arg));
+	end
 end
 
 
@@ -78,9 +89,20 @@ function Class:getOutputType()
 	return tt.output_type
 end
 
+function Class:getArgumentTree(index)
+	local tt = self._action and actions[self._action]
+	self:check(tt,"Invalid action table entry for : ", self._action)
+	self:check(tt.args[index],"Invalid argument ",index," for action : ", self._action)
+	return tt.args[index]	
+end
+
 function Class:__tostring()
 	self:check(self._action,"Invalid action handle")
 	return self._action
+end
+
+function Class:__eq(rhs)
+	return rhs:isInstanceOf(Class) and self._action==rhs._action
 end
 
 return Class 

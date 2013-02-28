@@ -23,4 +23,15 @@ function suite.test_type_node_eq()
 	log:info("Done testing typenode eq")
 end
 
+function suite.test_combo_builtin()
+	log:info("Testing combo builtin")
+	
+	local Builtin = require "combo.Builtin"
+	local b = Builtin(Builtin.LOGICAL_TRUE)
+	
+	assert_equal("logical_true",tostring(b),"Invalid builtin to string")
+	
+	log:info("Done testing combo builtin")
+end
+
 return suite
