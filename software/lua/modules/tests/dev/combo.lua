@@ -34,4 +34,15 @@ function suite.test_combo_builtin()
 	log:info("Done testing combo builtin")
 end
 
+function suite.test_combo_argument()
+	log:info("Testing combo argument")
+	
+	local Argument = require "combo.Argument"
+	local arg = Argument(1)
+	
+	assert_equal(true,arg:isIndexValid(3),"Invalid argument index")
+	
+	log:info("Done testing combo argument")
+end
+
 return suite

@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="ComboBuiltin",bases="combo.Vertex"};
+local Class = require("classBuilder"){name="ComboBuiltin",bases="combo.OperatorBase"};
 
 local TypeTree = require "combo.TypeTree"
 local TypeNode = require "combo.TypeNode"
@@ -110,11 +110,15 @@ function Class:getOutputType()
 	return tt.output_type
 end
 
-function Class:getArgumentTree(index)
+function Class:getInputTree(index)
 	local tt = self._builtin and builtins[self._builtin]
 	self:check(tt,"Invalid builtin table entry for : ", self._builtin)
 	self:check(tt.args[index],"Invalid argument ",index," for builtin : ", self._builtin)
 	return tt.args[index]	
+end
+
+function Class:getName()
+	return self._builtin
 end
 
 function Class:__tostring()

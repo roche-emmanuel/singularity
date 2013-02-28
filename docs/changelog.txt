@@ -10,6 +10,7 @@
 - Implemented most tests for tree container.
 - Implementing initial combo classes: TypeTree, TypeNode, Action, Vertex, etc...
 - Implemented combo Builtin class.
+- Implemented combo OperatorBase and Argument classes.
 
 == Singularity release v0.1.1 - 21/02/2013 ==
 

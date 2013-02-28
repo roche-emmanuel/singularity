@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="ComboAction",bases="combo.Vertex"};
+local Class = require("classBuilder"){name="ComboAction",bases="combo.OperatorBase"};
 
 local TypeTree = require "combo.TypeTree"
 local TypeNode = require "combo.TypeNode"
@@ -89,11 +89,15 @@ function Class:getOutputType()
 	return tt.output_type
 end
 
-function Class:getArgumentTree(index)
+function Class:getInputTree(index)
 	local tt = self._action and actions[self._action]
 	self:check(tt,"Invalid action table entry for : ", self._action)
 	self:check(tt.args[index],"Invalid argument ",index," for action : ", self._action)
 	return tt.args[index]	
+end
+
+function Class:getName()
+	return self._action
 end
 
 function Class:__tostring()
