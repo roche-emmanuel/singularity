@@ -15,13 +15,13 @@ builtins.null_vertex = {sig="unknown"}
 -- the reduct engine a bit faster
 builtins.logical_true  = {sig="boolean"}
 builtins.logical_false = {sig="boolean"}       
-builtins.logical_and = {sig="->(arg_list(boolean) boolean)"} 
-builtins.logical_or = {sig="->(arg_list(boolean) boolean)"}
+builtins.logical_and = {sig="->(arg_list(boolean) boolean)",associative=true} 
+builtins.logical_or = {sig="->(arg_list(boolean) boolean)",associative=true}
 builtins.logical_not = {sig="->(boolean boolean)"}
 
 -- real functions (take real as arg, or return real)
-builtins.plus = {sig="->(arg_list(real) real)"} 
-builtins.times = {sig="->(arg_list(real) real)"}
+builtins.plus = {sig="->(arg_list(real) real)",associative=true} 
+builtins.times = {sig="->(arg_list(real) real)",associative=true}
 builtins.div = {sig="->(real real real)"}
 builtins.exp = {sig="->(real real)"}
 -- if ABS_LOG is enabled then log(x) := log(abs(x))
@@ -88,7 +88,7 @@ function Class:initialize(options)
 	self._builtin = (type(options)=="string" and options) or options.type or options[1]
 	self:check(builtins[self._builtin],"Invalid builtin name: ",self._builtin)
 end
-		
+			
 function Class:getArity()
 	local tt = self._builtin and builtins[self._builtin]
 	self:check(tt,"Invalid builtin table entry for : ", self._builtin)
@@ -130,5 +130,8 @@ function Class:__eq(rhs)
 	return rhs:isInstanceOf(Class) and self._builtin==rhs._builtin
 end
 
+function Class:isAssociative()
+    return builtins[self._builtin].associative or false;
+end
 
 return Class 

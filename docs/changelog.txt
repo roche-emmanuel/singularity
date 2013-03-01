@@ -17,6 +17,8 @@
 - Implemented combo IndefiniteObject class.
 - Implemented combo Message class.
 - Implemented combo Perception class.
+- Added getHash method in Message
+- Added isAssociative method in Builtin and Action.
 
 
 == Singularity release v0.1.1 - 21/02/2013 ==

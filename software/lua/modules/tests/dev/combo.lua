@@ -7,6 +7,9 @@ function suite.test_combo_action()
 	local act = Action(Action.SEQ_AND)
 	
 	assert_equal("seq_and",tostring(act),"Invalid action to string")
+
+	assert_equal(true,act:isAssociative(),"Invalid associative state")
+	assert_equal(false,Action(Action.ACTION_NOT):isAssociative(),"Invalid associative state 2")
 	
 	log:info("Done testing combo action")
 end
@@ -30,6 +33,8 @@ function suite.test_combo_builtin()
 	local b = Builtin(Builtin.LOGICAL_TRUE)
 	
 	assert_equal("logical_true",tostring(b),"Invalid builtin to string")
+	assert_equal(false,b:isAssociative(),"Invalid associative state")
+	assert_equal(true,Builtin(Builtin.LOGICAL_AND):isAssociative(),"Invalid associative state 2")
 	
 	log:info("Done testing combo builtin")
 end

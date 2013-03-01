@@ -24,4 +24,8 @@ function Class:__lt(rhs)
 	return self._content < rhs._content
 end
 
+function Class:getHash()
+	return utils.getHash(self._content)
+end
+
 return Class 

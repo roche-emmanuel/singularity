@@ -4,9 +4,9 @@ local TypeTree = require "combo.TypeTree"
 local TypeNode = require "combo.TypeNode"
 
 local actions = {}
-actions.seq_and={sig="->(arg_list(action_result) action_result)"}
-actions.seq_or={sig="->(arg_list(action_result) action_result)"}
-actions.seq_exec={sig="->(arg_list(action_result) action_result)"}
+actions.seq_and={sig="->(arg_list(action_result) action_result)",associative=true}
+actions.seq_or={sig="->(arg_list(action_result) action_result)",associative=true}
+actions.seq_exec={sig="->(arg_list(action_result) action_result)",associative=true}
 
 -- negate the action_result of an action, that is
 -- action_not(action_succeed)=action_failure
@@ -107,6 +107,10 @@ end
 
 function Class:__eq(rhs)
 	return rhs:isInstanceOf(Class) and self._action==rhs._action
+end
+
+function Class:isAssociative()
+    return actions[self._action].associative or false;
 end
 
 return Class 
