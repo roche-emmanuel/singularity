@@ -66,6 +66,14 @@ function Class:insert(index,item)
     return true;
 end
 
+function Class:ordered_insert(item,sortfn)
+    if self:contains(item) then
+        return false;
+    end
+
+	return Vector.ordered_insert(self,item,sortfn)
+end
+
 -- Metamethod to map the vector indices.
 function Class:__index(field)
    return (type(field)~="number" and Class[field]) or Vector.__index(self,field)

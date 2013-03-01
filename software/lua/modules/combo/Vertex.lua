@@ -1,6 +1,13 @@
 local Class = require("classBuilder"){name="ComboVertex",bases="base.Object"};
 
--- adding comment in file.
+function Class:getTypeTree()
+	self:no_impl()
+end
+
+function Class:isArgument()
+	return false;
+end
+
 function Class:isAssociative()
 	return false;
 end

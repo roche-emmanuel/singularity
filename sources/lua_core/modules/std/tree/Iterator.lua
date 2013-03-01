@@ -17,6 +17,11 @@ function Class:asSibling()
 	return SiblingIterator(self)
 end
 
+function Class:asPreOrder()
+	local PreOrderIterator = require "std.tree.PreOrderIterator"
+	return PreOrderIterator(self)
+end
+
 function Class:cloneType()
 	return self:getClassOf()()
 end
@@ -66,6 +71,10 @@ function Class:number_of_children()
 end
 
 function Class:is_childless()
+	return self:isChildless()
+end
+
+function Class:isChildless()
 	return not self._node.first_child;
 end
 
@@ -118,6 +127,20 @@ function Class:__sub(num)
         self:dec();
 	end
     return self;
+end
+
+function Class:sequence(options)
+	local ite = self:at_end()
+	
+	local iteratorFunc = function(state,current)
+		current = current and current:inc() or self:begin()
+		
+		if current~=ite then
+			return current;
+		end
+	end
+	
+	return iteratorFunc, nil, nil
 end
 	
 return Class

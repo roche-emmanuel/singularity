@@ -67,7 +67,7 @@ for k,v in pairs(builtins) do
 	-- retrieve the output type:
 	local it = v.ttree:begin()
 	--log:debug("Checking begin node of type: ",#it, "lamdba_type=",TypeNode.LAMBDA_TYPE)
-	v.output_type = (#it):equals(TypeNode.LAMBDA_TYPE) and #(it:last_child()) or #it; 
+	v.output_type = #it == TypeNode.LAMBDA and #(it:last_child()) or #it; 
 	log:debug("Retrieved output_type=", v.output_type ," for ", k)
 	
 	-- retrieve the arguments:
@@ -75,7 +75,7 @@ for k,v in pairs(builtins) do
 	local sib = it:begin()
 	v.args = {}
 	while(sib~=last_child) do
-		local arg = (#sib):equals(TypeNode.ARG_LIST_TYPE) and sib:begin() or sib
+		local arg = #sib == TypeNode.ARG_LIST and sib:begin() or sib
 		log:debug("Found argument: ",#arg)
 		sib:inc()
 		table.insert(v.args,TypeTree(arg));

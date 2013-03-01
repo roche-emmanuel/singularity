@@ -2,6 +2,7 @@ local Class = require("classBuilder"){name="Tree",bases="base.Object"};
 
 local Iterator = require "std.tree.Iterator"
 local SiblingIterator = require "std.tree.SiblingIterator"
+local LeafIterator = require "std.tree.LeafIterator"
 local UpwardsIterator = require "std.tree.UpwardsIterator"
 local PreOrderIterator = require "std.tree.PreOrderIterator"
 local PostOrderIterator = require "std.tree.PostOrderIterator"
@@ -17,10 +18,10 @@ function Class:initialize(rhs)
 		if self:isInstanceOf(Iterator,rhs) then
 			self:set_head(#rhs)
 			self:replace(self:begin(),rhs)
-		elseif rhs.root then
-			self:set_head(rhs.root or rhs[1])
 		elseif rhs.tree then
 			self:copy(rhs.tree)
+		elseif (rhs.root or rhs[1]) then
+			self:set_head(rhs.root or rhs[1])
 		end
 	end
 	
@@ -508,6 +509,10 @@ function Class:begin_leaf()
 		end
     end
     return LeafIterator{tmp};
+end
+
+function Class:end_leaf()
+	return LeafIterator{self._feet};
 end
 
 
@@ -1267,11 +1272,10 @@ function Class:parse(str,sep)
 end
 	
 function Class:sequence(options)
-	local it = self:begin()
-	local ite = self:at_end()
+	local ite = (options and options.leaf and self:end_leaf()) or self:at_end()
 	
 	local iteratorFunc = function(state,current)
-		current = current and current:inc() or self:begin()
+		current = current and current:inc() or (options and options.leaf and self:begin_leaf()) or self:begin()
 		
 		if current~=ite then
 			return current;
@@ -1279,6 +1283,10 @@ function Class:sequence(options)
 	end
 	
 	return iteratorFunc, nil, nil
+end
+
+function Class:isValid(it)
+	return it._node and it._node~=self._feet and it._node~=self._head
 end
 
 return Class

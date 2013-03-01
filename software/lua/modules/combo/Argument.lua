@@ -5,6 +5,10 @@ function Class:initialize(options)
 	self:check(self._idx and self._idx>0,"idx should be different than zero.")
 end
 
+function Class:isArgument()
+	return true;
+end
+
 function Class:negate()
 	self._idx = -self._idx;
 end

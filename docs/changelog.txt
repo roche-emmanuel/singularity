@@ -20,6 +20,8 @@
 - Added getHash method in Message
 - Added isAssociative method in Builtin and Action.
 - Added implementation for isCommutative, isReflexive, etc : all perception functions with default impls in Vertex.
+- Implementing ProcedureCall class...
+
 
 == Singularity release v0.1.1 - 21/02/2013 ==
 
