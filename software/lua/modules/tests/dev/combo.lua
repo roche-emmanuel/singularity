@@ -63,4 +63,24 @@ function suite.test_combo_builtin_action()
 	log:info("Done testing combo BuiltinAction")
 end
 
+function suite.test_combo_definite_object()
+	log:info("Testing combo DefiniteObject")
+	
+	local DefiniteObject = require "combo.DefiniteObject"
+	local obj = DefiniteObject("test_action")
+	
+	assert_equal(true,obj:isAction(),"Invalid definite object action")
+	assert_equal("test",obj:getActionName(),"Invalid definite object action name")
+	
+	local obj = DefiniteObject("test2")
+	assert_equal(false,obj:isAction(),"Invalid definite object action 2")
+	assert_equal(nil,obj:getActionName(),"Invalid definite object action name 2")
+
+	local obj = DefiniteObject.createAction("test3")
+	assert_equal(true,obj:isAction(),"Invalid definite object action 3")
+	assert_equal("test3",obj:getActionName(),"Invalid definite object action name 3")
+	
+	log:info("Done testing combo DefiniteObject")
+end
+
 return suite
