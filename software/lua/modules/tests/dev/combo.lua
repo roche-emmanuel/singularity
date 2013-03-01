@@ -107,4 +107,12 @@ function suite.test_combo_enum()
 	log:info("Done testing combo Enum")
 end
 
+function suite.test_combo_indefinite_object()
+	log:info("Testing combo IndefiniteObject")
+	
+	local IndefiniteObject = require "combo.IndefiniteObject"
+
+	log:info("Done testing combo IndefiniteObject")
+end
+
 return suite

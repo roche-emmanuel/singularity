@@ -14,6 +14,7 @@
 - Implemented combo BuiltinAction class.
 - Implemented combo DefiniteObject class.
 - Implemented combo Enum class.
+- Implemented combo IndefiniteObject class.
 
 
 == Singularity release v0.1.1 - 21/02/2013 ==
