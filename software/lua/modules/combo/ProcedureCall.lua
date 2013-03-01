@@ -14,11 +14,10 @@ function Class:initialize(options)
 	elseif options.inferType then
 		local tt = self._body:inferTypeTree()
 		self:setTypeTree(tt)
-		self:check(self:isWellFormed(tt),"Ill formed type tree.")
+		self:check(tt:isWellFormed(),"Ill formed type tree.")
 	end
 end
 
-function Class:inferTypeTree(
 function Class:getName()
 	return self._name
 end

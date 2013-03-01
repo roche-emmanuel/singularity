@@ -20,8 +20,13 @@
 - Added getHash method in Message
 - Added isAssociative method in Builtin and Action.
 - Added implementation for isCommutative, isReflexive, etc : all perception functions with default impls in Vertex.
-- Implementing ProcedureCall class...
 
+  
+TODO:
+    * Implement ProcedureCall class... 
+	* Implement ComboTree:inferTypeTree()
+    * implement ComboTree:infer_vertex_type(tr, lit, arg_types) line 46 in ComboTree.lua
+    * implement Vertex:getArity()  
 
 == Singularity release v0.1.1 - 21/02/2013 ==
 
