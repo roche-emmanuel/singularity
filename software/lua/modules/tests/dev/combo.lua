@@ -45,4 +45,22 @@ function suite.test_combo_argument()
 	log:info("Done testing combo argument")
 end
 
+function suite.test_combo_action_symbol()
+	log:info("Testing combo ActionSymbol")
+	
+	local ActionSymbol = require "combo.ActionSymbol"
+	local as = ActionSymbol()
+		
+	log:info("Done testing combo ActionSymbol")
+end
+
+function suite.test_combo_builtin_action()
+	log:info("Testing combo BuiltinAction")
+	
+	local BuiltinAction = require "combo.BuiltinAction"
+	local ba = BuiltinAction()
+		
+	log:info("Done testing combo BuiltinAction")
+end
+
 return suite

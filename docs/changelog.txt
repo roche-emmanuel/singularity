@@ -11,6 +11,8 @@
 - Implementing initial combo classes: TypeTree, TypeNode, Action, Vertex, etc...
 - Implemented combo Builtin class.
 - Implemented combo OperatorBase and Argument classes.
+- Implemented combo BuiltinAction class.
+
 
 == Singularity release v0.1.1 - 21/02/2013 ==
 
