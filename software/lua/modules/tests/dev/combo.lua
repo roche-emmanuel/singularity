@@ -130,4 +130,12 @@ function suite.test_combo_message()
 	log:info("Done testing combo Message")
 end
 
+function suite.test_combo_perception()
+	log:info("Testing combo Perception")
+	
+	local Perception = require "combo.Perception"
+
+	log:info("Done testing combo Perception")
+end
+
 return suite
