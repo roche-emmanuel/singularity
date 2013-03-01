@@ -115,4 +115,19 @@ function suite.test_combo_indefinite_object()
 	log:info("Done testing combo IndefiniteObject")
 end
 
+function suite.test_combo_message()
+	log:info("Testing combo Message")
+	
+	local Message = require "combo.Message"
+	local e1 = Message("val1")
+		
+	assert_equal("val1",e1:getContent(),"Invalid Message count")
+
+	local e2 = Message("val1")
+	
+	assert_equal(e1,e2,"Messages are not equal")
+	
+	log:info("Done testing combo Message")
+end
+
 return suite
