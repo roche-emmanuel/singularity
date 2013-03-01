@@ -13,6 +13,7 @@
 - Implemented combo OperatorBase and Argument classes.
 - Implemented combo BuiltinAction class.
 - Implemented combo DefiniteObject class.
+- Implemented combo Enum class.
 
 
 == Singularity release v0.1.1 - 21/02/2013 ==

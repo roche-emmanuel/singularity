@@ -83,4 +83,28 @@ function suite.test_combo_definite_object()
 	log:info("Done testing combo DefiniteObject")
 end
 
+function suite.test_combo_enum()
+	log:info("Testing combo Enum")
+	
+	local Enum = require "combo.Enum"
+	local e1 = Enum("val1")
+		
+	assert_equal(1,Enum.size(),"Invalid enum count")
+	
+	assert_equal(e1,Enum.getRandom(),"Invalid single enum random value")
+
+	local e2 = Enum("val1")
+	assert_equal(2,Enum.size(),"Invalid enum count 2")
+
+	for i=1,20 do
+		local res = Enum.getRandom()
+		assert_equal(true,e1==res or e2==res,"Invalid enum random value for test "..i)
+	end
+	
+	assert_not_equal(e1,Enum.invalid(),"Invalid enum is equal to something else.")
+	assert_not_equal(e2,Enum.invalid(),"Invalid enum is equal to something else.")
+	
+	log:info("Done testing combo Enum")
+end
+
 return suite
