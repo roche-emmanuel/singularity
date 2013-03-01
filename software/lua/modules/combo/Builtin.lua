@@ -15,13 +15,13 @@ builtins.null_vertex = {sig="unknown"}
 -- the reduct engine a bit faster
 builtins.logical_true  = {sig="boolean"}
 builtins.logical_false = {sig="boolean"}       
-builtins.logical_and = {sig="->(arg_list(boolean) boolean)",associative=true} 
-builtins.logical_or = {sig="->(arg_list(boolean) boolean)",associative=true}
+builtins.logical_and = {sig="->(arg_list(boolean) boolean)",associative=true,commutative=true} 
+builtins.logical_or = {sig="->(arg_list(boolean) boolean)",associative=true,commutative=true}
 builtins.logical_not = {sig="->(boolean boolean)"}
 
 -- real functions (take real as arg, or return real)
-builtins.plus = {sig="->(arg_list(real) real)",associative=true} 
-builtins.times = {sig="->(arg_list(real) real)",associative=true}
+builtins.plus = {sig="->(arg_list(real) real)",associative=true,commutative=true} 
+builtins.times = {sig="->(arg_list(real) real)",associative=true,commutative=true}
 builtins.div = {sig="->(real real real)"}
 builtins.exp = {sig="->(real real)"}
 -- if ABS_LOG is enabled then log(x) := log(abs(x))
@@ -132,6 +132,10 @@ end
 
 function Class:isAssociative()
     return builtins[self._builtin].associative or false;
+end
+
+function Class:isCommutative()
+    return builtins[self._builtin].commutative or false;
 end
 
 return Class 

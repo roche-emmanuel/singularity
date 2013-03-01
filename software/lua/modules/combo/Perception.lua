@@ -45,4 +45,8 @@ function Class:isIdentityOfIndiscernibles()
 	self:no_impl()
 end
 
+function Class:isCommutative() -- override from Vertex
+	return self:isSymmetric();
+end
+
 return Class 
