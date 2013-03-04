@@ -57,7 +57,7 @@ public:
 		THROW_IF(!_obj.pushFunction("OnCrashed"),"No implementation for abstract function Awesomium::WebViewListener::Process::OnCrashed");
 		_obj.pushArg((Awesomium::WebViewListener::Process*)this);
 		_obj.pushArg(caller);
-		_obj.pushArg(status);
+		_obj.pushArg((int)status);
 		return (_obj.callFunction<void>());
 	};
 

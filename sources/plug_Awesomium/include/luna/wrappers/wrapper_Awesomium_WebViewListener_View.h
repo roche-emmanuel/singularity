@@ -77,7 +77,7 @@ public:
 		THROW_IF(!_obj.pushFunction("OnChangeCursor"),"No implementation for abstract function Awesomium::WebViewListener::View::OnChangeCursor");
 		_obj.pushArg((Awesomium::WebViewListener::View*)this);
 		_obj.pushArg(caller);
-		_obj.pushArg(cursor);
+		_obj.pushArg((int)cursor);
 		return (_obj.callFunction<void>());
 	};
 
@@ -86,7 +86,7 @@ public:
 		THROW_IF(!_obj.pushFunction("OnChangeFocus"),"No implementation for abstract function Awesomium::WebViewListener::View::OnChangeFocus");
 		_obj.pushArg((Awesomium::WebViewListener::View*)this);
 		_obj.pushArg(caller);
-		_obj.pushArg(focused_type);
+		_obj.pushArg((int)focused_type);
 		return (_obj.callFunction<void>());
 	};
 

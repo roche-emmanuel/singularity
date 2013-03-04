@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'OverlayFont';
+    src: url('Cousine-Regular-Latin.ttf');
+}
+
+* {
+	margin: 0; 
+	padding: 0;
+	border: 0;
+}
+
+div {
+	min-height: 20px;
+	min-width: 20px;
+}
+
+*[block] {
+	position: absolute;
+	font-size: 0;
+}
+
+*[block~="top"] {
+	top: 20px;
+}
+
+*[block~="left"] {
+	left: 20px;
+}
+
+*[block~="sensor_l1"] {
+	left: 200px;
+}
+
+*[block~="sensor_l2"] {
+	left: 300px;
+	text-align: center;
+}
+
+*[block~="sensor_l3"] {
+	left: 400px;
+	text-align: center;
+}
+
+*[block~="sensor_c"] {
+	left: 550px;
+	text-align: center;
+}
+
+*[block~="sensor_r1"] {
+	left: 700px;
+	text-align: right;
+}
+
+#hand_controller1, #hand_controller2 {
+	display: inline-block;
+	border: 0px;
+}
+
+/*
+#hand_controller1 {
+	background: #f00
+}
+
+#hand_controller2 {
+	background: #0f0
+}
+*/
+
+/*
+#gimbal_control {
+	background: #ff0;
+}
+*/
+
+*[block] div {
+	font-size: 20px;
+}
+
+/*
+#slew_to_radar {
+	clear: both;
+	background: #f0f;
+	margin: 0px; 
+	padding: 0px; 
+}
+*/
+
+body {
+	/*background-color: rgba(0, 0, 0, 0.75); */
+	//background-color: transparent;
+	//background: #ccc;
+	background: #000;
+	font-family: 'OverlayFont', arial, verdana, tahoma;
+	//font-size: 20px;
+	color: #fff;
+}

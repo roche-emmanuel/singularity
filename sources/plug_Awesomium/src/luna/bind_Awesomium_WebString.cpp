@@ -94,14 +94,14 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
@@ -159,14 +159,14 @@ public:
 	inline static bool _lg_typecheck_Assign_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Assign_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -194,7 +194,7 @@ public:
 	inline static bool _lg_typecheck_ToUTF8(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -273,9 +273,9 @@ public:
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString::WebString(const unsigned short * data) function, expected prototype:\nAwesomium::WebString::WebString(const unsigned short * data)\nClass arguments details:\n");
 		}
 
-		unsigned short data=(unsigned short)lua_tointeger(L,1);
+		unsigned short* data=(unsigned short*)Luna< void >::check(L,1);
 
-		return new Awesomium::WebString(&data);
+		return new Awesomium::WebString(data);
 	}
 
 	// Awesomium::WebString::WebString(const unsigned short * data, unsigned int len)
@@ -285,10 +285,10 @@ public:
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString::WebString(const unsigned short * data, unsigned int len) function, expected prototype:\nAwesomium::WebString::WebString(const unsigned short * data, unsigned int len)\nClass arguments details:\n");
 		}
 
-		unsigned short data=(unsigned short)lua_tointeger(L,1);
+		unsigned short* data=(unsigned short*)Luna< void >::check(L,1);
 		unsigned int len=(unsigned int)lua_tointeger(L,2);
 
-		return new Awesomium::WebString(&data, len);
+		return new Awesomium::WebString(data, len);
 	}
 
 	// Awesomium::WebString::WebString(const Awesomium::WebString & src)
@@ -449,14 +449,14 @@ public:
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString & Awesomium::WebString::Assign(const unsigned short * data) function, expected prototype:\nAwesomium::WebString & Awesomium::WebString::Assign(const unsigned short * data)\nClass arguments details:\n");
 		}
 
-		unsigned short data=(unsigned short)lua_tointeger(L,2);
+		unsigned short* data=(unsigned short*)Luna< void >::check(L,2);
 
 		Awesomium::WebString* self=(Luna< Awesomium::WebString >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString & Awesomium::WebString::Assign(const unsigned short *). Got : '%s'",typeid(Luna< Awesomium::WebString >::check(L,1)).name());
 		}
-		Awesomium::WebString & lret = self->Assign(&data);
+		Awesomium::WebString & lret = self->Assign(data);
 		std::string lret_str = Awesomium::ToString(lret);
 		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
@@ -470,7 +470,7 @@ public:
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString & Awesomium::WebString::Assign(const unsigned short * data, unsigned int len) function, expected prototype:\nAwesomium::WebString & Awesomium::WebString::Assign(const unsigned short * data, unsigned int len)\nClass arguments details:\n");
 		}
 
-		unsigned short data=(unsigned short)lua_tointeger(L,2);
+		unsigned short* data=(unsigned short*)Luna< void >::check(L,2);
 		unsigned int len=(unsigned int)lua_tointeger(L,3);
 
 		Awesomium::WebString* self=(Luna< Awesomium::WebString >::check(L,1));
@@ -478,7 +478,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::WebString & Awesomium::WebString::Assign(const unsigned short *, unsigned int). Got : '%s'",typeid(Luna< Awesomium::WebString >::check(L,1)).name());
 		}
-		Awesomium::WebString & lret = self->Assign(&data, len);
+		Awesomium::WebString & lret = self->Assign(data, len);
 		std::string lret_str = Awesomium::ToString(lret);
 		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
@@ -563,7 +563,7 @@ public:
 			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::WebString::ToUTF8(char * dest, unsigned int len) const function, expected prototype:\nunsigned int Awesomium::WebString::ToUTF8(char * dest, unsigned int len) const\nClass arguments details:\n");
 		}
 
-		char dest=(char)lua_tointeger(L,2);
+		char* dest=(char*)Luna< void >::check(L,2);
 		unsigned int len=(unsigned int)lua_tointeger(L,3);
 
 		Awesomium::WebString* self=(Luna< Awesomium::WebString >::check(L,1));
@@ -571,7 +571,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebString::ToUTF8(char *, unsigned int) const. Got : '%s'",typeid(Luna< Awesomium::WebString >::check(L,1)).name());
 		}
-		unsigned int lret = self->ToUTF8(&dest, len);
+		unsigned int lret = self->ToUTF8(dest, len);
 		lua_pushnumber(L,lret);
 
 		return 1;

@@ -350,7 +350,7 @@ public:
 	void InjectMouseDown(Awesomium::MouseButton button) {
 		THROW_IF(!_obj.pushFunction("InjectMouseDown"),"No implementation for abstract function Awesomium::WebView::InjectMouseDown");
 		_obj.pushArg((Awesomium::WebView*)this);
-		_obj.pushArg(button);
+		_obj.pushArg((int)button);
 		return (_obj.callFunction<void>());
 	};
 
@@ -358,7 +358,7 @@ public:
 	void InjectMouseUp(Awesomium::MouseButton button) {
 		THROW_IF(!_obj.pushFunction("InjectMouseUp"),"No implementation for abstract function Awesomium::WebView::InjectMouseUp");
 		_obj.pushArg((Awesomium::WebView*)this);
-		_obj.pushArg(button);
+		_obj.pushArg((int)button);
 		return (_obj.callFunction<void>());
 	};
 

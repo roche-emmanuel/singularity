@@ -52,7 +52,7 @@ public:
 		_obj.pushArg(width);
 		_obj.pushArg(height);
 		_obj.pushArg(session);
-		_obj.pushArg(type);
+		_obj.pushArg((int)type);
 		return (_obj.callFunction<Awesomium::WebView*>());
 	};
 

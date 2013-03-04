@@ -1,11 +1,11 @@
 local Class = require("classBuilder"){name="WebBookApp",bases="gui.wx.NotebookApp"};
 
 function Class:initialize(options)
-	self:addWebPage("http://www.google.fr")
+	-- self:addWebPage("http://www.google.fr")
 	-- self:addWebPage("http://www.youtube.fr")
 	
 	for _,val in pairs(options.pages or {}) do
-		self:addWebPage(val)
+		self:addWebPage(val[1],nil,val)
 	end
 	
 	-- obj:loadURL("http://www.smashcat.org/av/canvas_test/")
@@ -15,9 +15,9 @@ function Class:initialize(options)
 	-- obj:loadURL("http://www.doesmybrowsersupportwebgl.com/")
 end
 
-function Class:addWebPage(url,webview)
+function Class:addWebPage(url,webview,options)
 	local WebPage = require "gui.web.WebPage"
-	local page = WebPage{parent=self:getMainBook(),webView=webview}
+	local page = WebPage{parent=self:getMainBook(),webView=webview,transparent=options and options.transparent}
 	self:addPage{window=page:getWindow(),caption="My page"}
 	
 	-- attach the event handlers:

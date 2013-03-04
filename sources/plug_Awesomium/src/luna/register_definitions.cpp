@@ -1,6 +1,5 @@
 #include <plug_common.h>
 
-#include <Awesomium/Platform.h>
 
 #ifdef __cplusplus
 extern "C" {

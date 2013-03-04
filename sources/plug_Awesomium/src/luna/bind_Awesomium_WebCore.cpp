@@ -317,7 +317,7 @@ public:
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
 		Awesomium::WebSession* session=luatop>3 ? (Luna< Awesomium::WebSession >::check(L,4)) : (Awesomium::WebSession*)0;
-		Awesomium::WebViewType type=luatop>4 ? (Awesomium::WebViewType)lua_tointeger(L,5) : Awesomium::kWebViewType_Offscreen;
+		Awesomium::WebViewType type=luatop>4 ? (Awesomium::WebViewType)lua_tointeger(L,5) : (Awesomium::WebViewType)Awesomium::kWebViewType_Offscreen;
 
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {

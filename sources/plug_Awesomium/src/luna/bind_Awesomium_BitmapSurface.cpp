@@ -443,7 +443,7 @@ public:
 
 		std::string file_path_str(lua_tostring(L,2),lua_objlen(L,2));
 		Awesomium::WebString file_path = Awesomium::ToWebString(file_path_str);
-		bool preserve_transparency=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool preserve_transparency=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
@@ -467,7 +467,7 @@ public:
 
 		std::string file_path_str(lua_tostring(L,2),lua_objlen(L,2));
 		Awesomium::WebString file_path = Awesomium::ToWebString(file_path_str);
-		int quality=luatop>2 ? (int)lua_tointeger(L,3) : 90;
+		int quality=luatop>2 ? (int)lua_tointeger(L,3) : (int)90;
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
@@ -567,8 +567,8 @@ public:
 
 		Awesomium::BitmapSurface* surface=(Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1));
 		osg::Image* img=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
-		bool to_rgba=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
-		bool flip_y=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool to_rgba=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
+		bool flip_y=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		copyTo(surface, img, to_rgba, flip_y);
 

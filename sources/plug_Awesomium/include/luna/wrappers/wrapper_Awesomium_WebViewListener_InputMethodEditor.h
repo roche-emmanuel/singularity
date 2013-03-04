@@ -41,7 +41,7 @@ public:
 		THROW_IF(!_obj.pushFunction("OnUpdateIME"),"No implementation for abstract function Awesomium::WebViewListener::InputMethodEditor::OnUpdateIME");
 		_obj.pushArg((Awesomium::WebViewListener::InputMethodEditor*)this);
 		_obj.pushArg(caller);
-		_obj.pushArg(type);
+		_obj.pushArg((int)type);
 		_obj.pushArg(caret_x);
 		_obj.pushArg(caret_y);
 		return (_obj.callFunction<void>());

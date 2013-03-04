@@ -257,6 +257,9 @@ function Class:createScreenQuad(options)
 	
 	local ss = geode:getOrCreateStateSet()
 	
+	ss:setMode(gl.BLEND,osg.StateAttribute.ON)
+	ss:setRenderingHint(osg.StateSet.TRANSPARENT_BIN)
+	
 	local tex = options.texture
 	local img = options.image
 	
