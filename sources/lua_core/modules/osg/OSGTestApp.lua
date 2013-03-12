@@ -19,11 +19,17 @@ end
 function Class:buildInterface(intf, options)
 	intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
 	local ctrl, canvas = intf:addOSGCtrl{prop=3,handlers=options.handlers}
-	intf:addOutputPanel{}
+	self._outputPanel = intf:addOutputPanel{}
 	intf:popParent(true)
 	self._canvas = canvas;
 	
 	self:getWindowManager():getMainFrame():SetSize(1280,720)
+end
+
+function Class:showOutputPanel(enabled)
+	local sizer = self._outputPanel:GetParent():GetSizer()
+	sizer:Show(self._outputPanel,enabled==nil or enabled)
+	sizer:Layout()
 end
 
 function Class:loadModel(filename)

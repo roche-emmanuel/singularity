@@ -1,0 +1,110 @@
+@font-face {
+    font-family: 'OverlayFont';
+    src: url('Cousine-Regular-Latin.ttf');
+}
+
+body {
+	/*background-color: rgba(0, 0, 0, 0.75); */
+	//background-color: transparent;
+	//background: #ccc;
+	background: #000;
+	font-family: 'OverlayFont', arial, verdana, tahoma;
+	//font-size: 20px;
+	color: #fff;
+	margin: 0; 
+	padding: 0;
+	border: 0;
+	letter-spacing: 0px;
+}
+
+div {
+	min-height: 20px;
+	min-width: 20px;
+}
+
+#Compute
+{
+    position: absolute;
+    visibility: hidden;
+    height: auto;
+    width: auto;
+}
+
+#output {
+    position: absolute;
+	bottom: 20px;
+	left: 20px;
+}
+
+.block {
+	position: absolute;
+	font-size: 0;
+}
+
+.top {
+	top: 20px;
+}
+
+.left {
+	left: 20px;
+}
+
+.sensor_l1 {
+	left: 200px;
+}
+
+.sensor_l2 {
+	left: 300px;
+	text-align: center;
+}
+
+.sensor_l3 {
+	left: 400px;
+	text-align: center;
+}
+
+.sensor_c {
+	left: 550px;
+	text-align: center;
+}
+
+.sensor_r1 {
+	left: 700px;
+	text-align: right;
+}
+
+#hand_controller1, #hand_controller2 {
+	display: inline-block;
+	border: 0px;
+}
+
+/*
+#hand_controller1 {
+	background: #f00
+}
+
+#hand_controller2 {
+	background: #0f0
+}
+*/
+
+/*
+#gimbal_control {
+	background: #ff0;
+}
+*/
+
+.block div {
+	font-size: 20px;
+}
+
+/*
+#slew_to_radar {
+	clear: both;
+	background: #f0f;
+	margin: 0px; 
+	padding: 0px; 
+}
+*/
+
+

@@ -56,6 +56,17 @@ _G.requirePackage = function(packName)
 	sgt.ModuleProvider.loadPackage(root_path .. "bin/" .. flavor .. "/packages/" .. packName .. ".lpak")
 end
 
+-- function used to add a search path for lua module:
+_G.addLuaPath = function(path)
+	sgt.doLog(sgt.LogManager.DEBUG2,"Adding lua path '" .. path .. "'")
+	package.path = package.path .. ";" .. path
+end
+
+_G.addModulePath = function(path)
+	sgt.doLog(sgt.LogManager.DEBUG2,"Adding module path '" .. path .. "'")
+	package.cpath = package.cpath .. ";" .. path
+end
+
 -- retrieve config:
 _G.config = require "config"
 

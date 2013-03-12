@@ -26,7 +26,7 @@ function Class:initialize(options)
 	self._webImage = webman:createWebTexture(options);
 	self._webView = self._webImage:getWebView();
 	
-	self._webView:SetTransparent(options.transparent or false)
+	self._webView:SetTransparent(options and options.transparent or false)
 	
 	-- Also create the screen quad where to apply the image:
 	-- self._quad = tools:createScreenQuad{image=self._webImage:getImage()}

@@ -36,7 +36,7 @@ cfg.use_stack_plus = false;
 cfg.cache_path = "W:/Local/sgtCache"
 
 -- Display the memory used by lua on each cycle:
-cfg.monitor_lua_memory = true
+cfg.monitor_lua_memory = false
 
 -- Enable/disable the internal profiler:
 cfg.profiler_enabled = false

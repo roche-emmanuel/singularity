@@ -24,6 +24,7 @@
 - Tested Wescam overlay implementation with HTML5.
 - Now specifying external cache path (used at least for awesomium for now).
 - Added garbage collector settings in config.
+- Started implementation of Genesis overlays.
 
 
 TODO:
