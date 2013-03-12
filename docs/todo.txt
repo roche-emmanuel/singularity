@@ -5,6 +5,8 @@
 
 - Todo:
 
+* FindFirstChangeNotification from http://msdn.microsoft.com/en-us/library/aa364417%28VS.85%29.aspx
+
 * investigate comboreduct implementation in lua.
 
 * try to build for linux32/linux64

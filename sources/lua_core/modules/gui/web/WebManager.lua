@@ -20,7 +20,9 @@ function Class:initialize(options)
 	
 	self._core = awe.WebCore.Initialize(cfg)
 
-	self._session = self._core:CreateWebSession(fs:getRootPath(true).."cache/awesomium",self._prefs)
+	local cachePath = config.cache_path or fs:getRootPath(true).."cache"
+	
+	self._session = self._core:CreateWebSession(cachePath .. "/awesomium",self._prefs)
 
 	self:info("Creating OSG surface factory");
 	self._surfaceFactory = awe.OSGSurfaceFactory()

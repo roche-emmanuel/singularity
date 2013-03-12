@@ -32,4 +32,7 @@ cfg.osg_log_level = "NOTICE"
 -- Display advanced stack details on error:
 cfg.use_stack_plus = false;
 
+-- Folder where to store temporary data.
+cfg.cache_path = "W:/Local/sgtCache"
+
 return cfg

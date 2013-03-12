@@ -22,6 +22,7 @@
 - Added implementation for isCommutative, isReflexive, etc : all perception functions with default impls in Vertex.
 - Added support for transparency control on WebView.
 - Tested Wescam overlay implementation with HTML5.
+- Now specifying external cache path (used at least for awesomium for now).
 
 
 TODO:
