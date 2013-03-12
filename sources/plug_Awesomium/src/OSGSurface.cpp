@@ -40,7 +40,7 @@ void SubLoader::subload (const Texture2D &texture, State &state) const {
 	if(_areas.empty())
 		return;
 			 
-	// logINFO("Performing " << _areas.size() << " subloadings...");
+    // logINFO("Performing " << _areas.size() << " subloadings...");
 	for(AreaList::iterator it = _areas.begin(); it!=_areas.end(); ++it) {
 		glTexSubImage2D( GL_TEXTURE_2D, 0,
 						 (*it)->x, (*it)->y,

@@ -3,7 +3,6 @@ local Class = require("classBuilder"){name="Scheduler",bases="base.Object"};
 local wx = require "wx"
 
 local i18n = require "i18n"
-local cfg = require "config"
 local evtman = require "base.EventManager"
 local Event = require "base.Event"
 local Set = require "std.Set"
@@ -21,7 +20,7 @@ function Class:initialize(options)
 	
 	evtman:addListener{event=Event.APP_CLOSING,object=self}
 	
-	self:addTimer{frequency=cfg.master_framerate,callback=function(event) 
+	self:addTimer{frequency=config.master_framerate,callback=function(event) 
 		--self:info("Handing frame timer event...");
 		prof:start("Frame event")
 		evtman:fireEvent(Event.FRAME) 
@@ -31,8 +30,10 @@ function Class:initialize(options)
 		prof:start("garbage step")
 		collectgarbage('step')
 		prof:stop()
-		--local mem = collectgarbage("count")
-		--self:info("Memory usage: ", mem, " KBs")
+		if config.monitor_lua_memory then
+			local mem = collectgarbage("count")
+			self:info("Memory usage: ", mem, " KBs")
+		end
 		prof:stop()
 	end}
 end

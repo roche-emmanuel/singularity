@@ -10,7 +10,10 @@ function Class:initialize()
 	
 	self._sections = {} --Map();
 	self._sectionStack = Vector()
-	self._enabled = true
+	self._enabled = config.profiler_enabled
+	
+	self:info("Profiler is ", self._enabled and "ON" or "OFF")
+	
 	--self._timer = osg.Timer.instance()
 end
 

@@ -59,6 +59,10 @@ end
 -- retrieve config:
 _G.config = require "config"
 
+-- setup garbage collection:
+collectgarbage('setpause',config.gc_pause or 100)
+collectgarbage('setstepmul',config.gc_step_multiplier or 200)
+
 sgt.LogManager.instance():setNotifyLevel(sgt.LogManager[config.log_level or "INFO"])
 sgt.LogManager.instance():setVerbose(config.log_verbose)
 sgt.LogManager.instance():setDefaultLevelFlags(sgt.LogManager.TIME_STAMP+sgt.LogManager.THREAD_ID)

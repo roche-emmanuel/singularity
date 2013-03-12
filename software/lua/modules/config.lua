@@ -35,4 +35,14 @@ cfg.use_stack_plus = false;
 -- Folder where to store temporary data.
 cfg.cache_path = "W:/Local/sgtCache"
 
+-- Display the memory used by lua on each cycle:
+cfg.monitor_lua_memory = true
+
+-- Enable/disable the internal profiler:
+cfg.profiler_enabled = false
+
+-- garbage collector settings
+cfg.gc_step_multiplier = 300
+cfg.gc_pause = 80
+
 return cfg

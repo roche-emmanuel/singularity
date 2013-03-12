@@ -23,6 +23,7 @@
 - Added support for transparency control on WebView.
 - Tested Wescam overlay implementation with HTML5.
 - Now specifying external cache path (used at least for awesomium for now).
+- Added garbage collector settings in config.
 
 
 TODO:
