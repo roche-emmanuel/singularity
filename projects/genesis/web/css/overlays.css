@@ -48,7 +48,7 @@ div {
 	position: absolute;
 	font-size: 0;
 	text-align: left;
-	//text-shadow: -1px 0 #f00, 0 1px #f00, 1px 0 #f00, 0 -1px #f00;
+	text-shadow: -2px 0 2 #0f0, 0 2px 2 #0f0, 2px 0 2 #0f0, 0 -2px 2 #0f0;
 }
 
 .center {
@@ -64,4 +64,17 @@ div {
 	border: 0px;
 }
 
+.img { 
+	background-color: #FFF; 
+	mask-size: 100% 100%;
+	//filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+}
 
+#az_pict_frame {
+	mask-image: url(images/az_pict_frame.png);
+}
+
+#az_pict_fov {
+	mask-image: url(images/az_pict_fov.png);
+	transform:rotate(90deg);
+}

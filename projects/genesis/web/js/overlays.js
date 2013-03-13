@@ -29,12 +29,15 @@ $(window).ready(function(){
 	$('#target_name').css({letterSpacing: ls+xr/2.0, marginRight: -ls-xr/2.0})
 	
 	var setLeft = function(select,pos,width) {
-		$(select).css('left', Math.floor(pos*xr));
-		$(select).css('right', Math.ceil(ww - (pos+width)*xr)); // -2 is added here to handle rounding errors (?)
+		$(select).css('left', pos*xr);
+		$(select).css('width', width*xr);
 	}
 
-	var setTop = function(select,pos) {
-		$(select).css('top', Math.floor(pos*yr));
+	var setTop = function(select,pos,height) {
+		$(select).css('top', pos*yr);
+		if(height!=undefined) {
+			$(select).css('height', height*yr);
+		}
 	}
 	
 	var setBottom = function(select,pos) {
@@ -65,7 +68,12 @@ $(window).ready(function(){
 	setLeft('.target_r2',52,6)
 	setLeft('.target_r3',61,4)
 	setLeft('.target_r4',69,10)
-		
+	
+	setTop('#az_pict_frame',19,4)
+	setLeft('#az_pict_frame',1,4)
+	setTop('#az_pict_fov',19,4)
+	setLeft('#az_pict_fov',1,4)
+	
 	var test = document.getElementById("output");
 	// output.innerHTML = "font="+ fsize +", size is: "+width+"x"+height+". spacing="+ls+"px"+", window size="+ww+"x"+hh;
 	//output.innerHTML = "width="+ width +", bwidth="+xr;

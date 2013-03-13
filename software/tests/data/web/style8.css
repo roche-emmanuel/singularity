@@ -1,0 +1,14 @@
+.dashboard-buttons a {width: 80px; height: 80px; border: 1px solid #ccc; margin: 0px 5px; display:inline-block;border-radius: 10px;
+   background:white; text-decoration:none;
+   -moz-box-shadow: inset 0 0 15px rgba(0,0,0, 0.25);
+   -webkit-box-shadow: inset 0 0 15px rgba(0,0,0, 0.25);
+}
+.dashboard-buttons a:hover { text-decoration:underline; }
+.dashboard-buttons span, .dashboard-buttons img { display:inline; font-size: 12px; font-weight:bold; }
+
+.img { 
+	background-color: #C60; 
+	width: 60px; 
+	height: 60px; 
+	mask-image: url(http://i.stack.imgur.com/gZvK4.png); 
+}
