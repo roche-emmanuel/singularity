@@ -39,37 +39,15 @@ div {
 .block {
 	position: absolute;
 	font-size: 0;
+	text-align: left;
+	//text-shadow: -1px 0 #f00, 0 1px #f00, 1px 0 #f00, 0 -1px #f00;
 }
 
-.top {
-	top: 20px;
-}
-
-.left {
-	left: 20px;
-}
-
-.sensor_l1 {
-	left: 200px;
-}
-
-.sensor_l2 {
-	left: 300px;
+.center {
 	text-align: center;
 }
 
-.sensor_l3 {
-	left: 400px;
-	text-align: center;
-}
-
-.sensor_c {
-	left: 550px;
-	text-align: center;
-}
-
-.sensor_r1 {
-	left: 700px;
+.right {
 	text-align: right;
 }
 

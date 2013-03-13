@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="css/overlays.css" />		
 		<!-- Lets load up prefixfree first -->
 		<script src="js/prefixfree.min.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
 		<script src="js/overlays.js"></script>
     </head>
     <body>
@@ -24,7 +25,7 @@
 				<div id="hand_controller2"> </div>
 				<div id="slew_to_radar">RDR</div>
 			</div>
-			<div class="block top sensor_l2" >		
+			<div class="block top sensor_l2 center" >		
 				<div id="avt_input">VIC</div>
 				<div id="avt_algo">COR-M</div>
 			</div>
@@ -32,15 +33,30 @@
 				<div id="spa_proc">SPA</div>
 				<div id="tem_proc">TEM</div>
 			</div>
-			<div class="block top sensor_c" >		
+			<div class="block top sensor_c center" >		
 				<div id="vic">FSD</div>
 				<div id="subvic">IR:EOW-DL</div>
 			</div>	
-			<div class="block top sensor_r1" >		
+			<div class="block top sensor_r1 right" >		
 				<div id="vic">20:80</div>
 				<div id="subvic">AUTO</div>
 			</div>	
-			
+			<div class="block top sensor_r2 right" >		
+				<div id="focal_length">120</div>
+				<div id="ezoom">2.0X</div>
+			</div>	
+			<div class="block top sensor_r3 right" >		
+				<div id="filter"></div>
+				<div id="scene">DFLT</div>
+			</div>		
+			<div class="block top sensor_r4 right" >		
+				<div id="gain">AUTO</div>
+				<div id="offset">AUTO</div>
+			</div>
+			<div class="block top sensor_r5 right" >		
+				<div id="gain">230</div>
+				<div id="offset">-5%</div>
+			</div>		
 		</div>
 		
 		<div id="output">Output message</div>
