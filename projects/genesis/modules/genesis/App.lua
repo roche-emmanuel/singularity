@@ -5,7 +5,7 @@ local awe = require "Awesomium"
 function Class:new(options)
 	self:info("Calling new for GenesisApp.")
 	local WebTile = require "gui.web.WebTile"
-	self._tile = WebTile()
+	self._tile = WebTile{transparent=true}
 end
 
 function Class:initialize(options)
