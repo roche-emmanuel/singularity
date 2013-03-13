@@ -106,6 +106,10 @@ function Class:initialize(options)
 	self._webView:set_view_listener(self._viewListener)
 end
 
+function Class:getWebView()
+	return self._webView;
+end
+
 function Class:setChangeTitleCallback(cb)
 
 end

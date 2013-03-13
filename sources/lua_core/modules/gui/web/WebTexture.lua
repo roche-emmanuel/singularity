@@ -8,7 +8,7 @@ local gl = require "luagl"
 function Class:initialize(options)	
 	options = options or {}
 	local ww = options.width or 1280
-	local hh = options.height or 800;
+	local hh = options.height or 720;
 	
 	-- create a webview for this tile:
 	self._webView = options.webView or webman:createWebView{width=ww,height=hh};

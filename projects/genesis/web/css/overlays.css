@@ -18,11 +18,12 @@ body {
 }
 
 div {
-	min-height: 20px;
-	min-width: 20px;
+	//min-height: 20px;
+	//min-width: 20px;
+	overflow: hidden;
 }
 
-#Compute
+#compute
 {
     position: absolute;
     visibility: hidden;
@@ -72,9 +73,9 @@ div {
 }
 */
 
-.block div {
-	font-size: 20px;
-}
+/*.block div {
+	font-size: 18px;
+}*/
 
 /*
 #slew_to_radar {
