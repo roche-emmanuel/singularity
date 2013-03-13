@@ -23,20 +23,28 @@ $(window).ready(function(){
 	var pad = ls/2.0;
 	
 	// Update the styles on the body element:
-	$('body').css({letterSpacing: ls, paddingLeft: pad, paddingRight: pad, paddingTop: 1, paddingBottom: 1})
-	$('.block div').css('fontSize',fsize)
-	$('div').css('minHeight',fsize+2)
+	$('div').css('minHeight',fsize+2);
+	$('.block div').css({letterSpacing: ls, paddingLeft: pad, paddingRight: pad, marginRight: -ls, paddingTop: 1, paddingBottom: 1});
+	$('.block div').css({fontSize: fsize});
+	$('#target_name').css({letterSpacing: ls+xr/2.0, marginRight: -ls-xr/2.0})
 	
 	var setLeft = function(select,pos,width) {
-		$(select).css('left', pos*xr);
-		$(select).css('right', (ww - (pos+width)*xr));
+		$(select).css('left', Math.floor(pos*xr));
+		$(select).css('right', Math.ceil(ww - (pos+width)*xr)); // -2 is added here to handle rounding errors (?)
 	}
 
 	var setTop = function(select,pos) {
-		$(select).css('top', pos*yr);
+		$(select).css('top', Math.floor(pos*yr));
 	}
 	
+	var setBottom = function(select,pos) {
+		$(select).css('bottom', Math.floor(pos*yr));
+	}
+
 	setTop('.top',1)
+	setBottom('.bottom',1)
+	setBottom('.platform_l0',3)
+	setBottom('.platform_l2',2)
 	
 	setLeft('.left',1,9)
 	setLeft('.sensor_l1',12,4)
@@ -48,6 +56,15 @@ $(window).ready(function(){
 	setLeft('.sensor_r3',61,4)
 	setLeft('.sensor_r4',67,4)
 	setLeft('.sensor_r5',74,5)
+	setLeft('.platform_l0',1,4)
+	setLeft('.platform_l1',1,10)
+	setLeft('.platform_l2',13,4)
+	setLeft('.platform_l3',13,7)
+	setLeft('.spot_l1',22,8)
+	setLeft('.target_r1',42,7)
+	setLeft('.target_r2',52,6)
+	setLeft('.target_r3',61,4)
+	setLeft('.target_r4',69,10)
 		
 	var test = document.getElementById("output");
 	// output.innerHTML = "font="+ fsize +", size is: "+width+"x"+height+". spacing="+ls+"px"+", window size="+ww+"x"+hh;

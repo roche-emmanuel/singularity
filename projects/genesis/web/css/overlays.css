@@ -3,6 +3,12 @@
     src: url('Cousine-Regular-Latin.ttf');
 }
 
+* {
+	padding: inherit;
+	border: inherit;
+	margin: inherit;
+}
+
 body {
 	/*background-color: rgba(0, 0, 0, 0.75); */
 	//background-color: transparent;
@@ -16,6 +22,7 @@ body {
 	border: 0;
 	letter-spacing: 0px;
 }
+
 
 div {
 	//min-height: 20px;
@@ -33,7 +40,7 @@ div {
 
 #output {
     position: absolute;
-	bottom: 20px;
+	bottom: 130px;
 	left: 20px;
 }
 
@@ -56,34 +63,5 @@ div {
 	display: inline-block;
 	border: 0px;
 }
-
-/*
-#hand_controller1 {
-	background: #f00
-}
-
-#hand_controller2 {
-	background: #0f0
-}
-*/
-
-/*
-#gimbal_control {
-	background: #ff0;
-}
-*/
-
-/*.block div {
-	font-size: 18px;
-}*/
-
-/*
-#slew_to_radar {
-	clear: both;
-	background: #f0f;
-	margin: 0px; 
-	padding: 0px; 
-}
-*/
 
 
