@@ -45,4 +45,8 @@ cfg.profiler_enabled = false
 cfg.gc_step_multiplier = 300
 cfg.gc_pause = 80
 
+-- the port used for awesomium debugging. Point a web browser o http://127.0.0.1:xxxx when enabled.
+-- to disable, set this value to 0 or comment the line
+cfg.awesomium_debug_port = 1337
+
 return cfg

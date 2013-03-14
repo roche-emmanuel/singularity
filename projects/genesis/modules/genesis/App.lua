@@ -21,7 +21,14 @@ function Class:initialize(options)
 	self:applyCircleAnimation(mt, 4.0, 6.0)
 	
 	-- This is needed to force initialization of the window object ??
-	local res = view:ExecuteJavascriptWithResult("window",""); --.innerWidth
+	local res = view:ExecuteJavascriptWithResult("window","");
+	
+	local sgtVal = view:CreateGlobalJavascriptObject("sgt")
+	
+	self:check(sgtVal:IsObject(),"Invalid sgtVal object")
+	sgtVal = sgtVal:ToObject()
+	sgtVal:SetCustomMethod("logInfo",false)
+	
 	--local res = view:ExecuteJavascript("window",""); --.innerWidth
 	--local err = view:last_error()
 	--if err~=awe.kError_None then

@@ -9,6 +9,8 @@ function Class:initialize(options)
 	
 	self:info("Initializing WebCore...")
 	local  cfg = awe.WebConfig();
+	cfg:set_remote_debugging_port(config.awesomium_debug_port or 0)
+	
 	--cfg:addAdditionalOption("--use-gl=desktop");
 	
 	self._prefs = awe.WebPreferences()

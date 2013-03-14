@@ -150,6 +150,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_get_remote_debugging_port(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_get_additional_options(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -195,6 +201,13 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13938525) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_remote_debugging_port(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -357,6 +370,25 @@ public:
 		return 1;
 	}
 
+	// int Awesomium::WebConfig::remote_debugging_port()
+	static int _bind_get_remote_debugging_port(lua_State *L) {
+		if (!_lg_typecheck_get_remote_debugging_port(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebConfig::remote_debugging_port() function, expected prototype:\nint Awesomium::WebConfig::remote_debugging_port()\nClass arguments details:\n");
+		}
+
+
+		Awesomium::WebConfig* self=(Luna< Awesomium::WebConfig >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int Awesomium::WebConfig::remote_debugging_port(). Got : '%s'",typeid(Luna< Awesomium::WebConfig >::check(L,1)).name());
+		}
+		int lret = self->remote_debugging_port;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 	// Awesomium::WebStringArray Awesomium::WebConfig::additional_options()
 	static int _bind_get_additional_options(lua_State *L) {
 		if (!_lg_typecheck_get_additional_options(L)) {
@@ -497,6 +529,25 @@ public:
 		return 0;
 	}
 
+	// void Awesomium::WebConfig::remote_debugging_port(int value)
+	static int _bind_set_remote_debugging_port(lua_State *L) {
+		if (!_lg_typecheck_set_remote_debugging_port(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebConfig::remote_debugging_port(int value) function, expected prototype:\nvoid Awesomium::WebConfig::remote_debugging_port(int value)\nClass arguments details:\n");
+		}
+
+		int value=(int)lua_tointeger(L,2);
+
+		Awesomium::WebConfig* self=(Luna< Awesomium::WebConfig >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void Awesomium::WebConfig::remote_debugging_port(int). Got : '%s'",typeid(Luna< Awesomium::WebConfig >::check(L,1)).name());
+		}
+		self->remote_debugging_port = value;
+
+		return 0;
+	}
+
 	// void Awesomium::WebConfig::additional_options(Awesomium::WebStringArray value)
 	static int _bind_set_additional_options(lua_State *L) {
 		if (!_lg_typecheck_set_additional_options(L)) {
@@ -548,6 +599,7 @@ luna_RegType LunaTraits< Awesomium::WebConfig >::methods[] = {
 	{"get_log_path", &luna_wrapper_Awesomium_WebConfig::_bind_get_log_path},
 	{"get_child_process_path", &luna_wrapper_Awesomium_WebConfig::_bind_get_child_process_path},
 	{"get_user_agent", &luna_wrapper_Awesomium_WebConfig::_bind_get_user_agent},
+	{"get_remote_debugging_port", &luna_wrapper_Awesomium_WebConfig::_bind_get_remote_debugging_port},
 	{"get_additional_options", &luna_wrapper_Awesomium_WebConfig::_bind_get_additional_options},
 	{"set_log_level", &luna_wrapper_Awesomium_WebConfig::_bind_set_log_level},
 	{"set_package_path", &luna_wrapper_Awesomium_WebConfig::_bind_set_package_path},
@@ -555,6 +607,7 @@ luna_RegType LunaTraits< Awesomium::WebConfig >::methods[] = {
 	{"set_log_path", &luna_wrapper_Awesomium_WebConfig::_bind_set_log_path},
 	{"set_child_process_path", &luna_wrapper_Awesomium_WebConfig::_bind_set_child_process_path},
 	{"set_user_agent", &luna_wrapper_Awesomium_WebConfig::_bind_set_user_agent},
+	{"set_remote_debugging_port", &luna_wrapper_Awesomium_WebConfig::_bind_set_remote_debugging_port},
 	{"set_additional_options", &luna_wrapper_Awesomium_WebConfig::_bind_set_additional_options},
 	{"dynCast", &luna_wrapper_Awesomium_WebConfig::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_WebConfig::_bind___eq},
