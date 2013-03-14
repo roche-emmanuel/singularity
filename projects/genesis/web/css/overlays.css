@@ -48,7 +48,10 @@ div {
 	position: absolute;
 	font-size: 0;
 	text-align: left;
-	text-shadow: -2px 0 2 #0f0, 0 2px 2 #0f0, 2px 0 2 #0f0, 0 -2px 2 #0f0;
+}
+
+.block div {
+	text-shadow: -1px -1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, 1px 1px 1px #000;
 }
 
 .center {
@@ -106,4 +109,8 @@ div {
 
 #destabilization {
 	mask-image: url(images/destabilization_2.png);
+}
+
+#strata_waypoint {
+	mask-image: url(images/strata_waypoint.png);
 }

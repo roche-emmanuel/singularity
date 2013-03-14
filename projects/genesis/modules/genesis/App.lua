@@ -15,6 +15,11 @@ function Class:initialize(options)
 	
 	local view = self._tile:getWebView()
 	
+	local mt = self:loadModel("tests/data/glider.osgt")
+	self:createCube(1)
+	self:createBase()
+	self:applyCircleAnimation(mt, 4.0, 6.0)
+	
 	-- This is needed to force initialization of the window object ??
 	local res = view:ExecuteJavascriptWithResult("window",""); --.innerWidth
 	--local res = view:ExecuteJavascript("window",""); --.innerWidth

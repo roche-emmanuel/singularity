@@ -84,8 +84,13 @@ $(window).ready(function(){
 	setPos('#north_arrow',2,5,2,4)
 	setPos('.north_indicator',2.5,6.5,1,1)
 	setPos('#destabilization',40,3,1,1)
+	setPos('.gated_imaging',69,20,10)
+	setPos('.laser',68,23,11)
+	setPos('.illuminator',1,29,18)
+	setPos('.strata',73,4,6)
 	
 	$('#hand_controller1, #hand_controller2, #mission_grip_alt' ).css({width: Math.floor(xr), height: Math.floor(yr), padding:0, border:0, marginRight:0})
+	$('#strata_waypoint' ).css({width: 6*xr, height: 6*yr, padding:0, border:0, marginRight:0})
 
 	var test = document.getElementById("output");
 	// output.innerHTML = "font="+ fsize +", size is: "+width+"x"+height+". spacing="+ls+"px"+", window size="+ww+"x"+hh;
