@@ -21,8 +21,9 @@
 		<div id="sensor_group">
 			<div class="block top sensor_l1" >
 				<div id="gimbal_control">AUTO</div>
-				<div id="hand_controller1"> </div>
-				<div id="hand_controller2"> </div>
+				<div class="img" id="hand_controller1"></div>
+				<div id="mission_grip_alt"></div>
+				<div class="img" id="hand_controller2"></div>
 				<div id="slew_to_radar">RDR</div>
 			</div>
 			<div class="block top sensor_l2 center" >		
@@ -98,13 +99,25 @@
 				<div id="target_lat">27:46:05N</div>
 				<div id="target_lon">112:75:22W</div>
 			</div>
+			<div class="block target_r5 right" >		
+				<div id="target_poi">#4</div>
+			</div>
 		</div>
 		
 		<div id="scales_group">
 			<div class="block img" id="az_pict_frame"></div>
 			<div class="block img" id="az_pict_fov"></div>
+			<div class="block img" id="elev_pict_frame"></div>
+			<div class="block img" id="elev_pict_fov"></div>
 		</div>
 		
+		<div id="north_indicator_group">
+			<div class="block img" id="north_arrow"></div>
+			<div class="block north_indicator center" >		
+				<div>N</div>
+			</div>
+		</div>
+
 		<div id="output">Output message</div>
 		
     </body>

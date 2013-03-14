@@ -23,9 +23,9 @@ $(window).ready(function(){
 	var pad = ls/2.0;
 	
 	// Update the styles on the body element:
-	$('div').css('minHeight',fsize+2);
+	//$('div').css('minHeight',fsize+2);
 	$('.block div').css({letterSpacing: ls, paddingLeft: pad, paddingRight: pad, marginRight: -ls, paddingTop: 1, paddingBottom: 1});
-	$('.block div').css({fontSize: fsize});
+	$('.block div').css({fontSize: fsize, lineHeight: (fsize)+'px'});
 	$('#target_name').css({letterSpacing: ls+xr/2.0, marginRight: -ls-xr/2.0})
 	
 	var setLeft = function(select,pos,width) {
@@ -48,6 +48,7 @@ $(window).ready(function(){
 	setBottom('.bottom',1)
 	setBottom('.platform_l0',3)
 	setBottom('.platform_l2',2)
+	setBottom('.target_r5',3)
 	
 	setLeft('.left',1,9)
 	setLeft('.sensor_l1',12,4)
@@ -68,12 +69,22 @@ $(window).ready(function(){
 	setLeft('.target_r2',52,6)
 	setLeft('.target_r3',61,4)
 	setLeft('.target_r4',69,10)
+	setLeft('.target_r5',68,6)
+	// setLeft('.target_r5',2,6)
 	
-	setTop('#az_pict_frame',19,4)
-	setLeft('#az_pict_frame',1,4)
-	setTop('#az_pict_fov',19,4)
-	setLeft('#az_pict_fov',1,4)
+	setTop('#az_pict_frame, #az_pict_fov',19,4)
+	setLeft('#az_pict_frame, #az_pict_fov, #elev_pict_frame',1,4)
+	setTop('#elev_pict_frame',11,6)
+	setTop('#elev_pict_fov',13.5,1)
+	setLeft('#elev_pict_fov',1,4)
+
+	setTop('#north_arrow',5,4)
+	setLeft('#north_arrow',2,2)
+	setTop('.north_indicator',6.5,1)
+	setLeft('.north_indicator',2.5,1)
 	
+	$('#hand_controller1, #hand_controller2, #mission_grip_alt' ).css({width: Math.floor(xr), height: Math.floor(yr), padding:0, border:0, marginRight:0})
+
 	var test = document.getElementById("output");
 	// output.innerHTML = "font="+ fsize +", size is: "+width+"x"+height+". spacing="+ls+"px"+", window size="+ww+"x"+hh;
 	//output.innerHTML = "width="+ width +", bwidth="+xr;

@@ -59,14 +59,15 @@ div {
 	text-align: right;
 }
 
-#hand_controller1, #hand_controller2 {
+#hand_controller1, #hand_controller2, #mission_grip_alt {
 	display: inline-block;
 	border: 0px;
+	font-size: 0;
 }
 
 .img { 
 	background-color: #FFF; 
-	mask-size: 100% 100%;
+	mask-size: 101% 101%;
 	//filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
 }
 
@@ -76,5 +77,29 @@ div {
 
 #az_pict_fov {
 	mask-image: url(images/az_pict_fov.png);
-	transform:rotate(90deg);
+	//transform:rotate(90deg);
+}
+
+#elev_pict_frame {
+	mask-image: url(images/elev_pict_frame.png);
+}
+
+#elev_pict_fov {
+	mask-image: url(images/elev_pict_fov.png);
+	//transform:rotate(90deg);
+}
+
+#north_arrow {
+	mask-image: url(images/north_arrow.png);
+	//transform:rotate(45deg);
+}
+
+#hand_controller1 {
+	//mask-image: url(images/az_pict_frame.png);
+	mask-image: url(images/little_man.png);
+	//mask-size: auto auto;
+}
+
+#hand_controller2 {
+	mask-image: url(images/little_man.png);
 }
