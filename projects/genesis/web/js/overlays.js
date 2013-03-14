@@ -40,12 +40,18 @@ $(window).ready(function(){
 		}
 	}
 	
+	var setPos = function(select,x,y,ww,hh) {
+		setLeft(select,x,ww);
+		setTop(select,y,hh);
+	}
+	
 	var setBottom = function(select,pos) {
 		$(select).css('bottom', Math.floor(pos*yr));
 	}
 
 	setTop('.top',1)
 	setBottom('.bottom',1)
+	
 	setBottom('.platform_l0',3)
 	setBottom('.platform_l2',2)
 	setBottom('.target_r5',3)
@@ -70,25 +76,22 @@ $(window).ready(function(){
 	setLeft('.target_r3',61,4)
 	setLeft('.target_r4',69,10)
 	setLeft('.target_r5',68,6)
-	// setLeft('.target_r5',2,6)
 	
-	setTop('#az_pict_frame, #az_pict_fov',19,4)
-	setLeft('#az_pict_frame, #az_pict_fov, #elev_pict_frame',1,4)
-	setTop('#elev_pict_frame',11,6)
-	setTop('#elev_pict_fov',13.5,1)
-	setLeft('#elev_pict_fov',1,4)
+	setPos('#az_pict_frame, #az_pict_fov',1,19,4,4);
+	setPos('#elev_pict_frame',1,11,4,6);
+	setPos('#elev_pict_fov',1,13.5,4,1);
 
-	setTop('#north_arrow',5,4)
-	setLeft('#north_arrow',2,2)
-	setTop('.north_indicator',6.5,1)
-	setLeft('.north_indicator',2.5,1)
+	setPos('#north_arrow',2,5,2,4)
+	setPos('.north_indicator',2.5,6.5,1,1)
+	setPos('#destabilization',40,3,1,1)
 	
 	$('#hand_controller1, #hand_controller2, #mission_grip_alt' ).css({width: Math.floor(xr), height: Math.floor(yr), padding:0, border:0, marginRight:0})
 
 	var test = document.getElementById("output");
 	// output.innerHTML = "font="+ fsize +", size is: "+width+"x"+height+". spacing="+ls+"px"+", window size="+ww+"x"+hh;
 	//output.innerHTML = "width="+ width +", bwidth="+xr;
-	output.innerHTML = "ls="+ ls +", pad="+pad;
+	// output.innerHTML = "ls="+ ls +", pad="+pad;
+	output.innerHTML = "";
 	
 	//output.innerHTML = "window size=" + ww + "x" + hh;
 });

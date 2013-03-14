@@ -103,3 +103,7 @@ div {
 #hand_controller2 {
 	mask-image: url(images/little_man.png);
 }
+
+#destabilization {
+	mask-image: url(images/destabilization_2.png);
+}
