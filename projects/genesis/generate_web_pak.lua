@@ -2,8 +2,8 @@
 
 local awe = require "Awesomium"
 
-local outfile = "genesis_assets.pak" --root_path .. "../projects/genesis/
-local dir = "web/" --root_path .. "../projects/genesis/
+local outfile = "assets.pak"
+local dir = "assets/" 
 local ignore = ""
 local num = 0;
 
