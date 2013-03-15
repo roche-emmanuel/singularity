@@ -17,12 +17,17 @@ end
 
 --- Get an item from the map:
 function Class:get(key)
-	return key and self._data[key]
+	if key~=nil then
+		return self._data[key]
+	end
 end
 
 --- Check if we have a given item in the map:
 function Class:has(key)
-    return key and self._data[key]~=nil
+	if key~=nil then
+		return self._data[key]~=nil
+	end
+	return false;
 end
 
 function Class:getOrCreate(key,subclass)

@@ -24,6 +24,8 @@ function Class:initialize(options)
 	-- This is needed to force initialization of the window object ??
 	local res = view:ExecuteJavascriptWithResult("window","");
 	
+	require("gui.web.objects.Logger"){name="log",view=view}
+	
 	local sgtVal = view:CreateGlobalJavascriptObject("sgt")
 	
 	self:check(sgtVal:IsObject(),"Invalid sgtVal object")

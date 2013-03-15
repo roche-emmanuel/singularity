@@ -67,6 +67,14 @@ _G.addModulePath = function(path)
 	package.cpath = package.cpath .. ";" .. path
 end
 
+_G.PTR = function(obj)
+	if type(obj)=="userdata" and obj._CLASSNAME_ then
+		return sgt.toLightUserdata(obj:asVoid())
+	end
+	
+	return obj
+end
+
 -- retrieve config:
 _G.config = require "config"
 

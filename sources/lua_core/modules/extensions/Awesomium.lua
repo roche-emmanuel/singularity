@@ -41,6 +41,19 @@ Awesomium.JSValue.unbox = function(self)
 	end	
 end
 
+Awesomium.JSValue.box = function(item)
+	if type(item)=="null" then
+		return Awesomium.JSValue.Null()
+	elseif type(item)=="number" or type(item)=="boolean" or type(item)=="string" then
+		return Awesomium.JSValue(item)
+	elseif type(item)=="table" then
+		return Awesomium.JSValue(Awesomium.JSArray.fromTable(item))
+	else
+		log:error("Unsupported type for JSValue boxing: ", type(item))
+		return Awesomium.JSValue.Undefined()
+	end	
+end
+
 Awesomium.JSArray.__tostring = function(self)
 	return "[JSArray]"
 end
@@ -77,6 +90,19 @@ Awesomium.JSArray.asTable = function(self)
 	end	
 	
 	return tt
+end
+
+Awesomium.JSArray.fromTable = function(tt)
+	local res = Awesomium.JSArray()
+	
+	local item
+	for k,val in ipairs(tt) do
+		item = Awesomium.JSValue.box(val)
+		
+		res:Push(item)
+	end	
+	
+	return res
 end
 
 

@@ -37,8 +37,35 @@ function Class:initialize(options)
 	local Map = require "std.Map"
 	self._dataSources = Map();
 	
+	local DMap = require "std.DMap"
+	self._objects = DMap();
+	
 	self:getEventManager():addListener{event=Event.FRAME,object=self}
 	self:getEventManager():addListener{event=Event.APP_CLOSING,object=self}
+end
+
+-- register a global object by id:
+function Class:setObject(view, id, obj)
+	self:check(view,"Invalid view object")
+	self:check(id,"Invalid id")
+	view = PTR(view) -- We need to convert to void to ensure proper key comparaison in tables!!
+	self:check(self._objects:get(view,id)==nil,"A global object with id=",id," was already registered for the web view ", tostring(view))
+	--self:info("Registering object with id=",id, ", view=",view, " obj=",tostring(self))
+	self._objects:set(view,id,obj)
+	
+	--self:check(self._objects:get(view,id)==obj,"Invalid result for getObject(), got:",self._objects:get(view,id))
+end
+
+-- retrieve a global object by view and id:
+function Class:getObject(view,id)
+	-- We need to convert to void to ensure proper key comparaison in tables!!
+	return self._objects:get(PTR(view),id)
+end
+
+-- release all the globals for a given view:
+function Class:releaseObjects(view)
+	self:info("Releasing all globals for ", view)
+	self._objects:erase(PTR(view))
 end
 
 function Class:addDataSource(name,source)
@@ -63,6 +90,8 @@ function Class:registerWebView(view)
 end
 
 function Class:unregisterWebView(view)
+	self:info("Unregistering webview: ", view)
+	self:releaseGlobals(view)
 	self._webViewList:eraseItem(view)
 end
 
@@ -102,6 +131,7 @@ function Class:onAppClosing()
 		view:Destroy();
 	end
 	self._webViewList:clear();
+	self._objects:clear();
 	
 	-- Update one last time:
 	self._core:Update()	

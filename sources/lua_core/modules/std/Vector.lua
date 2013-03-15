@@ -121,7 +121,12 @@ end
 --end
 
 function Class:__tostring()
-	return "{" .. table.concat(self._data,", ") .. "}"
+	local vec = {}
+	for k,v in self:sequence() do
+		table.insert(vec,tostring(v))
+	end
+	
+	return "{" .. table.concat(vec,", ") .. "}"
 end
 
 --- Check vector emptyness.

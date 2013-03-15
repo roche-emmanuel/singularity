@@ -72,7 +72,7 @@ function LoggerBase:writeTable(t)
 			local quote = ""
 			for k,v in pairs(t) do
 				quote = type(v)=="string" and not tonumber(v) and '"' or ""
-				msg = msg .. string.rep(self.indentStr,self.indent) .. k .. " = ".. quote .. self:writeItem(v) .. quote .. ",\n" -- 
+				msg = msg .. string.rep(self.indentStr,self.indent) .. tostring(k) .. " = ".. quote .. self:writeItem(v) .. quote .. ",\n" -- 
 			end
 			self:decrementLevel()
 		else

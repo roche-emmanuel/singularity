@@ -99,6 +99,9 @@ $(window).ready(function(){
 	output.innerHTML = "";
 	
 	sgt.logInfo("Hello from JS!");
+	log.info("This message is from the logger. x=", 3.456);
+	log.warn("Hmmm, we have a problem!");
+	
 	
 	//output.innerHTML = "window size=" + ww + "x" + hh;
 });

@@ -118,6 +118,10 @@ function Object:getClassOf(obj)
 	return oo.classof(obj or self)
 end
 
+function Object:getAllClassMembers(obj)
+	return oo.allmembers(self:getClassOf(obj))
+end
+
 function Object:isInstanceOf(class,obj)	
 	local obj_class = oo.classof(obj or self)
 	return obj_class==class or oo.subclassof(obj_class,class)
