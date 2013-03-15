@@ -98,6 +98,8 @@ $(window).ready(function(){
 	// output.innerHTML = "ls="+ ls +", pad="+pad;
 	output.innerHTML = "";
 	
+	sgt.logInfo("Hello from JS!");
+	
 	//output.innerHTML = "window size=" + ww + "x" + hh;
 });
 

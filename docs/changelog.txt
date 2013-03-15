@@ -26,6 +26,8 @@
 - Added garbage collector settings in config.
 - Started implementation of Genesis overlays.
 - Added support for awesomium debugger.
+- Added support for JS method handling.
+- Added support for Awesomium pak data sources.
 
 
 TODO:

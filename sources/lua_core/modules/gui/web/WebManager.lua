@@ -34,8 +34,24 @@ function Class:initialize(options)
 	local Set = require "std.Set"
 	self._webViewList = Set();
 	
+	local Map = require "std.Map"
+	self._dataSources = Map();
+	
 	self:getEventManager():addListener{event=Event.FRAME,object=self}
 	self:getEventManager():addListener{event=Event.APP_CLOSING,object=self}
+end
+
+function Class:addDataSource(name,source)
+	self:check(self._dataSources:get(name)==nil,"A data source with name '", name,"' was already added.")
+	
+	self._dataSources:set(name,source)
+	self._session:AddDataSource(name,source)
+end
+
+function Class:addDataPak(name,filename)
+	self:debug2("Adding datasource with name '", name,"' from file: ",filename)
+	local dataSource = awe.DataPakSource(filename);
+	self:addDataSource(name,dataSource)
 end
 
 function Class:getSurfaceFactory()

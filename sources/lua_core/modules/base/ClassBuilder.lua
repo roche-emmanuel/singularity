@@ -70,18 +70,21 @@ function Class:__call(options)
 		return obj 
 	end
 
-	function result:doInitialize(opt,class)
+	function result:doInitialize(opt,class,done)
+		done = done or {}
 		class = class or oo.classof(self)
 		
 		for _,base in oo.supers(class) do
 			if base.doInitialize then
-				base.doInitialize(self,opt,base)
+				base.doInitialize(self,opt,base,done)
 			end
 		end
 		
 		--log:info("Calling doInitialize for class ", class._CLASSNAME_ or "[unnamed]")
 
-		if class.initialize then
+		if class.initialize and not done[class.initialize] then
+			done[class.initialize] = true -- this is needed to ensure we don't execute parent initialize func multiple times
+			-- when the child initialize func is not defined.
 			class.initialize(self,opt)
 		end
 	end

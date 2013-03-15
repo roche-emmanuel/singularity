@@ -23,7 +23,7 @@ ReflectionGenerator.generate{
 		"NativeWindow",
 		"ProcessHandle",
 		"::local",
-		"JSObject::remote",
+		"JSObject::remote%(",
 	},
 	ignoreClasses={
 	},

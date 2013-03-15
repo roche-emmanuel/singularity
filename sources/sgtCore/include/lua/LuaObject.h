@@ -134,29 +134,29 @@ inline void pushValue(lua_State* L, unsigned short& arg) {
 }
 
 inline void pushValue(lua_State* L, long& arg) {
-	lua_pushinteger(L,arg);
+	lua_pushnumber(L,arg);
 }
 
 inline void pushValue(lua_State* L, int& arg) {
-	lua_pushinteger(L,arg);
+	lua_pushnumber(L,arg);
 }
 
 inline void pushValue(lua_State* L, unsigned long& arg) {
-	lua_pushinteger(L,arg);
+	lua_pushnumber(L,arg);
 }
 
 inline void pushValue(lua_State* L, unsigned int& arg) {
-	lua_pushinteger(L,arg);
+	lua_pushnumber(L,arg);
 }
 
 inline void pushValue(lua_State* L, long long& arg) {
 	logWARN("LuaObject: pushing long long as integer.");
-	lua_pushinteger(L,arg);
+	lua_pushnumber(L,arg);
 }
 
 inline void pushValue(lua_State* L, unsigned long long& arg) {
 	logWARN("LuaObject: pushing unsigned long long as integer.");
-	lua_pushinteger(L,arg);
+	lua_pushnumber(L,arg);
 }
 
 inline void pushValue(lua_State* L, float& arg) {

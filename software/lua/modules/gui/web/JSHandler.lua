@@ -2,10 +2,12 @@ local Class = require("classBuilder"){name="JSHander",bases="base.Object"};
 
 local awe = require "Awesomium"
 
-function Class:new(options)
-	self:info("Creating new JSHandler object")
+function Class:initialize(options)
+	self:info("Creating new JSHandler object.")
+	
 	self._handler = awe.JSMethodHandler{
 		OnMethodCall = function(tt, obj, caller, objectId, method_name, args)
+			--self:info("Calling JS handler with self=",tostring(self),", handler=",tostring(self._handler))
 			self(caller,objectId, method_name, args)
 		end,
 		
@@ -15,7 +17,7 @@ function Class:new(options)
 	}
 end
 
-function Class:__call(caller, objectId, methodName, args)
+function Class:__call(caller, objectId, methodName, argsArray)
 	-- check if we have a method with the given name:
 	if not self[methodName] then
 		self:warn("No method named ",methodName, " in JSMethodHandler.");
@@ -23,10 +25,7 @@ function Class:__call(caller, objectId, methodName, args)
 	end
 
 	-- create a table for the args:
-	local args = {}
-	for i=0,argsArray:size()-1 do
-		table.insert(args,argsArray:At(i))
-	end
+	local args = argsArray:asTable()
 	
 	-- call the method with those arguments:
 	return self[methodName](self,objectId,unpack(args))		

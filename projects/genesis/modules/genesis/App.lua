@@ -9,17 +9,18 @@ function Class:new(options)
 end
 
 function Class:initialize(options)
-	self:getRoot():addChild(osg.Node(self._tile))
-	-- self._tile:loadURL("http://www.google.fr")
-	self._tile:loadURL(config.genesis_path .. "web/overlays.html")
-	
-	local view = self._tile:getWebView()
+	self:getRoot():addChild(osg.Node(self._tile))	
 	
 	local mt = self:loadModel("tests/data/glider.osgt")
 	self:createCube(1)
 	self:createBase()
 	self:applyCircleAnimation(mt, 4.0, 6.0)
 	
+	local view = self._tile:getWebView()
+
+	self._hand = require("genesis.GenesisHandler")()
+	view:set_js_method_handler(self._hand:getHandler())
+
 	-- This is needed to force initialization of the window object ??
 	local res = view:ExecuteJavascriptWithResult("window","");
 	
@@ -27,19 +28,19 @@ function Class:initialize(options)
 	
 	self:check(sgtVal:IsObject(),"Invalid sgtVal object")
 	sgtVal = sgtVal:ToObject()
+	local id = sgtVal:remote_id()
+	self:info("sgtVal remote id is: ",id)
 	sgtVal:SetCustomMethod("logInfo",false)
 	
-	--local res = view:ExecuteJavascript("window",""); --.innerWidth
-	--local err = view:last_error()
-	--if err~=awe.kError_None then
-	--	self:error("Received error code: ", err)
-	--end
-	
-	--self:check(res:IsInteger(),"Invalid integer result")
-	--res = res:ToInteger()
-	--self:info("Received res=",res)
-	
 	self:showOutputPanel(false)
+
+	-- local man = require "gui.web.WebManager"
+    self:getWebManager():addDataPak("genesis", config.genesis_path .. "genesis_assets.pak");
+	
+	-- self._tile:loadURL("http://www.google.fr")
+	-- self._tile:loadURL(config.genesis_path .. "web/overlays.html")	
+	self._tile:loadURL("asset://genesis/overlays.html")	
+	-- self._tile:loadURL("asset://genesis/hello.html")	
 end
 
 function Class:setupEventHandlers()
