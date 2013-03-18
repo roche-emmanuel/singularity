@@ -21,6 +21,7 @@ body {
 	padding: 0;
 	border: 0;
 	letter-spacing: 0px;
+	user-select: none;
 }
 
 
