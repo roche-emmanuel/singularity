@@ -105,6 +105,8 @@ _G.fs = require "base.FileSystem"
 
 _G.profiler = require "debugging.Profiler"
 
+_G.utils = require "utils"
+
 sgt.doLog(level,"Creating StartModule class.")
 local Class = require("classBuilder"){name="StartModule",bases="base.Object"};
 

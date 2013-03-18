@@ -29,6 +29,7 @@
 - Added support for JS method handling.
 - Added support for Awesomium pak data sources.
 - Added support for JS Object in lua with custom methods.
+- Added support for SkyBox rendering.
 
 
 TODO:

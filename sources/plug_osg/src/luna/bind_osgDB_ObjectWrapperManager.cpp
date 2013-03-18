@@ -134,6 +134,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getWrapperMap_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getWrapperMap_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_addCompressor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -152,6 +164,18 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getCompressorMap_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getCompressorMap_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -245,6 +269,57 @@ public:
 		return 1;
 	}
 
+	// osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap()
+	static int _bind_getWrapperMap_overload_1(lua_State *L) {
+		if (!_lg_typecheck_getWrapperMap_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap() function, expected prototype:\nosgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::ObjectWrapperManager::WrapperMap* lret = &self->getWrapperMap();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ObjectWrapperManager::WrapperMap >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap() const
+	static int _bind_getWrapperMap_overload_2(lua_State *L) {
+		if (!_lg_typecheck_getWrapperMap_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap() const function, expected prototype:\nconst osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap() const\nClass arguments details:\n");
+		}
+
+
+		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osgDB::ObjectWrapperManager::WrapperMap & osgDB::ObjectWrapperManager::getWrapperMap() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::ObjectWrapperManager::WrapperMap* lret = &self->getWrapperMap();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ObjectWrapperManager::WrapperMap >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osgDB::ObjectWrapperManager::getWrapperMap
+	static int _bind_getWrapperMap(lua_State *L) {
+		if (_lg_typecheck_getWrapperMap_overload_1(L)) return _bind_getWrapperMap_overload_1(L);
+		if (_lg_typecheck_getWrapperMap_overload_2(L)) return _bind_getWrapperMap_overload_2(L);
+
+		luaL_error(L, "error in function getWrapperMap, cannot match any of the overloads for function getWrapperMap:\n  getWrapperMap()\n  getWrapperMap()\n");
+		return 0;
+	}
+
 	// void osgDB::ObjectWrapperManager::addCompressor(osgDB::BaseCompressor * compressor)
 	static int _bind_addCompressor(lua_State *L) {
 		if (!_lg_typecheck_addCompressor(L)) {
@@ -303,6 +378,57 @@ public:
 		Luna< osgDB::BaseCompressor >::push(L,lret,false);
 
 		return 1;
+	}
+
+	// osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap()
+	static int _bind_getCompressorMap_overload_1(lua_State *L) {
+		if (!_lg_typecheck_getCompressorMap_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap() function, expected prototype:\nosgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap()\nClass arguments details:\n");
+		}
+
+
+		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::ObjectWrapperManager::CompressorMap* lret = &self->getCompressorMap();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ObjectWrapperManager::CompressorMap >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap() const
+	static int _bind_getCompressorMap_overload_2(lua_State *L) {
+		if (!_lg_typecheck_getCompressorMap_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap() const function, expected prototype:\nconst osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap() const\nClass arguments details:\n");
+		}
+
+
+		osgDB::ObjectWrapperManager* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapperManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osgDB::ObjectWrapperManager::CompressorMap & osgDB::ObjectWrapperManager::getCompressorMap() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::ObjectWrapperManager::CompressorMap* lret = &self->getCompressorMap();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ObjectWrapperManager::CompressorMap >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osgDB::ObjectWrapperManager::getCompressorMap
+	static int _bind_getCompressorMap(lua_State *L) {
+		if (_lg_typecheck_getCompressorMap_overload_1(L)) return _bind_getCompressorMap_overload_1(L);
+		if (_lg_typecheck_getCompressorMap_overload_2(L)) return _bind_getCompressorMap_overload_2(L);
+
+		luaL_error(L, "error in function getCompressorMap, cannot match any of the overloads for function getCompressorMap:\n  getCompressorMap()\n  getCompressorMap()\n");
+		return 0;
 	}
 
 	// int osgDB::ObjectWrapperManager::getValue(const std::string & group, const std::string & str)
@@ -390,9 +516,11 @@ luna_RegType LunaTraits< osgDB::ObjectWrapperManager >::methods[] = {
 	{"addWrapper", &luna_wrapper_osgDB_ObjectWrapperManager::_bind_addWrapper},
 	{"removeWrapper", &luna_wrapper_osgDB_ObjectWrapperManager::_bind_removeWrapper},
 	{"findWrapper", &luna_wrapper_osgDB_ObjectWrapperManager::_bind_findWrapper},
+	{"getWrapperMap", &luna_wrapper_osgDB_ObjectWrapperManager::_bind_getWrapperMap},
 	{"addCompressor", &luna_wrapper_osgDB_ObjectWrapperManager::_bind_addCompressor},
 	{"removeCompressor", &luna_wrapper_osgDB_ObjectWrapperManager::_bind_removeCompressor},
 	{"findCompressor", &luna_wrapper_osgDB_ObjectWrapperManager::_bind_findCompressor},
+	{"getCompressorMap", &luna_wrapper_osgDB_ObjectWrapperManager::_bind_getCompressorMap},
 	{"getValue", &luna_wrapper_osgDB_ObjectWrapperManager::_bind_getValue},
 	{"getString", &luna_wrapper_osgDB_ObjectWrapperManager::_bind_getString},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgDB_ObjectWrapperManager::_bind_base_setThreadSafeRefUnref},

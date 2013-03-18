@@ -178,6 +178,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getTexUnitAttrMatrixListMap(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_addPositionedTextureAttribute(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
@@ -203,10 +209,23 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getTexAttrListMap(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_setAttrList(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,94794184) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setTexAttrListMap(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,88896285) ) return false;
 		return true;
 	}
 
@@ -524,6 +543,27 @@ public:
 		return 0;
 	}
 
+	// osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap & osgUtil::PositionalStateContainer::getTexUnitAttrMatrixListMap()
+	static int _bind_getTexUnitAttrMatrixListMap(lua_State *L) {
+		if (!_lg_typecheck_getTexUnitAttrMatrixListMap(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap & osgUtil::PositionalStateContainer::getTexUnitAttrMatrixListMap() function, expected prototype:\nosgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap & osgUtil::PositionalStateContainer::getTexUnitAttrMatrixListMap()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap & osgUtil::PositionalStateContainer::getTexUnitAttrMatrixListMap(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap* lret = &self->getTexUnitAttrMatrixListMap();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osgUtil::PositionalStateContainer::addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr)
 	static int _bind_addPositionedTextureAttribute(lua_State *L) {
 		if (!_lg_typecheck_addPositionedTextureAttribute(L)) {
@@ -593,6 +633,27 @@ public:
 		return 1;
 	}
 
+	// osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap osgUtil::PositionalStateContainer::_texAttrListMap()
+	static int _bind_getTexAttrListMap(lua_State *L) {
+		if (!_lg_typecheck_getTexAttrListMap(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap osgUtil::PositionalStateContainer::_texAttrListMap() function, expected prototype:\nosgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap osgUtil::PositionalStateContainer::_texAttrListMap()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap osgUtil::PositionalStateContainer::_texAttrListMap(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap* lret = &self->_texAttrListMap;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList value)
 	static int _bind_setAttrList(lua_State *L) {
 		if (!_lg_typecheck_setAttrList(L)) {
@@ -612,6 +673,29 @@ public:
 			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::_attrList(osgUtil::PositionalStateContainer::AttrMatrixList). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->_attrList = value;
+
+		return 0;
+	}
+
+	// void osgUtil::PositionalStateContainer::_texAttrListMap(osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap value)
+	static int _bind_setTexAttrListMap(lua_State *L) {
+		if (!_lg_typecheck_setTexAttrListMap(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::PositionalStateContainer::_texAttrListMap(osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap value) function, expected prototype:\nvoid osgUtil::PositionalStateContainer::_texAttrListMap(osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap value)\nClass arguments details:\narg 1 ID = 42744840\n");
+		}
+
+		osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap* value_ptr=(Luna< std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList > >::checkSubType< osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap >(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::PositionalStateContainer::_texAttrListMap function");
+		}
+		osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap value=*value_ptr;
+
+		osgUtil::PositionalStateContainer* self=Luna< osg::Referenced >::checkSubType< osgUtil::PositionalStateContainer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::PositionalStateContainer::_texAttrListMap(osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->_texAttrListMap = value;
 
 		return 0;
 	}
@@ -983,10 +1067,13 @@ luna_RegType LunaTraits< osgUtil::PositionalStateContainer >::methods[] = {
 	{"reset", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_reset},
 	{"getAttrMatrixList", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_getAttrMatrixList},
 	{"addPositionedAttribute", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_addPositionedAttribute},
+	{"getTexUnitAttrMatrixListMap", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_getTexUnitAttrMatrixListMap},
 	{"addPositionedTextureAttribute", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_addPositionedTextureAttribute},
 	{"draw", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_draw},
 	{"getAttrList", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_getAttrList},
+	{"getTexAttrListMap", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_getTexAttrListMap},
 	{"setAttrList", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_setAttrList},
+	{"setTexAttrListMap", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_setTexAttrListMap},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgUtil_PositionalStateContainer::_bind_base_computeDataVariance},

@@ -76,17 +76,32 @@ function Class:loadImage(filename)
 end
 
 function Class:getImage(file)
-	return self:loadImage(fs:getRootPath(true) .. file)
+	return self:loadImage(fs:getImagePath(file))
 end
 
 -- Create a texture from an input image.
 function Class:createTexture(options)
-	self:check(options.image,"Invalid image for texture creation.");
 	
-	-- we only support texture 2D for the moment.
-	local tex = osg.Texture2D(options.image);
-	-- local tex = osg.TextureRectangle(options.image);
-	tex:setTextureSize(options.image:s(),options.image:t());
+	local tex = nil
+	
+	if options.image then		
+		-- we only support texture 2D for the moment.
+		-- local tex = osg.TextureRectangle(options.image);
+		tex = osg.Texture2D(options.image);
+		tex:setTextureSize(options.image:s(),options.image:t());
+	elseif options.cubemaps then
+		local maps = options.cubemaps
+		tex = osg.TextureCubeMap()
+		tex:setImage(osg.TextureCubeMap.POSITIVE_X, maps.x_pos)
+		tex:setImage(osg.TextureCubeMap.NEGATIVE_X, maps.x_neg)
+		tex:setImage(osg.TextureCubeMap.POSITIVE_Y, maps.y_pos)
+		tex:setImage(osg.TextureCubeMap.NEGATIVE_Y, maps.y_neg)
+		tex:setImage(osg.TextureCubeMap.POSITIVE_Z, maps.z_pos)
+		tex:setImage(osg.TextureCubeMap.NEGATIVE_Z, maps.z_neg)
+	end
+	
+	self:check(tex,"Invalid texture options.")
+	
 	tex:setResizeNonPowerOfTwoHint(false);
 	
 	tex:setWrap(osg.Texture.WRAP_S,osg.Texture.CLAMP_TO_EDGE);
@@ -270,7 +285,9 @@ function Class:createScreenQuad(options)
 	if tex then
 		ss:setTextureAttributeAndModes(0,tex);
 		--self:createTextureRectProgram{stateSet=ss,texture=tex,invertY=options.invertY}
-		self:createTexture2DProgram{stateSet=ss,texture=tex,invertY=options.invertY}
+		if utils.typeEx(tex)=="osg.Texture2D" then
+			self:createTexture2DProgram{stateSet=ss,texture=tex,invertY=options.invertY}
+		end
 	else
 		self:createColorProgram{stateSet=ss}
 	end
@@ -343,6 +360,11 @@ function Class:createQuad(options)
 	end
 
 	return geode
+end
+
+function Class:createSkyBox(options)
+	local SkyBoxBuilder = require "osg.SkyBoxBuilder"
+	return 	SkyBoxBuilder:create(options)
 end
 
 return Class()

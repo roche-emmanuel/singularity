@@ -16,6 +16,19 @@ function Class:initialize(options)
 	self:createBase()
 	self:applyCircleAnimation(mt, 4.0, 6.0)
 	
+	local tools = require "osg.Tools"
+	
+	local sb = tools:createSkyBox{
+		x_pos="skybox1/right.jpg",
+		x_neg="skybox1/left.jpg",
+		y_pos="skybox1/front.jpg",
+		y_neg="skybox1/back.jpg",
+		z_pos="skybox1/top.jpg",
+		z_neg="skybox1/bottom.jpg",
+	}
+	
+	self:getRoot():addChild(sb)
+	
 	local view = self._tile:getWebView()
 
 	self._hand = require("genesis.GenesisHandler")()

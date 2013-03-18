@@ -186,6 +186,19 @@ public:
 		return ImageProcessor::compress(arg1, arg2, arg3, arg4, arg5, arg6);
 	};
 
+	// void osgDB::ImageProcessor::generateMipMap(osg::Image & arg1, bool arg2, osgDB::ImageProcessor::CompressionMethod arg3)
+	void generateMipMap(osg::Image & arg1, bool arg2, osgDB::ImageProcessor::CompressionMethod arg3) {
+		if(_obj.pushFunction("generateMipMap")) {
+			_obj.pushArg((osgDB::ImageProcessor*)this);
+			_obj.pushArg(&arg1);
+			_obj.pushArg(arg2);
+			_obj.pushArg((int)arg3);
+			return (_obj.callFunction<void>());
+		}
+
+		return ImageProcessor::generateMipMap(arg1, arg2, arg3);
+	};
+
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

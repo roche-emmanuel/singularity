@@ -21,6 +21,22 @@ public:
 		}
 	};
 	
+	wrapper_osg_TextureCubeMap(lua_State* L, lua_Table* dum) 
+		: osg::TextureCubeMap(), luna_wrapper_base(L) { 
+		register_protected_methods(L); 
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::TextureCubeMap*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_TextureCubeMap(lua_State* L, lua_Table* dum, const osg::TextureCubeMap & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) 
+		: osg::TextureCubeMap(cm, copyop), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::TextureCubeMap*)this);
+			_obj.callFunction<void>();
+		}
+	};
 
 
 	// Private virtual methods:

@@ -103,7 +103,7 @@ ReflectionGenerator.generate{
 		"XmlNode::Input",
 		"ControlMap",
 		"Texture3D::computeRequiredTextureDimensions",
-		"Map%(",
+		--"Map%(",
 		"Map%)",
 		"PrecipitationDrawableSet",
 		"ModeStack",

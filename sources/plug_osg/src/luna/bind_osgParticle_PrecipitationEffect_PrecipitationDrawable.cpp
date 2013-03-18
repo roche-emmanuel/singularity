@@ -246,6 +246,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getCurrentCellMatrixMap(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getPreviousCellMatrixMap(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_newFrame(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -808,6 +820,48 @@ public:
 		return 0;
 	}
 
+	// osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap & osgParticle::PrecipitationEffect::PrecipitationDrawable::getCurrentCellMatrixMap()
+	static int _bind_getCurrentCellMatrixMap(lua_State *L) {
+		if (!_lg_typecheck_getCurrentCellMatrixMap(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap & osgParticle::PrecipitationEffect::PrecipitationDrawable::getCurrentCellMatrixMap() function, expected prototype:\nosgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap & osgParticle::PrecipitationEffect::PrecipitationDrawable::getCurrentCellMatrixMap()\nClass arguments details:\n");
+		}
+
+
+		osgParticle::PrecipitationEffect::PrecipitationDrawable* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect::PrecipitationDrawable >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap & osgParticle::PrecipitationEffect::PrecipitationDrawable::getCurrentCellMatrixMap(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap* lret = &self->getCurrentCellMatrixMap();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap & osgParticle::PrecipitationEffect::PrecipitationDrawable::getPreviousCellMatrixMap()
+	static int _bind_getPreviousCellMatrixMap(lua_State *L) {
+		if (!_lg_typecheck_getPreviousCellMatrixMap(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap & osgParticle::PrecipitationEffect::PrecipitationDrawable::getPreviousCellMatrixMap() function, expected prototype:\nosgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap & osgParticle::PrecipitationEffect::PrecipitationDrawable::getPreviousCellMatrixMap()\nClass arguments details:\n");
+		}
+
+
+		osgParticle::PrecipitationEffect::PrecipitationDrawable* self=Luna< osg::Referenced >::checkSubType< osgParticle::PrecipitationEffect::PrecipitationDrawable >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap & osgParticle::PrecipitationEffect::PrecipitationDrawable::getPreviousCellMatrixMap(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap* lret = &self->getPreviousCellMatrixMap();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// void osgParticle::PrecipitationEffect::PrecipitationDrawable::newFrame()
 	static int _bind_newFrame(lua_State *L) {
 		if (!_lg_typecheck_newFrame(L)) {
@@ -1364,6 +1418,8 @@ luna_RegType LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable
 	{"setNumberOfVertices", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable::_bind_setNumberOfVertices},
 	{"getNumberOfVertices", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable::_bind_getNumberOfVertices},
 	{"drawImplementation", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable::_bind_drawImplementation},
+	{"getCurrentCellMatrixMap", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable::_bind_getCurrentCellMatrixMap},
+	{"getPreviousCellMatrixMap", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable::_bind_getPreviousCellMatrixMap},
 	{"newFrame", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable::_bind_newFrame},
 	{"base_setName", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable::_bind_base_setName},
 	{"base_setUserData", &luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable::_bind_base_setUserData},

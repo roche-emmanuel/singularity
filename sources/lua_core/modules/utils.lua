@@ -91,9 +91,10 @@ function utils.typeEx(obj)
 	local tObj = type(obj)
 	if tObj == "userdata" and obj._CLASSNAME_ then
 		return obj._CLASSNAME_
+	elseif tObj=="table" and obj._CLASSNAME_ and obj._LIBRARYNAME_ then
+		return obj._LIBRARYNAME_ .. "." .. obj._CLASSNAME_
 	end
-	
-	-- TODO : extend this function with support for LOOP classes.
+
 	return tObj;
 end
 

@@ -43,6 +43,11 @@ function Class:getModulePath(str)
 	return self:getRootPath(true) .. "lua/modules/" .. str
 end
 
+-- Return the path of an image asset file:
+function Class:getImagePath(str)
+	return self:getAssetPath("images/" .. str)
+end
+
 --- Retrieve a relative path from the root path.
 function Class:getPath(subpath)
 	self:checkString(subpath,"Invalid string argument")
