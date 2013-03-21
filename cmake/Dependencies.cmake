@@ -21,6 +21,18 @@ SET(BOOST_INC_DIR 	${DEP_BOOST}/include)
 SET(BOOST_LIB_DIR 	${DEP_BOOST}/lib)
 SET(BOOST_LIBS 		)
 
+SET(GLEW_INC_DIR 	${DEP_GLEW}/include)
+SET(GLEW_LIB_DIR 	${DEP_GLEW}/lib)
+SET(GLEW_LIBS 		glew32.lib)
+
+SET(GLUT_INC_DIR 	${DEP_GLUT}/include)
+SET(GLUT_LIB_DIR 	${DEP_GLUT}/lib)
+SET(GLUT_LIBS 		glut32.lib)
+
+SET(TIFF_INC_DIR 	${DEP_TIFF}/include)
+SET(TIFF_LIB_DIR 	${DEP_TIFF}/lib)
+SET(TIFF_LIBS 		libtiff.lib)
+
 SET(CD_INC_DIR 	${DEP_CD}/include)
 SET(CD_LIB_DIR 	${DEP_CD})
 SET(CD_LIBS     cd.lib cdcontextplus.lib cdgl.lib cdlua51.lib cdluacontextplus51.lib cdluagl51.lib cdluaim51.lib cdluapdf51.lib cdpdf.lib freetype6.lib ftgl.lib pdflib.lib zlib1.lib gdiplus.lib)

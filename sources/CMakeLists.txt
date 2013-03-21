@@ -16,7 +16,7 @@ LINK_DIRECTORIES (${LUA_LIB_DIR})
 
 ADD_SUBDIRECTORY(sgtCore)
 
-ADD_SUBDIRECTORY(lua_core)
+# ADD_SUBDIRECTORY(lua_core)
 # ADD_SUBDIRECTORY(lua_externals)
 # ADD_SUBDIRECTORY(lua_cog)
 
@@ -53,6 +53,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_bullet)
 # ADD_SUBDIRECTORY(plug_micropather)
 # ADD_SUBDIRECTORY(plug_mathgl)
+ADD_SUBDIRECTORY(plug_proland)
 
 # ToDo:
 # ADD_SUBDIRECTORY(plug_freenect)

@@ -5,6 +5,15 @@
 
 - Todo:
 
+* backbone.js: http://backbonejs.org/
+* http://www.chartjs.org/
+
+* CityGML integration.
+
+* CHeck proland sources and website: http://proland.inrialpes.fr/ and svn svn://scm.gforge.inria.fr/svnroot/proland/trunk
+
+* look for: "Real-Time Procedural Planet Rendering"
+
 * ubidisplays: https://code.google.com/p/ubidisplays/
 
 * http://jrmtech.com/Products/SigSimRT
