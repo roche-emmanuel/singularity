@@ -23,8 +23,8 @@ SET(BOOST_LIBS 		)
 
 SET(GLEW_INC_DIR 	${DEP_GLEW}/include)
 SET(GLEW_LIB_DIR 	${DEP_GLEW}/lib)
-SET(GLEW_LIBS 		glew32.lib) #glew32s.lib)
-SET(GLEW_FLAGS 		) #-DGLEW_STATIC)
+SET(GLEW_LIBS 		glew32s.lib) #glew32.lib)
+SET(GLEW_FLAGS 		-DGLEW_STATIC)
 
 SET(GLUT_INC_DIR 	${DEP_GLUT}/include)
 SET(GLUT_LIB_DIR 	${DEP_GLUT}/lib)
@@ -32,7 +32,8 @@ SET(GLUT_LIBS 		glut32.lib)
 
 SET(TIFF_INC_DIR 	${DEP_TIFF}/include)
 SET(TIFF_LIB_DIR 	${DEP_TIFF}/lib)
-SET(TIFF_LIBS 		libtiff_i.lib)
+# SET(TIFF_LIBS 	libtiff_i.lib)
+SET(TIFF_LIBS 		libtiff.lib)
 
 SET(CD_INC_DIR 	${DEP_CD}/include)
 SET(CD_LIB_DIR 	${DEP_CD})

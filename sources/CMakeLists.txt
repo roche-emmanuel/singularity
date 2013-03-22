@@ -22,8 +22,8 @@ ENDIF()
 
 ADD_SUBDIRECTORY(sgtCore)
 
-ADD_SUBDIRECTORY(lua_core)
-ADD_SUBDIRECTORY(lua_externals)
+# ADD_SUBDIRECTORY(lua_core)
+# ADD_SUBDIRECTORY(lua_externals)
 # ADD_SUBDIRECTORY(lua_cog)
 
 # ADD_SUBDIRECTORY(plug_byteconverter)
@@ -59,7 +59,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_bullet)
 # ADD_SUBDIRECTORY(plug_micropather)
 # ADD_SUBDIRECTORY(plug_mathgl)
-# ADD_SUBDIRECTORY(plug_proland)
+ADD_SUBDIRECTORY(plug_proland)
 
 # ToDo:
 # ADD_SUBDIRECTORY(plug_freenect)

@@ -27,6 +27,8 @@
 
 #include "proland/dem/ResidualProducer.h"
 
+#include "sgtCommon.h"
+
 #include <fstream>
 #include <sstream>
 
@@ -297,12 +299,19 @@ void ResidualProducer::readTile(int level, int tx, int ty,
 
         // TODO compare perfs FILE vs ifstream vs mmap
 
+
         mfs_file fd;
         mfs_open(compressedData, fsize, (char *)"r", &fd);
         TIFF* tf = TIFFClientOpen("name", "r", &fd,
             (TIFFReadWriteProc) mfs_read, (TIFFReadWriteProc) mfs_write, (TIFFSeekProc) mfs_lseek,
             (TIFFCloseProc) mfs_close, (TIFFSizeProc) mfs_size, (TIFFMapFileProc) mfs_map,
             (TIFFUnmapFileProc) mfs_unmap);
+		if(!tf) {
+			logERROR("Cannot open tiff client!");
+		}
+		else {
+			logERROR("Tiff client opened!");
+		}
         TIFFReadEncodedStrip(tf, 0, uncompressedData, (tsize_t) -1);
         TIFFClose(tf);
 

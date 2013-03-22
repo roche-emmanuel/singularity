@@ -413,7 +413,7 @@ MACRO(COMPRESS_BINARY_TARGET THE_TARGET)
 					# TARGET ${THE_TARGET}
 					# POST_BUILD
 					# COMMAND echo "Compressing binary..."
-					# COMMAND ${UPX} --best "$<TARGET_FILE:${THE_TARGET}>"
+					# COMMAND ${UPX} --best --compress-exports=0 --compress-icons=0 --compress-resource=0 --strip-relocs=0 --no-reloc "$<TARGET_FILE:${THE_TARGET}>"
 				# )		
 		# ENDIF()
 	# ENDIF()
