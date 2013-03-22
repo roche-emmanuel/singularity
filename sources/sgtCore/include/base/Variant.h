@@ -130,8 +130,8 @@ public:
 
 	/** Retrieve referenced value from this container. */
 	//template <>
-	inline sgtReferenced* get(const sgtReferenced* defVal = NULL) const { //<sgtReferenced*>
-		RefPtr* ptr = boost::get<RefPtr>( this );
+	inline sgtReferencedBase* get(const sgtReferencedBase* defVal = NULL) const { //<sgtReferenced*>
+		const RefPtr* ptr = boost::get<RefPtr>( this );
 		return ptr ? ptr->get() : NULL;
 	}
 
@@ -297,6 +297,10 @@ protected:
 	mutable osgDB::OutputStream& _os;
 };
 
+
+#ifdef _MSC_VER
+template class SGTCORE_EXPORT Variant<>;
+#endif
 
 typedef Variant<> Any;
 

@@ -95,11 +95,13 @@ function Class:writeFile()
 			self:warn("Ignoring registration for class ", tname)
 		end
 	end
-		
-	buf:writeSubLine("luna_popModule(L);") -- pop the module at the end.	
-	--buf:writeForeach(buf.classes,"Luna< ${1} >::Register(L);",getValueName)
-	buf:newLine()
-
+	
+	if currentModule then	
+		buf:writeSubLine("luna_popModule(L);") -- pop the module at the end.	
+		--buf:writeForeach(buf.classes,"Luna< ${1} >::Register(L);",getValueName)
+		buf:newLine()
+	end
+	
 	-- push a new table that will serve as the wx container:
 	--buf:writeLine("lua_newtable(L); // container class")
 	buf:writeSubLine('luna_pushModule(L,"${1}");',mname) -- load the default module.

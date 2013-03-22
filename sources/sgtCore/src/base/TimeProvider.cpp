@@ -23,6 +23,7 @@ static bool writeSimulationTime( osgDB::OutputStream& os, const sgt::TimeProvide
 }
 
 // write the wrapper:
+/*
 REGISTER_OBJECT_WRAPPER( sgtTimeProvider_Wrapper,
 						new sgt::TimeProvider, sgt::TimeProvider,
 						"osg::Object sgt::Object sgt::TimeProvider" )
@@ -32,6 +33,7 @@ REGISTER_OBJECT_WRAPPER( sgtTimeProvider_Wrapper,
 	ADD_TIME_SERIALIZER( StartTime, sgt::Time() );
 	ADD_USER_SERIALIZER( SimulationTime );
 }
+*/
 
 namespace sgt {
 

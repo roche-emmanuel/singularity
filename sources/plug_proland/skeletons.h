@@ -1,5 +1,11 @@
-#ifndef _sgt_SKELETONS_H_
-#define _sgt_SKELETONS_H_
+#ifndef _proland_SKELETONS_H_
+#define _proland_SKELETONS_H_
+
+namespace proland {
+	class ProlandTest {
+	};
+
+};
 
 
 #endif

@@ -10,14 +10,20 @@ LINK_DIRECTORIES (${OSG_LIB_DIR})
 INCLUDE_DIRECTORIES(${LUA_INC_DIR})
 LINK_DIRECTORIES (${LUA_LIB_DIR})
 
+IF(MSVC)
+	# force generation of pdb files:
+	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zi")
+ENDIF()
+
+
 # OSG plugins:
 # ADD_SUBDIRECTORY(osgdb_assimp)
 # ADD_SUBDIRECTORY(osgdb_freeimage)
 
 ADD_SUBDIRECTORY(sgtCore)
 
-# ADD_SUBDIRECTORY(lua_core)
-# ADD_SUBDIRECTORY(lua_externals)
+ADD_SUBDIRECTORY(lua_core)
+ADD_SUBDIRECTORY(lua_externals)
 # ADD_SUBDIRECTORY(lua_cog)
 
 # ADD_SUBDIRECTORY(plug_byteconverter)
@@ -53,14 +59,14 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_bullet)
 # ADD_SUBDIRECTORY(plug_micropather)
 # ADD_SUBDIRECTORY(plug_mathgl)
-ADD_SUBDIRECTORY(plug_proland)
+# ADD_SUBDIRECTORY(plug_proland)
 
 # ToDo:
 # ADD_SUBDIRECTORY(plug_freenect)
 # ADD_SUBDIRECTORY(plug_spice)
 # ADD_SUBDIRECTORY(plug_norad)
 
-# ADD_SUBDIRECTORY(sgt_launcher)
+ADD_SUBDIRECTORY(sgt_launcher)
 # ADD_SUBDIRECTORY(tests/virtual_base)
 
 # ADD_SUBDIRECTORY(wx)

@@ -46,7 +46,27 @@ void ModuleProvider::loadPackage(const String& packageFile) {
 		return;
 	}
 
+//sgtModuleManager::instance();
+
 	logDEBUG3_V("Trying to load library from " << packageFile);
+/*	void* res = LoadLibrary( packageFile.c_str() );
+	if(!res) {
+		//DWORD code = GetLastError();
+		LPVOID lpMsgBuf;
+		DWORD dw = GetLastError(); 
+
+		FormatMessage(
+			FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+			FORMAT_MESSAGE_FROM_SYSTEM |
+			FORMAT_MESSAGE_IGNORE_INSERTS,
+			NULL,
+			dw,
+			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+			(LPTSTR) &lpMsgBuf,
+			0, NULL );
+		logERROR("Loading failed:"<< lpMsgBuf);
+	}*/
+
 	osgDB::DynamicLibrary* lib = osgDB::DynamicLibrary::loadLibrary(packageFile);
 	if(lib) {
 		logDEBUG_V("Successfully loaded library from " << packageFile);

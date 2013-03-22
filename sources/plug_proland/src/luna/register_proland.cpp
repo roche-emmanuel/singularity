@@ -13,9 +13,11 @@ extern void register_global_functions(lua_State* L);
 int PLUG_EXPORT luaopen_proland(lua_State* L) {
 	luna_open(L);
 
+	luna_pushModule(L,"proland");
+	Luna< proland::ProlandTest >::Register(L);
 	luna_popModule(L);
 
-	luna_pushModule(L,"sgt");
+	luna_pushModule(L,"proland");
 
 	register_defines(L);
 
@@ -25,9 +27,9 @@ int PLUG_EXPORT luaopen_proland(lua_State* L) {
 
 	register_global_functions(L);
 
-	luna_copyParents(L,"sgt");
+	luna_copyParents(L,"proland");
 
-	luna_pushModule(L,"sgt");
+	luna_pushModule(L,"proland");
 	return 1;
 }
 

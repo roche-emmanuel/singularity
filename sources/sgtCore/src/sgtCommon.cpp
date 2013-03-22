@@ -12,6 +12,7 @@ void doTrace(int level, const std::string& trace, const std::string& msg) {
 	TRACE(level, trace, msg);
 }
 
+
 void doTraceV(int level, const std::string& trace, const std::string& msg) {
 	TRACE_V(level, trace, msg);
 }

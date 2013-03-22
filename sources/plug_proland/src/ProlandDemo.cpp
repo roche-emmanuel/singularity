@@ -471,9 +471,10 @@ void initProlandDemo(const string &archive, const string &data, const string &ev
     }
 }
 
+namespace proland {
+
 int playProlandDemo(const std::string& archive, const std::string& data, const std::string& events)
 {
-    assert(argc > 2);
     initTerrainPlugin();
     initEditPlugin();
     initOceanPlugin();
@@ -485,3 +486,5 @@ int playProlandDemo(const std::string& archive, const std::string& data, const s
     app->start();
     return 0;
 }
+
+};

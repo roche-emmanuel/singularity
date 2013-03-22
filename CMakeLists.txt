@@ -26,7 +26,7 @@ IF("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 ENDIF()
 
 # Use the "d" postfix for debug binaries
-SET(CMAKE_DEBUG_POSTFIX "d")
+SET(CMAKE_DEBUG_POSTFIX "")
 
 
 STRING(TOUPPER "${FLAVOR}" UPPER_FLAVOR)

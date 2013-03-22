@@ -14,18 +14,18 @@ inline static bool _lg_typecheck_playProlandDemo(lua_State *L) {
 
 
 // Function binds:
-// int playProlandDemo(const std::string & archive, const std::string & data, const std::string & events)
+// int proland::playProlandDemo(const std::string & archive, const std::string & data, const std::string & events)
 static int _bind_playProlandDemo(lua_State *L) {
 	if (!_lg_typecheck_playProlandDemo(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int playProlandDemo(const std::string & archive, const std::string & data, const std::string & events) function, expected prototype:\nint playProlandDemo(const std::string & archive, const std::string & data, const std::string & events)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int proland::playProlandDemo(const std::string & archive, const std::string & data, const std::string & events) function, expected prototype:\nint proland::playProlandDemo(const std::string & archive, const std::string & data, const std::string & events)\nClass arguments details:\n");
 	}
 
 	std::string archive(lua_tostring(L,1),lua_objlen(L,1));
 	std::string data(lua_tostring(L,2),lua_objlen(L,2));
 	std::string events(lua_tostring(L,3),lua_objlen(L,3));
 
-	int lret = ::playProlandDemo(archive, data, events);
+	int lret = proland::playProlandDemo(archive, data, events);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -37,7 +37,7 @@ extern "C" {
 #endif
 
 void register_global_functions(lua_State* L) {
-	luna_pushModule(L,"sgt");
+	luna_pushModule(L,"proland");
 	lua_pushcfunction(L, _bind_playProlandDemo); lua_setfield(L,-2,"playProlandDemo");
 	luna_popModule(L);
 }

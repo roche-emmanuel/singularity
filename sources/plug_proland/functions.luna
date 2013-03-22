@@ -1,2 +1,2 @@
-module=sgt
-playProlandDemo
+module=proland
+proland::playProlandDemo
