@@ -24,8 +24,6 @@
 #ifndef _ORK_OBJECT_H_
 #define _ORK_OBJECT_H_
 
-#include "ork.h"
-
 #include <cstdio>
 #include <cassert>
 

@@ -408,7 +408,7 @@ private:
     /**
      * A mutex to serialize parallel accesses to this cache.
      */
-    OpenThreads::ReentrantMutex _mutex;
+    void* mutex;
 
     /**
      * Notifies this TileCache that a tile creation task has been deleted.

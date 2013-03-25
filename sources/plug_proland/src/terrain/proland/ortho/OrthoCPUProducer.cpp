@@ -39,6 +39,7 @@
 #include "proland/producer/CPUTileStorage.h"
 #include "proland/util/mfs.h"
 
+#include <pthread.h>
 
 using namespace std;
 using namespace ork;
@@ -49,6 +50,13 @@ namespace proland
 //#define SINGLE_FILE
 
 #define MAX_TILE_SIZE 512
+
+void *OrthoCPUProducer::key = NULL;
+
+void orthoCPUDelete(void* data)
+{
+    delete[] (unsigned char*) data;
+}
 
 OrthoCPUProducer::OrthoCPUProducer(ptr<TileCache> cache, const char *name) :
     TileProducer("OrthoCPUProducer", "CreateOrthoCPUTile")
@@ -103,7 +111,17 @@ void OrthoCPUProducer::init(ptr<TileCache> cache, const char *name)
     #endif
         }
 
+        if (key == NULL) {
+            key = new pthread_key_t;
+            pthread_key_create((pthread_key_t*) key, orthoCPUDelete);
+        }
+
         assert(tileSize + 2*border < MAX_TILE_SIZE);
+
+    #ifdef SINGLE_FILE
+        mutex = new pthread_mutex_t;
+        pthread_mutex_init((pthread_mutex_t*) mutex, NULL);
+    #endif
     }
 }
 
@@ -111,16 +129,10 @@ OrthoCPUProducer::~OrthoCPUProducer()
 {
 #ifdef SINGLE_FILE
     fclose(tileFile);
+    pthread_mutex_destroy((pthread_mutex_t*) mutex);
+    delete (pthread_mutex_t*) mutex;
 #endif
     delete[] offsets;
-	
-	// delete the thread data:
-	typedef std::map< void*, unsigned char* > DataMap;
-	
-	for(DataMap::iterator it =_dataMap.begin(); it!=_dataMap.end(); ++it) {
-		delete [] (it->second);
-	};
-	_dataMap.clear();	
 }
 
 int OrthoCPUProducer::getBorder()
@@ -160,11 +172,10 @@ bool OrthoCPUProducer::doCreateTile(int level, int tx, int ty, TileStorage::Slot
         assert(cpuData->getOwner()->getTileSize() == tileSize + 2*border);
         assert(level <= maxLevel);
 
-		OpenThreads::Thread* thread = OpenThreads::Thread::CurrentThread();
-        unsigned char *compressedData = _dataMap[(void*)thread];
+        unsigned char *compressedData = (unsigned char*) pthread_getspecific(*((pthread_key_t*) key));
         if (compressedData == NULL) {
             compressedData = new unsigned char[MAX_TILE_SIZE * MAX_TILE_SIZE * 4 * 2];
-           _dataMap[(void*)thread] = compressedData;
+            pthread_setspecific(*((pthread_key_t*) key), compressedData);
         }
 
         int fsize = (int) (offsets[2 * tileid + 1] - offsets[2 * tileid]);
@@ -172,9 +183,10 @@ bool OrthoCPUProducer::doCreateTile(int level, int tx, int ty, TileStorage::Slot
 
         if (dxt) {
     #ifdef SINGLE_FILE
-            OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+            pthread_mutex_lock((pthread_mutex_t*) mutex);
             fseek64(tileFile, header + offsets[2 * tileid], SEEK_SET);
             fread(cpuData->data, fsize, 1, tileFile);
+            pthread_mutex_unlock((pthread_mutex_t*) mutex);
     #else
             FILE *file;
             fopen(&file, name.c_str(), "rb");
@@ -190,9 +202,10 @@ bool OrthoCPUProducer::doCreateTile(int level, int tx, int ty, TileStorage::Slot
         } else {
             unsigned char* srcData = compressedData;
     #ifdef SINGLE_FILE
-            OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+            pthread_mutex_lock((pthread_mutex_t*) mutex);
             fseek64(tileFile, header + offsets[2 * tileid], SEEK_SET);
             fread(compressedData, fsize, 1, tileFile);
+            pthread_mutex_unlock((pthread_mutex_t*) mutex);
     #else
             FILE *file;
             fopen(&file, name.c_str(), "rb");
@@ -228,7 +241,7 @@ void OrthoCPUProducer::swap(ptr<OrthoCPUProducer> p)
     std::swap(maxLevel, p->maxLevel);
     std::swap(dxt, p->dxt);
     std::swap(offsets, p->offsets);
-    //std::swap(_mutex, p->_mutex);
+    std::swap(mutex, p->mutex);
     std::swap(tileFile, p->tileFile);
 }
 

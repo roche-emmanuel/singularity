@@ -122,7 +122,7 @@ protected:
     /**
      * A mutex to access this logger from multiple threads.
      */
-    OpenThreads::Mutex _mutex;
+    void *mutex;
 };
 
 }

@@ -21,6 +21,8 @@
  * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
  */
 
+#include <pthread.h>
+
 #include "ork/scenegraph/ShowLogTask.h"
 
 #include "ork/render/FrameBuffer.h"
@@ -145,8 +147,9 @@ public:
     {
         if (next != NULL) {
             if (next->hasTopic(topic)) {
-                OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+                pthread_mutex_lock((pthread_mutex_t*) mutex);
                 buf->addText(type, "[" + topic + "] " + msg + '\n');
+                pthread_mutex_unlock((pthread_mutex_t*) mutex);
             }
             next->log(topic, msg);
         }

@@ -24,8 +24,6 @@
 #ifndef _HALF_FLOAT_H_
 #define _HALF_FLOAT_H_
 
-#include "ork.h"
-
 namespace ork
 {
 

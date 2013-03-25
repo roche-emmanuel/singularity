@@ -72,7 +72,6 @@ OF THIS SOFTWARE.
 #include    <stdlib.h>
 #include    <string.h>
 #include    <errno.h>
-#include	<iostream>
 
 #include "proland/util/mfs.h"
 
@@ -239,7 +238,6 @@ int mfs_lseek (mfs_file *fd, int offset, int whence)
 {
     int ret;
     long test_off;
-	std::cerr << "Entering lseek with offset=" << offset << std::endl;
 
     if (!fd->buf_open)  /* Not open */
     {
@@ -303,7 +301,6 @@ int mfs_lseek (mfs_file *fd, int offset, int whence)
         }
     }
 
-	std::cerr << "Leaving lseek with result=" << ret << std::endl;
     return (ret);
 }
 

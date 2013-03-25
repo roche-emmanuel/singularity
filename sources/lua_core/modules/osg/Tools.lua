@@ -14,7 +14,7 @@ local default_quad_vs = [[
 varying vec2 coords;
 
 void main() {
-    gl_Position = gl_Vertex;
+    gl_Position = vec4(gl_Vertex.xy,0.0,1.0);
     coords = (gl_Vertex.xy+vec2(1.0,1.0))/2.0;
 }	
 ]]
@@ -274,6 +274,9 @@ function Class:createScreenQuad(options)
 	
 	ss:setMode(gl.BLEND,osg.StateAttribute.ON)
 	ss:setRenderingHint(osg.StateSet.TRANSPARENT_BIN)
+	
+	-- always pass the depth test, and never write anything by default:
+	ss:setAttributeAndModes( osg.Depth(osg.Depth.ALWAYS, 1.0, 1.0, false) );
 	
 	local tex = options.texture
 	local img = options.image

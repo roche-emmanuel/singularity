@@ -381,7 +381,6 @@ extern const char uniform2b[];
  * A uniform holding a single precision two vector.
  * @ingroup render
  */
-// template class ORK_API Uniform2<VEC2F, GLfloat, GLfloat, uniform2f, value2f>;
 typedef Uniform2<VEC2F, GLfloat, GLfloat, uniform2f, value2f> Uniform2f;
 
 /**
@@ -512,7 +511,6 @@ extern const char uniform3b[];
  * A uniform holding a single precision three vector.
  * @ingroup render
  */
-// template class ORK_API Uniform3<VEC3F, GLfloat, GLfloat, uniform3f, value3f>;
 typedef Uniform3<VEC3F, GLfloat, GLfloat, uniform3f, value3f> Uniform3f;
 
 /**
@@ -644,7 +642,6 @@ extern const char uniform4b[];
  * A uniform holding a single precision four vector.
  * @ingroup render
  */
-// template class ORK_API Uniform4<VEC4F, GLfloat, GLfloat, uniform4f, value4f>;
 typedef Uniform4<VEC4F, GLfloat, GLfloat, uniform4f, value4f> Uniform4f;
 
 /**

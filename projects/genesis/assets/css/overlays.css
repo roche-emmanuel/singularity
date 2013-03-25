@@ -24,6 +24,11 @@ body {
 	user-select: none;
 }
 
+#mycanvas {
+	position: absolute;
+	left: 300px;
+	top: 300px;
+}
 
 div {
 	//min-height: 20px;
@@ -69,6 +74,13 @@ div {
 	font-size: 0;
 }
 
+img {
+	//position: absolute;
+    width: 100%;
+    height: 100%;
+	-webkit-filter: drop-shadow(1px 1px 3px rgba(0,0,0,1.0));
+}
+
 .img { 
 	background-color: #FFF; 
 	mask-size: 101% 101%;
@@ -76,42 +88,44 @@ div {
 }
 
 #az_pict_frame {
-	mask-image: url(images/az_pict_frame.png);
+	//mask-image: url(images/az_pict_frame.png);
 }
 
 #az_pict_fov {
-	mask-image: url(images/az_pict_fov.png);
+	//mask-image: url(images/az_pict_fov.png);
 	//transform:rotate(90deg);
 }
 
 #elev_pict_frame {
-	mask-image: url(images/elev_pict_frame.png);
+	//mask-image: url(images/elev_pict_frame.png);
 }
 
 #elev_pict_fov {
-	mask-image: url(images/elev_pict_fov.png);
+	//mask-image: url(images/elev_pict_fov.png);
 	//transform:rotate(90deg);
 }
 
 #north_arrow {
-	mask-image: url(images/north_arrow.png);
+	//mask-image: url(images/north_arrow.png);
 	//transform:rotate(45deg);
 }
 
 #hand_controller1 {
 	//mask-image: url(images/az_pict_frame.png);
-	mask-image: url(images/little_man.png);
+	//mask-image: url(images/little_man.png);
+	//background-image: url(images/little_man.png);
 	//mask-size: auto auto;
 }
 
 #hand_controller2 {
-	mask-image: url(images/little_man.png);
+	//mask-image: url(images/little_man.png);
 }
 
 #destabilization {
-	mask-image: url(images/destabilization_2.png);
+	//mask-image: url(images/destabilization_2.png);
 }
 
 #strata_waypoint {
-	mask-image: url(images/strata_waypoint.png);
+	//mask-image: url(images/strata_waypoint.png);
 }
+

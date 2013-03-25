@@ -450,7 +450,7 @@ private:
     /**
      * A mutex to serialize parallel accesses to #tasks.
      */
-    OpenThreads::Mutex _mutex;
+    void* mutex;
 
     /**
      * Creates a Task to produce the data of the given tile.

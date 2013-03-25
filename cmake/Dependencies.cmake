@@ -35,6 +35,10 @@ SET(TIFF_LIB_DIR 	${DEP_TIFF}/lib)
 # SET(TIFF_LIBS 	libtiff_i.lib)
 SET(TIFF_LIBS 		libtiff.lib)
 
+SET(PTHREADS_INC_DIR 	${DEP_PTHREADS}/include)
+SET(PTHREADS_LIB_DIR 	${DEP_PTHREADS}/lib/x86)
+SET(PTHREADS_LIBS 		pthreadVCE2.lib)
+
 SET(CD_INC_DIR 	${DEP_CD}/include)
 SET(CD_LIB_DIR 	${DEP_CD})
 SET(CD_LIBS     cd.lib cdcontextplus.lib cdgl.lib cdlua51.lib cdluacontextplus51.lib cdluagl51.lib cdluaim51.lib cdluapdf51.lib cdpdf.lib freetype6.lib ftgl.lib pdflib.lib zlib1.lib gdiplus.lib)

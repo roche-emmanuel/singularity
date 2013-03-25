@@ -27,8 +27,6 @@
 
 #include "proland/dem/ResidualProducer.h"
 
-#include "sgtCommon.h"
-
 #include <fstream>
 #include <sstream>
 
@@ -39,6 +37,7 @@
 #include "proland/producer/CPUTileStorage.h"
 #include "proland/util/mfs.h"
 
+#include <pthread.h>
 #include <cstring>
 
 using namespace std;
@@ -50,6 +49,13 @@ namespace proland
 //#define SINGLE_FILE
 
 #define MAX_TILE_SIZE 256
+
+void *ResidualProducer::key = NULL;
+
+void residualDelete(void* data)
+{
+    delete[] (unsigned char*) data;
+}
 
 ResidualProducer::ResidualProducer(ptr<TileCache> cache, const char *name, int deltaLevel, float zscale) :
     TileProducer("ResidualProducer", "CreateResidualTile")
@@ -107,8 +113,18 @@ void ResidualProducer::init(ptr<TileCache> cache, const char *name, int deltaLev
 #endif
         }
 
+        if (key == NULL) {
+            key = new pthread_key_t;
+            pthread_key_create((pthread_key_t*) key, residualDelete);
+        }
+
         assert(tileSize + 5 < MAX_TILE_SIZE);
         assert(deltaLevel <= minLevel);
+
+#ifdef SINGLE_FILE
+        mutex = new pthread_mutex_t;
+        pthread_mutex_init((pthread_mutex_t*) mutex, NULL);
+#endif
     }
 }
 
@@ -116,16 +132,10 @@ ResidualProducer::~ResidualProducer()
 {
 #ifdef SINGLE_FILE
     fclose(tileFile);
+    pthread_mutex_destroy((pthread_mutex_t*) mutex);
+    delete (pthread_mutex_t*) mutex;
 #endif
     delete[] offsets;
-	
-	// delete the thread data:
-	typedef std::map< void*, unsigned char* > DataMap;
-	
-	for(DataMap::iterator it =_dataMap.begin(); it!=_dataMap.end(); ++it) {
-		delete [] (it->second);
-	};
-	_dataMap.clear();
 }
 
 int ResidualProducer::getBorder()
@@ -197,11 +207,10 @@ bool ResidualProducer::doCreateTile(int level, int tx, int ty, TileStorage::Slot
     } else {
         assert(cpuData->getOwner()->getTileSize() == tileSize + 5);
 
-		OpenThreads::Thread* thread = OpenThreads::Thread::CurrentThread();
-        unsigned char *tsData = _dataMap[(void*)thread];
+        unsigned char *tsData = (unsigned char*) pthread_getspecific(*((pthread_key_t*) key));
         if (tsData == NULL) {
             tsData = new unsigned char[MAX_TILE_SIZE * MAX_TILE_SIZE * 4];
-            _dataMap[(void*)thread] = tsData;
+            pthread_setspecific(*((pthread_key_t*) key), tsData);
         }
         unsigned char *compressedData = tsData;
         unsigned char *uncompressedData = tsData + MAX_TILE_SIZE * MAX_TILE_SIZE * 2;
@@ -236,7 +245,7 @@ void ResidualProducer::swap(ptr<ResidualProducer> p)
     std::swap(scale, p->scale);
     std::swap(header, p->header);
     std::swap(offsets, p->offsets);
-    // std::swap(_mutex, p->_mutex);
+    std::swap(mutex, p->mutex);
     std::swap(tileFile, p->tileFile);
     std::swap(producers, p->producers);
 }
@@ -282,9 +291,10 @@ void ResidualProducer::readTile(int level, int tx, int ty,
         assert(fsize < (tileSize + 5) * (tileSize + 5) * 2);
 
 #ifdef SINGLE_FILE
-        OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+        pthread_mutex_lock((pthread_mutex_t*) mutex);
         fseek64(tileFile, header + offsets[2 * tileid], SEEK_SET);
         fread(compressedData, fsize, 1, tileFile);
+        pthread_mutex_unlock((pthread_mutex_t*) mutex);
 #else
         FILE *file;
         fopen(&file, name.c_str(), "rb");
@@ -299,19 +309,12 @@ void ResidualProducer::readTile(int level, int tx, int ty,
 
         // TODO compare perfs FILE vs ifstream vs mmap
 
-
         mfs_file fd;
         mfs_open(compressedData, fsize, (char *)"r", &fd);
         TIFF* tf = TIFFClientOpen("name", "r", &fd,
             (TIFFReadWriteProc) mfs_read, (TIFFReadWriteProc) mfs_write, (TIFFSeekProc) mfs_lseek,
             (TIFFCloseProc) mfs_close, (TIFFSizeProc) mfs_size, (TIFFMapFileProc) mfs_map,
             (TIFFUnmapFileProc) mfs_unmap);
-		if(!tf) {
-			logERROR("Cannot open tiff client!");
-		}
-		else {
-			logERROR("Tiff client opened!");
-		}
         TIFFReadEncodedStrip(tf, 0, uncompressedData, (tsize_t) -1);
         TIFFClose(tf);
 

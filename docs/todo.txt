@@ -5,6 +5,8 @@
 
 - Todo:
 
+* Setup unhandled exception handler.
+
 * backbone.js: http://backbonejs.org/
 * http://www.chartjs.org/
 

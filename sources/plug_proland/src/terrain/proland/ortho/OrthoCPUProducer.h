@@ -144,7 +144,7 @@ private:
     /**
      * A mutex used to serializes accesses to the file storing the tiles.
      */
-    OpenThreads::Mutex _mutex;
+    void *mutex;
 
     /**
      * The file storing the tiles on disk.
@@ -154,8 +154,7 @@ private:
     /**
      * A key to store thread specific buffers used to produce the tiles.
      */
-    //static void *key;
-	std::map<void*,unsigned char*> _dataMap;
+    static void *key;
 
     /**
      * Returns the id of the given tile. This id is used to find the offset

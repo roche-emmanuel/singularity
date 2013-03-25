@@ -96,13 +96,6 @@ public:
      */
     void monitorTask(const std::string &taskType);
 
-    /**
-     * The method executed by the additional threads of this scheduler. This
-     * method contains an infinite loop that executes tasks when they are ready
-     * to be executed. The method returns only when #stop is set to true.
-     */
-    void schedulerThread();
-	
 protected:
     /**
      * Initializes this scheduler.
@@ -149,24 +142,24 @@ private:
      * A mutex used to ensure consistent access to the data structures of this
      * scheduler from the various execution threads.
      */
-    OpenThreads::ReentrantMutex _mutex;
+    void* mutex;
 
     /**
      * A condition to signal to execution threads that new tasks are ready to be
      * executed.
      */
-    OpenThreads::Condition _allTasksCond;
+    void* allTasksCond;
 
     /**
      * A condition to signal to execution threads that new CPU tasks are ready
      * to be executed.
      */
-    OpenThreads::Condition _cpuTasksCond;
+    void* cpuTasksCond;
 
     /**
      * The threads used to execute tasks, in addition to the main thread.
      */
-    std::vector<OpenThreads::Thread*> threads;
+    std::vector<void*> threads;
 
     /**
      * Target frame duration in micro seconds, or 0 if no fixed framerate.
@@ -309,6 +302,13 @@ private:
      *      previous execution.
      */
     void taskDone(ptr<Task> t, bool changes);
+
+    /**
+     * The method executed by the additional threads of this scheduler. This
+     * method contains an infinite loop that executes tasks when they are ready
+     * to be executed. The method returns only when #stop is set to true.
+     */
+    void schedulerThread();
 
     /**
      * Writes the buffered frame statistics to the statisticsFile.

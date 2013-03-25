@@ -32,6 +32,8 @@
 #include "ork/resource/ResourceTemplate.h"
 #include "ork/taskgraph/TaskGraph.h"
 
+#include <pthread.h>
+
 #ifdef _WIN32
 #include <sys/types.h>
 #include <sys/timeb.h>
@@ -55,13 +57,6 @@ using namespace std;
 // if defined, use busy waiting to get the desired framerate frameRate
 // (more precise than using Sleep and pthread_cond_timedwait)
 //#define BUSY_WAITING
-#ifdef WIN32
-struct timespec {
-	time_t  tv_sec;
-	long    tv_nsec;
-};
-#endif
-
 
 /**
  * Returns the current time.
@@ -127,21 +122,18 @@ MultithreadScheduler::MultithreadScheduler(int prefetchRate, int prefetchQueue, 
     init(prefetchRate, prefetchQueue, frameRate, nThreads);
 }
 
-class RunnerThread : public OpenThreads::Thread {
-public:
-	RunnerThread(MultithreadScheduler* sch) : _scheduler(sch) {};
-	
-	void run() {
-		_scheduler->schedulerThread();
-	};
-	
-protected:
-	MultithreadScheduler* _scheduler;
-};
-
-
 void MultithreadScheduler::init(int prefetchRate, int prefetchQueue, float frameRate, int nThreads)
 {
+    mutex = new pthread_mutex_t;
+    allTasksCond = new pthread_cond_t;
+    cpuTasksCond = new pthread_cond_t;
+    pthread_mutexattr_t attrs;
+    pthread_mutexattr_init(&attrs);
+    pthread_mutexattr_settype(&attrs, PTHREAD_MUTEX_RECURSIVE);
+    pthread_mutex_init((pthread_mutex_t*) mutex, &attrs);
+    pthread_mutexattr_destroy(&attrs);
+    pthread_cond_init((pthread_cond_t*) allTasksCond, NULL);
+    pthread_cond_init((pthread_cond_t*) cpuTasksCond, NULL);
     this->prefetchRate = prefetchRate;
     this->prefetchQueueSize = prefetchQueue;
     framePeriod = frameRate == 0.0f ? 0.0f : 1e6f / frameRate;
@@ -152,8 +144,8 @@ void MultithreadScheduler::init(int prefetchRate, int prefetchQueue, float frame
     time = 2;
     stop = false;
     for (int i = 0; i < nThreads; ++i) {
-        RunnerThread *thread = new RunnerThread(this);
-        thread->start();
+        pthread_t *thread = new pthread_t;
+        pthread_create(thread, NULL, schedulerThread, this);
         threads.push_back(thread);
     }
     bufferedStatistics = NULL;
@@ -166,17 +158,22 @@ MultithreadScheduler::~MultithreadScheduler()
     // we first set the #stop flag to true and signals execution threads to wake
     // them up if they were waiting for tasks to execute; they will then
     // eventually terminate
-    _mutex.lock();
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     stop = true;
-    _cpuTasksCond.broadcast();
-    _mutex.unlock();
-	
+    pthread_cond_broadcast((pthread_cond_t*) cpuTasksCond);
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
     // we then wait until all threads terminate, and we delete them
     for (unsigned int i = 0; i < threads.size(); ++i) {
-		threads[i]->join();
-        delete (RunnerThread*) threads[i];
+        pthread_join(*((pthread_t*) threads[i]), NULL);
+        delete (pthread_t*) threads[i];
     }
-
+    // we can then delete the mutex and the conditions
+    pthread_mutex_destroy((pthread_mutex_t*) mutex);
+    delete (pthread_mutex_t*) mutex;
+    pthread_cond_destroy((pthread_cond_t*) cpuTasksCond);
+    delete (pthread_cond_t*) cpuTasksCond;
+    pthread_cond_destroy((pthread_cond_t*) allTasksCond);
+    delete (pthread_cond_t*) allTasksCond;
     threads.clear();
     if (bufferedFrames > 0) {
         clearBufferedFrames();
@@ -201,28 +198,30 @@ void MultithreadScheduler::schedule(ptr<Task> task)
 {
     set<Task*> initialized;
     task->init(initialized);
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     bool noCpuTasks = readyCpuTasks.empty();
     set< ptr<Task> > addedTasks;
     addFlattenedTask(task, addedTasks);
-    _allTasksCond.broadcast();
+    pthread_cond_broadcast((pthread_cond_t*) allTasksCond);
     if (noCpuTasks && !readyCpuTasks.empty()) {
         // if there was no ready CPU tasks before this method was called,
         // and there are now some ready CPU tasks, signals this to the execution
         // threads that may be waiting for tasks to execute.
-        _cpuTasksCond.broadcast();
+        pthread_cond_broadcast((pthread_cond_t*) cpuTasksCond);
     }
     assert(allReadyTasks.size() > 0);
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
 }
 
 void MultithreadScheduler::reschedule(ptr<Task> task, Task::reason r, unsigned int deadline)
 {
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     task->setIsDone(false, 0, r);
     if (r == Task::DATA_NEEDED) {
         set< ptr<Task> > visited;
         setDeadline(task, deadline, visited);
     }
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
 }
 
 void MultithreadScheduler::run(ptr<Task> task)
@@ -279,7 +278,7 @@ void MultithreadScheduler::run(ptr<Task> task)
     while (true) {
         // first step: find or wait for a task ready to be executed
         ptr<Task> t = NULL;
-        _mutex.lock();
+        pthread_mutex_lock((pthread_mutex_t*) mutex);
         if (immediateTasks.empty() && framePeriod > 0.0) {
             // if the tasks for the current frame are completed, and if we have
             // a fixed framerate, we can use the time until the deadline to
@@ -288,17 +287,17 @@ void MultithreadScheduler::run(ptr<Task> task)
             while (allReadyTasks.empty() && timer.start() < deadline) {
                 // so we wait for a ready CPU or GPU task,
                 // and stop when the deadline is passed
-				_mutex.unlock();
+                pthread_mutex_unlock((pthread_mutex_t*) mutex);
                 double timeout = min(deadline, timer.start() + 500.0);
                 while (timer.start() < timeout) {
                 }
-                _mutex.lock();
+                pthread_mutex_lock((pthread_mutex_t*) mutex);
             }
 #else
             while (allReadyTasks.empty() && timer.start() < deadline) {
                 // so we wait for a ready CPU or GPU task,
                 // and stop when the deadline is passed
-                _allTasksCond.wait(&_mutex, (deadlinespec.tv_sec*1000 + deadlinespec.tv_nsec / 1000000));
+                pthread_cond_timedwait((pthread_cond_t*) allTasksCond, (pthread_mutex_t*) mutex, &deadlinespec);
             }
 #endif
         } else {
@@ -308,7 +307,7 @@ void MultithreadScheduler::run(ptr<Task> task)
                 // while some tasks for the current frame remain to be executed,
                 // and while the set of tasks ready to be executed is empty or
                 // contains only tasks for the next frames (deadline > 0), wait
-                _allTasksCond.wait(&_mutex);
+                pthread_cond_wait((pthread_cond_t*) allTasksCond, (pthread_mutex_t*) mutex);
             }
         }
         // if the deadline is passed or if all the tasks for the current frame
@@ -348,7 +347,7 @@ void MultithreadScheduler::run(ptr<Task> task)
         // shared data structures until #taskDone is called; also the selected
         // task t cannot be seleted by another thread, since it has been removed
         // from the task sets.
-        _mutex.unlock();
+        pthread_mutex_unlock((pthread_mutex_t*) mutex);
 
         if (t == NULL) {
             // stops the infinite execution loop
@@ -619,7 +618,7 @@ void MultithreadScheduler::setDeadline(ptr<Task> t, unsigned int deadline, set< 
 
 void MultithreadScheduler::taskDone(ptr<Task> t, bool changes)
 {
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     unsigned int completionDate = changes ? time : t->getCompletionDate();
     map< ptr<Task>, set< ptr<Task> > >::iterator i = inverseDependencies.find(t);
     if (i != inverseDependencies.end()) {
@@ -642,14 +641,14 @@ void MultithreadScheduler::taskDone(ptr<Task> t, bool changes)
                 // execution threads; we do the same for the set of ready CPU
                 // tasks, if r is a CPU tas
                 insertTask(allReadyTasks, r);
-                _allTasksCond.broadcast();
+                pthread_cond_broadcast((pthread_cond_t*) allTasksCond);
 #ifdef STRICT_PREFETCH
                 if (!r->isGpuTask() && r->getDeadline() > 0) {
 #else
                 if (!r->isGpuTask()) {
 #endif
                     insertTask(readyCpuTasks, r);
-                    _cpuTasksCond.broadcast();
+                    pthread_cond_broadcast((pthread_cond_t*) cpuTasksCond);
                 }
             }
             j++;
@@ -661,6 +660,7 @@ void MultithreadScheduler::taskDone(ptr<Task> t, bool changes)
     t->setIsDone(true, completionDate);
     // and we increment the logical time counter
     ++time;
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
 }
 
 void MultithreadScheduler::schedulerThread()
@@ -670,12 +670,12 @@ void MultithreadScheduler::schedulerThread()
     // loop to execute tasks, until the scheduler must be deleted
     while (!stop) {
         ptr<Task> t;
-        _mutex.lock();
+        pthread_mutex_lock((pthread_mutex_t*) mutex);
         // wait until we have a CPU task ready to be executed (the additional
         // threads cannot execute GPU tasks, because OpenGL supports only one
         // thread at a time), or the scheduler is being deleted
         while (readyCpuTasks.empty() && !stop) {
-            _cpuTasksCond.wait(&_mutex);
+            pthread_cond_wait((pthread_cond_t*) cpuTasksCond, (pthread_mutex_t*) mutex);
         }
         if (!stop) {
             SortedTaskSet::iterator i = readyCpuTasks.begin();
@@ -694,7 +694,7 @@ void MultithreadScheduler::schedulerThread()
             removeTask(allReadyTasks, t);
             removeTask(readyCpuTasks, t);
         }
-        _mutex.unlock();
+        pthread_mutex_unlock((pthread_mutex_t*) mutex);
 
         if (!stop) {
             assert(!t->isGpuTask());

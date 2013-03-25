@@ -25,6 +25,8 @@
  * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
  */
 
+#include <pthread.h>
+
 #include "proland/producer/TileProducer.h"
 
 #include "ork/core/Logger.h"
@@ -370,6 +372,8 @@ void TileProducer::init(ptr<TileCache> cache, bool gpuProducer)
     this->id = cache->nextProducerId++;
     cache->producers.insert(make_pair(id, this));
     tileMap = NULL;
+    mutex = new pthread_mutex_t;
+    pthread_mutex_init((pthread_mutex_t*) mutex, NULL);
 }
 
 TileProducer::~TileProducer()
@@ -390,6 +394,8 @@ TileProducer::~TileProducer()
     if (tileMap != NULL) {
         delete[] tileMap;
     }
+    pthread_mutex_destroy((pthread_mutex_t*) mutex);
+    delete (pthread_mutex_t*) mutex;
 }
 
 float TileProducer::getRootQuadSize()
@@ -754,13 +760,13 @@ ptr<Task> TileProducer::createTile(int level, int tx, int ty, TileStorage::Slot 
     }
     ptr<CreateTile> t = new CreateTile(this, level, tx, ty, data, deadline);
     ptr<Task> r = startCreateTile(level, tx, ty, deadline, t, NULL);
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     tasks.push_back(t.get());
     if (r.get() != t.get()) {
         assert(r.cast<CreateTileTaskGraph>() != NULL);
         tasks.push_back(r.get());
     }
-    
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
     return r;
 }
 
@@ -777,10 +783,11 @@ ptr<TaskGraph> TileProducer::createTaskGraph(ptr<Task> task)
 
 void TileProducer::removeCreateTile(Task *t)
 {
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     vector<Task*>::iterator i = find(tasks.begin(), tasks.end(), t);
     assert(i != tasks.end());
     tasks.erase(i);
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
 }
 
 }

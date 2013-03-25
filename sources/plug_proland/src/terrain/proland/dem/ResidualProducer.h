@@ -213,7 +213,7 @@ private:
     /**
      * A mutex used to serializes accesses to the file storing the tiles.
      */
-    OpenThreads::Mutex _mutex;
+    void *mutex;
 
     /**
      * The file storing the residual tiles on disk.
@@ -229,9 +229,8 @@ private:
     /**
      * A key to store thread specific buffers used to produce the tiles.
      */
-	//static void *key;
-	std::map<void*,unsigned char*> _dataMap;
-	
+    static void *key;
+
     /**
      * Returns the size of tiles of the given level (without borders).
      * This size can vary with the level if #getMinLevel is not 0 (see

@@ -25,8 +25,6 @@
  * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
  */
 
-#include "AntTweakBar.h"
- 
 #include "proland/ui/twbar/TweakSceneGraph.h"
 
 #include "ork/resource/ResourceTemplate.h"
@@ -420,8 +418,7 @@ public:
                 TwAddVarCB(bar, id, TW_TYPE_BOOL8, setParticleLayerState, getParticleLayerState, pl.get(), def);
                 *counter += 1;
             }
-     
-			char def[256];
+            char def[256];
             sprintf(def, "%s/%s group='%s' label='%s'", TwGetBarName(bar), subgroup, group.c_str(), sublabel);
             TwDefine(def);
         }

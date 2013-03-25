@@ -33,6 +33,8 @@
 #include "ork/resource/ResourceTemplate.h"
 #include "proland/producer/TileProducer.h"
 
+#include <pthread.h>
+
 using namespace std;
 using namespace ork;
 
@@ -95,10 +97,19 @@ void TileCache::init(ptr<TileStorage> storage, std::string name, ptr<Scheduler> 
     this->queries = 0;
     this->misses = 0;
     this->name = name;
+    mutex = new pthread_mutex_t;
+    pthread_mutexattr_t attrs;
+    pthread_mutexattr_init(&attrs);
+    pthread_mutexattr_settype(&attrs, PTHREAD_MUTEX_RECURSIVE);
+    pthread_mutex_init((pthread_mutex_t*) mutex, &attrs);
+    pthread_mutexattr_destroy(&attrs);
 }
 
 TileCache::~TileCache()
 {
+    pthread_mutex_destroy((pthread_mutex_t*) mutex);
+    delete (pthread_mutex_t*) mutex;
+    mutex = NULL;
     // The users of a TileCache must release all their tiles with putTile
     // before they erase their reference to the TileCache. Hence a TileCache
     // cannot be deleted before all tiles are unused. So usedTiles should be
@@ -139,7 +150,7 @@ int TileCache::getUnusedTiles()
 TileCache::Tile* TileCache::findTile(int producerId, int level, int tx, int ty, bool includeCache)
 {
     assert(producers.find(producerId) != producers.end());
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     Tile::TId id = Tile::getTId(producerId, level, tx, ty);
     map<Tile::TId, Tile*>::iterator i = usedTiles.find(id);
     Tile *t = NULL;
@@ -156,13 +167,14 @@ TileCache::Tile* TileCache::findTile(int producerId, int level, int tx, int ty, 
             assert(t->producerId == producerId && t->level == level && t->tx == tx && t->ty == ty);
         }
     }
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
     return t;
 }
 
 TileCache::Tile* TileCache::getTile(int producerId, int level, int tx, int ty, unsigned int deadline, int *users)
 {
     assert(producers.find(producerId) != producers.end());
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     Tile::TId id = Tile::getTId(producerId, level, tx, ty);
     map<Tile::TId, Tile*>::iterator i = usedTiles.find(id);
     Tile *t;
@@ -235,14 +247,14 @@ TileCache::Tile* TileCache::getTile(int producerId, int level, int tx, int ty, u
         }
         t->users += 1;
     }
-
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
     return t;
 }
 
 ptr<Task> TileCache::prefetchTile(int producerId, int level, int tx, int ty)
 {
     assert(producers.find(producerId) != producers.end());
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     Tile::TId id = Tile::getTId(producerId, level, tx, ty);
     ptr<Task> task;
     if (usedTiles.find(id) == usedTiles.end()) {
@@ -293,13 +305,13 @@ ptr<Task> TileCache::prefetchTile(int producerId, int level, int tx, int ty)
             }
         }
     }
-
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
     return task;
 }
 
 int TileCache::putTile(Tile *t)
 {
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     t->users -= 1;
     if (t->users == 0) {
         // the tile is now unused
@@ -319,7 +331,7 @@ int TileCache::putTile(Tile *t)
         }*/
     }
     int users = t->users;
-
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
     return users;
 }
 
@@ -327,7 +339,7 @@ void TileCache::invalidateTiles(int producerId)
 {
     // marks the tasks to produce the tiles of the given producer as not done
     // so that they will be reexecuted when their result will be needed
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     map<Tile::TId, Tile*>::iterator i = usedTiles.begin();
     while (i != usedTiles.end()) {
         if (i->second->producerId == producerId) {
@@ -361,14 +373,14 @@ void TileCache::invalidateTiles(int producerId)
         }
         k++;
     }
-
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
 }
 
 void TileCache::invalidateTile(int producerId, int level, int tx, int ty)
 {
     Tile::TId id = TileCache::Tile::getTId(producerId, level, tx, ty);
 
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     map<Tile::TId, Tile*>::iterator i = usedTiles.begin();
     while (i != usedTiles.end()) {
         if (i->first == id) {
@@ -403,6 +415,7 @@ void TileCache::invalidateTile(int producerId, int level, int tx, int ty)
         }
         k++;
     }
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
 }
 
 void TileCache::swap(ptr<TileCache> t)
@@ -412,10 +425,12 @@ void TileCache::swap(ptr<TileCache> t)
 void TileCache::createTileTaskDeleted(int producerId, int level, int tx, int ty)
 {
     Tile::TId id = Tile::getTId(producerId, level, tx, ty);
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+    assert(mutex != NULL);
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     map<Tile::TId, Task*>::iterator i = deletedTiles.find(id);
     assert(i != deletedTiles.end());
     deletedTiles.erase(i);
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
 }
 
 class TileCacheResource : public ResourceTemplate<1, TileCache>

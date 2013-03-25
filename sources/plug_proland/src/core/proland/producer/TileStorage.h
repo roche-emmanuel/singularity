@@ -125,7 +125,7 @@ public:
         /**
          * A mutex used to serialize parallel accesses to this slot.
          */
-        OpenThreads::Mutex _mutex;
+        void* mutex;
     };
 
     /**

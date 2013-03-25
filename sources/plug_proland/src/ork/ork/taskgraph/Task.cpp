@@ -29,12 +29,14 @@
 
 #include "ork/core/Logger.h"
 
+#include <pthread.h>
+
 using namespace std;
 
 namespace ork
 {
 
-OpenThreads::Mutex Task::_mutex;
+void *Task::mutex = NULL;
 
 map<type_info const*, Task::TaskStatistics*, Task::TypeInfoSort> Task::statistics;
 
@@ -51,6 +53,10 @@ Task::TaskStatistics::TaskStatistics() :
 Task::Task(const char *type, bool gpuTask, unsigned int deadline) :
     Object(type), completionDate(0), gpuTask(gpuTask), deadline(deadline), predecessorsCompletionDate(1), done(false), expectedDuration(-1.0f)
 {
+    if (mutex == NULL) {
+        mutex = new pthread_mutex_t;
+        pthread_mutex_init((pthread_mutex_t*) mutex, NULL);
+    }
 }
 
 Task::~Task()
@@ -138,7 +144,7 @@ float Task::getExpectedDuration()
     if (expectedDuration == -1.0f) {
         expectedDuration = 0.0f;
         const type_info *id = getTypeInfo();
-        OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+        pthread_mutex_lock((pthread_mutex_t*) mutex);
         map<type_info const*, TaskStatistics*, TypeInfoSort>::iterator i = statistics.find(id);
         if (i != statistics.end()) {
             TaskStatistics *stats = i->second;
@@ -160,6 +166,7 @@ float Task::getExpectedDuration()
                 expectedDuration = (mean + 2.0f * standardDeviation) * getComplexity();
             }
         }
+        pthread_mutex_unlock((pthread_mutex_t*) mutex);
     }
     return expectedDuration;
 }
@@ -168,7 +175,7 @@ void Task::setActualDuration(float duration)
 {
     TaskStatistics *stats;
     const type_info *id = getTypeInfo();
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     map<type_info const*, TaskStatistics*, TypeInfoSort>::iterator i = statistics.find(id);
     if (i == statistics.end()) {
         stats = new TaskStatistics();
@@ -182,6 +189,7 @@ void Task::setActualDuration(float duration)
     stats->minDuration = min(duration, stats->minDuration);
     stats->maxDuration = max(duration, stats->maxDuration);
     stats->n += 1;
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
 }
 
 const type_info *Task::getTypeInfo()
@@ -204,7 +212,7 @@ void Task::removeListener(TaskListener *l)
 
 void Task::logStatistics()
 {
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+    pthread_mutex_lock((pthread_mutex_t*) mutex);
     map<type_info const*, TaskStatistics*, TypeInfoSort>::iterator i = statistics.begin();
     while (i != statistics.end()) {
         TaskStatistics *stats = i->second;
@@ -220,6 +228,7 @@ void Task::logStatistics()
         Logger::DEBUG_LOGGER->log("SCHEDULER", oss.str());
         i++;
     }
+    pthread_mutex_unlock((pthread_mutex_t*) mutex);
 }
 
 }

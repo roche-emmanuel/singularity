@@ -25,6 +25,7 @@
 
 #include <iostream>
 
+#include <pthread.h>
 #include <cstdarg>
 #include <cstdio>
 
@@ -43,10 +44,14 @@ static_ptr<Logger> Logger::ERROR_LOGGER(new Logger("ERROR"));
 
 Logger::Logger(const string &type) : Object("Logger"), type(type)
 {
+    mutex = new pthread_mutex_t;
+    pthread_mutex_init((pthread_mutex_t*) mutex, NULL);
 }
 
 Logger::~Logger()
 {
+    pthread_mutex_destroy((pthread_mutex_t*) mutex);
+    delete (pthread_mutex_t*) mutex;
 }
 
 void Logger::addTopic(const string &topic)
@@ -62,8 +67,9 @@ bool Logger::hasTopic(const string &topic)
 void Logger::log(const string &topic, const string &msg)
 {
     if (hasTopic(topic)) {
-		OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+        pthread_mutex_lock((pthread_mutex_t*) mutex);
         cerr << type << " [" << topic << "] " << msg << endl;
+        pthread_mutex_unlock((pthread_mutex_t*) mutex);
     }
 }
 

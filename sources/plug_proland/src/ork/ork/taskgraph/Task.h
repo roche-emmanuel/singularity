@@ -296,7 +296,7 @@ private:
 
     float expectedDuration; ///< expected duration of this task.
 
-    static OpenThreads::Mutex _mutex; ///< mutex used to synchronize accesses to #statistics
+    static void* mutex; ///< mutex used to synchronize accesses to #statistics
 
     /**
      * The execution time statistics for each task type. Maps TaskStatistics to
