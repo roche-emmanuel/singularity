@@ -16,6 +16,13 @@ function Class:initialize(options)
 	geode:addDrawable(drawable)
 	root:addChild(geode)
 	
+	geode:setCullingActive(false);
+	
+	-- local mt = self:loadModel("tests/data/glider.osgt")
+	-- self:createCube(1)
+	-- self:createBase()
+	-- self:applyCircleAnimation(mt, 4.0, 6.0)
+	
 	self:home()
 end
 

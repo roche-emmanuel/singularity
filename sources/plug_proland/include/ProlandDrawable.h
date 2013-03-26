@@ -21,6 +21,7 @@
 #include "ork/resource/ResourceTemplate.h"
 #include "ork/scenegraph/ShowLogTask.h"
 #include "ork/ui/GlutWindow.h"
+#include "ork/ui/EventHandler.h"
 
 #include "proland/TerrainPlugin.h"
 #include "proland/EditPlugin.h"
@@ -46,9 +47,11 @@ class ProlandDrawable : public osg::Drawable, public ViewManager {
 public:
 	ProlandDrawable() {};
 	ProlandDrawable(const std::string& archive, const std::string& data) : _archive(archive), _data(data) {
+		//_initialized = false;
 		init();
 	};
 	ProlandDrawable(const ProlandDrawable& copy, const osg::CopyOp& copyop=osg::CopyOp::SHALLOW_COPY ) : osg::Drawable(copy, copyop), _archive(copy._archive), _data(copy._data) {
+		//_initialized = false;
 		init();
 	}
 	
@@ -70,6 +73,27 @@ public:
 	
 	void reshape(int x, int y);
 	
+    bool mouseClick(ork::EventHandler::button b, ork::EventHandler::state s, ork::EventHandler::modifier m, int x, int y)
+    {
+		trDEBUG("Proland","mouse click event received properly.");
+        return _view->mouseClick(b, s, m, x, y);
+    }
+
+	bool mouseMotion(int x, int y)
+	{
+		return _view->mouseMotion(x, y);
+	}
+
+	bool mousePassiveMotion(int x, int y)
+	{
+		return _view->mousePassiveMotion(x, y);
+	}
+
+	bool mouseWheel(ork::EventHandler::wheel b, ork::EventHandler::modifier m, int x, int y)
+	{
+		return _view->mouseWheel(b, m, x, y);
+	}
+
 protected:	
 	void init();
 	void render();
@@ -80,7 +104,8 @@ protected:
 	float _radius;
 	float _dr;
 	double _lastTime;
-	
+	//mutable bool _initialized;
+
 	osg::Timer_t _startTick;
 	
 	// The output log file for proland calls:

@@ -36,6 +36,7 @@
 - First working prototype for proland module.
 - Added support for image shadows on overlays.
 - First working prototype of proland embedded in OSG window.
+- Added mouse navigation support for proland view.
 
 
 TODO:
