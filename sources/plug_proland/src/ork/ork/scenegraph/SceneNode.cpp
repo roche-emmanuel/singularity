@@ -649,16 +649,16 @@ public:
                         case 0:
                             switch(paramCount) {
                                 case 1:
-                                    addValue(new Value1b(id, bool(x)));
+                                    addValue(new Value1b(id, bool(x==0.0f)));
                                     break;
                                 case 2:
-                                    addValue(new Value2b(id, vec2<bool>(x, y)));
+                                    addValue(new Value2b(id, vec2<bool>(x==0.0f, y==0.0f)));
                                     break;
                                 case 3:
-                                    addValue(new Value3b(id, vec3<bool>(x, y, z)));
+                                    addValue(new Value3b(id, vec3<bool>(x==0.0f, y==0.0f, z==0.0f)));
                                     break;
                                 case 4:
-                                    addValue(new Value4b(id, vec4<bool>(x, y, z, w)));
+                                    addValue(new Value4b(id, vec4<bool>(x==0.0f, y==0.0f, z==0.0f, w==0.0f)));
                                     break;
                             }
                             break;
