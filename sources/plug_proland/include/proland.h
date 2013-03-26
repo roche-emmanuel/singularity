@@ -21,6 +21,7 @@
 
 
 #include <GL/glew.h>
+#include <stdint.h>
 
 #include <OpenThreads/Mutex>
 #include <OpenThreads/ReentrantMutex>
