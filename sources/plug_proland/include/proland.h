@@ -19,6 +19,9 @@
 	#pragma warning( disable : 4244 )	
 #endif
 
+
+#include <GL/glew.h>
+
 #include <OpenThreads/Mutex>
 #include <OpenThreads/ReentrantMutex>
 #include <OpenThreads/ScopedLock>

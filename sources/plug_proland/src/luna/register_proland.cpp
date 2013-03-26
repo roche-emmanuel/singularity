@@ -14,6 +14,7 @@ int PLUG_EXPORT luaopen_proland(lua_State* L) {
 	luna_open(L);
 
 	luna_pushModule(L,"proland");
+	Luna< proland::ProlandDrawable >::Register(L);
 	Luna< proland::ProlandTest >::Register(L);
 	luna_popModule(L);
 

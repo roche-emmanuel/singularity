@@ -60,8 +60,8 @@ void BasicViewHandler::init(bool smooth, ViewManager *view, ptr<EventHandler> ne
     this->viewManager = view;
     this->next = next;
     this->smooth = smooth;
-    this->near = false;
-    this->far = false;
+    this->_near = false;
+    this->_far = false;
     this->forward = false;
     this->backward = false;
     this->left = false;
@@ -238,10 +238,10 @@ bool BasicViewHandler::specialKey(key k, modifier m, int x, int y)
         smooth = !smooth;
         return true;
     case KEY_PAGE_UP:
-        far = true;
+        _far = true;
         return true;
     case KEY_PAGE_DOWN:
-        near = true;
+        _near = true;
         return true;
     case KEY_UP:
         forward = true;
@@ -265,10 +265,10 @@ bool BasicViewHandler::specialKeyReleased(key k, modifier m, int x, int y)
 {
     switch (k) {
     case KEY_PAGE_UP:
-        far = false;
+        _far = false;
         return true;
     case KEY_PAGE_DOWN:
-        near = false;
+        _near = false;
         return true;
     case KEY_UP:
         forward = false;
@@ -348,9 +348,9 @@ void BasicViewHandler::updateView(double t, double dt)
 {
     ptr<TerrainViewController> controller = getViewManager()->getViewController();
     const float dzFactor = pow(1.02f, std::min(float(50.0e-6 * dt), 1.0f));
-    if (near) {
+    if (_near) {
         target.d = target.d / dzFactor;
-    } else if (far) {
+    } else if (_far) {
         target.d = target.d * dzFactor;
     }
     Position p;
@@ -400,8 +400,8 @@ void BasicViewHandler::swap(ptr<BasicViewHandler> o)
     std::swap(mode, o->mode);
     std::swap(oldx, o->oldx);
     std::swap(oldy, o->oldy);
-    std::swap(near, o->near);
-    std::swap(far, o->far);
+    std::swap(_near, o->_near);
+    std::swap(_far, o->_far);
 }
 
 class BasicViewHandlerResource : public ResourceTemplate<100, BasicViewHandler>

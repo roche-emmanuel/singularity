@@ -35,6 +35,7 @@
 - Added initial proland reflection and test support.
 - First working prototype for proland module.
 - Added support for image shadows on overlays.
+- First working prototype of proland embedded in OSG window.
 
 
 TODO:

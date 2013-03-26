@@ -209,12 +209,12 @@ private:
     /**
      * True if the PAGE_DOWN key is currently pressed.
      */
-    bool near;
+    bool _near;
 
     /**
      * True if the PAGE_UP key is currently pressed.
      */
-    bool far;
+    bool _far;
 
     /**
      * True if the UP key is currently pressed.
