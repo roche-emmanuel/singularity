@@ -36,5 +36,9 @@
 
 #include "pmath.h"
 
+#include "assert.h"
+#undef assert
+
+#define assert(x) if(!(x)){logERROR("Assertion " #x " failed.");};
 
 #endif

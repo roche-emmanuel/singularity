@@ -39,11 +39,12 @@ ork::EventHandler::modifier mapMods(int mods) {
 }
 
 ork::EventHandler::wheel mapScroll(int motion) {
+	// We inverse the scroll direction here:
 	if(motion==osgGA::GUIEventAdapter::SCROLL_UP) {
-		return EventHandler::WHEEL_UP;
+		return EventHandler::WHEEL_DOWN;
 	}
 	if(motion==osgGA::GUIEventAdapter::SCROLL_DOWN) {
-		return EventHandler::WHEEL_DOWN;
+		return EventHandler::WHEEL_UP;
 	}
 
 	CHECK_RET(false,EventHandler::WHEEL_UP,"Invalid mapping for scroll motion: motion="<<motion);
