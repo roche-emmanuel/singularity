@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Ork: a small object-oriented OpenGL Rendering Kernel.
  * Copyright (c) 2008-2010 INRIA
@@ -93,7 +95,7 @@ void TransformFeedback::setVertexBuffer(int index, ptr<GPUBuffer> b, GLuint offs
 
 void TransformFeedback::begin(ptr<FrameBuffer> fb, ptr<Program> transform, MeshMode m, ptr<TransformFeedback> tfb, bool rasterize)
 {
-    assert(m == POINTS || m == LINES || m == TRIANGLES);
+    assert(m == ork::POINTS || m == LINES || m == TRIANGLES);
     TRANSFORMFEEDBACK_FRAMEBUFFER = fb;
     TRANSFORM = transform;
     MODE = m;

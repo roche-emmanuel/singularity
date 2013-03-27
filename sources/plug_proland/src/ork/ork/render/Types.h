@@ -1,3 +1,7 @@
+#include "sgtCommon.h"
+
+#include "sgtCommon.h"
+
 /*
  * Ork: a small object-oriented OpenGL Rendering Kernel.
  * Copyright (c) 2008-2010 INRIA

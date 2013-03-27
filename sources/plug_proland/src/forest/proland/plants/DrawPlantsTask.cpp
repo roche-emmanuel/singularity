@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -163,7 +165,7 @@ void DrawPlantsTask::drawPlants(ptr<SceneNode> context)
 
         totalTiles += p->count;
         totalTrees += p->total;
-        fb->multiDraw(plants->renderProg, *(p->getPlantsMesh()), POINTS, p->offsets, p->sizes, p->count);
+        fb->multiDraw(plants->renderProg, *(p->getPlantsMesh()), ork::POINTS, p->offsets, p->sizes, p->count);
     }
     q->end();
 

@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Ork: a small object-oriented OpenGL Rendering Kernel.
  * Copyright (c) 2008-2010 INRIA
@@ -78,8 +80,8 @@ void GPUTimer::getQueryResult()
         if (timeElapsed != 0) {
             lastDuration = (double) timeElapsed;
             totalDuration += lastDuration;
-            minDuration = std::min(lastDuration, minDuration);
-            maxDuration = std::max(lastDuration, maxDuration);
+            minDuration = osg::minimum(lastDuration, minDuration);
+            maxDuration = osg::maximum(lastDuration, maxDuration);
         }
     }
 }

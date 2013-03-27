@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Ork: a small object-oriented OpenGL Rendering Kernel.
  * Copyright (c) 2008-2010 INRIA
@@ -649,16 +651,16 @@ public:
                         case 0:
                             switch(paramCount) {
                                 case 1:
-                                    addValue(new Value1b(id, bool(x==0.0f)));
+                                    addValue(new Value1b(id, bool(x>0.0f)));
                                     break;
                                 case 2:
-                                    addValue(new Value2b(id, vec2<bool>(x==0.0f, y==0.0f)));
+                                    addValue(new Value2b(id, vec2<bool>(x>0.0f, y>0.0f)));
                                     break;
                                 case 3:
-                                    addValue(new Value3b(id, vec3<bool>(x==0.0f, y==0.0f, z==0.0f)));
+                                    addValue(new Value3b(id, vec3<bool>(x>0.0f, y>0.0f, z>0.0f)));
                                     break;
                                 case 4:
-                                    addValue(new Value4b(id, vec4<bool>(x==0.0f, y==0.0f, z==0.0f, w==0.0f)));
+                                    addValue(new Value4b(id, vec4<bool>(x>0.0f, y>0.0f, z>0.0f, w>0.0f)));
                                     break;
                             }
                             break;

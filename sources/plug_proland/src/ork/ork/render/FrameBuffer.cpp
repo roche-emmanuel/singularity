@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Ork: a small object-oriented OpenGL Rendering Kernel.
  * Copyright (c) 2008-2010 INRIA
@@ -221,7 +223,7 @@ void FrameBuffer::Parameters::set(const Parameters &p)
         glClearDepth(p.clearDepth);
         glClearStencil(p.clearStencil);
     }
-    // POINTS -------------
+    // ork::POINTS -------------
     if (pointId != p.pointId)
     {
         glEnable(GL_PROGRAM_POINT_SIZE, p.pointSize <= 0.0f);

@@ -19,9 +19,9 @@
 	#pragma warning( disable : 4244 )	
 #endif
 
-
 #include <GL/glew.h>
 #include <stdint.h>
+
 
 #include <OpenThreads/Mutex>
 #include <OpenThreads/ReentrantMutex>
@@ -34,6 +34,14 @@
 
 // #define ORK_API PROLAND_API
 // #define PLUG_EXPORT PROLAND_API
+
+#ifdef max
+#undef max
+#endif
+
+#ifdef min
+#undef min
+#endif
 
 #include "pmath.h"
 

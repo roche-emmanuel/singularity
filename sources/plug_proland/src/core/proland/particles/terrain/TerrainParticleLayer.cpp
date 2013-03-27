@@ -148,7 +148,7 @@ void TerrainParticleLayer::moveParticles(double dt)
                             ScreenParticleLayer::ScreenParticle** neighbors = screenLayer->getNeighbors(s, neighborNum);
                             for (int j = 0; j < neighborNum; j++) {
                                 if (getTerrainParticle(screenLayer->getParticle(neighbors[j]))->status == FlowTile::INSIDE) {
-                                    t->status = FlowTile::NEAR;
+                                    t->status = FlowTile::FLOW_NEAR;
                                     lifeCycleLayer->killParticle(p);
                                     break;
                                 }
@@ -185,7 +185,7 @@ void TerrainParticleLayer::moveParticles(double dt)
                     ScreenParticleLayer::ScreenParticle** neighbors = screenLayer->getNeighbors(s, neighborNum);
                     for (int j = 0; j < neighborNum; j++) {
                         if (getTerrainParticle(screenLayer->getParticle(neighbors[j]))->status == FlowTile::INSIDE) {
-                            t->status = FlowTile::NEAR;
+                            t->status = FlowTile::FLOW_NEAR;
                             lifeCycleLayer->killParticle(p);
                             break;
                         }

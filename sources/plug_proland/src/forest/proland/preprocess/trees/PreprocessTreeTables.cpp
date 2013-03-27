@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -335,7 +337,7 @@ public:
             for (int j = -n + abs(i); j <= n - abs(i); ++j) {
                 float x = (i + j) / float(n);
                 float y = (j - i) / float(n);
-                float angle = 90.0 - std::max(fabs(x),fabs(y)) * 90.0;
+                float angle = 90.0 - osg::maximum(fabs(x),fabs(y)) * 90.0;
                 float alpha = x == 0.0 && y == 0.0 ? 0.0 : atan2(y, x) / M_PI * 180.0;
 
                 mat4f cameraToWorld = mat4f::rotatex(90) * mat4f::rotatex(-angle);

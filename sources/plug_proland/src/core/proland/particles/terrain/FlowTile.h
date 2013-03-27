@@ -56,7 +56,7 @@ public:
         UNKNOWN = 0,
         INSIDE = 1,
         LEAVING = 2,
-        NEAR = 3,
+        FLOW_NEAR = 3,
         OUTSIDE = 4,
         LEAVING_DOMAIN = 5,
         OUTSIDE_DOMAIN = 6,

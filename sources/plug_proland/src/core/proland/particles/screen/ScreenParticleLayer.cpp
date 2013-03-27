@@ -1,3 +1,7 @@
+#include "sgtCommon.h"
+
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -82,11 +86,11 @@ class RangeList
 public:
     struct RangeEntry
     {
-        float min;
+        float mini;
 
-        float max;
+        float maxi;
 
-        RangeEntry() : min(0.0f), max(0.0f)
+        RangeEntry() : mini(0.0f), maxi(0.0f)
         {
         }
     };
@@ -128,37 +132,37 @@ public:
     /**
      * Resets the list of range entries.
      *
-     * @param min min angle to search from.
-     * @param max max angle to search from.
+     * @param mini min angle to search from.
+     * @param maxi maxi angle to search from.
      */
-    void reset(float min, float max)
+    void reset(float mini, float maxi)
     {
         numRanges = 1;
-        ranges[0].min = min;
-        ranges[0].max = max;
+        ranges[0].mini = mini;
+        ranges[0].maxi = maxi;
     }
 
     /**
      * Removes an area from the available neighboring.
      *
-     * @param min begining of the angle to remove.
-     * @param max end of the angle to remove.
+     * @param mini begining of the angle to remove.
+     * @param maxi end of the angle to remove.
      */
-    void subtract(float min, float max)
+    void subtract(float mini, float maxi)
     {
-        if (min > TWO_PI) {
-            subtract(min - TWO_PI, max - TWO_PI);
-        } else if (max < 0) {
-            subtract(min + TWO_PI, max + TWO_PI);
-        } else if (min < 0) {
-            subtract(0, max);
-            subtract(min + TWO_PI, TWO_PI);
-        } else if (max > TWO_PI) {
-            subtract(min, TWO_PI);
-            subtract(0, max - TWO_PI);
+        if (mini > TWO_PI) {
+            subtract(mini - TWO_PI, maxi - TWO_PI);
+        } else if (maxi < 0) {
+            subtract(mini + TWO_PI, maxi + TWO_PI);
+        } else if (mini < 0) {
+            subtract(0, maxi);
+            subtract(mini + TWO_PI, TWO_PI);
+        } else if (maxi > TWO_PI) {
+            subtract(mini, TWO_PI);
+            subtract(0, maxi - TWO_PI);
         } else if (numRanges > 0) {
             int pos;
-            if (min < ranges[0].min) {
+            if (mini < ranges[0].mini) {
                 pos = -1;
             } else {
                 int lo = 0;
@@ -166,7 +170,7 @@ public:
                 int hi = numRanges;
                 while (lo < hi - 1) {
                     mid = (lo + hi) >> 1;
-                    if (ranges[mid].min < min) {
+                    if (ranges[mid].mini < mini) {
                         lo = mid;
                     } else {
                         hi = mid;
@@ -176,35 +180,35 @@ public:
             }
             if (pos == -1) {
                 pos = 0;
-            } else if (min < ranges[pos].max) {
-                float c = ranges[pos].min;
-                float d = ranges[pos].max;
-                if (min - c < K_SMALLEST_RANGE) {
-                    if (max < d) {
-                        ranges[pos].min = max;
+            } else if (mini < ranges[pos].maxi) {
+                float c = ranges[pos].mini;
+                float d = ranges[pos].maxi;
+                if (mini - c < K_SMALLEST_RANGE) {
+                    if (maxi < d) {
+                        ranges[pos].mini = maxi;
                     } else {
                         deleteRange(pos);
                     }
                 } else {
-                    ranges[pos].max = min;
-                    if (max < d) {
-                        insertRange(pos + 1, max, d);
+                    ranges[pos].maxi = mini;
+                    if (maxi < d) {
+                        insertRange(pos + 1, maxi, d);
                     }
                     pos++;
                 }
             } else {
-                if (pos < numRanges - 1 && max > ranges[pos + 1].min) {
+                if (pos < numRanges - 1 && maxi > ranges[pos + 1].mini) {
                     pos++;
                 } else {
                     return;
                 }
             }
-            while (pos < numRanges && max >= (ranges[pos].min)) {
-                if (ranges[pos].max - max < K_SMALLEST_RANGE) {
+            while (pos < numRanges && maxi >= (ranges[pos].mini)) {
+                if (ranges[pos].maxi - maxi < K_SMALLEST_RANGE) {
                     deleteRange(pos);
                 } else {
-                    ranges[pos].min = max;
-                    if (ranges[pos].max > max) {
+                    ranges[pos].mini = maxi;
+                    if (ranges[pos].maxi > maxi) {
                         break;
                     }
                 }
@@ -245,10 +249,10 @@ private:
      * Adds an entry at a given position.
      *
      * @param pos an index.
-     * @param min begining of the angle to remove.
-     * @param max end of the angle to remove.
+     * @param mini begining of the angle to remove.
+     * @param maxi end of the angle to remove.
      */
-    void insertRange(int pos, float min, float max)
+    void insertRange(int pos, float mini, float maxi)
     {
         if (numRanges == rangesSize) {
             rangesSize++;
@@ -262,8 +266,8 @@ private:
         if (pos < numRanges) {
             memmove(&ranges[pos + 1], &ranges[pos], sizeof(*ranges) * (numRanges - pos));
         }
-        ranges[pos].min = min;
-        ranges[pos].max = max;
+        ranges[pos].mini = mini;
+        ranges[pos].maxi = maxi;
         numRanges++;
     }
 };
@@ -393,8 +397,8 @@ void ScreenParticleLayer::removeOldParticles()
         vec2i gridSize = grid->getGridSize();
         vec2i cell = grid->getCell(s->screenPos);
 
-        cell.x = min(gridSize.x - 1, max(cell.x, 0));
-        cell.y = min(gridSize.y - 1, max(cell.y, 0));
+        cell.x = osg::minimum(gridSize.x - 1, osg::maximum(cell.x, 0));
+        cell.y = osg::minimum(gridSize.y - 1, osg::maximum(cell.y, 0));
 
         int n = grid->getCellSize(cell);
         ScreenParticle **neighbors = grid->getCellContent(cell);
@@ -495,13 +499,13 @@ void ScreenParticleLayer::addNewParticles()
             // selects a range at random
             const RangeList::RangeEntry *re = ranges->getRange(rand() % ranges->getRangeCount());
             // selects a point at random in this range
-            float angle = re->min + (re->max - re->min) * rand() / (float) RAND_MAX;
+            float angle = re->mini + (re->maxi - re->mini) * rand() / (float) RAND_MAX;
             ranges->subtract(angle - M_PI / 3.0f, angle + M_PI / 3.0f);
 
             vec2f pt = pos + vec2f(cos(angle), sin(angle)) * 2.0f * radius;
             if (pt.x >= bounds.xmin && pt.x < bounds.xmax && pt.y >= bounds.ymin && pt.y < bounds.ymax) {
                 // warning: we do not use bounds.contains() on purpose! (to exclude
-                // equality with max bounds, so that floor(screenPos) is strictly
+                // equality with maxi bounds, so that floor(screenPos) is strictly
                 // less than viewport width and height)
                 ScreenParticle *s = newScreenParticle(pt);
                 if (s == NULL) {
@@ -538,7 +542,7 @@ void ScreenParticleLayer::addNewParticles()
                 depthArray = new float[depthArraySize];
             }
             ptr<FrameBuffer> fb = SceneManager::getCurrentFrameBuffer();
-            fb->readPixels(0, 0, width, height, DEPTH_COMPONENT, FLOAT, Buffer::Parameters(), CPUBuffer(depthArray));
+            fb->readPixels(0, 0, width, height, DEPTH_COMPONENT, ork::FLOAT, Buffer::Parameters(), CPUBuffer(depthArray));
             depthBufferRead = true;
         }
     } else {
@@ -597,8 +601,8 @@ ScreenParticleLayer::ScreenParticle** ScreenParticleLayer::getNeighbors(ScreenPa
     vec2i gridSize = grid->getGridSize();
     vec2i cell = grid->getCell(s->screenPos);
     // here we should have only particles that are in viewport
-    cell.x = min(max(0, cell.x), gridSize.x - 1);
-    cell.y = min(max(0, cell.y), gridSize.y - 1);
+    cell.x = osg::minimum(osg::maximum(0, cell.x), gridSize.x - 1);
+    cell.y = osg::minimum(osg::maximum(0, cell.y), gridSize.y - 1);
     assert(cell.x >= 0 && cell.x < gridSize.x && cell.y >= 0 && cell.y < gridSize.y);
 
     n = grid->getCellSize(cell);
@@ -657,7 +661,7 @@ void ScreenParticleLayer::getParticleDepths(const vector<ScreenParticle*> &parti
     if (!useOffscreenDepthBuffer) {
         if (depthBuffer == NULL || depthBuffer->getWidth() != width || depthBuffer->getHeight() != height) {
             depthBuffer = new Texture2D(width, height, DEPTH_COMPONENT32F, DEPTH_COMPONENT,
-                FLOAT, Texture::Parameters().wrapS(CLAMP_TO_EDGE).wrapT(CLAMP_TO_EDGE).min(NEAREST).mag(NEAREST), Buffer::Parameters(), CPUBuffer(NULL));
+                ork::FLOAT, Texture::Parameters().wrapS(CLAMP_TO_EDGE).wrapT(CLAMP_TO_EDGE).min(NEAREST).mag(NEAREST), Buffer::Parameters(), CPUBuffer(NULL));
         }
         fb->copyPixels(0, 0, 0, 0, width, height, *depthBuffer, 0);
     }
@@ -666,7 +670,7 @@ void ScreenParticleLayer::getParticleDepths(const vector<ScreenParticle*> &parti
     if (frameBuffer == NULL) {
         int maxParticles = getOwner()->getStorage()->getCapacity();
         ptr<Texture2D> result = new Texture2D(maxParticles, 1, R32F,
-            RED, FLOAT, Texture::Parameters().wrapS(CLAMP_TO_BORDER).wrapT(CLAMP_TO_BORDER).min(NEAREST).mag(NEAREST), Buffer::Parameters(), CPUBuffer(NULL));
+            RED, ork::FLOAT, Texture::Parameters().wrapS(CLAMP_TO_BORDER).wrapT(CLAMP_TO_BORDER).min(NEAREST).mag(NEAREST), Buffer::Parameters(), CPUBuffer(NULL));
 
         frameBuffer = new FrameBuffer();
         frameBuffer->setReadBuffer(COLOR0);
@@ -679,7 +683,7 @@ void ScreenParticleLayer::getParticleDepths(const vector<ScreenParticle*> &parti
 
         packer = new Program(new Module(330, packerShader));
 
-        mesh = new Mesh<vec3f, unsigned int>(POINTS, CPU, maxParticles);
+        mesh = new Mesh<vec3f, unsigned int>(ork::POINTS, CPU, maxParticles);
         mesh->addAttributeType(0, 3, A32F, false);
 
         depthTextureU = packer->getUniformSampler("depthTexture");
@@ -711,7 +715,7 @@ void ScreenParticleLayer::getParticleDepths(const vector<ScreenParticle*> &parti
         depthArraySize = count;
         depthArray = new float[depthArraySize];
     }
-    frameBuffer->readPixels(0, 0, count, 1, RED, FLOAT, Buffer::Parameters(), CPUBuffer(depthArray));
+    frameBuffer->readPixels(0, 0, count, 1, RED, ork::FLOAT, Buffer::Parameters(), CPUBuffer(depthArray));
 }
 
 void ScreenParticleLayer::swap(ptr<ScreenParticleLayer> p)

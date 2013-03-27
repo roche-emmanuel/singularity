@@ -1,3 +1,7 @@
+#include "sgtCommon.h"
+
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -284,7 +288,7 @@ bool PlantsProducer::doCreateTile(int level, int tx, int ty, TileStorage::Slot *
     slot->size = -1;
     slot->query = new Query(PRIMITIVES_GENERATED);
     slot->query->begin();
-    TransformFeedback::begin(SceneManager::getCurrentFrameBuffer(), plants->selectProg, POINTS, tfb, false);
+    TransformFeedback::begin(SceneManager::getCurrentFrameBuffer(), plants->selectProg, ork::POINTS, tfb, false);
     TransformFeedback::transform(*pattern, 0, nSeeds);
     TransformFeedback::end();
     slot->query->end();
@@ -528,8 +532,8 @@ void PlantsProducer::updateTerrainHeights(ptr<TerrainQuad> q)
         if (I[i] == 5) {
             // bbox vertice inside frustum
             double z = Z[i];
-            zMin = std::min(zMin, z);
-            zMax = std::max(zMax, z);
+            zMin = osg::minimum(zMin, z);
+            zMax = osg::maximum(zMax, z);
             N += 1;
         }
     }
@@ -550,16 +554,16 @@ void PlantsProducer::updateTerrainHeights(ptr<TerrainQuad> q)
             for (int j = 0; j < 5; ++j) {
                 double p = prods[a][j] - prods[b][j];
                 if (p < 0.0) {
-                    tIn = std::max(tIn, prods[a][j] / p);
+                    tIn = osg::maximum(tIn, prods[a][j] / p);
                 } else if (p > 0.0) {
-                    tOut = std::min(tOut, prods[a][j] / p);
+                    tOut = osg::minimum(tOut, prods[a][j] / p);
                 }
             }
             if (tIn <= tOut && tIn < 1.0 && tOut > 0.0) {
                 double zIn = Z[a] * (1.0 - tIn) + Z[b] * tIn;
                 double zOut = Z[a] * (1.0 - tOut) + Z[b] * tOut;
-                zMin = std::min(zMin, std::min(zIn, zOut));
-                zMax = std::max(zMax, std::max(zIn, zOut));
+                zMin = osg::minimum(zMin, osg::minimum(zIn, zOut));
+                zMax = osg::maximum(zMax, osg::maximum(zIn, zOut));
             }
         }
     }
@@ -568,17 +572,17 @@ void PlantsProducer::updateTerrainHeights(ptr<TerrainQuad> q)
         int j = i + 4;
         double tIn = 0.0;
         double tOut = 1.0;
-        tIn = std::max(tIn, ((frustumV[j].x < 0.0 ? xmax : xmin) - frustumV[i].x) / frustumV[j].x);
-        tIn = std::max(tIn, ((frustumV[j].y < 0.0 ? ymax : ymin) - frustumV[i].y) / frustumV[j].y);
-        tIn = std::max(tIn, ((frustumV[j].z < 0.0 ? zmax : zmin) - frustumV[i].z) / frustumV[j].z);
-        tOut = std::min(tOut, ((frustumV[j].x < 0.0 ? xmin : xmax) - frustumV[i].x) / frustumV[j].x);
-        tOut = std::min(tOut, ((frustumV[j].y < 0.0 ? ymin : ymax) - frustumV[i].y) / frustumV[j].y);
-        tOut = std::min(tOut, ((frustumV[j].z < 0.0 ? zmin : zmax) - frustumV[i].z) / frustumV[j].z);
+        tIn = osg::maximum(tIn, ((frustumV[j].x < 0.0 ? xmax : xmin) - frustumV[i].x) / frustumV[j].x);
+        tIn = osg::maximum(tIn, ((frustumV[j].y < 0.0 ? ymax : ymin) - frustumV[i].y) / frustumV[j].y);
+        tIn = osg::maximum(tIn, ((frustumV[j].z < 0.0 ? zmax : zmin) - frustumV[i].z) / frustumV[j].z);
+        tOut = osg::minimum(tOut, ((frustumV[j].x < 0.0 ? xmin : xmax) - frustumV[i].x) / frustumV[j].x);
+        tOut = osg::minimum(tOut, ((frustumV[j].y < 0.0 ? ymin : ymax) - frustumV[i].y) / frustumV[j].y);
+        tOut = osg::minimum(tOut, ((frustumV[j].z < 0.0 ? zmin : zmax) - frustumV[i].z) / frustumV[j].z);
         if (tIn <= tOut && tIn < 1.0 && tOut > 0.0) {
             double zIn = zNear + zRange * tIn;
             double zOut = zNear + zRange * tOut;
-            zMin = std::min(zMin, std::min(zIn, zOut));
-            zMax = std::max(zMax, std::max(zIn, zOut));
+            zMin = osg::minimum(zMin, osg::minimum(zIn, zOut));
+            zMax = osg::maximum(zMax, osg::maximum(zIn, zOut));
         }
     }
 

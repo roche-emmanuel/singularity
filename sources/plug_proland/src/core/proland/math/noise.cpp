@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -635,7 +637,7 @@ float *buildFbm4NoiseTexture2D(int size, int freq, int octaves, int lacunarity, 
                     amp *= gain;
                 }
                 data[4*(i + j * size) + k] = f;
-                max = std::max<float>(fabs(f), max);
+                max = osg::maximum<float>(fabs(f), max);
             }
         }
     }
@@ -684,7 +686,7 @@ float *buildFbm1NoiseTexture3D(int size, int freq, int octaves, int lacunarity, 
                     amp *= gain;
                 }
                 data[i + j * size + k * size * size] = f;
-                max = std::max<float>(fabs(f), max);
+                max = osg::maximum<float>(fabs(f), max);
             }
         }
     }

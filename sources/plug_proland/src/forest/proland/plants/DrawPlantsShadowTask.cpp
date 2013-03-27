@@ -1,3 +1,7 @@
+#include "sgtCommon.h"
+
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -190,11 +194,11 @@ void DrawPlantsShadowTask::drawPlantsShadow(ptr<SceneNode> context)
 
     int pid = 0;
     int maxSize = 0;
-    for (int i = 0; i < producers.size(); ++i) {
+    for (unsigned int i = 0; i < producers.size(); ++i) {
         int size = producers[i].cast<PlantsProducer>()->plantBounds.size();
         if (size > maxSize) {
             maxSize = size;
-            pid = i;
+            pid = (int)i;
         }
     }
 
@@ -202,14 +206,14 @@ void DrawPlantsShadowTask::drawPlantsShadow(ptr<SceneNode> context)
         ptr<PlantsProducer> p = producers[pid].cast<PlantsProducer>();
         mat4d m = p->tangentFrameToWorld;
 
-        double near = p->plantBounds[0].x;
-        double far = p->plantBounds[0].y;
+        double nearv = p->plantBounds[0].x;
+        double farv = p->plantBounds[0].y;
         for (unsigned int i = 1; i < p->plantBounds.size(); ++i) {
-            near = std::min(near, p->plantBounds[i].x);
-            far = std::max(far, p->plantBounds[i].y);
+            nearv = osg::minimum(nearv, p->plantBounds[i].x);
+            farv = osg::maximum(farv, p->plantBounds[i].y);
         }
-        far = std::min(far, 0.8 * plants->getMaxDistance());
-        if (far <= near) {
+        farv = osg::minimum(farv, 0.8 * plants->getMaxDistance());
+        if (farv <= nearv) {
             return;
         }
 
@@ -221,7 +225,7 @@ void DrawPlantsShadowTask::drawPlantsShadow(ptr<SceneNode> context)
         }
         assert(sliceCount <= MAX_SHADOW_MAPS);
 
-        if (far - near < 100.0) {
+        if (farv - nearv < 100.0) {
             sliceCount = 1;
         }
 
@@ -234,7 +238,7 @@ void DrawPlantsShadowTask::drawPlantsShadow(ptr<SceneNode> context)
             zSlice[slice] = false;
         }
         for (int slice = 0; slice <= sliceCount; ++slice) {
-            double z = near * pow((double)(far / near), (double)(float(slice) / sliceCount));
+            double z = nearv * pow((double)(farv / nearv), (double)(float(slice) / sliceCount));
             vec4d p = scene->getCameraToScreen() * vec4d(0.0, 0.0, -z, 1.0);
             zLimits[slice] = p.xyzw().z;
             zCuts[slice] = p.w;
@@ -253,7 +257,7 @@ void DrawPlantsShadowTask::drawPlantsShadow(ptr<SceneNode> context)
         for (int i = 0; i < 8; ++i) {
             vec3d c(i%2 == 0 ? b.xmin : b.xmax, (i/2)%2 == 0 ? b.ymin : b.ymax, (i/4)%2 == 0 ? b.zmin : b.zmax);
             double sz = zDir.dotproduct(c);
-            smax = std::max(smax, sz);
+            smax = osg::maximum(smax, sz);
         }
 
         mat4d t = p->tangentFrameToScreen.inverse();
@@ -270,8 +274,8 @@ void DrawPlantsShadowTask::drawPlantsShadow(ptr<SceneNode> context)
             for (unsigned int i = 0; i < p->plantBounds.size(); ++i) {
                 vec4d h = p->plantBounds[i];
                 if (h.x <= zj && h.y >= zi) {
-                    zmin = std::min(zmin, h.z);
-                    zmax = std::max(zmax, h.w);
+                    zmin = osg::minimum(zmin, h.z);
+                    zmax = osg::maximum(zmax, h.w);
                 }
             }
 
@@ -294,8 +298,8 @@ void DrawPlantsShadowTask::drawPlantsShadow(ptr<SceneNode> context)
                     vec3d AB = pB - pA;
                     double tOut = 1.0;
                     double tIn = 0.0;
-                    tIn = std::max(tIn, ((AB.z > 0.0 ? zmin : zmax) - pA.z) / AB.z);
-                    tOut = std::min(tOut, ((AB.z > 0.0 ? zmax : zmin) - pA.z) / AB.z);
+                    tIn = osg::maximum(tIn, ((AB.z > 0.0 ? zmin : zmax) - pA.z) / AB.z);
+                    tOut = osg::minimum(tOut, ((AB.z > 0.0 ? zmax : zmin) - pA.z) / AB.z);
                     if (tIn < tOut && tIn < 1.0 && tOut > 0.0) {
                         if (tIn > 0.0) {
                             pts.push_back(pA + AB * tIn);
@@ -312,7 +316,7 @@ void DrawPlantsShadowTask::drawPlantsShadow(ptr<SceneNode> context)
                 for (unsigned int i = 0; i < pts.size(); ++i) {
                     t = t.enlarge(s * pts[i]);
                 }
-                t.zmax = std::max(t.zmax, smax);
+                t.zmax = osg::maximum(t.zmax, smax);
                 // tangent frame to shadow
                 mat4d ttos = mat4d::orthoProjection(t.xmax, t.xmin, t.ymax, t.ymin, -t.zmax, -t.zmin) * mat4d(s);
                 tangentFrameToShadowU[slice]->setMatrix(mat4f(ttos[0][0], ttos[0][1], ttos[0][2], ttos[0][3],
@@ -346,7 +350,7 @@ void DrawPlantsShadowTask::drawPlantsShadow(ptr<SceneNode> context)
             if (plantRadiusU != NULL) {
                 plantRadiusU->set(plants->getPoissonRadius() * p->terrain->root->l / (1 << plants->getMaxLevel()));
             }
-            frameBuffer->multiDraw(plants->shadowProg, *(p->getPlantsMesh()), POINTS, p->offsets, p->sizes, p->count);
+            frameBuffer->multiDraw(plants->shadowProg, *(p->getPlantsMesh()), ork::POINTS, p->offsets, p->sizes, p->count);
         }
     }
 }

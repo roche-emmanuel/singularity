@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -127,7 +129,7 @@ ptr<Texture2DArray> createDemNoise(int tileWidth)
         }
     }
     ptr<Texture2DArray> noiseTexture = new Texture2DArray(tileWidth, tileWidth, 6, R16F,
-        RED, FLOAT, Texture::Parameters().wrapS(REPEAT).wrapT(REPEAT).min(NEAREST).mag(NEAREST), Buffer::Parameters(), CPUBuffer(noiseArray));
+        RED, ork::FLOAT, Texture::Parameters().wrapS(REPEAT).wrapT(REPEAT).min(NEAREST).mag(NEAREST), Buffer::Parameters(), CPUBuffer(noiseArray));
     delete[] noiseArray;
     return noiseTexture;
 }
@@ -336,7 +338,7 @@ bool ElevationProducer::doCreateTile(int level, int tx, int ty, TileStorage::Slo
             }
         }
 
-        residualTexture->setSubImage(0, 0, 0, tileWidth, tileWidth, RED, FLOAT, Buffer::Parameters(), CPUBuffer(residualTile));
+        residualTexture->setSubImage(0, 0, 0, tileWidth, tileWidth, RED, ork::FLOAT, Buffer::Parameters(), CPUBuffer(residualTile));
     } else {
         residualSamplerU->set(residualTexture);
         residualOSHU->set(vec4f(0.0, 0.0, 1.0, 0.0));

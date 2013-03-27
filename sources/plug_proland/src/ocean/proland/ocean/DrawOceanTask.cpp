@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -156,7 +158,7 @@ void DrawOceanTask::generateWaves()
     amplitudeMax = h1 - h0;
 
     ptr<Texture1D> wavesTexture = new Texture1D(nbWaves, RGBA32F, RGBA,
-            FLOAT, Texture::Parameters().wrapS(CLAMP_TO_BORDER).min(NEAREST).mag(NEAREST),
+            ork::FLOAT, Texture::Parameters().wrapS(CLAMP_TO_BORDER).min(NEAREST).mag(NEAREST),
             Buffer::Parameters(), CPUBuffer(waves));
     delete[] waves;
 

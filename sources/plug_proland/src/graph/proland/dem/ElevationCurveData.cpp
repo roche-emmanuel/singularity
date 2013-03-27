@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -125,12 +127,12 @@ float ElevationCurveData::getMonotonicSample(int i)
             if (h0 < h1) {
                 f = h1;
                 for (int j = sampleCount - 1; j >= i; --j) {
-                    f = std::max(std::min(f, getSample(j)), h0);
+                    f = osg::maximum(osg::minimum(f, getSample(j)), h0);
                 }
             } else {
                 f = h0;
                 for (int j = 0; j <= i; ++j) {
-                    f = std::max(std::min(f, getSample(j)), h1);
+                    f = osg::maximum(osg::minimum(f, getSample(j)), h1);
                 }
             }
             monotonicSamples[i] = f;

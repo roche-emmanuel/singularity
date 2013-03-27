@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -55,11 +57,11 @@ class RangeList
 public:
     struct RangeEntry
     {
-        float min;
+        float mini;
 
-        float max;
+        float maxi;
 
-        RangeEntry() : min(0.0f), max(0.0f)
+        RangeEntry() : mini(0.0f), maxi(0.0f)
         {
         }
     };
@@ -101,37 +103,37 @@ public:
     /**
      * Resets the list of range entries.
      *
-     * @param min min angle to search from.
-     * @param max max angle to search from.
+     * @param mini min angle to search from.
+     * @param maxi max angle to search from.
      */
-    void reset(float min, float max)
+    void reset(float mini, float maxi)
     {
         numRanges = 1;
-        ranges[0].min = min;
-        ranges[0].max = max;
+        ranges[0].mini = mini;
+        ranges[0].maxi = maxi;
     }
 
     /**
      * Removes an area from the available neighboring.
      *
-     * @param min begining of the angle to remove.
-     * @param max end of the angle to remove.
+     * @param mini begining of the angle to remove.
+     * @param maxi end of the angle to remove.
      */
-    void subtract(float min, float max)
+    void subtract(float mini, float maxi)
     {
-        if (min > TWO_PI) {
-            subtract(min - TWO_PI, max - TWO_PI);
-        } else if (max < 0) {
-            subtract(min + TWO_PI, max + TWO_PI);
-        } else if (min < 0) {
-            subtract(0, max);
-            subtract(min + TWO_PI, TWO_PI);
-        } else if (max > TWO_PI) {
-            subtract(min, TWO_PI);
-            subtract(0, max - TWO_PI);
+        if (mini > TWO_PI) {
+            subtract(mini - TWO_PI, maxi - TWO_PI);
+        } else if (maxi < 0) {
+            subtract(mini + TWO_PI, maxi + TWO_PI);
+        } else if (mini < 0) {
+            subtract(0, maxi);
+            subtract(mini + TWO_PI, TWO_PI);
+        } else if (maxi > TWO_PI) {
+            subtract(mini, TWO_PI);
+            subtract(0, maxi - TWO_PI);
         } else if (numRanges > 0) {
             int pos;
-            if (min < ranges[0].min) {
+            if (mini < ranges[0].mini) {
                 pos = -1;
             } else {
                 int lo = 0;
@@ -139,7 +141,7 @@ public:
                 int hi = numRanges;
                 while (lo < hi - 1) {
                     mid = (lo + hi) >> 1;
-                    if (ranges[mid].min < min) {
+                    if (ranges[mid].mini < mini) {
                         lo = mid;
                     } else {
                         hi = mid;
@@ -149,35 +151,35 @@ public:
             }
             if (pos == -1) {
                 pos = 0;
-            } else if (min < ranges[pos].max) {
-                float c = ranges[pos].min;
-                float d = ranges[pos].max;
-                if (min - c < K_SMALLEST_RANGE) {
-                    if (max < d) {
-                        ranges[pos].min = max;
+            } else if (mini < ranges[pos].maxi) {
+                float c = ranges[pos].mini;
+                float d = ranges[pos].maxi;
+                if (mini - c < K_SMALLEST_RANGE) {
+                    if (maxi < d) {
+                        ranges[pos].mini = maxi;
                     } else {
                         deleteRange(pos);
                     }
                 } else {
-                    ranges[pos].max = min;
-                    if (max < d) {
-                        insertRange(pos + 1, max, d);
+                    ranges[pos].maxi = mini;
+                    if (maxi < d) {
+                        insertRange(pos + 1, maxi, d);
                     }
                     pos++;
                 }
             } else {
-                if (pos < numRanges - 1 && max > ranges[pos + 1].min) {
+                if (pos < numRanges - 1 && maxi > ranges[pos + 1].mini) {
                     pos++;
                 } else {
                     return;
                 }
             }
-            while (pos < numRanges && max >= (ranges[pos].min)) {
-                if (ranges[pos].max - max < K_SMALLEST_RANGE) {
+            while (pos < numRanges && maxi >= (ranges[pos].mini)) {
+                if (ranges[pos].maxi - maxi < K_SMALLEST_RANGE) {
                     deleteRange(pos);
                 } else {
-                    ranges[pos].min = max;
-                    if (ranges[pos].max > max) {
+                    ranges[pos].mini = maxi;
+                    if (ranges[pos].maxi > maxi) {
                         break;
                     }
                 }
@@ -218,10 +220,10 @@ private:
      * Adds an entry at a given position.
      *
      * @param pos an index.
-     * @param min begining of the angle to remove.
-     * @param max end of the angle to remove.
+     * @param mini begining of the angle to remove.
+     * @param maxi end of the angle to remove.
      */
-    void insertRange(int pos, float min, float max)
+    void insertRange(int pos, float mini, float maxi)
     {
         if (numRanges == rangesSize) {
             rangesSize++;
@@ -235,8 +237,8 @@ private:
         if (pos < numRanges) {
             memmove(&ranges[pos + 1], &ranges[pos], sizeof(*ranges) * (numRanges - pos));
         }
-        ranges[pos].min = min;
-        ranges[pos].max = max;
+        ranges[pos].mini = mini;
+        ranges[pos].maxi = maxi;
         numRanges++;
     }
 };
@@ -294,10 +296,10 @@ public:
         vec2i cmin = getCell(p - vec2f(radius, radius));
         vec2i cmax = getCell(p + vec2f(radius, radius));
 
-        cmin.x = max(0, cmin.x);
-        cmin.y = max(0, cmin.y);
-        cmax.x = min(gridSize.x - 1, cmax.x);
-        cmax.y = min(gridSize.y - 1, cmax.y);
+        cmin.x = osg::maximum(0, cmin.x);
+        cmin.y = osg::maximum(0, cmin.y);
+        cmax.x = osg::minimum(gridSize.x - 1, cmax.x);
+        cmax.y = osg::minimum(gridSize.y - 1, cmax.y);
 
         for (int j = cmin.y; j <= cmax.y; ++j) {
             for (int i = cmin.x; i <= cmax.x; ++i) {
@@ -461,7 +463,7 @@ public:
                 // selects a range at random
                 const RangeList::RangeEntry *re = ranges->getRange(lrandom(&rand) % ranges->getRangeCount());
                 // selects a point at random in this range
-                float angle = re->min + (re->max - re->min) * frandom(&rand);
+                float angle = re->mini + (re->maxi - re->mini) * frandom(&rand);
                 ranges->subtract(angle - M_PI / 3.0f, angle + M_PI / 3.0f);
 
                 vec2f pt = p + vec2f(cos(angle), sin(angle)) * 2.0f * radius;
@@ -550,7 +552,7 @@ public:
         for (int i = 0; i < patternCount; ++i) {
             ptr< Mesh<vec3f, unsigned short> > pattern;
             int density = minDensity + int((maxDensity - minDensity) * frandom(&rand));
-            pattern = new Mesh<vec3f, unsigned short>(POINTS, GPU_STATIC, density, 0);
+            pattern = new Mesh<vec3f, unsigned short>(ork::POINTS, GPU_STATIC, density, 0);
             pattern->addAttributeType(0, 3, A32F, false);
 
             radius = 1.0 / sqrt(density * M_PI / POISSON_COVERAGE);
@@ -558,8 +560,8 @@ public:
             //generateRandomPattern(pattern, minDensity);
 
             addPattern(pattern->getBuffers());
-            minVertices = min(minVertices, pattern->getVertexCount());
-            maxVertices = max(maxVertices, pattern->getVertexCount());
+            minVertices = osg::minimum(minVertices, pattern->getVertexCount());
+            maxVertices = osg::maximum(maxVertices, pattern->getVertexCount());
         }
 
         init(minLevel, maxLevel, minVertices, maxVertices, tileCacheSize, maxDistance);

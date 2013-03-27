@@ -1,3 +1,7 @@
+#include "sgtCommon.h"
+
+#include "sgtCommon.h"
+
 /*
  * Ork: a small object-oriented OpenGL Rendering Kernel.
  * Copyright (c) 2008-2010 INRIA
@@ -290,7 +294,7 @@ ORK_API void getParameters(const ptr<ResourceDescriptor> desc, const TiXmlElemen
     } else if (strcmp(v, "INT") == 0) {
         t = INT;
     } else if (strcmp(v, "FLOAT") == 0) {
-        t = FLOAT;
+        t = ork::FLOAT;
     } else if (strcmp(v, "HALF") == 0) {
         t = HALF;
     } else {
@@ -727,7 +731,7 @@ public:
 
             // Ork does not support more than MAX_TEXTURE_UNITS units,
             // Because this state is stored in static array of size MAX_TEXTURE_UNITS.
-            maxUnits = std::min(maxCombinedTextureImageUnits, MAX_TEXTURE_UNITS);
+            maxUnits = osg::minimum(maxCombinedTextureImageUnits, MAX_TEXTURE_UNITS);
 
             if (Logger::DEBUG_LOGGER != NULL) {
                 Logger::DEBUG_LOGGER->logf("OPENGL", "MAX_VERTEX_TEXTURE_IMAGE_UNITS = %d", maxVertexTextureImageUnits);

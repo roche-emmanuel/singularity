@@ -1,3 +1,7 @@
+#include "sgtCommon.h"
+
+#include "sgtCommon.h"
+
 /*
  * Ork: a small object-oriented OpenGL Rendering Kernel.
  * Copyright (c) 2008-2010 INRIA
@@ -109,7 +113,7 @@ GLenum getAttributeType(AttributeType t)
 GLenum getMeshMode(MeshMode m)
 {
     switch (m) {
-    case POINTS:
+    case ork::POINTS:
         return GL_POINTS;
     case LINE_STRIP:
         return GL_LINE_STRIP;
@@ -577,7 +581,7 @@ GLenum getPixelType(PixelType t)
         return GL_INT;
     case HALF:
         return GL_HALF_FLOAT;
-    case FLOAT:
+    case ork::FLOAT:
         return GL_FLOAT;
     case UNSIGNED_BYTE_3_3_2:
         return GL_UNSIGNED_BYTE_3_3_2;
@@ -661,7 +665,7 @@ unsigned int getFormatSize(TextureFormat f, PixelType t)
         return 2 * components;
     case UNSIGNED_INT:
     case INT:
-    case FLOAT:
+    case ork::FLOAT:
         return 4 * components;
     case UNSIGNED_BYTE_3_3_2:
     case UNSIGNED_BYTE_2_3_3_REV:

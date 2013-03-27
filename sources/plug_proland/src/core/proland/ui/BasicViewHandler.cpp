@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -347,7 +349,7 @@ ViewManager *BasicViewHandler::getViewManager()
 void BasicViewHandler::updateView(double t, double dt)
 {
     ptr<TerrainViewController> controller = getViewManager()->getViewController();
-    const float dzFactor = pow(1.02f, std::min(float(50.0e-6 * dt), 1.0f));
+    const float dzFactor = pow(1.02f, osg::minimum(float(50.0e-6 * dt), 1.0f));
     if (_near) {
         target.d = target.d / dzFactor;
     } else if (_far) {

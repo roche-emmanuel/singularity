@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -179,7 +181,7 @@ ptr<Texture2D> ParticleGrid::copyToTexture(ptr<ScreenParticleLayer> l, ptr<Textu
     int height = gridSize.y;
     if (t == NULL || t->getWidth() != width || t->getHeight() != height) {
         t = new Texture2D(width, height, RGBA32F,
-            RGBA, FLOAT, Texture::Parameters().wrapS(CLAMP_TO_BORDER).wrapT(CLAMP_TO_BORDER).min(NEAREST).mag(NEAREST), Buffer::Parameters(), CPUBuffer(NULL));
+            RGBA, ork::FLOAT, Texture::Parameters().wrapS(CLAMP_TO_BORDER).wrapT(CLAMP_TO_BORDER).min(NEAREST).mag(NEAREST), Buffer::Parameters(), CPUBuffer(NULL));
     }
 
     ptr<ParticleStorage> storage = l->getOwner()->getStorage();
@@ -196,7 +198,7 @@ ptr<Texture2D> ParticleGrid::copyToTexture(ptr<ScreenParticleLayer> l, ptr<Textu
             }
         }
     }
-    t->setSubImage(0, 0, 0, width, height, RGBA, FLOAT, Buffer::Parameters(), CPUBuffer(cellIndexes));
+    t->setSubImage(0, 0, 0, width, height, RGBA, ork::FLOAT, Buffer::Parameters(), CPUBuffer(cellIndexes));
     return t;
 }
 

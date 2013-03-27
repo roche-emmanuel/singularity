@@ -1,3 +1,7 @@
+#include "sgtCommon.h"
+
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -89,7 +93,7 @@ static bool getRiversParticlesParams(ParticleProducer *producer, ParticleStorage
     params[6] = producer->getLayer<LifeCycleParticleLayer>()->getIntensity(p);
     params[7] = producer->getLayer<ScreenParticleLayer>()->getParticleRadius();
     params[8] = t->terrainId;
-    return t->terrainId >= 0 && t->status > FlowTile::UNKNOWN && t->status <= FlowTile::NEAR;
+    return t->terrainId >= 0 && t->status > FlowTile::UNKNOWN && t->status <= FlowTile::FLOW_NEAR;
 }
 
 DrawRiversTask::DrawRiversTask() : AbstractTask("DrawRiversTask")
@@ -122,11 +126,11 @@ void DrawRiversTask::init(ptr<Program> renderTexProg, ptr<Program> particlesProg
 
     this->initialized = false;
 
-    this->mesh = new Mesh<vec3f, unsigned int>(POINTS, GPU_DYNAMIC);
+    this->mesh = new Mesh<vec3f, unsigned int>(ork::POINTS, GPU_DYNAMIC);
     this->mesh->addAttributeType(0, 3, A32F, false);
 
     if (renderTexProg != NULL) {
-        this->particleMesh = new Mesh<vecParticle, unsigned int>(POINTS, GPU_DYNAMIC);
+        this->particleMesh = new Mesh<vecParticle, unsigned int>(ork::POINTS, GPU_DYNAMIC);
         this->particleMesh->addAttributeType(0, 2, A32F, false); // sPos
         this->particleMesh->addAttributeType(1, 2, A32F, false); // wPos
         this->particleMesh->addAttributeType(2, 2, A32F, false); // oPos
@@ -337,7 +341,7 @@ ptr<Task> DrawRiversTask::getTask(ptr<Object> context)
 
     vec4<GLint> vp = old->getViewport();
     if (advectedTex == NULL || advectedTex->getWidth() != vp.z || advectedTex->getHeight() != vp.w) {
-        advectedTex = new Texture2D(vp.z, vp.w, RGBA32F, RGBA, FLOAT,
+        advectedTex = new Texture2D(vp.z, vp.w, RGBA32F, RGBA, ork::FLOAT,
             Texture::Parameters().wrapT(REPEAT).wrapS(REPEAT).min(LINEAR).mag(LINEAR),
             Buffer::Parameters(), CPUBuffer(NULL));
         if (frameBuffer == NULL) {
@@ -421,8 +425,8 @@ void DrawRiversTask::doDrawParticles(ptr<ParticleProducer> pp)
             ScreenParticleLayer::ScreenParticle *s = screenLayer->getScreenParticle(p);
             TerrainParticleLayer::TerrainParticle *t = terrainLayer->getTerrainParticle(p);
             float intensity = t->status + lifeCycleLayer->getIntensity(p) * 0.99f;
-            if (t->status == FlowTile::NEAR) {
-                intensity = (float)FlowTile::NEAR + 0.99f;
+            if (t->status == FlowTile::FLOW_NEAR) {
+                intensity = (float)FlowTile::FLOW_NEAR + 0.99f;
             }
             mesh->addVertex(vec3f(s->screenPos.x, s->screenPos.y, intensity));
             ++i;
@@ -503,7 +507,7 @@ void DrawRiversTask::drawRivers()
         if (renderTexProg != NULL && drawMesh == PRE_ADVECTED) {
             if (!useOffscreenDepth) {
                 if (depthBuffer == NULL || depthBuffer->getWidth() != vp.z - vp.x || depthBuffer->getHeight() != vp.w - vp.y) {
-                    depthBuffer = new Texture2D(vp.z - vp.x, vp.w - vp.y, DEPTH_COMPONENT32F, DEPTH_COMPONENT, FLOAT,
+                    depthBuffer = new Texture2D(vp.z - vp.x, vp.w - vp.y, DEPTH_COMPONENT32F, DEPTH_COMPONENT, ork::FLOAT,
                         Texture::Parameters().wrapS(CLAMP_TO_EDGE).wrapT(CLAMP_TO_EDGE).min(NEAREST).mag(NEAREST),
                         Buffer::Parameters(), CPUBuffer(NULL));
                 }

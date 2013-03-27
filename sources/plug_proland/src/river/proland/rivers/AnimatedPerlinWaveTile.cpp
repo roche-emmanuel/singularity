@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -296,7 +298,7 @@ void AnimatedPerlinWaveTile::init(ptr<Texture2D> texture, int size, int numLodLe
         }
 
 
-        texture->setSubImage(level, 0, 0, nsize, nsize, RGB, FLOAT, Buffer::Parameters(), CPUBuffer(texData));
+        texture->setSubImage(level, 0, 0, nsize, nsize, RGB, ork::FLOAT, Buffer::Parameters(), CPUBuffer(texData));
         nsize /= 2;
     }
 
@@ -337,7 +339,7 @@ void AnimatedPerlinWaveTile::init(string &name, int gridSize, int tileSize, floa
 
     unsigned int seed = rand();
     for (int i = 0; i < timeLoop; i++) {
-        ptr<Texture2D> T = new Texture2D(size, size, RGB16F, RGB, FLOAT, Texture::Parameters().wrapS(REPEAT).wrapT(REPEAT).min(LINEAR_MIPMAP_LINEAR).mag(LINEAR).lodMin(0).lodMax(numLodLevel).maxAnisotropyEXT(16.0f), Buffer::Parameters(), CPUBuffer(0));
+        ptr<Texture2D> T = new Texture2D(size, size, RGB16F, RGB, ork::FLOAT, Texture::Parameters().wrapS(REPEAT).wrapT(REPEAT).min(LINEAR_MIPMAP_LINEAR).mag(LINEAR).lodMin(0).lodMax(numLodLevel).maxAnisotropyEXT(16.0f), Buffer::Parameters(), CPUBuffer(0));
         init(T, size, numLodLevel, i, seed);
         tex.push_back(T);
     }

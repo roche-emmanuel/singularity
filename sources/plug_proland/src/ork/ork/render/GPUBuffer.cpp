@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Ork: a small object-oriented OpenGL Rendering Kernel.
  * Copyright (c) 2008-2010 INRIA
@@ -176,11 +178,11 @@ public:
             glGetIntegerv(GL_MAX_GEOMETRY_UNIFORM_BLOCKS, &f);
             glGetIntegerv(GL_MAX_FRAGMENT_UNIFORM_BLOCKS, &g);
             glGetIntegerv(GL_MAX_COMBINED_UNIFORM_BLOCKS, &h);
-            maxUnits = std::min(maxUniformBufferBindings, MAX_UNIFORM_BUFFER_UNITS);
-            maxUnits = std::min(maxUnits, GLuint(v));
-            maxUnits = std::min(maxUnits, GLuint(f));
-            maxUnits = std::min(maxUnits, GLuint(g));
-            maxUnits = std::min(maxUnits, GLuint(h));
+            maxUnits = osg::minimum(maxUniformBufferBindings, MAX_UNIFORM_BUFFER_UNITS);
+            maxUnits = osg::minimum(maxUnits, GLuint(v));
+            maxUnits = osg::minimum(maxUnits, GLuint(f));
+            maxUnits = osg::minimum(maxUnits, GLuint(g));
+            maxUnits = osg::minimum(maxUnits, GLuint(h));
 
             if (Logger::DEBUG_LOGGER != NULL) {
                 Logger::DEBUG_LOGGER->logf("OPENGL", "MAX_UNIFORM_BUFFER_BINDINGS = %d", maxUniformBufferBindings);

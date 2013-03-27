@@ -84,19 +84,19 @@ class SetDepthRange : public SetStateTask::Runnable
 public:
     SetDepthRange(GLfloat n, GLfloat f)
     {
-        this->near = n;
-        this->far = f;
+        this->_near = n;
+        this->_far = f;
     }
 
     virtual void run(ptr<FrameBuffer> fb)
     {
-        fb->setDepthRange(near, far);
+        fb->setDepthRange(_near, _far);
     }
 
 private:
-    GLfloat near;
+    GLfloat _near;
 
-    GLfloat far;
+    GLfloat _far;
 };
 
 class SetClipDistances : public SetStateTask::Runnable
@@ -1360,11 +1360,11 @@ public:
                 addRunnable(new SetViewport(vp));
             } else if (strcmp(f->Value(), "depthRange") == 0) {
                 checkParameters(desc, f, "near,far,");
-                float near;
-                float far;
-                getFloatParameter(desc, f, "near", &near);
-                getFloatParameter(desc, f, "far", &far);
-                addRunnable(new SetDepthRange(near, far));
+                float nearv;
+                float farv;
+                getFloatParameter(desc, f, "near", &nearv);
+                getFloatParameter(desc, f, "far", &farv);
+                addRunnable(new SetDepthRange(nearv, farv));
             } else if (strcmp(f->Value(), "clipDistances") == 0) {
                 checkParameters(desc, f, "value,");
                 int val;

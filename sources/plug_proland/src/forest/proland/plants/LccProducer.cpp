@@ -1,3 +1,5 @@
+#include "sgtCommon.h"
+
 /*
  * Proland: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
@@ -307,7 +309,7 @@ bool LccProducer::doCreateTile(int level, int tx, int ty, TileStorage::Slot *dat
             ptr<MeshBuffers> pattern = plants->getPattern(patternId);
             int nSeeds = int(pattern->nvertices);
 
-            frameBuffer->draw(dots, *pattern, POINTS, 0, nSeeds);
+            frameBuffer->draw(dots, *pattern, ork::POINTS, 0, nSeeds);
         }
     }
 
