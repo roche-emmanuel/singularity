@@ -5,7 +5,7 @@ local awe = require "Awesomium"
 function Class:new(options)
 	self:info("Calling new for GenesisApp.")
 	local WebTile = require "gui.web.WebTile"
-	self._tile = WebTile{transparent=true} --,width=1920,height=1080}
+	self._tile = WebTile{transparent=true,width=1920,height=1080}
 end
 
 function Class:initialize(options)
@@ -55,7 +55,7 @@ function Class:initialize(options)
 	-- self._tile:loadURL("asset://genesis/hello.html")	
 	-- self._tile:loadURL("http://www.google.fr")
 
-	self._tile:loadURL(config.genesis_path .. "assets/overlays.html")	
+	self._tile:loadURL(config.genesis_path .. "assets/main.html")	
 	-- self._tile:loadURL("asset://genesis/main.html")	
 end
 
