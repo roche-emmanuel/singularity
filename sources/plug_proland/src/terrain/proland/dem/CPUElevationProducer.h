@@ -25,8 +25,8 @@
  * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
  */
 
-#ifndef _PROLAND_ELEVATION_PRODUCER_H_
-#define _PROLAND_ELEVATION_PRODUCER_H_
+#ifndef _PROLAND_CPU_ELEVATION_PRODUCER_H_
+#define _PROLAND_CPU_ELEVATION_PRODUCER_H_
 
 #include "proland/producer/TileProducer.h"
 
@@ -38,7 +38,7 @@ namespace proland
  * @ingroup dem
  * @authors Antoine Begault, Eric Bruneton
  */
-PROLAND_API class CPUElevationProducer : public TileProducer
+class PROLAND_API CPUElevationProducer : public TileProducer
 {
 public:
     /**

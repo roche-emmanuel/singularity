@@ -38,6 +38,7 @@
 - First working prototype of proland embedded in OSG window.
 - Added mouse navigation support for proland view.
 - Refactored proland code to accept sgtCommon header without conflicts (on FLOAT definition mainly).
+- Integrated log pipeline in proland module.
 
 
 TODO:

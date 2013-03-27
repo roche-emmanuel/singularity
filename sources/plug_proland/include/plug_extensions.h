@@ -13,6 +13,8 @@ public:
 
 int playProlandDemo(const std::string& archive, const std::string& data, const std::string& events);
 
+bool installDebugCallback();
+
 };
 
 #endif

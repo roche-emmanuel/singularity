@@ -29,6 +29,8 @@
 #include <OpenThreads/Condition>
 #include <OpenThreads/Thread>
 
+
+
 #define ORK_API
 #define PROLAND_API
 
@@ -45,9 +47,23 @@
 
 #include "pmath.h"
 
-#include "assert.h"
-#undef assert
+#include <lua.hpp>
+#include <iostream> 
 
-#define assert(x) if(!(x)){logERROR("Assertion " #x " failed.");};
+// include the SimCore library:
+#include "sgtCommon.h"
+
+#include "ProlandDrawable.h"
+
+#include "plug_extensions.h"
+
+#ifdef LUNA_BINDINGS
+#include <luna/luna.h>
+#include <luna/luna_types.h>
+#endif
+
+//#include "assert.h"
+//#undef assert
+//#define assert(x) if(!(x)){logERROR("Assertion " #x " failed.");};
 
 #endif

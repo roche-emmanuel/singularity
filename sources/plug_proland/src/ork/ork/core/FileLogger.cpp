@@ -102,6 +102,19 @@ FileLogger::~FileLogger()
 
 void FileLogger::log(const string &topic, const string &msg)
 {
+/*	if(type=="ERROR") {
+		trERROR("Proland","[" << topic <<"] "<<msg);
+	}
+	else if(type=="WARNING") {
+		trWARN("Proland","[" << topic <<"] "<<msg);
+	}
+	else if(type=="INFO") {
+		trINFO("Proland","[" << topic <<"] "<<msg);
+	}
+	else {
+		trDEBUG("Proland","[" << topic <<"] "<<msg);
+	}*/
+
     if (hasTopic(topic)) {
         time_t rawtime;
         char timestring[256];

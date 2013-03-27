@@ -67,10 +67,10 @@ bool ProlandEventHandler::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIAct
 		land->reshape(ea.getWindowWidth(),ea.getWindowHeight());
 		return false;
 	case osgGA::GUIEventAdapter::PUSH:
-		trDEBUG("Proland","Mouse button pressed.");
+		//trDEBUG("Proland","Mouse button pressed.");
 		return land->mouseClick(mapButton(ea.getButton()),EventHandler::DOWN,mapMods(ea.getModKeyMask()),xx,yy);
 	case osgGA::GUIEventAdapter::RELEASE:
-		trDEBUG("Proland","Mouse button release.");
+		//trDEBUG("Proland","Mouse button release.");
 		return land->mouseClick(mapButton(ea.getButton()),EventHandler::UP,mapMods(ea.getModKeyMask()),xx,yy);
 	case osgGA::GUIEventAdapter::MOVE:
 		//trDEBUG("Proland","Mouse button move at "<< xx<<", "<< yy);
@@ -79,7 +79,7 @@ bool ProlandEventHandler::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIAct
 		//trDEBUG("Proland","Mouse button drag at "<< xx<<", "<< yy);
 		return land->mouseMotion(xx,yy);
 	case osgGA::GUIEventAdapter::SCROLL:
-		trDEBUG("Proland","Mouse scroll");
+		//trDEBUG("Proland","Mouse scroll");
 		return land->mouseWheel(mapScroll(ea.getScrollingMotion()), mapMods(ea.getModKeyMask()), xx, yy);
 	};
 	
@@ -133,6 +133,10 @@ void ProlandDrawable::init() {
 
 	setUseDisplayList(false);
 	setUseVertexBufferObjects(false);
+
+	trDEBUG("Proland","Installing OpenGL debug callback...");
+	installDebugCallback();
+	trDEBUG("Proland","OpenGL debug callback ready.");
 
 	// Call to initProlandDemo:
 	trDEBUG("Proland","Generating atmosphere tables (in folder 'textures/atmo')...");
@@ -297,5 +301,5 @@ void ProlandDrawable::reshape(int x, int y)
 	fb->setPolygonMode(FILL, CULL);
 	fb->setDepthTest(true, LESS);
 
-	trDEBUG("Proland","Should we call render here ?");
+	//trDEBUG("Proland","Should we call render here ?");
 }

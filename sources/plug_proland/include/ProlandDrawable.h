@@ -75,7 +75,7 @@ public:
 	
     bool mouseClick(ork::EventHandler::button b, ork::EventHandler::state s, ork::EventHandler::modifier m, int x, int y)
     {
-		trDEBUG("Proland","mouse click event received properly.");
+		//trDEBUG("Proland","mouse click event received properly.");
         return _view->mouseClick(b, s, m, x, y);
     }
 

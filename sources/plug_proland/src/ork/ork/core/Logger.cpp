@@ -66,6 +66,19 @@ bool Logger::hasTopic(const string &topic)
 
 void Logger::log(const string &topic, const string &msg)
 {
+	if(type=="ERROR") {
+		trERROR("Proland","[" << topic <<"] "<<msg);
+	}
+	else if(type=="WARNING") {
+		trWARN("Proland","[" << topic <<"] "<<msg);
+	}
+	else if(type=="INFO") {
+		trINFO("Proland","[" << topic <<"] "<<msg);
+	}
+	else {
+		trDEBUG("Proland","[" << topic <<"] "<<msg);
+	}
+	
     if (hasTopic(topic)) {
         pthread_mutex_lock((pthread_mutex_t*) mutex);
         cerr << type << " [" << topic << "] " << msg << endl;
