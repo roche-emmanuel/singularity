@@ -28,9 +28,8 @@ function Class:initialize(options)
 	self._outputPanel = intf:addOutputPanel{}
 	intf:popParent(true)
 	
-	--self._canvas = canvas;
+	self._canvas = canvas;
 
-	
 	-- self._canvas:addListener{event="onClose",name="Screen",func=function()
 		-- self._tile:release()
 		-- self._tile = nil;
@@ -48,7 +47,8 @@ function Class:initialize(options)
 end
 
 function Class:destroy()
-	self._frame:Destroy()
+	self._canvas:release()
+	self._frame:Close()
 end
 
 function Class:getRoot()

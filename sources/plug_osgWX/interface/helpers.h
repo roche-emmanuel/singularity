@@ -17,7 +17,10 @@ class Referenced {};
 
 namespace osgViewer {
 
-class GraphicsWindow : public osg::Referenced {};
+class GraphicsWindow : public osg::Referenced {
+public:
+	void invalidate();
+};
 
 };
 

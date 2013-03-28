@@ -86,6 +86,16 @@ public:
 		return GraphicsWindowWX::releaseContextImplementation();
 	};
 
+	// void GraphicsWindowWX::invalidate()
+	void invalidate() {
+		if(_obj.pushFunction("invalidate")) {
+			_obj.pushArg((GraphicsWindowWX*)this);
+			return (_obj.callFunction<void>());
+		}
+
+		return GraphicsWindowWX::invalidate();
+	};
+
 
 	// Protected non-virtual methods:
 

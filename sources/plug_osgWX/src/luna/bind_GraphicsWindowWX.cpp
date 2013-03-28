@@ -201,6 +201,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_invalidate(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_valid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -226,6 +232,12 @@ public:
 	}
 
 	inline static bool _lg_typecheck_base_releaseContextImplementation(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_invalidate(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -477,6 +489,24 @@ public:
 		return 1;
 	}
 
+	// void GraphicsWindowWX::invalidate()
+	static int _bind_invalidate(lua_State *L) {
+		if (!_lg_typecheck_invalidate(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::invalidate() function, expected prototype:\nvoid GraphicsWindowWX::invalidate()\nClass arguments details:\n");
+		}
+
+
+		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::invalidate(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->invalidate();
+
+		return 0;
+	}
+
 	// bool GraphicsWindowWX::base_valid() const
 	static int _bind_base_valid(lua_State *L) {
 		if (!_lg_typecheck_base_valid(L)) {
@@ -571,6 +601,24 @@ public:
 		return 1;
 	}
 
+	// void GraphicsWindowWX::base_invalidate()
+	static int _bind_base_invalidate(lua_State *L) {
+		if (!_lg_typecheck_base_invalidate(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void GraphicsWindowWX::base_invalidate() function, expected prototype:\nvoid GraphicsWindowWX::base_invalidate()\nClass arguments details:\n");
+		}
+
+
+		GraphicsWindowWX* self=Luna< osg::Referenced >::checkSubType< GraphicsWindowWX >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void GraphicsWindowWX::base_invalidate(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->GraphicsWindowWX::invalidate();
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -603,11 +651,13 @@ luna_RegType LunaTraits< GraphicsWindowWX >::methods[] = {
 	{"isRealizedImplementation", &luna_wrapper_GraphicsWindowWX::_bind_isRealizedImplementation},
 	{"closeImplementation", &luna_wrapper_GraphicsWindowWX::_bind_closeImplementation},
 	{"releaseContextImplementation", &luna_wrapper_GraphicsWindowWX::_bind_releaseContextImplementation},
+	{"invalidate", &luna_wrapper_GraphicsWindowWX::_bind_invalidate},
 	{"base_valid", &luna_wrapper_GraphicsWindowWX::_bind_base_valid},
 	{"base_realizeImplementation", &luna_wrapper_GraphicsWindowWX::_bind_base_realizeImplementation},
 	{"base_isRealizedImplementation", &luna_wrapper_GraphicsWindowWX::_bind_base_isRealizedImplementation},
 	{"base_closeImplementation", &luna_wrapper_GraphicsWindowWX::_bind_base_closeImplementation},
 	{"base_releaseContextImplementation", &luna_wrapper_GraphicsWindowWX::_bind_base_releaseContextImplementation},
+	{"base_invalidate", &luna_wrapper_GraphicsWindowWX::_bind_base_invalidate},
 	{"__eq", &luna_wrapper_GraphicsWindowWX::_bind___eq},
 	{"fromVoid", &luna_wrapper_GraphicsWindowWX::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_GraphicsWindowWX::_bind_asVoid},

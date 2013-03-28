@@ -6,6 +6,8 @@ GraphicsWindowWX::GraphicsWindowWX(wxGLCanvas *canvas, wxGLContext* context)
 {
     _canvas = canvas;
 	_context = context;
+	CHECK(_canvas,"Invalid wxGLCanvas.")
+	CHECK(_context,"Invalid wxGLContext.")
 	
     _traits = new GraphicsContext::Traits;
 
@@ -22,6 +24,7 @@ GraphicsWindowWX::GraphicsWindowWX(wxGLCanvas *canvas, wxGLContext* context)
 
 GraphicsWindowWX::~GraphicsWindowWX()
 {
+	trDEBUG("GraphicsWindowWX","Deleting graphics window.");
 }
 
 void GraphicsWindowWX::init()
@@ -46,28 +49,37 @@ void GraphicsWindowWX::init()
 void GraphicsWindowWX::grabFocus()
 {
     // focus the canvas
-    _canvas->SetFocus();
+	if(_canvas){
+		_canvas->SetFocus();
+	}
 }
 
 void GraphicsWindowWX::grabFocusIfPointerInWindow()
 {
     // focus this window, if the pointer is in the window
     wxPoint pos = wxGetMousePosition();
-    if (wxFindWindowAtPoint(pos) == _canvas)
+    if (_canvas && wxFindWindowAtPoint(pos) == _canvas)
         _canvas->SetFocus();
 }
 
 void GraphicsWindowWX::useCursor(bool cursorOn)
 {
-    _canvas->SetCursor(cursorOn?wxNullCursor:wxCursor(wxCURSOR_BLANK));
+	if(_canvas){
+		_canvas->SetCursor(cursorOn?wxNullCursor:wxCursor(wxCURSOR_BLANK));
+	}
 }
 
 bool GraphicsWindowWX::makeCurrentImplementation()
 {
-    return _canvas->SetCurrent(*_context);
+	if(_canvas && _context) {
+		return _canvas->SetCurrent(*_context);
+	}
+	return false;
 }
 
 void GraphicsWindowWX::swapBuffersImplementation()
 {
-    _canvas->SwapBuffers();
+	if(_canvas) {
+		_canvas->SwapBuffers();
+	}
 }
