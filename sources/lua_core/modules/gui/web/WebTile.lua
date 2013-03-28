@@ -34,7 +34,7 @@ function Class:initialize(options)
 	
 	-- Register the update callback for this WebTile:
 	self:getEventManager():addListener{event=Event.FRAME,object=self}
-
+	
 	self:info("Done creating webtile.")
 	
 	self._viewListener = awe.View{
@@ -104,6 +104,15 @@ function Class:initialize(options)
 	};
 	
 	self._webView:set_view_listener(self._viewListener)
+end
+
+function Class:release()
+	self:info("Releasing WebTile...");
+	--self._webView:set_view_listener(nil);
+	self._webView = nil;
+	self._webImage = nil;
+	self._viewListener = nil;
+	self._eventHandler = nil;
 end
 
 function Class:getWebView()

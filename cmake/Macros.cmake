@@ -451,7 +451,7 @@ IF(MSVC)
 	# )
 
 	ADD_CUSTOM_TARGET(
-		${TARGET_NAME}_pdb ALL
+		${destName}_pdb ALL
 		# POST_BUILD
 		DEPENDS ${targetName}
 		COMMAND ${CMAKE_COMMAND} -E copy_if_different

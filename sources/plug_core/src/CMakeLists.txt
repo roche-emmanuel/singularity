@@ -47,4 +47,8 @@ ADD_FILES(INTF_FILES "../include/plug_extensions.h")
 SET(EXPAND_AS_DEFINED META_Object META_Node META_StateAttribute META_NodeVisitor META_Shape Object_META Object_META_DEF)
 
 GENERATE_REFLECTION(${TARGET_NAME} INTF_FILES)
+
+INSTALL_PDB()
+#_EX(${TARGET_NAME} "plug_core")
+
 COMPRESS_BINARY()

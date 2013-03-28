@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<document type="BLUMIND" editor_version="2.0.7.0">
+  <!--Create by Blumind, you can download it free from http://www.blumind.org/download-->
+  <information>
+    <Author />
+    <Company />
+    <Version>1.0</Version>
+    <Description />
+  </information>
+  <attributes>
+    <item name="editor_show_sidebar">True</item>
+  </attributes>
+  <charts>
+    <chart name="Turret details" type="MindMap">
+      <layout>MIND_MAP</layout>
+      <style>
+        <back_color>White</back_color>
+        <fore_color>Black</fore_color>
+        <line_color>LightSlateGray</line_color>
+        <border_color>SlateGray</border_color>
+        <node_back_color>LightGray</node_back_color>
+        <node_fore_color>Black</node_fore_color>
+        <select_color>RoyalBlue</select_color>
+        <hover_color>MediumSlateBlue</hover_color>
+        <link_line_color>Green</link_line_color>
+      </style>
+      <nodes>
+        <node text="Genesis">
+          <style>
+            <back_color>Silver</back_color>
+            <fore_color>Black</fore_color>
+            <border_color>Black</border_color>
+            <padding>12</padding>
+          </style>
+          <nodes>
+            <node text="Turrets">
+              <widgets>
+                <widget type="NOTES" align="Right" hyperlink="">
+                  <description>Should have config support.</description>
+                </widget>
+              </widgets>
+              <nodes>
+                <node text="Components">
+                  <nodes>
+                    <node text="Payloads" />
+                    <node text="Platform controller">
+                      <nodes>
+                        <node text="Platform position &amp; attitude" />
+                      </nodes>
+                    </node>
+                    <node text="Gimbal controller">
+                      <nodes>
+                        <node text="Turret azimuth &amp; elevation" />
+                      </nodes>
+                    </node>
+                    <node text="Sensors" />
+                    <node text="Overlays">
+                      <nodes>
+                        <node text="Layout">
+                          <nodes>
+                            <node text="as part of turret state" />
+                          </nodes>
+                        </node>
+                        <node text="components" />
+                      </nodes>
+                    </node>
+                    <node text="Menus" />
+                    <node text="Clock">
+                      <nodes>
+                        <node text="Can be paused" />
+                        <node text="Same flow as scenario clock" />
+                      </nodes>
+                    </node>
+                  </nodes>
+                </node>
+                <node text="Config">
+                  <nodes>
+                    <node text="as part of the turret state" />
+                  </nodes>
+                </node>
+                <node text="State">
+                  <nodes>
+                    <node text="Contains map of entries" />
+                    <node text="Content">
+                      <nodes>
+                        <node text="position_offset" />
+                        <node text="attitude_offset" />
+                        <node text="etc..." />
+                      </nodes>
+                    </node>
+                    <node text="Can be recorded">
+                      <nodes>
+                        <node text="Record changes on values" />
+                      </nodes>
+                    </node>
+                    <node text="Support change listeners" />
+                    <node text="Built with schema">
+                      <nodes>
+                        <node text="Schema element">
+                          <widgets>
+                            <widget type="NOTES" align="Right" hyperlink="">
+                              <description>{
+     name="entry_name",
+     desc="Description of this entry",
+     type="entryType",
+     range={mini,maxi},
+     value=defValue,
+     setter=yyy,
+     getter=xxx,
+     tags={},
+}
+</description>
+                            </widget>
+                          </widgets>
+                        </node>
+                      </nodes>
+                    </node>
+                    <node text="Creation of collections" />
+                    <node text="Tags for entries" />
+                    <node text="silent changes to bypass listeners ?" />
+                    <node text="Entry as class" />
+                  </nodes>
+                </node>
+                <node text="Update on each cycle" />
+                <node text="Class content">
+                  <nodes>
+                    <node text="getGimbal" />
+                    <node text="getPlatform" />
+                    <node text="getEOW" />
+                    <node text="getIR" />
+                    <node text="getEON" />
+                    <node text="getVIC" />
+                    <node text="getSubVIC" />
+                    <node text="etc..." />
+                  </nodes>
+                </node>
+                <node text="One turret assigned for each view" />
+              </nodes>
+            </node>
+            <node text="Communication protocols">
+              <nodes>
+                <node text="RCS selection" />
+                <node text="ICDs selection" />
+                <node text="Receive commands" />
+                <node text="Send status" />
+              </nodes>
+            </node>
+            <node text="Scenarios">
+              <nodes>
+                <node text="Moving Map display" />
+              </nodes>
+            </node>
+            <node text="TurretManager">
+              <widgets>
+                <widget type="PROGRESSBAR" max="100" min="0" value="0" show_text="False" color="Green" back_color="White" fore_color="Black" align="Bottom" hyperlink="" />
+              </widgets>
+            </node>
+            <node text="Screens">
+              <nodes>
+                <node text="One turret per screen" />
+                <node text="Access to the webview for each screen" />
+              </nodes>
+            </node>
+            <node text="Entry">
+              <nodes>
+                <node text="Serialization support" />
+                <node text="Can be volatile" />
+                <node text="Can be read only" />
+              </nodes>
+            </node>
+          </nodes>
+        </node>
+      </nodes>
+    </chart>
+  </charts>
+</document>

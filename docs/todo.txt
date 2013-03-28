@@ -5,6 +5,8 @@
 
 - Todo:
 
+* Add support for delay callback.
+
 * Study crash with "Insufficient tile cache size for" in core\proland\terrain\TileSampler.cpp line 443 
 
 * install opengl debug callback: example from ork/ui/GlutWindow.cpp
