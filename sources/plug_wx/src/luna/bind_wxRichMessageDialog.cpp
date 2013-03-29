@@ -214,7 +214,7 @@ public:
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 		wxString message(lua_tostring(L,2),lua_objlen(L,2));
 		wxString caption(lua_tostring(L,3),lua_objlen(L,3));
-		long style=luatop>3 ? (long)lua_tointeger(L,4) : wxOK | ::wxCENTRE;
+		long style=luatop>3 ? (long)lua_tointeger(L,4) : (long)wxOK | ::wxCENTRE;
 
 		return new wxRichMessageDialog(parent, message, caption, style);
 	}
@@ -231,7 +231,7 @@ public:
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxString message(lua_tostring(L,3),lua_objlen(L,3));
 		wxString caption(lua_tostring(L,4),lua_objlen(L,4));
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : wxOK | ::wxCENTRE;
+		long style=luatop>4 ? (long)lua_tointeger(L,5) : (long)wxOK | ::wxCENTRE;
 
 		return new wrapper_wxRichMessageDialog(L,NULL, parent, message, caption, style);
 	}
@@ -257,7 +257,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString checkBoxText(lua_tostring(L,2),lua_objlen(L,2));
-		bool checked=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool checked=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxRichMessageDialog* self=(Luna< wxRichMessageDialog >::check(L,1));
 		if(!self) {

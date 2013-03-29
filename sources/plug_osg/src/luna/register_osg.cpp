@@ -167,6 +167,22 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::MixinVector< unsigned int > >::Register(L);
 	Luna< std::vector< osg::ShaderComponent * > >::Register(L);
 	Luna< std::vector< osg::ShadowVolumeOccluder > >::Register(L);
+	Luna< osg::Matrix2Template< float > >::Register(L);
+	Luna< osg::Matrix2x3Template< float > >::Register(L);
+	Luna< osg::Matrix2x4Template< float > >::Register(L);
+	Luna< osg::Matrix3x2Template< float > >::Register(L);
+	Luna< osg::Matrix3Template< float > >::Register(L);
+	Luna< osg::Matrix3x4Template< float > >::Register(L);
+	Luna< osg::Matrix4x2Template< float > >::Register(L);
+	Luna< osg::Matrix4x3Template< float > >::Register(L);
+	Luna< osg::Matrix2Template< double > >::Register(L);
+	Luna< osg::Matrix2x3Template< double > >::Register(L);
+	Luna< osg::Matrix2x4Template< double > >::Register(L);
+	Luna< osg::Matrix3x2Template< double > >::Register(L);
+	Luna< osg::Matrix3Template< double > >::Register(L);
+	Luna< osg::Matrix3x4Template< double > >::Register(L);
+	Luna< osg::Matrix4x2Template< double > >::Register(L);
+	Luna< osg::Matrix4x3Template< double > >::Register(L);
 	Luna< osg::TemplateValueObject< std::string > >::Register(L);
 	Luna< osg::TemplateValueObject< bool > >::Register(L);
 	Luna< osg::TemplateValueObject< char > >::Register(L);
@@ -224,6 +240,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::BufferIndexBinding >::Register(L);
 	Luna< osg::UniformBufferBinding >::Register(L);
 	Luna< osg::TransformFeedbackBufferBinding >::Register(L);
+	Luna< osg::AtomicCounterBufferBinding >::Register(L);
 	Luna< osg::BufferObjectProfile >::Register(L);
 	Luna< osg::GLBufferObject >::Register(L);
 	Luna< osg::GLBufferObject::BufferEntry >::Register(L);
@@ -236,6 +253,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::PixelBufferObject >::Register(L);
 	Luna< osg::PixelDataBufferObject >::Register(L);
 	Luna< osg::UniformBufferObject >::Register(L);
+	Luna< osg::AtomicCounterBufferObject >::Register(L);
 	Luna< osg::CullSettings >::Register(L);
 	Luna< osg::Camera >::Register(L);
 	Luna< std::map< osg::Camera::BufferComponent, osg::Camera::Attachment > >::Register(L);
@@ -322,9 +340,13 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::EndOfDynamicDrawBlock >::Register(L);
 	Luna< osg::Hint >::Register(L);
 	Luna< osg::Image >::Register(L);
+	Luna< std::vector< osg::ref_ptr< osg::Image::DimensionsChangedCallback > > >::Register(L);
+	Luna< osg::Image::DataIterator >::Register(L);
+	Luna< osg::Image::DimensionsChangedCallback >::Register(L);
 	Luna< osg::ImageStream >::Register(L);
 	Luna< osg::ImageSequence >::Register(L);
-	Luna< std::vector< std::string > >::Register(L);
+	Luna< std::vector< osg::ImageSequence::ImageData > >::Register(L);
+	Luna< osg::ImageSequence::ImageData >::Register(L);
 	Luna< std::vector< osg::ref_ptr< osg::AudioStream > > >::Register(L);
 	Luna< osg::Shape >::Register(L);
 	Luna< osg::KdTree >::Register(L);
@@ -353,6 +375,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::Multisample >::Register(L);
 	Luna< osg::Multisample::Extensions >::Register(L);
 	Luna< std::vector< osg::Group * > >::Register(L);
+	Luna< std::vector< std::string > >::Register(L);
 	Luna< osg::Node::ComputeBoundingSphereCallback >::Register(L);
 	Luna< osg::NodeTrackerCallback >::Register(L);
 	Luna< osg::NodeVisitor::DatabaseRequestHandler >::Register(L);
@@ -401,6 +424,8 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::ProxyNode >::Register(L);
 	Luna< osg::Quat >::Register(L);
 	Luna< osg::RenderInfo >::Register(L);
+	Luna< osg::SampleMaski >::Register(L);
+	Luna< osg::SampleMaski::Extensions >::Register(L);
 	Luna< osg::Scissor >::Register(L);
 	Luna< osg::Sequence >::Register(L);
 	Luna< osg::ShadeModel >::Register(L);
@@ -463,6 +488,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::Texture >::Register(L);
 	Luna< std::list< osg::ref_ptr< osg::Texture::TextureObject > > >::Register(L);
 	Luna< osg::Texture::Extensions >::Register(L);
+	Luna< osg::Texture::ImageAttachment >::Register(L);
 	Luna< osg::Texture1D >::Register(L);
 	Luna< osg::Texture1D::SubloadCallback >::Register(L);
 	Luna< osg::Texture2D >::Register(L);
@@ -484,8 +510,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::TransferFunction >::Register(L);
 	Luna< osg::TransferFunction1D >::Register(L);
 	Luna< std::map< float, osg::Vec4f > >::Register(L);
-	Luna< osg::Matrix2 >::Register(L);
-	Luna< osg::Matrix3 >::Register(L);
 	Luna< osg::Uniform >::Register(L);
 	Luna< osg::Uniform::Callback >::Register(L);
 	Luna< osg::UserDataContainer >::Register(L);
@@ -567,6 +591,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData > >::Register(L);
 	Luna< osgDB::FileCache >::Register(L);
 	Luna< std::list< osg::ref_ptr< osgDB::DatabaseRevisions > > >::Register(L);
+	Luna< osgDB::FileNameComparator >::Register(L);
 	Luna< osgDB::fstream >::Register(L);
 	Luna< osgDB::ifstream >::Register(L);
 	Luna< osgDB::ofstream >::Register(L);
@@ -574,6 +599,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osgDB::ImageOptions >::Register(L);
 	Luna< osgDB::ImagePager >::Register(L);
 	Luna< osgDB::ImageProcessor >::Register(L);
+	Luna< osgDB::basic_type_wrapper >::Register(L);
 	Luna< osgDB::Field >::Register(L);
 	Luna< osgDB::FieldReader >::Register(L);
 	Luna< osgDB::FieldReaderIterator >::Register(L);
@@ -587,6 +613,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osgDB::ObjectWrapper >::Register(L);
 	Luna< std::vector< osg::ref_ptr< osgDB::BaseSerializer > > >::Register(L);
 	Luna< std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > > >::Register(L);
+	Luna< osgDB::UpdateWrapperVersionProxy >::Register(L);
 	Luna< osgDB::ObjectWrapperManager >::Register(L);
 	Luna< std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > > >::Register(L);
 	Luna< std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > > >::Register(L);
@@ -600,7 +627,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< std::map< const osg::Object *, unsigned int > >::Register(L);
 	Luna< osgDB::ParameterOutput >::Register(L);
 	Luna< osgDB::ReaderWriterInfo >::Register(L);
-	Luna< osgDB::basic_type_wrapper >::Register(L);
 	Luna< osgDB::Registry >::Register(L);
 	Luna< std::vector< osg::ref_ptr< osgDB::ReaderWriter > > >::Register(L);
 	Luna< std::vector< osg::ref_ptr< osgDB::ImageProcessor > > >::Register(L);
@@ -624,6 +650,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::Register(L);
 	Luna< osgGA::CameraViewSwitchManipulator >::Register(L);
 	Luna< std::vector< osg::ref_ptr< osg::CameraView > > >::Register(L);
+	Luna< osgGA::Device >::Register(L);
 	Luna< osgGA::DriveManipulator >::Register(L);
 	Luna< osgGA::EventQueue >::Register(L);
 	Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::Register(L);
@@ -786,6 +813,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osgUtil::AddRangeOperator >::Register(L);
 	Luna< osgUtil::MultiplyRangeOperator >::Register(L);
 	Luna< osgUtil::Optimizer >::Register(L);
+	Luna< osgUtil::PerlinNoise >::Register(L);
 	Luna< osgUtil::PlaneIntersector >::Register(L);
 	Luna< std::vector< osgUtil::PlaneIntersector::Intersection > >::Register(L);
 	Luna< osgUtil::PlaneIntersector::Intersection >::Register(L);

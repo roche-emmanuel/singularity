@@ -592,7 +592,7 @@ public:
 
 		size_t n=(size_t)lua_tointeger(L,1);
 		const wxPoint* points=(Luna< wxPoint >::check(L,2));
-		wxPolygonFillMode fillStyle=luatop>2 ? (wxPolygonFillMode)lua_tointeger(L,3) : ::wxODDEVEN_RULE;
+		wxPolygonFillMode fillStyle=luatop>2 ? (wxPolygonFillMode)lua_tointeger(L,3) : (wxPolygonFillMode)::wxODDEVEN_RULE;
 
 		return new wxRegion(n, points, fillStyle);
 	}
@@ -632,7 +632,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg transColour in wxRegion::wxRegion function");
 		}
 		const wxColour & transColour=*transColour_ptr;
-		int tolerance=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int tolerance=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		return new wxRegion(bmp, transColour, tolerance);
 	}
@@ -727,7 +727,7 @@ public:
 
 		size_t n=(size_t)lua_tointeger(L,2);
 		const wxPoint* points=(Luna< wxPoint >::check(L,3));
-		wxPolygonFillMode fillStyle=luatop>3 ? (wxPolygonFillMode)lua_tointeger(L,4) : ::wxODDEVEN_RULE;
+		wxPolygonFillMode fillStyle=luatop>3 ? (wxPolygonFillMode)lua_tointeger(L,4) : (wxPolygonFillMode)::wxODDEVEN_RULE;
 
 		return new wrapper_wxRegion(L,NULL, n, points, fillStyle);
 	}
@@ -767,7 +767,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg transColour in wxRegion::wxRegion function");
 		}
 		const wxColour & transColour=*transColour_ptr;
-		int tolerance=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int tolerance=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		return new wrapper_wxRegion(L,NULL, bmp, transColour, tolerance);
 	}
@@ -1342,7 +1342,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg transColour in wxRegion::Union function");
 		}
 		const wxColour & transColour=*transColour_ptr;
-		int tolerance=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int tolerance=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {

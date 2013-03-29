@@ -1130,7 +1130,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString str_id(lua_tostring(L,1),lua_objlen(L,1));
-		int value_if_not_found=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_NONE;
+		int value_if_not_found=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxID_NONE;
 
 		int lret = wxXmlResource::GetXRCID(str_id, value_if_not_found);
 		lua_pushnumber(L,lret);

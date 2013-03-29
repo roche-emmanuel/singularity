@@ -228,7 +228,7 @@ public:
 
 };
 
-class TouchData: public osg::Referenced {
+class TouchData: public osg::Object {
 public:
 	class TouchSet {
 	};
@@ -456,6 +456,54 @@ namespace osg {
 	class ShadowVolumeOccluderList {
 	};
 
+	class Matrix2 {
+	};
+
+	class Matrix2x3 {
+	};
+
+	class Matrix2x4 {
+	};
+
+	class Matrix3x2 {
+	};
+
+	class Matrix3 {
+	};
+
+	class Matrix3x4 {
+	};
+
+	class Matrix4x2 {
+	};
+
+	class Matrix4x3 {
+	};
+
+	class Matrix2d {
+	};
+
+	class Matrix2x3d {
+	};
+
+	class Matrix2x4d {
+	};
+
+	class Matrix3x2d {
+	};
+
+	class Matrix3d {
+	};
+
+	class Matrix3x4d {
+	};
+
+	class Matrix4x2d {
+	};
+
+	class Matrix4x3d {
+	};
+
 	class StringValueObject {
 	};
 
@@ -634,6 +682,9 @@ namespace osg {
 	class TransformFeedbackBufferBinding: public osg::BufferIndexBinding {
 	};
 
+	class AtomicCounterBufferBinding: public osg::BufferIndexBinding {
+	};
+
 	class BufferObjectProfile {
 	};
 
@@ -673,6 +724,9 @@ namespace osg {
 	};
 
 	class UniformBufferObject: public osg::BufferObject {
+	};
+
+	class AtomicCounterBufferObject: public osg::BufferObject {
 	};
 
 	class Camera: public osg::Transform, public osg::CullSettings {
@@ -960,14 +1014,23 @@ namespace osg {
 		class MipmapDataType {
 		};
 
+		class DimensionsChangedCallbackVector {
+		};
+
+		class DataIterator {
+		};
+
+		class DimensionsChangedCallback: public osg::Referenced {
+		};
+
 	};
 
 	class ImageSequence: public osg::ImageStream {
 	public:
-		class Images {
+		class ImageDataList {
 		};
 
-		class FileNames {
+		class ImageData {
 		};
 
 	};
@@ -1248,6 +1311,13 @@ namespace osg {
 	class RenderInfo {
 	};
 
+	class SampleMaski: public osg::StateAttribute {
+	public:
+		class Extensions: public osg::Referenced {
+		};
+
+	};
+
 	class Scissor: public osg::StateAttribute {
 	};
 
@@ -1488,6 +1558,9 @@ namespace osg {
 		class Extensions: public osg::Referenced {
 		};
 
+		class ImageAttachment {
+		};
+
 	};
 
 	class Texture1D: public osg::Texture {
@@ -1563,10 +1636,63 @@ namespace osg {
 	class Transform: public osg::Group {
 	};
 
-	class Matrix2 {
+	class MatrixTemplate {
 	};
 
-	class Matrix3 {
+	class Matrix2Template: public osg::MatrixTemplate {
+	public:
+		class base_class {
+		};
+
+	};
+
+	class Matrix2x3Template: public osg::MatrixTemplate {
+	public:
+		class base_class {
+		};
+
+	};
+
+	class Matrix2x4Template: public osg::MatrixTemplate {
+	public:
+		class base_class {
+		};
+
+	};
+
+	class Matrix3x2Template: public osg::MatrixTemplate {
+	public:
+		class base_class {
+		};
+
+	};
+
+	class Matrix3Template: public osg::MatrixTemplate {
+	public:
+		class base_class {
+		};
+
+	};
+
+	class Matrix3x4Template: public osg::MatrixTemplate {
+	public:
+		class base_class {
+		};
+
+	};
+
+	class Matrix4x2Template: public osg::MatrixTemplate {
+	public:
+		class base_class {
+		};
+
+	};
+
+	class Matrix4x3Template: public osg::MatrixTemplate {
+	public:
+		class base_class {
+		};
+
 	};
 
 	class Uniform: public osg::Object {
@@ -1862,6 +1988,9 @@ namespace osgDB {
 
 	};
 
+	class FileNameComparator {
+	};
+
 	class fstream {
 	};
 
@@ -1880,6 +2009,12 @@ namespace osgDB {
 	};
 
 	class ImageProcessor: public osg::Object {
+	};
+
+	class basic_type_wrapper {
+	};
+
+	class type_wrapper: public osgDB::basic_type_wrapper {
 	};
 
 	class Field {
@@ -1921,6 +2056,9 @@ namespace osgDB {
 		class FinishedObjectReadCallbackList {
 		};
 
+	};
+
+	class UpdateWrapperVersionProxy {
 	};
 
 	class ObjectWrapperManager: public osg::Referenced {
@@ -1977,14 +2115,11 @@ namespace osgDB {
 
 	};
 
-	class basic_type_wrapper {
-	};
-
-	class type_wrapper: public osgDB::basic_type_wrapper {
-	};
-
 	class Registry: public osg::Referenced {
 	public:
+		class MimeTypeExtensionMap {
+		};
+
 		class ReaderWriterList {
 		};
 
@@ -2141,6 +2276,9 @@ namespace osgGA {
 		class CameraViewList {
 		};
 
+	};
+
+	class Device: public osg::Object {
 	};
 
 	class DriveManipulator: public osgGA::CameraManipulator {
@@ -2806,6 +2944,9 @@ namespace osgUtil {
 
 	};
 
+	class PerlinNoise {
+	};
+
 	class PlaneIntersector: public osgUtil::Intersector {
 	public:
 		class Intersections {
@@ -2953,9 +3094,6 @@ namespace osgUtil {
 
 	class Tessellator: public osg::Referenced {
 	public:
-		class VertexPointList {
-		};
-
 		class PrimList {
 		};
 

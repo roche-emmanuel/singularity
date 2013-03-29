@@ -23,8 +23,14 @@ end
 --- Return the root  path for the current installation
 -- Note that the returned path doe not contain any ending path separator by default
 -- set the argument withSeparator to true to change that.
-function Class:getRootPath(withSep)
-	return self._root_path .. (withSep and "/" or "")
+function Class:getRootPath(arg)
+	if type(arg)=="boolean" then
+		return self._root_path .. (arg and "/" or "")
+	elseif type(arg)=="string" then
+		return self._root_path .. "/" .. arg
+	else
+		return self._root_path
+	end
 end
 
 

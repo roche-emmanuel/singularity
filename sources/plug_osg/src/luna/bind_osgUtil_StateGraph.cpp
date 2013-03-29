@@ -172,6 +172,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setStateSet(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getStateSet(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -504,6 +511,25 @@ public:
 		if (_lg_typecheck_getUserData_overload_2(L)) return _bind_getUserData_overload_2(L);
 
 		luaL_error(L, "error in function getUserData, cannot match any of the overloads for function getUserData:\n  getUserData()\n  getUserData()\n");
+		return 0;
+	}
+
+	// void osgUtil::StateGraph::setStateSet(const osg::StateSet * stateset)
+	static int _bind_setStateSet(lua_State *L) {
+		if (!_lg_typecheck_setStateSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StateGraph::setStateSet(const osg::StateSet * stateset) function, expected prototype:\nvoid osgUtil::StateGraph::setStateSet(const osg::StateSet * stateset)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::StateSet* stateset=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
+
+		osgUtil::StateGraph* self=Luna< osg::Referenced >::checkSubType< osgUtil::StateGraph >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StateGraph::setStateSet(const osg::StateSet *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setStateSet(stateset);
+
 		return 0;
 	}
 
@@ -1056,6 +1082,7 @@ luna_RegType LunaTraits< osgUtil::StateGraph >::methods[] = {
 	{"cloneType", &luna_wrapper_osgUtil_StateGraph::_bind_cloneType},
 	{"setUserData", &luna_wrapper_osgUtil_StateGraph::_bind_setUserData},
 	{"getUserData", &luna_wrapper_osgUtil_StateGraph::_bind_getUserData},
+	{"setStateSet", &luna_wrapper_osgUtil_StateGraph::_bind_setStateSet},
 	{"getStateSet", &luna_wrapper_osgUtil_StateGraph::_bind_getStateSet},
 	{"empty", &luna_wrapper_osgUtil_StateGraph::_bind_empty},
 	{"leaves_empty", &luna_wrapper_osgUtil_StateGraph::_bind_leaves_empty},

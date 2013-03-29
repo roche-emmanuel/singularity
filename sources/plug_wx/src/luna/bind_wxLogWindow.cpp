@@ -216,8 +216,8 @@ public:
 
 		wxWindow* pParent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 		wxString szTitle(lua_tostring(L,2),lua_objlen(L,2));
-		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
-		bool passToOld=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
+		bool passToOld=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		return new wxLogWindow(pParent, szTitle, show, passToOld);
 	}
@@ -233,8 +233,8 @@ public:
 
 		wxWindow* pParent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxString szTitle(lua_tostring(L,3),lua_objlen(L,3));
-		bool show=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
-		bool passToOld=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		bool show=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
+		bool passToOld=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		return new wrapper_wxLogWindow(L,NULL, pParent, szTitle, show, passToOld);
 	}
@@ -338,7 +338,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {

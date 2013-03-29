@@ -199,6 +199,49 @@ public:
 		return StatsVisitor::apply(node);
 	};
 
+	// void osgUtil::StatsVisitor::apply(osg::Drawable & drawable)
+	void apply(osg::Drawable & drawable) {
+		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
+			_obj.pushArg(&drawable);
+			return (_obj.callFunction<void>());
+		}
+
+		return StatsVisitor::apply(drawable);
+	};
+
+	// void osgUtil::StatsVisitor::apply(osg::StateSet & ss)
+	void apply(osg::StateSet & ss) {
+		if(_obj.pushFunction("apply")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
+			_obj.pushArg(&ss);
+			return (_obj.callFunction<void>());
+		}
+
+		return StatsVisitor::apply(ss);
+	};
+
+	// void osgUtil::StatsVisitor::totalUpStats()
+	void totalUpStats() {
+		if(_obj.pushFunction("totalUpStats")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
+			return (_obj.callFunction<void>());
+		}
+
+		return StatsVisitor::totalUpStats();
+	};
+
+	// void osgUtil::StatsVisitor::print(std::ostream & out)
+	void print(std::ostream & out) {
+		if(_obj.pushFunction("print")) {
+			_obj.pushArg((osgUtil::StatsVisitor*)this);
+			_obj.pushArg(&out);
+			return (_obj.callFunction<void>());
+		}
+
+		return StatsVisitor::print(out);
+	};
+
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

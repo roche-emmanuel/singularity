@@ -234,9 +234,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Zone* zone=luatop>1 ? (Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,2)) : (SPK::Zone*)NULL;
-		SPK::ModifierTrigger trigger=luatop>2 ? (SPK::ModifierTrigger)lua_tointeger(L,3) : SPK::INTERSECT_ZONE;
-		float bouncingRatio=luatop>3 ? (float)lua_tonumber(L,4) : 1.0f;
-		float friction=luatop>4 ? (float)lua_tonumber(L,5) : 1.0f;
+		SPK::ModifierTrigger trigger=luatop>2 ? (SPK::ModifierTrigger)lua_tointeger(L,3) : (SPK::ModifierTrigger)SPK::INTERSECT_ZONE;
+		float bouncingRatio=luatop>3 ? (float)lua_tonumber(L,4) : (float)1.0f;
+		float friction=luatop>4 ? (float)lua_tonumber(L,5) : (float)1.0f;
 
 		return new wrapper_SPK_Obstacle(L,NULL, zone, trigger, bouncingRatio, friction);
 	}
@@ -348,9 +348,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Zone* zone=luatop>0 ? (Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1)) : (SPK::Zone*)NULL;
-		SPK::ModifierTrigger trigger=luatop>1 ? (SPK::ModifierTrigger)lua_tointeger(L,2) : SPK::INTERSECT_ZONE;
-		float bouncingRatio=luatop>2 ? (float)lua_tonumber(L,3) : 1.0f;
-		float friction=luatop>3 ? (float)lua_tonumber(L,4) : 1.0f;
+		SPK::ModifierTrigger trigger=luatop>1 ? (SPK::ModifierTrigger)lua_tointeger(L,2) : (SPK::ModifierTrigger)SPK::INTERSECT_ZONE;
+		float bouncingRatio=luatop>2 ? (float)lua_tonumber(L,3) : (float)1.0f;
+		float friction=luatop>3 ? (float)lua_tonumber(L,4) : (float)1.0f;
 
 		SPK::Obstacle * lret = SPK::Obstacle::create(zone, trigger, bouncingRatio, friction);
 		if(!lret) return 0; // Do not write NULL pointers.

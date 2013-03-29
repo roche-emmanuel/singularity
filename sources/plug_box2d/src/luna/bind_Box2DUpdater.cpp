@@ -198,8 +198,8 @@ public:
 		if( luatop>4 && !vel_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg vel in Box2DUpdater::createBoxObject function");
 		}
-		const osg::Vec2f & vel=luatop>4 ? *vel_ptr : osg::Vec2f ();
-		float damping=luatop>5 ? (float)lua_tonumber(L,6) : 0.3f;
+		const osg::Vec2f & vel=luatop>4 ? *vel_ptr : (const osg::Vec2f)osg::Vec2f ();
+		float damping=luatop>5 ? (float)lua_tonumber(L,6) : (float)0.3f;
 
 		Box2DUpdater* self=Luna< osg::Referenced >::checkSubType< Box2DUpdater >(L,1);
 		if(!self) {
@@ -234,8 +234,8 @@ public:
 		if( luatop>4 && !vel_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg vel in Box2DUpdater::createDiskObject function");
 		}
-		const osg::Vec2f & vel=luatop>4 ? *vel_ptr : osg::Vec2f ();
-		float damping=luatop>5 ? (float)lua_tonumber(L,6) : 0.3f;
+		const osg::Vec2f & vel=luatop>4 ? *vel_ptr : (const osg::Vec2f)osg::Vec2f ();
+		float damping=luatop>5 ? (float)lua_tonumber(L,6) : (float)0.3f;
 
 		Box2DUpdater* self=Luna< osg::Referenced >::checkSubType< Box2DUpdater >(L,1);
 		if(!self) {

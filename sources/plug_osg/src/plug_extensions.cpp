@@ -83,12 +83,12 @@ osgDB::InputStream& useDecMode(osgDB::InputStream& is) {
 }
 
 osgDB::InputStream& beginBracket(osgDB::InputStream& is) {
-	is >> osgDB::BEGIN_BRACKET;
+	is >> is.BEGIN_BRACKET;
 	return is;
 }
 
 osgDB::InputStream& endBracket(osgDB::InputStream& is) {
-	is >> osgDB::END_BRACKET;
+	is >> is.END_BRACKET;
 	return is;
 }
 
@@ -153,7 +153,7 @@ osgDB::OutputStream& writeQuat(osgDB::OutputStream& os, const osg::Quat& val) {
 }
 
 osgDB::OutputStream& writeProperty(osgDB::OutputStream& os, const std::string& val) {
-	os << osgDB::PROPERTY(val.c_str());
+	os << os.PROPERTY(val.c_str());
 	return os;
 }
 
@@ -167,12 +167,12 @@ osgDB::OutputStream& useDecMode(osgDB::OutputStream& os) {
 	return os;
 }
 osgDB::OutputStream& beginBracket(osgDB::OutputStream& os) {
-	os << osgDB::BEGIN_BRACKET;
+	os << os.BEGIN_BRACKET;
 	return os;
 }
 
 osgDB::OutputStream& endBracket(osgDB::OutputStream& os) {
-	os << osgDB::END_BRACKET;
+	os << os.END_BRACKET;
 	return os;
 }
 

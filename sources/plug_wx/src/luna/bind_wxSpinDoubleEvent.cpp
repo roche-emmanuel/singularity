@@ -196,9 +196,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int commandType=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
-		int winid=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		double value=luatop>2 ? (double)lua_tonumber(L,3) : 0;
+		int commandType=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxEVT_NULL;
+		int winid=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		double value=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
 
 		return new wxSpinDoubleEvent(commandType, winid, value);
 	}
@@ -228,9 +228,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int commandType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
-		int winid=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		double value=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+		int commandType=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
+		int winid=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		double value=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
 
 		return new wrapper_wxSpinDoubleEvent(L,NULL, commandType, winid, value);
 	}

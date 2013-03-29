@@ -281,7 +281,7 @@ public:
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
 		wxString filespec(lua_tostring(L,3),lua_objlen(L,3));
-		int flags=luatop>3 ? (int)lua_tointeger(L,4) : ::wxDIR_DEFAULT;
+		int flags=luatop>3 ? (int)lua_tointeger(L,4) : (int)::wxDIR_DEFAULT;
 
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
@@ -431,7 +431,7 @@ public:
 		}
 		wxDirTraverser & sink=*sink_ptr;
 		wxString filespec(lua_tostring(L,3),lua_objlen(L,3));
-		int flags=luatop>3 ? (int)lua_tointeger(L,4) : ::wxDIR_DEFAULT;
+		int flags=luatop>3 ? (int)lua_tointeger(L,4) : (int)::wxDIR_DEFAULT;
 
 		wxDir* self=(Luna< wxDir >::check(L,1));
 		if(!self) {
@@ -470,7 +470,7 @@ public:
 
 		wxString dirname(lua_tostring(L,1),lua_objlen(L,1));
 		wxString filespec(lua_tostring(L,2),lua_objlen(L,2));
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxDIR_DEFAULT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxDIR_DEFAULT;
 
 		wxString lret = wxDir::FindFirst(dirname, filespec, flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -490,7 +490,7 @@ public:
 		wxString dirname(lua_tostring(L,1),lua_objlen(L,1));
 		wxArrayString* files=(Luna< wxArrayString >::check(L,2));
 		wxString filespec(lua_tostring(L,3),lua_objlen(L,3));
-		int flags=luatop>3 ? (int)lua_tointeger(L,4) : ::wxDIR_DEFAULT;
+		int flags=luatop>3 ? (int)lua_tointeger(L,4) : (int)::wxDIR_DEFAULT;
 
 		size_t lret = wxDir::GetAllFiles(dirname, files, filespec, flags);
 		lua_pushnumber(L,lret);
@@ -529,8 +529,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString dir(lua_tostring(L,1),lua_objlen(L,1));
-		int perm=luatop>1 ? (int)lua_tointeger(L,2) : ::wxS_DIR_DEFAULT;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int perm=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxS_DIR_DEFAULT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		bool lret = wxDir::Make(dir, perm, flags);
 		lua_pushboolean(L,lret?1:0);
@@ -548,7 +548,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString dir(lua_tostring(L,1),lua_objlen(L,1));
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		bool lret = wxDir::Remove(dir, flags);
 		lua_pushboolean(L,lret?1:0);

@@ -252,8 +252,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxFontEncoding encoding=luatop>1 ? (wxFontEncoding)lua_tointeger(L,2) : ::wxFONTENCODING_SYSTEM;
-		bool fixedWidthOnly=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		wxFontEncoding encoding=luatop>1 ? (wxFontEncoding)lua_tointeger(L,2) : (wxFontEncoding)::wxFONTENCODING_SYSTEM;
+		bool fixedWidthOnly=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
 		if(!self) {
@@ -336,8 +336,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxFontEncoding encoding=luatop>0 ? (wxFontEncoding)lua_tointeger(L,1) : ::wxFONTENCODING_SYSTEM;
-		bool fixedWidthOnly=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		wxFontEncoding encoding=luatop>0 ? (wxFontEncoding)lua_tointeger(L,1) : (wxFontEncoding)::wxFONTENCODING_SYSTEM;
+		bool fixedWidthOnly=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxArrayString stack_lret = wxFontEnumerator::GetFacenames(encoding, fixedWidthOnly);
 		wxArrayString* lret = new wxArrayString(stack_lret);
@@ -394,8 +394,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxFontEncoding encoding=luatop>1 ? (wxFontEncoding)lua_tointeger(L,2) : ::wxFONTENCODING_SYSTEM;
-		bool fixedWidthOnly=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		wxFontEncoding encoding=luatop>1 ? (wxFontEncoding)lua_tointeger(L,2) : (wxFontEncoding)::wxFONTENCODING_SYSTEM;
+		bool fixedWidthOnly=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
 		if(!self) {

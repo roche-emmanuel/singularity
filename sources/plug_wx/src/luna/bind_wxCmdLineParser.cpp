@@ -230,7 +230,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -238,7 +238,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -406,8 +406,8 @@ public:
 
 		wxString lng(lua_tostring(L,2),lua_objlen(L,2));
 		wxString desc(lua_tostring(L,3),lua_objlen(L,3));
-		wxCmdLineParamType type=luatop>3 ? (wxCmdLineParamType)lua_tointeger(L,4) : ::wxCMD_LINE_VAL_STRING;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		wxCmdLineParamType type=luatop>3 ? (wxCmdLineParamType)lua_tointeger(L,4) : (wxCmdLineParamType)::wxCMD_LINE_VAL_STRING;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
@@ -430,7 +430,7 @@ public:
 
 		wxString lng(lua_tostring(L,2),lua_objlen(L,2));
 		wxString desc(lua_tostring(L,3),lua_objlen(L,3));
-		int flags=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int flags=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
@@ -454,8 +454,8 @@ public:
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 		wxString lng(lua_tostring(L,3),lua_objlen(L,3));
 		wxString desc(lua_tostring(L,4),lua_objlen(L,4));
-		wxCmdLineParamType type=luatop>4 ? (wxCmdLineParamType)lua_tointeger(L,5) : ::wxCMD_LINE_VAL_STRING;
-		int flags=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		wxCmdLineParamType type=luatop>4 ? (wxCmdLineParamType)lua_tointeger(L,5) : (wxCmdLineParamType)::wxCMD_LINE_VAL_STRING;
+		int flags=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
 
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
@@ -477,8 +477,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString desc(lua_tostring(L,2),lua_objlen(L,2));
-		wxCmdLineParamType type=luatop>2 ? (wxCmdLineParamType)lua_tointeger(L,3) : ::wxCMD_LINE_VAL_STRING;
-		int flags=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		wxCmdLineParamType type=luatop>2 ? (wxCmdLineParamType)lua_tointeger(L,3) : (wxCmdLineParamType)::wxCMD_LINE_VAL_STRING;
+		int flags=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
@@ -502,7 +502,7 @@ public:
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 		wxString lng(lua_tostring(L,3),lua_objlen(L,3));
 		wxString desc(lua_tostring(L,4),lua_objlen(L,4));
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
@@ -579,7 +579,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
@@ -640,14 +640,14 @@ public:
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		long value=(long)lua_tointeger(L,3);
+		long* value=(long*)Luna< void >::check(L,3);
 
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxCmdLineParser::Found(const wxString &, long *) const. Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
-		bool lret = self->Found(name, &value);
+		bool lret = self->Found(name, value);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -661,14 +661,14 @@ public:
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		double value=(double)lua_tonumber(L,3);
+		double* value=(double*)Luna< void >::check(L,3);
 
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxCmdLineParser::Found(const wxString &, double *) const. Got : '%s'",typeid(Luna< wxCmdLineParser >::check(L,1)).name());
 		}
-		bool lret = self->Found(name, &value);
+		bool lret = self->Found(name, value);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -736,7 +736,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t n=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
+		size_t n=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)0;
 
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
@@ -777,7 +777,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool giveUsage=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool giveUsage=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
 		if(!self) {
@@ -913,7 +913,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString cmdline(lua_tostring(L,1),lua_objlen(L,1));
-		wxCmdLineSplitType flags=luatop>1 ? (wxCmdLineSplitType)lua_tointeger(L,2) : ::wxCMD_LINE_SPLIT_DOS;
+		wxCmdLineSplitType flags=luatop>1 ? (wxCmdLineSplitType)lua_tointeger(L,2) : (wxCmdLineSplitType)::wxCMD_LINE_SPLIT_DOS;
 
 		wxArrayString stack_lret = wxCmdLineParser::ConvertStringToArgs(cmdline, flags);
 		wxArrayString* lret = new wxArrayString(stack_lret);

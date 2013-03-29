@@ -362,9 +362,9 @@ public:
 		if( luatop>3 && !span_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGBSizerItem::wxGBSizerItem function");
 		}
-		const wxGBSpan & span=luatop>3 ? *span_ptr : wxDefaultSpan;
-		int flag=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		const wxGBSpan & span=luatop>3 ? *span_ptr : (const wxGBSpan&)wxDefaultSpan;
+		int flag=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		int border=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
 		return new wxGBSizerItem(width, height, pos, span, flag, border, userData);
@@ -389,9 +389,9 @@ public:
 		if( luatop>2 && !span_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGBSizerItem::wxGBSizerItem function");
 		}
-		const wxGBSpan & span=luatop>2 ? *span_ptr : wxDefaultSpan;
-		int flag=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		int border=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		const wxGBSpan & span=luatop>2 ? *span_ptr : (const wxGBSpan&)wxDefaultSpan;
+		int flag=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		int border=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 		wxObject* userData=luatop>5 ? (Luna< wxObject >::check(L,6)) : (wxObject*)NULL;
 
 		return new wxGBSizerItem(window, pos, span, flag, border, userData);
@@ -416,9 +416,9 @@ public:
 		if( luatop>2 && !span_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGBSizerItem::wxGBSizerItem function");
 		}
-		const wxGBSpan & span=luatop>2 ? *span_ptr : wxDefaultSpan;
-		int flag=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		int border=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		const wxGBSpan & span=luatop>2 ? *span_ptr : (const wxGBSpan&)wxDefaultSpan;
+		int flag=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		int border=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 		wxObject* userData=luatop>5 ? (Luna< wxObject >::check(L,6)) : (wxObject*)NULL;
 
 		return new wxGBSizerItem(sizer, pos, span, flag, border, userData);
@@ -444,9 +444,9 @@ public:
 		if( luatop>4 && !span_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGBSizerItem::wxGBSizerItem function");
 		}
-		const wxGBSpan & span=luatop>4 ? *span_ptr : wxDefaultSpan;
-		int flag=luatop>5 ? (int)lua_tointeger(L,6) : 0;
-		int border=luatop>6 ? (int)lua_tointeger(L,7) : 0;
+		const wxGBSpan & span=luatop>4 ? *span_ptr : (const wxGBSpan&)wxDefaultSpan;
+		int flag=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
+		int border=luatop>6 ? (int)lua_tointeger(L,7) : (int)0;
 		wxObject* userData=luatop>7 ? (Luna< wxObject >::check(L,8)) : (wxObject*)NULL;
 
 		return new wrapper_wxGBSizerItem(L,NULL, width, height, pos, span, flag, border, userData);
@@ -471,9 +471,9 @@ public:
 		if( luatop>3 && !span_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGBSizerItem::wxGBSizerItem function");
 		}
-		const wxGBSpan & span=luatop>3 ? *span_ptr : wxDefaultSpan;
-		int flag=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		const wxGBSpan & span=luatop>3 ? *span_ptr : (const wxGBSpan&)wxDefaultSpan;
+		int flag=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		int border=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
 		return new wrapper_wxGBSizerItem(L,NULL, window, pos, span, flag, border, userData);
@@ -498,9 +498,9 @@ public:
 		if( luatop>3 && !span_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGBSizerItem::wxGBSizerItem function");
 		}
-		const wxGBSpan & span=luatop>3 ? *span_ptr : wxDefaultSpan;
-		int flag=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		const wxGBSpan & span=luatop>3 ? *span_ptr : (const wxGBSpan&)wxDefaultSpan;
+		int flag=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		int border=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
 		return new wrapper_wxGBSizerItem(L,NULL, sizer, pos, span, flag, border, userData);

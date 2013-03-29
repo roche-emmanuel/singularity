@@ -149,14 +149,14 @@ public:
 	inline static bool _lg_typecheck_setTrig(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setLine(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -372,14 +372,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void mglGlyph::trig(short * value) function, expected prototype:\nvoid mglGlyph::trig(short * value)\nClass arguments details:\n");
 		}
 
-		short value=(short)lua_tointeger(L,2);
+		short* value=(short*)Luna< void >::check(L,2);
 
 		mglGlyph* self=(Luna< mglGlyph >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void mglGlyph::trig(short *). Got : '%s'",typeid(Luna< mglGlyph >::check(L,1)).name());
 		}
-		self->trig = &value;
+		self->trig = value;
 
 		return 0;
 	}
@@ -391,14 +391,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void mglGlyph::line(short * value) function, expected prototype:\nvoid mglGlyph::line(short * value)\nClass arguments details:\n");
 		}
 
-		short value=(short)lua_tointeger(L,2);
+		short* value=(short*)Luna< void >::check(L,2);
 
 		mglGlyph* self=(Luna< mglGlyph >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void mglGlyph::line(short *). Got : '%s'",typeid(Luna< mglGlyph >::check(L,1)).name());
 		}
-		self->line = &value;
+		self->line = value;
 
 		return 0;
 	}

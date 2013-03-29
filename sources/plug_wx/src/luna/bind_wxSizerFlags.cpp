@@ -240,7 +240,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int proportion=luatop>0 ? (int)lua_tointeger(L,1) : 0;
+		int proportion=luatop>0 ? (int)lua_tointeger(L,1) : (int)0;
 
 		return new wxSizerFlags(proportion);
 	}
@@ -301,7 +301,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int direction=luatop>1 ? (int)lua_tointeger(L,2) : ::wxALL;
+		int direction=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxALL;
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
@@ -397,7 +397,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int direction=luatop>1 ? (int)lua_tointeger(L,2) : ::wxALL;
+		int direction=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxALL;
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
@@ -611,7 +611,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int direction=luatop>1 ? (int)lua_tointeger(L,2) : ::wxALL;
+		int direction=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxALL;
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {

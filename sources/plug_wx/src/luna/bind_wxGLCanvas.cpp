@@ -118,7 +118,7 @@ public:
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
 		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,1)) ) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
 		if( luatop>3 && (!(Luna< wxPoint >::check(L,4))) ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
@@ -138,7 +138,7 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
 		if( (lua_isnil(L,2)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,2)) ) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,25723480) ) return false;
 		if( luatop>4 && (!(Luna< wxPoint >::check(L,5))) ) return false;
 		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,20268751) ) return false;
@@ -169,7 +169,7 @@ public:
 	inline static bool _lg_typecheck_IsDisplaySupported(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 		return true;
 	}
 
@@ -889,27 +889,27 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_ANY;
-		int attribList=luatop>2 ? (int)lua_tointeger(L,3) : NULL;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxID_ANY;
+		const int* attribList=luatop>2 ? (const int*)Luna< void >::check(L,3) : (const int*)NULL;
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxGLCanvas::wxGLCanvas function");
 		}
-		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
 		if( luatop>4 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxGLCanvas::wxGLCanvas function");
 		}
-		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : 0;
+		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)0;
 		wxString name(lua_tostring(L,7),lua_objlen(L,7));
 		const wxPalette* palette_ptr=luatop>7 ? (Luna< wxObject >::checkSubType< wxPalette >(L,8)) : NULL;
 		if( luatop>7 && !palette_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg palette in wxGLCanvas::wxGLCanvas function");
 		}
-		const wxPalette & palette=luatop>7 ? *palette_ptr : wxNullPalette;
+		const wxPalette & palette=luatop>7 ? *palette_ptr : (const wxPalette&)wxNullPalette;
 
-		return new wxGLCanvas(parent, id, &attribList, pos, size, style, name, palette);
+		return new wxGLCanvas(parent, id, attribList, pos, size, style, name, palette);
 	}
 
 	// wxGLCanvas::wxGLCanvas(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const int * attribList = NULL, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = "GLCanvas", const wxPalette & palette = wxNullPalette)
@@ -922,27 +922,27 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
-		int attribList=luatop>3 ? (int)lua_tointeger(L,4) : NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxID_ANY;
+		const int* attribList=luatop>3 ? (const int*)Luna< void >::check(L,4) : (const int*)NULL;
 		const wxPoint* pos_ptr=luatop>4 ? (Luna< wxPoint >::check(L,5)) : NULL;
 		if( luatop>4 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxGLCanvas::wxGLCanvas function");
 		}
-		const wxPoint & pos=luatop>4 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>4 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>5 ? (Luna< wxSize >::check(L,6)) : NULL;
 		if( luatop>5 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxGLCanvas::wxGLCanvas function");
 		}
-		const wxSize & size=luatop>5 ? *size_ptr : wxDefaultSize;
-		long style=luatop>6 ? (long)lua_tointeger(L,7) : 0;
+		const wxSize & size=luatop>5 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>6 ? (long)lua_tointeger(L,7) : (long)0;
 		wxString name(lua_tostring(L,8),lua_objlen(L,8));
 		const wxPalette* palette_ptr=luatop>8 ? (Luna< wxObject >::checkSubType< wxPalette >(L,9)) : NULL;
 		if( luatop>8 && !palette_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg palette in wxGLCanvas::wxGLCanvas function");
 		}
-		const wxPalette & palette=luatop>8 ? *palette_ptr : wxNullPalette;
+		const wxPalette & palette=luatop>8 ? *palette_ptr : (const wxPalette&)wxNullPalette;
 
-		return new wrapper_wxGLCanvas(L,NULL, parent, id, &attribList, pos, size, style, name, palette);
+		return new wrapper_wxGLCanvas(L,NULL, parent, id, attribList, pos, size, style, name, palette);
 	}
 
 	// Overload binder for wxGLCanvas::wxGLCanvas
@@ -1007,9 +1007,9 @@ public:
 			luaL_error(L, "luna typecheck failed in static bool wxGLCanvas::IsDisplaySupported(const int * attribList) function, expected prototype:\nstatic bool wxGLCanvas::IsDisplaySupported(const int * attribList)\nClass arguments details:\n");
 		}
 
-		int attribList=(int)lua_tointeger(L,1);
+		const int* attribList=(const int*)Luna< void >::check(L,1);
 
-		bool lret = wxGLCanvas::IsDisplaySupported(&attribList);
+		bool lret = wxGLCanvas::IsDisplaySupported(attribList);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -1249,8 +1249,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
-		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
+		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxGLCanvas* self=Luna< wxObject >::checkSubType< wxGLCanvas >(L,1);
 		if(!self) {
@@ -1416,7 +1416,7 @@ public:
 
 		int orientation=(int)lua_tointeger(L,2);
 		int pos=(int)lua_tointeger(L,3);
-		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxGLCanvas* self=Luna< wxObject >::checkSubType< wxGLCanvas >(L,1);
 		if(!self) {
@@ -1441,7 +1441,7 @@ public:
 		int position=(int)lua_tointeger(L,3);
 		int thumbSize=(int)lua_tointeger(L,4);
 		int range=(int)lua_tointeger(L,5);
-		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 
 		wxGLCanvas* self=Luna< wxObject >::checkSubType< wxGLCanvas >(L,1);
 		if(!self) {
@@ -1728,7 +1728,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxGLCanvas* self=Luna< wxObject >::checkSubType< wxGLCanvas >(L,1);
 		if(!self) {
@@ -1850,12 +1850,12 @@ public:
 		if( luatop>2 && !maxSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg maxSize in wxGLCanvas::base_SetSizeHints function");
 		}
-		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : wxDefaultSize;
+		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : (const wxSize&)wxDefaultSize;
 		const wxSize* incSize_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !incSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg incSize in wxGLCanvas::base_SetSizeHints function");
 		}
-		const wxSize & incSize=luatop>3 ? *incSize_ptr : wxDefaultSize;
+		const wxSize & incSize=luatop>3 ? *incSize_ptr : (const wxSize&)wxDefaultSize;
 
 		wxGLCanvas* self=Luna< wxObject >::checkSubType< wxGLCanvas >(L,1);
 		if(!self) {
@@ -1878,10 +1878,10 @@ public:
 
 		int minW=(int)lua_tointeger(L,2);
 		int minH=(int)lua_tointeger(L,3);
-		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int incW=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		int incH=luatop>6 ? (int)lua_tointeger(L,7) : -1;
+		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int incW=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+		int incH=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
 
 		wxGLCanvas* self=Luna< wxObject >::checkSubType< wxGLCanvas >(L,1);
 		if(!self) {
@@ -2030,7 +2030,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 		const wxRect* rect=luatop>2 ? (Luna< wxRect >::check(L,3)) : (const wxRect*)NULL;
 
 		wxGLCanvas* self=Luna< wxObject >::checkSubType< wxGLCanvas >(L,1);
@@ -2342,7 +2342,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxGLCanvas* self=Luna< wxObject >::checkSubType< wxGLCanvas >(L,1);
 		if(!self) {
@@ -2402,7 +2402,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGLCanvas* self=Luna< wxObject >::checkSubType< wxGLCanvas >(L,1);
 		if(!self) {
@@ -2424,7 +2424,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGLCanvas* self=Luna< wxObject >::checkSubType< wxGLCanvas >(L,1);
 		if(!self) {
@@ -2447,7 +2447,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxGLCanvas* self=Luna< wxObject >::checkSubType< wxGLCanvas >(L,1);
 		if(!self) {
@@ -3008,7 +3008,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGLCanvas* self=Luna< wxObject >::checkSubType< wxGLCanvas >(L,1);
 		if(!self) {
@@ -3089,7 +3089,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxGLCanvas* self=Luna< wxObject >::checkSubType< wxGLCanvas >(L,1);
 		if(!self) {

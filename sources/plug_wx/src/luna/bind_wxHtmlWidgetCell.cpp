@@ -143,7 +143,7 @@ public:
 	inline static bool _lg_typecheck_base_AdjustPagebreak(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,47342076) ) return false;
 		return true;
 	}
@@ -223,7 +223,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
-		int w=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int w=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		return new wxHtmlWidgetCell(wnd, w);
 	}
@@ -238,7 +238,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int w=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int w=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		return new wrapper_wxHtmlWidgetCell(L,NULL, wnd, w);
 	}
@@ -282,7 +282,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxHtmlWidgetCell::base_AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const function, expected prototype:\nbool wxHtmlWidgetCell::base_AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const\nClass arguments details:\narg 2 ID = 47342076\n");
 		}
 
-		int pagebreak=(int)lua_tointeger(L,2);
+		int* pagebreak=(int*)Luna< void >::check(L,2);
 		wxArrayInt* known_pagebreaks_ptr=(Luna< wxArrayInt >::check(L,3));
 		if( !known_pagebreaks_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg known_pagebreaks in wxHtmlWidgetCell::base_AdjustPagebreak function");
@@ -294,7 +294,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxHtmlWidgetCell::base_AdjustPagebreak(int *, wxArrayInt &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		bool lret = self->wxHtmlWidgetCell::AdjustPagebreak(&pagebreak, known_pagebreaks);
+		bool lret = self->wxHtmlWidgetCell::AdjustPagebreak(pagebreak, known_pagebreaks);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -415,8 +415,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int x=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int y=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int x=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int y=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		wxHtmlWidgetCell* self=Luna< wxObject >::checkSubType< wxHtmlWidgetCell >(L,1);
 		if(!self) {

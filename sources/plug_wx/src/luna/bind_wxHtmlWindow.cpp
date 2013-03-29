@@ -315,7 +315,7 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -455,18 +455,18 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_ANY;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxHtmlWindow::wxHtmlWindow function");
 		}
-		const wxPoint & pos=luatop>2 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>2 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxHtmlWindow::wxHtmlWindow function");
 		}
-		const wxSize & size=luatop>3 ? *size_ptr : wxDefaultSize;
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : wxHW_DEFAULT_STYLE;
+		const wxSize & size=luatop>3 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>4 ? (long)lua_tointeger(L,5) : (long)wxHW_DEFAULT_STYLE;
 		wxString name(lua_tostring(L,6),lua_objlen(L,6));
 
 		return new wxHtmlWindow(parent, id, pos, size, style, name);
@@ -493,18 +493,18 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxHtmlWindow::wxHtmlWindow function");
 		}
-		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
 		if( luatop>4 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxHtmlWindow::wxHtmlWindow function");
 		}
-		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : wxHW_DEFAULT_STYLE;
+		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)wxHW_DEFAULT_STYLE;
 		wxString name(lua_tostring(L,7),lua_objlen(L,7));
 
 		return new wrapper_wxHtmlWindow(L,NULL, parent, id, pos, size, style, name);
@@ -957,14 +957,14 @@ public:
 
 		wxString normal_face(lua_tostring(L,2),lua_objlen(L,2));
 		wxString fixed_face(lua_tostring(L,3),lua_objlen(L,3));
-		int sizes=luatop>3 ? (int)lua_tointeger(L,4) : NULL;
+		const int* sizes=luatop>3 ? (const int*)Luna< void >::check(L,4) : (const int*)NULL;
 
 		wxHtmlWindow* self=(Luna< wxHtmlWindow >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlWindow::SetFonts(const wxString &, const wxString &, const int *). Got : '%s'",typeid(Luna< wxHtmlWindow >::check(L,1)).name());
 		}
-		self->SetFonts(normal_face, fixed_face, &sizes);
+		self->SetFonts(normal_face, fixed_face, sizes);
 
 		return 0;
 	}
@@ -978,7 +978,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int size=luatop>1 ? (int)lua_tointeger(L,2) : -1;
+		int size=luatop>1 ? (int)lua_tointeger(L,2) : (int)-1;
 		wxString normal_face(lua_tostring(L,3),lua_objlen(L,3));
 		wxString fixed_face(lua_tostring(L,4),lua_objlen(L,4));
 
@@ -1061,7 +1061,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxStatusBar* statusbar=(Luna< wxObject >::checkSubType< wxStatusBar >(L,2));
-		int index=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int index=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		wxHtmlWindow* self=(Luna< wxHtmlWindow >::check(L,1));
 		if(!self) {

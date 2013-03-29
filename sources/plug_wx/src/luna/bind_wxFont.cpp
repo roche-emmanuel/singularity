@@ -728,9 +728,9 @@ public:
 		wxFontFamily family=(wxFontFamily)lua_tointeger(L,2);
 		wxFontStyle style=(wxFontStyle)lua_tointeger(L,3);
 		wxFontWeight weight=(wxFontWeight)lua_tointeger(L,4);
-		bool underline=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool underline=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 		wxString faceName(lua_tostring(L,6),lua_objlen(L,6));
-		wxFontEncoding encoding=luatop>6 ? (wxFontEncoding)lua_tointeger(L,7) : ::wxFONTENCODING_DEFAULT;
+		wxFontEncoding encoding=luatop>6 ? (wxFontEncoding)lua_tointeger(L,7) : (wxFontEncoding)::wxFONTENCODING_DEFAULT;
 
 		return new wxFont(pointSize, family, style, weight, underline, faceName, encoding);
 	}
@@ -752,9 +752,9 @@ public:
 		wxFontFamily family=(wxFontFamily)lua_tointeger(L,2);
 		wxFontStyle style=(wxFontStyle)lua_tointeger(L,3);
 		wxFontWeight weight=(wxFontWeight)lua_tointeger(L,4);
-		bool underline=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool underline=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 		wxString faceName(lua_tostring(L,6),lua_objlen(L,6));
-		wxFontEncoding encoding=luatop>6 ? (wxFontEncoding)lua_tointeger(L,7) : ::wxFONTENCODING_DEFAULT;
+		wxFontEncoding encoding=luatop>6 ? (wxFontEncoding)lua_tointeger(L,7) : (wxFontEncoding)::wxFONTENCODING_DEFAULT;
 
 		return new wxFont(pixelSize, family, style, weight, underline, faceName, encoding);
 	}
@@ -827,9 +827,9 @@ public:
 		wxFontFamily family=(wxFontFamily)lua_tointeger(L,3);
 		wxFontStyle style=(wxFontStyle)lua_tointeger(L,4);
 		wxFontWeight weight=(wxFontWeight)lua_tointeger(L,5);
-		bool underline=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
+		bool underline=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)false;
 		wxString faceName(lua_tostring(L,7),lua_objlen(L,7));
-		wxFontEncoding encoding=luatop>7 ? (wxFontEncoding)lua_tointeger(L,8) : ::wxFONTENCODING_DEFAULT;
+		wxFontEncoding encoding=luatop>7 ? (wxFontEncoding)lua_tointeger(L,8) : (wxFontEncoding)::wxFONTENCODING_DEFAULT;
 
 		return new wrapper_wxFont(L,NULL, pointSize, family, style, weight, underline, faceName, encoding);
 	}
@@ -851,9 +851,9 @@ public:
 		wxFontFamily family=(wxFontFamily)lua_tointeger(L,3);
 		wxFontStyle style=(wxFontStyle)lua_tointeger(L,4);
 		wxFontWeight weight=(wxFontWeight)lua_tointeger(L,5);
-		bool underline=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
+		bool underline=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)false;
 		wxString faceName(lua_tostring(L,7),lua_objlen(L,7));
-		wxFontEncoding encoding=luatop>7 ? (wxFontEncoding)lua_tointeger(L,8) : ::wxFONTENCODING_DEFAULT;
+		wxFontEncoding encoding=luatop>7 ? (wxFontEncoding)lua_tointeger(L,8) : (wxFontEncoding)::wxFONTENCODING_DEFAULT;
 
 		return new wrapper_wxFont(L,NULL, pixelSize, family, style, weight, underline, faceName, encoding);
 	}
@@ -1728,9 +1728,9 @@ public:
 		wxFontFamily family=(wxFontFamily)lua_tointeger(L,2);
 		wxFontStyle style=(wxFontStyle)lua_tointeger(L,3);
 		wxFontWeight weight=(wxFontWeight)lua_tointeger(L,4);
-		bool underline=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool underline=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 		wxString faceName(lua_tostring(L,6),lua_objlen(L,6));
-		wxFontEncoding encoding=luatop>6 ? (wxFontEncoding)lua_tointeger(L,7) : ::wxFONTENCODING_DEFAULT;
+		wxFontEncoding encoding=luatop>6 ? (wxFontEncoding)lua_tointeger(L,7) : (wxFontEncoding)::wxFONTENCODING_DEFAULT;
 
 		wxFont * lret = wxFont::New(pointSize, family, style, weight, underline, faceName, encoding);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1751,9 +1751,9 @@ public:
 
 		int pointSize=(int)lua_tointeger(L,1);
 		wxFontFamily family=(wxFontFamily)lua_tointeger(L,2);
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxFONTFLAG_DEFAULT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxFONTFLAG_DEFAULT;
 		wxString faceName(lua_tostring(L,4),lua_objlen(L,4));
-		wxFontEncoding encoding=luatop>4 ? (wxFontEncoding)lua_tointeger(L,5) : ::wxFONTENCODING_DEFAULT;
+		wxFontEncoding encoding=luatop>4 ? (wxFontEncoding)lua_tointeger(L,5) : (wxFontEncoding)::wxFONTENCODING_DEFAULT;
 
 		wxFont * lret = wxFont::New(pointSize, family, flags, faceName, encoding);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1780,9 +1780,9 @@ public:
 		wxFontFamily family=(wxFontFamily)lua_tointeger(L,2);
 		wxFontStyle style=(wxFontStyle)lua_tointeger(L,3);
 		wxFontWeight weight=(wxFontWeight)lua_tointeger(L,4);
-		bool underline=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool underline=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 		wxString faceName(lua_tostring(L,6),lua_objlen(L,6));
-		wxFontEncoding encoding=luatop>6 ? (wxFontEncoding)lua_tointeger(L,7) : ::wxFONTENCODING_DEFAULT;
+		wxFontEncoding encoding=luatop>6 ? (wxFontEncoding)lua_tointeger(L,7) : (wxFontEncoding)::wxFONTENCODING_DEFAULT;
 
 		wxFont * lret = wxFont::New(pixelSize, family, style, weight, underline, faceName, encoding);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1807,9 +1807,9 @@ public:
 		}
 		const wxSize & pixelSize=*pixelSize_ptr;
 		wxFontFamily family=(wxFontFamily)lua_tointeger(L,2);
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxFONTFLAG_DEFAULT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxFONTFLAG_DEFAULT;
 		wxString faceName(lua_tostring(L,4),lua_objlen(L,4));
-		wxFontEncoding encoding=luatop>4 ? (wxFontEncoding)lua_tointeger(L,5) : ::wxFONTENCODING_DEFAULT;
+		wxFontEncoding encoding=luatop>4 ? (wxFontEncoding)lua_tointeger(L,5) : (wxFontEncoding)::wxFONTENCODING_DEFAULT;
 
 		wxFont * lret = wxFont::New(pixelSize, family, flags, faceName, encoding);
 		if(!lret) return 0; // Do not write NULL pointers.

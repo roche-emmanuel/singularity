@@ -281,7 +281,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int button=luatop>1 ? (int)lua_tointeger(L,2) : ::wxMOUSE_BTN_LEFT;
+		int button=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxMOUSE_BTN_LEFT;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
@@ -303,7 +303,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int button=luatop>1 ? (int)lua_tointeger(L,2) : ::wxMOUSE_BTN_LEFT;
+		int button=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxMOUSE_BTN_LEFT;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
@@ -325,7 +325,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int button=luatop>1 ? (int)lua_tointeger(L,2) : ::wxMOUSE_BTN_LEFT;
+		int button=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxMOUSE_BTN_LEFT;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
@@ -347,7 +347,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int button=luatop>1 ? (int)lua_tointeger(L,2) : ::wxMOUSE_BTN_LEFT;
+		int button=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxMOUSE_BTN_LEFT;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
@@ -373,7 +373,7 @@ public:
 		long y1=(long)lua_tointeger(L,3);
 		long x2=(long)lua_tointeger(L,4);
 		long y2=(long)lua_tointeger(L,5);
-		int button=luatop>5 ? (int)lua_tointeger(L,6) : ::wxMOUSE_BTN_LEFT;
+		int button=luatop>5 ? (int)lua_tointeger(L,6) : (int)::wxMOUSE_BTN_LEFT;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
@@ -396,7 +396,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int keycode=(int)lua_tointeger(L,2);
-		int modifiers=luatop>2 ? (int)lua_tointeger(L,3) : ::wxMOD_NONE;
+		int modifiers=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxMOD_NONE;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
@@ -419,7 +419,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int keycode=(int)lua_tointeger(L,2);
-		int modifiers=luatop>2 ? (int)lua_tointeger(L,3) : ::wxMOD_NONE;
+		int modifiers=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxMOD_NONE;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
@@ -442,7 +442,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int keycode=(int)lua_tointeger(L,2);
-		int modifiers=luatop>2 ? (int)lua_tointeger(L,3) : ::wxMOD_NONE;
+		int modifiers=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxMOD_NONE;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {

@@ -193,7 +193,7 @@ public:
 
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,20268751)) ) return false;
 		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,25723480)) ) return false;
-		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -315,7 +315,7 @@ public:
 
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,20268751)) ) return false;
 		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,25723480)) ) return false;
-		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -577,14 +577,14 @@ public:
 
 		wxSize* size=luatop>1 ? (Luna< wxSize >::check(L,2)) : (wxSize*)NULL;
 		wxPoint* pos=luatop>2 ? (Luna< wxPoint >::check(L,3)) : (wxPoint*)NULL;
-		bool newFrameEachTime=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : NULL;
+		bool* newFrameEachTime=luatop>3 ? (bool*)(Luna< void >::check(L,4)) : (bool*)NULL;
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxFrame * wxHelpController::GetFrameParameters(wxSize *, wxPoint *, bool *). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
-		wxFrame * lret = self->GetFrameParameters(size, pos, &newFrameEachTime);
+		wxFrame * lret = self->GetFrameParameters(size, pos, newFrameEachTime);
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxFrame >::push(L,lret,false);
@@ -673,7 +673,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString keyWord(lua_tostring(L,2),lua_objlen(L,2));
-		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : ::wxHELP_SEARCH_ALL;
+		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : (wxHelpSearchMode)::wxHELP_SEARCH_ALL;
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
@@ -746,8 +746,8 @@ public:
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxHelpController::SetFrameParameters function");
 		}
-		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
-		bool newFrameEachTime=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
+		bool newFrameEachTime=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
@@ -942,14 +942,14 @@ public:
 
 		wxSize* size=luatop>1 ? (Luna< wxSize >::check(L,2)) : (wxSize*)NULL;
 		wxPoint* pos=luatop>2 ? (Luna< wxPoint >::check(L,3)) : (wxPoint*)NULL;
-		bool newFrameEachTime=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : NULL;
+		bool* newFrameEachTime=luatop>3 ? (bool*)(Luna< void >::check(L,4)) : (bool*)NULL;
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxFrame * wxHelpController::base_GetFrameParameters(wxSize *, wxPoint *, bool *). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
 		}
-		wxFrame * lret = self->wxHelpController::GetFrameParameters(size, pos, &newFrameEachTime);
+		wxFrame * lret = self->wxHelpController::GetFrameParameters(size, pos, newFrameEachTime);
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxFrame >::push(L,lret,false);
@@ -1038,7 +1038,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString keyWord(lua_tostring(L,2),lua_objlen(L,2));
-		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : ::wxHELP_SEARCH_ALL;
+		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : (wxHelpSearchMode)::wxHELP_SEARCH_ALL;
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
@@ -1111,8 +1111,8 @@ public:
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxHelpController::base_SetFrameParameters function");
 		}
-		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
-		bool newFrameEachTime=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
+		bool newFrameEachTime=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {

@@ -258,7 +258,7 @@ public:
 // double mglBase::text_plot(long p, const wchar_t * text, const char * fnt, double size = -1, double sh = 0, double col = -('k'), bool rot = true)
 double text_plot(long, const wchar_t *, const char *, double, double, double, bool) {
 	THROW_IF(true,"The function call double mglBase::text_plot(long, const wchar_t *, const char *, double, double, double, bool) is not implemented in wrapper.");
-	return double();
+	return (double)0;
 };
 
 };

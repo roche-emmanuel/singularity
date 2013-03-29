@@ -251,7 +251,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -259,7 +259,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
@@ -268,7 +268,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -276,7 +276,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		return true;
 	}
@@ -285,7 +285,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -293,7 +293,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		return true;
 	}
@@ -302,7 +302,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isboolean(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -310,7 +310,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isboolean(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( lua_isboolean(L,4)==0 ) return false;
 		return true;
 	}
@@ -615,7 +615,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
@@ -637,7 +637,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
@@ -777,7 +777,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool bCurrentOnly=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool bCurrentOnly=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
@@ -862,14 +862,14 @@ public:
 		}
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
-		long l=(long)lua_tointeger(L,3);
+		long* l=(long*)Luna< void >::check(L,3);
 
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		bool lret = self->Read(key, &l);
+		bool lret = self->Read(key, l);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -883,7 +883,7 @@ public:
 		}
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
-		long l=(long)lua_tointeger(L,3);
+		long* l=(long*)Luna< void >::check(L,3);
 		long defaultVal=(long)lua_tointeger(L,4);
 
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
@@ -891,7 +891,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, long *, long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		bool lret = self->Read(key, &l, defaultVal);
+		bool lret = self->Read(key, l, defaultVal);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -905,14 +905,14 @@ public:
 		}
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
-		double d=(double)lua_tonumber(L,3);
+		double* d=(double*)Luna< void >::check(L,3);
 
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, double *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		bool lret = self->Read(key, &d);
+		bool lret = self->Read(key, d);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -926,7 +926,7 @@ public:
 		}
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
-		double d=(double)lua_tonumber(L,3);
+		double* d=(double*)Luna< void >::check(L,3);
 		double defaultVal=(double)lua_tonumber(L,4);
 
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
@@ -934,7 +934,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, double *, double) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		bool lret = self->Read(key, &d, defaultVal);
+		bool lret = self->Read(key, d, defaultVal);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -948,14 +948,14 @@ public:
 		}
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
-		float f=(float)lua_tonumber(L,3);
+		float* f=(float*)Luna< void >::check(L,3);
 
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, float *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		bool lret = self->Read(key, &f);
+		bool lret = self->Read(key, f);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -969,7 +969,7 @@ public:
 		}
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
-		float f=(float)lua_tonumber(L,3);
+		float* f=(float*)Luna< void >::check(L,3);
 		float defaultVal=(float)lua_tonumber(L,4);
 
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
@@ -977,7 +977,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, float *, float) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		bool lret = self->Read(key, &f, defaultVal);
+		bool lret = self->Read(key, f, defaultVal);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -991,14 +991,14 @@ public:
 		}
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
-		bool b=(bool)(lua_toboolean(L,3)==1);
+		bool* b=(bool*)(Luna< void >::check(L,3));
 
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, bool *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		bool lret = self->Read(key, &b);
+		bool lret = self->Read(key, b);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -1012,7 +1012,7 @@ public:
 		}
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
-		bool d=(bool)(lua_toboolean(L,3)==1);
+		bool* d=(bool*)(Luna< void >::check(L,3));
 		bool defaultVal=(bool)(lua_toboolean(L,4)==1);
 
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
@@ -1020,7 +1020,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConfigBase::Read(const wxString &, bool *, bool) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		bool lret = self->Read(key, &d, defaultVal);
+		bool lret = self->Read(key, d, defaultVal);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -1273,7 +1273,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
-		bool bDeleteGroupIfEmpty=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool bDeleteGroupIfEmpty=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
@@ -1353,7 +1353,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool bDoIt=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool bDoIt=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
@@ -1374,7 +1374,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool bDoIt=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool bDoIt=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxConfigBase* self=Luna< wxObject >::checkSubType< wxConfigBase >(L,1);
 		if(!self) {
@@ -1424,7 +1424,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool CreateOnDemand=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
+		bool CreateOnDemand=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)true;
 
 		wxConfigBase * lret = wxConfigBase::Get(CreateOnDemand);
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -208,7 +208,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg invInertiaADiag in btSolve2LinearConstraint::resolveUnilateralPairConstraint function");
 		}
 		const btVector3 & invInertiaADiag=*invInertiaADiag_ptr;
-		float invMassA=(float)lua_tonumber(L,7);
+		const float invMassA=(const float)lua_tonumber(L,7);
 		const btVector3* linvelA_ptr=(Luna< btVector3 >::check(L,8));
 		if( !linvelA_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg linvelA in btSolve2LinearConstraint::resolveUnilateralPairConstraint function");
@@ -229,7 +229,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg invInertiaBDiag in btSolve2LinearConstraint::resolveUnilateralPairConstraint function");
 		}
 		const btVector3 & invInertiaBDiag=*invInertiaBDiag_ptr;
-		float invMassB=(float)lua_tonumber(L,12);
+		const float invMassB=(const float)lua_tonumber(L,12);
 		const btVector3* linvelB_ptr=(Luna< btVector3 >::check(L,13));
 		if( !linvelB_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg linvelB in btSolve2LinearConstraint::resolveUnilateralPairConstraint function");
@@ -304,7 +304,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg invInertiaADiag in btSolve2LinearConstraint::resolveBilateralPairConstraint function");
 		}
 		const btVector3 & invInertiaADiag=*invInertiaADiag_ptr;
-		float invMassA=(float)lua_tonumber(L,7);
+		const float invMassA=(const float)lua_tonumber(L,7);
 		const btVector3* linvelA_ptr=(Luna< btVector3 >::check(L,8));
 		if( !linvelA_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg linvelA in btSolve2LinearConstraint::resolveBilateralPairConstraint function");
@@ -325,7 +325,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg invInertiaBDiag in btSolve2LinearConstraint::resolveBilateralPairConstraint function");
 		}
 		const btVector3 & invInertiaBDiag=*invInertiaBDiag_ptr;
-		float invMassB=(float)lua_tonumber(L,12);
+		const float invMassB=(const float)lua_tonumber(L,12);
 		const btVector3* linvelB_ptr=(Luna< btVector3 >::check(L,13));
 		if( !linvelB_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg linvelB in btSolve2LinearConstraint::resolveBilateralPairConstraint function");

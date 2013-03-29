@@ -371,8 +371,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,56902440) ) return false;
 		if( (!(Luna< mglPoint >::check(L,2))) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -1006,8 +1006,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int w=luatop>0 ? (int)lua_tointeger(L,1) : 800;
-		int h=luatop>1 ? (int)lua_tointeger(L,2) : 600;
+		int w=luatop>0 ? (int)lua_tointeger(L,1) : (int)800;
+		int h=luatop>1 ? (int)lua_tointeger(L,2) : (int)600;
 
 		return new mglCanvas(w, h);
 	}
@@ -1021,8 +1021,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int w=luatop>1 ? (int)lua_tointeger(L,2) : 800;
-		int h=luatop>2 ? (int)lua_tointeger(L,3) : 600;
+		int w=luatop>1 ? (int)lua_tointeger(L,2) : (int)800;
+		int h=luatop>2 ? (int)lua_tointeger(L,3) : (int)600;
 
 		return new wrapper_mglCanvas(L,NULL, w, h);
 	}
@@ -1067,7 +1067,7 @@ public:
 
 		double tetx=(double)lua_tonumber(L,2);
 		double tetz=(double)lua_tonumber(L,3);
-		double tety=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+		double tety=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -1128,7 +1128,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool rel=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool rel=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -1227,7 +1227,7 @@ public:
 		if( luatop>1 && !back_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg back in mglCanvas::Clf function");
 		}
-		mglColor back=luatop>1 ? *back_ptr : WC;
+		mglColor back=luatop>1 ? *back_ptr : (mglColor)WC;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -1274,7 +1274,7 @@ public:
 		double x2=(double)lua_tonumber(L,3);
 		double y1=(double)lua_tonumber(L,4);
 		double y2=(double)lua_tonumber(L,5);
-		bool rel=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool rel=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -1328,8 +1328,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * title=(const char *)lua_tostring(L,2);
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "#";
-		double size=luatop>3 ? (double)lua_tonumber(L,4) : -2;
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"#";
+		double size=luatop>3 ? (double)lua_tonumber(L,4) : (double)-2;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -1373,7 +1373,7 @@ public:
 
 		double TetX=(double)lua_tonumber(L,2);
 		double TetZ=(double)lua_tonumber(L,3);
-		double TetY=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+		double TetY=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -1647,7 +1647,7 @@ public:
 
 		int xs=(int)lua_tointeger(L,2);
 		int ys=(int)lua_tointeger(L,3);
-		bool real=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool real=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -1675,15 +1675,15 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg p in mglCanvas::CalcScr function");
 		}
 		mglPoint p=*p_ptr;
-		int xs=(int)lua_tointeger(L,3);
-		int ys=(int)lua_tointeger(L,4);
+		int* xs=(int*)Luna< void >::check(L,3);
+		int* ys=(int*)Luna< void >::check(L,4);
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void mglCanvas::CalcScr(mglPoint, int *, int *) const. Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
 		}
-		self->CalcScr(p, &xs, &ys);
+		self->CalcScr(p, xs, ys);
 
 		return 0;
 	}
@@ -1967,7 +1967,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		int ms=luatop>2 ? (int)lua_tointeger(L,3) : 100;
+		int ms=luatop>2 ? (int)lua_tointeger(L,3) : (int)100;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2006,7 +2006,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool fast=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool fast=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2028,7 +2028,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : 0;
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)0;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2051,7 +2051,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		bool add=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool add=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2113,7 +2113,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double d=(double)lua_tonumber(L,2);
-		double dz=luatop>2 ? (double)lua_tonumber(L,3) : 0.25;
+		double dz=luatop>2 ? (double)lua_tonumber(L,3) : (double)0.25;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2165,9 +2165,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg d in mglCanvas::AddLight function");
 		}
 		mglPoint d=*d_ptr;
-		char c=luatop>4 ? (char)lua_tointeger(L,5) : 'w';
-		double bright=luatop>5 ? (double)lua_tonumber(L,6) : 0.5;
-		double ap=luatop>6 ? (double)lua_tonumber(L,7) : 0;
+		char c=luatop>4 ? (char)lua_tointeger(L,5) : (char)'w';
+		double bright=luatop>5 ? (double)lua_tonumber(L,6) : (double)0.5;
+		double ap=luatop>6 ? (double)lua_tonumber(L,7) : (double)0;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2194,9 +2194,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg d in mglCanvas::AddLight function");
 		}
 		mglPoint d=*d_ptr;
-		char c=luatop>3 ? (char)lua_tointeger(L,4) : 'w';
-		double bright=luatop>4 ? (double)lua_tonumber(L,5) : 0.5;
-		double ap=luatop>5 ? (double)lua_tonumber(L,6) : 0;
+		char c=luatop>3 ? (char)lua_tointeger(L,4) : (char)'w';
+		double bright=luatop>4 ? (double)lua_tonumber(L,5) : (double)0.5;
+		double ap=luatop>5 ? (double)lua_tonumber(L,6) : (double)0;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2228,7 +2228,7 @@ public:
 
 		char dir=(char)lua_tointeger(L,2);
 		const char * lbl=(const char *)lua_tostring(L,3);
-		bool add=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool add=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2252,7 +2252,7 @@ public:
 		char dir=(char)lua_tointeger(L,2);
 		const mglDataA* v=(Luna< mglDataA >::check(L,3));
 		const char * lbl=(const char *)lua_tostring(L,4);
-		bool add=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool add=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2303,8 +2303,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		char dir=(char)lua_tointeger(L,2);
-		double d=luatop>2 ? (double)lua_tonumber(L,3) : 0;
-		const char * t=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		double d=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
+		const char * t=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2326,9 +2326,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		char dir=(char)lua_tointeger(L,2);
-		double d=luatop>2 ? (double)lua_tonumber(L,3) : 0;
-		int ns=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		double org=luatop>4 ? (double)lua_tonumber(L,5) : NAN;
+		double d=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
+		int ns=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		double org=luatop>4 ? (double)lua_tonumber(L,5) : (double)NAN;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2349,8 +2349,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * dir=luatop>1 ? (const char *)lua_tostring(L,2) : "xyzc";
-		bool force=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		const char * dir=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)"xyzc";
+		bool force=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2372,7 +2372,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int tune=(int)lua_tointeger(L,2);
-		double pos=luatop>2 ? (double)lua_tonumber(L,3) : 1.15;
+		double pos=luatop>2 ? (double)lua_tonumber(L,3) : (double)1.15;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2393,9 +2393,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * stl=luatop>1 ? (const char *)lua_tostring(L,2) : "k";
-		const char * tck=luatop>2 ? (const char *)lua_tostring(L,3) : 0;
-		const char * sub=luatop>3 ? (const char *)lua_tostring(L,4) : 0;
+		const char * stl=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)"k";
+		const char * tck=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)0;
+		const char * sub=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)0;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2417,7 +2417,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double tlen=(double)lua_tonumber(L,2);
-		double stt=luatop>2 ? (double)lua_tonumber(L,3) : 1.;
+		double stt=luatop>2 ? (double)lua_tonumber(L,3) : (double)1.;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2438,8 +2438,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * col=luatop>1 ? (const char *)lua_tostring(L,2) : 0;
-		bool ticks=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		const char * col=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)0;
+		bool ticks=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2460,9 +2460,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * dir=luatop>1 ? (const char *)lua_tostring(L,2) : "xyzt";
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * dir=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)"xyzt";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2483,9 +2483,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * dir=luatop>1 ? (const char *)lua_tostring(L,2) : "xyzt";
-		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : "B-";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * dir=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)"xyzt";
+		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"B-";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2508,8 +2508,8 @@ public:
 
 		char dir=(char)lua_tointeger(L,2);
 		const char * text=(const char *)lua_tostring(L,3);
-		double pos=luatop>3 ? (double)lua_tonumber(L,4) : 0;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		double pos=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2530,7 +2530,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * sch=luatop>1 ? (const char *)lua_tostring(L,2) : 0;
+		const char * sch=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)0;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2575,7 +2575,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const mglDataA* v=(Luna< mglDataA >::check(L,2));
-		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : 0;
+		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)0;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2633,8 +2633,8 @@ public:
 
 		double x=(double)lua_tonumber(L,2);
 		double y=(double)lua_tonumber(L,3);
-		const char * font=luatop>3 ? (const char *)lua_tostring(L,4) : "#";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * font=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"#";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2655,9 +2655,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int where=luatop>1 ? (int)lua_tointeger(L,2) : 0x3;
-		const char * font=luatop>2 ? (const char *)lua_tostring(L,3) : "#";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		int where=luatop>1 ? (int)lua_tointeger(L,2) : (int)0x3;
+		const char * font=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"#";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2683,9 +2683,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg leg in mglCanvas::Legend function");
 		}
 		const std::vector< mglText > & leg=*leg_ptr;
-		int where=luatop>2 ? (int)lua_tointeger(L,3) : 3;
-		const char * font=luatop>3 ? (const char *)lua_tostring(L,4) : "#";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		int where=luatop>2 ? (int)lua_tointeger(L,3) : (int)3;
+		const char * font=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"#";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2713,8 +2713,8 @@ public:
 		const std::vector< mglText > & leg=*leg_ptr;
 		double x=(double)lua_tonumber(L,3);
 		double y=(double)lua_tonumber(L,4);
-		const char * font=luatop>4 ? (const char *)lua_tostring(L,5) : "#";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * font=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"#";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2746,7 +2746,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int num=luatop>1 ? (int)lua_tointeger(L,2) : 1;
+		int num=luatop>1 ? (int)lua_tointeger(L,2) : (int)1;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2854,7 +2854,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double bright=luatop>1 ? (double)lua_tonumber(L,2) : 0.5;
+		double bright=luatop>1 ? (double)lua_tonumber(L,2) : (double)0.5;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2895,7 +2895,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int qual=luatop>1 ? (int)lua_tointeger(L,2) : 2;
+		int qual=luatop>1 ? (int)lua_tointeger(L,2) : (int)2;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2937,7 +2937,7 @@ public:
 
 		double tetx=(double)lua_tonumber(L,2);
 		double tetz=(double)lua_tonumber(L,3);
-		double tety=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+		double tety=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -2984,7 +2984,7 @@ public:
 		if( luatop>1 && !back_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg back in mglCanvas::base_Clf function");
 		}
-		mglColor back=luatop>1 ? *back_ptr : WC;
+		mglColor back=luatop>1 ? *back_ptr : (mglColor)WC;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -3194,7 +3194,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool fast=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool fast=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -3216,7 +3216,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double d=(double)lua_tonumber(L,2);
-		double dz=luatop>2 ? (double)lua_tonumber(L,3) : 0.25;
+		double dz=luatop>2 ? (double)lua_tonumber(L,3) : (double)0.25;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {
@@ -3268,9 +3268,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg d in mglCanvas::base_AddLight function");
 		}
 		mglPoint d=*d_ptr;
-		char c=luatop>4 ? (char)lua_tointeger(L,5) : 'w';
-		double bright=luatop>5 ? (double)lua_tonumber(L,6) : 0.5;
-		double ap=luatop>6 ? (double)lua_tonumber(L,7) : 0;
+		char c=luatop>4 ? (char)lua_tointeger(L,5) : (char)'w';
+		double bright=luatop>5 ? (double)lua_tonumber(L,6) : (double)0.5;
+		double ap=luatop>6 ? (double)lua_tonumber(L,7) : (double)0;
 
 		mglCanvas* self=Luna< mglBase >::checkSubType< mglCanvas >(L,1);
 		if(!self) {

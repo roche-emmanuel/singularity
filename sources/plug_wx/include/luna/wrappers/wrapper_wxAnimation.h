@@ -132,7 +132,7 @@ public:
 		if(_obj.pushFunction("Load")) {
 			_obj.pushArg((wxAnimation*)this);
 			_obj.pushArg(&stream);
-			_obj.pushArg(type);
+			_obj.pushArg((int)type);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -144,7 +144,7 @@ public:
 		if(_obj.pushFunction("LoadFile")) {
 			_obj.pushArg((wxAnimation*)this);
 			_obj.pushArg(name);
-			_obj.pushArg(type);
+			_obj.pushArg((int)type);
 			return (_obj.callFunction<bool>());
 		}
 

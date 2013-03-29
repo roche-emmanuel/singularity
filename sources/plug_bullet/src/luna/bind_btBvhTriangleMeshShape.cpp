@@ -385,7 +385,7 @@ public:
 
 		btStridingMeshInterface* meshInterface=(Luna< btStridingMeshInterface >::check(L,1));
 		bool useQuantizedAabbCompression=(bool)(lua_toboolean(L,2)==1);
-		bool buildBvh=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool buildBvh=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		return new btBvhTriangleMeshShape(meshInterface, useQuantizedAabbCompression, buildBvh);
 	}
@@ -411,7 +411,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bvhAabbMax in btBvhTriangleMeshShape::btBvhTriangleMeshShape function");
 		}
 		const btVector3 & bvhAabbMax=*bvhAabbMax_ptr;
-		bool buildBvh=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		bool buildBvh=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		return new btBvhTriangleMeshShape(meshInterface, useQuantizedAabbCompression, bvhAabbMin, bvhAabbMax, buildBvh);
 	}
@@ -427,7 +427,7 @@ public:
 
 		btStridingMeshInterface* meshInterface=(Luna< btStridingMeshInterface >::check(L,2));
 		bool useQuantizedAabbCompression=(bool)(lua_toboolean(L,3)==1);
-		bool buildBvh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool buildBvh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		return new wrapper_btBvhTriangleMeshShape(L,NULL, meshInterface, useQuantizedAabbCompression, buildBvh);
 	}
@@ -453,7 +453,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bvhAabbMax in btBvhTriangleMeshShape::btBvhTriangleMeshShape function");
 		}
 		const btVector3 & bvhAabbMax=*bvhAabbMax_ptr;
-		bool buildBvh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool buildBvh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 
 		return new wrapper_btBvhTriangleMeshShape(L,NULL, meshInterface, useQuantizedAabbCompression, bvhAabbMin, bvhAabbMax, buildBvh);
 	}
@@ -720,7 +720,7 @@ public:
 		if( luatop>2 && !localScaling_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localScaling in btBvhTriangleMeshShape::setOptimizedBvh function");
 		}
-		const btVector3 & localScaling=luatop>2 ? *localScaling_ptr : btVector3 (1, 1, 1);
+		const btVector3 & localScaling=luatop>2 ? *localScaling_ptr : (const btVector3)btVector3 (1, 1, 1);
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {

@@ -357,6 +357,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_asCamera_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asCamera_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_asSwitch_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -1304,6 +1316,57 @@ public:
 		return 0;
 	}
 
+	// osg::Camera * osg::Billboard::base_asCamera()
+	static int _bind_base_asCamera_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asCamera_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Camera * osg::Billboard::base_asCamera() function, expected prototype:\nosg::Camera * osg::Billboard::base_asCamera()\nClass arguments details:\n");
+		}
+
+
+		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Camera * osg::Billboard::base_asCamera(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Camera * lret = self->Billboard::asCamera();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Camera >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Camera * osg::Billboard::base_asCamera() const
+	static int _bind_base_asCamera_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asCamera_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Camera * osg::Billboard::base_asCamera() const function, expected prototype:\nconst osg::Camera * osg::Billboard::base_asCamera() const\nClass arguments details:\n");
+		}
+
+
+		osg::Billboard* self=Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Camera * osg::Billboard::base_asCamera() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Camera * lret = self->Billboard::asCamera();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Camera >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Billboard::base_asCamera
+	static int _bind_base_asCamera(lua_State *L) {
+		if (_lg_typecheck_base_asCamera_overload_1(L)) return _bind_base_asCamera_overload_1(L);
+		if (_lg_typecheck_base_asCamera_overload_2(L)) return _bind_base_asCamera_overload_2(L);
+
+		luaL_error(L, "error in function base_asCamera, cannot match any of the overloads for function base_asCamera:\n  base_asCamera()\n  base_asCamera()\n");
+		return 0;
+	}
+
 	// osg::Switch * osg::Billboard::base_asSwitch()
 	static int _bind_base_asSwitch_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_asSwitch_overload_1(L)) {
@@ -1828,6 +1891,7 @@ luna_RegType LunaTraits< osg::Billboard >::methods[] = {
 	{"base_getUserData", &luna_wrapper_osg_Billboard::_bind_base_getUserData},
 	{"base_asGroup", &luna_wrapper_osg_Billboard::_bind_base_asGroup},
 	{"base_asTransform", &luna_wrapper_osg_Billboard::_bind_base_asTransform},
+	{"base_asCamera", &luna_wrapper_osg_Billboard::_bind_base_asCamera},
 	{"base_asSwitch", &luna_wrapper_osg_Billboard::_bind_base_asSwitch},
 	{"base_ascend", &luna_wrapper_osg_Billboard::_bind_base_ascend},
 	{"base_traverse", &luna_wrapper_osg_Billboard::_bind_base_traverse},

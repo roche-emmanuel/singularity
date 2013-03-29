@@ -371,7 +371,7 @@ public:
 		if( luatop>2 && !dt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarOutputStream::PutNextDirEntry function");
 		}
-		const wxDateTime & dt=luatop>2 ? *dt_ptr : wxDateTime::Now ();
+		const wxDateTime & dt=luatop>2 ? *dt_ptr : (const wxDateTime&)wxDateTime::Now ();
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
@@ -418,8 +418,8 @@ public:
 		if( luatop>2 && !dt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarOutputStream::PutNextEntry function");
 		}
-		const wxDateTime & dt=luatop>2 ? *dt_ptr : wxDateTime::Now ();
-		long long size=luatop>3 ? (long long)lua_tointeger(L,4) : wxInvalidOffset;
+		const wxDateTime & dt=luatop>2 ? *dt_ptr : (const wxDateTime&)wxDateTime::Now ();
+		long long size=luatop>3 ? (long long)lua_tointeger(L,4) : (long long)wxInvalidOffset;
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
@@ -493,7 +493,7 @@ public:
 		if( luatop>2 && !dt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarOutputStream::base_PutNextDirEntry function");
 		}
-		const wxDateTime & dt=luatop>2 ? *dt_ptr : wxDateTime::Now ();
+		const wxDateTime & dt=luatop>2 ? *dt_ptr : (const wxDateTime&)wxDateTime::Now ();
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
@@ -520,8 +520,8 @@ public:
 		if( luatop>2 && !dt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarOutputStream::base_PutNextEntry function");
 		}
-		const wxDateTime & dt=luatop>2 ? *dt_ptr : wxDateTime::Now ();
-		long long size=luatop>3 ? (long long)lua_tointeger(L,4) : wxInvalidOffset;
+		const wxDateTime & dt=luatop>2 ? *dt_ptr : (const wxDateTime&)wxDateTime::Now ();
+		long long size=luatop>3 ? (long long)lua_tointeger(L,4) : (long long)wxInvalidOffset;
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {

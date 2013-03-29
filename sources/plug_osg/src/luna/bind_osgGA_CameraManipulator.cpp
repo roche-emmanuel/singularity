@@ -192,6 +192,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_updateCamera(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getFusionDistanceMode(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -409,6 +416,13 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_updateCamera(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		return true;
 	}
 
@@ -804,6 +818,29 @@ public:
 		Luna< osg::Matrixd >::push(L,lret,true);
 
 		return 1;
+	}
+
+	// void osgGA::CameraManipulator::updateCamera(osg::Camera & camera)
+	static int _bind_updateCamera(lua_State *L) {
+		if (!_lg_typecheck_updateCamera(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::CameraManipulator::updateCamera(osg::Camera & camera) function, expected prototype:\nvoid osgGA::CameraManipulator::updateCamera(osg::Camera & camera)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Camera* camera_ptr=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
+		if( !camera_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg camera in osgGA::CameraManipulator::updateCamera function");
+		}
+		osg::Camera & camera=*camera_ptr;
+
+		osgGA::CameraManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::CameraManipulator::updateCamera(osg::Camera &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->updateCamera(camera);
+
+		return 0;
 	}
 
 	// osgUtil::SceneView::FusionDistanceMode osgGA::CameraManipulator::getFusionDistanceMode() const
@@ -1508,6 +1545,29 @@ public:
 		return 0;
 	}
 
+	// void osgGA::CameraManipulator::base_updateCamera(osg::Camera & camera)
+	static int _bind_base_updateCamera(lua_State *L) {
+		if (!_lg_typecheck_base_updateCamera(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::CameraManipulator::base_updateCamera(osg::Camera & camera) function, expected prototype:\nvoid osgGA::CameraManipulator::base_updateCamera(osg::Camera & camera)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Camera* camera_ptr=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
+		if( !camera_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg camera in osgGA::CameraManipulator::base_updateCamera function");
+		}
+		osg::Camera & camera=*camera_ptr;
+
+		osgGA::CameraManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::CameraManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::CameraManipulator::base_updateCamera(osg::Camera &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->CameraManipulator::updateCamera(camera);
+
+		return 0;
+	}
+
 	// osgUtil::SceneView::FusionDistanceMode osgGA::CameraManipulator::base_getFusionDistanceMode() const
 	static int _bind_base_getFusionDistanceMode(lua_State *L) {
 		if (!_lg_typecheck_base_getFusionDistanceMode(L)) {
@@ -1877,6 +1937,7 @@ luna_RegType LunaTraits< osgGA::CameraManipulator >::methods[] = {
 	{"setByInverseMatrix", &luna_wrapper_osgGA_CameraManipulator::_bind_setByInverseMatrix},
 	{"getMatrix", &luna_wrapper_osgGA_CameraManipulator::_bind_getMatrix},
 	{"getInverseMatrix", &luna_wrapper_osgGA_CameraManipulator::_bind_getInverseMatrix},
+	{"updateCamera", &luna_wrapper_osgGA_CameraManipulator::_bind_updateCamera},
 	{"getFusionDistanceMode", &luna_wrapper_osgGA_CameraManipulator::_bind_getFusionDistanceMode},
 	{"getFusionDistanceValue", &luna_wrapper_osgGA_CameraManipulator::_bind_getFusionDistanceValue},
 	{"setIntersectTraversalMask", &luna_wrapper_osgGA_CameraManipulator::_bind_setIntersectTraversalMask},
@@ -1905,6 +1966,7 @@ luna_RegType LunaTraits< osgGA::CameraManipulator >::methods[] = {
 	{"base_getUsage", &luna_wrapper_osgGA_CameraManipulator::_bind_base_getUsage},
 	{"base_className", &luna_wrapper_osgGA_CameraManipulator::_bind_base_className},
 	{"base_setCoordinateFrameCallback", &luna_wrapper_osgGA_CameraManipulator::_bind_base_setCoordinateFrameCallback},
+	{"base_updateCamera", &luna_wrapper_osgGA_CameraManipulator::_bind_base_updateCamera},
 	{"base_getFusionDistanceMode", &luna_wrapper_osgGA_CameraManipulator::_bind_base_getFusionDistanceMode},
 	{"base_getFusionDistanceValue", &luna_wrapper_osgGA_CameraManipulator::_bind_base_getFusionDistanceValue},
 	{"base_setNode", &luna_wrapper_osgGA_CameraManipulator::_bind_base_setNode},

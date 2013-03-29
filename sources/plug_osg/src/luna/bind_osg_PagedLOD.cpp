@@ -331,6 +331,48 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setMinimumExpiryTime(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getMinimumExpiryTime(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getNumMinimumExpiryTimes(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setMinimumExpiryFrames(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getMinimumExpiryFrames(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getNumMinimumExpiryFrames(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_setTimeStamp(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
@@ -474,6 +516,18 @@ public:
 	}
 
 	inline static bool _lg_typecheck_base_asTransform_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asCamera_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asCamera_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -1287,6 +1341,124 @@ public:
 		return 1;
 	}
 
+	// void osg::PagedLOD::setMinimumExpiryTime(unsigned int childNo, double minTime)
+	static int _bind_setMinimumExpiryTime(lua_State *L) {
+		if (!_lg_typecheck_setMinimumExpiryTime(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::PagedLOD::setMinimumExpiryTime(unsigned int childNo, double minTime) function, expected prototype:\nvoid osg::PagedLOD::setMinimumExpiryTime(unsigned int childNo, double minTime)\nClass arguments details:\n");
+		}
+
+		unsigned int childNo=(unsigned int)lua_tointeger(L,2);
+		double minTime=(double)lua_tonumber(L,3);
+
+		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setMinimumExpiryTime(unsigned int, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setMinimumExpiryTime(childNo, minTime);
+
+		return 0;
+	}
+
+	// double osg::PagedLOD::getMinimumExpiryTime(unsigned int childNo) const
+	static int _bind_getMinimumExpiryTime(lua_State *L) {
+		if (!_lg_typecheck_getMinimumExpiryTime(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double osg::PagedLOD::getMinimumExpiryTime(unsigned int childNo) const function, expected prototype:\ndouble osg::PagedLOD::getMinimumExpiryTime(unsigned int childNo) const\nClass arguments details:\n");
+		}
+
+		unsigned int childNo=(unsigned int)lua_tointeger(L,2);
+
+		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double osg::PagedLOD::getMinimumExpiryTime(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		double lret = self->getMinimumExpiryTime(childNo);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osg::PagedLOD::getNumMinimumExpiryTimes() const
+	static int _bind_getNumMinimumExpiryTimes(lua_State *L) {
+		if (!_lg_typecheck_getNumMinimumExpiryTimes(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::PagedLOD::getNumMinimumExpiryTimes() const function, expected prototype:\nunsigned int osg::PagedLOD::getNumMinimumExpiryTimes() const\nClass arguments details:\n");
+		}
+
+
+		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getNumMinimumExpiryTimes() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->getNumMinimumExpiryTimes();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::PagedLOD::setMinimumExpiryFrames(unsigned int childNo, unsigned int minFrames)
+	static int _bind_setMinimumExpiryFrames(lua_State *L) {
+		if (!_lg_typecheck_setMinimumExpiryFrames(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::PagedLOD::setMinimumExpiryFrames(unsigned int childNo, unsigned int minFrames) function, expected prototype:\nvoid osg::PagedLOD::setMinimumExpiryFrames(unsigned int childNo, unsigned int minFrames)\nClass arguments details:\n");
+		}
+
+		unsigned int childNo=(unsigned int)lua_tointeger(L,2);
+		unsigned int minFrames=(unsigned int)lua_tointeger(L,3);
+
+		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::setMinimumExpiryFrames(unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setMinimumExpiryFrames(childNo, minFrames);
+
+		return 0;
+	}
+
+	// unsigned int osg::PagedLOD::getMinimumExpiryFrames(unsigned int childNo) const
+	static int _bind_getMinimumExpiryFrames(lua_State *L) {
+		if (!_lg_typecheck_getMinimumExpiryFrames(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::PagedLOD::getMinimumExpiryFrames(unsigned int childNo) const function, expected prototype:\nunsigned int osg::PagedLOD::getMinimumExpiryFrames(unsigned int childNo) const\nClass arguments details:\n");
+		}
+
+		unsigned int childNo=(unsigned int)lua_tointeger(L,2);
+
+		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getMinimumExpiryFrames(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->getMinimumExpiryFrames(childNo);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osg::PagedLOD::getNumMinimumExpiryFrames() const
+	static int _bind_getNumMinimumExpiryFrames(lua_State *L) {
+		if (!_lg_typecheck_getNumMinimumExpiryFrames(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::PagedLOD::getNumMinimumExpiryFrames() const function, expected prototype:\nunsigned int osg::PagedLOD::getNumMinimumExpiryFrames() const\nClass arguments details:\n");
+		}
+
+
+		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::getNumMinimumExpiryFrames() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		unsigned int lret = self->getNumMinimumExpiryFrames();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 	// void osg::PagedLOD::setTimeStamp(unsigned int childNo, double timeStamp)
 	static int _bind_setTimeStamp(lua_State *L) {
 		if (!_lg_typecheck_setTimeStamp(L)) {
@@ -1749,6 +1921,57 @@ public:
 		if (_lg_typecheck_base_asTransform_overload_2(L)) return _bind_base_asTransform_overload_2(L);
 
 		luaL_error(L, "error in function base_asTransform, cannot match any of the overloads for function base_asTransform:\n  base_asTransform()\n  base_asTransform()\n");
+		return 0;
+	}
+
+	// osg::Camera * osg::PagedLOD::base_asCamera()
+	static int _bind_base_asCamera_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asCamera_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Camera * osg::PagedLOD::base_asCamera() function, expected prototype:\nosg::Camera * osg::PagedLOD::base_asCamera()\nClass arguments details:\n");
+		}
+
+
+		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Camera * osg::PagedLOD::base_asCamera(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Camera * lret = self->PagedLOD::asCamera();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Camera >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Camera * osg::PagedLOD::base_asCamera() const
+	static int _bind_base_asCamera_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asCamera_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Camera * osg::PagedLOD::base_asCamera() const function, expected prototype:\nconst osg::Camera * osg::PagedLOD::base_asCamera() const\nClass arguments details:\n");
+		}
+
+
+		osg::PagedLOD* self=Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Camera * osg::PagedLOD::base_asCamera() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Camera * lret = self->PagedLOD::asCamera();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Camera >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::PagedLOD::base_asCamera
+	static int _bind_base_asCamera(lua_State *L) {
+		if (_lg_typecheck_base_asCamera_overload_1(L)) return _bind_base_asCamera_overload_1(L);
+		if (_lg_typecheck_base_asCamera_overload_2(L)) return _bind_base_asCamera_overload_2(L);
+
+		luaL_error(L, "error in function base_asCamera, cannot match any of the overloads for function base_asCamera:\n  base_asCamera()\n  base_asCamera()\n");
 		return 0;
 	}
 
@@ -2375,6 +2598,12 @@ luna_RegType LunaTraits< osg::PagedLOD >::methods[] = {
 	{"setPriorityScale", &luna_wrapper_osg_PagedLOD::_bind_setPriorityScale},
 	{"getPriorityScale", &luna_wrapper_osg_PagedLOD::_bind_getPriorityScale},
 	{"getNumPriorityScales", &luna_wrapper_osg_PagedLOD::_bind_getNumPriorityScales},
+	{"setMinimumExpiryTime", &luna_wrapper_osg_PagedLOD::_bind_setMinimumExpiryTime},
+	{"getMinimumExpiryTime", &luna_wrapper_osg_PagedLOD::_bind_getMinimumExpiryTime},
+	{"getNumMinimumExpiryTimes", &luna_wrapper_osg_PagedLOD::_bind_getNumMinimumExpiryTimes},
+	{"setMinimumExpiryFrames", &luna_wrapper_osg_PagedLOD::_bind_setMinimumExpiryFrames},
+	{"getMinimumExpiryFrames", &luna_wrapper_osg_PagedLOD::_bind_getMinimumExpiryFrames},
+	{"getNumMinimumExpiryFrames", &luna_wrapper_osg_PagedLOD::_bind_getNumMinimumExpiryFrames},
 	{"setTimeStamp", &luna_wrapper_osg_PagedLOD::_bind_setTimeStamp},
 	{"getTimeStamp", &luna_wrapper_osg_PagedLOD::_bind_getTimeStamp},
 	{"getNumTimeStamps", &luna_wrapper_osg_PagedLOD::_bind_getNumTimeStamps},
@@ -2394,6 +2623,7 @@ luna_RegType LunaTraits< osg::PagedLOD >::methods[] = {
 	{"base_setUserData", &luna_wrapper_osg_PagedLOD::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osg_PagedLOD::_bind_base_getUserData},
 	{"base_asTransform", &luna_wrapper_osg_PagedLOD::_bind_base_asTransform},
+	{"base_asCamera", &luna_wrapper_osg_PagedLOD::_bind_base_asCamera},
 	{"base_asSwitch", &luna_wrapper_osg_PagedLOD::_bind_base_asSwitch},
 	{"base_asGeode", &luna_wrapper_osg_PagedLOD::_bind_base_asGeode},
 	{"base_ascend", &luna_wrapper_osg_PagedLOD::_bind_base_ascend},

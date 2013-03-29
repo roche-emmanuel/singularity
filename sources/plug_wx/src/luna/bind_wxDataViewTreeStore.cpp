@@ -375,12 +375,12 @@ public:
 		if( luatop>3 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewTreeStore::AppendContainer function");
 		}
-		const wxIcon & icon=luatop>3 ? *icon_ptr : wxNullIcon;
+		const wxIcon & icon=luatop>3 ? *icon_ptr : (const wxIcon&)wxNullIcon;
 		const wxIcon* expanded_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxIcon >(L,5)) : NULL;
 		if( luatop>4 && !expanded_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg expanded in wxDataViewTreeStore::AppendContainer function");
 		}
-		const wxIcon & expanded=luatop>4 ? *expanded_ptr : wxNullIcon;
+		const wxIcon & expanded=luatop>4 ? *expanded_ptr : (const wxIcon&)wxNullIcon;
 		wxClientData* data=luatop>5 ? (Luna< wxClientData >::check(L,6)) : (wxClientData*)NULL;
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
@@ -416,7 +416,7 @@ public:
 		if( luatop>3 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewTreeStore::AppendItem function");
 		}
-		const wxIcon & icon=luatop>3 ? *icon_ptr : wxNullIcon;
+		const wxIcon & icon=luatop>3 ? *icon_ptr : (const wxIcon&)wxNullIcon;
 		wxClientData* data=luatop>4 ? (Luna< wxClientData >::check(L,5)) : (wxClientData*)NULL;
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
@@ -675,12 +675,12 @@ public:
 		if( luatop>4 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewTreeStore::InsertContainer function");
 		}
-		const wxIcon & icon=luatop>4 ? *icon_ptr : wxNullIcon;
+		const wxIcon & icon=luatop>4 ? *icon_ptr : (const wxIcon&)wxNullIcon;
 		const wxIcon* expanded_ptr=luatop>5 ? (Luna< wxObject >::checkSubType< wxIcon >(L,6)) : NULL;
 		if( luatop>5 && !expanded_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg expanded in wxDataViewTreeStore::InsertContainer function");
 		}
-		const wxIcon & expanded=luatop>5 ? *expanded_ptr : wxNullIcon;
+		const wxIcon & expanded=luatop>5 ? *expanded_ptr : (const wxIcon&)wxNullIcon;
 		wxClientData* data=luatop>6 ? (Luna< wxClientData >::check(L,7)) : (wxClientData*)NULL;
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
@@ -721,7 +721,7 @@ public:
 		if( luatop>4 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewTreeStore::InsertItem function");
 		}
-		const wxIcon & icon=luatop>4 ? *icon_ptr : wxNullIcon;
+		const wxIcon & icon=luatop>4 ? *icon_ptr : (const wxIcon&)wxNullIcon;
 		wxClientData* data=luatop>5 ? (Luna< wxClientData >::check(L,6)) : (wxClientData*)NULL;
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
@@ -757,12 +757,12 @@ public:
 		if( luatop>3 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewTreeStore::PrependContainer function");
 		}
-		const wxIcon & icon=luatop>3 ? *icon_ptr : wxNullIcon;
+		const wxIcon & icon=luatop>3 ? *icon_ptr : (const wxIcon&)wxNullIcon;
 		const wxIcon* expanded_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxIcon >(L,5)) : NULL;
 		if( luatop>4 && !expanded_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg expanded in wxDataViewTreeStore::PrependContainer function");
 		}
-		const wxIcon & expanded=luatop>4 ? *expanded_ptr : wxNullIcon;
+		const wxIcon & expanded=luatop>4 ? *expanded_ptr : (const wxIcon&)wxNullIcon;
 		wxClientData* data=luatop>5 ? (Luna< wxClientData >::check(L,6)) : (wxClientData*)NULL;
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
@@ -798,7 +798,7 @@ public:
 		if( luatop>3 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewTreeStore::PrependItem function");
 		}
-		const wxIcon & icon=luatop>3 ? *icon_ptr : wxNullIcon;
+		const wxIcon & icon=luatop>3 ? *icon_ptr : (const wxIcon&)wxNullIcon;
 		wxClientData* data=luatop>4 ? (Luna< wxClientData >::check(L,5)) : (wxClientData*)NULL;
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);

@@ -139,6 +139,26 @@ public:
 		return Sequence::asTransform();
 	};
 
+	// osg::Camera * osg::Node::asCamera()
+	osg::Camera * asCamera() {
+		if(_obj.pushFunction("asCamera")) {
+			_obj.pushArg((osg::Sequence*)this);
+			return (_obj.callFunction<osg::Camera*>());
+		}
+
+		return Sequence::asCamera();
+	};
+
+	// const osg::Camera * osg::Node::asCamera() const
+	const osg::Camera * asCamera() const {
+		if(_obj.pushFunction("asCamera")) {
+			_obj.pushArg((osg::Sequence*)this);
+			return (_obj.callFunction<osg::Camera*>());
+		}
+
+		return Sequence::asCamera();
+	};
+
 	// osg::Switch * osg::Node::asSwitch()
 	osg::Switch * asSwitch() {
 		if(_obj.pushFunction("asSwitch")) {

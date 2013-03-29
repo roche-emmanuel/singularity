@@ -183,7 +183,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * argv0=luatop>1 ? (const char *)lua_tostring(L,2) : NULL;
+		const char * argv0=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)NULL;
 
 		return new wrapper_wxStackWalker(L,NULL, argv0);
 	}
@@ -199,8 +199,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t skip=luatop>1 ? (size_t)lua_tointeger(L,2) : 1;
-		size_t maxDepth=luatop>2 ? (size_t)lua_tointeger(L,3) : (200);
+		size_t skip=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)1;
+		size_t maxDepth=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)(200);
 
 		wxStackWalker* self=(Luna< wxStackWalker >::check(L,1));
 		if(!self) {
@@ -221,7 +221,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t maxDepth=luatop>1 ? (size_t)lua_tointeger(L,2) : (200);
+		size_t maxDepth=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)(200);
 
 		wxStackWalker* self=(Luna< wxStackWalker >::check(L,1));
 		if(!self) {
@@ -242,8 +242,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t skip=luatop>1 ? (size_t)lua_tointeger(L,2) : 1;
-		size_t maxDepth=luatop>2 ? (size_t)lua_tointeger(L,3) : (200);
+		size_t skip=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)1;
+		size_t maxDepth=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)(200);
 
 		wxStackWalker* self=(Luna< wxStackWalker >::check(L,1));
 		if(!self) {
@@ -264,7 +264,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t maxDepth=luatop>1 ? (size_t)lua_tointeger(L,2) : (200);
+		size_t maxDepth=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)(200);
 
 		wxStackWalker* self=(Luna< wxStackWalker >::check(L,1));
 		if(!self) {

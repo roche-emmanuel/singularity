@@ -517,7 +517,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool primary=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool primary=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
@@ -740,7 +740,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool primary=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool primary=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {

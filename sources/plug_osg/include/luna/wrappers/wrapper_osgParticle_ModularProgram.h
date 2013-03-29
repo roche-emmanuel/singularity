@@ -158,6 +158,26 @@ public:
 		return ModularProgram::asTransform();
 	};
 
+	// osg::Camera * osg::Node::asCamera()
+	osg::Camera * asCamera() {
+		if(_obj.pushFunction("asCamera")) {
+			_obj.pushArg((osgParticle::ModularProgram*)this);
+			return (_obj.callFunction<osg::Camera*>());
+		}
+
+		return ModularProgram::asCamera();
+	};
+
+	// const osg::Camera * osg::Node::asCamera() const
+	const osg::Camera * asCamera() const {
+		if(_obj.pushFunction("asCamera")) {
+			_obj.pushArg((osgParticle::ModularProgram*)this);
+			return (_obj.callFunction<osg::Camera*>());
+		}
+
+		return ModularProgram::asCamera();
+	};
+
 	// osg::Switch * osg::Node::asSwitch()
 	osg::Switch * asSwitch() {
 		if(_obj.pushFunction("asSwitch")) {

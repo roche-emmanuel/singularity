@@ -19,6 +19,10 @@
 #include <lua.hpp>
 #include <iostream> 
 
+#define _WX_EVENTS_DEFINITION_
+#define _WX_ENUMS_DEFINITION_
+#define _WX_DEFINES_DEFINITION_
+
 #include "wx_headers.h"
 #include "sgtApp.h"
 #include "wx_extensions.h"

@@ -216,7 +216,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int base=luatop>1 ? (int)lua_tointeger(L,2) : 10;
+		int base=luatop>1 ? (int)lua_tointeger(L,2) : (int)10;
 
 		wxTextInputStream* self=(Luna< wxTextInputStream >::check(L,1));
 		if(!self) {
@@ -238,7 +238,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int base=luatop>1 ? (int)lua_tointeger(L,2) : 10;
+		int base=luatop>1 ? (int)lua_tointeger(L,2) : (int)10;
 
 		wxTextInputStream* self=(Luna< wxTextInputStream >::check(L,1));
 		if(!self) {
@@ -260,7 +260,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int base=luatop>1 ? (int)lua_tointeger(L,2) : 10;
+		int base=luatop>1 ? (int)lua_tointeger(L,2) : (int)10;
 
 		wxTextInputStream* self=(Luna< wxTextInputStream >::check(L,1));
 		if(!self) {
@@ -282,7 +282,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int base=luatop>1 ? (int)lua_tointeger(L,2) : 10;
+		int base=luatop>1 ? (int)lua_tointeger(L,2) : (int)10;
 
 		wxTextInputStream* self=(Luna< wxTextInputStream >::check(L,1));
 		if(!self) {
@@ -304,7 +304,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int base=luatop>1 ? (int)lua_tointeger(L,2) : 10;
+		int base=luatop>1 ? (int)lua_tointeger(L,2) : (int)10;
 
 		wxTextInputStream* self=(Luna< wxTextInputStream >::check(L,1));
 		if(!self) {
@@ -326,7 +326,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int base=luatop>1 ? (int)lua_tointeger(L,2) : 10;
+		int base=luatop>1 ? (int)lua_tointeger(L,2) : (int)10;
 
 		wxTextInputStream* self=(Luna< wxTextInputStream >::check(L,1));
 		if(!self) {

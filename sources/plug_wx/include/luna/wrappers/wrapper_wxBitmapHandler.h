@@ -73,7 +73,7 @@ public:
 			_obj.pushArg((wxBitmapHandler*)this);
 			_obj.pushArg(bitmap);
 			_obj.pushArg(data);
-			_obj.pushArg(type);
+			_obj.pushArg((int)type);
 			_obj.pushArg(width);
 			_obj.pushArg(height);
 			_obj.pushArg(depth);
@@ -89,7 +89,7 @@ public:
 			_obj.pushArg((wxBitmapHandler*)this);
 			_obj.pushArg(bitmap);
 			_obj.pushArg(name);
-			_obj.pushArg(type);
+			_obj.pushArg((int)type);
 			_obj.pushArg(desiredWidth);
 			_obj.pushArg(desiredHeight);
 			return (_obj.callFunction<bool>());
@@ -104,7 +104,7 @@ public:
 			_obj.pushArg((wxBitmapHandler*)this);
 			_obj.pushArg(bitmap);
 			_obj.pushArg(name);
-			_obj.pushArg(type);
+			_obj.pushArg((int)type);
 			_obj.pushArg(palette);
 			return (_obj.callFunction<bool>());
 		}

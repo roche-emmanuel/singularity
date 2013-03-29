@@ -144,8 +144,8 @@ public:
 	inline static bool _lg_typecheck_GetPosition_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -211,7 +211,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int keyEventType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
+		int keyEventType=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
 
 		return new wrapper_wxKeyEvent(L,NULL, keyEventType);
 	}
@@ -286,15 +286,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxKeyEvent::GetPosition(long * x, long * y) const function, expected prototype:\nvoid wxKeyEvent::GetPosition(long * x, long * y) const\nClass arguments details:\n");
 		}
 
-		long x=(long)lua_tointeger(L,2);
-		long y=(long)lua_tointeger(L,3);
+		long* x=(long*)Luna< void >::check(L,2);
+		long* y=(long*)Luna< void >::check(L,3);
 
 		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxKeyEvent::GetPosition(long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->GetPosition(&x, &y);
+		self->GetPosition(x, y);
 
 		return 0;
 	}

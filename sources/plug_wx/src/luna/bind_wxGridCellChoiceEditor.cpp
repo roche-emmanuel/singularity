@@ -206,7 +206,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxGridCellChoiceEditor::wxGridCellChoiceEditor function");
 		}
 		const wxArrayString & choices=*choices_ptr;
-		bool allowOthers=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool allowOthers=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		return new wrapper_wxGridCellChoiceEditor(L,NULL, choices, allowOthers);
 	}

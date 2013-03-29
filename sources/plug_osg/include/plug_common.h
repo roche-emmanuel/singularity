@@ -13,7 +13,6 @@
 #  define PLUG_EXPORT
 #endif
 
-
 #pragma warning( disable: 4251 )
 
 #include <lua.hpp>

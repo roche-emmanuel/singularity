@@ -108,6 +108,16 @@ public:
 		return Renderer::release();
 	};
 
+	// void osgViewer::Renderer::reset()
+	void reset() {
+		if(_obj.pushFunction("reset")) {
+			_obj.pushArg((osgViewer::Renderer*)this);
+			return (_obj.callFunction<void>());
+		}
+
+		return Renderer::reset();
+	};
+
 	// void osgViewer::Renderer::operator()(osg::Object * object)
 	void operator()(osg::Object * object) {
 		if(_obj.pushFunction("op_call")) {

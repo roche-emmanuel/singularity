@@ -402,7 +402,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRendererNative::DrawCheckBox function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -434,7 +434,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRendererNative::DrawComboBoxDropButton function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -466,7 +466,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRendererNative::DrawDropArrow function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -498,7 +498,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRendererNative::DrawFocusRect function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -530,8 +530,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRendererNative::DrawHeaderButton function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		wxHeaderSortIconType sortArrow=luatop>5 ? (wxHeaderSortIconType)lua_tointeger(L,6) : ::wxHDR_SORT_ICON_NONE;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		wxHeaderSortIconType sortArrow=luatop>5 ? (wxHeaderSortIconType)lua_tointeger(L,6) : (wxHeaderSortIconType)::wxHDR_SORT_ICON_NONE;
 		wxHeaderButtonParams* params=luatop>6 ? (Luna< wxHeaderButtonParams >::check(L,7)) : (wxHeaderButtonParams*)NULL;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
@@ -565,8 +565,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRendererNative::DrawHeaderButtonContents function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		wxHeaderSortIconType sortArrow=luatop>5 ? (wxHeaderSortIconType)lua_tointeger(L,6) : ::wxHDR_SORT_ICON_NONE;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		wxHeaderSortIconType sortArrow=luatop>5 ? (wxHeaderSortIconType)lua_tointeger(L,6) : (wxHeaderSortIconType)::wxHDR_SORT_ICON_NONE;
 		wxHeaderButtonParams* params=luatop>6 ? (Luna< wxHeaderButtonParams >::check(L,7)) : (wxHeaderButtonParams*)NULL;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
@@ -600,7 +600,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRendererNative::DrawItemSelectionRect function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -632,7 +632,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRendererNative::DrawPushButton function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -664,7 +664,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRendererNative::DrawSplitterBorder function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -698,7 +698,7 @@ public:
 		const wxSize & size=*size_ptr;
 		int position=(int)lua_tointeger(L,5);
 		wxOrientation orient=(wxOrientation)lua_tointeger(L,6);
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : 0;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : (int)0;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -730,7 +730,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRendererNative::DrawTreeItemButton function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -762,7 +762,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRendererNative::DrawChoice function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -794,7 +794,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRendererNative::DrawComboBox function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -826,7 +826,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRendererNative::DrawTextCtrl function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -858,7 +858,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRendererNative::DrawRadioBitmap function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -891,7 +891,7 @@ public:
 		}
 		const wxRect & rect=*rect_ptr;
 		wxTitleBarButton button=(wxTitleBarButton)lua_tointeger(L,5);
-		int flags=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		int flags=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {

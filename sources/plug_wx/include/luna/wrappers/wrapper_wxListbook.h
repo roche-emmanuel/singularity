@@ -688,7 +688,7 @@ public:
 	bool SetBackgroundStyle(wxBackgroundStyle style) {
 		if(_obj.pushFunction("SetBackgroundStyle")) {
 			_obj.pushArg((wxListbook*)this);
-			_obj.pushArg(style);
+			_obj.pushArg((int)style);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -836,7 +836,7 @@ public:
 	bool HideWithEffect(wxShowEffect effect, unsigned int timeout = 0) {
 		if(_obj.pushFunction("HideWithEffect")) {
 			_obj.pushArg((wxListbook*)this);
-			_obj.pushArg(effect);
+			_obj.pushArg((int)effect);
 			_obj.pushArg(timeout);
 			return (_obj.callFunction<bool>());
 		}
@@ -890,7 +890,7 @@ public:
 	bool ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0) {
 		if(_obj.pushFunction("ShowWithEffect")) {
 			_obj.pushArg((wxListbook*)this);
-			_obj.pushArg(effect);
+			_obj.pushArg((int)effect);
 			_obj.pushArg(timeout);
 			return (_obj.callFunction<bool>());
 		}
@@ -903,7 +903,7 @@ public:
 		if(_obj.pushFunction("GetHelpTextAtPoint")) {
 			_obj.pushArg((wxListbook*)this);
 			_obj.pushArg(&point);
-			_obj.pushArg(origin);
+			_obj.pushArg((int)origin);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -985,7 +985,7 @@ public:
 	void SetLayoutDirection(wxLayoutDirection dir) {
 		if(_obj.pushFunction("SetLayoutDirection")) {
 			_obj.pushArg((wxListbook*)this);
-			_obj.pushArg(dir);
+			_obj.pushArg((int)dir);
 			return (_obj.callFunction<void>());
 		}
 

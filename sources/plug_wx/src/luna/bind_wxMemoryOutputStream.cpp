@@ -219,8 +219,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		void* data=luatop>0 ? (Luna< void >::check(L,1)) : NULL;
-		size_t length=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
+		void* data=luatop>0 ? (Luna< void >::check(L,1)) : (void*)NULL;
+		size_t length=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)0;
 
 		return new wxMemoryOutputStream(data, length);
 	}
@@ -234,8 +234,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		void* data=luatop>1 ? (Luna< void >::check(L,2)) : NULL;
-		size_t length=luatop>2 ? (size_t)lua_tointeger(L,3) : 0;
+		void* data=luatop>1 ? (Luna< void >::check(L,2)) : (void*)NULL;
+		size_t length=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)0;
 
 		return new wrapper_wxMemoryOutputStream(L,NULL, data, length);
 	}
@@ -417,7 +417,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		long long pos=(long long)lua_tointeger(L,2);
-		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : ::wxFromStart;
+		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : (wxSeekMode)::wxFromStart;
 
 		wxMemoryOutputStream* self=Luna< wxObject >::checkSubType< wxMemoryOutputStream >(L,1);
 		if(!self) {

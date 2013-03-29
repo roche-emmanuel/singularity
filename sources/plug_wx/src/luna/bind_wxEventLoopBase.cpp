@@ -389,7 +389,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int rc=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int rc=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {
@@ -542,7 +542,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool onlyIfNeeded=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool onlyIfNeeded=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
 		if(!self) {

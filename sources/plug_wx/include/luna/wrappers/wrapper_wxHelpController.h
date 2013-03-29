@@ -153,7 +153,7 @@ public:
 		if(_obj.pushFunction("KeywordSearch")) {
 			_obj.pushArg((wxHelpController*)this);
 			_obj.pushArg(keyWord);
-			_obj.pushArg(mode);
+			_obj.pushArg((int)mode);
 			return (_obj.callFunction<bool>());
 		}
 

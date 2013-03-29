@@ -379,7 +379,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
-		wxTextFileType type=luatop>2 ? (wxTextFileType)lua_tointeger(L,3) : wxTextFile::typeDefault;
+		wxTextFileType type=luatop>2 ? (wxTextFileType)lua_tointeger(L,3) : (wxTextFileType)wxTextFile::typeDefault;
 
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {
@@ -736,7 +736,7 @@ public:
 
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
 		size_t n=(size_t)lua_tointeger(L,3);
-		wxTextFileType type=luatop>3 ? (wxTextFileType)lua_tointeger(L,4) : wxTextFile::typeDefault;
+		wxTextFileType type=luatop>3 ? (wxTextFileType)lua_tointeger(L,4) : (wxTextFileType)wxTextFile::typeDefault;
 
 		wxTextFile* self=(Luna< wxTextFile >::check(L,1));
 		if(!self) {

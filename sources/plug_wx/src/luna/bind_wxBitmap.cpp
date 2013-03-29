@@ -596,7 +596,7 @@ public:
 
 		int width=(int)lua_tointeger(L,1);
 		int height=(int)lua_tointeger(L,2);
-		int depth=luatop>2 ? (int)lua_tointeger(L,3) : (-1);
+		int depth=luatop>2 ? (int)lua_tointeger(L,3) : (int)(-1);
 
 		return new wxBitmap(width, height, depth);
 	}
@@ -615,7 +615,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg sz in wxBitmap::wxBitmap function");
 		}
 		const wxSize & sz=*sz_ptr;
-		int depth=luatop>1 ? (int)lua_tointeger(L,2) : (-1);
+		int depth=luatop>1 ? (int)lua_tointeger(L,2) : (int)(-1);
 
 		return new wxBitmap(sz, depth);
 	}
@@ -642,7 +642,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
-		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : wxBITMAP_DEFAULT_TYPE;
+		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : (wxBitmapType)wxBITMAP_DEFAULT_TYPE;
 
 		return new wxBitmap(name, type);
 	}
@@ -661,7 +661,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg img in wxBitmap::wxBitmap function");
 		}
 		const wxImage & img=*img_ptr;
-		int depth=luatop>1 ? (int)lua_tointeger(L,2) : (-1);
+		int depth=luatop>1 ? (int)lua_tointeger(L,2) : (int)(-1);
 
 		return new wxBitmap(img, depth);
 	}
@@ -704,7 +704,7 @@ public:
 
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
-		int depth=luatop>3 ? (int)lua_tointeger(L,4) : (-1);
+		int depth=luatop>3 ? (int)lua_tointeger(L,4) : (int)(-1);
 
 		return new wrapper_wxBitmap(L,NULL, width, height, depth);
 	}
@@ -723,7 +723,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg sz in wxBitmap::wxBitmap function");
 		}
 		const wxSize & sz=*sz_ptr;
-		int depth=luatop>2 ? (int)lua_tointeger(L,3) : (-1);
+		int depth=luatop>2 ? (int)lua_tointeger(L,3) : (int)(-1);
 
 		return new wrapper_wxBitmap(L,NULL, sz, depth);
 	}
@@ -750,7 +750,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : wxBITMAP_DEFAULT_TYPE;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)wxBITMAP_DEFAULT_TYPE;
 
 		return new wrapper_wxBitmap(L,NULL, name, type);
 	}
@@ -769,7 +769,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg img in wxBitmap::wxBitmap function");
 		}
 		const wxImage & img=*img_ptr;
-		int depth=luatop>2 ? (int)lua_tointeger(L,3) : (-1);
+		int depth=luatop>2 ? (int)lua_tointeger(L,3) : (int)(-1);
 
 		return new wrapper_wxBitmap(L,NULL, img, depth);
 	}
@@ -854,7 +854,7 @@ public:
 
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
-		int depth=luatop>3 ? (int)lua_tointeger(L,4) : (-1);
+		int depth=luatop>3 ? (int)lua_tointeger(L,4) : (int)(-1);
 
 		wxBitmap* self=Luna< wxObject >::checkSubType< wxBitmap >(L,1);
 		if(!self) {
@@ -881,7 +881,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg sz in wxBitmap::Create function");
 		}
 		const wxSize & sz=*sz_ptr;
-		int depth=luatop>2 ? (int)lua_tointeger(L,3) : (-1);
+		int depth=luatop>2 ? (int)lua_tointeger(L,3) : (int)(-1);
 
 		wxBitmap* self=Luna< wxObject >::checkSubType< wxBitmap >(L,1);
 		if(!self) {
@@ -1105,7 +1105,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : wxBITMAP_DEFAULT_TYPE;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)wxBITMAP_DEFAULT_TYPE;
 
 		wxBitmap* self=Luna< wxObject >::checkSubType< wxBitmap >(L,1);
 		if(!self) {
@@ -1388,7 +1388,7 @@ public:
 
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
-		int depth=luatop>3 ? (int)lua_tointeger(L,4) : (-1);
+		int depth=luatop>3 ? (int)lua_tointeger(L,4) : (int)(-1);
 
 		wxBitmap* self=Luna< wxObject >::checkSubType< wxBitmap >(L,1);
 		if(!self) {
@@ -1415,7 +1415,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg sz in wxBitmap::base_Create function");
 		}
 		const wxSize & sz=*sz_ptr;
-		int depth=luatop>2 ? (int)lua_tointeger(L,3) : (-1);
+		int depth=luatop>2 ? (int)lua_tointeger(L,3) : (int)(-1);
 
 		wxBitmap* self=Luna< wxObject >::checkSubType< wxBitmap >(L,1);
 		if(!self) {
@@ -1592,7 +1592,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : wxBITMAP_DEFAULT_TYPE;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)wxBITMAP_DEFAULT_TYPE;
 
 		wxBitmap* self=Luna< wxObject >::checkSubType< wxBitmap >(L,1);
 		if(!self) {

@@ -298,7 +298,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
-		size_t copies=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+		size_t copies=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)1;
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
@@ -395,8 +395,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString sz(lua_tostring(L,2),lua_objlen(L,2));
-		bool bCase=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
-		bool bFromEnd=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool bCase=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
+		bool bFromEnd=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
@@ -420,7 +420,7 @@ public:
 
 		wxString lItem(lua_tostring(L,2),lua_objlen(L,2));
 		size_t nIndex=(size_t)lua_tointeger(L,3);
-		size_t copies=luatop>3 ? (size_t)lua_tointeger(L,4) : 1;
+		size_t copies=luatop>3 ? (size_t)lua_tointeger(L,4) : (size_t)1;
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
@@ -519,7 +519,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		size_t nIndex=(size_t)lua_tointeger(L,2);
-		size_t count=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+		size_t count=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)1;
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
@@ -558,7 +558,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool reverseOrder=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool reverseOrder=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {

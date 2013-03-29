@@ -253,9 +253,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Zone* zone=luatop>1 ? (Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,2)) : (SPK::Zone*)NULL;
-		SPK::ModifierTrigger trigger=luatop>2 ? (SPK::ModifierTrigger)lua_tointeger(L,3) : SPK::INSIDE_ZONE;
-		float mass=luatop>3 ? (float)lua_tonumber(L,4) : 1.0f;
-		float minDistance=luatop>4 ? (float)lua_tonumber(L,5) : 0.05f;
+		SPK::ModifierTrigger trigger=luatop>2 ? (SPK::ModifierTrigger)lua_tointeger(L,3) : (SPK::ModifierTrigger)SPK::INSIDE_ZONE;
+		float mass=luatop>3 ? (float)lua_tonumber(L,4) : (float)1.0f;
+		float minDistance=luatop>4 ? (float)lua_tonumber(L,5) : (float)0.05f;
 
 		return new wrapper_SPK_PointMass(L,NULL, zone, trigger, mass, minDistance);
 	}
@@ -432,9 +432,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Zone* zone=luatop>0 ? (Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1)) : (SPK::Zone*)NULL;
-		SPK::ModifierTrigger trigger=luatop>1 ? (SPK::ModifierTrigger)lua_tointeger(L,2) : SPK::INSIDE_ZONE;
-		float mass=luatop>2 ? (float)lua_tonumber(L,3) : 1.0f;
-		float minDistance=luatop>3 ? (float)lua_tonumber(L,4) : 0.05f;
+		SPK::ModifierTrigger trigger=luatop>1 ? (SPK::ModifierTrigger)lua_tointeger(L,2) : (SPK::ModifierTrigger)SPK::INSIDE_ZONE;
+		float mass=luatop>2 ? (float)lua_tonumber(L,3) : (float)1.0f;
+		float minDistance=luatop>3 ? (float)lua_tonumber(L,4) : (float)0.05f;
 
 		SPK::PointMass * lret = SPK::PointMass::create(zone, trigger, mass, minDistance);
 		if(!lret) return 0; // Do not write NULL pointers.

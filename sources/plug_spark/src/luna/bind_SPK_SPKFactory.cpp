@@ -364,7 +364,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned long ID=(unsigned long)lua_tointeger(L,2);
-		bool checkNbReferences=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool checkNbReferences=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
@@ -387,7 +387,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Registerable* registerable=(Luna< SPK::Registerable >::check(L,2));
-		bool checkNbReferences=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool checkNbReferences=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {

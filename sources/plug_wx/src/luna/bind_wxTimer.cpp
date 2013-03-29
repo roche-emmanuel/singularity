@@ -295,7 +295,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxEvtHandler* owner=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : -1;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)-1;
 
 		return new wxTimer(owner, id);
 	}
@@ -321,7 +321,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxEvtHandler* owner=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		return new wrapper_wxTimer(L,NULL, owner, id);
 	}
@@ -464,7 +464,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxEvtHandler* owner=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
@@ -485,8 +485,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int milliseconds=luatop>1 ? (int)lua_tointeger(L,2) : -1;
-		bool oneShot=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		int milliseconds=luatop>1 ? (int)lua_tointeger(L,2) : (int)-1;
+		bool oneShot=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {
@@ -669,8 +669,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int milliseconds=luatop>1 ? (int)lua_tointeger(L,2) : -1;
-		bool oneShot=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		int milliseconds=luatop>1 ? (int)lua_tointeger(L,2) : (int)-1;
+		bool oneShot=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxTimer* self=Luna< wxObject >::checkSubType< wxTimer >(L,1);
 		if(!self) {

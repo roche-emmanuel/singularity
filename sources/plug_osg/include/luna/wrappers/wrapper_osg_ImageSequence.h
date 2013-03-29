@@ -117,6 +117,46 @@ public:
 		return ImageSequence::getUserData();
 	};
 
+	// osg::Array * osg::BufferData::asArray()
+	osg::Array * asArray() {
+		if(_obj.pushFunction("asArray")) {
+			_obj.pushArg((osg::ImageSequence*)this);
+			return (_obj.callFunction<osg::Array*>());
+		}
+
+		return ImageSequence::asArray();
+	};
+
+	// const osg::Array * osg::BufferData::asArray() const
+	const osg::Array * asArray() const {
+		if(_obj.pushFunction("asArray")) {
+			_obj.pushArg((osg::ImageSequence*)this);
+			return (_obj.callFunction<osg::Array*>());
+		}
+
+		return ImageSequence::asArray();
+	};
+
+	// osg::PrimitiveSet * osg::BufferData::asPrimitiveSet()
+	osg::PrimitiveSet * asPrimitiveSet() {
+		if(_obj.pushFunction("asPrimitiveSet")) {
+			_obj.pushArg((osg::ImageSequence*)this);
+			return (_obj.callFunction<osg::PrimitiveSet*>());
+		}
+
+		return ImageSequence::asPrimitiveSet();
+	};
+
+	// const osg::PrimitiveSet * osg::BufferData::asPrimitiveSet() const
+	const osg::PrimitiveSet * asPrimitiveSet() const {
+		if(_obj.pushFunction("asPrimitiveSet")) {
+			_obj.pushArg((osg::ImageSequence*)this);
+			return (_obj.callFunction<osg::PrimitiveSet*>());
+		}
+
+		return ImageSequence::asPrimitiveSet();
+	};
+
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
@@ -126,6 +166,26 @@ public:
 		}
 
 		return ImageSequence::releaseGLObjects(state);
+	};
+
+	// osg::Image * osg::Image::asImage()
+	osg::Image * asImage() {
+		if(_obj.pushFunction("asImage")) {
+			_obj.pushArg((osg::ImageSequence*)this);
+			return (_obj.callFunction<osg::Image*>());
+		}
+
+		return ImageSequence::asImage();
+	};
+
+	// const osg::Image * osg::Image::asImage() const
+	const osg::Image * asImage() const {
+		if(_obj.pushFunction("asImage")) {
+			_obj.pushArg((osg::ImageSequence*)this);
+			return (_obj.callFunction<osg::Image*>());
+		}
+
+		return ImageSequence::asImage();
 	};
 
 	// const void * osg::Image::getDataPointer() const
@@ -164,8 +224,8 @@ public:
 		return ImageSequence::allocateImage(s, t, r, pixelFormat, type, packing);
 	};
 
-	// void osg::Image::readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type)
-	void readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type) {
+	// void osg::Image::readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type, int packing = 1)
+	void readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type, int packing = 1) {
 		if(_obj.pushFunction("readPixels")) {
 			_obj.pushArg((osg::ImageSequence*)this);
 			_obj.pushArg(x);
@@ -174,23 +234,25 @@ public:
 			_obj.pushArg(height);
 			_obj.pushArg(pixelFormat);
 			_obj.pushArg(type);
+			_obj.pushArg(packing);
 			return (_obj.callFunction<void>());
 		}
 
-		return ImageSequence::readPixels(x, y, width, height, pixelFormat, type);
+		return ImageSequence::readPixels(x, y, width, height, pixelFormat, type, packing);
 	};
 
-	// void osg::Image::readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE)
-	void readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE) {
+	// void osg::Image::readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE, unsigned int face = 0)
+	void readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE, unsigned int face = 0) {
 		if(_obj.pushFunction("readImageFromCurrentTexture")) {
 			_obj.pushArg((osg::ImageSequence*)this);
 			_obj.pushArg(contextID);
 			_obj.pushArg(copyMipMapsIfAvailable);
 			_obj.pushArg(type);
+			_obj.pushArg(face);
 			return (_obj.callFunction<void>());
 		}
 
-		return ImageSequence::readImageFromCurrentTexture(contextID, copyMipMapsIfAvailable, type);
+		return ImageSequence::readImageFromCurrentTexture(contextID, copyMipMapsIfAvailable, type, face);
 	};
 
 	// void osg::Image::scaleImage(int s, int t, int r, unsigned int newDataType)
@@ -309,6 +371,16 @@ public:
 		return ImageSequence::getFrameRate();
 	};
 
+	// double osg::ImageStream::getCurrentTime() const
+	double getCurrentTime() const {
+		if(_obj.pushFunction("getCurrentTime")) {
+			_obj.pushArg((osg::ImageSequence*)this);
+			return (_obj.callFunction<double>());
+		}
+
+		return ImageSequence::getCurrentTime();
+	};
+
 	// void osg::ImageStream::setVolume(float arg1)
 	void setVolume(float arg1) {
 		if(_obj.pushFunction("setVolume")) {
@@ -328,6 +400,37 @@ public:
 		}
 
 		return ImageSequence::getVolume();
+	};
+
+	// float osg::ImageStream::getAudioBalance()
+	float getAudioBalance() {
+		if(_obj.pushFunction("getAudioBalance")) {
+			_obj.pushArg((osg::ImageSequence*)this);
+			return (_obj.callFunction<float>());
+		}
+
+		return ImageSequence::getAudioBalance();
+	};
+
+	// void osg::ImageStream::setAudioBalance(float b)
+	void setAudioBalance(float b) {
+		if(_obj.pushFunction("setAudioBalance")) {
+			_obj.pushArg((osg::ImageSequence*)this);
+			_obj.pushArg(b);
+			return (_obj.callFunction<void>());
+		}
+
+		return ImageSequence::setAudioBalance(b);
+	};
+
+	// osg::Texture * osg::ImageStream::createSuitableTexture()
+	osg::Texture * createSuitableTexture() {
+		if(_obj.pushFunction("createSuitableTexture")) {
+			_obj.pushArg((osg::ImageSequence*)this);
+			return (_obj.callFunction<osg::Texture*>());
+		}
+
+		return ImageSequence::createSuitableTexture();
 	};
 
 	// osg::Object * osg::ImageSequence::cloneType() const
@@ -486,25 +589,6 @@ public:
 		return ImageSequence::getLength();
 	};
 
-	// void osg::ImageSequence::setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1)
-	void setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1) {
-		if(_obj.pushFunction("setImage")) {
-			_obj.pushArg((osg::ImageSequence*)this);
-			_obj.pushArg(s);
-			_obj.pushArg(t);
-			_obj.pushArg(r);
-			_obj.pushArg(internalTextureformat);
-			_obj.pushArg(pixelFormat);
-			_obj.pushArg(type);
-			_obj.pushArg((void*)data);
-			_obj.pushArg((int)mode);
-			_obj.pushArg(packing);
-			return (_obj.callFunction<void>());
-		}
-
-		return ImageSequence::setImage(s, t, r, internalTextureformat, pixelFormat, type, data, mode, packing);
-	};
-
 	// bool osg::ImageSequence::requiresUpdateCall() const
 	bool requiresUpdateCall() const {
 		if(_obj.pushFunction("requiresUpdateCall")) {
@@ -528,9 +612,9 @@ public:
 
 
 	// Protected non-virtual methods:
-	// void osg::ImageSequence::setImageToChild(const osg::Image * image)
-	void public_setImageToChild(const osg::Image * image) {
-		return osg::ImageSequence::setImageToChild(image);
+	// void osg::ImageSequence::setImageToChild(int pos)
+	void public_setImageToChild(int pos) {
+		return osg::ImageSequence::setImageToChild(pos);
 	};
 
 	// void osg::ImageSequence::computeTimePerImage()
@@ -541,6 +625,16 @@ public:
 	// int osg::ImageSequence::imageIndex(double time)
 	int public_imageIndex(double time) {
 		return osg::ImageSequence::imageIndex(time);
+	};
+
+	// void osg::ImageSequence::_setImage(unsigned int pos, osg::Image * image)
+	void public__setImage(unsigned int pos, osg::Image * image) {
+		return osg::ImageSequence::_setImage(pos, image);
+	};
+
+	// void osg::Image::handleDimensionsChangedCallbacks()
+	void public_handleDimensionsChangedCallbacks() {
+		return osg::Image::handleDimensionsChangedCallbacks();
 	};
 
 	// void osg::Image::deallocateData()
@@ -573,7 +667,7 @@ public:
 	inline static bool _lg_typecheck_public_setImageToChild(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -587,6 +681,20 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public__setImage(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_handleDimensionsChangedCallbacks(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -627,21 +735,21 @@ public:
 
 
 	// Protected non-virtual function binds:
-	// void osg::ImageSequence::public_setImageToChild(const osg::Image * image)
+	// void osg::ImageSequence::public_setImageToChild(int pos)
 	static int _bind_public_setImageToChild(lua_State *L) {
 		if (!_lg_typecheck_public_setImageToChild(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageSequence::public_setImageToChild(const osg::Image * image) function, expected prototype:\nvoid osg::ImageSequence::public_setImageToChild(const osg::Image * image)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageSequence::public_setImageToChild(int pos) function, expected prototype:\nvoid osg::ImageSequence::public_setImageToChild(int pos)\nClass arguments details:\n");
 		}
 
-		const osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
+		int pos=(int)lua_tointeger(L,2);
 
 		wrapper_osg_ImageSequence* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ImageSequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageSequence::public_setImageToChild(const osg::Image *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageSequence::public_setImageToChild(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->public_setImageToChild(image);
+		self->public_setImageToChild(pos);
 
 		return 0;
 	}
@@ -682,6 +790,44 @@ public:
 		lua_pushnumber(L,lret);
 
 		return 1;
+	}
+
+	// void osg::ImageSequence::public__setImage(unsigned int pos, osg::Image * image)
+	static int _bind_public__setImage(lua_State *L) {
+		if (!_lg_typecheck_public__setImage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::ImageSequence::public__setImage(unsigned int pos, osg::Image * image) function, expected prototype:\nvoid osg::ImageSequence::public__setImage(unsigned int pos, osg::Image * image)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		unsigned int pos=(unsigned int)lua_tointeger(L,2);
+		osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,3));
+
+		wrapper_osg_ImageSequence* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ImageSequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::ImageSequence::public__setImage(unsigned int, osg::Image *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->public__setImage(pos, image);
+
+		return 0;
+	}
+
+	// void osg::Image::public_handleDimensionsChangedCallbacks()
+	static int _bind_public_handleDimensionsChangedCallbacks(lua_State *L) {
+		if (!_lg_typecheck_public_handleDimensionsChangedCallbacks(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Image::public_handleDimensionsChangedCallbacks() function, expected prototype:\nvoid osg::Image::public_handleDimensionsChangedCallbacks()\nClass arguments details:\n");
+		}
+
+
+		wrapper_osg_ImageSequence* self=Luna< osg::Referenced >::checkSubType< wrapper_osg_ImageSequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Image::public_handleDimensionsChangedCallbacks(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->public_handleDimensionsChangedCallbacks();
+
+		return 0;
 	}
 
 	// void osg::Image::public_deallocateData()
@@ -792,6 +938,8 @@ public:
 		{"setImageToChild",_bind_public_setImageToChild},
 		{"computeTimePerImage",_bind_public_computeTimePerImage},
 		{"imageIndex",_bind_public_imageIndex},
+		{"_setImage",_bind_public__setImage},
+		{"handleDimensionsChangedCallbacks",_bind_public_handleDimensionsChangedCallbacks},
 		{"deallocateData",_bind_public_deallocateData},
 		{"setData",_bind_public_setData},
 		{"op_assign",_bind_public_op_assign},

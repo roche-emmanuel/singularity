@@ -179,7 +179,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool canUndo=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool canUndo=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 
 		return new wrapper_wxCommand(L,NULL, canUndo, name);

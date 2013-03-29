@@ -212,7 +212,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg address in wxSocketServer::wxSocketServer function");
 		}
 		const wxSockAddress & address=*address_ptr;
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxSOCKET_NONE;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxSOCKET_NONE;
 
 		return new wxSocketServer(address, flags);
 	}
@@ -231,7 +231,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg address in wxSocketServer::wxSocketServer function");
 		}
 		const wxSockAddress & address=*address_ptr;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxSOCKET_NONE;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxSOCKET_NONE;
 
 		return new wrapper_wxSocketServer(L,NULL, address, flags);
 	}
@@ -256,7 +256,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool wait=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool wait=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxSocketServer* self=Luna< wxObject >::checkSubType< wxSocketServer >(L,1);
 		if(!self) {
@@ -285,7 +285,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg socket in wxSocketServer::AcceptWith function");
 		}
 		wxSocketBase & socket=*socket_ptr;
-		bool wait=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool wait=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxSocketServer* self=Luna< wxObject >::checkSubType< wxSocketServer >(L,1);
 		if(!self) {
@@ -307,8 +307,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long seconds=luatop>1 ? (long)lua_tointeger(L,2) : -1;
-		long millisecond=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long seconds=luatop>1 ? (long)lua_tointeger(L,2) : (long)-1;
+		long millisecond=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wxSocketServer* self=Luna< wxObject >::checkSubType< wxSocketServer >(L,1);
 		if(!self) {

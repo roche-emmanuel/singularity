@@ -116,7 +116,7 @@ public:
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,91544891)) ) return false;
 		if( (lua_isnil(L,1)==0 && !(Luna< btVector3 >::check(L,1)) ) ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -127,7 +127,7 @@ public:
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
 		if( (lua_isnil(L,2)==0 && !(Luna< btVector3 >::check(L,2)) ) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
@@ -341,10 +341,10 @@ public:
 		}
 
 		const btVector3* positions=(Luna< btVector3 >::check(L,1));
-		float radi=(float)lua_tonumber(L,2);
+		const float* radi=(const float*)Luna< void >::check(L,2);
 		int numSpheres=(int)lua_tointeger(L,3);
 
-		return new btMultiSphereShape(positions, &radi, numSpheres);
+		return new btMultiSphereShape(positions, radi, numSpheres);
 	}
 
 	// btMultiSphereShape::btMultiSphereShape(lua_Table * data, const btVector3 * positions, const float * radi, int numSpheres)
@@ -355,10 +355,10 @@ public:
 		}
 
 		const btVector3* positions=(Luna< btVector3 >::check(L,2));
-		float radi=(float)lua_tonumber(L,3);
+		const float* radi=(const float*)Luna< void >::check(L,3);
 		int numSpheres=(int)lua_tointeger(L,4);
 
-		return new wrapper_btMultiSphereShape(L,NULL, positions, &radi, numSpheres);
+		return new wrapper_btMultiSphereShape(L,NULL, positions, radi, numSpheres);
 	}
 
 	// Overload binder for btMultiSphereShape::btMultiSphereShape

@@ -168,7 +168,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* window=luatop>0 ? (Luna< wxObject >::checkSubType< wxWindow >(L,1)) : (wxWindow*)NULL;
-		bool doNow=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool doNow=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		return new wxContextHelp(window, doNow);
 	}
@@ -183,7 +183,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* window=luatop>1 ? (Luna< wxObject >::checkSubType< wxWindow >(L,2)) : (wxWindow*)NULL;
-		bool doNow=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool doNow=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		return new wrapper_wxContextHelp(L,NULL, window, doNow);
 	}

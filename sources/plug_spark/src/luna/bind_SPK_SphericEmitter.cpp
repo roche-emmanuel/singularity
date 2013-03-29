@@ -222,9 +222,9 @@ public:
 		if( luatop>1 && !direction_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg direction in SPK::SphericEmitter::SphericEmitter function");
 		}
-		const SPK::Vector3D & direction=luatop>1 ? *direction_ptr : SPK::Vector3D (0.0f, 0.0f,-1.0f);
-		float angleA=luatop>2 ? (float)lua_tonumber(L,3) : 0.0f;
-		float angleB=luatop>3 ? (float)lua_tonumber(L,4) : 0.0f;
+		const SPK::Vector3D & direction=luatop>1 ? *direction_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f,-1.0f);
+		float angleA=luatop>2 ? (float)lua_tonumber(L,3) : (float)0.0f;
+		float angleB=luatop>3 ? (float)lua_tonumber(L,4) : (float)0.0f;
 
 		return new wrapper_SPK_SphericEmitter(L,NULL, direction, angleA, angleB);
 	}
@@ -386,9 +386,9 @@ public:
 		if( luatop>0 && !direction_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg direction in SPK::SphericEmitter::create function");
 		}
-		const SPK::Vector3D & direction=luatop>0 ? *direction_ptr : SPK::Vector3D (0.0f, 0.0f,-1.0f);
-		float angleA=luatop>1 ? (float)lua_tonumber(L,2) : 0.0f;
-		float angleB=luatop>2 ? (float)lua_tonumber(L,3) : 0.0f;
+		const SPK::Vector3D & direction=luatop>0 ? *direction_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f,-1.0f);
+		float angleA=luatop>1 ? (float)lua_tonumber(L,2) : (float)0.0f;
+		float angleB=luatop>2 ? (float)lua_tonumber(L,3) : (float)0.0f;
 
 		SPK::SphericEmitter * lret = SPK::SphericEmitter::create(direction, angleA, angleB);
 		if(!lret) return 0; // Do not write NULL pointers.

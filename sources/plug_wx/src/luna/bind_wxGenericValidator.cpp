@@ -122,7 +122,7 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isboolean(L,1)==0 ) return false;
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 		return true;
 	}
 
@@ -136,7 +136,7 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 		return true;
 	}
 
@@ -167,14 +167,14 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_ctor_overload_9(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 		return true;
 	}
 
@@ -191,7 +191,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( lua_isboolean(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -207,7 +207,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -242,7 +242,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -250,7 +250,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -368,9 +368,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(bool * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(bool * valPtr)\nClass arguments details:\n");
 		}
 
-		bool valPtr=(bool)(lua_toboolean(L,1)==1);
+		bool* valPtr=(bool*)(Luna< void >::check(L,1));
 
-		return new wxGenericValidator(&valPtr);
+		return new wxGenericValidator(valPtr);
 	}
 
 	// wxGenericValidator::wxGenericValidator(wxString * valPtr)
@@ -392,9 +392,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(int * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(int * valPtr)\nClass arguments details:\n");
 		}
 
-		int valPtr=(int)lua_tointeger(L,1);
+		int* valPtr=(int*)Luna< void >::check(L,1);
 
-		return new wxGenericValidator(&valPtr);
+		return new wxGenericValidator(valPtr);
 	}
 
 	// wxGenericValidator::wxGenericValidator(wxArrayInt * valPtr)
@@ -440,9 +440,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(float * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(float * valPtr)\nClass arguments details:\n");
 		}
 
-		float valPtr=(float)lua_tonumber(L,1);
+		float* valPtr=(float*)Luna< void >::check(L,1);
 
-		return new wxGenericValidator(&valPtr);
+		return new wxGenericValidator(valPtr);
 	}
 
 	// wxGenericValidator::wxGenericValidator(double * valPtr)
@@ -452,9 +452,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(double * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(double * valPtr)\nClass arguments details:\n");
 		}
 
-		double valPtr=(double)lua_tonumber(L,1);
+		double* valPtr=(double*)Luna< void >::check(L,1);
 
-		return new wxGenericValidator(&valPtr);
+		return new wxGenericValidator(valPtr);
 	}
 
 	// wxGenericValidator::wxGenericValidator(lua_Table * data, const wxGenericValidator & validator)
@@ -480,9 +480,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, bool * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, bool * valPtr)\nClass arguments details:\n");
 		}
 
-		bool valPtr=(bool)(lua_toboolean(L,2)==1);
+		bool* valPtr=(bool*)(Luna< void >::check(L,2));
 
-		return new wrapper_wxGenericValidator(L,NULL, &valPtr);
+		return new wrapper_wxGenericValidator(L,NULL, valPtr);
 	}
 
 	// wxGenericValidator::wxGenericValidator(lua_Table * data, wxString * valPtr)
@@ -504,9 +504,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, int * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, int * valPtr)\nClass arguments details:\n");
 		}
 
-		int valPtr=(int)lua_tointeger(L,2);
+		int* valPtr=(int*)Luna< void >::check(L,2);
 
-		return new wrapper_wxGenericValidator(L,NULL, &valPtr);
+		return new wrapper_wxGenericValidator(L,NULL, valPtr);
 	}
 
 	// wxGenericValidator::wxGenericValidator(lua_Table * data, wxArrayInt * valPtr)
@@ -552,9 +552,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, float * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, float * valPtr)\nClass arguments details:\n");
 		}
 
-		float valPtr=(float)lua_tonumber(L,2);
+		float* valPtr=(float*)Luna< void >::check(L,2);
 
-		return new wrapper_wxGenericValidator(L,NULL, &valPtr);
+		return new wrapper_wxGenericValidator(L,NULL, valPtr);
 	}
 
 	// wxGenericValidator::wxGenericValidator(lua_Table * data, double * valPtr)
@@ -564,9 +564,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, double * valPtr) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, double * valPtr)\nClass arguments details:\n");
 		}
 
-		double valPtr=(double)lua_tonumber(L,2);
+		double* valPtr=(double*)Luna< void >::check(L,2);
 
-		return new wrapper_wxGenericValidator(L,NULL, &valPtr);
+		return new wrapper_wxGenericValidator(L,NULL, valPtr);
 	}
 
 	// Overload binder for wxGenericValidator::wxGenericValidator

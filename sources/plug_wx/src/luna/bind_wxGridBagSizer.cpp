@@ -522,8 +522,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int vgap=luatop>0 ? (int)lua_tointeger(L,1) : 0;
-		int hgap=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int vgap=luatop>0 ? (int)lua_tointeger(L,1) : (int)0;
+		int hgap=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		return new wxGridBagSizer(vgap, hgap);
 	}
@@ -537,8 +537,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int vgap=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int hgap=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int vgap=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int hgap=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		return new wrapper_wxGridBagSizer(L,NULL, vgap, hgap);
 	}
@@ -573,9 +573,9 @@ public:
 		if( luatop>3 && !span_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGridBagSizer::Add function");
 		}
-		const wxGBSpan & span=luatop>3 ? *span_ptr : wxDefaultSpan;
-		int flag=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		const wxGBSpan & span=luatop>3 ? *span_ptr : (const wxGBSpan&)wxDefaultSpan;
+		int flag=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		int border=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
 		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
@@ -610,9 +610,9 @@ public:
 		if( luatop>3 && !span_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGridBagSizer::Add function");
 		}
-		const wxGBSpan & span=luatop>3 ? *span_ptr : wxDefaultSpan;
-		int flag=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		const wxGBSpan & span=luatop>3 ? *span_ptr : (const wxGBSpan&)wxDefaultSpan;
+		int flag=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		int border=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
 		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
@@ -648,9 +648,9 @@ public:
 		if( luatop>4 && !span_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGridBagSizer::Add function");
 		}
-		const wxGBSpan & span=luatop>4 ? *span_ptr : wxDefaultSpan;
-		int flag=luatop>5 ? (int)lua_tointeger(L,6) : 0;
-		int border=luatop>6 ? (int)lua_tointeger(L,7) : 0;
+		const wxGBSpan & span=luatop>4 ? *span_ptr : (const wxGBSpan&)wxDefaultSpan;
+		int flag=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
+		int border=luatop>6 ? (int)lua_tointeger(L,7) : (int)0;
 		wxObject* userData=luatop>7 ? (Luna< wxObject >::check(L,8)) : (wxObject*)NULL;
 
 		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
@@ -1379,7 +1379,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
@@ -1561,7 +1561,7 @@ public:
 
 		wxWindow* oldwin=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxWindow* newwin=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
-		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
@@ -1585,7 +1585,7 @@ public:
 
 		wxSizer* oldsz=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		wxSizer* newsz=(Luna< wxObject >::checkSubType< wxSizer >(L,3));
-		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {

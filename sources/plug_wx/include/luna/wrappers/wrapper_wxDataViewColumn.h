@@ -176,7 +176,7 @@ public:
 	void SetAlignment(wxAlignment align) {
 		THROW_IF(!_obj.pushFunction("SetAlignment"),"No implementation for abstract function wxSettableHeaderColumn::SetAlignment");
 		_obj.pushArg((wxDataViewColumn*)this);
-		_obj.pushArg(align);
+		_obj.pushArg((int)align);
 		return (_obj.callFunction<void>());
 	};
 

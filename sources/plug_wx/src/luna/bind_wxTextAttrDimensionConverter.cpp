@@ -211,12 +211,12 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxTextAttrDimensionConverter::wxTextAttrDimensionConverter function");
 		}
 		wxDC & dc=*dc_ptr;
-		double scale=luatop>1 ? (double)lua_tonumber(L,2) : 1.0;
+		double scale=luatop>1 ? (double)lua_tonumber(L,2) : (double)1.0;
 		const wxSize* parentSize_ptr=luatop>2 ? (Luna< wxSize >::check(L,3)) : NULL;
 		if( luatop>2 && !parentSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg parentSize in wxTextAttrDimensionConverter::wxTextAttrDimensionConverter function");
 		}
-		const wxSize & parentSize=luatop>2 ? *parentSize_ptr : wxDefaultSize;
+		const wxSize & parentSize=luatop>2 ? *parentSize_ptr : (const wxSize&)wxDefaultSize;
 
 		return new wxTextAttrDimensionConverter(dc, scale, parentSize);
 	}
@@ -231,12 +231,12 @@ public:
 		int luatop = lua_gettop(L);
 
 		int ppi=(int)lua_tointeger(L,1);
-		double scale=luatop>1 ? (double)lua_tonumber(L,2) : 1.0;
+		double scale=luatop>1 ? (double)lua_tonumber(L,2) : (double)1.0;
 		const wxSize* parentSize_ptr=luatop>2 ? (Luna< wxSize >::check(L,3)) : NULL;
 		if( luatop>2 && !parentSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg parentSize in wxTextAttrDimensionConverter::wxTextAttrDimensionConverter function");
 		}
-		const wxSize & parentSize=luatop>2 ? *parentSize_ptr : wxDefaultSize;
+		const wxSize & parentSize=luatop>2 ? *parentSize_ptr : (const wxSize&)wxDefaultSize;
 
 		return new wxTextAttrDimensionConverter(ppi, scale, parentSize);
 	}
@@ -266,7 +266,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg dim in wxTextAttrDimensionConverter::GetPixels function");
 		}
 		const wxTextAttrDimension & dim=*dim_ptr;
-		int direction=luatop>2 ? (int)lua_tointeger(L,3) : ::wxHORIZONTAL;
+		int direction=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxHORIZONTAL;
 
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {

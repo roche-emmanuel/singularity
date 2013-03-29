@@ -343,7 +343,7 @@ public:
 		if( luatop>1 && !values_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg values in wxPGChoices::wxPGChoices function");
 		}
-		const wxArrayInt & values=luatop>1 ? *values_ptr : wxArrayInt ();
+		const wxArrayInt & values=luatop>1 ? *values_ptr : (const wxArrayInt&)wxArrayInt ();
 
 		return new wxPGChoices(labels, values);
 	}
@@ -631,7 +631,7 @@ public:
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 		int index=(int)lua_tointeger(L,3);
-		int value=luatop>3 ? (int)lua_tointeger(L,4) : wxPG_INVALID_VALUE;
+		int value=luatop>3 ? (int)lua_tointeger(L,4) : (int)wxPG_INVALID_VALUE;
 
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
@@ -764,7 +764,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		size_t nIndex=(size_t)lua_tointeger(L,2);
-		size_t count=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+		size_t count=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)1;
 
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
@@ -794,7 +794,7 @@ public:
 		if( luatop>2 && !values_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg values in wxPGChoices::Set function");
 		}
-		const wxArrayInt & values=luatop>2 ? *values_ptr : wxArrayInt ();
+		const wxArrayInt & values=luatop>2 ? *values_ptr : (const wxArrayInt&)wxArrayInt ();
 
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {

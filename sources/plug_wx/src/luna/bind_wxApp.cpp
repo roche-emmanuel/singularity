@@ -716,7 +716,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
-		bool forceTrueColour=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool forceTrueColour=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxApp* self=Luna< wxObject >::checkSubType< wxApp >(L,1);
 		if(!self) {

@@ -195,7 +195,7 @@ public:
 	inline static bool _lg_typecheck_setName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -572,14 +572,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_name(char * value) function, expected prototype:\nvoid btTypedConstraintData::m_name(char * value)\nClass arguments details:\n");
 		}
 
-		char value=(char)lua_tointeger(L,2);
+		char* value=(char*)Luna< void >::check(L,2);
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_name(char *). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
 		}
-		self->m_name = &value;
+		self->m_name = value;
 
 		return 0;
 	}

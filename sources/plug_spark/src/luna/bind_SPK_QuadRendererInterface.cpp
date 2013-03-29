@@ -219,8 +219,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float scaleX=luatop>0 ? (float)lua_tonumber(L,1) : 1.0f;
-		float scaleY=luatop>1 ? (float)lua_tonumber(L,2) : 1.0f;
+		float scaleX=luatop>0 ? (float)lua_tonumber(L,1) : (float)1.0f;
+		float scaleY=luatop>1 ? (float)lua_tonumber(L,2) : (float)1.0f;
 
 		return new SPK::QuadRendererInterface(scaleX, scaleY);
 	}
@@ -234,8 +234,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float scaleX=luatop>1 ? (float)lua_tonumber(L,2) : 1.0f;
-		float scaleY=luatop>2 ? (float)lua_tonumber(L,3) : 1.0f;
+		float scaleX=luatop>1 ? (float)lua_tonumber(L,2) : (float)1.0f;
+		float scaleY=luatop>2 ? (float)lua_tonumber(L,3) : (float)1.0f;
 
 		return new wrapper_SPK_QuadRendererInterface(L,NULL, scaleX, scaleY);
 	}

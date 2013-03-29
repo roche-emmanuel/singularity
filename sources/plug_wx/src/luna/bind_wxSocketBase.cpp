@@ -973,8 +973,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long seconds=luatop>1 ? (long)lua_tointeger(L,2) : -1;
-		long millisecond=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long seconds=luatop>1 ? (long)lua_tointeger(L,2) : (long)-1;
+		long millisecond=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
@@ -996,8 +996,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long seconds=luatop>1 ? (long)lua_tointeger(L,2) : -1;
-		long millisecond=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long seconds=luatop>1 ? (long)lua_tointeger(L,2) : (long)-1;
+		long millisecond=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
@@ -1019,8 +1019,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long seconds=luatop>1 ? (long)lua_tointeger(L,2) : -1;
-		long millisecond=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long seconds=luatop>1 ? (long)lua_tointeger(L,2) : (long)-1;
+		long millisecond=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
@@ -1042,8 +1042,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long seconds=luatop>1 ? (long)lua_tointeger(L,2) : -1;
-		long millisecond=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long seconds=luatop>1 ? (long)lua_tointeger(L,2) : (long)-1;
+		long millisecond=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {
@@ -1175,7 +1175,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg handler in wxSocketBase::SetEventHandler function");
 		}
 		wxEvtHandler & handler=*handler_ptr;
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		wxSocketBase* self=Luna< wxObject >::checkSubType< wxSocketBase >(L,1);
 		if(!self) {

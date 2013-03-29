@@ -326,8 +326,8 @@ public:
 
 		int width=(int)lua_tointeger(L,1);
 		int height=(int)lua_tointeger(L,2);
-		bool mask=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
-		int initialCount=luatop>3 ? (int)lua_tointeger(L,4) : 1;
+		bool mask=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
+		int initialCount=luatop>3 ? (int)lua_tointeger(L,4) : (int)1;
 
 		return new wxImageList(width, height, mask, initialCount);
 	}
@@ -354,8 +354,8 @@ public:
 
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
-		bool mask=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
-		int initialCount=luatop>4 ? (int)lua_tointeger(L,5) : 1;
+		bool mask=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
+		int initialCount=luatop>4 ? (int)lua_tointeger(L,5) : (int)1;
 
 		return new wrapper_wxImageList(L,NULL, width, height, mask, initialCount);
 	}
@@ -391,7 +391,7 @@ public:
 		if( luatop>2 && !mask_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg mask in wxImageList::Add function");
 		}
-		const wxBitmap & mask=luatop>2 ? *mask_ptr : wxNullBitmap;
+		const wxBitmap & mask=luatop>2 ? *mask_ptr : (const wxBitmap&)wxNullBitmap;
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
@@ -478,8 +478,8 @@ public:
 
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
-		bool mask=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
-		int initialCount=luatop>4 ? (int)lua_tointeger(L,5) : 1;
+		bool mask=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
+		int initialCount=luatop>4 ? (int)lua_tointeger(L,5) : (int)1;
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
@@ -509,8 +509,8 @@ public:
 		wxDC & dc=*dc_ptr;
 		int x=(int)lua_tointeger(L,4);
 		int y=(int)lua_tointeger(L,5);
-		int flags=luatop>5 ? (int)lua_tointeger(L,6) : 0x0001;
-		bool solidBackground=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : false;
+		int flags=luatop>5 ? (int)lua_tointeger(L,6) : (int)0x0001;
+		bool solidBackground=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : (bool)false;
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
@@ -668,7 +668,7 @@ public:
 		if( luatop>3 && !mask_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg mask in wxImageList::Replace function");
 		}
-		const wxBitmap & mask=luatop>3 ? *mask_ptr : wxNullBitmap;
+		const wxBitmap & mask=luatop>3 ? *mask_ptr : (const wxBitmap&)wxNullBitmap;
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
@@ -753,8 +753,8 @@ public:
 		wxDC & dc=*dc_ptr;
 		int x=(int)lua_tointeger(L,4);
 		int y=(int)lua_tointeger(L,5);
-		int flags=luatop>5 ? (int)lua_tointeger(L,6) : 0x0001;
-		bool solidBackground=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : false;
+		int flags=luatop>5 ? (int)lua_tointeger(L,6) : (int)0x0001;
+		bool solidBackground=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : (bool)false;
 
 		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {

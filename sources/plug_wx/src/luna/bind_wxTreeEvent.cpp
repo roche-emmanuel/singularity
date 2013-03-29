@@ -225,7 +225,7 @@ public:
 		if( luatop>2 && !item_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg item in wxTreeEvent::wxTreeEvent function");
 		}
-		const wxTreeItemId & item=luatop>2 ? *item_ptr : wxTreeItemId ();
+		const wxTreeItemId & item=luatop>2 ? *item_ptr : (const wxTreeItemId&)wxTreeItemId ();
 
 		return new wxTreeEvent(commandType, tree, item);
 	}
@@ -245,7 +245,7 @@ public:
 		if( luatop>3 && !item_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg item in wxTreeEvent::wxTreeEvent function");
 		}
-		const wxTreeItemId & item=luatop>3 ? *item_ptr : wxTreeItemId ();
+		const wxTreeItemId & item=luatop>3 ? *item_ptr : (const wxTreeItemId&)wxTreeItemId ();
 
 		return new wrapper_wxTreeEvent(L,NULL, commandType, tree, item);
 	}

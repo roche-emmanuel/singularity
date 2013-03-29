@@ -171,6 +171,14 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getVerticalSize(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getFacade(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -188,6 +196,14 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getVerticalSize(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -365,6 +381,27 @@ public:
 		return 0;
 	}
 
+	// bool osgText::Font::FontImplementation::getVerticalSize(float & ascender, float & descender) const
+	static int _bind_getVerticalSize(lua_State *L) {
+		if (!_lg_typecheck_getVerticalSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgText::Font::FontImplementation::getVerticalSize(float & ascender, float & descender) const function, expected prototype:\nbool osgText::Font::FontImplementation::getVerticalSize(float & ascender, float & descender) const\nClass arguments details:\n");
+		}
+
+		float ascender=(float)lua_tonumber(L,2);
+		float descender=(float)lua_tonumber(L,3);
+
+		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgText::Font::FontImplementation::getVerticalSize(float &, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->getVerticalSize(ascender, descender);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// osgText::Font * osgText::Font::FontImplementation::_facade()
 	static int _bind_getFacade(lua_State *L) {
 		if (!_lg_typecheck_getFacade(L)) {
@@ -424,6 +461,27 @@ public:
 		return 0;
 	}
 
+	// bool osgText::Font::FontImplementation::base_getVerticalSize(float & ascender, float & descender) const
+	static int _bind_base_getVerticalSize(lua_State *L) {
+		if (!_lg_typecheck_base_getVerticalSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgText::Font::FontImplementation::base_getVerticalSize(float & ascender, float & descender) const function, expected prototype:\nbool osgText::Font::FontImplementation::base_getVerticalSize(float & ascender, float & descender) const\nClass arguments details:\n");
+		}
+
+		float ascender=(float)lua_tonumber(L,2);
+		float descender=(float)lua_tonumber(L,3);
+
+		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgText::Font::FontImplementation::base_getVerticalSize(float &, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->FontImplementation::getVerticalSize(ascender, descender);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -460,9 +518,11 @@ luna_RegType LunaTraits< osgText::Font::FontImplementation >::methods[] = {
 	{"getKerning", &luna_wrapper_osgText_Font_FontImplementation::_bind_getKerning},
 	{"hasVertical", &luna_wrapper_osgText_Font_FontImplementation::_bind_hasVertical},
 	{"addGlyph", &luna_wrapper_osgText_Font_FontImplementation::_bind_addGlyph},
+	{"getVerticalSize", &luna_wrapper_osgText_Font_FontImplementation::_bind_getVerticalSize},
 	{"getFacade", &luna_wrapper_osgText_Font_FontImplementation::_bind_getFacade},
 	{"setFacade", &luna_wrapper_osgText_Font_FontImplementation::_bind_setFacade},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgText_Font_FontImplementation::_bind_base_setThreadSafeRefUnref},
+	{"base_getVerticalSize", &luna_wrapper_osgText_Font_FontImplementation::_bind_base_getVerticalSize},
 	{"__eq", &luna_wrapper_osgText_Font_FontImplementation::_bind___eq},
 	{"fromVoid", &luna_wrapper_osgText_Font_FontImplementation::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_osgText_Font_FontImplementation::_bind_asVoid},

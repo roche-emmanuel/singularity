@@ -246,10 +246,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double X=luatop>0 ? (double)lua_tonumber(L,1) : 0;
-		double Y=luatop>1 ? (double)lua_tonumber(L,2) : 0;
-		double Z=luatop>2 ? (double)lua_tonumber(L,3) : 0;
-		double C=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+		double X=luatop>0 ? (double)lua_tonumber(L,1) : (double)0;
+		double Y=luatop>1 ? (double)lua_tonumber(L,2) : (double)0;
+		double Z=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
+		double C=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
 
 		return new mglPoint(X, Y, Z, C);
 	}

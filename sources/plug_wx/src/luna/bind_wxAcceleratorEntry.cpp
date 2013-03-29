@@ -187,9 +187,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>0 ? (int)lua_tointeger(L,1) : 0;
-		int keyCode=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int cmd=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int flags=luatop>0 ? (int)lua_tointeger(L,1) : (int)0;
+		int keyCode=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int cmd=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 		wxMenuItem* item=luatop>3 ? (Luna< wxObject >::checkSubType< wxMenuItem >(L,4)) : (wxMenuItem*)NULL;
 
 		return new wxAcceleratorEntry(flags, keyCode, cmd, item);

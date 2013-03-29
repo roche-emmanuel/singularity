@@ -265,23 +265,23 @@ public:
 		if( luatop>0 && !colText_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colText in wxCalendarDateAttr::wxCalendarDateAttr function");
 		}
-		const wxColour & colText=luatop>0 ? *colText_ptr : wxNullColour;
+		const wxColour & colText=luatop>0 ? *colText_ptr : (const wxColour&)wxNullColour;
 		const wxColour* colBack_ptr=luatop>1 ? (Luna< wxObject >::checkSubType< wxColour >(L,2)) : NULL;
 		if( luatop>1 && !colBack_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colBack in wxCalendarDateAttr::wxCalendarDateAttr function");
 		}
-		const wxColour & colBack=luatop>1 ? *colBack_ptr : wxNullColour;
+		const wxColour & colBack=luatop>1 ? *colBack_ptr : (const wxColour&)wxNullColour;
 		const wxColour* colBorder_ptr=luatop>2 ? (Luna< wxObject >::checkSubType< wxColour >(L,3)) : NULL;
 		if( luatop>2 && !colBorder_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colBorder in wxCalendarDateAttr::wxCalendarDateAttr function");
 		}
-		const wxColour & colBorder=luatop>2 ? *colBorder_ptr : wxNullColour;
+		const wxColour & colBorder=luatop>2 ? *colBorder_ptr : (const wxColour&)wxNullColour;
 		const wxFont* font_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxFont >(L,4)) : NULL;
 		if( luatop>3 && !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxCalendarDateAttr::wxCalendarDateAttr function");
 		}
-		const wxFont & font=luatop>3 ? *font_ptr : wxNullFont;
-		wxCalendarDateBorder border=luatop>4 ? (wxCalendarDateBorder)lua_tointeger(L,5) : ::wxCAL_BORDER_NONE;
+		const wxFont & font=luatop>3 ? *font_ptr : (const wxFont&)wxNullFont;
+		wxCalendarDateBorder border=luatop>4 ? (wxCalendarDateBorder)lua_tointeger(L,5) : (wxCalendarDateBorder)::wxCAL_BORDER_NONE;
 
 		return new wxCalendarDateAttr(colText, colBack, colBorder, font, border);
 	}
@@ -300,7 +300,7 @@ public:
 		if( luatop>1 && !colBorder_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colBorder in wxCalendarDateAttr::wxCalendarDateAttr function");
 		}
-		const wxColour & colBorder=luatop>1 ? *colBorder_ptr : wxNullColour;
+		const wxColour & colBorder=luatop>1 ? *colBorder_ptr : (const wxColour&)wxNullColour;
 
 		return new wxCalendarDateAttr(border, colBorder);
 	}

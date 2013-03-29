@@ -892,10 +892,10 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg aa in mglCanvas::public_DrawAxis function");
 		}
 		mglAxis & aa=*aa_ptr;
-		bool text=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
-		char arr=luatop>3 ? (char)lua_tointeger(L,4) : 0;
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		bool text=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
+		char arr=luatop>3 ? (char)lua_tointeger(L,4) : (char)0;
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
@@ -957,7 +957,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool force=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool force=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
@@ -1089,7 +1089,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ps in mglCanvas::public_RestorePnt function");
 		}
 		mglPoint ps=*ps_ptr;
-		bool norm=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool norm=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {

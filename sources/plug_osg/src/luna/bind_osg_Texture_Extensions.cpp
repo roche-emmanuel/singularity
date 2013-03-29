@@ -297,6 +297,19 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setPreferGenerateMipmapSGISForPowerOfTwo(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getPreferGenerateMipmapSGISForPowerOfTwo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_setTextureMultisampledSupported(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -413,6 +426,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_isBindImageTextureSupported(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_glCompressedTexImage2D(lua_State *L) {
 		if( lua_gettop(L)!=9 ) return false;
 
@@ -478,6 +497,19 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glBindImageTexture(lua_State *L) {
+		if( lua_gettop(L)!=8 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 		return true;
 	}
 
@@ -1022,6 +1054,44 @@ public:
 		return 1;
 	}
 
+	// void osg::Texture::Extensions::setPreferGenerateMipmapSGISForPowerOfTwo(bool flag)
+	static int _bind_setPreferGenerateMipmapSGISForPowerOfTwo(lua_State *L) {
+		if (!_lg_typecheck_setPreferGenerateMipmapSGISForPowerOfTwo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Texture::Extensions::setPreferGenerateMipmapSGISForPowerOfTwo(bool flag) function, expected prototype:\nvoid osg::Texture::Extensions::setPreferGenerateMipmapSGISForPowerOfTwo(bool flag)\nClass arguments details:\n");
+		}
+
+		bool flag=(bool)(lua_toboolean(L,2)==1);
+
+		osg::Texture::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture::Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Texture::Extensions::setPreferGenerateMipmapSGISForPowerOfTwo(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setPreferGenerateMipmapSGISForPowerOfTwo(flag);
+
+		return 0;
+	}
+
+	// bool osg::Texture::Extensions::getPreferGenerateMipmapSGISForPowerOfTwo() const
+	static int _bind_getPreferGenerateMipmapSGISForPowerOfTwo(lua_State *L) {
+		if (!_lg_typecheck_getPreferGenerateMipmapSGISForPowerOfTwo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Texture::Extensions::getPreferGenerateMipmapSGISForPowerOfTwo() const function, expected prototype:\nbool osg::Texture::Extensions::getPreferGenerateMipmapSGISForPowerOfTwo() const\nClass arguments details:\n");
+		}
+
+
+		osg::Texture::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture::Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Texture::Extensions::getPreferGenerateMipmapSGISForPowerOfTwo() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->getPreferGenerateMipmapSGISForPowerOfTwo();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// void osg::Texture::Extensions::setTextureMultisampledSupported(bool flag)
 	static int _bind_setTextureMultisampledSupported(lua_State *L) {
 		if (!_lg_typecheck_setTextureMultisampledSupported(L)) {
@@ -1365,6 +1435,25 @@ public:
 		return 1;
 	}
 
+	// bool osg::Texture::Extensions::isBindImageTextureSupported() const
+	static int _bind_isBindImageTextureSupported(lua_State *L) {
+		if (!_lg_typecheck_isBindImageTextureSupported(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Texture::Extensions::isBindImageTextureSupported() const function, expected prototype:\nbool osg::Texture::Extensions::isBindImageTextureSupported() const\nClass arguments details:\n");
+		}
+
+
+		osg::Texture::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture::Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Texture::Extensions::isBindImageTextureSupported() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->isBindImageTextureSupported();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// void osg::Texture::Extensions::glCompressedTexImage2D(unsigned int target, int level, unsigned int internalformat, int width, int height, int border, int imageSize, const void * data) const
 	static int _bind_glCompressedTexImage2D(lua_State *L) {
 		if (!_lg_typecheck_glCompressedTexImage2D(L)) {
@@ -1505,6 +1594,31 @@ public:
 		return 0;
 	}
 
+	// void osg::Texture::Extensions::glBindImageTexture(unsigned int unit, unsigned int texture, int level, unsigned char layered, int layer, unsigned int access, unsigned int format) const
+	static int _bind_glBindImageTexture(lua_State *L) {
+		if (!_lg_typecheck_glBindImageTexture(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Texture::Extensions::glBindImageTexture(unsigned int unit, unsigned int texture, int level, unsigned char layered, int layer, unsigned int access, unsigned int format) const function, expected prototype:\nvoid osg::Texture::Extensions::glBindImageTexture(unsigned int unit, unsigned int texture, int level, unsigned char layered, int layer, unsigned int access, unsigned int format) const\nClass arguments details:\n");
+		}
+
+		unsigned int unit=(unsigned int)lua_tointeger(L,2);
+		unsigned int texture=(unsigned int)lua_tointeger(L,3);
+		int level=(int)lua_tointeger(L,4);
+		unsigned char layered = (unsigned char)(lua_tointeger(L,5));
+		int layer=(int)lua_tointeger(L,6);
+		unsigned int access=(unsigned int)lua_tointeger(L,7);
+		unsigned int format=(unsigned int)lua_tointeger(L,8);
+
+		osg::Texture::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture::Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Texture::Extensions::glBindImageTexture(unsigned int, unsigned int, int, unsigned char, int, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glBindImageTexture(unit, texture, level, layered, layer, access, format);
+
+		return 0;
+	}
+
 	// void osg::Texture::Extensions::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
@@ -1571,6 +1685,8 @@ luna_RegType LunaTraits< osg::Texture::Extensions >::methods[] = {
 	{"isTextureBorderClampSupported", &luna_wrapper_osg_Texture_Extensions::_bind_isTextureBorderClampSupported},
 	{"setGenerateMipMapSupported", &luna_wrapper_osg_Texture_Extensions::_bind_setGenerateMipMapSupported},
 	{"isGenerateMipMapSupported", &luna_wrapper_osg_Texture_Extensions::_bind_isGenerateMipMapSupported},
+	{"setPreferGenerateMipmapSGISForPowerOfTwo", &luna_wrapper_osg_Texture_Extensions::_bind_setPreferGenerateMipmapSGISForPowerOfTwo},
+	{"getPreferGenerateMipmapSGISForPowerOfTwo", &luna_wrapper_osg_Texture_Extensions::_bind_getPreferGenerateMipmapSGISForPowerOfTwo},
 	{"setTextureMultisampledSupported", &luna_wrapper_osg_Texture_Extensions::_bind_setTextureMultisampledSupported},
 	{"isTextureMultisampledSupported", &luna_wrapper_osg_Texture_Extensions::_bind_isTextureMultisampledSupported},
 	{"setShadowSupported", &luna_wrapper_osg_Texture_Extensions::_bind_setShadowSupported},
@@ -1589,12 +1705,14 @@ luna_RegType LunaTraits< osg::Texture::Extensions >::methods[] = {
 	{"isNonPowerOfTwoTextureSupported", &luna_wrapper_osg_Texture_Extensions::_bind_isNonPowerOfTwoTextureSupported},
 	{"setTextureIntegerSupported", &luna_wrapper_osg_Texture_Extensions::_bind_setTextureIntegerSupported},
 	{"isTextureIntegerSupported", &luna_wrapper_osg_Texture_Extensions::_bind_isTextureIntegerSupported},
+	{"isBindImageTextureSupported", &luna_wrapper_osg_Texture_Extensions::_bind_isBindImageTextureSupported},
 	{"glCompressedTexImage2D", &luna_wrapper_osg_Texture_Extensions::_bind_glCompressedTexImage2D},
 	{"glCompressedTexSubImage2D", &luna_wrapper_osg_Texture_Extensions::_bind_glCompressedTexSubImage2D},
 	{"glGetCompressedTexImage", &luna_wrapper_osg_Texture_Extensions::_bind_glGetCompressedTexImage},
 	{"glTexImage2DMultisample", &luna_wrapper_osg_Texture_Extensions::_bind_glTexImage2DMultisample},
 	{"glTexParameterIiv", &luna_wrapper_osg_Texture_Extensions::_bind_glTexParameterIiv},
 	{"glTexParameterIuiv", &luna_wrapper_osg_Texture_Extensions::_bind_glTexParameterIuiv},
+	{"glBindImageTexture", &luna_wrapper_osg_Texture_Extensions::_bind_glBindImageTexture},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_Texture_Extensions::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osg_Texture_Extensions::_bind___eq},
 	{"fromVoid", &luna_wrapper_osg_Texture_Extensions::_bind_fromVoid},

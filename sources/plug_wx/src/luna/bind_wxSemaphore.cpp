@@ -148,8 +148,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int initialcount=luatop>0 ? (int)lua_tointeger(L,1) : 0;
-		int maxcount=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int initialcount=luatop>0 ? (int)lua_tointeger(L,1) : (int)0;
+		int maxcount=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		return new wxSemaphore(initialcount, maxcount);
 	}

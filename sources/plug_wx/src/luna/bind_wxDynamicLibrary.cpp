@@ -120,7 +120,7 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -209,7 +209,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxDL_DEFAULT;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxDL_DEFAULT;
 
 		return new wxDynamicLibrary(name, flags);
 	}
@@ -235,14 +235,14 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		bool success=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : 0;
+		bool* success=luatop>2 ? (bool*)(Luna< void >::check(L,3)) : (bool*)0;
 
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void * wxDynamicLibrary::GetSymbol(const wxString &, bool *) const. Got : '%s'",typeid(Luna< wxDynamicLibrary >::check(L,1)).name());
 		}
-		void * lret = self->GetSymbol(name, &success);
+		void * lret = self->GetSymbol(name, success);
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< void >::push(L,lret,false);
@@ -321,7 +321,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxDL_DEFAULT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxDL_DEFAULT;
 
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
@@ -362,7 +362,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
-		wxDynamicLibraryCategory cat=luatop>1 ? (wxDynamicLibraryCategory)lua_tointeger(L,2) : ::wxDL_LIBRARY;
+		wxDynamicLibraryCategory cat=luatop>1 ? (wxDynamicLibraryCategory)lua_tointeger(L,2) : (wxDynamicLibraryCategory)::wxDL_LIBRARY;
 
 		wxString lret = wxDynamicLibrary::CanonicalizeName(name, cat);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -380,7 +380,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
-		wxPluginCategory cat=luatop>1 ? (wxPluginCategory)lua_tointeger(L,2) : ::wxDL_PLUGIN_GUI;
+		wxPluginCategory cat=luatop>1 ? (wxPluginCategory)lua_tointeger(L,2) : (wxPluginCategory)::wxDL_PLUGIN_GUI;
 
 		wxString lret = wxDynamicLibrary::CanonicalizePluginName(name, cat);
 		lua_pushlstring(L,lret.data(),lret.size());

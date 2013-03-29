@@ -309,7 +309,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg resultCallback in btGhostObject::convexSweepTest function");
 		}
 		btCollisionWorld::ConvexResultCallback & resultCallback=*resultCallback_ptr;
-		float allowedCcdPenetration=luatop>5 ? (float)lua_tonumber(L,6) : 0.f;
+		float allowedCcdPenetration=luatop>5 ? (float)lua_tonumber(L,6) : (float)0.f;
 
 		btGhostObject* self=Luna< btCollisionObject >::checkSubType< btGhostObject >(L,1);
 		if(!self) {

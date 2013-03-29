@@ -83,7 +83,7 @@ public:
 			_obj.pushArg(item);
 			_obj.pushArg(data);
 			_obj.pushArg(size);
-			_obj.pushArg(format);
+			_obj.pushArg((int)format);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -120,7 +120,7 @@ public:
 			_obj.pushArg(item);
 			_obj.pushArg(data);
 			_obj.pushArg(size);
-			_obj.pushArg(format);
+			_obj.pushArg((int)format);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -134,7 +134,7 @@ public:
 			_obj.pushArg(topic);
 			_obj.pushArg(item);
 			_obj.pushArg(size);
-			_obj.pushArg(format);
+			_obj.pushArg((int)format);
 			return (_obj.callFunction<void*>());
 		}
 

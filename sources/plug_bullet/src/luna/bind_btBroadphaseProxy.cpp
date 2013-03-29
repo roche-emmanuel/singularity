@@ -312,7 +312,7 @@ public:
 		void* userPtr=(Luna< void >::check(L,3));
 		short int collisionFilterGroup=(short int)lua_tointeger(L,4);
 		short int collisionFilterMask=(short int)lua_tointeger(L,5);
-		void* multiSapParentProxy=luatop>5 ? (Luna< void >::check(L,6)) : 0;
+		void* multiSapParentProxy=luatop>5 ? (Luna< void >::check(L,6)) : (void*)0;
 
 		return new btBroadphaseProxy(aabbMin, aabbMax, userPtr, collisionFilterGroup, collisionFilterMask, multiSapParentProxy);
 	}

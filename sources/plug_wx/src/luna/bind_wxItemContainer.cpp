@@ -685,7 +685,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString string(lua_tostring(L,2),lua_objlen(L,2));
-		bool caseSensitive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool caseSensitive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {

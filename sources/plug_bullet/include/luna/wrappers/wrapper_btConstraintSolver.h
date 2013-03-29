@@ -83,7 +83,7 @@ public:
 // float btConstraintSolver::solveGroup(btCollisionObject ** bodies, int numBodies, btPersistentManifold ** manifold, int numManifolds, btTypedConstraint ** constraints, int numConstraints, const btContactSolverInfo & info, class btIDebugDraw * debugDrawer, btStackAlloc * stackAlloc, btDispatcher * dispatcher)
 float solveGroup(btCollisionObject **, int, btPersistentManifold **, int, btTypedConstraint **, int, const btContactSolverInfo &, class btIDebugDraw *, btStackAlloc *, btDispatcher *) {
 	THROW_IF(true,"The function call float btConstraintSolver::solveGroup(btCollisionObject **, int, btPersistentManifold **, int, btTypedConstraint **, int, const btContactSolverInfo &, class btIDebugDraw *, btStackAlloc *, btDispatcher *) is not implemented in wrapper.");
-	return float();
+	return (float)0;
 };
 
 };

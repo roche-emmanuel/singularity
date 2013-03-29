@@ -834,7 +834,7 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -1379,12 +1379,12 @@ public:
 		if( luatop>1 && !p1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg p1 in mglBase::ZoomAxis function");
 		}
-		mglPoint p1=luatop>1 ? *p1_ptr : mglPoint (0, 0, 0, 0);
+		mglPoint p1=luatop>1 ? *p1_ptr : (mglPoint)mglPoint (0, 0, 0, 0);
 		mglPoint* p2_ptr=luatop>2 ? (Luna< mglPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !p2_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg p2 in mglBase::ZoomAxis function");
 		}
-		mglPoint p2=luatop>2 ? *p2_ptr : mglPoint (1, 1, 1, 1);
+		mglPoint p2=luatop>2 ? *p2_ptr : (mglPoint)mglPoint (1, 1, 1, 1);
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -1409,10 +1409,10 @@ public:
 		double x2=(double)lua_tonumber(L,3);
 		double y1=(double)lua_tonumber(L,4);
 		double y2=(double)lua_tonumber(L,5);
-		double z1=luatop>5 ? (double)lua_tonumber(L,6) : 0;
-		double z2=luatop>6 ? (double)lua_tonumber(L,7) : 0;
-		double c1=luatop>7 ? (double)lua_tonumber(L,8) : 0;
-		double c2=luatop>8 ? (double)lua_tonumber(L,9) : 0;
+		double z1=luatop>5 ? (double)lua_tonumber(L,6) : (double)0;
+		double z2=luatop>6 ? (double)lua_tonumber(L,7) : (double)0;
+		double c1=luatop>7 ? (double)lua_tonumber(L,8) : (double)0;
+		double c2=luatop>8 ? (double)lua_tonumber(L,9) : (double)0;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -1471,8 +1471,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const mglDataA* a=(Luna< mglDataA >::check(L,2));
-		bool add=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
-		double fact=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+		bool add=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
+		double fact=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -1523,8 +1523,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const mglDataA* a=(Luna< mglDataA >::check(L,2));
-		bool add=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
-		double fact=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+		bool add=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
+		double fact=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -1575,8 +1575,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const mglDataA* a=(Luna< mglDataA >::check(L,2));
-		bool add=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
-		double fact=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+		bool add=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
+		double fact=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -1627,8 +1627,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const mglDataA* a=(Luna< mglDataA >::check(L,2));
-		bool add=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
-		double fact=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+		bool add=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
+		double fact=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -1680,12 +1680,12 @@ public:
 
 		double x1=(double)lua_tonumber(L,2);
 		double x2=(double)lua_tonumber(L,3);
-		double y1=luatop>3 ? (double)lua_tonumber(L,4) : 0;
-		double y2=luatop>4 ? (double)lua_tonumber(L,5) : 0;
-		double z1=luatop>5 ? (double)lua_tonumber(L,6) : 0;
-		double z2=luatop>6 ? (double)lua_tonumber(L,7) : 0;
-		double c1=luatop>7 ? (double)lua_tonumber(L,8) : 0;
-		double c2=luatop>8 ? (double)lua_tonumber(L,9) : 0;
+		double y1=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
+		double y2=luatop>4 ? (double)lua_tonumber(L,5) : (double)0;
+		double z1=luatop>5 ? (double)lua_tonumber(L,6) : (double)0;
+		double z2=luatop>6 ? (double)lua_tonumber(L,7) : (double)0;
+		double c1=luatop>7 ? (double)lua_tonumber(L,8) : (double)0;
+		double c2=luatop>8 ? (double)lua_tonumber(L,9) : (double)0;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -1708,8 +1708,8 @@ public:
 
 		double x0=(double)lua_tonumber(L,2);
 		double y0=(double)lua_tonumber(L,3);
-		double z0=luatop>3 ? (double)lua_tonumber(L,4) : NAN;
-		double c0=luatop>4 ? (double)lua_tonumber(L,5) : NAN;
+		double z0=luatop>3 ? (double)lua_tonumber(L,4) : (double)NAN;
+		double c0=luatop>4 ? (double)lua_tonumber(L,5) : (double)NAN;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -1789,8 +1789,8 @@ public:
 
 		const char * EqX=(const char *)lua_tostring(L,2);
 		const char * EqY=(const char *)lua_tostring(L,3);
-		const char * EqZ=luatop>3 ? (const char *)lua_tostring(L,4) : 0;
-		const char * EqA=luatop>4 ? (const char *)lua_tostring(L,5) : 0;
+		const char * EqZ=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)0;
+		const char * EqA=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)0;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -1968,7 +1968,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double bright=luatop>1 ? (double)lua_tonumber(L,2) : 0.5;
+		double bright=luatop>1 ? (double)lua_tonumber(L,2) : (double)0.5;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -2336,7 +2336,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * name=(const char *)lua_tostring(L,2);
-		const char * path=luatop>2 ? (const char *)lua_tostring(L,3) : NULL;
+		const char * path=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)NULL;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -2609,7 +2609,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int qual=luatop>1 ? (int)lua_tointeger(L,2) : 2;
+		int qual=luatop>1 ? (int)lua_tointeger(L,2) : (int)2;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -2654,14 +2654,14 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg p in mglBase::AddPnt function");
 		}
 		mglPoint p=*p_ptr;
-		double c=luatop>2 ? (double)lua_tonumber(L,3) : -1;
+		double c=luatop>2 ? (double)lua_tonumber(L,3) : (double)-1;
 		mglPoint* n_ptr=luatop>3 ? (Luna< mglPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !n_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg n in mglBase::AddPnt function");
 		}
-		mglPoint n=luatop>3 ? *n_ptr : mglPoint (NAN);
-		double a=luatop>4 ? (double)lua_tonumber(L,5) : -1;
-		int scl=luatop>5 ? (int)lua_tointeger(L,6) : 1;
+		mglPoint n=luatop>3 ? *n_ptr : (mglPoint)mglPoint (NAN);
+		double a=luatop>4 ? (double)lua_tonumber(L,5) : (double)-1;
+		int scl=luatop>5 ? (int)lua_tointeger(L,6) : (int)1;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -2794,7 +2794,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		long k=(long)lua_tointeger(L,2);
-		int n=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int n=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -3114,7 +3114,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg n in mglBase::ScalePoint function");
 		}
 		mglPoint & n=*n_ptr;
-		bool use_nan=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool use_nan=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -3198,7 +3198,7 @@ public:
 
 		long s=(long)lua_tointeger(L,2);
 		double z=(double)lua_tonumber(L,3);
-		bool scale=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool scale=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -3241,14 +3241,14 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * stl=(const char *)lua_tostring(L,2);
-		long id=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long* id=luatop>2 ? (long*)Luna< void >::check(L,3) : (long*)0;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call char mglBase::SetPenPal(const char *, long *). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
 		}
-		char lret = self->SetPenPal(stl, &id);
+		char lret = self->SetPenPal(stl, id);
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -3264,7 +3264,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * cols=(const char *)lua_tostring(L,2);
-		int smooth=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int smooth=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -3364,7 +3364,7 @@ public:
 
 		long p=(long)lua_tointeger(L,2);
 		char type=(char)lua_tointeger(L,3);
-		double size=luatop>3 ? (double)lua_tonumber(L,4) : 1;
+		double size=luatop>3 ? (double)lua_tonumber(L,4) : (double)1;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -3495,7 +3495,7 @@ public:
 
 		long p1=(long)lua_tointeger(L,2);
 		long p2=(long)lua_tointeger(L,3);
-		double s=luatop>3 ? (double)lua_tonumber(L,4) : 1;
+		double s=luatop>3 ? (double)lua_tonumber(L,4) : (double)1;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -4320,7 +4320,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double bright=luatop>1 ? (double)lua_tonumber(L,2) : 0.5;
+		double bright=luatop>1 ? (double)lua_tonumber(L,2) : (double)0.5;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -4418,7 +4418,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int qual=luatop>1 ? (int)lua_tointeger(L,2) : 2;
+		int qual=luatop>1 ? (int)lua_tointeger(L,2) : (int)2;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {
@@ -4468,7 +4468,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg n in mglBase::base_ScalePoint function");
 		}
 		mglPoint & n=*n_ptr;
-		bool use_nan=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool use_nan=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		mglBase* self=(Luna< mglBase >::check(L,1));
 		if(!self) {

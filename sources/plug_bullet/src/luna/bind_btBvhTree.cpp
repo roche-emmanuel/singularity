@@ -389,7 +389,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int index=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int index=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		btBvhTree* self=(Luna< btBvhTree >::check(L,1));
 		if(!self) {

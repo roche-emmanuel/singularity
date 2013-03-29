@@ -466,7 +466,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int qual=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int qual=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		mglCanvasGL* self=Luna< mglBase >::checkSubType< mglCanvasGL >(L,1);
 		if(!self) {
@@ -487,7 +487,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool fast=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool fast=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		mglCanvasGL* self=Luna< mglBase >::checkSubType< mglCanvasGL >(L,1);
 		if(!self) {
@@ -648,7 +648,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double d=(double)lua_tonumber(L,2);
-		double dz=luatop>2 ? (double)lua_tonumber(L,3) : 0.25;
+		double dz=luatop>2 ? (double)lua_tonumber(L,3) : (double)0.25;
 
 		mglCanvasGL* self=Luna< mglBase >::checkSubType< mglCanvasGL >(L,1);
 		if(!self) {
@@ -729,9 +729,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg d in mglCanvasGL::AddLight function");
 		}
 		mglPoint d=*d_ptr;
-		char c=luatop>4 ? (char)lua_tointeger(L,5) : 'w';
-		double bright=luatop>5 ? (double)lua_tonumber(L,6) : 0.5;
-		double ap=luatop>6 ? (double)lua_tonumber(L,7) : 0;
+		char c=luatop>4 ? (char)lua_tointeger(L,5) : (char)'w';
+		double bright=luatop>5 ? (double)lua_tonumber(L,6) : (double)0.5;
+		double ap=luatop>6 ? (double)lua_tonumber(L,7) : (double)0;
 
 		mglCanvasGL* self=Luna< mglBase >::checkSubType< mglCanvasGL >(L,1);
 		if(!self) {
@@ -756,7 +756,7 @@ public:
 		if( luatop>1 && !back_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg back in mglCanvasGL::Clf function");
 		}
-		mglColor back=luatop>1 ? *back_ptr : WC;
+		mglColor back=luatop>1 ? *back_ptr : (mglColor)WC;
 
 		mglCanvasGL* self=Luna< mglBase >::checkSubType< mglCanvasGL >(L,1);
 		if(!self) {
@@ -777,7 +777,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double bright=luatop>1 ? (double)lua_tonumber(L,2) : 0.5;
+		double bright=luatop>1 ? (double)lua_tonumber(L,2) : (double)0.5;
 
 		mglCanvasGL* self=Luna< mglBase >::checkSubType< mglCanvasGL >(L,1);
 		if(!self) {
@@ -967,7 +967,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int qual=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int qual=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		mglCanvasGL* self=Luna< mglBase >::checkSubType< mglCanvasGL >(L,1);
 		if(!self) {
@@ -988,7 +988,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool fast=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool fast=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		mglCanvasGL* self=Luna< mglBase >::checkSubType< mglCanvasGL >(L,1);
 		if(!self) {
@@ -1149,7 +1149,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double d=(double)lua_tonumber(L,2);
-		double dz=luatop>2 ? (double)lua_tonumber(L,3) : 0.25;
+		double dz=luatop>2 ? (double)lua_tonumber(L,3) : (double)0.25;
 
 		mglCanvasGL* self=Luna< mglBase >::checkSubType< mglCanvasGL >(L,1);
 		if(!self) {
@@ -1230,9 +1230,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg d in mglCanvasGL::base_AddLight function");
 		}
 		mglPoint d=*d_ptr;
-		char c=luatop>4 ? (char)lua_tointeger(L,5) : 'w';
-		double bright=luatop>5 ? (double)lua_tonumber(L,6) : 0.5;
-		double ap=luatop>6 ? (double)lua_tonumber(L,7) : 0;
+		char c=luatop>4 ? (char)lua_tointeger(L,5) : (char)'w';
+		double bright=luatop>5 ? (double)lua_tonumber(L,6) : (double)0.5;
+		double ap=luatop>6 ? (double)lua_tonumber(L,7) : (double)0;
 
 		mglCanvasGL* self=Luna< mglBase >::checkSubType< mglCanvasGL >(L,1);
 		if(!self) {
@@ -1257,7 +1257,7 @@ public:
 		if( luatop>1 && !back_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg back in mglCanvasGL::base_Clf function");
 		}
-		mglColor back=luatop>1 ? *back_ptr : WC;
+		mglColor back=luatop>1 ? *back_ptr : (mglColor)WC;
 
 		mglCanvasGL* self=Luna< mglBase >::checkSubType< mglCanvasGL >(L,1);
 		if(!self) {

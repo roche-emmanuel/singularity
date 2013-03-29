@@ -215,10 +215,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float a=luatop>1 ? (float)lua_tonumber(L,2) : float (0.);
-		float b=luatop>2 ? (float)lua_tonumber(L,3) : float (0.);
-		float c=luatop>3 ? (float)lua_tonumber(L,4) : float (0.);
-		float d=luatop>4 ? (float)lua_tonumber(L,5) : float (0.);
+		float a=luatop>1 ? (float)lua_tonumber(L,2) : (float)float (0.);
+		float b=luatop>2 ? (float)lua_tonumber(L,3) : (float)float (0.);
+		float c=luatop>3 ? (float)lua_tonumber(L,4) : (float)float (0.);
+		float d=luatop>4 ? (float)lua_tonumber(L,5) : (float)float (0.);
 
 		btSubSimplexClosestResult* self=(Luna< btSubSimplexClosestResult >::check(L,1));
 		if(!self) {

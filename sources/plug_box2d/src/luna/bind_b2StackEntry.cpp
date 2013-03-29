@@ -121,7 +121,7 @@ public:
 	inline static bool _lg_typecheck_setData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -210,14 +210,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void b2StackEntry::data(char * value) function, expected prototype:\nvoid b2StackEntry::data(char * value)\nClass arguments details:\n");
 		}
 
-		char value=(char)lua_tointeger(L,2);
+		char* value=(char*)Luna< void >::check(L,2);
 
 		b2StackEntry* self=(Luna< b2StackEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void b2StackEntry::data(char *). Got : '%s'",typeid(Luna< b2StackEntry >::check(L,1)).name());
 		}
-		self->data = &value;
+		self->data = value;
 
 		return 0;
 	}

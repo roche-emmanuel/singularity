@@ -1122,13 +1122,13 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxRadioBox::wxRadioBox function");
 		}
 		const wxArrayString & choices=*choices_ptr;
-		int majorDimension=luatop>6 ? (int)lua_tointeger(L,7) : 0;
-		long style=luatop>7 ? (long)lua_tointeger(L,8) : wxRA_SPECIFY_COLS;
+		int majorDimension=luatop>6 ? (int)lua_tointeger(L,7) : (int)0;
+		long style=luatop>7 ? (long)lua_tointeger(L,8) : (long)wxRA_SPECIFY_COLS;
 		const wxValidator* validator_ptr=luatop>8 ? (Luna< wxObject >::checkSubType< wxValidator >(L,9)) : NULL;
 		if( luatop>8 && !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxRadioBox::wxRadioBox function");
 		}
-		const wxValidator & validator=luatop>8 ? *validator_ptr : wxDefaultValidator;
+		const wxValidator & validator=luatop>8 ? *validator_ptr : (const wxValidator&)wxDefaultValidator;
 		wxString name(lua_tostring(L,10),lua_objlen(L,10));
 
 		return new wxRadioBox(parent, id, label, pos, size, choices, majorDimension, style, validator, name);
@@ -1172,13 +1172,13 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxRadioBox::wxRadioBox function");
 		}
 		const wxArrayString & choices=*choices_ptr;
-		int majorDimension=luatop>7 ? (int)lua_tointeger(L,8) : 0;
-		long style=luatop>8 ? (long)lua_tointeger(L,9) : wxRA_SPECIFY_COLS;
+		int majorDimension=luatop>7 ? (int)lua_tointeger(L,8) : (int)0;
+		long style=luatop>8 ? (long)lua_tointeger(L,9) : (long)wxRA_SPECIFY_COLS;
 		const wxValidator* validator_ptr=luatop>9 ? (Luna< wxObject >::checkSubType< wxValidator >(L,10)) : NULL;
 		if( luatop>9 && !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxRadioBox::wxRadioBox function");
 		}
-		const wxValidator & validator=luatop>9 ? *validator_ptr : wxDefaultValidator;
+		const wxValidator & validator=luatop>9 ? *validator_ptr : (const wxValidator&)wxDefaultValidator;
 		wxString name(lua_tostring(L,11),lua_objlen(L,11));
 
 		return new wrapper_wxRadioBox(L,NULL, parent, id, label, pos, size, choices, majorDimension, style, validator, name);
@@ -1224,13 +1224,13 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxRadioBox::Create function");
 		}
 		const wxArrayString & choices=*choices_ptr;
-		int majorDimension=luatop>7 ? (int)lua_tointeger(L,8) : 0;
-		long style=luatop>8 ? (long)lua_tointeger(L,9) : wxRA_SPECIFY_COLS;
+		int majorDimension=luatop>7 ? (int)lua_tointeger(L,8) : (int)0;
+		long style=luatop>8 ? (long)lua_tointeger(L,9) : (long)wxRA_SPECIFY_COLS;
 		const wxValidator* validator_ptr=luatop>9 ? (Luna< wxObject >::checkSubType< wxValidator >(L,10)) : NULL;
 		if( luatop>9 && !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxRadioBox::Create function");
 		}
-		const wxValidator & validator=luatop>9 ? *validator_ptr : wxDefaultValidator;
+		const wxValidator & validator=luatop>9 ? *validator_ptr : (const wxValidator&)wxDefaultValidator;
 		wxString name(lua_tostring(L,11),lua_objlen(L,11));
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
@@ -1254,7 +1254,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned int n=(unsigned int)lua_tointeger(L,2);
-		bool enable=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool enable=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -1277,7 +1277,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString string(lua_tostring(L,2),lua_objlen(L,2));
-		bool bCase=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool bCase=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -1484,7 +1484,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned int item=(unsigned int)lua_tointeger(L,2);
-		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -1813,8 +1813,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
-		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
+		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -1980,7 +1980,7 @@ public:
 
 		int orientation=(int)lua_tointeger(L,2);
 		int pos=(int)lua_tointeger(L,3);
-		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -2005,7 +2005,7 @@ public:
 		int position=(int)lua_tointeger(L,3);
 		int thumbSize=(int)lua_tointeger(L,4);
 		int range=(int)lua_tointeger(L,5);
-		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -2292,7 +2292,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -2414,12 +2414,12 @@ public:
 		if( luatop>2 && !maxSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg maxSize in wxRadioBox::base_SetSizeHints function");
 		}
-		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : wxDefaultSize;
+		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : (const wxSize&)wxDefaultSize;
 		const wxSize* incSize_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !incSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg incSize in wxRadioBox::base_SetSizeHints function");
 		}
-		const wxSize & incSize=luatop>3 ? *incSize_ptr : wxDefaultSize;
+		const wxSize & incSize=luatop>3 ? *incSize_ptr : (const wxSize&)wxDefaultSize;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -2442,10 +2442,10 @@ public:
 
 		int minW=(int)lua_tointeger(L,2);
 		int minH=(int)lua_tointeger(L,3);
-		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int incW=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		int incH=luatop>6 ? (int)lua_tointeger(L,7) : -1;
+		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int incW=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+		int incH=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -2594,7 +2594,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 		const wxRect* rect=luatop>2 ? (Luna< wxRect >::check(L,3)) : (const wxRect*)NULL;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
@@ -2906,7 +2906,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -2967,7 +2967,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -3490,7 +3490,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -3571,7 +3571,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -3654,7 +3654,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned int n=(unsigned int)lua_tointeger(L,2);
-		bool enable=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool enable=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -3677,7 +3677,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString string(lua_tostring(L,2),lua_objlen(L,2));
-		bool bCase=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool bCase=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {
@@ -3764,7 +3764,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned int item=(unsigned int)lua_tointeger(L,2);
-		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxRadioBox* self=Luna< wxObject >::checkSubType< wxRadioBox >(L,1);
 		if(!self) {

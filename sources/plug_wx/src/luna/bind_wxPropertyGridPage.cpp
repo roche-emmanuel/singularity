@@ -409,7 +409,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int col=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int col=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {
@@ -525,7 +525,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int splitterPos=(int)lua_tointeger(L,2);
-		int col=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int col=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		wxPropertyGridPage* self=Luna< wxObject >::checkSubType< wxPropertyGridPage >(L,1);
 		if(!self) {

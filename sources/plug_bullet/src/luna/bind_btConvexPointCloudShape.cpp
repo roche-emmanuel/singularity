@@ -507,7 +507,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg localScaling in btConvexPointCloudShape::btConvexPointCloudShape function");
 		}
 		const btVector3 & localScaling=*localScaling_ptr;
-		bool computeAabb=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool computeAabb=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		return new btConvexPointCloudShape(points, numPoints, localScaling, computeAabb);
 	}
@@ -539,7 +539,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg localScaling in btConvexPointCloudShape::btConvexPointCloudShape function");
 		}
 		const btVector3 & localScaling=*localScaling_ptr;
-		bool computeAabb=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		bool computeAabb=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		return new wrapper_btConvexPointCloudShape(L,NULL, points, numPoints, localScaling, computeAabb);
 	}
@@ -568,12 +568,12 @@ public:
 
 		btVector3* points=(Luna< btVector3 >::check(L,2));
 		int numPoints=(int)lua_tointeger(L,3);
-		bool computeAabb=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool computeAabb=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 		const btVector3* localScaling_ptr=luatop>4 ? (Luna< btVector3 >::check(L,5)) : NULL;
 		if( luatop>4 && !localScaling_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localScaling in btConvexPointCloudShape::setPoints function");
 		}
-		const btVector3 & localScaling=luatop>4 ? *localScaling_ptr : btVector3 (1.f, 1.f, 1.f);
+		const btVector3 & localScaling=luatop>4 ? *localScaling_ptr : (const btVector3)btVector3 (1.f, 1.f, 1.f);
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
@@ -1237,7 +1237,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int shiftVerticesByMargin=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int shiftVerticesByMargin=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {

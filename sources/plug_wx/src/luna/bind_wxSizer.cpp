@@ -952,9 +952,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int flag=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		int border=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int flag=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		int border=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 		wxObject* userData=luatop>5 ? (Luna< wxObject >::check(L,6)) : (wxObject*)NULL;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
@@ -1007,9 +1007,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
-		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int flag=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		int border=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int flag=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		int border=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 		wxObject* userData=luatop>5 ? (Luna< wxObject >::check(L,6)) : (wxObject*)NULL;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
@@ -1036,9 +1036,9 @@ public:
 
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
-		int proportion=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		int flag=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		int proportion=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		int flag=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		int border=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
@@ -1120,7 +1120,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int prop=luatop>1 ? (int)lua_tointeger(L,2) : 1;
+		int prop=luatop>1 ? (int)lua_tointeger(L,2) : (int)1;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -1166,7 +1166,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -1459,7 +1459,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -1484,7 +1484,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
-		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -1541,7 +1541,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int id=(int)lua_tointeger(L,2);
-		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -1632,7 +1632,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -1655,7 +1655,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
-		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -1737,9 +1737,9 @@ public:
 
 		size_t index=(size_t)lua_tointeger(L,2);
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
-		int proportion=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		int flag=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		int proportion=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		int flag=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		int border=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
@@ -1794,9 +1794,9 @@ public:
 
 		size_t index=(size_t)lua_tointeger(L,2);
 		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,3));
-		int proportion=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		int flag=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		int proportion=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		int flag=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		int border=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
@@ -1824,9 +1824,9 @@ public:
 		size_t index=(size_t)lua_tointeger(L,2);
 		int width=(int)lua_tointeger(L,3);
 		int height=(int)lua_tointeger(L,4);
-		int proportion=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		int flag=luatop>5 ? (int)lua_tointeger(L,6) : 0;
-		int border=luatop>6 ? (int)lua_tointeger(L,7) : 0;
+		int proportion=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		int flag=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
+		int border=luatop>6 ? (int)lua_tointeger(L,7) : (int)0;
 		wxObject* userData=luatop>7 ? (Luna< wxObject >::check(L,8)) : (wxObject*)NULL;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
@@ -1911,7 +1911,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		size_t index=(size_t)lua_tointeger(L,2);
-		int prop=luatop>2 ? (int)lua_tointeger(L,3) : 1;
+		int prop=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -2070,9 +2070,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int flag=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		int border=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int flag=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		int border=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 		wxObject* userData=luatop>5 ? (Luna< wxObject >::check(L,6)) : (wxObject*)NULL;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
@@ -2125,9 +2125,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
-		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int flag=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		int border=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int flag=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		int border=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 		wxObject* userData=luatop>5 ? (Luna< wxObject >::check(L,6)) : (wxObject*)NULL;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
@@ -2154,9 +2154,9 @@ public:
 
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
-		int proportion=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		int flag=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		int proportion=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		int flag=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		int border=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
@@ -2238,7 +2238,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int prop=luatop>1 ? (int)lua_tointeger(L,2) : 1;
+		int prop=luatop>1 ? (int)lua_tointeger(L,2) : (int)1;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -2331,7 +2331,7 @@ public:
 
 		wxWindow* oldwin=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxWindow* newwin=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
-		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -2355,7 +2355,7 @@ public:
 
 		wxSizer* oldsz=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		wxSizer* newsz=(Luna< wxObject >::checkSubType< wxSizer >(L,3));
-		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -2712,8 +2712,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
-		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -2736,8 +2736,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
-		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
-		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -2760,7 +2760,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		size_t index=(size_t)lua_tointeger(L,2);
-		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -2835,7 +2835,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -3017,7 +3017,7 @@ public:
 
 		wxWindow* oldwin=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxWindow* newwin=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
-		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
@@ -3041,7 +3041,7 @@ public:
 
 		wxSizer* oldsz=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		wxSizer* newsz=(Luna< wxObject >::checkSubType< wxSizer >(L,3));
-		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {

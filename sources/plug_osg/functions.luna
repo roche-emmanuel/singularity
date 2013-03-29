@@ -65,6 +65,8 @@ osg::clearImageToColor
 osg::maximimNumOfComponents
 osg::createImage3D
 osg::createImage3DWithAlpha
+osg::createSpotLightImage
+osg::colorSpaceConversion
 osg::equivalent
 osg::inDegrees
 osg::DegreesToRadians
@@ -125,6 +127,7 @@ osgDB::fileType
 osgDB::findFileInPath
 osgDB::findFileInDirectory
 osgDB::getDirectoryContents
+osgDB::getSortedDirectoryContents
 osgDB::expandWildcardsInFilename
 osgDB::copyFile
 osgDB::setDataFilePathList
@@ -134,6 +137,7 @@ osgDB::setLibraryFilePathList
 osgDB::getLibraryFilePathList
 osgDB::findLibraryFile
 osgDB::convertStringPathIntoFilePathList
+osgDB::containsCurrentWorkingDirectoryReference
 osgDB::appendPlatformSpecificLibraryFilePaths
 osgDB::appendPlatformSpecificResourceFilePaths
 osgDB::split
@@ -170,3 +174,6 @@ osgText::readFont3DStream
 osgText::readRefFont3DFile
 osgText::readRefFont3DStream
 osgText::findFont3DFile
+module=osgUtil
+osgUtil::create3DNoiseImage
+osgUtil::create3DNoiseTexture

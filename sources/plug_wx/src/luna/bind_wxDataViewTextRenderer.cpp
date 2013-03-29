@@ -164,8 +164,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString varianttype(lua_tostring(L,2),lua_objlen(L,2));
-		wxDataViewCellMode mode=luatop>2 ? (wxDataViewCellMode)lua_tointeger(L,3) : ::wxDATAVIEW_CELL_INERT;
-		int align=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		wxDataViewCellMode mode=luatop>2 ? (wxDataViewCellMode)lua_tointeger(L,3) : (wxDataViewCellMode)::wxDATAVIEW_CELL_INERT;
+		int align=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		return new wrapper_wxDataViewTextRenderer(L,NULL, varianttype, mode, align);
 	}

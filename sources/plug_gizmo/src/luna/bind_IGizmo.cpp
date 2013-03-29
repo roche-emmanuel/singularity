@@ -136,15 +136,15 @@ public:
 	inline static bool _lg_typecheck_SetEditMatrix(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetCameraMatrix(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -267,14 +267,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void IGizmo::SetEditMatrix(float * pMatrix) function, expected prototype:\nvoid IGizmo::SetEditMatrix(float * pMatrix)\nClass arguments details:\n");
 		}
 
-		float pMatrix=(float)lua_tonumber(L,2);
+		float* pMatrix=(float*)Luna< void >::check(L,2);
 
 		IGizmo* self=(Luna< IGizmo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void IGizmo::SetEditMatrix(float *). Got : '%s'",typeid(Luna< IGizmo >::check(L,1)).name());
 		}
-		self->SetEditMatrix(&pMatrix);
+		self->SetEditMatrix(pMatrix);
 
 		return 0;
 	}
@@ -286,15 +286,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void IGizmo::SetCameraMatrix(const float * Model, const float * Proj) function, expected prototype:\nvoid IGizmo::SetCameraMatrix(const float * Model, const float * Proj)\nClass arguments details:\n");
 		}
 
-		float Model=(float)lua_tonumber(L,2);
-		float Proj=(float)lua_tonumber(L,3);
+		const float* Model=(const float*)Luna< void >::check(L,2);
+		const float* Proj=(const float*)Luna< void >::check(L,3);
 
 		IGizmo* self=(Luna< IGizmo >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void IGizmo::SetCameraMatrix(const float *, const float *). Got : '%s'",typeid(Luna< IGizmo >::check(L,1)).name());
 		}
-		self->SetCameraMatrix(&Model, &Proj);
+		self->SetCameraMatrix(Model, Proj);
 
 		return 0;
 	}
@@ -465,7 +465,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void IGizmo::SetSnap(const float snap) function, expected prototype:\nvoid IGizmo::SetSnap(const float snap)\nClass arguments details:\n");
 		}
 
-		float snap=(float)lua_tonumber(L,2);
+		const float snap=(const float)lua_tonumber(L,2);
 
 		IGizmo* self=(Luna< IGizmo >::check(L,1));
 		if(!self) {

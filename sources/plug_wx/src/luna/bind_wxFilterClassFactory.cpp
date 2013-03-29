@@ -223,7 +223,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString protocol(lua_tostring(L,2),lua_objlen(L,2));
-		wxStreamProtocolType type=luatop>2 ? (wxStreamProtocolType)lua_tointeger(L,3) : ::wxSTREAM_PROTOCOL;
+		wxStreamProtocolType type=luatop>2 ? (wxStreamProtocolType)lua_tointeger(L,3) : (wxStreamProtocolType)::wxSTREAM_PROTOCOL;
 
 		wxFilterClassFactory* self=Luna< wxObject >::checkSubType< wxFilterClassFactory >(L,1);
 		if(!self) {
@@ -449,7 +449,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString protocol(lua_tostring(L,1),lua_objlen(L,1));
-		wxStreamProtocolType type=luatop>1 ? (wxStreamProtocolType)lua_tointeger(L,2) : ::wxSTREAM_PROTOCOL;
+		wxStreamProtocolType type=luatop>1 ? (wxStreamProtocolType)lua_tointeger(L,2) : (wxStreamProtocolType)::wxSTREAM_PROTOCOL;
 
 		const wxFilterClassFactory * lret = wxFilterClassFactory::Find(protocol, type);
 		if(!lret) return 0; // Do not write NULL pointers.

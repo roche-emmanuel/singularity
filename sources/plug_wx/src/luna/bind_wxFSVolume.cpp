@@ -383,8 +383,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flagsSet=luatop>0 ? (int)lua_tointeger(L,1) : ::wxFS_VOL_MOUNTED;
-		int flagsUnset=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flagsSet=luatop>0 ? (int)lua_tointeger(L,1) : (int)::wxFS_VOL_MOUNTED;
+		int flagsUnset=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxArrayString stack_lret = wxFSVolume::GetVolumes(flagsSet, flagsUnset);
 		wxArrayString* lret = new wxArrayString(stack_lret);

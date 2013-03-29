@@ -998,24 +998,24 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_ANY;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxID_ANY;
 		wxString label(lua_tostring(L,3),lua_objlen(L,3));
 		const wxBitmap* minimised_icon_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,4)) : NULL;
 		if( luatop>3 && !minimised_icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg minimised_icon in wxRibbonPanel::wxRibbonPanel function");
 		}
-		const wxBitmap & minimised_icon=luatop>3 ? *minimised_icon_ptr : wxNullBitmap;
+		const wxBitmap & minimised_icon=luatop>3 ? *minimised_icon_ptr : (const wxBitmap&)wxNullBitmap;
 		const wxPoint* pos_ptr=luatop>4 ? (Luna< wxPoint >::check(L,5)) : NULL;
 		if( luatop>4 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxRibbonPanel::wxRibbonPanel function");
 		}
-		const wxPoint & pos=luatop>4 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>4 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>5 ? (Luna< wxSize >::check(L,6)) : NULL;
 		if( luatop>5 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxRibbonPanel::wxRibbonPanel function");
 		}
-		const wxSize & size=luatop>5 ? *size_ptr : wxDefaultSize;
-		long style=luatop>6 ? (long)lua_tointeger(L,7) : ::wxRIBBON_PANEL_DEFAULT_STYLE;
+		const wxSize & size=luatop>5 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>6 ? (long)lua_tointeger(L,7) : (long)::wxRIBBON_PANEL_DEFAULT_STYLE;
 
 		return new wxRibbonPanel(parent, id, label, minimised_icon, pos, size, style);
 	}
@@ -1041,24 +1041,24 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxID_ANY;
 		wxString label(lua_tostring(L,4),lua_objlen(L,4));
 		const wxBitmap* minimised_icon_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,5)) : NULL;
 		if( luatop>4 && !minimised_icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg minimised_icon in wxRibbonPanel::wxRibbonPanel function");
 		}
-		const wxBitmap & minimised_icon=luatop>4 ? *minimised_icon_ptr : wxNullBitmap;
+		const wxBitmap & minimised_icon=luatop>4 ? *minimised_icon_ptr : (const wxBitmap&)wxNullBitmap;
 		const wxPoint* pos_ptr=luatop>5 ? (Luna< wxPoint >::check(L,6)) : NULL;
 		if( luatop>5 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxRibbonPanel::wxRibbonPanel function");
 		}
-		const wxPoint & pos=luatop>5 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>5 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>6 ? (Luna< wxSize >::check(L,7)) : NULL;
 		if( luatop>6 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxRibbonPanel::wxRibbonPanel function");
 		}
-		const wxSize & size=luatop>6 ? *size_ptr : wxDefaultSize;
-		long style=luatop>7 ? (long)lua_tointeger(L,8) : ::wxRIBBON_PANEL_DEFAULT_STYLE;
+		const wxSize & size=luatop>6 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>7 ? (long)lua_tointeger(L,8) : (long)::wxRIBBON_PANEL_DEFAULT_STYLE;
 
 		return new wrapper_wxRibbonPanel(L,NULL, parent, id, label, minimised_icon, pos, size, style);
 	}
@@ -1086,24 +1086,24 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxID_ANY;
 		wxString label(lua_tostring(L,4),lua_objlen(L,4));
 		const wxBitmap* icon_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,5)) : NULL;
 		if( luatop>4 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxRibbonPanel::Create function");
 		}
-		const wxBitmap & icon=luatop>4 ? *icon_ptr : wxNullBitmap;
+		const wxBitmap & icon=luatop>4 ? *icon_ptr : (const wxBitmap&)wxNullBitmap;
 		const wxPoint* pos_ptr=luatop>5 ? (Luna< wxPoint >::check(L,6)) : NULL;
 		if( luatop>5 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxRibbonPanel::Create function");
 		}
-		const wxPoint & pos=luatop>5 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>5 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>6 ? (Luna< wxSize >::check(L,7)) : NULL;
 		if( luatop>6 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxRibbonPanel::Create function");
 		}
-		const wxSize & size=luatop>6 ? *size_ptr : wxDefaultSize;
-		long style=luatop>7 ? (long)lua_tointeger(L,8) : ::wxRIBBON_PANEL_DEFAULT_STYLE;
+		const wxSize & size=luatop>6 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>7 ? (long)lua_tointeger(L,8) : (long)::wxRIBBON_PANEL_DEFAULT_STYLE;
 
 		wxRibbonPanel* self=Luna< wxObject >::checkSubType< wxRibbonPanel >(L,1);
 		if(!self) {
@@ -1594,8 +1594,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
-		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
+		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxRibbonPanel* self=Luna< wxObject >::checkSubType< wxRibbonPanel >(L,1);
 		if(!self) {
@@ -1761,7 +1761,7 @@ public:
 
 		int orientation=(int)lua_tointeger(L,2);
 		int pos=(int)lua_tointeger(L,3);
-		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxRibbonPanel* self=Luna< wxObject >::checkSubType< wxRibbonPanel >(L,1);
 		if(!self) {
@@ -1786,7 +1786,7 @@ public:
 		int position=(int)lua_tointeger(L,3);
 		int thumbSize=(int)lua_tointeger(L,4);
 		int range=(int)lua_tointeger(L,5);
-		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 
 		wxRibbonPanel* self=Luna< wxObject >::checkSubType< wxRibbonPanel >(L,1);
 		if(!self) {
@@ -2073,7 +2073,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxRibbonPanel* self=Luna< wxObject >::checkSubType< wxRibbonPanel >(L,1);
 		if(!self) {
@@ -2195,12 +2195,12 @@ public:
 		if( luatop>2 && !maxSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg maxSize in wxRibbonPanel::base_SetSizeHints function");
 		}
-		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : wxDefaultSize;
+		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : (const wxSize&)wxDefaultSize;
 		const wxSize* incSize_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !incSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg incSize in wxRibbonPanel::base_SetSizeHints function");
 		}
-		const wxSize & incSize=luatop>3 ? *incSize_ptr : wxDefaultSize;
+		const wxSize & incSize=luatop>3 ? *incSize_ptr : (const wxSize&)wxDefaultSize;
 
 		wxRibbonPanel* self=Luna< wxObject >::checkSubType< wxRibbonPanel >(L,1);
 		if(!self) {
@@ -2223,10 +2223,10 @@ public:
 
 		int minW=(int)lua_tointeger(L,2);
 		int minH=(int)lua_tointeger(L,3);
-		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int incW=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		int incH=luatop>6 ? (int)lua_tointeger(L,7) : -1;
+		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int incW=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+		int incH=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
 
 		wxRibbonPanel* self=Luna< wxObject >::checkSubType< wxRibbonPanel >(L,1);
 		if(!self) {
@@ -2375,7 +2375,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 		const wxRect* rect=luatop>2 ? (Luna< wxRect >::check(L,3)) : (const wxRect*)NULL;
 
 		wxRibbonPanel* self=Luna< wxObject >::checkSubType< wxRibbonPanel >(L,1);
@@ -2687,7 +2687,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxRibbonPanel* self=Luna< wxObject >::checkSubType< wxRibbonPanel >(L,1);
 		if(!self) {
@@ -2747,7 +2747,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxRibbonPanel* self=Luna< wxObject >::checkSubType< wxRibbonPanel >(L,1);
 		if(!self) {
@@ -2769,7 +2769,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxRibbonPanel* self=Luna< wxObject >::checkSubType< wxRibbonPanel >(L,1);
 		if(!self) {
@@ -2792,7 +2792,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxRibbonPanel* self=Luna< wxObject >::checkSubType< wxRibbonPanel >(L,1);
 		if(!self) {
@@ -3315,7 +3315,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxRibbonPanel* self=Luna< wxObject >::checkSubType< wxRibbonPanel >(L,1);
 		if(!self) {
@@ -3396,7 +3396,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxRibbonPanel* self=Luna< wxObject >::checkSubType< wxRibbonPanel >(L,1);
 		if(!self) {

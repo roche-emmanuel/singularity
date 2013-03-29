@@ -269,16 +269,16 @@ public:
 		int id=(int)lua_tointeger(L,1);
 		int type=(int)lua_tointeger(L,2);
 		wxObject* obj=(Luna< wxObject >::check(L,3));
-		int row=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int col=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int x=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		int y=luatop>6 ? (int)lua_tointeger(L,7) : -1;
-		bool sel=luatop>7 ? (bool)(lua_toboolean(L,8)==1) : true;
+		int row=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int col=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int x=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+		int y=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
+		bool sel=luatop>7 ? (bool)(lua_toboolean(L,8)==1) : (bool)true;
 		const wxKeyboardState* kbd_ptr=luatop>8 ? (Luna< wxObject >::checkSubType< wxKeyboardState >(L,9)) : NULL;
 		if( luatop>8 && !kbd_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg kbd in wxGridEvent::wxGridEvent function");
 		}
-		const wxKeyboardState & kbd=luatop>8 ? *kbd_ptr : wxKeyboardState ();
+		const wxKeyboardState & kbd=luatop>8 ? *kbd_ptr : (const wxKeyboardState&)wxKeyboardState ();
 
 		return new wxGridEvent(id, type, obj, row, col, x, y, sel, kbd);
 	}
@@ -306,16 +306,16 @@ public:
 		int id=(int)lua_tointeger(L,2);
 		int type=(int)lua_tointeger(L,3);
 		wxObject* obj=(Luna< wxObject >::check(L,4));
-		int row=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int col=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		int x=luatop>6 ? (int)lua_tointeger(L,7) : -1;
-		int y=luatop>7 ? (int)lua_tointeger(L,8) : -1;
-		bool sel=luatop>8 ? (bool)(lua_toboolean(L,9)==1) : true;
+		int row=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int col=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+		int x=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
+		int y=luatop>7 ? (int)lua_tointeger(L,8) : (int)-1;
+		bool sel=luatop>8 ? (bool)(lua_toboolean(L,9)==1) : (bool)true;
 		const wxKeyboardState* kbd_ptr=luatop>9 ? (Luna< wxObject >::checkSubType< wxKeyboardState >(L,10)) : NULL;
 		if( luatop>9 && !kbd_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg kbd in wxGridEvent::wxGridEvent function");
 		}
-		const wxKeyboardState & kbd=luatop>9 ? *kbd_ptr : wxKeyboardState ();
+		const wxKeyboardState & kbd=luatop>9 ? *kbd_ptr : (const wxKeyboardState&)wxKeyboardState ();
 
 		return new wrapper_wxGridEvent(L,NULL, id, type, obj, row, col, x, y, sel, kbd);
 	}

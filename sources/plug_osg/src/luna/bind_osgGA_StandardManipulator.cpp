@@ -382,6 +382,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_updateCamera(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_getFusionDistanceMode(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -1363,6 +1370,29 @@ public:
 		return 0;
 	}
 
+	// void osgGA::StandardManipulator::base_updateCamera(osg::Camera & camera)
+	static int _bind_base_updateCamera(lua_State *L) {
+		if (!_lg_typecheck_base_updateCamera(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::base_updateCamera(osg::Camera & camera) function, expected prototype:\nvoid osgGA::StandardManipulator::base_updateCamera(osg::Camera & camera)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Camera* camera_ptr=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
+		if( !camera_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg camera in osgGA::StandardManipulator::base_updateCamera function");
+		}
+		osg::Camera & camera=*camera_ptr;
+
+		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::StandardManipulator::base_updateCamera(osg::Camera &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->StandardManipulator::updateCamera(camera);
+
+		return 0;
+	}
+
 	// osgUtil::SceneView::FusionDistanceMode osgGA::StandardManipulator::base_getFusionDistanceMode() const
 	static int _bind_base_getFusionDistanceMode(lua_State *L) {
 		if (!_lg_typecheck_base_getFusionDistanceMode(L)) {
@@ -1871,6 +1901,7 @@ luna_RegType LunaTraits< osgGA::StandardManipulator >::methods[] = {
 	{"base_libraryName", &luna_wrapper_osgGA_StandardManipulator::_bind_base_libraryName},
 	{"base_event", &luna_wrapper_osgGA_StandardManipulator::_bind_base_event},
 	{"base_setCoordinateFrameCallback", &luna_wrapper_osgGA_StandardManipulator::_bind_base_setCoordinateFrameCallback},
+	{"base_updateCamera", &luna_wrapper_osgGA_StandardManipulator::_bind_base_updateCamera},
 	{"base_getFusionDistanceMode", &luna_wrapper_osgGA_StandardManipulator::_bind_base_getFusionDistanceMode},
 	{"base_getFusionDistanceValue", &luna_wrapper_osgGA_StandardManipulator::_bind_base_getFusionDistanceValue},
 	{"base_setHomePosition", &luna_wrapper_osgGA_StandardManipulator::_bind_base_setHomePosition},

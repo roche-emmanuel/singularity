@@ -119,6 +119,26 @@ public:
 		return AutoTransform::getUserData();
 	};
 
+	// osg::Camera * osg::Node::asCamera()
+	osg::Camera * asCamera() {
+		if(_obj.pushFunction("asCamera")) {
+			_obj.pushArg((osg::AutoTransform*)this);
+			return (_obj.callFunction<osg::Camera*>());
+		}
+
+		return AutoTransform::asCamera();
+	};
+
+	// const osg::Camera * osg::Node::asCamera() const
+	const osg::Camera * asCamera() const {
+		if(_obj.pushFunction("asCamera")) {
+			_obj.pushArg((osg::AutoTransform*)this);
+			return (_obj.callFunction<osg::Camera*>());
+		}
+
+		return AutoTransform::asCamera();
+	};
+
 	// osg::Switch * osg::Node::asSwitch()
 	osg::Switch * asSwitch() {
 		if(_obj.pushFunction("asSwitch")) {

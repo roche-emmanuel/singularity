@@ -95,6 +95,18 @@ public:
 		return (_obj.callFunction<bool>());
 	};
 
+	// bool osgText::Font::FontImplementation::getVerticalSize(float & ascender, float & descender) const
+	bool getVerticalSize(float & ascender, float & descender) const {
+		if(_obj.pushFunction("getVerticalSize")) {
+			_obj.pushArg((osgText::Font::FontImplementation*)this);
+			_obj.pushArg(ascender);
+			_obj.pushArg(descender);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FontImplementation::getVerticalSize(ascender, descender);
+	};
+
 
 	// Protected non-virtual methods:
 	// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const

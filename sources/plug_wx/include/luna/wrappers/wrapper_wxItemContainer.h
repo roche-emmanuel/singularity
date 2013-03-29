@@ -136,7 +136,7 @@ protected:
 // int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter & arg1, unsigned int arg2, void ** arg3, wxClientDataType arg4)
 int DoInsertItems(const wxArrayStringsAdapter &, unsigned int, void **, wxClientDataType) {
 	THROW_IF(true,"The function call int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter &, unsigned int, void **, wxClientDataType) is not implemented in wrapper.");
-	return int();
+	return (int)0;
 };
 
 };

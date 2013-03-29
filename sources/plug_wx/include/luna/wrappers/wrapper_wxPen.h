@@ -165,7 +165,7 @@ public:
 	void SetCap(wxPenCap capStyle) {
 		if(_obj.pushFunction("SetCap")) {
 			_obj.pushArg((wxPen*)this);
-			_obj.pushArg(capStyle);
+			_obj.pushArg((int)capStyle);
 			return (_obj.callFunction<void>());
 		}
 
@@ -200,7 +200,7 @@ public:
 	void SetJoin(wxPenJoin join_style) {
 		if(_obj.pushFunction("SetJoin")) {
 			_obj.pushArg((wxPen*)this);
-			_obj.pushArg(join_style);
+			_obj.pushArg((int)join_style);
 			return (_obj.callFunction<void>());
 		}
 
@@ -222,7 +222,7 @@ public:
 	void SetStyle(wxPenStyle style) {
 		if(_obj.pushFunction("SetStyle")) {
 			_obj.pushArg((wxPen*)this);
-			_obj.pushArg(style);
+			_obj.pushArg((int)style);
 			return (_obj.callFunction<void>());
 		}
 

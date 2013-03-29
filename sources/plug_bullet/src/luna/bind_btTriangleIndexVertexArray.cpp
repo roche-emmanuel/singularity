@@ -121,10 +121,10 @@ public:
 		if( lua_gettop(L)!=6 ) return false;
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		return true;
 	}
@@ -141,10 +141,10 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
+		if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		return true;
 	}
@@ -323,13 +323,13 @@ public:
 		}
 
 		int numTriangles=(int)lua_tointeger(L,1);
-		int triangleIndexBase=(int)lua_tointeger(L,2);
+		int* triangleIndexBase=(int*)Luna< void >::check(L,2);
 		int triangleIndexStride=(int)lua_tointeger(L,3);
 		int numVertices=(int)lua_tointeger(L,4);
-		float vertexBase=(float)lua_tonumber(L,5);
+		float* vertexBase=(float*)Luna< void >::check(L,5);
 		int vertexStride=(int)lua_tointeger(L,6);
 
-		return new btTriangleIndexVertexArray(numTriangles, &triangleIndexBase, triangleIndexStride, numVertices, &vertexBase, vertexStride);
+		return new btTriangleIndexVertexArray(numTriangles, triangleIndexBase, triangleIndexStride, numVertices, vertexBase, vertexStride);
 	}
 
 	// btTriangleIndexVertexArray::btTriangleIndexVertexArray(lua_Table * data)
@@ -351,13 +351,13 @@ public:
 		}
 
 		int numTriangles=(int)lua_tointeger(L,2);
-		int triangleIndexBase=(int)lua_tointeger(L,3);
+		int* triangleIndexBase=(int*)Luna< void >::check(L,3);
 		int triangleIndexStride=(int)lua_tointeger(L,4);
 		int numVertices=(int)lua_tointeger(L,5);
-		float vertexBase=(float)lua_tonumber(L,6);
+		float* vertexBase=(float*)Luna< void >::check(L,6);
 		int vertexStride=(int)lua_tointeger(L,7);
 
-		return new wrapper_btTriangleIndexVertexArray(L,NULL, numTriangles, &triangleIndexBase, triangleIndexStride, numVertices, &vertexBase, vertexStride);
+		return new wrapper_btTriangleIndexVertexArray(L,NULL, numTriangles, triangleIndexBase, triangleIndexStride, numVertices, vertexBase, vertexStride);
 	}
 
 	// Overload binder for btTriangleIndexVertexArray::btTriangleIndexVertexArray
@@ -387,7 +387,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg mesh in btTriangleIndexVertexArray::addIndexedMesh function");
 		}
 		const btIndexedMesh & mesh=*mesh_ptr;
-		PHY_ScalarType indexType=luatop>2 ? (PHY_ScalarType)lua_tointeger(L,3) : ::PHY_INTEGER;
+		PHY_ScalarType indexType=luatop>2 ? (PHY_ScalarType)lua_tointeger(L,3) : (PHY_ScalarType)::PHY_INTEGER;
 
 		btTriangleIndexVertexArray* self=Luna< btStridingMeshInterface >::checkSubType< btTriangleIndexVertexArray >(L,1);
 		if(!self) {

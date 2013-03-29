@@ -251,7 +251,7 @@ public:
 		HullFlag flag=(HullFlag)lua_tointeger(L,1);
 		unsigned int vcount=(unsigned int)lua_tointeger(L,2);
 		const btVector3* vertices=(Luna< btVector3 >::check(L,3));
-		unsigned int stride=luatop>3 ? (unsigned int)lua_tointeger(L,4) : sizeof( btVector3 );
+		unsigned int stride=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)sizeof( btVector3 );
 
 		return new HullDesc(flag, vcount, vertices, stride);
 	}

@@ -395,7 +395,19 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getOrtho(lua_State *L) {
+	inline static bool _lg_typecheck_getOrtho_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=7 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_isnumber(L,6)==0 ) return false;
+		if( lua_isnumber(L,7)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getOrtho_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=7 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -429,7 +441,19 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getFrustum(lua_State *L) {
+	inline static bool _lg_typecheck_getFrustum_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=7 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_isnumber(L,6)==0 ) return false;
+		if( lua_isnumber(L,7)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getFrustum_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=7 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -451,7 +475,17 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getPerspective(lua_State *L) {
+	inline static bool _lg_typecheck_getPerspective_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_isnumber(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getPerspective_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
@@ -1978,8 +2012,8 @@ public:
 	}
 
 	// bool osg::Matrixd::getOrtho(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const
-	static int _bind_getOrtho(lua_State *L) {
-		if (!_lg_typecheck_getOrtho(L)) {
+	static int _bind_getOrtho_overload_1(lua_State *L) {
+		if (!_lg_typecheck_getOrtho_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool osg::Matrixd::getOrtho(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const function, expected prototype:\nbool osg::Matrixd::getOrtho(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const\nClass arguments details:\n");
 		}
@@ -2000,6 +2034,40 @@ public:
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
+	}
+
+	// bool osg::Matrixd::getOrtho(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const
+	static int _bind_getOrtho_overload_2(lua_State *L) {
+		if (!_lg_typecheck_getOrtho_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixd::getOrtho(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const function, expected prototype:\nbool osg::Matrixd::getOrtho(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const\nClass arguments details:\n");
+		}
+
+		float left=(float)lua_tonumber(L,2);
+		float right=(float)lua_tonumber(L,3);
+		float bottom=(float)lua_tonumber(L,4);
+		float top=(float)lua_tonumber(L,5);
+		float zNear=(float)lua_tonumber(L,6);
+		float zFar=(float)lua_tonumber(L,7);
+
+		osg::Matrixd* self=(Luna< osg::Matrixd >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Matrixd::getOrtho(float &, float &, float &, float &, float &, float &) const. Got : '%s'",typeid(Luna< osg::Matrixd >::check(L,1)).name());
+		}
+		bool lret = self->getOrtho(left, right, bottom, top, zNear, zFar);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Matrixd::getOrtho
+	static int _bind_getOrtho(lua_State *L) {
+		if (_lg_typecheck_getOrtho_overload_1(L)) return _bind_getOrtho_overload_1(L);
+		if (_lg_typecheck_getOrtho_overload_2(L)) return _bind_getOrtho_overload_2(L);
+
+		luaL_error(L, "error in function getOrtho, cannot match any of the overloads for function getOrtho:\n  getOrtho(double &, double &, double &, double &, double &, double &)\n  getOrtho(float &, float &, float &, float &, float &, float &)\n");
+		return 0;
 	}
 
 	// void osg::Matrixd::makeOrtho2D(double left, double right, double bottom, double top)
@@ -2049,8 +2117,8 @@ public:
 	}
 
 	// bool osg::Matrixd::getFrustum(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const
-	static int _bind_getFrustum(lua_State *L) {
-		if (!_lg_typecheck_getFrustum(L)) {
+	static int _bind_getFrustum_overload_1(lua_State *L) {
+		if (!_lg_typecheck_getFrustum_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool osg::Matrixd::getFrustum(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const function, expected prototype:\nbool osg::Matrixd::getFrustum(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const\nClass arguments details:\n");
 		}
@@ -2071,6 +2139,40 @@ public:
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
+	}
+
+	// bool osg::Matrixd::getFrustum(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const
+	static int _bind_getFrustum_overload_2(lua_State *L) {
+		if (!_lg_typecheck_getFrustum_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixd::getFrustum(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const function, expected prototype:\nbool osg::Matrixd::getFrustum(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const\nClass arguments details:\n");
+		}
+
+		float left=(float)lua_tonumber(L,2);
+		float right=(float)lua_tonumber(L,3);
+		float bottom=(float)lua_tonumber(L,4);
+		float top=(float)lua_tonumber(L,5);
+		float zNear=(float)lua_tonumber(L,6);
+		float zFar=(float)lua_tonumber(L,7);
+
+		osg::Matrixd* self=(Luna< osg::Matrixd >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Matrixd::getFrustum(float &, float &, float &, float &, float &, float &) const. Got : '%s'",typeid(Luna< osg::Matrixd >::check(L,1)).name());
+		}
+		bool lret = self->getFrustum(left, right, bottom, top, zNear, zFar);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Matrixd::getFrustum
+	static int _bind_getFrustum(lua_State *L) {
+		if (_lg_typecheck_getFrustum_overload_1(L)) return _bind_getFrustum_overload_1(L);
+		if (_lg_typecheck_getFrustum_overload_2(L)) return _bind_getFrustum_overload_2(L);
+
+		luaL_error(L, "error in function getFrustum, cannot match any of the overloads for function getFrustum:\n  getFrustum(double &, double &, double &, double &, double &, double &)\n  getFrustum(float &, float &, float &, float &, float &, float &)\n");
+		return 0;
 	}
 
 	// void osg::Matrixd::makePerspective(double fovy, double aspectRatio, double zNear, double zFar)
@@ -2096,8 +2198,8 @@ public:
 	}
 
 	// bool osg::Matrixd::getPerspective(double & fovy, double & aspectRatio, double & zNear, double & zFar) const
-	static int _bind_getPerspective(lua_State *L) {
-		if (!_lg_typecheck_getPerspective(L)) {
+	static int _bind_getPerspective_overload_1(lua_State *L) {
+		if (!_lg_typecheck_getPerspective_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool osg::Matrixd::getPerspective(double & fovy, double & aspectRatio, double & zNear, double & zFar) const function, expected prototype:\nbool osg::Matrixd::getPerspective(double & fovy, double & aspectRatio, double & zNear, double & zFar) const\nClass arguments details:\n");
 		}
@@ -2116,6 +2218,38 @@ public:
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
+	}
+
+	// bool osg::Matrixd::getPerspective(float & fovy, float & aspectRatio, float & zNear, float & zFar) const
+	static int _bind_getPerspective_overload_2(lua_State *L) {
+		if (!_lg_typecheck_getPerspective_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Matrixd::getPerspective(float & fovy, float & aspectRatio, float & zNear, float & zFar) const function, expected prototype:\nbool osg::Matrixd::getPerspective(float & fovy, float & aspectRatio, float & zNear, float & zFar) const\nClass arguments details:\n");
+		}
+
+		float fovy=(float)lua_tonumber(L,2);
+		float aspectRatio=(float)lua_tonumber(L,3);
+		float zNear=(float)lua_tonumber(L,4);
+		float zFar=(float)lua_tonumber(L,5);
+
+		osg::Matrixd* self=(Luna< osg::Matrixd >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Matrixd::getPerspective(float &, float &, float &, float &) const. Got : '%s'",typeid(Luna< osg::Matrixd >::check(L,1)).name());
+		}
+		bool lret = self->getPerspective(fovy, aspectRatio, zNear, zFar);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Matrixd::getPerspective
+	static int _bind_getPerspective(lua_State *L) {
+		if (_lg_typecheck_getPerspective_overload_1(L)) return _bind_getPerspective_overload_1(L);
+		if (_lg_typecheck_getPerspective_overload_2(L)) return _bind_getPerspective_overload_2(L);
+
+		luaL_error(L, "error in function getPerspective, cannot match any of the overloads for function getPerspective:\n  getPerspective(double &, double &, double &, double &)\n  getPerspective(float &, float &, float &, float &)\n");
+		return 0;
 	}
 
 	// void osg::Matrixd::makeLookAt(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)

@@ -204,8 +204,8 @@ public:
 	inline static bool _lg_typecheck_GetPosition_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -218,8 +218,8 @@ public:
 	inline static bool _lg_typecheck_GetSize_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -487,15 +487,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxCaret::GetPosition(int * x, int * y) const function, expected prototype:\nvoid wxCaret::GetPosition(int * x, int * y) const\nClass arguments details:\n");
 		}
 
-		int x=(int)lua_tointeger(L,2);
-		int y=(int)lua_tointeger(L,3);
+		int* x=(int*)Luna< void >::check(L,2);
+		int* y=(int*)Luna< void >::check(L,3);
 
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxCaret::GetPosition(int *, int *) const. Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
-		self->GetPosition(&x, &y);
+		self->GetPosition(x, y);
 
 		return 0;
 	}
@@ -538,15 +538,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxCaret::GetSize(int * width, int * height) const function, expected prototype:\nvoid wxCaret::GetSize(int * width, int * height) const\nClass arguments details:\n");
 		}
 
-		int width=(int)lua_tointeger(L,2);
-		int height=(int)lua_tointeger(L,3);
+		int* width=(int*)Luna< void >::check(L,2);
+		int* height=(int*)Luna< void >::check(L,3);
 
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxCaret::GetSize(int *, int *) const. Got : '%s'",typeid(Luna< wxCaret >::check(L,1)).name());
 		}
-		self->GetSize(&width, &height);
+		self->GetSize(width, height);
 
 		return 0;
 	}
@@ -772,7 +772,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {
@@ -839,7 +839,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxCaret* self=(Luna< wxCaret >::check(L,1));
 		if(!self) {

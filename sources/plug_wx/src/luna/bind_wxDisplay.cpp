@@ -188,7 +188,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int index=luatop>0 ? (unsigned int)lua_tointeger(L,1) : 0;
+		unsigned int index=luatop>0 ? (unsigned int)lua_tointeger(L,1) : (unsigned int)0;
 
 		return new wxDisplay(index);
 	}
@@ -208,7 +208,7 @@ public:
 		if( luatop>1 && !mode_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg mode in wxDisplay::ChangeMode function");
 		}
-		const wxVideoMode & mode=luatop>1 ? *mode_ptr : wxDefaultVideoMode;
+		const wxVideoMode & mode=luatop>1 ? *mode_ptr : (const wxVideoMode&)wxDefaultVideoMode;
 
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {
@@ -300,7 +300,7 @@ public:
 		if( luatop>1 && !mode_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg mode in wxDisplay::GetModes function");
 		}
-		const wxVideoMode & mode=luatop>1 ? *mode_ptr : wxDefaultVideoMode;
+		const wxVideoMode & mode=luatop>1 ? *mode_ptr : (const wxVideoMode&)wxDefaultVideoMode;
 
 		wxDisplay* self=(Luna< wxDisplay >::check(L,1));
 		if(!self) {

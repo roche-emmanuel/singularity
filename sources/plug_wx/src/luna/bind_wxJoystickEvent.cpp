@@ -223,10 +223,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int eventType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
-		int state=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int joystick=luatop>3 ? (int)lua_tointeger(L,4) : ::wxJOYSTICK1;
-		int change=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int eventType=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
+		int state=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int joystick=luatop>3 ? (int)lua_tointeger(L,4) : (int)::wxJOYSTICK1;
+		int change=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		return new wrapper_wxJoystickEvent(L,NULL, eventType, state, joystick, change);
 	}
@@ -242,7 +242,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int button=luatop>1 ? (int)lua_tointeger(L,2) : ::wxJOY_BUTTON_ANY;
+		int button=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxJOY_BUTTON_ANY;
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
@@ -264,7 +264,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int button=luatop>1 ? (int)lua_tointeger(L,2) : ::wxJOY_BUTTON_ANY;
+		int button=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxJOY_BUTTON_ANY;
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {
@@ -286,7 +286,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int button=luatop>1 ? (int)lua_tointeger(L,2) : ::wxJOY_BUTTON_ANY;
+		int button=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxJOY_BUTTON_ANY;
 
 		wxJoystickEvent* self=Luna< wxObject >::checkSubType< wxJoystickEvent >(L,1);
 		if(!self) {

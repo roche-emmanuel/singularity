@@ -1,6 +1,7 @@
 #include <plug_common.h>
 
 #include <osg/Endian>
+#include <osg/ImageUtils>
 #include <osg/Notify>
 #include <osgDB/Callbacks>
 #include <osgDB/FileUtils>
@@ -20,6 +21,23 @@ void register_enums(lua_State* L) {
 
 	lua_pushnumber(L,osg::BigEndian); lua_setfield(L,-2,"BigEndian");
 	lua_pushnumber(L,osg::LittleEndian); lua_setfield(L,-2,"LittleEndian");
+
+
+	lua_newtable(L); // enum ColorSpaceOperation
+
+	lua_pushnumber(L,osg::NO_COLOR_SPACE_OPERATION); lua_setfield(L,-2,"NO_COLOR_SPACE_OPERATION");
+	lua_pushnumber(L,osg::MODULATE_ALPHA_BY_LUMINANCE); lua_setfield(L,-2,"MODULATE_ALPHA_BY_LUMINANCE");
+	lua_pushnumber(L,osg::MODULATE_ALPHA_BY_COLOR); lua_setfield(L,-2,"MODULATE_ALPHA_BY_COLOR");
+	lua_pushnumber(L,osg::REPLACE_ALPHA_WITH_LUMINANCE); lua_setfield(L,-2,"REPLACE_ALPHA_WITH_LUMINANCE");
+	lua_pushnumber(L,osg::REPLACE_RGB_WITH_LUMINANCE); lua_setfield(L,-2,"REPLACE_RGB_WITH_LUMINANCE");
+
+	lua_setfield(L,-2,"ColorSpaceOperation");
+
+	lua_pushnumber(L,osg::NO_COLOR_SPACE_OPERATION); lua_setfield(L,-2,"NO_COLOR_SPACE_OPERATION");
+	lua_pushnumber(L,osg::MODULATE_ALPHA_BY_LUMINANCE); lua_setfield(L,-2,"MODULATE_ALPHA_BY_LUMINANCE");
+	lua_pushnumber(L,osg::MODULATE_ALPHA_BY_COLOR); lua_setfield(L,-2,"MODULATE_ALPHA_BY_COLOR");
+	lua_pushnumber(L,osg::REPLACE_ALPHA_WITH_LUMINANCE); lua_setfield(L,-2,"REPLACE_ALPHA_WITH_LUMINANCE");
+	lua_pushnumber(L,osg::REPLACE_RGB_WITH_LUMINANCE); lua_setfield(L,-2,"REPLACE_RGB_WITH_LUMINANCE");
 
 
 	lua_newtable(L); // enum NotifySeverity

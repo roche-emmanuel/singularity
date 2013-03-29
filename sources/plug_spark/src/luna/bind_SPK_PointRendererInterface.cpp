@@ -199,8 +199,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		SPK::PointType type=luatop>0 ? (SPK::PointType)lua_tointeger(L,1) : SPK::POINT_SQUARE;
-		float size=luatop>1 ? (float)lua_tonumber(L,2) : 1.0f;
+		SPK::PointType type=luatop>0 ? (SPK::PointType)lua_tointeger(L,1) : (SPK::PointType)SPK::POINT_SQUARE;
+		float size=luatop>1 ? (float)lua_tonumber(L,2) : (float)1.0f;
 
 		return new SPK::PointRendererInterface(type, size);
 	}
@@ -214,8 +214,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		SPK::PointType type=luatop>1 ? (SPK::PointType)lua_tointeger(L,2) : SPK::POINT_SQUARE;
-		float size=luatop>2 ? (float)lua_tonumber(L,3) : 1.0f;
+		SPK::PointType type=luatop>1 ? (SPK::PointType)lua_tointeger(L,2) : (SPK::PointType)SPK::POINT_SQUARE;
+		float size=luatop>2 ? (float)lua_tonumber(L,3) : (float)1.0f;
 
 		return new wrapper_SPK_PointRendererInterface(L,NULL, type, size);
 	}

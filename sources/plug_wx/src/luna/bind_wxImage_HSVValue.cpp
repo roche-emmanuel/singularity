@@ -163,9 +163,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double h=luatop>0 ? (double)lua_tonumber(L,1) : 0.0;
-		double s=luatop>1 ? (double)lua_tonumber(L,2) : 0.0;
-		double v=luatop>2 ? (double)lua_tonumber(L,3) : 0.0;
+		double h=luatop>0 ? (double)lua_tonumber(L,1) : (double)0.0;
+		double s=luatop>1 ? (double)lua_tonumber(L,2) : (double)0.0;
+		double v=luatop>2 ? (double)lua_tonumber(L,3) : (double)0.0;
 
 		return new wxImage::HSVValue(h, s, v);
 	}

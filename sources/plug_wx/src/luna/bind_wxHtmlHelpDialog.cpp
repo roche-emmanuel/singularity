@@ -231,7 +231,7 @@ public:
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 		int wxWindowID=(int)lua_tointeger(L,2);
 		wxString title(lua_tostring(L,3),lua_objlen(L,3));
-		int style=luatop>3 ? (int)lua_tointeger(L,4) : wxHF_DEFAULT_STYLE;
+		int style=luatop>3 ? (int)lua_tointeger(L,4) : (int)wxHF_DEFAULT_STYLE;
 		wxHtmlHelpData* data=luatop>4 ? (Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,5)) : (wxHtmlHelpData*)NULL;
 
 		return new wxHtmlHelpDialog(parent, wxWindowID, title, style, data);
@@ -263,7 +263,7 @@ public:
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int wxWindowID=(int)lua_tointeger(L,3);
 		wxString title(lua_tostring(L,4),lua_objlen(L,4));
-		int style=luatop>4 ? (int)lua_tointeger(L,5) : wxHF_DEFAULT_STYLE;
+		int style=luatop>4 ? (int)lua_tointeger(L,5) : (int)wxHF_DEFAULT_STYLE;
 		wxHtmlHelpData* data=luatop>5 ? (Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,6)) : (wxHtmlHelpData*)NULL;
 
 		return new wrapper_wxHtmlHelpDialog(L,NULL, parent, wxWindowID, title, style, data);
@@ -314,7 +314,7 @@ public:
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int id=(int)lua_tointeger(L,3);
 		wxString title(lua_tostring(L,4),lua_objlen(L,4));
-		int style=luatop>4 ? (int)lua_tointeger(L,5) : wxHF_DEFAULT_STYLE;
+		int style=luatop>4 ? (int)lua_tointeger(L,5) : (int)wxHF_DEFAULT_STYLE;
 
 		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {

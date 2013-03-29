@@ -1306,8 +1306,8 @@ public:
 	inline static bool _lg_typecheck_base_GetSelection(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -1520,24 +1520,24 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_ANY;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxID_ANY;
 		wxString value(lua_tostring(L,3),lua_objlen(L,3));
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxComboCtrl::wxComboCtrl function");
 		}
-		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
 		if( luatop>4 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxComboCtrl::wxComboCtrl function");
 		}
-		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : 0;
+		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)0;
 		const wxValidator* validator_ptr=luatop>6 ? (Luna< wxObject >::checkSubType< wxValidator >(L,7)) : NULL;
 		if( luatop>6 && !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxComboCtrl::wxComboCtrl function");
 		}
-		const wxValidator & validator=luatop>6 ? *validator_ptr : wxDefaultValidator;
+		const wxValidator & validator=luatop>6 ? *validator_ptr : (const wxValidator&)wxDefaultValidator;
 		wxString name(lua_tostring(L,8),lua_objlen(L,8));
 
 		return new wxComboCtrl(parent, id, value, pos, size, style, validator, name);
@@ -1564,24 +1564,24 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxID_ANY;
 		wxString value(lua_tostring(L,4),lua_objlen(L,4));
 		const wxPoint* pos_ptr=luatop>4 ? (Luna< wxPoint >::check(L,5)) : NULL;
 		if( luatop>4 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxComboCtrl::wxComboCtrl function");
 		}
-		const wxPoint & pos=luatop>4 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>4 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>5 ? (Luna< wxSize >::check(L,6)) : NULL;
 		if( luatop>5 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxComboCtrl::wxComboCtrl function");
 		}
-		const wxSize & size=luatop>5 ? *size_ptr : wxDefaultSize;
-		long style=luatop>6 ? (long)lua_tointeger(L,7) : 0;
+		const wxSize & size=luatop>5 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>6 ? (long)lua_tointeger(L,7) : (long)0;
 		const wxValidator* validator_ptr=luatop>7 ? (Luna< wxObject >::checkSubType< wxValidator >(L,8)) : NULL;
 		if( luatop>7 && !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxComboCtrl::wxComboCtrl function");
 		}
-		const wxValidator & validator=luatop>7 ? *validator_ptr : wxDefaultValidator;
+		const wxValidator & validator=luatop>7 ? *validator_ptr : (const wxValidator&)wxDefaultValidator;
 		wxString name(lua_tostring(L,9),lua_objlen(L,9));
 
 		return new wrapper_wxComboCtrl(L,NULL, parent, id, value, pos, size, style, validator, name);
@@ -1628,24 +1628,24 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxID_ANY;
 		wxString value(lua_tostring(L,4),lua_objlen(L,4));
 		const wxPoint* pos_ptr=luatop>4 ? (Luna< wxPoint >::check(L,5)) : NULL;
 		if( luatop>4 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxComboCtrl::Create function");
 		}
-		const wxPoint & pos=luatop>4 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>4 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>5 ? (Luna< wxSize >::check(L,6)) : NULL;
 		if( luatop>5 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxComboCtrl::Create function");
 		}
-		const wxSize & size=luatop>5 ? *size_ptr : wxDefaultSize;
-		long style=luatop>6 ? (long)lua_tointeger(L,7) : 0;
+		const wxSize & size=luatop>5 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>6 ? (long)lua_tointeger(L,7) : (long)0;
 		const wxValidator* validator_ptr=luatop>7 ? (Luna< wxObject >::checkSubType< wxValidator >(L,8)) : NULL;
 		if( luatop>7 && !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxComboCtrl::Create function");
 		}
-		const wxValidator & validator=luatop>7 ? *validator_ptr : wxDefaultValidator;
+		const wxValidator & validator=luatop>7 ? *validator_ptr : (const wxValidator&)wxDefaultValidator;
 		wxString name(lua_tostring(L,9),lua_objlen(L,9));
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
@@ -1704,7 +1704,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -2051,7 +2051,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool generateEvent=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool generateEvent=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -2211,22 +2211,22 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bmpNormal in wxComboCtrl::SetButtonBitmaps function");
 		}
 		const wxBitmap & bmpNormal=*bmpNormal_ptr;
-		bool pushButtonBg=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool pushButtonBg=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 		const wxBitmap* bmpPressed_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,4)) : NULL;
 		if( luatop>3 && !bmpPressed_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bmpPressed in wxComboCtrl::SetButtonBitmaps function");
 		}
-		const wxBitmap & bmpPressed=luatop>3 ? *bmpPressed_ptr : wxNullBitmap;
+		const wxBitmap & bmpPressed=luatop>3 ? *bmpPressed_ptr : (const wxBitmap&)wxNullBitmap;
 		const wxBitmap* bmpHover_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,5)) : NULL;
 		if( luatop>4 && !bmpHover_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bmpHover in wxComboCtrl::SetButtonBitmaps function");
 		}
-		const wxBitmap & bmpHover=luatop>4 ? *bmpHover_ptr : wxNullBitmap;
+		const wxBitmap & bmpHover=luatop>4 ? *bmpHover_ptr : (const wxBitmap&)wxNullBitmap;
 		const wxBitmap* bmpDisabled_ptr=luatop>5 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,6)) : NULL;
 		if( luatop>5 && !bmpDisabled_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bmpDisabled in wxComboCtrl::SetButtonBitmaps function");
 		}
-		const wxBitmap & bmpDisabled=luatop>5 ? *bmpDisabled_ptr : wxNullBitmap;
+		const wxBitmap & bmpDisabled=luatop>5 ? *bmpDisabled_ptr : (const wxBitmap&)wxNullBitmap;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -2247,10 +2247,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int width=luatop>1 ? (int)lua_tointeger(L,2) : -1;
-		int height=luatop>2 ? (int)lua_tointeger(L,3) : -1;
-		int side=luatop>3 ? (int)lua_tointeger(L,4) : ::wxRIGHT;
-		int spacingX=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int width=luatop>1 ? (int)lua_tointeger(L,2) : (int)-1;
+		int height=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
+		int side=luatop>3 ? (int)lua_tointeger(L,4) : (int)::wxRIGHT;
+		int spacingX=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -2372,7 +2372,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int left=(int)lua_tointeger(L,2);
-		int top=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int top=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -2596,7 +2596,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
-		bool withEvent=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool withEvent=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -2653,7 +2653,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -2898,8 +2898,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
-		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
+		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -3065,7 +3065,7 @@ public:
 
 		int orientation=(int)lua_tointeger(L,2);
 		int pos=(int)lua_tointeger(L,3);
-		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -3090,7 +3090,7 @@ public:
 		int position=(int)lua_tointeger(L,3);
 		int thumbSize=(int)lua_tointeger(L,4);
 		int range=(int)lua_tointeger(L,5);
-		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -3377,7 +3377,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -3499,12 +3499,12 @@ public:
 		if( luatop>2 && !maxSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg maxSize in wxComboCtrl::base_SetSizeHints function");
 		}
-		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : wxDefaultSize;
+		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : (const wxSize&)wxDefaultSize;
 		const wxSize* incSize_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !incSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg incSize in wxComboCtrl::base_SetSizeHints function");
 		}
-		const wxSize & incSize=luatop>3 ? *incSize_ptr : wxDefaultSize;
+		const wxSize & incSize=luatop>3 ? *incSize_ptr : (const wxSize&)wxDefaultSize;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -3527,10 +3527,10 @@ public:
 
 		int minW=(int)lua_tointeger(L,2);
 		int minH=(int)lua_tointeger(L,3);
-		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int incW=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		int incH=luatop>6 ? (int)lua_tointeger(L,7) : -1;
+		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int incW=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+		int incH=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -3679,7 +3679,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 		const wxRect* rect=luatop>2 ? (Luna< wxRect >::check(L,3)) : (const wxRect*)NULL;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
@@ -3991,7 +3991,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -4051,7 +4051,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -4073,7 +4073,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -4096,7 +4096,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -4619,7 +4619,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -4700,7 +4700,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
@@ -4952,15 +4952,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxComboCtrl::base_GetSelection(long * from, long * to) const function, expected prototype:\nvoid wxComboCtrl::base_GetSelection(long * from, long * to) const\nClass arguments details:\n");
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long* from=(long*)Luna< void >::check(L,2);
+		long* to=(long*)Luna< void >::check(L,3);
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxComboCtrl::base_GetSelection(long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->wxComboCtrl::GetSelection(&from, &to);
+		self->wxComboCtrl::GetSelection(from, to);
 
 		return 0;
 	}
@@ -5254,7 +5254,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool generateEvent=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool generateEvent=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxComboCtrl* self=Luna< wxObject >::checkSubType< wxComboCtrl >(L,1);
 		if(!self) {

@@ -164,7 +164,7 @@ public:
 
 		std::string txt_str(lua_tostring(L,1),lua_objlen(L,1));
 		std::wstring txt = sgt::s2ws(txt_str);
-		double v=luatop>1 ? (double)lua_tonumber(L,2) : 0;
+		double v=luatop>1 ? (double)lua_tonumber(L,2) : (double)0;
 
 		return new mglText(txt, v);
 	}

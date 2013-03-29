@@ -712,7 +712,7 @@ public:
 	bool SetBackgroundStyle(wxBackgroundStyle style) {
 		if(_obj.pushFunction("SetBackgroundStyle")) {
 			_obj.pushArg((wxChoice*)this);
-			_obj.pushArg(style);
+			_obj.pushArg((int)style);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -860,7 +860,7 @@ public:
 	bool HideWithEffect(wxShowEffect effect, unsigned int timeout = 0) {
 		if(_obj.pushFunction("HideWithEffect")) {
 			_obj.pushArg((wxChoice*)this);
-			_obj.pushArg(effect);
+			_obj.pushArg((int)effect);
 			_obj.pushArg(timeout);
 			return (_obj.callFunction<bool>());
 		}
@@ -914,7 +914,7 @@ public:
 	bool ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0) {
 		if(_obj.pushFunction("ShowWithEffect")) {
 			_obj.pushArg((wxChoice*)this);
-			_obj.pushArg(effect);
+			_obj.pushArg((int)effect);
 			_obj.pushArg(timeout);
 			return (_obj.callFunction<bool>());
 		}
@@ -927,7 +927,7 @@ public:
 		if(_obj.pushFunction("GetHelpTextAtPoint")) {
 			_obj.pushArg((wxChoice*)this);
 			_obj.pushArg(&point);
-			_obj.pushArg(origin);
+			_obj.pushArg((int)origin);
 			return *(_obj.callFunction<wxString*>());
 		}
 
@@ -1009,7 +1009,7 @@ public:
 	void SetLayoutDirection(wxLayoutDirection dir) {
 		if(_obj.pushFunction("SetLayoutDirection")) {
 			_obj.pushArg((wxChoice*)this);
-			_obj.pushArg(dir);
+			_obj.pushArg((int)dir);
 			return (_obj.callFunction<void>());
 		}
 
@@ -1404,7 +1404,7 @@ protected:
 // int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter & arg1, unsigned int arg2, void ** arg3, wxClientDataType arg4)
 int DoInsertItems(const wxArrayStringsAdapter &, unsigned int, void **, wxClientDataType) {
 	THROW_IF(true,"The function call int wxItemContainer::DoInsertItems(const wxArrayStringsAdapter &, unsigned int, void **, wxClientDataType) is not implemented in wrapper.");
-	return int();
+	return (int)0;
 };
 
 };

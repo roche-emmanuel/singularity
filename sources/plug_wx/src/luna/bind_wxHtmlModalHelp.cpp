@@ -128,7 +128,7 @@ public:
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 		wxString helpFile(lua_tostring(L,2),lua_objlen(L,2));
 		wxString topic(lua_tostring(L,3),lua_objlen(L,3));
-		int style=luatop>3 ? (int)lua_tointeger(L,4) : wxHF_DEFAULT_STYLE | wxHF_DIALOG | wxHF_MODAL;
+		int style=luatop>3 ? (int)lua_tointeger(L,4) : (int)wxHF_DEFAULT_STYLE | wxHF_DIALOG | wxHF_MODAL;
 
 		return new wxHtmlModalHelp(parent, helpFile, topic, style);
 	}

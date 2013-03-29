@@ -426,7 +426,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool useDiamondSubdivision=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool useDiamondSubdivision=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		btHeightfieldTerrainShape* self=Luna< btCollisionShape >::checkSubType< btHeightfieldTerrainShape >(L,1);
 		if(!self) {
@@ -447,7 +447,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool useZigzagSubdivision=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool useZigzagSubdivision=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		btHeightfieldTerrainShape* self=Luna< btCollisionShape >::checkSubType< btHeightfieldTerrainShape >(L,1);
 		if(!self) {

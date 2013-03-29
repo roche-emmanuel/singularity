@@ -168,8 +168,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int winid=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		int winid=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		return new wrapper_wxShowEvent(L,NULL, winid, show);
 	}

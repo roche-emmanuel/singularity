@@ -343,7 +343,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxBrush::wxBrush function");
 		}
 		const wxColour & colour=*colour_ptr;
-		wxBrushStyle style=luatop>1 ? (wxBrushStyle)lua_tointeger(L,2) : ::wxBRUSHSTYLE_SOLID;
+		wxBrushStyle style=luatop>1 ? (wxBrushStyle)lua_tointeger(L,2) : (wxBrushStyle)::wxBRUSHSTYLE_SOLID;
 
 		return new wxBrush(colour, style);
 	}
@@ -405,7 +405,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxBrush::wxBrush function");
 		}
 		const wxColour & colour=*colour_ptr;
-		wxBrushStyle style=luatop>2 ? (wxBrushStyle)lua_tointeger(L,3) : ::wxBRUSHSTYLE_SOLID;
+		wxBrushStyle style=luatop>2 ? (wxBrushStyle)lua_tointeger(L,3) : (wxBrushStyle)::wxBRUSHSTYLE_SOLID;
 
 		return new wrapper_wxBrush(L,NULL, colour, style);
 	}

@@ -336,7 +336,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxStreamError error=luatop>1 ? (wxStreamError)lua_tointeger(L,2) : ::wxSTREAM_NO_ERROR;
+		wxStreamError error=luatop>1 ? (wxStreamError)lua_tointeger(L,2) : (wxStreamError)::wxSTREAM_NO_ERROR;
 
 		wxStreamBase* self=Luna< wxObject >::checkSubType< wxStreamBase >(L,1);
 		if(!self) {

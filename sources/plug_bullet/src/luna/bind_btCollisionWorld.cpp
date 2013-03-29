@@ -864,7 +864,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg resultCallback in btCollisionWorld::convexSweepTest function");
 		}
 		btCollisionWorld::ConvexResultCallback & resultCallback=*resultCallback_ptr;
-		float allowedCcdPenetration=luatop>5 ? (float)lua_tonumber(L,6) : float (0.);
+		float allowedCcdPenetration=luatop>5 ? (float)lua_tonumber(L,6) : (float)float (0.);
 
 		btCollisionWorld* self=(Luna< btCollisionWorld >::check(L,1));
 		if(!self) {
@@ -935,8 +935,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		btCollisionObject* collisionObject=(Luna< btCollisionObject >::check(L,2));
-		short int collisionFilterGroup=luatop>2 ? (short int)lua_tointeger(L,3) : btBroadphaseProxy::DefaultFilter;
-		short int collisionFilterMask=luatop>3 ? (short int)lua_tointeger(L,4) : btBroadphaseProxy::AllFilter;
+		short int collisionFilterGroup=luatop>2 ? (short int)lua_tointeger(L,3) : (short int)btBroadphaseProxy::DefaultFilter;
+		short int collisionFilterMask=luatop>3 ? (short int)lua_tointeger(L,4) : (short int)btBroadphaseProxy::AllFilter;
 
 		btCollisionWorld* self=(Luna< btCollisionWorld >::check(L,1));
 		if(!self) {
@@ -1423,8 +1423,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		btCollisionObject* collisionObject=(Luna< btCollisionObject >::check(L,2));
-		short int collisionFilterGroup=luatop>2 ? (short int)lua_tointeger(L,3) : btBroadphaseProxy::DefaultFilter;
-		short int collisionFilterMask=luatop>3 ? (short int)lua_tointeger(L,4) : btBroadphaseProxy::AllFilter;
+		short int collisionFilterGroup=luatop>2 ? (short int)lua_tointeger(L,3) : (short int)btBroadphaseProxy::DefaultFilter;
+		short int collisionFilterMask=luatop>3 ? (short int)lua_tointeger(L,4) : (short int)btBroadphaseProxy::AllFilter;
 
 		btCollisionWorld* self=(Luna< btCollisionWorld >::check(L,1));
 		if(!self) {

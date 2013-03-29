@@ -189,7 +189,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int flags=luatop>0 ? (unsigned int)lua_tointeger(L,1) : 0;
+		unsigned int flags=luatop>0 ? (unsigned int)lua_tointeger(L,1) : (unsigned int)0;
 
 		return new wxFindReplaceData(flags);
 	}
@@ -203,7 +203,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int flags=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int flags=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		return new wrapper_wxFindReplaceData(L,NULL, flags);
 	}

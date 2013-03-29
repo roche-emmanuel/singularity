@@ -1,37 +1,25 @@
 #include <plug_common.h>
 
-#include <wx/access.h>
 #include <wx/anybutton.h>
-#include <wx/bitmap.h>
-#include <wx/bookctrl.h>
 #include <wx/checkbox.h>
-#include <wx/clipbrd.h>
 #include <wx/collpane.h>
-#include <wx/cpp.h>
 #include <wx/dataview.h>
-#include <wx/datetime.h>
 #include <wx/dcbuffer.h>
-#include <wx/debug.h>
 #include <wx/defs.h>
 #include <wx/dialog.h>
 #include <wx/gauge.h>
-#include <wx/icon.h>
-#include <wx/image.h>
 #include <wx/imaglist.h>
-#include <wx/longlong.h>
 #include <wx/notebook.h>
 #include <wx/progdlg.h>
-#include <wx/propgrid/property.h>
-#include <wx/propgrid/propgrid.h>
 #include <wx/richtext/richtextbuffer.h>
 #include <wx/richtext/richtextctrl.h>
 #include <wx/slider.h>
 #include <wx/splitter.h>
-#include <wx/stackwalk.h>
 #include <wx/stattext.h>
 #include <wx/statusbr.h>
 #include <wx/textctrl.h>
-#include <wx/timer.h>
+#include <wx_defines.h>
+#include <wx_events.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -155,13 +143,6 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,wxRESIZE_BORDER); lua_setfield(L,-2,"wxRESIZE_BORDER");
 	lua_pushnumber(L,wxDEFAULT_DIALOG_STYLE); lua_setfield(L,-2,"wxDEFAULT_DIALOG_STYLE");
 	lua_pushnumber(L,wxGA_SMOOTH); lua_setfield(L,-2,"wxGA_SMOOTH");
-	lua_pushnumber(L,wxEVT_COMMAND_TREELIST_SELECTION_CHANGED); lua_setfield(L,-2,"wxEVT_COMMAND_TREELIST_SELECTION_CHANGED");
-	lua_pushnumber(L,wxEVT_COMMAND_TREELIST_ITEM_EXPANDING); lua_setfield(L,-2,"wxEVT_COMMAND_TREELIST_ITEM_EXPANDING");
-	lua_pushnumber(L,wxEVT_COMMAND_TREELIST_ITEM_EXPANDED); lua_setfield(L,-2,"wxEVT_COMMAND_TREELIST_ITEM_EXPANDED");
-	lua_pushnumber(L,wxEVT_COMMAND_TREELIST_ITEM_CHECKED); lua_setfield(L,-2,"wxEVT_COMMAND_TREELIST_ITEM_CHECKED");
-	lua_pushnumber(L,wxEVT_COMMAND_TREELIST_ITEM_ACTIVATED); lua_setfield(L,-2,"wxEVT_COMMAND_TREELIST_ITEM_ACTIVATED");
-	lua_pushnumber(L,wxEVT_COMMAND_TREELIST_ITEM_CONTEXT_MENU); lua_setfield(L,-2,"wxEVT_COMMAND_TREELIST_ITEM_CONTEXT_MENU");
-	lua_pushnumber(L,wxEVT_COMMAND_TREELIST_COLUMN_SORTED); lua_setfield(L,-2,"wxEVT_COMMAND_TREELIST_COLUMN_SORTED");
 	lua_pushnumber(L,wxIMAGELIST_DRAW_NORMAL); lua_setfield(L,-2,"wxIMAGELIST_DRAW_NORMAL");
 	lua_pushnumber(L,wxIMAGELIST_DRAW_TRANSPARENT); lua_setfield(L,-2,"wxIMAGELIST_DRAW_TRANSPARENT");
 	lua_pushnumber(L,wxIMAGELIST_DRAW_SELECTED); lua_setfield(L,-2,"wxIMAGELIST_DRAW_SELECTED");

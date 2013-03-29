@@ -139,6 +139,16 @@ public:
 		return GraphicsWindowEmbedded::releaseGLObjects(arg1);
 	};
 
+	// void osg::GraphicsContext::runOperations()
+	void runOperations() {
+		if(_obj.pushFunction("runOperations")) {
+			_obj.pushArg((osgViewer::GraphicsWindowEmbedded*)this);
+			return (_obj.callFunction<void>());
+		}
+
+		return GraphicsWindowEmbedded::runOperations();
+	};
+
 	// void osg::GraphicsContext::clear()
 	void clear() {
 		if(_obj.pushFunction("clear")) {

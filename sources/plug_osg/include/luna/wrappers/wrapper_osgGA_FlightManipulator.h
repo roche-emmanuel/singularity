@@ -426,6 +426,17 @@ public:
 		return FlightManipulator::setCoordinateFrameCallback(cb);
 	};
 
+	// void osgGA::CameraManipulator::updateCamera(osg::Camera & camera)
+	void updateCamera(osg::Camera & camera) {
+		if(_obj.pushFunction("updateCamera")) {
+			_obj.pushArg((osgGA::FlightManipulator*)this);
+			_obj.pushArg(&camera);
+			return (_obj.callFunction<void>());
+		}
+
+		return FlightManipulator::updateCamera(camera);
+	};
+
 	// osgUtil::SceneView::FusionDistanceMode osgGA::CameraManipulator::getFusionDistanceMode() const
 	osgUtil::SceneView::FusionDistanceMode getFusionDistanceMode() const {
 		if(_obj.pushFunction("getFusionDistanceMode")) {

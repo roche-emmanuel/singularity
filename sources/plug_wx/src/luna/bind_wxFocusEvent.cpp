@@ -162,8 +162,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int eventType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int eventType=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		return new wrapper_wxFocusEvent(L,NULL, eventType, id);
 	}

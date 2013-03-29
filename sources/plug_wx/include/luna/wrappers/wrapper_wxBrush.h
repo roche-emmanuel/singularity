@@ -180,7 +180,7 @@ public:
 	void SetStyle(wxBrushStyle style) {
 		if(_obj.pushFunction("SetStyle")) {
 			_obj.pushArg((wxBrush*)this);
-			_obj.pushArg(style);
+			_obj.pushArg((int)style);
 			return (_obj.callFunction<void>());
 		}
 

@@ -177,10 +177,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double v11=luatop>0 ? (double)lua_tonumber(L,1) : 1;
-		double v12=luatop>1 ? (double)lua_tonumber(L,2) : 0;
-		double v21=luatop>2 ? (double)lua_tonumber(L,3) : 0;
-		double v22=luatop>3 ? (double)lua_tonumber(L,4) : 1;
+		double v11=luatop>0 ? (double)lua_tonumber(L,1) : (double)1;
+		double v12=luatop>1 ? (double)lua_tonumber(L,2) : (double)0;
+		double v21=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
+		double v22=luatop>3 ? (double)lua_tonumber(L,4) : (double)1;
 
 		return new wxMatrix2D(v11, v12, v21, v22);
 	}

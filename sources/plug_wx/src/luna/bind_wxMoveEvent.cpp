@@ -180,7 +180,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg pt in wxMoveEvent::wxMoveEvent function");
 		}
 		const wxPoint & pt=*pt_ptr;
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		return new wrapper_wxMoveEvent(L,NULL, pt, id);
 	}

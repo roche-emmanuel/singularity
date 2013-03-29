@@ -155,7 +155,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int windowId=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int windowId=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 		wxWindow* gainedCapture=luatop>2 ? (Luna< wxObject >::checkSubType< wxWindow >(L,3)) : (wxWindow*)NULL;
 
 		return new wrapper_wxMouseCaptureChangedEvent(L,NULL, windowId, gainedCapture);

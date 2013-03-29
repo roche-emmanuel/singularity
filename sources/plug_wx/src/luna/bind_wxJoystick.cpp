@@ -408,7 +408,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int joystick=luatop>0 ? (int)lua_tointeger(L,1) : ::wxJOYSTICK1;
+		int joystick=luatop>0 ? (int)lua_tointeger(L,1) : (int)::wxJOYSTICK1;
 
 		return new wxJoystick(joystick);
 	}
@@ -422,7 +422,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int joystick=luatop>1 ? (int)lua_tointeger(L,2) : ::wxJOYSTICK1;
+		int joystick=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxJOYSTICK1;
 
 		return new wrapper_wxJoystick(L,NULL, joystick);
 	}
@@ -1212,7 +1212,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int pollingFreq=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int pollingFreq=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {

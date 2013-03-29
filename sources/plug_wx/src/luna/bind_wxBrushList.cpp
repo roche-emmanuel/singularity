@@ -117,7 +117,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxBrushList::FindOrCreateBrush function");
 		}
 		const wxColour & colour=*colour_ptr;
-		wxBrushStyle style=luatop>2 ? (wxBrushStyle)lua_tointeger(L,3) : ::wxBRUSHSTYLE_SOLID;
+		wxBrushStyle style=luatop>2 ? (wxBrushStyle)lua_tointeger(L,3) : (wxBrushStyle)::wxBRUSHSTYLE_SOLID;
 
 		wxBrushList* self=Luna< wxList >::checkSubType< wxBrushList >(L,1);
 		if(!self) {

@@ -318,8 +318,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float scaleX=luatop>1 ? (float)lua_tonumber(L,2) : 1.0f;
-		float scaleY=luatop>2 ? (float)lua_tonumber(L,3) : 1.0f;
+		float scaleX=luatop>1 ? (float)lua_tonumber(L,2) : (float)1.0f;
+		float scaleY=luatop>2 ? (float)lua_tonumber(L,3) : (float)1.0f;
 
 		return new wrapper_SPK_GL_GLQuadRenderer(L,NULL, scaleX, scaleY);
 	}
@@ -481,8 +481,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float scaleX=luatop>0 ? (float)lua_tonumber(L,1) : 1.0f;
-		float scaleY=luatop>1 ? (float)lua_tonumber(L,2) : 1.0f;
+		float scaleX=luatop>0 ? (float)lua_tonumber(L,1) : (float)1.0f;
+		float scaleY=luatop>1 ? (float)lua_tonumber(L,2) : (float)1.0f;
 
 		SPK::GL::GLQuadRenderer * lret = SPK::GL::GLQuadRenderer::create(scaleX, scaleY);
 		if(!lret) return 0; // Do not write NULL pointers.

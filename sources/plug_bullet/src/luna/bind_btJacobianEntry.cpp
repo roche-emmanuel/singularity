@@ -341,13 +341,13 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg inertiaInvA in btJacobianEntry::btJacobianEntry function");
 		}
 		const btVector3 & inertiaInvA=*inertiaInvA_ptr;
-		float massInvA=(float)lua_tonumber(L,7);
+		const float massInvA=(const float)lua_tonumber(L,7);
 		const btVector3* inertiaInvB_ptr=(Luna< btVector3 >::check(L,8));
 		if( !inertiaInvB_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg inertiaInvB in btJacobianEntry::btJacobianEntry function");
 		}
 		const btVector3 & inertiaInvB=*inertiaInvB_ptr;
-		float massInvB=(float)lua_tonumber(L,9);
+		const float massInvB=(const float)lua_tonumber(L,9);
 
 		return new btJacobianEntry(world2A, world2B, rel_pos1, rel_pos2, jointAxis, inertiaInvA, massInvA, inertiaInvB, massInvB);
 	}
@@ -451,7 +451,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg inertiaInvA in btJacobianEntry::btJacobianEntry function");
 		}
 		const btVector3 & inertiaInvA=*inertiaInvA_ptr;
-		float massInvA=(float)lua_tonumber(L,6);
+		const float massInvA=(const float)lua_tonumber(L,6);
 
 		return new btJacobianEntry(world2A, rel_pos1, rel_pos2, jointAxis, inertiaInvA, massInvA);
 	}
@@ -501,7 +501,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg jacB in btJacobianEntry::getNonDiagonal function");
 		}
 		const btJacobianEntry & jacB=*jacB_ptr;
-		float massInvA=(float)lua_tonumber(L,3);
+		const float massInvA=(const float)lua_tonumber(L,3);
 
 		btJacobianEntry* self=(Luna< btJacobianEntry >::check(L,1));
 		if(!self) {
@@ -526,8 +526,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg jacB in btJacobianEntry::getNonDiagonal function");
 		}
 		const btJacobianEntry & jacB=*jacB_ptr;
-		float massInvA=(float)lua_tonumber(L,3);
-		float massInvB=(float)lua_tonumber(L,4);
+		const float massInvA=(const float)lua_tonumber(L,3);
+		const float massInvB=(const float)lua_tonumber(L,4);
 
 		btJacobianEntry* self=(Luna< btJacobianEntry >::check(L,1));
 		if(!self) {

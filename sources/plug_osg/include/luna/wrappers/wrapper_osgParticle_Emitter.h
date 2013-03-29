@@ -176,6 +176,26 @@ public:
 		return Emitter::asTransform();
 	};
 
+	// osg::Camera * osg::Node::asCamera()
+	osg::Camera * asCamera() {
+		if(_obj.pushFunction("asCamera")) {
+			_obj.pushArg((osgParticle::Emitter*)this);
+			return (_obj.callFunction<osg::Camera*>());
+		}
+
+		return Emitter::asCamera();
+	};
+
+	// const osg::Camera * osg::Node::asCamera() const
+	const osg::Camera * asCamera() const {
+		if(_obj.pushFunction("asCamera")) {
+			_obj.pushArg((osgParticle::Emitter*)this);
+			return (_obj.callFunction<osg::Camera*>());
+		}
+
+		return Emitter::asCamera();
+	};
+
 	// osg::Switch * osg::Node::asSwitch()
 	osg::Switch * asSwitch() {
 		if(_obj.pushFunction("asSwitch")) {

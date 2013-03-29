@@ -52,7 +52,7 @@ protected:
 		if(_obj.pushFunction("OnSysSeek")) {
 			_obj.pushArg((wxStringOutputStream*)this);
 			_obj.pushArg(pos);
-			_obj.pushArg(mode);
+			_obj.pushArg((int)mode);
 			return (_obj.callFunction<long long>());
 		}
 
@@ -146,7 +146,7 @@ public:
 		if(_obj.pushFunction("SeekO")) {
 			_obj.pushArg((wxStringOutputStream*)this);
 			_obj.pushArg(pos);
-			_obj.pushArg(mode);
+			_obj.pushArg((int)mode);
 			return (_obj.callFunction<long long>());
 		}
 

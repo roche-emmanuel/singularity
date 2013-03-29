@@ -138,9 +138,9 @@ public:
 		wxFontFamily family=(wxFontFamily)lua_tointeger(L,3);
 		wxFontStyle style=(wxFontStyle)lua_tointeger(L,4);
 		wxFontWeight weight=(wxFontWeight)lua_tointeger(L,5);
-		bool underline=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
+		bool underline=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)false;
 		wxString facename(lua_tostring(L,7),lua_objlen(L,7));
-		wxFontEncoding encoding=luatop>7 ? (wxFontEncoding)lua_tointeger(L,8) : ::wxFONTENCODING_DEFAULT;
+		wxFontEncoding encoding=luatop>7 ? (wxFontEncoding)lua_tointeger(L,8) : (wxFontEncoding)::wxFONTENCODING_DEFAULT;
 
 		wxFontList* self=Luna< wxList >::checkSubType< wxFontList >(L,1);
 		if(!self) {

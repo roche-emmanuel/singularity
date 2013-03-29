@@ -297,7 +297,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxEvtHandler* parent=luatop>0 ? (Luna< wxObject >::checkSubType< wxEvtHandler >(L,1)) : (wxEvtHandler*)NULL;
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : -1;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)-1;
 
 		return new wxProcess(parent, id);
 	}
@@ -324,7 +324,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxEvtHandler* parent=luatop>1 ? (Luna< wxObject >::checkSubType< wxEvtHandler >(L,2)) : (wxEvtHandler*)NULL;
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		return new wrapper_wxProcess(L,NULL, parent, id);
 	}
@@ -592,7 +592,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString cmd(lua_tostring(L,1),lua_objlen(L,1));
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxEXEC_ASYNC;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxEXEC_ASYNC;
 
 		wxProcess * lret = wxProcess::Open(cmd, flags);
 		if(!lret) return 0; // Do not write NULL pointers.

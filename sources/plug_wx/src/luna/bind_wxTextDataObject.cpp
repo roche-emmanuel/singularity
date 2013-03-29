@@ -280,7 +280,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDataObject::Direction dir=luatop>1 ? (wxDataObject::Direction)lua_tointeger(L,2) : wxDataObject::Get;
+		wxDataObject::Direction dir=luatop>1 ? (wxDataObject::Direction)lua_tointeger(L,2) : (wxDataObject::Direction)wxDataObject::Get;
 
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
@@ -324,7 +324,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDataFormat* formats=(Luna< wxDataFormat >::check(L,2));
-		wxDataObject::Direction dir=luatop>2 ? (wxDataObject::Direction)lua_tointeger(L,3) : wxDataObject::Get;
+		wxDataObject::Direction dir=luatop>2 ? (wxDataObject::Direction)lua_tointeger(L,3) : (wxDataObject::Direction)wxDataObject::Get;
 
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
@@ -462,7 +462,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDataObject::Direction dir=luatop>1 ? (wxDataObject::Direction)lua_tointeger(L,2) : wxDataObject::Get;
+		wxDataObject::Direction dir=luatop>1 ? (wxDataObject::Direction)lua_tointeger(L,2) : (wxDataObject::Direction)wxDataObject::Get;
 
 		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {

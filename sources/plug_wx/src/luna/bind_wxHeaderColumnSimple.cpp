@@ -422,9 +422,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString title(lua_tostring(L,1),lua_objlen(L,1));
-		int width=luatop>1 ? (int)lua_tointeger(L,2) : ::wxCOL_WIDTH_DEFAULT;
-		wxAlignment align=luatop>2 ? (wxAlignment)lua_tointeger(L,3) : ::wxALIGN_NOT;
-		int flags=luatop>3 ? (int)lua_tointeger(L,4) : ::wxCOL_DEFAULT_FLAGS;
+		int width=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxCOL_WIDTH_DEFAULT;
+		wxAlignment align=luatop>2 ? (wxAlignment)lua_tointeger(L,3) : (wxAlignment)::wxALIGN_NOT;
+		int flags=luatop>3 ? (int)lua_tointeger(L,4) : (int)::wxCOL_DEFAULT_FLAGS;
 
 		return new wxHeaderColumnSimple(title, width, align, flags);
 	}
@@ -443,9 +443,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxHeaderColumnSimple::wxHeaderColumnSimple function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
-		int width=luatop>1 ? (int)lua_tointeger(L,2) : ::wxCOL_WIDTH_DEFAULT;
-		wxAlignment align=luatop>2 ? (wxAlignment)lua_tointeger(L,3) : ::wxALIGN_CENTER;
-		int flags=luatop>3 ? (int)lua_tointeger(L,4) : ::wxCOL_DEFAULT_FLAGS;
+		int width=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxCOL_WIDTH_DEFAULT;
+		wxAlignment align=luatop>2 ? (wxAlignment)lua_tointeger(L,3) : (wxAlignment)::wxALIGN_CENTER;
+		int flags=luatop>3 ? (int)lua_tointeger(L,4) : (int)::wxCOL_DEFAULT_FLAGS;
 
 		return new wxHeaderColumnSimple(bitmap, width, align, flags);
 	}
@@ -460,9 +460,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString title(lua_tostring(L,2),lua_objlen(L,2));
-		int width=luatop>2 ? (int)lua_tointeger(L,3) : ::wxCOL_WIDTH_DEFAULT;
-		wxAlignment align=luatop>3 ? (wxAlignment)lua_tointeger(L,4) : ::wxALIGN_NOT;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : ::wxCOL_DEFAULT_FLAGS;
+		int width=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxCOL_WIDTH_DEFAULT;
+		wxAlignment align=luatop>3 ? (wxAlignment)lua_tointeger(L,4) : (wxAlignment)::wxALIGN_NOT;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)::wxCOL_DEFAULT_FLAGS;
 
 		return new wrapper_wxHeaderColumnSimple(L,NULL, title, width, align, flags);
 	}
@@ -481,9 +481,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxHeaderColumnSimple::wxHeaderColumnSimple function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
-		int width=luatop>2 ? (int)lua_tointeger(L,3) : ::wxCOL_WIDTH_DEFAULT;
-		wxAlignment align=luatop>3 ? (wxAlignment)lua_tointeger(L,4) : ::wxALIGN_CENTER;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : ::wxCOL_DEFAULT_FLAGS;
+		int width=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxCOL_WIDTH_DEFAULT;
+		wxAlignment align=luatop>3 ? (wxAlignment)lua_tointeger(L,4) : (wxAlignment)::wxALIGN_CENTER;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)::wxCOL_DEFAULT_FLAGS;
 
 		return new wrapper_wxHeaderColumnSimple(L,NULL, bitmap, width, align, flags);
 	}

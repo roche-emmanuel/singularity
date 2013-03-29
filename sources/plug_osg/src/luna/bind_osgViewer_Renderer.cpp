@@ -213,6 +213,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_reset(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_setCameraRequiresSetUp(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -258,6 +264,12 @@ public:
 	}
 
 	inline static bool _lg_typecheck_base_release(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_reset(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -576,6 +588,24 @@ public:
 		return 0;
 	}
 
+	// void osgViewer::Renderer::reset()
+	static int _bind_reset(lua_State *L) {
+		if (!_lg_typecheck_reset(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::Renderer::reset() function, expected prototype:\nvoid osgViewer::Renderer::reset()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->reset();
+
+		return 0;
+	}
+
 	// void osgViewer::Renderer::setCameraRequiresSetUp(bool flag)
 	static int _bind_setCameraRequiresSetUp(lua_State *L) {
 		if (!_lg_typecheck_setCameraRequiresSetUp(L)) {
@@ -723,6 +753,24 @@ public:
 		return 0;
 	}
 
+	// void osgViewer::Renderer::base_reset()
+	static int _bind_base_reset(lua_State *L) {
+		if (!_lg_typecheck_base_reset(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::Renderer::base_reset() function, expected prototype:\nvoid osgViewer::Renderer::base_reset()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::Renderer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Renderer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::Renderer::base_reset(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->Renderer::reset();
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// void osgViewer::Renderer::operator()(osg::Object * object)
@@ -803,6 +851,7 @@ luna_RegType LunaTraits< osgViewer::Renderer >::methods[] = {
 	{"setCompileOnNextDraw", &luna_wrapper_osgViewer_Renderer::_bind_setCompileOnNextDraw},
 	{"getCompileOnNextDraw", &luna_wrapper_osgViewer_Renderer::_bind_getCompileOnNextDraw},
 	{"release", &luna_wrapper_osgViewer_Renderer::_bind_release},
+	{"reset", &luna_wrapper_osgViewer_Renderer::_bind_reset},
 	{"setCameraRequiresSetUp", &luna_wrapper_osgViewer_Renderer::_bind_setCameraRequiresSetUp},
 	{"getCameraRequiresSetUp", &luna_wrapper_osgViewer_Renderer::_bind_getCameraRequiresSetUp},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgViewer_Renderer::_bind_base_setThreadSafeRefUnref},
@@ -811,6 +860,7 @@ luna_RegType LunaTraits< osgViewer::Renderer >::methods[] = {
 	{"base_cull_draw", &luna_wrapper_osgViewer_Renderer::_bind_base_cull_draw},
 	{"base_compile", &luna_wrapper_osgViewer_Renderer::_bind_base_compile},
 	{"base_release", &luna_wrapper_osgViewer_Renderer::_bind_base_release},
+	{"base_reset", &luna_wrapper_osgViewer_Renderer::_bind_base_reset},
 	{"op_call", &luna_wrapper_osgViewer_Renderer::_bind_op_call},
 	{"__eq", &luna_wrapper_osgViewer_Renderer::_bind___eq},
 	{"fromVoid", &luna_wrapper_osgViewer_Renderer::_bind_fromVoid},

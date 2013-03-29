@@ -170,8 +170,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int command_type=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
-		int win_id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int command_type=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxEVT_NULL;
+		int win_id=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		return new wxAuiNotebookEvent(command_type, win_id);
 	}
@@ -185,8 +185,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int command_type=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
-		int win_id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int command_type=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
+		int win_id=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		return new wrapper_wxAuiNotebookEvent(L,NULL, command_type, win_id);
 	}

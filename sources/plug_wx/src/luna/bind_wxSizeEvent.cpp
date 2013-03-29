@@ -180,7 +180,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg sz in wxSizeEvent::wxSizeEvent function");
 		}
 		const wxSize & sz=*sz_ptr;
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		return new wrapper_wxSizeEvent(L,NULL, sz, id);
 	}

@@ -241,7 +241,7 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
@@ -294,7 +294,7 @@ public:
 		if( luatop<3 || luatop>4 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
@@ -376,7 +376,7 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
@@ -475,7 +475,7 @@ public:
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 		void* data=(Luna< void >::check(L,3));
 		size_t size=(size_t)lua_tointeger(L,4);
-		wxIPCFormat format=luatop>4 ? (wxIPCFormat)lua_tointeger(L,5) : ::wxIPC_PRIVATE;
+		wxIPCFormat format=luatop>4 ? (wxIPCFormat)lua_tointeger(L,5) : (wxIPCFormat)::wxIPC_PRIVATE;
 
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
@@ -570,7 +570,7 @@ public:
 
 		void* data=(Luna< void >::check(L,2));
 		size_t size=(size_t)lua_tointeger(L,3);
-		wxIPCFormat format=luatop>3 ? (wxIPCFormat)lua_tointeger(L,4) : ::wxIPC_PRIVATE;
+		wxIPCFormat format=luatop>3 ? (wxIPCFormat)lua_tointeger(L,4) : (wxIPCFormat)::wxIPC_PRIVATE;
 
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
@@ -730,7 +730,7 @@ public:
 
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
-		size_t size=(size_t)lua_tointeger(L,4);
+		size_t* size=(size_t*)Luna< void >::check(L,4);
 		wxIPCFormat format=(wxIPCFormat)lua_tointeger(L,5);
 
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
@@ -738,7 +738,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const void * wxConnection::OnRequest(const wxString &, const wxString &, size_t *, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		const void * lret = self->OnRequest(topic, item, &size, format);
+		const void * lret = self->OnRequest(topic, item, size, format);
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< void >::push(L,lret,false);
@@ -800,7 +800,7 @@ public:
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 		void* data=(Luna< void >::check(L,3));
 		size_t size=(size_t)lua_tointeger(L,4);
-		wxIPCFormat format=luatop>4 ? (wxIPCFormat)lua_tointeger(L,5) : ::wxIPC_PRIVATE;
+		wxIPCFormat format=luatop>4 ? (wxIPCFormat)lua_tointeger(L,5) : (wxIPCFormat)::wxIPC_PRIVATE;
 
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
@@ -875,15 +875,15 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
-		size_t size=(size_t)lua_tointeger(L,3);
-		wxIPCFormat format=luatop>3 ? (wxIPCFormat)lua_tointeger(L,4) : ::wxIPC_TEXT;
+		size_t* size=(size_t*)Luna< void >::check(L,3);
+		wxIPCFormat format=luatop>3 ? (wxIPCFormat)lua_tointeger(L,4) : (wxIPCFormat)::wxIPC_TEXT;
 
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const void * wxConnection::Request(const wxString &, size_t *, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		const void * lret = self->Request(item, &size, format);
+		const void * lret = self->Request(item, size, format);
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< void >::push(L,lret,false);
@@ -1081,7 +1081,7 @@ public:
 
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
-		size_t size=(size_t)lua_tointeger(L,4);
+		size_t* size=(size_t*)Luna< void >::check(L,4);
 		wxIPCFormat format=(wxIPCFormat)lua_tointeger(L,5);
 
 		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
@@ -1089,7 +1089,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const void * wxConnection::base_OnRequest(const wxString &, const wxString &, size_t *, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		const void * lret = self->wxConnection::OnRequest(topic, item, &size, format);
+		const void * lret = self->wxConnection::OnRequest(topic, item, size, format);
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< void >::push(L,lret,false);

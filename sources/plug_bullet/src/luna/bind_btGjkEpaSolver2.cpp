@@ -253,7 +253,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg results in btGjkEpaSolver2::Penetration function");
 		}
 		btGjkEpaSolver2::sResults & results=*results_ptr;
-		bool usemargins=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
+		bool usemargins=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : (bool)true;
 
 		bool lret = btGjkEpaSolver2::Penetration(shape0, wtrs0, shape1, wtrs1, guess, results, usemargins);
 		lua_pushboolean(L,lret?1:0);

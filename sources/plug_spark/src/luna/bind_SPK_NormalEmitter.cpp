@@ -211,7 +211,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Zone* normalZone=luatop>1 ? (Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,2)) : (SPK::Zone*)NULL;
-		bool inverted=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool inverted=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		return new wrapper_SPK_NormalEmitter(L,NULL, normalZone, inverted);
 	}
@@ -347,7 +347,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Zone* normalZone=luatop>0 ? (Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1)) : (SPK::Zone*)NULL;
-		bool inverted=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool inverted=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		SPK::NormalEmitter * lret = SPK::NormalEmitter::create(normalZone, inverted);
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -140,7 +140,7 @@ public:
 	void enableRenderingHint(SPK::RenderingHint renderingHint, bool enable) {
 		if(_obj.pushFunction("enableRenderingHint")) {
 			_obj.pushArg((SPK::GL::GLPointRenderer*)this);
-			_obj.pushArg(renderingHint);
+			_obj.pushArg((int)renderingHint);
 			_obj.pushArg(enable);
 			return (_obj.callFunction<void>());
 		}
@@ -163,7 +163,7 @@ public:
 	bool isRenderingHintEnabled(SPK::RenderingHint renderingHint) const {
 		if(_obj.pushFunction("isRenderingHintEnabled")) {
 			_obj.pushArg((SPK::GL::GLPointRenderer*)this);
-			_obj.pushArg(renderingHint);
+			_obj.pushArg((int)renderingHint);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -185,7 +185,7 @@ public:
 	void setBlending(SPK::BlendingMode blendMode) {
 		if(_obj.pushFunction("setBlending")) {
 			_obj.pushArg((SPK::GL::GLPointRenderer*)this);
-			_obj.pushArg(blendMode);
+			_obj.pushArg((int)blendMode);
 			return (_obj.callFunction<void>());
 		}
 
@@ -217,7 +217,7 @@ public:
 	bool setType(SPK::PointType type) {
 		if(_obj.pushFunction("setType")) {
 			_obj.pushArg((SPK::GL::GLPointRenderer*)this);
-			_obj.pushArg(type);
+			_obj.pushArg((int)type);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -602,7 +602,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Registerable* obj=(Luna< SPK::Registerable >::check(L,1));
-		bool registerAll=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool registerAll=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wrapper_SPK_GL_GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_GL_GLPointRenderer >(L,1);
 		if(!self) {

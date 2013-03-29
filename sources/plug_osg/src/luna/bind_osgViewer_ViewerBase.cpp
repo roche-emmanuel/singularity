@@ -223,6 +223,19 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setEndBarrierOperation(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getEndBarrierOperation(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_setDone(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -974,6 +987,44 @@ public:
 			luaL_error(L, "Invalid object in function call osgViewer::ViewerBase::BarrierPosition osgViewer::ViewerBase::getEndBarrierPosition() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osgViewer::ViewerBase::BarrierPosition lret = self->getEndBarrierPosition();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgViewer::ViewerBase::setEndBarrierOperation(osg::BarrierOperation::PreBlockOp op)
+	static int _bind_setEndBarrierOperation(lua_State *L) {
+		if (!_lg_typecheck_setEndBarrierOperation(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::ViewerBase::setEndBarrierOperation(osg::BarrierOperation::PreBlockOp op) function, expected prototype:\nvoid osgViewer::ViewerBase::setEndBarrierOperation(osg::BarrierOperation::PreBlockOp op)\nClass arguments details:\n");
+		}
+
+		osg::BarrierOperation::PreBlockOp op=(osg::BarrierOperation::PreBlockOp)lua_tointeger(L,2);
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::ViewerBase::setEndBarrierOperation(osg::BarrierOperation::PreBlockOp). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setEndBarrierOperation(op);
+
+		return 0;
+	}
+
+	// osg::BarrierOperation::PreBlockOp osgViewer::ViewerBase::getEndBarrierOperation() const
+	static int _bind_getEndBarrierOperation(lua_State *L) {
+		if (!_lg_typecheck_getEndBarrierOperation(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::BarrierOperation::PreBlockOp osgViewer::ViewerBase::getEndBarrierOperation() const function, expected prototype:\nosg::BarrierOperation::PreBlockOp osgViewer::ViewerBase::getEndBarrierOperation() const\nClass arguments details:\n");
+		}
+
+
+		osgViewer::ViewerBase* self=Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::BarrierOperation::PreBlockOp osgViewer::ViewerBase::getEndBarrierOperation() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::BarrierOperation::PreBlockOp lret = self->getEndBarrierOperation();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -2328,6 +2379,8 @@ luna_RegType LunaTraits< osgViewer::ViewerBase >::methods[] = {
 	{"startThreading", &luna_wrapper_osgViewer_ViewerBase::_bind_startThreading},
 	{"setEndBarrierPosition", &luna_wrapper_osgViewer_ViewerBase::_bind_setEndBarrierPosition},
 	{"getEndBarrierPosition", &luna_wrapper_osgViewer_ViewerBase::_bind_getEndBarrierPosition},
+	{"setEndBarrierOperation", &luna_wrapper_osgViewer_ViewerBase::_bind_setEndBarrierOperation},
+	{"getEndBarrierOperation", &luna_wrapper_osgViewer_ViewerBase::_bind_getEndBarrierOperation},
 	{"setDone", &luna_wrapper_osgViewer_ViewerBase::_bind_setDone},
 	{"done", &luna_wrapper_osgViewer_ViewerBase::_bind_done},
 	{"setEventVisitor", &luna_wrapper_osgViewer_ViewerBase::_bind_setEventVisitor},

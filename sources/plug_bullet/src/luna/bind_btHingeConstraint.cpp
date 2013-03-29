@@ -660,7 +660,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg axisInB in btHingeConstraint::btHingeConstraint function");
 		}
 		const btVector3 & axisInB=*axisInB_ptr;
-		bool useReferenceFrameA=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : false;
+		bool useReferenceFrameA=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : (bool)false;
 
 		return new btHingeConstraint(rbA, rbB, pivotInA, pivotInB, axisInA, axisInB, useReferenceFrameA);
 	}
@@ -689,7 +689,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg axisInA in btHingeConstraint::btHingeConstraint function");
 		}
 		const btVector3 & axisInA=*axisInA_ptr;
-		bool useReferenceFrameA=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool useReferenceFrameA=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		return new btHingeConstraint(rbA, pivotInA, axisInA, useReferenceFrameA);
 	}
@@ -723,7 +723,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rbBFrame in btHingeConstraint::btHingeConstraint function");
 		}
 		const btTransform & rbBFrame=*rbBFrame_ptr;
-		bool useReferenceFrameA=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool useReferenceFrameA=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		return new btHingeConstraint(rbA, rbB, rbAFrame, rbBFrame, useReferenceFrameA);
 	}
@@ -747,7 +747,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rbAFrame in btHingeConstraint::btHingeConstraint function");
 		}
 		const btTransform & rbAFrame=*rbAFrame_ptr;
-		bool useReferenceFrameA=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool useReferenceFrameA=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		return new btHingeConstraint(rbA, rbAFrame, useReferenceFrameA);
 	}
@@ -791,7 +791,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg axisInB in btHingeConstraint::btHingeConstraint function");
 		}
 		const btVector3 & axisInB=*axisInB_ptr;
-		bool useReferenceFrameA=luatop>7 ? (bool)(lua_toboolean(L,8)==1) : false;
+		bool useReferenceFrameA=luatop>7 ? (bool)(lua_toboolean(L,8)==1) : (bool)false;
 
 		return new wrapper_btHingeConstraint(L,NULL, rbA, rbB, pivotInA, pivotInB, axisInA, axisInB, useReferenceFrameA);
 	}
@@ -820,7 +820,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg axisInA in btHingeConstraint::btHingeConstraint function");
 		}
 		const btVector3 & axisInA=*axisInA_ptr;
-		bool useReferenceFrameA=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool useReferenceFrameA=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		return new wrapper_btHingeConstraint(L,NULL, rbA, pivotInA, axisInA, useReferenceFrameA);
 	}
@@ -854,7 +854,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rbBFrame in btHingeConstraint::btHingeConstraint function");
 		}
 		const btTransform & rbBFrame=*rbBFrame_ptr;
-		bool useReferenceFrameA=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
+		bool useReferenceFrameA=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)false;
 
 		return new wrapper_btHingeConstraint(L,NULL, rbA, rbB, rbAFrame, rbBFrame, useReferenceFrameA);
 	}
@@ -878,7 +878,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rbAFrame in btHingeConstraint::btHingeConstraint function");
 		}
 		const btTransform & rbAFrame=*rbAFrame_ptr;
-		bool useReferenceFrameA=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool useReferenceFrameA=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		return new wrapper_btHingeConstraint(L,NULL, rbA, rbAFrame, useReferenceFrameA);
 	}
@@ -1425,9 +1425,9 @@ public:
 
 		float low=(float)lua_tonumber(L,2);
 		float high=(float)lua_tonumber(L,3);
-		float _softness=luatop>3 ? (float)lua_tonumber(L,4) : 0.9f;
-		float _biasFactor=luatop>4 ? (float)lua_tonumber(L,5) : 0.3f;
-		float _relaxationFactor=luatop>5 ? (float)lua_tonumber(L,6) : 1.0f;
+		float _softness=luatop>3 ? (float)lua_tonumber(L,4) : (float)0.9f;
+		float _biasFactor=luatop>4 ? (float)lua_tonumber(L,5) : (float)0.3f;
+		float _relaxationFactor=luatop>5 ? (float)lua_tonumber(L,6) : (float)1.0f;
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
@@ -1850,7 +1850,7 @@ public:
 
 		int num=(int)lua_tointeger(L,2);
 		float value=(float)lua_tonumber(L,3);
-		int axis=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int axis=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
@@ -1872,7 +1872,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int num=(int)lua_tointeger(L,2);
-		int axis=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int axis=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
@@ -2026,7 +2026,7 @@ public:
 
 		int num=(int)lua_tointeger(L,2);
 		float value=(float)lua_tonumber(L,3);
-		int axis=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int axis=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
@@ -2048,7 +2048,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int num=(int)lua_tointeger(L,2);
-		int axis=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int axis=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {

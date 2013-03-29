@@ -244,6 +244,22 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_Vertex3dv_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Vertex3dv_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_Color4f(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
@@ -251,6 +267,13 @@ public:
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		if( lua_isnumber(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Color3fv(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -494,6 +517,12 @@ public:
 	}
 
 	inline static bool _lg_typecheck_End(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_reset(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -897,6 +926,55 @@ public:
 		return 0;
 	}
 
+	// void osg::GLBeginEndAdapter::Vertex3dv(double x, double y, double z)
+	static int _bind_Vertex3dv_overload_1(lua_State *L) {
+		if (!_lg_typecheck_Vertex3dv_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::Vertex3dv(double x, double y, double z) function, expected prototype:\nvoid osg::GLBeginEndAdapter::Vertex3dv(double x, double y, double z)\nClass arguments details:\n");
+		}
+
+		double x=(double)lua_tonumber(L,2);
+		double y=(double)lua_tonumber(L,3);
+		double z=(double)lua_tonumber(L,4);
+
+		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Vertex3dv(double, double, double). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
+		}
+		self->Vertex3dv(x, y, z);
+
+		return 0;
+	}
+
+	// void osg::GLBeginEndAdapter::Vertex3dv(const double * v)
+	static int _bind_Vertex3dv_overload_2(lua_State *L) {
+		if (!_lg_typecheck_Vertex3dv_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::Vertex3dv(const double * v) function, expected prototype:\nvoid osg::GLBeginEndAdapter::Vertex3dv(const double * v)\nClass arguments details:\n");
+		}
+
+		double* v=(double*)Luna< void >::check(L,2);
+
+		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Vertex3dv(const double *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
+		}
+		self->Vertex3dv(v);
+
+		return 0;
+	}
+
+	// Overload binder for osg::GLBeginEndAdapter::Vertex3dv
+	static int _bind_Vertex3dv(lua_State *L) {
+		if (_lg_typecheck_Vertex3dv_overload_1(L)) return _bind_Vertex3dv_overload_1(L);
+		if (_lg_typecheck_Vertex3dv_overload_2(L)) return _bind_Vertex3dv_overload_2(L);
+
+		luaL_error(L, "error in function Vertex3dv, cannot match any of the overloads for function Vertex3dv:\n  Vertex3dv(double, double, double)\n  Vertex3dv(const double *)\n");
+		return 0;
+	}
+
 	// void osg::GLBeginEndAdapter::Color4f(float red, float green, float blue, float alpha)
 	static int _bind_Color4f(lua_State *L) {
 		if (!_lg_typecheck_Color4f(L)) {
@@ -915,6 +993,25 @@ public:
 			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Color4f(float, float, float, float). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
 		}
 		self->Color4f(red, green, blue, alpha);
+
+		return 0;
+	}
+
+	// void osg::GLBeginEndAdapter::Color3fv(const float * c)
+	static int _bind_Color3fv(lua_State *L) {
+		if (!_lg_typecheck_Color3fv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::Color3fv(const float * c) function, expected prototype:\nvoid osg::GLBeginEndAdapter::Color3fv(const float * c)\nClass arguments details:\n");
+		}
+
+		float* c=(float*)Luna< void >::check(L,2);
+
+		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::Color3fv(const float *). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
+		}
+		self->Color3fv(c);
 
 		return 0;
 	}
@@ -1524,6 +1621,24 @@ public:
 		return 0;
 	}
 
+	// void osg::GLBeginEndAdapter::reset()
+	static int _bind_reset(lua_State *L) {
+		if (!_lg_typecheck_reset(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::reset() function, expected prototype:\nvoid osg::GLBeginEndAdapter::reset()\nClass arguments details:\n");
+		}
+
+
+		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GLBeginEndAdapter::reset(). Got : '%s'",typeid(Luna< osg::GLBeginEndAdapter >::check(L,1)).name());
+		}
+		self->reset();
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -1561,7 +1676,9 @@ luna_RegType LunaTraits< osg::GLBeginEndAdapter >::methods[] = {
 	{"Rotated", &luna_wrapper_osg_GLBeginEndAdapter::_bind_Rotated},
 	{"Vertex3f", &luna_wrapper_osg_GLBeginEndAdapter::_bind_Vertex3f},
 	{"Vertex3fv", &luna_wrapper_osg_GLBeginEndAdapter::_bind_Vertex3fv},
+	{"Vertex3dv", &luna_wrapper_osg_GLBeginEndAdapter::_bind_Vertex3dv},
 	{"Color4f", &luna_wrapper_osg_GLBeginEndAdapter::_bind_Color4f},
+	{"Color3fv", &luna_wrapper_osg_GLBeginEndAdapter::_bind_Color3fv},
 	{"Color4fv", &luna_wrapper_osg_GLBeginEndAdapter::_bind_Color4fv},
 	{"Color4ubv", &luna_wrapper_osg_GLBeginEndAdapter::_bind_Color4ubv},
 	{"Normal3f", &luna_wrapper_osg_GLBeginEndAdapter::_bind_Normal3f},
@@ -1592,6 +1709,7 @@ luna_RegType LunaTraits< osg::GLBeginEndAdapter >::methods[] = {
 	{"VertexAttrib4fv", &luna_wrapper_osg_GLBeginEndAdapter::_bind_VertexAttrib4fv},
 	{"Begin", &luna_wrapper_osg_GLBeginEndAdapter::_bind_Begin},
 	{"End", &luna_wrapper_osg_GLBeginEndAdapter::_bind_End},
+	{"reset", &luna_wrapper_osg_GLBeginEndAdapter::_bind_reset},
 	{"dynCast", &luna_wrapper_osg_GLBeginEndAdapter::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_GLBeginEndAdapter::_bind___eq},
 	{"fromVoid", &luna_wrapper_osg_GLBeginEndAdapter::_bind_fromVoid},

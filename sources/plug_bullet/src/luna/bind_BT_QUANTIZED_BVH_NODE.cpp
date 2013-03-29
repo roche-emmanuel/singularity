@@ -141,8 +141,8 @@ public:
 	inline static bool _lg_typecheck_testQuantizedBoxOverlapp(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -279,15 +279,15 @@ public:
 			luaL_error(L, "luna typecheck failed in bool BT_QUANTIZED_BVH_NODE::testQuantizedBoxOverlapp(unsigned short * quantizedMin, unsigned short * quantizedMax) const function, expected prototype:\nbool BT_QUANTIZED_BVH_NODE::testQuantizedBoxOverlapp(unsigned short * quantizedMin, unsigned short * quantizedMax) const\nClass arguments details:\n");
 		}
 
-		unsigned short quantizedMin=(unsigned short)lua_tointeger(L,2);
-		unsigned short quantizedMax=(unsigned short)lua_tointeger(L,3);
+		unsigned short* quantizedMin=(unsigned short*)Luna< void >::check(L,2);
+		unsigned short* quantizedMax=(unsigned short*)Luna< void >::check(L,3);
 
 		BT_QUANTIZED_BVH_NODE* self=(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool BT_QUANTIZED_BVH_NODE::testQuantizedBoxOverlapp(unsigned short *, unsigned short *) const. Got : '%s'",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name());
 		}
-		bool lret = self->testQuantizedBoxOverlapp(&quantizedMin, &quantizedMax);
+		bool lret = self->testQuantizedBoxOverlapp(quantizedMin, quantizedMax);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;

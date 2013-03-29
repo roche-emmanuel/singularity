@@ -166,7 +166,7 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -296,9 +296,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg known_pagebreaks in wxHtmlDCRenderer::Render function");
 		}
 		wxArrayInt & known_pagebreaks=*known_pagebreaks_ptr;
-		int from=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		int dont_render=luatop>5 ? (int)lua_tointeger(L,6) : false;
-		int to=luatop>6 ? (int)lua_tointeger(L,7) : INT_MAX;
+		int from=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		int dont_render=luatop>5 ? (int)lua_tointeger(L,6) : (int)false;
+		int to=luatop>6 ? (int)lua_tointeger(L,7) : (int)INT_MAX;
 
 		wxHtmlDCRenderer* self=Luna< wxObject >::checkSubType< wxHtmlDCRenderer >(L,1);
 		if(!self) {
@@ -321,7 +321,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDC* dc=(Luna< wxObject >::checkSubType< wxDC >(L,2));
-		double pixel_scale=luatop>2 ? (double)lua_tonumber(L,3) : 1.0;
+		double pixel_scale=luatop>2 ? (double)lua_tonumber(L,3) : (double)1.0;
 
 		wxHtmlDCRenderer* self=Luna< wxObject >::checkSubType< wxHtmlDCRenderer >(L,1);
 		if(!self) {
@@ -344,14 +344,14 @@ public:
 
 		wxString normal_face(lua_tostring(L,2),lua_objlen(L,2));
 		wxString fixed_face(lua_tostring(L,3),lua_objlen(L,3));
-		int sizes=luatop>3 ? (int)lua_tointeger(L,4) : NULL;
+		const int* sizes=luatop>3 ? (const int*)Luna< void >::check(L,4) : (const int*)NULL;
 
 		wxHtmlDCRenderer* self=Luna< wxObject >::checkSubType< wxHtmlDCRenderer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlDCRenderer::SetFonts(const wxString &, const wxString &, const int *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->SetFonts(normal_face, fixed_face, &sizes);
+		self->SetFonts(normal_face, fixed_face, sizes);
 
 		return 0;
 	}
@@ -365,7 +365,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int size=luatop>1 ? (int)lua_tointeger(L,2) : -1;
+		int size=luatop>1 ? (int)lua_tointeger(L,2) : (int)-1;
 		wxString normal_face(lua_tostring(L,3),lua_objlen(L,3));
 		wxString fixed_face(lua_tostring(L,4),lua_objlen(L,4));
 
@@ -390,7 +390,7 @@ public:
 
 		wxString html(lua_tostring(L,2),lua_objlen(L,2));
 		wxString basepath(lua_tostring(L,3),lua_objlen(L,3));
-		bool isdir=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool isdir=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxHtmlDCRenderer* self=Luna< wxObject >::checkSubType< wxHtmlDCRenderer >(L,1);
 		if(!self) {

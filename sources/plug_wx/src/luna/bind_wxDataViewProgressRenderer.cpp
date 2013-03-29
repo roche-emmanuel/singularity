@@ -166,8 +166,8 @@ public:
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 		wxString varianttype(lua_tostring(L,3),lua_objlen(L,3));
-		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_INERT;
-		int align=luatop>4 ? (int)lua_tointeger(L,5) : -1;
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : (wxDataViewCellMode)::wxDATAVIEW_CELL_INERT;
+		int align=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
 
 		return new wrapper_wxDataViewProgressRenderer(L,NULL, label, varianttype, mode, align);
 	}

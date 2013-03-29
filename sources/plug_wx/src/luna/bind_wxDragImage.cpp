@@ -336,12 +336,12 @@ public:
 		if( luatop>1 && !cursor_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cursor in wxDragImage::wxDragImage function");
 		}
-		const wxCursor & cursor=luatop>1 ? *cursor_ptr : wxNullCursor;
+		const wxCursor & cursor=luatop>1 ? *cursor_ptr : (const wxCursor&)wxNullCursor;
 		const wxPoint* cursorHotspot_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !cursorHotspot_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cursorHotspot in wxDragImage::wxDragImage function");
 		}
-		const wxPoint & cursorHotspot=luatop>2 ? *cursorHotspot_ptr : wxPoint (0, 0);
+		const wxPoint & cursorHotspot=luatop>2 ? *cursorHotspot_ptr : (const wxPoint&)wxPoint (0, 0);
 
 		return new wxDragImage(image, cursor, cursorHotspot);
 	}
@@ -364,12 +364,12 @@ public:
 		if( luatop>1 && !cursor_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cursor in wxDragImage::wxDragImage function");
 		}
-		const wxCursor & cursor=luatop>1 ? *cursor_ptr : wxNullCursor;
+		const wxCursor & cursor=luatop>1 ? *cursor_ptr : (const wxCursor&)wxNullCursor;
 		const wxPoint* cursorHotspot_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !cursorHotspot_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cursorHotspot in wxDragImage::wxDragImage function");
 		}
-		const wxPoint & cursorHotspot=luatop>2 ? *cursorHotspot_ptr : wxPoint (0, 0);
+		const wxPoint & cursorHotspot=luatop>2 ? *cursorHotspot_ptr : (const wxPoint&)wxPoint (0, 0);
 
 		return new wxDragImage(image, cursor, cursorHotspot);
 	}
@@ -388,12 +388,12 @@ public:
 		if( luatop>1 && !cursor_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cursor in wxDragImage::wxDragImage function");
 		}
-		const wxCursor & cursor=luatop>1 ? *cursor_ptr : wxNullCursor;
+		const wxCursor & cursor=luatop>1 ? *cursor_ptr : (const wxCursor&)wxNullCursor;
 		const wxPoint* cursorHotspot_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !cursorHotspot_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cursorHotspot in wxDragImage::wxDragImage function");
 		}
-		const wxPoint & cursorHotspot=luatop>2 ? *cursorHotspot_ptr : wxPoint (0, 0);
+		const wxPoint & cursorHotspot=luatop>2 ? *cursorHotspot_ptr : (const wxPoint&)wxPoint (0, 0);
 
 		return new wxDragImage(text, cursor, cursorHotspot);
 	}
@@ -465,12 +465,12 @@ public:
 		if( luatop>2 && !cursor_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cursor in wxDragImage::wxDragImage function");
 		}
-		const wxCursor & cursor=luatop>2 ? *cursor_ptr : wxNullCursor;
+		const wxCursor & cursor=luatop>2 ? *cursor_ptr : (const wxCursor&)wxNullCursor;
 		const wxPoint* cursorHotspot_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !cursorHotspot_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cursorHotspot in wxDragImage::wxDragImage function");
 		}
-		const wxPoint & cursorHotspot=luatop>3 ? *cursorHotspot_ptr : wxPoint (0, 0);
+		const wxPoint & cursorHotspot=luatop>3 ? *cursorHotspot_ptr : (const wxPoint&)wxPoint (0, 0);
 
 		return new wrapper_wxDragImage(L,NULL, image, cursor, cursorHotspot);
 	}
@@ -493,12 +493,12 @@ public:
 		if( luatop>2 && !cursor_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cursor in wxDragImage::wxDragImage function");
 		}
-		const wxCursor & cursor=luatop>2 ? *cursor_ptr : wxNullCursor;
+		const wxCursor & cursor=luatop>2 ? *cursor_ptr : (const wxCursor&)wxNullCursor;
 		const wxPoint* cursorHotspot_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !cursorHotspot_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cursorHotspot in wxDragImage::wxDragImage function");
 		}
-		const wxPoint & cursorHotspot=luatop>3 ? *cursorHotspot_ptr : wxPoint (0, 0);
+		const wxPoint & cursorHotspot=luatop>3 ? *cursorHotspot_ptr : (const wxPoint&)wxPoint (0, 0);
 
 		return new wrapper_wxDragImage(L,NULL, image, cursor, cursorHotspot);
 	}
@@ -517,12 +517,12 @@ public:
 		if( luatop>2 && !cursor_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cursor in wxDragImage::wxDragImage function");
 		}
-		const wxCursor & cursor=luatop>2 ? *cursor_ptr : wxNullCursor;
+		const wxCursor & cursor=luatop>2 ? *cursor_ptr : (const wxCursor&)wxNullCursor;
 		const wxPoint* cursorHotspot_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !cursorHotspot_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cursorHotspot in wxDragImage::wxDragImage function");
 		}
-		const wxPoint & cursorHotspot=luatop>3 ? *cursorHotspot_ptr : wxPoint (0, 0);
+		const wxPoint & cursorHotspot=luatop>3 ? *cursorHotspot_ptr : (const wxPoint&)wxPoint (0, 0);
 
 		return new wrapper_wxDragImage(L,NULL, text, cursor, cursorHotspot);
 	}
@@ -601,7 +601,7 @@ public:
 		}
 		const wxPoint & hotspot=*hotspot_ptr;
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
-		bool fullScreen=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool fullScreen=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 		wxRect* rect=luatop>4 ? (Luna< wxRect >::check(L,5)) : (wxRect*)NULL;
 
 		wxDragImage* self=Luna< wxObject >::checkSubType< wxDragImage >(L,1);

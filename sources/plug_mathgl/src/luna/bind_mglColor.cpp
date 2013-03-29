@@ -257,7 +257,7 @@ public:
 		float R=(float)lua_tonumber(L,1);
 		float G=(float)lua_tonumber(L,2);
 		float B=(float)lua_tonumber(L,3);
-		float A=luatop>3 ? (float)lua_tonumber(L,4) : 1;
+		float A=luatop>3 ? (float)lua_tonumber(L,4) : (float)1;
 
 		return new mglColor(R, G, B, A);
 	}
@@ -271,8 +271,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		char c=luatop>0 ? (char)lua_tointeger(L,1) : 'k';
-		float bright=luatop>1 ? (float)lua_tonumber(L,2) : 1;
+		char c=luatop>0 ? (char)lua_tointeger(L,1) : (char)'k';
+		float bright=luatop>1 ? (float)lua_tonumber(L,2) : (float)1;
 
 		return new mglColor(c, bright);
 	}
@@ -300,7 +300,7 @@ public:
 		float R=(float)lua_tonumber(L,2);
 		float G=(float)lua_tonumber(L,3);
 		float B=(float)lua_tonumber(L,4);
-		float A=luatop>4 ? (float)lua_tonumber(L,5) : 1;
+		float A=luatop>4 ? (float)lua_tonumber(L,5) : (float)1;
 
 		mglColor* self=(Luna< mglColor >::check(L,1));
 		if(!self) {
@@ -326,7 +326,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg c in mglColor::Set function");
 		}
 		mglColor c=*c_ptr;
-		float bright=luatop>2 ? (float)lua_tonumber(L,3) : 1;
+		float bright=luatop>2 ? (float)lua_tonumber(L,3) : (float)1;
 
 		mglColor* self=(Luna< mglColor >::check(L,1));
 		if(!self) {
@@ -348,7 +348,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		char p=(char)lua_tointeger(L,2);
-		float bright=luatop>2 ? (float)lua_tonumber(L,3) : 1;
+		float bright=luatop>2 ? (float)lua_tonumber(L,3) : (float)1;
 
 		mglColor* self=(Luna< mglColor >::check(L,1));
 		if(!self) {

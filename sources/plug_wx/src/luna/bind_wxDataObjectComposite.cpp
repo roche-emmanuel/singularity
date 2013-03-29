@@ -181,7 +181,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDataObjectSimple* dataObject=(Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,2));
-		bool preferred=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool preferred=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxDataObjectComposite* self=Luna< wxDataObject >::checkSubType< wxDataObjectComposite >(L,1);
 		if(!self) {
@@ -229,7 +229,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg format in wxDataObjectComposite::GetObject function");
 		}
 		const wxDataFormat & format=*format_ptr;
-		wxDataObjectBase::Direction dir=luatop>2 ? (wxDataObjectBase::Direction)lua_tointeger(L,3) : wxDataObject::Get;
+		wxDataObjectBase::Direction dir=luatop>2 ? (wxDataObjectBase::Direction)lua_tointeger(L,3) : (wxDataObjectBase::Direction)wxDataObject::Get;
 
 		wxDataObjectComposite* self=Luna< wxDataObject >::checkSubType< wxDataObjectComposite >(L,1);
 		if(!self) {

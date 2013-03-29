@@ -42,6 +42,7 @@
 #include <osgDB/XmlParser>
 #include <osgText/Font>
 #include <osgText/Font3D>
+#include <osgUtil/PerlinNoise>
 
 // Function checkers:
 inline static bool _lg_typecheck_glLoadMatrix_overload_1(lua_State *L) {
@@ -996,6 +997,25 @@ inline static bool _lg_typecheck_createImage3DWithAlpha(lua_State *L) {
 	return true;
 }
 
+inline static bool _lg_typecheck_createSpotLightImage(lua_State *L) {
+	if( lua_gettop(L)!=4 ) return false;
+
+	if( !Luna<void>::has_uniqueid(L,1,92303235) ) return false;
+	if( !Luna<void>::has_uniqueid(L,2,92303235) ) return false;
+	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( lua_isnumber(L,4)==0 ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_colorSpaceConversion(lua_State *L) {
+	if( lua_gettop(L)!=3 ) return false;
+
+	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+	if( !Luna<void>::has_uniqueid(L,3,92303235) ) return false;
+	return true;
+}
+
 inline static bool _lg_typecheck_equivalent_overload_1(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<2 || luatop>3 ) return false;
@@ -1072,14 +1092,7 @@ inline static bool _lg_typecheck_round_overload_2(lua_State *L) {
 	return true;
 }
 
-inline static bool _lg_typecheck_isNaN_overload_1(lua_State *L) {
-	if( lua_gettop(L)!=1 ) return false;
-
-	if( lua_isnumber(L,1)==0 ) return false;
-	return true;
-}
-
-inline static bool _lg_typecheck_isNaN_overload_2(lua_State *L) {
+inline static bool _lg_typecheck_isNaN(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
 	if( lua_isnumber(L,1)==0 ) return false;
@@ -2298,6 +2311,57 @@ static int _bind_createImage3DWithAlpha(lua_State *L) {
 	return 1;
 }
 
+// osg::Image * osg::createSpotLightImage(const osg::Vec4f & centerColour, const osg::Vec4f & backgroudColour, unsigned int size, float power)
+static int _bind_createSpotLightImage(lua_State *L) {
+	if (!_lg_typecheck_createSpotLightImage(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in osg::Image * osg::createSpotLightImage(const osg::Vec4f & centerColour, const osg::Vec4f & backgroudColour, unsigned int size, float power) function, expected prototype:\nosg::Image * osg::createSpotLightImage(const osg::Vec4f & centerColour, const osg::Vec4f & backgroudColour, unsigned int size, float power)\nClass arguments details:\narg 1 ID = 92303235\narg 2 ID = 92303235\n");
+	}
+
+	const osg::Vec4f* centerColour_ptr=(Luna< osg::Vec4f >::check(L,1));
+	if( !centerColour_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg centerColour in osg::createSpotLightImage function");
+	}
+	const osg::Vec4f & centerColour=*centerColour_ptr;
+	const osg::Vec4f* backgroudColour_ptr=(Luna< osg::Vec4f >::check(L,2));
+	if( !backgroudColour_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg backgroudColour in osg::createSpotLightImage function");
+	}
+	const osg::Vec4f & backgroudColour=*backgroudColour_ptr;
+	unsigned int size=(unsigned int)lua_tointeger(L,3);
+	float power=(float)lua_tonumber(L,4);
+
+	osg::Image * lret = osg::createSpotLightImage(centerColour, backgroudColour, size, power);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< osg::Image >::push(L,lret,false);
+
+	return 1;
+}
+
+// osg::Image * osg::colorSpaceConversion(osg::ColorSpaceOperation op, osg::Image * image, const osg::Vec4f & colour)
+static int _bind_colorSpaceConversion(lua_State *L) {
+	if (!_lg_typecheck_colorSpaceConversion(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in osg::Image * osg::colorSpaceConversion(osg::ColorSpaceOperation op, osg::Image * image, const osg::Vec4f & colour) function, expected prototype:\nosg::Image * osg::colorSpaceConversion(osg::ColorSpaceOperation op, osg::Image * image, const osg::Vec4f & colour)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 92303235\n");
+	}
+
+	osg::ColorSpaceOperation op=(osg::ColorSpaceOperation)lua_tointeger(L,1);
+	osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
+	const osg::Vec4f* colour_ptr=(Luna< osg::Vec4f >::check(L,3));
+	if( !colour_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg colour in osg::colorSpaceConversion function");
+	}
+	const osg::Vec4f & colour=*colour_ptr;
+
+	osg::Image * lret = osg::colorSpaceConversion(op, image, colour);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< osg::Image >::push(L,lret,false);
+
+	return 1;
+}
+
 // bool osg::equivalent(float lhs, float rhs, float epsilon = 1e-6)
 static int _bind_equivalent_overload_1(lua_State *L) {
 	if (!_lg_typecheck_equivalent_overload_1(L)) {
@@ -2501,24 +2565,9 @@ static int _bind_round(lua_State *L) {
 	return 0;
 }
 
-// bool osg::isNaN(float v)
-static int _bind_isNaN_overload_1(lua_State *L) {
-	if (!_lg_typecheck_isNaN_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool osg::isNaN(float v) function, expected prototype:\nbool osg::isNaN(float v)\nClass arguments details:\n");
-	}
-
-	float v=(float)lua_tonumber(L,1);
-
-	bool lret = osg::isNaN(v);
-	lua_pushboolean(L,lret?1:0);
-
-	return 1;
-}
-
 // bool osg::isNaN(double v)
-static int _bind_isNaN_overload_2(lua_State *L) {
-	if (!_lg_typecheck_isNaN_overload_2(L)) {
+static int _bind_isNaN(lua_State *L) {
+	if (!_lg_typecheck_isNaN(L)) {
 		luna_printStack(L);
 		luaL_error(L, "luna typecheck failed in bool osg::isNaN(double v) function, expected prototype:\nbool osg::isNaN(double v)\nClass arguments details:\n");
 	}
@@ -2529,15 +2578,6 @@ static int _bind_isNaN_overload_2(lua_State *L) {
 	lua_pushboolean(L,lret?1:0);
 
 	return 1;
-}
-
-// Overload binder for osg::isNaN
-static int _bind_isNaN(lua_State *L) {
-	if (_lg_typecheck_isNaN_overload_1(L)) return _bind_isNaN_overload_1(L);
-	if (_lg_typecheck_isNaN_overload_2(L)) return _bind_isNaN_overload_2(L);
-
-	luaL_error(L, "error in function isNaN, cannot match any of the overloads for function isNaN:\n  isNaN(float)\n  isNaN(double)\n");
-	return 0;
 }
 
 // double osg::asciiToDouble(const char * str)
@@ -3678,6 +3718,13 @@ inline static bool _lg_typecheck_getDirectoryContents(lua_State *L) {
 	return true;
 }
 
+inline static bool _lg_typecheck_getSortedDirectoryContents(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( lua_isstring(L,1)==0 ) return false;
+	return true;
+}
+
 inline static bool _lg_typecheck_expandWildcardsInFilename(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
@@ -3769,6 +3816,13 @@ inline static bool _lg_typecheck_convertStringPathIntoFilePathList(lua_State *L)
 
 	if( lua_isstring(L,1)==0 ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,79889541) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_containsCurrentWorkingDirectoryReference(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( !Luna<void>::has_uniqueid(L,1,79889541) ) return false;
 	return true;
 }
 
@@ -4818,6 +4872,24 @@ static int _bind_getDirectoryContents(lua_State *L) {
 	return 1;
 }
 
+// osgDB::DirectoryContents osgDB::getSortedDirectoryContents(const std::string & dirName)
+static int _bind_getSortedDirectoryContents(lua_State *L) {
+	if (!_lg_typecheck_getSortedDirectoryContents(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in osgDB::DirectoryContents osgDB::getSortedDirectoryContents(const std::string & dirName) function, expected prototype:\nosgDB::DirectoryContents osgDB::getSortedDirectoryContents(const std::string & dirName)\nClass arguments details:\n");
+	}
+
+	std::string dirName(lua_tostring(L,1),lua_objlen(L,1));
+
+	osgDB::DirectoryContents stack_lret = osgDB::getSortedDirectoryContents(dirName);
+	osgDB::DirectoryContents* lret = new osgDB::DirectoryContents(stack_lret);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< osgDB::DirectoryContents >::push(L,lret,true);
+
+	return 1;
+}
+
 // osgDB::DirectoryContents osgDB::expandWildcardsInFilename(const std::string & filename)
 static int _bind_expandWildcardsInFilename(lua_State *L) {
 	if (!_lg_typecheck_expandWildcardsInFilename(L)) {
@@ -5047,6 +5119,25 @@ static int _bind_convertStringPathIntoFilePathList(lua_State *L) {
 	osgDB::convertStringPathIntoFilePathList(paths, filepath);
 
 	return 0;
+}
+
+// bool osgDB::containsCurrentWorkingDirectoryReference(const osgDB::FilePathList & paths)
+static int _bind_containsCurrentWorkingDirectoryReference(lua_State *L) {
+	if (!_lg_typecheck_containsCurrentWorkingDirectoryReference(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in bool osgDB::containsCurrentWorkingDirectoryReference(const osgDB::FilePathList & paths) function, expected prototype:\nbool osgDB::containsCurrentWorkingDirectoryReference(const osgDB::FilePathList & paths)\nClass arguments details:\narg 1 ID = 54591957\n");
+	}
+
+	const osgDB::FilePathList* paths_ptr=(Luna< std::deque< std::string > >::checkSubType< osgDB::FilePathList >(L,1));
+	if( !paths_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg paths in osgDB::containsCurrentWorkingDirectoryReference function");
+	}
+	const osgDB::FilePathList & paths=*paths_ptr;
+
+	bool lret = osgDB::containsCurrentWorkingDirectoryReference(paths);
+	lua_pushboolean(L,lret?1:0);
+
+	return 1;
 }
 
 // void osgDB::appendPlatformSpecificLibraryFilePaths(osgDB::FilePathList & filepath)
@@ -6265,8 +6356,56 @@ static int _bind_findFont3DFile(lua_State *L) {
 
 
 // Function checkers:
+inline static bool _lg_typecheck_create3DNoiseImage(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_create3DNoiseTexture(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	return true;
+}
+
 
 // Function binds:
+// osg::Image * osgUtil::create3DNoiseImage(int texSize)
+static int _bind_create3DNoiseImage(lua_State *L) {
+	if (!_lg_typecheck_create3DNoiseImage(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in osg::Image * osgUtil::create3DNoiseImage(int texSize) function, expected prototype:\nosg::Image * osgUtil::create3DNoiseImage(int texSize)\nClass arguments details:\n");
+	}
+
+	int texSize=(int)lua_tointeger(L,1);
+
+	osg::Image * lret = osgUtil::create3DNoiseImage(texSize);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< osg::Image >::push(L,lret,false);
+
+	return 1;
+}
+
+// osg::Texture3D * osgUtil::create3DNoiseTexture(int texSize)
+static int _bind_create3DNoiseTexture(lua_State *L) {
+	if (!_lg_typecheck_create3DNoiseTexture(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in osg::Texture3D * osgUtil::create3DNoiseTexture(int texSize) function, expected prototype:\nosg::Texture3D * osgUtil::create3DNoiseTexture(int texSize)\nClass arguments details:\n");
+	}
+
+	int texSize=(int)lua_tointeger(L,1);
+
+	osg::Texture3D * lret = osgUtil::create3DNoiseTexture(texSize);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< osg::Texture3D >::push(L,lret,false);
+
+	return 1;
+}
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -6342,6 +6481,8 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_maximimNumOfComponents); lua_setfield(L,-2,"maximimNumOfComponents");
 	lua_pushcfunction(L, _bind_createImage3D); lua_setfield(L,-2,"createImage3D");
 	lua_pushcfunction(L, _bind_createImage3DWithAlpha); lua_setfield(L,-2,"createImage3DWithAlpha");
+	lua_pushcfunction(L, _bind_createSpotLightImage); lua_setfield(L,-2,"createSpotLightImage");
+	lua_pushcfunction(L, _bind_colorSpaceConversion); lua_setfield(L,-2,"colorSpaceConversion");
 	lua_pushcfunction(L, _bind_equivalent); lua_setfield(L,-2,"equivalent");
 	lua_pushcfunction(L, _bind_inDegrees); lua_setfield(L,-2,"inDegrees");
 	lua_pushcfunction(L, _bind_DegreesToRadians); lua_setfield(L,-2,"DegreesToRadians");
@@ -6403,6 +6544,7 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_findFileInPath); lua_setfield(L,-2,"findFileInPath");
 	lua_pushcfunction(L, _bind_findFileInDirectory); lua_setfield(L,-2,"findFileInDirectory");
 	lua_pushcfunction(L, _bind_getDirectoryContents); lua_setfield(L,-2,"getDirectoryContents");
+	lua_pushcfunction(L, _bind_getSortedDirectoryContents); lua_setfield(L,-2,"getSortedDirectoryContents");
 	lua_pushcfunction(L, _bind_expandWildcardsInFilename); lua_setfield(L,-2,"expandWildcardsInFilename");
 	lua_pushcfunction(L, _bind_copyFile); lua_setfield(L,-2,"copyFile");
 	lua_pushcfunction(L, _bind_setDataFilePathList); lua_setfield(L,-2,"setDataFilePathList");
@@ -6412,6 +6554,7 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_getLibraryFilePathList); lua_setfield(L,-2,"getLibraryFilePathList");
 	lua_pushcfunction(L, _bind_findLibraryFile); lua_setfield(L,-2,"findLibraryFile");
 	lua_pushcfunction(L, _bind_convertStringPathIntoFilePathList); lua_setfield(L,-2,"convertStringPathIntoFilePathList");
+	lua_pushcfunction(L, _bind_containsCurrentWorkingDirectoryReference); lua_setfield(L,-2,"containsCurrentWorkingDirectoryReference");
 	lua_pushcfunction(L, _bind_appendPlatformSpecificLibraryFilePaths); lua_setfield(L,-2,"appendPlatformSpecificLibraryFilePaths");
 	lua_pushcfunction(L, _bind_appendPlatformSpecificResourceFilePaths); lua_setfield(L,-2,"appendPlatformSpecificResourceFilePaths");
 	lua_pushcfunction(L, _bind_split); lua_setfield(L,-2,"split");
@@ -6449,6 +6592,10 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_readRefFont3DFile); lua_setfield(L,-2,"readRefFont3DFile");
 	lua_pushcfunction(L, _bind_readRefFont3DStream); lua_setfield(L,-2,"readRefFont3DStream");
 	lua_pushcfunction(L, _bind_findFont3DFile); lua_setfield(L,-2,"findFont3DFile");
+	luna_popModule(L);
+	luna_pushModule(L,"osgUtil");
+	lua_pushcfunction(L, _bind_create3DNoiseImage); lua_setfield(L,-2,"create3DNoiseImage");
+	lua_pushcfunction(L, _bind_create3DNoiseTexture); lua_setfield(L,-2,"create3DNoiseTexture");
 	luna_popModule(L);
 }
 

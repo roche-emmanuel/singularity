@@ -267,7 +267,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxMemoryInputStream::wxMemoryInputStream function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		long long len=luatop>2 ? (long long)lua_tointeger(L,3) : wxInvalidOffset;
+		long long len=luatop>2 ? (long long)lua_tointeger(L,3) : (long long)wxInvalidOffset;
 
 		return new wrapper_wxMemoryInputStream(L,NULL, stream, len);
 	}
@@ -490,7 +490,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		long long pos=(long long)lua_tointeger(L,2);
-		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : ::wxFromStart;
+		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : (wxSeekMode)::wxFromStart;
 
 		wxMemoryInputStream* self=Luna< wxObject >::checkSubType< wxMemoryInputStream >(L,1);
 		if(!self) {

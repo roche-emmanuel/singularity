@@ -154,7 +154,7 @@ public:
 	inline static bool _lg_typecheck_setFromOpenGLSubMatrix(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -207,7 +207,7 @@ public:
 	inline static bool _lg_typecheck_getOpenGLSubMatrix(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -416,15 +416,15 @@ public:
 			luaL_error(L, "luna typecheck failed in btMatrix3x3::btMatrix3x3(const float & xx, const float & xy, const float & xz, const float & yx, const float & yy, const float & yz, const float & zx, const float & zy, const float & zz) function, expected prototype:\nbtMatrix3x3::btMatrix3x3(const float & xx, const float & xy, const float & xz, const float & yx, const float & yy, const float & yz, const float & zx, const float & zy, const float & zz)\nClass arguments details:\n");
 		}
 
-		float xx=(float)lua_tonumber(L,1);
-		float xy=(float)lua_tonumber(L,2);
-		float xz=(float)lua_tonumber(L,3);
-		float yx=(float)lua_tonumber(L,4);
-		float yy=(float)lua_tonumber(L,5);
-		float yz=(float)lua_tonumber(L,6);
-		float zx=(float)lua_tonumber(L,7);
-		float zy=(float)lua_tonumber(L,8);
-		float zz=(float)lua_tonumber(L,9);
+		const float xx=(const float)lua_tonumber(L,1);
+		const float xy=(const float)lua_tonumber(L,2);
+		const float xz=(const float)lua_tonumber(L,3);
+		const float yx=(const float)lua_tonumber(L,4);
+		const float yy=(const float)lua_tonumber(L,5);
+		const float yz=(const float)lua_tonumber(L,6);
+		const float zx=(const float)lua_tonumber(L,7);
+		const float zy=(const float)lua_tonumber(L,8);
+		const float zz=(const float)lua_tonumber(L,9);
 
 		return new btMatrix3x3(xx, xy, xz, yx, yy, yz, zx, zy, zz);
 	}
@@ -510,14 +510,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setFromOpenGLSubMatrix(const float * m) function, expected prototype:\nvoid btMatrix3x3::setFromOpenGLSubMatrix(const float * m)\nClass arguments details:\n");
 		}
 
-		float m=(float)lua_tonumber(L,2);
+		const float* m=(const float*)Luna< void >::check(L,2);
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btMatrix3x3::setFromOpenGLSubMatrix(const float *). Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
 		}
-		self->setFromOpenGLSubMatrix(&m);
+		self->setFromOpenGLSubMatrix(m);
 
 		return 0;
 	}
@@ -529,15 +529,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setValue(const float & xx, const float & xy, const float & xz, const float & yx, const float & yy, const float & yz, const float & zx, const float & zy, const float & zz) function, expected prototype:\nvoid btMatrix3x3::setValue(const float & xx, const float & xy, const float & xz, const float & yx, const float & yy, const float & yz, const float & zx, const float & zy, const float & zz)\nClass arguments details:\n");
 		}
 
-		float xx=(float)lua_tonumber(L,2);
-		float xy=(float)lua_tonumber(L,3);
-		float xz=(float)lua_tonumber(L,4);
-		float yx=(float)lua_tonumber(L,5);
-		float yy=(float)lua_tonumber(L,6);
-		float yz=(float)lua_tonumber(L,7);
-		float zx=(float)lua_tonumber(L,8);
-		float zy=(float)lua_tonumber(L,9);
-		float zz=(float)lua_tonumber(L,10);
+		const float xx=(const float)lua_tonumber(L,2);
+		const float xy=(const float)lua_tonumber(L,3);
+		const float xz=(const float)lua_tonumber(L,4);
+		const float yx=(const float)lua_tonumber(L,5);
+		const float yy=(const float)lua_tonumber(L,6);
+		const float yz=(const float)lua_tonumber(L,7);
+		const float zx=(const float)lua_tonumber(L,8);
+		const float zy=(const float)lua_tonumber(L,9);
+		const float zz=(const float)lua_tonumber(L,10);
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
@@ -579,9 +579,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setEulerYPR(const float & yaw, const float & pitch, const float & roll) function, expected prototype:\nvoid btMatrix3x3::setEulerYPR(const float & yaw, const float & pitch, const float & roll)\nClass arguments details:\n");
 		}
 
-		float yaw=(float)lua_tonumber(L,2);
-		float pitch=(float)lua_tonumber(L,3);
-		float roll=(float)lua_tonumber(L,4);
+		const float yaw=(const float)lua_tonumber(L,2);
+		const float pitch=(const float)lua_tonumber(L,3);
+		const float roll=(const float)lua_tonumber(L,4);
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
@@ -639,14 +639,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void btMatrix3x3::getOpenGLSubMatrix(float * m) const function, expected prototype:\nvoid btMatrix3x3::getOpenGLSubMatrix(float * m) const\nClass arguments details:\n");
 		}
 
-		float m=(float)lua_tonumber(L,2);
+		float* m=(float*)Luna< void >::check(L,2);
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btMatrix3x3::getOpenGLSubMatrix(float *) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
 		}
-		self->getOpenGLSubMatrix(&m);
+		self->getOpenGLSubMatrix(m);
 
 		return 0;
 	}
@@ -707,7 +707,7 @@ public:
 		float yaw=(float)lua_tonumber(L,2);
 		float pitch=(float)lua_tonumber(L,3);
 		float roll=(float)lua_tonumber(L,4);
-		unsigned int solution_number=luatop>4 ? (unsigned int)lua_tointeger(L,5) : 1;
+		unsigned int solution_number=luatop>4 ? (unsigned int)lua_tointeger(L,5) : (unsigned int)1;
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {

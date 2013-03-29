@@ -134,7 +134,7 @@ public:
 	void SetLocation(IGizmo::LOCATION aLocation) {
 		THROW_IF(!_obj.pushFunction("SetLocation"),"No implementation for abstract function IGizmo::SetLocation");
 		_obj.pushArg((IGizmo*)this);
-		_obj.pushArg(aLocation);
+		_obj.pushArg((int)aLocation);
 		return (_obj.callFunction<void>());
 	};
 

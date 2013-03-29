@@ -404,7 +404,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool suppress=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
+		bool suppress=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)true;
 
 		wxValidator::SuppressBellOnError(suppress);
 

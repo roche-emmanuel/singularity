@@ -237,7 +237,7 @@ public:
 		if(_obj.pushFunction("LoadFile")) {
 			_obj.pushArg((wxBitmap*)this);
 			_obj.pushArg(name);
-			_obj.pushArg(type);
+			_obj.pushArg((int)type);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -249,7 +249,7 @@ public:
 		if(_obj.pushFunction("SaveFile")) {
 			_obj.pushArg((wxBitmap*)this);
 			_obj.pushArg(name);
-			_obj.pushArg(type);
+			_obj.pushArg((int)type);
 			_obj.pushArg(palette);
 			return (_obj.callFunction<bool>());
 		}

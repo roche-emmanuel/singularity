@@ -277,7 +277,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg axisInB in btGearConstraint::btGearConstraint function");
 		}
 		const btVector3 & axisInB=*axisInB_ptr;
-		float ratio=luatop>4 ? (float)lua_tonumber(L,5) : 1.f;
+		float ratio=luatop>4 ? (float)lua_tonumber(L,5) : (float)1.f;
 
 		return new btGearConstraint(rbA, rbB, axisInA, axisInB, ratio);
 	}
@@ -311,7 +311,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg axisInB in btGearConstraint::btGearConstraint function");
 		}
 		const btVector3 & axisInB=*axisInB_ptr;
-		float ratio=luatop>5 ? (float)lua_tonumber(L,6) : 1.f;
+		float ratio=luatop>5 ? (float)lua_tonumber(L,6) : (float)1.f;
 
 		return new wrapper_btGearConstraint(L,NULL, rbA, rbB, axisInA, axisInB, ratio);
 	}
@@ -376,7 +376,7 @@ public:
 
 		int num=(int)lua_tointeger(L,2);
 		float value=(float)lua_tonumber(L,3);
-		int axis=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int axis=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		btGearConstraint* self=Luna< btTypedObject >::checkSubType< btGearConstraint >(L,1);
 		if(!self) {
@@ -398,7 +398,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int num=(int)lua_tointeger(L,2);
-		int axis=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int axis=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		btGearConstraint* self=Luna< btTypedObject >::checkSubType< btGearConstraint >(L,1);
 		if(!self) {
@@ -552,7 +552,7 @@ public:
 
 		int num=(int)lua_tointeger(L,2);
 		float value=(float)lua_tonumber(L,3);
-		int axis=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int axis=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		btGearConstraint* self=Luna< btTypedObject >::checkSubType< btGearConstraint >(L,1);
 		if(!self) {
@@ -574,7 +574,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int num=(int)lua_tointeger(L,2);
-		int axis=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int axis=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		btGearConstraint* self=Luna< btTypedObject >::checkSubType< btGearConstraint >(L,1);
 		if(!self) {

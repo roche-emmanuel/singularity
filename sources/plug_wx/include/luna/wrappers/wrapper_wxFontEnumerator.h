@@ -43,7 +43,7 @@ public:
 	bool EnumerateFacenames(wxFontEncoding encoding = ::wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false) {
 		if(_obj.pushFunction("EnumerateFacenames")) {
 			_obj.pushArg((wxFontEnumerator*)this);
-			_obj.pushArg(encoding);
+			_obj.pushArg((int)encoding);
 			_obj.pushArg(fixedWidthOnly);
 			return (_obj.callFunction<bool>());
 		}

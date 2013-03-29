@@ -182,9 +182,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int type=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_ANY;
-		bool direction=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		int type=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxEVT_NULL;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxID_ANY;
+		bool direction=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 		wxWizardPage* page=luatop>3 ? (Luna< wxObject >::checkSubType< wxWizardPage >(L,4)) : (wxWizardPage*)0;
 
 		return new wxWizardEvent(type, id, direction, page);
@@ -199,9 +199,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int type=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
-		bool direction=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		int type=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxID_ANY;
+		bool direction=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 		wxWizardPage* page=luatop>4 ? (Luna< wxObject >::checkSubType< wxWizardPage >(L,5)) : (wxWizardPage*)0;
 
 		return new wrapper_wxWizardEvent(L,NULL, type, id, direction, page);

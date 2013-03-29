@@ -133,7 +133,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int count=luatop>0 ? (int)lua_tointeger(L,1) : 1;
+		int count=luatop>0 ? (int)lua_tointeger(L,1) : (int)1;
 
 		int lret = wxIdManager::ReserveId(count);
 		lua_pushnumber(L,lret);
@@ -151,7 +151,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int id=(int)lua_tointeger(L,1);
-		int count=luatop>1 ? (int)lua_tointeger(L,2) : 1;
+		int count=luatop>1 ? (int)lua_tointeger(L,2) : (int)1;
 
 		wxIdManager::UnreserveId(id, count);
 

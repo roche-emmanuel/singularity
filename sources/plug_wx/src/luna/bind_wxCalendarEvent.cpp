@@ -177,7 +177,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxCalendarEvent::SetWeekDay(const wxDateTime::WeekDay day) function, expected prototype:\nvoid wxCalendarEvent::SetWeekDay(const wxDateTime::WeekDay day)\nClass arguments details:\n");
 		}
 
-		wxDateTime::WeekDay day=(wxDateTime::WeekDay)lua_tointeger(L,2);
+		const wxDateTime::WeekDay day=(const wxDateTime::WeekDay)lua_tointeger(L,2);
 
 		wxCalendarEvent* self=Luna< wxObject >::checkSubType< wxCalendarEvent >(L,1);
 		if(!self) {

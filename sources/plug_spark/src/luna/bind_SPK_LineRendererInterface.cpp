@@ -192,8 +192,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float length=luatop>0 ? (float)lua_tonumber(L,1) : 1.0f;
-		float width=luatop>1 ? (float)lua_tonumber(L,2) : 1.0f;
+		float length=luatop>0 ? (float)lua_tonumber(L,1) : (float)1.0f;
+		float width=luatop>1 ? (float)lua_tonumber(L,2) : (float)1.0f;
 
 		return new SPK::LineRendererInterface(length, width);
 	}
@@ -207,8 +207,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float length=luatop>1 ? (float)lua_tonumber(L,2) : 1.0f;
-		float width=luatop>2 ? (float)lua_tonumber(L,3) : 1.0f;
+		float length=luatop>1 ? (float)lua_tonumber(L,2) : (float)1.0f;
+		float width=luatop>2 ? (float)lua_tonumber(L,3) : (float)1.0f;
 
 		return new wrapper_SPK_LineRendererInterface(L,NULL, length, width);
 	}

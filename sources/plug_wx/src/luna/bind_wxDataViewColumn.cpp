@@ -231,9 +231,9 @@ public:
 		wxString title(lua_tostring(L,2),lua_objlen(L,2));
 		wxDataViewRenderer* renderer=(Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,3));
 		unsigned int model_column=(unsigned int)lua_tointeger(L,4);
-		int width=luatop>4 ? (int)lua_tointeger(L,5) : 80;
-		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_CENTER;
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
+		int width=luatop>4 ? (int)lua_tointeger(L,5) : (int)80;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : (wxAlignment)::wxALIGN_CENTER;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : (int)::wxDATAVIEW_COL_RESIZABLE;
 
 		return new wrapper_wxDataViewColumn(L,NULL, title, renderer, model_column, width, align, flags);
 	}
@@ -254,9 +254,9 @@ public:
 		const wxBitmap & bitmap=*bitmap_ptr;
 		wxDataViewRenderer* renderer=(Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,3));
 		unsigned int model_column=(unsigned int)lua_tointeger(L,4);
-		int width=luatop>4 ? (int)lua_tointeger(L,5) : 80;
-		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_CENTER;
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
+		int width=luatop>4 ? (int)lua_tointeger(L,5) : (int)80;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : (wxAlignment)::wxALIGN_CENTER;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : (int)::wxDATAVIEW_COL_RESIZABLE;
 
 		return new wrapper_wxDataViewColumn(L,NULL, bitmap, renderer, model_column, width, align, flags);
 	}

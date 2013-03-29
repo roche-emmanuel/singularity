@@ -304,12 +304,12 @@ public:
 		if( luatop>1 && !p0_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg p0 in SPK::Line::Line function");
 		}
-		const SPK::Vector3D & p0=luatop>1 ? *p0_ptr : SPK::Vector3D (0.0f, 0.0f, 0.0f);
+		const SPK::Vector3D & p0=luatop>1 ? *p0_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f, 0.0f);
 		const SPK::Vector3D* p1_ptr=luatop>2 ? (Luna< SPK::Vector3D >::check(L,3)) : NULL;
 		if( luatop>2 && !p1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg p1 in SPK::Line::Line function");
 		}
-		const SPK::Vector3D & p1=luatop>2 ? *p1_ptr : SPK::Vector3D (0.0f, 0.0f, 0.0f);
+		const SPK::Vector3D & p1=luatop>2 ? *p1_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f, 0.0f);
 
 		return new wrapper_SPK_Line(L,NULL, p0, p1);
 	}
@@ -596,12 +596,12 @@ public:
 		if( luatop>0 && !p0_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg p0 in SPK::Line::create function");
 		}
-		const SPK::Vector3D & p0=luatop>0 ? *p0_ptr : SPK::Vector3D (0.0f, 0.0f, 0.0f);
+		const SPK::Vector3D & p0=luatop>0 ? *p0_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f, 0.0f);
 		const SPK::Vector3D* p1_ptr=luatop>1 ? (Luna< SPK::Vector3D >::check(L,2)) : NULL;
 		if( luatop>1 && !p1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg p1 in SPK::Line::create function");
 		}
-		const SPK::Vector3D & p1=luatop>1 ? *p1_ptr : SPK::Vector3D (0.0f, 0.0f, 0.0f);
+		const SPK::Vector3D & p1=luatop>1 ? *p1_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f, 0.0f);
 
 		SPK::Line * lret = SPK::Line::create(p0, p1);
 		if(!lret) return 0; // Do not write NULL pointers.

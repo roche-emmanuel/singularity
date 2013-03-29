@@ -93,7 +93,7 @@ public:
 		if(_obj.pushFunction("GetLocalizedResourcesDir")) {
 			_obj.pushArg((wxStandardPaths*)this);
 			_obj.pushArg(lang);
-			_obj.pushArg(category);
+			_obj.pushArg((int)category);
 			return *(_obj.callFunction<wxString*>());
 		}
 

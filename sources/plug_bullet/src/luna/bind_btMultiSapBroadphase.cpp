@@ -360,7 +360,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int maxProxies=luatop>1 ? (int)lua_tointeger(L,2) : 16384;
+		int maxProxies=luatop>1 ? (int)lua_tointeger(L,2) : (int)16384;
 		btOverlappingPairCache* pairCache=luatop>2 ? (Luna< btOverlappingPairCallback >::checkSubType< btOverlappingPairCache >(L,3)) : (btOverlappingPairCache*)0;
 
 		return new wrapper_btMultiSapBroadphase(L,NULL, maxProxies, pairCache);
@@ -563,12 +563,12 @@ public:
 		if( luatop>4 && !aabbMin_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg aabbMin in btMultiSapBroadphase::rayTest function");
 		}
-		const btVector3 & aabbMin=luatop>4 ? *aabbMin_ptr : btVector3 (0, 0, 0);
+		const btVector3 & aabbMin=luatop>4 ? *aabbMin_ptr : (const btVector3)btVector3 (0, 0, 0);
 		const btVector3* aabbMax_ptr=luatop>5 ? (Luna< btVector3 >::check(L,6)) : NULL;
 		if( luatop>5 && !aabbMax_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg aabbMax in btMultiSapBroadphase::rayTest function");
 		}
-		const btVector3 & aabbMax=luatop>5 ? *aabbMax_ptr : btVector3 (0, 0, 0);
+		const btVector3 & aabbMax=luatop>5 ? *aabbMax_ptr : (const btVector3)btVector3 (0, 0, 0);
 
 		btMultiSapBroadphase* self=Luna< btBroadphaseInterface >::checkSubType< btMultiSapBroadphase >(L,1);
 		if(!self) {
@@ -929,12 +929,12 @@ public:
 		if( luatop>4 && !aabbMin_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg aabbMin in btMultiSapBroadphase::base_rayTest function");
 		}
-		const btVector3 & aabbMin=luatop>4 ? *aabbMin_ptr : btVector3 (0, 0, 0);
+		const btVector3 & aabbMin=luatop>4 ? *aabbMin_ptr : (const btVector3)btVector3 (0, 0, 0);
 		const btVector3* aabbMax_ptr=luatop>5 ? (Luna< btVector3 >::check(L,6)) : NULL;
 		if( luatop>5 && !aabbMax_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg aabbMax in btMultiSapBroadphase::base_rayTest function");
 		}
-		const btVector3 & aabbMax=luatop>5 ? *aabbMax_ptr : btVector3 (0, 0, 0);
+		const btVector3 & aabbMax=luatop>5 ? *aabbMax_ptr : (const btVector3)btVector3 (0, 0, 0);
 
 		btMultiSapBroadphase* self=Luna< btBroadphaseInterface >::checkSubType< btMultiSapBroadphase >(L,1);
 		if(!self) {

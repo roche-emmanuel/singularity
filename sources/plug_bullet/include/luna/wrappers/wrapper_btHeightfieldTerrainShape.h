@@ -221,7 +221,7 @@ public:
 	inline static bool _lg_typecheck_public_quantizeWithClamp(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
@@ -260,7 +260,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void btHeightfieldTerrainShape::public_quantizeWithClamp(int * out, const btVector3 & point, int isMax) const function, expected prototype:\nvoid btHeightfieldTerrainShape::public_quantizeWithClamp(int * out, const btVector3 & point, int isMax) const\nClass arguments details:\narg 2 ID = 91544891\n");
 		}
 
-		int out=(int)lua_tointeger(L,2);
+		int* out=(int*)Luna< void >::check(L,2);
 		const btVector3* point_ptr=(Luna< btVector3 >::check(L,3));
 		if( !point_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg point in btHeightfieldTerrainShape::public_quantizeWithClamp function");
@@ -273,7 +273,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btHeightfieldTerrainShape::public_quantizeWithClamp(int *, const btVector3 &, int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
 		}
-		self->public_quantizeWithClamp(&out, point, isMax);
+		self->public_quantizeWithClamp(out, point, isMax);
 
 		return 0;
 	}

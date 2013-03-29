@@ -151,6 +151,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getMimeTypeExtensionMap_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getMimeTypeExtensionMap_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_addReaderWriter(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -243,6 +255,22 @@ public:
 	inline static bool _lg_typecheck_getReaderWriterList_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getReaderWriterListForProtocol(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,16674959) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getReaderWriterForProtocolAndExtension(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -783,6 +811,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_removeFromObjectCache(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getFromObjectCache(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1012,6 +1047,57 @@ public:
 		}
 		self->addMimeTypeExtensionMapping(fromMimeType, toExt);
 
+		return 0;
+	}
+
+	// osgDB::Registry::MimeTypeExtensionMap & osgDB::Registry::getMimeTypeExtensionMap()
+	static int _bind_getMimeTypeExtensionMap_overload_1(lua_State *L) {
+		if (!_lg_typecheck_getMimeTypeExtensionMap_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::Registry::MimeTypeExtensionMap & osgDB::Registry::getMimeTypeExtensionMap() function, expected prototype:\nosgDB::Registry::MimeTypeExtensionMap & osgDB::Registry::getMimeTypeExtensionMap()\nClass arguments details:\n");
+		}
+
+
+		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::Registry::MimeTypeExtensionMap & osgDB::Registry::getMimeTypeExtensionMap(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::Registry::MimeTypeExtensionMap* lret = &self->getMimeTypeExtensionMap();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::Registry::MimeTypeExtensionMap >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osgDB::Registry::MimeTypeExtensionMap & osgDB::Registry::getMimeTypeExtensionMap() const
+	static int _bind_getMimeTypeExtensionMap_overload_2(lua_State *L) {
+		if (!_lg_typecheck_getMimeTypeExtensionMap_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osgDB::Registry::MimeTypeExtensionMap & osgDB::Registry::getMimeTypeExtensionMap() const function, expected prototype:\nconst osgDB::Registry::MimeTypeExtensionMap & osgDB::Registry::getMimeTypeExtensionMap() const\nClass arguments details:\n");
+		}
+
+
+		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osgDB::Registry::MimeTypeExtensionMap & osgDB::Registry::getMimeTypeExtensionMap() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::Registry::MimeTypeExtensionMap* lret = &self->getMimeTypeExtensionMap();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::Registry::MimeTypeExtensionMap >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osgDB::Registry::getMimeTypeExtensionMap
+	static int _bind_getMimeTypeExtensionMap(lua_State *L) {
+		if (_lg_typecheck_getMimeTypeExtensionMap_overload_1(L)) return _bind_getMimeTypeExtensionMap_overload_1(L);
+		if (_lg_typecheck_getMimeTypeExtensionMap_overload_2(L)) return _bind_getMimeTypeExtensionMap_overload_2(L);
+
+		luaL_error(L, "error in function getMimeTypeExtensionMap, cannot match any of the overloads for function getMimeTypeExtensionMap:\n  getMimeTypeExtensionMap()\n  getMimeTypeExtensionMap()\n");
 		return 0;
 	}
 
@@ -1302,6 +1388,53 @@ public:
 
 		luaL_error(L, "error in function getReaderWriterList, cannot match any of the overloads for function getReaderWriterList:\n  getReaderWriterList()\n  getReaderWriterList()\n");
 		return 0;
+	}
+
+	// void osgDB::Registry::getReaderWriterListForProtocol(const std::string & protocol, osgDB::Registry::ReaderWriterList & results) const
+	static int _bind_getReaderWriterListForProtocol(lua_State *L) {
+		if (!_lg_typecheck_getReaderWriterListForProtocol(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::Registry::getReaderWriterListForProtocol(const std::string & protocol, osgDB::Registry::ReaderWriterList & results) const function, expected prototype:\nvoid osgDB::Registry::getReaderWriterListForProtocol(const std::string & protocol, osgDB::Registry::ReaderWriterList & results) const\nClass arguments details:\narg 2 ID = 48032032\n");
+		}
+
+		std::string protocol(lua_tostring(L,2),lua_objlen(L,2));
+		osgDB::Registry::ReaderWriterList* results_ptr=(Luna< std::vector< osg::ref_ptr< osgDB::ReaderWriter > > >::checkSubType< osgDB::Registry::ReaderWriterList >(L,3));
+		if( !results_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg results in osgDB::Registry::getReaderWriterListForProtocol function");
+		}
+		osgDB::Registry::ReaderWriterList & results=*results_ptr;
+
+		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::Registry::getReaderWriterListForProtocol(const std::string &, osgDB::Registry::ReaderWriterList &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->getReaderWriterListForProtocol(protocol, results);
+
+		return 0;
+	}
+
+	// osgDB::ReaderWriter * osgDB::Registry::getReaderWriterForProtocolAndExtension(const std::string & protocol, const std::string & extension)
+	static int _bind_getReaderWriterForProtocolAndExtension(lua_State *L) {
+		if (!_lg_typecheck_getReaderWriterForProtocolAndExtension(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter * osgDB::Registry::getReaderWriterForProtocolAndExtension(const std::string & protocol, const std::string & extension) function, expected prototype:\nosgDB::ReaderWriter * osgDB::Registry::getReaderWriterForProtocolAndExtension(const std::string & protocol, const std::string & extension)\nClass arguments details:\n");
+		}
+
+		std::string protocol(lua_tostring(L,2),lua_objlen(L,2));
+		std::string extension(lua_tostring(L,3),lua_objlen(L,3));
+
+		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter * osgDB::Registry::getReaderWriterForProtocolAndExtension(const std::string &, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osgDB::ReaderWriter * lret = self->getReaderWriterForProtocolAndExtension(protocol, extension);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ReaderWriter >::push(L,lret,false);
+
+		return 1;
 	}
 
 	// osgDB::ImageProcessor * osgDB::Registry::getImageProcessor()
@@ -3038,6 +3171,25 @@ public:
 		return 0;
 	}
 
+	// void osgDB::Registry::removeFromObjectCache(const std::string & fileName)
+	static int _bind_removeFromObjectCache(lua_State *L) {
+		if (!_lg_typecheck_removeFromObjectCache(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::Registry::removeFromObjectCache(const std::string & fileName) function, expected prototype:\nvoid osgDB::Registry::removeFromObjectCache(const std::string & fileName)\nClass arguments details:\n");
+		}
+
+		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::Registry::removeFromObjectCache(const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->removeFromObjectCache(fileName);
+
+		return 0;
+	}
+
 	// osg::Object * osgDB::Registry::getFromObjectCache(const std::string & fileName)
 	static int _bind_getFromObjectCache(lua_State *L) {
 		if (!_lg_typecheck_getFromObjectCache(L)) {
@@ -3428,6 +3580,7 @@ luna_RegType LunaTraits< osgDB::Registry >::methods[] = {
 	{"addFileExtensionAlias", &luna_wrapper_osgDB_Registry::_bind_addFileExtensionAlias},
 	{"readPluginAliasConfigurationFile", &luna_wrapper_osgDB_Registry::_bind_readPluginAliasConfigurationFile},
 	{"addMimeTypeExtensionMapping", &luna_wrapper_osgDB_Registry::_bind_addMimeTypeExtensionMapping},
+	{"getMimeTypeExtensionMap", &luna_wrapper_osgDB_Registry::_bind_getMimeTypeExtensionMap},
 	{"addReaderWriter", &luna_wrapper_osgDB_Registry::_bind_addReaderWriter},
 	{"removeReaderWriter", &luna_wrapper_osgDB_Registry::_bind_removeReaderWriter},
 	{"addImageProcessor", &luna_wrapper_osgDB_Registry::_bind_addImageProcessor},
@@ -3441,6 +3594,8 @@ luna_RegType LunaTraits< osgDB::Registry >::methods[] = {
 	{"getReaderWriterForExtension", &luna_wrapper_osgDB_Registry::_bind_getReaderWriterForExtension},
 	{"getReaderWriterForMimeType", &luna_wrapper_osgDB_Registry::_bind_getReaderWriterForMimeType},
 	{"getReaderWriterList", &luna_wrapper_osgDB_Registry::_bind_getReaderWriterList},
+	{"getReaderWriterListForProtocol", &luna_wrapper_osgDB_Registry::_bind_getReaderWriterListForProtocol},
+	{"getReaderWriterForProtocolAndExtension", &luna_wrapper_osgDB_Registry::_bind_getReaderWriterForProtocolAndExtension},
 	{"getImageProcessor", &luna_wrapper_osgDB_Registry::_bind_getImageProcessor},
 	{"getImageProcessorForExtension", &luna_wrapper_osgDB_Registry::_bind_getImageProcessorForExtension},
 	{"getImageProcessorList", &luna_wrapper_osgDB_Registry::_bind_getImageProcessorList},
@@ -3503,6 +3658,7 @@ luna_RegType LunaTraits< osgDB::Registry >::methods[] = {
 	{"getExpiryDelay", &luna_wrapper_osgDB_Registry::_bind_getExpiryDelay},
 	{"clearObjectCache", &luna_wrapper_osgDB_Registry::_bind_clearObjectCache},
 	{"addEntryToObjectCache", &luna_wrapper_osgDB_Registry::_bind_addEntryToObjectCache},
+	{"removeFromObjectCache", &luna_wrapper_osgDB_Registry::_bind_removeFromObjectCache},
 	{"getFromObjectCache", &luna_wrapper_osgDB_Registry::_bind_getFromObjectCache},
 	{"getRefFromObjectCache", &luna_wrapper_osgDB_Registry::_bind_getRefFromObjectCache},
 	{"addToArchiveCache", &luna_wrapper_osgDB_Registry::_bind_addToArchiveCache},

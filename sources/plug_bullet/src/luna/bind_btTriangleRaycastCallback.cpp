@@ -228,7 +228,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg to in btTriangleRaycastCallback::btTriangleRaycastCallback function");
 		}
 		const btVector3 & to=*to_ptr;
-		unsigned int flags=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
+		unsigned int flags=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
 
 		return new wrapper_btTriangleRaycastCallback(L,NULL, from, to, flags);
 	}

@@ -194,10 +194,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int commandType=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int pos=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int orientation=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int commandType=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxEVT_NULL;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int pos=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int orientation=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		return new wxScrollEvent(commandType, id, pos, orientation);
 	}
@@ -211,10 +211,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int commandType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int pos=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		int orientation=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int commandType=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int pos=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		int orientation=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		return new wrapper_wxScrollEvent(L,NULL, commandType, id, pos, orientation);
 	}

@@ -130,7 +130,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -296,14 +296,14 @@ public:
 		}
 
 		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int noChanges=(int)lua_tointeger(L,3);
+		int* noChanges=(int*)Luna< void >::check(L,3);
 
 		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxLayoutConstraints::SatisfyConstraints(wxWindow *, int *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		bool lret = self->SatisfyConstraints(win, &noChanges);
+		bool lret = self->SatisfyConstraints(win, noChanges);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;

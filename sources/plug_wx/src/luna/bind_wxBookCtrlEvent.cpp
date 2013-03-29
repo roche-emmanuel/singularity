@@ -194,10 +194,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int eventType=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int sel=luatop>2 ? (int)lua_tointeger(L,3) : wxNOT_FOUND;
-		int oldSel=luatop>3 ? (int)lua_tointeger(L,4) : wxNOT_FOUND;
+		int eventType=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxEVT_NULL;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int sel=luatop>2 ? (int)lua_tointeger(L,3) : (int)wxNOT_FOUND;
+		int oldSel=luatop>3 ? (int)lua_tointeger(L,4) : (int)wxNOT_FOUND;
 
 		return new wxBookCtrlEvent(eventType, id, sel, oldSel);
 	}
@@ -211,10 +211,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int eventType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int sel=luatop>3 ? (int)lua_tointeger(L,4) : wxNOT_FOUND;
-		int oldSel=luatop>4 ? (int)lua_tointeger(L,5) : wxNOT_FOUND;
+		int eventType=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int sel=luatop>3 ? (int)lua_tointeger(L,4) : (int)wxNOT_FOUND;
+		int oldSel=luatop>4 ? (int)lua_tointeger(L,5) : (int)wxNOT_FOUND;
 
 		return new wrapper_wxBookCtrlEvent(L,NULL, eventType, id, sel, oldSel);
 	}

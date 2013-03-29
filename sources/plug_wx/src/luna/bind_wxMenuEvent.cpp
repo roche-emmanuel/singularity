@@ -168,8 +168,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int type=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int type=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 		wxMenu* menu=luatop>3 ? (Luna< wxObject >::checkSubType< wxMenu >(L,4)) : (wxMenu*)NULL;
 
 		return new wrapper_wxMenuEvent(L,NULL, type, id, menu);

@@ -293,7 +293,7 @@ public:
 		wxBitmapType type=(wxBitmapType)lua_tointeger(L,4);
 		int width=(int)lua_tointeger(L,5);
 		int height=(int)lua_tointeger(L,6);
-		int depth=luatop>6 ? (int)lua_tointeger(L,7) : 1;
+		int depth=luatop>6 ? (int)lua_tointeger(L,7) : (int)1;
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
@@ -504,7 +504,7 @@ public:
 		wxBitmapType type=(wxBitmapType)lua_tointeger(L,4);
 		int width=(int)lua_tointeger(L,5);
 		int height=(int)lua_tointeger(L,6);
-		int depth=luatop>6 ? (int)lua_tointeger(L,7) : 1;
+		int depth=luatop>6 ? (int)lua_tointeger(L,7) : (int)1;
 
 		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {

@@ -229,8 +229,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float scale=luatop>1 ? (float)lua_tonumber(L,2) : 1.0f;
-		float elasticity=luatop>2 ? (float)lua_tonumber(L,3) : 1.0f;
+		float scale=luatop>1 ? (float)lua_tonumber(L,2) : (float)1.0f;
+		float elasticity=luatop>2 ? (float)lua_tonumber(L,3) : (float)1.0f;
 
 		return new wrapper_SPK_Collision(L,NULL, scale, elasticity);
 	}
@@ -341,8 +341,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float scale=luatop>0 ? (float)lua_tonumber(L,1) : 1.0f;
-		float elasticity=luatop>1 ? (float)lua_tonumber(L,2) : 1.0f;
+		float scale=luatop>0 ? (float)lua_tonumber(L,1) : (float)1.0f;
+		float elasticity=luatop>1 ? (float)lua_tonumber(L,2) : (float)1.0f;
 
 		SPK::Collision * lret = SPK::Collision::create(scale, elasticity);
 		if(!lret) return 0; // Do not write NULL pointers.

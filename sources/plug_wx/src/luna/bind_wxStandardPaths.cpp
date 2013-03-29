@@ -476,7 +476,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString lang(lua_tostring(L,2),lua_objlen(L,2));
-		wxStandardPaths::ResourceCat category=luatop>2 ? (wxStandardPaths::ResourceCat)lua_tointeger(L,3) : wxStandardPaths::ResourceCat_None;
+		wxStandardPaths::ResourceCat category=luatop>2 ? (wxStandardPaths::ResourceCat)lua_tointeger(L,3) : (wxStandardPaths::ResourceCat)wxStandardPaths::ResourceCat_None;
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {
@@ -814,7 +814,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString lang(lua_tostring(L,2),lua_objlen(L,2));
-		wxStandardPaths::ResourceCat category=luatop>2 ? (wxStandardPaths::ResourceCat)lua_tointeger(L,3) : wxStandardPaths::ResourceCat_None;
+		wxStandardPaths::ResourceCat category=luatop>2 ? (wxStandardPaths::ResourceCat)lua_tointeger(L,3) : (wxStandardPaths::ResourceCat)wxStandardPaths::ResourceCat_None;
 
 		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
 		if(!self) {

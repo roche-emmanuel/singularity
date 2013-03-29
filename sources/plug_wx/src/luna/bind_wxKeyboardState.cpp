@@ -208,10 +208,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool controlDown=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : false;
-		bool shiftDown=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
-		bool altDown=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
-		bool metaDown=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool controlDown=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)false;
+		bool shiftDown=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
+		bool altDown=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
+		bool metaDown=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		return new wxKeyboardState(controlDown, shiftDown, altDown, metaDown);
 	}

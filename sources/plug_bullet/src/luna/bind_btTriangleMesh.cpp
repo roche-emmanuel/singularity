@@ -288,8 +288,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool use32bitIndices=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
-		bool use4componentVertices=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool use32bitIndices=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)true;
+		bool use4componentVertices=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		return new btTriangleMesh(use32bitIndices, use4componentVertices);
 	}
@@ -303,8 +303,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool use32bitIndices=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
-		bool use4componentVertices=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool use32bitIndices=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
+		bool use4componentVertices=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		return new wrapper_btTriangleMesh(L,NULL, use32bitIndices, use4componentVertices);
 	}
@@ -382,7 +382,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg vertex2 in btTriangleMesh::addTriangle function");
 		}
 		const btVector3 & vertex2=*vertex2_ptr;
-		bool removeDuplicateVertices=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool removeDuplicateVertices=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		btTriangleMesh* self=Luna< btStridingMeshInterface >::checkSubType< btTriangleMesh >(L,1);
 		if(!self) {

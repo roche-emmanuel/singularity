@@ -161,7 +161,7 @@ public:
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,32391296)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,58243831)) ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,58243831)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		return true;
 	}
@@ -173,7 +173,7 @@ public:
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,32391296)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,58243831)) ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,58243831)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		return true;
 	}
@@ -300,7 +300,7 @@ public:
 		const btCollisionObjectWrapper* body1Wrap=(Luna< btCollisionObjectWrapper >::check(L,3));
 		const btGImpactMeshShapePart* shape0=(Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,4));
 		const btGImpactMeshShapePart* shape1=(Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,5));
-		int pairs=(int)lua_tointeger(L,6);
+		const int* pairs=(const int*)Luna< void >::check(L,6);
 		int pair_count=(int)lua_tointeger(L,7);
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
@@ -308,7 +308,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_collide_gjk_triangles(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btGImpactMeshShapePart *, const btGImpactMeshShapePart *, const int *, int). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
 		}
-		self->public_collide_gjk_triangles(body0Wrap, body1Wrap, shape0, shape1, &pairs, pair_count);
+		self->public_collide_gjk_triangles(body0Wrap, body1Wrap, shape0, shape1, pairs, pair_count);
 
 		return 0;
 	}
@@ -324,7 +324,7 @@ public:
 		const btCollisionObjectWrapper* body1Wrap=(Luna< btCollisionObjectWrapper >::check(L,3));
 		const btGImpactMeshShapePart* shape0=(Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,4));
 		const btGImpactMeshShapePart* shape1=(Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,5));
-		int pairs=(int)lua_tointeger(L,6);
+		const int* pairs=(const int*)Luna< void >::check(L,6);
 		int pair_count=(int)lua_tointeger(L,7);
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
@@ -332,7 +332,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_collide_sat_triangles(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btGImpactMeshShapePart *, const btGImpactMeshShapePart *, const int *, int). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
 		}
-		self->public_collide_sat_triangles(body0Wrap, body1Wrap, shape0, shape1, &pairs, pair_count);
+		self->public_collide_sat_triangles(body0Wrap, body1Wrap, shape0, shape1, pairs, pair_count);
 
 		return 0;
 	}

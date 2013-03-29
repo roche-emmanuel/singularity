@@ -136,7 +136,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxMessageOutputFlags flags=luatop>1 ? (wxMessageOutputFlags)lua_tointeger(L,2) : ::wxMSGOUT_PREFER_STDERR;
+		wxMessageOutputFlags flags=luatop>1 ? (wxMessageOutputFlags)lua_tointeger(L,2) : (wxMessageOutputFlags)::wxMSGOUT_PREFER_STDERR;
 
 		return new wrapper_wxMessageOutputBest(L,NULL, flags);
 	}

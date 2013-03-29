@@ -172,6 +172,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_empty(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getPlaneList_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -548,6 +554,25 @@ public:
 		self->flip();
 
 		return 0;
+	}
+
+	// bool osg::Polytope::empty() const
+	static int _bind_empty(lua_State *L) {
+		if (!_lg_typecheck_empty(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Polytope::empty() const function, expected prototype:\nbool osg::Polytope::empty() const\nClass arguments details:\n");
+		}
+
+
+		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Polytope::empty() const. Got : '%s'",typeid(Luna< osg::Polytope >::check(L,1)).name());
+		}
+		bool lret = self->empty();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
 	}
 
 	// osg::Polytope::PlaneList & osg::Polytope::getPlaneList()
@@ -1154,6 +1179,7 @@ luna_RegType LunaTraits< osg::Polytope >::methods[] = {
 	{"set", &luna_wrapper_osg_Polytope::_bind_set},
 	{"add", &luna_wrapper_osg_Polytope::_bind_add},
 	{"flip", &luna_wrapper_osg_Polytope::_bind_flip},
+	{"empty", &luna_wrapper_osg_Polytope::_bind_empty},
 	{"getPlaneList", &luna_wrapper_osg_Polytope::_bind_getPlaneList},
 	{"setReferenceVertexList", &luna_wrapper_osg_Polytope::_bind_setReferenceVertexList},
 	{"getReferenceVertexList", &luna_wrapper_osg_Polytope::_bind_getReferenceVertexList},

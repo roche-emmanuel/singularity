@@ -243,9 +243,9 @@ public:
 			luaL_error(L, "luna typecheck failed in btQuadWord::btQuadWord(const float & _x, const float & _y, const float & _z) function, expected prototype:\nbtQuadWord::btQuadWord(const float & _x, const float & _y, const float & _z)\nClass arguments details:\n");
 		}
 
-		float _x=(float)lua_tonumber(L,1);
-		float _y=(float)lua_tonumber(L,2);
-		float _z=(float)lua_tonumber(L,3);
+		const float _x=(const float)lua_tonumber(L,1);
+		const float _y=(const float)lua_tonumber(L,2);
+		const float _z=(const float)lua_tonumber(L,3);
 
 		return new btQuadWord(_x, _y, _z);
 	}
@@ -257,10 +257,10 @@ public:
 			luaL_error(L, "luna typecheck failed in btQuadWord::btQuadWord(const float & _x, const float & _y, const float & _z, const float & _w) function, expected prototype:\nbtQuadWord::btQuadWord(const float & _x, const float & _y, const float & _z, const float & _w)\nClass arguments details:\n");
 		}
 
-		float _x=(float)lua_tonumber(L,1);
-		float _y=(float)lua_tonumber(L,2);
-		float _z=(float)lua_tonumber(L,3);
-		float _w=(float)lua_tonumber(L,4);
+		const float _x=(const float)lua_tonumber(L,1);
+		const float _y=(const float)lua_tonumber(L,2);
+		const float _z=(const float)lua_tonumber(L,3);
+		const float _w=(const float)lua_tonumber(L,4);
 
 		return new btQuadWord(_x, _y, _z, _w);
 	}
@@ -493,9 +493,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void btQuadWord::setValue(const float & _x, const float & _y, const float & _z) function, expected prototype:\nvoid btQuadWord::setValue(const float & _x, const float & _y, const float & _z)\nClass arguments details:\n");
 		}
 
-		float _x=(float)lua_tonumber(L,2);
-		float _y=(float)lua_tonumber(L,3);
-		float _z=(float)lua_tonumber(L,4);
+		const float _x=(const float)lua_tonumber(L,2);
+		const float _y=(const float)lua_tonumber(L,3);
+		const float _z=(const float)lua_tonumber(L,4);
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
@@ -514,10 +514,10 @@ public:
 			luaL_error(L, "luna typecheck failed in void btQuadWord::setValue(const float & _x, const float & _y, const float & _z, const float & _w) function, expected prototype:\nvoid btQuadWord::setValue(const float & _x, const float & _y, const float & _z, const float & _w)\nClass arguments details:\n");
 		}
 
-		float _x=(float)lua_tonumber(L,2);
-		float _y=(float)lua_tonumber(L,3);
-		float _z=(float)lua_tonumber(L,4);
-		float _w=(float)lua_tonumber(L,5);
+		const float _x=(const float)lua_tonumber(L,2);
+		const float _y=(const float)lua_tonumber(L,3);
+		const float _z=(const float)lua_tonumber(L,4);
+		const float _w=(const float)lua_tonumber(L,5);
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {

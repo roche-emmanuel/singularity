@@ -353,7 +353,7 @@ public:
 		if( luatop>3 && !localInertia_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localInertia in btRigidBody::btRigidBodyConstructionInfo::btRigidBodyConstructionInfo function");
 		}
-		const btVector3 & localInertia=luatop>3 ? *localInertia_ptr : btVector3 (0, 0, 0);
+		const btVector3 & localInertia=luatop>3 ? *localInertia_ptr : (const btVector3)btVector3 (0, 0, 0);
 
 		return new btRigidBody::btRigidBodyConstructionInfo(mass, motionState, collisionShape, localInertia);
 	}

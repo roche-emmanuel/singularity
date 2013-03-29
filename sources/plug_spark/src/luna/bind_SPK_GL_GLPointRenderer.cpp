@@ -310,7 +310,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float size=luatop>1 ? (float)lua_tonumber(L,2) : 1.0f;
+		float size=luatop>1 ? (float)lua_tonumber(L,2) : (float)1.0f;
 
 		return new wrapper_SPK_GL_GLPointRenderer(L,NULL, size);
 	}
@@ -465,7 +465,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float size=luatop>0 ? (float)lua_tonumber(L,1) : 1.0f;
+		float size=luatop>0 ? (float)lua_tonumber(L,1) : (float)1.0f;
 
 		SPK::GL::GLPointRenderer * lret = SPK::GL::GLPointRenderer::create(size);
 		if(!lret) return 0; // Do not write NULL pointers.

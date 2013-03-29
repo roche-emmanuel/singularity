@@ -249,9 +249,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString cursorName(lua_tostring(L,1),lua_objlen(L,1));
-		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : wxCURSOR_DEFAULT_TYPE;
-		int hotSpotX=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int hotSpotY=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : (wxBitmapType)wxCURSOR_DEFAULT_TYPE;
+		int hotSpotX=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int hotSpotY=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		return new wxCursor(cursorName, type, hotSpotX, hotSpotY);
 	}
@@ -321,9 +321,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString cursorName(lua_tostring(L,2),lua_objlen(L,2));
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : wxCURSOR_DEFAULT_TYPE;
-		int hotSpotX=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		int hotSpotY=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)wxCURSOR_DEFAULT_TYPE;
+		int hotSpotX=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		int hotSpotY=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		return new wrapper_wxCursor(L,NULL, cursorName, type, hotSpotX, hotSpotY);
 	}

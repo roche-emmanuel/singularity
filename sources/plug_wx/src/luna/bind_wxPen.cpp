@@ -420,8 +420,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxPen::wxPen function");
 		}
 		const wxColour & colour=*colour_ptr;
-		int width=luatop>1 ? (int)lua_tointeger(L,2) : 1;
-		wxPenStyle style=luatop>2 ? (wxPenStyle)lua_tointeger(L,3) : ::wxPENSTYLE_SOLID;
+		int width=luatop>1 ? (int)lua_tointeger(L,2) : (int)1;
+		wxPenStyle style=luatop>2 ? (wxPenStyle)lua_tointeger(L,3) : (wxPenStyle)::wxPENSTYLE_SOLID;
 
 		return new wxPen(colour, width, style);
 	}
@@ -484,8 +484,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxPen::wxPen function");
 		}
 		const wxColour & colour=*colour_ptr;
-		int width=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		wxPenStyle style=luatop>3 ? (wxPenStyle)lua_tointeger(L,4) : ::wxPENSTYLE_SOLID;
+		int width=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
+		wxPenStyle style=luatop>3 ? (wxPenStyle)lua_tointeger(L,4) : (wxPenStyle)::wxPENSTYLE_SOLID;
 
 		return new wrapper_wxPen(L,NULL, colour, width, style);
 	}

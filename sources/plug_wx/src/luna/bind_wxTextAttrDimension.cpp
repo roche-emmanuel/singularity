@@ -285,7 +285,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int value=(int)lua_tointeger(L,1);
-		wxTextAttrUnits units=luatop>1 ? (wxTextAttrUnits)lua_tointeger(L,2) : ::wxTEXT_ATTR_UNITS_TENTHS_MM;
+		wxTextAttrUnits units=luatop>1 ? (wxTextAttrUnits)lua_tointeger(L,2) : (wxTextAttrUnits)::wxTEXT_ATTR_UNITS_TENTHS_MM;
 
 		return new wxTextAttrDimension(value, units);
 	}

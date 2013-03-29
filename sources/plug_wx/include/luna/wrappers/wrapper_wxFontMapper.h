@@ -52,7 +52,7 @@ public:
 	bool IsEncodingAvailable(wxFontEncoding encoding, const wxString & facename = wxEmptyString) {
 		if(_obj.pushFunction("IsEncodingAvailable")) {
 			_obj.pushArg((wxFontMapper*)this);
-			_obj.pushArg(encoding);
+			_obj.pushArg((int)encoding);
 			_obj.pushArg(facename);
 			return (_obj.callFunction<bool>());
 		}

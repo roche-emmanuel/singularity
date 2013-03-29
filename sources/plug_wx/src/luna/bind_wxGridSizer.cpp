@@ -423,7 +423,7 @@ public:
 		if( luatop>1 && !gap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg gap in wxGridSizer::wxGridSizer function");
 		}
-		const wxSize & gap=luatop>1 ? *gap_ptr : wxSize (0, 0);
+		const wxSize & gap=luatop>1 ? *gap_ptr : (const wxSize&)wxSize (0, 0);
 
 		return new wxGridSizer(cols, gap);
 	}
@@ -489,7 +489,7 @@ public:
 		if( luatop>2 && !gap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg gap in wxGridSizer::wxGridSizer function");
 		}
-		const wxSize & gap=luatop>2 ? *gap_ptr : wxSize (0, 0);
+		const wxSize & gap=luatop>2 ? *gap_ptr : (const wxSize&)wxSize (0, 0);
 
 		return new wrapper_wxGridSizer(L,NULL, cols, gap);
 	}
@@ -826,7 +826,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxGridSizer* self=Luna< wxObject >::checkSubType< wxGridSizer >(L,1);
 		if(!self) {
@@ -1008,7 +1008,7 @@ public:
 
 		wxWindow* oldwin=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxWindow* newwin=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
-		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxGridSizer* self=Luna< wxObject >::checkSubType< wxGridSizer >(L,1);
 		if(!self) {
@@ -1032,7 +1032,7 @@ public:
 
 		wxSizer* oldsz=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		wxSizer* newsz=(Luna< wxObject >::checkSubType< wxSizer >(L,3));
-		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxGridSizer* self=Luna< wxObject >::checkSubType< wxGridSizer >(L,1);
 		if(!self) {

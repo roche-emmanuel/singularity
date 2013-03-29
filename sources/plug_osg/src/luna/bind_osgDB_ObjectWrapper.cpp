@@ -141,6 +141,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getUpdatedVersion(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getProto(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -295,6 +301,25 @@ public:
 		self->setUpdatedVersion(ver);
 
 		return 0;
+	}
+
+	// int osgDB::ObjectWrapper::getUpdatedVersion() const
+	static int _bind_getUpdatedVersion(lua_State *L) {
+		if (!_lg_typecheck_getUpdatedVersion(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osgDB::ObjectWrapper::getUpdatedVersion() const function, expected prototype:\nint osgDB::ObjectWrapper::getUpdatedVersion() const\nClass arguments details:\n");
+		}
+
+
+		osgDB::ObjectWrapper* self=Luna< osg::Referenced >::checkSubType< osgDB::ObjectWrapper >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osgDB::ObjectWrapper::getUpdatedVersion() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		int lret = self->getUpdatedVersion();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 	// const osg::Object * osgDB::ObjectWrapper::getProto() const
@@ -614,6 +639,7 @@ const int LunaTraits< osgDB::ObjectWrapper >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osgDB::ObjectWrapper >::methods[] = {
 	{"setUpdatedVersion", &luna_wrapper_osgDB_ObjectWrapper::_bind_setUpdatedVersion},
+	{"getUpdatedVersion", &luna_wrapper_osgDB_ObjectWrapper::_bind_getUpdatedVersion},
 	{"getProto", &luna_wrapper_osgDB_ObjectWrapper::_bind_getProto},
 	{"getName", &luna_wrapper_osgDB_ObjectWrapper::_bind_getName},
 	{"getAssociates", &luna_wrapper_osgDB_ObjectWrapper::_bind_getAssociates},

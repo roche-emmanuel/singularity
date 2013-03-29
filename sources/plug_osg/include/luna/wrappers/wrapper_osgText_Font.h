@@ -196,6 +196,18 @@ public:
 		return Font::hasVertical();
 	};
 
+	// bool osgText::Font::getVerticalSize(float & ascender, float & descender) const
+	bool getVerticalSize(float & ascender, float & descender) const {
+		if(_obj.pushFunction("getVerticalSize")) {
+			_obj.pushArg((osgText::Font*)this);
+			_obj.pushArg(ascender);
+			_obj.pushArg(descender);
+			return (_obj.callFunction<bool>());
+		}
+
+		return Font::getVerticalSize(ascender, descender);
+	};
+
 	// void osgText::Font::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {

@@ -353,7 +353,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int maxCommands=luatop>0 ? (int)lua_tointeger(L,1) : -1;
+		int maxCommands=luatop>0 ? (int)lua_tointeger(L,1) : (int)-1;
 
 		return new wxCommandProcessor(maxCommands);
 	}
@@ -367,7 +367,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int maxCommands=luatop>1 ? (int)lua_tointeger(L,2) : -1;
+		int maxCommands=luatop>1 ? (int)lua_tointeger(L,2) : (int)-1;
 
 		return new wrapper_wxCommandProcessor(L,NULL, maxCommands);
 	}
@@ -756,7 +756,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxCommand* command=(Luna< wxObject >::checkSubType< wxCommand >(L,2));
-		bool storeIt=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool storeIt=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
@@ -968,7 +968,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxCommand* command=(Luna< wxObject >::checkSubType< wxCommand >(L,2));
-		bool storeIt=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool storeIt=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {

@@ -264,7 +264,7 @@ public:
 		wxString nameOfISP(lua_tostring(L,2),lua_objlen(L,2));
 		wxString username(lua_tostring(L,3),lua_objlen(L,3));
 		wxString password(lua_tostring(L,4),lua_objlen(L,4));
-		bool async=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		bool async=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
@@ -304,7 +304,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t nSeconds=luatop>1 ? (size_t)lua_tointeger(L,2) : 60;
+		size_t nSeconds=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)60;
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
@@ -467,7 +467,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool isOnline=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool isOnline=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
@@ -489,7 +489,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString hostname(lua_tostring(L,2),lua_objlen(L,2));
-		int portno=luatop>2 ? (int)lua_tointeger(L,3) : 80;
+		int portno=luatop>2 ? (int)lua_tointeger(L,3) : (int)80;
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {

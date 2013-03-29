@@ -118,7 +118,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -163,7 +163,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxFontEncoding enc=luatop>0 ? (wxFontEncoding)lua_tointeger(L,1) : ::wxFONTENCODING_DEFAULT;
+		wxFontEncoding enc=luatop>0 ? (wxFontEncoding)lua_tointeger(L,1) : (wxFontEncoding)::wxFONTENCODING_DEFAULT;
 
 		return new wxConvAuto(enc);
 	}
@@ -197,14 +197,14 @@ public:
 		}
 
 		wxBOM bom=(wxBOM)lua_tointeger(L,2);
-		size_t count=(size_t)lua_tointeger(L,3);
+		size_t* count=(size_t*)Luna< void >::check(L,3);
 
 		wxConvAuto* self=(Luna< wxConvAuto >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * wxConvAuto::GetBOMChars(wxBOM, size_t *). Got : '%s'",typeid(Luna< wxConvAuto >::check(L,1)).name());
 		}
-		const char * lret = self->GetBOMChars(bom, &count);
+		const char * lret = self->GetBOMChars(bom, count);
 		lua_pushstring(L,lret);
 
 		return 1;

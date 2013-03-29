@@ -334,9 +334,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
-		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : wxICON_DEFAULT_TYPE;
-		int desiredWidth=luatop>2 ? (int)lua_tointeger(L,3) : -1;
-		int desiredHeight=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : (wxBitmapType)wxICON_DEFAULT_TYPE;
+		int desiredWidth=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
+		int desiredHeight=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		return new wxIcon(name, type, desiredWidth, desiredHeight);
 	}
@@ -406,9 +406,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : wxICON_DEFAULT_TYPE;
-		int desiredWidth=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int desiredHeight=luatop>4 ? (int)lua_tointeger(L,5) : -1;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)wxICON_DEFAULT_TYPE;
+		int desiredWidth=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int desiredHeight=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
 
 		return new wrapper_wxIcon(L,NULL, name, type, desiredWidth, desiredHeight);
 	}
@@ -557,9 +557,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : wxICON_DEFAULT_TYPE;
-		int desiredWidth=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int desiredHeight=luatop>4 ? (int)lua_tointeger(L,5) : -1;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)wxICON_DEFAULT_TYPE;
+		int desiredWidth=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int desiredHeight=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
 
 		wxIcon* self=Luna< wxObject >::checkSubType< wxIcon >(L,1);
 		if(!self) {

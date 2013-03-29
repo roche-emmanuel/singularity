@@ -207,14 +207,14 @@ public:
 	inline static bool _lg_typecheck_set_free_nodes(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_set_allocated_sizes(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -551,14 +551,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_free_nodes(size_t * value) function, expected prototype:\nvoid btGenericMemoryPool::m_free_nodes(size_t * value)\nClass arguments details:\n");
 		}
 
-		size_t value=(size_t)lua_tointeger(L,2);
+		size_t* value=(size_t*)Luna< void >::check(L,2);
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::m_free_nodes(size_t *). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
 		}
-		self->m_free_nodes = &value;
+		self->m_free_nodes = value;
 
 		return 0;
 	}
@@ -570,14 +570,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_allocated_sizes(size_t * value) function, expected prototype:\nvoid btGenericMemoryPool::m_allocated_sizes(size_t * value)\nClass arguments details:\n");
 		}
 
-		size_t value=(size_t)lua_tointeger(L,2);
+		size_t* value=(size_t*)Luna< void >::check(L,2);
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::m_allocated_sizes(size_t *). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
 		}
-		self->m_allocated_sizes = &value;
+		self->m_allocated_sizes = value;
 
 		return 0;
 	}

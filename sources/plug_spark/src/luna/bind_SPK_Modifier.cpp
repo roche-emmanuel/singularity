@@ -258,10 +258,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int availableTriggers=luatop>1 ? (int)lua_tointeger(L,2) : SPK::ALWAYS;
-		SPK::ModifierTrigger trigger=luatop>2 ? (SPK::ModifierTrigger)lua_tointeger(L,3) : SPK::ALWAYS;
-		bool needsIntersection=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
-		bool needsNormal=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		int availableTriggers=luatop>1 ? (int)lua_tointeger(L,2) : (int)SPK::ALWAYS;
+		SPK::ModifierTrigger trigger=luatop>2 ? (SPK::ModifierTrigger)lua_tointeger(L,3) : (SPK::ModifierTrigger)SPK::ALWAYS;
+		bool needsIntersection=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
+		bool needsNormal=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 		SPK::Zone* zone=luatop>5 ? (Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,6)) : (SPK::Zone*)NULL;
 
 		return new wrapper_SPK_Modifier(L,NULL, availableTriggers, trigger, needsIntersection, needsNormal, zone);
@@ -298,7 +298,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Zone* zone=(Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,2));
-		bool full=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool full=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {

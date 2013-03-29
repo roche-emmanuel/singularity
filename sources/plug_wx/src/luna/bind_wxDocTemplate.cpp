@@ -373,7 +373,7 @@ public:
 		wxString viewTypeName(lua_tostring(L,7),lua_objlen(L,7));
 		wxClassInfo* docClassInfo=luatop>7 ? (Luna< wxClassInfo >::check(L,8)) : (wxClassInfo*)0;
 		wxClassInfo* viewClassInfo=luatop>8 ? (Luna< wxClassInfo >::check(L,9)) : (wxClassInfo*)0;
-		long flags=luatop>9 ? (long)lua_tointeger(L,10) : ::wxTEMPLATE_VISIBLE;
+		long flags=luatop>9 ? (long)lua_tointeger(L,10) : (long)::wxTEMPLATE_VISIBLE;
 
 		return new wxDocTemplate(manager, descr, filter, dir, ext, docTypeName, viewTypeName, docClassInfo, viewClassInfo, flags);
 	}
@@ -396,7 +396,7 @@ public:
 		wxString viewTypeName(lua_tostring(L,8),lua_objlen(L,8));
 		wxClassInfo* docClassInfo=luatop>8 ? (Luna< wxClassInfo >::check(L,9)) : (wxClassInfo*)0;
 		wxClassInfo* viewClassInfo=luatop>9 ? (Luna< wxClassInfo >::check(L,10)) : (wxClassInfo*)0;
-		long flags=luatop>10 ? (long)lua_tointeger(L,11) : ::wxTEMPLATE_VISIBLE;
+		long flags=luatop>10 ? (long)lua_tointeger(L,11) : (long)::wxTEMPLATE_VISIBLE;
 
 		return new wrapper_wxDocTemplate(L,NULL, manager, descr, filter, dir, ext, docTypeName, viewTypeName, docClassInfo, viewClassInfo, flags);
 	}
@@ -422,7 +422,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
-		long flags=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long flags=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
@@ -447,7 +447,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDocument* doc=(Luna< wxObject >::checkSubType< wxDocument >(L,2));
-		long flags=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long flags=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
@@ -689,7 +689,7 @@ public:
 
 		wxDocument* doc=(Luna< wxObject >::checkSubType< wxDocument >(L,2));
 		wxString path(lua_tostring(L,3),lua_objlen(L,3));
-		long flags=luatop>3 ? (long)lua_tointeger(L,4) : 0;
+		long flags=luatop>3 ? (long)lua_tointeger(L,4) : (long)0;
 
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
@@ -866,7 +866,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
-		long flags=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long flags=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
@@ -891,7 +891,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDocument* doc=(Luna< wxObject >::checkSubType< wxDocument >(L,2));
-		long flags=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long flags=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {
@@ -975,7 +975,7 @@ public:
 
 		wxDocument* doc=(Luna< wxObject >::checkSubType< wxDocument >(L,2));
 		wxString path(lua_tostring(L,3),lua_objlen(L,3));
-		long flags=luatop>3 ? (long)lua_tointeger(L,4) : 0;
+		long flags=luatop>3 ? (long)lua_tointeger(L,4) : (long)0;
 
 		wxDocTemplate* self=Luna< wxObject >::checkSubType< wxDocTemplate >(L,1);
 		if(!self) {

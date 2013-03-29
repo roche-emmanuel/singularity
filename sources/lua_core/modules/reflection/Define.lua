@@ -41,16 +41,19 @@ function Class:isIgnored()
 	local header = self:getHeaderFile()
 	
 	if not header or im:ignoreHeader(header) or im:ignore(header,"file") then
+		self:debug("Ignoring definition ",self:getName()," because of header ",header or "[nil]")
 		return true;
 	end
 	
 	local str =  self:getInitStr()
 
 	if im:ignoreDefine(self) then
+	    self:debug("Ignoring definition ",self:getName()," because of ignore manager.")
 		return true;
 	end
 
 	if not str then
+		self:debug("Ignoring definition ",self:getName()," because of no content.")
 		return true
 	end
 	
@@ -63,6 +66,7 @@ function Class:isIgnored()
 	end
 	
 	if not tonumber(str) then
+		self:debug("Ignoring definition ",self:getName()," because it's not a number: ",str)
 		return true;
 	end	
 end

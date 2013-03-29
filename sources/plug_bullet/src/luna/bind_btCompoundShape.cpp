@@ -278,7 +278,7 @@ public:
 	inline static bool _lg_typecheck_calculatePrincipalAxisTransform(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		return true;
@@ -405,7 +405,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enableDynamicAabbTree=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
+		bool enableDynamicAabbTree=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)true;
 
 		return new btCompoundShape(enableDynamicAabbTree);
 	}
@@ -419,7 +419,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enableDynamicAabbTree=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enableDynamicAabbTree=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		return new wrapper_btCompoundShape(L,NULL, enableDynamicAabbTree);
 	}
@@ -637,7 +637,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg newChildTransform in btCompoundShape::updateChildTransform function");
 		}
 		const btTransform & newChildTransform=*newChildTransform_ptr;
-		bool shouldRecalculateLocalAabb=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool shouldRecalculateLocalAabb=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		btCompoundShape* self=Luna< btCollisionShape >::checkSubType< btCompoundShape >(L,1);
 		if(!self) {
@@ -922,7 +922,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void btCompoundShape::calculatePrincipalAxisTransform(float * masses, btTransform & principal, btVector3 & inertia) const function, expected prototype:\nvoid btCompoundShape::calculatePrincipalAxisTransform(float * masses, btTransform & principal, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\n");
 		}
 
-		float masses=(float)lua_tonumber(L,2);
+		float* masses=(float*)Luna< void >::check(L,2);
 		btTransform* principal_ptr=(Luna< btTransform >::check(L,3));
 		if( !principal_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg principal in btCompoundShape::calculatePrincipalAxisTransform function");
@@ -939,7 +939,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btCompoundShape::calculatePrincipalAxisTransform(float *, btTransform &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
 		}
-		self->calculatePrincipalAxisTransform(&masses, principal, inertia);
+		self->calculatePrincipalAxisTransform(masses, principal, inertia);
 
 		return 0;
 	}

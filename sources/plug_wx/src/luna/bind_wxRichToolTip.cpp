@@ -192,7 +192,7 @@ public:
 		if( luatop>2 && !colEnd_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colEnd in wxRichToolTip::SetBackgroundColour function");
 		}
-		const wxColour & colEnd=luatop>2 ? *colEnd_ptr : wxColour ();
+		const wxColour & colEnd=luatop>2 ? *colEnd_ptr : (const wxColour&)wxColour ();
 
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {
@@ -213,7 +213,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int icon=luatop>1 ? (int)lua_tointeger(L,2) : wxICON_INFORMATION;
+		int icon=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxICON_INFORMATION;
 
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {

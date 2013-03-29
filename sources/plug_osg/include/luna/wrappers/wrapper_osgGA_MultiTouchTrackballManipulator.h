@@ -479,6 +479,17 @@ public:
 		return MultiTouchTrackballManipulator::setCoordinateFrameCallback(cb);
 	};
 
+	// void osgGA::CameraManipulator::updateCamera(osg::Camera & camera)
+	void updateCamera(osg::Camera & camera) {
+		if(_obj.pushFunction("updateCamera")) {
+			_obj.pushArg((osgGA::MultiTouchTrackballManipulator*)this);
+			_obj.pushArg(&camera);
+			return (_obj.callFunction<void>());
+		}
+
+		return MultiTouchTrackballManipulator::updateCamera(camera);
+	};
+
 	// void osgGA::CameraManipulator::setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)
 	void setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false) {
 		if(_obj.pushFunction("setHomePosition")) {
@@ -796,8 +807,8 @@ public:
 		return MultiTouchTrackballManipulator::setWheelZoomFactor(wheelZoomFactor);
 	};
 
-	// void osgGA::OrbitManipulator::setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = NULL)
-	void setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = NULL) {
+	// void osgGA::OrbitManipulator::setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = false)
+	void setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = false) {
 		if(_obj.pushFunction("setMinimumDistance")) {
 			_obj.pushArg((osgGA::MultiTouchTrackballManipulator*)this);
 			_obj.pushArg(minimumDistance);

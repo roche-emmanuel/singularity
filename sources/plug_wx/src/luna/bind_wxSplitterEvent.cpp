@@ -197,7 +197,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int eventType=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
+		int eventType=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxEVT_NULL;
 		wxSplitterWindow* splitter=luatop>1 ? (Luna< wxObject >::checkSubType< wxSplitterWindow >(L,2)) : (wxSplitterWindow*)NULL;
 
 		return new wxSplitterEvent(eventType, splitter);
@@ -212,7 +212,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int eventType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
+		int eventType=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
 		wxSplitterWindow* splitter=luatop>2 ? (Luna< wxObject >::checkSubType< wxSplitterWindow >(L,3)) : (wxSplitterWindow*)NULL;
 
 		return new wrapper_wxSplitterEvent(L,NULL, eventType, splitter);

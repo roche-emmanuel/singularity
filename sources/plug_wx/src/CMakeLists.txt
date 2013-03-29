@@ -38,9 +38,9 @@ INSTALL(TARGETS ${TARGET_NAME}
 # step needed for the generation of the XML documentation:
 SET(INTF_FILES)
 LIST(APPEND INTF_FILES "${CMAKE_CURRENT_SOURCE_DIR}/../interface/wx")
-ADD_FILES(INTF_FILES "../interface/wx_enums.h")
-ADD_FILES(INTF_FILES "../interface/wx_events.h")
-ADD_FILES(INTF_FILES "../interface/wx_defines.h")
+ADD_FILES(INTF_FILES "../include/wx_enums.h")
+ADD_FILES(INTF_FILES "../include/wx_events.h")
+ADD_FILES(INTF_FILES "../include/wx_defines.h")
 ADD_FILES(INTF_FILES "../interface/helpers.h")
 ADD_FILES(INTF_FILES "../include/wx_extensions.h")
 
@@ -52,3 +52,4 @@ SET(INCLUDE_PATH ${WX_INC_DIR})
 SET(DOXY_PREDEFINED "_LARGE_FILES=1 __WXMSW__ WXDLLIMPEXP_RICHTEXT=  WXDLLIMPEXP_CORE= ")
 GENERATE_REFLECTION(${TARGET_NAME} INTF_FILES)
 COMPRESS_BINARY()
+INSTALL_PDB_EX(${TARGET_NAME} plug_${TARGET_NAME})

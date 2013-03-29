@@ -266,7 +266,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg triangleToWorld in btTriangleConvexcastCallback::btTriangleConvexcastCallback function");
 		}
 		const btTransform & triangleToWorld=*triangleToWorld_ptr;
-		float triangleCollisionMargin=(float)lua_tonumber(L,6);
+		const float triangleCollisionMargin=(const float)lua_tonumber(L,6);
 
 		return new wrapper_btTriangleConvexcastCallback(L,NULL, convexShape, convexShapeFrom, convexShapeTo, triangleToWorld, triangleCollisionMargin);
 	}

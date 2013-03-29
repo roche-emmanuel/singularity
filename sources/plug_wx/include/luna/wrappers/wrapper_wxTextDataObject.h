@@ -40,7 +40,7 @@ public:
 	size_t GetFormatCount(wxDataObject::Direction dir = wxDataObject::Get) const {
 		THROW_IF(!_obj.pushFunction("GetFormatCount"),"No implementation for abstract function wxDataObject::GetFormatCount");
 		_obj.pushArg((wxTextDataObject*)this);
-		_obj.pushArg(dir);
+		_obj.pushArg((int)dir);
 		return (_obj.callFunction<size_t>());
 	};
 
@@ -48,7 +48,7 @@ public:
 	wxDataFormat GetPreferredFormat(wxDataObject::Direction dir = wxDataObject::Get) const {
 		THROW_IF(!_obj.pushFunction("GetPreferredFormat"),"No implementation for abstract function wxDataObject::GetPreferredFormat");
 		_obj.pushArg((wxTextDataObject*)this);
-		_obj.pushArg(dir);
+		_obj.pushArg((int)dir);
 		return *(_obj.callFunction<wxDataFormat*>());
 	};
 
@@ -109,7 +109,7 @@ public:
 	size_t GetFormatCount(wxDataObject::Direction dir = wxDataObject::Get) {
 		if(_obj.pushFunction("GetFormatCount")) {
 			_obj.pushArg((wxTextDataObject*)this);
-			_obj.pushArg(dir);
+			_obj.pushArg((int)dir);
 			return (_obj.callFunction<size_t>());
 		}
 
@@ -121,7 +121,7 @@ public:
 		THROW_IF(!_obj.pushFunction("GetAllFormats"),"No implementation for abstract function wxTextDataObject::GetAllFormats");
 		_obj.pushArg((wxTextDataObject*)this);
 		_obj.pushArg(formats);
-		_obj.pushArg(dir);
+		_obj.pushArg((int)dir);
 		return (_obj.callFunction<void>());
 	};
 

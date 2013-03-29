@@ -806,13 +806,13 @@ public:
 		if( luatop>1 && !colBack_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colBack in wxTextAttr::wxTextAttr function");
 		}
-		const wxColour & colBack=luatop>1 ? *colBack_ptr : wxNullColour;
+		const wxColour & colBack=luatop>1 ? *colBack_ptr : (const wxColour&)wxNullColour;
 		const wxFont* font_ptr=luatop>2 ? (Luna< wxObject >::checkSubType< wxFont >(L,3)) : NULL;
 		if( luatop>2 && !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxTextAttr::wxTextAttr function");
 		}
-		const wxFont & font=luatop>2 ? *font_ptr : wxNullFont;
-		wxTextAttrAlignment alignment=luatop>3 ? (wxTextAttrAlignment)lua_tointeger(L,4) : ::wxTEXT_ALIGNMENT_DEFAULT;
+		const wxFont & font=luatop>2 ? *font_ptr : (const wxFont&)wxNullFont;
+		wxTextAttrAlignment alignment=luatop>3 ? (wxTextAttrAlignment)lua_tointeger(L,4) : (wxTextAttrAlignment)::wxTEXT_ALIGNMENT_DEFAULT;
 
 		return new wxTextAttr(colText, colBack, font, alignment);
 	}
@@ -1140,7 +1140,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxTextAttr::GetFontAttributes function");
 		}
 		const wxFont & font=*font_ptr;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxTEXT_ATTR_FONT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxTEXT_ATTR_FONT;
 
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
@@ -2354,7 +2354,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxTextAttr::SetFont function");
 		}
 		const wxFont & font=*font_ptr;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxTEXT_ATTR_FONT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxTEXT_ATTR_FONT;
 
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
@@ -2509,7 +2509,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int indent=(int)lua_tointeger(L,2);
-		int subIndent=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int subIndent=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {
@@ -2587,7 +2587,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool pageBreak=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool pageBreak=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxTextAttr* self=(Luna< wxTextAttr >::check(L,1));
 		if(!self) {

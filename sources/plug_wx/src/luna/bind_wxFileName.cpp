@@ -827,7 +827,7 @@ public:
 		if( lua_isstring(L,3)==0 ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
 		if( lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isboolean(L,6)==0 ) return false;
+		if( luatop>5 && (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		return true;
 	}
@@ -961,7 +961,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString fullpath(lua_tostring(L,1),lua_objlen(L,1));
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : (wxPathFormat)::wxPATH_NATIVE;
 
 		return new wxFileName(fullpath, format);
 	}
@@ -977,7 +977,7 @@ public:
 
 		wxString path(lua_tostring(L,1),lua_objlen(L,1));
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : (wxPathFormat)::wxPATH_NATIVE;
 
 		return new wxFileName(path, name, format);
 	}
@@ -994,7 +994,7 @@ public:
 		wxString path(lua_tostring(L,1),lua_objlen(L,1));
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 		wxString ext(lua_tostring(L,3),lua_objlen(L,3));
-		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : (wxPathFormat)::wxPATH_NATIVE;
 
 		return new wxFileName(path, name, ext, format);
 	}
@@ -1012,7 +1012,7 @@ public:
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 		wxString ext(lua_tostring(L,4),lua_objlen(L,4));
-		wxPathFormat format=luatop>4 ? (wxPathFormat)lua_tointeger(L,5) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>4 ? (wxPathFormat)lua_tointeger(L,5) : (wxPathFormat)::wxPATH_NATIVE;
 
 		return new wxFileName(volume, path, name, ext, format);
 	}
@@ -1084,7 +1084,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString fullpath(lua_tostring(L,2),lua_objlen(L,2));
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1110,7 +1110,7 @@ public:
 		wxString name(lua_tostring(L,4),lua_objlen(L,4));
 		wxString ext(lua_tostring(L,5),lua_objlen(L,5));
 		bool hasExt=(bool)(lua_toboolean(L,6)==1);
-		wxPathFormat format=luatop>6 ? (wxPathFormat)lua_tointeger(L,7) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>6 ? (wxPathFormat)lua_tointeger(L,7) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1135,7 +1135,7 @@ public:
 		wxString path(lua_tostring(L,3),lua_objlen(L,3));
 		wxString name(lua_tostring(L,4),lua_objlen(L,4));
 		wxString ext(lua_tostring(L,5),lua_objlen(L,5));
-		wxPathFormat format=luatop>5 ? (wxPathFormat)lua_tointeger(L,6) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>5 ? (wxPathFormat)lua_tointeger(L,6) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1158,7 +1158,7 @@ public:
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
-		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1182,7 +1182,7 @@ public:
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 		wxString ext(lua_tostring(L,4),lua_objlen(L,4));
-		wxPathFormat format=luatop>4 ? (wxPathFormat)lua_tointeger(L,5) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>4 ? (wxPathFormat)lua_tointeger(L,5) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1238,7 +1238,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString dir(lua_tostring(L,2),lua_objlen(L,2));
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1525,7 +1525,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1548,8 +1548,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString failmsg(lua_tostring(L,2),lua_objlen(L,2));
-		int precision=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		wxSizeConvention conv=luatop>3 ? (wxSizeConvention)lua_tointeger(L,4) : ::wxSIZE_CONV_TRADITIONAL;
+		int precision=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
+		wxSizeConvention conv=luatop>3 ? (wxSizeConvention)lua_tointeger(L,4) : (wxSizeConvention)::wxSIZE_CONV_TRADITIONAL;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1577,8 +1577,8 @@ public:
 		}
 		const wxULongLong & bytes=*bytes_ptr;
 		wxString nullsize(lua_tostring(L,2),lua_objlen(L,2));
-		int precision=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		wxSizeConvention conv=luatop>3 ? (wxSizeConvention)lua_tointeger(L,4) : ::wxSIZE_CONV_TRADITIONAL;
+		int precision=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
+		wxSizeConvention conv=luatop>3 ? (wxSizeConvention)lua_tointeger(L,4) : (wxSizeConvention)::wxSIZE_CONV_TRADITIONAL;
 
 		wxString lret = wxFileName::GetHumanReadableSize(bytes, nullsize, precision, conv);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1664,8 +1664,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxPATH_GET_VOLUME;
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxPATH_GET_VOLUME;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1687,7 +1687,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1895,7 +1895,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2170,7 +2170,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2193,7 +2193,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString cwd(lua_tostring(L,2),lua_objlen(L,2));
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2216,7 +2216,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString pathBase(lua_tostring(L,2),lua_objlen(L,2));
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2238,8 +2238,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int perm=luatop>1 ? (int)lua_tointeger(L,2) : ::wxS_DIR_DEFAULT;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int perm=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxS_DIR_DEFAULT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2262,8 +2262,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString dir(lua_tostring(L,1),lua_objlen(L,1));
-		int perm=luatop>1 ? (int)lua_tointeger(L,2) : ::wxS_DIR_DEFAULT;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int perm=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxS_DIR_DEFAULT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		bool lret = wxFileName::Mkdir(dir, perm, flags);
 		lua_pushboolean(L,lret?1:0);
@@ -2289,9 +2289,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxPATH_NORM_ALL;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxPATH_NORM_ALL;
 		wxString cwd(lua_tostring(L,3),lua_objlen(L,3));
-		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2371,7 +2371,7 @@ public:
 
 		wxString envname(lua_tostring(L,2),lua_objlen(L,2));
 		wxString replacementFmtString(lua_tostring(L,3),lua_objlen(L,3));
-		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2393,7 +2393,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2415,7 +2415,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2438,7 +2438,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString dir(lua_tostring(L,1),lua_objlen(L,1));
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		bool lret = wxFileName::Rmdir(dir, flags);
 		lua_pushboolean(L,lret?1:0);
@@ -2469,7 +2469,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg filepath in wxFileName::SameAs function");
 		}
 		const wxFileName & filepath=*filepath_ptr;
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2610,7 +2610,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2710,7 +2710,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString dir(lua_tostring(L,1),lua_objlen(L,1));
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName stack_lret = wxFileName::DirName(dir, format);
 		wxFileName* lret = new wxFileName(stack_lret);
@@ -2731,7 +2731,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString file(lua_tostring(L,1),lua_objlen(L,1));
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName stack_lret = wxFileName::FileName(file, format);
 		wxFileName* lret = new wxFileName(stack_lret);
@@ -2768,7 +2768,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxString lret = wxFileName::GetForbiddenChars(format);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2785,7 +2785,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxPathFormat lret = wxFileName::GetFormat(format);
 		lua_pushnumber(L,lret);
@@ -2816,7 +2816,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxString lret = wxFileName::GetPathSeparators(format);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2833,7 +2833,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxString lret = wxFileName::GetPathTerminators(format);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2864,7 +2864,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxString lret = wxFileName::GetVolumeSeparator(format);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2882,7 +2882,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		char drive=(char)lua_tointeger(L,1);
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxPATH_GET_SEPARATOR;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxPATH_GET_SEPARATOR;
 
 		wxString lret = wxFileName::GetVolumeString(drive, flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2899,7 +2899,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : (wxPathFormat)::wxPATH_NATIVE;
 
 		bool lret = wxFileName::IsCaseSensitive(format);
 		lua_pushboolean(L,lret?1:0);
@@ -2917,7 +2917,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString path(lua_tostring(L,1),lua_objlen(L,1));
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : (wxPathFormat)::wxPATH_NATIVE;
 
 		bool lret = wxFileName::IsMSWUniqueVolumeNamePath(path, format);
 		lua_pushboolean(L,lret?1:0);
@@ -2939,10 +2939,10 @@ public:
 		wxString path(lua_tostring(L,3),lua_objlen(L,3));
 		wxString name(lua_tostring(L,4),lua_objlen(L,4));
 		wxString ext(lua_tostring(L,5),lua_objlen(L,5));
-		bool hasExt=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : NULL;
-		wxPathFormat format=luatop>6 ? (wxPathFormat)lua_tointeger(L,7) : ::wxPATH_NATIVE;
+		bool* hasExt=luatop>5 ? (bool*)(Luna< void >::check(L,6)) : (bool*)NULL;
+		wxPathFormat format=luatop>6 ? (wxPathFormat)lua_tointeger(L,7) : (wxPathFormat)::wxPATH_NATIVE;
 
-		wxFileName::SplitPath(fullpath, &volume, &path, &name, &ext, &hasExt, format);
+		wxFileName::SplitPath(fullpath, &volume, &path, &name, &ext, hasExt, format);
 
 		return 0;
 	}
@@ -2979,7 +2979,7 @@ public:
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 		wxString ext(lua_tostring(L,4),lua_objlen(L,4));
-		wxPathFormat format=luatop>4 ? (wxPathFormat)lua_tointeger(L,5) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>4 ? (wxPathFormat)lua_tointeger(L,5) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName::SplitPath(fullpath, &path, &name, &ext, format);
 
@@ -3008,7 +3008,7 @@ public:
 		wxString fullpath(lua_tostring(L,1),lua_objlen(L,1));
 		wxString volume(lua_tostring(L,2),lua_objlen(L,2));
 		wxString path(lua_tostring(L,3),lua_objlen(L,3));
-		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : ::wxPATH_NATIVE;
+		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : (wxPathFormat)::wxPATH_NATIVE;
 
 		wxFileName::SplitVolume(fullpath, &volume, &path, format);
 

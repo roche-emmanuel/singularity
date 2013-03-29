@@ -321,7 +321,7 @@ public:
 		if( luatop>1 && !op_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg op in gizmo::GizmoDrawable::GizmoDrawable function");
 		}
-		osg::CopyOp op=luatop>1 ? *op_ptr : osg::CopyOp::SHALLOW_COPY;
+		osg::CopyOp op=luatop>1 ? *op_ptr : (osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new gizmo::GizmoDrawable(copy, op);
 	}
@@ -355,7 +355,7 @@ public:
 		if( luatop>2 && !op_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg op in gizmo::GizmoDrawable::GizmoDrawable function");
 		}
-		osg::CopyOp op=luatop>2 ? *op_ptr : osg::CopyOp::SHALLOW_COPY;
+		osg::CopyOp op=luatop>2 ? *op_ptr : (osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_gizmo_GizmoDrawable(L,NULL, copy, op);
 	}
@@ -383,7 +383,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		gizmo::GizmoDrawable::Mode m=(gizmo::GizmoDrawable::Mode)lua_tointeger(L,2);
-		IGizmo::LOCATION loc=luatop>2 ? (IGizmo::LOCATION)lua_tointeger(L,3) : IGizmo::LOCATE_LOCAL;
+		IGizmo::LOCATION loc=luatop>2 ? (IGizmo::LOCATION)lua_tointeger(L,3) : (IGizmo::LOCATION)IGizmo::LOCATE_LOCAL;
 
 		gizmo::GizmoDrawable* self=Luna< osg::Referenced >::checkSubType< gizmo::GizmoDrawable >(L,1);
 		if(!self) {

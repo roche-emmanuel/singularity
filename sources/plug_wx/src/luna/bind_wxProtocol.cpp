@@ -647,7 +647,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg address in wxProtocol::base_Connect function");
 		}
 		const wxSockAddress & address=*address_ptr;
-		bool wait=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool wait=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {

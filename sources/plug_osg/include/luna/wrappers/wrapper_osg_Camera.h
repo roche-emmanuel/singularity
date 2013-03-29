@@ -414,6 +414,26 @@ public:
 		return Camera::accept(nv);
 	};
 
+	// osg::Camera * osg::Camera::asCamera()
+	osg::Camera * asCamera() {
+		if(_obj.pushFunction("asCamera")) {
+			_obj.pushArg((osg::Camera*)this);
+			return (_obj.callFunction<osg::Camera*>());
+		}
+
+		return Camera::asCamera();
+	};
+
+	// const osg::Camera * osg::Camera::asCamera() const
+	const osg::Camera * asCamera() const {
+		if(_obj.pushFunction("asCamera")) {
+			_obj.pushArg((osg::Camera*)this);
+			return (_obj.callFunction<osg::Camera*>());
+		}
+
+		return Camera::asCamera();
+	};
+
 	// void osg::Camera::releaseGLObjects(osg::State * arg1 = 0) const
 	void releaseGLObjects(osg::State * arg1 = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {

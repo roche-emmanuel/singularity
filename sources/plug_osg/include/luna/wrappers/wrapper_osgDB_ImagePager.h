@@ -57,19 +57,20 @@ public:
 		return ImagePager::getPreLoadTime();
 	};
 
-	// osg::Image * osgDB::ImagePager::readImageFile(const std::string & fileName)
-	osg::Image * readImageFile(const std::string & fileName) {
+	// osg::Image * osgDB::ImagePager::readImageFile(const std::string & fileName, const osg::Referenced * options = 0)
+	osg::Image * readImageFile(const std::string & fileName, const osg::Referenced * options = 0) {
 		if(_obj.pushFunction("readImageFile")) {
 			_obj.pushArg((osgDB::ImagePager*)this);
 			_obj.pushArg(fileName);
+			_obj.pushArg(options);
 			return (_obj.callFunction<osg::Image*>());
 		}
 
-		return ImagePager::readImageFile(fileName);
+		return ImagePager::readImageFile(fileName, options);
 	};
 
-	// void osgDB::ImagePager::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp)
-	void requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp) {
+	// void osgDB::ImagePager::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options)
+	void requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options) {
 		if(_obj.pushFunction("requestImageFile")) {
 			_obj.pushArg((osgDB::ImagePager*)this);
 			_obj.pushArg(fileName);
@@ -77,10 +78,12 @@ public:
 			_obj.pushArg(attachmentIndex);
 			_obj.pushArg(timeToMergeBy);
 			_obj.pushArg(framestamp);
+			_obj.pushArg(imageRequest);
+			_obj.pushArg(options);
 			return (_obj.callFunction<void>());
 		}
 
-		return ImagePager::requestImageFile(fileName, attachmentPoint, attachmentIndex, timeToMergeBy, framestamp);
+		return ImagePager::requestImageFile(fileName, attachmentPoint, attachmentIndex, timeToMergeBy, framestamp, imageRequest, options);
 	};
 
 	// bool osgDB::ImagePager::requiresUpdateSceneGraph() const
@@ -102,6 +105,27 @@ public:
 		}
 
 		return ImagePager::updateSceneGraph(frameStamp);
+	};
+
+	// void osgDB::ImagePager::signalBeginFrame(const osg::FrameStamp * framestamp)
+	void signalBeginFrame(const osg::FrameStamp * framestamp) {
+		if(_obj.pushFunction("signalBeginFrame")) {
+			_obj.pushArg((osgDB::ImagePager*)this);
+			_obj.pushArg(framestamp);
+			return (_obj.callFunction<void>());
+		}
+
+		return ImagePager::signalBeginFrame(framestamp);
+	};
+
+	// void osgDB::ImagePager::signalEndFrame()
+	void signalEndFrame() {
+		if(_obj.pushFunction("signalEndFrame")) {
+			_obj.pushArg((osgDB::ImagePager*)this);
+			return (_obj.callFunction<void>());
+		}
+
+		return ImagePager::signalEndFrame();
 	};
 
 

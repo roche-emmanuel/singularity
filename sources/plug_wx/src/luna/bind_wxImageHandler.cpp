@@ -455,8 +455,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImageHandler::LoadFile function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		bool verbose=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
-		int index=luatop>4 ? (int)lua_tointeger(L,5) : -1;
+		bool verbose=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
+		int index=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
 
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
@@ -484,7 +484,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImageHandler::SaveFile function");
 		}
 		wxOutputStream & stream=*stream_ptr;
-		bool verbose=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool verbose=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
@@ -613,8 +613,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImageHandler::base_LoadFile function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		bool verbose=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
-		int index=luatop>4 ? (int)lua_tointeger(L,5) : -1;
+		bool verbose=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
+		int index=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
 
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
@@ -642,7 +642,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImageHandler::base_SaveFile function");
 		}
 		wxOutputStream & stream=*stream_ptr;
-		bool verbose=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool verbose=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {

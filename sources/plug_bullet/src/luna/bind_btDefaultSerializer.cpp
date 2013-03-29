@@ -319,7 +319,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int totalSize=luatop>0 ? (int)lua_tointeger(L,1) : 0;
+		int totalSize=luatop>0 ? (int)lua_tointeger(L,1) : (int)0;
 
 		return new btDefaultSerializer(totalSize);
 	}
@@ -333,7 +333,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int totalSize=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int totalSize=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		return new wrapper_btDefaultSerializer(L,NULL, totalSize);
 	}

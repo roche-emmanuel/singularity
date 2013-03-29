@@ -933,7 +933,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
@@ -956,7 +956,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		long value=(long)lua_tointeger(L,2);
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
@@ -978,7 +978,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int item=luatop>1 ? (int)lua_tointeger(L,2) : -1;
+		int item=luatop>1 ? (int)lua_tointeger(L,2) : (int)-1;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
@@ -1152,7 +1152,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
-		int value=luatop>2 ? (int)lua_tointeger(L,3) : wxPG_INVALID_VALUE;
+		int value=luatop>2 ? (int)lua_tointeger(L,3) : (int)wxPG_INVALID_VALUE;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
@@ -1308,7 +1308,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
@@ -1547,7 +1547,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int lh=(int)lua_tointeger(L,2);
-		int iMax=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int iMax=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
@@ -1955,7 +1955,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int argFlags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int argFlags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
@@ -2055,7 +2055,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		bool hide=(bool)(lua_toboolean(L,2)==1);
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPG_RECURSE;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxPG_RECURSE;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
@@ -2122,7 +2122,7 @@ public:
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 		int index=(int)lua_tointeger(L,3);
-		int value=luatop>3 ? (int)lua_tointeger(L,4) : wxPG_INVALID_VALUE;
+		int value=luatop>3 ? (int)lua_tointeger(L,4) : (int)wxPG_INVALID_VALUE;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
@@ -2337,7 +2337,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
@@ -2363,7 +2363,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxPGProperty::SetBackgroundColour function");
 		}
 		const wxColour & colour=*colour_ptr;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPG_RECURSE;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxPG_RECURSE;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
@@ -2676,7 +2676,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxPGProperty::SetTextColour function");
 		}
 		const wxColour & colour=*colour_ptr;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPG_RECURSE;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxPG_RECURSE;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
@@ -2761,7 +2761,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool set=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool set=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
@@ -2861,7 +2861,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int item=luatop>1 ? (int)lua_tointeger(L,2) : -1;
+		int item=luatop>1 ? (int)lua_tointeger(L,2) : (int)-1;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
@@ -2991,7 +2991,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int argFlags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int argFlags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {

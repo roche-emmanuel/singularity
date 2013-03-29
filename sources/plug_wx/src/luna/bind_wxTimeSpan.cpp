@@ -403,17 +403,17 @@ public:
 		int luatop = lua_gettop(L);
 
 		long hours=(long)lua_tointeger(L,1);
-		long min=luatop>1 ? (long)lua_tointeger(L,2) : 0;
+		long min=luatop>1 ? (long)lua_tointeger(L,2) : (long)0;
 		wxLongLong* sec_ptr=luatop>2 ? (Luna< wxLongLong >::check(L,3)) : NULL;
 		if( luatop>2 && !sec_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg sec in wxTimeSpan::wxTimeSpan function");
 		}
-		wxLongLong sec=luatop>2 ? *sec_ptr : 0;
+		wxLongLong sec=luatop>2 ? *sec_ptr : (wxLongLong)0;
 		wxLongLong* msec_ptr=luatop>3 ? (Luna< wxLongLong >::check(L,4)) : NULL;
 		if( luatop>3 && !msec_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg msec in wxTimeSpan::wxTimeSpan function");
 		}
-		wxLongLong msec=luatop>3 ? *msec_ptr : 0;
+		wxLongLong msec=luatop>3 ? *msec_ptr : (wxLongLong)0;
 
 		return new wxTimeSpan(hours, min, sec, msec);
 	}

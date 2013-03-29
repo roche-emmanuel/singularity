@@ -1,6 +1,5 @@
 #include <plug_common.h>
 
-#include <Box2D/Collision/b2DynamicTree.h>
 #include <Box2D/Common/b2Settings.h>
 
 #ifdef __cplusplus

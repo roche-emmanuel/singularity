@@ -250,14 +250,14 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Zone* zone=luatop>1 ? (Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,2)) : (SPK::Zone*)NULL;
-		SPK::ModifierTrigger trigger=luatop>2 ? (SPK::ModifierTrigger)lua_tointeger(L,3) : SPK::INSIDE_ZONE;
+		SPK::ModifierTrigger trigger=luatop>2 ? (SPK::ModifierTrigger)lua_tointeger(L,3) : (SPK::ModifierTrigger)SPK::INSIDE_ZONE;
 		const SPK::Vector3D* force_ptr=luatop>3 ? (Luna< SPK::Vector3D >::check(L,4)) : NULL;
 		if( luatop>3 && !force_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg force in SPK::LinearForce::LinearForce function");
 		}
-		const SPK::Vector3D & force=luatop>3 ? *force_ptr : SPK::Vector3D ();
-		SPK::ForceFactor type=luatop>4 ? (SPK::ForceFactor)lua_tointeger(L,5) : SPK::FACTOR_NONE;
-		SPK::ModelParam param=luatop>5 ? (SPK::ModelParam)lua_tointeger(L,6) : SPK::PARAM_SIZE;
+		const SPK::Vector3D & force=luatop>3 ? *force_ptr : (const SPK::Vector3D)SPK::Vector3D ();
+		SPK::ForceFactor type=luatop>4 ? (SPK::ForceFactor)lua_tointeger(L,5) : (SPK::ForceFactor)SPK::FACTOR_NONE;
+		SPK::ModelParam param=luatop>5 ? (SPK::ModelParam)lua_tointeger(L,6) : (SPK::ModelParam)SPK::PARAM_SIZE;
 
 		return new wrapper_SPK_LinearForce(L,NULL, zone, trigger, force, type, param);
 	}
@@ -316,7 +316,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::ForceFactor type=(SPK::ForceFactor)lua_tointeger(L,2);
-		SPK::ModelParam param=luatop>2 ? (SPK::ModelParam)lua_tointeger(L,3) : SPK::PARAM_SIZE;
+		SPK::ModelParam param=luatop>2 ? (SPK::ModelParam)lua_tointeger(L,3) : (SPK::ModelParam)SPK::PARAM_SIZE;
 
 		SPK::LinearForce* self=Luna< SPK::Registerable >::checkSubType< SPK::LinearForce >(L,1);
 		if(!self) {
@@ -418,14 +418,14 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Zone* zone=luatop>0 ? (Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1)) : (SPK::Zone*)NULL;
-		SPK::ModifierTrigger trigger=luatop>1 ? (SPK::ModifierTrigger)lua_tointeger(L,2) : SPK::INSIDE_ZONE;
+		SPK::ModifierTrigger trigger=luatop>1 ? (SPK::ModifierTrigger)lua_tointeger(L,2) : (SPK::ModifierTrigger)SPK::INSIDE_ZONE;
 		const SPK::Vector3D* force_ptr=luatop>2 ? (Luna< SPK::Vector3D >::check(L,3)) : NULL;
 		if( luatop>2 && !force_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg force in SPK::LinearForce::create function");
 		}
-		const SPK::Vector3D & force=luatop>2 ? *force_ptr : SPK::Vector3D ();
-		SPK::ForceFactor type=luatop>3 ? (SPK::ForceFactor)lua_tointeger(L,4) : SPK::FACTOR_NONE;
-		SPK::ModelParam param=luatop>4 ? (SPK::ModelParam)lua_tointeger(L,5) : SPK::PARAM_SIZE;
+		const SPK::Vector3D & force=luatop>2 ? *force_ptr : (const SPK::Vector3D)SPK::Vector3D ();
+		SPK::ForceFactor type=luatop>3 ? (SPK::ForceFactor)lua_tointeger(L,4) : (SPK::ForceFactor)SPK::FACTOR_NONE;
+		SPK::ModelParam param=luatop>4 ? (SPK::ModelParam)lua_tointeger(L,5) : (SPK::ModelParam)SPK::PARAM_SIZE;
 
 		SPK::LinearForce * lret = SPK::LinearForce::create(zone, trigger, force, type, param);
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -96,6 +96,7 @@
 #include <wx/volume.h>
 #include <wx/webview.h>
 #include <wx/window.h>
+#include <wx_enums.h>
 #include <wx_extensions.h>
 #include <wx/xml/xml.h>
 #include <wx/xrc/xmlres.h>

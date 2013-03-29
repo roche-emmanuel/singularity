@@ -168,8 +168,8 @@ public:
 	inline static bool _lg_typecheck_TransformPoint_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -184,8 +184,8 @@ public:
 	inline static bool _lg_typecheck_TransformDistance_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -402,7 +402,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int direction=luatop>1 ? (int)lua_tointeger(L,2) : ::wxHORIZONTAL;
+		int direction=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxHORIZONTAL;
 
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
@@ -467,15 +467,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAffineMatrix2D::TransformPoint(double * x, double * y) const function, expected prototype:\nvoid wxAffineMatrix2D::TransformPoint(double * x, double * y) const\nClass arguments details:\n");
 		}
 
-		double x=(double)lua_tonumber(L,2);
-		double y=(double)lua_tonumber(L,3);
+		double* x=(double*)Luna< void >::check(L,2);
+		double* y=(double*)Luna< void >::check(L,3);
 
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::TransformPoint(double *, double *) const. Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
-		self->TransformPoint(&x, &y);
+		self->TransformPoint(x, y);
 
 		return 0;
 	}
@@ -523,15 +523,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAffineMatrix2D::TransformDistance(double * dx, double * dy) const function, expected prototype:\nvoid wxAffineMatrix2D::TransformDistance(double * dx, double * dy) const\nClass arguments details:\n");
 		}
 
-		double dx=(double)lua_tonumber(L,2);
-		double dy=(double)lua_tonumber(L,3);
+		double* dx=(double*)Luna< void >::check(L,2);
+		double* dy=(double*)Luna< void >::check(L,3);
 
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAffineMatrix2D::TransformDistance(double *, double *) const. Got : '%s'",typeid(Luna< wxAffineMatrix2D >::check(L,1)).name());
 		}
-		self->TransformDistance(&dx, &dy);
+		self->TransformDistance(dx, dy);
 
 		return 0;
 	}

@@ -1023,9 +1023,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned short hour=(unsigned short)lua_tointeger(L,1);
-		unsigned short minute=luatop>1 ? (unsigned short)lua_tointeger(L,2) : 0;
-		unsigned short second=luatop>2 ? (unsigned short)lua_tointeger(L,3) : 0;
-		unsigned short millisec=luatop>3 ? (unsigned short)lua_tointeger(L,4) : 0;
+		unsigned short minute=luatop>1 ? (unsigned short)lua_tointeger(L,2) : (unsigned short)0;
+		unsigned short second=luatop>2 ? (unsigned short)lua_tointeger(L,3) : (unsigned short)0;
+		unsigned short millisec=luatop>3 ? (unsigned short)lua_tointeger(L,4) : (unsigned short)0;
 
 		return new wxDateTime(hour, minute, second, millisec);
 	}
@@ -1040,12 +1040,12 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned short day=(unsigned short)lua_tointeger(L,1);
-		wxDateTime::Month month=luatop>1 ? (wxDateTime::Month)lua_tointeger(L,2) : wxDateTime::Inv_Month;
-		int year=luatop>2 ? (int)lua_tointeger(L,3) : wxDateTime::Inv_Year;
-		unsigned short hour=luatop>3 ? (unsigned short)lua_tointeger(L,4) : 0;
-		unsigned short minute=luatop>4 ? (unsigned short)lua_tointeger(L,5) : 0;
-		unsigned short second=luatop>5 ? (unsigned short)lua_tointeger(L,6) : 0;
-		unsigned short millisec=luatop>6 ? (unsigned short)lua_tointeger(L,7) : 0;
+		wxDateTime::Month month=luatop>1 ? (wxDateTime::Month)lua_tointeger(L,2) : (wxDateTime::Month)wxDateTime::Inv_Month;
+		int year=luatop>2 ? (int)lua_tointeger(L,3) : (int)wxDateTime::Inv_Year;
+		unsigned short hour=luatop>3 ? (unsigned short)lua_tointeger(L,4) : (unsigned short)0;
+		unsigned short minute=luatop>4 ? (unsigned short)lua_tointeger(L,5) : (unsigned short)0;
+		unsigned short second=luatop>5 ? (unsigned short)lua_tointeger(L,6) : (unsigned short)0;
+		unsigned short millisec=luatop>6 ? (unsigned short)lua_tointeger(L,7) : (unsigned short)0;
 
 		return new wxDateTime(day, month, year, hour, minute, second, millisec);
 	}
@@ -1116,9 +1116,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned short hour=(unsigned short)lua_tointeger(L,2);
-		unsigned short minute=luatop>2 ? (unsigned short)lua_tointeger(L,3) : 0;
-		unsigned short second=luatop>3 ? (unsigned short)lua_tointeger(L,4) : 0;
-		unsigned short millisec=luatop>4 ? (unsigned short)lua_tointeger(L,5) : 0;
+		unsigned short minute=luatop>2 ? (unsigned short)lua_tointeger(L,3) : (unsigned short)0;
+		unsigned short second=luatop>3 ? (unsigned short)lua_tointeger(L,4) : (unsigned short)0;
+		unsigned short millisec=luatop>4 ? (unsigned short)lua_tointeger(L,5) : (unsigned short)0;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1143,12 +1143,12 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned short day=(unsigned short)lua_tointeger(L,2);
-		wxDateTime::Month month=luatop>2 ? (wxDateTime::Month)lua_tointeger(L,3) : wxDateTime::Inv_Month;
-		int year=luatop>3 ? (int)lua_tointeger(L,4) : wxDateTime::Inv_Year;
-		unsigned short hour=luatop>4 ? (unsigned short)lua_tointeger(L,5) : 0;
-		unsigned short minute=luatop>5 ? (unsigned short)lua_tointeger(L,6) : 0;
-		unsigned short second=luatop>6 ? (unsigned short)lua_tointeger(L,7) : 0;
-		unsigned short millisec=luatop>7 ? (unsigned short)lua_tointeger(L,8) : 0;
+		wxDateTime::Month month=luatop>2 ? (wxDateTime::Month)lua_tointeger(L,3) : (wxDateTime::Month)wxDateTime::Inv_Month;
+		int year=luatop>3 ? (int)lua_tointeger(L,4) : (int)wxDateTime::Inv_Year;
+		unsigned short hour=luatop>4 ? (unsigned short)lua_tointeger(L,5) : (unsigned short)0;
+		unsigned short minute=luatop>5 ? (unsigned short)lua_tointeger(L,6) : (unsigned short)0;
+		unsigned short second=luatop>6 ? (unsigned short)lua_tointeger(L,7) : (unsigned short)0;
+		unsigned short millisec=luatop>7 ? (unsigned short)lua_tointeger(L,8) : (unsigned short)0;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1398,7 +1398,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=luatop>1 ? (wxDateTime::TimeZone)lua_tointeger(L,2) : wxDateTime::Local;
+		const wxDateTime::TimeZone tz=luatop>1 ? (const wxDateTime::TimeZone)lua_tointeger(L,2) : (const wxDateTime::TimeZone&)wxDateTime::Local;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1466,7 +1466,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=luatop>1 ? (wxDateTime::TimeZone)lua_tointeger(L,2) : wxDateTime::Local;
+		const wxDateTime::TimeZone tz=luatop>1 ? (const wxDateTime::TimeZone)lua_tointeger(L,2) : (const wxDateTime::TimeZone&)wxDateTime::Local;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1488,7 +1488,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=luatop>1 ? (wxDateTime::TimeZone)lua_tointeger(L,2) : wxDateTime::Local;
+		const wxDateTime::TimeZone tz=luatop>1 ? (const wxDateTime::TimeZone)lua_tointeger(L,2) : (const wxDateTime::TimeZone&)wxDateTime::Local;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1510,7 +1510,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=luatop>1 ? (wxDateTime::TimeZone)lua_tointeger(L,2) : wxDateTime::Local;
+		const wxDateTime::TimeZone tz=luatop>1 ? (const wxDateTime::TimeZone)lua_tointeger(L,2) : (const wxDateTime::TimeZone&)wxDateTime::Local;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1532,7 +1532,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=luatop>1 ? (wxDateTime::TimeZone)lua_tointeger(L,2) : wxDateTime::Local;
+		const wxDateTime::TimeZone tz=luatop>1 ? (const wxDateTime::TimeZone)lua_tointeger(L,2) : (const wxDateTime::TimeZone&)wxDateTime::Local;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1554,7 +1554,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=luatop>1 ? (wxDateTime::TimeZone)lua_tointeger(L,2) : wxDateTime::Local;
+		const wxDateTime::TimeZone tz=luatop>1 ? (const wxDateTime::TimeZone)lua_tointeger(L,2) : (const wxDateTime::TimeZone&)wxDateTime::Local;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1576,7 +1576,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=luatop>1 ? (wxDateTime::TimeZone)lua_tointeger(L,2) : wxDateTime::Local;
+		const wxDateTime::TimeZone tz=luatop>1 ? (const wxDateTime::TimeZone)lua_tointeger(L,2) : (const wxDateTime::TimeZone&)wxDateTime::Local;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1598,7 +1598,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=luatop>1 ? (wxDateTime::TimeZone)lua_tointeger(L,2) : wxDateTime::Local;
+		const wxDateTime::TimeZone tz=luatop>1 ? (const wxDateTime::TimeZone)lua_tointeger(L,2) : (const wxDateTime::TimeZone&)wxDateTime::Local;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1620,7 +1620,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=luatop>1 ? (wxDateTime::TimeZone)lua_tointeger(L,2) : wxDateTime::Local;
+		const wxDateTime::TimeZone tz=luatop>1 ? (const wxDateTime::TimeZone)lua_tointeger(L,2) : (const wxDateTime::TimeZone&)wxDateTime::Local;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1645,7 +1645,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=luatop>1 ? (wxDateTime::TimeZone)lua_tointeger(L,2) : wxDateTime::Local;
+		const wxDateTime::TimeZone tz=luatop>1 ? (const wxDateTime::TimeZone)lua_tointeger(L,2) : (const wxDateTime::TimeZone&)wxDateTime::Local;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1668,9 +1668,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDateTime::WeekDay weekday=(wxDateTime::WeekDay)lua_tointeger(L,2);
-		int n=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		wxDateTime::Month month=luatop>3 ? (wxDateTime::Month)lua_tointeger(L,4) : wxDateTime::Inv_Month;
-		int year=luatop>4 ? (int)lua_tointeger(L,5) : wxDateTime::Inv_Year;
+		int n=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
+		wxDateTime::Month month=luatop>3 ? (wxDateTime::Month)lua_tointeger(L,4) : (wxDateTime::Month)wxDateTime::Inv_Month;
+		int year=luatop>4 ? (int)lua_tointeger(L,5) : (int)wxDateTime::Inv_Year;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1704,8 +1704,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::WeekFlags flags=luatop>1 ? (wxDateTime::WeekFlags)lua_tointeger(L,2) : wxDateTime::Monday_First;
-		wxDateTime::TimeZone tz=luatop>2 ? (wxDateTime::TimeZone)lua_tointeger(L,3) : wxDateTime::Local;
+		wxDateTime::WeekFlags flags=luatop>1 ? (wxDateTime::WeekFlags)lua_tointeger(L,2) : (wxDateTime::WeekFlags)wxDateTime::Monday_First;
+		const wxDateTime::TimeZone tz=luatop>2 ? (const wxDateTime::TimeZone)lua_tointeger(L,3) : (const wxDateTime::TimeZone&)wxDateTime::Local;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1727,8 +1727,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::WeekFlags flags=luatop>1 ? (wxDateTime::WeekFlags)lua_tointeger(L,2) : wxDateTime::Monday_First;
-		wxDateTime::TimeZone tz=luatop>2 ? (wxDateTime::TimeZone)lua_tointeger(L,3) : wxDateTime::Local;
+		wxDateTime::WeekFlags flags=luatop>1 ? (wxDateTime::WeekFlags)lua_tointeger(L,2) : (wxDateTime::WeekFlags)wxDateTime::Monday_First;
+		const wxDateTime::TimeZone tz=luatop>2 ? (const wxDateTime::TimeZone)lua_tointeger(L,3) : (const wxDateTime::TimeZone&)wxDateTime::Local;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1750,7 +1750,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=luatop>1 ? (wxDateTime::TimeZone)lua_tointeger(L,2) : wxDateTime::Local;
+		const wxDateTime::TimeZone tz=luatop>1 ? (const wxDateTime::TimeZone)lua_tointeger(L,2) : (const wxDateTime::TimeZone&)wxDateTime::Local;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -1791,7 +1791,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::Country country=luatop>1 ? (wxDateTime::Country)lua_tointeger(L,2) : wxDateTime::Country_Default;
+		wxDateTime::Country country=luatop>1 ? (wxDateTime::Country)lua_tointeger(L,2) : (wxDateTime::Country)wxDateTime::Country_Default;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2284,7 +2284,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString format(lua_tostring(L,2),lua_objlen(L,2));
-		wxDateTime::TimeZone tz=luatop>2 ? (wxDateTime::TimeZone)lua_tointeger(L,3) : wxDateTime::Local;
+		const wxDateTime::TimeZone tz=luatop>2 ? (const wxDateTime::TimeZone)lua_tointeger(L,3) : (const wxDateTime::TimeZone&)wxDateTime::Local;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2325,7 +2325,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		char sep=luatop>1 ? (char)lua_tointeger(L,2) : 'T';
+		char sep=luatop>1 ? (char)lua_tointeger(L,2) : (char)'T';
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2405,7 +2405,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString date(lua_tostring(L,2),lua_objlen(L,2));
-		char sep=luatop>2 ? (char)lua_tointeger(L,3) : 'T';
+		char sep=luatop>2 ? (char)lua_tointeger(L,3) : (char)'T';
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2467,8 +2467,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::Month month=luatop>1 ? (wxDateTime::Month)lua_tointeger(L,2) : wxDateTime::Inv_Month;
-		int year=luatop>2 ? (int)lua_tointeger(L,3) : wxDateTime::Inv_Year;
+		wxDateTime::Month month=luatop>1 ? (wxDateTime::Month)lua_tointeger(L,2) : (wxDateTime::Month)wxDateTime::Inv_Month;
+		int year=luatop>2 ? (int)lua_tointeger(L,3) : (int)wxDateTime::Inv_Year;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2494,8 +2494,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDateTime::WeekDay weekday=(wxDateTime::WeekDay)lua_tointeger(L,2);
-		wxDateTime::Month month=luatop>2 ? (wxDateTime::Month)lua_tointeger(L,3) : wxDateTime::Inv_Month;
-		int year=luatop>3 ? (int)lua_tointeger(L,4) : wxDateTime::Inv_Year;
+		wxDateTime::Month month=luatop>2 ? (wxDateTime::Month)lua_tointeger(L,3) : (wxDateTime::Month)wxDateTime::Inv_Month;
+		int year=luatop>3 ? (int)lua_tointeger(L,4) : (int)wxDateTime::Inv_Year;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2567,7 +2567,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDateTime::WeekDay weekday=(wxDateTime::WeekDay)lua_tointeger(L,2);
-		wxDateTime::WeekFlags flags=luatop>2 ? (wxDateTime::WeekFlags)lua_tointeger(L,3) : wxDateTime::Monday_First;
+		wxDateTime::WeekFlags flags=luatop>2 ? (wxDateTime::WeekFlags)lua_tointeger(L,3) : (wxDateTime::WeekFlags)wxDateTime::Monday_First;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2615,8 +2615,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::Month month=luatop>1 ? (wxDateTime::Month)lua_tointeger(L,2) : wxDateTime::Inv_Month;
-		int year=luatop>2 ? (int)lua_tointeger(L,3) : wxDateTime::Inv_Year;
+		wxDateTime::Month month=luatop>1 ? (wxDateTime::Month)lua_tointeger(L,2) : (wxDateTime::Month)wxDateTime::Inv_Month;
+		int year=luatop>2 ? (int)lua_tointeger(L,3) : (int)wxDateTime::Inv_Year;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2641,8 +2641,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDateTime::WeekDay weekday=(wxDateTime::WeekDay)lua_tointeger(L,2);
-		wxDateTime::Month month=luatop>2 ? (wxDateTime::Month)lua_tointeger(L,3) : wxDateTime::Inv_Month;
-		int year=luatop>3 ? (int)lua_tointeger(L,4) : wxDateTime::Inv_Year;
+		wxDateTime::Month month=luatop>2 ? (wxDateTime::Month)lua_tointeger(L,3) : (wxDateTime::Month)wxDateTime::Inv_Month;
+		int year=luatop>3 ? (int)lua_tointeger(L,4) : (int)wxDateTime::Inv_Year;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2709,9 +2709,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDateTime::WeekDay weekday=(wxDateTime::WeekDay)lua_tointeger(L,2);
-		int n=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		wxDateTime::Month month=luatop>3 ? (wxDateTime::Month)lua_tointeger(L,4) : wxDateTime::Inv_Month;
-		int year=luatop>4 ? (int)lua_tointeger(L,5) : wxDateTime::Inv_Year;
+		int n=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
+		wxDateTime::Month month=luatop>3 ? (wxDateTime::Month)lua_tointeger(L,4) : (wxDateTime::Month)wxDateTime::Inv_Month;
+		int year=luatop>4 ? (int)lua_tointeger(L,5) : (int)wxDateTime::Inv_Year;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2734,7 +2734,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDateTime::WeekDay weekday=(wxDateTime::WeekDay)lua_tointeger(L,2);
-		wxDateTime::WeekFlags flags=luatop>2 ? (wxDateTime::WeekFlags)lua_tointeger(L,3) : wxDateTime::Monday_First;
+		wxDateTime::WeekFlags flags=luatop>2 ? (wxDateTime::WeekFlags)lua_tointeger(L,3) : (wxDateTime::WeekFlags)wxDateTime::Monday_First;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2875,8 +2875,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=(wxDateTime::TimeZone)lua_tointeger(L,2);
-		bool noDST=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		const wxDateTime::TimeZone tz=(const wxDateTime::TimeZone)lua_tointeger(L,2);
+		bool noDST=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2901,7 +2901,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::Country country=luatop>1 ? (wxDateTime::Country)lua_tointeger(L,2) : wxDateTime::Country_Default;
+		wxDateTime::Country country=luatop>1 ? (wxDateTime::Country)lua_tointeger(L,2) : (wxDateTime::Country)wxDateTime::Country_Default;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2923,8 +2923,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=(wxDateTime::TimeZone)lua_tointeger(L,2);
-		bool noDST=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		const wxDateTime::TimeZone tz=(const wxDateTime::TimeZone)lua_tointeger(L,2);
+		bool noDST=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2948,8 +2948,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=(wxDateTime::TimeZone)lua_tointeger(L,2);
-		bool noDST=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		const wxDateTime::TimeZone tz=(const wxDateTime::TimeZone)lua_tointeger(L,2);
+		bool noDST=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2973,7 +2973,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool noDST=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool noDST=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -2997,8 +2997,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::TimeZone tz=(wxDateTime::TimeZone)lua_tointeger(L,2);
-		bool noDST=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		const wxDateTime::TimeZone tz=(const wxDateTime::TimeZone)lua_tointeger(L,2);
+		bool noDST=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -3023,7 +3023,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool noDST=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool noDST=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
@@ -3078,8 +3078,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int year=luatop>0 ? (int)lua_tointeger(L,1) : wxDateTime::Inv_Year;
-		wxDateTime::Country country=luatop>1 ? (wxDateTime::Country)lua_tointeger(L,2) : wxDateTime::Country_Default;
+		int year=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxDateTime::Inv_Year;
+		wxDateTime::Country country=luatop>1 ? (wxDateTime::Country)lua_tointeger(L,2) : (wxDateTime::Country)wxDateTime::Country_Default;
 
 		wxDateTime stack_lret = wxDateTime::GetBeginDST(year, country);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -3099,8 +3099,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int year=luatop>0 ? (int)lua_tointeger(L,1) : wxDateTime::Inv_Year;
-		wxDateTime::Country country=luatop>1 ? (wxDateTime::Country)lua_tointeger(L,2) : wxDateTime::Country_Default;
+		int year=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxDateTime::Inv_Year;
+		wxDateTime::Country country=luatop>1 ? (wxDateTime::Country)lua_tointeger(L,2) : (wxDateTime::Country)wxDateTime::Country_Default;
 
 		wxDateTime stack_lret = wxDateTime::GetEndDST(year, country);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -3134,7 +3134,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::Calendar cal=luatop>0 ? (wxDateTime::Calendar)lua_tointeger(L,1) : wxDateTime::Gregorian;
+		wxDateTime::Calendar cal=luatop>0 ? (wxDateTime::Calendar)lua_tointeger(L,1) : (wxDateTime::Calendar)wxDateTime::Gregorian;
 
 		wxDateTime::Month lret = wxDateTime::GetCurrentMonth(cal);
 		lua_pushnumber(L,lret);
@@ -3151,7 +3151,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::Calendar cal=luatop>0 ? (wxDateTime::Calendar)lua_tointeger(L,1) : wxDateTime::Gregorian;
+		wxDateTime::Calendar cal=luatop>0 ? (wxDateTime::Calendar)lua_tointeger(L,1) : (wxDateTime::Calendar)wxDateTime::Gregorian;
 
 		int lret = wxDateTime::GetCurrentYear(cal);
 		lua_pushnumber(L,lret);
@@ -3169,7 +3169,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDateTime::Month month=(wxDateTime::Month)lua_tointeger(L,1);
-		wxDateTime::NameFlags flags=luatop>1 ? (wxDateTime::NameFlags)lua_tointeger(L,2) : wxDateTime::Name_Full;
+		wxDateTime::NameFlags flags=luatop>1 ? (wxDateTime::NameFlags)lua_tointeger(L,2) : (wxDateTime::NameFlags)wxDateTime::Name_Full;
 
 		wxString lret = wxDateTime::GetEnglishMonthName(month, flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3187,7 +3187,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDateTime::WeekDay weekday=(wxDateTime::WeekDay)lua_tointeger(L,1);
-		wxDateTime::NameFlags flags=luatop>1 ? (wxDateTime::NameFlags)lua_tointeger(L,2) : wxDateTime::Name_Full;
+		wxDateTime::NameFlags flags=luatop>1 ? (wxDateTime::NameFlags)lua_tointeger(L,2) : (wxDateTime::NameFlags)wxDateTime::Name_Full;
 
 		wxString lret = wxDateTime::GetEnglishWeekDayName(weekday, flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3205,7 +3205,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDateTime::Month month=(wxDateTime::Month)lua_tointeger(L,1);
-		wxDateTime::NameFlags flags=luatop>1 ? (wxDateTime::NameFlags)lua_tointeger(L,2) : wxDateTime::Name_Full;
+		wxDateTime::NameFlags flags=luatop>1 ? (wxDateTime::NameFlags)lua_tointeger(L,2) : (wxDateTime::NameFlags)wxDateTime::Name_Full;
 
 		wxString lret = wxDateTime::GetMonthName(month, flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3223,7 +3223,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int year=(int)lua_tointeger(L,1);
-		wxDateTime::Calendar cal=luatop>1 ? (wxDateTime::Calendar)lua_tointeger(L,2) : wxDateTime::Gregorian;
+		wxDateTime::Calendar cal=luatop>1 ? (wxDateTime::Calendar)lua_tointeger(L,2) : (wxDateTime::Calendar)wxDateTime::Gregorian;
 
 		unsigned short lret = wxDateTime::GetNumberOfDays(year, cal);
 		lua_pushnumber(L,lret);
@@ -3241,8 +3241,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDateTime::Month month=(wxDateTime::Month)lua_tointeger(L,1);
-		int year=luatop>1 ? (int)lua_tointeger(L,2) : wxDateTime::Inv_Year;
-		wxDateTime::Calendar cal=luatop>2 ? (wxDateTime::Calendar)lua_tointeger(L,3) : wxDateTime::Gregorian;
+		int year=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxDateTime::Inv_Year;
+		wxDateTime::Calendar cal=luatop>2 ? (wxDateTime::Calendar)lua_tointeger(L,3) : (wxDateTime::Calendar)wxDateTime::Gregorian;
 
 		unsigned short lret = wxDateTime::GetNumberOfDays(month, year, cal);
 		lua_pushnumber(L,lret);
@@ -3269,7 +3269,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDateTime::WeekDay weekday=(wxDateTime::WeekDay)lua_tointeger(L,1);
-		wxDateTime::NameFlags flags=luatop>1 ? (wxDateTime::NameFlags)lua_tointeger(L,2) : wxDateTime::Name_Full;
+		wxDateTime::NameFlags flags=luatop>1 ? (wxDateTime::NameFlags)lua_tointeger(L,2) : (wxDateTime::NameFlags)wxDateTime::Name_Full;
 
 		wxString lret = wxDateTime::GetWeekDayName(weekday, flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3286,8 +3286,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int year=luatop>0 ? (int)lua_tointeger(L,1) : wxDateTime::Inv_Year;
-		wxDateTime::Country country=luatop>1 ? (wxDateTime::Country)lua_tointeger(L,2) : wxDateTime::Country_Default;
+		int year=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxDateTime::Inv_Year;
+		wxDateTime::Country country=luatop>1 ? (wxDateTime::Country)lua_tointeger(L,2) : (wxDateTime::Country)wxDateTime::Country_Default;
 
 		bool lret = wxDateTime::IsDSTApplicable(year, country);
 		lua_pushboolean(L,lret?1:0);
@@ -3304,8 +3304,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int year=luatop>0 ? (int)lua_tointeger(L,1) : wxDateTime::Inv_Year;
-		wxDateTime::Calendar cal=luatop>1 ? (wxDateTime::Calendar)lua_tointeger(L,2) : wxDateTime::Gregorian;
+		int year=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxDateTime::Inv_Year;
+		wxDateTime::Calendar cal=luatop>1 ? (wxDateTime::Calendar)lua_tointeger(L,2) : (wxDateTime::Calendar)wxDateTime::Gregorian;
 
 		bool lret = wxDateTime::IsLeapYear(year, cal);
 		lua_pushboolean(L,lret?1:0);
@@ -3322,7 +3322,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDateTime::Country country=luatop>0 ? (wxDateTime::Country)lua_tointeger(L,1) : wxDateTime::Country_Default;
+		wxDateTime::Country country=luatop>0 ? (wxDateTime::Country)lua_tointeger(L,1) : (wxDateTime::Country)wxDateTime::Country_Default;
 
 		bool lret = wxDateTime::IsWestEuropeanCountry(country);
 		lua_pushboolean(L,lret?1:0);
@@ -3372,7 +3372,7 @@ public:
 
 		int year=(int)lua_tointeger(L,1);
 		unsigned short numWeek=(unsigned short)lua_tointeger(L,2);
-		wxDateTime::WeekDay weekday=luatop>2 ? (wxDateTime::WeekDay)lua_tointeger(L,3) : wxDateTime::Mon;
+		wxDateTime::WeekDay weekday=luatop>2 ? (wxDateTime::WeekDay)lua_tointeger(L,3) : (wxDateTime::WeekDay)wxDateTime::Mon;
 
 		wxDateTime stack_lret = wxDateTime::SetToWeekOfYear(year, numWeek, weekday);
 		wxDateTime* lret = new wxDateTime(stack_lret);

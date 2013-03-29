@@ -610,7 +610,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg newPoint in btPersistentManifold::addManifoldPoint function");
 		}
 		const btManifoldPoint & newPoint=*newPoint_ptr;
-		bool isPredictive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool isPredictive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {

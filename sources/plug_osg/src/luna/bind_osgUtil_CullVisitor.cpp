@@ -440,6 +440,15 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_computeFurthestPointInFrustum(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,5512969) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,50169651) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_updateCalculatedNearFar_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
@@ -1807,6 +1816,40 @@ public:
 		return 1;
 	}
 
+	// double osgUtil::CullVisitor::computeFurthestPointInFrustum(const osg::Matrixd & matrix, const osg::Polytope::PlaneList & planes, const osg::Drawable & drawable)
+	static int _bind_computeFurthestPointInFrustum(lua_State *L) {
+		if (!_lg_typecheck_computeFurthestPointInFrustum(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double osgUtil::CullVisitor::computeFurthestPointInFrustum(const osg::Matrixd & matrix, const osg::Polytope::PlaneList & planes, const osg::Drawable & drawable) function, expected prototype:\ndouble osgUtil::CullVisitor::computeFurthestPointInFrustum(const osg::Matrixd & matrix, const osg::Polytope::PlaneList & planes, const osg::Drawable & drawable)\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 33161232\narg 3 ID = 50169651\n");
+		}
+
+		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
+		if( !matrix_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg matrix in osgUtil::CullVisitor::computeFurthestPointInFrustum function");
+		}
+		const osg::Matrixd & matrix=*matrix_ptr;
+		const osg::Polytope::PlaneList* planes_ptr=(Luna< std::vector< osg::Plane > >::checkSubType< osg::Polytope::PlaneList >(L,3));
+		if( !planes_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg planes in osgUtil::CullVisitor::computeFurthestPointInFrustum function");
+		}
+		const osg::Polytope::PlaneList & planes=*planes_ptr;
+		const osg::Drawable* drawable_ptr=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,4));
+		if( !drawable_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg drawable in osgUtil::CullVisitor::computeFurthestPointInFrustum function");
+		}
+		const osg::Drawable & drawable=*drawable_ptr;
+
+		osgUtil::CullVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::CullVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double osgUtil::CullVisitor::computeFurthestPointInFrustum(const osg::Matrixd &, const osg::Polytope::PlaneList &, const osg::Drawable &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		double lret = self->computeFurthestPointInFrustum(matrix, planes, drawable);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 	// bool osgUtil::CullVisitor::updateCalculatedNearFar(const osg::Matrixd & matrix, const osg::BoundingBoxd & bb)
 	static int _bind_updateCalculatedNearFar_overload_1(lua_State *L) {
 		if (!_lg_typecheck_updateCalculatedNearFar_overload_1(L)) {
@@ -3123,6 +3166,7 @@ luna_RegType LunaTraits< osgUtil::CullVisitor >::methods[] = {
 	{"setCalculatedFarPlane", &luna_wrapper_osgUtil_CullVisitor::_bind_setCalculatedFarPlane},
 	{"getCalculatedFarPlane", &luna_wrapper_osgUtil_CullVisitor::_bind_getCalculatedFarPlane},
 	{"computeNearestPointInFrustum", &luna_wrapper_osgUtil_CullVisitor::_bind_computeNearestPointInFrustum},
+	{"computeFurthestPointInFrustum", &luna_wrapper_osgUtil_CullVisitor::_bind_computeFurthestPointInFrustum},
 	{"updateCalculatedNearFar", &luna_wrapper_osgUtil_CullVisitor::_bind_updateCalculatedNearFar},
 	{"addDrawable", &luna_wrapper_osgUtil_CullVisitor::_bind_addDrawable},
 	{"addDrawableAndDepth", &luna_wrapper_osgUtil_CullVisitor::_bind_addDrawableAndDepth},

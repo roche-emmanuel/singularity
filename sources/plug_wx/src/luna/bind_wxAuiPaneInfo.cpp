@@ -778,7 +778,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -824,7 +824,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool visible=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool visible=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -932,7 +932,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool visible=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool visible=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -977,7 +977,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -1044,7 +1044,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -1068,7 +1068,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -1134,7 +1134,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -1274,7 +1274,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool visible=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool visible=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -1298,7 +1298,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool attop=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool attop=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -1850,7 +1850,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -1932,7 +1932,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool visible=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool visible=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -2014,7 +2014,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool visible=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool visible=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -2038,7 +2038,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -2084,7 +2084,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool visible=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool visible=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -2108,7 +2108,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool visible=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool visible=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -2154,7 +2154,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool resizable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool resizable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -2199,7 +2199,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -2291,7 +2291,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {
@@ -2357,7 +2357,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool b=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {

@@ -1227,7 +1227,7 @@ public:
 
 		int width=(int)lua_tointeger(L,1);
 		int height=(int)lua_tointeger(L,2);
-		bool clear=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool clear=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		return new wxImage(width, height, clear);
 	}
@@ -1246,7 +1246,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg sz in wxImage::wxImage function");
 		}
 		const wxSize & sz=*sz_ptr;
-		bool clear=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool clear=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		return new wxImage(sz, clear);
 	}
@@ -1263,7 +1263,7 @@ public:
 		int width=(int)lua_tointeger(L,1);
 		int height=(int)lua_tointeger(L,2);
 		unsigned char data = (unsigned char)(lua_tointeger(L,3));
-		bool static_data=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool static_data=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		return new wxImage(width, height, &data, static_data);
 	}
@@ -1283,7 +1283,7 @@ public:
 		}
 		const wxSize & sz=*sz_ptr;
 		unsigned char data = (unsigned char)(lua_tointeger(L,2));
-		bool static_data=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool static_data=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		return new wxImage(sz, &data, static_data);
 	}
@@ -1301,7 +1301,7 @@ public:
 		int height=(int)lua_tointeger(L,2);
 		unsigned char data = (unsigned char)(lua_tointeger(L,3));
 		unsigned char alpha = (unsigned char)(lua_tointeger(L,4));
-		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		return new wxImage(width, height, &data, &alpha, static_data);
 	}
@@ -1322,7 +1322,7 @@ public:
 		const wxSize & sz=*sz_ptr;
 		unsigned char data = (unsigned char)(lua_tointeger(L,2));
 		unsigned char alpha = (unsigned char)(lua_tointeger(L,3));
-		bool static_data=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool static_data=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		return new wxImage(sz, &data, &alpha, static_data);
 	}
@@ -1349,8 +1349,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
-		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : ::wxBITMAP_TYPE_ANY;
-		int index=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
+		int index=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		return new wxImage(name, type, index);
 	}
@@ -1366,7 +1366,7 @@ public:
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
 		wxString mimetype(lua_tostring(L,2),lua_objlen(L,2));
-		int index=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int index=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		return new wxImage(name, mimetype, index);
 	}
@@ -1385,8 +1385,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImage::wxImage function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : ::wxBITMAP_TYPE_ANY;
-		int index=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
+		int index=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		return new wxImage(stream, type, index);
 	}
@@ -1406,7 +1406,7 @@ public:
 		}
 		wxInputStream & stream=*stream_ptr;
 		wxString mimetype(lua_tostring(L,2),lua_objlen(L,2));
-		int index=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int index=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		return new wxImage(stream, mimetype, index);
 	}
@@ -1433,7 +1433,7 @@ public:
 
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
-		bool clear=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool clear=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		return new wrapper_wxImage(L,NULL, width, height, clear);
 	}
@@ -1452,7 +1452,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg sz in wxImage::wxImage function");
 		}
 		const wxSize & sz=*sz_ptr;
-		bool clear=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool clear=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		return new wrapper_wxImage(L,NULL, sz, clear);
 	}
@@ -1469,7 +1469,7 @@ public:
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
 		unsigned char data = (unsigned char)(lua_tointeger(L,4));
-		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		return new wrapper_wxImage(L,NULL, width, height, &data, static_data);
 	}
@@ -1489,7 +1489,7 @@ public:
 		}
 		const wxSize & sz=*sz_ptr;
 		unsigned char data = (unsigned char)(lua_tointeger(L,3));
-		bool static_data=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool static_data=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		return new wrapper_wxImage(L,NULL, sz, &data, static_data);
 	}
@@ -1507,7 +1507,7 @@ public:
 		int height=(int)lua_tointeger(L,3);
 		unsigned char data = (unsigned char)(lua_tointeger(L,4));
 		unsigned char alpha = (unsigned char)(lua_tointeger(L,5));
-		bool static_data=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
+		bool static_data=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)false;
 
 		return new wrapper_wxImage(L,NULL, width, height, &data, &alpha, static_data);
 	}
@@ -1528,7 +1528,7 @@ public:
 		const wxSize & sz=*sz_ptr;
 		unsigned char data = (unsigned char)(lua_tointeger(L,3));
 		unsigned char alpha = (unsigned char)(lua_tointeger(L,4));
-		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		return new wrapper_wxImage(L,NULL, sz, &data, &alpha, static_data);
 	}
@@ -1555,8 +1555,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : ::wxBITMAP_TYPE_ANY;
-		int index=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
+		int index=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		return new wrapper_wxImage(L,NULL, name, type, index);
 	}
@@ -1572,7 +1572,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 		wxString mimetype(lua_tostring(L,3),lua_objlen(L,3));
-		int index=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int index=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		return new wrapper_wxImage(L,NULL, name, mimetype, index);
 	}
@@ -1591,8 +1591,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImage::wxImage function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : ::wxBITMAP_TYPE_ANY;
-		int index=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
+		int index=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		return new wrapper_wxImage(L,NULL, stream, type, index);
 	}
@@ -1612,7 +1612,7 @@ public:
 		}
 		wxInputStream & stream=*stream_ptr;
 		wxString mimetype(lua_tostring(L,3),lua_objlen(L,3));
-		int index=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int index=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		return new wrapper_wxImage(L,NULL, stream, mimetype, index);
 	}
@@ -1683,7 +1683,7 @@ public:
 
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
-		bool clear=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool clear=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -1710,7 +1710,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg sz in wxImage::Create function");
 		}
 		const wxSize & sz=*sz_ptr;
-		bool clear=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool clear=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -1735,7 +1735,7 @@ public:
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
 		unsigned char data = (unsigned char)(lua_tointeger(L,4));
-		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -1763,7 +1763,7 @@ public:
 		}
 		const wxSize & sz=*sz_ptr;
 		unsigned char data = (unsigned char)(lua_tointeger(L,3));
-		bool static_data=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool static_data=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -1789,7 +1789,7 @@ public:
 		int height=(int)lua_tointeger(L,3);
 		unsigned char data = (unsigned char)(lua_tointeger(L,4));
 		unsigned char alpha = (unsigned char)(lua_tointeger(L,5));
-		bool static_data=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
+		bool static_data=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)false;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -1818,7 +1818,7 @@ public:
 		const wxSize & sz=*sz_ptr;
 		unsigned char data = (unsigned char)(lua_tointeger(L,3));
 		unsigned char alpha = (unsigned char)(lua_tointeger(L,4));
-		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -1979,7 +1979,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool horizontally=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool horizontally=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -2055,7 +2055,7 @@ public:
 
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
-		wxImageResizeQuality quality=luatop>3 ? (wxImageResizeQuality)lua_tointeger(L,4) : ::wxIMAGE_QUALITY_NORMAL;
+		wxImageResizeQuality quality=luatop>3 ? (wxImageResizeQuality)lua_tointeger(L,4) : (wxImageResizeQuality)::wxIMAGE_QUALITY_NORMAL;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -2089,9 +2089,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxImage::Resize function");
 		}
 		const wxPoint & pos=*pos_ptr;
-		int red=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int green=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int blue=luatop>5 ? (int)lua_tointeger(L,6) : -1;
+		int red=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int green=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int blue=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -2121,7 +2121,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rotationCentre in wxImage::Rotate function");
 		}
 		const wxPoint & rotationCentre=*rotationCentre_ptr;
-		bool interpolating=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool interpolating=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 		wxPoint* offsetAfterRotation=luatop>4 ? (Luna< wxPoint >::check(L,5)) : (wxPoint*)NULL;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
@@ -2147,7 +2147,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool clockwise=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool clockwise=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -2215,7 +2215,7 @@ public:
 
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
-		wxImageResizeQuality quality=luatop>3 ? (wxImageResizeQuality)lua_tointeger(L,4) : ::wxIMAGE_QUALITY_NORMAL;
+		wxImageResizeQuality quality=luatop>3 ? (wxImageResizeQuality)lua_tointeger(L,4) : (wxImageResizeQuality)::wxIMAGE_QUALITY_NORMAL;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -2250,9 +2250,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxImage::Size function");
 		}
 		const wxPoint & pos=*pos_ptr;
-		int red=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int green=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int blue=luatop>5 ? (int)lua_tointeger(L,6) : -1;
+		int red=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int green=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int blue=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -2973,8 +2973,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImage::LoadFile function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : ::wxBITMAP_TYPE_ANY;
-		int index=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
+		int index=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -2997,8 +2997,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : ::wxBITMAP_TYPE_ANY;
-		int index=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
+		int index=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -3022,7 +3022,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 		wxString mimetype(lua_tostring(L,3),lua_objlen(L,3));
-		int index=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int index=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -3050,7 +3050,7 @@ public:
 		}
 		wxInputStream & stream=*stream_ptr;
 		wxString mimetype(lua_tostring(L,3),lua_objlen(L,3));
-		int index=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int index=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -3208,7 +3208,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned char alpha = (unsigned char)(lua_tointeger(L,2));
-		bool static_data=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool static_data=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -3278,7 +3278,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned char data = (unsigned char)(lua_tointeger(L,2));
-		bool static_data=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool static_data=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -3302,7 +3302,7 @@ public:
 		unsigned char data = (unsigned char)(lua_tointeger(L,2));
 		int new_width=(int)lua_tointeger(L,3);
 		int new_height=(int)lua_tointeger(L,4);
-		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -3332,7 +3332,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool hasMask=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool hasMask=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -3631,7 +3631,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString filename(lua_tostring(L,1),lua_objlen(L,1));
-		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : ::wxBITMAP_TYPE_ANY;
+		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
 
 		int lret = wxImage::GetImageCount(filename, type);
 		lua_pushnumber(L,lret);
@@ -3653,7 +3653,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImage::GetImageCount function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : ::wxBITMAP_TYPE_ANY;
+		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
 
 		int lret = wxImage::GetImageCount(stream, type);
 		lua_pushnumber(L,lret);
@@ -3739,7 +3739,7 @@ public:
 
 		wxImage* mainImg=(Luna< wxObject >::checkSubType< wxImage >(L,1));
 		wxImage* subImg=(Luna< wxObject >::checkSubType< wxImage >(L,2));
-		int corner=luatop>2 ? (int)lua_tointeger(L,3) : ::CORNER_BOTTOM_RIGHT;
+		int corner=luatop>2 ? (int)lua_tointeger(L,3) : (int)::CORNER_BOTTOM_RIGHT;
 
 		composeWith(mainImg, subImg, corner);
 
@@ -3781,8 +3781,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImage::base_LoadFile function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : ::wxBITMAP_TYPE_ANY;
-		int index=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
+		int index=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -3805,8 +3805,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : ::wxBITMAP_TYPE_ANY;
-		int index=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
+		int index=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -3830,7 +3830,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 		wxString mimetype(lua_tostring(L,3),lua_objlen(L,3));
-		int index=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int index=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {
@@ -3858,7 +3858,7 @@ public:
 		}
 		wxInputStream & stream=*stream_ptr;
 		wxString mimetype(lua_tostring(L,3),lua_objlen(L,3));
-		int index=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int index=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		wxImage* self=Luna< wxObject >::checkSubType< wxImage >(L,1);
 		if(!self) {

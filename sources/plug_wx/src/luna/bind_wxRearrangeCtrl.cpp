@@ -197,12 +197,12 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg items in wxRearrangeCtrl::wxRearrangeCtrl function");
 		}
 		const wxArrayString & items=*items_ptr;
-		long style=luatop>6 ? (long)lua_tointeger(L,7) : 0;
+		long style=luatop>6 ? (long)lua_tointeger(L,7) : (long)0;
 		const wxValidator* validator_ptr=luatop>7 ? (Luna< wxObject >::checkSubType< wxValidator >(L,8)) : NULL;
 		if( luatop>7 && !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxRearrangeCtrl::wxRearrangeCtrl function");
 		}
-		const wxValidator & validator=luatop>7 ? *validator_ptr : wxDefaultValidator;
+		const wxValidator & validator=luatop>7 ? *validator_ptr : (const wxValidator&)wxDefaultValidator;
 		wxString name(lua_tostring(L,9),lua_objlen(L,9));
 
 		return new wxRearrangeCtrl(parent, id, pos, size, order, items, style, validator, name);
@@ -250,12 +250,12 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg items in wxRearrangeCtrl::Create function");
 		}
 		const wxArrayString & items=*items_ptr;
-		long style=luatop>7 ? (long)lua_tointeger(L,8) : 0;
+		long style=luatop>7 ? (long)lua_tointeger(L,8) : (long)0;
 		const wxValidator* validator_ptr=luatop>8 ? (Luna< wxObject >::checkSubType< wxValidator >(L,9)) : NULL;
 		if( luatop>8 && !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxRearrangeCtrl::Create function");
 		}
-		const wxValidator & validator=luatop>8 ? *validator_ptr : wxDefaultValidator;
+		const wxValidator & validator=luatop>8 ? *validator_ptr : (const wxValidator&)wxDefaultValidator;
 		wxString name(lua_tostring(L,10),lua_objlen(L,10));
 
 		wxRearrangeCtrl* self=(Luna< wxRearrangeCtrl >::check(L,1));

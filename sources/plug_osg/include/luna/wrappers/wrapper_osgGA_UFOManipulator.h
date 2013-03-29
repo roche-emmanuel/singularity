@@ -187,6 +187,17 @@ public:
 		return UFOManipulator::setCoordinateFrameCallback(cb);
 	};
 
+	// void osgGA::CameraManipulator::updateCamera(osg::Camera & camera)
+	void updateCamera(osg::Camera & camera) {
+		if(_obj.pushFunction("updateCamera")) {
+			_obj.pushArg((osgGA::UFOManipulator*)this);
+			_obj.pushArg(&camera);
+			return (_obj.callFunction<void>());
+		}
+
+		return UFOManipulator::updateCamera(camera);
+	};
+
 	// osgUtil::SceneView::FusionDistanceMode osgGA::CameraManipulator::getFusionDistanceMode() const
 	osgUtil::SceneView::FusionDistanceMode getFusionDistanceMode() const {
 		if(_obj.pushFunction("getFusionDistanceMode")) {

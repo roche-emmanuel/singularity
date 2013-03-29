@@ -199,7 +199,7 @@ public:
 		if( luatop>5 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxRearrangeDialog::wxRearrangeDialog function");
 		}
-		const wxPoint & pos=luatop>5 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>5 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		wxString name(lua_tostring(L,7),lua_objlen(L,7));
 
 		return new wxRearrangeDialog(parent, message, title, order, items, pos, name);
@@ -242,7 +242,7 @@ public:
 		if( luatop>6 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxRearrangeDialog::Create function");
 		}
-		const wxPoint & pos=luatop>6 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>6 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		wxString name(lua_tostring(L,8),lua_objlen(L,8));
 
 		wxRearrangeDialog* self=(Luna< wxRearrangeDialog >::check(L,1));

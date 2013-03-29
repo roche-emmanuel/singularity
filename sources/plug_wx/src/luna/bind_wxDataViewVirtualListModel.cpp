@@ -196,7 +196,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned int initial_size=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+		unsigned int initial_size=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)0;
 
 		return new wrapper_wxDataViewVirtualListModel(L,NULL, initial_size);
 	}

@@ -51,7 +51,7 @@ public:
 // size_t wxDataObject::GetFormatCount(wxDataObject::Direction dir = wxDataObject::Get) const
 size_t GetFormatCount(wxDataObject::Direction) const {
 	THROW_IF(true,"The function call size_t wxDataObject::GetFormatCount(wxDataObject::Direction) const is not implemented in wrapper.");
-	return size_t();
+	return (size_t)0;
 };
 
 public:

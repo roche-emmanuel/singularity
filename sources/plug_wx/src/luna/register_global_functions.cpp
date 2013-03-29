@@ -103,7 +103,7 @@ inline static bool _lg_typecheck_wxExit(lua_State *L) {
 inline static bool _lg_typecheck_wxBase64Encode_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
@@ -568,10 +568,10 @@ inline static bool _lg_typecheck_wxSetCursor(lua_State *L) {
 inline static bool _lg_typecheck_wxClientDisplayRect(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -590,8 +590,8 @@ inline static bool _lg_typecheck_wxGetDisplayPPI(lua_State *L) {
 inline static bool _lg_typecheck_wxDisplaySize(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -604,8 +604,8 @@ inline static bool _lg_typecheck_wxGetDisplaySize(lua_State *L) {
 inline static bool _lg_typecheck_wxDisplaySizeMM(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -1059,8 +1059,8 @@ inline static bool _lg_typecheck_wxGetOsVersion(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<0 || luatop>2 ) return false;
 
-	if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
+	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -1224,7 +1224,7 @@ inline static bool _lg_typecheck_wxStrlen(lua_State *L) {
 inline static bool _lg_typecheck_wxStrlcpy(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isstring(L,1)==0 ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
@@ -1257,7 +1257,7 @@ inline static bool _lg_typecheck_wxStrrchr_overload_3(lua_State *L) {
 inline static bool _lg_typecheck_wxStrrchr_overload_4(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isstring(L,1)==0 ) return false;
 	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
@@ -1294,7 +1294,7 @@ static int _bind_wxHandleFatalExceptions(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	bool doIt=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
+	bool doIt=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)true;
 
 	bool lret = ::wxHandleFatalExceptions(doIt);
 	lua_pushboolean(L,lret?1:0);
@@ -1388,7 +1388,7 @@ static int _bind_wxSafeYield(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	wxWindow* win=luatop>0 ? (Luna< wxObject >::checkSubType< wxWindow >(L,1)) : (wxWindow*)NULL;
-	bool onlyIfNeeded=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+	bool onlyIfNeeded=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 	bool lret = ::wxSafeYield(win, onlyIfNeeded);
 	lua_pushboolean(L,lret?1:0);
@@ -1416,12 +1416,12 @@ static int _bind_wxBase64Encode_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in size_t wxBase64Encode(char * dst, size_t dstLen, const void * src, size_t srcLen) function, expected prototype:\nsize_t wxBase64Encode(char * dst, size_t dstLen, const void * src, size_t srcLen)\nClass arguments details:\n");
 	}
 
-	char dst=(char)lua_tointeger(L,1);
+	char* dst=(char*)Luna< void >::check(L,1);
 	size_t dstLen=(size_t)lua_tointeger(L,2);
 	void* src=(Luna< void >::check(L,3));
 	size_t srcLen=(size_t)lua_tointeger(L,4);
 
-	size_t lret = ::wxBase64Encode(&dst, dstLen, src, srcLen);
+	size_t lret = ::wxBase64Encode(dst, dstLen, src, srcLen);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1545,12 +1545,12 @@ static int _bind_wxGetSingleChoiceIndex_overload_1(lua_State *L) {
 	}
 	const wxArrayString & aChoices=*aChoices_ptr;
 	wxWindow* parent=luatop>3 ? (Luna< wxObject >::checkSubType< wxWindow >(L,4)) : (wxWindow*)NULL;
-	int x=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-	int y=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
-	int width=luatop>7 ? (int)lua_tointeger(L,8) : 150;
-	int height=luatop>8 ? (int)lua_tointeger(L,9) : 200;
-	int initialSelection=luatop>9 ? (int)lua_tointeger(L,10) : 0;
+	int x=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+	int y=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : (bool)true;
+	int width=luatop>7 ? (int)lua_tointeger(L,8) : (int)150;
+	int height=luatop>8 ? (int)lua_tointeger(L,9) : (int)200;
+	int initialSelection=luatop>9 ? (int)lua_tointeger(L,10) : (int)0;
 
 	int lret = ::wxGetSingleChoiceIndex(message, caption, aChoices, parent, x, y, centre, width, height, initialSelection);
 	lua_pushnumber(L,lret);
@@ -1632,12 +1632,12 @@ static int _bind_wxGetSingleChoice_overload_1(lua_State *L) {
 	}
 	const wxArrayString & aChoices=*aChoices_ptr;
 	wxWindow* parent=luatop>3 ? (Luna< wxObject >::checkSubType< wxWindow >(L,4)) : (wxWindow*)NULL;
-	int x=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-	int y=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
-	int width=luatop>7 ? (int)lua_tointeger(L,8) : 150;
-	int height=luatop>8 ? (int)lua_tointeger(L,9) : 200;
-	int initialSelection=luatop>9 ? (int)lua_tointeger(L,10) : 0;
+	int x=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+	int y=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : (bool)true;
+	int width=luatop>7 ? (int)lua_tointeger(L,8) : (int)150;
+	int height=luatop>8 ? (int)lua_tointeger(L,9) : (int)200;
+	int initialSelection=luatop>9 ? (int)lua_tointeger(L,10) : (int)0;
 
 	wxString lret = ::wxGetSingleChoice(message, caption, aChoices, parent, x, y, centre, width, height, initialSelection);
 	lua_pushlstring(L,lret.data(),lret.size());
@@ -1724,11 +1724,11 @@ static int _bind_wxGetSelectedChoices(lua_State *L) {
 	}
 	const wxArrayString & aChoices=*aChoices_ptr;
 	wxWindow* parent=luatop>4 ? (Luna< wxObject >::checkSubType< wxWindow >(L,5)) : (wxWindow*)NULL;
-	int x=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-	int y=luatop>6 ? (int)lua_tointeger(L,7) : -1;
-	bool centre=luatop>7 ? (bool)(lua_toboolean(L,8)==1) : true;
-	int width=luatop>8 ? (int)lua_tointeger(L,9) : 150;
-	int height=luatop>9 ? (int)lua_tointeger(L,10) : 200;
+	int x=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+	int y=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
+	bool centre=luatop>7 ? (bool)(lua_toboolean(L,8)==1) : (bool)true;
+	int width=luatop>8 ? (int)lua_tointeger(L,9) : (int)150;
+	int height=luatop>9 ? (int)lua_tointeger(L,10) : (int)200;
 
 	int lret = ::wxGetSelectedChoices(selections, message, caption, aChoices, parent, x, y, centre, width, height);
 	lua_pushnumber(L,lret);
@@ -1941,12 +1941,12 @@ static int _bind_wxDirSelector(lua_State *L) {
 
 	wxString message(lua_tostring(L,1),lua_objlen(L,1));
 	wxString default_path(lua_tostring(L,2),lua_objlen(L,2));
-	long style=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+	long style=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 	const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 	if( luatop>3 && !pos_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg pos in wxDirSelector function");
 	}
-	const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+	const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 	wxWindow* parent=luatop>4 ? (Luna< wxObject >::checkSubType< wxWindow >(L,5)) : (wxWindow*)NULL;
 
 	wxString lret = ::wxDirSelector(message, default_path, style, pos, parent);
@@ -2017,10 +2017,10 @@ static int _bind_wxFileSelector(lua_State *L) {
 	wxString default_filename(lua_tostring(L,3),lua_objlen(L,3));
 	wxString default_extension(lua_tostring(L,4),lua_objlen(L,4));
 	wxString wildcard(lua_tostring(L,5),lua_objlen(L,5));
-	int flags=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+	int flags=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
 	wxWindow* parent=luatop>6 ? (Luna< wxObject >::checkSubType< wxWindow >(L,7)) : (wxWindow*)NULL;
-	int x=luatop>7 ? (int)lua_tointeger(L,8) : -1;
-	int y=luatop>8 ? (int)lua_tointeger(L,9) : -1;
+	int x=luatop>7 ? (int)lua_tointeger(L,8) : (int)-1;
+	int y=luatop>8 ? (int)lua_tointeger(L,9) : (int)-1;
 
 	wxString lret = ::wxFileSelector(message, default_path, default_filename, default_extension, wildcard, flags, parent, x, y);
 	lua_pushlstring(L,lret.data(),lret.size());
@@ -2121,7 +2121,7 @@ static int _bind_wxCopyFile(lua_State *L) {
 
 	wxString file1(lua_tostring(L,1),lua_objlen(L,1));
 	wxString file2(lua_tostring(L,2),lua_objlen(L,2));
-	bool overwrite=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+	bool overwrite=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 	bool lret = ::wxCopyFile(file1, file2, overwrite);
 	lua_pushboolean(L,lret?1:0);
@@ -2262,7 +2262,7 @@ static int _bind_wxMkdir(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	wxString dir(lua_tostring(L,1),lua_objlen(L,1));
-	int perm=luatop>1 ? (int)lua_tointeger(L,2) : ::wxS_DIR_DEFAULT;
+	int perm=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxS_DIR_DEFAULT;
 
 	bool lret = ::wxMkdir(dir, perm);
 	lua_pushboolean(L,lret?1:0);
@@ -2280,7 +2280,7 @@ static int _bind_wxRmdir(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	wxString dir(lua_tostring(L,1),lua_objlen(L,1));
-	int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+	int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 	bool lret = ::wxRmdir(dir, flags);
 	lua_pushboolean(L,lret?1:0);
@@ -2312,7 +2312,7 @@ static int _bind_wxFindFirstFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	wxString spec(lua_tostring(L,1),lua_objlen(L,1));
-	int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+	int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 	wxString lret = ::wxFindFirstFile(spec, flags);
 	lua_pushlstring(L,lret.data(),lret.size());
@@ -2414,12 +2414,12 @@ static int _bind_wxClientDisplayRect(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void wxClientDisplayRect(int * x, int * y, int * width, int * height) function, expected prototype:\nvoid wxClientDisplayRect(int * x, int * y, int * width, int * height)\nClass arguments details:\n");
 	}
 
-	int x=(int)lua_tointeger(L,1);
-	int y=(int)lua_tointeger(L,2);
-	int width=(int)lua_tointeger(L,3);
-	int height=(int)lua_tointeger(L,4);
+	int* x=(int*)Luna< void >::check(L,1);
+	int* y=(int*)Luna< void >::check(L,2);
+	int* width=(int*)Luna< void >::check(L,3);
+	int* height=(int*)Luna< void >::check(L,4);
 
-	::wxClientDisplayRect(&x, &y, &width, &height);
+	::wxClientDisplayRect(x, y, width, height);
 
 	return 0;
 }
@@ -2465,10 +2465,10 @@ static int _bind_wxDisplaySize(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void wxDisplaySize(int * width, int * height) function, expected prototype:\nvoid wxDisplaySize(int * width, int * height)\nClass arguments details:\n");
 	}
 
-	int width=(int)lua_tointeger(L,1);
-	int height=(int)lua_tointeger(L,2);
+	int* width=(int*)Luna< void >::check(L,1);
+	int* height=(int*)Luna< void >::check(L,2);
 
-	::wxDisplaySize(&width, &height);
+	::wxDisplaySize(width, height);
 
 	return 0;
 }
@@ -2497,10 +2497,10 @@ static int _bind_wxDisplaySizeMM(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void wxDisplaySizeMM(int * width, int * height) function, expected prototype:\nvoid wxDisplaySizeMM(int * width, int * height)\nClass arguments details:\n");
 	}
 
-	int width=(int)lua_tointeger(L,1);
-	int height=(int)lua_tointeger(L,2);
+	int* width=(int*)Luna< void >::check(L,1);
+	int* height=(int*)Luna< void >::check(L,2);
 
-	::wxDisplaySizeMM(&width, &height);
+	::wxDisplaySizeMM(width, height);
 
 	return 0;
 }
@@ -2665,10 +2665,10 @@ static int _bind_wxMessageBox(lua_State *L) {
 
 	wxString message(lua_tostring(L,1),lua_objlen(L,1));
 	wxString caption(lua_tostring(L,2),lua_objlen(L,2));
-	int style=luatop>2 ? (int)lua_tointeger(L,3) : wxOK;
+	int style=luatop>2 ? (int)lua_tointeger(L,3) : (int)wxOK;
 	wxWindow* parent=luatop>3 ? (Luna< wxObject >::checkSubType< wxWindow >(L,4)) : (wxWindow*)NULL;
-	int x=luatop>4 ? (int)lua_tointeger(L,5) : ::wxDefaultCoord;
-	int y=luatop>5 ? (int)lua_tointeger(L,6) : ::wxDefaultCoord;
+	int x=luatop>4 ? (int)lua_tointeger(L,5) : (int)::wxDefaultCoord;
+	int y=luatop>5 ? (int)lua_tointeger(L,6) : (int)::wxDefaultCoord;
 
 	int lret = ::wxMessageBox(message, caption, style, parent, x, y);
 	lua_pushnumber(L,lret);
@@ -2689,14 +2689,14 @@ static int _bind_wxGetNumberFromUser(lua_State *L) {
 	wxString prompt(lua_tostring(L,2),lua_objlen(L,2));
 	wxString caption(lua_tostring(L,3),lua_objlen(L,3));
 	long value=(long)lua_tointeger(L,4);
-	long min=luatop>4 ? (long)lua_tointeger(L,5) : 0;
-	long max=luatop>5 ? (long)lua_tointeger(L,6) : 100;
+	long min=luatop>4 ? (long)lua_tointeger(L,5) : (long)0;
+	long max=luatop>5 ? (long)lua_tointeger(L,6) : (long)100;
 	wxWindow* parent=luatop>6 ? (Luna< wxObject >::checkSubType< wxWindow >(L,7)) : (wxWindow*)NULL;
 	const wxPoint* pos_ptr=luatop>7 ? (Luna< wxPoint >::check(L,8)) : NULL;
 	if( luatop>7 && !pos_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg pos in wxGetNumberFromUser function");
 	}
-	const wxPoint & pos=luatop>7 ? *pos_ptr : wxDefaultPosition;
+	const wxPoint & pos=luatop>7 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 
 	long lret = ::wxGetNumberFromUser(message, prompt, caption, value, min, max, parent, pos);
 	lua_pushnumber(L,lret);
@@ -2764,7 +2764,7 @@ static int _bind_wxGetStockLabel(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	int id=(int)lua_tointeger(L,1);
-	long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxSTOCK_WITH_MNEMONIC;
+	long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxSTOCK_WITH_MNEMONIC;
 
 	wxString lret = ::wxGetStockLabel(id, flags);
 	lua_pushlstring(L,lret.data(),lret.size());
@@ -2785,9 +2785,9 @@ static int _bind_wxGetTextFromUser(lua_State *L) {
 	wxString caption(lua_tostring(L,2),lua_objlen(L,2));
 	wxString default_value(lua_tostring(L,3),lua_objlen(L,3));
 	wxWindow* parent=luatop>3 ? (Luna< wxObject >::checkSubType< wxWindow >(L,4)) : (wxWindow*)NULL;
-	int x=luatop>4 ? (int)lua_tointeger(L,5) : ::wxDefaultCoord;
-	int y=luatop>5 ? (int)lua_tointeger(L,6) : ::wxDefaultCoord;
-	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
+	int x=luatop>4 ? (int)lua_tointeger(L,5) : (int)::wxDefaultCoord;
+	int y=luatop>5 ? (int)lua_tointeger(L,6) : (int)::wxDefaultCoord;
+	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : (bool)true;
 
 	wxString lret = ::wxGetTextFromUser(message, caption, default_value, parent, x, y, centre);
 	lua_pushlstring(L,lret.data(),lret.size());
@@ -2808,9 +2808,9 @@ static int _bind_wxGetPasswordFromUser(lua_State *L) {
 	wxString caption(lua_tostring(L,2),lua_objlen(L,2));
 	wxString default_value(lua_tostring(L,3),lua_objlen(L,3));
 	wxWindow* parent=luatop>3 ? (Luna< wxObject >::checkSubType< wxWindow >(L,4)) : (wxWindow*)NULL;
-	int x=luatop>4 ? (int)lua_tointeger(L,5) : ::wxDefaultCoord;
-	int y=luatop>5 ? (int)lua_tointeger(L,6) : ::wxDefaultCoord;
-	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
+	int x=luatop>4 ? (int)lua_tointeger(L,5) : (int)::wxDefaultCoord;
+	int y=luatop>5 ? (int)lua_tointeger(L,6) : (int)::wxDefaultCoord;
+	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : (bool)true;
 
 	wxString lret = ::wxGetPasswordFromUser(message, caption, default_value, parent, x, y, centre);
 	lua_pushlstring(L,lret.data(),lret.size());
@@ -2954,7 +2954,7 @@ static int _bind_wxShowTip(lua_State *L) {
 
 	wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 	wxTipProvider* tipProvider=(Luna< wxTipProvider >::check(L,2));
-	bool showAtStartup=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+	bool showAtStartup=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 	bool lret = ::wxShowTip(parent, tipProvider, showAtStartup);
 	lua_pushboolean(L,lret?1:0);
@@ -3227,7 +3227,7 @@ static int _bind_wxEnableTopLevelWindows(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	bool enable=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
+	bool enable=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)true;
 
 	::wxEnableTopLevelWindows(enable);
 
@@ -3350,7 +3350,7 @@ static int _bind_wxLaunchDefaultApplication(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	wxString document(lua_tostring(L,1),lua_objlen(L,1));
-	int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+	int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 	bool lret = ::wxLaunchDefaultApplication(document, flags);
 	lua_pushboolean(L,lret?1:0);
@@ -3368,7 +3368,7 @@ static int _bind_wxLaunchDefaultBrowser(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	wxString url(lua_tostring(L,1),lua_objlen(L,1));
-	int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+	int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 	bool lret = ::wxLaunchDefaultBrowser(url, flags);
 	lua_pushboolean(L,lret?1:0);
@@ -3404,7 +3404,7 @@ static int _bind_wxStripMenuCodes(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	wxString str(lua_tostring(L,1),lua_objlen(L,1));
-	int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxStrip_All;
+	int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxStrip_All;
 
 	wxString lret = ::wxStripMenuCodes(str, flags);
 	lua_pushlstring(L,lret.data(),lret.size());
@@ -3497,10 +3497,10 @@ static int _bind_wxGetOsVersion(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	int major=luatop>0 ? (int)lua_tointeger(L,1) : NULL;
-	int minor=luatop>1 ? (int)lua_tointeger(L,2) : NULL;
+	int* major=luatop>0 ? (int*)Luna< void >::check(L,1) : (int*)NULL;
+	int* minor=luatop>1 ? (int*)Luna< void >::check(L,2) : (int*)NULL;
 
-	wxOperatingSystemId lret = ::wxGetOsVersion(&major, &minor);
+	wxOperatingSystemId lret = ::wxGetOsVersion(major, minor);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3544,7 +3544,7 @@ static int _bind_wxExecute_overload_1(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	wxString command(lua_tostring(L,1),lua_objlen(L,1));
-	int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxEXEC_ASYNC;
+	int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxEXEC_ASYNC;
 	wxProcess* callback=luatop>2 ? (Luna< wxObject >::checkSubType< wxProcess >(L,3)) : (wxProcess*)NULL;
 	const wxExecuteEnv* env=luatop>3 ? (Luna< wxExecuteEnv >::check(L,4)) : (const wxExecuteEnv*)NULL;
 
@@ -3569,7 +3569,7 @@ static int _bind_wxExecute_overload_2(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg output in wxExecute function");
 	}
 	wxArrayString & output=*output_ptr;
-	int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+	int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 	const wxExecuteEnv* env=luatop>3 ? (Luna< wxExecuteEnv >::check(L,4)) : (const wxExecuteEnv*)NULL;
 
 	long lret = ::wxExecute(command, output, flags, env);
@@ -3598,7 +3598,7 @@ static int _bind_wxExecute_overload_3(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg errors in wxExecute function");
 	}
 	wxArrayString & errors=*errors_ptr;
-	int flags=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+	int flags=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 	const wxExecuteEnv* env=luatop>4 ? (Luna< wxExecuteEnv >::check(L,5)) : (const wxExecuteEnv*)NULL;
 
 	long lret = ::wxExecute(command, output, errors, flags, env);
@@ -3657,7 +3657,7 @@ static int _bind_wxShutdown(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	int flags=luatop>0 ? (int)lua_tointeger(L,1) : ::wxSHUTDOWN_POWEROFF;
+	int flags=luatop>0 ? (int)lua_tointeger(L,1) : (int)::wxSHUTDOWN_POWEROFF;
 
 	bool lret = ::wxShutdown(flags);
 	lua_pushboolean(L,lret?1:0);
@@ -3867,11 +3867,11 @@ static int _bind_wxStrlcpy(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in size_t wxStrlcpy(char * dest, const char * src, size_t n) function, expected prototype:\nsize_t wxStrlcpy(char * dest, const char * src, size_t n)\nClass arguments details:\n");
 	}
 
-	char dest=(char)lua_tointeger(L,1);
+	char* dest=(char*)Luna< void >::check(L,1);
 	const char * src=(const char *)lua_tostring(L,2);
 	size_t n=(size_t)lua_tointeger(L,3);
 
-	size_t lret = ::wxStrlcpy(&dest, src, n);
+	size_t lret = ::wxStrlcpy(dest, src, n);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -3932,10 +3932,10 @@ static int _bind_wxStrrchr_overload_4(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in char * wxStrrchr(char * s, char c) function, expected prototype:\nchar * wxStrrchr(char * s, char c)\nClass arguments details:\n");
 	}
 
-	char s=(char)lua_tointeger(L,1);
+	char* s=(char*)Luna< void >::check(L,1);
 	char c=(char)lua_tointeger(L,2);
 
-	char * lret = ::wxStrrchr(&s, c);
+	char * lret = ::wxStrrchr(s, c);
 	lua_pushnumber(L,*lret);
 
 	return 1;

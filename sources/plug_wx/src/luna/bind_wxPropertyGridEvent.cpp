@@ -259,8 +259,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int commandType=luatop>0 ? (int)lua_tointeger(L,1) : 0;
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int commandType=luatop>0 ? (int)lua_tointeger(L,1) : (int)0;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		return new wxPropertyGridEvent(commandType, id);
 	}
@@ -290,8 +290,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int commandType=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int commandType=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		return new wrapper_wxPropertyGridEvent(L,NULL, commandType, id);
 	}
@@ -528,7 +528,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool veto=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool veto=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
 		if(!self) {

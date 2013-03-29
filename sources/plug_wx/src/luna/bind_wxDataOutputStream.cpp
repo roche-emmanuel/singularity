@@ -132,7 +132,7 @@ public:
 	inline static bool _lg_typecheck_Write16_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -147,7 +147,7 @@ public:
 	inline static bool _lg_typecheck_Write32_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -162,7 +162,7 @@ public:
 	inline static bool _lg_typecheck_WriteDouble_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -274,7 +274,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDataOutputStream::Write16(const unsigned short * buffer, size_t size) function, expected prototype:\nvoid wxDataOutputStream::Write16(const unsigned short * buffer, size_t size)\nClass arguments details:\n");
 		}
 
-		unsigned short buffer=(unsigned short)lua_tointeger(L,2);
+		const unsigned short* buffer=(const unsigned short*)Luna< void >::check(L,2);
 		size_t size=(size_t)lua_tointeger(L,3);
 
 		wxDataOutputStream* self=(Luna< wxDataOutputStream >::check(L,1));
@@ -282,7 +282,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataOutputStream::Write16(const unsigned short *, size_t). Got : '%s'",typeid(Luna< wxDataOutputStream >::check(L,1)).name());
 		}
-		self->Write16(&buffer, size);
+		self->Write16(buffer, size);
 
 		return 0;
 	}
@@ -322,7 +322,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDataOutputStream::Write32(const unsigned int * buffer, size_t size) function, expected prototype:\nvoid wxDataOutputStream::Write32(const unsigned int * buffer, size_t size)\nClass arguments details:\n");
 		}
 
-		unsigned int buffer=(unsigned int)lua_tointeger(L,2);
+		const unsigned int* buffer=(const unsigned int*)Luna< void >::check(L,2);
 		size_t size=(size_t)lua_tointeger(L,3);
 
 		wxDataOutputStream* self=(Luna< wxDataOutputStream >::check(L,1));
@@ -330,7 +330,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataOutputStream::Write32(const unsigned int *, size_t). Got : '%s'",typeid(Luna< wxDataOutputStream >::check(L,1)).name());
 		}
-		self->Write32(&buffer, size);
+		self->Write32(buffer, size);
 
 		return 0;
 	}
@@ -370,7 +370,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDataOutputStream::WriteDouble(const double * buffer, size_t size) function, expected prototype:\nvoid wxDataOutputStream::WriteDouble(const double * buffer, size_t size)\nClass arguments details:\n");
 		}
 
-		double buffer=(double)lua_tonumber(L,2);
+		const double* buffer=(const double*)Luna< void >::check(L,2);
 		size_t size=(size_t)lua_tointeger(L,3);
 
 		wxDataOutputStream* self=(Luna< wxDataOutputStream >::check(L,1));
@@ -378,7 +378,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataOutputStream::WriteDouble(const double *, size_t). Got : '%s'",typeid(Luna< wxDataOutputStream >::check(L,1)).name());
 		}
-		self->WriteDouble(&buffer, size);
+		self->WriteDouble(buffer, size);
 
 		return 0;
 	}

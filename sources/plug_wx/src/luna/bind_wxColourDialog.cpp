@@ -1326,8 +1326,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
-		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
+		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -1493,7 +1493,7 @@ public:
 
 		int orientation=(int)lua_tointeger(L,2);
 		int pos=(int)lua_tointeger(L,3);
-		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -1518,7 +1518,7 @@ public:
 		int position=(int)lua_tointeger(L,3);
 		int thumbSize=(int)lua_tointeger(L,4);
 		int range=(int)lua_tointeger(L,5);
-		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -1805,7 +1805,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -1991,7 +1991,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 		const wxRect* rect=luatop>2 ? (Luna< wxRect >::check(L,3)) : (const wxRect*)NULL;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
@@ -2264,7 +2264,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -2324,7 +2324,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -2347,7 +2347,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -2889,7 +2889,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -2970,7 +2970,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -3010,7 +3010,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -3146,7 +3146,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool maximize=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool maximize=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -3167,7 +3167,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxUSER_ATTENTION_INFO;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxUSER_ATTENTION_INFO;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -3236,10 +3236,10 @@ public:
 
 		int minW=(int)lua_tointeger(L,2);
 		int minH=(int)lua_tointeger(L,3);
-		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int incW=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		int incH=luatop>6 ? (int)lua_tointeger(L,7) : -1;
+		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int incW=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+		int incH=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -3269,12 +3269,12 @@ public:
 		if( luatop>2 && !maxSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg maxSize in wxColourDialog::base_SetSizeHints function");
 		}
-		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : wxDefaultSize;
+		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : (const wxSize&)wxDefaultSize;
 		const wxSize* incSize_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !incSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg incSize in wxColourDialog::base_SetSizeHints function");
 		}
-		const wxSize & incSize=luatop>3 ? *incSize_ptr : wxDefaultSize;
+		const wxSize & incSize=luatop>3 ? *incSize_ptr : (const wxSize&)wxDefaultSize;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -3401,7 +3401,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		bool show=(bool)(lua_toboolean(L,2)==1);
-		long style=luatop>2 ? (long)lua_tointeger(L,3) : ::wxFULLSCREEN_ALL;
+		long style=luatop>2 ? (long)lua_tointeger(L,3) : (long)::wxFULLSCREEN_ALL;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -3501,7 +3501,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool iconize=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool iconize=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {
@@ -3583,7 +3583,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : 1;
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)1;
 
 		wxColourDialog* self=Luna< wxObject >::checkSubType< wxColourDialog >(L,1);
 		if(!self) {

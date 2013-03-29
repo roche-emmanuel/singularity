@@ -147,7 +147,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned short format=luatop>0 ? (unsigned short)lua_tointeger(L,1) : ::wxDF_INVALID;
+		unsigned short format=luatop>0 ? (unsigned short)lua_tointeger(L,1) : (unsigned short)::wxDF_INVALID;
 
 		return new wxDataFormat(format);
 	}

@@ -235,7 +235,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::InterpolationType type=(SPK::InterpolationType)lua_tointeger(L,2);
-		SPK::ModelParam param=luatop>2 ? (SPK::ModelParam)lua_tointeger(L,3) : SPK::PARAM_SIZE;
+		SPK::ModelParam param=luatop>2 ? (SPK::ModelParam)lua_tointeger(L,3) : (SPK::ModelParam)SPK::PARAM_SIZE;
 
 		SPK::Interpolator* self=(Luna< SPK::Interpolator >::check(L,1));
 		if(!self) {

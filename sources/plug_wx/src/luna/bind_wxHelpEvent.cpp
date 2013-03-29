@@ -196,14 +196,14 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int type=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
-		int winid=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int type=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxEVT_NULL;
+		int winid=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 		const wxPoint* pt_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !pt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pt in wxHelpEvent::wxHelpEvent function");
 		}
-		const wxPoint & pt=luatop>2 ? *pt_ptr : wxDefaultPosition;
-		wxHelpEvent::Origin origin=luatop>3 ? (wxHelpEvent::Origin)lua_tointeger(L,4) : wxHelpEvent::Origin_Unknown;
+		const wxPoint & pt=luatop>2 ? *pt_ptr : (const wxPoint&)wxDefaultPosition;
+		wxHelpEvent::Origin origin=luatop>3 ? (wxHelpEvent::Origin)lua_tointeger(L,4) : (wxHelpEvent::Origin)wxHelpEvent::Origin_Unknown;
 
 		return new wxHelpEvent(type, winid, pt, origin);
 	}
@@ -217,14 +217,14 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int type=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
-		int winid=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int type=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
+		int winid=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 		const wxPoint* pt_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pt in wxHelpEvent::wxHelpEvent function");
 		}
-		const wxPoint & pt=luatop>3 ? *pt_ptr : wxDefaultPosition;
-		wxHelpEvent::Origin origin=luatop>4 ? (wxHelpEvent::Origin)lua_tointeger(L,5) : wxHelpEvent::Origin_Unknown;
+		const wxPoint & pt=luatop>3 ? *pt_ptr : (const wxPoint&)wxDefaultPosition;
+		wxHelpEvent::Origin origin=luatop>4 ? (wxHelpEvent::Origin)lua_tointeger(L,5) : (wxHelpEvent::Origin)wxHelpEvent::Origin_Unknown;
 
 		return new wrapper_wxHelpEvent(L,NULL, type, winid, pt, origin);
 	}

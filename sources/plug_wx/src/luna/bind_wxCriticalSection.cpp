@@ -140,7 +140,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxCriticalSectionType critSecType=luatop>0 ? (wxCriticalSectionType)lua_tointeger(L,1) : ::wxCRITSEC_DEFAULT;
+		wxCriticalSectionType critSecType=luatop>0 ? (wxCriticalSectionType)lua_tointeger(L,1) : (wxCriticalSectionType)::wxCRITSEC_DEFAULT;
 
 		return new wxCriticalSection(critSecType);
 	}

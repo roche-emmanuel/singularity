@@ -161,8 +161,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		bool iconized=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		bool iconized=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		return new wrapper_wxIconizeEvent(L,NULL, id, iconized);
 	}

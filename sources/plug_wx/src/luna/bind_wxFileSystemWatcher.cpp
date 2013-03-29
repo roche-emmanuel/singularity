@@ -317,7 +317,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg path in wxFileSystemWatcher::Add function");
 		}
 		const wxFileName & path=*path_ptr;
-		int events=luatop>2 ? (int)lua_tointeger(L,3) : ::wxFSW_EVENT_ALL;
+		int events=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxFSW_EVENT_ALL;
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
@@ -344,7 +344,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg path in wxFileSystemWatcher::AddTree function");
 		}
 		const wxFileName & path=*path_ptr;
-		int events=luatop>2 ? (int)lua_tointeger(L,3) : ::wxFSW_EVENT_ALL;
+		int events=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxFSW_EVENT_ALL;
 		wxString filter(lua_tostring(L,4),lua_objlen(L,4));
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
@@ -622,7 +622,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg path in wxFileSystemWatcher::base_Add function");
 		}
 		const wxFileName & path=*path_ptr;
-		int events=luatop>2 ? (int)lua_tointeger(L,3) : ::wxFSW_EVENT_ALL;
+		int events=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxFSW_EVENT_ALL;
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
@@ -649,7 +649,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg path in wxFileSystemWatcher::base_AddTree function");
 		}
 		const wxFileName & path=*path_ptr;
-		int events=luatop>2 ? (int)lua_tointeger(L,3) : ::wxFSW_EVENT_ALL;
+		int events=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxFSW_EVENT_ALL;
 		wxString filter(lua_tostring(L,4),lua_objlen(L,4));
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);

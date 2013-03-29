@@ -765,7 +765,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		bool useClampStep=(bool)(lua_toboolean(L,1)==1);
-		float clamp=luatop>1 ? (float)lua_tonumber(L,2) : 1.0f;
+		float clamp=luatop>1 ? (float)lua_tonumber(L,2) : (float)1.0f;
 
 		SPK::System::setClampStep(useClampStep, clamp);
 

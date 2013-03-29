@@ -232,17 +232,17 @@ public:
 		if( luatop>2 && !y_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglFormulaC::Calc function");
 		}
-		dual y=luatop>2 ? *y_ptr : 0;
+		dual y=luatop>2 ? *y_ptr : (dual)0;
 		dual* z_ptr=luatop>3 ? (Luna< std::complex< double > >::checkSubType< dual >(L,4)) : NULL;
 		if( luatop>3 && !z_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglFormulaC::Calc function");
 		}
-		dual z=luatop>3 ? *z_ptr : 0;
+		dual z=luatop>3 ? *z_ptr : (dual)0;
 		dual* u_ptr=luatop>4 ? (Luna< std::complex< double > >::checkSubType< dual >(L,5)) : NULL;
 		if( luatop>4 && !u_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg u in mglFormulaC::Calc function");
 		}
-		dual u=luatop>4 ? *u_ptr : 0;
+		dual u=luatop>4 ? *u_ptr : (dual)0;
 
 		mglFormulaC* self=(Luna< mglFormulaC >::check(L,1));
 		if(!self) {

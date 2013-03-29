@@ -52,6 +52,7 @@
 #include <osg/PrimitiveSet>
 #include <osg/ShaderComposer>
 #include <osg/ShadowVolumeOccluder>
+#include <osg/Uniform>
 #include <osg/ValueObject>
 #include <plug_extensions.h>
 #include <osg/StateAttribute>
@@ -132,6 +133,7 @@
 #include <osg/ProxyNode>
 #include <osg/Quat>
 #include <osg/RenderInfo>
+#include <osg/SampleMaski>
 #include <osg/Scissor>
 #include <osg/Sequence>
 #include <osg/ShadeModel>
@@ -158,7 +160,6 @@
 #include <osg/TextureRectangle>
 #include <osg/Timer>
 #include <osg/TransferFunction>
-#include <osg/Uniform>
 #include <osg/UserDataContainer>
 #include <osg/Vec2b>
 #include <osg/Vec2d>
@@ -187,6 +188,7 @@
 #include <osgDB/DotOsgWrapper>
 #include <osgDB/DynamicLibrary>
 #include <osgDB/FileCache>
+#include <osgDB/FileNameUtils>
 #include <osgDB/fstream>
 #include <osgDB/Options>
 #include <osgDB/ImagePager>
@@ -204,6 +206,7 @@
 #include <osgGA/GUIEventHandler>
 #include <osgGA/AnimationPathManipulator>
 #include <osgGA/CameraViewSwitchManipulator>
+#include <osgGA/Device>
 #include <osgGA/DriveManipulator>
 #include <osgGA/EventQueue>
 #include <osgGA/EventVisitor>
@@ -288,6 +291,7 @@
 #include <osgUtil/Optimizer>
 #include <osgUtil/MeshOptimizers>
 #include <osgUtil/OperationArrayFunctor>
+#include <osgUtil/PerlinNoise>
 #include <osgUtil/PlaneIntersector>
 #include <osgUtil/PolytopeIntersector>
 #include <osgUtil/PositionalStateContainer>
@@ -2298,6 +2302,310 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Matrix2Template< float >
+template<>
+class LunaTraits< osg::Matrix2Template< float > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix2Template< float >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix2Template< float >* obj);
+	typedef osg::Matrix2Template< float > parent_t;
+	typedef osg::Matrix2Template< float > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix2x3Template< float >
+template<>
+class LunaTraits< osg::Matrix2x3Template< float > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix2x3Template< float >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix2x3Template< float >* obj);
+	typedef osg::Matrix2x3Template< float > parent_t;
+	typedef osg::Matrix2x3Template< float > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix2x4Template< float >
+template<>
+class LunaTraits< osg::Matrix2x4Template< float > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix2x4Template< float >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix2x4Template< float >* obj);
+	typedef osg::Matrix2x4Template< float > parent_t;
+	typedef osg::Matrix2x4Template< float > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix3x2Template< float >
+template<>
+class LunaTraits< osg::Matrix3x2Template< float > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix3x2Template< float >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix3x2Template< float >* obj);
+	typedef osg::Matrix3x2Template< float > parent_t;
+	typedef osg::Matrix3x2Template< float > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix3Template< float >
+template<>
+class LunaTraits< osg::Matrix3Template< float > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix3Template< float >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix3Template< float >* obj);
+	typedef osg::Matrix3Template< float > parent_t;
+	typedef osg::Matrix3Template< float > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix3x4Template< float >
+template<>
+class LunaTraits< osg::Matrix3x4Template< float > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix3x4Template< float >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix3x4Template< float >* obj);
+	typedef osg::Matrix3x4Template< float > parent_t;
+	typedef osg::Matrix3x4Template< float > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix4x2Template< float >
+template<>
+class LunaTraits< osg::Matrix4x2Template< float > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix4x2Template< float >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix4x2Template< float >* obj);
+	typedef osg::Matrix4x2Template< float > parent_t;
+	typedef osg::Matrix4x2Template< float > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix4x3Template< float >
+template<>
+class LunaTraits< osg::Matrix4x3Template< float > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix4x3Template< float >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix4x3Template< float >* obj);
+	typedef osg::Matrix4x3Template< float > parent_t;
+	typedef osg::Matrix4x3Template< float > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix2Template< double >
+template<>
+class LunaTraits< osg::Matrix2Template< double > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix2Template< double >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix2Template< double >* obj);
+	typedef osg::Matrix2Template< double > parent_t;
+	typedef osg::Matrix2Template< double > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix2x3Template< double >
+template<>
+class LunaTraits< osg::Matrix2x3Template< double > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix2x3Template< double >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix2x3Template< double >* obj);
+	typedef osg::Matrix2x3Template< double > parent_t;
+	typedef osg::Matrix2x3Template< double > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix2x4Template< double >
+template<>
+class LunaTraits< osg::Matrix2x4Template< double > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix2x4Template< double >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix2x4Template< double >* obj);
+	typedef osg::Matrix2x4Template< double > parent_t;
+	typedef osg::Matrix2x4Template< double > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix3x2Template< double >
+template<>
+class LunaTraits< osg::Matrix3x2Template< double > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix3x2Template< double >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix3x2Template< double >* obj);
+	typedef osg::Matrix3x2Template< double > parent_t;
+	typedef osg::Matrix3x2Template< double > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix3Template< double >
+template<>
+class LunaTraits< osg::Matrix3Template< double > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix3Template< double >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix3Template< double >* obj);
+	typedef osg::Matrix3Template< double > parent_t;
+	typedef osg::Matrix3Template< double > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix3x4Template< double >
+template<>
+class LunaTraits< osg::Matrix3x4Template< double > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix3x4Template< double >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix3x4Template< double >* obj);
+	typedef osg::Matrix3x4Template< double > parent_t;
+	typedef osg::Matrix3x4Template< double > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix4x2Template< double >
+template<>
+class LunaTraits< osg::Matrix4x2Template< double > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix4x2Template< double >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix4x2Template< double >* obj);
+	typedef osg::Matrix4x2Template< double > parent_t;
+	typedef osg::Matrix4x2Template< double > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Matrix4x3Template< double >
+template<>
+class LunaTraits< osg::Matrix4x3Template< double > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrix4x3Template< double >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrix4x3Template< double >* obj);
+	typedef osg::Matrix4x3Template< double > parent_t;
+	typedef osg::Matrix4x3Template< double > base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: osg::TemplateValueObject< std::string >
 template<>
 class LunaTraits< osg::TemplateValueObject< std::string > > {
@@ -3381,6 +3689,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::AtomicCounterBufferBinding
+template<>
+class LunaTraits< osg::AtomicCounterBufferBinding > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::AtomicCounterBufferBinding* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::AtomicCounterBufferBinding* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::AtomicCounterBufferBinding base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: osg::BufferObjectProfile
 template<>
 class LunaTraits< osg::BufferObjectProfile > {
@@ -3606,6 +3933,25 @@ public:
 	static void _bind_dtor(osg::UniformBufferObject* obj);
 	typedef osg::Referenced parent_t;
 	typedef osg::UniformBufferObject base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::AtomicCounterBufferObject
+template<>
+class LunaTraits< osg::AtomicCounterBufferObject > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::AtomicCounterBufferObject* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::AtomicCounterBufferObject* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::AtomicCounterBufferObject base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -5243,6 +5589,63 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: std::vector< osg::ref_ptr< osg::Image::DimensionsChangedCallback > >
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< osg::Image::DimensionsChangedCallback > > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< osg::ref_ptr< osg::Image::DimensionsChangedCallback > >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< osg::ref_ptr< osg::Image::DimensionsChangedCallback > >* obj);
+	typedef std::vector< osg::ref_ptr< osg::Image::DimensionsChangedCallback > > parent_t;
+	typedef std::vector< osg::ref_ptr< osg::Image::DimensionsChangedCallback > > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Image::DataIterator
+template<>
+class LunaTraits< osg::Image::DataIterator > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Image::DataIterator* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Image::DataIterator* obj);
+	typedef osg::Image::DataIterator parent_t;
+	typedef osg::Image::DataIterator base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Image::DimensionsChangedCallback
+template<>
+class LunaTraits< osg::Image::DimensionsChangedCallback > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Image::DimensionsChangedCallback* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Image::DimensionsChangedCallback* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Image::DimensionsChangedCallback base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: osg::ImageStream
 template<>
 class LunaTraits< osg::ImageStream > {
@@ -5281,9 +5684,9 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Class: std::vector< std::string >
+// Class: std::vector< osg::ImageSequence::ImageData >
 template<>
-class LunaTraits< std::vector< std::string > > {
+class LunaTraits< std::vector< osg::ImageSequence::ImageData > > {
 public:
 	static const char className[];
 	static const char fullName[];
@@ -5293,10 +5696,29 @@ public:
 	static const int hash;
 	static luna_RegType methods[];
 	static luna_RegEnumType enumValues[];
-	static std::vector< std::string >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::vector< std::string >* obj);
-	typedef std::vector< std::string > parent_t;
-	typedef std::vector< std::string > base_t;
+	static std::vector< osg::ImageSequence::ImageData >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< osg::ImageSequence::ImageData >* obj);
+	typedef std::vector< osg::ImageSequence::ImageData > parent_t;
+	typedef std::vector< osg::ImageSequence::ImageData > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::ImageSequence::ImageData
+template<>
+class LunaTraits< osg::ImageSequence::ImageData > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::ImageSequence::ImageData* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::ImageSequence::ImageData* obj);
+	typedef osg::ImageSequence::ImageData parent_t;
+	typedef osg::ImageSequence::ImageData base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -5829,6 +6251,25 @@ public:
 	static void _bind_dtor(std::vector< osg::Group * >* obj);
 	typedef std::vector< osg::Group * > parent_t;
 	typedef std::vector< osg::Group * > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: std::vector< std::string >
+template<>
+class LunaTraits< std::vector< std::string > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< std::string >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< std::string >* obj);
+	typedef std::vector< std::string > parent_t;
+	typedef std::vector< std::string > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -6760,6 +7201,44 @@ public:
 	static void _bind_dtor(osg::RenderInfo* obj);
 	typedef osg::RenderInfo parent_t;
 	typedef osg::RenderInfo base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::SampleMaski
+template<>
+class LunaTraits< osg::SampleMaski > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::SampleMaski* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::SampleMaski* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::SampleMaski base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::SampleMaski::Extensions
+template<>
+class LunaTraits< osg::SampleMaski::Extensions > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::SampleMaski::Extensions* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::SampleMaski::Extensions* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::SampleMaski::Extensions base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -7960,6 +8439,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::Texture::ImageAttachment
+template<>
+class LunaTraits< osg::Texture::ImageAttachment > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Texture::ImageAttachment* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Texture::ImageAttachment* obj);
+	typedef osg::Texture::ImageAttachment parent_t;
+	typedef osg::Texture::ImageAttachment base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: osg::Texture1D
 template<>
 class LunaTraits< osg::Texture1D > {
@@ -8356,44 +8854,6 @@ public:
 	static void _bind_dtor(std::map< float, osg::Vec4f >* obj);
 	typedef std::map< float, osg::Vec4f > parent_t;
 	typedef std::map< float, osg::Vec4f > base_t;
-	static luna_ConverterType converters[];
-};
-
-// Class: osg::Matrix2
-template<>
-class LunaTraits< osg::Matrix2 > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::Matrix2* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::Matrix2* obj);
-	typedef osg::Matrix2 parent_t;
-	typedef osg::Matrix2 base_t;
-	static luna_ConverterType converters[];
-};
-
-// Class: osg::Matrix3
-template<>
-class LunaTraits< osg::Matrix3 > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::Matrix3* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::Matrix3* obj);
-	typedef osg::Matrix3 parent_t;
-	typedef osg::Matrix3 base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -9917,6 +10377,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osgDB::FileNameComparator
+template<>
+class LunaTraits< osgDB::FileNameComparator > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osgDB::FileNameComparator* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osgDB::FileNameComparator* obj);
+	typedef osgDB::FileNameComparator parent_t;
+	typedef osgDB::FileNameComparator base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: osgDB::fstream
 template<>
 class LunaTraits< osgDB::fstream > {
@@ -10047,6 +10526,25 @@ public:
 	static void _bind_dtor(osgDB::ImageProcessor* obj);
 	typedef osg::Referenced parent_t;
 	typedef osgDB::ImageProcessor base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osgDB::basic_type_wrapper
+template<>
+class LunaTraits< osgDB::basic_type_wrapper > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osgDB::basic_type_wrapper* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osgDB::basic_type_wrapper* obj);
+	typedef osgDB::basic_type_wrapper parent_t;
+	typedef osgDB::basic_type_wrapper base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -10297,6 +10795,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osgDB::UpdateWrapperVersionProxy
+template<>
+class LunaTraits< osgDB::UpdateWrapperVersionProxy > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osgDB::UpdateWrapperVersionProxy* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osgDB::UpdateWrapperVersionProxy* obj);
+	typedef osgDB::UpdateWrapperVersionProxy parent_t;
+	typedef osgDB::UpdateWrapperVersionProxy base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: osgDB::ObjectWrapperManager
 template<>
 class LunaTraits< osgDB::ObjectWrapperManager > {
@@ -10541,25 +11058,6 @@ public:
 	static void _bind_dtor(osgDB::ReaderWriterInfo* obj);
 	typedef osg::Referenced parent_t;
 	typedef osgDB::ReaderWriterInfo base_t;
-	static luna_ConverterType converters[];
-};
-
-// Class: osgDB::basic_type_wrapper
-template<>
-class LunaTraits< osgDB::basic_type_wrapper > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osgDB::basic_type_wrapper* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osgDB::basic_type_wrapper* obj);
-	typedef osgDB::basic_type_wrapper parent_t;
-	typedef osgDB::basic_type_wrapper base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -10978,6 +11476,25 @@ public:
 	static void _bind_dtor(std::vector< osg::ref_ptr< osg::CameraView > >* obj);
 	typedef std::vector< osg::ref_ptr< osg::CameraView > > parent_t;
 	typedef std::vector< osg::ref_ptr< osg::CameraView > > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osgGA::Device
+template<>
+class LunaTraits< osgGA::Device > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osgGA::Device* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osgGA::Device* obj);
+	typedef osg::Referenced parent_t;
+	typedef osgGA::Device base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -13983,6 +14500,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osgUtil::PerlinNoise
+template<>
+class LunaTraits< osgUtil::PerlinNoise > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osgUtil::PerlinNoise* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osgUtil::PerlinNoise* obj);
+	typedef osgUtil::PerlinNoise parent_t;
+	typedef osgUtil::PerlinNoise base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: osgUtil::PlaneIntersector
 template<>
 class LunaTraits< osgUtil::PlaneIntersector > {
@@ -15891,6 +16427,118 @@ public:
 };
 
 template<>
+class LunaType< 18903788 > {
+public:
+	typedef osg::Matrix2 type;
+	
+};
+
+template<>
+class LunaType< 66541660 > {
+public:
+	typedef osg::Matrix2x3 type;
+	
+};
+
+template<>
+class LunaType< 66541661 > {
+public:
+	typedef osg::Matrix2x4 type;
+	
+};
+
+template<>
+class LunaType< 66542620 > {
+public:
+	typedef osg::Matrix3x2 type;
+	
+};
+
+template<>
+class LunaType< 18903789 > {
+public:
+	typedef osg::Matrix3 type;
+	
+};
+
+template<>
+class LunaType< 66542622 > {
+public:
+	typedef osg::Matrix3x4 type;
+	
+};
+
+template<>
+class LunaType< 66543581 > {
+public:
+	typedef osg::Matrix4x2 type;
+	
+};
+
+template<>
+class LunaType< 66543582 > {
+public:
+	typedef osg::Matrix4x3 type;
+	
+};
+
+template<>
+class LunaType< 86017463 > {
+public:
+	typedef osg::Matrix2d type;
+	
+};
+
+template<>
+class LunaType< 62791260 > {
+public:
+	typedef osg::Matrix2x3d type;
+	
+};
+
+template<>
+class LunaType< 62791291 > {
+public:
+	typedef osg::Matrix2x4d type;
+	
+};
+
+template<>
+class LunaType< 62821020 > {
+public:
+	typedef osg::Matrix3x2d type;
+	
+};
+
+template<>
+class LunaType< 86017494 > {
+public:
+	typedef osg::Matrix3d type;
+	
+};
+
+template<>
+class LunaType< 62821082 > {
+public:
+	typedef osg::Matrix3x4d type;
+	
+};
+
+template<>
+class LunaType< 62850811 > {
+public:
+	typedef osg::Matrix4x2d type;
+	
+};
+
+template<>
+class LunaType< 62850842 > {
+public:
+	typedef osg::Matrix4x3d type;
+	
+};
+
+template<>
 class LunaType< 3539396 > {
 public:
 	typedef osg::StringValueObject type;
@@ -16395,16 +17043,30 @@ public:
 };
 
 template<>
-class LunaType< 67922937 > {
+class LunaType< 93282437 > {
 public:
-	typedef osg::ImageSequence::Images type;
+	typedef osg::Image::DimensionsChangedCallbackVector type;
 	
 };
 
 template<>
-class LunaType< 52401783 > {
+class LunaType< 9354401 > {
 public:
-	typedef osg::ImageSequence::FileNames type;
+	typedef osg::Image::DataIterator type;
+	
+};
+
+template<>
+class LunaType< 44242447 > {
+public:
+	typedef osg::ImageSequence::ImageDataList type;
+	
+};
+
+template<>
+class LunaType< 90366507 > {
+public:
+	typedef osg::ImageSequence::ImageData type;
 	
 };
 
@@ -16808,6 +17470,13 @@ public:
 };
 
 template<>
+class LunaType< 12425423 > {
+public:
+	typedef osg::Texture::ImageAttachment type;
+	
+};
+
+template<>
 class LunaType< 90586498 > {
 public:
 	typedef osg::Timer type;
@@ -16825,20 +17494,6 @@ template<>
 class LunaType< 93067344 > {
 public:
 	typedef osg::TransferFunction1D::ColorMap type;
-	
-};
-
-template<>
-class LunaType< 18903788 > {
-public:
-	typedef osg::Matrix2 type;
-	
-};
-
-template<>
-class LunaType< 18903789 > {
-public:
-	typedef osg::Matrix3 type;
 	
 };
 
@@ -17270,6 +17925,13 @@ public:
 };
 
 template<>
+class LunaType< 90030317 > {
+public:
+	typedef osgDB::FileNameComparator type;
+	
+};
+
+template<>
 class LunaType< 52537382 > {
 public:
 	typedef osgDB::fstream type;
@@ -17287,6 +17949,13 @@ template<>
 class LunaType< 78216342 > {
 public:
 	typedef osgDB::ofstream type;
+	
+};
+
+template<>
+class LunaType< 56095127 > {
+public:
+	typedef osgDB::basic_type_wrapper type;
 	
 };
 
@@ -17343,6 +18012,13 @@ template<>
 class LunaType< 87742033 > {
 public:
 	typedef osgDB::ObjectWrapper::FinishedObjectReadCallbackList type;
+	
+};
+
+template<>
+class LunaType< 40321858 > {
+public:
+	typedef osgDB::UpdateWrapperVersionProxy type;
 	
 };
 
@@ -17424,9 +18100,9 @@ public:
 };
 
 template<>
-class LunaType< 56095127 > {
+class LunaType< 45944163 > {
 public:
-	typedef osgDB::basic_type_wrapper type;
+	typedef osgDB::Registry::MimeTypeExtensionMap type;
 	
 };
 
@@ -17977,6 +18653,13 @@ public:
 };
 
 template<>
+class LunaType< 76958174 > {
+public:
+	typedef osgUtil::PerlinNoise type;
+	
+};
+
+template<>
 class LunaType< 23612133 > {
 public:
 	typedef osgUtil::PlaneIntersector::Intersections type;
@@ -18502,6 +19185,118 @@ public:
 };
 
 template<>
+class LunaType< 23566627 > {
+public:
+	typedef osg::Matrix2Template< float > type;
+	
+};
+
+template<>
+class LunaType< 36925025 > {
+public:
+	typedef osg::Matrix2x3Template< float > type;
+	
+};
+
+template<>
+class LunaType< 61250437 > {
+public:
+	typedef osg::Matrix2x4Template< float > type;
+	
+};
+
+template<>
+class LunaType< 64512237 > {
+public:
+	typedef osg::Matrix3x2Template< float > type;
+	
+};
+
+template<>
+class LunaType< 3033487 > {
+public:
+	typedef osg::Matrix3Template< float > type;
+	
+};
+
+template<>
+class LunaType< 66344120 > {
+public:
+	typedef osg::Matrix3x4Template< float > type;
+	
+};
+
+template<>
+class LunaType< 67198576 > {
+public:
+	typedef osg::Matrix4x2Template< float > type;
+	
+};
+
+template<>
+class LunaType< 40016085 > {
+public:
+	typedef osg::Matrix4x3Template< float > type;
+	
+};
+
+template<>
+class LunaType< 40388721 > {
+public:
+	typedef osg::Matrix2Template< double > type;
+	
+};
+
+template<>
+class LunaType< 54499000 > {
+public:
+	typedef osg::Matrix2x3Template< double > type;
+	
+};
+
+template<>
+class LunaType< 8586516 > {
+public:
+	typedef osg::Matrix2x4Template< double > type;
+	
+};
+
+template<>
+class LunaType< 9703245 > {
+public:
+	typedef osg::Matrix3x2Template< double > type;
+	
+};
+
+template<>
+class LunaType< 3861561 > {
+public:
+	typedef osg::Matrix3Template< double > type;
+	
+};
+
+template<>
+class LunaType< 66491618 > {
+public:
+	typedef osg::Matrix3x4Template< double > type;
+	
+};
+
+template<>
+class LunaType< 92978793 > {
+public:
+	typedef osg::Matrix4x2Template< double > type;
+	
+};
+
+template<>
+class LunaType< 50322789 > {
+public:
+	typedef osg::Matrix4x3Template< double > type;
+	
+};
+
+template<>
 class LunaType< 80514588 > {
 public:
 	typedef osg::TemplateValueObject< std::string > type;
@@ -18831,9 +19626,16 @@ public:
 };
 
 template<>
-class LunaType< 95416160 > {
+class LunaType< 69751145 > {
 public:
-	typedef std::vector< std::string > type;
+	typedef std::vector< osg::ref_ptr< osg::Image::DimensionsChangedCallback > > type;
+	
+};
+
+template<>
+class LunaType< 72499659 > {
+public:
+	typedef std::vector< osg::ImageSequence::ImageData > type;
 	
 };
 
@@ -18883,6 +19685,13 @@ template<>
 class LunaType< 91690910 > {
 public:
 	typedef std::vector< osg::Group * > type;
+	
+};
+
+template<>
+class LunaType< 95416160 > {
+public:
+	typedef std::vector< std::string > type;
 	
 };
 

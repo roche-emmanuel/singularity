@@ -241,14 +241,14 @@ public:
 		int id=(int)lua_tointeger(L,1);
 		int type=(int)lua_tointeger(L,2);
 		wxObject* obj=(Luna< wxObject >::check(L,3));
-		int rowOrCol=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int x=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int y=luatop>5 ? (int)lua_tointeger(L,6) : -1;
+		int rowOrCol=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int x=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int y=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
 		const wxKeyboardState* kbd_ptr=luatop>6 ? (Luna< wxObject >::checkSubType< wxKeyboardState >(L,7)) : NULL;
 		if( luatop>6 && !kbd_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg kbd in wxGridSizeEvent::wxGridSizeEvent function");
 		}
-		const wxKeyboardState & kbd=luatop>6 ? *kbd_ptr : wxKeyboardState ();
+		const wxKeyboardState & kbd=luatop>6 ? *kbd_ptr : (const wxKeyboardState&)wxKeyboardState ();
 
 		return new wxGridSizeEvent(id, type, obj, rowOrCol, x, y, kbd);
 	}
@@ -276,14 +276,14 @@ public:
 		int id=(int)lua_tointeger(L,2);
 		int type=(int)lua_tointeger(L,3);
 		wxObject* obj=(Luna< wxObject >::check(L,4));
-		int rowOrCol=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int x=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		int y=luatop>6 ? (int)lua_tointeger(L,7) : -1;
+		int rowOrCol=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int x=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+		int y=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
 		const wxKeyboardState* kbd_ptr=luatop>7 ? (Luna< wxObject >::checkSubType< wxKeyboardState >(L,8)) : NULL;
 		if( luatop>7 && !kbd_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg kbd in wxGridSizeEvent::wxGridSizeEvent function");
 		}
-		const wxKeyboardState & kbd=luatop>7 ? *kbd_ptr : wxKeyboardState ();
+		const wxKeyboardState & kbd=luatop>7 ? *kbd_ptr : (const wxKeyboardState&)wxKeyboardState ();
 
 		return new wrapper_wxGridSizeEvent(L,NULL, id, type, obj, rowOrCol, x, y, kbd);
 	}

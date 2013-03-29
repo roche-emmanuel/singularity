@@ -627,7 +627,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg anisotropicFriction in btCollisionObject::setAnisotropicFriction function");
 		}
 		const btVector3 & anisotropicFriction=*anisotropicFriction_ptr;
-		int frictionMode=luatop>2 ? (int)lua_tointeger(L,3) : btCollisionObject::CF_ANISOTROPIC_FRICTION;
+		int frictionMode=luatop>2 ? (int)lua_tointeger(L,3) : (int)btCollisionObject::CF_ANISOTROPIC_FRICTION;
 
 		btCollisionObject* self=(Luna< btCollisionObject >::check(L,1));
 		if(!self) {
@@ -648,7 +648,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int frictionMode=luatop>1 ? (int)lua_tointeger(L,2) : btCollisionObject::CF_ANISOTROPIC_FRICTION;
+		int frictionMode=luatop>1 ? (int)lua_tointeger(L,2) : (int)btCollisionObject::CF_ANISOTROPIC_FRICTION;
 
 		btCollisionObject* self=(Luna< btCollisionObject >::check(L,1));
 		if(!self) {
@@ -989,7 +989,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool forceActivation=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool forceActivation=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		btCollisionObject* self=(Luna< btCollisionObject >::check(L,1));
 		if(!self) {

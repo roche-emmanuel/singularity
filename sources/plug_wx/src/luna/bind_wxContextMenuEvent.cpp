@@ -181,13 +181,13 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int type=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int type=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxEVT_NULL;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 		const wxPoint* pos_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxContextMenuEvent::wxContextMenuEvent function");
 		}
-		const wxPoint & pos=luatop>2 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>2 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 
 		return new wxContextMenuEvent(type, id, pos);
 	}
@@ -201,13 +201,13 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int type=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int type=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxContextMenuEvent::wxContextMenuEvent function");
 		}
-		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 
 		return new wrapper_wxContextMenuEvent(L,NULL, type, id, pos);
 	}

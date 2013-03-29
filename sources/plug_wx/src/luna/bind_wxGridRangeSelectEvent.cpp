@@ -285,12 +285,12 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bottomRight in wxGridRangeSelectEvent::wxGridRangeSelectEvent function");
 		}
 		const wxGridCellCoords & bottomRight=*bottomRight_ptr;
-		bool sel=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool sel=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 		const wxKeyboardState* kbd_ptr=luatop>6 ? (Luna< wxObject >::checkSubType< wxKeyboardState >(L,7)) : NULL;
 		if( luatop>6 && !kbd_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg kbd in wxGridRangeSelectEvent::wxGridRangeSelectEvent function");
 		}
-		const wxKeyboardState & kbd=luatop>6 ? *kbd_ptr : wxKeyboardState ();
+		const wxKeyboardState & kbd=luatop>6 ? *kbd_ptr : (const wxKeyboardState&)wxKeyboardState ();
 
 		return new wxGridRangeSelectEvent(id, type, obj, topLeft, bottomRight, sel, kbd);
 	}
@@ -328,12 +328,12 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bottomRight in wxGridRangeSelectEvent::wxGridRangeSelectEvent function");
 		}
 		const wxGridCellCoords & bottomRight=*bottomRight_ptr;
-		bool sel=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
+		bool sel=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : (bool)true;
 		const wxKeyboardState* kbd_ptr=luatop>7 ? (Luna< wxObject >::checkSubType< wxKeyboardState >(L,8)) : NULL;
 		if( luatop>7 && !kbd_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg kbd in wxGridRangeSelectEvent::wxGridRangeSelectEvent function");
 		}
-		const wxKeyboardState & kbd=luatop>7 ? *kbd_ptr : wxKeyboardState ();
+		const wxKeyboardState & kbd=luatop>7 ? *kbd_ptr : (const wxKeyboardState&)wxKeyboardState ();
 
 		return new wrapper_wxGridRangeSelectEvent(L,NULL, id, type, obj, topLeft, bottomRight, sel, kbd);
 	}

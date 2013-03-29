@@ -255,6 +255,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_updateCamera(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_setHomePosition(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<4 || luatop>5 ) return false;
@@ -943,6 +950,29 @@ public:
 			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->MultiTouchTrackballManipulator::setCoordinateFrameCallback(cb);
+
+		return 0;
+	}
+
+	// void osgGA::MultiTouchTrackballManipulator::base_updateCamera(osg::Camera & camera)
+	static int _bind_base_updateCamera(lua_State *L) {
+		if (!_lg_typecheck_base_updateCamera(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::MultiTouchTrackballManipulator::base_updateCamera(osg::Camera & camera) function, expected prototype:\nvoid osgGA::MultiTouchTrackballManipulator::base_updateCamera(osg::Camera & camera)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Camera* camera_ptr=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
+		if( !camera_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg camera in osgGA::MultiTouchTrackballManipulator::base_updateCamera function");
+		}
+		osg::Camera & camera=*camera_ptr;
+
+		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::MultiTouchTrackballManipulator::base_updateCamera(osg::Camera &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->MultiTouchTrackballManipulator::updateCamera(camera);
 
 		return 0;
 	}
@@ -1642,17 +1672,17 @@ public:
 		return 0;
 	}
 
-	// void osgGA::MultiTouchTrackballManipulator::base_setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = NULL)
+	// void osgGA::MultiTouchTrackballManipulator::base_setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = false)
 	static int _bind_base_setMinimumDistance(lua_State *L) {
 		if (!_lg_typecheck_base_setMinimumDistance(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::MultiTouchTrackballManipulator::base_setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = NULL) function, expected prototype:\nvoid osgGA::MultiTouchTrackballManipulator::base_setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = NULL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::MultiTouchTrackballManipulator::base_setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = false) function, expected prototype:\nvoid osgGA::MultiTouchTrackballManipulator::base_setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = false)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		double minimumDistance=(double)lua_tonumber(L,2);
-		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)((void *) 0);
+		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
@@ -1871,6 +1901,7 @@ luna_RegType LunaTraits< osgGA::MultiTouchTrackballManipulator >::methods[] = {
 	{"base_releaseGLObjects", &luna_wrapper_osgGA_MultiTouchTrackballManipulator::_bind_base_releaseGLObjects},
 	{"base_event", &luna_wrapper_osgGA_MultiTouchTrackballManipulator::_bind_base_event},
 	{"base_setCoordinateFrameCallback", &luna_wrapper_osgGA_MultiTouchTrackballManipulator::_bind_base_setCoordinateFrameCallback},
+	{"base_updateCamera", &luna_wrapper_osgGA_MultiTouchTrackballManipulator::_bind_base_updateCamera},
 	{"base_setHomePosition", &luna_wrapper_osgGA_MultiTouchTrackballManipulator::_bind_base_setHomePosition},
 	{"base_getHomePosition", &luna_wrapper_osgGA_MultiTouchTrackballManipulator::_bind_base_getHomePosition},
 	{"base_setAutoComputeHomePosition", &luna_wrapper_osgGA_MultiTouchTrackballManipulator::_bind_base_setAutoComputeHomePosition},

@@ -1162,8 +1162,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
-		size_t numRows=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)0;
+		size_t numRows=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)1;
 
 		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
@@ -1185,7 +1185,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t numRows=luatop>1 ? (size_t)lua_tointeger(L,2) : 1;
+		size_t numRows=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)1;
 
 		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
@@ -1207,8 +1207,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
-		size_t numRows=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)0;
+		size_t numRows=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)1;
 
 		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
@@ -1230,8 +1230,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
-		size_t numCols=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)0;
+		size_t numCols=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)1;
 
 		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
@@ -1253,7 +1253,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t numCols=luatop>1 ? (size_t)lua_tointeger(L,2) : 1;
+		size_t numCols=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)1;
 
 		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
@@ -1275,8 +1275,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
-		size_t numCols=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)0;
+		size_t numCols=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)1;
 
 		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
@@ -1859,8 +1859,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
-		size_t numRows=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)0;
+		size_t numRows=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)1;
 
 		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
@@ -1882,7 +1882,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t numRows=luatop>1 ? (size_t)lua_tointeger(L,2) : 1;
+		size_t numRows=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)1;
 
 		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
@@ -1904,8 +1904,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
-		size_t numRows=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)0;
+		size_t numRows=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)1;
 
 		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
@@ -1927,8 +1927,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
-		size_t numCols=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)0;
+		size_t numCols=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)1;
 
 		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
@@ -1950,7 +1950,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t numCols=luatop>1 ? (size_t)lua_tointeger(L,2) : 1;
+		size_t numCols=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)1;
 
 		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
@@ -1972,8 +1972,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
-		size_t numCols=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)0;
+		size_t numCols=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)1;
 
 		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {

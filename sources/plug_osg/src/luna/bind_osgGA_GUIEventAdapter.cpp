@@ -251,9 +251,23 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setWindowX(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getWindowX(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setWindowY(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -263,9 +277,23 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setWindowWidth(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getWindowWidth(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setWindowHeight(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -324,9 +352,23 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setXmin(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getXmin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setXmax(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -336,9 +378,23 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setYmin(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getYmin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setYmax(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -446,9 +502,23 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setScrollingDeltaX(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getScrollingDeltaX(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setScrollingDeltaY(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1039,6 +1109,25 @@ public:
 		return 0;
 	}
 
+	// void osgGA::GUIEventAdapter::setWindowX(int v)
+	static int _bind_setWindowX(lua_State *L) {
+		if (!_lg_typecheck_setWindowX(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::setWindowX(int v) function, expected prototype:\nvoid osgGA::GUIEventAdapter::setWindowX(int v)\nClass arguments details:\n");
+		}
+
+		int v=(int)lua_tointeger(L,2);
+
+		osgGA::GUIEventAdapter* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::setWindowX(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setWindowX(v);
+
+		return 0;
+	}
+
 	// int osgGA::GUIEventAdapter::getWindowX() const
 	static int _bind_getWindowX(lua_State *L) {
 		if (!_lg_typecheck_getWindowX(L)) {
@@ -1056,6 +1145,25 @@ public:
 		lua_pushnumber(L,lret);
 
 		return 1;
+	}
+
+	// void osgGA::GUIEventAdapter::setWindowY(int v)
+	static int _bind_setWindowY(lua_State *L) {
+		if (!_lg_typecheck_setWindowY(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::setWindowY(int v) function, expected prototype:\nvoid osgGA::GUIEventAdapter::setWindowY(int v)\nClass arguments details:\n");
+		}
+
+		int v=(int)lua_tointeger(L,2);
+
+		osgGA::GUIEventAdapter* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::setWindowY(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setWindowY(v);
+
+		return 0;
 	}
 
 	// int osgGA::GUIEventAdapter::getWindowY() const
@@ -1077,6 +1185,25 @@ public:
 		return 1;
 	}
 
+	// void osgGA::GUIEventAdapter::setWindowWidth(int v)
+	static int _bind_setWindowWidth(lua_State *L) {
+		if (!_lg_typecheck_setWindowWidth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::setWindowWidth(int v) function, expected prototype:\nvoid osgGA::GUIEventAdapter::setWindowWidth(int v)\nClass arguments details:\n");
+		}
+
+		int v=(int)lua_tointeger(L,2);
+
+		osgGA::GUIEventAdapter* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::setWindowWidth(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setWindowWidth(v);
+
+		return 0;
+	}
+
 	// int osgGA::GUIEventAdapter::getWindowWidth() const
 	static int _bind_getWindowWidth(lua_State *L) {
 		if (!_lg_typecheck_getWindowWidth(L)) {
@@ -1094,6 +1221,25 @@ public:
 		lua_pushnumber(L,lret);
 
 		return 1;
+	}
+
+	// void osgGA::GUIEventAdapter::setWindowHeight(int v)
+	static int _bind_setWindowHeight(lua_State *L) {
+		if (!_lg_typecheck_setWindowHeight(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::setWindowHeight(int v) function, expected prototype:\nvoid osgGA::GUIEventAdapter::setWindowHeight(int v)\nClass arguments details:\n");
+		}
+
+		int v=(int)lua_tointeger(L,2);
+
+		osgGA::GUIEventAdapter* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::setWindowHeight(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setWindowHeight(v);
+
+		return 0;
 	}
 
 	// int osgGA::GUIEventAdapter::getWindowHeight() const
@@ -1251,6 +1397,25 @@ public:
 		return 0;
 	}
 
+	// void osgGA::GUIEventAdapter::setXmin(float v)
+	static int _bind_setXmin(lua_State *L) {
+		if (!_lg_typecheck_setXmin(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::setXmin(float v) function, expected prototype:\nvoid osgGA::GUIEventAdapter::setXmin(float v)\nClass arguments details:\n");
+		}
+
+		float v=(float)lua_tonumber(L,2);
+
+		osgGA::GUIEventAdapter* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::setXmin(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setXmin(v);
+
+		return 0;
+	}
+
 	// float osgGA::GUIEventAdapter::getXmin() const
 	static int _bind_getXmin(lua_State *L) {
 		if (!_lg_typecheck_getXmin(L)) {
@@ -1268,6 +1433,25 @@ public:
 		lua_pushnumber(L,lret);
 
 		return 1;
+	}
+
+	// void osgGA::GUIEventAdapter::setXmax(float v)
+	static int _bind_setXmax(lua_State *L) {
+		if (!_lg_typecheck_setXmax(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::setXmax(float v) function, expected prototype:\nvoid osgGA::GUIEventAdapter::setXmax(float v)\nClass arguments details:\n");
+		}
+
+		float v=(float)lua_tonumber(L,2);
+
+		osgGA::GUIEventAdapter* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::setXmax(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setXmax(v);
+
+		return 0;
 	}
 
 	// float osgGA::GUIEventAdapter::getXmax() const
@@ -1289,6 +1473,25 @@ public:
 		return 1;
 	}
 
+	// void osgGA::GUIEventAdapter::setYmin(float v)
+	static int _bind_setYmin(lua_State *L) {
+		if (!_lg_typecheck_setYmin(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::setYmin(float v) function, expected prototype:\nvoid osgGA::GUIEventAdapter::setYmin(float v)\nClass arguments details:\n");
+		}
+
+		float v=(float)lua_tonumber(L,2);
+
+		osgGA::GUIEventAdapter* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::setYmin(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setYmin(v);
+
+		return 0;
+	}
+
 	// float osgGA::GUIEventAdapter::getYmin() const
 	static int _bind_getYmin(lua_State *L) {
 		if (!_lg_typecheck_getYmin(L)) {
@@ -1306,6 +1509,25 @@ public:
 		lua_pushnumber(L,lret);
 
 		return 1;
+	}
+
+	// void osgGA::GUIEventAdapter::setYmax(float v)
+	static int _bind_setYmax(lua_State *L) {
+		if (!_lg_typecheck_setYmax(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::setYmax(float v) function, expected prototype:\nvoid osgGA::GUIEventAdapter::setYmax(float v)\nClass arguments details:\n");
+		}
+
+		float v=(float)lua_tonumber(L,2);
+
+		osgGA::GUIEventAdapter* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::setYmax(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setYmax(v);
+
+		return 0;
 	}
 
 	// float osgGA::GUIEventAdapter::getYmax() const
@@ -1613,6 +1835,25 @@ public:
 		return 0;
 	}
 
+	// void osgGA::GUIEventAdapter::setScrollingDeltaX(float v)
+	static int _bind_setScrollingDeltaX(lua_State *L) {
+		if (!_lg_typecheck_setScrollingDeltaX(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::setScrollingDeltaX(float v) function, expected prototype:\nvoid osgGA::GUIEventAdapter::setScrollingDeltaX(float v)\nClass arguments details:\n");
+		}
+
+		float v=(float)lua_tonumber(L,2);
+
+		osgGA::GUIEventAdapter* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::setScrollingDeltaX(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setScrollingDeltaX(v);
+
+		return 0;
+	}
+
 	// float osgGA::GUIEventAdapter::getScrollingDeltaX() const
 	static int _bind_getScrollingDeltaX(lua_State *L) {
 		if (!_lg_typecheck_getScrollingDeltaX(L)) {
@@ -1630,6 +1871,25 @@ public:
 		lua_pushnumber(L,lret);
 
 		return 1;
+	}
+
+	// void osgGA::GUIEventAdapter::setScrollingDeltaY(float v)
+	static int _bind_setScrollingDeltaY(lua_State *L) {
+		if (!_lg_typecheck_setScrollingDeltaY(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventAdapter::setScrollingDeltaY(float v) function, expected prototype:\nvoid osgGA::GUIEventAdapter::setScrollingDeltaY(float v)\nClass arguments details:\n");
+		}
+
+		float v=(float)lua_tonumber(L,2);
+
+		osgGA::GUIEventAdapter* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::GUIEventAdapter::setScrollingDeltaY(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setScrollingDeltaY(v);
+
+		return 0;
 	}
 
 	// float osgGA::GUIEventAdapter::getScrollingDeltaY() const
@@ -2268,9 +2528,13 @@ luna_RegType LunaTraits< osgGA::GUIEventAdapter >::methods[] = {
 	{"setGraphicsContext", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setGraphicsContext},
 	{"getGraphicsContext", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getGraphicsContext},
 	{"setWindowRectangle", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setWindowRectangle},
+	{"setWindowX", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setWindowX},
 	{"getWindowX", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getWindowX},
+	{"setWindowY", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setWindowY},
 	{"getWindowY", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getWindowY},
+	{"setWindowWidth", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setWindowWidth},
 	{"getWindowWidth", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getWindowWidth},
+	{"setWindowHeight", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setWindowHeight},
 	{"getWindowHeight", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getWindowHeight},
 	{"setKey", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setKey},
 	{"getKey", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getKey},
@@ -2279,9 +2543,13 @@ luna_RegType LunaTraits< osgGA::GUIEventAdapter >::methods[] = {
 	{"setButton", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setButton},
 	{"getButton", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getButton},
 	{"setInputRange", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setInputRange},
+	{"setXmin", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setXmin},
 	{"getXmin", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getXmin},
+	{"setXmax", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setXmax},
 	{"getXmax", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getXmax},
+	{"setYmin", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setYmin},
 	{"getYmin", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getYmin},
+	{"setYmax", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setYmax},
 	{"getYmax", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getYmax},
 	{"setX", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setX},
 	{"getX", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getX},
@@ -2298,7 +2566,9 @@ luna_RegType LunaTraits< osgGA::GUIEventAdapter >::methods[] = {
 	{"setScrollingMotion", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setScrollingMotion},
 	{"getScrollingMotion", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getScrollingMotion},
 	{"setScrollingMotionDelta", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setScrollingMotionDelta},
+	{"setScrollingDeltaX", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setScrollingDeltaX},
 	{"getScrollingDeltaX", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getScrollingDeltaX},
+	{"setScrollingDeltaY", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setScrollingDeltaY},
 	{"getScrollingDeltaY", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getScrollingDeltaY},
 	{"setPenPressure", &luna_wrapper_osgGA_GUIEventAdapter::_bind_setPenPressure},
 	{"getPenPressure", &luna_wrapper_osgGA_GUIEventAdapter::_bind_getPenPressure},

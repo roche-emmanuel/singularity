@@ -345,10 +345,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int enableFlag=luatop>1 ? (int)lua_tointeger(L,2) : SPK::FLAG_RED | SPK::FLAG_GREEN | SPK::FLAG_BLUE;
-		int mutableFlag=luatop>2 ? (int)lua_tointeger(L,3) : SPK::FLAG_NONE;
-		int randomFlag=luatop>3 ? (int)lua_tointeger(L,4) : SPK::FLAG_NONE;
-		int interpolatedFlag=luatop>4 ? (int)lua_tointeger(L,5) : SPK::FLAG_NONE;
+		int enableFlag=luatop>1 ? (int)lua_tointeger(L,2) : (int)SPK::FLAG_RED | SPK::FLAG_GREEN | SPK::FLAG_BLUE;
+		int mutableFlag=luatop>2 ? (int)lua_tointeger(L,3) : (int)SPK::FLAG_NONE;
+		int randomFlag=luatop>3 ? (int)lua_tointeger(L,4) : (int)SPK::FLAG_NONE;
+		int interpolatedFlag=luatop>4 ? (int)lua_tointeger(L,5) : (int)SPK::FLAG_NONE;
 
 		return new wrapper_SPK_Model(L,NULL, enableFlag, mutableFlag, randomFlag, interpolatedFlag);
 	}
@@ -877,10 +877,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int enableFlag=luatop>0 ? (int)lua_tointeger(L,1) : SPK::FLAG_RED | SPK::FLAG_GREEN | SPK::FLAG_BLUE;
-		int mutableFlag=luatop>1 ? (int)lua_tointeger(L,2) : SPK::FLAG_NONE;
-		int randomFlag=luatop>2 ? (int)lua_tointeger(L,3) : SPK::FLAG_NONE;
-		int interpolatedFlag=luatop>3 ? (int)lua_tointeger(L,4) : SPK::FLAG_NONE;
+		int enableFlag=luatop>0 ? (int)lua_tointeger(L,1) : (int)SPK::FLAG_RED | SPK::FLAG_GREEN | SPK::FLAG_BLUE;
+		int mutableFlag=luatop>1 ? (int)lua_tointeger(L,2) : (int)SPK::FLAG_NONE;
+		int randomFlag=luatop>2 ? (int)lua_tointeger(L,3) : (int)SPK::FLAG_NONE;
+		int interpolatedFlag=luatop>3 ? (int)lua_tointeger(L,4) : (int)SPK::FLAG_NONE;
 
 		SPK::Model * lret = SPK::Model::create(enableFlag, mutableFlag, randomFlag, interpolatedFlag);
 		if(!lret) return 0; // Do not write NULL pointers.

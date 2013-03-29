@@ -270,9 +270,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg worldAabbMax in btAxisSweep3::btAxisSweep3 function");
 		}
 		const btVector3 & worldAabbMax=*worldAabbMax_ptr;
-		unsigned short int maxHandles=luatop>2 ? (unsigned short int)lua_tointeger(L,3) : 16384;
+		unsigned short int maxHandles=luatop>2 ? (unsigned short int)lua_tointeger(L,3) : (unsigned short int)16384;
 		btOverlappingPairCache* pairCache=luatop>3 ? (Luna< btOverlappingPairCallback >::checkSubType< btOverlappingPairCache >(L,4)) : (btOverlappingPairCache*)0;
-		bool disableRaycastAccelerator=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool disableRaycastAccelerator=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		return new btAxisSweep3(worldAabbMin, worldAabbMax, maxHandles, pairCache, disableRaycastAccelerator);
 	}
@@ -296,9 +296,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg worldAabbMax in btAxisSweep3::btAxisSweep3 function");
 		}
 		const btVector3 & worldAabbMax=*worldAabbMax_ptr;
-		unsigned short int maxHandles=luatop>3 ? (unsigned short int)lua_tointeger(L,4) : 16384;
+		unsigned short int maxHandles=luatop>3 ? (unsigned short int)lua_tointeger(L,4) : (unsigned short int)16384;
 		btOverlappingPairCache* pairCache=luatop>4 ? (Luna< btOverlappingPairCallback >::checkSubType< btOverlappingPairCache >(L,5)) : (btOverlappingPairCache*)0;
-		bool disableRaycastAccelerator=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
+		bool disableRaycastAccelerator=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)false;
 
 		return new wrapper_btAxisSweep3(L,NULL, worldAabbMin, worldAabbMax, maxHandles, pairCache, disableRaycastAccelerator);
 	}
@@ -496,12 +496,12 @@ public:
 		if( luatop>4 && !aabbMin_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg aabbMin in btAxisSweep3::base_rayTest function");
 		}
-		const btVector3 & aabbMin=luatop>4 ? *aabbMin_ptr : btVector3 (0, 0, 0);
+		const btVector3 & aabbMin=luatop>4 ? *aabbMin_ptr : (const btVector3)btVector3 (0, 0, 0);
 		const btVector3* aabbMax_ptr=luatop>5 ? (Luna< btVector3 >::check(L,6)) : NULL;
 		if( luatop>5 && !aabbMax_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg aabbMax in btAxisSweep3::base_rayTest function");
 		}
-		const btVector3 & aabbMax=luatop>5 ? *aabbMax_ptr : btVector3 (0, 0, 0);
+		const btVector3 & aabbMax=luatop>5 ? *aabbMax_ptr : (const btVector3)btVector3 (0, 0, 0);
 
 		btAxisSweep3* self=Luna< btBroadphaseInterface >::checkSubType< btAxisSweep3 >(L,1);
 		if(!self) {

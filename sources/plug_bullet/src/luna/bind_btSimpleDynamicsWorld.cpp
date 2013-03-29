@@ -539,8 +539,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		float timeStep=(float)lua_tonumber(L,2);
-		int maxSubSteps=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		float fixedTimeStep=luatop>3 ? (float)lua_tonumber(L,4) : float (1.)/ float (60.);
+		int maxSubSteps=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
+		float fixedTimeStep=luatop>3 ? (float)lua_tonumber(L,4) : (float)float (1.)/ float (60.);
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
@@ -984,8 +984,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		btCollisionObject* collisionObject=(Luna< btCollisionObject >::check(L,2));
-		short int collisionFilterGroup=luatop>2 ? (short int)lua_tointeger(L,3) : btBroadphaseProxy::DefaultFilter;
-		short int collisionFilterMask=luatop>3 ? (short int)lua_tointeger(L,4) : btBroadphaseProxy::AllFilter;
+		short int collisionFilterGroup=luatop>2 ? (short int)lua_tointeger(L,3) : (short int)btBroadphaseProxy::DefaultFilter;
+		short int collisionFilterMask=luatop>3 ? (short int)lua_tointeger(L,4) : (short int)btBroadphaseProxy::AllFilter;
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
@@ -1025,7 +1025,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		btTypedConstraint* constraint=(Luna< btTypedObject >::checkSubType< btTypedConstraint >(L,2));
-		bool disableCollisionsBetweenLinkedBodies=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool disableCollisionsBetweenLinkedBodies=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
@@ -1214,8 +1214,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		float timeStep=(float)lua_tonumber(L,2);
-		int maxSubSteps=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		float fixedTimeStep=luatop>3 ? (float)lua_tonumber(L,4) : float (1.)/ float (60.);
+		int maxSubSteps=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
+		float fixedTimeStep=luatop>3 ? (float)lua_tonumber(L,4) : (float)float (1.)/ float (60.);
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {

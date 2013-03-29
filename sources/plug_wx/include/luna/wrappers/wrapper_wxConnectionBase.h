@@ -53,7 +53,7 @@ protected:
 		_obj.pushArg((wxConnectionBase*)this);
 		_obj.pushArg(arg1);
 		_obj.pushArg(arg2);
-		_obj.pushArg(arg3);
+		_obj.pushArg((int)arg3);
 		return (_obj.callFunction<bool>());
 	};
 
@@ -64,7 +64,7 @@ protected:
 		_obj.pushArg(arg1);
 		_obj.pushArg(arg2);
 		_obj.pushArg(arg3);
-		_obj.pushArg(arg4);
+		_obj.pushArg((int)arg4);
 		return (_obj.callFunction<bool>());
 	};
 
@@ -75,7 +75,7 @@ protected:
 		_obj.pushArg(arg1);
 		_obj.pushArg(arg2);
 		_obj.pushArg(arg3);
-		_obj.pushArg(arg4);
+		_obj.pushArg((int)arg4);
 		return (_obj.callFunction<bool>());
 	};
 
@@ -97,7 +97,7 @@ public:
 		_obj.pushArg((wxConnectionBase*)this);
 		_obj.pushArg(arg1);
 		_obj.pushArg(arg2);
-		_obj.pushArg(arg3);
+		_obj.pushArg((int)arg3);
 		return (_obj.callFunction<void*>());
 	};
 

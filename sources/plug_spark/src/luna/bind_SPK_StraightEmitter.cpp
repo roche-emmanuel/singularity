@@ -198,7 +198,7 @@ public:
 		if( luatop>1 && !direction_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg direction in SPK::StraightEmitter::StraightEmitter function");
 		}
-		const SPK::Vector3D & direction=luatop>1 ? *direction_ptr : SPK::Vector3D (0.0f, 0.0f,-1.0f);
+		const SPK::Vector3D & direction=luatop>1 ? *direction_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f,-1.0f);
 
 		return new wrapper_SPK_StraightEmitter(L,NULL, direction);
 	}
@@ -302,7 +302,7 @@ public:
 		if( luatop>0 && !direction_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg direction in SPK::StraightEmitter::create function");
 		}
-		const SPK::Vector3D & direction=luatop>0 ? *direction_ptr : SPK::Vector3D (0.0f, 0.0f,-1.0f);
+		const SPK::Vector3D & direction=luatop>0 ? *direction_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f,-1.0f);
 
 		SPK::StraightEmitter * lret = SPK::StraightEmitter::create(direction);
 		if(!lret) return 0; // Do not write NULL pointers.

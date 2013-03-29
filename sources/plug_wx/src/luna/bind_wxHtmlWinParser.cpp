@@ -293,7 +293,7 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -779,7 +779,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDC* dc=(Luna< wxObject >::checkSubType< wxDC >(L,2));
-		double pixel_scale=luatop>2 ? (double)lua_tonumber(L,3) : 1.0e+0;
+		double pixel_scale=luatop>2 ? (double)lua_tonumber(L,3) : (double)1.0e+0;
 
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
@@ -916,14 +916,14 @@ public:
 
 		wxString normal_face(lua_tostring(L,2),lua_objlen(L,2));
 		wxString fixed_face(lua_tostring(L,3),lua_objlen(L,3));
-		int sizes=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		const int* sizes=luatop>3 ? (const int*)Luna< void >::check(L,4) : (const int*)0;
 
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlWinParser::SetFonts(const wxString &, const wxString &, const int *). Got : '%s'",typeid(Luna< wxHtmlParser >::check(L,1)).name());
 		}
-		self->SetFonts(normal_face, fixed_face, &sizes);
+		self->SetFonts(normal_face, fixed_face, sizes);
 
 		return 0;
 	}
@@ -1093,7 +1093,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDC* dc=(Luna< wxObject >::checkSubType< wxDC >(L,2));
-		double pixel_scale=luatop>2 ? (double)lua_tonumber(L,3) : 1.0e+0;
+		double pixel_scale=luatop>2 ? (double)lua_tonumber(L,3) : (double)1.0e+0;
 
 		wxHtmlWinParser* self=Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,1);
 		if(!self) {

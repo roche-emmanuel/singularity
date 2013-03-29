@@ -337,7 +337,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long style=luatop>0 ? (long)lua_tointeger(L,1) : ::wxFILTER_NONE;
+		long style=luatop>0 ? (long)lua_tointeger(L,1) : (long)::wxFILTER_NONE;
 		wxString valPtr(lua_tostring(L,2),lua_objlen(L,2));
 
 		return new wxTextValidator(style, &valPtr);
@@ -368,7 +368,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long style=luatop>1 ? (long)lua_tointeger(L,2) : ::wxFILTER_NONE;
+		long style=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxFILTER_NONE;
 		wxString valPtr(lua_tostring(L,3),lua_objlen(L,3));
 
 		return new wrapper_wxTextValidator(L,NULL, style, &valPtr);

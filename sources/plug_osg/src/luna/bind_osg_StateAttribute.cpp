@@ -1759,6 +1759,7 @@ luna_RegEnumType LunaTraits< osg::StateAttribute >::enumValues[] = {
 	{"PROGRAM", osg::StateAttribute::PROGRAM},
 	{"CLAMPCOLOR", osg::StateAttribute::CLAMPCOLOR},
 	{"HINT", osg::StateAttribute::HINT},
+	{"SAMPLEMASKI", osg::StateAttribute::SAMPLEMASKI},
 	{"VALIDATOR", osg::StateAttribute::VALIDATOR},
 	{"VIEWMATRIXEXTRACTOR", osg::StateAttribute::VIEWMATRIXEXTRACTOR},
 	{"OSGNV_PARAMETER_BLOCK", osg::StateAttribute::OSGNV_PARAMETER_BLOCK},
@@ -1770,6 +1771,7 @@ luna_RegEnumType LunaTraits< osg::StateAttribute >::enumValues[] = {
 	{"OSGNVPARSE_PROGRAM_PARSER", osg::StateAttribute::OSGNVPARSE_PROGRAM_PARSER},
 	{"UNIFORMBUFFERBINDING", osg::StateAttribute::UNIFORMBUFFERBINDING},
 	{"TRANSFORMFEEDBACKBUFFERBINDING", osg::StateAttribute::TRANSFORMFEEDBACKBUFFERBINDING},
+	{"ATOMICCOUNTERBUFFERBINDING", osg::StateAttribute::ATOMICCOUNTERBUFFERBINDING},
 	{0,0}
 };
 

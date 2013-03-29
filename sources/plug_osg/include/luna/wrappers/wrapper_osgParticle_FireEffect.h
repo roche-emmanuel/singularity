@@ -147,6 +147,26 @@ public:
 		return FireEffect::asTransform();
 	};
 
+	// osg::Camera * osg::Node::asCamera()
+	osg::Camera * asCamera() {
+		if(_obj.pushFunction("asCamera")) {
+			_obj.pushArg((osgParticle::FireEffect*)this);
+			return (_obj.callFunction<osg::Camera*>());
+		}
+
+		return FireEffect::asCamera();
+	};
+
+	// const osg::Camera * osg::Node::asCamera() const
+	const osg::Camera * asCamera() const {
+		if(_obj.pushFunction("asCamera")) {
+			_obj.pushArg((osgParticle::FireEffect*)this);
+			return (_obj.callFunction<osg::Camera*>());
+		}
+
+		return FireEffect::asCamera();
+	};
+
 	// osg::Switch * osg::Node::asSwitch()
 	osg::Switch * asSwitch() {
 		if(_obj.pushFunction("asSwitch")) {

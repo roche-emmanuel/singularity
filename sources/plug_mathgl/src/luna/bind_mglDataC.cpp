@@ -159,7 +159,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -168,7 +168,7 @@ public:
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -176,7 +176,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -185,7 +185,7 @@ public:
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -260,7 +260,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -270,7 +270,7 @@ public:
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -279,7 +279,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -289,7 +289,7 @@ public:
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -377,7 +377,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
@@ -388,7 +388,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
@@ -1118,7 +1118,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -1343,9 +1343,9 @@ public:
 		}
 
 		int size=(int)lua_tointeger(L,1);
-		double d=(double)lua_tonumber(L,2);
+		const double* d=(const double*)Luna< void >::check(L,2);
 
-		return new mglDataC(size, &d);
+		return new mglDataC(size, d);
 	}
 
 	// mglDataC::mglDataC(int rows, int cols, const double * d)
@@ -1357,9 +1357,9 @@ public:
 
 		int rows=(int)lua_tointeger(L,1);
 		int cols=(int)lua_tointeger(L,2);
-		double d=(double)lua_tonumber(L,3);
+		const double* d=(const double*)Luna< void >::check(L,3);
 
-		return new mglDataC(rows, cols, &d);
+		return new mglDataC(rows, cols, d);
 	}
 
 	// mglDataC::mglDataC(int size, const float * d)
@@ -1370,9 +1370,9 @@ public:
 		}
 
 		int size=(int)lua_tointeger(L,1);
-		float d=(float)lua_tonumber(L,2);
+		const float* d=(const float*)Luna< void >::check(L,2);
 
-		return new mglDataC(size, &d);
+		return new mglDataC(size, d);
 	}
 
 	// mglDataC::mglDataC(int rows, int cols, const float * d)
@@ -1384,9 +1384,9 @@ public:
 
 		int rows=(int)lua_tointeger(L,1);
 		int cols=(int)lua_tointeger(L,2);
-		float d=(float)lua_tonumber(L,3);
+		const float* d=(const float*)Luna< void >::check(L,3);
 
-		return new mglDataC(rows, cols, &d);
+		return new mglDataC(rows, cols, d);
 	}
 
 	// mglDataC::mglDataC(const char * fname)
@@ -1410,9 +1410,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long xx=luatop>0 ? (long)lua_tointeger(L,1) : 1;
-		long yy=luatop>1 ? (long)lua_tointeger(L,2) : 1;
-		long zz=luatop>2 ? (long)lua_tointeger(L,3) : 1;
+		long xx=luatop>0 ? (long)lua_tointeger(L,1) : (long)1;
+		long yy=luatop>1 ? (long)lua_tointeger(L,2) : (long)1;
+		long zz=luatop>2 ? (long)lua_tointeger(L,3) : (long)1;
 
 		return new mglDataC(xx, yy, zz);
 	}
@@ -1493,9 +1493,9 @@ public:
 		}
 
 		int size=(int)lua_tointeger(L,2);
-		double d=(double)lua_tonumber(L,3);
+		const double* d=(const double*)Luna< void >::check(L,3);
 
-		return new wrapper_mglDataC(L,NULL, size, &d);
+		return new wrapper_mglDataC(L,NULL, size, d);
 	}
 
 	// mglDataC::mglDataC(lua_Table * data, int rows, int cols, const double * d)
@@ -1507,9 +1507,9 @@ public:
 
 		int rows=(int)lua_tointeger(L,2);
 		int cols=(int)lua_tointeger(L,3);
-		double d=(double)lua_tonumber(L,4);
+		const double* d=(const double*)Luna< void >::check(L,4);
 
-		return new wrapper_mglDataC(L,NULL, rows, cols, &d);
+		return new wrapper_mglDataC(L,NULL, rows, cols, d);
 	}
 
 	// mglDataC::mglDataC(lua_Table * data, int size, const float * d)
@@ -1520,9 +1520,9 @@ public:
 		}
 
 		int size=(int)lua_tointeger(L,2);
-		float d=(float)lua_tonumber(L,3);
+		const float* d=(const float*)Luna< void >::check(L,3);
 
-		return new wrapper_mglDataC(L,NULL, size, &d);
+		return new wrapper_mglDataC(L,NULL, size, d);
 	}
 
 	// mglDataC::mglDataC(lua_Table * data, int rows, int cols, const float * d)
@@ -1534,9 +1534,9 @@ public:
 
 		int rows=(int)lua_tointeger(L,2);
 		int cols=(int)lua_tointeger(L,3);
-		float d=(float)lua_tonumber(L,4);
+		const float* d=(const float*)Luna< void >::check(L,4);
 
-		return new wrapper_mglDataC(L,NULL, rows, cols, &d);
+		return new wrapper_mglDataC(L,NULL, rows, cols, d);
 	}
 
 	// mglDataC::mglDataC(lua_Table * data, const char * fname)
@@ -1560,9 +1560,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long xx=luatop>1 ? (long)lua_tointeger(L,2) : 1;
-		long yy=luatop>2 ? (long)lua_tointeger(L,3) : 1;
-		long zz=luatop>3 ? (long)lua_tointeger(L,4) : 1;
+		long xx=luatop>1 ? (long)lua_tointeger(L,2) : (long)1;
+		long yy=luatop>2 ? (long)lua_tointeger(L,3) : (long)1;
+		long zz=luatop>3 ? (long)lua_tointeger(L,4) : (long)1;
 
 		return new wrapper_mglDataC(L,NULL, xx, yy, zz);
 	}
@@ -1608,8 +1608,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		long i=(long)lua_tointeger(L,2);
-		long j=luatop>2 ? (long)lua_tointeger(L,3) : 0;
-		long k=luatop>3 ? (long)lua_tointeger(L,4) : 0;
+		long j=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
+		long k=luatop>3 ? (long)lua_tointeger(L,4) : (long)0;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -1640,8 +1640,8 @@ public:
 		}
 		dual f=*f_ptr;
 		long i=(long)lua_tointeger(L,3);
-		long j=luatop>3 ? (long)lua_tointeger(L,4) : 0;
-		long k=luatop>4 ? (long)lua_tointeger(L,5) : 0;
+		long j=luatop>3 ? (long)lua_tointeger(L,4) : (long)0;
+		long k=luatop>4 ? (long)lua_tointeger(L,5) : (long)0;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -1721,8 +1721,8 @@ public:
 
 		dual* A=(Luna< std::complex< double > >::checkSubType< dual >(L,2));
 		long NX=(long)lua_tointeger(L,3);
-		long NY=luatop>3 ? (long)lua_tointeger(L,4) : 1;
-		long NZ=luatop>4 ? (long)lua_tointeger(L,5) : 1;
+		long NY=luatop>3 ? (long)lua_tointeger(L,4) : (long)1;
+		long NZ=luatop>4 ? (long)lua_tointeger(L,5) : (long)1;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -1775,17 +1775,17 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float A=(float)lua_tonumber(L,2);
+		const float* A=(const float*)Luna< void >::check(L,2);
 		long NX=(long)lua_tointeger(L,3);
-		long NY=luatop>3 ? (long)lua_tointeger(L,4) : 1;
-		long NZ=luatop>4 ? (long)lua_tointeger(L,5) : 1;
+		long NY=luatop>3 ? (long)lua_tointeger(L,4) : (long)1;
+		long NZ=luatop>4 ? (long)lua_tointeger(L,5) : (long)1;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void mglDataC::Set(const float *, long, long, long). Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
 		}
-		self->Set(&A, NX, NY, NZ);
+		self->Set(A, NX, NY, NZ);
 
 		return 0;
 	}
@@ -1799,17 +1799,17 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double A=(double)lua_tonumber(L,2);
+		const double* A=(const double*)Luna< void >::check(L,2);
 		long NX=(long)lua_tointeger(L,3);
-		long NY=luatop>3 ? (long)lua_tointeger(L,4) : 1;
-		long NZ=luatop>4 ? (long)lua_tointeger(L,5) : 1;
+		long NY=luatop>3 ? (long)lua_tointeger(L,4) : (long)1;
+		long NZ=luatop>4 ? (long)lua_tointeger(L,5) : (long)1;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void mglDataC::Set(const double *, long, long, long). Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
 		}
-		self->Set(&A, NX, NY, NZ);
+		self->Set(A, NX, NY, NZ);
 
 		return 0;
 	}
@@ -1825,8 +1825,8 @@ public:
 
 		const dual* A=(Luna< std::complex< double > >::checkSubType< dual >(L,2));
 		long NX=(long)lua_tointeger(L,3);
-		long NY=luatop>3 ? (long)lua_tointeger(L,4) : 1;
-		long NZ=luatop>4 ? (long)lua_tointeger(L,5) : 1;
+		long NY=luatop>3 ? (long)lua_tointeger(L,4) : (long)1;
+		long NZ=luatop>4 ? (long)lua_tointeger(L,5) : (long)1;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -1849,8 +1849,8 @@ public:
 
 		const char * str=(const char *)lua_tostring(L,2);
 		long NX=(long)lua_tointeger(L,3);
-		long NY=luatop>3 ? (long)lua_tointeger(L,4) : 1;
-		long NZ=luatop>4 ? (long)lua_tointeger(L,5) : 1;
+		long NY=luatop>3 ? (long)lua_tointeger(L,4) : (long)1;
+		long NZ=luatop>4 ? (long)lua_tointeger(L,5) : (long)1;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2101,8 +2101,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		long mx=(long)lua_tointeger(L,2);
-		long my=luatop>2 ? (long)lua_tointeger(L,3) : 1;
-		long mz=luatop>3 ? (long)lua_tointeger(L,4) : 1;
+		long my=luatop>2 ? (long)lua_tointeger(L,3) : (long)1;
+		long mz=luatop>3 ? (long)lua_tointeger(L,4) : (long)1;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2124,8 +2124,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		long mx=(long)lua_tointeger(L,2);
-		long my=luatop>2 ? (long)lua_tointeger(L,3) : 0;
-		long mz=luatop>3 ? (long)lua_tointeger(L,4) : 0;
+		long my=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
+		long mz=luatop>3 ? (long)lua_tointeger(L,4) : (long)0;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2146,7 +2146,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * dim=luatop>1 ? (const char *)lua_tostring(L,2) : "yx";
+		const char * dim=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)"yx";
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2168,7 +2168,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		long n1=(long)lua_tointeger(L,2);
-		long n2=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long n2=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2190,9 +2190,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		long rx=(long)lua_tointeger(L,2);
-		long ry=luatop>2 ? (long)lua_tointeger(L,3) : 1;
-		long rz=luatop>3 ? (long)lua_tointeger(L,4) : 1;
-		bool smooth=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		long ry=luatop>2 ? (long)lua_tointeger(L,3) : (long)1;
+		long rz=luatop>3 ? (long)lua_tointeger(L,4) : (long)1;
+		bool smooth=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2215,7 +2215,7 @@ public:
 
 		long n1=(long)lua_tointeger(L,2);
 		long n2=(long)lua_tointeger(L,3);
-		char dir=luatop>3 ? (char)lua_tointeger(L,4) : 'x';
+		char dir=luatop>3 ? (char)lua_tointeger(L,4) : (char)'x';
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2237,8 +2237,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		char dir=(char)lua_tointeger(L,2);
-		long at=luatop>2 ? (long)lua_tointeger(L,3) : 0;
-		long num=luatop>3 ? (long)lua_tointeger(L,4) : 1;
+		long at=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
+		long num=luatop>3 ? (long)lua_tointeger(L,4) : (long)1;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2260,8 +2260,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		char dir=(char)lua_tointeger(L,2);
-		long at=luatop>2 ? (long)lua_tointeger(L,3) : 0;
-		long num=luatop>3 ? (long)lua_tointeger(L,4) : 1;
+		long at=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
+		long num=luatop>3 ? (long)lua_tointeger(L,4) : (long)1;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2283,7 +2283,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * eq=(const char *)lua_tostring(L,2);
-		long dim=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long dim=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2369,7 +2369,7 @@ public:
 
 		mglBase* gr=(Luna< mglBase >::check(L,2));
 		const char * eq=(const char *)lua_tostring(L,3);
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2397,7 +2397,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg vdat in mglDataC::Fill function");
 		}
 		const mglDataA & vdat=*vdat_ptr;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2430,7 +2430,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg wdat in mglDataC::Fill function");
 		}
 		const mglDataA & wdat=*wdat_ptr;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2460,8 +2460,8 @@ public:
 		if( luatop>2 && !x2_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg x2 in mglDataC::Fill function");
 		}
-		dual x2=luatop>2 ? *x2_ptr : NaN;
-		char dir=luatop>3 ? (char)lua_tointeger(L,4) : 'x';
+		dual x2=luatop>2 ? *x2_ptr : (dual)NaN;
+		char dir=luatop>3 ? (char)lua_tointeger(L,4) : (char)'x';
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2552,8 +2552,8 @@ public:
 
 		const char * fname=(const char *)lua_tostring(L,2);
 		long mx=(long)lua_tointeger(L,3);
-		long my=luatop>3 ? (long)lua_tointeger(L,4) : 1;
-		long mz=luatop>4 ? (long)lua_tointeger(L,5) : 1;
+		long my=luatop>3 ? (long)lua_tointeger(L,4) : (long)1;
+		long mz=luatop>4 ? (long)lua_tointeger(L,5) : (long)1;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2585,7 +2585,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		long ns=luatop>2 ? (long)lua_tointeger(L,3) : -1;
+		long ns=luatop>2 ? (long)lua_tointeger(L,3) : (long)-1;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2609,8 +2609,8 @@ public:
 		const char * templ=(const char *)lua_tostring(L,2);
 		double from=(double)lua_tonumber(L,3);
 		double to=(double)lua_tonumber(L,4);
-		double step=luatop>4 ? (double)lua_tonumber(L,5) : 1;
-		bool as_slice=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
+		double step=luatop>4 ? (double)lua_tonumber(L,5) : (double)1;
+		bool as_slice=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)false;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2633,7 +2633,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * templ=(const char *)lua_tostring(L,2);
-		bool as_slice=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool as_slice=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2656,7 +2656,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		long dim=luatop>2 ? (long)lua_tointeger(L,3) : 2;
+		long dim=luatop>2 ? (long)lua_tointeger(L,3) : (long)2;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2701,7 +2701,7 @@ public:
 
 		const char * fname=(const char *)lua_tostring(L,2);
 		const char * data=(const char *)lua_tostring(L,3);
-		bool rewrite=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool rewrite=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2858,8 +2858,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		long xx=(long)lua_tointeger(L,2);
-		long yy=luatop>2 ? (long)lua_tointeger(L,3) : -1;
-		long zz=luatop>3 ? (long)lua_tointeger(L,4) : -1;
+		long yy=luatop>2 ? (long)lua_tointeger(L,3) : (long)-1;
+		long zz=luatop>3 ? (long)lua_tointeger(L,4) : (long)-1;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2953,9 +2953,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		long n=(long)lua_tointeger(L,2);
-		double v1=luatop>2 ? (double)lua_tonumber(L,3) : 0;
-		double v2=luatop>3 ? (double)lua_tonumber(L,4) : 1;
-		long nsub=luatop>4 ? (long)lua_tointeger(L,5) : 0;
+		double v1=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
+		double v2=luatop>3 ? (double)lua_tonumber(L,4) : (double)1;
+		long nsub=luatop>4 ? (long)lua_tointeger(L,5) : (long)0;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -2986,9 +2986,9 @@ public:
 		}
 		const mglDataA & w=*w_ptr;
 		long n=(long)lua_tointeger(L,3);
-		double v1=luatop>3 ? (double)lua_tonumber(L,4) : 0;
-		double v2=luatop>4 ? (double)lua_tonumber(L,5) : 1;
-		long nsub=luatop>5 ? (long)lua_tointeger(L,6) : 0;
+		double v1=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
+		double v2=luatop>4 ? (double)lua_tonumber(L,5) : (double)1;
+		long nsub=luatop>5 ? (long)lua_tointeger(L,6) : (long)0;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -3119,14 +3119,14 @@ public:
 		int luatop = lua_gettop(L);
 
 		long mx=(long)lua_tointeger(L,2);
-		long my=luatop>2 ? (long)lua_tointeger(L,3) : 1;
-		long mz=luatop>3 ? (long)lua_tointeger(L,4) : 1;
-		double x1=luatop>4 ? (double)lua_tonumber(L,5) : 0;
-		double x2=luatop>5 ? (double)lua_tonumber(L,6) : 1;
-		double y1=luatop>6 ? (double)lua_tonumber(L,7) : 0;
-		double y2=luatop>7 ? (double)lua_tonumber(L,8) : 1;
-		double z1=luatop>8 ? (double)lua_tonumber(L,9) : 0;
-		double z2=luatop>9 ? (double)lua_tonumber(L,10) : 1;
+		long my=luatop>2 ? (long)lua_tointeger(L,3) : (long)1;
+		long mz=luatop>3 ? (long)lua_tointeger(L,4) : (long)1;
+		double x1=luatop>4 ? (double)lua_tonumber(L,5) : (double)0;
+		double x2=luatop>5 ? (double)lua_tonumber(L,6) : (double)1;
+		double y1=luatop>6 ? (double)lua_tonumber(L,7) : (double)0;
+		double y2=luatop>7 ? (double)lua_tonumber(L,8) : (double)1;
+		double z1=luatop>8 ? (double)lua_tonumber(L,9) : (double)0;
+		double z2=luatop>9 ? (double)lua_tonumber(L,10) : (double)1;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -3156,7 +3156,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg idat in mglDataC::Evaluate function");
 		}
 		const mglData & idat=*idat_ptr;
-		bool norm=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool norm=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -3191,7 +3191,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg jdat in mglDataC::Evaluate function");
 		}
 		const mglData & jdat=*jdat_ptr;
-		bool norm=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool norm=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -3231,7 +3231,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg kdat in mglDataC::Evaluate function");
 		}
 		const mglData & kdat=*kdat_ptr;
-		bool norm=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		bool norm=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -3400,8 +3400,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * dirs=luatop>1 ? (const char *)lua_tostring(L,2) : "xyz";
-		double delta=luatop>2 ? (double)lua_tonumber(L,3) : 0;
+		const char * dirs=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)"xyz";
+		double delta=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -3461,8 +3461,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		double x=(double)lua_tonumber(L,2);
-		double y=luatop>2 ? (double)lua_tonumber(L,3) : 0;
-		double z=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+		double y=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
+		double z=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -3493,8 +3493,8 @@ public:
 		}
 		mglPoint & dif=*dif_ptr;
 		double x=(double)lua_tonumber(L,3);
-		double y=luatop>3 ? (double)lua_tonumber(L,4) : 0;
-		double z=luatop>4 ? (double)lua_tonumber(L,5) : 0;
+		double y=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
+		double z=luatop>4 ? (double)lua_tonumber(L,5) : (double)0;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -3529,8 +3529,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		double x=(double)lua_tonumber(L,2);
-		double y=luatop>2 ? (double)lua_tonumber(L,3) : 0;
-		double z=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+		double y=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
+		double z=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -3561,8 +3561,8 @@ public:
 		}
 		mglPoint & dif=*dif_ptr;
 		double x=(double)lua_tonumber(L,3);
-		double y=luatop>3 ? (double)lua_tonumber(L,4) : 0;
-		double z=luatop>4 ? (double)lua_tonumber(L,5) : 0;
+		double y=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
+		double z=luatop>4 ? (double)lua_tonumber(L,5) : (double)0;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -3597,8 +3597,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		double val=(double)lua_tonumber(L,2);
-		bool use_spline=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
-		long i0=luatop>3 ? (long)lua_tointeger(L,4) : 0;
+		bool use_spline=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
+		long i0=luatop>3 ? (long)lua_tointeger(L,4) : (long)0;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -3622,7 +3622,7 @@ public:
 
 		double val=(double)lua_tonumber(L,2);
 		char dir=(char)lua_tointeger(L,3);
-		bool norm=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool norm=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -3654,7 +3654,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg i0 in mglDataC::Solve function");
 		}
 		const mglData & i0=*i0_ptr;
-		bool norm=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		bool norm=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		mglDataC* self=Luna< mglDataA >::checkSubType< mglDataC >(L,1);
 		if(!self) {
@@ -3853,10 +3853,10 @@ public:
 		}
 
 		const char * fname=(const char *)lua_tostring(L,1);
-		char buf=(char)lua_tointeger(L,2);
+		char* buf=(char*)Luna< void >::check(L,2);
 		long size=(long)lua_tointeger(L,3);
 
-		int lret = mglDataC::DatasHDF(fname, &buf, size);
+		int lret = mglDataC::DatasHDF(fname, buf, size);
 		lua_pushnumber(L,lret);
 
 		return 1;

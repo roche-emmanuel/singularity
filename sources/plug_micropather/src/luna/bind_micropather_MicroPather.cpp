@@ -116,7 +116,7 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,87530881)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -163,8 +163,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		micropather::Graph* graph=(Luna< micropather::Graph >::check(L,1));
-		unsigned allocate=luatop>1 ? (unsigned)lua_tointeger(L,2) : 250;
-		unsigned typicalAdjacent=luatop>2 ? (unsigned)lua_tointeger(L,3) : 6;
+		unsigned allocate=luatop>1 ? (unsigned)lua_tointeger(L,2) : (unsigned)250;
+		unsigned typicalAdjacent=luatop>2 ? (unsigned)lua_tointeger(L,3) : (unsigned)6;
 
 		return new micropather::MicroPather(graph, allocate, typicalAdjacent);
 	}
@@ -181,14 +181,14 @@ public:
 		void* startState=(Luna< void >::check(L,2));
 		void* endState=(Luna< void >::check(L,3));
 		std::vector< void * >* path=(Luna< std::vector< void * > >::check(L,4));
-		float totalCost=(float)lua_tonumber(L,5);
+		float* totalCost=(float*)Luna< void >::check(L,5);
 
 		micropather::MicroPather* self=(Luna< micropather::MicroPather >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int micropather::MicroPather::Solve(void *, void *, std::vector< void * > *, float *). Got : '%s'",typeid(Luna< micropather::MicroPather >::check(L,1)).name());
 		}
-		int lret = self->Solve(startState, endState, path, &totalCost);
+		int lret = self->Solve(startState, endState, path, totalCost);
 		lua_pushnumber(L,lret);
 
 		return 1;

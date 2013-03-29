@@ -164,7 +164,7 @@ public:
 		}
 		wxTimer & timer=*timer_ptr;
 		int milli=(int)lua_tointeger(L,2);
-		bool oneShot=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool oneShot=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		return new wxTimerRunner(timer, milli, oneShot);
 	}
@@ -190,7 +190,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int milli=(int)lua_tointeger(L,2);
-		bool oneShot=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool oneShot=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxTimerRunner* self=(Luna< wxTimerRunner >::check(L,1));
 		if(!self) {

@@ -155,7 +155,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 		wxDC* dc=luatop>2 ? (Luna< wxObject >::checkSubType< wxDC >(L,3)) : (wxDC*)NULL;
 
 		return new wrapper_wxEraseEvent(L,NULL, id, dc);

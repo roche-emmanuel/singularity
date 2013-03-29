@@ -157,7 +157,7 @@ public:
 	inline static bool _lg_typecheck_setA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -375,14 +375,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void mglThreadV::a(double * value) function, expected prototype:\nvoid mglThreadV::a(double * value)\nClass arguments details:\n");
 		}
 
-		double value=(double)lua_tonumber(L,2);
+		double* value=(double*)Luna< void >::check(L,2);
 
 		mglThreadV* self=(Luna< mglThreadV >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void mglThreadV::a(double *). Got : '%s'",typeid(Luna< mglThreadV >::check(L,1)).name());
 		}
-		self->a = &value;
+		self->a = value;
 
 		return 0;
 	}

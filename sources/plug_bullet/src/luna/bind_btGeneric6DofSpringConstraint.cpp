@@ -751,7 +751,7 @@ public:
 
 		int num=(int)lua_tointeger(L,2);
 		float value=(float)lua_tonumber(L,3);
-		int axis=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int axis=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
@@ -773,7 +773,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int num=(int)lua_tointeger(L,2);
-		int axis=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int axis=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {

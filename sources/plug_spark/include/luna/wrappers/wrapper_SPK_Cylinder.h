@@ -493,7 +493,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Registerable* obj=(Luna< SPK::Registerable >::check(L,1));
-		bool registerAll=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool registerAll=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wrapper_SPK_Cylinder* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_Cylinder >(L,1);
 		if(!self) {

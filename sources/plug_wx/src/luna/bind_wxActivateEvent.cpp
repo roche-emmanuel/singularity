@@ -156,9 +156,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int eventType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
-		bool active=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
-		int id=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int eventType=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
+		bool active=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
+		int id=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		return new wrapper_wxActivateEvent(L,NULL, eventType, active, id);
 	}

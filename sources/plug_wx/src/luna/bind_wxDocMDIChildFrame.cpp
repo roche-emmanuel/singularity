@@ -1057,7 +1057,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -1117,13 +1117,13 @@ public:
 		if( luatop>5 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxDocMDIChildFrame::wxDocMDIChildFrame function");
 		}
-		const wxPoint & pos=luatop>5 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>5 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>6 ? (Luna< wxSize >::check(L,7)) : NULL;
 		if( luatop>6 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxDocMDIChildFrame::wxDocMDIChildFrame function");
 		}
-		const wxSize & size=luatop>6 ? *size_ptr : wxDefaultSize;
-		long style=luatop>7 ? (long)lua_tointeger(L,8) : wxDEFAULT_FRAME_STYLE;
+		const wxSize & size=luatop>6 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>7 ? (long)lua_tointeger(L,8) : (long)wxDEFAULT_FRAME_STYLE;
 		wxString name(lua_tostring(L,9),lua_objlen(L,9));
 
 		return new wxDocMDIChildFrame(doc, view, parent, id, title, pos, size, style, name);
@@ -1147,13 +1147,13 @@ public:
 		if( luatop>6 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxDocMDIChildFrame::wxDocMDIChildFrame function");
 		}
-		const wxPoint & pos=luatop>6 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>6 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>7 ? (Luna< wxSize >::check(L,8)) : NULL;
 		if( luatop>7 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxDocMDIChildFrame::wxDocMDIChildFrame function");
 		}
-		const wxSize & size=luatop>7 ? *size_ptr : wxDefaultSize;
-		long style=luatop>8 ? (long)lua_tointeger(L,9) : wxDEFAULT_FRAME_STYLE;
+		const wxSize & size=luatop>7 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>8 ? (long)lua_tointeger(L,9) : (long)wxDEFAULT_FRAME_STYLE;
 		wxString name(lua_tostring(L,10),lua_objlen(L,10));
 
 		return new wrapper_wxDocMDIChildFrame(L,NULL, doc, view, parent, id, title, pos, size, style, name);
@@ -1469,8 +1469,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
-		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
+		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -1636,7 +1636,7 @@ public:
 
 		int orientation=(int)lua_tointeger(L,2);
 		int pos=(int)lua_tointeger(L,3);
-		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -1661,7 +1661,7 @@ public:
 		int position=(int)lua_tointeger(L,3);
 		int thumbSize=(int)lua_tointeger(L,4);
 		int range=(int)lua_tointeger(L,5);
-		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -1948,7 +1948,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -2112,7 +2112,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 		const wxRect* rect=luatop>2 ? (Luna< wxRect >::check(L,3)) : (const wxRect*)NULL;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
@@ -2385,7 +2385,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -2445,7 +2445,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -2467,7 +2467,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -2490,7 +2490,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -3032,7 +3032,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -3113,7 +3113,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -3153,7 +3153,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -3194,7 +3194,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool iconize=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool iconize=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -3310,7 +3310,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxUSER_ATTENTION_INFO;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxUSER_ATTENTION_INFO;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -3402,10 +3402,10 @@ public:
 
 		int minW=(int)lua_tointeger(L,2);
 		int minH=(int)lua_tointeger(L,3);
-		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int incW=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		int incH=luatop>6 ? (int)lua_tointeger(L,7) : -1;
+		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int incW=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+		int incH=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -3435,12 +3435,12 @@ public:
 		if( luatop>2 && !maxSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg maxSize in wxDocMDIChildFrame::base_SetSizeHints function");
 		}
-		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : wxDefaultSize;
+		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : (const wxSize&)wxDefaultSize;
 		const wxSize* incSize_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !incSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg incSize in wxDocMDIChildFrame::base_SetSizeHints function");
 		}
-		const wxSize & incSize=luatop>3 ? *incSize_ptr : wxDefaultSize;
+		const wxSize & incSize=luatop>3 ? *incSize_ptr : (const wxSize&)wxDefaultSize;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -3567,7 +3567,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		bool show=(bool)(lua_toboolean(L,2)==1);
-		long style=luatop>2 ? (long)lua_tointeger(L,3) : ::wxFULLSCREEN_ALL;
+		long style=luatop>2 ? (long)lua_tointeger(L,3) : (long)::wxFULLSCREEN_ALL;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -3589,9 +3589,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int number=luatop>1 ? (int)lua_tointeger(L,2) : 1;
-		long style=luatop>2 ? (long)lua_tointeger(L,3) : wxSTB_DEFAULT_STYLE;
-		int id=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int number=luatop>1 ? (int)lua_tointeger(L,2) : (int)1;
+		long style=luatop>2 ? (long)lua_tointeger(L,3) : (long)wxSTB_DEFAULT_STYLE;
+		int id=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 		wxString name(lua_tostring(L,5),lua_objlen(L,5));
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
@@ -3616,8 +3616,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long style=luatop>1 ? (long)lua_tointeger(L,2) : ::wxBORDER_NONE | ::wxTB_HORIZONTAL;
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+		long style=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxBORDER_NONE | ::wxTB_HORIZONTAL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxID_ANY;
 		wxString name(lua_tostring(L,4),lua_objlen(L,4));
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
@@ -3815,7 +3815,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
-		int number=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int number=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
@@ -3835,14 +3835,14 @@ public:
 		}
 
 		int n=(int)lua_tointeger(L,2);
-		int widths_field=(int)lua_tointeger(L,3);
+		const int* widths_field=(const int*)Luna< void >::check(L,3);
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocMDIChildFrame::base_SetStatusWidths(int, const int *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->wxDocMDIChildFrame::SetStatusWidths(n, &widths_field);
+		self->wxDocMDIChildFrame::SetStatusWidths(n, widths_field);
 
 		return 0;
 	}
@@ -3912,7 +3912,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool maximize=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool maximize=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxDocMDIChildFrame* self=Luna< wxObject >::checkSubType< wxDocMDIChildFrame >(L,1);
 		if(!self) {

@@ -139,6 +139,38 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setInputStream(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,47918182)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getInputStream_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getInputStream_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setByteSwap(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getByteSwap(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_checkStream(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -297,6 +329,16 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_readComponentArray(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -403,6 +445,114 @@ public:
 
 		luaL_error(L, "error in function getStream, cannot match any of the overloads for function getStream:\n  getStream()\n  getStream()\n");
 		return 0;
+	}
+
+	// void osgDB::InputIterator::setInputStream(osgDB::InputStream * inputStream)
+	static int _bind_setInputStream(lua_State *L) {
+		if (!_lg_typecheck_setInputStream(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::setInputStream(osgDB::InputStream * inputStream) function, expected prototype:\nvoid osgDB::InputIterator::setInputStream(osgDB::InputStream * inputStream)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* inputStream=(Luna< osgDB::InputStream >::check(L,2));
+
+		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::setInputStream(osgDB::InputStream *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setInputStream(inputStream);
+
+		return 0;
+	}
+
+	// osgDB::InputStream * osgDB::InputIterator::getInputStream()
+	static int _bind_getInputStream_overload_1(lua_State *L) {
+		if (!_lg_typecheck_getInputStream_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::InputStream * osgDB::InputIterator::getInputStream() function, expected prototype:\nosgDB::InputStream * osgDB::InputIterator::getInputStream()\nClass arguments details:\n");
+		}
+
+
+		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::InputStream * osgDB::InputIterator::getInputStream(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osgDB::InputStream * lret = self->getInputStream();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::InputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osgDB::InputStream * osgDB::InputIterator::getInputStream() const
+	static int _bind_getInputStream_overload_2(lua_State *L) {
+		if (!_lg_typecheck_getInputStream_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osgDB::InputStream * osgDB::InputIterator::getInputStream() const function, expected prototype:\nconst osgDB::InputStream * osgDB::InputIterator::getInputStream() const\nClass arguments details:\n");
+		}
+
+
+		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osgDB::InputStream * osgDB::InputIterator::getInputStream() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osgDB::InputStream * lret = self->getInputStream();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::InputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osgDB::InputIterator::getInputStream
+	static int _bind_getInputStream(lua_State *L) {
+		if (_lg_typecheck_getInputStream_overload_1(L)) return _bind_getInputStream_overload_1(L);
+		if (_lg_typecheck_getInputStream_overload_2(L)) return _bind_getInputStream_overload_2(L);
+
+		luaL_error(L, "error in function getInputStream, cannot match any of the overloads for function getInputStream:\n  getInputStream()\n  getInputStream()\n");
+		return 0;
+	}
+
+	// void osgDB::InputIterator::setByteSwap(int byteSwap)
+	static int _bind_setByteSwap(lua_State *L) {
+		if (!_lg_typecheck_setByteSwap(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::setByteSwap(int byteSwap) function, expected prototype:\nvoid osgDB::InputIterator::setByteSwap(int byteSwap)\nClass arguments details:\n");
+		}
+
+		int byteSwap=(int)lua_tointeger(L,2);
+
+		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::setByteSwap(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setByteSwap(byteSwap);
+
+		return 0;
+	}
+
+	// int osgDB::InputIterator::getByteSwap() const
+	static int _bind_getByteSwap(lua_State *L) {
+		if (!_lg_typecheck_getByteSwap(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osgDB::InputIterator::getByteSwap() const function, expected prototype:\nint osgDB::InputIterator::getByteSwap() const\nClass arguments details:\n");
+		}
+
+
+		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osgDB::InputIterator::getByteSwap() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		int lret = self->getByteSwap();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 	// void osgDB::InputIterator::checkStream() const
@@ -854,6 +1004,28 @@ public:
 		return 0;
 	}
 
+	// void osgDB::InputIterator::readComponentArray(char * s, unsigned int numElements, unsigned int numComponentsPerElements, unsigned int componentSizeInBytes)
+	static int _bind_readComponentArray(lua_State *L) {
+		if (!_lg_typecheck_readComponentArray(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::InputIterator::readComponentArray(char * s, unsigned int numElements, unsigned int numComponentsPerElements, unsigned int componentSizeInBytes) function, expected prototype:\nvoid osgDB::InputIterator::readComponentArray(char * s, unsigned int numElements, unsigned int numComponentsPerElements, unsigned int componentSizeInBytes)\nClass arguments details:\n");
+		}
+
+		char* s=(char*)Luna< void >::check(L,2);
+		unsigned int numElements=(unsigned int)lua_tointeger(L,3);
+		unsigned int numComponentsPerElements=(unsigned int)lua_tointeger(L,4);
+		unsigned int componentSizeInBytes=(unsigned int)lua_tointeger(L,5);
+
+		osgDB::InputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::InputIterator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::InputIterator::readComponentArray(char *, unsigned int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->readComponentArray(s, numElements, numComponentsPerElements, componentSizeInBytes);
+
+		return 0;
+	}
+
 	// void osgDB::InputIterator::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
@@ -957,6 +1129,10 @@ const int LunaTraits< osgDB::InputIterator >::uniqueIDs[] = {50169651,0};
 luna_RegType LunaTraits< osgDB::InputIterator >::methods[] = {
 	{"setStream", &luna_wrapper_osgDB_InputIterator::_bind_setStream},
 	{"getStream", &luna_wrapper_osgDB_InputIterator::_bind_getStream},
+	{"setInputStream", &luna_wrapper_osgDB_InputIterator::_bind_setInputStream},
+	{"getInputStream", &luna_wrapper_osgDB_InputIterator::_bind_getInputStream},
+	{"setByteSwap", &luna_wrapper_osgDB_InputIterator::_bind_setByteSwap},
+	{"getByteSwap", &luna_wrapper_osgDB_InputIterator::_bind_getByteSwap},
 	{"checkStream", &luna_wrapper_osgDB_InputIterator::_bind_checkStream},
 	{"isFailed", &luna_wrapper_osgDB_InputIterator::_bind_isFailed},
 	{"isBinary", &luna_wrapper_osgDB_InputIterator::_bind_isBinary},
@@ -980,6 +1156,7 @@ luna_RegType LunaTraits< osgDB::InputIterator >::methods[] = {
 	{"readWrappedString", &luna_wrapper_osgDB_InputIterator::_bind_readWrappedString},
 	{"matchString", &luna_wrapper_osgDB_InputIterator::_bind_matchString},
 	{"advanceToCurrentEndBracket", &luna_wrapper_osgDB_InputIterator::_bind_advanceToCurrentEndBracket},
+	{"readComponentArray", &luna_wrapper_osgDB_InputIterator::_bind_readComponentArray},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgDB_InputIterator::_bind_base_setThreadSafeRefUnref},
 	{"base_matchString", &luna_wrapper_osgDB_InputIterator::_bind_base_matchString},
 	{"base_advanceToCurrentEndBracket", &luna_wrapper_osgDB_InputIterator::_bind_base_advanceToCurrentEndBracket},

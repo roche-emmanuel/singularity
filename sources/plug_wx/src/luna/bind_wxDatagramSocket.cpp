@@ -195,7 +195,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg addr in wxDatagramSocket::wxDatagramSocket function");
 		}
 		const wxSockAddress & addr=*addr_ptr;
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxSOCKET_NONE;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxSOCKET_NONE;
 
 		return new wxDatagramSocket(addr, flags);
 	}
@@ -214,7 +214,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg addr in wxDatagramSocket::wxDatagramSocket function");
 		}
 		const wxSockAddress & addr=*addr_ptr;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxSOCKET_NONE;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxSOCKET_NONE;
 
 		return new wrapper_wxDatagramSocket(L,NULL, addr, flags);
 	}

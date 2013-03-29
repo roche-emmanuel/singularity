@@ -294,6 +294,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_addDevice(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_setEventQueue(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1270,6 +1277,25 @@ public:
 		if (_lg_typecheck_getImagePager_overload_2(L)) return _bind_getImagePager_overload_2(L);
 
 		luaL_error(L, "error in function getImagePager, cannot match any of the overloads for function getImagePager:\n  getImagePager()\n  getImagePager()\n");
+		return 0;
+	}
+
+	// void osgViewer::View::addDevice(osgGA::Device * eventSource)
+	static int _bind_addDevice(lua_State *L) {
+		if (!_lg_typecheck_addDevice(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::View::addDevice(osgGA::Device * eventSource) function, expected prototype:\nvoid osgViewer::View::addDevice(osgGA::Device * eventSource)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osgGA::Device* eventSource=(Luna< osg::Referenced >::checkSubType< osgGA::Device >(L,2));
+
+		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::View::addDevice(osgGA::Device *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->addDevice(eventSource);
+
 		return 0;
 	}
 
@@ -2582,6 +2608,7 @@ luna_RegType LunaTraits< osgViewer::View >::methods[] = {
 	{"getDatabasePager", &luna_wrapper_osgViewer_View::_bind_getDatabasePager},
 	{"setImagePager", &luna_wrapper_osgViewer_View::_bind_setImagePager},
 	{"getImagePager", &luna_wrapper_osgViewer_View::_bind_getImagePager},
+	{"addDevice", &luna_wrapper_osgViewer_View::_bind_addDevice},
 	{"setEventQueue", &luna_wrapper_osgViewer_View::_bind_setEventQueue},
 	{"getEventQueue", &luna_wrapper_osgViewer_View::_bind_getEventQueue},
 	{"setCameraManipulator", &luna_wrapper_osgViewer_View::_bind_setCameraManipulator},

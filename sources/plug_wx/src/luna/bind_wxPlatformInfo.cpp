@@ -418,13 +418,13 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxPortId pid=(wxPortId)lua_tointeger(L,1);
-		int tkMajor=luatop>1 ? (int)lua_tointeger(L,2) : -1;
-		int tkMinor=luatop>2 ? (int)lua_tointeger(L,3) : -1;
-		wxOperatingSystemId id=luatop>3 ? (wxOperatingSystemId)lua_tointeger(L,4) : ::wxOS_UNKNOWN;
-		int osMajor=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int osMinor=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		wxArchitecture arch=luatop>6 ? (wxArchitecture)lua_tointeger(L,7) : ::wxARCH_INVALID;
-		wxEndianness endian=luatop>7 ? (wxEndianness)lua_tointeger(L,8) : ::wxENDIAN_INVALID;
+		int tkMajor=luatop>1 ? (int)lua_tointeger(L,2) : (int)-1;
+		int tkMinor=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
+		wxOperatingSystemId id=luatop>3 ? (wxOperatingSystemId)lua_tointeger(L,4) : (wxOperatingSystemId)::wxOS_UNKNOWN;
+		int osMajor=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int osMinor=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+		wxArchitecture arch=luatop>6 ? (wxArchitecture)lua_tointeger(L,7) : (wxArchitecture)::wxARCH_INVALID;
+		wxEndianness endian=luatop>7 ? (wxEndianness)lua_tointeger(L,8) : (wxEndianness)::wxENDIAN_INVALID;
 
 		return new wxPlatformInfo(pid, tkMajor, tkMinor, id, osMajor, osMinor, arch, endian);
 	}

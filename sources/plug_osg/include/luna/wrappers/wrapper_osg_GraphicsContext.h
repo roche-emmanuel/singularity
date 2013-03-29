@@ -139,6 +139,16 @@ public:
 		return GraphicsContext::releaseGLObjects(arg1);
 	};
 
+	// void osg::GraphicsContext::runOperations()
+	void runOperations() {
+		if(_obj.pushFunction("runOperations")) {
+			_obj.pushArg((osg::GraphicsContext*)this);
+			return (_obj.callFunction<void>());
+		}
+
+		return GraphicsContext::runOperations();
+	};
+
 	// bool osg::GraphicsContext::valid() const
 	bool valid() const {
 		THROW_IF(!_obj.pushFunction("valid"),"No implementation for abstract function osg::GraphicsContext::valid");

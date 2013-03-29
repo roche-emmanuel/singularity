@@ -315,9 +315,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string file(lua_tostring(L,2),lua_objlen(L,2));
-		bool needPlay=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
-		unsigned int w=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 512;
-		unsigned int h=luatop>4 ? (unsigned int)lua_tointeger(L,5) : 512;
+		bool needPlay=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
+		unsigned int w=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)512;
+		unsigned int h=luatop>4 ? (unsigned int)lua_tointeger(L,5) : (unsigned int)512;
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
@@ -392,7 +392,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool waitForThreadToExit=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool waitForThreadToExit=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
@@ -581,7 +581,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool waitForThreadToExit=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool waitForThreadToExit=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {

@@ -166,7 +166,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		return new wrapper_wxSocketEvent(L,NULL, id);
 	}

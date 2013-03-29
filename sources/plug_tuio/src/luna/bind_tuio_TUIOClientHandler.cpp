@@ -109,7 +109,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int port=luatop>0 ? (int)lua_tointeger(L,1) : 3333;
+		int port=luatop>0 ? (int)lua_tointeger(L,1) : (int)3333;
 
 		return new tuio::TUIOClientHandler(port);
 	}

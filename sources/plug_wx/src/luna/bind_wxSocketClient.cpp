@@ -217,7 +217,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>0 ? (int)lua_tointeger(L,1) : ::wxSOCKET_NONE;
+		int flags=luatop>0 ? (int)lua_tointeger(L,1) : (int)::wxSOCKET_NONE;
 
 		return new wxSocketClient(flags);
 	}
@@ -231,7 +231,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxSOCKET_NONE;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxSOCKET_NONE;
 
 		return new wrapper_wxSocketClient(L,NULL, flags);
 	}
@@ -261,7 +261,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg address in wxSocketClient::Connect function");
 		}
 		const wxSockAddress & address=*address_ptr;
-		bool wait=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool wait=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxSocketClient* self=Luna< wxObject >::checkSubType< wxSocketClient >(L,1);
 		if(!self) {
@@ -293,7 +293,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg local in wxSocketClient::Connect function");
 		}
 		const wxSockAddress & local=*local_ptr;
-		bool wait=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool wait=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxSocketClient* self=Luna< wxObject >::checkSubType< wxSocketClient >(L,1);
 		if(!self) {
@@ -324,8 +324,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long seconds=luatop>1 ? (long)lua_tointeger(L,2) : -1;
-		long milliseconds=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long seconds=luatop>1 ? (long)lua_tointeger(L,2) : (long)-1;
+		long milliseconds=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wxSocketClient* self=Luna< wxObject >::checkSubType< wxSocketClient >(L,1);
 		if(!self) {
@@ -464,7 +464,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg address in wxSocketClient::base_Connect function");
 		}
 		const wxSockAddress & address=*address_ptr;
-		bool wait=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool wait=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxSocketClient* self=Luna< wxObject >::checkSubType< wxSocketClient >(L,1);
 		if(!self) {

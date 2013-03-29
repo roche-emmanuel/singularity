@@ -131,6 +131,46 @@ public:
 		return DrawArrayLengths::getUserData();
 	};
 
+	// osg::Array * osg::BufferData::asArray()
+	osg::Array * asArray() {
+		if(_obj.pushFunction("asArray")) {
+			_obj.pushArg((osg::DrawArrayLengths*)this);
+			return (_obj.callFunction<osg::Array*>());
+		}
+
+		return DrawArrayLengths::asArray();
+	};
+
+	// const osg::Array * osg::BufferData::asArray() const
+	const osg::Array * asArray() const {
+		if(_obj.pushFunction("asArray")) {
+			_obj.pushArg((osg::DrawArrayLengths*)this);
+			return (_obj.callFunction<osg::Array*>());
+		}
+
+		return DrawArrayLengths::asArray();
+	};
+
+	// osg::Image * osg::BufferData::asImage()
+	osg::Image * asImage() {
+		if(_obj.pushFunction("asImage")) {
+			_obj.pushArg((osg::DrawArrayLengths*)this);
+			return (_obj.callFunction<osg::Image*>());
+		}
+
+		return DrawArrayLengths::asImage();
+	};
+
+	// const osg::Image * osg::BufferData::asImage() const
+	const osg::Image * asImage() const {
+		if(_obj.pushFunction("asImage")) {
+			_obj.pushArg((osg::DrawArrayLengths*)this);
+			return (_obj.callFunction<osg::Image*>());
+		}
+
+		return DrawArrayLengths::asImage();
+	};
+
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
@@ -140,6 +180,26 @@ public:
 		}
 
 		return DrawArrayLengths::releaseGLObjects(state);
+	};
+
+	// osg::PrimitiveSet * osg::PrimitiveSet::asPrimitiveSet()
+	osg::PrimitiveSet * asPrimitiveSet() {
+		if(_obj.pushFunction("asPrimitiveSet")) {
+			_obj.pushArg((osg::DrawArrayLengths*)this);
+			return (_obj.callFunction<osg::PrimitiveSet*>());
+		}
+
+		return DrawArrayLengths::asPrimitiveSet();
+	};
+
+	// const osg::PrimitiveSet * osg::PrimitiveSet::asPrimitiveSet() const
+	const osg::PrimitiveSet * asPrimitiveSet() const {
+		if(_obj.pushFunction("asPrimitiveSet")) {
+			_obj.pushArg((osg::DrawArrayLengths*)this);
+			return (_obj.callFunction<osg::PrimitiveSet*>());
+		}
+
+		return DrawArrayLengths::asPrimitiveSet();
 	};
 
 	// const void * osg::PrimitiveSet::getDataPointer() const

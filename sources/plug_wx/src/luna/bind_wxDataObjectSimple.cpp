@@ -195,7 +195,7 @@ public:
 		if( luatop>1 && !format_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg format in wxDataObjectSimple::wxDataObjectSimple function");
 		}
-		const wxDataFormat & format=luatop>1 ? *format_ptr : wxFormatInvalid;
+		const wxDataFormat & format=luatop>1 ? *format_ptr : (const wxDataFormat&)wxFormatInvalid;
 
 		return new wrapper_wxDataObjectSimple(L,NULL, format);
 	}

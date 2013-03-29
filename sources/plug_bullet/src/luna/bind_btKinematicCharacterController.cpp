@@ -376,7 +376,7 @@ public:
 		btPairCachingGhostObject* ghostObject=(Luna< btCollisionObject >::checkSubType< btPairCachingGhostObject >(L,1));
 		btConvexShape* convexShape=(Luna< btCollisionShape >::checkSubType< btConvexShape >(L,2));
 		float stepHeight=(float)lua_tonumber(L,3);
-		int upAxis=luatop>3 ? (int)lua_tointeger(L,4) : 1;
+		int upAxis=luatop>3 ? (int)lua_tointeger(L,4) : (int)1;
 
 		return new btKinematicCharacterController(ghostObject, convexShape, stepHeight, upAxis);
 	}
@@ -393,7 +393,7 @@ public:
 		btPairCachingGhostObject* ghostObject=(Luna< btCollisionObject >::checkSubType< btPairCachingGhostObject >(L,2));
 		btConvexShape* convexShape=(Luna< btCollisionShape >::checkSubType< btConvexShape >(L,3));
 		float stepHeight=(float)lua_tonumber(L,4);
-		int upAxis=luatop>4 ? (int)lua_tointeger(L,5) : 1;
+		int upAxis=luatop>4 ? (int)lua_tointeger(L,5) : (int)1;
 
 		return new wrapper_btKinematicCharacterController(L,NULL, ghostObject, convexShape, stepHeight, upAxis);
 	}

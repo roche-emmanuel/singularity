@@ -369,8 +369,8 @@ public:
 		wxRelationship rel=(wxRelationship)lua_tointeger(L,2);
 		wxWindow* otherW=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		wxEdge otherE=(wxEdge)lua_tointeger(L,4);
-		int val=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		int margin=luatop>5 ? (int)lua_tointeger(L,6) : wxLAYOUT_DEFAULT_MARGIN;
+		int val=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		int margin=luatop>5 ? (int)lua_tointeger(L,6) : (int)wxLAYOUT_DEFAULT_MARGIN;
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
@@ -392,7 +392,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* sibling=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int margin=luatop>2 ? (int)lua_tointeger(L,3) : wxLAYOUT_DEFAULT_MARGIN;
+		int margin=luatop>2 ? (int)lua_tointeger(L,3) : (int)wxLAYOUT_DEFAULT_MARGIN;
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
@@ -414,7 +414,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* sibling=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int margin=luatop>2 ? (int)lua_tointeger(L,3) : wxLAYOUT_DEFAULT_MARGIN;
+		int margin=luatop>2 ? (int)lua_tointeger(L,3) : (int)wxLAYOUT_DEFAULT_MARGIN;
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
@@ -436,7 +436,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* sibling=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int margin=luatop>2 ? (int)lua_tointeger(L,3) : wxLAYOUT_DEFAULT_MARGIN;
+		int margin=luatop>2 ? (int)lua_tointeger(L,3) : (int)wxLAYOUT_DEFAULT_MARGIN;
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
@@ -458,7 +458,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* sibling=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int margin=luatop>2 ? (int)lua_tointeger(L,3) : wxLAYOUT_DEFAULT_MARGIN;
+		int margin=luatop>2 ? (int)lua_tointeger(L,3) : (int)wxLAYOUT_DEFAULT_MARGIN;
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
@@ -481,7 +481,7 @@ public:
 
 		wxWindow* otherW=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxEdge edge=(wxEdge)lua_tointeger(L,3);
-		int margin=luatop>3 ? (int)lua_tointeger(L,4) : wxLAYOUT_DEFAULT_MARGIN;
+		int margin=luatop>3 ? (int)lua_tointeger(L,4) : (int)wxLAYOUT_DEFAULT_MARGIN;
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {

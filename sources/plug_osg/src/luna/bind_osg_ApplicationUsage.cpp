@@ -239,7 +239,24 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_addKeyboardMouseBinding(lua_State *L) {
+	inline static bool _lg_typecheck_addKeyboardMouseBinding_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_addKeyboardMouseBinding_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_addKeyboardMouseBinding_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
@@ -651,9 +668,50 @@ public:
 		return 1;
 	}
 
+	// void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & prefix, int key, const std::string & explanation)
+	static int _bind_addKeyboardMouseBinding_overload_1(lua_State *L) {
+		if (!_lg_typecheck_addKeyboardMouseBinding_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & prefix, int key, const std::string & explanation) function, expected prototype:\nvoid osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & prefix, int key, const std::string & explanation)\nClass arguments details:\n");
+		}
+
+		std::string prefix(lua_tostring(L,2),lua_objlen(L,2));
+		int key=(int)lua_tointeger(L,3);
+		std::string explanation(lua_tostring(L,4),lua_objlen(L,4));
+
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string &, int, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->addKeyboardMouseBinding(prefix, key, explanation);
+
+		return 0;
+	}
+
+	// void osg::ApplicationUsage::addKeyboardMouseBinding(int key, const std::string & explanation)
+	static int _bind_addKeyboardMouseBinding_overload_2(lua_State *L) {
+		if (!_lg_typecheck_addKeyboardMouseBinding_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addKeyboardMouseBinding(int key, const std::string & explanation) function, expected prototype:\nvoid osg::ApplicationUsage::addKeyboardMouseBinding(int key, const std::string & explanation)\nClass arguments details:\n");
+		}
+
+		int key=(int)lua_tointeger(L,2);
+		std::string explanation(lua_tostring(L,3),lua_objlen(L,3));
+
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addKeyboardMouseBinding(int, const std::string &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->addKeyboardMouseBinding(key, explanation);
+
+		return 0;
+	}
+
 	// void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & option, const std::string & explanation)
-	static int _bind_addKeyboardMouseBinding(lua_State *L) {
-		if (!_lg_typecheck_addKeyboardMouseBinding(L)) {
+	static int _bind_addKeyboardMouseBinding_overload_3(lua_State *L) {
+		if (!_lg_typecheck_addKeyboardMouseBinding_overload_3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & option, const std::string & explanation) function, expected prototype:\nvoid osg::ApplicationUsage::addKeyboardMouseBinding(const std::string & option, const std::string & explanation)\nClass arguments details:\n");
 		}
@@ -668,6 +726,16 @@ public:
 		}
 		self->addKeyboardMouseBinding(option, explanation);
 
+		return 0;
+	}
+
+	// Overload binder for osg::ApplicationUsage::addKeyboardMouseBinding
+	static int _bind_addKeyboardMouseBinding(lua_State *L) {
+		if (_lg_typecheck_addKeyboardMouseBinding_overload_1(L)) return _bind_addKeyboardMouseBinding_overload_1(L);
+		if (_lg_typecheck_addKeyboardMouseBinding_overload_2(L)) return _bind_addKeyboardMouseBinding_overload_2(L);
+		if (_lg_typecheck_addKeyboardMouseBinding_overload_3(L)) return _bind_addKeyboardMouseBinding_overload_3(L);
+
+		luaL_error(L, "error in function addKeyboardMouseBinding, cannot match any of the overloads for function addKeyboardMouseBinding:\n  addKeyboardMouseBinding(const std::string &, int, const std::string &)\n  addKeyboardMouseBinding(int, const std::string &)\n  addKeyboardMouseBinding(const std::string &, const std::string &)\n");
 		return 0;
 	}
 

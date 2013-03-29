@@ -255,8 +255,8 @@ public:
 	inline static bool _lg_typecheck_GetColLabelAlignment(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -294,8 +294,8 @@ public:
 	inline static bool _lg_typecheck_GetRowLabelAlignment(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -399,8 +399,8 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -431,8 +431,8 @@ public:
 	inline static bool _lg_typecheck_GetDefaultCellAlignment(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -1088,8 +1088,8 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -1966,13 +1966,13 @@ public:
 		if( luatop>2 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxGrid::wxGrid function");
 		}
-		const wxPoint & pos=luatop>2 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>2 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxGrid::wxGrid function");
 		}
-		const wxSize & size=luatop>3 ? *size_ptr : wxDefaultSize;
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : wxWANTS_CHARS;
+		const wxSize & size=luatop>3 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>4 ? (long)lua_tointeger(L,5) : (long)wxWANTS_CHARS;
 		wxString name(lua_tostring(L,6),lua_objlen(L,6));
 
 		return new wxGrid(parent, id, pos, size, style, name);
@@ -2004,13 +2004,13 @@ public:
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxGrid::wxGrid function");
 		}
-		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
 		if( luatop>4 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxGrid::wxGrid function");
 		}
-		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : wxWANTS_CHARS;
+		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)wxWANTS_CHARS;
 		wxString name(lua_tostring(L,7),lua_objlen(L,7));
 
 		return new wrapper_wxGrid(L,NULL, parent, id, pos, size, style, name);
@@ -2044,13 +2044,13 @@ public:
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxGrid::Create function");
 		}
-		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
 		if( luatop>4 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxGrid::Create function");
 		}
-		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : wxWANTS_CHARS;
+		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)wxWANTS_CHARS;
 		wxString name(lua_tostring(L,7),lua_objlen(L,7));
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
@@ -2075,7 +2075,7 @@ public:
 
 		int numRows=(int)lua_tointeger(L,2);
 		int numCols=(int)lua_tointeger(L,3);
-		wxGrid::wxGridSelectionModes selmode=luatop>3 ? (wxGrid::wxGridSelectionModes)lua_tointeger(L,4) : wxGrid::wxGridSelectCells;
+		wxGrid::wxGridSelectionModes selmode=luatop>3 ? (wxGrid::wxGridSelectionModes)lua_tointeger(L,4) : (wxGrid::wxGridSelectionModes)wxGrid::wxGridSelectCells;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -2098,8 +2098,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxGridTableBase* table=(Luna< wxObject >::checkSubType< wxGridTableBase >(L,2));
-		bool takeOwnership=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
-		wxGrid::wxGridSelectionModes selmode=luatop>3 ? (wxGrid::wxGridSelectionModes)lua_tointeger(L,4) : wxGrid::wxGridSelectCells;
+		bool takeOwnership=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
+		wxGrid::wxGridSelectionModes selmode=luatop>3 ? (wxGrid::wxGridSelectionModes)lua_tointeger(L,4) : (wxGrid::wxGridSelectionModes)wxGrid::wxGridSelectCells;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -2121,7 +2121,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -2272,15 +2272,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGrid::GetColLabelAlignment(int * horiz, int * vert) const function, expected prototype:\nvoid wxGrid::GetColLabelAlignment(int * horiz, int * vert) const\nClass arguments details:\n");
 		}
 
-		int horiz=(int)lua_tointeger(L,2);
-		int vert=(int)lua_tointeger(L,3);
+		int* horiz=(int*)Luna< void >::check(L,2);
+		int* vert=(int*)Luna< void >::check(L,3);
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGrid::GetColLabelAlignment(int *, int *) const. Got : '%s'",typeid(Luna< wxGrid >::check(L,1)).name());
 		}
-		self->GetColLabelAlignment(&horiz, &vert);
+		self->GetColLabelAlignment(horiz, vert);
 
 		return 0;
 	}
@@ -2397,15 +2397,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGrid::GetRowLabelAlignment(int * horiz, int * vert) const function, expected prototype:\nvoid wxGrid::GetRowLabelAlignment(int * horiz, int * vert) const\nClass arguments details:\n");
 		}
 
-		int horiz=(int)lua_tointeger(L,2);
-		int vert=(int)lua_tointeger(L,3);
+		int* horiz=(int*)Luna< void >::check(L,2);
+		int* vert=(int*)Luna< void >::check(L,3);
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGrid::GetRowLabelAlignment(int *, int *) const. Got : '%s'",typeid(Luna< wxGrid >::check(L,1)).name());
 		}
-		self->GetRowLabelAlignment(&horiz, &vert);
+		self->GetRowLabelAlignment(horiz, vert);
 
 		return 0;
 	}
@@ -2643,7 +2643,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool native=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool native=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -2664,7 +2664,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool native=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool native=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -2685,15 +2685,15 @@ public:
 
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
-		int horiz=(int)lua_tointeger(L,4);
-		int vert=(int)lua_tointeger(L,5);
+		int* horiz=(int*)Luna< void >::check(L,4);
+		int* vert=(int*)Luna< void >::check(L,5);
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGrid::GetCellAlignment(int, int, int *, int *) const. Got : '%s'",typeid(Luna< wxGrid >::check(L,1)).name());
 		}
-		self->GetCellAlignment(row, col, &horiz, &vert);
+		self->GetCellAlignment(row, col, horiz, vert);
 
 		return 0;
 	}
@@ -2777,15 +2777,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGrid::GetDefaultCellAlignment(int * horiz, int * vert) const function, expected prototype:\nvoid wxGrid::GetDefaultCellAlignment(int * horiz, int * vert) const\nClass arguments details:\n");
 		}
 
-		int horiz=(int)lua_tointeger(L,2);
-		int vert=(int)lua_tointeger(L,3);
+		int* horiz=(int*)Luna< void >::check(L,2);
+		int* vert=(int*)Luna< void >::check(L,3);
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGrid::GetDefaultCellAlignment(int *, int *) const. Got : '%s'",typeid(Luna< wxGrid >::check(L,1)).name());
 		}
-		self->GetDefaultCellAlignment(&horiz, &vert);
+		self->GetDefaultCellAlignment(horiz, vert);
 
 		return 0;
 	}
@@ -3176,7 +3176,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -3776,8 +3776,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		int col=(int)lua_tointeger(L,2);
-		int width=luatop>2 ? (int)lua_tointeger(L,3) : -1;
-		int precision=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int width=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
+		int precision=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -3857,7 +3857,7 @@ public:
 
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
-		bool isReadOnly=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool isReadOnly=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -3934,7 +3934,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int col=(int)lua_tointeger(L,2);
-		bool setAsMin=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool setAsMin=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -3955,7 +3955,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool setAsMin=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool setAsMin=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -3977,7 +3977,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int row=(int)lua_tointeger(L,2);
-		bool setAsMin=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool setAsMin=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -4017,7 +4017,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool setAsMin=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool setAsMin=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -4387,7 +4387,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int width=(int)lua_tointeger(L,2);
-		bool resizeExistingCols=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool resizeExistingCols=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -4409,7 +4409,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int height=(int)lua_tointeger(L,2);
-		bool resizeExistingRows=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool resizeExistingRows=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -4658,15 +4658,15 @@ public:
 
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
-		int num_rows=(int)lua_tointeger(L,4);
-		int num_cols=(int)lua_tointeger(L,5);
+		int* num_rows=(int*)Luna< void >::check(L,4);
+		int* num_cols=(int*)Luna< void >::check(L,5);
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGrid::CellSpan wxGrid::GetCellSize(int, int, int *, int *) const. Got : '%s'",typeid(Luna< wxGrid >::check(L,1)).name());
 		}
-		wxGrid::CellSpan lret = self->GetCellSize(row, col, &num_rows, &num_cols);
+		wxGrid::CellSpan lret = self->GetCellSize(row, col, num_rows, num_cols);
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -4924,7 +4924,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -4945,7 +4945,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -4966,7 +4966,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -4987,7 +4987,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -5008,7 +5008,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -5756,7 +5756,7 @@ public:
 		int leftCol=(int)lua_tointeger(L,3);
 		int bottomRow=(int)lua_tointeger(L,4);
 		int rightCol=(int)lua_tointeger(L,5);
-		bool addToSelected=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
+		bool addToSelected=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)false;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -5787,7 +5787,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bottomRight in wxGrid::SelectBlock function");
 		}
 		const wxGridCellCoords & bottomRight=*bottomRight_ptr;
-		bool addToSelected=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool addToSelected=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -5818,7 +5818,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int col=(int)lua_tointeger(L,2);
-		bool addToSelected=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool addToSelected=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -5840,7 +5840,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int row=(int)lua_tointeger(L,2);
-		bool addToSelected=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool addToSelected=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -5966,7 +5966,7 @@ public:
 
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
-		bool wholeCellVisible=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool wholeCellVisible=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -5993,7 +5993,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg coords in wxGrid::IsVisible function");
 		}
 		const wxGridCellCoords & coords=*coords_ptr;
-		bool wholeCellVisible=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool wholeCellVisible=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -6207,7 +6207,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int x=(int)lua_tointeger(L,2);
-		bool clipToMinMax=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool clipToMinMax=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -6330,7 +6330,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int y=(int)lua_tointeger(L,2);
-		bool clipToMinMax=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool clipToMinMax=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -6352,8 +6352,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int numCols=luatop>1 ? (int)lua_tointeger(L,2) : 1;
-		bool updateLabels=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		int numCols=luatop>1 ? (int)lua_tointeger(L,2) : (int)1;
+		bool updateLabels=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -6375,8 +6375,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int numRows=luatop>1 ? (int)lua_tointeger(L,2) : 1;
-		bool updateLabels=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		int numRows=luatop>1 ? (int)lua_tointeger(L,2) : (int)1;
+		bool updateLabels=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -6510,9 +6510,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int pos=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int numCols=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		bool updateLabels=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		int pos=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int numCols=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
+		bool updateLabels=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -6534,9 +6534,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int pos=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int numRows=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		bool updateLabels=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		int pos=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int numRows=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
+		bool updateLabels=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -6713,9 +6713,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int pos=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int numCols=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		bool updateLabels=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		int pos=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int numCols=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
+		bool updateLabels=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -6737,9 +6737,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int pos=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int numRows=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		bool updateLabels=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		int pos=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int numRows=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
+		bool updateLabels=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {
@@ -6900,7 +6900,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int col=(int)lua_tointeger(L,2);
-		bool ascending=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool ascending=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxGrid* self=(Luna< wxGrid >::check(L,1));
 		if(!self) {

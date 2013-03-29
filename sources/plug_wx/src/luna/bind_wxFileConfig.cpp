@@ -564,7 +564,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
@@ -586,7 +586,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
@@ -648,7 +648,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool bCurrentOnly=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool bCurrentOnly=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
@@ -713,7 +713,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
-		bool bDeleteGroupIfEmpty=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool bDeleteGroupIfEmpty=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
@@ -793,7 +793,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString basename(lua_tostring(L,1),lua_objlen(L,1));
-		int style=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int style=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxFileName stack_lret = wxFileConfig::GetLocalFile(basename, style);
 		wxFileName* lret = new wxFileName(stack_lret);
@@ -829,7 +829,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString szFile(lua_tostring(L,1),lua_objlen(L,1));
-		int style=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int style=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxString lret = wxFileConfig::GetLocalFileName(szFile, style);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1009,7 +1009,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
@@ -1031,7 +1031,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
@@ -1093,7 +1093,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool bCurrentOnly=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool bCurrentOnly=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
@@ -1158,7 +1158,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
-		bool bDeleteGroupIfEmpty=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool bDeleteGroupIfEmpty=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {

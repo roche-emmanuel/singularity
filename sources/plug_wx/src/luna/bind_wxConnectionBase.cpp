@@ -117,7 +117,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
@@ -163,7 +163,7 @@ public:
 		}
 
 		wxString _arg1(lua_tostring(L,2),lua_objlen(L,2));
-		size_t _arg2=(size_t)lua_tointeger(L,3);
+		size_t* _arg2=(size_t*)Luna< void >::check(L,3);
 		wxIPCFormat _arg3=(wxIPCFormat)lua_tointeger(L,4);
 
 		wxConnectionBase* self=Luna< wxObject >::checkSubType< wxConnectionBase >(L,1);
@@ -171,7 +171,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const void * wxConnectionBase::Request(const wxString &, size_t *, wxIPCFormat). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		const void * lret = self->Request(_arg1, &_arg2, _arg3);
+		const void * lret = self->Request(_arg1, _arg2, _arg3);
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< void >::push(L,lret,false);

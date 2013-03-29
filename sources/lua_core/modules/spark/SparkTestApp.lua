@@ -28,36 +28,36 @@ function Class:initialize(options)
 	local tracking = false;
 	
 	if options.system == "simple" then
-		sdraw:addImage( "flare", tools:getImage("tests/data/flare.bmp"), gl.ALPHA );
+		sdraw:addImage( "flare", tools:loadImage(fs:getRootPath("tests/data/flare.bmp")), gl.ALPHA );
 		
 		local SimpleSystem = require "spark.SimpleSystem"
 		sdraw:setBaseSystemCreator( SimpleSystem.createInstance() );
 		sdraw:addParticleSystem();
 	elseif options.system == "smoke" then		
-		sdraw:addImage( "smoke", tools:getImage("tests/data/smoke.png"), gl.RGBA );
+		sdraw:addImage( "smoke", tools:loadImage(fs:getRootPath("tests/data/smoke.png")), gl.RGBA );
 		
 		local System = require "spark.SmokeSystem"
 		sdraw:setBaseSystemCreator( System.createInstance() );
 		sdraw:addParticleSystem();
 		tracking = true
 	elseif options.system == "fire" then		
-		sdraw:addImage( "fire", tools:getImage("tests/data/fire2.bmp"), gl.RGBA );
-		sdraw:addImage( "explosion", tools:getImage("tests/data/explosion.bmp"), gl.ALPHA );
+		sdraw:addImage( "fire", tools:loadImage(fs:getRootPath("tests/data/fire2.bmp")), gl.RGBA );
+		sdraw:addImage( "explosion", tools:loadImage(fs:getRootPath("tests/data/explosion.bmp")), gl.ALPHA );
 		
 		local System = require "spark.FireSystem"
 		sdraw:setBaseSystemCreator( System.createInstance() );
 		sdraw:addParticleSystem();
 	elseif options.system == "rain" then		
-		sdraw:addImage( "waterdrops", tools:getImage("tests/data/waterdrops.bmp"), gl.ALPHA);
+		sdraw:addImage( "waterdrops", tools:loadImage(fs:getRootPath("tests/data/waterdrops.bmp")), gl.ALPHA);
 		
 		local System = require "spark.RainSystem"
 		sdraw:setBaseSystemCreator( System.createInstance(), true );
 	elseif options.system == "explosion" then		
-		sdraw:addImage( "explosion", tools:getImage("tests/data/explosion.bmp"), gl.ALPHA );
-		sdraw:addImage( "flash", tools:getImage("tests/data/flash.bmp"), gl.RGB );
-		sdraw:addImage( "spark1", tools:getImage("tests/data/spark1.bmp"), gl.RGB );
-		sdraw:addImage( "spark2", tools:getImage("tests/data/point.bmp"), gl.ALPHA );
-		sdraw:addImage( "wave", tools:getImage("tests/data/wave.bmp"), gl.RGBA );
+		sdraw:addImage( "explosion", tools:loadImage(fs:getRootPath("tests/data/explosion.bmp")), gl.ALPHA );
+		sdraw:addImage( "flash", tools:loadImage(fs:getRootPath("tests/data/flash.bmp")), gl.RGB );
+		sdraw:addImage( "spark1", tools:loadImage(fs:getRootPath("tests/data/spark1.bmp")), gl.RGB );
+		sdraw:addImage( "spark2", tools:loadImage(fs:getRootPath("tests/data/point.bmp")), gl.ALPHA );
+		sdraw:addImage( "wave", tools:loadImage(fs:getRootPath("tests/data/wave.bmp")), gl.RGBA );
 		
 		local System = require "spark.ExplosionSystem"
 		sdraw:setBaseSystemCreator( System.createInstance() );

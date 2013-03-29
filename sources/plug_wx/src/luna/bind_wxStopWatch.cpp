@@ -201,7 +201,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long milliseconds=luatop>1 ? (long)lua_tointeger(L,2) : 0;
+		long milliseconds=luatop>1 ? (long)lua_tointeger(L,2) : (long)0;
 
 		wxStopWatch* self=(Luna< wxStopWatch >::check(L,1));
 		if(!self) {

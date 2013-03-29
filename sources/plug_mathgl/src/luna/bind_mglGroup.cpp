@@ -162,8 +162,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * lbl=luatop>0 ? (const char *)lua_tostring(L,1) : "";
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		const char * lbl=luatop>0 ? (const char *)lua_tostring(L,1) : (const char*)"";
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		return new mglGroup(lbl, id);
 	}

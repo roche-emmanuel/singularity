@@ -180,8 +180,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int x=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int y=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int x=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int y=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		return new wrapper_wxSetCursorEvent(L,NULL, x, y);
 	}

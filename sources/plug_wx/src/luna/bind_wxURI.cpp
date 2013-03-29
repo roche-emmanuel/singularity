@@ -779,7 +779,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg base in wxURI::Resolve function");
 		}
 		const wxURI & base=*base_ptr;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxURI_STRICT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxURI_STRICT;
 
 		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {

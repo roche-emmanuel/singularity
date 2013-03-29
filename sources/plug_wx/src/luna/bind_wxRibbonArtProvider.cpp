@@ -375,10 +375,10 @@ public:
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,56813631) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-		if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+		if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+		if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
+		if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
+		if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 		return true;
 	}
 
@@ -474,7 +474,7 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,20268751)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -1256,17 +1256,17 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxRibbonArtProvider::GetBarTabWidth function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
-		int ideal=(int)lua_tointeger(L,6);
-		int small_begin_need_separator=(int)lua_tointeger(L,7);
-		int small_must_have_separator=(int)lua_tointeger(L,8);
-		int minimum=(int)lua_tointeger(L,9);
+		int* ideal=(int*)Luna< void >::check(L,6);
+		int* small_begin_need_separator=(int*)Luna< void >::check(L,7);
+		int* small_must_have_separator=(int*)Luna< void >::check(L,8);
+		int* minimum=(int*)Luna< void >::check(L,9);
 
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxRibbonArtProvider::GetBarTabWidth(wxDC &, wxWindow *, const wxString &, const wxBitmap &, int *, int *, int *, int *). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
-		self->GetBarTabWidth(dc, wnd, label, bitmap, &ideal, &small_begin_need_separator, &small_must_have_separator, &minimum);
+		self->GetBarTabWidth(dc, wnd, label, bitmap, ideal, small_begin_need_separator, small_must_have_separator, minimum);
 
 		return 0;
 	}
@@ -1561,14 +1561,14 @@ public:
 		wxDC & dc=*dc_ptr;
 		const wxRibbonPanel* wnd=(Luna< wxObject >::checkSubType< wxRibbonPanel >(L,3));
 		wxSize* desired_bitmap_size=(Luna< wxSize >::check(L,4));
-		wxDirection expanded_panel_direction=(wxDirection)lua_tointeger(L,5);
+		wxDirection* expanded_panel_direction=(wxDirection*)Luna< void >::check(L,5);
 
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxRibbonArtProvider::GetMinimisedPanelMinimumSize(wxDC &, const wxRibbonPanel *, wxSize *, wxDirection *). Got : '%s'",typeid(Luna< wxRibbonArtProvider >::check(L,1)).name());
 		}
-		wxSize stack_lret = self->GetMinimisedPanelMinimumSize(dc, wnd, desired_bitmap_size, &expanded_panel_direction);
+		wxSize stack_lret = self->GetMinimisedPanelMinimumSize(dc, wnd, desired_bitmap_size, expanded_panel_direction);
 		wxSize* lret = new wxSize(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 

@@ -572,7 +572,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxObject* parent=(Luna< wxObject >::check(L,2));
-		bool this_hnd_only=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool this_hnd_only=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
@@ -672,7 +672,7 @@ public:
 		if( luatop>3 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxXmlResourceHandler::public_GetBitmap function");
 		}
-		wxSize size=luatop>3 ? *size_ptr : wxDefaultSize;
+		wxSize size=luatop>3 ? *size_ptr : (wxSize)wxDefaultSize;
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
@@ -698,7 +698,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString param(lua_tostring(L,2),lua_objlen(L,2));
-		bool defaultv=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool defaultv=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
@@ -725,7 +725,7 @@ public:
 		if( luatop>2 && !defaultColour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg defaultColour in wxXmlResourceHandler::public_GetColour function");
 		}
-		const wxColour & defaultColour=luatop>2 ? *defaultColour_ptr : wxNullColour;
+		const wxColour & defaultColour=luatop>2 ? *defaultColour_ptr : (const wxColour&)wxNullColour;
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
@@ -772,7 +772,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString param(lua_tostring(L,2),lua_objlen(L,2));
-		int defaultv=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int defaultv=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 		wxWindow* windowToUse=luatop>3 ? (Luna< wxObject >::checkSubType< wxWindow >(L,4)) : (wxWindow*)0;
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
@@ -796,7 +796,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString param(lua_tostring(L,2),lua_objlen(L,2));
-		wxDirection dir=luatop>2 ? (wxDirection)lua_tointeger(L,3) : ::wxLEFT;
+		wxDirection dir=luatop>2 ? (wxDirection)lua_tointeger(L,3) : (wxDirection)::wxLEFT;
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
@@ -868,7 +868,7 @@ public:
 		if( luatop>3 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxXmlResourceHandler::public_GetIcon function");
 		}
-		wxSize size=luatop>3 ? *size_ptr : wxDefaultSize;
+		wxSize size=luatop>3 ? *size_ptr : (wxSize)wxDefaultSize;
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
@@ -944,7 +944,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString param(lua_tostring(L,2),lua_objlen(L,2));
-		long defaultv=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long defaultv=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
@@ -1099,7 +1099,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString param(lua_tostring(L,2),lua_objlen(L,2));
-		int defaults=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int defaults=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
@@ -1122,7 +1122,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString param(lua_tostring(L,2),lua_objlen(L,2));
-		bool translate=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool translate=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {

@@ -171,7 +171,7 @@ public:
 		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,20234418)) ) return false;
 		if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,20234418)) ) return false;
-		if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+		if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 		return true;
 	}
 
@@ -199,7 +199,7 @@ public:
 		if( !Luna<void>::has_uniqueid(L,5,56813631) ) return false;
 		if( lua_isboolean(L,6)==0 ) return false;
 		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
 		return true;
 	}
 
@@ -389,14 +389,14 @@ public:
 		int close_button_state=(int)lua_tointeger(L,6);
 		wxRect* out_tab_rect=(Luna< wxRect >::check(L,7));
 		wxRect* out_button_rect=(Luna< wxRect >::check(L,8));
-		int x_extent=(int)lua_tointeger(L,9);
+		int* x_extent=(int*)Luna< void >::check(L,9);
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiTabArt::DrawTab(wxDC &, wxWindow *, const wxAuiNotebookPage &, const wxRect &, int, wxRect *, wxRect *, int *). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
-		self->DrawTab(dc, wnd, page, rect, close_button_state, out_tab_rect, out_button_rect, &x_extent);
+		self->DrawTab(dc, wnd, page, rect, close_button_state, out_tab_rect, out_button_rect, x_extent);
 
 		return 0;
 	}
@@ -471,14 +471,14 @@ public:
 		const wxBitmap & bitmap=*bitmap_ptr;
 		bool active=(bool)(lua_toboolean(L,6)==1);
 		int close_button_state=(int)lua_tointeger(L,7);
-		int x_extent=(int)lua_tointeger(L,8);
+		int* x_extent=(int*)Luna< void >::check(L,8);
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxAuiTabArt::GetTabSize(wxDC &, wxWindow *, const wxString &, const wxBitmap &, bool, int, int *). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
 		}
-		wxSize stack_lret = self->GetTabSize(dc, wnd, caption, bitmap, active, close_button_state, &x_extent);
+		wxSize stack_lret = self->GetTabSize(dc, wnd, caption, bitmap, active, close_button_state, x_extent);
 		wxSize* lret = new wxSize(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 

@@ -130,7 +130,7 @@ public:
 	inline static bool _lg_typecheck_Read16_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -144,7 +144,7 @@ public:
 	inline static bool _lg_typecheck_Read32_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -158,7 +158,7 @@ public:
 	inline static bool _lg_typecheck_ReadDouble_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -269,7 +269,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDataInputStream::Read16(unsigned short * buffer, size_t size) function, expected prototype:\nvoid wxDataInputStream::Read16(unsigned short * buffer, size_t size)\nClass arguments details:\n");
 		}
 
-		unsigned short buffer=(unsigned short)lua_tointeger(L,2);
+		unsigned short* buffer=(unsigned short*)Luna< void >::check(L,2);
 		size_t size=(size_t)lua_tointeger(L,3);
 
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
@@ -277,7 +277,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataInputStream::Read16(unsigned short *, size_t). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
 		}
-		self->Read16(&buffer, size);
+		self->Read16(buffer, size);
 
 		return 0;
 	}
@@ -317,7 +317,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDataInputStream::Read32(unsigned int * buffer, size_t size) function, expected prototype:\nvoid wxDataInputStream::Read32(unsigned int * buffer, size_t size)\nClass arguments details:\n");
 		}
 
-		unsigned int buffer=(unsigned int)lua_tointeger(L,2);
+		unsigned int* buffer=(unsigned int*)Luna< void >::check(L,2);
 		size_t size=(size_t)lua_tointeger(L,3);
 
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
@@ -325,7 +325,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataInputStream::Read32(unsigned int *, size_t). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
 		}
-		self->Read32(&buffer, size);
+		self->Read32(buffer, size);
 
 		return 0;
 	}
@@ -365,7 +365,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDataInputStream::ReadDouble(double * buffer, size_t size) function, expected prototype:\nvoid wxDataInputStream::ReadDouble(double * buffer, size_t size)\nClass arguments details:\n");
 		}
 
-		double buffer=(double)lua_tonumber(L,2);
+		double* buffer=(double*)Luna< void >::check(L,2);
 		size_t size=(size_t)lua_tointeger(L,3);
 
 		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
@@ -373,7 +373,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataInputStream::ReadDouble(double *, size_t). Got : '%s'",typeid(Luna< wxDataInputStream >::check(L,1)).name());
 		}
-		self->ReadDouble(&buffer, size);
+		self->ReadDouble(buffer, size);
 
 		return 0;
 	}

@@ -215,6 +215,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_asArray_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_asArray_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getDataPointer(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -297,6 +309,30 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_asPrimitiveSet_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asPrimitiveSet_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asImage_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asImage_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_releaseGLObjects(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
@@ -319,6 +355,18 @@ public:
 	}
 
 	inline static bool _lg_typecheck_base_className(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asArray_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asArray_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -626,6 +674,57 @@ public:
 		return 1;
 	}
 
+	// osg::Array * osg::Array::asArray()
+	static int _bind_asArray_overload_1(lua_State *L) {
+		if (!_lg_typecheck_asArray_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Array * osg::Array::asArray() function, expected prototype:\nosg::Array * osg::Array::asArray()\nClass arguments details:\n");
+		}
+
+
+		osg::Array* self=Luna< osg::Referenced >::checkSubType< osg::Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Array * osg::Array::asArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Array * lret = self->asArray();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Array >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Array * osg::Array::asArray() const
+	static int _bind_asArray_overload_2(lua_State *L) {
+		if (!_lg_typecheck_asArray_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Array * osg::Array::asArray() const function, expected prototype:\nconst osg::Array * osg::Array::asArray() const\nClass arguments details:\n");
+		}
+
+
+		osg::Array* self=Luna< osg::Referenced >::checkSubType< osg::Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Array * osg::Array::asArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Array * lret = self->asArray();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Array >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Array::asArray
+	static int _bind_asArray(lua_State *L) {
+		if (_lg_typecheck_asArray_overload_1(L)) return _bind_asArray_overload_1(L);
+		if (_lg_typecheck_asArray_overload_2(L)) return _bind_asArray_overload_2(L);
+
+		luaL_error(L, "error in function asArray, cannot match any of the overloads for function asArray:\n  asArray()\n  asArray()\n");
+		return 0;
+	}
+
 	// const void * osg::Array::getDataPointer() const
 	static int _bind_getDataPointer(lua_State *L) {
 		if (!_lg_typecheck_getDataPointer(L)) {
@@ -899,6 +998,108 @@ public:
 		return 0;
 	}
 
+	// osg::PrimitiveSet * osg::Array::base_asPrimitiveSet()
+	static int _bind_base_asPrimitiveSet_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asPrimitiveSet_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::PrimitiveSet * osg::Array::base_asPrimitiveSet() function, expected prototype:\nosg::PrimitiveSet * osg::Array::base_asPrimitiveSet()\nClass arguments details:\n");
+		}
+
+
+		osg::Array* self=Luna< osg::Referenced >::checkSubType< osg::Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::PrimitiveSet * osg::Array::base_asPrimitiveSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::PrimitiveSet * lret = self->Array::asPrimitiveSet();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::PrimitiveSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::PrimitiveSet * osg::Array::base_asPrimitiveSet() const
+	static int _bind_base_asPrimitiveSet_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asPrimitiveSet_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::PrimitiveSet * osg::Array::base_asPrimitiveSet() const function, expected prototype:\nconst osg::PrimitiveSet * osg::Array::base_asPrimitiveSet() const\nClass arguments details:\n");
+		}
+
+
+		osg::Array* self=Luna< osg::Referenced >::checkSubType< osg::Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::PrimitiveSet * osg::Array::base_asPrimitiveSet() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::PrimitiveSet * lret = self->Array::asPrimitiveSet();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::PrimitiveSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Array::base_asPrimitiveSet
+	static int _bind_base_asPrimitiveSet(lua_State *L) {
+		if (_lg_typecheck_base_asPrimitiveSet_overload_1(L)) return _bind_base_asPrimitiveSet_overload_1(L);
+		if (_lg_typecheck_base_asPrimitiveSet_overload_2(L)) return _bind_base_asPrimitiveSet_overload_2(L);
+
+		luaL_error(L, "error in function base_asPrimitiveSet, cannot match any of the overloads for function base_asPrimitiveSet:\n  base_asPrimitiveSet()\n  base_asPrimitiveSet()\n");
+		return 0;
+	}
+
+	// osg::Image * osg::Array::base_asImage()
+	static int _bind_base_asImage_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asImage_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Image * osg::Array::base_asImage() function, expected prototype:\nosg::Image * osg::Array::base_asImage()\nClass arguments details:\n");
+		}
+
+
+		osg::Array* self=Luna< osg::Referenced >::checkSubType< osg::Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Image * osg::Array::base_asImage(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Image * lret = self->Array::asImage();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Image >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Image * osg::Array::base_asImage() const
+	static int _bind_base_asImage_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asImage_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Image * osg::Array::base_asImage() const function, expected prototype:\nconst osg::Image * osg::Array::base_asImage() const\nClass arguments details:\n");
+		}
+
+
+		osg::Array* self=Luna< osg::Referenced >::checkSubType< osg::Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Image * osg::Array::base_asImage() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Image * lret = self->Array::asImage();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Image >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Array::base_asImage
+	static int _bind_base_asImage(lua_State *L) {
+		if (_lg_typecheck_base_asImage_overload_1(L)) return _bind_base_asImage_overload_1(L);
+		if (_lg_typecheck_base_asImage_overload_2(L)) return _bind_base_asImage_overload_2(L);
+
+		luaL_error(L, "error in function base_asImage, cannot match any of the overloads for function base_asImage:\n  base_asImage()\n  base_asImage()\n");
+		return 0;
+	}
+
 	// void osg::Array::base_releaseGLObjects(osg::State * state = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
@@ -978,6 +1179,57 @@ public:
 		return 1;
 	}
 
+	// osg::Array * osg::Array::base_asArray()
+	static int _bind_base_asArray_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asArray_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Array * osg::Array::base_asArray() function, expected prototype:\nosg::Array * osg::Array::base_asArray()\nClass arguments details:\n");
+		}
+
+
+		osg::Array* self=Luna< osg::Referenced >::checkSubType< osg::Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Array * osg::Array::base_asArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Array * lret = self->Array::asArray();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Array >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Array * osg::Array::base_asArray() const
+	static int _bind_base_asArray_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asArray_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Array * osg::Array::base_asArray() const function, expected prototype:\nconst osg::Array * osg::Array::base_asArray() const\nClass arguments details:\n");
+		}
+
+
+		osg::Array* self=Luna< osg::Referenced >::checkSubType< osg::Array >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Array * osg::Array::base_asArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Array * lret = self->Array::asArray();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Array >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Array::base_asArray
+	static int _bind_base_asArray(lua_State *L) {
+		if (_lg_typecheck_base_asArray_overload_1(L)) return _bind_base_asArray_overload_1(L);
+		if (_lg_typecheck_base_asArray_overload_2(L)) return _bind_base_asArray_overload_2(L);
+
+		luaL_error(L, "error in function base_asArray, cannot match any of the overloads for function base_asArray:\n  base_asArray()\n  base_asArray()\n");
+		return 0;
+	}
+
 	// void osg::Array::base_trim()
 	static int _bind_base_trim(lua_State *L) {
 		if (!_lg_typecheck_base_trim(L)) {
@@ -1039,6 +1291,7 @@ luna_RegType LunaTraits< osg::Array >::methods[] = {
 	{"getType", &luna_wrapper_osg_Array::_bind_getType},
 	{"getDataSize", &luna_wrapper_osg_Array::_bind_getDataSize},
 	{"getDataType", &luna_wrapper_osg_Array::_bind_getDataType},
+	{"asArray", &luna_wrapper_osg_Array::_bind_asArray},
 	{"getDataPointer", &luna_wrapper_osg_Array::_bind_getDataPointer},
 	{"getTotalDataSize", &luna_wrapper_osg_Array::_bind_getTotalDataSize},
 	{"getNumElements", &luna_wrapper_osg_Array::_bind_getNumElements},
@@ -1050,10 +1303,13 @@ luna_RegType LunaTraits< osg::Array >::methods[] = {
 	{"base_computeDataVariance", &luna_wrapper_osg_Array::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_Array::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osg_Array::_bind_base_getUserData},
+	{"base_asPrimitiveSet", &luna_wrapper_osg_Array::_bind_base_asPrimitiveSet},
+	{"base_asImage", &luna_wrapper_osg_Array::_bind_base_asImage},
 	{"base_releaseGLObjects", &luna_wrapper_osg_Array::_bind_base_releaseGLObjects},
 	{"base_isSameKindAs", &luna_wrapper_osg_Array::_bind_base_isSameKindAs},
 	{"base_libraryName", &luna_wrapper_osg_Array::_bind_base_libraryName},
 	{"base_className", &luna_wrapper_osg_Array::_bind_base_className},
+	{"base_asArray", &luna_wrapper_osg_Array::_bind_base_asArray},
 	{"base_trim", &luna_wrapper_osg_Array::_bind_base_trim},
 	{"__eq", &luna_wrapper_osg_Array::_bind___eq},
 	{"fromVoid", &luna_wrapper_osg_Array::_bind_fromVoid},

@@ -99,6 +99,46 @@ public:
 		return Vec3Array::getUserData();
 	};
 
+	// osg::PrimitiveSet * osg::BufferData::asPrimitiveSet()
+	osg::PrimitiveSet * asPrimitiveSet() {
+		if(_obj.pushFunction("asPrimitiveSet")) {
+			_obj.pushArg((osg::Vec3Array*)this);
+			return (_obj.callFunction<osg::PrimitiveSet*>());
+		}
+
+		return Vec3Array::asPrimitiveSet();
+	};
+
+	// const osg::PrimitiveSet * osg::BufferData::asPrimitiveSet() const
+	const osg::PrimitiveSet * asPrimitiveSet() const {
+		if(_obj.pushFunction("asPrimitiveSet")) {
+			_obj.pushArg((osg::Vec3Array*)this);
+			return (_obj.callFunction<osg::PrimitiveSet*>());
+		}
+
+		return Vec3Array::asPrimitiveSet();
+	};
+
+	// osg::Image * osg::BufferData::asImage()
+	osg::Image * asImage() {
+		if(_obj.pushFunction("asImage")) {
+			_obj.pushArg((osg::Vec3Array*)this);
+			return (_obj.callFunction<osg::Image*>());
+		}
+
+		return Vec3Array::asImage();
+	};
+
+	// const osg::Image * osg::BufferData::asImage() const
+	const osg::Image * asImage() const {
+		if(_obj.pushFunction("asImage")) {
+			_obj.pushArg((osg::Vec3Array*)this);
+			return (_obj.callFunction<osg::Image*>());
+		}
+
+		return Vec3Array::asImage();
+	};
+
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {
@@ -139,6 +179,26 @@ public:
 		}
 
 		return Vec3Array::className();
+	};
+
+	// osg::Array * osg::Array::asArray()
+	osg::Array * asArray() {
+		if(_obj.pushFunction("asArray")) {
+			_obj.pushArg((osg::Vec3Array*)this);
+			return (_obj.callFunction<osg::Array*>());
+		}
+
+		return Vec3Array::asArray();
+	};
+
+	// const osg::Array * osg::Array::asArray() const
+	const osg::Array * asArray() const {
+		if(_obj.pushFunction("asArray")) {
+			_obj.pushArg((osg::Vec3Array*)this);
+			return (_obj.callFunction<osg::Array*>());
+		}
+
+		return Vec3Array::asArray();
 	};
 
 	// void osg::Array::trim()

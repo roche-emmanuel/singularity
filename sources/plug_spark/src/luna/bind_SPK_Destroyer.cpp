@@ -204,7 +204,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Zone* zone=luatop>1 ? (Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,2)) : (SPK::Zone*)NULL;
-		SPK::ModifierTrigger trigger=luatop>2 ? (SPK::ModifierTrigger)lua_tointeger(L,3) : SPK::INSIDE_ZONE;
+		SPK::ModifierTrigger trigger=luatop>2 ? (SPK::ModifierTrigger)lua_tointeger(L,3) : (SPK::ModifierTrigger)SPK::INSIDE_ZONE;
 
 		return new wrapper_SPK_Destroyer(L,NULL, zone, trigger);
 	}
@@ -240,7 +240,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Zone* zone=luatop>0 ? (Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1)) : (SPK::Zone*)NULL;
-		SPK::ModifierTrigger trigger=luatop>1 ? (SPK::ModifierTrigger)lua_tointeger(L,2) : SPK::INSIDE_ZONE;
+		SPK::ModifierTrigger trigger=luatop>1 ? (SPK::ModifierTrigger)lua_tointeger(L,2) : (SPK::ModifierTrigger)SPK::INSIDE_ZONE;
 
 		SPK::Destroyer * lret = SPK::Destroyer::create(zone, trigger);
 		if(!lret) return 0; // Do not write NULL pointers.

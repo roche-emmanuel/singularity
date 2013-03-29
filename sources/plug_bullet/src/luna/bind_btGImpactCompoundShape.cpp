@@ -488,7 +488,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool children_has_transform=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
+		bool children_has_transform=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)true;
 
 		return new btGImpactCompoundShape(children_has_transform);
 	}
@@ -502,7 +502,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool children_has_transform=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool children_has_transform=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		return new wrapper_btGImpactCompoundShape(L,NULL, children_has_transform);
 	}

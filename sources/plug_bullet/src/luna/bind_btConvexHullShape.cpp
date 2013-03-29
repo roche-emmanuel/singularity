@@ -115,7 +115,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>3 ) return false;
 
-		if( luatop>0 && lua_isnumber(L,1)==0 ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
@@ -126,7 +126,7 @@ public:
 		if( luatop<1 || luatop>4 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
@@ -492,11 +492,11 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float points=luatop>0 ? (float)lua_tonumber(L,1) : 0;
-		int numPoints=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int stride=luatop>2 ? (int)lua_tointeger(L,3) : sizeof( btVector3 );
+		const float* points=luatop>0 ? (const float*)Luna< void >::check(L,1) : (const float*)0;
+		int numPoints=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int stride=luatop>2 ? (int)lua_tointeger(L,3) : (int)sizeof( btVector3 );
 
-		return new btConvexHullShape(&points, numPoints, stride);
+		return new btConvexHullShape(points, numPoints, stride);
 	}
 
 	// btConvexHullShape::btConvexHullShape(lua_Table * data, const float * points = 0, int numPoints = 0, int stride = sizeof( btVector3 ))
@@ -508,11 +508,11 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float points=luatop>1 ? (float)lua_tonumber(L,2) : 0;
-		int numPoints=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int stride=luatop>3 ? (int)lua_tointeger(L,4) : sizeof( btVector3 );
+		const float* points=luatop>1 ? (const float*)Luna< void >::check(L,2) : (const float*)0;
+		int numPoints=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int stride=luatop>3 ? (int)lua_tointeger(L,4) : (int)sizeof( btVector3 );
 
-		return new wrapper_btConvexHullShape(L,NULL, &points, numPoints, stride);
+		return new wrapper_btConvexHullShape(L,NULL, points, numPoints, stride);
 	}
 
 	// Overload binder for btConvexHullShape::btConvexHullShape
@@ -1232,7 +1232,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int shiftVerticesByMargin=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int shiftVerticesByMargin=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		btConvexHullShape* self=Luna< btCollisionShape >::checkSubType< btConvexHullShape >(L,1);
 		if(!self) {

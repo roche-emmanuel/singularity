@@ -1,8 +1,6 @@
 #include <plug_common.h>
 
-#include <mgl2/base.h>
 #include <mgl2/config.h>
-#include <mgl2/datac.h>
 #include <mgl2/define.h>
 #include <mgl2/eval.h>
 #include <mgl2/font.h>

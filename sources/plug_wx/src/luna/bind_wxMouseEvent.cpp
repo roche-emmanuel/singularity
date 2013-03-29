@@ -354,7 +354,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int mouseEventType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
+		int mouseEventType=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
 
 		return new wrapper_wxMouseEvent(L,NULL, mouseEventType);
 	}
@@ -504,7 +504,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxMouseButton but=luatop>1 ? (wxMouseButton)lua_tointeger(L,2) : ::wxMOUSE_BTN_ANY;
+		wxMouseButton but=luatop>1 ? (wxMouseButton)lua_tointeger(L,2) : (wxMouseButton)::wxMOUSE_BTN_ANY;
 
 		wxMouseEvent* self=Luna< wxObject >::checkSubType< wxMouseEvent >(L,1);
 		if(!self) {
@@ -526,7 +526,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxMouseButton but=luatop>1 ? (wxMouseButton)lua_tointeger(L,2) : ::wxMOUSE_BTN_ANY;
+		wxMouseButton but=luatop>1 ? (wxMouseButton)lua_tointeger(L,2) : (wxMouseButton)::wxMOUSE_BTN_ANY;
 
 		wxMouseEvent* self=Luna< wxObject >::checkSubType< wxMouseEvent >(L,1);
 		if(!self) {
@@ -548,7 +548,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxMouseButton but=luatop>1 ? (wxMouseButton)lua_tointeger(L,2) : ::wxMOUSE_BTN_ANY;
+		wxMouseButton but=luatop>1 ? (wxMouseButton)lua_tointeger(L,2) : (wxMouseButton)::wxMOUSE_BTN_ANY;
 
 		wxMouseEvent* self=Luna< wxObject >::checkSubType< wxMouseEvent >(L,1);
 		if(!self) {

@@ -666,7 +666,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int index=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int index=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {

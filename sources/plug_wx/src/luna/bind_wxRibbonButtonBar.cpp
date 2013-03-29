@@ -1115,18 +1115,18 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_ANY;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxRibbonButtonBar::wxRibbonButtonBar function");
 		}
-		const wxPoint & pos=luatop>2 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>2 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxRibbonButtonBar::wxRibbonButtonBar function");
 		}
-		const wxSize & size=luatop>3 ? *size_ptr : wxDefaultSize;
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : 0;
+		const wxSize & size=luatop>3 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>4 ? (long)lua_tointeger(L,5) : (long)0;
 
 		return new wxRibbonButtonBar(parent, id, pos, size, style);
 	}
@@ -1152,18 +1152,18 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxRibbonButtonBar::wxRibbonButtonBar function");
 		}
-		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
 		if( luatop>4 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxRibbonButtonBar::wxRibbonButtonBar function");
 		}
-		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : 0;
+		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)0;
 
 		return new wrapper_wxRibbonButtonBar(L,NULL, parent, id, pos, size, style);
 	}
@@ -1191,18 +1191,18 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxRibbonButtonBar::Create function");
 		}
-		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
 		if( luatop>4 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxRibbonButtonBar::Create function");
 		}
-		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : 0;
+		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)0;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -1232,7 +1232,7 @@ public:
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
 		wxString help_string(lua_tostring(L,5),lua_objlen(L,5));
-		wxRibbonButtonKind kind=luatop>5 ? (wxRibbonButtonKind)lua_tointeger(L,6) : ::wxRIBBON_BUTTON_NORMAL;
+		wxRibbonButtonKind kind=luatop>5 ? (wxRibbonButtonKind)lua_tointeger(L,6) : (wxRibbonButtonKind)::wxRIBBON_BUTTON_NORMAL;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -1267,18 +1267,18 @@ public:
 		if( luatop>4 && !bitmap_small_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap_small in wxRibbonButtonBar::AddButton function");
 		}
-		const wxBitmap & bitmap_small=luatop>4 ? *bitmap_small_ptr : wxNullBitmap;
+		const wxBitmap & bitmap_small=luatop>4 ? *bitmap_small_ptr : (const wxBitmap&)wxNullBitmap;
 		const wxBitmap* bitmap_disabled_ptr=luatop>5 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,6)) : NULL;
 		if( luatop>5 && !bitmap_disabled_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap_disabled in wxRibbonButtonBar::AddButton function");
 		}
-		const wxBitmap & bitmap_disabled=luatop>5 ? *bitmap_disabled_ptr : wxNullBitmap;
+		const wxBitmap & bitmap_disabled=luatop>5 ? *bitmap_disabled_ptr : (const wxBitmap&)wxNullBitmap;
 		const wxBitmap* bitmap_small_disabled_ptr=luatop>6 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,7)) : NULL;
 		if( luatop>6 && !bitmap_small_disabled_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap_small_disabled in wxRibbonButtonBar::AddButton function");
 		}
-		const wxBitmap & bitmap_small_disabled=luatop>6 ? *bitmap_small_disabled_ptr : wxNullBitmap;
-		wxRibbonButtonKind kind=luatop>7 ? (wxRibbonButtonKind)lua_tointeger(L,8) : ::wxRIBBON_BUTTON_NORMAL;
+		const wxBitmap & bitmap_small_disabled=luatop>6 ? *bitmap_small_disabled_ptr : (const wxBitmap&)wxNullBitmap;
+		wxRibbonButtonKind kind=luatop>7 ? (wxRibbonButtonKind)lua_tointeger(L,8) : (wxRibbonButtonKind)::wxRIBBON_BUTTON_NORMAL;
 		wxString help_string(lua_tostring(L,9),lua_objlen(L,9));
 		wxObject* client_data=luatop>9 ? (Luna< wxObject >::check(L,10)) : (wxObject*)NULL;
 
@@ -1464,7 +1464,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int button_id=(int)lua_tointeger(L,2);
-		bool enable=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool enable=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -1715,8 +1715,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
-		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
+		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -1882,7 +1882,7 @@ public:
 
 		int orientation=(int)lua_tointeger(L,2);
 		int pos=(int)lua_tointeger(L,3);
-		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -1907,7 +1907,7 @@ public:
 		int position=(int)lua_tointeger(L,3);
 		int thumbSize=(int)lua_tointeger(L,4);
 		int range=(int)lua_tointeger(L,5);
-		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -2194,7 +2194,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -2316,12 +2316,12 @@ public:
 		if( luatop>2 && !maxSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg maxSize in wxRibbonButtonBar::base_SetSizeHints function");
 		}
-		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : wxDefaultSize;
+		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : (const wxSize&)wxDefaultSize;
 		const wxSize* incSize_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !incSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg incSize in wxRibbonButtonBar::base_SetSizeHints function");
 		}
-		const wxSize & incSize=luatop>3 ? *incSize_ptr : wxDefaultSize;
+		const wxSize & incSize=luatop>3 ? *incSize_ptr : (const wxSize&)wxDefaultSize;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -2344,10 +2344,10 @@ public:
 
 		int minW=(int)lua_tointeger(L,2);
 		int minH=(int)lua_tointeger(L,3);
-		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int incW=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		int incH=luatop>6 ? (int)lua_tointeger(L,7) : -1;
+		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int incW=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+		int incH=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -2496,7 +2496,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 		const wxRect* rect=luatop>2 ? (Luna< wxRect >::check(L,3)) : (const wxRect*)NULL;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
@@ -2808,7 +2808,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -2868,7 +2868,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -2890,7 +2890,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -2913,7 +2913,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -3436,7 +3436,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -3517,7 +3517,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -3645,7 +3645,7 @@ public:
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
 		wxString help_string(lua_tostring(L,5),lua_objlen(L,5));
-		wxRibbonButtonKind kind=luatop>5 ? (wxRibbonButtonKind)lua_tointeger(L,6) : ::wxRIBBON_BUTTON_NORMAL;
+		wxRibbonButtonKind kind=luatop>5 ? (wxRibbonButtonKind)lua_tointeger(L,6) : (wxRibbonButtonKind)::wxRIBBON_BUTTON_NORMAL;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {
@@ -3680,18 +3680,18 @@ public:
 		if( luatop>4 && !bitmap_small_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap_small in wxRibbonButtonBar::base_AddButton function");
 		}
-		const wxBitmap & bitmap_small=luatop>4 ? *bitmap_small_ptr : wxNullBitmap;
+		const wxBitmap & bitmap_small=luatop>4 ? *bitmap_small_ptr : (const wxBitmap&)wxNullBitmap;
 		const wxBitmap* bitmap_disabled_ptr=luatop>5 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,6)) : NULL;
 		if( luatop>5 && !bitmap_disabled_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap_disabled in wxRibbonButtonBar::base_AddButton function");
 		}
-		const wxBitmap & bitmap_disabled=luatop>5 ? *bitmap_disabled_ptr : wxNullBitmap;
+		const wxBitmap & bitmap_disabled=luatop>5 ? *bitmap_disabled_ptr : (const wxBitmap&)wxNullBitmap;
 		const wxBitmap* bitmap_small_disabled_ptr=luatop>6 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,7)) : NULL;
 		if( luatop>6 && !bitmap_small_disabled_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap_small_disabled in wxRibbonButtonBar::base_AddButton function");
 		}
-		const wxBitmap & bitmap_small_disabled=luatop>6 ? *bitmap_small_disabled_ptr : wxNullBitmap;
-		wxRibbonButtonKind kind=luatop>7 ? (wxRibbonButtonKind)lua_tointeger(L,8) : ::wxRIBBON_BUTTON_NORMAL;
+		const wxBitmap & bitmap_small_disabled=luatop>6 ? *bitmap_small_disabled_ptr : (const wxBitmap&)wxNullBitmap;
+		wxRibbonButtonKind kind=luatop>7 ? (wxRibbonButtonKind)lua_tointeger(L,8) : (wxRibbonButtonKind)::wxRIBBON_BUTTON_NORMAL;
 		wxString help_string(lua_tostring(L,9),lua_objlen(L,9));
 		wxObject* client_data=luatop>9 ? (Luna< wxObject >::check(L,10)) : (wxObject*)NULL;
 
@@ -3877,7 +3877,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int button_id=(int)lua_tointeger(L,2);
-		bool enable=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool enable=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxRibbonButtonBar* self=Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,1);
 		if(!self) {

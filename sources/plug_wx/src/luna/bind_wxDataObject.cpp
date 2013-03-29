@@ -228,7 +228,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDataFormat* formats=(Luna< wxDataFormat >::check(L,2));
-		wxDataObject::Direction dir=luatop>2 ? (wxDataObject::Direction)lua_tointeger(L,3) : wxDataObject::Get;
+		wxDataObject::Direction dir=luatop>2 ? (wxDataObject::Direction)lua_tointeger(L,3) : (wxDataObject::Direction)wxDataObject::Get;
 
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
 		if(!self) {
@@ -298,7 +298,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDataObject::Direction dir=luatop>1 ? (wxDataObject::Direction)lua_tointeger(L,2) : wxDataObject::Get;
+		wxDataObject::Direction dir=luatop>1 ? (wxDataObject::Direction)lua_tointeger(L,2) : (wxDataObject::Direction)wxDataObject::Get;
 
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
 		if(!self) {
@@ -320,7 +320,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDataObject::Direction dir=luatop>1 ? (wxDataObject::Direction)lua_tointeger(L,2) : wxDataObject::Get;
+		wxDataObject::Direction dir=luatop>1 ? (wxDataObject::Direction)lua_tointeger(L,2) : (wxDataObject::Direction)wxDataObject::Get;
 
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
 		if(!self) {
@@ -376,7 +376,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg format in wxDataObject::IsSupported function");
 		}
 		const wxDataFormat & format=*format_ptr;
-		wxDataObject::Direction dir=luatop>2 ? (wxDataObject::Direction)lua_tointeger(L,3) : wxDataObject::Get;
+		wxDataObject::Direction dir=luatop>2 ? (wxDataObject::Direction)lua_tointeger(L,3) : (wxDataObject::Direction)wxDataObject::Get;
 
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
 		if(!self) {

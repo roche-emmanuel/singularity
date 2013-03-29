@@ -181,8 +181,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxDataViewChoiceRenderer::wxDataViewChoiceRenderer function");
 		}
 		const wxArrayString & choices=*choices_ptr;
-		wxDataViewCellMode mode=luatop>2 ? (wxDataViewCellMode)lua_tointeger(L,3) : ::wxDATAVIEW_CELL_EDITABLE;
-		int alignment=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		wxDataViewCellMode mode=luatop>2 ? (wxDataViewCellMode)lua_tointeger(L,3) : (wxDataViewCellMode)::wxDATAVIEW_CELL_EDITABLE;
+		int alignment=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		return new wrapper_wxDataViewChoiceRenderer(L,NULL, choices, mode, alignment);
 	}

@@ -386,7 +386,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool deleteWindow=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool deleteWindow=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxView* self=Luna< wxObject >::checkSubType< wxView >(L,1);
 		if(!self) {
@@ -830,7 +830,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool deleteWindow=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool deleteWindow=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxView* self=Luna< wxObject >::checkSubType< wxView >(L,1);
 		if(!self) {

@@ -476,7 +476,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		long long pos=(long long)lua_tointeger(L,2);
-		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : ::wxFromStart;
+		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : (wxSeekMode)::wxFromStart;
 
 		wxFileOutputStream* self=Luna< wxObject >::checkSubType< wxFileOutputStream >(L,1);
 		if(!self) {

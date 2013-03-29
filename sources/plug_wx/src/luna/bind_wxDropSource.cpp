@@ -262,17 +262,17 @@ public:
 		if( luatop>1 && !iconCopy_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg iconCopy in wxDropSource::wxDropSource function");
 		}
-		const wxCursor & iconCopy=luatop>1 ? *iconCopy_ptr : wxNullCursor;
+		const wxCursor & iconCopy=luatop>1 ? *iconCopy_ptr : (const wxCursor&)wxNullCursor;
 		const wxCursor* iconMove_ptr=luatop>2 ? (Luna< wxObject >::checkSubType< wxCursor >(L,3)) : NULL;
 		if( luatop>2 && !iconMove_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg iconMove in wxDropSource::wxDropSource function");
 		}
-		const wxCursor & iconMove=luatop>2 ? *iconMove_ptr : wxNullCursor;
+		const wxCursor & iconMove=luatop>2 ? *iconMove_ptr : (const wxCursor&)wxNullCursor;
 		const wxCursor* iconNone_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxCursor >(L,4)) : NULL;
 		if( luatop>3 && !iconNone_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg iconNone in wxDropSource::wxDropSource function");
 		}
-		const wxCursor & iconNone=luatop>3 ? *iconNone_ptr : wxNullCursor;
+		const wxCursor & iconNone=luatop>3 ? *iconNone_ptr : (const wxCursor&)wxNullCursor;
 
 		return new wxDropSource(win, iconCopy, iconMove, iconNone);
 	}
@@ -296,17 +296,17 @@ public:
 		if( luatop>2 && !iconCopy_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg iconCopy in wxDropSource::wxDropSource function");
 		}
-		const wxCursor & iconCopy=luatop>2 ? *iconCopy_ptr : wxNullCursor;
+		const wxCursor & iconCopy=luatop>2 ? *iconCopy_ptr : (const wxCursor&)wxNullCursor;
 		const wxCursor* iconMove_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxCursor >(L,4)) : NULL;
 		if( luatop>3 && !iconMove_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg iconMove in wxDropSource::wxDropSource function");
 		}
-		const wxCursor & iconMove=luatop>3 ? *iconMove_ptr : wxNullCursor;
+		const wxCursor & iconMove=luatop>3 ? *iconMove_ptr : (const wxCursor&)wxNullCursor;
 		const wxCursor* iconNone_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxCursor >(L,5)) : NULL;
 		if( luatop>4 && !iconNone_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg iconNone in wxDropSource::wxDropSource function");
 		}
-		const wxCursor & iconNone=luatop>4 ? *iconNone_ptr : wxNullCursor;
+		const wxCursor & iconNone=luatop>4 ? *iconNone_ptr : (const wxCursor&)wxNullCursor;
 
 		return new wxDropSource(data, win, iconCopy, iconMove, iconNone);
 	}
@@ -325,17 +325,17 @@ public:
 		if( luatop>2 && !iconCopy_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg iconCopy in wxDropSource::wxDropSource function");
 		}
-		const wxCursor & iconCopy=luatop>2 ? *iconCopy_ptr : wxNullCursor;
+		const wxCursor & iconCopy=luatop>2 ? *iconCopy_ptr : (const wxCursor&)wxNullCursor;
 		const wxCursor* iconMove_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxCursor >(L,4)) : NULL;
 		if( luatop>3 && !iconMove_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg iconMove in wxDropSource::wxDropSource function");
 		}
-		const wxCursor & iconMove=luatop>3 ? *iconMove_ptr : wxNullCursor;
+		const wxCursor & iconMove=luatop>3 ? *iconMove_ptr : (const wxCursor&)wxNullCursor;
 		const wxCursor* iconNone_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxCursor >(L,5)) : NULL;
 		if( luatop>4 && !iconNone_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg iconNone in wxDropSource::wxDropSource function");
 		}
-		const wxCursor & iconNone=luatop>4 ? *iconNone_ptr : wxNullCursor;
+		const wxCursor & iconNone=luatop>4 ? *iconNone_ptr : (const wxCursor&)wxNullCursor;
 
 		return new wrapper_wxDropSource(L,NULL, win, iconCopy, iconMove, iconNone);
 	}
@@ -359,17 +359,17 @@ public:
 		if( luatop>3 && !iconCopy_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg iconCopy in wxDropSource::wxDropSource function");
 		}
-		const wxCursor & iconCopy=luatop>3 ? *iconCopy_ptr : wxNullCursor;
+		const wxCursor & iconCopy=luatop>3 ? *iconCopy_ptr : (const wxCursor&)wxNullCursor;
 		const wxCursor* iconMove_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxCursor >(L,5)) : NULL;
 		if( luatop>4 && !iconMove_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg iconMove in wxDropSource::wxDropSource function");
 		}
-		const wxCursor & iconMove=luatop>4 ? *iconMove_ptr : wxNullCursor;
+		const wxCursor & iconMove=luatop>4 ? *iconMove_ptr : (const wxCursor&)wxNullCursor;
 		const wxCursor* iconNone_ptr=luatop>5 ? (Luna< wxObject >::checkSubType< wxCursor >(L,6)) : NULL;
 		if( luatop>5 && !iconNone_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg iconNone in wxDropSource::wxDropSource function");
 		}
-		const wxCursor & iconNone=luatop>5 ? *iconNone_ptr : wxNullCursor;
+		const wxCursor & iconNone=luatop>5 ? *iconNone_ptr : (const wxCursor&)wxNullCursor;
 
 		return new wrapper_wxDropSource(L,NULL, data, win, iconCopy, iconMove, iconNone);
 	}
@@ -396,7 +396,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxDrag_CopyOnly;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxDrag_CopyOnly;
 
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {
@@ -506,7 +506,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxDrag_CopyOnly;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxDrag_CopyOnly;
 
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {

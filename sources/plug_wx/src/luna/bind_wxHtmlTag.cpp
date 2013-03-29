@@ -151,7 +151,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -297,7 +297,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString par(lua_tostring(L,2),lua_objlen(L,2));
-		bool with_quotes=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool with_quotes=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
@@ -339,14 +339,14 @@ public:
 		}
 
 		wxString par(lua_tostring(L,2),lua_objlen(L,2));
-		int value=(int)lua_tointeger(L,3);
+		int* value=(int*)Luna< void >::check(L,3);
 
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxHtmlTag::GetParamAsInt(const wxString &, int *) const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
 		}
-		bool lret = self->GetParamAsInt(par, &value);
+		bool lret = self->GetParamAsInt(par, value);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;

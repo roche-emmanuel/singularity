@@ -392,6 +392,32 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getPROPERTY(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_get_END_BRACKET(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setPROPERTY(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,23791141) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_set_END_BRACKET(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,60066730) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 40 valid operators)
@@ -1474,6 +1500,94 @@ public:
 		return 1;
 	}
 
+	// osgDB::ObjectProperty osgDB::OutputStream::PROPERTY()
+	static int _bind_getPROPERTY(lua_State *L) {
+		if (!_lg_typecheck_getPROPERTY(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectProperty osgDB::OutputStream::PROPERTY() function, expected prototype:\nosgDB::ObjectProperty osgDB::OutputStream::PROPERTY()\nClass arguments details:\n");
+		}
+
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ObjectProperty osgDB::OutputStream::PROPERTY(). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::ObjectProperty* lret = &self->PROPERTY;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ObjectProperty >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::ObjectMark osgDB::OutputStream::END_BRACKET()
+	static int _bind_get_END_BRACKET(lua_State *L) {
+		if (!_lg_typecheck_get_END_BRACKET(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectMark osgDB::OutputStream::END_BRACKET() function, expected prototype:\nosgDB::ObjectMark osgDB::OutputStream::END_BRACKET()\nClass arguments details:\n");
+		}
+
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ObjectMark osgDB::OutputStream::END_BRACKET(). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		const osgDB::ObjectMark* lret = &self->END_BRACKET;
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ObjectMark >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void osgDB::OutputStream::PROPERTY(osgDB::ObjectProperty value)
+	static int _bind_setPROPERTY(lua_State *L) {
+		if (!_lg_typecheck_setPROPERTY(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::OutputStream::PROPERTY(osgDB::ObjectProperty value) function, expected prototype:\nvoid osgDB::OutputStream::PROPERTY(osgDB::ObjectProperty value)\nClass arguments details:\narg 1 ID = 23791141\n");
+		}
+
+		osgDB::ObjectProperty* value_ptr=(Luna< osgDB::ObjectProperty >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgDB::OutputStream::PROPERTY function");
+		}
+		osgDB::ObjectProperty value=*value_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::PROPERTY(osgDB::ObjectProperty). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		self->PROPERTY = value;
+
+		return 0;
+	}
+
+	// void osgDB::OutputStream::END_BRACKET(osgDB::ObjectMark value)
+	static int _bind_set_END_BRACKET(lua_State *L) {
+		if (!_lg_typecheck_set_END_BRACKET(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::OutputStream::END_BRACKET(osgDB::ObjectMark value) function, expected prototype:\nvoid osgDB::OutputStream::END_BRACKET(osgDB::ObjectMark value)\nClass arguments details:\narg 1 ID = 60066730\n");
+		}
+
+		osgDB::ObjectMark* value_ptr=(Luna< osgDB::ObjectMark >::check(L,2));
+		if( !value_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg value in osgDB::OutputStream::END_BRACKET function");
+		}
+		osgDB::ObjectMark value=*value_ptr;
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::END_BRACKET(osgDB::ObjectMark). Got : '%s'",typeid(Luna< osgDB::OutputStream >::check(L,1)).name());
+		}
+		self->END_BRACKET = value;
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// osgDB::OutputStream & osgDB::OutputStream::operator<<(bool b)
@@ -2536,6 +2650,10 @@ luna_RegType LunaTraits< osgDB::OutputStream >::methods[] = {
 	{"useDecMode", &luna_wrapper_osgDB_OutputStream::_bind_useDecMode},
 	{"beginBracket", &luna_wrapper_osgDB_OutputStream::_bind_beginBracket},
 	{"endBracket", &luna_wrapper_osgDB_OutputStream::_bind_endBracket},
+	{"getPROPERTY", &luna_wrapper_osgDB_OutputStream::_bind_getPROPERTY},
+	{"get_END_BRACKET", &luna_wrapper_osgDB_OutputStream::_bind_get_END_BRACKET},
+	{"setPROPERTY", &luna_wrapper_osgDB_OutputStream::_bind_setPROPERTY},
+	{"set_END_BRACKET", &luna_wrapper_osgDB_OutputStream::_bind_set_END_BRACKET},
 	{"op_write", &luna_wrapper_osgDB_OutputStream::_bind_op_write},
 	{"dynCast", &luna_wrapper_osgDB_OutputStream::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgDB_OutputStream::_bind___eq},

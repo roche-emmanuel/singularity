@@ -266,8 +266,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int commandType=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
-		int winid=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int commandType=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxEVT_NULL;
+		int winid=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		return new wxDataViewEvent(commandType, winid);
 	}
@@ -281,8 +281,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int commandType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
-		int winid=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int commandType=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
+		int winid=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		return new wrapper_wxDataViewEvent(L,NULL, commandType, winid);
 	}

@@ -457,6 +457,31 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_bindToImageUnit(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>7 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>5 && lua_isboolean(L,6)==0 ) return false;
+		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getImageAttachment_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getImageAttachment_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_setShadowComparison(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1889,6 +1914,83 @@ public:
 		return 0;
 	}
 
+	// void osg::Texture::bindToImageUnit(unsigned int unit, unsigned int access, unsigned int format = 0, int level = 0, bool layered = false, int layer = 0)
+	static int _bind_bindToImageUnit(lua_State *L) {
+		if (!_lg_typecheck_bindToImageUnit(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Texture::bindToImageUnit(unsigned int unit, unsigned int access, unsigned int format = 0, int level = 0, bool layered = false, int layer = 0) function, expected prototype:\nvoid osg::Texture::bindToImageUnit(unsigned int unit, unsigned int access, unsigned int format = 0, int level = 0, bool layered = false, int layer = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int unit=(unsigned int)lua_tointeger(L,2);
+		unsigned int access=(unsigned int)lua_tointeger(L,3);
+		unsigned int format=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
+		int level=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
+		bool layered=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)false;
+		int layer=luatop>6 ? (int)lua_tointeger(L,7) : (int)0;
+
+		osg::Texture* self=Luna< osg::Referenced >::checkSubType< osg::Texture >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Texture::bindToImageUnit(unsigned int, unsigned int, unsigned int, int, bool, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->bindToImageUnit(unit, access, format, level, layered, layer);
+
+		return 0;
+	}
+
+	// osg::Texture::ImageAttachment & osg::Texture::getImageAttachment()
+	static int _bind_getImageAttachment_overload_1(lua_State *L) {
+		if (!_lg_typecheck_getImageAttachment_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture::ImageAttachment & osg::Texture::getImageAttachment() function, expected prototype:\nosg::Texture::ImageAttachment & osg::Texture::getImageAttachment()\nClass arguments details:\n");
+		}
+
+
+		osg::Texture* self=Luna< osg::Referenced >::checkSubType< osg::Texture >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Texture::ImageAttachment & osg::Texture::getImageAttachment(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Texture::ImageAttachment* lret = &self->getImageAttachment();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Texture::ImageAttachment >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Texture::ImageAttachment & osg::Texture::getImageAttachment() const
+	static int _bind_getImageAttachment_overload_2(lua_State *L) {
+		if (!_lg_typecheck_getImageAttachment_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Texture::ImageAttachment & osg::Texture::getImageAttachment() const function, expected prototype:\nconst osg::Texture::ImageAttachment & osg::Texture::getImageAttachment() const\nClass arguments details:\n");
+		}
+
+
+		osg::Texture* self=Luna< osg::Referenced >::checkSubType< osg::Texture >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Texture::ImageAttachment & osg::Texture::getImageAttachment() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Texture::ImageAttachment* lret = &self->getImageAttachment();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Texture::ImageAttachment >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Texture::getImageAttachment
+	static int _bind_getImageAttachment(lua_State *L) {
+		if (_lg_typecheck_getImageAttachment_overload_1(L)) return _bind_getImageAttachment_overload_1(L);
+		if (_lg_typecheck_getImageAttachment_overload_2(L)) return _bind_getImageAttachment_overload_2(L);
+
+		luaL_error(L, "error in function getImageAttachment, cannot match any of the overloads for function getImageAttachment:\n  getImageAttachment()\n  getImageAttachment()\n");
+		return 0;
+	}
+
 	// void osg::Texture::setShadowComparison(bool flag)
 	static int _bind_setShadowComparison(lua_State *L) {
 		if (!_lg_typecheck_setShadowComparison(L)) {
@@ -3061,6 +3163,8 @@ luna_RegType LunaTraits< osg::Texture >::methods[] = {
 	{"getTextureParameterDirty", &luna_wrapper_osg_Texture::_bind_getTextureParameterDirty},
 	{"dirtyTextureParameters", &luna_wrapper_osg_Texture::_bind_dirtyTextureParameters},
 	{"allocateMipmapLevels", &luna_wrapper_osg_Texture::_bind_allocateMipmapLevels},
+	{"bindToImageUnit", &luna_wrapper_osg_Texture::_bind_bindToImageUnit},
+	{"getImageAttachment", &luna_wrapper_osg_Texture::_bind_getImageAttachment},
 	{"setShadowComparison", &luna_wrapper_osg_Texture::_bind_setShadowComparison},
 	{"getShadowComparison", &luna_wrapper_osg_Texture::_bind_getShadowComparison},
 	{"setShadowCompareFunc", &luna_wrapper_osg_Texture::_bind_setShadowCompareFunc},
@@ -3155,6 +3259,10 @@ luna_RegEnumType LunaTraits< osg::Texture >::enumValues[] = {
 	{"FLOAT", osg::Texture::FLOAT},
 	{"SIGNED_INTEGER", osg::Texture::SIGNED_INTEGER},
 	{"UNSIGNED_INTEGER", osg::Texture::UNSIGNED_INTEGER},
+	{"NOT_USED", osg::Texture::NOT_USED},
+	{"READ_ONLY", osg::Texture::READ_ONLY},
+	{"WRITE_ONLY", osg::Texture::WRITE_ONLY},
+	{"READ_WRITE", osg::Texture::READ_WRITE},
 	{"NEVER", osg::Texture::NEVER},
 	{"LESS", osg::Texture::LESS},
 	{"EQUAL", osg::Texture::EQUAL},

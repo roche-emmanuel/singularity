@@ -197,7 +197,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
-		int type=luatop>1 ? (int)lua_tointeger(L,2) : -1;
+		int type=luatop>1 ? (int)lua_tointeger(L,2) : (int)-1;
 
 		return new wxEventBlocker(win, type);
 	}
@@ -212,7 +212,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int type=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int type=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		return new wrapper_wxEventBlocker(L,NULL, win, type);
 	}

@@ -354,7 +354,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int maxProxies=luatop>0 ? (int)lua_tointeger(L,1) : 16384;
+		int maxProxies=luatop>0 ? (int)lua_tointeger(L,1) : (int)16384;
 		btOverlappingPairCache* overlappingPairCache=luatop>1 ? (Luna< btOverlappingPairCallback >::checkSubType< btOverlappingPairCache >(L,2)) : (btOverlappingPairCache*)0;
 
 		return new btSimpleBroadphase(maxProxies, overlappingPairCache);
@@ -369,7 +369,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int maxProxies=luatop>1 ? (int)lua_tointeger(L,2) : 16384;
+		int maxProxies=luatop>1 ? (int)lua_tointeger(L,2) : (int)16384;
 		btOverlappingPairCache* overlappingPairCache=luatop>2 ? (Luna< btOverlappingPairCallback >::checkSubType< btOverlappingPairCache >(L,3)) : (btOverlappingPairCache*)0;
 
 		return new wrapper_btSimpleBroadphase(L,NULL, maxProxies, overlappingPairCache);
@@ -549,12 +549,12 @@ public:
 		if( luatop>4 && !aabbMin_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg aabbMin in btSimpleBroadphase::rayTest function");
 		}
-		const btVector3 & aabbMin=luatop>4 ? *aabbMin_ptr : btVector3 (0, 0, 0);
+		const btVector3 & aabbMin=luatop>4 ? *aabbMin_ptr : (const btVector3)btVector3 (0, 0, 0);
 		const btVector3* aabbMax_ptr=luatop>5 ? (Luna< btVector3 >::check(L,6)) : NULL;
 		if( luatop>5 && !aabbMax_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg aabbMax in btSimpleBroadphase::rayTest function");
 		}
-		const btVector3 & aabbMax=luatop>5 ? *aabbMax_ptr : btVector3 (0, 0, 0);
+		const btVector3 & aabbMax=luatop>5 ? *aabbMax_ptr : (const btVector3)btVector3 (0, 0, 0);
 
 		btSimpleBroadphase* self=Luna< btBroadphaseInterface >::checkSubType< btSimpleBroadphase >(L,1);
 		if(!self) {
@@ -896,12 +896,12 @@ public:
 		if( luatop>4 && !aabbMin_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg aabbMin in btSimpleBroadphase::base_rayTest function");
 		}
-		const btVector3 & aabbMin=luatop>4 ? *aabbMin_ptr : btVector3 (0, 0, 0);
+		const btVector3 & aabbMin=luatop>4 ? *aabbMin_ptr : (const btVector3)btVector3 (0, 0, 0);
 		const btVector3* aabbMax_ptr=luatop>5 ? (Luna< btVector3 >::check(L,6)) : NULL;
 		if( luatop>5 && !aabbMax_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg aabbMax in btSimpleBroadphase::base_rayTest function");
 		}
-		const btVector3 & aabbMax=luatop>5 ? *aabbMax_ptr : btVector3 (0, 0, 0);
+		const btVector3 & aabbMax=luatop>5 ? *aabbMax_ptr : (const btVector3)btVector3 (0, 0, 0);
 
 		btSimpleBroadphase* self=Luna< btBroadphaseInterface >::checkSubType< btSimpleBroadphase >(L,1);
 		if(!self) {

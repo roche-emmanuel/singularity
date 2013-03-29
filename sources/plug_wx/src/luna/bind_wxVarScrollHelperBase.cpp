@@ -318,7 +318,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool scrolling=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool scrolling=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {

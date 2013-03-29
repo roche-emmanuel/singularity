@@ -258,6 +258,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getCurrentTime(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_setReferenceTime(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -297,6 +303,19 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getAudioBalance(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setAudioBalance(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_setAudioStreams(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -311,6 +330,12 @@ public:
 	}
 
 	inline static bool _lg_typecheck_getAudioStreams_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_createSuitableTexture(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -355,11 +380,47 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_asArray_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asArray_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asPrimitiveSet_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asPrimitiveSet_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_releaseGLObjects(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asImage_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asImage_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -390,7 +451,7 @@ public:
 
 	inline static bool _lg_typecheck_base_setImage(lua_State *L) {
 		int luatop = lua_gettop(L);
-		if( luatop<9 || luatop>10 ) return false;
+		if( luatop<9 || luatop>11 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
@@ -401,11 +462,13 @@ public:
 		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 		if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 		if( luatop>9 && (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
+		if( luatop>10 && (lua_isnumber(L,11)==0 || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_readPixels(lua_State *L) {
-		if( lua_gettop(L)!=7 ) return false;
+		int luatop = lua_gettop(L);
+		if( luatop<7 || luatop>8 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
@@ -413,16 +476,18 @@ public:
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_readImageFromCurrentTexture(lua_State *L) {
 		int luatop = lua_gettop(L);
-		if( luatop<3 || luatop>4 ) return false;
+		if( luatop<3 || luatop>5 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( lua_isboolean(L,3)==0 ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -586,6 +651,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_getCurrentTime(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_setReferenceTime(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -620,6 +691,25 @@ public:
 	}
 
 	inline static bool _lg_typecheck_base_getVolume(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getAudioBalance(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setAudioBalance(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_createSuitableTexture(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -934,18 +1024,18 @@ public:
 		return 0;
 	}
 
-	// osg::ImageStream::StreamStatus osg::ImageStream::getStatus()
+	// osg::ImageStream::StreamStatus osg::ImageStream::getStatus() const
 	static int _bind_getStatus(lua_State *L) {
 		if (!_lg_typecheck_getStatus(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ImageStream::StreamStatus osg::ImageStream::getStatus() function, expected prototype:\nosg::ImageStream::StreamStatus osg::ImageStream::getStatus()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ImageStream::StreamStatus osg::ImageStream::getStatus() const function, expected prototype:\nosg::ImageStream::StreamStatus osg::ImageStream::getStatus() const\nClass arguments details:\n");
 		}
 
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ImageStream::StreamStatus osg::ImageStream::getStatus(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ImageStream::StreamStatus osg::ImageStream::getStatus() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		osg::ImageStream::StreamStatus lret = self->getStatus();
 		lua_pushnumber(L,lret);
@@ -1043,6 +1133,25 @@ public:
 			luaL_error(L, "Invalid object in function call double osg::ImageStream::getFrameRate() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		double lret = self->getFrameRate();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// double osg::ImageStream::getCurrentTime() const
+	static int _bind_getCurrentTime(lua_State *L) {
+		if (!_lg_typecheck_getCurrentTime(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double osg::ImageStream::getCurrentTime() const function, expected prototype:\ndouble osg::ImageStream::getCurrentTime() const\nClass arguments details:\n");
+		}
+
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double osg::ImageStream::getCurrentTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		double lret = self->getCurrentTime();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -1162,6 +1271,44 @@ public:
 		return 1;
 	}
 
+	// float osg::ImageStream::getAudioBalance()
+	static int _bind_getAudioBalance(lua_State *L) {
+		if (!_lg_typecheck_getAudioBalance(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osg::ImageStream::getAudioBalance() function, expected prototype:\nfloat osg::ImageStream::getAudioBalance()\nClass arguments details:\n");
+		}
+
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osg::ImageStream::getAudioBalance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		float lret = self->getAudioBalance();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::ImageStream::setAudioBalance(float b)
+	static int _bind_setAudioBalance(lua_State *L) {
+		if (!_lg_typecheck_setAudioBalance(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setAudioBalance(float b) function, expected prototype:\nvoid osg::ImageStream::setAudioBalance(float b)\nClass arguments details:\n");
+		}
+
+		float b=(float)lua_tonumber(L,2);
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::setAudioBalance(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setAudioBalance(b);
+
+		return 0;
+	}
+
 	// void osg::ImageStream::setAudioStreams(const osg::ImageStream::AudioStreams & asl)
 	static int _bind_setAudioStreams(lua_State *L) {
 		if (!_lg_typecheck_setAudioStreams(L)) {
@@ -1234,6 +1381,27 @@ public:
 
 		luaL_error(L, "error in function getAudioStreams, cannot match any of the overloads for function getAudioStreams:\n  getAudioStreams()\n  getAudioStreams()\n");
 		return 0;
+	}
+
+	// osg::Texture * osg::ImageStream::createSuitableTexture()
+	static int _bind_createSuitableTexture(lua_State *L) {
+		if (!_lg_typecheck_createSuitableTexture(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture * osg::ImageStream::createSuitableTexture() function, expected prototype:\nosg::Texture * osg::ImageStream::createSuitableTexture()\nClass arguments details:\n");
+		}
+
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::ImageStream::createSuitableTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Texture * lret = self->createSuitableTexture();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Texture >::push(L,lret,false);
+
+		return 1;
 	}
 
 	// void osg::ImageStream::base_setThreadSafeRefUnref(bool threadSafe)
@@ -1362,6 +1530,108 @@ public:
 		return 0;
 	}
 
+	// osg::Array * osg::ImageStream::base_asArray()
+	static int _bind_base_asArray_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asArray_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Array * osg::ImageStream::base_asArray() function, expected prototype:\nosg::Array * osg::ImageStream::base_asArray()\nClass arguments details:\n");
+		}
+
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Array * osg::ImageStream::base_asArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Array * lret = self->ImageStream::asArray();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Array >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Array * osg::ImageStream::base_asArray() const
+	static int _bind_base_asArray_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asArray_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Array * osg::ImageStream::base_asArray() const function, expected prototype:\nconst osg::Array * osg::ImageStream::base_asArray() const\nClass arguments details:\n");
+		}
+
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Array * osg::ImageStream::base_asArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Array * lret = self->ImageStream::asArray();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Array >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::ImageStream::base_asArray
+	static int _bind_base_asArray(lua_State *L) {
+		if (_lg_typecheck_base_asArray_overload_1(L)) return _bind_base_asArray_overload_1(L);
+		if (_lg_typecheck_base_asArray_overload_2(L)) return _bind_base_asArray_overload_2(L);
+
+		luaL_error(L, "error in function base_asArray, cannot match any of the overloads for function base_asArray:\n  base_asArray()\n  base_asArray()\n");
+		return 0;
+	}
+
+	// osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet()
+	static int _bind_base_asPrimitiveSet_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asPrimitiveSet_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet() function, expected prototype:\nosg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet()\nClass arguments details:\n");
+		}
+
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::PrimitiveSet * lret = self->ImageStream::asPrimitiveSet();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::PrimitiveSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet() const
+	static int _bind_base_asPrimitiveSet_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asPrimitiveSet_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet() const function, expected prototype:\nconst osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet() const\nClass arguments details:\n");
+		}
+
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::PrimitiveSet * osg::ImageStream::base_asPrimitiveSet() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::PrimitiveSet * lret = self->ImageStream::asPrimitiveSet();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::PrimitiveSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::ImageStream::base_asPrimitiveSet
+	static int _bind_base_asPrimitiveSet(lua_State *L) {
+		if (_lg_typecheck_base_asPrimitiveSet_overload_1(L)) return _bind_base_asPrimitiveSet_overload_1(L);
+		if (_lg_typecheck_base_asPrimitiveSet_overload_2(L)) return _bind_base_asPrimitiveSet_overload_2(L);
+
+		luaL_error(L, "error in function base_asPrimitiveSet, cannot match any of the overloads for function base_asPrimitiveSet:\n  base_asPrimitiveSet()\n  base_asPrimitiveSet()\n");
+		return 0;
+	}
+
 	// void osg::ImageStream::base_releaseGLObjects(osg::State * state = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
@@ -1380,6 +1650,57 @@ public:
 		}
 		self->ImageStream::releaseGLObjects(state);
 
+		return 0;
+	}
+
+	// osg::Image * osg::ImageStream::base_asImage()
+	static int _bind_base_asImage_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asImage_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Image * osg::ImageStream::base_asImage() function, expected prototype:\nosg::Image * osg::ImageStream::base_asImage()\nClass arguments details:\n");
+		}
+
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Image * osg::ImageStream::base_asImage(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Image * lret = self->ImageStream::asImage();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Image >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Image * osg::ImageStream::base_asImage() const
+	static int _bind_base_asImage_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asImage_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Image * osg::ImageStream::base_asImage() const function, expected prototype:\nconst osg::Image * osg::ImageStream::base_asImage() const\nClass arguments details:\n");
+		}
+
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Image * osg::ImageStream::base_asImage() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Image * lret = self->ImageStream::asImage();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Image >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::ImageStream::base_asImage
+	static int _bind_base_asImage(lua_State *L) {
+		if (_lg_typecheck_base_asImage_overload_1(L)) return _bind_base_asImage_overload_1(L);
+		if (_lg_typecheck_base_asImage_overload_2(L)) return _bind_base_asImage_overload_2(L);
+
+		luaL_error(L, "error in function base_asImage, cannot match any of the overloads for function base_asImage:\n  base_asImage()\n  base_asImage()\n");
 		return 0;
 	}
 
@@ -1449,11 +1770,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ImageStream::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1)
+	// void osg::ImageStream::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1, int rowLength = 0)
 	static int _bind_base_setImage(lua_State *L) {
 		if (!_lg_typecheck_base_setImage(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1) function, expected prototype:\nvoid osg::ImageStream::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1, int rowLength = 0) function, expected prototype:\nvoid osg::ImageStream::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1, int rowLength = 0)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1467,23 +1788,26 @@ public:
 		unsigned char data = (unsigned char)(lua_tointeger(L,8));
 		osg::Image::AllocationMode mode=(osg::Image::AllocationMode)lua_tointeger(L,9);
 		int packing=luatop>9 ? (int)lua_tointeger(L,10) : (int)1;
+		int rowLength=luatop>10 ? (int)lua_tointeger(L,11) : (int)0;
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setImage(int, int, int, int, unsigned int, unsigned int, unsigned char *, osg::Image::AllocationMode, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setImage(int, int, int, int, unsigned int, unsigned int, unsigned char *, osg::Image::AllocationMode, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->ImageStream::setImage(s, t, r, internalTextureformat, pixelFormat, type, &data, mode, packing);
+		self->ImageStream::setImage(s, t, r, internalTextureformat, pixelFormat, type, &data, mode, packing, rowLength);
 
 		return 0;
 	}
 
-	// void osg::ImageStream::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type)
+	// void osg::ImageStream::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type, int packing = 1)
 	static int _bind_base_readPixels(lua_State *L) {
 		if (!_lg_typecheck_base_readPixels(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type) function, expected prototype:\nvoid osg::ImageStream::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type, int packing = 1) function, expected prototype:\nvoid osg::ImageStream::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type, int packing = 1)\nClass arguments details:\n");
 		}
+
+		int luatop = lua_gettop(L);
 
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
@@ -1491,22 +1815,23 @@ public:
 		int height=(int)lua_tointeger(L,5);
 		unsigned int pixelFormat=(unsigned int)lua_tointeger(L,6);
 		unsigned int type=(unsigned int)lua_tointeger(L,7);
+		int packing=luatop>7 ? (int)lua_tointeger(L,8) : (int)1;
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_readPixels(int, int, int, int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_readPixels(int, int, int, int, unsigned int, unsigned int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->ImageStream::readPixels(x, y, width, height, pixelFormat, type);
+		self->ImageStream::readPixels(x, y, width, height, pixelFormat, type, packing);
 
 		return 0;
 	}
 
-	// void osg::ImageStream::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE)
+	// void osg::ImageStream::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE, unsigned int face = 0)
 	static int _bind_base_readImageFromCurrentTexture(lua_State *L) {
 		if (!_lg_typecheck_base_readImageFromCurrentTexture(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE) function, expected prototype:\nvoid osg::ImageStream::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE, unsigned int face = 0) function, expected prototype:\nvoid osg::ImageStream::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE, unsigned int face = 0)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1514,13 +1839,14 @@ public:
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 		bool copyMipMapsIfAvailable=(bool)(lua_toboolean(L,3)==1);
 		unsigned int type=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)GL_UNSIGNED_BYTE;
+		unsigned int face=luatop>4 ? (unsigned int)lua_tointeger(L,5) : (unsigned int)0;
 
 		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_readImageFromCurrentTexture(unsigned int, bool, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_readImageFromCurrentTexture(unsigned int, bool, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->ImageStream::readImageFromCurrentTexture(contextID, copyMipMapsIfAvailable, type);
+		self->ImageStream::readImageFromCurrentTexture(contextID, copyMipMapsIfAvailable, type, face);
 
 		return 0;
 	}
@@ -1988,6 +2314,25 @@ public:
 		return 1;
 	}
 
+	// double osg::ImageStream::base_getCurrentTime() const
+	static int _bind_base_getCurrentTime(lua_State *L) {
+		if (!_lg_typecheck_base_getCurrentTime(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double osg::ImageStream::base_getCurrentTime() const function, expected prototype:\ndouble osg::ImageStream::base_getCurrentTime() const\nClass arguments details:\n");
+		}
+
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double osg::ImageStream::base_getCurrentTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		double lret = self->ImageStream::getCurrentTime();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 	// void osg::ImageStream::base_setReferenceTime(double arg1)
 	static int _bind_base_setReferenceTime(lua_State *L) {
 		if (!_lg_typecheck_base_setReferenceTime(L)) {
@@ -2102,6 +2447,65 @@ public:
 		return 1;
 	}
 
+	// float osg::ImageStream::base_getAudioBalance()
+	static int _bind_base_getAudioBalance(lua_State *L) {
+		if (!_lg_typecheck_base_getAudioBalance(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osg::ImageStream::base_getAudioBalance() function, expected prototype:\nfloat osg::ImageStream::base_getAudioBalance()\nClass arguments details:\n");
+		}
+
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osg::ImageStream::base_getAudioBalance(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		float lret = self->ImageStream::getAudioBalance();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::ImageStream::base_setAudioBalance(float b)
+	static int _bind_base_setAudioBalance(lua_State *L) {
+		if (!_lg_typecheck_base_setAudioBalance(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::base_setAudioBalance(float b) function, expected prototype:\nvoid osg::ImageStream::base_setAudioBalance(float b)\nClass arguments details:\n");
+		}
+
+		float b=(float)lua_tonumber(L,2);
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::ImageStream::base_setAudioBalance(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->ImageStream::setAudioBalance(b);
+
+		return 0;
+	}
+
+	// osg::Texture * osg::ImageStream::base_createSuitableTexture()
+	static int _bind_base_createSuitableTexture(lua_State *L) {
+		if (!_lg_typecheck_base_createSuitableTexture(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture * osg::ImageStream::base_createSuitableTexture() function, expected prototype:\nosg::Texture * osg::ImageStream::base_createSuitableTexture()\nClass arguments details:\n");
+		}
+
+
+		osg::ImageStream* self=Luna< osg::Referenced >::checkSubType< osg::ImageStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::ImageStream::base_createSuitableTexture(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Texture * lret = self->ImageStream::createSuitableTexture();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Texture >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -2140,20 +2544,27 @@ luna_RegType LunaTraits< osg::ImageStream >::methods[] = {
 	{"getCreationTime", &luna_wrapper_osg_ImageStream::_bind_getCreationTime},
 	{"getLength", &luna_wrapper_osg_ImageStream::_bind_getLength},
 	{"getFrameRate", &luna_wrapper_osg_ImageStream::_bind_getFrameRate},
+	{"getCurrentTime", &luna_wrapper_osg_ImageStream::_bind_getCurrentTime},
 	{"setReferenceTime", &luna_wrapper_osg_ImageStream::_bind_setReferenceTime},
 	{"getReferenceTime", &luna_wrapper_osg_ImageStream::_bind_getReferenceTime},
 	{"setTimeMultiplier", &luna_wrapper_osg_ImageStream::_bind_setTimeMultiplier},
 	{"getTimeMultiplier", &luna_wrapper_osg_ImageStream::_bind_getTimeMultiplier},
 	{"setVolume", &luna_wrapper_osg_ImageStream::_bind_setVolume},
 	{"getVolume", &luna_wrapper_osg_ImageStream::_bind_getVolume},
+	{"getAudioBalance", &luna_wrapper_osg_ImageStream::_bind_getAudioBalance},
+	{"setAudioBalance", &luna_wrapper_osg_ImageStream::_bind_setAudioBalance},
 	{"setAudioStreams", &luna_wrapper_osg_ImageStream::_bind_setAudioStreams},
 	{"getAudioStreams", &luna_wrapper_osg_ImageStream::_bind_getAudioStreams},
+	{"createSuitableTexture", &luna_wrapper_osg_ImageStream::_bind_createSuitableTexture},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_ImageStream::_bind_base_setThreadSafeRefUnref},
 	{"base_setName", &luna_wrapper_osg_ImageStream::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_ImageStream::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_ImageStream::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osg_ImageStream::_bind_base_getUserData},
+	{"base_asArray", &luna_wrapper_osg_ImageStream::_bind_base_asArray},
+	{"base_asPrimitiveSet", &luna_wrapper_osg_ImageStream::_bind_base_asPrimitiveSet},
 	{"base_releaseGLObjects", &luna_wrapper_osg_ImageStream::_bind_base_releaseGLObjects},
+	{"base_asImage", &luna_wrapper_osg_ImageStream::_bind_base_asImage},
 	{"base_getDataPointer", &luna_wrapper_osg_ImageStream::_bind_base_getDataPointer},
 	{"base_getTotalDataSize", &luna_wrapper_osg_ImageStream::_bind_base_getTotalDataSize},
 	{"base_allocateImage", &luna_wrapper_osg_ImageStream::_bind_base_allocateImage},
@@ -2183,12 +2594,16 @@ luna_RegType LunaTraits< osg::ImageStream >::methods[] = {
 	{"base_getCreationTime", &luna_wrapper_osg_ImageStream::_bind_base_getCreationTime},
 	{"base_getLength", &luna_wrapper_osg_ImageStream::_bind_base_getLength},
 	{"base_getFrameRate", &luna_wrapper_osg_ImageStream::_bind_base_getFrameRate},
+	{"base_getCurrentTime", &luna_wrapper_osg_ImageStream::_bind_base_getCurrentTime},
 	{"base_setReferenceTime", &luna_wrapper_osg_ImageStream::_bind_base_setReferenceTime},
 	{"base_getReferenceTime", &luna_wrapper_osg_ImageStream::_bind_base_getReferenceTime},
 	{"base_setTimeMultiplier", &luna_wrapper_osg_ImageStream::_bind_base_setTimeMultiplier},
 	{"base_getTimeMultiplier", &luna_wrapper_osg_ImageStream::_bind_base_getTimeMultiplier},
 	{"base_setVolume", &luna_wrapper_osg_ImageStream::_bind_base_setVolume},
 	{"base_getVolume", &luna_wrapper_osg_ImageStream::_bind_base_getVolume},
+	{"base_getAudioBalance", &luna_wrapper_osg_ImageStream::_bind_base_getAudioBalance},
+	{"base_setAudioBalance", &luna_wrapper_osg_ImageStream::_bind_base_setAudioBalance},
+	{"base_createSuitableTexture", &luna_wrapper_osg_ImageStream::_bind_base_createSuitableTexture},
 	{"__eq", &luna_wrapper_osg_ImageStream::_bind___eq},
 	{"fromVoid", &luna_wrapper_osg_ImageStream::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_osg_ImageStream::_bind_asVoid},

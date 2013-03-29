@@ -330,10 +330,10 @@ public:
 			luaL_error(L, "luna typecheck failed in btQuaternion::btQuaternion(const float & _x, const float & _y, const float & _z, const float & _w) function, expected prototype:\nbtQuaternion::btQuaternion(const float & _x, const float & _y, const float & _z, const float & _w)\nClass arguments details:\n");
 		}
 
-		float _x=(float)lua_tonumber(L,1);
-		float _y=(float)lua_tonumber(L,2);
-		float _z=(float)lua_tonumber(L,3);
-		float _w=(float)lua_tonumber(L,4);
+		const float _x=(const float)lua_tonumber(L,1);
+		const float _y=(const float)lua_tonumber(L,2);
+		const float _z=(const float)lua_tonumber(L,3);
+		const float _w=(const float)lua_tonumber(L,4);
 
 		return new btQuaternion(_x, _y, _z, _w);
 	}
@@ -350,7 +350,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg _axis in btQuaternion::btQuaternion function");
 		}
 		const btVector3 & _axis=*_axis_ptr;
-		float _angle=(float)lua_tonumber(L,2);
+		const float _angle=(const float)lua_tonumber(L,2);
 
 		return new btQuaternion(_axis, _angle);
 	}
@@ -362,9 +362,9 @@ public:
 			luaL_error(L, "luna typecheck failed in btQuaternion::btQuaternion(const float & yaw, const float & pitch, const float & roll) function, expected prototype:\nbtQuaternion::btQuaternion(const float & yaw, const float & pitch, const float & roll)\nClass arguments details:\n");
 		}
 
-		float yaw=(float)lua_tonumber(L,1);
-		float pitch=(float)lua_tonumber(L,2);
-		float roll=(float)lua_tonumber(L,3);
+		const float yaw=(const float)lua_tonumber(L,1);
+		const float pitch=(const float)lua_tonumber(L,2);
+		const float roll=(const float)lua_tonumber(L,3);
 
 		return new btQuaternion(yaw, pitch, roll);
 	}
@@ -394,7 +394,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg axis in btQuaternion::setRotation function");
 		}
 		const btVector3 & axis=*axis_ptr;
-		float _angle=(float)lua_tonumber(L,3);
+		const float _angle=(const float)lua_tonumber(L,3);
 
 		btQuaternion* self=Luna< btQuadWord >::checkSubType< btQuaternion >(L,1);
 		if(!self) {
@@ -413,9 +413,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void btQuaternion::setEuler(const float & yaw, const float & pitch, const float & roll) function, expected prototype:\nvoid btQuaternion::setEuler(const float & yaw, const float & pitch, const float & roll)\nClass arguments details:\n");
 		}
 
-		float yaw=(float)lua_tonumber(L,2);
-		float pitch=(float)lua_tonumber(L,3);
-		float roll=(float)lua_tonumber(L,4);
+		const float yaw=(const float)lua_tonumber(L,2);
+		const float pitch=(const float)lua_tonumber(L,3);
+		const float roll=(const float)lua_tonumber(L,4);
 
 		btQuaternion* self=Luna< btQuadWord >::checkSubType< btQuaternion >(L,1);
 		if(!self) {
@@ -434,9 +434,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void btQuaternion::setEulerZYX(const float & yaw, const float & pitch, const float & roll) function, expected prototype:\nvoid btQuaternion::setEulerZYX(const float & yaw, const float & pitch, const float & roll)\nClass arguments details:\n");
 		}
 
-		float yaw=(float)lua_tonumber(L,2);
-		float pitch=(float)lua_tonumber(L,3);
-		float roll=(float)lua_tonumber(L,4);
+		const float yaw=(const float)lua_tonumber(L,2);
+		const float pitch=(const float)lua_tonumber(L,3);
+		const float roll=(const float)lua_tonumber(L,4);
 
 		btQuaternion* self=Luna< btQuadWord >::checkSubType< btQuaternion >(L,1);
 		if(!self) {
@@ -706,7 +706,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg q in btQuaternion::slerp function");
 		}
 		const btQuaternion & q=*q_ptr;
-		float t=(float)lua_tonumber(L,3);
+		const float t=(const float)lua_tonumber(L,3);
 
 		btQuaternion* self=Luna< btQuadWord >::checkSubType< btQuaternion >(L,1);
 		if(!self) {
@@ -818,7 +818,7 @@ public:
 			luaL_error(L, "luna typecheck failed in btQuaternion & btQuaternion::operator*=(const float & s) function, expected prototype:\nbtQuaternion & btQuaternion::operator*=(const float & s)\nClass arguments details:\n");
 		}
 
-		float s=(float)lua_tonumber(L,2);
+		const float s=(const float)lua_tonumber(L,2);
 
 		btQuaternion* self=Luna< btQuadWord >::checkSubType< btQuaternion >(L,1);
 		if(!self) {
@@ -875,7 +875,7 @@ public:
 			luaL_error(L, "luna typecheck failed in btQuaternion btQuaternion::operator*(const float & s) const function, expected prototype:\nbtQuaternion btQuaternion::operator*(const float & s) const\nClass arguments details:\n");
 		}
 
-		float s=(float)lua_tonumber(L,2);
+		const float s=(const float)lua_tonumber(L,2);
 
 		btQuaternion* self=Luna< btQuadWord >::checkSubType< btQuaternion >(L,1);
 		if(!self) {
@@ -898,7 +898,7 @@ public:
 			luaL_error(L, "luna typecheck failed in btQuaternion btQuaternion::operator/(const float & s) const function, expected prototype:\nbtQuaternion btQuaternion::operator/(const float & s) const\nClass arguments details:\n");
 		}
 
-		float s=(float)lua_tonumber(L,2);
+		const float s=(const float)lua_tonumber(L,2);
 
 		btQuaternion* self=Luna< btQuadWord >::checkSubType< btQuaternion >(L,1);
 		if(!self) {
@@ -921,7 +921,7 @@ public:
 			luaL_error(L, "luna typecheck failed in btQuaternion & btQuaternion::operator/=(const float & s) function, expected prototype:\nbtQuaternion & btQuaternion::operator/=(const float & s)\nClass arguments details:\n");
 		}
 
-		float s=(float)lua_tonumber(L,2);
+		const float s=(const float)lua_tonumber(L,2);
 
 		btQuaternion* self=Luna< btQuadWord >::checkSubType< btQuaternion >(L,1);
 		if(!self) {

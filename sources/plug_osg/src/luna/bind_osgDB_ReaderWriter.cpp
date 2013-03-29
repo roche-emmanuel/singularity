@@ -206,6 +206,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_acceptsProtocol(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_supportedFeatures(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -602,6 +609,13 @@ public:
 	}
 
 	inline static bool _lg_typecheck_base_acceptsExtension(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_acceptsProtocol(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
@@ -1144,6 +1158,26 @@ public:
 			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::acceptsExtension(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->acceptsExtension(_arg1);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osgDB::ReaderWriter::acceptsProtocol(const std::string & protocol) const
+	static int _bind_acceptsProtocol(lua_State *L) {
+		if (!_lg_typecheck_acceptsProtocol(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgDB::ReaderWriter::acceptsProtocol(const std::string & protocol) const function, expected prototype:\nbool osgDB::ReaderWriter::acceptsProtocol(const std::string & protocol) const\nClass arguments details:\n");
+		}
+
+		std::string protocol(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::acceptsProtocol(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->acceptsProtocol(protocol);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -2369,6 +2403,26 @@ public:
 		return 1;
 	}
 
+	// bool osgDB::ReaderWriter::base_acceptsProtocol(const std::string & protocol) const
+	static int _bind_base_acceptsProtocol(lua_State *L) {
+		if (!_lg_typecheck_base_acceptsProtocol(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgDB::ReaderWriter::base_acceptsProtocol(const std::string & protocol) const function, expected prototype:\nbool osgDB::ReaderWriter::base_acceptsProtocol(const std::string & protocol) const\nClass arguments details:\n");
+		}
+
+		std::string protocol(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::ReaderWriter* self=Luna< osg::Referenced >::checkSubType< osgDB::ReaderWriter >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgDB::ReaderWriter::base_acceptsProtocol(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->ReaderWriter::acceptsProtocol(protocol);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// osgDB::ReaderWriter::Features osgDB::ReaderWriter::base_supportedFeatures() const
 	static int _bind_base_supportedFeatures(lua_State *L) {
 		if (!_lg_typecheck_base_supportedFeatures(L)) {
@@ -3206,6 +3260,7 @@ luna_RegType LunaTraits< osgDB::ReaderWriter >::methods[] = {
 	{"supportedExtensions", &luna_wrapper_osgDB_ReaderWriter::_bind_supportedExtensions},
 	{"supportedOptions", &luna_wrapper_osgDB_ReaderWriter::_bind_supportedOptions},
 	{"acceptsExtension", &luna_wrapper_osgDB_ReaderWriter::_bind_acceptsExtension},
+	{"acceptsProtocol", &luna_wrapper_osgDB_ReaderWriter::_bind_acceptsProtocol},
 	{"supportedFeatures", &luna_wrapper_osgDB_ReaderWriter::_bind_supportedFeatures},
 	{"fileExists", &luna_wrapper_osgDB_ReaderWriter::_bind_fileExists},
 	{"openArchive", &luna_wrapper_osgDB_ReaderWriter::_bind_openArchive},
@@ -3238,6 +3293,7 @@ luna_RegType LunaTraits< osgDB::ReaderWriter >::methods[] = {
 	{"base_supportedExtensions", &luna_wrapper_osgDB_ReaderWriter::_bind_base_supportedExtensions},
 	{"base_supportedOptions", &luna_wrapper_osgDB_ReaderWriter::_bind_base_supportedOptions},
 	{"base_acceptsExtension", &luna_wrapper_osgDB_ReaderWriter::_bind_base_acceptsExtension},
+	{"base_acceptsProtocol", &luna_wrapper_osgDB_ReaderWriter::_bind_base_acceptsProtocol},
 	{"base_supportedFeatures", &luna_wrapper_osgDB_ReaderWriter::_bind_base_supportedFeatures},
 	{"base_fileExists", &luna_wrapper_osgDB_ReaderWriter::_bind_base_fileExists},
 	{"base_openArchive", &luna_wrapper_osgDB_ReaderWriter::_bind_base_openArchive},

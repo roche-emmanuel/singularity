@@ -115,10 +115,10 @@ inline static bool _lg_typecheck_btTransformAabb_overload_2(lua_State *L) {
 inline static bool _lg_typecheck_testQuantizedAabbAgainstQuantizedAabb(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -416,7 +416,7 @@ inline static bool _lg_typecheck_bt_calc_quantization_parameters(lua_State *L) {
 inline static bool _lg_typecheck_bt_quantize_clamp(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
@@ -427,7 +427,7 @@ inline static bool _lg_typecheck_bt_quantize_clamp(lua_State *L) {
 inline static bool _lg_typecheck_bt_unquantize(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 	return true;
@@ -1152,12 +1152,12 @@ static int _bind_testQuantizedAabbAgainstQuantizedAabb(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in unsigned int testQuantizedAabbAgainstQuantizedAabb(const unsigned short int * aabbMin1, const unsigned short int * aabbMax1, const unsigned short int * aabbMin2, const unsigned short int * aabbMax2) function, expected prototype:\nunsigned int testQuantizedAabbAgainstQuantizedAabb(const unsigned short int * aabbMin1, const unsigned short int * aabbMax1, const unsigned short int * aabbMin2, const unsigned short int * aabbMax2)\nClass arguments details:\n");
 	}
 
-	unsigned short int aabbMin1=(unsigned short int)lua_tointeger(L,1);
-	unsigned short int aabbMax1=(unsigned short int)lua_tointeger(L,2);
-	unsigned short int aabbMin2=(unsigned short int)lua_tointeger(L,3);
-	unsigned short int aabbMax2=(unsigned short int)lua_tointeger(L,4);
+	const unsigned short int* aabbMin1=(const unsigned short int*)Luna< void >::check(L,1);
+	const unsigned short int* aabbMax1=(const unsigned short int*)Luna< void >::check(L,2);
+	const unsigned short int* aabbMin2=(const unsigned short int*)Luna< void >::check(L,3);
+	const unsigned short int* aabbMax2=(const unsigned short int*)Luna< void >::check(L,4);
 
-	unsigned int lret = ::testQuantizedAabbAgainstQuantizedAabb(&aabbMin1, &aabbMax1, &aabbMin2, &aabbMax2);
+	unsigned int lret = ::testQuantizedAabbAgainstQuantizedAabb(aabbMin1, aabbMax1, aabbMin2, aabbMax2);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -1913,7 +1913,7 @@ static int _bind_btAdjustInternalEdgeContacts(lua_State *L) {
 	const btCollisionObjectWrapper* otherColObj1Wrap=(Luna< btCollisionObjectWrapper >::check(L,3));
 	int partId0=(int)lua_tointeger(L,4);
 	int index0=(int)lua_tointeger(L,5);
-	int normalAdjustFlags=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+	int normalAdjustFlags=luatop>5 ? (int)lua_tointeger(L,6) : (int)0;
 
 	::btAdjustInternalEdgeContacts(cp, trimeshColObj0Wrap, otherColObj1Wrap, partId0, index0, normalAdjustFlags);
 
@@ -1995,7 +1995,7 @@ static int _bind_bt_quantize_clamp(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void bt_quantize_clamp(unsigned short * out, const btVector3 & point, const btVector3 & min_bound, const btVector3 & max_bound, const btVector3 & bvhQuantization) function, expected prototype:\nvoid bt_quantize_clamp(unsigned short * out, const btVector3 & point, const btVector3 & min_bound, const btVector3 & max_bound, const btVector3 & bvhQuantization)\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
 	}
 
-	unsigned short out=(unsigned short)lua_tointeger(L,1);
+	unsigned short* out=(unsigned short*)Luna< void >::check(L,1);
 	const btVector3* point_ptr=(Luna< btVector3 >::check(L,2));
 	if( !point_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg point in bt_quantize_clamp function");
@@ -2017,7 +2017,7 @@ static int _bind_bt_quantize_clamp(lua_State *L) {
 	}
 	const btVector3 & bvhQuantization=*bvhQuantization_ptr;
 
-	::bt_quantize_clamp(&out, point, min_bound, max_bound, bvhQuantization);
+	::bt_quantize_clamp(out, point, min_bound, max_bound, bvhQuantization);
 
 	return 0;
 }
@@ -2029,7 +2029,7 @@ static int _bind_bt_unquantize(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in btVector3 bt_unquantize(const unsigned short * vecIn, const btVector3 & offset, const btVector3 & bvhQuantization) function, expected prototype:\nbtVector3 bt_unquantize(const unsigned short * vecIn, const btVector3 & offset, const btVector3 & bvhQuantization)\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
 	}
 
-	unsigned short vecIn=(unsigned short)lua_tointeger(L,1);
+	const unsigned short* vecIn=(const unsigned short*)Luna< void >::check(L,1);
 	const btVector3* offset_ptr=(Luna< btVector3 >::check(L,2));
 	if( !offset_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg offset in bt_unquantize function");
@@ -2041,7 +2041,7 @@ static int _bind_bt_unquantize(lua_State *L) {
 	}
 	const btVector3 & bvhQuantization=*bvhQuantization_ptr;
 
-	btVector3 stack_lret = ::bt_unquantize(&vecIn, offset, bvhQuantization);
+	btVector3 stack_lret = ::bt_unquantize(vecIn, offset, bvhQuantization);
 	btVector3* lret = new btVector3(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -2189,7 +2189,7 @@ static int _bind_slerp(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg q2 in slerp function");
 	}
 	const btQuaternion & q2=*q2_ptr;
-	float t=(float)lua_tonumber(L,3);
+	const float t=(const float)lua_tonumber(L,3);
 
 	btQuaternion stack_lret = ::slerp(q1, q2, t);
 	btQuaternion* lret = new btQuaternion(stack_lret);
@@ -3071,7 +3071,7 @@ static int _bind_lerp(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg v2 in lerp function");
 	}
 	const btVector3 & v2=*v2_ptr;
-	float t=(float)lua_tonumber(L,3);
+	const float t=(const float)lua_tonumber(L,3);
 
 	btVector3 stack_lret = ::lerp(v1, v2, t);
 	btVector3* lret = new btVector3(stack_lret);
@@ -3089,7 +3089,7 @@ static int _bind_btSwapScalarEndian(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void btSwapScalarEndian(const float & sourceVal, float & destVal) function, expected prototype:\nvoid btSwapScalarEndian(const float & sourceVal, float & destVal)\nClass arguments details:\n");
 	}
 
-	float sourceVal=(float)lua_tonumber(L,1);
+	const float sourceVal=(const float)lua_tonumber(L,1);
 	float destVal=(float)lua_tonumber(L,2);
 
 	::btSwapScalarEndian(sourceVal, destVal);

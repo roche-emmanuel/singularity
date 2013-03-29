@@ -168,8 +168,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int noFiles=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int noFiles=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 		wxString files(lua_tostring(L,4),lua_objlen(L,4));
 
 		return new wrapper_wxDropFilesEvent(L,NULL, id, noFiles, &files);

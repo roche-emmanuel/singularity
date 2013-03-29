@@ -182,8 +182,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int id=luatop>0 ? (int)lua_tointeger(L,1) : 0;
-		wxSashEdgePosition edge=luatop>1 ? (wxSashEdgePosition)lua_tointeger(L,2) : ::wxSASH_NONE;
+		int id=luatop>0 ? (int)lua_tointeger(L,1) : (int)0;
+		wxSashEdgePosition edge=luatop>1 ? (wxSashEdgePosition)lua_tointeger(L,2) : (wxSashEdgePosition)::wxSASH_NONE;
 
 		return new wxSashEvent(id, edge);
 	}
@@ -197,8 +197,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		wxSashEdgePosition edge=luatop>2 ? (wxSashEdgePosition)lua_tointeger(L,3) : ::wxSASH_NONE;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		wxSashEdgePosition edge=luatop>2 ? (wxSashEdgePosition)lua_tointeger(L,3) : (wxSashEdgePosition)::wxSASH_NONE;
 
 		return new wrapper_wxSashEvent(L,NULL, id, edge);
 	}

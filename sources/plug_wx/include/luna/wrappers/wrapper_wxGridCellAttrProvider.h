@@ -42,7 +42,7 @@ public:
 			_obj.pushArg((wxGridCellAttrProvider*)this);
 			_obj.pushArg(row);
 			_obj.pushArg(col);
-			_obj.pushArg(kind);
+			_obj.pushArg((int)kind);
 			return (_obj.callFunction<wxGridCellAttr*>());
 		}
 

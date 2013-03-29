@@ -341,7 +341,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString wildcard(lua_tostring(L,2),lua_objlen(L,2));
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		wxMemoryFSHandler* self=Luna< wxObject >::checkSubType< wxMemoryFSHandler >(L,1);
 		if(!self) {

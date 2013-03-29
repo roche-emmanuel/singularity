@@ -277,7 +277,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int commandId=luatop>0 ? (int)lua_tointeger(L,1) : 0;
+		int commandId=luatop>0 ? (int)lua_tointeger(L,1) : (int)0;
 
 		return new wxUpdateUIEvent(commandId);
 	}
@@ -291,7 +291,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int commandId=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int commandId=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		return new wrapper_wxUpdateUIEvent(L,NULL, commandId);
 	}

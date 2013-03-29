@@ -353,7 +353,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool validation=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool validation=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
@@ -431,7 +431,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool expand=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool expand=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
@@ -473,7 +473,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxPG_ITERATE_ALL;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxPG_ITERATE_ALL;
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
@@ -637,7 +637,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString src(lua_tostring(L,2),lua_objlen(L,2));
-		int restoreStates=luatop>2 ? (int)lua_tointeger(L,3) : wxPropertyGridInterface::AllStates;
+		int restoreStates=luatop>2 ? (int)lua_tointeger(L,3) : (int)wxPropertyGridInterface::AllStates;
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
@@ -659,7 +659,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int includedStates=luatop>1 ? (int)lua_tointeger(L,2) : wxPropertyGridInterface::AllStates;
+		int includedStates=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxPropertyGridInterface::AllStates;
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
@@ -721,7 +721,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {

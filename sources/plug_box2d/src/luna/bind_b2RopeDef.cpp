@@ -165,7 +165,7 @@ public:
 	inline static bool _lg_typecheck_setMasses(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -397,14 +397,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void b2RopeDef::masses(float * value) function, expected prototype:\nvoid b2RopeDef::masses(float * value)\nClass arguments details:\n");
 		}
 
-		float value=(float)lua_tonumber(L,2);
+		float* value=(float*)Luna< void >::check(L,2);
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void b2RopeDef::masses(float *). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
 		}
-		self->masses = &value;
+		self->masses = value;
 
 		return 0;
 	}

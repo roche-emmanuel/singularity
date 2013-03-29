@@ -177,14 +177,14 @@ public:
 	inline static bool _lg_typecheck_setFromOpenGLMatrix(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getOpenGLMatrix(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -320,7 +320,7 @@ public:
 		if( luatop>1 && !c_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg c in btTransform::btTransform function");
 		}
-		const btVector3 & c=luatop>1 ? *c_ptr : btVector3 ( float (0),  float (0),  float (0));
+		const btVector3 & c=luatop>1 ? *c_ptr : (const btVector3)btVector3 ( float (0),  float (0),  float (0));
 
 		return new btTransform(q, c);
 	}
@@ -343,7 +343,7 @@ public:
 		if( luatop>1 && !c_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg c in btTransform::btTransform function");
 		}
-		const btVector3 & c=luatop>1 ? *c_ptr : btVector3 ( float (0),  float (0),  float (0));
+		const btVector3 & c=luatop>1 ? *c_ptr : (const btVector3)btVector3 ( float (0),  float (0),  float (0));
 
 		return new btTransform(b, c);
 	}
@@ -536,14 +536,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void btTransform::setFromOpenGLMatrix(const float * m) function, expected prototype:\nvoid btTransform::setFromOpenGLMatrix(const float * m)\nClass arguments details:\n");
 		}
 
-		float m=(float)lua_tonumber(L,2);
+		const float* m=(const float*)Luna< void >::check(L,2);
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btTransform::setFromOpenGLMatrix(const float *). Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
 		}
-		self->setFromOpenGLMatrix(&m);
+		self->setFromOpenGLMatrix(m);
 
 		return 0;
 	}
@@ -555,14 +555,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void btTransform::getOpenGLMatrix(float * m) const function, expected prototype:\nvoid btTransform::getOpenGLMatrix(float * m) const\nClass arguments details:\n");
 		}
 
-		float m=(float)lua_tonumber(L,2);
+		float* m=(float*)Luna< void >::check(L,2);
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btTransform::getOpenGLMatrix(float *) const. Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
 		}
-		self->getOpenGLMatrix(&m);
+		self->getOpenGLMatrix(m);
 
 		return 0;
 	}

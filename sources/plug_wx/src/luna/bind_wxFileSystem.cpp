@@ -256,7 +256,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString location(lua_tostring(L,2),lua_objlen(L,2));
-		bool is_dir=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool is_dir=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxFileSystem* self=Luna< wxObject >::checkSubType< wxFileSystem >(L,1);
 		if(!self) {
@@ -300,7 +300,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString wildcard(lua_tostring(L,2),lua_objlen(L,2));
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		wxFileSystem* self=Luna< wxObject >::checkSubType< wxFileSystem >(L,1);
 		if(!self) {
@@ -361,7 +361,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString location(lua_tostring(L,2),lua_objlen(L,2));
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxFS_READ;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxFS_READ;
 
 		wxFileSystem* self=Luna< wxObject >::checkSubType< wxFileSystem >(L,1);
 		if(!self) {

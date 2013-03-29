@@ -563,7 +563,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
+		bool enable=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)true;
 
 		bool lret = wxLog::EnableLogging(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -608,7 +608,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool repetCounting=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
+		bool repetCounting=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)true;
 
 		wxLog::SetRepetitionCounting(repetCounting);
 
@@ -679,7 +679,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool verbose=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
+		bool verbose=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)true;
 
 		wxLog::SetVerbose(verbose);
 

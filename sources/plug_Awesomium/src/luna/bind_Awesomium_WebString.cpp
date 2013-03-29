@@ -273,7 +273,7 @@ public:
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString::WebString(const unsigned short * data) function, expected prototype:\nAwesomium::WebString::WebString(const unsigned short * data)\nClass arguments details:\n");
 		}
 
-		unsigned short* data=(unsigned short*)Luna< void >::check(L,1);
+		const unsigned short* data=(const unsigned short*)Luna< void >::check(L,1);
 
 		return new Awesomium::WebString(data);
 	}
@@ -285,7 +285,7 @@ public:
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString::WebString(const unsigned short * data, unsigned int len) function, expected prototype:\nAwesomium::WebString::WebString(const unsigned short * data, unsigned int len)\nClass arguments details:\n");
 		}
 
-		unsigned short* data=(unsigned short*)Luna< void >::check(L,1);
+		const unsigned short* data=(const unsigned short*)Luna< void >::check(L,1);
 		unsigned int len=(unsigned int)lua_tointeger(L,2);
 
 		return new Awesomium::WebString(data, len);
@@ -449,7 +449,7 @@ public:
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString & Awesomium::WebString::Assign(const unsigned short * data) function, expected prototype:\nAwesomium::WebString & Awesomium::WebString::Assign(const unsigned short * data)\nClass arguments details:\n");
 		}
 
-		unsigned short* data=(unsigned short*)Luna< void >::check(L,2);
+		const unsigned short* data=(const unsigned short*)Luna< void >::check(L,2);
 
 		Awesomium::WebString* self=(Luna< Awesomium::WebString >::check(L,1));
 		if(!self) {
@@ -470,7 +470,7 @@ public:
 			luaL_error(L, "luna typecheck failed in Awesomium::WebString & Awesomium::WebString::Assign(const unsigned short * data, unsigned int len) function, expected prototype:\nAwesomium::WebString & Awesomium::WebString::Assign(const unsigned short * data, unsigned int len)\nClass arguments details:\n");
 		}
 
-		unsigned short* data=(unsigned short*)Luna< void >::check(L,2);
+		const unsigned short* data=(const unsigned short*)Luna< void >::check(L,2);
 		unsigned int len=(unsigned int)lua_tointeger(L,3);
 
 		Awesomium::WebString* self=(Luna< Awesomium::WebString >::check(L,1));

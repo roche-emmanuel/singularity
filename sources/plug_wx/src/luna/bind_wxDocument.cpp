@@ -1356,7 +1356,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool saved=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool saved=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
@@ -1378,7 +1378,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
-		bool notifyViews=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool notifyViews=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {

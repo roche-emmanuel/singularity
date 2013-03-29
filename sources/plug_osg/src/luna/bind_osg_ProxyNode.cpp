@@ -156,6 +156,7 @@ luna_ConverterType LunaTraits< osg::ProxyNode >::converters[] = {
 luna_RegEnumType LunaTraits< osg::ProxyNode >::enumValues[] = {
 	{"USE_BOUNDING_SPHERE_CENTER", osg::ProxyNode::USE_BOUNDING_SPHERE_CENTER},
 	{"USER_DEFINED_CENTER", osg::ProxyNode::USER_DEFINED_CENTER},
+	{"UNION_OF_BOUNDING_SPHERE_AND_USER_DEFINED", osg::ProxyNode::UNION_OF_BOUNDING_SPHERE_AND_USER_DEFINED},
 	{"LOAD_IMMEDIATELY", osg::ProxyNode::LOAD_IMMEDIATELY},
 	{"DEFER_LOADING_TO_DATABASE_PAGER", osg::ProxyNode::DEFER_LOADING_TO_DATABASE_PAGER},
 	{"NO_AUTOMATIC_LOADING", osg::ProxyNode::NO_AUTOMATIC_LOADING},

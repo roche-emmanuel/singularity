@@ -80,7 +80,7 @@ public:
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
 		_obj.pushArg(flags);
-		_obj.pushArg(sortArrow);
+		_obj.pushArg((int)sortArrow);
 		_obj.pushArg(params);
 		return (_obj.callFunction<int>());
 	};
@@ -93,7 +93,7 @@ public:
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
 		_obj.pushArg(flags);
-		_obj.pushArg(sortArrow);
+		_obj.pushArg((int)sortArrow);
 		_obj.pushArg(params);
 		return (_obj.callFunction<int>());
 	};
@@ -139,7 +139,7 @@ public:
 		_obj.pushArg(&dc);
 		_obj.pushArg(&size);
 		_obj.pushArg(position);
-		_obj.pushArg(orient);
+		_obj.pushArg((int)orient);
 		_obj.pushArg(flags);
 		return (_obj.callFunction<void>());
 	};
@@ -206,7 +206,7 @@ public:
 		_obj.pushArg(win);
 		_obj.pushArg(&dc);
 		_obj.pushArg(&rect);
-		_obj.pushArg(button);
+		_obj.pushArg((int)button);
 		_obj.pushArg(flags);
 		return (_obj.callFunction<void>());
 	};

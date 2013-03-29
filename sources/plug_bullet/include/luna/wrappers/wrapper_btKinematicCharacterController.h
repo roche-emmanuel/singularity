@@ -458,8 +458,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg hit_normal in btKinematicCharacterController::public_updateTargetPositionBasedOnCollision function");
 		}
 		const btVector3 & hit_normal=*hit_normal_ptr;
-		float tangentMag=luatop>2 ? (float)lua_tonumber(L,3) : float (0.0);
-		float normalMag=luatop>3 ? (float)lua_tonumber(L,4) : float (1.0);
+		float tangentMag=luatop>2 ? (float)lua_tonumber(L,3) : (float)float (0.0);
+		float normalMag=luatop>3 ? (float)lua_tonumber(L,4) : (float)float (1.0);
 
 		wrapper_btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< wrapper_btKinematicCharacterController >(L,1);
 		if(!self) {

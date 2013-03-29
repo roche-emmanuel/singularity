@@ -308,7 +308,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString file(lua_tostring(L,1),lua_objlen(L,1));
-		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : ::wxBITMAP_TYPE_ANY;
+		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
 
 		return new wxIconBundle(file, type);
 	}
@@ -327,7 +327,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxIconBundle::wxIconBundle function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : ::wxBITMAP_TYPE_ANY;
+		wxBitmapType type=luatop>1 ? (wxBitmapType)lua_tointeger(L,2) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
 
 		return new wxIconBundle(stream, type);
 	}
@@ -385,7 +385,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString file(lua_tostring(L,2),lua_objlen(L,2));
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : ::wxBITMAP_TYPE_ANY;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
 
 		return new wrapper_wxIconBundle(L,NULL, file, type);
 	}
@@ -404,7 +404,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxIconBundle::wxIconBundle function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : ::wxBITMAP_TYPE_ANY;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
 
 		return new wrapper_wxIconBundle(L,NULL, stream, type);
 	}
@@ -470,7 +470,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString file(lua_tostring(L,2),lua_objlen(L,2));
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : ::wxBITMAP_TYPE_ANY;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
 
 		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
 		if(!self) {
@@ -496,7 +496,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxIconBundle::AddIcon function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : ::wxBITMAP_TYPE_ANY;
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : (wxBitmapType)::wxBITMAP_TYPE_ANY;
 
 		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
 		if(!self) {
@@ -577,7 +577,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int size=luatop>1 ? (int)lua_tointeger(L,2) : ::wxDefaultCoord;
+		int size=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxDefaultCoord;
 
 		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
 		if(!self) {

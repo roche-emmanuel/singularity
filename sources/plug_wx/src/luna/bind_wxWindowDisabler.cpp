@@ -130,7 +130,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool disable=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : true;
+		bool disable=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)true;
 
 		return new wxWindowDisabler(disable);
 	}

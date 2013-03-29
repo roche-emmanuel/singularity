@@ -470,7 +470,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg angularComponent in btSolverBody::applyImpulse function");
 		}
 		const btVector3 & angularComponent=*angularComponent_ptr;
-		float impulseMagnitude=(float)lua_tonumber(L,4);
+		const float impulseMagnitude=(const float)lua_tonumber(L,4);
 
 		btSolverBody* self=(Luna< btSolverBody >::check(L,1));
 		if(!self) {
@@ -812,7 +812,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg angularComponent in btSolverBody::internalApplyImpulse function");
 		}
 		const btVector3 & angularComponent=*angularComponent_ptr;
-		float impulseMagnitude=(float)lua_tonumber(L,4);
+		const float impulseMagnitude=(const float)lua_tonumber(L,4);
 
 		btSolverBody* self=(Luna< btSolverBody >::check(L,1));
 		if(!self) {

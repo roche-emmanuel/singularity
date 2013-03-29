@@ -99,11 +99,8 @@ public:
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<1 || luatop>2 ) return false;
+		if( lua_gettop(L)!=0 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -117,6 +114,15 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_set(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getName(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -148,19 +154,15 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// osgDB::ObjectMark::ObjectMark(const char * name, int delta = 0)
+	// osgDB::ObjectMark::ObjectMark()
 	static osgDB::ObjectMark* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ObjectMark::ObjectMark(const char * name, int delta = 0) function, expected prototype:\nosgDB::ObjectMark::ObjectMark(const char * name, int delta = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectMark::ObjectMark() function, expected prototype:\nosgDB::ObjectMark::ObjectMark()\nClass arguments details:\n");
 		}
 
-		int luatop = lua_gettop(L);
 
-		const char * name=(const char *)lua_tostring(L,1);
-		int delta=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
-
-		return new osgDB::ObjectMark(name, delta);
+		return new osgDB::ObjectMark();
 	}
 
 	// osgDB::ObjectMark::ObjectMark(const osgDB::ObjectMark & copy)
@@ -184,12 +186,34 @@ public:
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 
-		luaL_error(L, "error in function ObjectMark, cannot match any of the overloads for function ObjectMark:\n  ObjectMark(const char *, int)\n  ObjectMark(const osgDB::ObjectMark &)\n");
+		luaL_error(L, "error in function ObjectMark, cannot match any of the overloads for function ObjectMark:\n  ObjectMark()\n  ObjectMark(const osgDB::ObjectMark &)\n");
 		return NULL;
 	}
 
 
 	// Function binds:
+	// void osgDB::ObjectMark::set(const char * name, int delta = 0)
+	static int _bind_set(lua_State *L) {
+		if (!_lg_typecheck_set(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::ObjectMark::set(const char * name, int delta = 0) function, expected prototype:\nvoid osgDB::ObjectMark::set(const char * name, int delta = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const char * name=(const char *)lua_tostring(L,2);
+		int delta=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+
+		osgDB::ObjectMark* self=(Luna< osgDB::ObjectMark >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::ObjectMark::set(const char *, int). Got : '%s'",typeid(Luna< osgDB::ObjectMark >::check(L,1)).name());
+		}
+		self->set(name, delta);
+
+		return 0;
+	}
+
 	// std::string osgDB::ObjectMark::_name()
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
@@ -287,6 +311,7 @@ const int LunaTraits< osgDB::ObjectMark >::hash = 60066730;
 const int LunaTraits< osgDB::ObjectMark >::uniqueIDs[] = {60066730,0};
 
 luna_RegType LunaTraits< osgDB::ObjectMark >::methods[] = {
+	{"set", &luna_wrapper_osgDB_ObjectMark::_bind_set},
 	{"getName", &luna_wrapper_osgDB_ObjectMark::_bind_getName},
 	{"getIndentDelta", &luna_wrapper_osgDB_ObjectMark::_bind_getIndentDelta},
 	{"setName", &luna_wrapper_osgDB_ObjectMark::_bind_setName},

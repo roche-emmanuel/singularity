@@ -1077,18 +1077,18 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_ANY;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxSplitterWindow::wxSplitterWindow function");
 		}
-		const wxPoint & pos=luatop>2 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>2 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxSplitterWindow::wxSplitterWindow function");
 		}
-		const wxSize & size=luatop>3 ? *size_ptr : wxDefaultSize;
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : (0x0200|0x0100);
+		const wxSize & size=luatop>3 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>4 ? (long)lua_tointeger(L,5) : (long)(0x0200|0x0100);
 		wxString name(lua_tostring(L,6),lua_objlen(L,6));
 
 		return new wxSplitterWindow(parent, id, pos, size, style, name);
@@ -1115,18 +1115,18 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxSplitterWindow::wxSplitterWindow function");
 		}
-		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
 		if( luatop>4 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxSplitterWindow::wxSplitterWindow function");
 		}
-		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : (0x0200|0x0100);
+		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)(0x0200|0x0100);
 		wxString name(lua_tostring(L,7),lua_objlen(L,7));
 
 		return new wrapper_wxSplitterWindow(L,NULL, parent, id, pos, size, style, name);
@@ -1155,18 +1155,18 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxID_ANY;
 		const wxPoint* point_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !point_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg point in wxSplitterWindow::Create function");
 		}
-		const wxPoint & point=luatop>3 ? *point_ptr : wxDefaultPosition;
+		const wxPoint & point=luatop>3 ? *point_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
 		if( luatop>4 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxSplitterWindow::Create function");
 		}
-		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : (0x0200|0x0100);
+		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)(0x0200|0x0100);
 		wxString name(lua_tostring(L,7),lua_objlen(L,7));
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
@@ -1464,7 +1464,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int position=(int)lua_tointeger(L,2);
-		bool redraw=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool redraw=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -1506,7 +1506,7 @@ public:
 
 		wxWindow* window1=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxWindow* window2=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
-		int sashPosition=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int sashPosition=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -1530,7 +1530,7 @@ public:
 
 		wxWindow* window1=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxWindow* window2=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
-		int sashPosition=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int sashPosition=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -1802,8 +1802,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
-		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
+		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -1969,7 +1969,7 @@ public:
 
 		int orientation=(int)lua_tointeger(L,2);
 		int pos=(int)lua_tointeger(L,3);
-		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -1994,7 +1994,7 @@ public:
 		int position=(int)lua_tointeger(L,3);
 		int thumbSize=(int)lua_tointeger(L,4);
 		int range=(int)lua_tointeger(L,5);
-		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -2281,7 +2281,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -2403,12 +2403,12 @@ public:
 		if( luatop>2 && !maxSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg maxSize in wxSplitterWindow::base_SetSizeHints function");
 		}
-		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : wxDefaultSize;
+		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : (const wxSize&)wxDefaultSize;
 		const wxSize* incSize_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !incSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg incSize in wxSplitterWindow::base_SetSizeHints function");
 		}
-		const wxSize & incSize=luatop>3 ? *incSize_ptr : wxDefaultSize;
+		const wxSize & incSize=luatop>3 ? *incSize_ptr : (const wxSize&)wxDefaultSize;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -2431,10 +2431,10 @@ public:
 
 		int minW=(int)lua_tointeger(L,2);
 		int minH=(int)lua_tointeger(L,3);
-		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int incW=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		int incH=luatop>6 ? (int)lua_tointeger(L,7) : -1;
+		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int incW=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+		int incH=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -2583,7 +2583,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 		const wxRect* rect=luatop>2 ? (Luna< wxRect >::check(L,3)) : (const wxRect*)NULL;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
@@ -2895,7 +2895,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -2955,7 +2955,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -2977,7 +2977,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -3000,7 +3000,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -3561,7 +3561,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -3642,7 +3642,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -3724,7 +3724,7 @@ public:
 
 		wxWindow* window1=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxWindow* window2=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
-		int sashPosition=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int sashPosition=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {
@@ -3748,7 +3748,7 @@ public:
 
 		wxWindow* window1=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxWindow* window2=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
-		int sashPosition=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int sashPosition=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		wxSplitterWindow* self=Luna< wxObject >::checkSubType< wxSplitterWindow >(L,1);
 		if(!self) {

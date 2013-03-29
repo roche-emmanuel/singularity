@@ -162,9 +162,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int pid=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int exitcode=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int pid=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int exitcode=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		return new wrapper_wxProcessEvent(L,NULL, id, pid, exitcode);
 	}

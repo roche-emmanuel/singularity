@@ -254,8 +254,8 @@ public:
 		if( lua_gettop(L)!=6 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,47895716)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		return true;
@@ -278,8 +278,8 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,47895716)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -288,8 +288,8 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,59813041)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,47895716)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -627,8 +627,8 @@ public:
 		}
 
 		btNodeOverlapCallback* nodeCallback=(Luna< btNodeOverlapCallback >::check(L,2));
-		unsigned short int quantizedQueryAabbMin=(unsigned short int)lua_tointeger(L,3);
-		unsigned short int quantizedQueryAabbMax=(unsigned short int)lua_tointeger(L,4);
+		unsigned short int* quantizedQueryAabbMin=(unsigned short int*)Luna< void >::check(L,3);
+		unsigned short int* quantizedQueryAabbMax=(unsigned short int*)Luna< void >::check(L,4);
 		int startNodeIndex=(int)lua_tointeger(L,5);
 		int endNodeIndex=(int)lua_tointeger(L,6);
 
@@ -637,7 +637,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkStacklessQuantizedTree(btNodeOverlapCallback *, unsigned short int *, unsigned short int *, int, int) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
 		}
-		self->public_walkStacklessQuantizedTree(nodeCallback, &quantizedQueryAabbMin, &quantizedQueryAabbMax, startNodeIndex, endNodeIndex);
+		self->public_walkStacklessQuantizedTree(nodeCallback, quantizedQueryAabbMin, quantizedQueryAabbMax, startNodeIndex, endNodeIndex);
 
 		return 0;
 	}
@@ -691,15 +691,15 @@ public:
 		}
 
 		btNodeOverlapCallback* nodeCallback=(Luna< btNodeOverlapCallback >::check(L,2));
-		unsigned short int quantizedQueryAabbMin=(unsigned short int)lua_tointeger(L,3);
-		unsigned short int quantizedQueryAabbMax=(unsigned short int)lua_tointeger(L,4);
+		unsigned short int* quantizedQueryAabbMin=(unsigned short int*)Luna< void >::check(L,3);
+		unsigned short int* quantizedQueryAabbMax=(unsigned short int*)Luna< void >::check(L,4);
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkStacklessQuantizedTreeCacheFriendly(btNodeOverlapCallback *, unsigned short int *, unsigned short int *) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
 		}
-		self->public_walkStacklessQuantizedTreeCacheFriendly(nodeCallback, &quantizedQueryAabbMin, &quantizedQueryAabbMax);
+		self->public_walkStacklessQuantizedTreeCacheFriendly(nodeCallback, quantizedQueryAabbMin, quantizedQueryAabbMax);
 
 		return 0;
 	}
@@ -713,15 +713,15 @@ public:
 
 		const btQuantizedBvhNode* currentNode=(Luna< btQuantizedBvhNode >::check(L,2));
 		btNodeOverlapCallback* nodeCallback=(Luna< btNodeOverlapCallback >::check(L,3));
-		unsigned short int quantizedQueryAabbMin=(unsigned short int)lua_tointeger(L,4);
-		unsigned short int quantizedQueryAabbMax=(unsigned short int)lua_tointeger(L,5);
+		unsigned short int* quantizedQueryAabbMin=(unsigned short int*)Luna< void >::check(L,4);
+		unsigned short int* quantizedQueryAabbMax=(unsigned short int*)Luna< void >::check(L,5);
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkRecursiveQuantizedTreeAgainstQueryAabb(const btQuantizedBvhNode *, btNodeOverlapCallback *, unsigned short int *, unsigned short int *) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
 		}
-		self->public_walkRecursiveQuantizedTreeAgainstQueryAabb(currentNode, nodeCallback, &quantizedQueryAabbMin, &quantizedQueryAabbMax);
+		self->public_walkRecursiveQuantizedTreeAgainstQueryAabb(currentNode, nodeCallback, quantizedQueryAabbMin, quantizedQueryAabbMax);
 
 		return 0;
 	}

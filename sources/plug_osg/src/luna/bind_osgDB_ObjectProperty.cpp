@@ -99,6 +99,12 @@ public:
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>3 ) return false;
 
@@ -108,7 +114,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,23791141) ) return false;
@@ -118,13 +124,6 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_proto(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isstring(L,2)==0 ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_set(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -179,12 +178,30 @@ public:
 
 
 	// Operator checkers:
-	// (found 0 valid operators)
+	// (found 1 valid operators)
+	inline static bool _lg_typecheck_op_call(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Constructor binds:
-	// osgDB::ObjectProperty::ObjectProperty(const char * name, int value = 0, bool useMap = false)
+	// osgDB::ObjectProperty::ObjectProperty()
 	static osgDB::ObjectProperty* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectProperty::ObjectProperty() function, expected prototype:\nosgDB::ObjectProperty::ObjectProperty()\nClass arguments details:\n");
+		}
+
+
+		return new osgDB::ObjectProperty();
+	}
+
+	// osgDB::ObjectProperty::ObjectProperty(const char * name, int value = 0, bool useMap = false)
+	static osgDB::ObjectProperty* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgDB::ObjectProperty::ObjectProperty(const char * name, int value = 0, bool useMap = false) function, expected prototype:\nosgDB::ObjectProperty::ObjectProperty(const char * name, int value = 0, bool useMap = false)\nClass arguments details:\n");
 		}
@@ -199,8 +216,8 @@ public:
 	}
 
 	// osgDB::ObjectProperty::ObjectProperty(const osgDB::ObjectProperty & copy)
-	static osgDB::ObjectProperty* _bind_ctor_overload_2(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_2(L)) {
+	static osgDB::ObjectProperty* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgDB::ObjectProperty::ObjectProperty(const osgDB::ObjectProperty & copy) function, expected prototype:\nosgDB::ObjectProperty::ObjectProperty(const osgDB::ObjectProperty & copy)\nClass arguments details:\narg 1 ID = 23791141\n");
 		}
@@ -218,35 +235,14 @@ public:
 	static osgDB::ObjectProperty* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
 
-		luaL_error(L, "error in function ObjectProperty, cannot match any of the overloads for function ObjectProperty:\n  ObjectProperty(const char *, int, bool)\n  ObjectProperty(const osgDB::ObjectProperty &)\n");
+		luaL_error(L, "error in function ObjectProperty, cannot match any of the overloads for function ObjectProperty:\n  ObjectProperty()\n  ObjectProperty(const char *, int, bool)\n  ObjectProperty(const osgDB::ObjectProperty &)\n");
 		return NULL;
 	}
 
 
 	// Function binds:
-	// osgDB::ObjectProperty & osgDB::ObjectProperty::proto(const char * name)
-	static int _bind_proto(lua_State *L) {
-		if (!_lg_typecheck_proto(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ObjectProperty & osgDB::ObjectProperty::proto(const char * name) function, expected prototype:\nosgDB::ObjectProperty & osgDB::ObjectProperty::proto(const char * name)\nClass arguments details:\n");
-		}
-
-		const char * name=(const char *)lua_tostring(L,2);
-
-		osgDB::ObjectProperty* self=(Luna< osgDB::ObjectProperty >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ObjectProperty & osgDB::ObjectProperty::proto(const char *). Got : '%s'",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name());
-		}
-		const osgDB::ObjectProperty* lret = &self->proto(name);
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osgDB::ObjectProperty >::push(L,lret,false);
-
-		return 1;
-	}
-
 	// void osgDB::ObjectProperty::set(int v)
 	static int _bind_set(lua_State *L) {
 		if (!_lg_typecheck_set(L)) {
@@ -401,6 +397,28 @@ public:
 
 
 	// Operator binds:
+	// osgDB::ObjectProperty & osgDB::ObjectProperty::operator()(const char * name)
+	static int _bind_op_call(lua_State *L) {
+		if (!_lg_typecheck_op_call(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectProperty & osgDB::ObjectProperty::operator()(const char * name) function, expected prototype:\nosgDB::ObjectProperty & osgDB::ObjectProperty::operator()(const char * name)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+
+		osgDB::ObjectProperty* self=(Luna< osgDB::ObjectProperty >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ObjectProperty & osgDB::ObjectProperty::operator()(const char *). Got : '%s'",typeid(Luna< osgDB::ObjectProperty >::check(L,1)).name());
+		}
+		const osgDB::ObjectProperty* lret = &self->operator()(name);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ObjectProperty >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 };
 
@@ -420,7 +438,6 @@ const int LunaTraits< osgDB::ObjectProperty >::hash = 23791141;
 const int LunaTraits< osgDB::ObjectProperty >::uniqueIDs[] = {23791141,0};
 
 luna_RegType LunaTraits< osgDB::ObjectProperty >::methods[] = {
-	{"proto", &luna_wrapper_osgDB_ObjectProperty::_bind_proto},
 	{"set", &luna_wrapper_osgDB_ObjectProperty::_bind_set},
 	{"get", &luna_wrapper_osgDB_ObjectProperty::_bind_get},
 	{"getName", &luna_wrapper_osgDB_ObjectProperty::_bind_getName},
@@ -429,6 +446,7 @@ luna_RegType LunaTraits< osgDB::ObjectProperty >::methods[] = {
 	{"setName", &luna_wrapper_osgDB_ObjectProperty::_bind_setName},
 	{"setValue", &luna_wrapper_osgDB_ObjectProperty::_bind_setValue},
 	{"setMapProperty", &luna_wrapper_osgDB_ObjectProperty::_bind_setMapProperty},
+	{"op_call", &luna_wrapper_osgDB_ObjectProperty::_bind_op_call},
 	{"dynCast", &luna_wrapper_osgDB_ObjectProperty::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgDB_ObjectProperty::_bind___eq},
 	{"fromVoid", &luna_wrapper_osgDB_ObjectProperty::_bind_fromVoid},

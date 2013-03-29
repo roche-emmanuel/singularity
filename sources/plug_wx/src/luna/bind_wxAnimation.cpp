@@ -293,7 +293,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
-		wxAnimationType type=luatop>1 ? (wxAnimationType)lua_tointeger(L,2) : ::wxANIMATION_TYPE_ANY;
+		wxAnimationType type=luatop>1 ? (wxAnimationType)lua_tointeger(L,2) : (wxAnimationType)::wxANIMATION_TYPE_ANY;
 
 		return new wxAnimation(name, type);
 	}
@@ -324,7 +324,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : ::wxANIMATION_TYPE_ANY;
+		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : (wxAnimationType)::wxANIMATION_TYPE_ANY;
 
 		return new wrapper_wxAnimation(L,NULL, name, type);
 	}
@@ -459,7 +459,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxAnimation::Load function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : ::wxANIMATION_TYPE_ANY;
+		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : (wxAnimationType)::wxANIMATION_TYPE_ANY;
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
@@ -482,7 +482,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : ::wxANIMATION_TYPE_ANY;
+		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : (wxAnimationType)::wxANIMATION_TYPE_ANY;
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
@@ -633,7 +633,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxAnimation::base_Load function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : ::wxANIMATION_TYPE_ANY;
+		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : (wxAnimationType)::wxANIMATION_TYPE_ANY;
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
@@ -656,7 +656,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : ::wxANIMATION_TYPE_ANY;
+		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : (wxAnimationType)::wxANIMATION_TYPE_ANY;
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {

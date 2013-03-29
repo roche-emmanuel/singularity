@@ -223,6 +223,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_beginTessellation(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -549,6 +555,24 @@ public:
 		return 0;
 	}
 
+	// void osgUtil::Tessellator::base_beginTessellation()
+	static int _bind_base_beginTessellation(lua_State *L) {
+		if (!_lg_typecheck_base_beginTessellation(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::base_beginTessellation() function, expected prototype:\nvoid osgUtil::Tessellator::base_beginTessellation()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::base_beginTessellation(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->Tessellator::beginTessellation();
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -585,6 +609,7 @@ luna_RegType LunaTraits< osgUtil::Tessellator >::methods[] = {
 	{"endTessellation", &luna_wrapper_osgUtil_Tessellator::_bind_endTessellation},
 	{"reset", &luna_wrapper_osgUtil_Tessellator::_bind_reset},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgUtil_Tessellator::_bind_base_setThreadSafeRefUnref},
+	{"base_beginTessellation", &luna_wrapper_osgUtil_Tessellator::_bind_base_beginTessellation},
 	{"__eq", &luna_wrapper_osgUtil_Tessellator::_bind___eq},
 	{"fromVoid", &luna_wrapper_osgUtil_Tessellator::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_osgUtil_Tessellator::_bind_asVoid},

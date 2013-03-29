@@ -488,7 +488,7 @@ public:
 		wxString content(lua_tostring(L,4),lua_objlen(L,4));
 		wxXmlAttribute* attrs=luatop>4 ? (Luna< wxXmlAttribute >::check(L,5)) : (wxXmlAttribute*)NULL;
 		wxXmlNode* next=luatop>5 ? (Luna< wxXmlNode >::check(L,6)) : (wxXmlNode*)NULL;
-		int lineNo=luatop>6 ? (int)lua_tointeger(L,7) : -1;
+		int lineNo=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
 
 		return new wxXmlNode(parent, type, name, content, attrs, next, lineNo);
 	}
@@ -505,7 +505,7 @@ public:
 		wxXmlNodeType type=(wxXmlNodeType)lua_tointeger(L,1);
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 		wxString content(lua_tostring(L,3),lua_objlen(L,3));
-		int lineNo=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int lineNo=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		return new wxXmlNode(type, name, content, lineNo);
 	}
@@ -541,7 +541,7 @@ public:
 		wxString content(lua_tostring(L,5),lua_objlen(L,5));
 		wxXmlAttribute* attrs=luatop>5 ? (Luna< wxXmlAttribute >::check(L,6)) : (wxXmlAttribute*)NULL;
 		wxXmlNode* next=luatop>6 ? (Luna< wxXmlNode >::check(L,7)) : (wxXmlNode*)NULL;
-		int lineNo=luatop>7 ? (int)lua_tointeger(L,8) : -1;
+		int lineNo=luatop>7 ? (int)lua_tointeger(L,8) : (int)-1;
 
 		return new wrapper_wxXmlNode(L,NULL, parent, type, name, content, attrs, next, lineNo);
 	}
@@ -558,7 +558,7 @@ public:
 		wxXmlNodeType type=(wxXmlNodeType)lua_tointeger(L,2);
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 		wxString content(lua_tostring(L,4),lua_objlen(L,4));
-		int lineNo=luatop>4 ? (int)lua_tointeger(L,5) : -1;
+		int lineNo=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
 
 		return new wrapper_wxXmlNode(L,NULL, type, name, content, lineNo);
 	}

@@ -54,16 +54,17 @@ public:
 		return (_obj.callFunction<double>());
 	};
 
-	// osg::Image * osg::NodeVisitor::ImageRequestHandler::readImageFile(const std::string & fileName)
-	osg::Image * readImageFile(const std::string & fileName) {
+	// osg::Image * osg::NodeVisitor::ImageRequestHandler::readImageFile(const std::string & fileName, const osg::Referenced * options = 0)
+	osg::Image * readImageFile(const std::string & fileName, const osg::Referenced * options = 0) {
 		THROW_IF(!_obj.pushFunction("readImageFile"),"No implementation for abstract function osg::NodeVisitor::ImageRequestHandler::readImageFile");
 		_obj.pushArg((osg::NodeVisitor::ImageRequestHandler*)this);
 		_obj.pushArg(fileName);
+		_obj.pushArg(options);
 		return (_obj.callFunction<osg::Image*>());
 	};
 
-	// void osg::NodeVisitor::ImageRequestHandler::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp)
-	void requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp) {
+	// void osg::NodeVisitor::ImageRequestHandler::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options = 0)
+	void requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & imageRequest, const osg::Referenced * options = 0) {
 		THROW_IF(!_obj.pushFunction("requestImageFile"),"No implementation for abstract function osg::NodeVisitor::ImageRequestHandler::requestImageFile");
 		_obj.pushArg((osg::NodeVisitor::ImageRequestHandler*)this);
 		_obj.pushArg(fileName);
@@ -71,6 +72,8 @@ public:
 		_obj.pushArg(attachmentIndex);
 		_obj.pushArg(timeToMergeBy);
 		_obj.pushArg(framestamp);
+		_obj.pushArg(imageRequest);
+		_obj.pushArg(options);
 		return (_obj.callFunction<void>());
 	};
 

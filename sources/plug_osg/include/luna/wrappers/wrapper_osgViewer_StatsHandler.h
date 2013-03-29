@@ -216,6 +216,11 @@ public:
 		return osgViewer::StatsHandler::setUpHUDCamera(viewer);
 	};
 
+	// void osgViewer::StatsHandler::setWindowSize(int width, int height)
+	void public_setWindowSize(int width, int height) {
+		return osgViewer::StatsHandler::setWindowSize(width, height);
+	};
+
 	// osg::Geometry * osgViewer::StatsHandler::createBackgroundRectangle(const osg::Vec3f & pos, const float width, const float height, osg::Vec4f & color)
 	osg::Geometry * public_createBackgroundRectangle(const osg::Vec3f & pos, const float width, const float height, osg::Vec4f & color) {
 		return osgViewer::StatsHandler::createBackgroundRectangle(pos, width, height, color);
@@ -272,6 +277,14 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_public_setWindowSize(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -387,6 +400,26 @@ public:
 			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_setUpHUDCamera(osgViewer::ViewerBase *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->public_setUpHUDCamera(viewer);
+
+		return 0;
+	}
+
+	// void osgViewer::StatsHandler::public_setWindowSize(int width, int height)
+	static int _bind_public_setWindowSize(lua_State *L) {
+		if (!_lg_typecheck_public_setWindowSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::StatsHandler::public_setWindowSize(int width, int height) function, expected prototype:\nvoid osgViewer::StatsHandler::public_setWindowSize(int width, int height)\nClass arguments details:\n");
+		}
+
+		int width=(int)lua_tointeger(L,2);
+		int height=(int)lua_tointeger(L,3);
+
+		wrapper_osgViewer_StatsHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_osgViewer_StatsHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::StatsHandler::public_setWindowSize(int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->public_setWindowSize(width, height);
 
 		return 0;
 	}
@@ -670,6 +703,7 @@ public:
 	void register_protected_methods(lua_State* L) {
 		static const luaL_Reg wrapper_lib[] = {
 		{"setUpHUDCamera",_bind_public_setUpHUDCamera},
+		{"setWindowSize",_bind_public_setWindowSize},
 		{"createBackgroundRectangle",_bind_public_createBackgroundRectangle},
 		{"createGeometry",_bind_public_createGeometry},
 		{"createFrameMarkers",_bind_public_createFrameMarkers},

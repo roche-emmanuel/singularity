@@ -232,7 +232,7 @@ public:
 		if( luatop>0 && !constructionInfo_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg constructionInfo in btDefaultCollisionConfiguration::btDefaultCollisionConfiguration function");
 		}
-		const btDefaultCollisionConstructionInfo & constructionInfo=luatop>0 ? *constructionInfo_ptr : btDefaultCollisionConstructionInfo ();
+		const btDefaultCollisionConstructionInfo & constructionInfo=luatop>0 ? *constructionInfo_ptr : (const btDefaultCollisionConstructionInfo)btDefaultCollisionConstructionInfo ();
 
 		return new btDefaultCollisionConfiguration(constructionInfo);
 	}
@@ -250,7 +250,7 @@ public:
 		if( luatop>1 && !constructionInfo_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg constructionInfo in btDefaultCollisionConfiguration::btDefaultCollisionConfiguration function");
 		}
-		const btDefaultCollisionConstructionInfo & constructionInfo=luatop>1 ? *constructionInfo_ptr : btDefaultCollisionConstructionInfo ();
+		const btDefaultCollisionConstructionInfo & constructionInfo=luatop>1 ? *constructionInfo_ptr : (const btDefaultCollisionConstructionInfo)btDefaultCollisionConstructionInfo ();
 
 		return new wrapper_btDefaultCollisionConfiguration(L,NULL, constructionInfo);
 	}
@@ -382,8 +382,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int numPerturbationIterations=luatop>1 ? (int)lua_tointeger(L,2) : 3;
-		int minimumPointsPerturbationThreshold=luatop>2 ? (int)lua_tointeger(L,3) : 3;
+		int numPerturbationIterations=luatop>1 ? (int)lua_tointeger(L,2) : (int)3;
+		int minimumPointsPerturbationThreshold=luatop>2 ? (int)lua_tointeger(L,3) : (int)3;
 
 		btDefaultCollisionConfiguration* self=Luna< btCollisionConfiguration >::checkSubType< btDefaultCollisionConfiguration >(L,1);
 		if(!self) {
@@ -404,8 +404,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int numPerturbationIterations=luatop>1 ? (int)lua_tointeger(L,2) : 3;
-		int minimumPointsPerturbationThreshold=luatop>2 ? (int)lua_tointeger(L,3) : 3;
+		int numPerturbationIterations=luatop>1 ? (int)lua_tointeger(L,2) : (int)3;
+		int minimumPointsPerturbationThreshold=luatop>2 ? (int)lua_tointeger(L,3) : (int)3;
 
 		btDefaultCollisionConfiguration* self=Luna< btCollisionConfiguration >::checkSubType< btDefaultCollisionConfiguration >(L,1);
 		if(!self) {

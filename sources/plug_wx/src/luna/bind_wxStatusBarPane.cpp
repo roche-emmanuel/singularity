@@ -141,8 +141,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int style=luatop>0 ? (int)lua_tointeger(L,1) : 0x0000;
-		size_t width=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
+		int style=luatop>0 ? (int)lua_tointeger(L,1) : (int)0x0000;
+		size_t width=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)0;
 
 		return new wxStatusBarPane(style, width);
 	}

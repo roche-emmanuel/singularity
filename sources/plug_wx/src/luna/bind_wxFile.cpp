@@ -289,7 +289,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString filename(lua_tostring(L,1),lua_objlen(L,1));
-		wxFile::OpenMode mode=luatop>1 ? (wxFile::OpenMode)lua_tointeger(L,2) : wxFile::read;
+		wxFile::OpenMode mode=luatop>1 ? (wxFile::OpenMode)lua_tointeger(L,2) : (wxFile::OpenMode)wxFile::read;
 
 		return new wxFile(filename, mode);
 	}
@@ -403,8 +403,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
-		bool overwrite=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
-		int access=luatop>3 ? (int)lua_tointeger(L,4) : ::wxS_DEFAULT;
+		bool overwrite=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
+		int access=luatop>3 ? (int)lua_tointeger(L,4) : (int)::wxS_DEFAULT;
 
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
@@ -540,8 +540,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
-		wxFile::OpenMode mode=luatop>2 ? (wxFile::OpenMode)lua_tointeger(L,3) : wxFile::read;
-		int access=luatop>3 ? (int)lua_tointeger(L,4) : ::wxS_DEFAULT;
+		wxFile::OpenMode mode=luatop>2 ? (wxFile::OpenMode)lua_tointeger(L,3) : (wxFile::OpenMode)wxFile::read;
+		int access=luatop>3 ? (int)lua_tointeger(L,4) : (int)::wxS_DEFAULT;
 
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
@@ -585,7 +585,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		long long ofs=(long long)lua_tointeger(L,2);
-		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : ::wxFromStart;
+		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : (wxSeekMode)::wxFromStart;
 
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
@@ -607,7 +607,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long long ofs=luatop>1 ? (long long)lua_tointeger(L,2) : 0;
+		long long ofs=luatop>1 ? (long long)lua_tointeger(L,2) : (long long)0;
 
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {

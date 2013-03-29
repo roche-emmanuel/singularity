@@ -619,10 +619,10 @@ public:
 	inline static bool _lg_typecheck_GetClippingBox(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -684,9 +684,9 @@ public:
 		if( luatop<4 || luatop>6 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		if( luatop>5 && (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,56813631)) ) return false;
 		if( luatop>5 && (lua_isnil(L,6)==0 && !(Luna< wxObject >::checkSubType< wxFont >(L,6)) ) ) return false;
 		return true;
@@ -712,10 +712,10 @@ public:
 		if( luatop<4 || luatop>7 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		if( luatop>5 && (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 		if( luatop>6 && (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,56813631)) ) return false;
 		if( luatop>6 && (lua_isnil(L,7)==0 && !(Luna< wxObject >::checkSubType< wxFont >(L,7)) ) ) return false;
 		return true;
@@ -982,8 +982,8 @@ public:
 	inline static bool _lg_typecheck_GetSize_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -996,8 +996,8 @@ public:
 	inline static bool _lg_typecheck_GetSizeMM_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -1010,8 +1010,8 @@ public:
 	inline static bool _lg_typecheck_GetUserScale(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -1102,8 +1102,8 @@ public:
 	inline static bool _lg_typecheck_GetLogicalScale(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -1118,8 +1118,8 @@ public:
 	inline static bool _lg_typecheck_GetLogicalOrigin_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -1402,7 +1402,7 @@ public:
 		const wxBitmap & bitmap=*bitmap_ptr;
 		int x=(int)lua_tointeger(L,3);
 		int y=(int)lua_tointeger(L,4);
-		bool useMask=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool useMask=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
@@ -1433,7 +1433,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg pt in wxDC::DrawBitmap function");
 		}
 		const wxPoint & pt=*pt_ptr;
-		bool useMask=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool useMask=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
@@ -1790,8 +1790,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxDC::DrawLabel function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int alignment=luatop>4 ? (int)lua_tointeger(L,5) : ::wxALIGN_LEFT | ::wxALIGN_TOP;
-		int indexAccel=luatop>5 ? (int)lua_tointeger(L,6) : -1;
+		int alignment=luatop>4 ? (int)lua_tointeger(L,5) : (int)::wxALIGN_LEFT | ::wxALIGN_TOP;
+		int indexAccel=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
 		wxRect* rectBounding=luatop>6 ? (Luna< wxRect >::check(L,7)) : (wxRect*)NULL;
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
@@ -1819,8 +1819,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxDC::DrawLabel function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int alignment=luatop>3 ? (int)lua_tointeger(L,4) : ::wxALIGN_LEFT | ::wxALIGN_TOP;
-		int indexAccel=luatop>4 ? (int)lua_tointeger(L,5) : -1;
+		int alignment=luatop>3 ? (int)lua_tointeger(L,4) : (int)::wxALIGN_LEFT | ::wxALIGN_TOP;
+		int indexAccel=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
@@ -1910,8 +1910,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const wxPointList* points=(Luna< wxPointList >::check(L,2));
-		int xoffset=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int yoffset=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int xoffset=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int yoffset=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
@@ -1985,9 +1985,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		const wxPointList* points=(Luna< wxPointList >::check(L,2));
-		int xoffset=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		int yoffset=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		wxPolygonFillMode fill_style=luatop>4 ? (wxPolygonFillMode)lua_tointeger(L,5) : ::wxODDEVEN_RULE;
+		int xoffset=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
+		int yoffset=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		wxPolygonFillMode fill_style=luatop>4 ? (wxPolygonFillMode)lua_tointeger(L,5) : (wxPolygonFillMode)::wxODDEVEN_RULE;
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
@@ -2434,7 +2434,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg destColour in wxDC::GradientFillLinear function");
 		}
 		const wxColour & destColour=*destColour_ptr;
-		wxDirection nDirection=luatop>4 ? (wxDirection)lua_tointeger(L,5) : ::wxRIGHT;
+		wxDirection nDirection=luatop>4 ? (wxDirection)lua_tointeger(L,5) : (wxDirection)::wxRIGHT;
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
@@ -2462,7 +2462,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxDC::FloodFill function");
 		}
 		const wxColour & colour=*colour_ptr;
-		wxFloodFillStyle style=luatop>4 ? (wxFloodFillStyle)lua_tointeger(L,5) : ::wxFLOOD_SURFACE;
+		wxFloodFillStyle style=luatop>4 ? (wxFloodFillStyle)lua_tointeger(L,5) : (wxFloodFillStyle)::wxFLOOD_SURFACE;
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
@@ -2494,7 +2494,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg col in wxDC::FloodFill function");
 		}
 		const wxColour & col=*col_ptr;
-		wxFloodFillStyle style=luatop>3 ? (wxFloodFillStyle)lua_tointeger(L,4) : ::wxFLOOD_SURFACE;
+		wxFloodFillStyle style=luatop>3 ? (wxFloodFillStyle)lua_tointeger(L,4) : (wxFloodFillStyle)::wxFLOOD_SURFACE;
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
@@ -2593,17 +2593,17 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::GetClippingBox(int * x, int * y, int * width, int * height) const function, expected prototype:\nvoid wxDC::GetClippingBox(int * x, int * y, int * width, int * height) const\nClass arguments details:\n");
 		}
 
-		int x=(int)lua_tointeger(L,2);
-		int y=(int)lua_tointeger(L,3);
-		int width=(int)lua_tointeger(L,4);
-		int height=(int)lua_tointeger(L,5);
+		int* x=(int*)Luna< void >::check(L,2);
+		int* y=(int*)Luna< void >::check(L,3);
+		int* width=(int*)Luna< void >::check(L,4);
+		int* height=(int*)Luna< void >::check(L,5);
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetClippingBox(int *, int *, int *, int *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->GetClippingBox(&x, &y, &width, &height);
+		self->GetClippingBox(x, y, width, height);
 
 		return 0;
 	}
@@ -2784,9 +2784,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString string(lua_tostring(L,2),lua_objlen(L,2));
-		int w=(int)lua_tointeger(L,3);
-		int h=(int)lua_tointeger(L,4);
-		int heightLine=luatop>4 ? (int)lua_tointeger(L,5) : NULL;
+		int* w=(int*)Luna< void >::check(L,3);
+		int* h=(int*)Luna< void >::check(L,4);
+		int* heightLine=luatop>4 ? (int*)Luna< void >::check(L,5) : (int*)NULL;
 		const wxFont* font=luatop>5 ? (Luna< wxObject >::checkSubType< wxFont >(L,6)) : (const wxFont*)NULL;
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
@@ -2794,7 +2794,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetMultiLineTextExtent(const wxString &, int *, int *, int *, const wxFont *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->GetMultiLineTextExtent(string, &w, &h, &heightLine, font);
+		self->GetMultiLineTextExtent(string, w, h, heightLine, font);
 
 		return 0;
 	}
@@ -2866,10 +2866,10 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString string(lua_tostring(L,2),lua_objlen(L,2));
-		int w=(int)lua_tointeger(L,3);
-		int h=(int)lua_tointeger(L,4);
-		int descent=luatop>4 ? (int)lua_tointeger(L,5) : NULL;
-		int externalLeading=luatop>5 ? (int)lua_tointeger(L,6) : NULL;
+		int* w=(int*)Luna< void >::check(L,3);
+		int* h=(int*)Luna< void >::check(L,4);
+		int* descent=luatop>4 ? (int*)Luna< void >::check(L,5) : (int*)NULL;
+		int* externalLeading=luatop>5 ? (int*)Luna< void >::check(L,6) : (int*)NULL;
 		const wxFont* font=luatop>6 ? (Luna< wxObject >::checkSubType< wxFont >(L,7)) : (const wxFont*)NULL;
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
@@ -2877,7 +2877,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetTextExtent(const wxString &, int *, int *, int *, int *, const wxFont *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->GetTextExtent(string, &w, &h, &descent, &externalLeading, font);
+		self->GetTextExtent(string, w, h, descent, externalLeading, font);
 
 		return 0;
 	}
@@ -3326,10 +3326,10 @@ public:
 		wxDC* source=(Luna< wxObject >::checkSubType< wxDC >(L,6));
 		int xsrc=(int)lua_tointeger(L,7);
 		int ysrc=(int)lua_tointeger(L,8);
-		wxRasterOperationMode logicalFunc=luatop>8 ? (wxRasterOperationMode)lua_tointeger(L,9) : ::wxCOPY;
-		bool useMask=luatop>9 ? (bool)(lua_toboolean(L,10)==1) : false;
-		int xsrcMask=luatop>10 ? (int)lua_tointeger(L,11) : ::wxDefaultCoord;
-		int ysrcMask=luatop>11 ? (int)lua_tointeger(L,12) : ::wxDefaultCoord;
+		wxRasterOperationMode logicalFunc=luatop>8 ? (wxRasterOperationMode)lua_tointeger(L,9) : (wxRasterOperationMode)::wxCOPY;
+		bool useMask=luatop>9 ? (bool)(lua_toboolean(L,10)==1) : (bool)false;
+		int xsrcMask=luatop>10 ? (int)lua_tointeger(L,11) : (int)::wxDefaultCoord;
+		int ysrcMask=luatop>11 ? (int)lua_tointeger(L,12) : (int)::wxDefaultCoord;
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
@@ -3360,10 +3360,10 @@ public:
 		int ysrc=(int)lua_tointeger(L,8);
 		int srcWidth=(int)lua_tointeger(L,9);
 		int srcHeight=(int)lua_tointeger(L,10);
-		wxRasterOperationMode logicalFunc=luatop>10 ? (wxRasterOperationMode)lua_tointeger(L,11) : ::wxCOPY;
-		bool useMask=luatop>11 ? (bool)(lua_toboolean(L,12)==1) : false;
-		int xsrcMask=luatop>12 ? (int)lua_tointeger(L,13) : ::wxDefaultCoord;
-		int ysrcMask=luatop>13 ? (int)lua_tointeger(L,14) : ::wxDefaultCoord;
+		wxRasterOperationMode logicalFunc=luatop>10 ? (wxRasterOperationMode)lua_tointeger(L,11) : (wxRasterOperationMode)::wxCOPY;
+		bool useMask=luatop>11 ? (bool)(lua_toboolean(L,12)==1) : (bool)false;
+		int xsrcMask=luatop>12 ? (int)lua_tointeger(L,13) : (int)::wxDefaultCoord;
+		int ysrcMask=luatop>13 ? (int)lua_tointeger(L,14) : (int)::wxDefaultCoord;
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
@@ -3661,15 +3661,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::GetSize(int * width, int * height) const function, expected prototype:\nvoid wxDC::GetSize(int * width, int * height) const\nClass arguments details:\n");
 		}
 
-		int width=(int)lua_tointeger(L,2);
-		int height=(int)lua_tointeger(L,3);
+		int* width=(int*)Luna< void >::check(L,2);
+		int* height=(int*)Luna< void >::check(L,3);
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetSize(int *, int *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->GetSize(&width, &height);
+		self->GetSize(width, height);
 
 		return 0;
 	}
@@ -3712,15 +3712,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::GetSizeMM(int * width, int * height) const function, expected prototype:\nvoid wxDC::GetSizeMM(int * width, int * height) const\nClass arguments details:\n");
 		}
 
-		int width=(int)lua_tointeger(L,2);
-		int height=(int)lua_tointeger(L,3);
+		int* width=(int*)Luna< void >::check(L,2);
+		int* height=(int*)Luna< void >::check(L,3);
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetSizeMM(int *, int *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->GetSizeMM(&width, &height);
+		self->GetSizeMM(width, height);
 
 		return 0;
 	}
@@ -3763,15 +3763,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::GetUserScale(double * x, double * y) const function, expected prototype:\nvoid wxDC::GetUserScale(double * x, double * y) const\nClass arguments details:\n");
 		}
 
-		double x=(double)lua_tonumber(L,2);
-		double y=(double)lua_tonumber(L,3);
+		double* x=(double*)Luna< void >::check(L,2);
+		double* y=(double*)Luna< void >::check(L,3);
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetUserScale(double *, double *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->GetUserScale(&x, &y);
+		self->GetUserScale(x, y);
 
 		return 0;
 	}
@@ -4026,15 +4026,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::GetLogicalScale(double * x, double * y) const function, expected prototype:\nvoid wxDC::GetLogicalScale(double * x, double * y) const\nClass arguments details:\n");
 		}
 
-		double x=(double)lua_tonumber(L,2);
-		double y=(double)lua_tonumber(L,3);
+		double* x=(double*)Luna< void >::check(L,2);
+		double* y=(double*)Luna< void >::check(L,3);
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetLogicalScale(double *, double *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->GetLogicalScale(&x, &y);
+		self->GetLogicalScale(x, y);
 
 		return 0;
 	}
@@ -4066,15 +4066,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::GetLogicalOrigin(int * x, int * y) const function, expected prototype:\nvoid wxDC::GetLogicalOrigin(int * x, int * y) const\nClass arguments details:\n");
 		}
 
-		int x=(int)lua_tointeger(L,2);
-		int y=(int)lua_tointeger(L,3);
+		int* x=(int*)Luna< void >::check(L,2);
+		int* y=(int*)Luna< void >::check(L,3);
 
 		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetLogicalOrigin(int *, int *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->GetLogicalOrigin(&x, &y);
+		self->GetLogicalOrigin(x, y);
 
 		return 0;
 	}

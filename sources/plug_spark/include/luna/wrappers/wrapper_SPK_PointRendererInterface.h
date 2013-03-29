@@ -40,7 +40,7 @@ public:
 	bool setType(SPK::PointType type) {
 		if(_obj.pushFunction("setType")) {
 			_obj.pushArg((SPK::PointRendererInterface*)this);
-			_obj.pushArg(type);
+			_obj.pushArg((int)type);
 			return (_obj.callFunction<bool>());
 		}
 

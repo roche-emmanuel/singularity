@@ -188,8 +188,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int command_type=luatop>0 ? (int)lua_tointeger(L,1) : wxEVT_NULL;
-		int win_id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int command_type=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxEVT_NULL;
+		int win_id=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 		wxRibbonButtonBar* bar=luatop>2 ? (Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,3)) : (wxRibbonButtonBar*)NULL;
 
 		return new wxRibbonButtonBarEvent(command_type, win_id, bar);
@@ -204,8 +204,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int command_type=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
-		int win_id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int command_type=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
+		int win_id=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 		wxRibbonButtonBar* bar=luatop>3 ? (Luna< wxObject >::checkSubType< wxRibbonButtonBar >(L,4)) : (wxRibbonButtonBar*)NULL;
 
 		return new wrapper_wxRibbonButtonBarEvent(L,NULL, command_type, win_id, bar);

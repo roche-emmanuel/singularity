@@ -1247,13 +1247,13 @@ public:
 		if( luatop>2 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxTreeListCtrl::wxTreeListCtrl function");
 		}
-		const wxPoint & pos=luatop>2 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>2 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxTreeListCtrl::wxTreeListCtrl function");
 		}
-		const wxSize & size=luatop>3 ? *size_ptr : wxDefaultSize;
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : ::wxTL_DEFAULT_STYLE;
+		const wxSize & size=luatop>3 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>4 ? (long)lua_tointeger(L,5) : (long)::wxTL_DEFAULT_STYLE;
 		wxString name(lua_tostring(L,6),lua_objlen(L,6));
 
 		return new wxTreeListCtrl(parent, id, pos, size, style, name);
@@ -1285,13 +1285,13 @@ public:
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxTreeListCtrl::wxTreeListCtrl function");
 		}
-		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
 		if( luatop>4 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxTreeListCtrl::wxTreeListCtrl function");
 		}
-		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : ::wxTL_DEFAULT_STYLE;
+		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)::wxTL_DEFAULT_STYLE;
 		wxString name(lua_tostring(L,7),lua_objlen(L,7));
 
 		return new wrapper_wxTreeListCtrl(L,NULL, parent, id, pos, size, style, name);
@@ -1325,13 +1325,13 @@ public:
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxTreeListCtrl::Create function");
 		}
-		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
 		if( luatop>4 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxTreeListCtrl::Create function");
 		}
-		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : ::wxTL_DEFAULT_STYLE;
+		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)::wxTL_DEFAULT_STYLE;
 		wxString name(lua_tostring(L,7),lua_objlen(L,7));
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
@@ -1393,9 +1393,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString title(lua_tostring(L,2),lua_objlen(L,2));
-		int width=luatop>2 ? (int)lua_tointeger(L,3) : ::wxCOL_WIDTH_AUTOSIZE;
-		wxAlignment align=luatop>3 ? (wxAlignment)lua_tointeger(L,4) : ::wxALIGN_LEFT;
-		int flags=luatop>4 ? (int)lua_tointeger(L,5) : ::wxCOL_RESIZABLE;
+		int width=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxCOL_WIDTH_AUTOSIZE;
+		wxAlignment align=luatop>3 ? (wxAlignment)lua_tointeger(L,4) : (wxAlignment)::wxALIGN_LEFT;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : (int)::wxCOL_RESIZABLE;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -1540,8 +1540,8 @@ public:
 		}
 		wxTreeListItem parent=*parent_ptr;
 		wxString text(lua_tostring(L,3),lua_objlen(L,3));
-		int imageClosed=luatop>3 ? (int)lua_tointeger(L,4) : wxTreeListCtrl::NO_IMAGE;
-		int imageOpened=luatop>4 ? (int)lua_tointeger(L,5) : wxTreeListCtrl::NO_IMAGE;
+		int imageClosed=luatop>3 ? (int)lua_tointeger(L,4) : (int)wxTreeListCtrl::NO_IMAGE;
+		int imageOpened=luatop>4 ? (int)lua_tointeger(L,5) : (int)wxTreeListCtrl::NO_IMAGE;
 		wxClientData* data=luatop>5 ? (Luna< wxClientData >::check(L,6)) : (wxClientData*)NULL;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
@@ -1578,8 +1578,8 @@ public:
 		}
 		wxTreeListItem previous=*previous_ptr;
 		wxString text(lua_tostring(L,4),lua_objlen(L,4));
-		int imageClosed=luatop>4 ? (int)lua_tointeger(L,5) : wxTreeListCtrl::NO_IMAGE;
-		int imageOpened=luatop>5 ? (int)lua_tointeger(L,6) : wxTreeListCtrl::NO_IMAGE;
+		int imageClosed=luatop>4 ? (int)lua_tointeger(L,5) : (int)wxTreeListCtrl::NO_IMAGE;
+		int imageOpened=luatop>5 ? (int)lua_tointeger(L,6) : (int)wxTreeListCtrl::NO_IMAGE;
 		wxClientData* data=luatop>6 ? (Luna< wxClientData >::check(L,7)) : (wxClientData*)NULL;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
@@ -1611,8 +1611,8 @@ public:
 		}
 		wxTreeListItem parent=*parent_ptr;
 		wxString text(lua_tostring(L,3),lua_objlen(L,3));
-		int imageClosed=luatop>3 ? (int)lua_tointeger(L,4) : wxTreeListCtrl::NO_IMAGE;
-		int imageOpened=luatop>4 ? (int)lua_tointeger(L,5) : wxTreeListCtrl::NO_IMAGE;
+		int imageClosed=luatop>3 ? (int)lua_tointeger(L,4) : (int)wxTreeListCtrl::NO_IMAGE;
+		int imageOpened=luatop>4 ? (int)lua_tointeger(L,5) : (int)wxTreeListCtrl::NO_IMAGE;
 		wxClientData* data=luatop>5 ? (Luna< wxClientData >::check(L,6)) : (wxClientData*)NULL;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
@@ -1836,7 +1836,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg item in wxTreeListCtrl::GetItemText function");
 		}
 		wxTreeListItem item=*item_ptr;
-		unsigned col=luatop>2 ? (unsigned)lua_tointeger(L,3) : 0;
+		unsigned col=luatop>2 ? (unsigned)lua_tointeger(L,3) : (unsigned)0;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -1922,7 +1922,7 @@ public:
 		}
 		wxTreeListItem item=*item_ptr;
 		int closed=(int)lua_tointeger(L,3);
-		int opened=luatop>3 ? (int)lua_tointeger(L,4) : wxTreeListCtrl::NO_IMAGE;
+		int opened=luatop>3 ? (int)lua_tointeger(L,4) : (int)wxTreeListCtrl::NO_IMAGE;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -2196,7 +2196,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg item in wxTreeListCtrl::CheckItem function");
 		}
 		wxTreeListItem item=*item_ptr;
-		wxCheckBoxState state=luatop>2 ? (wxCheckBoxState)lua_tointeger(L,3) : ::wxCHK_CHECKED;
+		wxCheckBoxState state=luatop>2 ? (wxCheckBoxState)lua_tointeger(L,3) : (wxCheckBoxState)::wxCHK_CHECKED;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -2222,7 +2222,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg item in wxTreeListCtrl::CheckItemRecursively function");
 		}
 		wxTreeListItem item=*item_ptr;
-		wxCheckBoxState state=luatop>2 ? (wxCheckBoxState)lua_tointeger(L,3) : ::wxCHK_CHECKED;
+		wxCheckBoxState state=luatop>2 ? (wxCheckBoxState)lua_tointeger(L,3) : (wxCheckBoxState)::wxCHK_CHECKED;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -2339,7 +2339,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		unsigned col=(unsigned)lua_tointeger(L,2);
-		bool ascendingOrder=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool ascendingOrder=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -2650,8 +2650,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
-		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
+		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -2817,7 +2817,7 @@ public:
 
 		int orientation=(int)lua_tointeger(L,2);
 		int pos=(int)lua_tointeger(L,3);
-		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -2842,7 +2842,7 @@ public:
 		int position=(int)lua_tointeger(L,3);
 		int thumbSize=(int)lua_tointeger(L,4);
 		int range=(int)lua_tointeger(L,5);
-		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -3129,7 +3129,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -3251,12 +3251,12 @@ public:
 		if( luatop>2 && !maxSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg maxSize in wxTreeListCtrl::base_SetSizeHints function");
 		}
-		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : wxDefaultSize;
+		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : (const wxSize&)wxDefaultSize;
 		const wxSize* incSize_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !incSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg incSize in wxTreeListCtrl::base_SetSizeHints function");
 		}
-		const wxSize & incSize=luatop>3 ? *incSize_ptr : wxDefaultSize;
+		const wxSize & incSize=luatop>3 ? *incSize_ptr : (const wxSize&)wxDefaultSize;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -3279,10 +3279,10 @@ public:
 
 		int minW=(int)lua_tointeger(L,2);
 		int minH=(int)lua_tointeger(L,3);
-		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int incW=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		int incH=luatop>6 ? (int)lua_tointeger(L,7) : -1;
+		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int incW=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+		int incH=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -3431,7 +3431,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 		const wxRect* rect=luatop>2 ? (Luna< wxRect >::check(L,3)) : (const wxRect*)NULL;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
@@ -3743,7 +3743,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -3803,7 +3803,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -3825,7 +3825,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -3848,7 +3848,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -4409,7 +4409,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {
@@ -4490,7 +4490,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxTreeListCtrl* self=Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,1);
 		if(!self) {

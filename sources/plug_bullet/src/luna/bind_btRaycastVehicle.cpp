@@ -669,7 +669,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int wheelIndex=(int)lua_tointeger(L,2);
-		bool interpolatedTransform=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool interpolatedTransform=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
@@ -811,7 +811,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg wheel in btRaycastVehicle::updateWheelTransformsWS function");
 		}
 		btWheelInfo & wheel=*wheel_ptr;
-		bool interpolatedTransform=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool interpolatedTransform=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {

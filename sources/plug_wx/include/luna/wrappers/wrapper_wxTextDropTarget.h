@@ -49,7 +49,7 @@ public:
 		_obj.pushArg((wxTextDropTarget*)this);
 		_obj.pushArg(x);
 		_obj.pushArg(y);
-		_obj.pushArg(def);
+		_obj.pushArg((int)def);
 		return (wxDragResult)(_obj.callFunction<int>());
 	};
 
@@ -59,7 +59,7 @@ public:
 			_obj.pushArg((wxTextDropTarget*)this);
 			_obj.pushArg(x);
 			_obj.pushArg(y);
-			_obj.pushArg(def);
+			_obj.pushArg((int)def);
 			return (wxDragResult)(_obj.callFunction<int>());
 		}
 
@@ -72,7 +72,7 @@ public:
 			_obj.pushArg((wxTextDropTarget*)this);
 			_obj.pushArg(x);
 			_obj.pushArg(y);
-			_obj.pushArg(def);
+			_obj.pushArg((int)def);
 			return (wxDragResult)(_obj.callFunction<int>());
 		}
 

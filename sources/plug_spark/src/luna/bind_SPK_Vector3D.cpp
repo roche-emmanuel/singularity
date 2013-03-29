@@ -295,9 +295,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float x=luatop>0 ? (float)lua_tonumber(L,1) : 0.0f;
-		float y=luatop>1 ? (float)lua_tonumber(L,2) : 0.0f;
-		float z=luatop>2 ? (float)lua_tonumber(L,3) : 0.0f;
+		float x=luatop>0 ? (float)lua_tonumber(L,1) : (float)0.0f;
+		float y=luatop>1 ? (float)lua_tonumber(L,2) : (float)0.0f;
+		float z=luatop>2 ? (float)lua_tonumber(L,3) : (float)0.0f;
 
 		return new SPK::Vector3D(x, y, z);
 	}
@@ -315,7 +315,7 @@ public:
 
 		float x=(float)lua_tonumber(L,2);
 		float y=(float)lua_tonumber(L,3);
-		float z=luatop>3 ? (float)lua_tonumber(L,4) : 0.0f;
+		float z=luatop>3 ? (float)lua_tonumber(L,4) : (float)0.0f;
 
 		SPK::Vector3D* self=(Luna< SPK::Vector3D >::check(L,1));
 		if(!self) {

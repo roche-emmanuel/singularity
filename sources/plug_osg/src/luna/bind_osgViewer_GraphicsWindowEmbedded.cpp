@@ -271,6 +271,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_runOperations(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_clear(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -909,6 +915,24 @@ public:
 		return 0;
 	}
 
+	// void osgViewer::GraphicsWindowEmbedded::base_runOperations()
+	static int _bind_base_runOperations(lua_State *L) {
+		if (!_lg_typecheck_base_runOperations(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgViewer::GraphicsWindowEmbedded::base_runOperations() function, expected prototype:\nvoid osgViewer::GraphicsWindowEmbedded::base_runOperations()\nClass arguments details:\n");
+		}
+
+
+		osgViewer::GraphicsWindowEmbedded* self=Luna< osg::Referenced >::checkSubType< osgViewer::GraphicsWindowEmbedded >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgViewer::GraphicsWindowEmbedded::base_runOperations(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->GraphicsWindowEmbedded::runOperations();
+
+		return 0;
+	}
+
 	// void osgViewer::GraphicsWindowEmbedded::base_clear()
 	static int _bind_base_clear(lua_State *L) {
 		if (!_lg_typecheck_base_clear(L)) {
@@ -1532,6 +1556,7 @@ luna_RegType LunaTraits< osgViewer::GraphicsWindowEmbedded >::methods[] = {
 	{"base_setUserData", &luna_wrapper_osgViewer_GraphicsWindowEmbedded::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osgViewer_GraphicsWindowEmbedded::_bind_base_getUserData},
 	{"base_releaseGLObjects", &luna_wrapper_osgViewer_GraphicsWindowEmbedded::_bind_base_releaseGLObjects},
+	{"base_runOperations", &luna_wrapper_osgViewer_GraphicsWindowEmbedded::_bind_base_runOperations},
 	{"base_clear", &luna_wrapper_osgViewer_GraphicsWindowEmbedded::_bind_base_clear},
 	{"base_resizedImplementation", &luna_wrapper_osgViewer_GraphicsWindowEmbedded::_bind_base_resizedImplementation},
 	{"base_asView", &luna_wrapper_osgViewer_GraphicsWindowEmbedded::_bind_base_asView},

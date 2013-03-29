@@ -211,6 +211,17 @@ public:
 		return ReaderWriter::acceptsExtension(arg1);
 	};
 
+	// bool osgDB::ReaderWriter::acceptsProtocol(const std::string & protocol) const
+	bool acceptsProtocol(const std::string & protocol) const {
+		if(_obj.pushFunction("acceptsProtocol")) {
+			_obj.pushArg((osgDB::ReaderWriter*)this);
+			_obj.pushArg(protocol);
+			return (_obj.callFunction<bool>());
+		}
+
+		return ReaderWriter::acceptsProtocol(protocol);
+	};
+
 	// osgDB::ReaderWriter::Features osgDB::ReaderWriter::supportedFeatures() const
 	osgDB::ReaderWriter::Features supportedFeatures() const {
 		if(_obj.pushFunction("supportedFeatures")) {

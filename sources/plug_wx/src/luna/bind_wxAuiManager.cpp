@@ -189,8 +189,8 @@ public:
 	inline static bool _lg_typecheck_GetDockSizeConstraint(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -391,7 +391,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* managed_wnd=luatop>0 ? (Luna< wxObject >::checkSubType< wxWindow >(L,1)) : (wxWindow*)NULL;
-		unsigned int flags=luatop>1 ? (unsigned int)lua_tointeger(L,2) : ::wxAUI_MGR_DEFAULT;
+		unsigned int flags=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)::wxAUI_MGR_DEFAULT;
 
 		return new wxAuiManager(managed_wnd, flags);
 	}
@@ -406,7 +406,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* managed_wnd=luatop>1 ? (Luna< wxObject >::checkSubType< wxWindow >(L,2)) : (wxWindow*)NULL;
-		unsigned int flags=luatop>2 ? (unsigned int)lua_tointeger(L,3) : ::wxAUI_MGR_DEFAULT;
+		unsigned int flags=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)::wxAUI_MGR_DEFAULT;
 
 		return new wrapper_wxAuiManager(L,NULL, managed_wnd, flags);
 	}
@@ -457,7 +457,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
-		int direction=luatop>2 ? (int)lua_tointeger(L,3) : ::wxLEFT;
+		int direction=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxLEFT;
 		wxString caption(lua_tostring(L,4),lua_objlen(L,4));
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
@@ -580,15 +580,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiManager::GetDockSizeConstraint(double * widthpct, double * heightpct) const function, expected prototype:\nvoid wxAuiManager::GetDockSizeConstraint(double * widthpct, double * heightpct) const\nClass arguments details:\n");
 		}
 
-		double widthpct=(double)lua_tonumber(L,2);
-		double heightpct=(double)lua_tonumber(L,3);
+		double* widthpct=(double*)Luna< void >::check(L,2);
+		double* heightpct=(double*)Luna< void >::check(L,3);
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiManager::GetDockSizeConstraint(double *, double *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->GetDockSizeConstraint(&widthpct, &heightpct);
+		self->GetDockSizeConstraint(widthpct, heightpct);
 
 		return 0;
 	}
@@ -719,7 +719,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg insert_location in wxAuiManager::InsertPane function");
 		}
 		const wxAuiPaneInfo & insert_location=*insert_location_ptr;
-		int insert_level=luatop>3 ? (int)lua_tointeger(L,4) : ::wxAUI_INSERT_PANE;
+		int insert_level=luatop>3 ? (int)lua_tointeger(L,4) : (int)::wxAUI_INSERT_PANE;
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
@@ -766,7 +766,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString perspective(lua_tostring(L,2),lua_objlen(L,2));
-		bool update=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool update=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {

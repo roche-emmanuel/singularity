@@ -183,8 +183,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int commandEventType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int commandEventType=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		return new wrapper_wxCloseEvent(L,NULL, commandEventType, id);
 	}
@@ -276,7 +276,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool veto=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool veto=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
 		if(!self) {

@@ -126,7 +126,7 @@ public:
 	bool IsEventAllowedInsideYield(wxEventCategory cat) const {
 		if(_obj.pushFunction("IsEventAllowedInsideYield")) {
 			_obj.pushArg((wxEventLoopBase*)this);
-			_obj.pushArg(cat);
+			_obj.pushArg((int)cat);
 			return (_obj.callFunction<bool>());
 		}
 

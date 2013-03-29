@@ -187,7 +187,7 @@ public:
 		if( luatop>1 && !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxBitmapDataObject::wxBitmapDataObject function");
 		}
-		const wxBitmap & bitmap=luatop>1 ? *bitmap_ptr : wxNullBitmap;
+		const wxBitmap & bitmap=luatop>1 ? *bitmap_ptr : (const wxBitmap&)wxNullBitmap;
 
 		return new wrapper_wxBitmapDataObject(L,NULL, bitmap);
 	}

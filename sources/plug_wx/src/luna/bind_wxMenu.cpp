@@ -284,7 +284,7 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -686,7 +686,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString title(lua_tostring(L,1),lua_objlen(L,1));
-		long style=luatop>1 ? (long)lua_tointeger(L,2) : 0;
+		long style=luatop>1 ? (long)lua_tointeger(L,2) : (long)0;
 
 		return new wxMenu(title, style);
 	}
@@ -724,7 +724,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString title(lua_tostring(L,2),lua_objlen(L,2));
-		long style=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long style=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		return new wrapper_wxMenu(L,NULL, title, style);
 	}
@@ -756,7 +756,7 @@ public:
 		int id=(int)lua_tointeger(L,2);
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
 		wxString helpString(lua_tostring(L,4),lua_objlen(L,4));
-		wxItemKind kind=luatop>4 ? (wxItemKind)lua_tointeger(L,5) : ::wxITEM_NORMAL;
+		wxItemKind kind=luatop>4 ? (wxItemKind)lua_tointeger(L,5) : (wxItemKind)::wxITEM_NORMAL;
 
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
@@ -1095,14 +1095,14 @@ public:
 		int luatop = lua_gettop(L);
 
 		int id=(int)lua_tointeger(L,2);
-		size_t pos=luatop>2 ? (size_t)lua_tointeger(L,3) : NULL;
+		size_t* pos=luatop>2 ? (size_t*)Luna< void >::check(L,3) : (size_t*)NULL;
 
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::FindChildItem(int, size_t *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		wxMenuItem * lret = self->FindChildItem(id, &pos);
+		wxMenuItem * lret = self->FindChildItem(id, pos);
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxMenuItem >::push(L,lret,false);
@@ -1337,7 +1337,7 @@ public:
 		int id=(int)lua_tointeger(L,3);
 		wxString item(lua_tostring(L,4),lua_objlen(L,4));
 		wxString helpString(lua_tostring(L,5),lua_objlen(L,5));
-		wxItemKind kind=luatop>5 ? (wxItemKind)lua_tointeger(L,6) : ::wxITEM_NORMAL;
+		wxItemKind kind=luatop>5 ? (wxItemKind)lua_tointeger(L,6) : (wxItemKind)::wxITEM_NORMAL;
 
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
@@ -1511,7 +1511,7 @@ public:
 		int id=(int)lua_tointeger(L,2);
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
 		wxString helpString(lua_tostring(L,4),lua_objlen(L,4));
-		wxItemKind kind=luatop>4 ? (wxItemKind)lua_tointeger(L,5) : ::wxITEM_NORMAL;
+		wxItemKind kind=luatop>4 ? (wxItemKind)lua_tointeger(L,5) : (wxItemKind)::wxITEM_NORMAL;
 
 		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {

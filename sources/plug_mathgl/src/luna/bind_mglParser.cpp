@@ -332,7 +332,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool setsize=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : false;
+		bool setsize=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)false;
 
 		return new mglParser(setsize);
 	}
@@ -372,7 +372,7 @@ public:
 
 		mglBase* gr=(Luna< mglBase >::check(L,2));
 		const char * str=(const char *)lua_tostring(L,3);
-		long pos=luatop>3 ? (long)lua_tointeger(L,4) : 0;
+		long pos=luatop>3 ? (long)lua_tointeger(L,4) : (long)0;
 
 		mglParser* self=(Luna< mglParser >::check(L,1));
 		if(!self) {
@@ -396,7 +396,7 @@ public:
 
 		mglGraph* gr=(Luna< mglGraph >::check(L,2));
 		const char * str=(const char *)lua_tostring(L,3);
-		long pos=luatop>3 ? (long)lua_tointeger(L,4) : 0;
+		long pos=luatop>3 ? (long)lua_tointeger(L,4) : (long)0;
 
 		mglParser* self=(Luna< mglParser >::check(L,1));
 		if(!self) {
@@ -585,7 +585,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		mglCommand* cmd=(Luna< mglCommand >::check(L,2));
-		int num=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int num=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		mglParser* self=(Luna< mglParser >::check(L,1));
 		if(!self) {

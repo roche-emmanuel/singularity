@@ -166,10 +166,10 @@ public:
 			luaL_error(L, "luna typecheck failed in btVector4::btVector4(const float & _x, const float & _y, const float & _z, const float & _w) function, expected prototype:\nbtVector4::btVector4(const float & _x, const float & _y, const float & _z, const float & _w)\nClass arguments details:\n");
 		}
 
-		float _x=(float)lua_tonumber(L,1);
-		float _y=(float)lua_tonumber(L,2);
-		float _z=(float)lua_tonumber(L,3);
-		float _w=(float)lua_tonumber(L,4);
+		const float _x=(const float)lua_tonumber(L,1);
+		const float _y=(const float)lua_tonumber(L,2);
+		const float _z=(const float)lua_tonumber(L,3);
+		const float _w=(const float)lua_tonumber(L,4);
 
 		return new btVector4(_x, _y, _z, _w);
 	}
@@ -290,10 +290,10 @@ public:
 			luaL_error(L, "luna typecheck failed in void btVector4::setValue(const float & _x, const float & _y, const float & _z, const float & _w) function, expected prototype:\nvoid btVector4::setValue(const float & _x, const float & _y, const float & _z, const float & _w)\nClass arguments details:\n");
 		}
 
-		float _x=(float)lua_tonumber(L,2);
-		float _y=(float)lua_tonumber(L,3);
-		float _z=(float)lua_tonumber(L,4);
-		float _w=(float)lua_tonumber(L,5);
+		const float _x=(const float)lua_tonumber(L,2);
+		const float _y=(const float)lua_tonumber(L,3);
+		const float _z=(const float)lua_tonumber(L,4);
+		const float _w=(const float)lua_tonumber(L,5);
 
 		btVector4* self=Luna< btVector3 >::checkSubType< btVector4 >(L,1);
 		if(!self) {

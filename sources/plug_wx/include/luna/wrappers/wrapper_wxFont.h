@@ -211,7 +211,7 @@ public:
 	void SetEncoding(wxFontEncoding encoding) {
 		if(_obj.pushFunction("SetEncoding")) {
 			_obj.pushArg((wxFont*)this);
-			_obj.pushArg(encoding);
+			_obj.pushArg((int)encoding);
 			return (_obj.callFunction<void>());
 		}
 
@@ -233,7 +233,7 @@ public:
 	void SetFamily(wxFontFamily family) {
 		if(_obj.pushFunction("SetFamily")) {
 			_obj.pushArg((wxFont*)this);
-			_obj.pushArg(family);
+			_obj.pushArg((int)family);
 			return (_obj.callFunction<void>());
 		}
 
@@ -266,7 +266,7 @@ public:
 	void SetStyle(wxFontStyle style) {
 		if(_obj.pushFunction("SetStyle")) {
 			_obj.pushArg((wxFont*)this);
-			_obj.pushArg(style);
+			_obj.pushArg((int)style);
 			return (_obj.callFunction<void>());
 		}
 
@@ -288,7 +288,7 @@ public:
 	void SetWeight(wxFontWeight weight) {
 		if(_obj.pushFunction("SetWeight")) {
 			_obj.pushArg((wxFont*)this);
-			_obj.pushArg(weight);
+			_obj.pushArg((int)weight);
 			return (_obj.callFunction<void>());
 		}
 

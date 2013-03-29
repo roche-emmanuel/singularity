@@ -1,7 +1,5 @@
 #include <plug_common.h>
 
-#include <Core/SPK_DEF.h>
-#include <RenderingAPIs/OpenGL/SPK_GL_DEF.h>
 #include <RenderingAPIs/OpenGL/SPK_GLExtHandler.h>
 
 #ifdef __cplusplus

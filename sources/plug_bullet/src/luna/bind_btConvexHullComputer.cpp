@@ -103,7 +103,7 @@ public:
 	inline static bool _lg_typecheck_compute_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( lua_isnumber(L,5)==0 ) return false;
@@ -114,7 +114,7 @@ public:
 	inline static bool _lg_typecheck_compute_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( lua_isnumber(L,5)==0 ) return false;
@@ -175,7 +175,7 @@ public:
 			luaL_error(L, "luna typecheck failed in float btConvexHullComputer::compute(const float * coords, int stride, int count, float shrink, float shrinkClamp) function, expected prototype:\nfloat btConvexHullComputer::compute(const float * coords, int stride, int count, float shrink, float shrinkClamp)\nClass arguments details:\n");
 		}
 
-		float coords=(float)lua_tonumber(L,2);
+		const float* coords=(const float*)Luna< void >::check(L,2);
 		int stride=(int)lua_tointeger(L,3);
 		int count=(int)lua_tointeger(L,4);
 		float shrink=(float)lua_tonumber(L,5);
@@ -186,7 +186,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float btConvexHullComputer::compute(const float *, int, int, float, float). Got : '%s'",typeid(Luna< btConvexHullComputer >::check(L,1)).name());
 		}
-		float lret = self->compute(&coords, stride, count, shrink, shrinkClamp);
+		float lret = self->compute(coords, stride, count, shrink, shrinkClamp);
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -199,7 +199,7 @@ public:
 			luaL_error(L, "luna typecheck failed in float btConvexHullComputer::compute(const double * coords, int stride, int count, float shrink, float shrinkClamp) function, expected prototype:\nfloat btConvexHullComputer::compute(const double * coords, int stride, int count, float shrink, float shrinkClamp)\nClass arguments details:\n");
 		}
 
-		double coords=(double)lua_tonumber(L,2);
+		const double* coords=(const double*)Luna< void >::check(L,2);
 		int stride=(int)lua_tointeger(L,3);
 		int count=(int)lua_tointeger(L,4);
 		float shrink=(float)lua_tonumber(L,5);
@@ -210,7 +210,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float btConvexHullComputer::compute(const double *, int, int, float, float). Got : '%s'",typeid(Luna< btConvexHullComputer >::check(L,1)).name());
 		}
-		float lret = self->compute(&coords, stride, count, shrink, shrinkClamp);
+		float lret = self->compute(coords, stride, count, shrink, shrinkClamp);
 		lua_pushnumber(L,lret);
 
 		return 1;

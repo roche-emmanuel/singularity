@@ -640,7 +640,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Model* model=luatop>1 ? (Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,2)) : (SPK::Model*)NULL;
-		size_t capacity=luatop>2 ? (size_t)lua_tointeger(L,3) : SPK::Pool <  SPK::Particle  >::DEFAULT_CAPACITY;
+		size_t capacity=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)SPK::Pool <  SPK::Particle  >::DEFAULT_CAPACITY;
 
 		return new wrapper_SPK_Group(L,NULL, model, capacity);
 	}
@@ -1306,7 +1306,7 @@ public:
 		unsigned int nb=(unsigned int)lua_tointeger(L,2);
 		const SPK::Zone* zone=(Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,3));
 		SPK::Emitter* emitter=(Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,4));
-		bool full=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		bool full=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
@@ -1334,7 +1334,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg velocity in SPK::Group::addParticles function");
 		}
 		const SPK::Vector3D & velocity=*velocity_ptr;
-		bool full=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		bool full=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
@@ -1403,7 +1403,7 @@ public:
 		const SPK::Zone* zone=(Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,2));
 		SPK::Emitter* emitter=(Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,3));
 		float deltaTime=(float)lua_tonumber(L,4);
-		bool full=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		bool full=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
@@ -1481,7 +1481,7 @@ public:
 		const SPK::Vector3D & end=*end_ptr;
 		SPK::Emitter* emitter=(Luna< SPK::Registerable >::checkSubType< SPK::Emitter >(L,4));
 		float step=(float)lua_tonumber(L,5);
-		float offset=luatop>5 ? (float)lua_tonumber(L,6) : 0.0f;
+		float offset=luatop>5 ? (float)lua_tonumber(L,6) : (float)0.0f;
 
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
@@ -1519,7 +1519,7 @@ public:
 		}
 		const SPK::Vector3D & velocity=*velocity_ptr;
 		float step=(float)lua_tonumber(L,5);
-		float offset=luatop>5 ? (float)lua_tonumber(L,6) : 0.0f;
+		float offset=luatop>5 ? (float)lua_tonumber(L,6) : (float)0.0f;
 
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
@@ -1806,8 +1806,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg creator in SPK::Group::createBuffer function");
 		}
 		const SPK::BufferCreator & creator=*creator_ptr;
-		unsigned int flag=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
-		bool swapData=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		unsigned int flag=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)0;
+		bool swapData=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		SPK::Group* self=Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,1);
 		if(!self) {
@@ -1945,7 +1945,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Model* model=luatop>0 ? (Luna< SPK::Registerable >::checkSubType< SPK::Model >(L,1)) : (SPK::Model*)NULL;
-		size_t capacity=luatop>1 ? (size_t)lua_tointeger(L,2) : SPK::Pool <  SPK::Particle  >::DEFAULT_CAPACITY;
+		size_t capacity=luatop>1 ? (size_t)lua_tointeger(L,2) : (size_t)SPK::Pool <  SPK::Particle  >::DEFAULT_CAPACITY;
 
 		SPK::Group * lret = SPK::Group::create(model, capacity);
 		if(!lret) return 0; // Do not write NULL pointers.

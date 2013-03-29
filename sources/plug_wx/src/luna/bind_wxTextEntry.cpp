@@ -233,8 +233,8 @@ public:
 	inline static bool _lg_typecheck_GetSelection(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -467,8 +467,8 @@ public:
 	inline static bool _lg_typecheck_base_GetSelection(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -932,15 +932,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxTextEntry::GetSelection(long * from, long * to) const function, expected prototype:\nvoid wxTextEntry::GetSelection(long * from, long * to) const\nClass arguments details:\n");
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long* from=(long*)Luna< void >::check(L,2);
+		long* to=(long*)Luna< void >::check(L,3);
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxTextEntry::GetSelection(long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->GetSelection(&from, &to);
+		self->GetSelection(from, to);
 
 		return 0;
 	}
@@ -1284,7 +1284,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int left=(int)lua_tointeger(L,2);
-		int top=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int top=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
@@ -1619,15 +1619,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxTextEntry::base_GetSelection(long * from, long * to) const function, expected prototype:\nvoid wxTextEntry::base_GetSelection(long * from, long * to) const\nClass arguments details:\n");
 		}
 
-		long from=(long)lua_tointeger(L,2);
-		long to=(long)lua_tointeger(L,3);
+		long* from=(long*)Luna< void >::check(L,2);
+		long* to=(long*)Luna< void >::check(L,3);
 
 		wxTextEntry* self=Luna< wxObject >::checkSubType< wxTextEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxTextEntry::base_GetSelection(long *, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->wxTextEntry::GetSelection(&from, &to);
+		self->wxTextEntry::GetSelection(from, to);
 
 		return 0;
 	}

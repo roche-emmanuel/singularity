@@ -1319,7 +1319,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int shiftVerticesByMargin=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int shiftVerticesByMargin=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		btBox2dShape* self=Luna< btCollisionShape >::checkSubType< btBox2dShape >(L,1);
 		if(!self) {

@@ -1038,7 +1038,7 @@ public:
 		}
 		const btVector3 & color=*color_ptr;
 		bool drawSect=(bool)(lua_toboolean(L,10)==1);
-		float stepDegrees=luatop>10 ? (float)lua_tonumber(L,11) : float (10.f);
+		float stepDegrees=luatop>10 ? (float)lua_tonumber(L,11) : (float)float (10.f);
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
@@ -1084,7 +1084,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg color in btIDebugDraw::drawSpherePatch function");
 		}
 		const btVector3 & color=*color_ptr;
-		float stepDegrees=luatop>10 ? (float)lua_tonumber(L,11) : float (10.f);
+		float stepDegrees=luatop>10 ? (float)lua_tonumber(L,11) : (float)float (10.f);
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
@@ -1601,7 +1601,7 @@ public:
 		}
 		const btVector3 & color=*color_ptr;
 		bool drawSect=(bool)(lua_toboolean(L,10)==1);
-		float stepDegrees=luatop>10 ? (float)lua_tonumber(L,11) : float (10.f);
+		float stepDegrees=luatop>10 ? (float)lua_tonumber(L,11) : (float)float (10.f);
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
@@ -1647,7 +1647,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg color in btIDebugDraw::base_drawSpherePatch function");
 		}
 		const btVector3 & color=*color_ptr;
-		float stepDegrees=luatop>10 ? (float)lua_tonumber(L,11) : float (10.f);
+		float stepDegrees=luatop>10 ? (float)lua_tonumber(L,11) : (float)float (10.f);
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {

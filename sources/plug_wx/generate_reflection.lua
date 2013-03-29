@@ -337,7 +337,7 @@ ReflectionGenerator.generate{
         "wxAnyV",   
         -- "wxThreadHelper",   
     },
-	ignoreHeaders={"helpers%.h","wx_events%.h","wx_defines%.h","wx_enums%.h"},
+	ignoreHeaders={"helpers%.h"}, --,"wx_events%.h","wx_defines%.h","wx_enums%.h"},
 	ignoreClassDeclarations={},
 	mappedBaseTypes={
 		wxKeyboardState="wxObject",

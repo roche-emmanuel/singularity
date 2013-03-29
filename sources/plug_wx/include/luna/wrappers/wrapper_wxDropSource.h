@@ -59,7 +59,7 @@ public:
 	bool GiveFeedback(wxDragResult effect) {
 		if(_obj.pushFunction("GiveFeedback")) {
 			_obj.pushArg((wxDropSource*)this);
-			_obj.pushArg(effect);
+			_obj.pushArg((int)effect);
 			return (_obj.callFunction<bool>());
 		}
 

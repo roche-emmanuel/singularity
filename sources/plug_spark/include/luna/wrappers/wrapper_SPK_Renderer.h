@@ -147,7 +147,7 @@ public:
 	void setBlending(SPK::BlendingMode blendMode) {
 		THROW_IF(!_obj.pushFunction("setBlending"),"No implementation for abstract function SPK::Renderer::setBlending");
 		_obj.pushArg((SPK::Renderer*)this);
-		_obj.pushArg(blendMode);
+		_obj.pushArg((int)blendMode);
 		return (_obj.callFunction<void>());
 	};
 
@@ -155,7 +155,7 @@ public:
 	void enableRenderingHint(SPK::RenderingHint renderingHint, bool enable) {
 		if(_obj.pushFunction("enableRenderingHint")) {
 			_obj.pushArg((SPK::Renderer*)this);
-			_obj.pushArg(renderingHint);
+			_obj.pushArg((int)renderingHint);
 			_obj.pushArg(enable);
 			return (_obj.callFunction<void>());
 		}
@@ -178,7 +178,7 @@ public:
 	bool isRenderingHintEnabled(SPK::RenderingHint renderingHint) const {
 		if(_obj.pushFunction("isRenderingHintEnabled")) {
 			_obj.pushArg((SPK::Renderer*)this);
-			_obj.pushArg(renderingHint);
+			_obj.pushArg((int)renderingHint);
 			return (_obj.callFunction<bool>());
 		}
 
@@ -400,7 +400,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Registerable* obj=(Luna< SPK::Registerable >::check(L,1));
-		bool registerAll=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool registerAll=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wrapper_SPK_Renderer* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_Renderer >(L,1);
 		if(!self) {

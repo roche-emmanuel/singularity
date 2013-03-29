@@ -291,7 +291,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool setsize=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : false;
+		bool setsize=luatop>0 ? (bool)(lua_toboolean(L,1)==1) : (bool)false;
 
 		return new mglParse(setsize);
 	}

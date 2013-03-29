@@ -237,8 +237,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString varianttype(lua_tostring(L,2),lua_objlen(L,2));
-		wxDataViewCellMode mode=luatop>2 ? (wxDataViewCellMode)lua_tointeger(L,3) : ::wxDATAVIEW_CELL_INERT;
-		int align=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		wxDataViewCellMode mode=luatop>2 ? (wxDataViewCellMode)lua_tointeger(L,3) : (wxDataViewCellMode)::wxDATAVIEW_CELL_INERT;
+		int align=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		return new wrapper_wxDataViewRenderer(L,NULL, varianttype, mode, align);
 	}
@@ -302,7 +302,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxEllipsizeMode mode=luatop>1 ? (wxEllipsizeMode)lua_tointeger(L,2) : ::wxELLIPSIZE_MIDDLE;
+		wxEllipsizeMode mode=luatop>1 ? (wxEllipsizeMode)lua_tointeger(L,2) : (wxEllipsizeMode)::wxELLIPSIZE_MIDDLE;
 
 		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
 		if(!self) {

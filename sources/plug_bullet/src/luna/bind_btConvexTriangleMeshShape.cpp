@@ -462,7 +462,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		btStridingMeshInterface* meshInterface=(Luna< btStridingMeshInterface >::check(L,1));
-		bool calcAabb=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool calcAabb=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		return new btConvexTriangleMeshShape(meshInterface, calcAabb);
 	}
@@ -477,7 +477,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		btStridingMeshInterface* meshInterface=(Luna< btStridingMeshInterface >::check(L,2));
-		bool calcAabb=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool calcAabb=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		return new wrapper_btConvexTriangleMeshShape(L,NULL, meshInterface, calcAabb);
 	}
@@ -1132,7 +1132,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int shiftVerticesByMargin=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int shiftVerticesByMargin=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		btConvexTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btConvexTriangleMeshShape >(L,1);
 		if(!self) {

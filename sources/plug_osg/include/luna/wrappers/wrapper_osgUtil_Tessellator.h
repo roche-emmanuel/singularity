@@ -47,6 +47,16 @@ public:
 		return Tessellator::setThreadSafeRefUnref(threadSafe);
 	};
 
+	// void osgUtil::Tessellator::beginTessellation()
+	void beginTessellation() {
+		if(_obj.pushFunction("beginTessellation")) {
+			_obj.pushArg((osgUtil::Tessellator*)this);
+			return (_obj.callFunction<void>());
+		}
+
+		return Tessellator::beginTessellation();
+	};
+
 
 	// Protected non-virtual methods:
 	// void osgUtil::Tessellator::reduceArray(osg::Array * cold, const unsigned int nnu)

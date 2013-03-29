@@ -88,7 +88,7 @@ public:
 			_obj.pushArg((wxSimpleHelpProvider*)this);
 			_obj.pushArg(window);
 			_obj.pushArg(&point);
-			_obj.pushArg(origin);
+			_obj.pushArg((int)origin);
 			return (_obj.callFunction<bool>());
 		}
 

@@ -227,8 +227,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * cols=(const char *)lua_tostring(L,1);
-		int smooth=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		double alpha=luatop>2 ? (double)lua_tonumber(L,3) : 1;
+		int smooth=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		double alpha=luatop>2 ? (double)lua_tonumber(L,3) : (double)1;
 
 		return new mglTexture(cols, smooth, alpha);
 	}
@@ -297,7 +297,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double u=(double)lua_tonumber(L,2);
-		double v=luatop>2 ? (double)lua_tonumber(L,3) : 0;
+		double v=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
 
 		mglTexture* self=(Luna< mglTexture >::check(L,1));
 		if(!self) {

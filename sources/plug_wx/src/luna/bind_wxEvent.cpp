@@ -253,8 +253,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int eventType=luatop>2 ? (int)lua_tointeger(L,3) : wxEVT_NULL;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int eventType=luatop>2 ? (int)lua_tointeger(L,3) : (int)wxEVT_NULL;
 
 		return new wrapper_wxEvent(L,NULL, id, eventType);
 	}
@@ -502,7 +502,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long timeStamp=luatop>1 ? (long)lua_tointeger(L,2) : 0;
+		long timeStamp=luatop>1 ? (long)lua_tointeger(L,2) : (long)0;
 
 		wxEvent* self=Luna< wxObject >::checkSubType< wxEvent >(L,1);
 		if(!self) {
@@ -542,7 +542,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool skip=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool skip=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxEvent* self=Luna< wxObject >::checkSubType< wxEvent >(L,1);
 		if(!self) {

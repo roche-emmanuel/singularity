@@ -281,8 +281,8 @@ public:
 		if( luatop>1 && !position_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg position in SPK::Sphere::Sphere function");
 		}
-		const SPK::Vector3D & position=luatop>1 ? *position_ptr : SPK::Vector3D (0.0f, 0.0f, 0.0f);
-		float radius=luatop>2 ? (float)lua_tonumber(L,3) : 0.0f;
+		const SPK::Vector3D & position=luatop>1 ? *position_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f, 0.0f);
+		float radius=luatop>2 ? (float)lua_tonumber(L,3) : (float)0.0f;
 
 		return new wrapper_SPK_Sphere(L,NULL, position, radius);
 	}
@@ -489,8 +489,8 @@ public:
 		if( luatop>0 && !position_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg position in SPK::Sphere::create function");
 		}
-		const SPK::Vector3D & position=luatop>0 ? *position_ptr : SPK::Vector3D (0.0f, 0.0f, 0.0f);
-		float radius=luatop>1 ? (float)lua_tonumber(L,2) : 0.0f;
+		const SPK::Vector3D & position=luatop>0 ? *position_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f, 0.0f);
+		float radius=luatop>1 ? (float)lua_tonumber(L,2) : (float)0.0f;
 
 		SPK::Sphere * lret = SPK::Sphere::create(position, radius);
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -188,7 +188,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg transB in btPolyhedralContactClipping::clipHullAgainstHull function");
 		}
 		const btTransform & transB=*transB_ptr;
-		float minDist=(float)lua_tonumber(L,6);
+		const float minDist=(const float)lua_tonumber(L,6);
 		float maxDist=(float)lua_tonumber(L,7);
 		btDiscreteCollisionDetectorInterface::Result* resultOut_ptr=(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,8));
 		if( !resultOut_ptr ) {
@@ -228,7 +228,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg worldVertsB1 in btPolyhedralContactClipping::clipFaceAgainstHull function");
 		}
 		btVertexArray & worldVertsB1=*worldVertsB1_ptr;
-		float minDist=(float)lua_tonumber(L,5);
+		const float minDist=(const float)lua_tonumber(L,5);
 		float maxDist=(float)lua_tonumber(L,6);
 		btDiscreteCollisionDetectorInterface::Result* resultOut_ptr=(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,7));
 		if( !resultOut_ptr ) {

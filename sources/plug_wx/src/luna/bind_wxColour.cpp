@@ -609,7 +609,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxC2S_NAME | ::wxC2S_CSS_SYNTAX;
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxC2S_NAME | ::wxC2S_CSS_SYNTAX;
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
@@ -1061,7 +1061,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxC2S_NAME | ::wxC2S_CSS_SYNTAX;
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxC2S_NAME | ::wxC2S_CSS_SYNTAX;
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {

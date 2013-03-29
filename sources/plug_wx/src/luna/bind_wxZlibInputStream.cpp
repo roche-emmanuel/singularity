@@ -245,7 +245,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxZlibInputStream::wxZlibInputStream function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 3;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)3;
 
 		return new wrapper_wxZlibInputStream(L,NULL, stream, flags);
 	}
@@ -260,7 +260,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxInputStream* stream=(Luna< wxObject >::checkSubType< wxInputStream >(L,2));
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 3;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)3;
 
 		return new wrapper_wxZlibInputStream(L,NULL, stream, flags);
 	}
@@ -284,7 +284,7 @@ public:
 		}
 
 		const char * data=(const char *)lua_tostring(L,2);
-		size_t datalen=(size_t)lua_tointeger(L,3);
+		const size_t datalen=(const size_t)lua_tointeger(L,3);
 
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {
@@ -517,7 +517,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		long long pos=(long long)lua_tointeger(L,2);
-		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : ::wxFromStart;
+		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : (wxSeekMode)::wxFromStart;
 
 		wxZlibInputStream* self=Luna< wxObject >::checkSubType< wxZlibInputStream >(L,1);
 		if(!self) {

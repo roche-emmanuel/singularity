@@ -270,6 +270,32 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setGpuShaderFp64Supported(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_isGpuShaderFp64Supported(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setShaderAtomicCounterSupported(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_isShaderAtomicCounterSupported(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_glBlendEquationSeparate(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
@@ -1402,6 +1428,189 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_glUniform1d(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniform2d(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniform3d(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_isnumber(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniform4d(lua_State *L) {
+		if( lua_gettop(L)!=6 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_isnumber(L,6)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniform1dv(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniform2dv(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniform3dv(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniform4dv(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniformMatrix2dv(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniformMatrix3dv(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniformMatrix4dv(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniformMatrix2x3dv(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniformMatrix3x2dv(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniformMatrix2x4dv(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniformMatrix4x2dv(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniformMatrix3x4dv(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glUniformMatrix4x3dv(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glGetActiveAtomicCounterBufferiv(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_glDispatchCompute(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_Get(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1878,6 +2087,82 @@ public:
 			luaL_error(L, "Invalid object in function call bool osg::GL2Extensions::isGetProgramBinarySupported(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->isGetProgramBinarySupported();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void osg::GL2Extensions::setGpuShaderFp64Supported(bool flag)
+	static int _bind_setGpuShaderFp64Supported(lua_State *L) {
+		if (!_lg_typecheck_setGpuShaderFp64Supported(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::setGpuShaderFp64Supported(bool flag) function, expected prototype:\nvoid osg::GL2Extensions::setGpuShaderFp64Supported(bool flag)\nClass arguments details:\n");
+		}
+
+		bool flag=(bool)(lua_toboolean(L,2)==1);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::setGpuShaderFp64Supported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setGpuShaderFp64Supported(flag);
+
+		return 0;
+	}
+
+	// bool osg::GL2Extensions::isGpuShaderFp64Supported()
+	static int _bind_isGpuShaderFp64Supported(lua_State *L) {
+		if (!_lg_typecheck_isGpuShaderFp64Supported(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::GL2Extensions::isGpuShaderFp64Supported() function, expected prototype:\nbool osg::GL2Extensions::isGpuShaderFp64Supported()\nClass arguments details:\n");
+		}
+
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::GL2Extensions::isGpuShaderFp64Supported(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->isGpuShaderFp64Supported();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void osg::GL2Extensions::setShaderAtomicCounterSupported(bool flag)
+	static int _bind_setShaderAtomicCounterSupported(lua_State *L) {
+		if (!_lg_typecheck_setShaderAtomicCounterSupported(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::setShaderAtomicCounterSupported(bool flag) function, expected prototype:\nvoid osg::GL2Extensions::setShaderAtomicCounterSupported(bool flag)\nClass arguments details:\n");
+		}
+
+		bool flag=(bool)(lua_toboolean(L,2)==1);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::setShaderAtomicCounterSupported(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setShaderAtomicCounterSupported(flag);
+
+		return 0;
+	}
+
+	// bool osg::GL2Extensions::isShaderAtomicCounterSupported()
+	static int _bind_isShaderAtomicCounterSupported(lua_State *L) {
+		if (!_lg_typecheck_isShaderAtomicCounterSupported(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::GL2Extensions::isShaderAtomicCounterSupported() function, expected prototype:\nbool osg::GL2Extensions::isShaderAtomicCounterSupported()\nClass arguments details:\n");
+		}
+
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::GL2Extensions::isShaderAtomicCounterSupported(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->isShaderAtomicCounterSupported();
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -4552,6 +4837,417 @@ public:
 		return 0;
 	}
 
+	// void osg::GL2Extensions::glUniform1d(int location, double v0) const
+	static int _bind_glUniform1d(lua_State *L) {
+		if (!_lg_typecheck_glUniform1d(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniform1d(int location, double v0) const function, expected prototype:\nvoid osg::GL2Extensions::glUniform1d(int location, double v0) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		double v0=(double)lua_tonumber(L,3);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform1d(int, double) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniform1d(location, v0);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniform2d(int location, double v0, double v1) const
+	static int _bind_glUniform2d(lua_State *L) {
+		if (!_lg_typecheck_glUniform2d(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniform2d(int location, double v0, double v1) const function, expected prototype:\nvoid osg::GL2Extensions::glUniform2d(int location, double v0, double v1) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		double v0=(double)lua_tonumber(L,3);
+		double v1=(double)lua_tonumber(L,4);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform2d(int, double, double) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniform2d(location, v0, v1);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniform3d(int location, double v0, double v1, double v2) const
+	static int _bind_glUniform3d(lua_State *L) {
+		if (!_lg_typecheck_glUniform3d(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniform3d(int location, double v0, double v1, double v2) const function, expected prototype:\nvoid osg::GL2Extensions::glUniform3d(int location, double v0, double v1, double v2) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		double v0=(double)lua_tonumber(L,3);
+		double v1=(double)lua_tonumber(L,4);
+		double v2=(double)lua_tonumber(L,5);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform3d(int, double, double, double) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniform3d(location, v0, v1, v2);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniform4d(int location, double v0, double v1, double v2, double v3) const
+	static int _bind_glUniform4d(lua_State *L) {
+		if (!_lg_typecheck_glUniform4d(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniform4d(int location, double v0, double v1, double v2, double v3) const function, expected prototype:\nvoid osg::GL2Extensions::glUniform4d(int location, double v0, double v1, double v2, double v3) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		double v0=(double)lua_tonumber(L,3);
+		double v1=(double)lua_tonumber(L,4);
+		double v2=(double)lua_tonumber(L,5);
+		double v3=(double)lua_tonumber(L,6);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform4d(int, double, double, double, double) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniform4d(location, v0, v1, v2, v3);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniform1dv(int location, int count, const double * value) const
+	static int _bind_glUniform1dv(lua_State *L) {
+		if (!_lg_typecheck_glUniform1dv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniform1dv(int location, int count, const double * value) const function, expected prototype:\nvoid osg::GL2Extensions::glUniform1dv(int location, int count, const double * value) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		double* value=(double*)Luna< void >::check(L,4);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform1dv(int, int, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniform1dv(location, count, value);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniform2dv(int location, int count, const double * value) const
+	static int _bind_glUniform2dv(lua_State *L) {
+		if (!_lg_typecheck_glUniform2dv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniform2dv(int location, int count, const double * value) const function, expected prototype:\nvoid osg::GL2Extensions::glUniform2dv(int location, int count, const double * value) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		double* value=(double*)Luna< void >::check(L,4);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform2dv(int, int, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniform2dv(location, count, value);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniform3dv(int location, int count, const double * value) const
+	static int _bind_glUniform3dv(lua_State *L) {
+		if (!_lg_typecheck_glUniform3dv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniform3dv(int location, int count, const double * value) const function, expected prototype:\nvoid osg::GL2Extensions::glUniform3dv(int location, int count, const double * value) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		double* value=(double*)Luna< void >::check(L,4);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform3dv(int, int, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniform3dv(location, count, value);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniform4dv(int location, int count, const double * value) const
+	static int _bind_glUniform4dv(lua_State *L) {
+		if (!_lg_typecheck_glUniform4dv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniform4dv(int location, int count, const double * value) const function, expected prototype:\nvoid osg::GL2Extensions::glUniform4dv(int location, int count, const double * value) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		double* value=(double*)Luna< void >::check(L,4);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniform4dv(int, int, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniform4dv(location, count, value);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniformMatrix2dv(int location, int count, unsigned char transpose, const double * value) const
+	static int _bind_glUniformMatrix2dv(lua_State *L) {
+		if (!_lg_typecheck_glUniformMatrix2dv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniformMatrix2dv(int location, int count, unsigned char transpose, const double * value) const function, expected prototype:\nvoid osg::GL2Extensions::glUniformMatrix2dv(int location, int count, unsigned char transpose, const double * value) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
+		double* value=(double*)Luna< void >::check(L,5);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix2dv(int, int, unsigned char, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniformMatrix2dv(location, count, transpose, value);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniformMatrix3dv(int location, int count, unsigned char transpose, const double * value) const
+	static int _bind_glUniformMatrix3dv(lua_State *L) {
+		if (!_lg_typecheck_glUniformMatrix3dv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniformMatrix3dv(int location, int count, unsigned char transpose, const double * value) const function, expected prototype:\nvoid osg::GL2Extensions::glUniformMatrix3dv(int location, int count, unsigned char transpose, const double * value) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
+		double* value=(double*)Luna< void >::check(L,5);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix3dv(int, int, unsigned char, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniformMatrix3dv(location, count, transpose, value);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniformMatrix4dv(int location, int count, unsigned char transpose, const double * value) const
+	static int _bind_glUniformMatrix4dv(lua_State *L) {
+		if (!_lg_typecheck_glUniformMatrix4dv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniformMatrix4dv(int location, int count, unsigned char transpose, const double * value) const function, expected prototype:\nvoid osg::GL2Extensions::glUniformMatrix4dv(int location, int count, unsigned char transpose, const double * value) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
+		double* value=(double*)Luna< void >::check(L,5);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix4dv(int, int, unsigned char, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniformMatrix4dv(location, count, transpose, value);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniformMatrix2x3dv(int location, int count, unsigned char transpose, const double * value) const
+	static int _bind_glUniformMatrix2x3dv(lua_State *L) {
+		if (!_lg_typecheck_glUniformMatrix2x3dv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniformMatrix2x3dv(int location, int count, unsigned char transpose, const double * value) const function, expected prototype:\nvoid osg::GL2Extensions::glUniformMatrix2x3dv(int location, int count, unsigned char transpose, const double * value) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
+		double* value=(double*)Luna< void >::check(L,5);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix2x3dv(int, int, unsigned char, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniformMatrix2x3dv(location, count, transpose, value);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniformMatrix3x2dv(int location, int count, unsigned char transpose, const double * value) const
+	static int _bind_glUniformMatrix3x2dv(lua_State *L) {
+		if (!_lg_typecheck_glUniformMatrix3x2dv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniformMatrix3x2dv(int location, int count, unsigned char transpose, const double * value) const function, expected prototype:\nvoid osg::GL2Extensions::glUniformMatrix3x2dv(int location, int count, unsigned char transpose, const double * value) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
+		double* value=(double*)Luna< void >::check(L,5);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix3x2dv(int, int, unsigned char, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniformMatrix3x2dv(location, count, transpose, value);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniformMatrix2x4dv(int location, int count, unsigned char transpose, const double * value) const
+	static int _bind_glUniformMatrix2x4dv(lua_State *L) {
+		if (!_lg_typecheck_glUniformMatrix2x4dv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniformMatrix2x4dv(int location, int count, unsigned char transpose, const double * value) const function, expected prototype:\nvoid osg::GL2Extensions::glUniformMatrix2x4dv(int location, int count, unsigned char transpose, const double * value) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
+		double* value=(double*)Luna< void >::check(L,5);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix2x4dv(int, int, unsigned char, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniformMatrix2x4dv(location, count, transpose, value);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniformMatrix4x2dv(int location, int count, unsigned char transpose, const double * value) const
+	static int _bind_glUniformMatrix4x2dv(lua_State *L) {
+		if (!_lg_typecheck_glUniformMatrix4x2dv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniformMatrix4x2dv(int location, int count, unsigned char transpose, const double * value) const function, expected prototype:\nvoid osg::GL2Extensions::glUniformMatrix4x2dv(int location, int count, unsigned char transpose, const double * value) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
+		double* value=(double*)Luna< void >::check(L,5);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix4x2dv(int, int, unsigned char, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniformMatrix4x2dv(location, count, transpose, value);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniformMatrix3x4dv(int location, int count, unsigned char transpose, const double * value) const
+	static int _bind_glUniformMatrix3x4dv(lua_State *L) {
+		if (!_lg_typecheck_glUniformMatrix3x4dv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniformMatrix3x4dv(int location, int count, unsigned char transpose, const double * value) const function, expected prototype:\nvoid osg::GL2Extensions::glUniformMatrix3x4dv(int location, int count, unsigned char transpose, const double * value) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
+		double* value=(double*)Luna< void >::check(L,5);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix3x4dv(int, int, unsigned char, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniformMatrix3x4dv(location, count, transpose, value);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glUniformMatrix4x3dv(int location, int count, unsigned char transpose, const double * value) const
+	static int _bind_glUniformMatrix4x3dv(lua_State *L) {
+		if (!_lg_typecheck_glUniformMatrix4x3dv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glUniformMatrix4x3dv(int location, int count, unsigned char transpose, const double * value) const function, expected prototype:\nvoid osg::GL2Extensions::glUniformMatrix4x3dv(int location, int count, unsigned char transpose, const double * value) const\nClass arguments details:\n");
+		}
+
+		int location=(int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
+		double* value=(double*)Luna< void >::check(L,5);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glUniformMatrix4x3dv(int, int, unsigned char, const double *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glUniformMatrix4x3dv(location, count, transpose, value);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glGetActiveAtomicCounterBufferiv(unsigned int program, unsigned int bufferIndex, unsigned int pname, int * params) const
+	static int _bind_glGetActiveAtomicCounterBufferiv(lua_State *L) {
+		if (!_lg_typecheck_glGetActiveAtomicCounterBufferiv(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glGetActiveAtomicCounterBufferiv(unsigned int program, unsigned int bufferIndex, unsigned int pname, int * params) const function, expected prototype:\nvoid osg::GL2Extensions::glGetActiveAtomicCounterBufferiv(unsigned int program, unsigned int bufferIndex, unsigned int pname, int * params) const\nClass arguments details:\n");
+		}
+
+		unsigned int program=(unsigned int)lua_tointeger(L,2);
+		unsigned int bufferIndex=(unsigned int)lua_tointeger(L,3);
+		unsigned int pname=(unsigned int)lua_tointeger(L,4);
+		int* params=(int*)Luna< void >::check(L,5);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glGetActiveAtomicCounterBufferiv(unsigned int, unsigned int, unsigned int, int *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, params);
+
+		return 0;
+	}
+
+	// void osg::GL2Extensions::glDispatchCompute(unsigned int numGroupsX, unsigned int numGroupsY, unsigned int numGroupsZ) const
+	static int _bind_glDispatchCompute(lua_State *L) {
+		if (!_lg_typecheck_glDispatchCompute(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GL2Extensions::glDispatchCompute(unsigned int numGroupsX, unsigned int numGroupsY, unsigned int numGroupsZ) const function, expected prototype:\nvoid osg::GL2Extensions::glDispatchCompute(unsigned int numGroupsX, unsigned int numGroupsY, unsigned int numGroupsZ) const\nClass arguments details:\n");
+		}
+
+		unsigned int numGroupsX=(unsigned int)lua_tointeger(L,2);
+		unsigned int numGroupsY=(unsigned int)lua_tointeger(L,3);
+		unsigned int numGroupsZ=(unsigned int)lua_tointeger(L,4);
+
+		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GL2Extensions::glDispatchCompute(unsigned int, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->glDispatchCompute(numGroupsX, numGroupsY, numGroupsZ);
+
+		return 0;
+	}
+
 	// static osg::GL2Extensions * osg::GL2Extensions::Get(unsigned int contextID, bool createIfNotInitalized)
 	static int _bind_Get(lua_State *L) {
 		if (!_lg_typecheck_Get(L)) {
@@ -4647,6 +5343,10 @@ luna_RegType LunaTraits< osg::GL2Extensions >::methods[] = {
 	{"isUniformBufferObjectSupported", &luna_wrapper_osg_GL2Extensions::_bind_isUniformBufferObjectSupported},
 	{"setGetProgramBinarySupported", &luna_wrapper_osg_GL2Extensions::_bind_setGetProgramBinarySupported},
 	{"isGetProgramBinarySupported", &luna_wrapper_osg_GL2Extensions::_bind_isGetProgramBinarySupported},
+	{"setGpuShaderFp64Supported", &luna_wrapper_osg_GL2Extensions::_bind_setGpuShaderFp64Supported},
+	{"isGpuShaderFp64Supported", &luna_wrapper_osg_GL2Extensions::_bind_isGpuShaderFp64Supported},
+	{"setShaderAtomicCounterSupported", &luna_wrapper_osg_GL2Extensions::_bind_setShaderAtomicCounterSupported},
+	{"isShaderAtomicCounterSupported", &luna_wrapper_osg_GL2Extensions::_bind_isShaderAtomicCounterSupported},
 	{"glBlendEquationSeparate", &luna_wrapper_osg_GL2Extensions::_bind_glBlendEquationSeparate},
 	{"glDrawBuffers", &luna_wrapper_osg_GL2Extensions::_bind_glDrawBuffers},
 	{"glStencilOpSeparate", &luna_wrapper_osg_GL2Extensions::_bind_glStencilOpSeparate},
@@ -4774,6 +5474,25 @@ luna_RegType LunaTraits< osg::GL2Extensions >::methods[] = {
 	{"glUniformBlockBinding", &luna_wrapper_osg_GL2Extensions::_bind_glUniformBlockBinding},
 	{"glGetProgramBinary", &luna_wrapper_osg_GL2Extensions::_bind_glGetProgramBinary},
 	{"glProgramBinary", &luna_wrapper_osg_GL2Extensions::_bind_glProgramBinary},
+	{"glUniform1d", &luna_wrapper_osg_GL2Extensions::_bind_glUniform1d},
+	{"glUniform2d", &luna_wrapper_osg_GL2Extensions::_bind_glUniform2d},
+	{"glUniform3d", &luna_wrapper_osg_GL2Extensions::_bind_glUniform3d},
+	{"glUniform4d", &luna_wrapper_osg_GL2Extensions::_bind_glUniform4d},
+	{"glUniform1dv", &luna_wrapper_osg_GL2Extensions::_bind_glUniform1dv},
+	{"glUniform2dv", &luna_wrapper_osg_GL2Extensions::_bind_glUniform2dv},
+	{"glUniform3dv", &luna_wrapper_osg_GL2Extensions::_bind_glUniform3dv},
+	{"glUniform4dv", &luna_wrapper_osg_GL2Extensions::_bind_glUniform4dv},
+	{"glUniformMatrix2dv", &luna_wrapper_osg_GL2Extensions::_bind_glUniformMatrix2dv},
+	{"glUniformMatrix3dv", &luna_wrapper_osg_GL2Extensions::_bind_glUniformMatrix3dv},
+	{"glUniformMatrix4dv", &luna_wrapper_osg_GL2Extensions::_bind_glUniformMatrix4dv},
+	{"glUniformMatrix2x3dv", &luna_wrapper_osg_GL2Extensions::_bind_glUniformMatrix2x3dv},
+	{"glUniformMatrix3x2dv", &luna_wrapper_osg_GL2Extensions::_bind_glUniformMatrix3x2dv},
+	{"glUniformMatrix2x4dv", &luna_wrapper_osg_GL2Extensions::_bind_glUniformMatrix2x4dv},
+	{"glUniformMatrix4x2dv", &luna_wrapper_osg_GL2Extensions::_bind_glUniformMatrix4x2dv},
+	{"glUniformMatrix3x4dv", &luna_wrapper_osg_GL2Extensions::_bind_glUniformMatrix3x4dv},
+	{"glUniformMatrix4x3dv", &luna_wrapper_osg_GL2Extensions::_bind_glUniformMatrix4x3dv},
+	{"glGetActiveAtomicCounterBufferiv", &luna_wrapper_osg_GL2Extensions::_bind_glGetActiveAtomicCounterBufferiv},
+	{"glDispatchCompute", &luna_wrapper_osg_GL2Extensions::_bind_glDispatchCompute},
 	{"Get", &luna_wrapper_osg_GL2Extensions::_bind_Get},
 	{"Set", &luna_wrapper_osg_GL2Extensions::_bind_Set},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_GL2Extensions::_bind_base_setThreadSafeRefUnref},

@@ -132,6 +132,14 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_getContextVersion(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getX(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -581,7 +589,7 @@ public:
 	inline static bool _lg_typecheck_setSharedContext(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,3930443) ) return false;
 		return true;
 	}
 
@@ -664,6 +672,27 @@ public:
 
 
 	// Function binds:
+	// bool osg::GraphicsContext::Traits::getContextVersion(unsigned int & major, unsigned int & minor) const
+	static int _bind_getContextVersion(lua_State *L) {
+		if (!_lg_typecheck_getContextVersion(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::GraphicsContext::Traits::getContextVersion(unsigned int & major, unsigned int & minor) const function, expected prototype:\nbool osg::GraphicsContext::Traits::getContextVersion(unsigned int & major, unsigned int & minor) const\nClass arguments details:\n");
+		}
+
+		unsigned int major=(unsigned int)lua_tointeger(L,2);
+		unsigned int minor=(unsigned int)lua_tointeger(L,3);
+
+		osg::GraphicsContext::Traits* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext::Traits >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::GraphicsContext::Traits::getContextVersion(unsigned int &, unsigned int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->getContextVersion(major, minor);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// int osg::GraphicsContext::Traits::x()
 	static int _bind_getX(lua_State *L) {
 		if (!_lg_typecheck_getX(L)) {
@@ -1272,23 +1301,21 @@ public:
 		return 1;
 	}
 
-	// osg::GraphicsContext * osg::GraphicsContext::Traits::sharedContext()
+	// osg::observer_ptr< osg::GraphicsContext > osg::GraphicsContext::Traits::sharedContext()
 	static int _bind_getSharedContext(lua_State *L) {
 		if (!_lg_typecheck_getSharedContext(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::GraphicsContext * osg::GraphicsContext::Traits::sharedContext() function, expected prototype:\nosg::GraphicsContext * osg::GraphicsContext::Traits::sharedContext()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::observer_ptr< osg::GraphicsContext > osg::GraphicsContext::Traits::sharedContext() function, expected prototype:\nosg::observer_ptr< osg::GraphicsContext > osg::GraphicsContext::Traits::sharedContext()\nClass arguments details:\n");
 		}
 
 
 		osg::GraphicsContext::Traits* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext::Traits >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::GraphicsContext * osg::GraphicsContext::Traits::sharedContext(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::observer_ptr< osg::GraphicsContext > osg::GraphicsContext::Traits::sharedContext(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		osg::GraphicsContext * lret = self->sharedContext;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::GraphicsContext >::push(L,lret,false);
+		osg::observer_ptr< osg::GraphicsContext > lret = self->sharedContext;
+		Luna< osg::GraphicsContext >::push(L,lret.get(),false);
 
 		return 1;
 	}
@@ -1977,19 +2004,19 @@ public:
 		return 0;
 	}
 
-	// void osg::GraphicsContext::Traits::sharedContext(osg::GraphicsContext * value)
+	// void osg::GraphicsContext::Traits::sharedContext(osg::observer_ptr< osg::GraphicsContext > value)
 	static int _bind_setSharedContext(lua_State *L) {
 		if (!_lg_typecheck_setSharedContext(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::Traits::sharedContext(osg::GraphicsContext * value) function, expected prototype:\nvoid osg::GraphicsContext::Traits::sharedContext(osg::GraphicsContext * value)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::Traits::sharedContext(osg::observer_ptr< osg::GraphicsContext > value) function, expected prototype:\nvoid osg::GraphicsContext::Traits::sharedContext(osg::observer_ptr< osg::GraphicsContext > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
 		}
 
-		osg::GraphicsContext* value=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,2));
+		osg::observer_ptr< osg::GraphicsContext > value = dynamic_cast< osg::GraphicsContext* >(Luna< osg::Referenced >::check(L,2));
 
 		osg::GraphicsContext::Traits* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext::Traits >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::Traits::sharedContext(osg::GraphicsContext *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::Traits::sharedContext(osg::observer_ptr< osg::GraphicsContext >). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->sharedContext = value;
 
@@ -2138,6 +2165,7 @@ const int LunaTraits< osg::GraphicsContext::Traits >::hash = 19159633;
 const int LunaTraits< osg::GraphicsContext::Traits >::uniqueIDs[] = {50169651, 83590106,0};
 
 luna_RegType LunaTraits< osg::GraphicsContext::Traits >::methods[] = {
+	{"getContextVersion", &luna_wrapper_osg_GraphicsContext_Traits::_bind_getContextVersion},
 	{"getX", &luna_wrapper_osg_GraphicsContext_Traits::_bind_getX},
 	{"getY", &luna_wrapper_osg_GraphicsContext_Traits::_bind_getY},
 	{"getWidth", &luna_wrapper_osg_GraphicsContext_Traits::_bind_getWidth},

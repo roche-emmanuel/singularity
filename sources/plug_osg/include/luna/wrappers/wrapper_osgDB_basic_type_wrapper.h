@@ -6,7 +6,7 @@
 #include "sgtCommon.h"
 #include "lua/LuaObject.h"
 
-#include <osgDB/Registry>
+#include <osgDB/Input>
 
 class wrapper_osgDB_basic_type_wrapper : public osgDB::basic_type_wrapper, public luna_wrapper_base {
 

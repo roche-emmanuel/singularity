@@ -281,12 +281,12 @@ public:
 		if( luatop>1 && !position_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg position in SPK::AABox::AABox function");
 		}
-		const SPK::Vector3D & position=luatop>1 ? *position_ptr : SPK::Vector3D (0.0f, 0.0f, 0.0f);
+		const SPK::Vector3D & position=luatop>1 ? *position_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f, 0.0f);
 		const SPK::Vector3D* dimension_ptr=luatop>2 ? (Luna< SPK::Vector3D >::check(L,3)) : NULL;
 		if( luatop>2 && !dimension_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dimension in SPK::AABox::AABox function");
 		}
-		const SPK::Vector3D & dimension=luatop>2 ? *dimension_ptr : SPK::Vector3D (0.0f, 0.0f, 0.0f);
+		const SPK::Vector3D & dimension=luatop>2 ? *dimension_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f, 0.0f);
 
 		return new wrapper_SPK_AABox(L,NULL, position, dimension);
 	}
@@ -499,12 +499,12 @@ public:
 		if( luatop>0 && !position_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg position in SPK::AABox::create function");
 		}
-		const SPK::Vector3D & position=luatop>0 ? *position_ptr : SPK::Vector3D (0.0f, 0.0f, 0.0f);
+		const SPK::Vector3D & position=luatop>0 ? *position_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f, 0.0f);
 		const SPK::Vector3D* dimension_ptr=luatop>1 ? (Luna< SPK::Vector3D >::check(L,2)) : NULL;
 		if( luatop>1 && !dimension_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dimension in SPK::AABox::create function");
 		}
-		const SPK::Vector3D & dimension=luatop>1 ? *dimension_ptr : SPK::Vector3D (0.0f, 0.0f, 0.0f);
+		const SPK::Vector3D & dimension=luatop>1 ? *dimension_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f, 0.0f);
 
 		SPK::AABox * lret = SPK::AABox::create(position, dimension);
 		if(!lret) return 0; // Do not write NULL pointers.

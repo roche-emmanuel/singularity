@@ -365,6 +365,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_acceptsProtocol(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_supportedFeatures(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -1201,6 +1208,26 @@ public:
 		return 1;
 	}
 
+	// bool osgDB::Archive::base_acceptsProtocol(const std::string & protocol) const
+	static int _bind_base_acceptsProtocol(lua_State *L) {
+		if (!_lg_typecheck_base_acceptsProtocol(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgDB::Archive::base_acceptsProtocol(const std::string & protocol) const function, expected prototype:\nbool osgDB::Archive::base_acceptsProtocol(const std::string & protocol) const\nClass arguments details:\n");
+		}
+
+		std::string protocol(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::Archive* self=Luna< osg::Referenced >::checkSubType< osgDB::Archive >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgDB::Archive::base_acceptsProtocol(const std::string &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->Archive::acceptsProtocol(protocol);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// osgDB::ReaderWriter::Features osgDB::Archive::base_supportedFeatures() const
 	static int _bind_base_supportedFeatures(lua_State *L) {
 		if (!_lg_typecheck_base_supportedFeatures(L)) {
@@ -1439,6 +1466,7 @@ luna_RegType LunaTraits< osgDB::Archive >::methods[] = {
 	{"base_supportedProtocols", &luna_wrapper_osgDB_Archive::_bind_base_supportedProtocols},
 	{"base_supportedExtensions", &luna_wrapper_osgDB_Archive::_bind_base_supportedExtensions},
 	{"base_supportedOptions", &luna_wrapper_osgDB_Archive::_bind_base_supportedOptions},
+	{"base_acceptsProtocol", &luna_wrapper_osgDB_Archive::_bind_base_acceptsProtocol},
 	{"base_supportedFeatures", &luna_wrapper_osgDB_Archive::_bind_base_supportedFeatures},
 	{"base_openArchive", &luna_wrapper_osgDB_Archive::_bind_base_openArchive},
 	{"base_libraryName", &luna_wrapper_osgDB_Archive::_bind_base_libraryName},

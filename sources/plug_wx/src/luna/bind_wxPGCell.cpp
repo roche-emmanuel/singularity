@@ -333,17 +333,17 @@ public:
 		if( luatop>1 && !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxPGCell::wxPGCell function");
 		}
-		const wxBitmap & bitmap=luatop>1 ? *bitmap_ptr : wxNullBitmap;
+		const wxBitmap & bitmap=luatop>1 ? *bitmap_ptr : (const wxBitmap&)wxNullBitmap;
 		const wxColour* fgCol_ptr=luatop>2 ? (Luna< wxObject >::checkSubType< wxColour >(L,3)) : NULL;
 		if( luatop>2 && !fgCol_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fgCol in wxPGCell::wxPGCell function");
 		}
-		const wxColour & fgCol=luatop>2 ? *fgCol_ptr : wxNullColour;
+		const wxColour & fgCol=luatop>2 ? *fgCol_ptr : (const wxColour&)wxNullColour;
 		const wxColour* bgCol_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxColour >(L,4)) : NULL;
 		if( luatop>3 && !bgCol_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bgCol in wxPGCell::wxPGCell function");
 		}
-		const wxColour & bgCol=luatop>3 ? *bgCol_ptr : wxNullColour;
+		const wxColour & bgCol=luatop>3 ? *bgCol_ptr : (const wxColour&)wxNullColour;
 
 		return new wxPGCell(text, bitmap, fgCol, bgCol);
 	}
@@ -389,17 +389,17 @@ public:
 		if( luatop>2 && !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxPGCell::wxPGCell function");
 		}
-		const wxBitmap & bitmap=luatop>2 ? *bitmap_ptr : wxNullBitmap;
+		const wxBitmap & bitmap=luatop>2 ? *bitmap_ptr : (const wxBitmap&)wxNullBitmap;
 		const wxColour* fgCol_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxColour >(L,4)) : NULL;
 		if( luatop>3 && !fgCol_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fgCol in wxPGCell::wxPGCell function");
 		}
-		const wxColour & fgCol=luatop>3 ? *fgCol_ptr : wxNullColour;
+		const wxColour & fgCol=luatop>3 ? *fgCol_ptr : (const wxColour&)wxNullColour;
 		const wxColour* bgCol_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxColour >(L,5)) : NULL;
 		if( luatop>4 && !bgCol_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bgCol in wxPGCell::wxPGCell function");
 		}
-		const wxColour & bgCol=luatop>4 ? *bgCol_ptr : wxNullColour;
+		const wxColour & bgCol=luatop>4 ? *bgCol_ptr : (const wxColour&)wxNullColour;
 
 		return new wrapper_wxPGCell(L,NULL, text, bitmap, fgCol, bgCol);
 	}

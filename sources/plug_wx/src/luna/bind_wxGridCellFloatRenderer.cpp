@@ -191,9 +191,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int width=luatop>1 ? (int)lua_tointeger(L,2) : -1;
-		int precision=luatop>2 ? (int)lua_tointeger(L,3) : -1;
-		int format=luatop>3 ? (int)lua_tointeger(L,4) : ::wxGRID_FLOAT_FORMAT_DEFAULT;
+		int width=luatop>1 ? (int)lua_tointeger(L,2) : (int)-1;
+		int precision=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
+		int format=luatop>3 ? (int)lua_tointeger(L,4) : (int)::wxGRID_FLOAT_FORMAT_DEFAULT;
 
 		return new wrapper_wxGridCellFloatRenderer(L,NULL, width, precision, format);
 	}

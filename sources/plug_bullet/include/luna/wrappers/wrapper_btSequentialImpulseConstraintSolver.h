@@ -384,8 +384,8 @@ public:
 		btCollisionObject* colObj0=(Luna< btCollisionObject >::check(L,9));
 		btCollisionObject* colObj1=(Luna< btCollisionObject >::check(L,10));
 		float relaxation=(float)lua_tonumber(L,11);
-		float desiredVelocity=luatop>11 ? (float)lua_tonumber(L,12) : 0.;
-		float cfmSlip=luatop>12 ? (float)lua_tonumber(L,13) : 0.;
+		float desiredVelocity=luatop>11 ? (float)lua_tonumber(L,12) : (float)0.;
+		float cfmSlip=luatop>12 ? (float)lua_tonumber(L,13) : (float)0.;
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
@@ -436,8 +436,8 @@ public:
 		btCollisionObject* colObj0=(Luna< btCollisionObject >::check(L,9));
 		btCollisionObject* colObj1=(Luna< btCollisionObject >::check(L,10));
 		float relaxation=(float)lua_tonumber(L,11);
-		float desiredVelocity=luatop>11 ? (float)lua_tonumber(L,12) : 0.;
-		float cfmSlip=luatop>12 ? (float)lua_tonumber(L,13) : 0.;
+		float desiredVelocity=luatop>11 ? (float)lua_tonumber(L,12) : (float)0.;
+		float cfmSlip=luatop>12 ? (float)lua_tonumber(L,13) : (float)0.;
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
@@ -484,8 +484,8 @@ public:
 		btCollisionObject* colObj0=(Luna< btCollisionObject >::check(L,9));
 		btCollisionObject* colObj1=(Luna< btCollisionObject >::check(L,10));
 		float relaxation=(float)lua_tonumber(L,11);
-		float desiredVelocity=luatop>11 ? (float)lua_tonumber(L,12) : 0.;
-		float cfmSlip=luatop>12 ? (float)lua_tonumber(L,13) : 0.;
+		float desiredVelocity=luatop>11 ? (float)lua_tonumber(L,12) : (float)0.;
+		float cfmSlip=luatop>12 ? (float)lua_tonumber(L,13) : (float)0.;
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
@@ -535,8 +535,8 @@ public:
 		btCollisionObject* colObj0=(Luna< btCollisionObject >::check(L,9));
 		btCollisionObject* colObj1=(Luna< btCollisionObject >::check(L,10));
 		float relaxation=(float)lua_tonumber(L,11);
-		float desiredVelocity=luatop>11 ? (float)lua_tonumber(L,12) : 0;
-		float cfmSlip=luatop>12 ? (float)lua_tonumber(L,13) : 0.f;
+		float desiredVelocity=luatop>11 ? (float)lua_tonumber(L,12) : (float)0;
+		float cfmSlip=luatop>12 ? (float)lua_tonumber(L,13) : (float)0.f;
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {

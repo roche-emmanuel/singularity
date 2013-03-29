@@ -81,7 +81,7 @@ inline static bool _lg_typecheck_mgl_gauss_rnd(lua_State *L) {
 inline static bool _lg_typecheck_mgl_fft_freq(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
@@ -89,7 +89,7 @@ inline static bool _lg_typecheck_mgl_fft_freq(lua_State *L) {
 inline static bool _lg_typecheck_mgl_strcls(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isstring(L,1)==0 ) return false;
 	return true;
 }
 
@@ -97,7 +97,7 @@ inline static bool _lg_typecheck_mgl_strpos(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( lua_isstring(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_isstring(L,2)==0 ) return false;
 	return true;
 }
 
@@ -287,7 +287,7 @@ inline static bool _lg_typecheck_mgl_set_warn_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
@@ -329,7 +329,7 @@ inline static bool _lg_typecheck_mgl_use_graph_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -345,7 +345,7 @@ inline static bool _lg_typecheck_mgl_set_rdc_acc_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -392,7 +392,7 @@ inline static bool _lg_typecheck_mgl_highlight_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -426,10 +426,10 @@ inline static bool _lg_typecheck_mgl_set_color(lua_State *L) {
 inline static bool _lg_typecheck_mgl_set_color_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( lua_isstring(L,1)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
@@ -463,7 +463,7 @@ inline static bool _lg_typecheck_mgl_set_alpha_default_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -479,7 +479,7 @@ inline static bool _lg_typecheck_mgl_set_bar_width_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -495,7 +495,7 @@ inline static bool _lg_typecheck_mgl_set_meshnum_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -511,7 +511,7 @@ inline static bool _lg_typecheck_mgl_set_facenum_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -541,7 +541,7 @@ inline static bool _lg_typecheck_mgl_set_ambbr_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -557,7 +557,7 @@ inline static bool _lg_typecheck_mgl_set_light_dif_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -573,7 +573,7 @@ inline static bool _lg_typecheck_mgl_set_cut_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -594,12 +594,12 @@ inline static bool _lg_typecheck_mgl_set_cut_box_(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	return true;
 }
 
@@ -637,12 +637,12 @@ inline static bool _lg_typecheck_mgl_set_ranges_(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	return true;
 }
 
@@ -661,8 +661,8 @@ inline static bool _lg_typecheck_mgl_set_range_val_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
@@ -683,7 +683,7 @@ inline static bool _lg_typecheck_mgl_set_range_dat_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
@@ -707,14 +707,14 @@ inline static bool _lg_typecheck_mgl_zoom_axis_(lua_State *L) {
 	if( lua_gettop(L)!=9 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
-	if( lua_isnumber(L,9)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
+	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	return true;
 }
 
@@ -732,9 +732,9 @@ inline static bool _lg_typecheck_mgl_set_origin_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -776,7 +776,7 @@ inline static bool _lg_typecheck_mgl_set_coor_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -792,7 +792,7 @@ inline static bool _lg_typecheck_mgl_set_ternary_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -808,7 +808,7 @@ inline static bool _lg_typecheck_mgl_set_tick_rotate_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -824,7 +824,7 @@ inline static bool _lg_typecheck_mgl_set_tick_skip_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -858,7 +858,7 @@ inline static bool _lg_typecheck_mgl_set_mark_size_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -874,7 +874,7 @@ inline static bool _lg_typecheck_mgl_set_arrow_size_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -890,7 +890,7 @@ inline static bool _lg_typecheck_mgl_set_font_size_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -906,7 +906,7 @@ inline static bool _lg_typecheck_mgl_set_rotated_text_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -923,8 +923,8 @@ inline static bool _lg_typecheck_mgl_load_font_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_isstring(L,3)==0 ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
@@ -971,8 +971,8 @@ inline static bool _lg_typecheck_mgl_create_graph(lua_State *L) {
 inline static bool _lg_typecheck_mgl_create_graph_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -1003,8 +1003,8 @@ inline static bool _lg_typecheck_mgl_set_size_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -1034,7 +1034,7 @@ inline static bool _lg_typecheck_mgl_set_quality_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -1081,8 +1081,8 @@ inline static bool _lg_typecheck_mgl_set_tick_len_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -1141,10 +1141,10 @@ inline static bool _lg_typecheck_mgl_set_ticks_(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( lua_isstring(L,2)==0 ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
@@ -1165,7 +1165,7 @@ inline static bool _lg_typecheck_mgl_set_ticks_str_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
@@ -1189,7 +1189,7 @@ inline static bool _lg_typecheck_mgl_set_ticks_val_(lua_State *L) {
 	if( lua_isstring(L,2)==0 ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
@@ -1208,8 +1208,8 @@ inline static bool _lg_typecheck_mgl_tune_ticks_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -1248,7 +1248,7 @@ inline static bool _lg_typecheck_mgl_set_ticks_time_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
@@ -1270,10 +1270,10 @@ inline static bool _lg_typecheck_mgl_set_tick_shift_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -1305,7 +1305,7 @@ inline static bool _lg_typecheck_mgl_box_str_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -1390,10 +1390,10 @@ inline static bool _lg_typecheck_mgl_colorbar_ext_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
 }
@@ -1436,10 +1436,10 @@ inline static bool _lg_typecheck_mgl_colorbar_val_ext_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	return true;
 }
@@ -1493,8 +1493,8 @@ inline static bool _lg_typecheck_mgl_legend_pos_(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
@@ -1516,7 +1516,7 @@ inline static bool _lg_typecheck_mgl_legend_(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
@@ -1536,7 +1536,7 @@ inline static bool _lg_typecheck_mgl_set_legend_marks_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -1554,7 +1554,7 @@ inline static bool _lg_typecheck_mgl_show_image_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -1755,7 +1755,7 @@ inline static bool _lg_typecheck_mgl_write_obj_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
@@ -1797,7 +1797,7 @@ inline static bool _lg_typecheck_mgl_write_off_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
@@ -1839,7 +1839,7 @@ inline static bool _lg_typecheck_mgl_write_prc_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
@@ -1879,7 +1879,7 @@ inline static bool _lg_typecheck_mgl_start_gif_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -1949,7 +1949,7 @@ inline static bool _lg_typecheck_mgl_import_mgld_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -2014,7 +2014,7 @@ inline static bool _lg_typecheck_mgl_set_obj_id_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -2031,8 +2031,8 @@ inline static bool _lg_typecheck_mgl_get_obj_id_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -2049,8 +2049,8 @@ inline static bool _lg_typecheck_mgl_get_spl_id_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -2088,9 +2088,9 @@ inline static bool _lg_typecheck_mgl_calc_xyz(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,88502113)) ) return false;
 	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	return true;
 }
 
@@ -2098,11 +2098,11 @@ inline static bool _lg_typecheck_mgl_calc_xyz_(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	return true;
 }
 
@@ -2113,8 +2113,8 @@ inline static bool _lg_typecheck_mgl_calc_scr(lua_State *L) {
 	if( lua_isnumber(L,2)==0 ) return false;
 	if( lua_isnumber(L,3)==0 ) return false;
 	if( lua_isnumber(L,4)==0 ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	return true;
 }
 
@@ -2122,11 +2122,11 @@ inline static bool _lg_typecheck_mgl_calc_scr_(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	return true;
 }
 
@@ -2144,9 +2144,9 @@ inline static bool _lg_typecheck_mgl_is_active_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -2218,7 +2218,7 @@ inline static bool _lg_typecheck_mgl_get_frame_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -2234,7 +2234,7 @@ inline static bool _lg_typecheck_mgl_set_frame_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -2250,7 +2250,7 @@ inline static bool _lg_typecheck_mgl_show_frame_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -2266,7 +2266,7 @@ inline static bool _lg_typecheck_mgl_del_frame_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -2282,7 +2282,7 @@ inline static bool _lg_typecheck_mgl_set_transp_type_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -2298,7 +2298,7 @@ inline static bool _lg_typecheck_mgl_set_alpha_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -2315,8 +2315,8 @@ inline static bool _lg_typecheck_mgl_set_fog_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -2332,7 +2332,7 @@ inline static bool _lg_typecheck_mgl_set_light_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -2349,8 +2349,8 @@ inline static bool _lg_typecheck_mgl_set_light_n_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -2369,10 +2369,10 @@ inline static bool _lg_typecheck_mgl_add_light_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -2394,13 +2394,13 @@ inline static bool _lg_typecheck_mgl_add_light_ext_(lua_State *L) {
 	if( lua_gettop(L)!=9 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( lua_isstring(L,6)==0 ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
 	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 	return true;
 }
@@ -2426,16 +2426,16 @@ inline static bool _lg_typecheck_mgl_add_light_loc_(lua_State *L) {
 	if( lua_gettop(L)!=12 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
-	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
-	if( lua_isnumber(L,10)==0 ) return false;
-	if( lua_isnumber(L,11)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
+	if( lua_isstring(L,9)==0 ) return false;
+	if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,3625364)) ) return false;
+	if( (lua_isnil(L,11)==0 && !Luna<void>::has_uniqueid(L,11,3625364)) ) return false;
 	if( (lua_isnumber(L,12)==0 || lua_tointeger(L,12) != lua_tonumber(L,12)) ) return false;
 	return true;
 }
@@ -2496,9 +2496,9 @@ inline static bool _lg_typecheck_mgl_clf_rgb_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -2517,9 +2517,9 @@ inline static bool _lg_typecheck_mgl_subplot_(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
@@ -2542,11 +2542,11 @@ inline static bool _lg_typecheck_mgl_multiplot_(lua_State *L) {
 	if( lua_gettop(L)!=8 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( lua_isstring(L,7)==0 ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	return true;
@@ -2567,10 +2567,10 @@ inline static bool _lg_typecheck_mgl_inplot_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -2589,10 +2589,10 @@ inline static bool _lg_typecheck_mgl_relplot_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -2610,9 +2610,9 @@ inline static bool _lg_typecheck_mgl_columnplot_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -2631,10 +2631,10 @@ inline static bool _lg_typecheck_mgl_stickplot_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -2654,7 +2654,7 @@ inline static bool _lg_typecheck_mgl_title_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
@@ -2672,7 +2672,7 @@ inline static bool _lg_typecheck_mgl_set_plotfactor_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -2690,9 +2690,9 @@ inline static bool _lg_typecheck_mgl_aspect_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -2710,9 +2710,9 @@ inline static bool _lg_typecheck_mgl_rotate_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -2731,10 +2731,10 @@ inline static bool _lg_typecheck_mgl_rotate_vector_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -2768,9 +2768,9 @@ inline static bool _lg_typecheck_mgl_view_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -2789,10 +2789,10 @@ inline static bool _lg_typecheck_mgl_zoom_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -2808,7 +2808,7 @@ inline static bool _lg_typecheck_mgl_mpi_send_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -2824,7 +2824,7 @@ inline static bool _lg_typecheck_mgl_mpi_recv_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -2847,7 +2847,7 @@ inline static bool _lg_typecheck_mgl_wnd_set_delay_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -2864,8 +2864,8 @@ inline static bool _lg_typecheck_mgl_setup_window_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -3027,9 +3027,9 @@ inline static bool _lg_typecheck_mgl_get_last_mouse_pos(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,88502113)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -3037,9 +3037,9 @@ inline static bool _lg_typecheck_mgl_get_last_mouse_pos_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -3067,7 +3067,7 @@ inline static bool _lg_typecheck_mgl_use_parser_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -3098,7 +3098,7 @@ inline static bool _lg_typecheck_mgl_parser_add_param_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
@@ -3168,7 +3168,7 @@ inline static bool _lg_typecheck_mgl_parse_line_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
@@ -3218,7 +3218,7 @@ inline static bool _lg_typecheck_mgl_parser_allow_setsize_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -3234,7 +3234,7 @@ inline static bool _lg_typecheck_mgl_parser_allow_file_io_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -3360,9 +3360,9 @@ inline static bool _lg_typecheck_mgl_eval_expr_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -3370,7 +3370,7 @@ inline static bool _lg_typecheck_mgl_expr_eval_v(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,16490188)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -3390,9 +3390,9 @@ inline static bool _lg_typecheck_mgl_diff_expr_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
@@ -3402,7 +3402,7 @@ inline static bool _lg_typecheck_mgl_expr_diff_v(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,16490188)) ) return false;
 	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -4061,7 +4061,7 @@ inline static bool _lg_typecheck_mgl_grid3_xyz_(lua_State *L) {
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	if( lua_isstring(L,8)==0 ) return false;
 	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
@@ -4085,7 +4085,7 @@ inline static bool _lg_typecheck_mgl_grid3_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -4115,7 +4115,7 @@ inline static bool _lg_typecheck_mgl_dens3_xyz_(lua_State *L) {
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	if( lua_isstring(L,8)==0 ) return false;
 	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
@@ -4139,7 +4139,7 @@ inline static bool _lg_typecheck_mgl_dens3_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -4171,7 +4171,7 @@ inline static bool _lg_typecheck_mgl_cont3_xyz_val_(lua_State *L) {
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,23992870)) ) return false;
 	if( lua_isstring(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
 	if( lua_isstring(L,9)==0 ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	if( (lua_isnumber(L,11)==0 || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
@@ -4197,7 +4197,7 @@ inline static bool _lg_typecheck_mgl_cont3_val_(lua_State *L) {
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
@@ -4227,7 +4227,7 @@ inline static bool _lg_typecheck_mgl_cont3_xyz_(lua_State *L) {
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	if( lua_isstring(L,8)==0 ) return false;
 	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
@@ -4251,7 +4251,7 @@ inline static bool _lg_typecheck_mgl_cont3_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -4283,7 +4283,7 @@ inline static bool _lg_typecheck_mgl_contf3_xyz_val_(lua_State *L) {
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,23992870)) ) return false;
 	if( lua_isstring(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
 	if( lua_isstring(L,9)==0 ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	if( (lua_isnumber(L,11)==0 || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
@@ -4309,7 +4309,7 @@ inline static bool _lg_typecheck_mgl_contf3_val_(lua_State *L) {
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
@@ -4339,7 +4339,7 @@ inline static bool _lg_typecheck_mgl_contf3_xyz_(lua_State *L) {
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	if( lua_isstring(L,8)==0 ) return false;
 	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
@@ -4363,7 +4363,7 @@ inline static bool _lg_typecheck_mgl_contf3_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -4373,7 +4373,7 @@ inline static bool _lg_typecheck_mgl_contf3_(lua_State *L) {
 inline static bool _lg_typecheck_mglLinear(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
@@ -4387,16 +4387,16 @@ inline static bool _lg_typecheck_mglSpline3(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<7 || luatop>10 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( lua_isnumber(L,5)==0 ) return false;
 	if( lua_isnumber(L,6)==0 ) return false;
 	if( lua_isnumber(L,7)==0 ) return false;
-	if( luatop>7 && lua_isnumber(L,8)==0 ) return false;
-	if( luatop>8 && lua_isnumber(L,9)==0 ) return false;
-	if( luatop>9 && lua_isnumber(L,10)==0 ) return false;
+	if( luatop>7 && (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
+	if( luatop>8 && (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
+	if( luatop>9 && (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,3625364)) ) return false;
 	return true;
 }
 
@@ -4589,9 +4589,9 @@ inline static bool _lg_typecheck_mgl_create_data_size(lua_State *L) {
 inline static bool _lg_typecheck_mgl_create_data_size_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -4645,9 +4645,9 @@ inline static bool _lg_typecheck_mgl_data_rearrange_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -4655,7 +4655,7 @@ inline static bool _lg_typecheck_mgl_data_set_float(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,45413231)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
@@ -4666,10 +4666,10 @@ inline static bool _lg_typecheck_mgl_data_set_float_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -4677,8 +4677,8 @@ inline static bool _lg_typecheck_mgl_data_set_float1_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -4686,7 +4686,7 @@ inline static bool _lg_typecheck_mgl_data_set_double(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,45413231)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
@@ -4697,10 +4697,10 @@ inline static bool _lg_typecheck_mgl_data_set_double_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -4708,8 +4708,8 @@ inline static bool _lg_typecheck_mgl_data_set_double1_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -4717,9 +4717,9 @@ inline static bool _lg_typecheck_mgl_data_set_float2_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -4727,9 +4727,9 @@ inline static bool _lg_typecheck_mgl_data_set_double2_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -4737,10 +4737,10 @@ inline static bool _lg_typecheck_mgl_data_set_float3_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -4748,10 +4748,10 @@ inline static bool _lg_typecheck_mgl_data_set_double3_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -4786,10 +4786,10 @@ inline static bool _lg_typecheck_mgl_data_set_value_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -4807,9 +4807,9 @@ inline static bool _lg_typecheck_mgl_data_get_value_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -4829,9 +4829,9 @@ inline static bool _lg_typecheck_mgl_data_set_values_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
@@ -4872,7 +4872,7 @@ inline static bool _lg_typecheck_mgl_data_save_hdf_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
@@ -4882,7 +4882,7 @@ inline static bool _lg_typecheck_mgl_datas_hdf(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( lua_isstring(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_isstring(L,2)==0 ) return false;
 	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
@@ -4918,7 +4918,7 @@ inline static bool _lg_typecheck_mgl_data_read_mat_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -4939,9 +4939,9 @@ inline static bool _lg_typecheck_mgl_data_read_dim_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
@@ -4964,10 +4964,10 @@ inline static bool _lg_typecheck_mgl_data_read_range__overload_1(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,1)==0 && !(Luna< uintptr_t >::check(L,1)) ) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
 }
@@ -4978,10 +4978,10 @@ inline static bool _lg_typecheck_mgl_data_read_range__overload_2(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,1)==0 && !(Luna< uintptr_t >::check(L,1)) ) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
 }
@@ -5001,7 +5001,7 @@ inline static bool _lg_typecheck_mgl_data_read_all__overload_1(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,1)==0 && !(Luna< uintptr_t >::check(L,1)) ) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -5012,7 +5012,7 @@ inline static bool _lg_typecheck_mgl_data_read_all__overload_2(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,1)==0 && !(Luna< uintptr_t >::check(L,1)) ) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -5031,7 +5031,7 @@ inline static bool _lg_typecheck_mgl_data_save_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -5054,9 +5054,9 @@ inline static bool _lg_typecheck_mgl_data_export_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	return true;
@@ -5079,8 +5079,8 @@ inline static bool _lg_typecheck_mgl_data_import_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
@@ -5100,9 +5100,9 @@ inline static bool _lg_typecheck_mgl_data_create_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -5138,10 +5138,10 @@ inline static bool _lg_typecheck_mgl_data_norm_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -5161,11 +5161,11 @@ inline static bool _lg_typecheck_mgl_data_norm_slice_(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( lua_isstring(L,4)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
 }
@@ -5184,9 +5184,9 @@ inline static bool _lg_typecheck_mgl_data_subdata_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -5258,8 +5258,8 @@ inline static bool _lg_typecheck_mgl_data_fill_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
@@ -5331,10 +5331,10 @@ inline static bool _lg_typecheck_mgl_data_put_val_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -5354,9 +5354,9 @@ inline static bool _lg_typecheck_mgl_data_put_dat_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -5374,7 +5374,7 @@ inline static bool _lg_typecheck_mgl_data_modify_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -5415,10 +5415,10 @@ inline static bool _lg_typecheck_mgl_data_squeeze_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -5514,9 +5514,9 @@ inline static bool _lg_typecheck_mgl_data_first(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,45413231)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -5525,9 +5525,9 @@ inline static bool _lg_typecheck_mgl_data_first_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
@@ -5537,9 +5537,9 @@ inline static bool _lg_typecheck_mgl_data_last(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,45413231)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -5548,9 +5548,9 @@ inline static bool _lg_typecheck_mgl_data_last_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
@@ -5572,10 +5572,10 @@ inline static bool _lg_typecheck_mgl_data_find_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( lua_isstring(L,3)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	return true;
@@ -5602,9 +5602,9 @@ inline static bool _lg_typecheck_mgl_data_max_int(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,45413231)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -5612,9 +5612,9 @@ inline static bool _lg_typecheck_mgl_data_max_int_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -5622,9 +5622,9 @@ inline static bool _lg_typecheck_mgl_data_max_real(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,45413231)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -5632,9 +5632,9 @@ inline static bool _lg_typecheck_mgl_data_max_real_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -5642,9 +5642,9 @@ inline static bool _lg_typecheck_mgl_data_min_int(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,45413231)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -5652,9 +5652,9 @@ inline static bool _lg_typecheck_mgl_data_min_int_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -5662,9 +5662,9 @@ inline static bool _lg_typecheck_mgl_data_min_real(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,45413231)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -5672,9 +5672,9 @@ inline static bool _lg_typecheck_mgl_data_min_real_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -5683,10 +5683,10 @@ inline static bool _lg_typecheck_mgl_data_momentum_val(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,45413231)) ) return false;
 	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	return true;
 }
 
@@ -5694,11 +5694,11 @@ inline static bool _lg_typecheck_mgl_data_momentum_val_(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( lua_isstring(L,2)==0 ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
 }
@@ -5732,8 +5732,8 @@ inline static bool _lg_typecheck_mgl_data_extend_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -5752,8 +5752,8 @@ inline static bool _lg_typecheck_mgl_data_insert_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
@@ -5773,8 +5773,8 @@ inline static bool _lg_typecheck_mgl_data_delete_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
@@ -5793,7 +5793,7 @@ inline static bool _lg_typecheck_mgl_data_smooth_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -5968,7 +5968,7 @@ inline static bool _lg_typecheck_mgl_data_roll_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -6003,8 +6003,8 @@ inline static bool _lg_typecheck_mgl_data_sort_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -6090,9 +6090,9 @@ inline static bool _lg_typecheck_mgl_data_spline_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -6110,9 +6110,9 @@ inline static bool _lg_typecheck_mgl_data_linear_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -6123,9 +6123,9 @@ inline static bool _lg_typecheck_mgl_data_spline_ext(lua_State *L) {
 	if( lua_isnumber(L,2)==0 ) return false;
 	if( lua_isnumber(L,3)==0 ) return false;
 	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	return true;
 }
 
@@ -6133,12 +6133,12 @@ inline static bool _lg_typecheck_mgl_data_spline_ext_(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	return true;
 }
 
@@ -6149,9 +6149,9 @@ inline static bool _lg_typecheck_mgl_data_linear_ext(lua_State *L) {
 	if( lua_isnumber(L,2)==0 ) return false;
 	if( lua_isnumber(L,3)==0 ) return false;
 	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	return true;
 }
 
@@ -6159,12 +6159,12 @@ inline static bool _lg_typecheck_mgl_data_linear_ext_(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	return true;
 }
 
@@ -6182,9 +6182,9 @@ inline static bool _lg_typecheck_mgl_data_solve_1d_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -6203,10 +6203,10 @@ inline static bool _lg_typecheck_mgl_data_solve_(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
@@ -6239,9 +6239,9 @@ inline static bool _lg_typecheck_mgl_data_resize_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -6265,15 +6265,15 @@ inline static bool _lg_typecheck_mgl_data_resize_box_(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
-	if( lua_isnumber(L,9)==0 ) return false;
-	if( lua_isnumber(L,10)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
+	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
+	if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,3625364)) ) return false;
 	return true;
 }
 
@@ -6292,7 +6292,7 @@ inline static bool _lg_typecheck_mgl_data_momentum_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_isstring(L,2)==0 ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
@@ -6315,10 +6315,10 @@ inline static bool _lg_typecheck_mgl_data_hist_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -6336,10 +6336,10 @@ inline static bool _lg_typecheck_mgl_data_hist_w_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	return true;
 }
 
@@ -6361,7 +6361,7 @@ inline static bool _lg_typecheck_mgl_data_evaluate_(lua_State *L) {
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -6396,7 +6396,7 @@ inline static bool _lg_typecheck_mgl_data_sew_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -6416,8 +6416,8 @@ inline static bool _lg_typecheck_mgl_data_crop__overload_1(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,1)==0 && !(Luna< uintptr_t >::check(L,1)) ) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
@@ -6428,8 +6428,8 @@ inline static bool _lg_typecheck_mgl_data_crop__overload_2(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,1)==0 && !(Luna< uintptr_t >::check(L,1)) ) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
@@ -6447,7 +6447,7 @@ inline static bool _lg_typecheck_mgl_data_clean_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -6527,7 +6527,7 @@ inline static bool _lg_typecheck_mgl_data_mul_num_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -6543,7 +6543,7 @@ inline static bool _lg_typecheck_mgl_data_div_num_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -6559,7 +6559,7 @@ inline static bool _lg_typecheck_mgl_data_add_num_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -6575,7 +6575,7 @@ inline static bool _lg_typecheck_mgl_data_sub_num_(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
 
@@ -6599,8 +6599,8 @@ inline static bool _lg_typecheck_mgl_pde_solve_(lua_State *L) {
 	if( lua_isstring(L,2)==0 ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( lua_isstring(L,7)==0 ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
@@ -6628,8 +6628,8 @@ inline static bool _lg_typecheck_mgl_qo2d_solve_(lua_State *L) {
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,23992870)) ) return false;
 	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,23992870)) ) return false;
 	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
@@ -6655,14 +6655,14 @@ inline static bool _lg_typecheck_mgl_ray_trace_(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
 	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
-	if( lua_isnumber(L,9)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
+	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	return true;
 }
@@ -6773,8 +6773,8 @@ inline static bool _lg_typecheck_mgl_data_stfa_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( lua_isstring(L,4)==0 ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
@@ -6837,9 +6837,9 @@ inline static bool _lg_typecheck_mgl_create_datac_size(lua_State *L) {
 inline static bool _lg_typecheck_mgl_create_datac_size_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -6886,9 +6886,9 @@ inline static bool _lg_typecheck_mgl_datac_rearrange_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -6908,9 +6908,9 @@ inline static bool _lg_typecheck_mgl_datac_link_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,37931827)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -6918,7 +6918,7 @@ inline static bool _lg_typecheck_mgl_datac_set_float(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,45413231)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
@@ -6929,10 +6929,10 @@ inline static bool _lg_typecheck_mgl_datac_set_float_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -6940,7 +6940,7 @@ inline static bool _lg_typecheck_mgl_datac_set_double(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,45413231)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
@@ -6951,10 +6951,10 @@ inline static bool _lg_typecheck_mgl_datac_set_double_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -6974,9 +6974,9 @@ inline static bool _lg_typecheck_mgl_datac_set_complex_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,37931827)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -7090,7 +7090,7 @@ inline static bool _lg_typecheck_mgl_datac_read_mat_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -7111,9 +7111,9 @@ inline static bool _lg_typecheck_mgl_datac_read_dim_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
@@ -7153,7 +7153,7 @@ inline static bool _lg_typecheck_mgl_datac_save_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -7194,7 +7194,7 @@ inline static bool _lg_typecheck_mgl_datac_save_hdf_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
@@ -7214,9 +7214,9 @@ inline static bool _lg_typecheck_mgl_datac_create_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -7268,7 +7268,7 @@ inline static bool _lg_typecheck_mgl_datac_modify_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -7309,10 +7309,10 @@ inline static bool _lg_typecheck_mgl_datac_squeeze_(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
 
@@ -7329,8 +7329,8 @@ inline static bool _lg_typecheck_mgl_datac_extend_(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -7349,8 +7349,8 @@ inline static bool _lg_typecheck_mgl_datac_insert_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
@@ -7370,8 +7370,8 @@ inline static bool _lg_typecheck_mgl_datac_delete_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
@@ -7390,7 +7390,7 @@ inline static bool _lg_typecheck_mgl_datac_smooth_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -7494,7 +7494,7 @@ inline static bool _lg_typecheck_mgl_datac_roll_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
@@ -7630,9 +7630,9 @@ inline static bool _lg_typecheck_mgl_datac_linear_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -7653,9 +7653,9 @@ inline static bool _lg_typecheck_mgl_datac_linear_ext_(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,37931827)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,37931827)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,37931827)) ) return false;
@@ -7687,14 +7687,14 @@ inline static bool _lg_typecheck_mgl_set_test_mode(lua_State *L) {
 inline static bool _lg_typecheck_mgl_strtrim(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isstring(L,1)==0 ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_mgl_strlwr(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isstring(L,1)==0 ) return false;
 	return true;
 }
 
@@ -8093,12 +8093,12 @@ inline static bool _lg_typecheck_mgl_puts_fit_(lua_State *L) {
 	if( lua_gettop(L)!=9 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 	return true;
@@ -8109,8 +8109,8 @@ inline static bool _lg_typecheck_mglGetStyle(lua_State *L) {
 	if( luatop<2 || luatop>3 ) return false;
 
 	if( lua_isstring(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
 
@@ -8511,7 +8511,7 @@ inline static bool _lg_typecheck_mgl_dens_x_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -8535,7 +8535,7 @@ inline static bool _lg_typecheck_mgl_dens_y_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -8559,7 +8559,7 @@ inline static bool _lg_typecheck_mgl_dens_z_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -8583,7 +8583,7 @@ inline static bool _lg_typecheck_mgl_cont_x_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -8607,7 +8607,7 @@ inline static bool _lg_typecheck_mgl_cont_y_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -8631,7 +8631,7 @@ inline static bool _lg_typecheck_mgl_cont_z_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -8657,7 +8657,7 @@ inline static bool _lg_typecheck_mgl_cont_x_val_(lua_State *L) {
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
@@ -8683,7 +8683,7 @@ inline static bool _lg_typecheck_mgl_cont_y_val_(lua_State *L) {
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
@@ -8709,7 +8709,7 @@ inline static bool _lg_typecheck_mgl_cont_z_val_(lua_State *L) {
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
@@ -8733,7 +8733,7 @@ inline static bool _lg_typecheck_mgl_contf_x_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -8757,7 +8757,7 @@ inline static bool _lg_typecheck_mgl_contf_y_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -8781,7 +8781,7 @@ inline static bool _lg_typecheck_mgl_contf_z_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -8807,7 +8807,7 @@ inline static bool _lg_typecheck_mgl_contf_x_val_(lua_State *L) {
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
@@ -8833,7 +8833,7 @@ inline static bool _lg_typecheck_mgl_contf_y_val_(lua_State *L) {
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
@@ -8859,7 +8859,7 @@ inline static bool _lg_typecheck_mgl_contf_z_val_(lua_State *L) {
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
@@ -9868,7 +9868,7 @@ inline static bool _lg_typecheck_mgl_tube_xyz_(lua_State *L) {
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
 	if( lua_isstring(L,7)==0 ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
@@ -9894,7 +9894,7 @@ inline static bool _lg_typecheck_mgl_tube_xy_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -9918,7 +9918,7 @@ inline static bool _lg_typecheck_mgl_tube_(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
@@ -10025,9 +10025,9 @@ inline static bool _lg_typecheck_mgl_mark_(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
@@ -10047,9 +10047,9 @@ inline static bool _lg_typecheck_mgl_ball_(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
 
@@ -10072,14 +10072,14 @@ inline static bool _lg_typecheck_mgl_line_(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	if( lua_isstring(L,8)==0 ) return false;
-	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	return true;
 }
@@ -10109,20 +10109,20 @@ inline static bool _lg_typecheck_mgl_curve_(lua_State *L) {
 	if( lua_gettop(L)!=16 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
-	if( lua_isnumber(L,9)==0 ) return false;
-	if( lua_isnumber(L,10)==0 ) return false;
-	if( lua_isnumber(L,11)==0 ) return false;
-	if( lua_isnumber(L,12)==0 ) return false;
-	if( lua_isnumber(L,13)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
+	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
+	if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,3625364)) ) return false;
+	if( (lua_isnil(L,11)==0 && !Luna<void>::has_uniqueid(L,11,3625364)) ) return false;
+	if( (lua_isnil(L,12)==0 && !Luna<void>::has_uniqueid(L,12,3625364)) ) return false;
+	if( (lua_isnil(L,13)==0 && !Luna<void>::has_uniqueid(L,13,3625364)) ) return false;
 	if( lua_isstring(L,14)==0 ) return false;
-	if( (lua_isnumber(L,15)==0 || lua_tointeger(L,15) != lua_tonumber(L,15)) ) return false;
+	if( (lua_isnil(L,15)==0 && !Luna<void>::has_uniqueid(L,15,3625364)) ) return false;
 	if( (lua_isnumber(L,16)==0 || lua_tointeger(L,16) != lua_tonumber(L,16)) ) return false;
 	return true;
 }
@@ -10145,12 +10145,12 @@ inline static bool _lg_typecheck_mgl_error_box_(lua_State *L) {
 	if( lua_gettop(L)!=9 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	if( lua_isstring(L,8)==0 ) return false;
 	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 	return true;
@@ -10180,18 +10180,18 @@ inline static bool _lg_typecheck_mgl_face_(lua_State *L) {
 	if( lua_gettop(L)!=15 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
-	if( lua_isnumber(L,9)==0 ) return false;
-	if( lua_isnumber(L,10)==0 ) return false;
-	if( lua_isnumber(L,11)==0 ) return false;
-	if( lua_isnumber(L,12)==0 ) return false;
-	if( lua_isnumber(L,13)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
+	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
+	if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,3625364)) ) return false;
+	if( (lua_isnil(L,11)==0 && !Luna<void>::has_uniqueid(L,11,3625364)) ) return false;
+	if( (lua_isnil(L,12)==0 && !Luna<void>::has_uniqueid(L,12,3625364)) ) return false;
+	if( (lua_isnil(L,13)==0 && !Luna<void>::has_uniqueid(L,13,3625364)) ) return false;
 	if( lua_isstring(L,14)==0 ) return false;
 	if( (lua_isnumber(L,15)==0 || lua_tointeger(L,15) != lua_tonumber(L,15)) ) return false;
 	return true;
@@ -10216,14 +10216,14 @@ inline static bool _lg_typecheck_mgl_facex_(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( lua_isstring(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
-	if( lua_isnumber(L,9)==0 ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
+	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	return true;
 }
@@ -10247,14 +10247,14 @@ inline static bool _lg_typecheck_mgl_facey_(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( lua_isstring(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
-	if( lua_isnumber(L,9)==0 ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
+	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	return true;
 }
@@ -10278,14 +10278,14 @@ inline static bool _lg_typecheck_mgl_facez_(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( lua_isstring(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
-	if( lua_isnumber(L,9)==0 ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
+	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	return true;
 }
@@ -10306,10 +10306,10 @@ inline static bool _lg_typecheck_mgl_sphere_(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
@@ -10336,16 +10336,16 @@ inline static bool _lg_typecheck_mgl_drop_(lua_State *L) {
 	if( lua_gettop(L)!=12 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
 	if( lua_isstring(L,9)==0 ) return false;
-	if( lua_isnumber(L,10)==0 ) return false;
-	if( lua_isnumber(L,11)==0 ) return false;
+	if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,3625364)) ) return false;
+	if( (lua_isnil(L,11)==0 && !Luna<void>::has_uniqueid(L,11,3625364)) ) return false;
 	if( (lua_isnumber(L,12)==0 || lua_tointeger(L,12) != lua_tonumber(L,12)) ) return false;
 	return true;
 }
@@ -10370,14 +10370,14 @@ inline static bool _lg_typecheck_mgl_cone_(lua_State *L) {
 	if( lua_gettop(L)!=11 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
-	if( lua_isnumber(L,9)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
+	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	if( lua_isstring(L,10)==0 ) return false;
 	if( (lua_isnumber(L,11)==0 || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
 	return true;
@@ -10402,13 +10402,13 @@ inline static bool _lg_typecheck_mgl_ellipse_(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
 	if( lua_isstring(L,9)==0 ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	return true;
@@ -10433,13 +10433,13 @@ inline static bool _lg_typecheck_mgl_rhomb_(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
 	if( lua_isstring(L,9)==0 ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	return true;
@@ -10573,12 +10573,12 @@ inline static bool _lg_typecheck_mgl_puts_(lua_State *L) {
 	if( lua_gettop(L)!=9 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 	return true;
@@ -10604,15 +10604,15 @@ inline static bool _lg_typecheck_mgl_puts_dir_(lua_State *L) {
 	if( lua_gettop(L)!=12 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	if( lua_isstring(L,8)==0 ) return false;
 	if( lua_isstring(L,9)==0 ) return false;
-	if( lua_isnumber(L,10)==0 ) return false;
+	if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,3625364)) ) return false;
 	if( (lua_isnumber(L,11)==0 || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
 	if( (lua_isnumber(L,12)==0 || lua_tointeger(L,12) != lua_tonumber(L,12)) ) return false;
 	return true;
@@ -10747,8 +10747,8 @@ inline static bool _lg_typecheck_mgl_table_(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
@@ -11373,7 +11373,7 @@ inline static bool _lg_typecheck_mgl_stfa_xy_(lua_State *L) {
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( lua_isstring(L,7)==0 ) return false;
 	if( lua_isstring(L,8)==0 ) return false;
 	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
@@ -11399,7 +11399,7 @@ inline static bool _lg_typecheck_mgl_stfa_(lua_State *L) {
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
@@ -11766,9 +11766,9 @@ inline static bool _lg_typecheck_mgl_flowp_xy_(lua_State *L) {
 	if( lua_gettop(L)!=12 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,23992870)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,23992870)) ) return false;
@@ -11798,9 +11798,9 @@ inline static bool _lg_typecheck_mgl_flowp_2d_(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,23992870)) ) return false;
 	if( lua_isstring(L,7)==0 ) return false;
@@ -11832,9 +11832,9 @@ inline static bool _lg_typecheck_mgl_flowp_xyz_(lua_State *L) {
 	if( lua_gettop(L)!=14 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,23992870)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,23992870)) ) return false;
@@ -11867,9 +11867,9 @@ inline static bool _lg_typecheck_mgl_flowp_3d_(lua_State *L) {
 	if( lua_gettop(L)!=11 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,23992870)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,23992870)) ) return false;
@@ -11903,7 +11903,7 @@ inline static bool _lg_typecheck_mgl_pipe_xy_(lua_State *L) {
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	if( lua_isstring(L,8)==0 ) return false;
 	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
@@ -11929,7 +11929,7 @@ inline static bool _lg_typecheck_mgl_pipe_2d_(lua_State *L) {
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23992870)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( lua_isstring(L,6)==0 ) return false;
 	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
@@ -11963,7 +11963,7 @@ inline static bool _lg_typecheck_mgl_pipe_xyz_(lua_State *L) {
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,23992870)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,23992870)) ) return false;
 	if( lua_isstring(L,8)==0 ) return false;
-	if( lua_isnumber(L,9)==0 ) return false;
+	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	if( lua_isstring(L,10)==0 ) return false;
 	if( (lua_isnumber(L,11)==0 || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
 	if( (lua_isnumber(L,12)==0 || lua_tointeger(L,12) != lua_tonumber(L,12)) ) return false;
@@ -11991,7 +11991,7 @@ inline static bool _lg_typecheck_mgl_pipe_3d_(lua_State *L) {
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( lua_isstring(L,7)==0 ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
@@ -12101,7 +12101,7 @@ inline static bool _lg_typecheck_mgl_vect3_xyz_(lua_State *L) {
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,23992870)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,23992870)) ) return false;
 	if( lua_isstring(L,8)==0 ) return false;
-	if( lua_isnumber(L,9)==0 ) return false;
+	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	if( lua_isstring(L,10)==0 ) return false;
 	if( (lua_isnumber(L,11)==0 || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
 	if( (lua_isnumber(L,12)==0 || lua_tointeger(L,12) != lua_tonumber(L,12)) ) return false;
@@ -12129,7 +12129,7 @@ inline static bool _lg_typecheck_mgl_vect3_(lua_State *L) {
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( lua_isstring(L,7)==0 ) return false;
 	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
@@ -12154,7 +12154,7 @@ inline static bool _lg_typecheck_mgl_surf3_xyz_val_(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
@@ -12181,7 +12181,7 @@ inline static bool _lg_typecheck_mgl_surf3_val_(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( lua_isstring(L,4)==0 ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
@@ -12259,7 +12259,7 @@ inline static bool _lg_typecheck_mgl_surf3a_xyz_val_(lua_State *L) {
 	if( lua_gettop(L)!=11 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
@@ -12288,7 +12288,7 @@ inline static bool _lg_typecheck_mgl_surf3a_val_(lua_State *L) {
 	if( lua_gettop(L)!=8 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
@@ -12371,7 +12371,7 @@ inline static bool _lg_typecheck_mgl_surf3c_xyz_val_(lua_State *L) {
 	if( lua_gettop(L)!=11 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
@@ -12400,7 +12400,7 @@ inline static bool _lg_typecheck_mgl_surf3c_val_(lua_State *L) {
 	if( lua_gettop(L)!=8 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( lua_isstring(L,5)==0 ) return false;
@@ -12533,14 +12533,14 @@ inline static bool _lg_typecheck_mgl_beam_val_(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23992870)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,23992870)) ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	if( lua_isstring(L,8)==0 ) return false;
-	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	return true;
 }
@@ -12568,10 +12568,10 @@ inline static bool _lg_typecheck_mgl_beam_(lua_State *L) {
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,23992870)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,23992870)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23992870)) ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( lua_isstring(L,7)==0 ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
+	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	return true;
 }
@@ -12752,10 +12752,10 @@ static int _bind_mgl_fft_freq(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void mgl_fft_freq(double * freq, size_t nn) function, expected prototype:\nvoid mgl_fft_freq(double * freq, size_t nn)\nClass arguments details:\n");
 	}
 
-	double freq=(double)lua_tonumber(L,1);
+	double* freq=(double*)Luna< void >::check(L,1);
 	size_t nn=(size_t)lua_tointeger(L,2);
 
-	::mgl_fft_freq(&freq, nn);
+	::mgl_fft_freq(freq, nn);
 
 	return 0;
 }
@@ -12767,9 +12767,9 @@ static int _bind_mgl_strcls(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void mgl_strcls(char * str) function, expected prototype:\nvoid mgl_strcls(char * str)\nClass arguments details:\n");
 	}
 
-	char str=(char)lua_tointeger(L,1);
+	char* str=(char*)Luna< void >::check(L,1);
 
-	::mgl_strcls(&str);
+	::mgl_strcls(str);
 
 	return 0;
 }
@@ -12782,9 +12782,9 @@ static int _bind_mgl_strpos(lua_State *L) {
 	}
 
 	const char * str=(const char *)lua_tostring(L,1);
-	char fnd=(char)lua_tointeger(L,2);
+	char* fnd=(char*)Luna< void >::check(L,2);
 
-	int lret = ::mgl_strpos(str, &fnd);
+	int lret = ::mgl_strpos(str, fnd);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -12850,7 +12850,7 @@ static int _bind_GetX(lua_State *L) {
 	const mglDataA* x=(Luna< mglDataA >::check(L,1));
 	int i=(int)lua_tointeger(L,2);
 	int j=(int)lua_tointeger(L,3);
-	int k=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+	int k=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 	mglPoint stack_lret = ::GetX(x, i, j, k);
 	mglPoint* lret = new mglPoint(stack_lret);
@@ -12873,7 +12873,7 @@ static int _bind_GetY(lua_State *L) {
 	const mglDataA* y=(Luna< mglDataA >::check(L,1));
 	int i=(int)lua_tointeger(L,2);
 	int j=(int)lua_tointeger(L,3);
-	int k=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+	int k=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 	mglPoint stack_lret = ::GetY(y, i, j, k);
 	mglPoint* lret = new mglPoint(stack_lret);
@@ -12896,7 +12896,7 @@ static int _bind_GetZ(lua_State *L) {
 	const mglDataA* z=(Luna< mglDataA >::check(L,1));
 	int i=(int)lua_tointeger(L,2);
 	int j=(int)lua_tointeger(L,3);
-	int k=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+	int k=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 	mglPoint stack_lret = ::GetZ(z, i, j, k);
 	mglPoint* lret = new mglPoint(stack_lret);
@@ -12937,7 +12937,7 @@ static int _bind_mgl_check_dim0(lua_State *L) {
 	const mglDataA* z=(Luna< mglDataA >::check(L,4));
 	const mglDataA* r=(Luna< mglDataA >::check(L,5));
 	const char * name=(const char *)lua_tostring(L,6);
-	bool less=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : false;
+	bool less=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : (bool)false;
 
 	bool lret = ::mgl_check_dim0(gr, x, y, z, r, name, less);
 	lua_pushboolean(L,lret?1:0);
@@ -12960,7 +12960,7 @@ static int _bind_mgl_check_dim1(lua_State *L) {
 	const mglDataA* z=(Luna< mglDataA >::check(L,4));
 	const mglDataA* r=(Luna< mglDataA >::check(L,5));
 	const char * name=(const char *)lua_tostring(L,6);
-	bool less=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : false;
+	bool less=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : (bool)false;
 
 	bool lret = ::mgl_check_dim1(gr, x, y, z, r, name, less);
 	lua_pushboolean(L,lret?1:0);
@@ -12983,7 +12983,7 @@ static int _bind_mgl_check_dim2(lua_State *L) {
 	const mglDataA* z=(Luna< mglDataA >::check(L,4));
 	const mglDataA* a=(Luna< mglDataA >::check(L,5));
 	const char * name=(const char *)lua_tostring(L,6);
-	bool less=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : false;
+	bool less=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : (bool)false;
 
 	bool lret = ::mgl_check_dim2(gr, x, y, z, a, name, less);
 	lua_pushboolean(L,lret?1:0);
@@ -13051,7 +13051,7 @@ static int _bind_mgl_check_trig(lua_State *L) {
 	const mglDataA* z=(Luna< mglDataA >::check(L,5));
 	const mglDataA* a=(Luna< mglDataA >::check(L,6));
 	const char * name=(const char *)lua_tostring(L,7);
-	int d=luatop>7 ? (int)lua_tointeger(L,8) : 3;
+	int d=luatop>7 ? (int)lua_tointeger(L,8) : (int)3;
 
 	bool lret = ::mgl_check_trig(gr, nums, x, y, z, a, name, d);
 	lua_pushboolean(L,lret?1:0);
@@ -13131,11 +13131,11 @@ static int _bind_mgl_set_warn_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int code=(int)lua_tointeger(L,2);
+	int* code=(int*)Luna< void >::check(L,2);
 	const char * text=(const char *)lua_tostring(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_set_warn_(gr, &code, text, _arg4);
+	::mgl_set_warn_(gr, code, text, _arg4);
 
 	return 0;
 }
@@ -13211,9 +13211,9 @@ static int _bind_mgl_use_graph_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int inc=(int)lua_tointeger(L,2);
+	int* inc=(int*)Luna< void >::check(L,2);
 
-	long lret = ::mgl_use_graph_(gr, &inc);
+	long lret = ::mgl_use_graph_(gr, inc);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -13242,9 +13242,9 @@ static int _bind_mgl_set_rdc_acc_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int reduce=(int)lua_tointeger(L,2);
+	int* reduce=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_rdc_acc_(gr, &reduce);
+	::mgl_set_rdc_acc_(gr, reduce);
 
 	return 0;
 }
@@ -13331,9 +13331,9 @@ static int _bind_mgl_highlight_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int id=(int)lua_tointeger(L,2);
+	int* id=(int*)Luna< void >::check(L,2);
 
-	::mgl_highlight_(gr, &id);
+	::mgl_highlight_(gr, id);
 
 	return 0;
 }
@@ -13393,13 +13393,13 @@ static int _bind_mgl_set_color_(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void mgl_set_color_(char * id, double * r, double * g, double * b, int arg5) function, expected prototype:\nvoid mgl_set_color_(char * id, double * r, double * g, double * b, int arg5)\nClass arguments details:\n");
 	}
 
-	char id=(char)lua_tointeger(L,1);
-	double r=(double)lua_tonumber(L,2);
-	double g=(double)lua_tonumber(L,3);
-	double b=(double)lua_tonumber(L,4);
+	char* id=(char*)Luna< void >::check(L,1);
+	double* r=(double*)Luna< void >::check(L,2);
+	double* g=(double*)Luna< void >::check(L,3);
+	double* b=(double*)Luna< void >::check(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	::mgl_set_color_(&id, &r, &g, &b, _arg5);
+	::mgl_set_color_(id, r, g, b, _arg5);
 
 	return 0;
 }
@@ -13458,9 +13458,9 @@ static int _bind_mgl_set_alpha_default_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double alpha=(double)lua_tonumber(L,2);
+	double* alpha=(double*)Luna< void >::check(L,2);
 
-	::mgl_set_alpha_default_(gr, &alpha);
+	::mgl_set_alpha_default_(gr, alpha);
 
 	return 0;
 }
@@ -13488,9 +13488,9 @@ static int _bind_mgl_set_bar_width_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double width=(double)lua_tonumber(L,2);
+	double* width=(double*)Luna< void >::check(L,2);
 
-	::mgl_set_bar_width_(gr, &width);
+	::mgl_set_bar_width_(gr, width);
 
 	return 0;
 }
@@ -13518,9 +13518,9 @@ static int _bind_mgl_set_meshnum_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int num=(int)lua_tointeger(L,2);
+	int* num=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_meshnum_(gr, &num);
+	::mgl_set_meshnum_(gr, num);
 
 	return 0;
 }
@@ -13548,9 +13548,9 @@ static int _bind_mgl_set_facenum_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int num=(int)lua_tointeger(L,2);
+	int* num=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_facenum_(gr, &num);
+	::mgl_set_facenum_(gr, num);
 
 	return 0;
 }
@@ -13606,9 +13606,9 @@ static int _bind_mgl_set_ambbr_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double i=(double)lua_tonumber(L,2);
+	double* i=(double*)Luna< void >::check(L,2);
 
-	::mgl_set_ambbr_(gr, &i);
+	::mgl_set_ambbr_(gr, i);
 
 	return 0;
 }
@@ -13636,9 +13636,9 @@ static int _bind_mgl_set_light_dif_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int enable=(int)lua_tointeger(L,2);
+	int* enable=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_light_dif_(gr, &enable);
+	::mgl_set_light_dif_(gr, enable);
 
 	return 0;
 }
@@ -13666,9 +13666,9 @@ static int _bind_mgl_set_cut_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int cut=(int)lua_tointeger(L,2);
+	int* cut=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_cut_(gr, &cut);
+	::mgl_set_cut_(gr, cut);
 
 	return 0;
 }
@@ -13701,14 +13701,14 @@ static int _bind_mgl_set_cut_box_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x1=(double)lua_tonumber(L,2);
-	double y1=(double)lua_tonumber(L,3);
-	double z1=(double)lua_tonumber(L,4);
-	double x2=(double)lua_tonumber(L,5);
-	double y2=(double)lua_tonumber(L,6);
-	double z2=(double)lua_tonumber(L,7);
+	double* x1=(double*)Luna< void >::check(L,2);
+	double* y1=(double*)Luna< void >::check(L,3);
+	double* z1=(double*)Luna< void >::check(L,4);
+	double* x2=(double*)Luna< void >::check(L,5);
+	double* y2=(double*)Luna< void >::check(L,6);
+	double* z2=(double*)Luna< void >::check(L,7);
 
-	::mgl_set_cut_box_(gr, &x1, &y1, &z1, &x2, &y2, &z2);
+	::mgl_set_cut_box_(gr, x1, y1, z1, x2, y2, z2);
 
 	return 0;
 }
@@ -13772,14 +13772,14 @@ static int _bind_mgl_set_ranges_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x1=(double)lua_tonumber(L,2);
-	double x2=(double)lua_tonumber(L,3);
-	double y1=(double)lua_tonumber(L,4);
-	double y2=(double)lua_tonumber(L,5);
-	double z1=(double)lua_tonumber(L,6);
-	double z2=(double)lua_tonumber(L,7);
+	double* x1=(double*)Luna< void >::check(L,2);
+	double* x2=(double*)Luna< void >::check(L,3);
+	double* y1=(double*)Luna< void >::check(L,4);
+	double* y2=(double*)Luna< void >::check(L,5);
+	double* z1=(double*)Luna< void >::check(L,6);
+	double* z2=(double*)Luna< void >::check(L,7);
 
-	::mgl_set_ranges_(gr, &x1, &x2, &y1, &y2, &z1, &z2);
+	::mgl_set_ranges_(gr, x1, x2, y1, y2, z1, z2);
 
 	return 0;
 }
@@ -13810,11 +13810,11 @@ static int _bind_mgl_set_range_val_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
-	double v1=(double)lua_tonumber(L,3);
-	double v2=(double)lua_tonumber(L,4);
+	double* v1=(double*)Luna< void >::check(L,3);
+	double* v2=(double*)Luna< void >::check(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	::mgl_set_range_val_(gr, dir, &v1, &v2, _arg5);
+	::mgl_set_range_val_(gr, dir, v1, v2, _arg5);
 
 	return 0;
 }
@@ -13846,10 +13846,10 @@ static int _bind_mgl_set_range_dat_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 	uintptr_t* a=(Luna< uintptr_t >::check(L,3));
-	int add=(int)lua_tointeger(L,4);
+	int* add=(int*)Luna< void >::check(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	::mgl_set_range_dat_(gr, dir, a, &add, _arg5);
+	::mgl_set_range_dat_(gr, dir, a, add, _arg5);
 
 	return 0;
 }
@@ -13884,16 +13884,16 @@ static int _bind_mgl_zoom_axis_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x1=(double)lua_tonumber(L,2);
-	double y1=(double)lua_tonumber(L,3);
-	double z1=(double)lua_tonumber(L,4);
-	double c1=(double)lua_tonumber(L,5);
-	double x2=(double)lua_tonumber(L,6);
-	double y2=(double)lua_tonumber(L,7);
-	double z2=(double)lua_tonumber(L,8);
-	double c2=(double)lua_tonumber(L,9);
+	double* x1=(double*)Luna< void >::check(L,2);
+	double* y1=(double*)Luna< void >::check(L,3);
+	double* z1=(double*)Luna< void >::check(L,4);
+	double* c1=(double*)Luna< void >::check(L,5);
+	double* x2=(double*)Luna< void >::check(L,6);
+	double* y2=(double*)Luna< void >::check(L,7);
+	double* z2=(double*)Luna< void >::check(L,8);
+	double* c2=(double*)Luna< void >::check(L,9);
 
-	::mgl_zoom_axis_(gr, &x1, &y1, &z1, &c1, &x2, &y2, &z2, &c2);
+	::mgl_zoom_axis_(gr, x1, y1, z1, c1, x2, y2, z2, c2);
 
 	return 0;
 }
@@ -13923,11 +13923,11 @@ static int _bind_mgl_set_origin_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x0=(double)lua_tonumber(L,2);
-	double y0=(double)lua_tonumber(L,3);
-	double z0=(double)lua_tonumber(L,4);
+	double* x0=(double*)Luna< void >::check(L,2);
+	double* y0=(double*)Luna< void >::check(L,3);
+	double* z0=(double*)Luna< void >::check(L,4);
 
-	::mgl_set_origin_(gr, &x0, &y0, &z0);
+	::mgl_set_origin_(gr, x0, y0, z0);
 
 	return 0;
 }
@@ -13995,9 +13995,9 @@ static int _bind_mgl_set_coor_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int how=(int)lua_tointeger(L,2);
+	int* how=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_coor_(gr, &how);
+	::mgl_set_coor_(gr, how);
 
 	return 0;
 }
@@ -14025,9 +14025,9 @@ static int _bind_mgl_set_ternary_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int enable=(int)lua_tointeger(L,2);
+	int* enable=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_ternary_(gr, &enable);
+	::mgl_set_ternary_(gr, enable);
 
 	return 0;
 }
@@ -14055,9 +14055,9 @@ static int _bind_mgl_set_tick_rotate_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int enable=(int)lua_tointeger(L,2);
+	int* enable=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_tick_rotate_(gr, &enable);
+	::mgl_set_tick_rotate_(gr, enable);
 
 	return 0;
 }
@@ -14085,9 +14085,9 @@ static int _bind_mgl_set_tick_skip_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int enable=(int)lua_tointeger(L,2);
+	int* enable=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_tick_skip_(gr, &enable);
+	::mgl_set_tick_skip_(gr, enable);
 
 	return 0;
 }
@@ -14147,9 +14147,9 @@ static int _bind_mgl_set_mark_size_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double size=(double)lua_tonumber(L,2);
+	double* size=(double*)Luna< void >::check(L,2);
 
-	::mgl_set_mark_size_(gr, &size);
+	::mgl_set_mark_size_(gr, size);
 
 	return 0;
 }
@@ -14177,9 +14177,9 @@ static int _bind_mgl_set_arrow_size_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double size=(double)lua_tonumber(L,2);
+	double* size=(double*)Luna< void >::check(L,2);
 
-	::mgl_set_arrow_size_(gr, &size);
+	::mgl_set_arrow_size_(gr, size);
 
 	return 0;
 }
@@ -14207,9 +14207,9 @@ static int _bind_mgl_set_font_size_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double size=(double)lua_tonumber(L,2);
+	double* size=(double*)Luna< void >::check(L,2);
 
-	::mgl_set_font_size_(gr, &size);
+	::mgl_set_font_size_(gr, size);
 
 	return 0;
 }
@@ -14237,9 +14237,9 @@ static int _bind_mgl_set_rotated_text_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int enable=(int)lua_tointeger(L,2);
+	int* enable=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_rotated_text_(gr, &enable);
+	::mgl_set_rotated_text_(gr, enable);
 
 	return 0;
 }
@@ -14268,12 +14268,12 @@ static int _bind_mgl_load_font_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	char name=(char)lua_tointeger(L,2);
-	char path=(char)lua_tointeger(L,3);
+	char* name=(char*)Luna< void >::check(L,2);
+	char* path=(char*)Luna< void >::check(L,3);
 	int l=(int)lua_tointeger(L,4);
 	int n=(int)lua_tointeger(L,5);
 
-	::mgl_load_font_(gr, &name, &path, l, n);
+	::mgl_load_font_(gr, name, path, l, n);
 
 	return 0;
 }
@@ -14361,10 +14361,10 @@ static int _bind_mgl_create_graph_(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in uintptr_t mgl_create_graph_(int * width, int * height) function, expected prototype:\nuintptr_t mgl_create_graph_(int * width, int * height)\nClass arguments details:\n");
 	}
 
-	int width=(int)lua_tointeger(L,1);
-	int height=(int)lua_tointeger(L,2);
+	int* width=(int*)Luna< void >::check(L,1);
+	int* height=(int*)Luna< void >::check(L,2);
 
-	uintptr_t stack_lret = ::mgl_create_graph_(&width, &height);
+	uintptr_t stack_lret = ::mgl_create_graph_(width, height);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -14425,10 +14425,10 @@ static int _bind_mgl_set_size_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int width=(int)lua_tointeger(L,2);
-	int height=(int)lua_tointeger(L,3);
+	int* width=(int*)Luna< void >::check(L,2);
+	int* height=(int*)Luna< void >::check(L,3);
 
-	::mgl_set_size_(gr, &width, &height);
+	::mgl_set_size_(gr, width, height);
 
 	return 0;
 }
@@ -14484,9 +14484,9 @@ static int _bind_mgl_set_quality_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int qual=(int)lua_tointeger(L,2);
+	int* qual=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_quality_(gr, &qual);
+	::mgl_set_quality_(gr, qual);
 
 	return 0;
 }
@@ -14573,10 +14573,10 @@ static int _bind_mgl_set_tick_len_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double len=(double)lua_tonumber(L,2);
-	double stt=(double)lua_tonumber(L,3);
+	double* len=(double*)Luna< void >::check(L,2);
+	double* stt=(double*)Luna< void >::check(L,3);
 
-	::mgl_set_tick_len_(gr, &len, &stt);
+	::mgl_set_tick_len_(gr, len, stt);
 
 	return 0;
 }
@@ -14675,13 +14675,13 @@ static int _bind_mgl_set_ticks_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	char dir=(char)lua_tointeger(L,2);
-	double d=(double)lua_tonumber(L,3);
-	int ns=(int)lua_tointeger(L,4);
-	double org=(double)lua_tonumber(L,5);
+	char* dir=(char*)Luna< void >::check(L,2);
+	double* d=(double*)Luna< void >::check(L,3);
+	int* ns=(int*)Luna< void >::check(L,4);
+	double* org=(double*)Luna< void >::check(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	::mgl_set_ticks_(gr, &dir, &d, &ns, &org, _arg6);
+	::mgl_set_ticks_(gr, dir, d, ns, org, _arg6);
 
 	return 0;
 }
@@ -14713,11 +14713,11 @@ static int _bind_mgl_set_ticks_str_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
 	const char * lbl=(const char *)lua_tostring(L,3);
-	int add=(int)lua_tointeger(L,4);
+	int* add=(int*)Luna< void >::check(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	::mgl_set_ticks_str_(gr, dir, lbl, &add, _arg5, _arg6);
+	::mgl_set_ticks_str_(gr, dir, lbl, add, _arg5, _arg6);
 
 	return 0;
 }
@@ -14751,11 +14751,11 @@ static int _bind_mgl_set_ticks_val_(lua_State *L) {
 	const char * dir=(const char *)lua_tostring(L,2);
 	uintptr_t* val=(Luna< uintptr_t >::check(L,3));
 	const char * lbl=(const char *)lua_tostring(L,4);
-	int add=(int)lua_tointeger(L,5);
+	int* add=(int*)Luna< void >::check(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_set_ticks_val_(gr, dir, val, lbl, &add, _arg6, _arg7);
+	::mgl_set_ticks_val_(gr, dir, val, lbl, add, _arg6, _arg7);
 
 	return 0;
 }
@@ -14784,10 +14784,10 @@ static int _bind_mgl_tune_ticks_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int tune=(int)lua_tointeger(L,2);
-	double fact_pos=(double)lua_tonumber(L,3);
+	int* tune=(int*)Luna< void >::check(L,2);
+	double* fact_pos=(double*)Luna< void >::check(L,3);
 
-	::mgl_tune_ticks_(gr, &tune, &fact_pos);
+	::mgl_tune_ticks_(gr, tune, fact_pos);
 
 	return 0;
 }
@@ -14852,12 +14852,12 @@ static int _bind_mgl_set_ticks_time_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
-	double d=(double)lua_tonumber(L,3);
+	double* d=(double*)Luna< void >::check(L,3);
 	const char * t=(const char *)lua_tostring(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	::mgl_set_ticks_time_(gr, dir, &d, t, _arg5, _arg6);
+	::mgl_set_ticks_time_(gr, dir, d, t, _arg5, _arg6);
 
 	return 0;
 }
@@ -14888,12 +14888,12 @@ static int _bind_mgl_set_tick_shift_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double sx=(double)lua_tonumber(L,2);
-	double sy=(double)lua_tonumber(L,3);
-	double sz=(double)lua_tonumber(L,4);
-	double sc=(double)lua_tonumber(L,5);
+	double* sx=(double*)Luna< void >::check(L,2);
+	double* sy=(double*)Luna< void >::check(L,3);
+	double* sz=(double*)Luna< void >::check(L,4);
+	double* sc=(double*)Luna< void >::check(L,5);
 
-	::mgl_set_tick_shift_(gr, &sx, &sy, &sz, &sc);
+	::mgl_set_tick_shift_(gr, sx, sy, sz, sc);
 
 	return 0;
 }
@@ -14951,10 +14951,10 @@ static int _bind_mgl_box_str_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	const char * col=(const char *)lua_tostring(L,2);
-	int ticks=(int)lua_tointeger(L,3);
+	int* ticks=(int*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_box_str_(gr, col, &ticks, _arg4);
+	::mgl_box_str_(gr, col, ticks, _arg4);
 
 	return 0;
 }
@@ -15092,13 +15092,13 @@ static int _bind_mgl_colorbar_ext_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	const char * sch=(const char *)lua_tostring(L,2);
-	double x=(double)lua_tonumber(L,3);
-	double y=(double)lua_tonumber(L,4);
-	double w=(double)lua_tonumber(L,5);
-	double h=(double)lua_tonumber(L,6);
+	double* x=(double*)Luna< void >::check(L,3);
+	double* y=(double*)Luna< void >::check(L,4);
+	double* w=(double*)Luna< void >::check(L,5);
+	double* h=(double*)Luna< void >::check(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_colorbar_ext_(gr, sch, &x, &y, &w, &h, _arg7);
+	::mgl_colorbar_ext_(gr, sch, x, y, w, h, _arg7);
 
 	return 0;
 }
@@ -15166,13 +15166,13 @@ static int _bind_mgl_colorbar_val_ext_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,2));
 	const char * sch=(const char *)lua_tostring(L,3);
-	double x=(double)lua_tonumber(L,4);
-	double y=(double)lua_tonumber(L,5);
-	double w=(double)lua_tonumber(L,6);
-	double h=(double)lua_tonumber(L,7);
+	double* x=(double*)Luna< void >::check(L,4);
+	double* y=(double*)Luna< void >::check(L,5);
+	double* w=(double*)Luna< void >::check(L,6);
+	double* h=(double*)Luna< void >::check(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_colorbar_val_ext_(gr, dat, sch, &x, &y, &w, &h, _arg8);
+	::mgl_colorbar_val_ext_(gr, dat, sch, x, y, w, h, _arg8);
 
 	return 0;
 }
@@ -15265,14 +15265,14 @@ static int _bind_mgl_legend_pos_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
 	const char * font=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_legend_pos_(gr, &x, &y, font, opt, _arg6, _arg7);
+	::mgl_legend_pos_(gr, x, y, font, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -15302,13 +15302,13 @@ static int _bind_mgl_legend_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int where=(int)lua_tointeger(L,2);
+	int* where=(int*)Luna< void >::check(L,2);
 	const char * font=(const char *)lua_tostring(L,3);
 	const char * opt=(const char *)lua_tostring(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	::mgl_legend_(gr, &where, font, opt, _arg5, _arg6);
+	::mgl_legend_(gr, where, font, opt, _arg5, _arg6);
 
 	return 0;
 }
@@ -15336,9 +15336,9 @@ static int _bind_mgl_set_legend_marks_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int num=(int)lua_tointeger(L,2);
+	int* num=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_legend_marks_(gr, &num);
+	::mgl_set_legend_marks_(gr, num);
 
 	return 0;
 }
@@ -15368,10 +15368,10 @@ static int _bind_mgl_show_image_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	const char * viewer=(const char *)lua_tostring(L,2);
-	int keep=(int)lua_tointeger(L,3);
+	int* keep=(int*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_show_image_(gr, viewer, &keep, _arg4);
+	::mgl_show_image_(gr, viewer, keep, _arg4);
 
 	return 0;
 }
@@ -15709,11 +15709,11 @@ static int _bind_mgl_write_obj_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
-	int use_png=(int)lua_tointeger(L,4);
+	int* use_png=(int*)Luna< void >::check(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	::mgl_write_obj_(gr, fname, descr, &use_png, _arg5, _arg6);
+	::mgl_write_obj_(gr, fname, descr, use_png, _arg5, _arg6);
 
 	return 0;
 }
@@ -15779,11 +15779,11 @@ static int _bind_mgl_write_off_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
-	int colored=(int)lua_tointeger(L,4);
+	int* colored=(int*)Luna< void >::check(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	::mgl_write_off_(gr, fname, descr, &colored, _arg5, _arg6);
+	::mgl_write_off_(gr, fname, descr, colored, _arg5, _arg6);
 
 	return 0;
 }
@@ -15849,11 +15849,11 @@ static int _bind_mgl_write_prc_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * descr=(const char *)lua_tostring(L,3);
-	int make_pdf=(int)lua_tointeger(L,4);
+	int* make_pdf=(int*)Luna< void >::check(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	::mgl_write_prc_(gr, fname, descr, &make_pdf, _arg5, _arg6);
+	::mgl_write_prc_(gr, fname, descr, make_pdf, _arg5, _arg6);
 
 	return 0;
 }
@@ -15917,10 +15917,10 @@ static int _bind_mgl_start_gif_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
-	int ms=(int)lua_tointeger(L,3);
+	int* ms=(int*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_start_gif_(gr, fname, &ms, _arg4);
+	::mgl_start_gif_(gr, fname, ms, _arg4);
 
 	return 0;
 }
@@ -16043,10 +16043,10 @@ static int _bind_mgl_import_mgld_(lua_State *L) {
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
-	int add=(int)lua_tointeger(L,3);
+	int* add=(int*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_import_mgld_(gr, fname, &add, _arg4);
+	::mgl_import_mgld_(gr, fname, add, _arg4);
 
 	return 0;
 }
@@ -16168,9 +16168,9 @@ static int _bind_mgl_set_obj_id_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int id=(int)lua_tointeger(L,2);
+	int* id=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_obj_id_(gr, &id);
+	::mgl_set_obj_id_(gr, id);
 
 	return 0;
 }
@@ -16200,10 +16200,10 @@ static int _bind_mgl_get_obj_id_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int x=(int)lua_tointeger(L,2);
-	int y=(int)lua_tointeger(L,3);
+	int* x=(int*)Luna< void >::check(L,2);
+	int* y=(int*)Luna< void >::check(L,3);
 
-	int lret = ::mgl_get_obj_id_(gr, &x, &y);
+	int lret = ::mgl_get_obj_id_(gr, x, y);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16234,10 +16234,10 @@ static int _bind_mgl_get_spl_id_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int x=(int)lua_tointeger(L,2);
-	int y=(int)lua_tointeger(L,3);
+	int* x=(int*)Luna< void >::check(L,2);
+	int* y=(int*)Luna< void >::check(L,3);
 
-	int lret = ::mgl_get_spl_id_(gr, &x, &y);
+	int lret = ::mgl_get_spl_id_(gr, x, y);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16313,11 +16313,11 @@ static int _bind_mgl_calc_xyz(lua_State *L) {
 	mglBase* gr=(Luna< mglBase >::check(L,1));
 	int xs=(int)lua_tointeger(L,2);
 	int ys=(int)lua_tointeger(L,3);
-	double x=(double)lua_tonumber(L,4);
-	double y=(double)lua_tonumber(L,5);
-	double z=(double)lua_tonumber(L,6);
+	double* x=(double*)Luna< void >::check(L,4);
+	double* y=(double*)Luna< void >::check(L,5);
+	double* z=(double*)Luna< void >::check(L,6);
 
-	::mgl_calc_xyz(gr, xs, ys, &x, &y, &z);
+	::mgl_calc_xyz(gr, xs, ys, x, y, z);
 
 	return 0;
 }
@@ -16330,13 +16330,13 @@ static int _bind_mgl_calc_xyz_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int xs=(int)lua_tointeger(L,2);
-	int ys=(int)lua_tointeger(L,3);
-	double x=(double)lua_tonumber(L,4);
-	double y=(double)lua_tonumber(L,5);
-	double z=(double)lua_tonumber(L,6);
+	int* xs=(int*)Luna< void >::check(L,2);
+	int* ys=(int*)Luna< void >::check(L,3);
+	double* x=(double*)Luna< void >::check(L,4);
+	double* y=(double*)Luna< void >::check(L,5);
+	double* z=(double*)Luna< void >::check(L,6);
 
-	::mgl_calc_xyz_(gr, &xs, &ys, &x, &y, &z);
+	::mgl_calc_xyz_(gr, xs, ys, x, y, z);
 
 	return 0;
 }
@@ -16352,10 +16352,10 @@ static int _bind_mgl_calc_scr(lua_State *L) {
 	double x=(double)lua_tonumber(L,2);
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
-	int xs=(int)lua_tointeger(L,5);
-	int ys=(int)lua_tointeger(L,6);
+	int* xs=(int*)Luna< void >::check(L,5);
+	int* ys=(int*)Luna< void >::check(L,6);
 
-	::mgl_calc_scr(gr, x, y, z, &xs, &ys);
+	::mgl_calc_scr(gr, x, y, z, xs, ys);
 
 	return 0;
 }
@@ -16368,13 +16368,13 @@ static int _bind_mgl_calc_scr_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
-	int xs=(int)lua_tointeger(L,5);
-	int ys=(int)lua_tointeger(L,6);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
+	int* xs=(int*)Luna< void >::check(L,5);
+	int* ys=(int*)Luna< void >::check(L,6);
 
-	::mgl_calc_scr_(gr, &x, &y, &z, &xs, &ys);
+	::mgl_calc_scr_(gr, x, y, z, xs, ys);
 
 	return 0;
 }
@@ -16405,11 +16405,11 @@ static int _bind_mgl_is_active_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int xs=(int)lua_tointeger(L,2);
-	int ys=(int)lua_tointeger(L,3);
-	int d=(int)lua_tointeger(L,4);
+	int* xs=(int*)Luna< void >::check(L,2);
+	int* ys=(int*)Luna< void >::check(L,3);
+	int* d=(int*)Luna< void >::check(L,4);
 
-	long lret = ::mgl_is_active_(gr, &xs, &ys, &d);
+	long lret = ::mgl_is_active_(gr, xs, ys, d);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -16554,9 +16554,9 @@ static int _bind_mgl_get_frame_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int i=(int)lua_tointeger(L,2);
+	int* i=(int*)Luna< void >::check(L,2);
 
-	::mgl_get_frame_(gr, &i);
+	::mgl_get_frame_(gr, i);
 
 	return 0;
 }
@@ -16584,9 +16584,9 @@ static int _bind_mgl_set_frame_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int i=(int)lua_tointeger(L,2);
+	int* i=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_frame_(gr, &i);
+	::mgl_set_frame_(gr, i);
 
 	return 0;
 }
@@ -16614,9 +16614,9 @@ static int _bind_mgl_show_frame_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int i=(int)lua_tointeger(L,2);
+	int* i=(int*)Luna< void >::check(L,2);
 
-	::mgl_show_frame_(gr, &i);
+	::mgl_show_frame_(gr, i);
 
 	return 0;
 }
@@ -16644,9 +16644,9 @@ static int _bind_mgl_del_frame_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int i=(int)lua_tointeger(L,2);
+	int* i=(int*)Luna< void >::check(L,2);
 
-	::mgl_del_frame_(gr, &i);
+	::mgl_del_frame_(gr, i);
 
 	return 0;
 }
@@ -16674,9 +16674,9 @@ static int _bind_mgl_set_transp_type_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int type=(int)lua_tointeger(L,2);
+	int* type=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_transp_type_(gr, &type);
+	::mgl_set_transp_type_(gr, type);
 
 	return 0;
 }
@@ -16704,9 +16704,9 @@ static int _bind_mgl_set_alpha_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int enable=(int)lua_tointeger(L,2);
+	int* enable=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_alpha_(gr, &enable);
+	::mgl_set_alpha_(gr, enable);
 
 	return 0;
 }
@@ -16735,10 +16735,10 @@ static int _bind_mgl_set_fog_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double dist=(double)lua_tonumber(L,2);
-	double dz=(double)lua_tonumber(L,3);
+	double* dist=(double*)Luna< void >::check(L,2);
+	double* dz=(double*)Luna< void >::check(L,3);
 
-	::mgl_set_fog_(gr, &dist, &dz);
+	::mgl_set_fog_(gr, dist, dz);
 
 	return 0;
 }
@@ -16766,9 +16766,9 @@ static int _bind_mgl_set_light_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int enable=(int)lua_tointeger(L,2);
+	int* enable=(int*)Luna< void >::check(L,2);
 
-	::mgl_set_light_(gr, &enable);
+	::mgl_set_light_(gr, enable);
 
 	return 0;
 }
@@ -16797,10 +16797,10 @@ static int _bind_mgl_set_light_n_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int n=(int)lua_tointeger(L,2);
-	int enable=(int)lua_tointeger(L,3);
+	int* n=(int*)Luna< void >::check(L,2);
+	int* enable=(int*)Luna< void >::check(L,3);
 
-	::mgl_set_light_n_(gr, &n, &enable);
+	::mgl_set_light_n_(gr, n, enable);
 
 	return 0;
 }
@@ -16831,12 +16831,12 @@ static int _bind_mgl_add_light_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int n=(int)lua_tointeger(L,2);
-	double x=(double)lua_tonumber(L,3);
-	double y=(double)lua_tonumber(L,4);
-	double z=(double)lua_tonumber(L,5);
+	int* n=(int*)Luna< void >::check(L,2);
+	double* x=(double*)Luna< void >::check(L,3);
+	double* y=(double*)Luna< void >::check(L,4);
+	double* z=(double*)Luna< void >::check(L,5);
 
-	::mgl_add_light_(gr, &n, &x, &y, &z);
+	::mgl_add_light_(gr, n, x, y, z);
 
 	return 0;
 }
@@ -16870,16 +16870,16 @@ static int _bind_mgl_add_light_ext_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int n=(int)lua_tointeger(L,2);
-	double x=(double)lua_tonumber(L,3);
-	double y=(double)lua_tonumber(L,4);
-	double z=(double)lua_tonumber(L,5);
-	char c=(char)lua_tointeger(L,6);
-	double br=(double)lua_tonumber(L,7);
-	double ap=(double)lua_tonumber(L,8);
+	int* n=(int*)Luna< void >::check(L,2);
+	double* x=(double*)Luna< void >::check(L,3);
+	double* y=(double*)Luna< void >::check(L,4);
+	double* z=(double*)Luna< void >::check(L,5);
+	char* c=(char*)Luna< void >::check(L,6);
+	double* br=(double*)Luna< void >::check(L,7);
+	double* ap=(double*)Luna< void >::check(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	::mgl_add_light_ext_(gr, &n, &x, &y, &z, &c, &br, &ap, _arg9);
+	::mgl_add_light_ext_(gr, n, x, y, z, c, br, ap, _arg9);
 
 	return 0;
 }
@@ -16916,19 +16916,19 @@ static int _bind_mgl_add_light_loc_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int n=(int)lua_tointeger(L,2);
-	double x=(double)lua_tonumber(L,3);
-	double y=(double)lua_tonumber(L,4);
-	double z=(double)lua_tonumber(L,5);
-	double dx=(double)lua_tonumber(L,6);
-	double dy=(double)lua_tonumber(L,7);
-	double dz=(double)lua_tonumber(L,8);
-	char c=(char)lua_tointeger(L,9);
-	double br=(double)lua_tonumber(L,10);
-	double ap=(double)lua_tonumber(L,11);
+	int* n=(int*)Luna< void >::check(L,2);
+	double* x=(double*)Luna< void >::check(L,3);
+	double* y=(double*)Luna< void >::check(L,4);
+	double* z=(double*)Luna< void >::check(L,5);
+	double* dx=(double*)Luna< void >::check(L,6);
+	double* dy=(double*)Luna< void >::check(L,7);
+	double* dz=(double*)Luna< void >::check(L,8);
+	char* c=(char*)Luna< void >::check(L,9);
+	double* br=(double*)Luna< void >::check(L,10);
+	double* ap=(double*)Luna< void >::check(L,11);
 	int _arg12=(int)lua_tointeger(L,12);
 
-	::mgl_add_light_loc_(gr, &n, &x, &y, &z, &dx, &dy, &dz, &c, &br, &ap, _arg12);
+	::mgl_add_light_loc_(gr, n, x, y, z, dx, dy, dz, c, br, ap, _arg12);
 
 	return 0;
 }
@@ -17042,11 +17042,11 @@ static int _bind_mgl_clf_rgb_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double r=(double)lua_tonumber(L,2);
-	double g=(double)lua_tonumber(L,3);
-	double b=(double)lua_tonumber(L,4);
+	double* r=(double*)Luna< void >::check(L,2);
+	double* g=(double*)Luna< void >::check(L,3);
+	double* b=(double*)Luna< void >::check(L,4);
 
-	::mgl_clf_rgb_(gr, &r, &g, &b);
+	::mgl_clf_rgb_(gr, r, g, b);
 
 	return 0;
 }
@@ -17077,13 +17077,13 @@ static int _bind_mgl_subplot_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int nx=(int)lua_tointeger(L,2);
-	int ny=(int)lua_tointeger(L,3);
-	int m=(int)lua_tointeger(L,4);
+	int* nx=(int*)Luna< void >::check(L,2);
+	int* ny=(int*)Luna< void >::check(L,3);
+	int* m=(int*)Luna< void >::check(L,4);
 	const char * s=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	::mgl_subplot_(gr, &nx, &ny, &m, s, _arg6);
+	::mgl_subplot_(gr, nx, ny, m, s, _arg6);
 
 	return 0;
 }
@@ -17116,15 +17116,15 @@ static int _bind_mgl_multiplot_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int nx=(int)lua_tointeger(L,2);
-	int ny=(int)lua_tointeger(L,3);
-	int m=(int)lua_tointeger(L,4);
-	int dx=(int)lua_tointeger(L,5);
-	int dy=(int)lua_tointeger(L,6);
+	int* nx=(int*)Luna< void >::check(L,2);
+	int* ny=(int*)Luna< void >::check(L,3);
+	int* m=(int*)Luna< void >::check(L,4);
+	int* dx=(int*)Luna< void >::check(L,5);
+	int* dy=(int*)Luna< void >::check(L,6);
 	const char * s=(const char *)lua_tostring(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_multiplot_(gr, &nx, &ny, &m, &dx, &dy, s, _arg8);
+	::mgl_multiplot_(gr, nx, ny, m, dx, dy, s, _arg8);
 
 	return 0;
 }
@@ -17155,12 +17155,12 @@ static int _bind_mgl_inplot_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x1=(double)lua_tonumber(L,2);
-	double x2=(double)lua_tonumber(L,3);
-	double y1=(double)lua_tonumber(L,4);
-	double y2=(double)lua_tonumber(L,5);
+	double* x1=(double*)Luna< void >::check(L,2);
+	double* x2=(double*)Luna< void >::check(L,3);
+	double* y1=(double*)Luna< void >::check(L,4);
+	double* y2=(double*)Luna< void >::check(L,5);
 
-	::mgl_inplot_(gr, &x1, &x2, &y1, &y2);
+	::mgl_inplot_(gr, x1, x2, y1, y2);
 
 	return 0;
 }
@@ -17191,12 +17191,12 @@ static int _bind_mgl_relplot_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x1=(double)lua_tonumber(L,2);
-	double x2=(double)lua_tonumber(L,3);
-	double y1=(double)lua_tonumber(L,4);
-	double y2=(double)lua_tonumber(L,5);
+	double* x1=(double*)Luna< void >::check(L,2);
+	double* x2=(double*)Luna< void >::check(L,3);
+	double* y1=(double*)Luna< void >::check(L,4);
+	double* y2=(double*)Luna< void >::check(L,5);
 
-	::mgl_relplot_(gr, &x1, &x2, &y1, &y2);
+	::mgl_relplot_(gr, x1, x2, y1, y2);
 
 	return 0;
 }
@@ -17226,11 +17226,11 @@ static int _bind_mgl_columnplot_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int num=(int)lua_tointeger(L,2);
-	int i=(int)lua_tointeger(L,3);
-	double d=(double)lua_tonumber(L,4);
+	int* num=(int*)Luna< void >::check(L,2);
+	int* i=(int*)Luna< void >::check(L,3);
+	double* d=(double*)Luna< void >::check(L,4);
 
-	::mgl_columnplot_(gr, &num, &i, &d);
+	::mgl_columnplot_(gr, num, i, d);
 
 	return 0;
 }
@@ -17261,12 +17261,12 @@ static int _bind_mgl_stickplot_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int num=(int)lua_tointeger(L,2);
-	int i=(int)lua_tointeger(L,3);
-	double tet=(double)lua_tonumber(L,4);
-	double phi=(double)lua_tonumber(L,5);
+	int* num=(int*)Luna< void >::check(L,2);
+	int* i=(int*)Luna< void >::check(L,3);
+	double* tet=(double*)Luna< void >::check(L,4);
+	double* phi=(double*)Luna< void >::check(L,5);
 
-	::mgl_stickplot_(gr, &num, &i, &tet, &phi);
+	::mgl_stickplot_(gr, num, i, tet, phi);
 
 	return 0;
 }
@@ -17298,11 +17298,11 @@ static int _bind_mgl_title_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	const char * title=(const char *)lua_tostring(L,2);
 	const char * stl=(const char *)lua_tostring(L,3);
-	double size=(double)lua_tonumber(L,4);
+	double* size=(double*)Luna< void >::check(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	::mgl_title_(gr, title, stl, &size, _arg5, _arg6);
+	::mgl_title_(gr, title, stl, size, _arg5, _arg6);
 
 	return 0;
 }
@@ -17330,9 +17330,9 @@ static int _bind_mgl_set_plotfactor_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double val=(double)lua_tonumber(L,2);
+	double* val=(double*)Luna< void >::check(L,2);
 
-	::mgl_set_plotfactor_(gr, &val);
+	::mgl_set_plotfactor_(gr, val);
 
 	return 0;
 }
@@ -17362,11 +17362,11 @@ static int _bind_mgl_aspect_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double Ax=(double)lua_tonumber(L,2);
-	double Ay=(double)lua_tonumber(L,3);
-	double Az=(double)lua_tonumber(L,4);
+	double* Ax=(double*)Luna< void >::check(L,2);
+	double* Ay=(double*)Luna< void >::check(L,3);
+	double* Az=(double*)Luna< void >::check(L,4);
 
-	::mgl_aspect_(gr, &Ax, &Ay, &Az);
+	::mgl_aspect_(gr, Ax, Ay, Az);
 
 	return 0;
 }
@@ -17396,11 +17396,11 @@ static int _bind_mgl_rotate_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double TetX=(double)lua_tonumber(L,2);
-	double TetZ=(double)lua_tonumber(L,3);
-	double TetY=(double)lua_tonumber(L,4);
+	double* TetX=(double*)Luna< void >::check(L,2);
+	double* TetZ=(double*)Luna< void >::check(L,3);
+	double* TetY=(double*)Luna< void >::check(L,4);
 
-	::mgl_rotate_(gr, &TetX, &TetZ, &TetY);
+	::mgl_rotate_(gr, TetX, TetZ, TetY);
 
 	return 0;
 }
@@ -17431,12 +17431,12 @@ static int _bind_mgl_rotate_vector_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double Tet=(double)lua_tonumber(L,2);
-	double x=(double)lua_tonumber(L,3);
-	double y=(double)lua_tonumber(L,4);
-	double z=(double)lua_tonumber(L,5);
+	double* Tet=(double*)Luna< void >::check(L,2);
+	double* x=(double*)Luna< void >::check(L,3);
+	double* y=(double*)Luna< void >::check(L,4);
+	double* z=(double*)Luna< void >::check(L,5);
 
-	::mgl_rotate_vector_(gr, &Tet, &x, &y, &z);
+	::mgl_rotate_vector_(gr, Tet, x, y, z);
 
 	return 0;
 }
@@ -17496,11 +17496,11 @@ static int _bind_mgl_view_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double TetX=(double)lua_tonumber(L,2);
-	double TetZ=(double)lua_tonumber(L,3);
-	double TetY=(double)lua_tonumber(L,4);
+	double* TetX=(double*)Luna< void >::check(L,2);
+	double* TetZ=(double*)Luna< void >::check(L,3);
+	double* TetY=(double*)Luna< void >::check(L,4);
 
-	::mgl_view_(gr, &TetX, &TetZ, &TetY);
+	::mgl_view_(gr, TetX, TetZ, TetY);
 
 	return 0;
 }
@@ -17531,12 +17531,12 @@ static int _bind_mgl_zoom_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x1=(double)lua_tonumber(L,2);
-	double y1=(double)lua_tonumber(L,3);
-	double x2=(double)lua_tonumber(L,4);
-	double y2=(double)lua_tonumber(L,5);
+	double* x1=(double*)Luna< void >::check(L,2);
+	double* y1=(double*)Luna< void >::check(L,3);
+	double* x2=(double*)Luna< void >::check(L,4);
+	double* y2=(double*)Luna< void >::check(L,5);
 
-	::mgl_zoom_(gr, &x1, &y1, &x2, &y2);
+	::mgl_zoom_(gr, x1, y1, x2, y2);
 
 	return 0;
 }
@@ -17564,9 +17564,9 @@ static int _bind_mgl_mpi_send_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int id=(int)lua_tointeger(L,2);
+	int* id=(int*)Luna< void >::check(L,2);
 
-	::mgl_mpi_send_(gr, &id);
+	::mgl_mpi_send_(gr, id);
 
 	return 0;
 }
@@ -17594,9 +17594,9 @@ static int _bind_mgl_mpi_recv_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int id=(int)lua_tointeger(L,2);
+	int* id=(int*)Luna< void >::check(L,2);
 
-	::mgl_mpi_recv_(gr, &id);
+	::mgl_mpi_recv_(gr, id);
 
 	return 0;
 }
@@ -17638,9 +17638,9 @@ static int _bind_mgl_wnd_set_delay_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double dt=(double)lua_tonumber(L,2);
+	double* dt=(double*)Luna< void >::check(L,2);
 
-	::mgl_wnd_set_delay_(gr, &dt);
+	::mgl_wnd_set_delay_(gr, dt);
 
 	return 0;
 }
@@ -17669,10 +17669,10 @@ static int _bind_mgl_setup_window_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	int clf_upd=(int)lua_tointeger(L,2);
-	int showpos=(int)lua_tointeger(L,3);
+	int* clf_upd=(int*)Luna< void >::check(L,2);
+	int* showpos=(int*)Luna< void >::check(L,3);
 
-	::mgl_setup_window_(gr, &clf_upd, &showpos);
+	::mgl_setup_window_(gr, clf_upd, showpos);
 
 	return 0;
 }
@@ -17993,11 +17993,11 @@ static int _bind_mgl_get_last_mouse_pos(lua_State *L) {
 	}
 
 	mglBase* gr=(Luna< mglBase >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 
-	::mgl_get_last_mouse_pos(gr, &x, &y, &z);
+	::mgl_get_last_mouse_pos(gr, x, y, z);
 
 	return 0;
 }
@@ -18010,11 +18010,11 @@ static int _bind_mgl_get_last_mouse_pos_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 
-	::mgl_get_last_mouse_pos_(gr, &x, &y, &z);
+	::mgl_get_last_mouse_pos_(gr, x, y, z);
 
 	return 0;
 }
@@ -18076,9 +18076,9 @@ static int _bind_mgl_use_parser_(lua_State *L) {
 	}
 
 	uintptr_t* _arg1=(Luna< uintptr_t >::check(L,1));
-	int inc=(int)lua_tointeger(L,2);
+	int* inc=(int*)Luna< void >::check(L,2);
 
-	long lret = ::mgl_use_parser_(_arg1, &inc);
+	long lret = ::mgl_use_parser_(_arg1, inc);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18136,11 +18136,11 @@ static int _bind_mgl_parser_add_param_(lua_State *L) {
 	}
 
 	uintptr_t* p=(Luna< uintptr_t >::check(L,1));
-	int id=(int)lua_tointeger(L,2);
+	int* id=(int*)Luna< void >::check(L,2);
 	const char * str=(const char *)lua_tostring(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_parser_add_param_(p, &id, str, _arg4);
+	::mgl_parser_add_param_(p, id, str, _arg4);
 
 	return 0;
 }
@@ -18277,10 +18277,10 @@ static int _bind_mgl_parse_line_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* p=(Luna< uintptr_t >::check(L,2));
 	const char * str=(const char *)lua_tostring(L,3);
-	int pos=(int)lua_tointeger(L,4);
+	int* pos=(int*)Luna< void >::check(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	int lret = ::mgl_parse_line_(gr, p, str, &pos, _arg5);
+	int lret = ::mgl_parse_line_(gr, p, str, pos, _arg5);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18370,9 +18370,9 @@ static int _bind_mgl_parser_allow_setsize_(lua_State *L) {
 	}
 
 	uintptr_t* p=(Luna< uintptr_t >::check(L,1));
-	int a=(int)lua_tointeger(L,2);
+	int* a=(int*)Luna< void >::check(L,2);
 
-	::mgl_parser_allow_setsize_(p, &a);
+	::mgl_parser_allow_setsize_(p, a);
 
 	return 0;
 }
@@ -18400,9 +18400,9 @@ static int _bind_mgl_parser_allow_file_io_(lua_State *L) {
 	}
 
 	uintptr_t* p=(Luna< uintptr_t >::check(L,1));
-	int a=(int)lua_tointeger(L,2);
+	int* a=(int*)Luna< void >::check(L,2);
 
-	::mgl_parser_allow_file_io_(p, &a);
+	::mgl_parser_allow_file_io_(p, a);
 
 	return 0;
 }
@@ -18659,11 +18659,11 @@ static int _bind_mgl_eval_expr_(lua_State *L) {
 	}
 
 	uintptr_t* ex=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 
-	double lret = ::mgl_eval_expr_(ex, &x, &y, &z);
+	double lret = ::mgl_eval_expr_(ex, x, y, z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18677,9 +18677,9 @@ static int _bind_mgl_expr_eval_v(lua_State *L) {
 	}
 
 	mglFormula* ex=(Luna< mglFormula >::check(L,1));
-	double var=(double)lua_tonumber(L,2);
+	double* var=(double*)Luna< void >::check(L,2);
 
-	double lret = ::mgl_expr_eval_v(ex, &var);
+	double lret = ::mgl_expr_eval_v(ex, var);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18713,12 +18713,12 @@ static int _bind_mgl_diff_expr_(lua_State *L) {
 
 	uintptr_t* ex=(Luna< uintptr_t >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
-	double x=(double)lua_tonumber(L,3);
-	double y=(double)lua_tonumber(L,4);
-	double z=(double)lua_tonumber(L,5);
+	double* x=(double*)Luna< void >::check(L,3);
+	double* y=(double*)Luna< void >::check(L,4);
+	double* z=(double*)Luna< void >::check(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	double lret = ::mgl_diff_expr_(ex, dir, &x, &y, &z, _arg6);
+	double lret = ::mgl_diff_expr_(ex, dir, x, y, z, _arg6);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -18733,9 +18733,9 @@ static int _bind_mgl_expr_diff_v(lua_State *L) {
 
 	mglFormula* ex=(Luna< mglFormula >::check(L,1));
 	char dir=(char)lua_tointeger(L,2);
-	double var=(double)lua_tonumber(L,3);
+	double* var=(double*)Luna< void >::check(L,3);
 
-	double lret = ::mgl_expr_diff_v(ex, dir, &var);
+	double lret = ::mgl_expr_diff_v(ex, dir, var);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -19757,12 +19757,12 @@ static int _bind_mgl_grid3_xyz_(lua_State *L) {
 	uintptr_t* z=(Luna< uintptr_t >::check(L,4));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,5));
 	const char * sch=(const char *)lua_tostring(L,6);
-	double sVal=(double)lua_tonumber(L,7);
+	double* sVal=(double*)Luna< void >::check(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	::mgl_grid3_xyz_(gr, x, y, z, a, sch, &sVal, opt, _arg9, _arg10);
+	::mgl_grid3_xyz_(gr, x, y, z, a, sch, sVal, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -19795,12 +19795,12 @@ static int _bind_mgl_grid3_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 	const char * sch=(const char *)lua_tostring(L,3);
-	double sVal=(double)lua_tonumber(L,4);
+	double* sVal=(double*)Luna< void >::check(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_grid3_(gr, a, sch, &sVal, opt, _arg6, _arg7);
+	::mgl_grid3_(gr, a, sch, sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -19839,12 +19839,12 @@ static int _bind_mgl_dens3_xyz_(lua_State *L) {
 	uintptr_t* z=(Luna< uintptr_t >::check(L,4));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,5));
 	const char * sch=(const char *)lua_tostring(L,6);
-	double sVal=(double)lua_tonumber(L,7);
+	double* sVal=(double*)Luna< void >::check(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	::mgl_dens3_xyz_(gr, x, y, z, a, sch, &sVal, opt, _arg9, _arg10);
+	::mgl_dens3_xyz_(gr, x, y, z, a, sch, sVal, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -19877,12 +19877,12 @@ static int _bind_mgl_dens3_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 	const char * sch=(const char *)lua_tostring(L,3);
-	double sVal=(double)lua_tonumber(L,4);
+	double* sVal=(double*)Luna< void >::check(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_dens3_(gr, a, sch, &sVal, opt, _arg6, _arg7);
+	::mgl_dens3_(gr, a, sch, sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -19923,12 +19923,12 @@ static int _bind_mgl_cont3_xyz_val_(lua_State *L) {
 	uintptr_t* z=(Luna< uintptr_t >::check(L,5));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,6));
 	const char * sch=(const char *)lua_tostring(L,7);
-	double sVal=(double)lua_tonumber(L,8);
+	double* sVal=(double*)Luna< void >::check(L,8);
 	const char * opt=(const char *)lua_tostring(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	::mgl_cont3_xyz_val_(gr, v, x, y, z, a, sch, &sVal, opt, _arg10, _arg11);
+	::mgl_cont3_xyz_val_(gr, v, x, y, z, a, sch, sVal, opt, _arg10, _arg11);
 
 	return 0;
 }
@@ -19963,12 +19963,12 @@ static int _bind_mgl_cont3_val_(lua_State *L) {
 	uintptr_t* v=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,3));
 	const char * sch=(const char *)lua_tostring(L,4);
-	double sVal=(double)lua_tonumber(L,5);
+	double* sVal=(double*)Luna< void >::check(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_cont3_val_(gr, v, a, sch, &sVal, opt, _arg7, _arg8);
+	::mgl_cont3_val_(gr, v, a, sch, sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -20007,12 +20007,12 @@ static int _bind_mgl_cont3_xyz_(lua_State *L) {
 	uintptr_t* z=(Luna< uintptr_t >::check(L,4));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,5));
 	const char * sch=(const char *)lua_tostring(L,6);
-	double sVal=(double)lua_tonumber(L,7);
+	double* sVal=(double*)Luna< void >::check(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	::mgl_cont3_xyz_(gr, x, y, z, a, sch, &sVal, opt, _arg9, _arg10);
+	::mgl_cont3_xyz_(gr, x, y, z, a, sch, sVal, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -20045,12 +20045,12 @@ static int _bind_mgl_cont3_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 	const char * sch=(const char *)lua_tostring(L,3);
-	double sVal=(double)lua_tonumber(L,4);
+	double* sVal=(double*)Luna< void >::check(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_cont3_(gr, a, sch, &sVal, opt, _arg6, _arg7);
+	::mgl_cont3_(gr, a, sch, sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -20091,12 +20091,12 @@ static int _bind_mgl_contf3_xyz_val_(lua_State *L) {
 	uintptr_t* z=(Luna< uintptr_t >::check(L,5));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,6));
 	const char * sch=(const char *)lua_tostring(L,7);
-	double sVal=(double)lua_tonumber(L,8);
+	double* sVal=(double*)Luna< void >::check(L,8);
 	const char * opt=(const char *)lua_tostring(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	::mgl_contf3_xyz_val_(gr, v, x, y, z, a, sch, &sVal, opt, _arg10, _arg11);
+	::mgl_contf3_xyz_val_(gr, v, x, y, z, a, sch, sVal, opt, _arg10, _arg11);
 
 	return 0;
 }
@@ -20131,12 +20131,12 @@ static int _bind_mgl_contf3_val_(lua_State *L) {
 	uintptr_t* v=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,3));
 	const char * sch=(const char *)lua_tostring(L,4);
-	double sVal=(double)lua_tonumber(L,5);
+	double* sVal=(double*)Luna< void >::check(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_contf3_val_(gr, v, a, sch, &sVal, opt, _arg7, _arg8);
+	::mgl_contf3_val_(gr, v, a, sch, sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -20175,12 +20175,12 @@ static int _bind_mgl_contf3_xyz_(lua_State *L) {
 	uintptr_t* z=(Luna< uintptr_t >::check(L,4));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,5));
 	const char * sch=(const char *)lua_tostring(L,6);
-	double sVal=(double)lua_tonumber(L,7);
+	double* sVal=(double*)Luna< void >::check(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	::mgl_contf3_xyz_(gr, x, y, z, a, sch, &sVal, opt, _arg9, _arg10);
+	::mgl_contf3_xyz_(gr, x, y, z, a, sch, sVal, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -20213,12 +20213,12 @@ static int _bind_mgl_contf3_(lua_State *L) {
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 	const char * sch=(const char *)lua_tostring(L,3);
-	double sVal=(double)lua_tonumber(L,4);
+	double* sVal=(double*)Luna< void >::check(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_contf3_(gr, a, sch, &sVal, opt, _arg6, _arg7);
+	::mgl_contf3_(gr, a, sch, sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -20230,7 +20230,7 @@ static int _bind_mglLinear(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in double mglLinear(const double * a, long nx, long ny, long nz, double x, double y, double z) function, expected prototype:\ndouble mglLinear(const double * a, long nx, long ny, long nz, double x, double y, double z)\nClass arguments details:\n");
 	}
 
-	double a=(double)lua_tonumber(L,1);
+	const double* a=(const double*)Luna< void >::check(L,1);
 	long nx=(long)lua_tointeger(L,2);
 	long ny=(long)lua_tointeger(L,3);
 	long nz=(long)lua_tointeger(L,4);
@@ -20238,7 +20238,7 @@ static int _bind_mglLinear(lua_State *L) {
 	double y=(double)lua_tonumber(L,6);
 	double z=(double)lua_tonumber(L,7);
 
-	double lret = ::mglLinear(&a, nx, ny, nz, x, y, z);
+	double lret = ::mglLinear(a, nx, ny, nz, x, y, z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -20253,18 +20253,18 @@ static int _bind_mglSpline3(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	double a=(double)lua_tonumber(L,1);
+	const double* a=(const double*)Luna< void >::check(L,1);
 	long nx=(long)lua_tointeger(L,2);
 	long ny=(long)lua_tointeger(L,3);
 	long nz=(long)lua_tointeger(L,4);
 	double x=(double)lua_tonumber(L,5);
 	double y=(double)lua_tonumber(L,6);
 	double z=(double)lua_tonumber(L,7);
-	double dx=luatop>7 ? (double)lua_tonumber(L,8) : 0;
-	double dy=luatop>8 ? (double)lua_tonumber(L,9) : 0;
-	double dz=luatop>9 ? (double)lua_tonumber(L,10) : 0;
+	double* dx=luatop>7 ? (double*)Luna< void >::check(L,8) : (double*)0;
+	double* dy=luatop>8 ? (double*)Luna< void >::check(L,9) : (double*)0;
+	double* dz=luatop>9 ? (double*)Luna< void >::check(L,10) : (double*)0;
 
-	double lret = ::mglSpline3(&a, nx, ny, nz, x, y, z, &dx, &dy, &dz);
+	double lret = ::mglSpline3(a, nx, ny, nz, x, y, z, dx, dy, dz);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -20370,7 +20370,7 @@ static int _bind_mglSTFA(lua_State *L) {
 	}
 	const mglDataA & im=*im_ptr;
 	long dn=(long)lua_tointeger(L,3);
-	char dir=luatop>3 ? (char)lua_tointeger(L,4) : 'x';
+	char dir=luatop>3 ? (char)lua_tointeger(L,4) : (char)'x';
 
 	mglData stack_lret = ::mglSTFA(re, im, dn, dir);
 	mglData* lret = new mglData(stack_lret);
@@ -20402,9 +20402,9 @@ static int _bind_mglPDE(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg ini_im in mglPDE function");
 	}
 	const mglDataA & ini_im=*ini_im_ptr;
-	double dz=luatop>4 ? (double)lua_tonumber(L,5) : 0.1;
-	double k0=luatop>5 ? (double)lua_tonumber(L,6) : 100;
-	const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+	double dz=luatop>4 ? (double)lua_tonumber(L,5) : (double)0.1;
+	double k0=luatop>5 ? (double)lua_tonumber(L,6) : (double)100;
+	const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 	mglData stack_lret = ::mglPDE(gr, ham, ini_re, ini_im, dz, k0, opt);
 	mglData* lret = new mglData(stack_lret);
@@ -20440,8 +20440,8 @@ static int _bind_mglQO2d_overload_1(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg ray in mglQO2d function");
 	}
 	const mglDataA & ray=*ray_ptr;
-	double r=luatop>4 ? (double)lua_tonumber(L,5) : 1;
-	double k0=luatop>5 ? (double)lua_tonumber(L,6) : 100;
+	double r=luatop>4 ? (double)lua_tonumber(L,5) : (double)1;
+	double k0=luatop>5 ? (double)lua_tonumber(L,6) : (double)100;
 
 	mglData stack_lret = ::mglQO2d(ham, ini_re, ini_im, ray, r, k0);
 	mglData* lret = new mglData(stack_lret);
@@ -20487,8 +20487,8 @@ static int _bind_mglQO2d_overload_2(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg yy in mglQO2d function");
 	}
 	mglData & yy=*yy_ptr;
-	double r=luatop>6 ? (double)lua_tonumber(L,7) : 1;
-	double k0=luatop>7 ? (double)lua_tonumber(L,8) : 100;
+	double r=luatop>6 ? (double)lua_tonumber(L,7) : (double)1;
+	double k0=luatop>7 ? (double)lua_tonumber(L,8) : (double)100;
 
 	mglData stack_lret = ::mglQO2d(ham, ini_re, ini_im, ray, xx, yy, r, k0);
 	mglData* lret = new mglData(stack_lret);
@@ -20528,8 +20528,8 @@ static int _bind_mglRay(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg p0 in mglRay function");
 	}
 	mglPoint p0=*p0_ptr;
-	double dt=luatop>3 ? (double)lua_tonumber(L,4) : 0.1;
-	double tmax=luatop>4 ? (double)lua_tonumber(L,5) : 10;
+	double dt=luatop>3 ? (double)lua_tonumber(L,4) : (double)0.1;
+	double tmax=luatop>4 ? (double)lua_tonumber(L,5) : (double)10;
 
 	mglData stack_lret = ::mglRay(ham, r0, p0, dt, tmax);
 	mglData* lret = new mglData(stack_lret);
@@ -20779,11 +20779,11 @@ static int _bind_mgl_create_data_size_(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in uintptr_t mgl_create_data_size_(int * nx, int * ny, int * nz) function, expected prototype:\nuintptr_t mgl_create_data_size_(int * nx, int * ny, int * nz)\nClass arguments details:\n");
 	}
 
-	int nx=(int)lua_tointeger(L,1);
-	int ny=(int)lua_tointeger(L,2);
-	int nz=(int)lua_tointeger(L,3);
+	int* nx=(int*)Luna< void >::check(L,1);
+	int* ny=(int*)Luna< void >::check(L,2);
+	int* nz=(int*)Luna< void >::check(L,3);
 
-	uintptr_t stack_lret = ::mgl_create_data_size_(&nx, &ny, &nz);
+	uintptr_t stack_lret = ::mgl_create_data_size_(nx, ny, nz);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -20896,11 +20896,11 @@ static int _bind_mgl_data_rearrange_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int mx=(int)lua_tointeger(L,2);
-	int my=(int)lua_tointeger(L,3);
-	int mz=(int)lua_tointeger(L,4);
+	int* mx=(int*)Luna< void >::check(L,2);
+	int* my=(int*)Luna< void >::check(L,3);
+	int* mz=(int*)Luna< void >::check(L,4);
 
-	::mgl_data_rearrange_(dat, &mx, &my, &mz);
+	::mgl_data_rearrange_(dat, mx, my, mz);
 
 	return 0;
 }
@@ -20913,12 +20913,12 @@ static int _bind_mgl_data_set_float(lua_State *L) {
 	}
 
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
-	float A=(float)lua_tonumber(L,2);
+	const float* A=(const float*)Luna< void >::check(L,2);
 	long mx=(long)lua_tointeger(L,3);
 	long my=(long)lua_tointeger(L,4);
 	long mz=(long)lua_tointeger(L,5);
 
-	::mgl_data_set_float(dat, &A, mx, my, mz);
+	::mgl_data_set_float(dat, A, mx, my, mz);
 
 	return 0;
 }
@@ -20931,12 +20931,12 @@ static int _bind_mgl_data_set_float_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	float A=(float)lua_tonumber(L,2);
-	int NX=(int)lua_tointeger(L,3);
-	int NY=(int)lua_tointeger(L,4);
-	int NZ=(int)lua_tointeger(L,5);
+	const float* A=(const float*)Luna< void >::check(L,2);
+	int* NX=(int*)Luna< void >::check(L,3);
+	int* NY=(int*)Luna< void >::check(L,4);
+	int* NZ=(int*)Luna< void >::check(L,5);
 
-	::mgl_data_set_float_(dat, &A, &NX, &NY, &NZ);
+	::mgl_data_set_float_(dat, A, NX, NY, NZ);
 
 	return 0;
 }
@@ -20949,10 +20949,10 @@ static int _bind_mgl_data_set_float1_(lua_State *L) {
 	}
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
-	float A=(float)lua_tonumber(L,2);
-	int N1=(int)lua_tointeger(L,3);
+	const float* A=(const float*)Luna< void >::check(L,2);
+	int* N1=(int*)Luna< void >::check(L,3);
 
-	::mgl_data_set_float1_(d, &A, &N1);
+	::mgl_data_set_float1_(d, A, N1);
 
 	return 0;
 }
@@ -20965,12 +20965,12 @@ static int _bind_mgl_data_set_double(lua_State *L) {
 	}
 
 	mglData* dat=(Luna< mglDataA >::checkSubType< mglData >(L,1));
-	double A=(double)lua_tonumber(L,2);
+	const double* A=(const double*)Luna< void >::check(L,2);
 	long mx=(long)lua_tointeger(L,3);
 	long my=(long)lua_tointeger(L,4);
 	long mz=(long)lua_tointeger(L,5);
 
-	::mgl_data_set_double(dat, &A, mx, my, mz);
+	::mgl_data_set_double(dat, A, mx, my, mz);
 
 	return 0;
 }
@@ -20983,12 +20983,12 @@ static int _bind_mgl_data_set_double_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double A=(double)lua_tonumber(L,2);
-	int NX=(int)lua_tointeger(L,3);
-	int NY=(int)lua_tointeger(L,4);
-	int NZ=(int)lua_tointeger(L,5);
+	const double* A=(const double*)Luna< void >::check(L,2);
+	int* NX=(int*)Luna< void >::check(L,3);
+	int* NY=(int*)Luna< void >::check(L,4);
+	int* NZ=(int*)Luna< void >::check(L,5);
 
-	::mgl_data_set_double_(dat, &A, &NX, &NY, &NZ);
+	::mgl_data_set_double_(dat, A, NX, NY, NZ);
 
 	return 0;
 }
@@ -21001,10 +21001,10 @@ static int _bind_mgl_data_set_double1_(lua_State *L) {
 	}
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
-	double A=(double)lua_tonumber(L,2);
-	int N1=(int)lua_tointeger(L,3);
+	const double* A=(const double*)Luna< void >::check(L,2);
+	int* N1=(int*)Luna< void >::check(L,3);
 
-	::mgl_data_set_double1_(d, &A, &N1);
+	::mgl_data_set_double1_(d, A, N1);
 
 	return 0;
 }
@@ -21017,11 +21017,11 @@ static int _bind_mgl_data_set_float2_(lua_State *L) {
 	}
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
-	float A=(float)lua_tonumber(L,2);
-	int N1=(int)lua_tointeger(L,3);
-	int N2=(int)lua_tointeger(L,4);
+	const float* A=(const float*)Luna< void >::check(L,2);
+	int* N1=(int*)Luna< void >::check(L,3);
+	int* N2=(int*)Luna< void >::check(L,4);
 
-	::mgl_data_set_float2_(d, &A, &N1, &N2);
+	::mgl_data_set_float2_(d, A, N1, N2);
 
 	return 0;
 }
@@ -21034,11 +21034,11 @@ static int _bind_mgl_data_set_double2_(lua_State *L) {
 	}
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
-	double A=(double)lua_tonumber(L,2);
-	int N1=(int)lua_tointeger(L,3);
-	int N2=(int)lua_tointeger(L,4);
+	const double* A=(const double*)Luna< void >::check(L,2);
+	int* N1=(int*)Luna< void >::check(L,3);
+	int* N2=(int*)Luna< void >::check(L,4);
 
-	::mgl_data_set_double2_(d, &A, &N1, &N2);
+	::mgl_data_set_double2_(d, A, N1, N2);
 
 	return 0;
 }
@@ -21051,12 +21051,12 @@ static int _bind_mgl_data_set_float3_(lua_State *L) {
 	}
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
-	float A=(float)lua_tonumber(L,2);
-	int N1=(int)lua_tointeger(L,3);
-	int N2=(int)lua_tointeger(L,4);
-	int N3=(int)lua_tointeger(L,5);
+	const float* A=(const float*)Luna< void >::check(L,2);
+	int* N1=(int*)Luna< void >::check(L,3);
+	int* N2=(int*)Luna< void >::check(L,4);
+	int* N3=(int*)Luna< void >::check(L,5);
 
-	::mgl_data_set_float3_(d, &A, &N1, &N2, &N3);
+	::mgl_data_set_float3_(d, A, N1, N2, N3);
 
 	return 0;
 }
@@ -21069,12 +21069,12 @@ static int _bind_mgl_data_set_double3_(lua_State *L) {
 	}
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
-	double A=(double)lua_tonumber(L,2);
-	int N1=(int)lua_tointeger(L,3);
-	int N2=(int)lua_tointeger(L,4);
-	int N3=(int)lua_tointeger(L,5);
+	const double* A=(const double*)Luna< void >::check(L,2);
+	int* N1=(int*)Luna< void >::check(L,3);
+	int* N2=(int*)Luna< void >::check(L,4);
+	int* N3=(int*)Luna< void >::check(L,5);
 
-	::mgl_data_set_double3_(d, &A, &N1, &N2, &N3);
+	::mgl_data_set_double3_(d, A, N1, N2, N3);
 
 	return 0;
 }
@@ -21135,12 +21135,12 @@ static int _bind_mgl_data_set_value_(lua_State *L) {
 	}
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
-	double v=(double)lua_tonumber(L,2);
-	int i=(int)lua_tointeger(L,3);
-	int j=(int)lua_tointeger(L,4);
-	int k=(int)lua_tointeger(L,5);
+	double* v=(double*)Luna< void >::check(L,2);
+	int* i=(int*)Luna< void >::check(L,3);
+	int* j=(int*)Luna< void >::check(L,4);
+	int* k=(int*)Luna< void >::check(L,5);
 
-	::mgl_data_set_value_(d, &v, &i, &j, &k);
+	::mgl_data_set_value_(d, v, i, j, k);
 
 	return 0;
 }
@@ -21171,11 +21171,11 @@ static int _bind_mgl_data_get_value_(lua_State *L) {
 	}
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
-	int i=(int)lua_tointeger(L,2);
-	int j=(int)lua_tointeger(L,3);
-	int k=(int)lua_tointeger(L,4);
+	int* i=(int*)Luna< void >::check(L,2);
+	int* j=(int*)Luna< void >::check(L,3);
+	int* k=(int*)Luna< void >::check(L,4);
 
-	double lret = ::mgl_data_get_value_(d, &i, &j, &k);
+	double lret = ::mgl_data_get_value_(d, i, j, k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21208,12 +21208,12 @@ static int _bind_mgl_data_set_values_(lua_State *L) {
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
 	const char * val=(const char *)lua_tostring(L,2);
-	int nx=(int)lua_tointeger(L,3);
-	int ny=(int)lua_tointeger(L,4);
-	int nz=(int)lua_tointeger(L,5);
+	int* nx=(int*)Luna< void >::check(L,3);
+	int* ny=(int*)Luna< void >::check(L,4);
+	int* nz=(int*)Luna< void >::check(L,5);
 	int l=(int)lua_tointeger(L,6);
 
-	::mgl_data_set_values_(d, val, &nx, &ny, &nz, l);
+	::mgl_data_set_values_(d, val, nx, ny, nz, l);
 
 	return 0;
 }
@@ -21281,11 +21281,11 @@ static int _bind_mgl_data_save_hdf_(lua_State *L) {
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * data=(const char *)lua_tostring(L,3);
-	int rewrite=(int)lua_tointeger(L,4);
+	int* rewrite=(int*)Luna< void >::check(L,4);
 	int l=(int)lua_tointeger(L,5);
 	int n=(int)lua_tointeger(L,6);
 
-	::mgl_data_save_hdf_(d, fname, data, &rewrite, l, n);
+	::mgl_data_save_hdf_(d, fname, data, rewrite, l, n);
 
 	return 0;
 }
@@ -21298,10 +21298,10 @@ static int _bind_mgl_datas_hdf(lua_State *L) {
 	}
 
 	const char * fname=(const char *)lua_tostring(L,1);
-	char buf=(char)lua_tointeger(L,2);
+	char* buf=(char*)Luna< void >::check(L,2);
 	long size=(long)lua_tointeger(L,3);
 
-	int lret = ::mgl_datas_hdf(fname, &buf, size);
+	int lret = ::mgl_datas_hdf(fname, buf, size);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21366,10 +21366,10 @@ static int _bind_mgl_data_read_mat_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
-	int dim=(int)lua_tointeger(L,3);
+	int* dim=(int*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	int lret = ::mgl_data_read_mat_(dat, fname, &dim, _arg4);
+	int lret = ::mgl_data_read_mat_(dat, fname, dim, _arg4);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21403,12 +21403,12 @@ static int _bind_mgl_data_read_dim_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
-	int mx=(int)lua_tointeger(L,3);
-	int my=(int)lua_tointeger(L,4);
-	int mz=(int)lua_tointeger(L,5);
+	int* mx=(int*)Luna< void >::check(L,3);
+	int* my=(int*)Luna< void >::check(L,4);
+	int* mz=(int*)Luna< void >::check(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	int lret = ::mgl_data_read_dim_(dat, fname, &mx, &my, &mz, _arg6);
+	int lret = ::mgl_data_read_dim_(dat, fname, mx, my, mz, _arg6);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21443,13 +21443,13 @@ static int _bind_mgl_data_read_range__overload_1(lua_State *L) {
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
-	double from=(double)lua_tonumber(L,3);
-	double to=(double)lua_tonumber(L,4);
-	double step=(double)lua_tonumber(L,5);
-	int as_slice=(int)lua_tointeger(L,6);
+	double* from=(double*)Luna< void >::check(L,3);
+	double* to=(double*)Luna< void >::check(L,4);
+	double* step=(double*)Luna< void >::check(L,5);
+	int* as_slice=(int*)Luna< void >::check(L,6);
 	int l=(int)lua_tointeger(L,7);
 
-	int lret = ::mgl_data_read_range_(d, fname, &from, &to, &step, &as_slice, l);
+	int lret = ::mgl_data_read_range_(d, fname, from, to, step, as_slice, l);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21464,13 +21464,13 @@ static int _bind_mgl_data_read_range__overload_2(lua_State *L) {
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
-	double from=(double)lua_tonumber(L,3);
-	double to=(double)lua_tonumber(L,4);
-	double step=(double)lua_tonumber(L,5);
-	int as_slice=(int)lua_tointeger(L,6);
+	double* from=(double*)Luna< void >::check(L,3);
+	double* to=(double*)Luna< void >::check(L,4);
+	double* step=(double*)Luna< void >::check(L,5);
+	int* as_slice=(int*)Luna< void >::check(L,6);
 	int l=(int)lua_tointeger(L,7);
 
-	int lret = ::mgl_data_read_range_(d, fname, &from, &to, &step, &as_slice, l);
+	int lret = ::mgl_data_read_range_(d, fname, from, to, step, as_slice, l);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21511,10 +21511,10 @@ static int _bind_mgl_data_read_all__overload_1(lua_State *L) {
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
-	int as_slice=(int)lua_tointeger(L,3);
+	int* as_slice=(int*)Luna< void >::check(L,3);
 	int l=(int)lua_tointeger(L,4);
 
-	int lret = ::mgl_data_read_all_(d, fname, &as_slice, l);
+	int lret = ::mgl_data_read_all_(d, fname, as_slice, l);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21529,10 +21529,10 @@ static int _bind_mgl_data_read_all__overload_2(lua_State *L) {
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
-	int as_slice=(int)lua_tointeger(L,3);
+	int* as_slice=(int*)Luna< void >::check(L,3);
 	int l=(int)lua_tointeger(L,4);
 
-	int lret = ::mgl_data_read_all_(d, fname, &as_slice, l);
+	int lret = ::mgl_data_read_all_(d, fname, as_slice, l);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -21572,10 +21572,10 @@ static int _bind_mgl_data_save_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
-	int ns=(int)lua_tointeger(L,3);
+	int* ns=(int*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_data_save_(dat, fname, &ns, _arg4);
+	::mgl_data_save_(dat, fname, ns, _arg4);
 
 	return 0;
 }
@@ -21609,13 +21609,13 @@ static int _bind_mgl_data_export_(lua_State *L) {
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * scheme=(const char *)lua_tostring(L,3);
-	double v1=(double)lua_tonumber(L,4);
-	double v2=(double)lua_tonumber(L,5);
-	int ns=(int)lua_tointeger(L,6);
+	double* v1=(double*)Luna< void >::check(L,4);
+	double* v2=(double*)Luna< void >::check(L,5);
+	int* ns=(int*)Luna< void >::check(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_data_export_(dat, fname, scheme, &v1, &v2, &ns, _arg7, _arg8);
+	::mgl_data_export_(dat, fname, scheme, v1, v2, ns, _arg7, _arg8);
 
 	return 0;
 }
@@ -21648,12 +21648,12 @@ static int _bind_mgl_data_import_(lua_State *L) {
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * scheme=(const char *)lua_tostring(L,3);
-	double v1=(double)lua_tonumber(L,4);
-	double v2=(double)lua_tonumber(L,5);
+	double* v1=(double*)Luna< void >::check(L,4);
+	double* v2=(double*)Luna< void >::check(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_data_import_(dat, fname, scheme, &v1, &v2, _arg6, _arg7);
+	::mgl_data_import_(dat, fname, scheme, v1, v2, _arg6, _arg7);
 
 	return 0;
 }
@@ -21683,11 +21683,11 @@ static int _bind_mgl_data_create_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int nx=(int)lua_tointeger(L,2);
-	int ny=(int)lua_tointeger(L,3);
-	int nz=(int)lua_tointeger(L,4);
+	int* nx=(int*)Luna< void >::check(L,2);
+	int* ny=(int*)Luna< void >::check(L,3);
+	int* nz=(int*)Luna< void >::check(L,4);
 
-	::mgl_data_create_(dat, &nx, &ny, &nz);
+	::mgl_data_create_(dat, nx, ny, nz);
 
 	return 0;
 }
@@ -21749,12 +21749,12 @@ static int _bind_mgl_data_norm_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double v1=(double)lua_tonumber(L,2);
-	double v2=(double)lua_tonumber(L,3);
-	int sym=(int)lua_tointeger(L,4);
-	int dim=(int)lua_tointeger(L,5);
+	double* v1=(double*)Luna< void >::check(L,2);
+	double* v2=(double*)Luna< void >::check(L,3);
+	int* sym=(int*)Luna< void >::check(L,4);
+	int* dim=(int*)Luna< void >::check(L,5);
 
-	::mgl_data_norm_(dat, &v1, &v2, &sym, &dim);
+	::mgl_data_norm_(dat, v1, v2, sym, dim);
 
 	return 0;
 }
@@ -21786,14 +21786,14 @@ static int _bind_mgl_data_norm_slice_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double v1=(double)lua_tonumber(L,2);
-	double v2=(double)lua_tonumber(L,3);
-	char dir=(char)lua_tointeger(L,4);
-	int keep_en=(int)lua_tointeger(L,5);
-	int sym=(int)lua_tointeger(L,6);
+	double* v1=(double*)Luna< void >::check(L,2);
+	double* v2=(double*)Luna< void >::check(L,3);
+	char* dir=(char*)Luna< void >::check(L,4);
+	int* keep_en=(int*)Luna< void >::check(L,5);
+	int* sym=(int*)Luna< void >::check(L,6);
 	int l=(int)lua_tointeger(L,7);
 
-	::mgl_data_norm_slice_(dat, &v1, &v2, &dir, &keep_en, &sym, l);
+	::mgl_data_norm_slice_(dat, v1, v2, dir, keep_en, sym, l);
 
 	return 0;
 }
@@ -21826,11 +21826,11 @@ static int _bind_mgl_data_subdata_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int xx=(int)lua_tointeger(L,2);
-	int yy=(int)lua_tointeger(L,3);
-	int zz=(int)lua_tointeger(L,4);
+	int* xx=(int*)Luna< void >::check(L,2);
+	int* yy=(int*)Luna< void >::check(L,3);
+	int* zz=(int*)Luna< void >::check(L,4);
 
-	uintptr_t stack_lret = ::mgl_data_subdata_(dat, &xx, &yy, &zz);
+	uintptr_t stack_lret = ::mgl_data_subdata_(dat, xx, yy, zz);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -21974,12 +21974,12 @@ static int _bind_mgl_data_fill_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double x1=(double)lua_tonumber(L,2);
-	double x2=(double)lua_tonumber(L,3);
+	double* x1=(double*)Luna< void >::check(L,2);
+	double* x2=(double*)Luna< void >::check(L,3);
 	const char * dir=(const char *)lua_tostring(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	::mgl_data_fill_(dat, &x1, &x2, dir, _arg5);
+	::mgl_data_fill_(dat, x1, x2, dir, _arg5);
 
 	return 0;
 }
@@ -22089,12 +22089,12 @@ static int _bind_mgl_data_put_val_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double val=(double)lua_tonumber(L,2);
-	int i=(int)lua_tointeger(L,3);
-	int j=(int)lua_tointeger(L,4);
-	int k=(int)lua_tointeger(L,5);
+	double* val=(double*)Luna< void >::check(L,2);
+	int* i=(int*)Luna< void >::check(L,3);
+	int* j=(int*)Luna< void >::check(L,4);
+	int* k=(int*)Luna< void >::check(L,5);
 
-	::mgl_data_put_val_(dat, &val, &i, &j, &k);
+	::mgl_data_put_val_(dat, val, i, j, k);
 
 	return 0;
 }
@@ -22126,11 +22126,11 @@ static int _bind_mgl_data_put_dat_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* val=(Luna< uintptr_t >::check(L,2));
-	int i=(int)lua_tointeger(L,3);
-	int j=(int)lua_tointeger(L,4);
-	int k=(int)lua_tointeger(L,5);
+	int* i=(int*)Luna< void >::check(L,3);
+	int* j=(int*)Luna< void >::check(L,4);
+	int* k=(int*)Luna< void >::check(L,5);
 
-	::mgl_data_put_dat_(dat, val, &i, &j, &k);
+	::mgl_data_put_dat_(dat, val, i, j, k);
 
 	return 0;
 }
@@ -22160,10 +22160,10 @@ static int _bind_mgl_data_modify_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * eq=(const char *)lua_tostring(L,2);
-	int dim=(int)lua_tointeger(L,3);
+	int* dim=(int*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_data_modify_(dat, eq, &dim, _arg4);
+	::mgl_data_modify_(dat, eq, dim, _arg4);
 
 	return 0;
 }
@@ -22229,12 +22229,12 @@ static int _bind_mgl_data_squeeze_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int rx=(int)lua_tointeger(L,2);
-	int ry=(int)lua_tointeger(L,3);
-	int rz=(int)lua_tointeger(L,4);
-	int smooth=(int)lua_tointeger(L,5);
+	int* rx=(int*)Luna< void >::check(L,2);
+	int* ry=(int*)Luna< void >::check(L,3);
+	int* rz=(int*)Luna< void >::check(L,4);
+	int* smooth=(int*)Luna< void >::check(L,5);
 
-	::mgl_data_squeeze_(dat, &rx, &ry, &rz, &smooth);
+	::mgl_data_squeeze_(dat, rx, ry, rz, smooth);
 
 	return 0;
 }
@@ -22431,11 +22431,11 @@ static int _bind_mgl_data_first(lua_State *L) {
 
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
 	const char * cond=(const char *)lua_tostring(L,2);
-	long i=(long)lua_tointeger(L,3);
-	long j=(long)lua_tointeger(L,4);
-	long k=(long)lua_tointeger(L,5);
+	long* i=(long*)Luna< void >::check(L,3);
+	long* j=(long*)Luna< void >::check(L,4);
+	long* k=(long*)Luna< void >::check(L,5);
 
-	double lret = ::mgl_data_first(dat, cond, &i, &j, &k);
+	double lret = ::mgl_data_first(dat, cond, i, j, k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22450,12 +22450,12 @@ static int _bind_mgl_data_first_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * cond=(const char *)lua_tostring(L,2);
-	int i=(int)lua_tointeger(L,3);
-	int j=(int)lua_tointeger(L,4);
-	int k=(int)lua_tointeger(L,5);
+	int* i=(int*)Luna< void >::check(L,3);
+	int* j=(int*)Luna< void >::check(L,4);
+	int* k=(int*)Luna< void >::check(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	double lret = ::mgl_data_first_(dat, cond, &i, &j, &k, _arg6);
+	double lret = ::mgl_data_first_(dat, cond, i, j, k, _arg6);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22470,11 +22470,11 @@ static int _bind_mgl_data_last(lua_State *L) {
 
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
 	const char * cond=(const char *)lua_tostring(L,2);
-	long i=(long)lua_tointeger(L,3);
-	long j=(long)lua_tointeger(L,4);
-	long k=(long)lua_tointeger(L,5);
+	long* i=(long*)Luna< void >::check(L,3);
+	long* j=(long*)Luna< void >::check(L,4);
+	long* k=(long*)Luna< void >::check(L,5);
 
-	double lret = ::mgl_data_last(dat, cond, &i, &j, &k);
+	double lret = ::mgl_data_last(dat, cond, i, j, k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22489,12 +22489,12 @@ static int _bind_mgl_data_last_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * cond=(const char *)lua_tostring(L,2);
-	int i=(int)lua_tointeger(L,3);
-	int j=(int)lua_tointeger(L,4);
-	int k=(int)lua_tointeger(L,5);
+	int* i=(int*)Luna< void >::check(L,3);
+	int* j=(int*)Luna< void >::check(L,4);
+	int* k=(int*)Luna< void >::check(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	double lret = ::mgl_data_last_(dat, cond, &i, &j, &k, _arg6);
+	double lret = ::mgl_data_last_(dat, cond, i, j, k, _arg6);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22529,14 +22529,14 @@ static int _bind_mgl_data_find_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * cond=(const char *)lua_tostring(L,2);
-	char dir=(char)lua_tointeger(L,3);
-	int i=(int)lua_tointeger(L,4);
-	int j=(int)lua_tointeger(L,5);
-	int k=(int)lua_tointeger(L,6);
+	char* dir=(char*)Luna< void >::check(L,3);
+	int* i=(int*)Luna< void >::check(L,4);
+	int* j=(int*)Luna< void >::check(L,5);
+	int* k=(int*)Luna< void >::check(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	int lret = ::mgl_data_find_(dat, cond, &dir, &i, &j, &k, _arg7, _arg8);
+	int lret = ::mgl_data_find_(dat, cond, dir, i, j, k, _arg7, _arg8);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22583,11 +22583,11 @@ static int _bind_mgl_data_max_int(lua_State *L) {
 	}
 
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
-	long i=(long)lua_tointeger(L,2);
-	long j=(long)lua_tointeger(L,3);
-	long k=(long)lua_tointeger(L,4);
+	long* i=(long*)Luna< void >::check(L,2);
+	long* j=(long*)Luna< void >::check(L,3);
+	long* k=(long*)Luna< void >::check(L,4);
 
-	double lret = ::mgl_data_max_int(dat, &i, &j, &k);
+	double lret = ::mgl_data_max_int(dat, i, j, k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22601,11 +22601,11 @@ static int _bind_mgl_data_max_int_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int i=(int)lua_tointeger(L,2);
-	int j=(int)lua_tointeger(L,3);
-	int k=(int)lua_tointeger(L,4);
+	int* i=(int*)Luna< void >::check(L,2);
+	int* j=(int*)Luna< void >::check(L,3);
+	int* k=(int*)Luna< void >::check(L,4);
 
-	double lret = ::mgl_data_max_int_(dat, &i, &j, &k);
+	double lret = ::mgl_data_max_int_(dat, i, j, k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22619,11 +22619,11 @@ static int _bind_mgl_data_max_real(lua_State *L) {
 	}
 
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 
-	double lret = ::mgl_data_max_real(dat, &x, &y, &z);
+	double lret = ::mgl_data_max_real(dat, x, y, z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22637,11 +22637,11 @@ static int _bind_mgl_data_max_real_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 
-	double lret = ::mgl_data_max_real_(dat, &x, &y, &z);
+	double lret = ::mgl_data_max_real_(dat, x, y, z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22655,11 +22655,11 @@ static int _bind_mgl_data_min_int(lua_State *L) {
 	}
 
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
-	long i=(long)lua_tointeger(L,2);
-	long j=(long)lua_tointeger(L,3);
-	long k=(long)lua_tointeger(L,4);
+	long* i=(long*)Luna< void >::check(L,2);
+	long* j=(long*)Luna< void >::check(L,3);
+	long* k=(long*)Luna< void >::check(L,4);
 
-	double lret = ::mgl_data_min_int(dat, &i, &j, &k);
+	double lret = ::mgl_data_min_int(dat, i, j, k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22673,11 +22673,11 @@ static int _bind_mgl_data_min_int_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int i=(int)lua_tointeger(L,2);
-	int j=(int)lua_tointeger(L,3);
-	int k=(int)lua_tointeger(L,4);
+	int* i=(int*)Luna< void >::check(L,2);
+	int* j=(int*)Luna< void >::check(L,3);
+	int* k=(int*)Luna< void >::check(L,4);
 
-	double lret = ::mgl_data_min_int_(dat, &i, &j, &k);
+	double lret = ::mgl_data_min_int_(dat, i, j, k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22691,11 +22691,11 @@ static int _bind_mgl_data_min_real(lua_State *L) {
 	}
 
 	const mglDataA* dat=(Luna< mglDataA >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 
-	double lret = ::mgl_data_min_real(dat, &x, &y, &z);
+	double lret = ::mgl_data_min_real(dat, x, y, z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22709,11 +22709,11 @@ static int _bind_mgl_data_min_real_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 
-	double lret = ::mgl_data_min_real_(dat, &x, &y, &z);
+	double lret = ::mgl_data_min_real_(dat, x, y, z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22728,12 +22728,12 @@ static int _bind_mgl_data_momentum_val(lua_State *L) {
 
 	const mglDataA* d=(Luna< mglDataA >::check(L,1));
 	char dir=(char)lua_tointeger(L,2);
-	double m=(double)lua_tonumber(L,3);
-	double w=(double)lua_tonumber(L,4);
-	double s=(double)lua_tonumber(L,5);
-	double k=(double)lua_tonumber(L,6);
+	double* m=(double*)Luna< void >::check(L,3);
+	double* w=(double*)Luna< void >::check(L,4);
+	double* s=(double*)Luna< void >::check(L,5);
+	double* k=(double*)Luna< void >::check(L,6);
 
-	double lret = ::mgl_data_momentum_val(d, dir, &m, &w, &s, &k);
+	double lret = ::mgl_data_momentum_val(d, dir, m, w, s, k);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22747,14 +22747,14 @@ static int _bind_mgl_data_momentum_val_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	char dir=(char)lua_tointeger(L,2);
-	double m=(double)lua_tonumber(L,3);
-	double w=(double)lua_tonumber(L,4);
-	double s=(double)lua_tonumber(L,5);
-	double k=(double)lua_tonumber(L,6);
+	char* dir=(char*)Luna< void >::check(L,2);
+	double* m=(double*)Luna< void >::check(L,3);
+	double* w=(double*)Luna< void >::check(L,4);
+	double* s=(double*)Luna< void >::check(L,5);
+	double* k=(double*)Luna< void >::check(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	double lret = ::mgl_data_momentum_val_(dat, &dir, &m, &w, &s, &k, _arg7);
+	double lret = ::mgl_data_momentum_val_(dat, dir, m, w, s, k, _arg7);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -22821,10 +22821,10 @@ static int _bind_mgl_data_extend_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int n1=(int)lua_tointeger(L,2);
-	int n2=(int)lua_tointeger(L,3);
+	int* n1=(int*)Luna< void >::check(L,2);
+	int* n2=(int*)Luna< void >::check(L,3);
 
-	::mgl_data_extend_(dat, &n1, &n2);
+	::mgl_data_extend_(dat, n1, n2);
 
 	return 0;
 }
@@ -22855,11 +22855,11 @@ static int _bind_mgl_data_insert_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
-	int at=(int)lua_tointeger(L,3);
-	int num=(int)lua_tointeger(L,4);
+	int* at=(int*)Luna< void >::check(L,3);
+	int* num=(int*)Luna< void >::check(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	::mgl_data_insert_(dat, dir, &at, &num, _arg5);
+	::mgl_data_insert_(dat, dir, at, num, _arg5);
 
 	return 0;
 }
@@ -22890,11 +22890,11 @@ static int _bind_mgl_data_delete_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
-	int at=(int)lua_tointeger(L,3);
-	int num=(int)lua_tointeger(L,4);
+	int* at=(int*)Luna< void >::check(L,3);
+	int* num=(int*)Luna< void >::check(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	::mgl_data_delete_(dat, dir, &at, &num, _arg5);
+	::mgl_data_delete_(dat, dir, at, num, _arg5);
 
 	return 0;
 }
@@ -22924,10 +22924,10 @@ static int _bind_mgl_data_smooth_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * dirs=(const char *)lua_tostring(L,2);
-	double delta=(double)lua_tonumber(L,3);
+	double* delta=(double*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_data_smooth_(dat, dirs, &delta, _arg4);
+	::mgl_data_smooth_(dat, dirs, delta, _arg4);
 
 	return 0;
 }
@@ -23260,10 +23260,10 @@ static int _bind_mgl_data_roll_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
-	int num=(int)lua_tointeger(L,3);
+	int* num=(int*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_data_roll_(dat, dir, &num, _arg4);
+	::mgl_data_roll_(dat, dir, num, _arg4);
 
 	return 0;
 }
@@ -23323,10 +23323,10 @@ static int _bind_mgl_data_sort_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int idx=(int)lua_tointeger(L,2);
-	int idy=(int)lua_tointeger(L,3);
+	int* idx=(int*)Luna< void >::check(L,2);
+	int* idy=(int*)Luna< void >::check(L,3);
 
-	::mgl_data_sort_(dat, &idx, &idy);
+	::mgl_data_sort_(dat, idx, idy);
 
 	return 0;
 }
@@ -23481,11 +23481,11 @@ static int _bind_mgl_data_spline_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 
-	double lret = ::mgl_data_spline_(dat, &x, &y, &z);
+	double lret = ::mgl_data_spline_(dat, x, y, z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23517,11 +23517,11 @@ static int _bind_mgl_data_linear_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 
-	double lret = ::mgl_data_linear_(dat, &x, &y, &z);
+	double lret = ::mgl_data_linear_(dat, x, y, z);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23538,11 +23538,11 @@ static int _bind_mgl_data_spline_ext(lua_State *L) {
 	double x=(double)lua_tonumber(L,2);
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
-	double dx=(double)lua_tonumber(L,5);
-	double dy=(double)lua_tonumber(L,6);
-	double dz=(double)lua_tonumber(L,7);
+	double* dx=(double*)Luna< void >::check(L,5);
+	double* dy=(double*)Luna< void >::check(L,6);
+	double* dz=(double*)Luna< void >::check(L,7);
 
-	double lret = ::mgl_data_spline_ext(dat, x, y, z, &dx, &dy, &dz);
+	double lret = ::mgl_data_spline_ext(dat, x, y, z, dx, dy, dz);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23556,14 +23556,14 @@ static int _bind_mgl_data_spline_ext_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
-	double dx=(double)lua_tonumber(L,5);
-	double dy=(double)lua_tonumber(L,6);
-	double dz=(double)lua_tonumber(L,7);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
+	double* dx=(double*)Luna< void >::check(L,5);
+	double* dy=(double*)Luna< void >::check(L,6);
+	double* dz=(double*)Luna< void >::check(L,7);
 
-	double lret = ::mgl_data_spline_ext_(dat, &x, &y, &z, &dx, &dy, &dz);
+	double lret = ::mgl_data_spline_ext_(dat, x, y, z, dx, dy, dz);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23580,11 +23580,11 @@ static int _bind_mgl_data_linear_ext(lua_State *L) {
 	double x=(double)lua_tonumber(L,2);
 	double y=(double)lua_tonumber(L,3);
 	double z=(double)lua_tonumber(L,4);
-	double dx=(double)lua_tonumber(L,5);
-	double dy=(double)lua_tonumber(L,6);
-	double dz=(double)lua_tonumber(L,7);
+	double* dx=(double*)Luna< void >::check(L,5);
+	double* dy=(double*)Luna< void >::check(L,6);
+	double* dz=(double*)Luna< void >::check(L,7);
 
-	double lret = ::mgl_data_linear_ext(dat, x, y, z, &dx, &dy, &dz);
+	double lret = ::mgl_data_linear_ext(dat, x, y, z, dx, dy, dz);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23598,14 +23598,14 @@ static int _bind_mgl_data_linear_ext_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
-	double dx=(double)lua_tonumber(L,5);
-	double dy=(double)lua_tonumber(L,6);
-	double dz=(double)lua_tonumber(L,7);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
+	double* dx=(double*)Luna< void >::check(L,5);
+	double* dy=(double*)Luna< void >::check(L,6);
+	double* dz=(double*)Luna< void >::check(L,7);
 
-	double lret = ::mgl_data_linear_ext_(dat, &x, &y, &z, &dx, &dy, &dz);
+	double lret = ::mgl_data_linear_ext_(dat, x, y, z, dx, dy, dz);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23637,11 +23637,11 @@ static int _bind_mgl_data_solve_1d_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double val=(double)lua_tonumber(L,2);
-	int spl=(int)lua_tointeger(L,3);
-	int i0=(int)lua_tointeger(L,4);
+	double* val=(double*)Luna< void >::check(L,2);
+	int* spl=(int*)Luna< void >::check(L,3);
+	int* i0=(int*)Luna< void >::check(L,4);
 
-	double lret = ::mgl_data_solve_1d_(dat, &val, &spl, &i0);
+	double lret = ::mgl_data_solve_1d_(dat, val, spl, i0);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -23676,13 +23676,13 @@ static int _bind_mgl_data_solve_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double val=(double)lua_tonumber(L,2);
+	double* val=(double*)Luna< void >::check(L,2);
 	const char * dir=(const char *)lua_tostring(L,3);
 	uintptr_t* i0=(Luna< uintptr_t >::check(L,4));
-	int norm=(int)lua_tointeger(L,5);
+	int* norm=(int*)Luna< void >::check(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	uintptr_t stack_lret = ::mgl_data_solve_(dat, &val, dir, i0, &norm, _arg6);
+	uintptr_t stack_lret = ::mgl_data_solve_(dat, val, dir, i0, norm, _arg6);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23754,11 +23754,11 @@ static int _bind_mgl_data_resize_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int mx=(int)lua_tointeger(L,2);
-	int my=(int)lua_tointeger(L,3);
-	int mz=(int)lua_tointeger(L,4);
+	int* mx=(int*)Luna< void >::check(L,2);
+	int* my=(int*)Luna< void >::check(L,3);
+	int* mz=(int*)Luna< void >::check(L,4);
 
-	uintptr_t stack_lret = ::mgl_data_resize_(dat, &mx, &my, &mz);
+	uintptr_t stack_lret = ::mgl_data_resize_(dat, mx, my, mz);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23801,17 +23801,17 @@ static int _bind_mgl_data_resize_box_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int mx=(int)lua_tointeger(L,2);
-	int my=(int)lua_tointeger(L,3);
-	int mz=(int)lua_tointeger(L,4);
-	double x1=(double)lua_tonumber(L,5);
-	double x2=(double)lua_tonumber(L,6);
-	double y1=(double)lua_tonumber(L,7);
-	double y2=(double)lua_tonumber(L,8);
-	double z1=(double)lua_tonumber(L,9);
-	double z2=(double)lua_tonumber(L,10);
+	int* mx=(int*)Luna< void >::check(L,2);
+	int* my=(int*)Luna< void >::check(L,3);
+	int* mz=(int*)Luna< void >::check(L,4);
+	double* x1=(double*)Luna< void >::check(L,5);
+	double* x2=(double*)Luna< void >::check(L,6);
+	double* y1=(double*)Luna< void >::check(L,7);
+	double* y2=(double*)Luna< void >::check(L,8);
+	double* z1=(double*)Luna< void >::check(L,9);
+	double* z2=(double*)Luna< void >::check(L,10);
 
-	uintptr_t stack_lret = ::mgl_data_resize_box_(dat, &mx, &my, &mz, &x1, &x2, &y1, &y2, &z1, &z2);
+	uintptr_t stack_lret = ::mgl_data_resize_box_(dat, mx, my, mz, x1, x2, y1, y2, z1, z2);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23849,12 +23849,12 @@ static int _bind_mgl_data_momentum_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	char dir=(char)lua_tointeger(L,2);
+	char* dir=(char*)Luna< void >::check(L,2);
 	const char * how=(const char *)lua_tostring(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	uintptr_t stack_lret = ::mgl_data_momentum_(dat, &dir, how, _arg4, _arg5);
+	uintptr_t stack_lret = ::mgl_data_momentum_(dat, dir, how, _arg4, _arg5);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23893,12 +23893,12 @@ static int _bind_mgl_data_hist_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int n=(int)lua_tointeger(L,2);
-	double v1=(double)lua_tonumber(L,3);
-	double v2=(double)lua_tonumber(L,4);
-	int nsub=(int)lua_tointeger(L,5);
+	int* n=(int*)Luna< void >::check(L,2);
+	double* v1=(double*)Luna< void >::check(L,3);
+	double* v2=(double*)Luna< void >::check(L,4);
+	int* nsub=(int*)Luna< void >::check(L,5);
 
-	uintptr_t stack_lret = ::mgl_data_hist_(dat, &n, &v1, &v2, &nsub);
+	uintptr_t stack_lret = ::mgl_data_hist_(dat, n, v1, v2, nsub);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23935,12 +23935,12 @@ static int _bind_mgl_data_hist_w_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* weight=(Luna< uintptr_t >::check(L,2));
-	int n=(int)lua_tointeger(L,3);
-	double v1=(double)lua_tonumber(L,4);
-	double v2=(double)lua_tonumber(L,5);
-	int nsub=(int)lua_tointeger(L,6);
+	int* n=(int*)Luna< void >::check(L,3);
+	double* v1=(double*)Luna< void >::check(L,4);
+	double* v2=(double*)Luna< void >::check(L,5);
+	int* nsub=(int*)Luna< void >::check(L,6);
 
-	uintptr_t stack_lret = ::mgl_data_hist_w_(dat, weight, &n, &v1, &v2, &nsub);
+	uintptr_t stack_lret = ::mgl_data_hist_w_(dat, weight, n, v1, v2, nsub);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -23981,9 +23981,9 @@ static int _bind_mgl_data_evaluate_(lua_State *L) {
 	uintptr_t* idat=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* jdat=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* kdat=(Luna< uintptr_t >::check(L,4));
-	int norm=(int)lua_tointeger(L,5);
+	int* norm=(int*)Luna< void >::check(L,5);
 
-	uintptr_t stack_lret = ::mgl_data_evaluate_(dat, idat, jdat, kdat, &norm);
+	uintptr_t stack_lret = ::mgl_data_evaluate_(dat, idat, jdat, kdat, norm);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24048,10 +24048,10 @@ static int _bind_mgl_data_sew_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * dirs=(const char *)lua_tostring(L,2);
-	double da=(double)lua_tonumber(L,3);
+	double* da=(double*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_data_sew_(dat, dirs, &da, _arg4);
+	::mgl_data_sew_(dat, dirs, da, _arg4);
 
 	return 0;
 }
@@ -24081,12 +24081,12 @@ static int _bind_mgl_data_crop__overload_1(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int n1=(int)lua_tointeger(L,2);
-	int n2=(int)lua_tointeger(L,3);
+	int* n1=(int*)Luna< void >::check(L,2);
+	int* n2=(int*)Luna< void >::check(L,3);
 	const char * dir=(const char *)lua_tostring(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	::mgl_data_crop_(dat, &n1, &n2, dir, _arg5);
+	::mgl_data_crop_(dat, n1, n2, dir, _arg5);
 
 	return 0;
 }
@@ -24099,12 +24099,12 @@ static int _bind_mgl_data_crop__overload_2(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int n1=(int)lua_tointeger(L,2);
-	int n2=(int)lua_tointeger(L,3);
+	int* n1=(int*)Luna< void >::check(L,2);
+	int* n2=(int*)Luna< void >::check(L,3);
 	const char * dir=(const char *)lua_tostring(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	::mgl_data_crop_(dat, &n1, &n2, dir, _arg5);
+	::mgl_data_crop_(dat, n1, n2, dir, _arg5);
 
 	return 0;
 }
@@ -24141,9 +24141,9 @@ static int _bind_mgl_data_clean_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int id=(int)lua_tointeger(L,2);
+	int* id=(int*)Luna< void >::check(L,2);
 
-	::mgl_data_clean_(dat, &id);
+	::mgl_data_clean_(dat, id);
 
 	return 0;
 }
@@ -24291,9 +24291,9 @@ static int _bind_mgl_data_mul_num_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double d=(double)lua_tonumber(L,2);
+	double* d=(double*)Luna< void >::check(L,2);
 
-	::mgl_data_mul_num_(dat, &d);
+	::mgl_data_mul_num_(dat, d);
 
 	return 0;
 }
@@ -24321,9 +24321,9 @@ static int _bind_mgl_data_div_num_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double d=(double)lua_tonumber(L,2);
+	double* d=(double*)Luna< void >::check(L,2);
 
-	::mgl_data_div_num_(dat, &d);
+	::mgl_data_div_num_(dat, d);
 
 	return 0;
 }
@@ -24351,9 +24351,9 @@ static int _bind_mgl_data_add_num_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double d=(double)lua_tonumber(L,2);
+	double* d=(double*)Luna< void >::check(L,2);
 
-	::mgl_data_add_num_(dat, &d);
+	::mgl_data_add_num_(dat, d);
 
 	return 0;
 }
@@ -24381,9 +24381,9 @@ static int _bind_mgl_data_sub_num_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double d=(double)lua_tonumber(L,2);
+	double* d=(double*)Luna< void >::check(L,2);
 
-	::mgl_data_sub_num_(dat, &d);
+	::mgl_data_sub_num_(dat, d);
 
 	return 0;
 }
@@ -24422,13 +24422,13 @@ static int _bind_mgl_pde_solve_(lua_State *L) {
 	const char * ham=(const char *)lua_tostring(L,2);
 	uintptr_t* ini_re=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* ini_im=(Luna< uintptr_t >::check(L,4));
-	double dz=(double)lua_tonumber(L,5);
-	double k0=(double)lua_tonumber(L,6);
+	double* dz=(double*)Luna< void >::check(L,5);
+	double* k0=(double*)Luna< void >::check(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	uintptr_t stack_lret = ::mgl_pde_solve_(gr, ham, ini_re, ini_im, &dz, &k0, opt, _arg8, _arg9);
+	uintptr_t stack_lret = ::mgl_pde_solve_(gr, ham, ini_re, ini_im, dz, k0, opt, _arg8, _arg9);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24472,13 +24472,13 @@ static int _bind_mgl_qo2d_solve_(lua_State *L) {
 	uintptr_t* ini_re=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* ini_im=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* ray=(Luna< uintptr_t >::check(L,4));
-	double r=(double)lua_tonumber(L,5);
-	double k0=(double)lua_tonumber(L,6);
+	double* r=(double*)Luna< void >::check(L,5);
+	double* k0=(double*)Luna< void >::check(L,6);
 	uintptr_t* xx=(Luna< uintptr_t >::check(L,7));
 	uintptr_t* yy=(Luna< uintptr_t >::check(L,8));
 	int _arg9=(int)lua_tointeger(L,9);
 
-	uintptr_t stack_lret = ::mgl_qo2d_solve_(ham, ini_re, ini_im, ray, &r, &k0, xx, yy, _arg9);
+	uintptr_t stack_lret = ::mgl_qo2d_solve_(ham, ini_re, ini_im, ray, r, k0, xx, yy, _arg9);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24520,17 +24520,17 @@ static int _bind_mgl_ray_trace_(lua_State *L) {
 	}
 
 	const char * ham=(const char *)lua_tostring(L,1);
-	double x0=(double)lua_tonumber(L,2);
-	double y0=(double)lua_tonumber(L,3);
-	double z0=(double)lua_tonumber(L,4);
-	double px=(double)lua_tonumber(L,5);
-	double py=(double)lua_tonumber(L,6);
-	double pz=(double)lua_tonumber(L,7);
-	double dt=(double)lua_tonumber(L,8);
-	double tmax=(double)lua_tonumber(L,9);
+	double* x0=(double*)Luna< void >::check(L,2);
+	double* y0=(double*)Luna< void >::check(L,3);
+	double* z0=(double*)Luna< void >::check(L,4);
+	double* px=(double*)Luna< void >::check(L,5);
+	double* py=(double*)Luna< void >::check(L,6);
+	double* pz=(double*)Luna< void >::check(L,7);
+	double* dt=(double*)Luna< void >::check(L,8);
+	double* tmax=(double*)Luna< void >::check(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	uintptr_t stack_lret = ::mgl_ray_trace_(ham, &x0, &y0, &z0, &px, &py, &pz, &dt, &tmax, _arg10);
+	uintptr_t stack_lret = ::mgl_ray_trace_(ham, x0, y0, z0, px, py, pz, dt, tmax, _arg10);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24757,11 +24757,11 @@ static int _bind_mgl_data_stfa_(lua_State *L) {
 
 	uintptr_t* re=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* im=(Luna< uintptr_t >::check(L,2));
-	int dn=(int)lua_tointeger(L,3);
-	char dir=(char)lua_tointeger(L,4);
+	int* dn=(int*)Luna< void >::check(L,3);
+	char* dir=(char*)Luna< void >::check(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	uintptr_t stack_lret = ::mgl_data_stfa_(re, im, &dn, &dir, _arg5);
+	uintptr_t stack_lret = ::mgl_data_stfa_(re, im, dn, dir, _arg5);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -24905,11 +24905,11 @@ static int _bind_mgl_create_datac_size_(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in uintptr_t mgl_create_datac_size_(int * nx, int * ny, int * nz) function, expected prototype:\nuintptr_t mgl_create_datac_size_(int * nx, int * ny, int * nz)\nClass arguments details:\n");
 	}
 
-	int nx=(int)lua_tointeger(L,1);
-	int ny=(int)lua_tointeger(L,2);
-	int nz=(int)lua_tointeger(L,3);
+	int* nx=(int*)Luna< void >::check(L,1);
+	int* ny=(int*)Luna< void >::check(L,2);
+	int* nz=(int*)Luna< void >::check(L,3);
 
-	uintptr_t stack_lret = ::mgl_create_datac_size_(&nx, &ny, &nz);
+	uintptr_t stack_lret = ::mgl_create_datac_size_(nx, ny, nz);
 	uintptr_t* lret = new uintptr_t(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -25007,11 +25007,11 @@ static int _bind_mgl_datac_rearrange_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int mx=(int)lua_tointeger(L,2);
-	int my=(int)lua_tointeger(L,3);
-	int mz=(int)lua_tointeger(L,4);
+	int* mx=(int*)Luna< void >::check(L,2);
+	int* my=(int*)Luna< void >::check(L,3);
+	int* mz=(int*)Luna< void >::check(L,4);
 
-	::mgl_datac_rearrange_(dat, &mx, &my, &mz);
+	::mgl_datac_rearrange_(dat, mx, my, mz);
 
 	return 0;
 }
@@ -25043,11 +25043,11 @@ static int _bind_mgl_datac_link_(lua_State *L) {
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
 	dual* A=(Luna< std::complex< double > >::checkSubType< dual >(L,2));
-	int nx=(int)lua_tointeger(L,3);
-	int ny=(int)lua_tointeger(L,4);
-	int nz=(int)lua_tointeger(L,5);
+	int* nx=(int*)Luna< void >::check(L,3);
+	int* ny=(int*)Luna< void >::check(L,4);
+	int* nz=(int*)Luna< void >::check(L,5);
 
-	::mgl_datac_link_(d, A, &nx, &ny, &nz);
+	::mgl_datac_link_(d, A, nx, ny, nz);
 
 	return 0;
 }
@@ -25060,12 +25060,12 @@ static int _bind_mgl_datac_set_float(lua_State *L) {
 	}
 
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
-	float A=(float)lua_tonumber(L,2);
+	const float* A=(const float*)Luna< void >::check(L,2);
 	long mx=(long)lua_tointeger(L,3);
 	long my=(long)lua_tointeger(L,4);
 	long mz=(long)lua_tointeger(L,5);
 
-	::mgl_datac_set_float(dat, &A, mx, my, mz);
+	::mgl_datac_set_float(dat, A, mx, my, mz);
 
 	return 0;
 }
@@ -25078,12 +25078,12 @@ static int _bind_mgl_datac_set_float_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	float A=(float)lua_tonumber(L,2);
-	int NX=(int)lua_tointeger(L,3);
-	int NY=(int)lua_tointeger(L,4);
-	int NZ=(int)lua_tointeger(L,5);
+	const float* A=(const float*)Luna< void >::check(L,2);
+	int* NX=(int*)Luna< void >::check(L,3);
+	int* NY=(int*)Luna< void >::check(L,4);
+	int* NZ=(int*)Luna< void >::check(L,5);
 
-	::mgl_datac_set_float_(dat, &A, &NX, &NY, &NZ);
+	::mgl_datac_set_float_(dat, A, NX, NY, NZ);
 
 	return 0;
 }
@@ -25096,12 +25096,12 @@ static int _bind_mgl_datac_set_double(lua_State *L) {
 	}
 
 	mglDataC* dat=(Luna< mglDataA >::checkSubType< mglDataC >(L,1));
-	double A=(double)lua_tonumber(L,2);
+	const double* A=(const double*)Luna< void >::check(L,2);
 	long mx=(long)lua_tointeger(L,3);
 	long my=(long)lua_tointeger(L,4);
 	long mz=(long)lua_tointeger(L,5);
 
-	::mgl_datac_set_double(dat, &A, mx, my, mz);
+	::mgl_datac_set_double(dat, A, mx, my, mz);
 
 	return 0;
 }
@@ -25114,12 +25114,12 @@ static int _bind_mgl_datac_set_double_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	double A=(double)lua_tonumber(L,2);
-	int NX=(int)lua_tointeger(L,3);
-	int NY=(int)lua_tointeger(L,4);
-	int NZ=(int)lua_tointeger(L,5);
+	const double* A=(const double*)Luna< void >::check(L,2);
+	int* NX=(int*)Luna< void >::check(L,3);
+	int* NY=(int*)Luna< void >::check(L,4);
+	int* NZ=(int*)Luna< void >::check(L,5);
 
-	::mgl_datac_set_double_(dat, &A, &NX, &NY, &NZ);
+	::mgl_datac_set_double_(dat, A, NX, NY, NZ);
 
 	return 0;
 }
@@ -25151,11 +25151,11 @@ static int _bind_mgl_datac_set_complex_(lua_State *L) {
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
 	const dual* A=(Luna< std::complex< double > >::checkSubType< dual >(L,2));
-	int NX=(int)lua_tointeger(L,3);
-	int NY=(int)lua_tointeger(L,4);
-	int NZ=(int)lua_tointeger(L,5);
+	int* NX=(int*)Luna< void >::check(L,3);
+	int* NY=(int*)Luna< void >::check(L,4);
+	int* NZ=(int*)Luna< void >::check(L,5);
 
-	::mgl_datac_set_complex_(d, A, &NX, &NY, &NZ);
+	::mgl_datac_set_complex_(d, A, NX, NY, NZ);
 
 	return 0;
 }
@@ -25371,10 +25371,10 @@ static int _bind_mgl_datac_read_mat_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
-	int dim=(int)lua_tointeger(L,3);
+	int* dim=(int*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	int lret = ::mgl_datac_read_mat_(dat, fname, &dim, _arg4);
+	int lret = ::mgl_datac_read_mat_(dat, fname, dim, _arg4);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -25408,12 +25408,12 @@ static int _bind_mgl_datac_read_dim_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
-	int mx=(int)lua_tointeger(L,3);
-	int my=(int)lua_tointeger(L,4);
-	int mz=(int)lua_tointeger(L,5);
+	int* mx=(int*)Luna< void >::check(L,3);
+	int* my=(int*)Luna< void >::check(L,4);
+	int* mz=(int*)Luna< void >::check(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	int lret = ::mgl_datac_read_dim_(dat, fname, &mx, &my, &mz, _arg6);
+	int lret = ::mgl_datac_read_dim_(dat, fname, mx, my, mz, _arg6);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -25481,10 +25481,10 @@ static int _bind_mgl_datac_save_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
-	int ns=(int)lua_tointeger(L,3);
+	int* ns=(int*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_datac_save_(dat, fname, &ns, _arg4);
+	::mgl_datac_save_(dat, fname, ns, _arg4);
 
 	return 0;
 }
@@ -25552,11 +25552,11 @@ static int _bind_mgl_datac_save_hdf_(lua_State *L) {
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
 	const char * fname=(const char *)lua_tostring(L,2);
 	const char * data=(const char *)lua_tostring(L,3);
-	int rewrite=(int)lua_tointeger(L,4);
+	int* rewrite=(int*)Luna< void >::check(L,4);
 	int l=(int)lua_tointeger(L,5);
 	int n=(int)lua_tointeger(L,6);
 
-	::mgl_datac_save_hdf_(d, fname, data, &rewrite, l, n);
+	::mgl_datac_save_hdf_(d, fname, data, rewrite, l, n);
 
 	return 0;
 }
@@ -25586,11 +25586,11 @@ static int _bind_mgl_datac_create_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int nx=(int)lua_tointeger(L,2);
-	int ny=(int)lua_tointeger(L,3);
-	int nz=(int)lua_tointeger(L,4);
+	int* nx=(int*)Luna< void >::check(L,2);
+	int* ny=(int*)Luna< void >::check(L,3);
+	int* nz=(int*)Luna< void >::check(L,4);
 
-	::mgl_datac_create_(dat, &nx, &ny, &nz);
+	::mgl_datac_create_(dat, nx, ny, nz);
 
 	return 0;
 }
@@ -25682,10 +25682,10 @@ static int _bind_mgl_datac_modify_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * eq=(const char *)lua_tostring(L,2);
-	int dim=(int)lua_tointeger(L,3);
+	int* dim=(int*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_datac_modify_(dat, eq, &dim, _arg4);
+	::mgl_datac_modify_(dat, eq, dim, _arg4);
 
 	return 0;
 }
@@ -25751,12 +25751,12 @@ static int _bind_mgl_datac_squeeze_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int rx=(int)lua_tointeger(L,2);
-	int ry=(int)lua_tointeger(L,3);
-	int rz=(int)lua_tointeger(L,4);
-	int smooth=(int)lua_tointeger(L,5);
+	int* rx=(int*)Luna< void >::check(L,2);
+	int* ry=(int*)Luna< void >::check(L,3);
+	int* rz=(int*)Luna< void >::check(L,4);
+	int* smooth=(int*)Luna< void >::check(L,5);
 
-	::mgl_datac_squeeze_(dat, &rx, &ry, &rz, &smooth);
+	::mgl_datac_squeeze_(dat, rx, ry, rz, smooth);
 
 	return 0;
 }
@@ -25785,10 +25785,10 @@ static int _bind_mgl_datac_extend_(lua_State *L) {
 	}
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
-	int n1=(int)lua_tointeger(L,2);
-	int n2=(int)lua_tointeger(L,3);
+	int* n1=(int*)Luna< void >::check(L,2);
+	int* n2=(int*)Luna< void >::check(L,3);
 
-	::mgl_datac_extend_(dat, &n1, &n2);
+	::mgl_datac_extend_(dat, n1, n2);
 
 	return 0;
 }
@@ -25819,11 +25819,11 @@ static int _bind_mgl_datac_insert_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
-	int at=(int)lua_tointeger(L,3);
-	int num=(int)lua_tointeger(L,4);
+	int* at=(int*)Luna< void >::check(L,3);
+	int* num=(int*)Luna< void >::check(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	::mgl_datac_insert_(dat, dir, &at, &num, _arg5);
+	::mgl_datac_insert_(dat, dir, at, num, _arg5);
 
 	return 0;
 }
@@ -25854,11 +25854,11 @@ static int _bind_mgl_datac_delete_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
-	int at=(int)lua_tointeger(L,3);
-	int num=(int)lua_tointeger(L,4);
+	int* at=(int*)Luna< void >::check(L,3);
+	int* num=(int*)Luna< void >::check(L,4);
 	int _arg5=(int)lua_tointeger(L,5);
 
-	::mgl_datac_delete_(dat, dir, &at, &num, _arg5);
+	::mgl_datac_delete_(dat, dir, at, num, _arg5);
 
 	return 0;
 }
@@ -25888,10 +25888,10 @@ static int _bind_mgl_datac_smooth_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * dirs=(const char *)lua_tostring(L,2);
-	double delta=(double)lua_tonumber(L,3);
+	double* delta=(double*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_datac_smooth_(dat, dirs, &delta, _arg4);
+	::mgl_datac_smooth_(dat, dirs, delta, _arg4);
 
 	return 0;
 }
@@ -26076,10 +26076,10 @@ static int _bind_mgl_datac_roll_(lua_State *L) {
 
 	uintptr_t* dat=(Luna< uintptr_t >::check(L,1));
 	const char * dir=(const char *)lua_tostring(L,2);
-	int num=(int)lua_tointeger(L,3);
+	int* num=(int*)Luna< void >::check(L,3);
 	int _arg4=(int)lua_tointeger(L,4);
 
-	::mgl_datac_roll_(dat, dir, &num, _arg4);
+	::mgl_datac_roll_(dat, dir, num, _arg4);
 
 	return 0;
 }
@@ -26363,11 +26363,11 @@ static int _bind_mgl_datac_linear_(lua_State *L) {
 	}
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 
-	dual stack_lret = ::mgl_datac_linear_(d, &x, &y, &z);
+	dual stack_lret = ::mgl_datac_linear_(d, x, y, z);
 	dual* lret = new dual(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26408,14 +26408,14 @@ static int _bind_mgl_datac_linear_ext_(lua_State *L) {
 	}
 
 	uintptr_t* d=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 	dual* dx=(Luna< std::complex< double > >::checkSubType< dual >(L,5));
 	dual* dy=(Luna< std::complex< double > >::checkSubType< dual >(L,6));
 	dual* dz=(Luna< std::complex< double > >::checkSubType< dual >(L,7));
 
-	dual stack_lret = ::mgl_datac_linear_ext_(d, &x, &y, &z, dx, dy, dz);
+	dual stack_lret = ::mgl_datac_linear_ext_(d, x, y, z, dx, dy, dz);
 	dual* lret = new dual(stack_lret);
 	if(!lret) return 0; // Do not write NULL pointers.
 
@@ -26475,9 +26475,9 @@ static int _bind_mgl_strtrim(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void mgl_strtrim(char * str) function, expected prototype:\nvoid mgl_strtrim(char * str)\nClass arguments details:\n");
 	}
 
-	char str=(char)lua_tointeger(L,1);
+	char* str=(char*)Luna< void >::check(L,1);
 
-	::mgl_strtrim(&str);
+	::mgl_strtrim(str);
 
 	return 0;
 }
@@ -26489,9 +26489,9 @@ static int _bind_mgl_strlwr(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void mgl_strlwr(char * str) function, expected prototype:\nvoid mgl_strlwr(char * str)\nClass arguments details:\n");
 	}
 
-	char str=(char)lua_tointeger(L,1);
+	char* str=(char*)Luna< void >::check(L,1);
 
-	::mgl_strlwr(&str);
+	::mgl_strlwr(str);
 
 	return 0;
 }
@@ -27183,16 +27183,16 @@ static int _bind_mgl_puts_fit_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 	const char * prefix=(const char *)lua_tostring(L,5);
 	const char * font=(const char *)lua_tostring(L,6);
-	double size=(double)lua_tonumber(L,7);
+	double* size=(double*)Luna< void >::check(L,7);
 	int l=(int)lua_tointeger(L,8);
 	int n=(int)lua_tointeger(L,9);
 
-	::mgl_puts_fit_(gr, &x, &y, &z, prefix, font, &size, l, n);
+	::mgl_puts_fit_(gr, x, y, z, prefix, font, size, l, n);
 
 	return 0;
 }
@@ -27207,10 +27207,10 @@ static int _bind_mglGetStyle(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	const char * how=(const char *)lua_tostring(L,1);
-	int font=(int)lua_tointeger(L,2);
-	int align=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+	int* font=(int*)Luna< void >::check(L,2);
+	int* align=luatop>2 ? (int*)Luna< void >::check(L,3) : (int*)0;
 
-	char lret = ::mglGetStyle(how, &font, &align);
+	char lret = ::mglGetStyle(how, font, align);
 	lua_pushnumber(L,lret);
 
 	return 1;
@@ -27827,12 +27827,12 @@ static int _bind_mgl_dens_x_(lua_State *L) {
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 	const char * stl=(const char *)lua_tostring(L,3);
-	double sVal=(double)lua_tonumber(L,4);
+	double* sVal=(double*)Luna< void >::check(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_dens_x_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_dens_x_(graph, a, stl, sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -27865,12 +27865,12 @@ static int _bind_mgl_dens_y_(lua_State *L) {
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 	const char * stl=(const char *)lua_tostring(L,3);
-	double sVal=(double)lua_tonumber(L,4);
+	double* sVal=(double*)Luna< void >::check(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_dens_y_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_dens_y_(graph, a, stl, sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -27903,12 +27903,12 @@ static int _bind_mgl_dens_z_(lua_State *L) {
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 	const char * stl=(const char *)lua_tostring(L,3);
-	double sVal=(double)lua_tonumber(L,4);
+	double* sVal=(double*)Luna< void >::check(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_dens_z_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_dens_z_(graph, a, stl, sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -27941,12 +27941,12 @@ static int _bind_mgl_cont_x_(lua_State *L) {
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 	const char * stl=(const char *)lua_tostring(L,3);
-	double sVal=(double)lua_tonumber(L,4);
+	double* sVal=(double*)Luna< void >::check(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_cont_x_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_cont_x_(graph, a, stl, sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -27979,12 +27979,12 @@ static int _bind_mgl_cont_y_(lua_State *L) {
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 	const char * stl=(const char *)lua_tostring(L,3);
-	double sVal=(double)lua_tonumber(L,4);
+	double* sVal=(double*)Luna< void >::check(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_cont_y_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_cont_y_(graph, a, stl, sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -28017,12 +28017,12 @@ static int _bind_mgl_cont_z_(lua_State *L) {
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 	const char * stl=(const char *)lua_tostring(L,3);
-	double sVal=(double)lua_tonumber(L,4);
+	double* sVal=(double*)Luna< void >::check(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_cont_z_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_cont_z_(graph, a, stl, sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -28057,12 +28057,12 @@ static int _bind_mgl_cont_x_val_(lua_State *L) {
 	uintptr_t* v=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,3));
 	const char * stl=(const char *)lua_tostring(L,4);
-	double sVal=(double)lua_tonumber(L,5);
+	double* sVal=(double*)Luna< void >::check(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_cont_x_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
+	::mgl_cont_x_val_(graph, v, a, stl, sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28097,12 +28097,12 @@ static int _bind_mgl_cont_y_val_(lua_State *L) {
 	uintptr_t* v=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,3));
 	const char * stl=(const char *)lua_tostring(L,4);
-	double sVal=(double)lua_tonumber(L,5);
+	double* sVal=(double*)Luna< void >::check(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_cont_y_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
+	::mgl_cont_y_val_(graph, v, a, stl, sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28137,12 +28137,12 @@ static int _bind_mgl_cont_z_val_(lua_State *L) {
 	uintptr_t* v=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,3));
 	const char * stl=(const char *)lua_tostring(L,4);
-	double sVal=(double)lua_tonumber(L,5);
+	double* sVal=(double*)Luna< void >::check(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_cont_z_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
+	::mgl_cont_z_val_(graph, v, a, stl, sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28175,12 +28175,12 @@ static int _bind_mgl_contf_x_(lua_State *L) {
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 	const char * stl=(const char *)lua_tostring(L,3);
-	double sVal=(double)lua_tonumber(L,4);
+	double* sVal=(double*)Luna< void >::check(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_contf_x_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_contf_x_(graph, a, stl, sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -28213,12 +28213,12 @@ static int _bind_mgl_contf_y_(lua_State *L) {
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 	const char * stl=(const char *)lua_tostring(L,3);
-	double sVal=(double)lua_tonumber(L,4);
+	double* sVal=(double*)Luna< void >::check(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_contf_y_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_contf_y_(graph, a, stl, sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -28251,12 +28251,12 @@ static int _bind_mgl_contf_z_(lua_State *L) {
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,2));
 	const char * stl=(const char *)lua_tostring(L,3);
-	double sVal=(double)lua_tonumber(L,4);
+	double* sVal=(double*)Luna< void >::check(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_contf_z_(graph, a, stl, &sVal, opt, _arg6, _arg7);
+	::mgl_contf_z_(graph, a, stl, sVal, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -28291,12 +28291,12 @@ static int _bind_mgl_contf_x_val_(lua_State *L) {
 	uintptr_t* v=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,3));
 	const char * stl=(const char *)lua_tostring(L,4);
-	double sVal=(double)lua_tonumber(L,5);
+	double* sVal=(double*)Luna< void >::check(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_contf_x_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
+	::mgl_contf_x_val_(graph, v, a, stl, sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28331,12 +28331,12 @@ static int _bind_mgl_contf_y_val_(lua_State *L) {
 	uintptr_t* v=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,3));
 	const char * stl=(const char *)lua_tostring(L,4);
-	double sVal=(double)lua_tonumber(L,5);
+	double* sVal=(double*)Luna< void >::check(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_contf_y_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
+	::mgl_contf_y_val_(graph, v, a, stl, sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -28371,12 +28371,12 @@ static int _bind_mgl_contf_z_val_(lua_State *L) {
 	uintptr_t* v=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,3));
 	const char * stl=(const char *)lua_tostring(L,4);
-	double sVal=(double)lua_tonumber(L,5);
+	double* sVal=(double*)Luna< void >::check(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_contf_z_val_(graph, v, a, stl, &sVal, opt, _arg7, _arg8);
+	::mgl_contf_z_val_(graph, v, a, stl, sVal, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -29954,13 +29954,13 @@ static int _bind_mgl_tube_xyz_(lua_State *L) {
 	uintptr_t* x=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* y=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* z=(Luna< uintptr_t >::check(L,4));
-	double r=(double)lua_tonumber(L,5);
+	double* r=(double*)Luna< void >::check(L,5);
 	const char * pen=(const char *)lua_tostring(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	::mgl_tube_xyz_(graph, x, y, z, &r, pen, opt, _arg8, _arg9);
+	::mgl_tube_xyz_(graph, x, y, z, r, pen, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -29994,13 +29994,13 @@ static int _bind_mgl_tube_xy_(lua_State *L) {
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* x=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* y=(Luna< uintptr_t >::check(L,3));
-	double r=(double)lua_tonumber(L,4);
+	double* r=(double*)Luna< void >::check(L,4);
 	const char * pen=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_tube_xy_(graph, x, y, &r, pen, opt, _arg7, _arg8);
+	::mgl_tube_xy_(graph, x, y, r, pen, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -30032,13 +30032,13 @@ static int _bind_mgl_tube_(lua_State *L) {
 
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* y=(Luna< uintptr_t >::check(L,2));
-	double r=(double)lua_tonumber(L,3);
+	double* r=(double*)Luna< void >::check(L,3);
 	const char * pen=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_tube_(graph, y, &r, pen, opt, _arg6, _arg7);
+	::mgl_tube_(graph, y, r, pen, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -30195,13 +30195,13 @@ static int _bind_mgl_mark_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 	const char * mark=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 
-	::mgl_mark_(gr, &x, &y, &z, mark, _arg6);
+	::mgl_mark_(gr, x, y, z, mark, _arg6);
 
 	return 0;
 }
@@ -30231,11 +30231,11 @@ static int _bind_mgl_ball_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 
-	::mgl_ball_(gr, &x, &y, &z);
+	::mgl_ball_(gr, x, y, z);
 
 	return 0;
 }
@@ -30270,17 +30270,17 @@ static int _bind_mgl_line_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x1=(double)lua_tonumber(L,2);
-	double y1=(double)lua_tonumber(L,3);
-	double z1=(double)lua_tonumber(L,4);
-	double x2=(double)lua_tonumber(L,5);
-	double y2=(double)lua_tonumber(L,6);
-	double z2=(double)lua_tonumber(L,7);
+	double* x1=(double*)Luna< void >::check(L,2);
+	double* y1=(double*)Luna< void >::check(L,3);
+	double* z1=(double*)Luna< void >::check(L,4);
+	double* x2=(double*)Luna< void >::check(L,5);
+	double* y2=(double*)Luna< void >::check(L,6);
+	double* z2=(double*)Luna< void >::check(L,7);
 	const char * pen=(const char *)lua_tostring(L,8);
-	int n=(int)lua_tointeger(L,9);
+	int* n=(int*)Luna< void >::check(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	::mgl_line_(gr, &x1, &y1, &z1, &x2, &y2, &z2, pen, &n, _arg10);
+	::mgl_line_(gr, x1, y1, z1, x2, y2, z2, pen, n, _arg10);
 
 	return 0;
 }
@@ -30321,23 +30321,23 @@ static int _bind_mgl_curve_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x1=(double)lua_tonumber(L,2);
-	double y1=(double)lua_tonumber(L,3);
-	double z1=(double)lua_tonumber(L,4);
-	double dx1=(double)lua_tonumber(L,5);
-	double dy1=(double)lua_tonumber(L,6);
-	double dz1=(double)lua_tonumber(L,7);
-	double x2=(double)lua_tonumber(L,8);
-	double y2=(double)lua_tonumber(L,9);
-	double z2=(double)lua_tonumber(L,10);
-	double dx2=(double)lua_tonumber(L,11);
-	double dy2=(double)lua_tonumber(L,12);
-	double dz2=(double)lua_tonumber(L,13);
+	double* x1=(double*)Luna< void >::check(L,2);
+	double* y1=(double*)Luna< void >::check(L,3);
+	double* z1=(double*)Luna< void >::check(L,4);
+	double* dx1=(double*)Luna< void >::check(L,5);
+	double* dy1=(double*)Luna< void >::check(L,6);
+	double* dz1=(double*)Luna< void >::check(L,7);
+	double* x2=(double*)Luna< void >::check(L,8);
+	double* y2=(double*)Luna< void >::check(L,9);
+	double* z2=(double*)Luna< void >::check(L,10);
+	double* dx2=(double*)Luna< void >::check(L,11);
+	double* dy2=(double*)Luna< void >::check(L,12);
+	double* dz2=(double*)Luna< void >::check(L,13);
 	const char * pen=(const char *)lua_tostring(L,14);
-	int n=(int)lua_tointeger(L,15);
+	int* n=(int*)Luna< void >::check(L,15);
 	int l=(int)lua_tointeger(L,16);
 
-	::mgl_curve_(gr, &x1, &y1, &z1, &dx1, &dy1, &dz1, &x2, &y2, &z2, &dx2, &dy2, &dz2, pen, &n, l);
+	::mgl_curve_(gr, x1, y1, z1, dx1, dy1, dz1, x2, y2, z2, dx2, dy2, dz2, pen, n, l);
 
 	return 0;
 }
@@ -30371,16 +30371,16 @@ static int _bind_mgl_error_box_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
-	double ex=(double)lua_tonumber(L,5);
-	double ey=(double)lua_tonumber(L,6);
-	double ez=(double)lua_tonumber(L,7);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
+	double* ex=(double*)Luna< void >::check(L,5);
+	double* ey=(double*)Luna< void >::check(L,6);
+	double* ez=(double*)Luna< void >::check(L,7);
 	const char * pen=(const char *)lua_tostring(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	::mgl_error_box_(gr, &x, &y, &z, &ex, &ey, &ez, pen, _arg9);
+	::mgl_error_box_(gr, x, y, z, ex, ey, ez, pen, _arg9);
 
 	return 0;
 }
@@ -30420,22 +30420,22 @@ static int _bind_mgl_face_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x0=(double)lua_tonumber(L,2);
-	double y0=(double)lua_tonumber(L,3);
-	double z0=(double)lua_tonumber(L,4);
-	double x1=(double)lua_tonumber(L,5);
-	double y1=(double)lua_tonumber(L,6);
-	double z1=(double)lua_tonumber(L,7);
-	double x2=(double)lua_tonumber(L,8);
-	double y2=(double)lua_tonumber(L,9);
-	double z2=(double)lua_tonumber(L,10);
-	double x3=(double)lua_tonumber(L,11);
-	double y3=(double)lua_tonumber(L,12);
-	double z3=(double)lua_tonumber(L,13);
+	double* x0=(double*)Luna< void >::check(L,2);
+	double* y0=(double*)Luna< void >::check(L,3);
+	double* z0=(double*)Luna< void >::check(L,4);
+	double* x1=(double*)Luna< void >::check(L,5);
+	double* y1=(double*)Luna< void >::check(L,6);
+	double* z1=(double*)Luna< void >::check(L,7);
+	double* x2=(double*)Luna< void >::check(L,8);
+	double* y2=(double*)Luna< void >::check(L,9);
+	double* z2=(double*)Luna< void >::check(L,10);
+	double* x3=(double*)Luna< void >::check(L,11);
+	double* y3=(double*)Luna< void >::check(L,12);
+	double* z3=(double*)Luna< void >::check(L,13);
 	const char * stl=(const char *)lua_tostring(L,14);
 	int _arg15=(int)lua_tointeger(L,15);
 
-	::mgl_face_(gr, &x0, &y0, &z0, &x1, &y1, &z1, &x2, &y2, &z2, &x3, &y3, &z3, stl, _arg15);
+	::mgl_face_(gr, x0, y0, z0, x1, y1, z1, x2, y2, z2, x3, y3, z3, stl, _arg15);
 
 	return 0;
 }
@@ -30470,17 +30470,17 @@ static int _bind_mgl_facex_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x0=(double)lua_tonumber(L,2);
-	double y0=(double)lua_tonumber(L,3);
-	double z0=(double)lua_tonumber(L,4);
-	double wy=(double)lua_tonumber(L,5);
-	double wz=(double)lua_tonumber(L,6);
+	double* x0=(double*)Luna< void >::check(L,2);
+	double* y0=(double*)Luna< void >::check(L,3);
+	double* z0=(double*)Luna< void >::check(L,4);
+	double* wy=(double*)Luna< void >::check(L,5);
+	double* wz=(double*)Luna< void >::check(L,6);
 	const char * stl=(const char *)lua_tostring(L,7);
-	double dx=(double)lua_tonumber(L,8);
-	double dy=(double)lua_tonumber(L,9);
+	double* dx=(double*)Luna< void >::check(L,8);
+	double* dy=(double*)Luna< void >::check(L,9);
 	int l=(int)lua_tointeger(L,10);
 
-	::mgl_facex_(gr, &x0, &y0, &z0, &wy, &wz, stl, &dx, &dy, l);
+	::mgl_facex_(gr, x0, y0, z0, wy, wz, stl, dx, dy, l);
 
 	return 0;
 }
@@ -30515,17 +30515,17 @@ static int _bind_mgl_facey_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x0=(double)lua_tonumber(L,2);
-	double y0=(double)lua_tonumber(L,3);
-	double z0=(double)lua_tonumber(L,4);
-	double wx=(double)lua_tonumber(L,5);
-	double wz=(double)lua_tonumber(L,6);
+	double* x0=(double*)Luna< void >::check(L,2);
+	double* y0=(double*)Luna< void >::check(L,3);
+	double* z0=(double*)Luna< void >::check(L,4);
+	double* wx=(double*)Luna< void >::check(L,5);
+	double* wz=(double*)Luna< void >::check(L,6);
 	const char * stl=(const char *)lua_tostring(L,7);
-	double dx=(double)lua_tonumber(L,8);
-	double dy=(double)lua_tonumber(L,9);
+	double* dx=(double*)Luna< void >::check(L,8);
+	double* dy=(double*)Luna< void >::check(L,9);
 	int l=(int)lua_tointeger(L,10);
 
-	::mgl_facey_(gr, &x0, &y0, &z0, &wx, &wz, stl, &dx, &dy, l);
+	::mgl_facey_(gr, x0, y0, z0, wx, wz, stl, dx, dy, l);
 
 	return 0;
 }
@@ -30560,17 +30560,17 @@ static int _bind_mgl_facez_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x0=(double)lua_tonumber(L,2);
-	double y0=(double)lua_tonumber(L,3);
-	double z0=(double)lua_tonumber(L,4);
-	double wx=(double)lua_tonumber(L,5);
-	double wy=(double)lua_tonumber(L,6);
+	double* x0=(double*)Luna< void >::check(L,2);
+	double* y0=(double*)Luna< void >::check(L,3);
+	double* z0=(double*)Luna< void >::check(L,4);
+	double* wx=(double*)Luna< void >::check(L,5);
+	double* wy=(double*)Luna< void >::check(L,6);
 	const char * stl=(const char *)lua_tostring(L,7);
-	double dx=(double)lua_tonumber(L,8);
-	double dy=(double)lua_tonumber(L,9);
+	double* dx=(double*)Luna< void >::check(L,8);
+	double* dy=(double*)Luna< void >::check(L,9);
 	int l=(int)lua_tointeger(L,10);
 
-	::mgl_facez_(gr, &x0, &y0, &z0, &wx, &wy, stl, &dx, &dy, l);
+	::mgl_facez_(gr, x0, y0, z0, wx, wy, stl, dx, dy, l);
 
 	return 0;
 }
@@ -30602,14 +30602,14 @@ static int _bind_mgl_sphere_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
-	double r=(double)lua_tonumber(L,5);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
+	double* r=(double*)Luna< void >::check(L,5);
 	const char * stl=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_sphere_(gr, &x, &y, &z, &r, stl, _arg7);
+	::mgl_sphere_(gr, x, y, z, r, stl, _arg7);
 
 	return 0;
 }
@@ -30646,19 +30646,19 @@ static int _bind_mgl_drop_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x1=(double)lua_tonumber(L,2);
-	double y1=(double)lua_tonumber(L,3);
-	double z1=(double)lua_tonumber(L,4);
-	double x2=(double)lua_tonumber(L,5);
-	double y2=(double)lua_tonumber(L,6);
-	double z2=(double)lua_tonumber(L,7);
-	double r=(double)lua_tonumber(L,8);
+	double* x1=(double*)Luna< void >::check(L,2);
+	double* y1=(double*)Luna< void >::check(L,3);
+	double* z1=(double*)Luna< void >::check(L,4);
+	double* x2=(double*)Luna< void >::check(L,5);
+	double* y2=(double*)Luna< void >::check(L,6);
+	double* z2=(double*)Luna< void >::check(L,7);
+	double* r=(double*)Luna< void >::check(L,8);
 	const char * stl=(const char *)lua_tostring(L,9);
-	double shift=(double)lua_tonumber(L,10);
-	double ap=(double)lua_tonumber(L,11);
+	double* shift=(double*)Luna< void >::check(L,10);
+	double* ap=(double*)Luna< void >::check(L,11);
 	int _arg12=(int)lua_tointeger(L,12);
 
-	::mgl_drop_(gr, &x1, &y1, &z1, &x2, &y2, &z2, &r, stl, &shift, &ap, _arg12);
+	::mgl_drop_(gr, x1, y1, z1, x2, y2, z2, r, stl, shift, ap, _arg12);
 
 	return 0;
 }
@@ -30694,18 +30694,18 @@ static int _bind_mgl_cone_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x1=(double)lua_tonumber(L,2);
-	double y1=(double)lua_tonumber(L,3);
-	double z1=(double)lua_tonumber(L,4);
-	double x2=(double)lua_tonumber(L,5);
-	double y2=(double)lua_tonumber(L,6);
-	double z2=(double)lua_tonumber(L,7);
-	double r1=(double)lua_tonumber(L,8);
-	double r2=(double)lua_tonumber(L,9);
+	double* x1=(double*)Luna< void >::check(L,2);
+	double* y1=(double*)Luna< void >::check(L,3);
+	double* z1=(double*)Luna< void >::check(L,4);
+	double* x2=(double*)Luna< void >::check(L,5);
+	double* y2=(double*)Luna< void >::check(L,6);
+	double* z2=(double*)Luna< void >::check(L,7);
+	double* r1=(double*)Luna< void >::check(L,8);
+	double* r2=(double*)Luna< void >::check(L,9);
 	const char * stl=(const char *)lua_tostring(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	::mgl_cone_(gr, &x1, &y1, &z1, &x2, &y2, &z2, &r1, &r2, stl, _arg11);
+	::mgl_cone_(gr, x1, y1, z1, x2, y2, z2, r1, r2, stl, _arg11);
 
 	return 0;
 }
@@ -30740,17 +30740,17 @@ static int _bind_mgl_ellipse_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x1=(double)lua_tonumber(L,2);
-	double y1=(double)lua_tonumber(L,3);
-	double z1=(double)lua_tonumber(L,4);
-	double x2=(double)lua_tonumber(L,5);
-	double y2=(double)lua_tonumber(L,6);
-	double z2=(double)lua_tonumber(L,7);
-	double r=(double)lua_tonumber(L,8);
+	double* x1=(double*)Luna< void >::check(L,2);
+	double* y1=(double*)Luna< void >::check(L,3);
+	double* z1=(double*)Luna< void >::check(L,4);
+	double* x2=(double*)Luna< void >::check(L,5);
+	double* y2=(double*)Luna< void >::check(L,6);
+	double* z2=(double*)Luna< void >::check(L,7);
+	double* r=(double*)Luna< void >::check(L,8);
 	const char * stl=(const char *)lua_tostring(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	::mgl_ellipse_(gr, &x1, &y1, &z1, &x2, &y2, &z2, &r, stl, _arg10);
+	::mgl_ellipse_(gr, x1, y1, z1, x2, y2, z2, r, stl, _arg10);
 
 	return 0;
 }
@@ -30785,17 +30785,17 @@ static int _bind_mgl_rhomb_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x1=(double)lua_tonumber(L,2);
-	double y1=(double)lua_tonumber(L,3);
-	double z1=(double)lua_tonumber(L,4);
-	double x2=(double)lua_tonumber(L,5);
-	double y2=(double)lua_tonumber(L,6);
-	double z2=(double)lua_tonumber(L,7);
-	double r=(double)lua_tonumber(L,8);
+	double* x1=(double*)Luna< void >::check(L,2);
+	double* y1=(double*)Luna< void >::check(L,3);
+	double* z1=(double*)Luna< void >::check(L,4);
+	double* x2=(double*)Luna< void >::check(L,5);
+	double* y2=(double*)Luna< void >::check(L,6);
+	double* z2=(double*)Luna< void >::check(L,7);
+	double* r=(double*)Luna< void >::check(L,8);
 	const char * stl=(const char *)lua_tostring(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	::mgl_rhomb_(gr, &x1, &y1, &z1, &x2, &y2, &z2, &r, stl, _arg10);
+	::mgl_rhomb_(gr, x1, y1, z1, x2, y2, z2, r, stl, _arg10);
 
 	return 0;
 }
@@ -31002,16 +31002,16 @@ static int _bind_mgl_puts_(lua_State *L) {
 	}
 
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
 	const char * text=(const char *)lua_tostring(L,5);
 	const char * font=(const char *)lua_tostring(L,6);
-	double size=(double)lua_tonumber(L,7);
+	double* size=(double*)Luna< void >::check(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	::mgl_puts_(graph, &x, &y, &z, text, font, &size, _arg8, _arg9);
+	::mgl_puts_(graph, x, y, z, text, font, size, _arg8, _arg9);
 
 	return 0;
 }
@@ -31047,19 +31047,19 @@ static int _bind_mgl_puts_dir_(lua_State *L) {
 	}
 
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
-	double z=(double)lua_tonumber(L,4);
-	double dx=(double)lua_tonumber(L,5);
-	double dy=(double)lua_tonumber(L,6);
-	double dz=(double)lua_tonumber(L,7);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
+	double* z=(double*)Luna< void >::check(L,4);
+	double* dx=(double*)Luna< void >::check(L,5);
+	double* dy=(double*)Luna< void >::check(L,6);
+	double* dz=(double*)Luna< void >::check(L,7);
 	const char * text=(const char *)lua_tostring(L,8);
 	const char * font=(const char *)lua_tostring(L,9);
-	double size=(double)lua_tonumber(L,10);
+	double* size=(double*)Luna< void >::check(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 	int _arg12=(int)lua_tointeger(L,12);
 
-	::mgl_puts_dir_(graph, &x, &y, &z, &dx, &dy, &dz, text, font, &size, _arg11, _arg12);
+	::mgl_puts_dir_(graph, x, y, z, dx, dy, dz, text, font, size, _arg11, _arg12);
 
 	return 0;
 }
@@ -31260,8 +31260,8 @@ static int _bind_mgl_table_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x=(double)lua_tonumber(L,2);
-	double y=(double)lua_tonumber(L,3);
+	double* x=(double*)Luna< void >::check(L,2);
+	double* y=(double*)Luna< void >::check(L,3);
 	uintptr_t* val=(Luna< uintptr_t >::check(L,4));
 	const char * text=(const char *)lua_tostring(L,5);
 	const char * fnt=(const char *)lua_tostring(L,6);
@@ -31270,7 +31270,7 @@ static int _bind_mgl_table_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	::mgl_table_(gr, &x, &y, val, text, fnt, opt, _arg8, _arg9, _arg10);
+	::mgl_table_(gr, x, y, val, text, fnt, opt, _arg8, _arg9, _arg10);
 
 	return 0;
 }
@@ -32236,13 +32236,13 @@ static int _bind_mgl_stfa_xy_(lua_State *L) {
 	uintptr_t* y=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* re=(Luna< uintptr_t >::check(L,4));
 	uintptr_t* im=(Luna< uintptr_t >::check(L,5));
-	int dn=(int)lua_tointeger(L,6);
+	int* dn=(int*)Luna< void >::check(L,6);
 	const char * sch=(const char *)lua_tostring(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	::mgl_stfa_xy_(graph, x, y, re, im, &dn, sch, opt, _arg9, _arg10);
+	::mgl_stfa_xy_(graph, x, y, re, im, dn, sch, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -32276,13 +32276,13 @@ static int _bind_mgl_stfa_(lua_State *L) {
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
 	uintptr_t* re=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* im=(Luna< uintptr_t >::check(L,3));
-	int dn=(int)lua_tointeger(L,4);
+	int* dn=(int*)Luna< void >::check(L,4);
 	const char * sch=(const char *)lua_tostring(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_stfa_(graph, re, im, &dn, sch, opt, _arg7, _arg8);
+	::mgl_stfa_(graph, re, im, dn, sch, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -32837,9 +32837,9 @@ static int _bind_mgl_flowp_xy_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x0=(double)lua_tonumber(L,2);
-	double y0=(double)lua_tonumber(L,3);
-	double z0=(double)lua_tonumber(L,4);
+	double* x0=(double*)Luna< void >::check(L,2);
+	double* y0=(double*)Luna< void >::check(L,3);
+	double* z0=(double*)Luna< void >::check(L,4);
 	uintptr_t* x=(Luna< uintptr_t >::check(L,5));
 	uintptr_t* y=(Luna< uintptr_t >::check(L,6));
 	uintptr_t* ax=(Luna< uintptr_t >::check(L,7));
@@ -32849,7 +32849,7 @@ static int _bind_mgl_flowp_xy_(lua_State *L) {
 	int _arg11=(int)lua_tointeger(L,11);
 	int _arg12=(int)lua_tointeger(L,12);
 
-	::mgl_flowp_xy_(gr, &x0, &y0, &z0, x, y, ax, ay, sch, opt, _arg11, _arg12);
+	::mgl_flowp_xy_(gr, x0, y0, z0, x, y, ax, ay, sch, opt, _arg11, _arg12);
 
 	return 0;
 }
@@ -32883,9 +32883,9 @@ static int _bind_mgl_flowp_2d_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x0=(double)lua_tonumber(L,2);
-	double y0=(double)lua_tonumber(L,3);
-	double z0=(double)lua_tonumber(L,4);
+	double* x0=(double*)Luna< void >::check(L,2);
+	double* y0=(double*)Luna< void >::check(L,3);
+	double* z0=(double*)Luna< void >::check(L,4);
 	uintptr_t* ax=(Luna< uintptr_t >::check(L,5));
 	uintptr_t* ay=(Luna< uintptr_t >::check(L,6));
 	const char * sch=(const char *)lua_tostring(L,7);
@@ -32893,7 +32893,7 @@ static int _bind_mgl_flowp_2d_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	::mgl_flowp_2d_(gr, &x0, &y0, &z0, ax, ay, sch, opt, _arg9, _arg10);
+	::mgl_flowp_2d_(gr, x0, y0, z0, ax, ay, sch, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -32931,9 +32931,9 @@ static int _bind_mgl_flowp_xyz_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x0=(double)lua_tonumber(L,2);
-	double y0=(double)lua_tonumber(L,3);
-	double z0=(double)lua_tonumber(L,4);
+	double* x0=(double*)Luna< void >::check(L,2);
+	double* y0=(double*)Luna< void >::check(L,3);
+	double* z0=(double*)Luna< void >::check(L,4);
 	uintptr_t* x=(Luna< uintptr_t >::check(L,5));
 	uintptr_t* y=(Luna< uintptr_t >::check(L,6));
 	uintptr_t* z=(Luna< uintptr_t >::check(L,7));
@@ -32945,7 +32945,7 @@ static int _bind_mgl_flowp_xyz_(lua_State *L) {
 	int _arg13=(int)lua_tointeger(L,13);
 	int _arg14=(int)lua_tointeger(L,14);
 
-	::mgl_flowp_xyz_(gr, &x0, &y0, &z0, x, y, z, ax, ay, az, sch, opt, _arg13, _arg14);
+	::mgl_flowp_xyz_(gr, x0, y0, z0, x, y, z, ax, ay, az, sch, opt, _arg13, _arg14);
 
 	return 0;
 }
@@ -32980,9 +32980,9 @@ static int _bind_mgl_flowp_3d_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double x0=(double)lua_tonumber(L,2);
-	double y0=(double)lua_tonumber(L,3);
-	double z0=(double)lua_tonumber(L,4);
+	double* x0=(double*)Luna< void >::check(L,2);
+	double* y0=(double*)Luna< void >::check(L,3);
+	double* z0=(double*)Luna< void >::check(L,4);
 	uintptr_t* ax=(Luna< uintptr_t >::check(L,5));
 	uintptr_t* ay=(Luna< uintptr_t >::check(L,6));
 	uintptr_t* az=(Luna< uintptr_t >::check(L,7));
@@ -32991,7 +32991,7 @@ static int _bind_mgl_flowp_3d_(lua_State *L) {
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	::mgl_flowp_3d_(gr, &x0, &y0, &z0, ax, ay, az, sch, opt, _arg10, _arg11);
+	::mgl_flowp_3d_(gr, x0, y0, z0, ax, ay, az, sch, opt, _arg10, _arg11);
 
 	return 0;
 }
@@ -33030,12 +33030,12 @@ static int _bind_mgl_pipe_xy_(lua_State *L) {
 	uintptr_t* ax=(Luna< uintptr_t >::check(L,4));
 	uintptr_t* ay=(Luna< uintptr_t >::check(L,5));
 	const char * sch=(const char *)lua_tostring(L,6);
-	double r0=(double)lua_tonumber(L,7);
+	double* r0=(double*)Luna< void >::check(L,7);
 	const char * opt=(const char *)lua_tostring(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	::mgl_pipe_xy_(gr, x, y, ax, ay, sch, &r0, opt, _arg9, _arg10);
+	::mgl_pipe_xy_(gr, x, y, ax, ay, sch, r0, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -33070,12 +33070,12 @@ static int _bind_mgl_pipe_2d_(lua_State *L) {
 	uintptr_t* ax=(Luna< uintptr_t >::check(L,2));
 	uintptr_t* ay=(Luna< uintptr_t >::check(L,3));
 	const char * sch=(const char *)lua_tostring(L,4);
-	double r0=(double)lua_tonumber(L,5);
+	double* r0=(double*)Luna< void >::check(L,5);
 	const char * opt=(const char *)lua_tostring(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_pipe_2d_(gr, ax, ay, sch, &r0, opt, _arg7, _arg8);
+	::mgl_pipe_2d_(gr, ax, ay, sch, r0, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -33118,12 +33118,12 @@ static int _bind_mgl_pipe_xyz_(lua_State *L) {
 	uintptr_t* ay=(Luna< uintptr_t >::check(L,6));
 	uintptr_t* az=(Luna< uintptr_t >::check(L,7));
 	const char * sch=(const char *)lua_tostring(L,8);
-	double r0=(double)lua_tonumber(L,9);
+	double* r0=(double*)Luna< void >::check(L,9);
 	const char * opt=(const char *)lua_tostring(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 	int _arg12=(int)lua_tointeger(L,12);
 
-	::mgl_pipe_xyz_(gr, x, y, z, ax, ay, az, sch, &r0, opt, _arg11, _arg12);
+	::mgl_pipe_xyz_(gr, x, y, z, ax, ay, az, sch, r0, opt, _arg11, _arg12);
 
 	return 0;
 }
@@ -33160,12 +33160,12 @@ static int _bind_mgl_pipe_3d_(lua_State *L) {
 	uintptr_t* ay=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* az=(Luna< uintptr_t >::check(L,4));
 	const char * sch=(const char *)lua_tostring(L,5);
-	double r0=(double)lua_tonumber(L,6);
+	double* r0=(double*)Luna< void >::check(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	::mgl_pipe_3d_(gr, ax, ay, az, sch, &r0, opt, _arg8, _arg9);
+	::mgl_pipe_3d_(gr, ax, ay, az, sch, r0, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -33326,12 +33326,12 @@ static int _bind_mgl_vect3_xyz_(lua_State *L) {
 	uintptr_t* ay=(Luna< uintptr_t >::check(L,6));
 	uintptr_t* az=(Luna< uintptr_t >::check(L,7));
 	const char * sch=(const char *)lua_tostring(L,8);
-	double sVal=(double)lua_tonumber(L,9);
+	double* sVal=(double*)Luna< void >::check(L,9);
 	const char * opt=(const char *)lua_tostring(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 	int _arg12=(int)lua_tointeger(L,12);
 
-	::mgl_vect3_xyz_(gr, x, y, z, ax, ay, az, sch, &sVal, opt, _arg11, _arg12);
+	::mgl_vect3_xyz_(gr, x, y, z, ax, ay, az, sch, sVal, opt, _arg11, _arg12);
 
 	return 0;
 }
@@ -33368,12 +33368,12 @@ static int _bind_mgl_vect3_(lua_State *L) {
 	uintptr_t* ay=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* az=(Luna< uintptr_t >::check(L,4));
 	const char * sch=(const char *)lua_tostring(L,5);
-	double sVal=(double)lua_tonumber(L,6);
+	double* sVal=(double*)Luna< void >::check(L,6);
 	const char * opt=(const char *)lua_tostring(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 	int _arg9=(int)lua_tointeger(L,9);
 
-	::mgl_vect3_(gr, ax, ay, az, sch, &sVal, opt, _arg8, _arg9);
+	::mgl_vect3_(gr, ax, ay, az, sch, sVal, opt, _arg8, _arg9);
 
 	return 0;
 }
@@ -33407,7 +33407,7 @@ static int _bind_mgl_surf3_xyz_val_(lua_State *L) {
 	}
 
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
-	double Val=(double)lua_tonumber(L,2);
+	double* Val=(double*)Luna< void >::check(L,2);
 	uintptr_t* x=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* y=(Luna< uintptr_t >::check(L,4));
 	uintptr_t* z=(Luna< uintptr_t >::check(L,5));
@@ -33417,7 +33417,7 @@ static int _bind_mgl_surf3_xyz_val_(lua_State *L) {
 	int _arg9=(int)lua_tointeger(L,9);
 	int _arg10=(int)lua_tointeger(L,10);
 
-	::mgl_surf3_xyz_val_(graph, &Val, x, y, z, a, stl, opt, _arg9, _arg10);
+	::mgl_surf3_xyz_val_(graph, Val, x, y, z, a, stl, opt, _arg9, _arg10);
 
 	return 0;
 }
@@ -33448,14 +33448,14 @@ static int _bind_mgl_surf3_val_(lua_State *L) {
 	}
 
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
-	double Val=(double)lua_tonumber(L,2);
+	double* Val=(double*)Luna< void >::check(L,2);
 	uintptr_t* a=(Luna< uintptr_t >::check(L,3));
 	const char * stl=(const char *)lua_tostring(L,4);
 	const char * opt=(const char *)lua_tostring(L,5);
 	int _arg6=(int)lua_tointeger(L,6);
 	int _arg7=(int)lua_tointeger(L,7);
 
-	::mgl_surf3_val_(graph, &Val, a, stl, opt, _arg6, _arg7);
+	::mgl_surf3_val_(graph, Val, a, stl, opt, _arg6, _arg7);
 
 	return 0;
 }
@@ -33568,7 +33568,7 @@ static int _bind_mgl_surf3a_xyz_val_(lua_State *L) {
 	}
 
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
-	double Val=(double)lua_tonumber(L,2);
+	double* Val=(double*)Luna< void >::check(L,2);
 	uintptr_t* x=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* y=(Luna< uintptr_t >::check(L,4));
 	uintptr_t* z=(Luna< uintptr_t >::check(L,5));
@@ -33579,7 +33579,7 @@ static int _bind_mgl_surf3a_xyz_val_(lua_State *L) {
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	::mgl_surf3a_xyz_val_(graph, &Val, x, y, z, a, b, stl, opt, _arg10, _arg11);
+	::mgl_surf3a_xyz_val_(graph, Val, x, y, z, a, b, stl, opt, _arg10, _arg11);
 
 	return 0;
 }
@@ -33611,7 +33611,7 @@ static int _bind_mgl_surf3a_val_(lua_State *L) {
 	}
 
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
-	double Val=(double)lua_tonumber(L,2);
+	double* Val=(double*)Luna< void >::check(L,2);
 	uintptr_t* a=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* b=(Luna< uintptr_t >::check(L,4));
 	const char * stl=(const char *)lua_tostring(L,5);
@@ -33619,7 +33619,7 @@ static int _bind_mgl_surf3a_val_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_surf3a_val_(graph, &Val, a, b, stl, opt, _arg7, _arg8);
+	::mgl_surf3a_val_(graph, Val, a, b, stl, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -33736,7 +33736,7 @@ static int _bind_mgl_surf3c_xyz_val_(lua_State *L) {
 	}
 
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
-	double Val=(double)lua_tonumber(L,2);
+	double* Val=(double*)Luna< void >::check(L,2);
 	uintptr_t* x=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* y=(Luna< uintptr_t >::check(L,4));
 	uintptr_t* z=(Luna< uintptr_t >::check(L,5));
@@ -33747,7 +33747,7 @@ static int _bind_mgl_surf3c_xyz_val_(lua_State *L) {
 	int _arg10=(int)lua_tointeger(L,10);
 	int _arg11=(int)lua_tointeger(L,11);
 
-	::mgl_surf3c_xyz_val_(graph, &Val, x, y, z, a, b, stl, opt, _arg10, _arg11);
+	::mgl_surf3c_xyz_val_(graph, Val, x, y, z, a, b, stl, opt, _arg10, _arg11);
 
 	return 0;
 }
@@ -33779,7 +33779,7 @@ static int _bind_mgl_surf3c_val_(lua_State *L) {
 	}
 
 	uintptr_t* graph=(Luna< uintptr_t >::check(L,1));
-	double Val=(double)lua_tonumber(L,2);
+	double* Val=(double*)Luna< void >::check(L,2);
 	uintptr_t* a=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* b=(Luna< uintptr_t >::check(L,4));
 	const char * stl=(const char *)lua_tostring(L,5);
@@ -33787,7 +33787,7 @@ static int _bind_mgl_surf3c_val_(lua_State *L) {
 	int _arg7=(int)lua_tointeger(L,7);
 	int _arg8=(int)lua_tointeger(L,8);
 
-	::mgl_surf3c_val_(graph, &Val, a, b, stl, opt, _arg7, _arg8);
+	::mgl_surf3c_val_(graph, Val, a, b, stl, opt, _arg7, _arg8);
 
 	return 0;
 }
@@ -33982,17 +33982,17 @@ static int _bind_mgl_beam_val_(lua_State *L) {
 	}
 
 	uintptr_t* gr=(Luna< uintptr_t >::check(L,1));
-	double val=(double)lua_tonumber(L,2);
+	double* val=(double*)Luna< void >::check(L,2);
 	uintptr_t* tr=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* g1=(Luna< uintptr_t >::check(L,4));
 	uintptr_t* g2=(Luna< uintptr_t >::check(L,5));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,6));
-	double r=(double)lua_tonumber(L,7);
+	double* r=(double*)Luna< void >::check(L,7);
 	const char * sch=(const char *)lua_tostring(L,8);
-	int norm=(int)lua_tointeger(L,9);
+	int* norm=(int*)Luna< void >::check(L,9);
 	int l=(int)lua_tointeger(L,10);
 
-	::mgl_beam_val_(gr, &val, tr, g1, g2, a, &r, sch, &norm, l);
+	::mgl_beam_val_(gr, val, tr, g1, g2, a, r, sch, norm, l);
 
 	return 0;
 }
@@ -34031,13 +34031,13 @@ static int _bind_mgl_beam_(lua_State *L) {
 	uintptr_t* g1=(Luna< uintptr_t >::check(L,3));
 	uintptr_t* g2=(Luna< uintptr_t >::check(L,4));
 	uintptr_t* a=(Luna< uintptr_t >::check(L,5));
-	double r=(double)lua_tonumber(L,6);
+	double* r=(double*)Luna< void >::check(L,6);
 	const char * sch=(const char *)lua_tostring(L,7);
-	int norm=(int)lua_tointeger(L,8);
-	int num=(int)lua_tointeger(L,9);
+	int* norm=(int*)Luna< void >::check(L,8);
+	int* num=(int*)Luna< void >::check(L,9);
 	int l=(int)lua_tointeger(L,10);
 
-	::mgl_beam_(gr, tr, g1, g2, a, &r, sch, &norm, &num, l);
+	::mgl_beam_(gr, tr, g1, g2, a, r, sch, norm, num, l);
 
 	return 0;
 }

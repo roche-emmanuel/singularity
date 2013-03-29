@@ -132,6 +132,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getMinExpiryTime(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getMinExpiryFrames(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getTimeStamp(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -174,6 +186,20 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setMinExpiryTime(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setMinExpiryFrames(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -312,6 +338,44 @@ public:
 		return 1;
 	}
 
+	// double osg::PagedLOD::PerRangeData::_minExpiryTime()
+	static int _bind_getMinExpiryTime(lua_State *L) {
+		if (!_lg_typecheck_getMinExpiryTime(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double osg::PagedLOD::PerRangeData::_minExpiryTime() function, expected prototype:\ndouble osg::PagedLOD::PerRangeData::_minExpiryTime()\nClass arguments details:\n");
+		}
+
+
+		osg::PagedLOD::PerRangeData* self=(Luna< osg::PagedLOD::PerRangeData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double osg::PagedLOD::PerRangeData::_minExpiryTime(). Got : '%s'",typeid(Luna< osg::PagedLOD::PerRangeData >::check(L,1)).name());
+		}
+		double lret = self->_minExpiryTime;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osg::PagedLOD::PerRangeData::_minExpiryFrames()
+	static int _bind_getMinExpiryFrames(lua_State *L) {
+		if (!_lg_typecheck_getMinExpiryFrames(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::PagedLOD::PerRangeData::_minExpiryFrames() function, expected prototype:\nunsigned int osg::PagedLOD::PerRangeData::_minExpiryFrames()\nClass arguments details:\n");
+		}
+
+
+		osg::PagedLOD::PerRangeData* self=(Luna< osg::PagedLOD::PerRangeData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::PagedLOD::PerRangeData::_minExpiryFrames(). Got : '%s'",typeid(Luna< osg::PagedLOD::PerRangeData >::check(L,1)).name());
+		}
+		unsigned int lret = self->_minExpiryFrames;
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 	// double osg::PagedLOD::PerRangeData::_timeStamp()
 	static int _bind_getTimeStamp(lua_State *L) {
 		if (!_lg_typecheck_getTimeStamp(L)) {
@@ -445,6 +509,44 @@ public:
 		return 0;
 	}
 
+	// void osg::PagedLOD::PerRangeData::_minExpiryTime(double value)
+	static int _bind_setMinExpiryTime(lua_State *L) {
+		if (!_lg_typecheck_setMinExpiryTime(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::PagedLOD::PerRangeData::_minExpiryTime(double value) function, expected prototype:\nvoid osg::PagedLOD::PerRangeData::_minExpiryTime(double value)\nClass arguments details:\n");
+		}
+
+		double value=(double)lua_tonumber(L,2);
+
+		osg::PagedLOD::PerRangeData* self=(Luna< osg::PagedLOD::PerRangeData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::PerRangeData::_minExpiryTime(double). Got : '%s'",typeid(Luna< osg::PagedLOD::PerRangeData >::check(L,1)).name());
+		}
+		self->_minExpiryTime = value;
+
+		return 0;
+	}
+
+	// void osg::PagedLOD::PerRangeData::_minExpiryFrames(unsigned int value)
+	static int _bind_setMinExpiryFrames(lua_State *L) {
+		if (!_lg_typecheck_setMinExpiryFrames(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::PagedLOD::PerRangeData::_minExpiryFrames(unsigned int value) function, expected prototype:\nvoid osg::PagedLOD::PerRangeData::_minExpiryFrames(unsigned int value)\nClass arguments details:\n");
+		}
+
+		unsigned int value=(unsigned int)lua_tointeger(L,2);
+
+		osg::PagedLOD::PerRangeData* self=(Luna< osg::PagedLOD::PerRangeData >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::PagedLOD::PerRangeData::_minExpiryFrames(unsigned int). Got : '%s'",typeid(Luna< osg::PagedLOD::PerRangeData >::check(L,1)).name());
+		}
+		self->_minExpiryFrames = value;
+
+		return 0;
+	}
+
 	// void osg::PagedLOD::PerRangeData::_timeStamp(double value)
 	static int _bind_setTimeStamp(lua_State *L) {
 		if (!_lg_typecheck_setTimeStamp(L)) {
@@ -571,6 +673,8 @@ luna_RegType LunaTraits< osg::PagedLOD::PerRangeData >::methods[] = {
 	{"getFilename", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getFilename},
 	{"getPriorityOffset", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getPriorityOffset},
 	{"getPriorityScale", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getPriorityScale},
+	{"getMinExpiryTime", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getMinExpiryTime},
+	{"getMinExpiryFrames", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getMinExpiryFrames},
 	{"getTimeStamp", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getTimeStamp},
 	{"getFrameNumber", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getFrameNumber},
 	{"getFrameNumberOfLastReleaseGLObjects", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_getFrameNumberOfLastReleaseGLObjects},
@@ -578,6 +682,8 @@ luna_RegType LunaTraits< osg::PagedLOD::PerRangeData >::methods[] = {
 	{"setFilename", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setFilename},
 	{"setPriorityOffset", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setPriorityOffset},
 	{"setPriorityScale", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setPriorityScale},
+	{"setMinExpiryTime", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setMinExpiryTime},
+	{"setMinExpiryFrames", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setMinExpiryFrames},
 	{"setTimeStamp", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setTimeStamp},
 	{"setFrameNumber", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setFrameNumber},
 	{"setFrameNumberOfLastReleaseGLObjects", &luna_wrapper_osg_PagedLOD_PerRangeData::_bind_setFrameNumberOfLastReleaseGLObjects},

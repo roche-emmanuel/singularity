@@ -40,7 +40,7 @@ public:
 	bool setTexturingMode(SPK::TexturingMode mode) {
 		if(_obj.pushFunction("setTexturingMode")) {
 			_obj.pushArg((SPK::QuadRendererInterface*)this);
-			_obj.pushArg(mode);
+			_obj.pushArg((int)mode);
 			return (_obj.callFunction<bool>());
 		}
 

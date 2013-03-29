@@ -240,7 +240,7 @@ public:
 		_obj.pushArg(&dc);
 		_obj.pushArg(wnd);
 		_obj.pushArg(&rect);
-		_obj.pushArg(kind);
+		_obj.pushArg((int)kind);
 		_obj.pushArg(state);
 		_obj.pushArg(label);
 		_obj.pushArg(&bitmap_large);
@@ -276,7 +276,7 @@ public:
 		_obj.pushArg(wnd);
 		_obj.pushArg(&rect);
 		_obj.pushArg(&bitmap);
-		_obj.pushArg(kind);
+		_obj.pushArg((int)kind);
 		_obj.pushArg(state);
 		return (_obj.callFunction<void>());
 	};
@@ -379,8 +379,8 @@ public:
 		_obj.pushArg((wxRibbonArtProvider*)this);
 		_obj.pushArg(&dc);
 		_obj.pushArg(wnd);
-		_obj.pushArg(kind);
-		_obj.pushArg(size);
+		_obj.pushArg((int)kind);
+		_obj.pushArg((int)size);
 		_obj.pushArg(label);
 		_obj.pushArg(&bitmap_size_large);
 		_obj.pushArg(&bitmap_size_small);
@@ -408,7 +408,7 @@ public:
 		_obj.pushArg(&dc);
 		_obj.pushArg(wnd);
 		_obj.pushArg(&bitmap_size);
-		_obj.pushArg(kind);
+		_obj.pushArg((int)kind);
 		_obj.pushArg(is_first);
 		_obj.pushArg(is_last);
 		_obj.pushArg(dropdown_region);

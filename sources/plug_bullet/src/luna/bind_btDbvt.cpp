@@ -312,7 +312,7 @@ public:
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,91335778)) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,21779918) ) return false;
 		return true;
@@ -324,7 +324,7 @@ public:
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,91335778)) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,21779918) ) return false;
@@ -343,7 +343,7 @@ public:
 	inline static bool _lg_typecheck_nearest(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,12671008)) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
@@ -533,7 +533,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int bu_treshold=luatop>1 ? (int)lua_tointeger(L,2) : 128;
+		int bu_treshold=luatop>1 ? (int)lua_tointeger(L,2) : (int)128;
 
 		btDbvt* self=(Luna< btDbvt >::check(L,1));
 		if(!self) {
@@ -601,7 +601,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		btDbvtNode* leaf=(Luna< btDbvtNode >::check(L,2));
-		int lookahead=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int lookahead=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		btDbvt* self=(Luna< btDbvt >::check(L,1));
 		if(!self) {
@@ -1017,7 +1017,7 @@ public:
 
 		const btDbvtNode* root=(Luna< btDbvtNode >::check(L,1));
 		const btVector3* normals=(Luna< btVector3 >::check(L,2));
-		float offsets=(float)lua_tonumber(L,3);
+		const float* offsets=(const float*)Luna< void >::check(L,3);
 		int count=(int)lua_tointeger(L,4);
 		btDbvt::ICollide* policy_ptr=(Luna< btDbvt::ICollide >::check(L,5));
 		if( !policy_ptr ) {
@@ -1025,7 +1025,7 @@ public:
 		}
 		btDbvt::ICollide & policy=*policy_ptr;
 
-		btDbvt::collideKDOP(root, normals, &offsets, count, policy);
+		btDbvt::collideKDOP(root, normals, offsets, count, policy);
 
 		return 0;
 	}
@@ -1041,7 +1041,7 @@ public:
 
 		const btDbvtNode* root=(Luna< btDbvtNode >::check(L,1));
 		const btVector3* normals=(Luna< btVector3 >::check(L,2));
-		float offsets=(float)lua_tonumber(L,3);
+		const float* offsets=(const float*)Luna< void >::check(L,3);
 		const btVector3* sortaxis_ptr=(Luna< btVector3 >::check(L,4));
 		if( !sortaxis_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg sortaxis in btDbvt::collideOCL function");
@@ -1053,9 +1053,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg policy in btDbvt::collideOCL function");
 		}
 		btDbvt::ICollide & policy=*policy_ptr;
-		bool fullsort=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
+		bool fullsort=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : (bool)true;
 
-		btDbvt::collideOCL(root, normals, &offsets, sortaxis, count, policy, fullsort);
+		btDbvt::collideOCL(root, normals, offsets, sortaxis, count, policy, fullsort);
 
 		return 0;
 	}
@@ -1086,13 +1086,13 @@ public:
 			luaL_error(L, "luna typecheck failed in static int btDbvt::nearest(const int * i, const btDbvt::sStkNPS * a, float v, int l, int h) function, expected prototype:\nstatic int btDbvt::nearest(const int * i, const btDbvt::sStkNPS * a, float v, int l, int h)\nClass arguments details:\narg 2 ID = 12671008\n");
 		}
 
-		int i=(int)lua_tointeger(L,1);
+		const int* i=(const int*)Luna< void >::check(L,1);
 		const btDbvt::sStkNPS* a=(Luna< btDbvt::sStkNPS >::check(L,2));
 		float v=(float)lua_tonumber(L,3);
 		int l=(int)lua_tointeger(L,4);
 		int h=(int)lua_tointeger(L,5);
 
-		int lret = btDbvt::nearest(&i, a, v, l, h);
+		int lret = btDbvt::nearest(i, a, v, l, h);
 		lua_pushnumber(L,lret);
 
 		return 1;

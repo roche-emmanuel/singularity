@@ -248,7 +248,7 @@ public:
 		if( luatop>2 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxArtProvider::GetBitmap function");
 		}
-		const wxSize & size=luatop>2 ? *size_ptr : wxDefaultSize;
+		const wxSize & size=luatop>2 ? *size_ptr : (const wxSize&)wxDefaultSize;
 
 		wxBitmap stack_lret = wxArtProvider::GetBitmap(id, client, size);
 		wxBitmap* lret = new wxBitmap(stack_lret);
@@ -274,7 +274,7 @@ public:
 		if( luatop>2 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxArtProvider::GetIcon function");
 		}
-		const wxSize & size=luatop>2 ? *size_ptr : wxDefaultSize;
+		const wxSize & size=luatop>2 ? *size_ptr : (const wxSize&)wxDefaultSize;
 
 		wxIcon stack_lret = wxArtProvider::GetIcon(id, client, size);
 		wxIcon* lret = new wxIcon(stack_lret);
@@ -313,7 +313,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString client(lua_tostring(L,1),lua_objlen(L,1));
-		bool platform_default=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool platform_default=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxSize stack_lret = wxArtProvider::GetSizeHint(client, platform_default);
 		wxSize* lret = new wxSize(stack_lret);

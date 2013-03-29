@@ -189,10 +189,10 @@ public:
 	inline static bool _lg_typecheck_GetClippingBox(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
 
@@ -276,9 +276,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString filename(lua_tostring(L,1),lua_objlen(L,1));
-		int width=luatop>1 ? (int)lua_tointeger(L,2) : 320;
-		int height=luatop>2 ? (int)lua_tointeger(L,3) : 240;
-		double dpi=luatop>3 ? (double)lua_tonumber(L,4) : 72;
+		int width=luatop>1 ? (int)lua_tointeger(L,2) : (int)320;
+		int height=luatop>2 ? (int)lua_tointeger(L,3) : (int)240;
+		double dpi=luatop>3 ? (double)lua_tonumber(L,4) : (double)72;
 
 		return new wxSVGFileDC(filename, width, height, dpi);
 	}
@@ -293,9 +293,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
-		int width=luatop>2 ? (int)lua_tointeger(L,3) : 320;
-		int height=luatop>3 ? (int)lua_tointeger(L,4) : 240;
-		double dpi=luatop>4 ? (double)lua_tonumber(L,5) : 72;
+		int width=luatop>2 ? (int)lua_tointeger(L,3) : (int)320;
+		int height=luatop>3 ? (int)lua_tointeger(L,4) : (int)240;
+		double dpi=luatop>4 ? (double)lua_tonumber(L,5) : (double)72;
 
 		return new wrapper_wxSVGFileDC(L,NULL, filename, width, height, dpi);
 	}
@@ -438,7 +438,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxSVGFileDC::FloodFill function");
 		}
 		const wxColour & colour=*colour_ptr;
-		wxFloodFillStyle style=luatop>4 ? (wxFloodFillStyle)lua_tointeger(L,5) : ::wxFLOOD_SURFACE;
+		wxFloodFillStyle style=luatop>4 ? (wxFloodFillStyle)lua_tointeger(L,5) : (wxFloodFillStyle)::wxFLOOD_SURFACE;
 
 		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
@@ -458,17 +458,17 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxSVGFileDC::GetClippingBox(int * x, int * y, int * width, int * height) const function, expected prototype:\nvoid wxSVGFileDC::GetClippingBox(int * x, int * y, int * width, int * height) const\nClass arguments details:\n");
 		}
 
-		int x=(int)lua_tointeger(L,2);
-		int y=(int)lua_tointeger(L,3);
-		int width=(int)lua_tointeger(L,4);
-		int height=(int)lua_tointeger(L,5);
+		int* x=(int*)Luna< void >::check(L,2);
+		int* y=(int*)Luna< void >::check(L,3);
+		int* width=(int*)Luna< void >::check(L,4);
+		int* height=(int*)Luna< void >::check(L,5);
 
 		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSVGFileDC::GetClippingBox(int *, int *, int *, int *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->GetClippingBox(&x, &y, &width, &height);
+		self->GetClippingBox(x, y, width, height);
 
 		return 0;
 	}

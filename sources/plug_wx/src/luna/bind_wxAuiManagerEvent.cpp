@@ -227,7 +227,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int type=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
+		int type=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxEVT_NULL;
 
 		return new wrapper_wxAuiManagerEvent(L,NULL, type);
 	}
@@ -458,7 +458,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool veto=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool veto=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {

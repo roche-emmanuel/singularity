@@ -274,8 +274,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * name=luatop>0 ? (const char *)lua_tostring(L,1) : 0;
-		const char * path=luatop>1 ? (const char *)lua_tostring(L,2) : 0;
+		const char * name=luatop>0 ? (const char *)lua_tostring(L,1) : (const char*)0;
+		const char * path=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)0;
 
 		return new mglFont(name, path);
 	}
@@ -292,7 +292,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * base=(const char *)lua_tostring(L,2);
-		const char * path=luatop>2 ? (const char *)lua_tostring(L,3) : 0;
+		const char * path=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)0;
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {

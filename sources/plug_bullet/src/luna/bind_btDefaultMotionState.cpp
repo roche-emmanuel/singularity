@@ -234,12 +234,12 @@ public:
 		if( luatop>0 && !startTrans_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg startTrans in btDefaultMotionState::btDefaultMotionState function");
 		}
-		const btTransform & startTrans=luatop>0 ? *startTrans_ptr : btTransform::getIdentity ();
+		const btTransform & startTrans=luatop>0 ? *startTrans_ptr : (const btTransform)btTransform::getIdentity ();
 		const btTransform* centerOfMassOffset_ptr=luatop>1 ? (Luna< btTransform >::check(L,2)) : NULL;
 		if( luatop>1 && !centerOfMassOffset_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg centerOfMassOffset in btDefaultMotionState::btDefaultMotionState function");
 		}
-		const btTransform & centerOfMassOffset=luatop>1 ? *centerOfMassOffset_ptr : btTransform::getIdentity ();
+		const btTransform & centerOfMassOffset=luatop>1 ? *centerOfMassOffset_ptr : (const btTransform)btTransform::getIdentity ();
 
 		return new btDefaultMotionState(startTrans, centerOfMassOffset);
 	}
@@ -257,12 +257,12 @@ public:
 		if( luatop>1 && !startTrans_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg startTrans in btDefaultMotionState::btDefaultMotionState function");
 		}
-		const btTransform & startTrans=luatop>1 ? *startTrans_ptr : btTransform::getIdentity ();
+		const btTransform & startTrans=luatop>1 ? *startTrans_ptr : (const btTransform)btTransform::getIdentity ();
 		const btTransform* centerOfMassOffset_ptr=luatop>2 ? (Luna< btTransform >::check(L,3)) : NULL;
 		if( luatop>2 && !centerOfMassOffset_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg centerOfMassOffset in btDefaultMotionState::btDefaultMotionState function");
 		}
-		const btTransform & centerOfMassOffset=luatop>2 ? *centerOfMassOffset_ptr : btTransform::getIdentity ();
+		const btTransform & centerOfMassOffset=luatop>2 ? *centerOfMassOffset_ptr : (const btTransform)btTransform::getIdentity ();
 
 		return new wrapper_btDefaultMotionState(L,NULL, startTrans, centerOfMassOffset);
 	}

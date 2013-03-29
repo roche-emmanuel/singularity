@@ -150,8 +150,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float tolerance=luatop>0 ? (float)lua_tonumber(L,1) : btPolarDecomposition::DEFAULT_TOLERANCE;
-		unsigned int maxIterations=luatop>1 ? (unsigned int)lua_tointeger(L,2) : btPolarDecomposition::DEFAULT_MAX_ITERATIONS;
+		float tolerance=luatop>0 ? (float)lua_tonumber(L,1) : (float)btPolarDecomposition::DEFAULT_TOLERANCE;
+		unsigned int maxIterations=luatop>1 ? (unsigned int)lua_tointeger(L,2) : (unsigned int)btPolarDecomposition::DEFAULT_MAX_ITERATIONS;
 
 		return new btPolarDecomposition(tolerance, maxIterations);
 	}

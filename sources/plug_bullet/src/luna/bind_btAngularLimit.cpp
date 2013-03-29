@@ -221,9 +221,9 @@ public:
 
 		float low=(float)lua_tonumber(L,2);
 		float high=(float)lua_tonumber(L,3);
-		float _softness=luatop>3 ? (float)lua_tonumber(L,4) : 0.9f;
-		float _biasFactor=luatop>4 ? (float)lua_tonumber(L,5) : 0.3f;
-		float _relaxationFactor=luatop>5 ? (float)lua_tonumber(L,6) : 1.0f;
+		float _softness=luatop>3 ? (float)lua_tonumber(L,4) : (float)0.9f;
+		float _biasFactor=luatop>4 ? (float)lua_tonumber(L,5) : (float)0.3f;
+		float _relaxationFactor=luatop>5 ? (float)lua_tonumber(L,6) : (float)1.0f;
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {
@@ -242,7 +242,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void btAngularLimit::test(const float angle) function, expected prototype:\nvoid btAngularLimit::test(const float angle)\nClass arguments details:\n");
 		}
 
-		float angle=(float)lua_tonumber(L,2);
+		const float angle=(const float)lua_tonumber(L,2);
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {

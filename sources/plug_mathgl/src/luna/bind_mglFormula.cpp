@@ -184,9 +184,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		double x=(double)lua_tonumber(L,2);
-		double y=luatop>2 ? (double)lua_tonumber(L,3) : 0;
-		double z=luatop>3 ? (double)lua_tonumber(L,4) : 0;
-		double u=luatop>4 ? (double)lua_tonumber(L,5) : 0;
+		double y=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
+		double z=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
+		double u=luatop>4 ? (double)lua_tonumber(L,5) : (double)0;
 
 		mglFormula* self=(Luna< mglFormula >::check(L,1));
 		if(!self) {
@@ -244,9 +244,9 @@ public:
 
 		char diff=(char)lua_tointeger(L,2);
 		double x=(double)lua_tonumber(L,3);
-		double y=luatop>3 ? (double)lua_tonumber(L,4) : 0;
-		double z=luatop>4 ? (double)lua_tonumber(L,5) : 0;
-		double u=luatop>5 ? (double)lua_tonumber(L,6) : 0;
+		double y=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
+		double z=luatop>4 ? (double)lua_tonumber(L,5) : (double)0;
+		double u=luatop>5 ? (double)lua_tonumber(L,6) : (double)0;
 
 		mglFormula* self=(Luna< mglFormula >::check(L,1));
 		if(!self) {

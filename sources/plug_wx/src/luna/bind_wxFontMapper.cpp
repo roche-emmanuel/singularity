@@ -153,7 +153,7 @@ public:
 		if( luatop<3 || luatop>5 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
 		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
 		return true;
@@ -302,7 +302,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString charset(lua_tostring(L,2),lua_objlen(L,2));
-		bool interactive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool interactive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
@@ -325,16 +325,16 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxFontEncoding encoding=(wxFontEncoding)lua_tointeger(L,2);
-		wxFontEncoding alt_encoding=(wxFontEncoding)lua_tointeger(L,3);
+		wxFontEncoding* alt_encoding=(wxFontEncoding*)Luna< void >::check(L,3);
 		wxString facename(lua_tostring(L,4),lua_objlen(L,4));
-		bool interactive=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		bool interactive=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFontMapper::GetAltForEncoding(wxFontEncoding, wxFontEncoding *, const wxString &, bool). Got : '%s'",typeid(Luna< wxFontMapper >::check(L,1)).name());
 		}
-		bool lret = self->GetAltForEncoding(encoding, &alt_encoding, facename, interactive);
+		bool lret = self->GetAltForEncoding(encoding, alt_encoding, facename, interactive);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -537,7 +537,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString charset(lua_tostring(L,2),lua_objlen(L,2));
-		bool interactive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool interactive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxFontMapper* self=(Luna< wxFontMapper >::check(L,1));
 		if(!self) {

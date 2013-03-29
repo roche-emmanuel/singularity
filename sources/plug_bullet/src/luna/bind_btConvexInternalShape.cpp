@@ -424,7 +424,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		float minDimension=(float)lua_tonumber(L,2);
-		float defaultMarginMultiplier=luatop>2 ? (float)lua_tonumber(L,3) : 0.1f;
+		float defaultMarginMultiplier=luatop>2 ? (float)lua_tonumber(L,3) : (float)0.1f;
 
 		btConvexInternalShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalShape >(L,1);
 		if(!self) {
@@ -450,7 +450,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg halfExtents in btConvexInternalShape::setSafeMargin function");
 		}
 		const btVector3 & halfExtents=*halfExtents_ptr;
-		float defaultMarginMultiplier=luatop>2 ? (float)lua_tonumber(L,3) : 0.1f;
+		float defaultMarginMultiplier=luatop>2 ? (float)lua_tonumber(L,3) : (float)0.1f;
 
 		btConvexInternalShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalShape >(L,1);
 		if(!self) {

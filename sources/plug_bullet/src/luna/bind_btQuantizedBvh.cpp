@@ -193,7 +193,7 @@ public:
 	inline static bool _lg_typecheck_quantize(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
@@ -202,7 +202,7 @@ public:
 	inline static bool _lg_typecheck_quantizeWithClamp(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
@@ -211,7 +211,7 @@ public:
 	inline static bool _lg_typecheck_unQuantize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -321,7 +321,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bvhAabbMax in btQuantizedBvh::setQuantizationValues function");
 		}
 		const btVector3 & bvhAabbMax=*bvhAabbMax_ptr;
-		float quantizationMargin=luatop>3 ? (float)lua_tonumber(L,4) : float (1.0);
+		float quantizationMargin=luatop>3 ? (float)lua_tonumber(L,4) : (float)float (1.0);
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
@@ -476,7 +476,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::quantize(unsigned short * out, const btVector3 & point, int isMax) const function, expected prototype:\nvoid btQuantizedBvh::quantize(unsigned short * out, const btVector3 & point, int isMax) const\nClass arguments details:\narg 2 ID = 91544891\n");
 		}
 
-		unsigned short out=(unsigned short)lua_tointeger(L,2);
+		unsigned short* out=(unsigned short*)Luna< void >::check(L,2);
 		const btVector3* point_ptr=(Luna< btVector3 >::check(L,3));
 		if( !point_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg point in btQuantizedBvh::quantize function");
@@ -489,7 +489,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btQuantizedBvh::quantize(unsigned short *, const btVector3 &, int) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
 		}
-		self->quantize(&out, point, isMax);
+		self->quantize(out, point, isMax);
 
 		return 0;
 	}
@@ -501,7 +501,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::quantizeWithClamp(unsigned short * out, const btVector3 & point2, int isMax) const function, expected prototype:\nvoid btQuantizedBvh::quantizeWithClamp(unsigned short * out, const btVector3 & point2, int isMax) const\nClass arguments details:\narg 2 ID = 91544891\n");
 		}
 
-		unsigned short out=(unsigned short)lua_tointeger(L,2);
+		unsigned short* out=(unsigned short*)Luna< void >::check(L,2);
 		const btVector3* point2_ptr=(Luna< btVector3 >::check(L,3));
 		if( !point2_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg point2 in btQuantizedBvh::quantizeWithClamp function");
@@ -514,7 +514,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void btQuantizedBvh::quantizeWithClamp(unsigned short *, const btVector3 &, int) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
 		}
-		self->quantizeWithClamp(&out, point2, isMax);
+		self->quantizeWithClamp(out, point2, isMax);
 
 		return 0;
 	}
@@ -526,14 +526,14 @@ public:
 			luaL_error(L, "luna typecheck failed in btVector3 btQuantizedBvh::unQuantize(const unsigned short * vecIn) const function, expected prototype:\nbtVector3 btQuantizedBvh::unQuantize(const unsigned short * vecIn) const\nClass arguments details:\n");
 		}
 
-		unsigned short vecIn=(unsigned short)lua_tointeger(L,2);
+		const unsigned short* vecIn=(const unsigned short*)Luna< void >::check(L,2);
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call btVector3 btQuantizedBvh::unQuantize(const unsigned short *) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
 		}
-		btVector3 stack_lret = self->unQuantize(&vecIn);
+		btVector3 stack_lret = self->unQuantize(vecIn);
 		btVector3* lret = new btVector3(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 

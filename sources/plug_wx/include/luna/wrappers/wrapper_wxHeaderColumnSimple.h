@@ -216,7 +216,7 @@ public:
 	void SetAlignment(wxAlignment align) {
 		if(_obj.pushFunction("SetAlignment")) {
 			_obj.pushArg((wxHeaderColumnSimple*)this);
-			_obj.pushArg(align);
+			_obj.pushArg((int)align);
 			return (_obj.callFunction<void>());
 		}
 

@@ -266,7 +266,7 @@ public:
 		if( luatop>1 && !position_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg position in SPK::Point::Point function");
 		}
-		const SPK::Vector3D & position=luatop>1 ? *position_ptr : SPK::Vector3D (0.0f, 0.0f, 0.0f);
+		const SPK::Vector3D & position=luatop>1 ? *position_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f, 0.0f);
 
 		return new wrapper_SPK_Point(L,NULL, position);
 	}
@@ -435,7 +435,7 @@ public:
 		if( luatop>0 && !position_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg position in SPK::Point::create function");
 		}
-		const SPK::Vector3D & position=luatop>0 ? *position_ptr : SPK::Vector3D (0.0f, 0.0f, 0.0f);
+		const SPK::Vector3D & position=luatop>0 ? *position_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f, 0.0f);
 
 		SPK::Point * lret = SPK::Point::create(position);
 		if(!lret) return 0; // Do not write NULL pointers.

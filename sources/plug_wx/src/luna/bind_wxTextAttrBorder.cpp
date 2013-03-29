@@ -665,7 +665,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int value=(int)lua_tointeger(L,2);
-		wxTextAttrUnits units=luatop>2 ? (wxTextAttrUnits)lua_tointeger(L,3) : ::wxTEXT_ATTR_UNITS_TENTHS_MM;
+		wxTextAttrUnits units=luatop>2 ? (wxTextAttrUnits)lua_tointeger(L,3) : (wxTextAttrUnits)::wxTEXT_ATTR_UNITS_TENTHS_MM;
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {

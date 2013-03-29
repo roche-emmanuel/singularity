@@ -275,7 +275,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxEOL mode=luatop>1 ? (wxEOL)lua_tointeger(L,2) : ::wxEOL_NATIVE;
+		wxEOL mode=luatop>1 ? (wxEOL)lua_tointeger(L,2) : (wxEOL)::wxEOL_NATIVE;
 
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {

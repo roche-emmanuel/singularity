@@ -452,6 +452,118 @@ struct luna_caster<std::vector< osg::ShadowVolumeOccluder >,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<osg::Matrix2Template< float >,dstType> {
+	static inline dstType* cast(osg::Matrix2Template< float >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix2x3Template< float >,dstType> {
+	static inline dstType* cast(osg::Matrix2x3Template< float >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix2x4Template< float >,dstType> {
+	static inline dstType* cast(osg::Matrix2x4Template< float >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix3x2Template< float >,dstType> {
+	static inline dstType* cast(osg::Matrix3x2Template< float >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix3Template< float >,dstType> {
+	static inline dstType* cast(osg::Matrix3Template< float >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix3x4Template< float >,dstType> {
+	static inline dstType* cast(osg::Matrix3x4Template< float >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix4x2Template< float >,dstType> {
+	static inline dstType* cast(osg::Matrix4x2Template< float >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix4x3Template< float >,dstType> {
+	static inline dstType* cast(osg::Matrix4x3Template< float >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix2Template< double >,dstType> {
+	static inline dstType* cast(osg::Matrix2Template< double >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix2x3Template< double >,dstType> {
+	static inline dstType* cast(osg::Matrix2x3Template< double >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix2x4Template< double >,dstType> {
+	static inline dstType* cast(osg::Matrix2x4Template< double >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix3x2Template< double >,dstType> {
+	static inline dstType* cast(osg::Matrix3x2Template< double >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix3Template< double >,dstType> {
+	static inline dstType* cast(osg::Matrix3Template< double >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix3x4Template< double >,dstType> {
+	static inline dstType* cast(osg::Matrix3x4Template< double >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix4x2Template< double >,dstType> {
+	static inline dstType* cast(osg::Matrix4x2Template< double >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix4x3Template< double >,dstType> {
+	static inline dstType* cast(osg::Matrix4x3Template< double >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<osg::TemplateValueObject< std::string >,dstType> {
 	static inline dstType* cast(osg::TemplateValueObject< std::string >* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -858,8 +970,29 @@ struct luna_caster<osg::ClampedLinearCostFunction1D,dstType> {
 };
 
 template <typename dstType>
-struct luna_caster<std::vector< std::string >,dstType> {
-	static inline dstType* cast(std::vector< std::string >* ptr) {
+struct luna_caster<std::vector< osg::ref_ptr< osg::Image::DimensionsChangedCallback > >,dstType> {
+	static inline dstType* cast(std::vector< osg::ref_ptr< osg::Image::DimensionsChangedCallback > >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Image::DataIterator,dstType> {
+	static inline dstType* cast(osg::Image::DataIterator* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<std::vector< osg::ImageSequence::ImageData >,dstType> {
+	static inline dstType* cast(std::vector< osg::ImageSequence::ImageData >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::ImageSequence::ImageData,dstType> {
+	static inline dstType* cast(osg::ImageSequence::ImageData* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };
@@ -937,6 +1070,13 @@ struct luna_caster<osg::Matrixf,dstType> {
 template <typename dstType>
 struct luna_caster<std::vector< osg::Group * >,dstType> {
 	static inline dstType* cast(std::vector< osg::Group * >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<std::vector< std::string >,dstType> {
+	static inline dstType* cast(std::vector< std::string >* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };
@@ -1208,6 +1348,13 @@ struct luna_caster<std::list< osg::ref_ptr< osg::Texture::TextureObject > >,dstT
 };
 
 template <typename dstType>
+struct luna_caster<osg::Texture::ImageAttachment,dstType> {
+	static inline dstType* cast(osg::Texture::ImageAttachment* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<osg::Timer,dstType> {
 	static inline dstType* cast(osg::Timer* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -1224,20 +1371,6 @@ struct luna_caster<osg::ElapsedTime,dstType> {
 template <typename dstType>
 struct luna_caster<std::map< float, osg::Vec4f >,dstType> {
 	static inline dstType* cast(std::map< float, osg::Vec4f >* ptr) {
-		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <typename dstType>
-struct luna_caster<osg::Matrix2,dstType> {
-	static inline dstType* cast(osg::Matrix2* ptr) {
-		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <typename dstType>
-struct luna_caster<osg::Matrix3,dstType> {
-	static inline dstType* cast(osg::Matrix3* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };
@@ -1586,6 +1719,13 @@ struct luna_caster<std::list< osg::ref_ptr< osgDB::DatabaseRevisions > >,dstType
 };
 
 template <typename dstType>
+struct luna_caster<osgDB::FileNameComparator,dstType> {
+	static inline dstType* cast(osgDB::FileNameComparator* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<osgDB::fstream,dstType> {
 	static inline dstType* cast(osgDB::fstream* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -1630,6 +1770,13 @@ struct luna_caster<std::vector< osg::ref_ptr< osgDB::BaseSerializer > >,dstType>
 template <typename dstType>
 struct luna_caster<std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > >,dstType> {
 	static inline dstType* cast(std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osgDB::UpdateWrapperVersionProxy,dstType> {
+	static inline dstType* cast(osgDB::UpdateWrapperVersionProxy* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };
@@ -2127,6 +2274,13 @@ struct luna_caster<osgUtil::AddRangeOperator,dstType> {
 template <typename dstType>
 struct luna_caster<osgUtil::MultiplyRangeOperator,dstType> {
 	static inline dstType* cast(osgUtil::MultiplyRangeOperator* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osgUtil::PerlinNoise,dstType> {
+	static inline dstType* cast(osgUtil::PerlinNoise* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };

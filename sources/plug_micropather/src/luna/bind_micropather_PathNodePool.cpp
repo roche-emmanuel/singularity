@@ -130,7 +130,7 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,11696051)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -224,14 +224,14 @@ public:
 
 		const micropather::NodeCost* nodes=(Luna< micropather::NodeCost >::check(L,2));
 		int nNodes=(int)lua_tointeger(L,3);
-		int start=(int)lua_tointeger(L,4);
+		int* start=(int*)Luna< void >::check(L,4);
 
 		micropather::PathNodePool* self=(Luna< micropather::PathNodePool >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool micropather::PathNodePool::PushCache(const micropather::NodeCost *, int, int *). Got : '%s'",typeid(Luna< micropather::PathNodePool >::check(L,1)).name());
 		}
-		bool lret = self->PushCache(nodes, nNodes, &start);
+		bool lret = self->PushCache(nodes, nNodes, start);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;

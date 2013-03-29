@@ -419,7 +419,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int language=(int)lua_tointeger(L,1);
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxLOCALE_LOAD_DEFAULT;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxLOCALE_LOAD_DEFAULT;
 
 		return new wxLocale(language, flags);
 	}
@@ -436,7 +436,7 @@ public:
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
 		wxString shortName(lua_tostring(L,2),lua_objlen(L,2));
 		wxString locale(lua_tostring(L,3),lua_objlen(L,3));
-		bool bLoadDefault=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool bLoadDefault=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		return new wxLocale(name, shortName, locale, bLoadDefault);
 	}
@@ -462,7 +462,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int language=(int)lua_tointeger(L,2);
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxLOCALE_LOAD_DEFAULT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxLOCALE_LOAD_DEFAULT;
 
 		return new wrapper_wxLocale(L,NULL, language, flags);
 	}
@@ -479,7 +479,7 @@ public:
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 		wxString shortName(lua_tostring(L,3),lua_objlen(L,3));
 		wxString locale(lua_tostring(L,4),lua_objlen(L,4));
-		bool bLoadDefault=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		bool bLoadDefault=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		return new wrapper_wxLocale(L,NULL, name, shortName, locale, bLoadDefault);
 	}
@@ -756,8 +756,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int language=luatop>1 ? (int)lua_tointeger(L,2) : ::wxLANGUAGE_DEFAULT;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxLOCALE_LOAD_DEFAULT;
+		int language=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxLANGUAGE_DEFAULT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxLOCALE_LOAD_DEFAULT;
 
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
@@ -782,7 +782,7 @@ public:
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 		wxString shortName(lua_tostring(L,3),lua_objlen(L,3));
 		wxString locale(lua_tostring(L,4),lua_objlen(L,4));
-		bool bLoadDefault=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+		bool bLoadDefault=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)true;
 
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
@@ -991,7 +991,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxLocaleInfo index=(wxLocaleInfo)lua_tointeger(L,1);
-		wxLocaleCategory cat=luatop>1 ? (wxLocaleCategory)lua_tointeger(L,2) : ::wxLOCALE_CAT_DEFAULT;
+		wxLocaleCategory cat=luatop>1 ? (wxLocaleCategory)lua_tointeger(L,2) : (wxLocaleCategory)::wxLOCALE_CAT_DEFAULT;
 
 		wxString lret = wxLocale::GetInfo(index, cat);
 		lua_pushlstring(L,lret.data(),lret.size());

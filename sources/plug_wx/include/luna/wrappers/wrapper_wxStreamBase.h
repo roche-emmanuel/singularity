@@ -60,7 +60,7 @@ protected:
 		if(_obj.pushFunction("OnSysSeek")) {
 			_obj.pushArg((wxStreamBase*)this);
 			_obj.pushArg(pos);
-			_obj.pushArg(mode);
+			_obj.pushArg((int)mode);
 			return (_obj.callFunction<long long>());
 		}
 

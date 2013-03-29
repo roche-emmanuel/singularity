@@ -242,7 +242,7 @@ public:
 
 		wxFontEncoding input_enc=(wxFontEncoding)lua_tointeger(L,2);
 		wxFontEncoding output_enc=(wxFontEncoding)lua_tointeger(L,3);
-		int method=luatop>3 ? (int)lua_tointeger(L,4) : ::wxCONVERT_STRICT;
+		int method=luatop>3 ? (int)lua_tointeger(L,4) : (int)::wxCONVERT_STRICT;
 
 		wxEncodingConverter* self=Luna< wxObject >::checkSubType< wxEncodingConverter >(L,1);
 		if(!self) {
@@ -283,7 +283,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxFontEncoding enc=(wxFontEncoding)lua_tointeger(L,1);
-		int platform=luatop>1 ? (int)lua_tointeger(L,2) : ::wxPLATFORM_CURRENT;
+		int platform=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxPLATFORM_CURRENT;
 
 		wxFontEncodingArray stack_lret = wxEncodingConverter::GetPlatformEquivalents(enc, platform);
 		wxFontEncodingArray* lret = new wxFontEncodingArray(stack_lret);

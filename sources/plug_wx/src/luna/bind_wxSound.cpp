@@ -232,7 +232,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString fileName(lua_tostring(L,1),lua_objlen(L,1));
-		bool isResource=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool isResource=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		return new wxSound(fileName, isResource);
 	}
@@ -271,7 +271,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString fileName(lua_tostring(L,2),lua_objlen(L,2));
-		bool isResource=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool isResource=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		return new wrapper_wxSound(L,NULL, fileName, isResource);
 	}
@@ -314,7 +314,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString fileName(lua_tostring(L,2),lua_objlen(L,2));
-		bool isResource=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool isResource=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxSound* self=Luna< wxObject >::checkSubType< wxSound >(L,1);
 		if(!self) {
@@ -355,7 +355,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		unsigned flags=luatop>1 ? (unsigned)lua_tointeger(L,2) : wxSOUND_ASYNC;
+		unsigned flags=luatop>1 ? (unsigned)lua_tointeger(L,2) : (unsigned)wxSOUND_ASYNC;
 
 		wxSound* self=Luna< wxObject >::checkSubType< wxSound >(L,1);
 		if(!self) {
@@ -378,7 +378,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString filename(lua_tostring(L,1),lua_objlen(L,1));
-		unsigned flags=luatop>1 ? (unsigned)lua_tointeger(L,2) : wxSOUND_ASYNC;
+		unsigned flags=luatop>1 ? (unsigned)lua_tointeger(L,2) : (unsigned)wxSOUND_ASYNC;
 
 		bool lret = wxSound::Play(filename, flags);
 		lua_pushboolean(L,lret?1:0);

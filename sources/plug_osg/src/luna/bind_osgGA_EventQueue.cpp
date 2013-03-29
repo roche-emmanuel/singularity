@@ -546,6 +546,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_clear(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_createEvent(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -585,6 +591,19 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setFirstTouchEmulatesMouse(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getFirstTouchEmulatesMouse(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -1858,6 +1877,24 @@ public:
 		return 1;
 	}
 
+	// void osgGA::EventQueue::clear()
+	static int _bind_clear(lua_State *L) {
+		if (!_lg_typecheck_clear(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::clear() function, expected prototype:\nvoid osgGA::EventQueue::clear()\nClass arguments details:\n");
+		}
+
+
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::clear(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->clear();
+
+		return 0;
+	}
+
 	// osgGA::GUIEventAdapter * osgGA::EventQueue::createEvent()
 	static int _bind_createEvent(lua_State *L) {
 		if (!_lg_typecheck_createEvent(L)) {
@@ -1997,6 +2034,44 @@ public:
 		return 0;
 	}
 
+	// void osgGA::EventQueue::setFirstTouchEmulatesMouse(bool b)
+	static int _bind_setFirstTouchEmulatesMouse(lua_State *L) {
+		if (!_lg_typecheck_setFirstTouchEmulatesMouse(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setFirstTouchEmulatesMouse(bool b) function, expected prototype:\nvoid osgGA::EventQueue::setFirstTouchEmulatesMouse(bool b)\nClass arguments details:\n");
+		}
+
+		bool b=(bool)(lua_toboolean(L,2)==1);
+
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setFirstTouchEmulatesMouse(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setFirstTouchEmulatesMouse(b);
+
+		return 0;
+	}
+
+	// bool osgGA::EventQueue::getFirstTouchEmulatesMouse() const
+	static int _bind_getFirstTouchEmulatesMouse(lua_State *L) {
+		if (!_lg_typecheck_getFirstTouchEmulatesMouse(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgGA::EventQueue::getFirstTouchEmulatesMouse() const function, expected prototype:\nbool osgGA::EventQueue::getFirstTouchEmulatesMouse() const\nClass arguments details:\n");
+		}
+
+
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::getFirstTouchEmulatesMouse() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->getFirstTouchEmulatesMouse();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// void osgGA::EventQueue::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
@@ -2068,10 +2143,13 @@ luna_RegType LunaTraits< osgGA::EventQueue >::methods[] = {
 	{"setStartTick", &luna_wrapper_osgGA_EventQueue::_bind_setStartTick},
 	{"getStartTick", &luna_wrapper_osgGA_EventQueue::_bind_getStartTick},
 	{"getTime", &luna_wrapper_osgGA_EventQueue::_bind_getTime},
+	{"clear", &luna_wrapper_osgGA_EventQueue::_bind_clear},
 	{"createEvent", &luna_wrapper_osgGA_EventQueue::_bind_createEvent},
 	{"setCurrentEventState", &luna_wrapper_osgGA_EventQueue::_bind_setCurrentEventState},
 	{"getCurrentEventState", &luna_wrapper_osgGA_EventQueue::_bind_getCurrentEventState},
 	{"userEvent", &luna_wrapper_osgGA_EventQueue::_bind_userEvent},
+	{"setFirstTouchEmulatesMouse", &luna_wrapper_osgGA_EventQueue::_bind_setFirstTouchEmulatesMouse},
+	{"getFirstTouchEmulatesMouse", &luna_wrapper_osgGA_EventQueue::_bind_getFirstTouchEmulatesMouse},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgGA_EventQueue::_bind_base_setThreadSafeRefUnref},
 	{"__eq", &luna_wrapper_osgGA_EventQueue::_bind___eq},
 	{"fromVoid", &luna_wrapper_osgGA_EventQueue::_bind_fromVoid},

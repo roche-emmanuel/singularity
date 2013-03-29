@@ -441,9 +441,9 @@ public:
 			luaL_error(L, "luna typecheck failed in btVector3::btVector3(const float & _x, const float & _y, const float & _z) function, expected prototype:\nbtVector3::btVector3(const float & _x, const float & _y, const float & _z)\nClass arguments details:\n");
 		}
 
-		float _x=(float)lua_tonumber(L,1);
-		float _y=(float)lua_tonumber(L,2);
-		float _z=(float)lua_tonumber(L,3);
+		const float _x=(const float)lua_tonumber(L,1);
+		const float _y=(const float)lua_tonumber(L,2);
+		const float _z=(const float)lua_tonumber(L,3);
 
 		return new btVector3(_x, _y, _z);
 	}
@@ -645,7 +645,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg wAxis in btVector3::rotate function");
 		}
 		const btVector3 & wAxis=*wAxis_ptr;
-		float angle=(float)lua_tonumber(L,3);
+		const float angle=(const float)lua_tonumber(L,3);
 
 		btVector3* self=(Luna< btVector3 >::check(L,1));
 		if(!self) {
@@ -880,7 +880,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg v in btVector3::lerp function");
 		}
 		const btVector3 & v=*v_ptr;
-		float t=(float)lua_tonumber(L,3);
+		const float t=(const float)lua_tonumber(L,3);
 
 		btVector3* self=(Luna< btVector3 >::check(L,1));
 		if(!self) {
@@ -1158,9 +1158,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void btVector3::setValue(const float & _x, const float & _y, const float & _z) function, expected prototype:\nvoid btVector3::setValue(const float & _x, const float & _y, const float & _z)\nClass arguments details:\n");
 		}
 
-		float _x=(float)lua_tonumber(L,2);
-		float _y=(float)lua_tonumber(L,3);
-		float _z=(float)lua_tonumber(L,4);
+		const float _x=(const float)lua_tonumber(L,2);
+		const float _y=(const float)lua_tonumber(L,3);
+		const float _z=(const float)lua_tonumber(L,4);
 
 		btVector3* self=(Luna< btVector3 >::check(L,1));
 		if(!self) {
@@ -1391,7 +1391,7 @@ public:
 			luaL_error(L, "luna typecheck failed in btVector3 & btVector3::operator*=(const float & s) function, expected prototype:\nbtVector3 & btVector3::operator*=(const float & s)\nClass arguments details:\n");
 		}
 
-		float s=(float)lua_tonumber(L,2);
+		const float s=(const float)lua_tonumber(L,2);
 
 		btVector3* self=(Luna< btVector3 >::check(L,1));
 		if(!self) {
@@ -1448,7 +1448,7 @@ public:
 			luaL_error(L, "luna typecheck failed in btVector3 & btVector3::operator/=(const float & s) function, expected prototype:\nbtVector3 & btVector3::operator/=(const float & s)\nClass arguments details:\n");
 		}
 
-		float s=(float)lua_tonumber(L,2);
+		const float s=(const float)lua_tonumber(L,2);
 
 		btVector3* self=(Luna< btVector3 >::check(L,1));
 		if(!self) {

@@ -296,7 +296,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int style=luatop>0 ? (int)lua_tointeger(L,1) : wxHF_DEFAULT_STYLE;
+		int style=luatop>0 ? (int)lua_tointeger(L,1) : (int)wxHF_DEFAULT_STYLE;
 		wxWindow* parentWindow=luatop>1 ? (Luna< wxObject >::checkSubType< wxWindow >(L,2)) : (wxWindow*)NULL;
 
 		return new wxHtmlHelpController(style, parentWindow);
@@ -311,7 +311,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int style=luatop>1 ? (int)lua_tointeger(L,2) : wxHF_DEFAULT_STYLE;
+		int style=luatop>1 ? (int)lua_tointeger(L,2) : (int)wxHF_DEFAULT_STYLE;
 		wxWindow* parentWindow=luatop>2 ? (Luna< wxObject >::checkSubType< wxWindow >(L,3)) : (wxWindow*)NULL;
 
 		return new wrapper_wxHtmlHelpController(L,NULL, style, parentWindow);
@@ -342,7 +342,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bookFile in wxHtmlHelpController::AddBook function");
 		}
 		const wxFileName & bookFile=*bookFile_ptr;
-		bool showWaitMsg=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool showWaitMsg=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
@@ -365,7 +365,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString bookUrl(lua_tostring(L,2),lua_objlen(L,2));
-		bool showWaitMsg=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool showWaitMsg=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
@@ -484,7 +484,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString keyword(lua_tostring(L,2),lua_objlen(L,2));
-		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : ::wxHELP_SEARCH_ALL;
+		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : (wxHelpSearchMode)::wxHELP_SEARCH_ALL;
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {
@@ -649,7 +649,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString keyword(lua_tostring(L,2),lua_objlen(L,2));
-		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : ::wxHELP_SEARCH_ALL;
+		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : (wxHelpSearchMode)::wxHELP_SEARCH_ALL;
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {

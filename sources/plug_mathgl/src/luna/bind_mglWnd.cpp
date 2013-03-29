@@ -486,8 +486,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool clf_upd=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
-		bool showpos=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool clf_upd=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
+		bool showpos=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		mglWnd* self=Luna< mglGraph >::checkSubType< mglWnd >(L,1);
 		if(!self) {
@@ -531,7 +531,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double pt=(double)lua_tonumber(L,2);
-		int dpi=luatop>2 ? (int)lua_tointeger(L,3) : 72;
+		int dpi=luatop>2 ? (int)lua_tointeger(L,3) : (int)72;
 
 		mglWnd* self=Luna< mglGraph >::checkSubType< mglWnd >(L,1);
 		if(!self) {

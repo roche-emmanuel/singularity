@@ -338,6 +338,30 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_asArray_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asArray_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asPrimitiveSet_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asPrimitiveSet_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_releaseGLObjects(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
@@ -378,6 +402,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_asImage_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asImage_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_getDataPointer(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -412,7 +448,7 @@ public:
 
 	inline static bool _lg_typecheck_base_setImage(lua_State *L) {
 		int luatop = lua_gettop(L);
-		if( luatop<9 || luatop>10 ) return false;
+		if( luatop<9 || luatop>11 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
@@ -423,11 +459,13 @@ public:
 		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 		if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 		if( luatop>9 && (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
+		if( luatop>10 && (lua_isnumber(L,11)==0 || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_readPixels(lua_State *L) {
-		if( lua_gettop(L)!=7 ) return false;
+		int luatop = lua_gettop(L);
+		if( luatop<7 || luatop>8 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
@@ -435,16 +473,18 @@ public:
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_readImageFromCurrentTexture(lua_State *L) {
 		int luatop = lua_gettop(L);
-		if( luatop<3 || luatop>4 ) return false;
+		if( luatop<3 || luatop>5 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( lua_isboolean(L,3)==0 ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -1230,6 +1270,108 @@ public:
 		return 0;
 	}
 
+	// osg::Array * osgText::Glyph::base_asArray()
+	static int _bind_base_asArray_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asArray_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Array * osgText::Glyph::base_asArray() function, expected prototype:\nosg::Array * osgText::Glyph::base_asArray()\nClass arguments details:\n");
+		}
+
+
+		osgText::Glyph* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Array * osgText::Glyph::base_asArray(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Array * lret = self->Glyph::asArray();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Array >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Array * osgText::Glyph::base_asArray() const
+	static int _bind_base_asArray_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asArray_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Array * osgText::Glyph::base_asArray() const function, expected prototype:\nconst osg::Array * osgText::Glyph::base_asArray() const\nClass arguments details:\n");
+		}
+
+
+		osgText::Glyph* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Array * osgText::Glyph::base_asArray() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Array * lret = self->Glyph::asArray();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Array >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osgText::Glyph::base_asArray
+	static int _bind_base_asArray(lua_State *L) {
+		if (_lg_typecheck_base_asArray_overload_1(L)) return _bind_base_asArray_overload_1(L);
+		if (_lg_typecheck_base_asArray_overload_2(L)) return _bind_base_asArray_overload_2(L);
+
+		luaL_error(L, "error in function base_asArray, cannot match any of the overloads for function base_asArray:\n  base_asArray()\n  base_asArray()\n");
+		return 0;
+	}
+
+	// osg::PrimitiveSet * osgText::Glyph::base_asPrimitiveSet()
+	static int _bind_base_asPrimitiveSet_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asPrimitiveSet_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::PrimitiveSet * osgText::Glyph::base_asPrimitiveSet() function, expected prototype:\nosg::PrimitiveSet * osgText::Glyph::base_asPrimitiveSet()\nClass arguments details:\n");
+		}
+
+
+		osgText::Glyph* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::PrimitiveSet * osgText::Glyph::base_asPrimitiveSet(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::PrimitiveSet * lret = self->Glyph::asPrimitiveSet();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::PrimitiveSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::PrimitiveSet * osgText::Glyph::base_asPrimitiveSet() const
+	static int _bind_base_asPrimitiveSet_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asPrimitiveSet_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::PrimitiveSet * osgText::Glyph::base_asPrimitiveSet() const function, expected prototype:\nconst osg::PrimitiveSet * osgText::Glyph::base_asPrimitiveSet() const\nClass arguments details:\n");
+		}
+
+
+		osgText::Glyph* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::PrimitiveSet * osgText::Glyph::base_asPrimitiveSet() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::PrimitiveSet * lret = self->Glyph::asPrimitiveSet();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::PrimitiveSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osgText::Glyph::base_asPrimitiveSet
+	static int _bind_base_asPrimitiveSet(lua_State *L) {
+		if (_lg_typecheck_base_asPrimitiveSet_overload_1(L)) return _bind_base_asPrimitiveSet_overload_1(L);
+		if (_lg_typecheck_base_asPrimitiveSet_overload_2(L)) return _bind_base_asPrimitiveSet_overload_2(L);
+
+		luaL_error(L, "error in function base_asPrimitiveSet, cannot match any of the overloads for function base_asPrimitiveSet:\n  base_asPrimitiveSet()\n  base_asPrimitiveSet()\n");
+		return 0;
+	}
+
 	// void osgText::Glyph::base_releaseGLObjects(osg::State * state = 0) const
 	static int _bind_base_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_base_releaseGLObjects(L)) {
@@ -1356,6 +1498,57 @@ public:
 		return 1;
 	}
 
+	// osg::Image * osgText::Glyph::base_asImage()
+	static int _bind_base_asImage_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asImage_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Image * osgText::Glyph::base_asImage() function, expected prototype:\nosg::Image * osgText::Glyph::base_asImage()\nClass arguments details:\n");
+		}
+
+
+		osgText::Glyph* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Image * osgText::Glyph::base_asImage(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		osg::Image * lret = self->Glyph::asImage();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Image >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Image * osgText::Glyph::base_asImage() const
+	static int _bind_base_asImage_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asImage_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Image * osgText::Glyph::base_asImage() const function, expected prototype:\nconst osg::Image * osgText::Glyph::base_asImage() const\nClass arguments details:\n");
+		}
+
+
+		osgText::Glyph* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Image * osgText::Glyph::base_asImage() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		const osg::Image * lret = self->Glyph::asImage();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Image >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osgText::Glyph::base_asImage
+	static int _bind_base_asImage(lua_State *L) {
+		if (_lg_typecheck_base_asImage_overload_1(L)) return _bind_base_asImage_overload_1(L);
+		if (_lg_typecheck_base_asImage_overload_2(L)) return _bind_base_asImage_overload_2(L);
+
+		luaL_error(L, "error in function base_asImage, cannot match any of the overloads for function base_asImage:\n  base_asImage()\n  base_asImage()\n");
+		return 0;
+	}
+
 	// const void * osgText::Glyph::base_getDataPointer() const
 	static int _bind_base_getDataPointer(lua_State *L) {
 		if (!_lg_typecheck_base_getDataPointer(L)) {
@@ -1446,11 +1639,11 @@ public:
 		return 0;
 	}
 
-	// void osgText::Glyph::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1)
+	// void osgText::Glyph::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1, int rowLength = 0)
 	static int _bind_base_setImage(lua_State *L) {
 		if (!_lg_typecheck_base_setImage(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Glyph::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1) function, expected prototype:\nvoid osgText::Glyph::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Glyph::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1, int rowLength = 0) function, expected prototype:\nvoid osgText::Glyph::base_setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1, int rowLength = 0)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1464,23 +1657,26 @@ public:
 		unsigned char data = (unsigned char)(lua_tointeger(L,8));
 		osg::Image::AllocationMode mode=(osg::Image::AllocationMode)lua_tointeger(L,9);
 		int packing=luatop>9 ? (int)lua_tointeger(L,10) : (int)1;
+		int rowLength=luatop>10 ? (int)lua_tointeger(L,11) : (int)0;
 
 		osgText::Glyph* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Glyph::base_setImage(int, int, int, int, unsigned int, unsigned int, unsigned char *, osg::Image::AllocationMode, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Glyph::base_setImage(int, int, int, int, unsigned int, unsigned int, unsigned char *, osg::Image::AllocationMode, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->Glyph::setImage(s, t, r, internalTextureformat, pixelFormat, type, &data, mode, packing);
+		self->Glyph::setImage(s, t, r, internalTextureformat, pixelFormat, type, &data, mode, packing, rowLength);
 
 		return 0;
 	}
 
-	// void osgText::Glyph::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type)
+	// void osgText::Glyph::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type, int packing = 1)
 	static int _bind_base_readPixels(lua_State *L) {
 		if (!_lg_typecheck_base_readPixels(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Glyph::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type) function, expected prototype:\nvoid osgText::Glyph::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Glyph::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type, int packing = 1) function, expected prototype:\nvoid osgText::Glyph::base_readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type, int packing = 1)\nClass arguments details:\n");
 		}
+
+		int luatop = lua_gettop(L);
 
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
@@ -1488,22 +1684,23 @@ public:
 		int height=(int)lua_tointeger(L,5);
 		unsigned int pixelFormat=(unsigned int)lua_tointeger(L,6);
 		unsigned int type=(unsigned int)lua_tointeger(L,7);
+		int packing=luatop>7 ? (int)lua_tointeger(L,8) : (int)1;
 
 		osgText::Glyph* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Glyph::base_readPixels(int, int, int, int, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Glyph::base_readPixels(int, int, int, int, unsigned int, unsigned int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->Glyph::readPixels(x, y, width, height, pixelFormat, type);
+		self->Glyph::readPixels(x, y, width, height, pixelFormat, type, packing);
 
 		return 0;
 	}
 
-	// void osgText::Glyph::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE)
+	// void osgText::Glyph::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE, unsigned int face = 0)
 	static int _bind_base_readImageFromCurrentTexture(lua_State *L) {
 		if (!_lg_typecheck_base_readImageFromCurrentTexture(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Glyph::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE) function, expected prototype:\nvoid osgText::Glyph::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Glyph::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE, unsigned int face = 0) function, expected prototype:\nvoid osgText::Glyph::base_readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE, unsigned int face = 0)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1511,13 +1708,14 @@ public:
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 		bool copyMipMapsIfAvailable=(bool)(lua_toboolean(L,3)==1);
 		unsigned int type=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)GL_UNSIGNED_BYTE;
+		unsigned int face=luatop>4 ? (unsigned int)lua_tointeger(L,5) : (unsigned int)0;
 
 		osgText::Glyph* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Glyph::base_readImageFromCurrentTexture(unsigned int, bool, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgText::Glyph::base_readImageFromCurrentTexture(unsigned int, bool, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
-		self->Glyph::readImageFromCurrentTexture(contextID, copyMipMapsIfAvailable, type);
+		self->Glyph::readImageFromCurrentTexture(contextID, copyMipMapsIfAvailable, type, face);
 
 		return 0;
 	}
@@ -1755,12 +1953,15 @@ luna_RegType LunaTraits< osgText::Glyph >::methods[] = {
 	{"base_computeDataVariance", &luna_wrapper_osgText_Glyph::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osgText_Glyph::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osgText_Glyph::_bind_base_getUserData},
+	{"base_asArray", &luna_wrapper_osgText_Glyph::_bind_base_asArray},
+	{"base_asPrimitiveSet", &luna_wrapper_osgText_Glyph::_bind_base_asPrimitiveSet},
 	{"base_releaseGLObjects", &luna_wrapper_osgText_Glyph::_bind_base_releaseGLObjects},
 	{"base_cloneType", &luna_wrapper_osgText_Glyph::_bind_base_cloneType},
 	{"base_clone", &luna_wrapper_osgText_Glyph::_bind_base_clone},
 	{"base_isSameKindAs", &luna_wrapper_osgText_Glyph::_bind_base_isSameKindAs},
 	{"base_libraryName", &luna_wrapper_osgText_Glyph::_bind_base_libraryName},
 	{"base_className", &luna_wrapper_osgText_Glyph::_bind_base_className},
+	{"base_asImage", &luna_wrapper_osgText_Glyph::_bind_base_asImage},
 	{"base_getDataPointer", &luna_wrapper_osgText_Glyph::_bind_base_getDataPointer},
 	{"base_getTotalDataSize", &luna_wrapper_osgText_Glyph::_bind_base_getTotalDataSize},
 	{"base_compare", &luna_wrapper_osgText_Glyph::_bind_base_compare},

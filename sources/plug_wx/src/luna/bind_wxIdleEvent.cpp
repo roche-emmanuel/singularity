@@ -205,7 +205,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool needMore=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool needMore=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxIdleEvent* self=Luna< wxObject >::checkSubType< wxIdleEvent >(L,1);
 		if(!self) {

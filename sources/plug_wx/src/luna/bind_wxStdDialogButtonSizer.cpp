@@ -493,7 +493,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
@@ -675,7 +675,7 @@ public:
 
 		wxWindow* oldwin=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxWindow* newwin=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
-		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
@@ -699,7 +699,7 @@ public:
 
 		wxSizer* oldsz=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		wxSizer* newsz=(Luna< wxObject >::checkSubType< wxSizer >(L,3));
-		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {

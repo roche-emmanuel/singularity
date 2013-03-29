@@ -128,7 +128,7 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -224,14 +224,14 @@ public:
 
 		wxString normal_face(lua_tostring(L,2),lua_objlen(L,2));
 		wxString fixed_face(lua_tostring(L,3),lua_objlen(L,3));
-		int sizes=luatop>3 ? (int)lua_tointeger(L,4) : NULL;
+		const int* sizes=luatop>3 ? (const int*)Luna< void >::check(L,4) : (const int*)NULL;
 
 		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetFonts(const wxString &, const wxString &, const int *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
 		}
-		self->SetFonts(normal_face, fixed_face, &sizes);
+		self->SetFonts(normal_face, fixed_face, sizes);
 
 		return 0;
 	}
@@ -246,7 +246,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString footer(lua_tostring(L,2),lua_objlen(L,2));
-		int pg=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPAGE_ALL;
+		int pg=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxPAGE_ALL;
 
 		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
@@ -268,7 +268,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString header(lua_tostring(L,2),lua_objlen(L,2));
-		int pg=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPAGE_ALL;
+		int pg=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxPAGE_ALL;
 
 		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
@@ -310,7 +310,7 @@ public:
 
 		wxString html(lua_tostring(L,2),lua_objlen(L,2));
 		wxString basepath(lua_tostring(L,3),lua_objlen(L,3));
-		bool isdir=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool isdir=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
@@ -331,11 +331,11 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		float top=luatop>1 ? (float)lua_tonumber(L,2) : 25.2;
-		float bottom=luatop>2 ? (float)lua_tonumber(L,3) : 25.2;
-		float left=luatop>3 ? (float)lua_tonumber(L,4) : 25.2;
-		float right=luatop>4 ? (float)lua_tonumber(L,5) : 25.2;
-		float spaces=luatop>5 ? (float)lua_tonumber(L,6) : 5;
+		float top=luatop>1 ? (float)lua_tonumber(L,2) : (float)25.2;
+		float bottom=luatop>2 ? (float)lua_tonumber(L,3) : (float)25.2;
+		float left=luatop>3 ? (float)lua_tonumber(L,4) : (float)25.2;
+		float right=luatop>4 ? (float)lua_tonumber(L,5) : (float)25.2;
+		float spaces=luatop>5 ? (float)lua_tonumber(L,6) : (float)5;
 
 		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {

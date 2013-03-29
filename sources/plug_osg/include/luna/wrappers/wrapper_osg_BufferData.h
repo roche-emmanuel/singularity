@@ -167,6 +167,66 @@ public:
 		return (_obj.callFunction<unsigned int>());
 	};
 
+	// osg::Array * osg::BufferData::asArray()
+	osg::Array * asArray() {
+		if(_obj.pushFunction("asArray")) {
+			_obj.pushArg((osg::BufferData*)this);
+			return (_obj.callFunction<osg::Array*>());
+		}
+
+		return BufferData::asArray();
+	};
+
+	// const osg::Array * osg::BufferData::asArray() const
+	const osg::Array * asArray() const {
+		if(_obj.pushFunction("asArray")) {
+			_obj.pushArg((osg::BufferData*)this);
+			return (_obj.callFunction<osg::Array*>());
+		}
+
+		return BufferData::asArray();
+	};
+
+	// osg::PrimitiveSet * osg::BufferData::asPrimitiveSet()
+	osg::PrimitiveSet * asPrimitiveSet() {
+		if(_obj.pushFunction("asPrimitiveSet")) {
+			_obj.pushArg((osg::BufferData*)this);
+			return (_obj.callFunction<osg::PrimitiveSet*>());
+		}
+
+		return BufferData::asPrimitiveSet();
+	};
+
+	// const osg::PrimitiveSet * osg::BufferData::asPrimitiveSet() const
+	const osg::PrimitiveSet * asPrimitiveSet() const {
+		if(_obj.pushFunction("asPrimitiveSet")) {
+			_obj.pushArg((osg::BufferData*)this);
+			return (_obj.callFunction<osg::PrimitiveSet*>());
+		}
+
+		return BufferData::asPrimitiveSet();
+	};
+
+	// osg::Image * osg::BufferData::asImage()
+	osg::Image * asImage() {
+		if(_obj.pushFunction("asImage")) {
+			_obj.pushArg((osg::BufferData*)this);
+			return (_obj.callFunction<osg::Image*>());
+		}
+
+		return BufferData::asImage();
+	};
+
+	// const osg::Image * osg::BufferData::asImage() const
+	const osg::Image * asImage() const {
+		if(_obj.pushFunction("asImage")) {
+			_obj.pushArg((osg::BufferData*)this);
+			return (_obj.callFunction<osg::Image*>());
+		}
+
+		return BufferData::asImage();
+	};
+
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
 	void releaseGLObjects(osg::State * state = 0) const {
 		if(_obj.pushFunction("releaseGLObjects")) {

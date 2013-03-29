@@ -159,14 +159,14 @@ public:
 	inline static bool _lg_typecheck_setTransform(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setTransformNC(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		return true;
 	}
 
@@ -417,14 +417,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void SPK::Transformable::setTransform(const float * transform) function, expected prototype:\nvoid SPK::Transformable::setTransform(const float * transform)\nClass arguments details:\n");
 		}
 
-		float transform=(float)lua_tonumber(L,2);
+		const float* transform=(const float*)Luna< void >::check(L,2);
 
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransform(const float *). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
-		self->setTransform(&transform);
+		self->setTransform(transform);
 
 		return 0;
 	}
@@ -436,14 +436,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void SPK::Transformable::setTransformNC(const float * transform) function, expected prototype:\nvoid SPK::Transformable::setTransformNC(const float * transform)\nClass arguments details:\n");
 		}
 
-		float transform=(float)lua_tonumber(L,2);
+		const float* transform=(const float*)Luna< void >::check(L,2);
 
 		SPK::Transformable* self=(Luna< SPK::Transformable >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void SPK::Transformable::setTransformNC(const float *). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
 		}
-		self->setTransformNC(&transform);
+		self->setTransformNC(transform);
 
 		return 0;
 	}

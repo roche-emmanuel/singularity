@@ -178,8 +178,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>3 ) return false;
 
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -435,15 +435,15 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int major=luatop>1 ? (int)lua_tointeger(L,2) : NULL;
-		int minor=luatop>2 ? (int)lua_tointeger(L,3) : NULL;
+		int* major=luatop>1 ? (int*)Luna< void >::check(L,2) : (int*)NULL;
+		int* minor=luatop>2 ? (int*)Luna< void >::check(L,3) : (int*)NULL;
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPortId wxAppTraits::GetToolkitVersion(int *, int *) const. Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
 		}
-		wxPortId lret = self->GetToolkitVersion(&major, &minor);
+		wxPortId lret = self->GetToolkitVersion(major, minor);
 		lua_pushnumber(L,lret);
 
 		return 1;

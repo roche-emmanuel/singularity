@@ -53,6 +53,14 @@ public:
 			_obj.callFunction<void>();
 		}
 	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, double d) 
+		: osg::Uniform(name, d), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
 	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i) 
 		: osg::Uniform(name, i), luna_wrapper_base(L) { 
 		register_protected_methods(L);
@@ -61,8 +69,8 @@ public:
 			_obj.callFunction<void>();
 		}
 	};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i) 
-		: osg::Uniform(name, i), luna_wrapper_base(L) { 
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int ui) 
+		: osg::Uniform(name, ui), luna_wrapper_base(L) { 
 		register_protected_methods(L);
 		if(_obj.pushFunction("buildInstance")) {
 			_obj.pushArg((osg::Uniform*)this);
@@ -101,6 +109,30 @@ public:
 			_obj.callFunction<void>();
 		}
 	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec2d & v2) 
+		: osg::Uniform(name, v2), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec3d & v3) 
+		: osg::Uniform(name, v3), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec4d & v4) 
+		: osg::Uniform(name, v4), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
 	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix2 & m2) 
 		: osg::Uniform(name, m2), luna_wrapper_base(L) { 
 		register_protected_methods(L);
@@ -125,8 +157,120 @@ public:
 			_obj.callFunction<void>();
 		}
 	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix2x3 & m2x3) 
+		: osg::Uniform(name, m2x3), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix2x4 & m2x4) 
+		: osg::Uniform(name, m2x4), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix3x2 & m3x2) 
+		: osg::Uniform(name, m3x2), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix3x4 & m3x4) 
+		: osg::Uniform(name, m3x4), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix4x2 & m4x2) 
+		: osg::Uniform(name, m4x2), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix4x3 & m4x3) 
+		: osg::Uniform(name, m4x3), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix2d & m2) 
+		: osg::Uniform(name, m2), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix3d & m3) 
+		: osg::Uniform(name, m3), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
 	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrixd & m4) 
 		: osg::Uniform(name, m4), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix2x3d & m2x3) 
+		: osg::Uniform(name, m2x3), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix2x4d & m2x4) 
+		: osg::Uniform(name, m2x4), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix3x2d & m3x2) 
+		: osg::Uniform(name, m3x2), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix3x4d & m3x4) 
+		: osg::Uniform(name, m3x4), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix4x2d & m4x2) 
+		: osg::Uniform(name, m4x2), luna_wrapper_base(L) { 
+		register_protected_methods(L);
+		if(_obj.pushFunction("buildInstance")) {
+			_obj.pushArg((osg::Uniform*)this);
+			_obj.callFunction<void>();
+		}
+	};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix4x3d & m4x3) 
+		: osg::Uniform(name, m4x3), luna_wrapper_base(L) { 
 		register_protected_methods(L);
 		if(_obj.pushFunction("buildInstance")) {
 			_obj.pushArg((osg::Uniform*)this);
@@ -157,24 +301,24 @@ public:
 			_obj.callFunction<void>();
 		}
 	};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1) 
-		: osg::Uniform(name, i0, i1), luna_wrapper_base(L) { 
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int ui0, unsigned int ui1) 
+		: osg::Uniform(name, ui0, ui1), luna_wrapper_base(L) { 
 		register_protected_methods(L);
 		if(_obj.pushFunction("buildInstance")) {
 			_obj.pushArg((osg::Uniform*)this);
 			_obj.callFunction<void>();
 		}
 	};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1, unsigned int i2) 
-		: osg::Uniform(name, i0, i1, i2), luna_wrapper_base(L) { 
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int ui0, unsigned int ui1, unsigned int ui2) 
+		: osg::Uniform(name, ui0, ui1, ui2), luna_wrapper_base(L) { 
 		register_protected_methods(L);
 		if(_obj.pushFunction("buildInstance")) {
 			_obj.pushArg((osg::Uniform*)this);
 			_obj.callFunction<void>();
 		}
 	};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1, unsigned int i2, unsigned int i3) 
-		: osg::Uniform(name, i0, i1, i2, i3), luna_wrapper_base(L) { 
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int ui0, unsigned int ui1, unsigned int ui2, unsigned int ui3) 
+		: osg::Uniform(name, ui0, ui1, ui2, ui3), luna_wrapper_base(L) { 
 		register_protected_methods(L);
 		if(_obj.pushFunction("buildInstance")) {
 			_obj.pushArg((osg::Uniform*)this);

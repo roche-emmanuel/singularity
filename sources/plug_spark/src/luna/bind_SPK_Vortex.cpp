@@ -315,14 +315,14 @@ public:
 		if( luatop>1 && !position_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg position in SPK::Vortex::Vortex function");
 		}
-		const SPK::Vector3D & position=luatop>1 ? *position_ptr : SPK::Vector3D ();
+		const SPK::Vector3D & position=luatop>1 ? *position_ptr : (const SPK::Vector3D)SPK::Vector3D ();
 		const SPK::Vector3D* direction_ptr=luatop>2 ? (Luna< SPK::Vector3D >::check(L,3)) : NULL;
 		if( luatop>2 && !direction_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg direction in SPK::Vortex::Vortex function");
 		}
-		const SPK::Vector3D & direction=luatop>2 ? *direction_ptr : SPK::Vector3D (0.0f, 1.0f, 0.0f);
-		float rotationSpeed=luatop>3 ? (float)lua_tonumber(L,4) : 1.0f;
-		float attractionSpeed=luatop>4 ? (float)lua_tonumber(L,5) : 0.0f;
+		const SPK::Vector3D & direction=luatop>2 ? *direction_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 1.0f, 0.0f);
+		float rotationSpeed=luatop>3 ? (float)lua_tonumber(L,4) : (float)1.0f;
+		float attractionSpeed=luatop>4 ? (float)lua_tonumber(L,5) : (float)0.0f;
 
 		return new wrapper_SPK_Vortex(L,NULL, position, direction, rotationSpeed, attractionSpeed);
 	}
@@ -683,14 +683,14 @@ public:
 		if( luatop>0 && !position_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg position in SPK::Vortex::create function");
 		}
-		const SPK::Vector3D & position=luatop>0 ? *position_ptr : SPK::Vector3D ();
+		const SPK::Vector3D & position=luatop>0 ? *position_ptr : (const SPK::Vector3D)SPK::Vector3D ();
 		const SPK::Vector3D* direction_ptr=luatop>1 ? (Luna< SPK::Vector3D >::check(L,2)) : NULL;
 		if( luatop>1 && !direction_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg direction in SPK::Vortex::create function");
 		}
-		const SPK::Vector3D & direction=luatop>1 ? *direction_ptr : SPK::Vector3D (0.0f, 1.0f, 0.0f);
-		float rotationSpeed=luatop>2 ? (float)lua_tonumber(L,3) : 1.0f;
-		float attractionSpeed=luatop>3 ? (float)lua_tonumber(L,4) : 0.0f;
+		const SPK::Vector3D & direction=luatop>1 ? *direction_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 1.0f, 0.0f);
+		float rotationSpeed=luatop>2 ? (float)lua_tonumber(L,3) : (float)1.0f;
+		float attractionSpeed=luatop>3 ? (float)lua_tonumber(L,4) : (float)0.0f;
 
 		SPK::Vortex * lret = SPK::Vortex::create(position, direction, rotationSpeed, attractionSpeed);
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -138,8 +138,8 @@ public:
 	inline static bool _lg_typecheck_GetAlignment(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -167,8 +167,8 @@ public:
 	inline static bool _lg_typecheck_GetNonDefaultAlignment(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -397,15 +397,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::GetAlignment(int * hAlign, int * vAlign) const function, expected prototype:\nvoid wxGridCellAttr::GetAlignment(int * hAlign, int * vAlign) const\nClass arguments details:\n");
 		}
 
-		int hAlign=(int)lua_tointeger(L,2);
-		int vAlign=(int)lua_tointeger(L,3);
+		int* hAlign=(int*)Luna< void >::check(L,2);
+		int* vAlign=(int*)Luna< void >::check(L,3);
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridCellAttr::GetAlignment(int *, int *) const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
 		}
-		self->GetAlignment(&hAlign, &vAlign);
+		self->GetAlignment(hAlign, vAlign);
 
 		return 0;
 	}
@@ -483,15 +483,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::GetNonDefaultAlignment(int * hAlign, int * vAlign) const function, expected prototype:\nvoid wxGridCellAttr::GetNonDefaultAlignment(int * hAlign, int * vAlign) const\nClass arguments details:\n");
 		}
 
-		int hAlign=(int)lua_tointeger(L,2);
-		int vAlign=(int)lua_tointeger(L,3);
+		int* hAlign=(int*)Luna< void >::check(L,2);
+		int* vAlign=(int*)Luna< void >::check(L,3);
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridCellAttr::GetNonDefaultAlignment(int *, int *) const. Got : '%s'",typeid(Luna< wxGridCellAttr >::check(L,1)).name());
 		}
-		self->GetNonDefaultAlignment(&hAlign, &vAlign);
+		self->GetNonDefaultAlignment(hAlign, vAlign);
 
 		return 0;
 	}
@@ -805,7 +805,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool isReadOnly=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool isReadOnly=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxGridCellAttr* self=(Luna< wxGridCellAttr >::check(L,1));
 		if(!self) {

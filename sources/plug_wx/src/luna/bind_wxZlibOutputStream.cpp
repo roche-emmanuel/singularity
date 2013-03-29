@@ -207,7 +207,7 @@ public:
 		}
 
 		const char * data=(const char *)lua_tostring(L,2);
-		size_t datalen=(size_t)lua_tointeger(L,3);
+		const size_t datalen=(const size_t)lua_tointeger(L,3);
 
 		wxZlibOutputStream* self=Luna< wxObject >::checkSubType< wxZlibOutputStream >(L,1);
 		if(!self) {
@@ -379,7 +379,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		long long pos=(long long)lua_tointeger(L,2);
-		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : ::wxFromStart;
+		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : (wxSeekMode)::wxFromStart;
 
 		wxZlibOutputStream* self=Luna< wxObject >::checkSubType< wxZlibOutputStream >(L,1);
 		if(!self) {

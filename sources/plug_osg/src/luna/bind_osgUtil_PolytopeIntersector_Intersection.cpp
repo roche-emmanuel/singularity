@@ -192,7 +192,7 @@ public:
 	inline static bool _lg_typecheck_setLocalIntersectionPoint(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
 		return true;
 	}
 
@@ -332,23 +332,23 @@ public:
 		return 1;
 	}
 
-	// osg::Vec3f osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint()
+	// osg::Vec3d osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint()
 	static int _bind_getLocalIntersectionPoint(lua_State *L) {
 		if (!_lg_typecheck_getLocalIntersectionPoint(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint() function, expected prototype:\nosg::Vec3f osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec3d osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint() function, expected prototype:\nosg::Vec3d osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint()\nClass arguments details:\n");
 		}
 
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Vec3d osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
 		}
-		const osg::Vec3f* lret = &self->localIntersectionPoint;
+		const osg::Vec3d* lret = &self->localIntersectionPoint;
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::Vec3f >::push(L,lret,false);
+		Luna< osg::Vec3d >::push(L,lret,false);
 
 		return 1;
 	}
@@ -490,23 +490,23 @@ public:
 		return 0;
 	}
 
-	// void osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3f value)
+	// void osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3d value)
 	static int _bind_setLocalIntersectionPoint(lua_State *L) {
 		if (!_lg_typecheck_setLocalIntersectionPoint(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3f value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3f value)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3d value) function, expected prototype:\nvoid osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3d value)\nClass arguments details:\narg 1 ID = 92303202\n");
 		}
 
-		osg::Vec3f* value_ptr=(Luna< osg::Vec3f >::check(L,2));
+		osg::Vec3d* value_ptr=(Luna< osg::Vec3d >::check(L,2));
 		if( !value_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint function");
 		}
-		osg::Vec3f value=*value_ptr;
+		osg::Vec3d value=*value_ptr;
 
 		osgUtil::PolytopeIntersector::Intersection* self=(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3f). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void osgUtil::PolytopeIntersector::Intersection::localIntersectionPoint(osg::Vec3d). Got : '%s'",typeid(Luna< osgUtil::PolytopeIntersector::Intersection >::check(L,1)).name());
 		}
 		self->localIntersectionPoint = value;
 

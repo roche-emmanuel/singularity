@@ -252,7 +252,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int t=luatop>0 ? (int)lua_tointeger(L,1) : 0;
+		int t=luatop>0 ? (int)lua_tointeger(L,1) : (int)0;
 
 		return new mglPrim(t);
 	}

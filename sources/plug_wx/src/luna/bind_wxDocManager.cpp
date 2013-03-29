@@ -576,8 +576,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>0 ? (long)lua_tointeger(L,1) : 0;
-		bool initialize=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		long flags=luatop>0 ? (long)lua_tointeger(L,1) : (long)0;
+		bool initialize=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		return new wxDocManager(flags, initialize);
 	}
@@ -591,8 +591,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : 0;
-		bool initialize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)0;
+		bool initialize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		return new wrapper_wxDocManager(L,NULL, flags, initialize);
 	}
@@ -618,7 +618,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxView* doc=(Luna< wxObject >::checkSubType< wxView >(L,2));
-		bool activate=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool activate=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
@@ -719,7 +719,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDocument* doc=(Luna< wxObject >::checkSubType< wxDocument >(L,2));
-		bool force=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool force=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
@@ -741,7 +741,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool force=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool force=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
@@ -764,7 +764,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
-		long flags=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long flags=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
@@ -810,7 +810,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDocument* doc=(Luna< wxObject >::checkSubType< wxDocument >(L,2));
-		long flags=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long flags=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
@@ -1570,7 +1570,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxView* doc=(Luna< wxObject >::checkSubType< wxView >(L,2));
-		bool activate=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool activate=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
@@ -1611,7 +1611,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
-		long flags=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long flags=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
@@ -1636,7 +1636,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxDocument* doc=(Luna< wxObject >::checkSubType< wxDocument >(L,2));
-		long flags=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+		long flags=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
 
 		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {

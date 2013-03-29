@@ -293,6 +293,24 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setComputeGroups(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getComputeGroups(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_addBindAttribLocation(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
@@ -1106,6 +1124,48 @@ public:
 		lua_pushnumber(L,*lret);
 
 		return 1;
+	}
+
+	// void osg::Program::setComputeGroups(int numGroupsX, int numGroupsY, int numGroupsZ)
+	static int _bind_setComputeGroups(lua_State *L) {
+		if (!_lg_typecheck_setComputeGroups(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Program::setComputeGroups(int numGroupsX, int numGroupsY, int numGroupsZ) function, expected prototype:\nvoid osg::Program::setComputeGroups(int numGroupsX, int numGroupsY, int numGroupsZ)\nClass arguments details:\n");
+		}
+
+		int numGroupsX=(int)lua_tointeger(L,2);
+		int numGroupsY=(int)lua_tointeger(L,3);
+		int numGroupsZ=(int)lua_tointeger(L,4);
+
+		osg::Program* self=Luna< osg::Referenced >::checkSubType< osg::Program >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Program::setComputeGroups(int, int, int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->setComputeGroups(numGroupsX, numGroupsY, numGroupsZ);
+
+		return 0;
+	}
+
+	// void osg::Program::getComputeGroups(int & numGroupsX, int & numGroupsY, int & numGroupsZ) const
+	static int _bind_getComputeGroups(lua_State *L) {
+		if (!_lg_typecheck_getComputeGroups(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Program::getComputeGroups(int & numGroupsX, int & numGroupsY, int & numGroupsZ) const function, expected prototype:\nvoid osg::Program::getComputeGroups(int & numGroupsX, int & numGroupsY, int & numGroupsZ) const\nClass arguments details:\n");
+		}
+
+		int numGroupsX=(int)lua_tointeger(L,2);
+		int numGroupsY=(int)lua_tointeger(L,3);
+		int numGroupsZ=(int)lua_tointeger(L,4);
+
+		osg::Program* self=Luna< osg::Referenced >::checkSubType< osg::Program >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Program::getComputeGroups(int &, int &, int &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->getComputeGroups(numGroupsX, numGroupsY, numGroupsZ);
+
+		return 0;
 	}
 
 	// void osg::Program::addBindAttribLocation(const std::string & name, unsigned int index)
@@ -2028,6 +2088,8 @@ luna_RegType LunaTraits< osg::Program >::methods[] = {
 	{"getParameter", &luna_wrapper_osg_Program::_bind_getParameter},
 	{"setParameterfv", &luna_wrapper_osg_Program::_bind_setParameterfv},
 	{"getParameterfv", &luna_wrapper_osg_Program::_bind_getParameterfv},
+	{"setComputeGroups", &luna_wrapper_osg_Program::_bind_setComputeGroups},
+	{"getComputeGroups", &luna_wrapper_osg_Program::_bind_getComputeGroups},
 	{"addBindAttribLocation", &luna_wrapper_osg_Program::_bind_addBindAttribLocation},
 	{"removeBindAttribLocation", &luna_wrapper_osg_Program::_bind_removeBindAttribLocation},
 	{"addBindFragDataLocation", &luna_wrapper_osg_Program::_bind_addBindFragDataLocation},

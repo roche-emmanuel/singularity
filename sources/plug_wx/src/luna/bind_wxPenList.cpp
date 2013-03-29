@@ -148,8 +148,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxPenList::FindOrCreatePen function");
 		}
 		const wxColour & colour=*colour_ptr;
-		int width=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		wxPenStyle style=luatop>3 ? (wxPenStyle)lua_tointeger(L,4) : ::wxPENSTYLE_SOLID;
+		int width=luatop>2 ? (int)lua_tointeger(L,3) : (int)1;
+		wxPenStyle style=luatop>3 ? (wxPenStyle)lua_tointeger(L,4) : (wxPenStyle)::wxPENSTYLE_SOLID;
 
 		wxPenList* self=(Luna< wxPenList >::check(L,1));
 		if(!self) {

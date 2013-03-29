@@ -202,7 +202,7 @@ public:
 		if( luatop>1 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewIconText::wxDataViewIconText function");
 		}
-		const wxIcon & icon=luatop>1 ? *icon_ptr : wxNullIcon;
+		const wxIcon & icon=luatop>1 ? *icon_ptr : (const wxIcon&)wxNullIcon;
 
 		return new wxDataViewIconText(text, icon);
 	}
@@ -237,7 +237,7 @@ public:
 		if( luatop>2 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewIconText::wxDataViewIconText function");
 		}
-		const wxIcon & icon=luatop>2 ? *icon_ptr : wxNullIcon;
+		const wxIcon & icon=luatop>2 ? *icon_ptr : (const wxIcon&)wxNullIcon;
 
 		return new wrapper_wxDataViewIconText(L,NULL, text, icon);
 	}

@@ -176,6 +176,17 @@ public:
 		return KeySwitchMatrixManipulator::operator()(node, nv);
 	};
 
+	// void osgGA::CameraManipulator::updateCamera(osg::Camera & camera)
+	void updateCamera(osg::Camera & camera) {
+		if(_obj.pushFunction("updateCamera")) {
+			_obj.pushArg((osgGA::KeySwitchMatrixManipulator*)this);
+			_obj.pushArg(&camera);
+			return (_obj.callFunction<void>());
+		}
+
+		return KeySwitchMatrixManipulator::updateCamera(camera);
+	};
+
 	// void osgGA::CameraManipulator::getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
 	void getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const {
 		if(_obj.pushFunction("getHomePosition")) {

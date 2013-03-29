@@ -201,8 +201,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int min=luatop>1 ? (int)lua_tointeger(L,2) : -1;
-		int max=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int min=luatop>1 ? (int)lua_tointeger(L,2) : (int)-1;
+		int max=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		return new wrapper_wxGridCellNumberEditor(L,NULL, min, max);
 	}

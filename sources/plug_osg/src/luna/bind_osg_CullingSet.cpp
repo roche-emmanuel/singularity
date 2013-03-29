@@ -357,6 +357,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_resetCullingMask(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_disableAndPushOccludersCurrentMask(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1171,6 +1177,24 @@ public:
 		return 0;
 	}
 
+	// void osg::CullingSet::resetCullingMask()
+	static int _bind_resetCullingMask(lua_State *L) {
+		if (!_lg_typecheck_resetCullingMask(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::CullingSet::resetCullingMask() function, expected prototype:\nvoid osg::CullingSet::resetCullingMask()\nClass arguments details:\n");
+		}
+
+
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::CullingSet::resetCullingMask(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->resetCullingMask();
+
+		return 0;
+	}
+
 	// void osg::CullingSet::disableAndPushOccludersCurrentMask(osg::NodePath & nodePath)
 	static int _bind_disableAndPushOccludersCurrentMask(lua_State *L) {
 		if (!_lg_typecheck_disableAndPushOccludersCurrentMask(L)) {
@@ -1332,6 +1356,7 @@ luna_RegType LunaTraits< osg::CullingSet >::methods[] = {
 	{"isCulled", &luna_wrapper_osg_CullingSet::_bind_isCulled},
 	{"pushCurrentMask", &luna_wrapper_osg_CullingSet::_bind_pushCurrentMask},
 	{"popCurrentMask", &luna_wrapper_osg_CullingSet::_bind_popCurrentMask},
+	{"resetCullingMask", &luna_wrapper_osg_CullingSet::_bind_resetCullingMask},
 	{"disableAndPushOccludersCurrentMask", &luna_wrapper_osg_CullingSet::_bind_disableAndPushOccludersCurrentMask},
 	{"popOccludersCurrentMask", &luna_wrapper_osg_CullingSet::_bind_popOccludersCurrentMask},
 	{"computePixelSizeVector", &luna_wrapper_osg_CullingSet::_bind_computePixelSizeVector},

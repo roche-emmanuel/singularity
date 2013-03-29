@@ -227,7 +227,7 @@ public:
 			_os << VARIANT_EMPTY;
 		}
 		else {
-			_os << osgDB::PROPERTY("Type") << VARIANT_EMPTY << std::endl; 
+			_os << _os.PROPERTY("Type") << VARIANT_EMPTY << std::endl; 
 		}
 	}
 
@@ -236,8 +236,8 @@ public:
 			_os << VARIANT_INT32 << i;
 		}
 		else {
-			_os << osgDB::PROPERTY("Type") << VARIANT_INT32; // << std::endl;  
-			_os << osgDB::PROPERTY("Value") << i << std::endl;
+			_os << _os.PROPERTY("Type") << VARIANT_INT32; // << std::endl;  
+			_os << _os.PROPERTY("Value") << i << std::endl;
 		}
 	}
 
@@ -246,8 +246,8 @@ public:
 			_os << VARIANT_DOUBLE << d;
 		}
 		else {
-			_os << osgDB::PROPERTY("Type") << VARIANT_DOUBLE; // << std::endl; 
-			_os << osgDB::PROPERTY("Value") << d << std::endl;
+			_os << _os.PROPERTY("Type") << VARIANT_DOUBLE; // << std::endl; 
+			_os << _os.PROPERTY("Value") << d << std::endl;
 		}
 	}
 
@@ -256,8 +256,8 @@ public:
 			_os << VARIANT_BOOL << b;
 		}
 		else {
-			_os << osgDB::PROPERTY("Type") << VARIANT_BOOL; // << std::endl; 
-			_os << osgDB::PROPERTY("Value") << b << std::endl;
+			_os << _os.PROPERTY("Type") << VARIANT_BOOL; // << std::endl; 
+			_os << _os.PROPERTY("Value") << b << std::endl;
 		}
 	}
 
@@ -266,8 +266,8 @@ public:
 			_os << VARIANT_STRING << str;
 		}
 		else {
-			_os << osgDB::PROPERTY("Type") << VARIANT_STRING; // << std::endl; 
-			_os << osgDB::PROPERTY("Value") << str << std::endl;
+			_os << _os.PROPERTY("Type") << VARIANT_STRING; // << std::endl; 
+			_os << _os.PROPERTY("Value") << str << std::endl;
 		}
 	}
 
@@ -281,8 +281,8 @@ public:
 			_os << VARIANT_OBJECT << obj;
 		}
 		else {
-			_os << osgDB::PROPERTY("Type") << VARIANT_OBJECT; // << std::endl; 
-			_os << osgDB::PROPERTY("Value") << obj << std::endl;
+			_os << _os.PROPERTY("Type") << VARIANT_OBJECT; // << std::endl; 
+			_os << _os.PROPERTY("Value") << obj << std::endl;
 		}
 
 	}

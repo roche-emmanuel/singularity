@@ -184,7 +184,7 @@ public:
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
 		int major=(int)lua_tointeger(L,2);
 		int minor=(int)lua_tointeger(L,3);
-		int micro=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int micro=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 		wxString description(lua_tostring(L,5),lua_objlen(L,5));
 		wxString copyright(lua_tostring(L,6),lua_objlen(L,6));
 

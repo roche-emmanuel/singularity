@@ -131,6 +131,16 @@ public:
 		return GraphicsWindow::releaseGLObjects(arg1);
 	};
 
+	// void osg::GraphicsContext::runOperations()
+	void runOperations() {
+		if(_obj.pushFunction("runOperations")) {
+			_obj.pushArg((osgViewer::GraphicsWindow*)this);
+			return (_obj.callFunction<void>());
+		}
+
+		return GraphicsWindow::runOperations();
+	};
+
 	// void osg::GraphicsContext::clear()
 	void clear() {
 		if(_obj.pushFunction("clear")) {

@@ -248,7 +248,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		spark::SparkDrawable* spark=(Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,2));
-		osg::Transform* trackee=luatop>2 ? (Luna< osg::Referenced >::checkSubType< osg::Transform >(L,3)) : 0;
+		osg::Transform* trackee=luatop>2 ? (Luna< osg::Referenced >::checkSubType< osg::Transform >(L,3)) : (osg::Transform*)0;
 
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {

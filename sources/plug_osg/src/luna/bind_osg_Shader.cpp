@@ -1616,6 +1616,7 @@ luna_RegEnumType LunaTraits< osg::Shader >::enumValues[] = {
 	{"TESSEVALUATION", osg::Shader::TESSEVALUATION},
 	{"GEOMETRY", osg::Shader::GEOMETRY},
 	{"FRAGMENT", osg::Shader::FRAGMENT},
+	{"COMPUTE", osg::Shader::COMPUTE},
 	{"UNDEFINED", osg::Shader::UNDEFINED},
 	{0,0}
 };

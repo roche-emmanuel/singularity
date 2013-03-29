@@ -945,18 +945,18 @@ public:
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxBitmapToggleButton::wxBitmapToggleButton function");
 		}
-		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>3 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
 		if( luatop>4 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxBitmapToggleButton::wxBitmapToggleButton function");
 		}
-		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : 0;
+		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)0;
 		const wxValidator* val_ptr=luatop>6 ? (Luna< wxObject >::checkSubType< wxValidator >(L,7)) : NULL;
 		if( luatop>6 && !val_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg val in wxBitmapToggleButton::wxBitmapToggleButton function");
 		}
-		const wxValidator & val=luatop>6 ? *val_ptr : wxDefaultValidator;
+		const wxValidator & val=luatop>6 ? *val_ptr : (const wxValidator&)wxDefaultValidator;
 		wxString name(lua_tostring(L,8),lua_objlen(L,8));
 
 		return new wxBitmapToggleButton(parent, id, label, pos, size, style, val, name);
@@ -993,18 +993,18 @@ public:
 		if( luatop>4 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxBitmapToggleButton::wxBitmapToggleButton function");
 		}
-		const wxPoint & pos=luatop>4 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>4 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>5 ? (Luna< wxSize >::check(L,6)) : NULL;
 		if( luatop>5 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxBitmapToggleButton::wxBitmapToggleButton function");
 		}
-		const wxSize & size=luatop>5 ? *size_ptr : wxDefaultSize;
-		long style=luatop>6 ? (long)lua_tointeger(L,7) : 0;
+		const wxSize & size=luatop>5 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>6 ? (long)lua_tointeger(L,7) : (long)0;
 		const wxValidator* val_ptr=luatop>7 ? (Luna< wxObject >::checkSubType< wxValidator >(L,8)) : NULL;
 		if( luatop>7 && !val_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg val in wxBitmapToggleButton::wxBitmapToggleButton function");
 		}
-		const wxValidator & val=luatop>7 ? *val_ptr : wxDefaultValidator;
+		const wxValidator & val=luatop>7 ? *val_ptr : (const wxValidator&)wxDefaultValidator;
 		wxString name(lua_tostring(L,9),lua_objlen(L,9));
 
 		return new wrapper_wxBitmapToggleButton(L,NULL, parent, id, label, pos, size, style, val, name);
@@ -1043,18 +1043,18 @@ public:
 		if( luatop>4 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxBitmapToggleButton::Create function");
 		}
-		const wxPoint & pos=luatop>4 ? *pos_ptr : wxDefaultPosition;
+		const wxPoint & pos=luatop>4 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
 		const wxSize* size_ptr=luatop>5 ? (Luna< wxSize >::check(L,6)) : NULL;
 		if( luatop>5 && !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxBitmapToggleButton::Create function");
 		}
-		const wxSize & size=luatop>5 ? *size_ptr : wxDefaultSize;
-		long style=luatop>6 ? (long)lua_tointeger(L,7) : 0;
+		const wxSize & size=luatop>5 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>6 ? (long)lua_tointeger(L,7) : (long)0;
 		const wxValidator* val_ptr=luatop>7 ? (Luna< wxObject >::checkSubType< wxValidator >(L,8)) : NULL;
 		if( luatop>7 && !val_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg val in wxBitmapToggleButton::Create function");
 		}
-		const wxValidator & val=luatop>7 ? *val_ptr : wxDefaultValidator;
+		const wxValidator & val=luatop>7 ? *val_ptr : (const wxValidator&)wxDefaultValidator;
 		wxString name(lua_tostring(L,9),lua_objlen(L,9));
 
 		wxBitmapToggleButton* self=Luna< wxObject >::checkSubType< wxBitmapToggleButton >(L,1);
@@ -1325,8 +1325,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
-		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
+		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxBitmapToggleButton* self=Luna< wxObject >::checkSubType< wxBitmapToggleButton >(L,1);
 		if(!self) {
@@ -1492,7 +1492,7 @@ public:
 
 		int orientation=(int)lua_tointeger(L,2);
 		int pos=(int)lua_tointeger(L,3);
-		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		wxBitmapToggleButton* self=Luna< wxObject >::checkSubType< wxBitmapToggleButton >(L,1);
 		if(!self) {
@@ -1517,7 +1517,7 @@ public:
 		int position=(int)lua_tointeger(L,3);
 		int thumbSize=(int)lua_tointeger(L,4);
 		int range=(int)lua_tointeger(L,5);
-		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 
 		wxBitmapToggleButton* self=Luna< wxObject >::checkSubType< wxBitmapToggleButton >(L,1);
 		if(!self) {
@@ -1804,7 +1804,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
 
 		wxBitmapToggleButton* self=Luna< wxObject >::checkSubType< wxBitmapToggleButton >(L,1);
 		if(!self) {
@@ -1926,12 +1926,12 @@ public:
 		if( luatop>2 && !maxSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg maxSize in wxBitmapToggleButton::base_SetSizeHints function");
 		}
-		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : wxDefaultSize;
+		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : (const wxSize&)wxDefaultSize;
 		const wxSize* incSize_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
 		if( luatop>3 && !incSize_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg incSize in wxBitmapToggleButton::base_SetSizeHints function");
 		}
-		const wxSize & incSize=luatop>3 ? *incSize_ptr : wxDefaultSize;
+		const wxSize & incSize=luatop>3 ? *incSize_ptr : (const wxSize&)wxDefaultSize;
 
 		wxBitmapToggleButton* self=Luna< wxObject >::checkSubType< wxBitmapToggleButton >(L,1);
 		if(!self) {
@@ -1954,10 +1954,10 @@ public:
 
 		int minW=(int)lua_tointeger(L,2);
 		int minH=(int)lua_tointeger(L,3);
-		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : -1;
-		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		int incW=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		int incH=luatop>6 ? (int)lua_tointeger(L,7) : -1;
+		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
+		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : (int)-1;
+		int incW=luatop>5 ? (int)lua_tointeger(L,6) : (int)-1;
+		int incH=luatop>6 ? (int)lua_tointeger(L,7) : (int)-1;
 
 		wxBitmapToggleButton* self=Luna< wxObject >::checkSubType< wxBitmapToggleButton >(L,1);
 		if(!self) {
@@ -2106,7 +2106,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 		const wxRect* rect=luatop>2 ? (Luna< wxRect >::check(L,3)) : (const wxRect*)NULL;
 
 		wxBitmapToggleButton* self=Luna< wxObject >::checkSubType< wxBitmapToggleButton >(L,1);
@@ -2418,7 +2418,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxBitmapToggleButton* self=Luna< wxObject >::checkSubType< wxBitmapToggleButton >(L,1);
 		if(!self) {
@@ -2478,7 +2478,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxBitmapToggleButton* self=Luna< wxObject >::checkSubType< wxBitmapToggleButton >(L,1);
 		if(!self) {
@@ -2500,7 +2500,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxBitmapToggleButton* self=Luna< wxObject >::checkSubType< wxBitmapToggleButton >(L,1);
 		if(!self) {
@@ -2523,7 +2523,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
-		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)0;
 
 		wxBitmapToggleButton* self=Luna< wxObject >::checkSubType< wxBitmapToggleButton >(L,1);
 		if(!self) {
@@ -3046,7 +3046,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxBitmapToggleButton* self=Luna< wxObject >::checkSubType< wxBitmapToggleButton >(L,1);
 		if(!self) {
@@ -3127,7 +3127,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxBitmapToggleButton* self=Luna< wxObject >::checkSubType< wxBitmapToggleButton >(L,1);
 		if(!self) {

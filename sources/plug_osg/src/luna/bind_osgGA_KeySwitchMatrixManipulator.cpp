@@ -413,6 +413,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_updateCamera(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_getHomePosition(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
@@ -1541,6 +1548,29 @@ public:
 		return 0;
 	}
 
+	// void osgGA::KeySwitchMatrixManipulator::base_updateCamera(osg::Camera & camera)
+	static int _bind_base_updateCamera(lua_State *L) {
+		if (!_lg_typecheck_base_updateCamera(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::base_updateCamera(osg::Camera & camera) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::base_updateCamera(osg::Camera & camera)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Camera* camera_ptr=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
+		if( !camera_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg camera in osgGA::KeySwitchMatrixManipulator::base_updateCamera function");
+		}
+		osg::Camera & camera=*camera_ptr;
+
+		osgGA::KeySwitchMatrixManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::KeySwitchMatrixManipulator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgGA::KeySwitchMatrixManipulator::base_updateCamera(osg::Camera &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		self->KeySwitchMatrixManipulator::updateCamera(camera);
+
+		return 0;
+	}
+
 	// void osgGA::KeySwitchMatrixManipulator::base_getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
 	static int _bind_base_getHomePosition(lua_State *L) {
 		if (!_lg_typecheck_base_getHomePosition(L)) {
@@ -2048,6 +2078,7 @@ luna_RegType LunaTraits< osgGA::KeySwitchMatrixManipulator >::methods[] = {
 	{"base_isSameKindAs", &luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_base_isSameKindAs},
 	{"base_libraryName", &luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_base_libraryName},
 	{"base_event", &luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_base_event},
+	{"base_updateCamera", &luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_base_updateCamera},
 	{"base_getHomePosition", &luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_base_getHomePosition},
 	{"base_className", &luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_base_className},
 	{"base_setCoordinateFrameCallback", &luna_wrapper_osgGA_KeySwitchMatrixManipulator::_bind_base_setCoordinateFrameCallback},

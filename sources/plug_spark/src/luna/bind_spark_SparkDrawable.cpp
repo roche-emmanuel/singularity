@@ -438,7 +438,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in spark::SparkDrawable::SparkDrawable function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new spark::SparkDrawable(copy, copyop);
 	}
@@ -472,7 +472,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in spark::SparkDrawable::SparkDrawable function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_spark_SparkDrawable(L,NULL, copy, copyop);
 	}
@@ -643,7 +643,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		spark::SparkDrawable::BaseSystemCreator* func=(Luna< osg::Referenced >::checkSubType< spark::SparkDrawable::BaseSystemCreator >(L,2));
-		bool useProtoSystem=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool useProtoSystem=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
@@ -921,7 +921,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::System* system=(Luna< SPK::Registerable >::checkSubType< SPK::System >(L,2));
-		bool removeFromList=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool removeFromList=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
@@ -947,7 +947,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg matrix in spark::SparkDrawable::setGlobalTransformMatrix function");
 		}
 		const osg::Matrix & matrix=*matrix_ptr;
-		bool useOffset=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool useOffset=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
@@ -980,7 +980,7 @@ public:
 		}
 		const SPK::Vector3D & rot=*rot_ptr;
 		float angle=(float)lua_tonumber(L,5);
-		bool useOffset=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
+		bool useOffset=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)false;
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
@@ -1005,12 +1005,12 @@ public:
 		if( luatop>1 && !p_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg p in spark::SparkDrawable::addParticleSystem function");
 		}
-		const osg::Vec3 & p=luatop>1 ? *p_ptr : osg::Vec3();
+		const osg::Vec3 & p=luatop>1 ? *p_ptr : (const osg::Vec3)osg::Vec3();
 		const osg::Quat* r_ptr=luatop>2 ? (Luna< osg::Quat >::check(L,3)) : NULL;
 		if( luatop>2 && !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in spark::SparkDrawable::addParticleSystem function");
 		}
-		const osg::Quat & r=luatop>2 ? *r_ptr : osg::Quat();
+		const osg::Quat & r=luatop>2 ? *r_ptr : (const osg::Quat)osg::Quat();
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
@@ -1034,8 +1034,8 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 		osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,3));
-		unsigned int type=luatop>3 ? (unsigned int)lua_tointeger(L,4) : GL_RGB;
-		unsigned int clamp=luatop>4 ? (unsigned int)lua_tointeger(L,5) : 0x2900;
+		unsigned int type=luatop>3 ? (unsigned int)lua_tointeger(L,4) : (unsigned int)GL_RGB;
+		unsigned int clamp=luatop>4 ? (unsigned int)lua_tointeger(L,5) : (unsigned int)0x2900;
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {

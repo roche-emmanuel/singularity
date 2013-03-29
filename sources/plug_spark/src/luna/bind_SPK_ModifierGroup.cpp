@@ -298,7 +298,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Zone* zone=luatop>1 ? (Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,2)) : (SPK::Zone*)NULL;
-		SPK::ModifierTrigger trigger=luatop>2 ? (SPK::ModifierTrigger)lua_tointeger(L,3) : SPK::INSIDE_ZONE;
+		SPK::ModifierTrigger trigger=luatop>2 ? (SPK::ModifierTrigger)lua_tointeger(L,3) : (SPK::ModifierTrigger)SPK::INSIDE_ZONE;
 
 		return new wrapper_SPK_ModifierGroup(L,NULL, zone, trigger);
 	}
@@ -333,8 +333,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool useIntersection=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
-		bool useNormal=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool useIntersection=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
+		bool useNormal=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
@@ -355,7 +355,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool handleWrongSide=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool handleWrongSide=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		SPK::ModifierGroup* self=Luna< SPK::Registerable >::checkSubType< SPK::ModifierGroup >(L,1);
 		if(!self) {
@@ -616,7 +616,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		SPK::Zone* zone=luatop>0 ? (Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,1)) : (SPK::Zone*)NULL;
-		SPK::ModifierTrigger trigger=luatop>1 ? (SPK::ModifierTrigger)lua_tointeger(L,2) : SPK::INSIDE_ZONE;
+		SPK::ModifierTrigger trigger=luatop>1 ? (SPK::ModifierTrigger)lua_tointeger(L,2) : (SPK::ModifierTrigger)SPK::INSIDE_ZONE;
 
 		SPK::ModifierGroup * lret = SPK::ModifierGroup::create(zone, trigger);
 		if(!lret) return 0; // Do not write NULL pointers.

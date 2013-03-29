@@ -431,7 +431,7 @@ public:
 		if( luatop>1 && !gap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg gap in wxFlexGridSizer::wxFlexGridSizer function");
 		}
-		const wxSize & gap=luatop>1 ? *gap_ptr : wxSize (0, 0);
+		const wxSize & gap=luatop>1 ? *gap_ptr : (const wxSize&)wxSize (0, 0);
 
 		return new wxFlexGridSizer(cols, gap);
 	}
@@ -497,7 +497,7 @@ public:
 		if( luatop>2 && !gap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg gap in wxFlexGridSizer::wxFlexGridSizer function");
 		}
-		const wxSize & gap=luatop>2 ? *gap_ptr : wxSize (0, 0);
+		const wxSize & gap=luatop>2 ? *gap_ptr : (const wxSize&)wxSize (0, 0);
 
 		return new wrapper_wxFlexGridSizer(L,NULL, cols, gap);
 	}
@@ -562,7 +562,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		size_t idx=(size_t)lua_tointeger(L,2);
-		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
@@ -584,7 +584,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		size_t idx=(size_t)lua_tointeger(L,2);
-		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : (int)0;
 
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
@@ -842,7 +842,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)false;
 
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
@@ -1024,7 +1024,7 @@ public:
 
 		wxWindow* oldwin=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxWindow* newwin=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
-		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {
@@ -1048,7 +1048,7 @@ public:
 
 		wxSizer* oldsz=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		wxSizer* newsz=(Luna< wxObject >::checkSubType< wxSizer >(L,3));
-		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		wxFlexGridSizer* self=Luna< wxObject >::checkSubType< wxFlexGridSizer >(L,1);
 		if(!self) {

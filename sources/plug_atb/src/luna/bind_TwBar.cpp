@@ -1097,7 +1097,7 @@ public:
 		TwBar* bar=(Luna< TwBar >::check(L,1));
 		std::string vname(lua_tostring(L,2),lua_objlen(L,2));
 		std::string pname(lua_tostring(L,3),lua_objlen(L,3));
-		int maxsize=luatop>3 ? (int)lua_tointeger(L,4) : 128;
+		int maxsize=luatop>3 ? (int)lua_tointeger(L,4) : (int)128;
 
 		std::string lret = getStringParam(bar, vname, pname, maxsize);
 		lua_pushlstring(L,lret.data(),lret.size());

@@ -244,8 +244,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		long i=(long)lua_tointeger(L,2);
-		long j=luatop>2 ? (long)lua_tointeger(L,3) : 0;
-		long k=luatop>3 ? (long)lua_tointeger(L,4) : 0;
+		long j=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
+		long k=luatop>3 ? (long)lua_tointeger(L,4) : (long)0;
 
 		mglDataA* self=(Luna< mglDataA >::check(L,1));
 		if(!self) {
@@ -402,8 +402,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		long i=(long)lua_tointeger(L,2);
-		long j=luatop>2 ? (long)lua_tointeger(L,3) : 0;
-		long k=luatop>3 ? (long)lua_tointeger(L,4) : 0;
+		long j=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
+		long k=luatop>3 ? (long)lua_tointeger(L,4) : (long)0;
 
 		mglDataA* self=(Luna< mglDataA >::check(L,1));
 		if(!self) {
@@ -426,8 +426,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		long i=(long)lua_tointeger(L,2);
-		long j=luatop>2 ? (long)lua_tointeger(L,3) : 0;
-		long k=luatop>3 ? (long)lua_tointeger(L,4) : 0;
+		long j=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
+		long k=luatop>3 ? (long)lua_tointeger(L,4) : (long)0;
 
 		mglDataA* self=(Luna< mglDataA >::check(L,1));
 		if(!self) {
@@ -450,8 +450,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		long i=(long)lua_tointeger(L,2);
-		long j=luatop>2 ? (long)lua_tointeger(L,3) : 0;
-		long k=luatop>3 ? (long)lua_tointeger(L,4) : 0;
+		long j=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
+		long k=luatop>3 ? (long)lua_tointeger(L,4) : (long)0;
 
 		mglDataA* self=(Luna< mglDataA >::check(L,1));
 		if(!self) {

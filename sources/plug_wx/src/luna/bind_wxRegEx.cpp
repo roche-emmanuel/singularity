@@ -128,8 +128,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
@@ -207,7 +207,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString expr(lua_tostring(L,1),lua_objlen(L,1));
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxRE_DEFAULT;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxRE_DEFAULT;
 
 		return new wxRegEx(expr, flags);
 	}
@@ -233,7 +233,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString pattern(lua_tostring(L,2),lua_objlen(L,2));
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxRE_DEFAULT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxRE_DEFAULT;
 
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
@@ -255,16 +255,16 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		size_t start=(size_t)lua_tointeger(L,2);
-		size_t len=(size_t)lua_tointeger(L,3);
-		size_t index=luatop>3 ? (size_t)lua_tointeger(L,4) : 0;
+		size_t* start=(size_t*)Luna< void >::check(L,2);
+		size_t* len=(size_t*)Luna< void >::check(L,3);
+		size_t index=luatop>3 ? (size_t)lua_tointeger(L,4) : (size_t)0;
 
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegEx::GetMatch(size_t *, size_t *, size_t) const. Got : '%s'",typeid(Luna< wxRegEx >::check(L,1)).name());
 		}
-		bool lret = self->GetMatch(&start, &len, index);
+		bool lret = self->GetMatch(start, len, index);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -280,7 +280,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
-		size_t index=luatop>2 ? (size_t)lua_tointeger(L,3) : 0;
+		size_t index=luatop>2 ? (size_t)lua_tointeger(L,3) : (size_t)0;
 
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {
@@ -351,7 +351,7 @@ public:
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 		wxString replacement(lua_tostring(L,3),lua_objlen(L,3));
-		size_t maxMatches=luatop>3 ? (size_t)lua_tointeger(L,4) : 0;
+		size_t maxMatches=luatop>3 ? (size_t)lua_tointeger(L,4) : (size_t)0;
 
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {

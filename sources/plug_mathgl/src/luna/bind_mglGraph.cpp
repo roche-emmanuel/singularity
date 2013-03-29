@@ -1136,7 +1136,7 @@ public:
 	inline static bool _lg_typecheck_GetRGB_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -1150,7 +1150,7 @@ public:
 	inline static bool _lg_typecheck_GetRGBA_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -4911,9 +4911,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int kind=luatop>0 ? (int)lua_tointeger(L,1) : 0;
-		int width=luatop>1 ? (int)lua_tointeger(L,2) : 600;
-		int height=luatop>2 ? (int)lua_tointeger(L,3) : 400;
+		int kind=luatop>0 ? (int)lua_tointeger(L,1) : (int)0;
+		int width=luatop>1 ? (int)lua_tointeger(L,2) : (int)600;
+		int height=luatop>2 ? (int)lua_tointeger(L,3) : (int)400;
 
 		return new mglGraph(kind, width, height);
 	}
@@ -4955,9 +4955,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int kind=luatop>1 ? (int)lua_tointeger(L,2) : 0;
-		int width=luatop>2 ? (int)lua_tointeger(L,3) : 600;
-		int height=luatop>3 ? (int)lua_tointeger(L,4) : 400;
+		int kind=luatop>1 ? (int)lua_tointeger(L,2) : (int)0;
+		int width=luatop>2 ? (int)lua_tointeger(L,3) : (int)600;
+		int height=luatop>3 ? (int)lua_tointeger(L,4) : (int)400;
 
 		return new wrapper_mglGraph(L,NULL, kind, width, height);
 	}
@@ -5202,9 +5202,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg p in mglGraph::AddLight function");
 		}
 		mglPoint p=*p_ptr;
-		char col=luatop>3 ? (char)lua_tointeger(L,4) : 'w';
-		double bright=luatop>4 ? (double)lua_tonumber(L,5) : 0.5;
-		double ap=luatop>5 ? (double)lua_tonumber(L,6) : 0;
+		char col=luatop>3 ? (char)lua_tointeger(L,4) : (char)'w';
+		double bright=luatop>4 ? (double)lua_tonumber(L,5) : (double)0.5;
+		double ap=luatop>5 ? (double)lua_tonumber(L,6) : (double)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -5236,9 +5236,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg p in mglGraph::AddLight function");
 		}
 		mglPoint p=*p_ptr;
-		char col=luatop>4 ? (char)lua_tointeger(L,5) : 'w';
-		double bright=luatop>5 ? (double)lua_tonumber(L,6) : 0.5;
-		double ap=luatop>6 ? (double)lua_tonumber(L,7) : 0;
+		char col=luatop>4 ? (char)lua_tointeger(L,5) : (char)'w';
+		double bright=luatop>5 ? (double)lua_tonumber(L,6) : (double)0.5;
+		double ap=luatop>6 ? (double)lua_tonumber(L,7) : (double)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -5288,7 +5288,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double d=(double)lua_tonumber(L,2);
-		double dz=luatop>2 ? (double)lua_tonumber(L,3) : 0.25;
+		double dz=luatop>2 ? (double)lua_tonumber(L,3) : (double)0.25;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -5509,7 +5509,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double pt=(double)lua_tonumber(L,2);
-		int dpi=luatop>2 ? (int)lua_tointeger(L,3) : 72;
+		int dpi=luatop>2 ? (int)lua_tointeger(L,3) : (int)72;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -5531,7 +5531,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double cm=(double)lua_tonumber(L,2);
-		int dpi=luatop>2 ? (int)lua_tointeger(L,3) : 72;
+		int dpi=luatop>2 ? (int)lua_tointeger(L,3) : (int)72;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -5553,7 +5553,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double in=(double)lua_tonumber(L,2);
-		int dpi=luatop>2 ? (int)lua_tointeger(L,3) : 72;
+		int dpi=luatop>2 ? (int)lua_tointeger(L,3) : (int)72;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -5575,7 +5575,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * name=(const char *)lua_tostring(L,2);
-		const char * path=luatop>2 ? (const char *)lua_tostring(L,3) : NULL;
+		const char * path=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)NULL;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -5752,12 +5752,12 @@ public:
 		if( luatop>1 && !p1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg p1 in mglGraph::ZoomAxis function");
 		}
-		mglPoint p1=luatop>1 ? *p1_ptr : mglPoint (0, 0, 0, 0);
+		mglPoint p1=luatop>1 ? *p1_ptr : (mglPoint)mglPoint (0, 0, 0, 0);
 		mglPoint* p2_ptr=luatop>2 ? (Luna< mglPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !p2_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg p2 in mglGraph::ZoomAxis function");
 		}
-		mglPoint p2=luatop>2 ? *p2_ptr : mglPoint (1, 1, 1, 1);
+		mglPoint p2=luatop>2 ? *p2_ptr : (mglPoint)mglPoint (1, 1, 1, 1);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -5805,7 +5805,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg dat in mglGraph::SetRange function");
 		}
 		const mglDataA & dat=*dat_ptr;
-		bool add=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool add=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -5938,8 +5938,8 @@ public:
 		double x2=(double)lua_tonumber(L,3);
 		double y1=(double)lua_tonumber(L,4);
 		double y2=(double)lua_tonumber(L,5);
-		double z1=luatop>5 ? (double)lua_tonumber(L,6) : 0;
-		double z2=luatop>6 ? (double)lua_tonumber(L,7) : 0;
+		double z1=luatop>5 ? (double)lua_tonumber(L,6) : (double)0;
+		double z2=luatop>6 ? (double)lua_tonumber(L,7) : (double)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6025,7 +6025,7 @@ public:
 
 		double x0=(double)lua_tonumber(L,2);
 		double y0=(double)lua_tonumber(L,3);
-		double z0=luatop>3 ? (double)lua_tonumber(L,4) : NaN;
+		double z0=luatop>3 ? (double)lua_tonumber(L,4) : (double)NaN;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6057,8 +6057,8 @@ public:
 
 		const char * EqX=(const char *)lua_tostring(L,2);
 		const char * EqY=(const char *)lua_tostring(L,3);
-		const char * EqZ=luatop>3 ? (const char *)lua_tostring(L,4) : NULL;
-		const char * EqA=luatop>4 ? (const char *)lua_tostring(L,5) : NULL;
+		const char * EqZ=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)NULL;
+		const char * EqA=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)NULL;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6156,7 +6156,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double len=(double)lua_tonumber(L,2);
-		double stt=luatop>2 ? (double)lua_tonumber(L,3) : 1;
+		double stt=luatop>2 ? (double)lua_tonumber(L,3) : (double)1;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6177,9 +6177,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * stl=luatop>1 ? (const char *)lua_tostring(L,2) : "k";
-		const char * tck=luatop>2 ? (const char *)lua_tostring(L,3) : 0;
-		const char * sub=luatop>3 ? (const char *)lua_tostring(L,4) : 0;
+		const char * stl=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)"k";
+		const char * tck=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)0;
+		const char * sub=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6201,8 +6201,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		char dir=(char)lua_tointeger(L,2);
-		double d=luatop>2 ? (double)lua_tonumber(L,3) : 0;
-		const char * t=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		double d=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
+		const char * t=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6225,7 +6225,7 @@ public:
 
 		char dir=(char)lua_tointeger(L,2);
 		const char * lbl=(const char *)lua_tostring(L,3);
-		bool add=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		bool add=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6253,7 +6253,7 @@ public:
 		}
 		const mglDataA & v=*v_ptr;
 		const char * lbl=(const char *)lua_tostring(L,4);
-		bool add=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool add=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6284,9 +6284,9 @@ public:
 		int luatop = lua_gettop(L);
 
 		char dir=(char)lua_tointeger(L,2);
-		double d=luatop>2 ? (double)lua_tonumber(L,3) : 0;
-		int ns=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		double org=luatop>4 ? (double)lua_tonumber(L,5) : NaN;
+		double d=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
+		int ns=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
+		double org=luatop>4 ? (double)lua_tonumber(L,5) : (double)NaN;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6307,7 +6307,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * dir=luatop>1 ? (const char *)lua_tostring(L,2) : "xyzc";
+		const char * dir=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)"xyzc";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6349,7 +6349,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int tune=(int)lua_tointeger(L,2);
-		double fact_pos=luatop>2 ? (double)lua_tonumber(L,3) : 1.15;
+		double fact_pos=luatop>2 ? (double)lua_tonumber(L,3) : (double)1.15;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6415,9 +6415,9 @@ public:
 		int nx=(int)lua_tointeger(L,2);
 		int ny=(int)lua_tointeger(L,3);
 		int m=(int)lua_tointeger(L,4);
-		const char * style=luatop>4 ? (const char *)lua_tostring(L,5) : "<>_^";
-		double dx=luatop>5 ? (double)lua_tonumber(L,6) : 0;
-		double dy=luatop>6 ? (double)lua_tonumber(L,7) : 0;
+		const char * style=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"<>_^";
+		double dx=luatop>5 ? (double)lua_tonumber(L,6) : (double)0;
+		double dy=luatop>6 ? (double)lua_tonumber(L,7) : (double)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6443,7 +6443,7 @@ public:
 		int m=(int)lua_tointeger(L,4);
 		int dx=(int)lua_tointeger(L,5);
 		int dy=(int)lua_tointeger(L,6);
-		const char * style=luatop>6 ? (const char *)lua_tostring(L,7) : "<>_^";
+		const char * style=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"<>_^";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6468,7 +6468,7 @@ public:
 		double x2=(double)lua_tonumber(L,3);
 		double y1=(double)lua_tonumber(L,4);
 		double y2=(double)lua_tonumber(L,5);
-		bool rel=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+		bool rel=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : (bool)true;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6491,7 +6491,7 @@ public:
 
 		int num=(int)lua_tointeger(L,2);
 		int ind=(int)lua_tointeger(L,3);
-		double d=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+		double d=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6515,7 +6515,7 @@ public:
 		int nx=(int)lua_tointeger(L,2);
 		int ny=(int)lua_tointeger(L,3);
 		int ind=(int)lua_tointeger(L,4);
-		double d=luatop>4 ? (double)lua_tonumber(L,5) : 0;
+		double d=luatop>4 ? (double)lua_tonumber(L,5) : (double)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6614,8 +6614,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * title=(const char *)lua_tostring(L,2);
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		double size=luatop>3 ? (double)lua_tonumber(L,4) : -2;
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		double size=luatop>3 ? (double)lua_tonumber(L,4) : (double)-2;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6638,7 +6638,7 @@ public:
 
 		double Ax=(double)lua_tonumber(L,2);
 		double Ay=(double)lua_tonumber(L,3);
-		double Az=luatop>3 ? (double)lua_tonumber(L,4) : 1;
+		double Az=luatop>3 ? (double)lua_tonumber(L,4) : (double)1;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6660,8 +6660,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		double TetX=(double)lua_tonumber(L,2);
-		double TetZ=luatop>2 ? (double)lua_tonumber(L,3) : 0;
-		double TetY=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+		double TetZ=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
+		double TetY=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6724,8 +6724,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		double TetX=(double)lua_tonumber(L,2);
-		double TetZ=luatop>2 ? (double)lua_tonumber(L,3) : 0;
-		double TetY=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+		double TetZ=luatop>2 ? (double)lua_tonumber(L,3) : (double)0;
+		double TetY=luatop>3 ? (double)lua_tonumber(L,4) : (double)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6788,7 +6788,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int qual=luatop>1 ? (int)lua_tointeger(L,2) : 2;
+		int qual=luatop>1 ? (int)lua_tointeger(L,2) : (int)2;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6866,7 +6866,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * viewer=(const char *)lua_tostring(L,2);
-		bool keep=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : 0;
+		bool keep=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6887,8 +6887,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * fname=luatop>1 ? (const char *)lua_tostring(L,2) : 0;
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
+		const char * fname=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)0;
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6910,7 +6910,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6932,8 +6932,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		bool alpha=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		bool alpha=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6955,7 +6955,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6977,7 +6977,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -6999,7 +6999,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7021,7 +7021,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7043,7 +7043,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7065,7 +7065,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7087,7 +7087,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7109,8 +7109,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		bool use_png=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		bool use_png=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7132,7 +7132,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7154,7 +7154,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7176,8 +7176,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		bool colored=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		bool colored=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)false;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7199,8 +7199,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		bool make_pdf=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		bool make_pdf=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : (bool)true;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7222,7 +7222,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : "";
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7411,7 +7411,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		int ms=luatop>2 ? (int)lua_tointeger(L,3) : 100;
+		int ms=luatop>2 ? (int)lua_tointeger(L,3) : (int)100;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7451,7 +7451,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : 0;
+		const char * descr=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7473,7 +7473,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fname=(const char *)lua_tostring(L,2);
-		bool add=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		bool add=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7492,7 +7492,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void mglGraph::GetRGB(char * imgdata, int imglen) function, expected prototype:\nvoid mglGraph::GetRGB(char * imgdata, int imglen)\nClass arguments details:\n");
 		}
 
-		char imgdata=(char)lua_tointeger(L,2);
+		char* imgdata=(char*)Luna< void >::check(L,2);
 		int imglen=(int)lua_tointeger(L,3);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
@@ -7500,7 +7500,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void mglGraph::GetRGB(char *, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
 		}
-		self->GetRGB(&imgdata, imglen);
+		self->GetRGB(imgdata, imglen);
 
 		return 0;
 	}
@@ -7540,7 +7540,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void mglGraph::GetRGBA(char * imgdata, int imglen) function, expected prototype:\nvoid mglGraph::GetRGBA(char * imgdata, int imglen)\nClass arguments details:\n");
 		}
 
-		char imgdata=(char)lua_tointeger(L,2);
+		char* imgdata=(char*)Luna< void >::check(L,2);
 		int imglen=(int)lua_tointeger(L,3);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
@@ -7548,7 +7548,7 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void mglGraph::GetRGBA(char *, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
 		}
-		self->GetRGBA(&imgdata, imglen);
+		self->GetRGBA(imgdata, imglen);
 
 		return 0;
 	}
@@ -7762,7 +7762,7 @@ public:
 
 		int xs=(int)lua_tointeger(L,2);
 		int ys=(int)lua_tointeger(L,3);
-		int d=luatop>3 ? (int)lua_tointeger(L,4) : 1;
+		int d=luatop>3 ? (int)lua_tointeger(L,4) : (int)1;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7912,7 +7912,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg p in mglGraph::Ball function");
 		}
 		mglPoint p=*p_ptr;
-		char c=luatop>2 ? (char)lua_tointeger(L,3) : 'r';
+		char c=luatop>2 ? (char)lua_tointeger(L,3) : (char)'r';
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -7978,7 +7978,7 @@ public:
 		}
 		const mglDataA & r=*r_ptr;
 		const char * pen=(const char *)lua_tostring(L,6);
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8015,7 +8015,7 @@ public:
 		}
 		const mglDataA & r=*r_ptr;
 		const char * pen=(const char *)lua_tostring(L,5);
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8047,7 +8047,7 @@ public:
 		}
 		const mglDataA & r=*r_ptr;
 		const char * pen=(const char *)lua_tostring(L,4);
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8089,8 +8089,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg p2 in mglGraph::Line function");
 		}
 		mglPoint p2=*p2_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "B";
-		int n=luatop>4 ? (int)lua_tointeger(L,5) : 2;
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"B";
+		int n=luatop>4 ? (int)lua_tointeger(L,5) : (int)2;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8131,8 +8131,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg d2 in mglGraph::Curve function");
 		}
 		mglPoint d2=*d2_ptr;
-		const char * pen=luatop>5 ? (const char *)lua_tostring(L,6) : "B";
-		int n=luatop>6 ? (int)lua_tointeger(L,7) : 100;
+		const char * pen=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"B";
+		int n=luatop>6 ? (int)lua_tointeger(L,7) : (int)100;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8163,7 +8163,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg e in mglGraph::Error function");
 		}
 		mglPoint e=*e_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "k";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"k";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8194,8 +8194,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ey in mglGraph::Error function");
 		}
 		const mglDataA & ey=*ey_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8231,8 +8231,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ey in mglGraph::Error function");
 		}
 		const mglDataA & ey=*ey_ptr;
-		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8273,8 +8273,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ey in mglGraph::Error function");
 		}
 		const mglDataA & ey=*ey_ptr;
-		const char * pen=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * pen=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8326,7 +8326,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg p4 in mglGraph::Face function");
 		}
 		mglPoint p4=*p4_ptr;
-		const char * stl=luatop>5 ? (const char *)lua_tostring(L,6) : "r";
+		const char * stl=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"r";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8354,9 +8354,9 @@ public:
 		mglPoint p=*p_ptr;
 		double wy=(double)lua_tonumber(L,3);
 		double wz=(double)lua_tonumber(L,4);
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "w";
-		double dx=luatop>5 ? (double)lua_tonumber(L,6) : 0;
-		double dy=luatop>6 ? (double)lua_tonumber(L,7) : 0;
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"w";
+		double dx=luatop>5 ? (double)lua_tonumber(L,6) : (double)0;
+		double dy=luatop>6 ? (double)lua_tonumber(L,7) : (double)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8384,9 +8384,9 @@ public:
 		mglPoint p=*p_ptr;
 		double wx=(double)lua_tonumber(L,3);
 		double wz=(double)lua_tonumber(L,4);
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "w";
-		double dx=luatop>5 ? (double)lua_tonumber(L,6) : 0;
-		double dy=luatop>6 ? (double)lua_tonumber(L,7) : 0;
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"w";
+		double dx=luatop>5 ? (double)lua_tonumber(L,6) : (double)0;
+		double dy=luatop>6 ? (double)lua_tonumber(L,7) : (double)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8414,9 +8414,9 @@ public:
 		mglPoint p=*p_ptr;
 		double wx=(double)lua_tonumber(L,3);
 		double wy=(double)lua_tonumber(L,4);
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "w";
-		double dx=luatop>5 ? (double)lua_tonumber(L,6) : 0;
-		double dy=luatop>6 ? (double)lua_tonumber(L,7) : 0;
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"w";
+		double dx=luatop>5 ? (double)lua_tonumber(L,6) : (double)0;
+		double dy=luatop>6 ? (double)lua_tonumber(L,7) : (double)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8448,9 +8448,9 @@ public:
 		}
 		mglPoint d=*d_ptr;
 		double r=(double)lua_tonumber(L,4);
-		const char * col=luatop>4 ? (const char *)lua_tostring(L,5) : "r";
-		double shift=luatop>5 ? (double)lua_tonumber(L,6) : 1;
-		double ap=luatop>6 ? (double)lua_tonumber(L,7) : 1;
+		const char * col=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"r";
+		double shift=luatop>5 ? (double)lua_tonumber(L,6) : (double)1;
+		double ap=luatop>6 ? (double)lua_tonumber(L,7) : (double)1;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8477,7 +8477,7 @@ public:
 		}
 		mglPoint p=*p_ptr;
 		double r=(double)lua_tonumber(L,3);
-		const char * col=luatop>3 ? (const char *)lua_tostring(L,4) : "r";
+		const char * col=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"r";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8509,7 +8509,7 @@ public:
 		}
 		mglPoint p2=*p2_ptr;
 		double r=(double)lua_tonumber(L,4);
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "r";
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"r";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8536,7 +8536,7 @@ public:
 		}
 		mglPoint p=*p_ptr;
 		double r=(double)lua_tonumber(L,3);
-		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : "r";
+		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"r";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8568,7 +8568,7 @@ public:
 		}
 		mglPoint p2=*p2_ptr;
 		double r=(double)lua_tonumber(L,4);
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "r";
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"r";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8595,8 +8595,8 @@ public:
 		}
 		mglPoint p=*p_ptr;
 		const char * text=(const char *)lua_tostring(L,3);
-		const char * font=luatop>3 ? (const char *)lua_tostring(L,4) : ":C";
-		double size=luatop>4 ? (double)lua_tonumber(L,5) : -1;
+		const char * font=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)":C";
+		double size=luatop>4 ? (double)lua_tonumber(L,5) : (double)-1;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8620,8 +8620,8 @@ public:
 		double x=(double)lua_tonumber(L,2);
 		double y=(double)lua_tonumber(L,3);
 		const char * text=(const char *)lua_tostring(L,4);
-		const char * font=luatop>4 ? (const char *)lua_tostring(L,5) : ":AC";
-		double size=luatop>5 ? (double)lua_tonumber(L,6) : -1;
+		const char * font=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)":AC";
+		double size=luatop>5 ? (double)lua_tonumber(L,6) : (double)-1;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8653,8 +8653,8 @@ public:
 		}
 		mglPoint d=*d_ptr;
 		const char * text=(const char *)lua_tostring(L,4);
-		const char * font=luatop>4 ? (const char *)lua_tostring(L,5) : ":L";
-		double size=luatop>5 ? (double)lua_tonumber(L,6) : -1;
+		const char * font=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)":L";
+		double size=luatop>5 ? (double)lua_tonumber(L,6) : (double)-1;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8701,8 +8701,8 @@ public:
 		}
 		const mglDataA & z=*z_ptr;
 		const char * text=(const char *)lua_tostring(L,5);
-		const char * font=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * font=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8734,8 +8734,8 @@ public:
 		}
 		const mglDataA & y=*y_ptr;
 		const char * text=(const char *)lua_tostring(L,4);
-		const char * font=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * font=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8762,8 +8762,8 @@ public:
 		}
 		const mglDataA & y=*y_ptr;
 		const char * text=(const char *)lua_tostring(L,3);
-		const char * font=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * font=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8794,8 +8794,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * col=luatop>1 ? (const char *)lua_tostring(L,2) : "";
-		bool ticks=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		const char * col=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)"";
+		bool ticks=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8816,9 +8816,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * dir=luatop>1 ? (const char *)lua_tostring(L,2) : "xyzt";
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * dir=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)"xyzt";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8839,9 +8839,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * dir=luatop>1 ? (const char *)lua_tostring(L,2) : "xyzt";
-		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : "B";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * dir=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)"xyzt";
+		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"B";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8877,8 +8877,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Grid function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8904,8 +8904,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Grid function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8938,8 +8938,8 @@ public:
 
 		char dir=(char)lua_tointeger(L,2);
 		const char * text=(const char *)lua_tostring(L,3);
-		double pos=luatop>3 ? (double)lua_tonumber(L,4) : +1;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		double pos=luatop>3 ? (double)lua_tonumber(L,4) : (double)+1;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -8976,8 +8976,8 @@ public:
 		}
 		const mglDataA & z=*z_ptr;
 		const char * text=(const char *)lua_tostring(L,5);
-		const char * fnt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * fnt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9009,8 +9009,8 @@ public:
 		}
 		const mglDataA & y=*y_ptr;
 		const char * text=(const char *)lua_tostring(L,4);
-		const char * fnt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * fnt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9037,8 +9037,8 @@ public:
 		}
 		const mglDataA & y=*y_ptr;
 		const char * text=(const char *)lua_tostring(L,3);
-		const char * fnt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * fnt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9070,7 +9070,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const char * sch=luatop>1 ? (const char *)lua_tostring(L,2) : "";
+		const char * sch=luatop>1 ? (const char *)lua_tostring(L,2) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9094,8 +9094,8 @@ public:
 		const char * sch=(const char *)lua_tostring(L,2);
 		double x=(double)lua_tonumber(L,3);
 		double y=(double)lua_tonumber(L,4);
-		double w=luatop>4 ? (double)lua_tonumber(L,5) : 1;
-		double h=luatop>5 ? (double)lua_tonumber(L,6) : 1;
+		double w=luatop>4 ? (double)lua_tonumber(L,5) : (double)1;
+		double h=luatop>5 ? (double)lua_tonumber(L,6) : (double)1;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9121,7 +9121,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg val in mglGraph::Colorbar function");
 		}
 		const mglDataA & val=*val_ptr;
-		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : "";
+		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9150,8 +9150,8 @@ public:
 		const char * sch=(const char *)lua_tostring(L,3);
 		double x=(double)lua_tonumber(L,4);
 		double y=(double)lua_tonumber(L,5);
-		double w=luatop>5 ? (double)lua_tonumber(L,6) : 1;
-		double h=luatop>6 ? (double)lua_tonumber(L,7) : 1;
+		double w=luatop>5 ? (double)lua_tonumber(L,6) : (double)1;
+		double h=luatop>6 ? (double)lua_tonumber(L,7) : (double)1;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9223,8 +9223,8 @@ public:
 
 		double x=(double)lua_tonumber(L,2);
 		double y=(double)lua_tonumber(L,3);
-		const char * font=luatop>3 ? (const char *)lua_tostring(L,4) : "#";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * font=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"#";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9245,9 +9245,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		int where=luatop>1 ? (int)lua_tointeger(L,2) : 3;
-		const char * font=luatop>2 ? (const char *)lua_tostring(L,3) : "#";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		int where=luatop>1 ? (int)lua_tointeger(L,2) : (int)3;
+		const char * font=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"#";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9311,8 +9311,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Plot function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9343,8 +9343,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::Plot function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9370,8 +9370,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::Plot function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9417,8 +9417,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Tape function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9449,8 +9449,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::Tape function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9476,8 +9476,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::Tape function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9513,8 +9513,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Radar function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9550,8 +9550,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Step function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9582,8 +9582,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::Step function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9609,8 +9609,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::Step function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9661,8 +9661,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg c in mglGraph::Tens function");
 		}
 		const mglDataA & c=*c_ptr;
-		const char * pen=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * pen=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9698,8 +9698,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg c in mglGraph::Tens function");
 		}
 		const mglDataA & c=*c_ptr;
-		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9730,8 +9730,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg c in mglGraph::Tens function");
 		}
 		const mglDataA & c=*c_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9777,8 +9777,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Area function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9809,8 +9809,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::Area function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9836,8 +9836,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::Area function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9878,8 +9878,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y2 in mglGraph::Region function");
 		}
 		const mglDataA & y2=*y2_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9915,8 +9915,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y2 in mglGraph::Region function");
 		}
 		const mglDataA & y2=*y2_ptr;
-		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9961,8 +9961,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Stem function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -9993,8 +9993,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::Stem function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10020,8 +10020,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::Stem function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10067,8 +10067,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Bars function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10099,8 +10099,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::Bars function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10126,8 +10126,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::Bars function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10168,8 +10168,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg v in mglGraph::Barh function");
 		}
 		const mglDataA & v=*v_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10195,8 +10195,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg v in mglGraph::Barh function");
 		}
 		const mglDataA & v=*v_ptr;
-		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10231,8 +10231,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Chart function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * colors=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * colors=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10263,8 +10263,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::BoxPlot function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10290,8 +10290,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::BoxPlot function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10346,8 +10346,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y2 in mglGraph::Candle function");
 		}
 		const mglDataA & y2=*y2_ptr;
-		const char * pen=luatop>6 ? (const char *)lua_tostring(L,7) : "";
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * pen=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10388,8 +10388,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y2 in mglGraph::Candle function");
 		}
 		const mglDataA & y2=*y2_ptr;
-		const char * pen=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * pen=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10420,8 +10420,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg v2 in mglGraph::Candle function");
 		}
 		const mglDataA & v2=*v2_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10457,8 +10457,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y2 in mglGraph::Candle function");
 		}
 		const mglDataA & y2=*y2_ptr;
-		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10484,8 +10484,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::Candle function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * pen=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10539,8 +10539,8 @@ public:
 		}
 		const mglDataA & r=*r_ptr;
 		const char * text=(const char *)lua_tostring(L,6);
-		const char * fnt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * fnt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10577,8 +10577,8 @@ public:
 		}
 		const mglDataA & r=*r_ptr;
 		const char * text=(const char *)lua_tostring(L,5);
-		const char * fnt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * fnt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10610,8 +10610,8 @@ public:
 		}
 		const mglDataA & r=*r_ptr;
 		const char * text=(const char *)lua_tostring(L,4);
-		const char * fnt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * fnt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10638,8 +10638,8 @@ public:
 		}
 		const mglDataA & y=*y_ptr;
 		const char * text=(const char *)lua_tostring(L,3);
-		const char * fnt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * fnt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10677,8 +10677,8 @@ public:
 		}
 		const mglDataA & val=*val_ptr;
 		const char * text=(const char *)lua_tostring(L,3);
-		const char * fnt=luatop>3 ? (const char *)lua_tostring(L,4) : "#|";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * fnt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"#|";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10707,8 +10707,8 @@ public:
 		}
 		const mglDataA & val=*val_ptr;
 		const char * text=(const char *)lua_tostring(L,5);
-		const char * fnt=luatop>5 ? (const char *)lua_tostring(L,6) : "#|";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * fnt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"#|";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10758,8 +10758,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg r in mglGraph::Tube function");
 		}
 		const mglDataA & r=*r_ptr;
-		const char * pen=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * pen=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10796,8 +10796,8 @@ public:
 		}
 		const mglDataA & z=*z_ptr;
 		double r=(double)lua_tonumber(L,5);
-		const char * pen=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * pen=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10833,8 +10833,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg r in mglGraph::Tube function");
 		}
 		const mglDataA & r=*r_ptr;
-		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10866,8 +10866,8 @@ public:
 		}
 		const mglDataA & y=*y_ptr;
 		double r=(double)lua_tonumber(L,4);
-		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * pen=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10898,8 +10898,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg r in mglGraph::Tube function");
 		}
 		const mglDataA & r=*r_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10926,8 +10926,8 @@ public:
 		}
 		const mglDataA & y=*y_ptr;
 		double r=(double)lua_tonumber(L,3);
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -10971,8 +10971,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Torus function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * pen=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11008,8 +11008,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Mesh function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11035,8 +11035,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Mesh function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11081,8 +11081,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Fall function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11108,8 +11108,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Fall function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11154,8 +11154,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Belt function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11181,8 +11181,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Belt function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11227,8 +11227,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Surf function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11254,8 +11254,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Surf function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11300,8 +11300,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Tile function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11327,8 +11327,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Tile function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11373,8 +11373,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Dens function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11400,8 +11400,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Dens function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11446,8 +11446,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Boxs function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11473,8 +11473,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Boxs function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11524,8 +11524,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Cont function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11556,8 +11556,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Cont function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11593,8 +11593,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Cont function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11620,8 +11620,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Cont function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11673,8 +11673,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::ContF function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11705,8 +11705,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::ContF function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11742,8 +11742,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::ContF function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11769,8 +11769,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::ContF function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11822,8 +11822,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::ContD function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11854,8 +11854,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::ContD function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11891,8 +11891,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::ContD function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11918,8 +11918,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::ContD function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -11971,8 +11971,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::ContV function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12003,8 +12003,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::ContV function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12040,8 +12040,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::ContV function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12067,8 +12067,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::ContV function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12120,8 +12120,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Axial function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12152,8 +12152,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Axial function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12189,8 +12189,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Axial function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12216,8 +12216,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Axial function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12269,9 +12269,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Grid3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		double sVal=luatop>6 ? (double)lua_tonumber(L,7) : -1;
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * stl=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		double sVal=luatop>6 ? (double)lua_tonumber(L,7) : (double)-1;
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12297,9 +12297,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Grid3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : -1;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : (double)-1;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12349,9 +12349,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Dens3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		double sVal=luatop>6 ? (double)lua_tonumber(L,7) : -1;
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * stl=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		double sVal=luatop>6 ? (double)lua_tonumber(L,7) : (double)-1;
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12377,9 +12377,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Dens3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : -1;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : (double)-1;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12430,8 +12430,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Surf3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>6 ? (const char *)lua_tostring(L,7) : "";
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * stl=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12458,8 +12458,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Surf3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12500,8 +12500,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Surf3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * stl=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12527,8 +12527,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Surf3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12580,8 +12580,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Cloud function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * stl=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12607,8 +12607,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Cloud function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12663,9 +12663,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Cont3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : "";
-		double sVal=luatop>7 ? (double)lua_tonumber(L,8) : -1;
-		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : "";
+		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
+		double sVal=luatop>7 ? (double)lua_tonumber(L,8) : (double)-1;
+		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12696,9 +12696,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Cont3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : -1;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : (double)-1;
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12739,9 +12739,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Cont3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		double sVal=luatop>6 ? (double)lua_tonumber(L,7) : -1;
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		double sVal=luatop>6 ? (double)lua_tonumber(L,7) : (double)-1;
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12767,9 +12767,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Cont3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : -1;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : (double)-1;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12826,9 +12826,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContF3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : "";
-		double sVal=luatop>7 ? (double)lua_tonumber(L,8) : -1;
-		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : "";
+		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
+		double sVal=luatop>7 ? (double)lua_tonumber(L,8) : (double)-1;
+		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12859,9 +12859,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContF3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : -1;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : (double)-1;
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12902,9 +12902,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContF3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		double sVal=luatop>6 ? (double)lua_tonumber(L,7) : -1;
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		double sVal=luatop>6 ? (double)lua_tonumber(L,7) : (double)-1;
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12930,9 +12930,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContF3 function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : -1;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : (double)-1;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -12985,9 +12985,9 @@ public:
 		}
 		const mglDataA & a=*a_ptr;
 		double r=(double)lua_tonumber(L,6);
-		const char * stl=luatop>6 ? (const char *)lua_tostring(L,7) : 0;
-		int flag=luatop>7 ? (int)lua_tointeger(L,8) : 0;
-		int num=luatop>8 ? (int)lua_tointeger(L,9) : 3;
+		const char * stl=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)0;
+		int flag=luatop>7 ? (int)lua_tointeger(L,8) : (int)0;
+		int num=luatop>8 ? (int)lua_tointeger(L,9) : (int)3;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13030,8 +13030,8 @@ public:
 		}
 		const mglDataA & a=*a_ptr;
 		double r=(double)lua_tonumber(L,7);
-		const char * stl=luatop>7 ? (const char *)lua_tostring(L,8) : NULL;
-		int flag=luatop>8 ? (int)lua_tointeger(L,9) : 0;
+		const char * stl=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)NULL;
+		int flag=luatop>8 ? (int)lua_tointeger(L,9) : (int)0;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13081,8 +13081,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg r in mglGraph::TileS function");
 		}
 		const mglDataA & r=*r_ptr;
-		const char * stl=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * stl=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13113,8 +13113,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg r in mglGraph::TileS function");
 		}
 		const mglDataA & r=*r_ptr;
-		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13164,8 +13164,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg c in mglGraph::SurfC function");
 		}
 		const mglDataA & c=*c_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13196,8 +13196,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg c in mglGraph::SurfC function");
 		}
 		const mglDataA & c=*c_ptr;
-		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13247,8 +13247,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg c in mglGraph::SurfA function");
 		}
 		const mglDataA & c=*c_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13279,8 +13279,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg c in mglGraph::SurfA function");
 		}
 		const mglDataA & c=*c_ptr;
-		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13330,8 +13330,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg b in mglGraph::Map function");
 		}
 		const mglDataA & b=*b_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13362,8 +13362,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg b in mglGraph::Map function");
 		}
 		const mglDataA & b=*b_ptr;
-		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13414,8 +13414,8 @@ public:
 		}
 		const mglDataA & im=*im_ptr;
 		int dn=(int)lua_tointeger(L,6);
-		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : "";
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13447,8 +13447,8 @@ public:
 		}
 		const mglDataA & im=*im_ptr;
 		int dn=(int)lua_tointeger(L,4);
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13504,8 +13504,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg b in mglGraph::Surf3A function");
 		}
 		const mglDataA & b=*b_ptr;
-		const char * stl=luatop>7 ? (const char *)lua_tostring(L,8) : "";
-		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : "";
+		const char * stl=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
+		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13537,8 +13537,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg b in mglGraph::Surf3A function");
 		}
 		const mglDataA & b=*b_ptr;
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13584,8 +13584,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg b in mglGraph::Surf3A function");
 		}
 		const mglDataA & b=*b_ptr;
-		const char * stl=luatop>6 ? (const char *)lua_tostring(L,7) : "";
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * stl=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13616,8 +13616,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg b in mglGraph::Surf3A function");
 		}
 		const mglDataA & b=*b_ptr;
-		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13675,8 +13675,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg b in mglGraph::Surf3C function");
 		}
 		const mglDataA & b=*b_ptr;
-		const char * stl=luatop>7 ? (const char *)lua_tostring(L,8) : "";
-		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : "";
+		const char * stl=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
+		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13708,8 +13708,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg b in mglGraph::Surf3C function");
 		}
 		const mglDataA & b=*b_ptr;
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13755,8 +13755,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg b in mglGraph::Surf3C function");
 		}
 		const mglDataA & b=*b_ptr;
-		const char * stl=luatop>6 ? (const char *)lua_tostring(L,7) : "";
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * stl=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13787,8 +13787,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg b in mglGraph::Surf3C function");
 		}
 		const mglDataA & b=*b_ptr;
-		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13840,8 +13840,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ay in mglGraph::Dew function");
 		}
 		const mglDataA & ay=*ay_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13872,8 +13872,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ay in mglGraph::Dew function");
 		}
 		const mglDataA & ay=*ay_ptr;
-		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13923,8 +13923,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ay in mglGraph::Traj function");
 		}
 		const mglDataA & ay=*ay_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -13975,8 +13975,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg az in mglGraph::Traj function");
 		}
 		const mglDataA & az=*az_ptr;
-		const char * sch=luatop>7 ? (const char *)lua_tostring(L,8) : "";
-		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : "";
+		const char * sch=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
+		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14026,8 +14026,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ay in mglGraph::Vect function");
 		}
 		const mglDataA & ay=*ay_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14058,8 +14058,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ay in mglGraph::Vect function");
 		}
 		const mglDataA & ay=*ay_ptr;
-		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14110,8 +14110,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg az in mglGraph::Vect function");
 		}
 		const mglDataA & az=*az_ptr;
-		const char * sch=luatop>7 ? (const char *)lua_tostring(L,8) : "";
-		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : "";
+		const char * sch=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
+		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14147,8 +14147,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg az in mglGraph::Vect function");
 		}
 		const mglDataA & az=*az_ptr;
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14210,9 +14210,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg az in mglGraph::Vect3 function");
 		}
 		const mglDataA & az=*az_ptr;
-		const char * stl=luatop>7 ? (const char *)lua_tostring(L,8) : "";
-		double sVal=luatop>8 ? (double)lua_tonumber(L,9) : -1;
-		const char * opt=luatop>9 ? (const char *)lua_tostring(L,10) : "";
+		const char * stl=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
+		double sVal=luatop>8 ? (double)lua_tonumber(L,9) : (double)-1;
+		const char * opt=luatop>9 ? (const char *)lua_tostring(L,10) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14248,9 +14248,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg az in mglGraph::Vect3 function");
 		}
 		const mglDataA & az=*az_ptr;
-		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		double sVal=luatop>5 ? (double)lua_tonumber(L,6) : -1;
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * stl=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		double sVal=luatop>5 ? (double)lua_tonumber(L,6) : (double)-1;
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14300,8 +14300,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ay in mglGraph::Flow function");
 		}
 		const mglDataA & ay=*ay_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14332,8 +14332,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ay in mglGraph::Flow function");
 		}
 		const mglDataA & ay=*ay_ptr;
-		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14384,8 +14384,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg az in mglGraph::Flow function");
 		}
 		const mglDataA & az=*az_ptr;
-		const char * sch=luatop>7 ? (const char *)lua_tostring(L,8) : "";
-		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : "";
+		const char * sch=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
+		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14421,8 +14421,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg az in mglGraph::Flow function");
 		}
 		const mglDataA & az=*az_ptr;
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14479,8 +14479,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ay in mglGraph::FlowP function");
 		}
 		const mglDataA & ay=*ay_ptr;
-		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : "";
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14516,8 +14516,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ay in mglGraph::FlowP function");
 		}
 		const mglDataA & ay=*ay_ptr;
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14573,8 +14573,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg az in mglGraph::FlowP function");
 		}
 		const mglDataA & az=*az_ptr;
-		const char * sch=luatop>8 ? (const char *)lua_tostring(L,9) : "";
-		const char * opt=luatop>9 ? (const char *)lua_tostring(L,10) : "";
+		const char * sch=luatop>8 ? (const char *)lua_tostring(L,9) : (const char*)"";
+		const char * opt=luatop>9 ? (const char *)lua_tostring(L,10) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14615,8 +14615,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg az in mglGraph::FlowP function");
 		}
 		const mglDataA & az=*az_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14668,8 +14668,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg phi in mglGraph::Grad function");
 		}
 		const mglDataA & phi=*phi_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14705,8 +14705,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg phi in mglGraph::Grad function");
 		}
 		const mglDataA & phi=*phi_ptr;
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14732,8 +14732,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg phi in mglGraph::Grad function");
 		}
 		const mglDataA & phi=*phi_ptr;
-		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * sch=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14784,9 +14784,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ay in mglGraph::Pipe function");
 		}
 		const mglDataA & ay=*ay_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		double r0=luatop>6 ? (double)lua_tonumber(L,7) : 0.05;
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		double r0=luatop>6 ? (double)lua_tonumber(L,7) : (double)0.05;
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14817,9 +14817,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ay in mglGraph::Pipe function");
 		}
 		const mglDataA & ay=*ay_ptr;
-		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		double r0=luatop>4 ? (double)lua_tonumber(L,5) : 0.05;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		double r0=luatop>4 ? (double)lua_tonumber(L,5) : (double)0.05;
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14870,9 +14870,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg az in mglGraph::Pipe function");
 		}
 		const mglDataA & az=*az_ptr;
-		const char * sch=luatop>7 ? (const char *)lua_tostring(L,8) : "";
-		double r0=luatop>8 ? (double)lua_tonumber(L,9) : 0.05;
-		const char * opt=luatop>9 ? (const char *)lua_tostring(L,10) : "";
+		const char * sch=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
+		double r0=luatop>8 ? (double)lua_tonumber(L,9) : (double)0.05;
+		const char * opt=luatop>9 ? (const char *)lua_tostring(L,10) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14908,9 +14908,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg az in mglGraph::Pipe function");
 		}
 		const mglDataA & az=*az_ptr;
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		double r0=luatop>5 ? (double)lua_tonumber(L,6) : 0.05;
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		double r0=luatop>5 ? (double)lua_tonumber(L,6) : (double)0.05;
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14947,9 +14947,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::DensX function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : NaN;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : (double)NaN;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -14975,9 +14975,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::DensY function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : NaN;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : (double)NaN;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15003,9 +15003,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::DensZ function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : NaN;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : (double)NaN;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15031,9 +15031,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContX function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : NaN;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : (double)NaN;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15064,9 +15064,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContX function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : NaN;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : (double)NaN;
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15101,9 +15101,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContY function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : NaN;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : (double)NaN;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15134,9 +15134,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContY function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : NaN;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : (double)NaN;
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15171,9 +15171,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContZ function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : NaN;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : (double)NaN;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15204,9 +15204,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContZ function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : NaN;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : (double)NaN;
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15241,9 +15241,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContFX function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : NaN;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : (double)NaN;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15274,9 +15274,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContFX function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : NaN;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : (double)NaN;
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15311,9 +15311,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContFY function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : NaN;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : (double)NaN;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15344,9 +15344,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContFY function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : NaN;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : (double)NaN;
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15381,9 +15381,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContFZ function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : NaN;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		double sVal=luatop>3 ? (double)lua_tonumber(L,4) : (double)NaN;
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15414,9 +15414,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::ContFZ function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : NaN;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * stl=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		double sVal=luatop>4 ? (double)lua_tonumber(L,5) : (double)NaN;
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15447,8 +15447,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fy=(const char *)lua_tostring(L,2);
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15473,7 +15473,7 @@ public:
 		const char * fy=(const char *)lua_tostring(L,3);
 		const char * fz=(const char *)lua_tostring(L,4);
 		const char * stl=(const char *)lua_tostring(L,5);
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15504,8 +15504,8 @@ public:
 		int luatop = lua_gettop(L);
 
 		const char * fz=(const char *)lua_tostring(L,2);
-		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : "";
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * stl=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)"";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15530,7 +15530,7 @@ public:
 		const char * fy=(const char *)lua_tostring(L,3);
 		const char * fz=(const char *)lua_tostring(L,4);
 		const char * stl=(const char *)lua_tostring(L,5);
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15585,8 +15585,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg c in mglGraph::TriPlot function");
 		}
 		const mglDataA & c=*c_ptr;
-		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : "";
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15627,8 +15627,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::TriPlot function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15664,8 +15664,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::TriPlot function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15721,8 +15721,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg c in mglGraph::QuadPlot function");
 		}
 		const mglDataA & c=*c_ptr;
-		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : "";
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15763,8 +15763,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::QuadPlot function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15800,8 +15800,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg y in mglGraph::QuadPlot function");
 		}
 		const mglDataA & y=*y_ptr;
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15852,8 +15852,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::TriCont function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15899,8 +15899,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::TriCont function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : "";
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -15955,8 +15955,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::TriContV function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : "";
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * sch=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16007,8 +16007,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::TriContV function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * sch=luatop>7 ? (const char *)lua_tostring(L,8) : "";
-		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : "";
+		const char * sch=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
+		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16053,8 +16053,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Dots function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16095,8 +16095,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Dots function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : "";
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * sch=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16141,8 +16141,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::Crust function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : "";
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * sch=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16170,7 +16170,7 @@ public:
 		const mglDataA & y=*y_ptr;
 		const char * eq=(const char *)lua_tostring(L,3);
 		const char * var=(const char *)lua_tostring(L,4);
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16207,7 +16207,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ini in mglGraph::Fit function");
 		}
 		mglData & ini=*ini_ptr;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16244,7 +16244,7 @@ public:
 		const mglDataA & y=*y_ptr;
 		const char * eq=(const char *)lua_tostring(L,4);
 		const char * var=(const char *)lua_tostring(L,5);
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16286,7 +16286,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ini in mglGraph::Fit function");
 		}
 		mglData & ini=*ini_ptr;
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16328,7 +16328,7 @@ public:
 		const mglDataA & z=*z_ptr;
 		const char * eq=(const char *)lua_tostring(L,5);
 		const char * var=(const char *)lua_tostring(L,6);
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16375,7 +16375,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ini in mglGraph::Fit function");
 		}
 		mglData & ini=*ini_ptr;
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16422,7 +16422,7 @@ public:
 		const mglDataA & a=*a_ptr;
 		const char * eq=(const char *)lua_tostring(L,6);
 		const char * var=(const char *)lua_tostring(L,7);
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16474,7 +16474,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ini in mglGraph::Fit function");
 		}
 		mglData & ini=*ini_ptr;
-		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : "";
+		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16521,7 +16521,7 @@ public:
 		const mglDataA & z=*z_ptr;
 		const char * eq=(const char *)lua_tostring(L,3);
 		const char * var=(const char *)lua_tostring(L,4);
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16558,7 +16558,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ini in mglGraph::Fit2 function");
 		}
 		mglData & ini=*ini_ptr;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16599,7 +16599,7 @@ public:
 		const mglDataA & a=*a_ptr;
 		const char * eq=(const char *)lua_tostring(L,3);
 		const char * var=(const char *)lua_tostring(L,4);
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16636,7 +16636,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ini in mglGraph::Fit3 function");
 		}
 		mglData & ini=*ini_ptr;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16682,7 +16682,7 @@ public:
 		const mglDataA & s=*s_ptr;
 		const char * eq=(const char *)lua_tostring(L,4);
 		const char * var=(const char *)lua_tostring(L,5);
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16724,7 +16724,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ini in mglGraph::FitS function");
 		}
 		mglData & ini=*ini_ptr;
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16766,7 +16766,7 @@ public:
 		const mglDataA & s=*s_ptr;
 		const char * eq=(const char *)lua_tostring(L,5);
 		const char * var=(const char *)lua_tostring(L,6);
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16813,7 +16813,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ini in mglGraph::FitS function");
 		}
 		mglData & ini=*ini_ptr;
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16860,7 +16860,7 @@ public:
 		const mglDataA & s=*s_ptr;
 		const char * eq=(const char *)lua_tostring(L,6);
 		const char * var=(const char *)lua_tostring(L,7);
-		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : "";
+		const char * opt=luatop>7 ? (const char *)lua_tostring(L,8) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16912,7 +16912,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ini in mglGraph::FitS function");
 		}
 		mglData & ini=*ini_ptr;
-		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : "";
+		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -16964,7 +16964,7 @@ public:
 		const mglDataA & s=*s_ptr;
 		const char * eq=(const char *)lua_tostring(L,7);
 		const char * var=(const char *)lua_tostring(L,8);
-		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : "";
+		const char * opt=luatop>8 ? (const char *)lua_tostring(L,9) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -17021,7 +17021,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ini in mglGraph::FitS function");
 		}
 		mglData & ini=*ini_ptr;
-		const char * opt=luatop>9 ? (const char *)lua_tostring(L,10) : "";
+		const char * opt=luatop>9 ? (const char *)lua_tostring(L,10) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -17066,9 +17066,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg p in mglGraph::PutsFit function");
 		}
 		mglPoint p=*p_ptr;
-		const char * prefix=luatop>2 ? (const char *)lua_tostring(L,3) : 0;
-		const char * font=luatop>3 ? (const char *)lua_tostring(L,4) : "";
-		double size=luatop>4 ? (double)lua_tonumber(L,5) : -1;
+		const char * prefix=luatop>2 ? (const char *)lua_tostring(L,3) : (const char*)0;
+		const char * font=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
+		double size=luatop>4 ? (double)lua_tonumber(L,5) : (double)-1;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -17119,9 +17119,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg ini_im in mglGraph::PDE function");
 		}
 		const mglDataA & ini_im=*ini_im_ptr;
-		double dz=luatop>4 ? (double)lua_tonumber(L,5) : 0.1;
-		double k0=luatop>5 ? (double)lua_tonumber(L,6) : 100;
-		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : "";
+		double dz=luatop>4 ? (double)lua_tonumber(L,5) : (double)0.1;
+		double k0=luatop>5 ? (double)lua_tonumber(L,6) : (double)100;
+		const char * opt=luatop>6 ? (const char *)lua_tostring(L,7) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -17152,7 +17152,7 @@ public:
 		}
 		mglData & u=*u_ptr;
 		const char * eq=(const char *)lua_tostring(L,3);
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -17184,7 +17184,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg v in mglGraph::Fill function");
 		}
 		const mglDataA & v=*v_ptr;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -17221,7 +17221,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg w in mglGraph::Fill function");
 		}
 		const mglDataA & w=*w_ptr;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -17248,7 +17248,7 @@ public:
 		}
 		mglDataC & u=*u_ptr;
 		const char * eq=(const char *)lua_tostring(L,3);
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -17280,7 +17280,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg v in mglGraph::Fill function");
 		}
 		const mglDataA & v=*v_ptr;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -17317,7 +17317,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg w in mglGraph::Fill function");
 		}
 		const mglDataA & w=*w_ptr;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -17371,7 +17371,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg z in mglGraph::DataGrid function");
 		}
 		const mglDataA & z=*z_ptr;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -17402,7 +17402,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Hist function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : "";
+		const char * opt=luatop>3 ? (const char *)lua_tostring(L,4) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -17442,7 +17442,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Hist function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : "";
+		const char * opt=luatop>4 ? (const char *)lua_tostring(L,5) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -17487,7 +17487,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg a in mglGraph::Hist function");
 		}
 		const mglDataA & a=*a_ptr;
-		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : "";
+		const char * opt=luatop>5 ? (const char *)lua_tostring(L,6) : (const char*)"";
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
@@ -17616,7 +17616,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		double pt=(double)lua_tonumber(L,2);
-		int dpi=luatop>2 ? (int)lua_tointeger(L,3) : 72;
+		int dpi=luatop>2 ? (int)lua_tointeger(L,3) : (int)72;
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {

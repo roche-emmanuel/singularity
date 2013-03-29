@@ -238,6 +238,14 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getVerticalSize(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_setGlyphImageMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -472,6 +480,14 @@ public:
 	inline static bool _lg_typecheck_base_hasVertical(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getVerticalSize(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -886,6 +902,27 @@ public:
 			luaL_error(L, "Invalid object in function call bool osgText::Font::hasVertical() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		bool lret = self->hasVertical();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osgText::Font::getVerticalSize(float & ascender, float & descender) const
+	static int _bind_getVerticalSize(lua_State *L) {
+		if (!_lg_typecheck_getVerticalSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgText::Font::getVerticalSize(float & ascender, float & descender) const function, expected prototype:\nbool osgText::Font::getVerticalSize(float & ascender, float & descender) const\nClass arguments details:\n");
+		}
+
+		float ascender=(float)lua_tonumber(L,2);
+		float descender=(float)lua_tonumber(L,3);
+
+		osgText::Font* self=Luna< osg::Referenced >::checkSubType< osgText::Font >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgText::Font::getVerticalSize(float &, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->getVerticalSize(ascender, descender);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -1627,6 +1664,27 @@ public:
 		return 1;
 	}
 
+	// bool osgText::Font::base_getVerticalSize(float & ascender, float & descender) const
+	static int _bind_base_getVerticalSize(lua_State *L) {
+		if (!_lg_typecheck_base_getVerticalSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgText::Font::base_getVerticalSize(float & ascender, float & descender) const function, expected prototype:\nbool osgText::Font::base_getVerticalSize(float & ascender, float & descender) const\nClass arguments details:\n");
+		}
+
+		float ascender=(float)lua_tonumber(L,2);
+		float descender=(float)lua_tonumber(L,3);
+
+		osgText::Font* self=Luna< osg::Referenced >::checkSubType< osgText::Font >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgText::Font::base_getVerticalSize(float &, float &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+		}
+		bool lret = self->Font::getVerticalSize(ascender, descender);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// void osgText::Font::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
@@ -1702,6 +1760,7 @@ luna_RegType LunaTraits< osgText::Font >::methods[] = {
 	{"getGlyph", &luna_wrapper_osgText_Font::_bind_getGlyph},
 	{"getGlyph3D", &luna_wrapper_osgText_Font::_bind_getGlyph3D},
 	{"hasVertical", &luna_wrapper_osgText_Font::_bind_hasVertical},
+	{"getVerticalSize", &luna_wrapper_osgText_Font::_bind_getVerticalSize},
 	{"setGlyphImageMargin", &luna_wrapper_osgText_Font::_bind_setGlyphImageMargin},
 	{"getGlyphImageMargin", &luna_wrapper_osgText_Font::_bind_getGlyphImageMargin},
 	{"setGlyphImageMarginRatio", &luna_wrapper_osgText_Font::_bind_setGlyphImageMarginRatio},
@@ -1736,6 +1795,7 @@ luna_RegType LunaTraits< osgText::Font >::methods[] = {
 	{"base_getGlyph", &luna_wrapper_osgText_Font::_bind_base_getGlyph},
 	{"base_getGlyph3D", &luna_wrapper_osgText_Font::_bind_base_getGlyph3D},
 	{"base_hasVertical", &luna_wrapper_osgText_Font::_bind_base_hasVertical},
+	{"base_getVerticalSize", &luna_wrapper_osgText_Font::_bind_base_getVerticalSize},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osgText_Font::_bind_base_setThreadSafeRefUnref},
 	{"base_releaseGLObjects", &luna_wrapper_osgText_Font::_bind_base_releaseGLObjects},
 	{"__eq", &luna_wrapper_osgText_Font::_bind___eq},

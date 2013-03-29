@@ -328,7 +328,7 @@ public:
 
 		if( lua_isstring(L,1)==0 ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		return true;
 	}
 
@@ -370,8 +370,8 @@ public:
 		if( luatop>1 && !dt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarEntry::wxTarEntry function");
 		}
-		const wxDateTime & dt=luatop>1 ? *dt_ptr : wxDateTime::Now ();
-		long long size=luatop>2 ? (long long)lua_tointeger(L,3) : wxInvalidOffset;
+		const wxDateTime & dt=luatop>1 ? *dt_ptr : (const wxDateTime&)wxDateTime::Now ();
+		long long size=luatop>2 ? (long long)lua_tointeger(L,3) : (long long)wxInvalidOffset;
 
 		return new wxTarEntry(name, dt, size);
 	}
@@ -406,8 +406,8 @@ public:
 		if( luatop>2 && !dt_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarEntry::wxTarEntry function");
 		}
-		const wxDateTime & dt=luatop>2 ? *dt_ptr : wxDateTime::Now ();
-		long long size=luatop>3 ? (long long)lua_tointeger(L,4) : wxInvalidOffset;
+		const wxDateTime & dt=luatop>2 ? *dt_ptr : (const wxDateTime&)wxDateTime::Now ();
+		long long size=luatop>3 ? (long long)lua_tointeger(L,4) : (long long)wxInvalidOffset;
 
 		return new wrapper_wxTarEntry(L,NULL, name, dt, size);
 	}
@@ -921,10 +921,10 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
-		bool pIsDir=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : NULL;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : (wxPathFormat)::wxPATH_NATIVE;
+		bool* pIsDir=luatop>2 ? (bool*)(Luna< void >::check(L,3)) : (bool*)NULL;
 
-		wxString lret = wxTarEntry::GetInternalName(name, format, &pIsDir);
+		wxString lret = wxTarEntry::GetInternalName(name, format, pIsDir);
 		lua_pushlstring(L,lret.data(),lret.size());
 
 		return 1;

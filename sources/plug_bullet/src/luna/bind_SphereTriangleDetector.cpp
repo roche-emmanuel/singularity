@@ -234,7 +234,7 @@ public:
 		}
 		btDiscreteCollisionDetectorInterface::Result & output=*output_ptr;
 		btIDebugDraw* debugDraw=(Luna< btIDebugDraw >::check(L,4));
-		bool swapResults=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool swapResults=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		SphereTriangleDetector* self=Luna< btDiscreteCollisionDetectorInterface >::checkSubType< SphereTriangleDetector >(L,1);
 		if(!self) {
@@ -303,7 +303,7 @@ public:
 		}
 		btDiscreteCollisionDetectorInterface::Result & output=*output_ptr;
 		btIDebugDraw* debugDraw=(Luna< btIDebugDraw >::check(L,4));
-		bool swapResults=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		bool swapResults=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
 
 		SphereTriangleDetector* self=Luna< btDiscreteCollisionDetectorInterface >::checkSubType< SphereTriangleDetector >(L,1);
 		if(!self) {

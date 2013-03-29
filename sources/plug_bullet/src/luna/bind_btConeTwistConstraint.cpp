@@ -890,9 +890,9 @@ public:
 		float _swingSpan1=(float)lua_tonumber(L,2);
 		float _swingSpan2=(float)lua_tonumber(L,3);
 		float _twistSpan=(float)lua_tonumber(L,4);
-		float _softness=luatop>4 ? (float)lua_tonumber(L,5) : 1.f;
-		float _biasFactor=luatop>5 ? (float)lua_tonumber(L,6) : 0.3f;
-		float _relaxationFactor=luatop>6 ? (float)lua_tonumber(L,7) : 1.0f;
+		float _softness=luatop>4 ? (float)lua_tonumber(L,5) : (float)1.f;
+		float _biasFactor=luatop>5 ? (float)lua_tonumber(L,6) : (float)0.3f;
+		float _relaxationFactor=luatop>6 ? (float)lua_tonumber(L,7) : (float)1.0f;
 
 		btConeTwistConstraint* self=Luna< btTypedObject >::checkSubType< btConeTwistConstraint >(L,1);
 		if(!self) {
@@ -1358,7 +1358,7 @@ public:
 
 		int num=(int)lua_tointeger(L,2);
 		float value=(float)lua_tonumber(L,3);
-		int axis=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int axis=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		btConeTwistConstraint* self=Luna< btTypedObject >::checkSubType< btConeTwistConstraint >(L,1);
 		if(!self) {
@@ -1450,7 +1450,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int num=(int)lua_tointeger(L,2);
-		int axis=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int axis=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		btConeTwistConstraint* self=Luna< btTypedObject >::checkSubType< btConeTwistConstraint >(L,1);
 		if(!self) {
@@ -1604,7 +1604,7 @@ public:
 
 		int num=(int)lua_tointeger(L,2);
 		float value=(float)lua_tonumber(L,3);
-		int axis=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int axis=luatop>3 ? (int)lua_tointeger(L,4) : (int)-1;
 
 		btConeTwistConstraint* self=Luna< btTypedObject >::checkSubType< btConeTwistConstraint >(L,1);
 		if(!self) {
@@ -1654,7 +1654,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int num=(int)lua_tointeger(L,2);
-		int axis=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int axis=luatop>2 ? (int)lua_tointeger(L,3) : (int)-1;
 
 		btConeTwistConstraint* self=Luna< btTypedObject >::checkSubType< btConeTwistConstraint >(L,1);
 		if(!self) {

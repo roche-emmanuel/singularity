@@ -465,10 +465,10 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxMenu* parentMenu=luatop>0 ? (Luna< wxObject >::checkSubType< wxMenu >(L,1)) : (wxMenu*)NULL;
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_SEPARATOR;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : (int)::wxID_SEPARATOR;
 		wxString text(lua_tostring(L,3),lua_objlen(L,3));
 		wxString helpString(lua_tostring(L,4),lua_objlen(L,4));
-		wxItemKind kind=luatop>4 ? (wxItemKind)lua_tointeger(L,5) : ::wxITEM_NORMAL;
+		wxItemKind kind=luatop>4 ? (wxItemKind)lua_tointeger(L,5) : (wxItemKind)::wxITEM_NORMAL;
 		wxMenu* subMenu=luatop>5 ? (Luna< wxObject >::checkSubType< wxMenu >(L,6)) : (wxMenu*)NULL;
 
 		return new wxMenuItem(parentMenu, id, text, helpString, kind, subMenu);
@@ -484,10 +484,10 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxMenu* parentMenu=luatop>1 ? (Luna< wxObject >::checkSubType< wxMenu >(L,2)) : (wxMenu*)NULL;
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_SEPARATOR;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : (int)::wxID_SEPARATOR;
 		wxString text(lua_tostring(L,4),lua_objlen(L,4));
 		wxString helpString(lua_tostring(L,5),lua_objlen(L,5));
-		wxItemKind kind=luatop>5 ? (wxItemKind)lua_tointeger(L,6) : ::wxITEM_NORMAL;
+		wxItemKind kind=luatop>5 ? (wxItemKind)lua_tointeger(L,6) : (wxItemKind)::wxITEM_NORMAL;
 		wxMenu* subMenu=luatop>6 ? (Luna< wxObject >::checkSubType< wxMenu >(L,7)) : (wxMenu*)NULL;
 
 		return new wrapper_wxMenuItem(L,NULL, parentMenu, id, text, helpString, kind, subMenu);
@@ -513,7 +513,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool check=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool check=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxMenuItem* self=Luna< wxObject >::checkSubType< wxMenuItem >(L,1);
 		if(!self) {
@@ -534,7 +534,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxMenuItem* self=Luna< wxObject >::checkSubType< wxMenuItem >(L,1);
 		if(!self) {
@@ -975,7 +975,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxMenuItem::SetBitmap function");
 		}
 		const wxBitmap & bmp=*bmp_ptr;
-		bool checked=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool checked=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxMenuItem* self=Luna< wxObject >::checkSubType< wxMenuItem >(L,1);
 		if(!self) {
@@ -1005,7 +1005,7 @@ public:
 		if( luatop>2 && !unchecked_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg unchecked in wxMenuItem::SetBitmaps function");
 		}
-		const wxBitmap & unchecked=luatop>2 ? *unchecked_ptr : wxNullBitmap;
+		const wxBitmap & unchecked=luatop>2 ? *unchecked_ptr : (const wxBitmap&)wxNullBitmap;
 
 		wxMenuItem* self=Luna< wxObject >::checkSubType< wxMenuItem >(L,1);
 		if(!self) {
@@ -1237,7 +1237,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool check=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool check=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxMenuItem* self=Luna< wxObject >::checkSubType< wxMenuItem >(L,1);
 		if(!self) {
@@ -1258,7 +1258,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : (bool)true;
 
 		wxMenuItem* self=Luna< wxObject >::checkSubType< wxMenuItem >(L,1);
 		if(!self) {
@@ -1381,7 +1381,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxMenuItem::base_SetBitmap function");
 		}
 		const wxBitmap & bmp=*bmp_ptr;
-		bool checked=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool checked=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		wxMenuItem* self=Luna< wxObject >::checkSubType< wxMenuItem >(L,1);
 		if(!self) {
