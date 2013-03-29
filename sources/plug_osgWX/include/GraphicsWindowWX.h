@@ -24,7 +24,8 @@ public:
     // not implemented yet...just use dummy implementation to get working.
     virtual bool valid() const { return true; }
     virtual bool realizeImplementation() { return true; }
-    virtual bool isRealizedImplementation() const  { return _canvas ? _canvas->IsShownOnScreen() : false; }
+    //virtual bool isRealizedImplementation() const  { return _canvas ? _canvas->IsShownOnScreen() : false; }
+    virtual bool isRealizedImplementation() const  { return _canvas ? true : false; }
     virtual void closeImplementation() {}
     virtual bool releaseContextImplementation() { return true; }
 

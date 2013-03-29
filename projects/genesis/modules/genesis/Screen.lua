@@ -16,9 +16,8 @@ function Class:initialize(options)
                 wx.wxSize(450, 450),  -- set the size of the frame
                 wx.wxCAPTION+wx.wxRESIZE_BORDER ) -- use default frame styles
 
-	-- local WebTile = require "gui.web.WebTile"
-	-- self._tile = WebTile{transparent=true,width=1920,height=1080}
-	
+	local WebTile = require "gui.web.WebTile"
+	self._tile = WebTile{transparent=true,width=1920,height=1080}
 	
 	local Interface = require "gui.wx.ControlInterface"
 	local intf = Interface{root=self:getFrame()}
@@ -39,9 +38,9 @@ function Class:initialize(options)
 	
 	self:getFrame():Layout()
 
-	--self:setupEventHandlers()
+	self:setupEventHandlers()
 	
-	--self:setup()
+	self:setup()
 	
 	self:show()
 end
@@ -87,7 +86,7 @@ function Class:setupEventHandlers()
 end
 
 function Class:setup()
-	-- self:getRoot():addChild(osg.Node(self._tile))	
+	self:getRoot():addChild(osg.Node(self._tile))	
 	
 	local mt = self:loadModel("tests/data/glider.osgt")
 	self:createCube(1)
@@ -108,7 +107,6 @@ function Class:setup()
 	
 	self:getRoot():addChild(sb)
 	
-	--[=[
 	local view = self._tile:getWebView()
 
 	self._hand = require("genesis.GenesisHandler")()
@@ -137,7 +135,6 @@ function Class:setup()
 
 	self._tile:loadURL(config.genesis_path .. "assets/main.html")	
 	-- self._tile:loadURL("asset://genesis/main.html")	
-	]=]
 end
 
 -------------------------------------------
