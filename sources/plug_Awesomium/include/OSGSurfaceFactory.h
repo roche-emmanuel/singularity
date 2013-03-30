@@ -23,6 +23,10 @@ public:
 
 	OSGSurface* getOrCreateSurface(Awesomium::WebView* view);
 	
+	bool releaseSurface(Awesomium::Surface *surface);
+	
+	void releaseAllSurfaces();
+	
 	~OSGSurfaceFactory() {
 		logINFO("Deleting OSGSurfaceFactory.");
 		CHECK(_surfaces.empty(),"Not all web surfaces were released! " << _surfaces.size() << " OSGSurfaces left.");

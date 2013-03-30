@@ -166,6 +166,12 @@
                 <node text="Serialization support" />
                 <node text="Can be volatile" />
                 <node text="Can be read only" />
+                <node text="Use event system" />
+              </nodes>
+            </node>
+            <node text="Support i18n">
+              <nodes>
+                <node text="call Locale:addLocaleMap()" />
               </nodes>
             </node>
           </nodes>

@@ -89,9 +89,11 @@ function Class:__call(options)
 		end
 	end
 	
-	function result:release()
-		self:deprecated("release should not be used.")
-		self._wrappers = nil;
+	if not result.release then
+		function result:release()
+			self:deprecated("release should not be used.")
+			self._wrappers = nil;
+		end
 	end
 	
 	function result:getWrapper(index)

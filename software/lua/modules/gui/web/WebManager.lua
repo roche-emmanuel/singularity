@@ -141,6 +141,7 @@ function Class:onAppClosing()
 	awe.WebCore.Shutdown()	
 
 	self:info("Releasing OSG surface factory");
+	self._surfaceFactory:releaseAllSurfaces();
 	self._surfaceFactory = nil;
 
 	self:info("Web manager closed.")	

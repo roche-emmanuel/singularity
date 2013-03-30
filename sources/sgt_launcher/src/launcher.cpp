@@ -252,14 +252,14 @@ int main(int argc, char *argv[]) {
 				if(res!=0) {
 					logERROR("Error occurred in StartModule execution:\n" << (res==LUA_ERRRUN ? lua_tostring(L,-1) : "[no message]"));
 					sgt::LogManager::instance().removeAllSinks(); // This is needed to prevent issues with
-					lua_close(L);
+					//lua_close(L);
 					return 1;				
 				}
 			}
 			else {
 				logERROR("Error occurred in StartModule loading:\n" << lua_tostring(L,-1));
 				sgt::LogManager::instance().removeAllSinks(); // This is needed to prevent issues with
-				lua_close(L);
+				//lua_close(L);
 				return 1;
 			}		
 		}
@@ -272,7 +272,7 @@ int main(int argc, char *argv[]) {
 		if(luaL_dofile(L, initScript.c_str()) != 0) {
 			logERROR("Error occurred in init script:\n" << lua_tostring(L,-1));
 			sgt::LogManager::instance().removeAllSinks(); // This is needed to prevent issues with
-			lua_close(L);
+			//lua_close(L);
 			return 1;
 		}
 

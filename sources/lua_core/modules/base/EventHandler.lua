@@ -2,6 +2,7 @@ local Class = require("classBuilder"){name="EventHandler",bases="base.Object"};
 
 local Map = require "std.Map"
 local Set = require "std.Set"
+local Vector = require "std.Vector"
 local EventCallback = require "base.EventCallback"
 
 function Class:initialize(options)
@@ -75,6 +76,12 @@ function Class:fireEvent(eventName,...)
 	
 	self._currentEvent = eventName
 
+	-- add support for result retrieval.
+	-- Since we execute multiple listener, we have to gather multiple results.
+	-- and let the caller decide what to do with them.
+	local results = nil
+	local res = nil
+	
 	profiler:start("fireEvent")
 	for _, cb in list:sequence() do
 		--if cb._name then
@@ -83,7 +90,13 @@ function Class:fireEvent(eventName,...)
 		
 		-- call the callback:
 		--cb{handler=self,event=eventName,args={...}};
-		cb(self,eventName,...);
+		res = cb(self,eventName,...);
+		
+		if res then
+			-- need to store this result:
+			results = results or std.Vector()
+			results:push_back(res)
+		end
 		
 		if cb:isOneShot() then
 			self._markedForRemoval:push_back(cb)
@@ -100,6 +113,8 @@ function Class:fireEvent(eventName,...)
 	profiler:stop()
 	
 	self._currentEvent = nil
+	
+	return results -- this may be nil or a vector of values.
 end
 
 return Class

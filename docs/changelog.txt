@@ -40,6 +40,7 @@
 - Refactored proland code to accept sgtCommon header without conflicts (on FLOAT definition mainly).
 - Integrated log pipeline in proland module.
 - Updating everything to get debuggin support.
+- Added support for webtile resize
 
 
 TODO:

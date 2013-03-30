@@ -70,6 +70,7 @@ public:
 	OSGSurface(Awesomium::WebView* view) : _view(view) {
 		_texture = new osg::Texture2D();
 		_texture->setInternalFormat(GL_RGBA);
+		logINFO("Initializing OSGSurface with texture: " << (const void*)_texture.get());
 		
 		_cb = new SubLoader();
 		_texture->setSubloadCallback(_cb.get());
@@ -97,6 +98,10 @@ public:
 	
 	void Paint(unsigned char *src_buffer, int src_row_span, const Awesomium::Rect &src_rect, const Awesomium::Rect &dest_rect);
 	void Scroll(int dx, int dy, const Awesomium::Rect &clip_rect);
+	
+	~OSGSurface() {
+		trDEBUG("OSGSurface","Deleting surface.");
+	}
 	
 };
 

@@ -46,7 +46,7 @@ function Class:buildInstance()
 	-- We need an intermediate panel to assign it a custom deleter here  and release the eventHandlers properly:
 	self._panel = self:createPanel{parent=self._parent,wrapper={
 		delete = function()
-			self:info("Calling deleter for OSGCanvas panel.")
+			self:info("Deleting OSGCanvas panel.")
 			self:release()
 		end
 	}};
@@ -92,6 +92,8 @@ function Class:buildInstance()
 		self._gw:getEventQueue():windowResize(0, 0, ww, hh);
         self._gw:resized(0,0,ww,hh);
 		self._viewer:getCamera():setViewport(0,0,ww,hh);
+		
+		self:fireEvent("onResize",ww,hh)
 	end)
 	
 	local mouseDownHandler = function(intf,event)
@@ -187,53 +189,27 @@ keyMap[wx.WXK_HELP] = osgGA.GUIEventAdapter.KEY_Help
 
 function Class:release()
 	self:info("Releasing OSGCanvas...")
-	self:info("Collecting garbage 1")
-	collectgarbage('collect')
 	self:disconnectHandlers()
-	self:info("Collecting garbage 2")
-	collectgarbage('collect')
 	if self._gw then
 		self._gw:invalidate()
 	end
-	self._gw = nil;	
-	
-	self:info("Collecting garbage 2b")
-	collectgarbage('collect')
-	
-	self:info("Removing graphics context from osg canvas.");
+	self._gw = nil;		
 	if self._viewer then
-		self._viewer:getCamera():setGraphicsContext(nil); -- this is needed to avoid wxWidgets resource access after deletion.
+		self._viewer:getCamera():setGraphicsContext(nil); -- this is needed to avoid wxWidgets resource access after deletion ?
 	end
-
-	self:info("Collecting garbage 3")
-	collectgarbage('collect')
-	
-	self:info("Releasing scene...")
 	if self._root then
 		self._root:removeChildren(0,self._root:getNumChildren())
-	end
-	self:info("Collecting garbage 4")
-	collectgarbage('collect')
-	
-	self:info("Collecting garbage 5")
-	collectgarbage('collect')
-	
+	end	
 	self:fireEvent("onClose")
-	self:info("Collecting garbage 6")
-	collectgarbage('collect')
 	
 	self._viewer = nil;
-	self:info("Collecting garbage 7")
-	collectgarbage('collect')
 	
 	if self._context then
 		self._context:delete()
 		self._context=nil
 	end
 
-	self:info("Collecting garbage after scene release.")
-	collectgarbage('collect')
-	self:info("Done releasing scene.")
+	self:debug3("Done releasing scene.")
 end
 
 function Class:adaptKeyCode(key)

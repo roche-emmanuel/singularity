@@ -115,6 +115,11 @@ function Class:release()
 	self._eventHandler = nil;
 end
 
+function Class:resize(ww,hh)
+	self:info("Resizing web tile to ",ww,"x",hh)
+	self._webView:Resize(ww,hh)
+end
+
 function Class:getWebView()
 	return self._webView;
 end
