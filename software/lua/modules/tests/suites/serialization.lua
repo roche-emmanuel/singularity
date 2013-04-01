@@ -34,7 +34,9 @@ function test_file_serialization()
 	
 end
 
-function test_timeprovider_serialization()
+-- this test is disabled because the serialisation support for timeprovider 
+-- was removed from the sgtCore library (to avoid resource issues while debugging).
+function disabled_timeprovider_serialization()
 	
 	log:info("Tests","Doing TimeProvider serialization test...")
 	
@@ -92,7 +94,9 @@ function test_anyvector_access()
 	log:info("Tests","AnyVector access test done.")
 end
 
-function test_anyvector_serialization()
+-- this test is disabled because the serialisation support for anyvector
+-- was removed from the sgtCore library (to avoid resource issues while debugging).
+function disabled_anyvector_serialization()
 	log:info("Tests","Performing AnyVector serialization...")
 	local obj = sgt.AnyVector()
 	assert_not_equal(nil,obj,"Invalid AnyVector object.")
