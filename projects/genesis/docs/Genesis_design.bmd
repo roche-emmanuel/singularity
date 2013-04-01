@@ -178,5 +178,122 @@
         </node>
       </nodes>
     </chart>
+    <chart name="Nouveau document" type="MindMap">
+      <layout>MIND_MAP</layout>
+      <style>
+        <back_color>White</back_color>
+        <fore_color>Black</fore_color>
+        <line_color>LightSlateGray</line_color>
+        <border_color>SlateGray</border_color>
+        <node_back_color>LightGray</node_back_color>
+        <node_fore_color>Black</node_fore_color>
+        <select_color>RoyalBlue</select_color>
+        <hover_color>MediumSlateBlue</hover_color>
+        <link_line_color>Green</link_line_color>
+      </style>
+      <nodes>
+        <node text="TurretView">
+          <style>
+            <back_color>Silver</back_color>
+            <fore_color>Black</fore_color>
+            <border_color>Black</border_color>
+            <padding>12</padding>
+          </style>
+          <nodes>
+            <node text="Attached to one turret output" />
+            <node text="Turret video output">
+              <nodes>
+                <node text="contain ovelays">
+                  <nodes>
+                    <node text="Main overlay" />
+                    <node text="Menus" />
+                  </nodes>
+                </node>
+              </nodes>
+            </node>
+          </nodes>
+        </node>
+      </nodes>
+    </chart>
+    <chart name="Genesis" type="MindMap">
+      <layout>MIND_MAP</layout>
+      <style>
+        <back_color>White</back_color>
+        <fore_color>Black</fore_color>
+        <line_color>LightSlateGray</line_color>
+        <border_color>SlateGray</border_color>
+        <node_back_color>LightGray</node_back_color>
+        <node_fore_color>Black</node_fore_color>
+        <select_color>RoyalBlue</select_color>
+        <hover_color>MediumSlateBlue</hover_color>
+        <link_line_color>Green</link_line_color>
+      </style>
+      <nodes>
+        <node text="Genesis">
+          <style>
+            <back_color>PaleTurquoise</back_color>
+            <fore_color>Black</fore_color>
+            <border_color>Black</border_color>
+            <shape>2</shape>
+            <round_radius>80</round_radius>
+            <padding>12</padding>
+          </style>
+          <nodes>
+            <node text="Entry">
+              <nodes>
+                <node text="TableEntry" />
+              </nodes>
+            </node>
+            <node text="Entry system">
+              <style>
+                <back_color>#FFC080</back_color>
+              </style>
+              <nodes>
+                <node text="Model">
+                  <style>
+                    <back_color>#FFC0FF</back_color>
+                  </style>
+                </node>
+                <node text="EntryFactory">
+                  <style>
+                    <back_color>#FFC0FF</back_color>
+                  </style>
+                </node>
+                <node text="Entry">
+                  <style>
+                    <back_color>#FFC0FF</back_color>
+                  </style>
+                  <nodes>
+                    <node text="Read from model">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                    <node text="Serializable">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                    <node text="_used" />
+                    <node text="_name" />
+                    <node text="_desc" />
+                    <node text="_value" />
+                    <node text="_tags" />
+                    <node text="_vtype" />
+                    <node text="_volatile" />
+                    <node text="_readOnly" />
+                  </nodes>
+                </node>
+                <node text="TableEntry">
+                  <style>
+                    <back_color>#FFC0FF</back_color>
+                  </style>
+                </node>
+              </nodes>
+            </node>
+          </nodes>
+        </node>
+      </nodes>
+    </chart>
   </charts>
 </document>

@@ -42,6 +42,7 @@ function Class:data()
 end
 
 function Class:__len()
+	--self:info("Calling iterator __len with node: ",self._node or "[nil]")
 	return self._node and self._node.data
 end
 

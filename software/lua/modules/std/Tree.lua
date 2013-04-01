@@ -33,12 +33,13 @@ end
 function Class:subtree_to_table(it,tt,indent,indentStr,sep,indexed)
 	indentStr = indentStr or "  "
 	sep = sep or "\n"
-	-- indexed = indexed or {}
+	--indexed = indexed or {}
     local nChildren=it:number_of_children();
     tt = tt or {}
 	indent = indent or 0
 	
---[[	self:info("Tree to table on item= ",tostring(#it))
+	--[[
+	self:info("Tree to table on item= ",tostring(#it))
 	
 	if indexed[it._node] then
         table.insert(tt,string.rep(indentStr,indent) .. "[breaking loop on: " .. tostring((#it) or "[none]").. "], " .. sep)
@@ -54,11 +55,11 @@ function Class:subtree_to_table(it,tt,indent,indentStr,sep,indexed)
         table.insert(tt,string.rep(indentStr,indent) .. tostring((#it) or "[none]").. " (" ..sep);
 		local sib = it:begin()
 		local sibe = it:at_end()
-		-- local count=1
+		--local count=1
 		while(sib~=sibe) do
-			-- self:info("Interating on child ",count)
+			--self:info("Interating on child ",count)
 			self:subtree_to_table(sib,tt,indent+1,indentStr,sep,indexed);
-			-- count = count+1
+			--count = count+1
 			sib:inc()
 		end
         table.insert(tt,string.rep(indentStr,indent) .. "), "..sep);
@@ -69,21 +70,29 @@ function Class:toString(indentStr, sep)
 	indentStr = indentStr or ""
 	sep = sep or ""
 	
+	--self:info("entering toString()")
+	
 	local tt = {}
 	-- local indexed = {}
+	--self:info("calling begin()")
 	local it = self:begin()
+	--self:info("calling at_end()")
 	local ite = self:at_end()
 	while(it~=ite) do
+		--self:info("Wrinting subtree to table")
 		self:subtree_to_table(it,tt,1,indentStr,sep) --,indexed)
 		it:skip_children()
 		it:inc()
 	end
+	
+	--self:info("tree table content is: ",tt)
 	
 	local str = self._openSymbol .. sep .. table.concat(tt) .. self._closeSymbol
 	return (str:gsub(", ([%)}])","%1"));	
 end
 
 function Class:__tostring()
+	--self:info("entering __tostring()")
 	return self:toString()
 end
 
@@ -1239,13 +1248,13 @@ function Class:parse(str,sep)
 	end
 	
 	local open_item = function()
-		-- log:info("Entering item...")
+		--log:info("Entering item...")
 		self:check(current,"Invalid current iterator.")
 		stack:push_back(current)
 	end
 	
 	local close_item = function()
-		-- log:info("Closing item...")
+		--log:info("Closing item...")
 		local iter = stack:pop_back()
 		self:check(iter,"Invalid current iterator.")
 	end

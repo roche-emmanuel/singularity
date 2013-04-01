@@ -3,7 +3,7 @@ module(..., package.seeall)
 local log = require "tracer"
 local utils = require "utils"
 local fs = require "base.FileSystem"
-
+local wx = require "wx"
 
 local Container = require "gui.Container"
 
