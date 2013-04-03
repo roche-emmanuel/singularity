@@ -50,12 +50,12 @@ function Class:initialize(options)
 	self:showOutputPanel(false)
 
 	-- local man = require "gui.web.WebManager"
-    self:getWebManager():addDataPak("genesis", config.genesis_path .. "assets.pak");
+    self:getWebManager():addDataPak("genesis", config.genesis.root_path .. "assets.pak");
 	
 	-- self._tile:loadURL("asset://genesis/hello.html")	
 	-- self._tile:loadURL("http://www.google.fr")
 
-	self._tile:loadURL(config.genesis_path .. "assets/main.html")	
+	self._tile:loadURL(config.genesis.root_path .. "assets/main.html")	
 	-- self._tile:loadURL("asset://genesis/main.html")	
 end
 

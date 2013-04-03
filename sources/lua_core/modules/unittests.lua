@@ -19,7 +19,8 @@ function Class:initialize(options)
 		lunatest.suite(path)
 	end
 	
-	fs:traverse{path=root_path.."lua/modules/"..tpath,
+	local sourcePath = options and options.sourcePath or root_path.."lua/modules"
+	fs:traverse{path=sourcePath .. "/" .. tpath,
 		func=func,
 		pattern="%.lua$"}
 	

@@ -254,6 +254,7 @@ end
 --- Check if function contains at least one pointer on pointer declaration.
 function Class:containsPointerOnPointer()
     return self.argsString:find("%*%*")~=nil or (self.returnType and self.returnType:getName():find("%*%*"))
+		or self.argsString:find("%*%s*const%s*%*")~=nil or (self.returnType and self.returnType:getName():find("%*%s*const%s*%*"))		
     --local proto = self:getPrototype()
     --return proto:find("%[[0-9]*%]")~=nil
 end

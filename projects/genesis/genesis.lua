@@ -7,8 +7,7 @@ local path = fs:getCurrentWorkingDirectory()
 log:debug2_v("Current working dir is: ", path)
 addLuaPath(path .. "modules/?.lua")
 
--- add the path to the config:
-config.genesis_path = path
+dofile(path .. "config.lua")
 
 -- local App = require "gui.web.BookApp"
 local App = require "genesis.App"

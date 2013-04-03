@@ -14,12 +14,12 @@ end
 function Class:addListener(desc,cb,oneShot)
 	
 	if type(desc)~="table" then
-		self:deprecated("Should call addListener with an option table argument.")
+		--self:deprecated("Should call addListener with an option table argument.")
 		local func = type(cb)=="function" and cb
 		local obj = type(cb)=="table" and cb
 		return self:addListener{event=desc,func=func,object=obj,oneShot=oneShot}
 	end
-	
+		
 	local cb = EventCallback(desc);
 	
 	local front = desc.front; -- or Event.isFront(desc.event)

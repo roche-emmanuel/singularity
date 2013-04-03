@@ -5,6 +5,8 @@ require "osg.NotificationHandler"
 require "extensions.osg"
 local cfg = require "config"
 
+local gl = require "opengl"
+
 local fs = require "base.FileSystem"
 
 -- osg.setNotifyLevel(osg.DEBUG_FP)
@@ -98,6 +100,19 @@ function Class:createTexture(options)
 		tex:setImage(osg.TextureCubeMap.NEGATIVE_Y, maps.y_neg)
 		tex:setImage(osg.TextureCubeMap.POSITIVE_Z, maps.z_pos)
 		tex:setImage(osg.TextureCubeMap.NEGATIVE_Z, maps.z_neg)
+	elseif options.width and options.height then
+		tex = osg.Texture2D()
+		tex:setTextureSize(options.width,options.height)
+		local fmt = options.format or "rgba"
+		if fmt=="rgba" then
+			tex:setInternalFormat( gl.RGBA )
+		elseif fmt=="depth" then
+			tex:setInternalFormat( gl.DEPTH_COMPONENT24 );
+			tex:setSourceFormat( gl.DEPTH_COMPONENT );
+			tex:setSourceType( gl.FLOAT );
+		else
+			log:error("Unsupported texture format: '",fmt,"'")
+		end
 	end
 	
 	self:check(tex,"Invalid texture options.")
@@ -368,6 +383,33 @@ end
 function Class:createSkyBox(options)
 	local SkyBoxBuilder = require "osg.SkyBoxBuilder"
 	return 	SkyBoxBuilder:create(options)
+end
+
+function Class:createRTTCamera(options)
+	options = options or {}
+	local cam = osg.Camera()
+	local clearColor = options.clearColor or osg.Vec4f()
+	local clearMask = options.clearMask or bit.bor(gl.COLOR_BUFFER_BIT,gl.DEPTH_BUFFER_BIT)
+	local order = options.renderOrder or osg.Camera.PRE_RENDER
+	
+	cam:setClearColor( clearColor );
+	cam:setClearMask(clearMask);
+	cam:setRenderTargetImplementation(osg.Camera.FRAME_BUFFER_OBJECT);
+	cam:setRenderOrder(order);
+	
+	local colorTex = options.colorTex
+	if(colorTex) then
+		cam:setViewport( 0, 0, colorTex:getTextureWidth(), colorTex:getTextureHeight() );
+		cam:attach( osg.Camera.COLOR_BUFFER, colorTex );
+	end
+	
+	local depthTex = options.depthTex
+	if(depthTex) then
+		cam:setViewport( 0, 0, colorTex:getTextureWidth(), colorTex:getTextureHeight() );
+		cam:attach( osg.Camera.DEPTH_BUFFER, depthTex );
+	end
+
+	return cam;
 end
 
 return Class()

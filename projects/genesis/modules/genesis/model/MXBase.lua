@@ -3,11 +3,27 @@ local osg = require "osg"
 
 local cfg = {}
 
+-- List of sensors available on that turret.
+cfg["global.sensor_list"] = {
+	desc="global_sensor_list_desc",
+	value={ 
+		"EOW",
+	},
+	class="Table",
+}
+
+-- Default scene used for that turret if not specified.
+cfg["global.scene.default"] = {
+	desc="global_scene_default_desc",
+	value="TestScene1",
+}
+
+
 -- Default video output resolution used for any output with no specific resolution set. 
 -- Width and Height are given in pixels.
-cfg["screen.default_resolution"] = {
-	desc="screen_default_resolution_desc",
-	value=osg.Vec2s(1980,1080),
+cfg["global.sensor.default_resolution"] = {
+	desc="global_sensor_default_resolution_desc",
+	value=osg.Vec2s(1920,1080),
 	vtype="osg.Vec2s",
 	unit="pixels",
 }

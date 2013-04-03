@@ -1,12 +1,8 @@
-local Class = require("classBuilder"){name="TurretState",bases="genesis.Object"};
+local Class = require("classBuilder"){name="TurretState",bases="genesis.turret.Object"};
 
 function Class:initialize(options)
-	self:check(options and options.turret,"Invalid parent turret");
 	self:debug("Creating turret state...")
-	
-	-- assign the parent turret to this state:
-	self._turret = options.turret
-	
+		
 	-- Prepare the entry map:
 	self._entries = require("std.Map")();
 	
@@ -17,7 +13,7 @@ function Class:initialize(options)
 	local model = require("genesis.model."..modelName)
 	
 	-- Now parse all the entries in that model:
-	local factory = require("genesis.turret.EntryFactory")()
+	local factory = require("genesis.entry.EntryFactory"){turret=self:getTurret()}
 	local entry;
 	
 	for name,details in pairs(model) do
@@ -26,6 +22,20 @@ function Class:initialize(options)
 	end
 	
 	self:debug("Turret state ready.")
+end
+
+function Class:getEntry(ename)
+	return self._entries:get(ename)
+end
+
+function Class:getValue(ename,defVal)
+	local ent = self:getEntry(ename)
+	
+	if ent then
+		return ent:getValue(defVal) 
+	end
+	
+	return defVal
 end
 
 return Class 

@@ -5,6 +5,10 @@
 
 - Todo:
 
+* build glew plugin.
+* Check JSBSim for flight dynamics model: http://jsbsim.sourceforge.net/
+* Check flightgear too.
+
 * Add support for delay callback.
 
 * Study crash with "Insufficient tile cache size for" in core\proland\terrain\TileSampler.cpp line 443 

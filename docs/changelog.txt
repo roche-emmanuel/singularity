@@ -41,6 +41,7 @@
 - Integrated log pipeline in proland module.
 - Updating everything to get debuggin support.
 - Added support for webtile resize
+- Added opengl module
 
 
 TODO:

@@ -29,10 +29,10 @@ function Class:initialize(desc)
 		self._name = self._object._CLASSNAME_
 	end
 	
-	if not self._name then
-		self:warn("No name provided for registered event callback.")
-		self:backtrace("warn");
-	end
+	--if not self._name then
+	--	self:warn("No name provided for registered event callback.")
+	--	self:backtrace("warn");
+	--end
 	
 	-- insert the object as first argument is available:
 	if self._object then

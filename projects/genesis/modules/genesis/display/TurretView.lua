@@ -3,6 +3,7 @@ local Class = require("classBuilder"){name="TurretView",bases={"gui.wx.OSGCanvas
 function Class:initialize(options)
 	self:debug("Creating TurretView")
 
+	--[[
 	local WebTile = require "gui.web.WebTile"
 	self._tile = WebTile{transparent=true,width=1920,height=1080}
 	
@@ -10,6 +11,7 @@ function Class:initialize(options)
 		--self:warn("Should resize the webtile here to ",ww,"x",hh)
 		self._tile:resize(ww,hh)
 	end}
+	]]
 
 	self:setupEventHandlers()
 	
@@ -26,8 +28,9 @@ function Class:setupEventHandlers()
 end
 
 function Class:setup()
-	self:getRoot():addChild(osg.Node(self._tile))	
+	--self:getRoot():addChild(osg.Node(self._tile))	
 	
+	--[[
 	local mt = self:loadModel("tests/data/glider.osgt")
 	self:createCube(1)
 	self:createBase()
@@ -45,7 +48,12 @@ function Class:setup()
 	}
 	
 	self:getRoot():addChild(sb)
+	]]
+	local scene = require("scenes.TestScene1")()
+	self:getRoot():addChild(scene:getRoot())
 	
+	
+	--[[
 	local view = self._tile:getWebView()
 
 	self._hand = require("genesis.GenesisHandler")()
@@ -65,13 +73,14 @@ function Class:setup()
 	sgtVal:SetCustomMethod("logInfo",false)
 
 	-- local man = require "gui.web.WebManager"
-    self:getWebManager():addDataPak("genesis", config.genesis_path .. "assets.pak");
+    self:getWebManager():addDataPak("genesis", config.genesis.root_path .. "assets.pak");
 	
 	-- self._tile:loadURL("asset://genesis/hello.html")	
 	-- self._tile:loadURL("http://www.google.fr")
 
-	self._tile:loadURL(config.genesis_path .. "assets/main.html")	
+	self._tile:loadURL(config.genesis.root_path .. "assets/main.html")	
 	-- self._tile:loadURL("asset://genesis/main.html")	
+	]]
 end
 
 return Class 

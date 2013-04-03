@@ -401,6 +401,8 @@ static const luaglConst luagl_const[] = {
   { "COLOR_INDEX"                     , GL_COLOR_INDEX                    },
   { "STENCIL_INDEX"                   , GL_STENCIL_INDEX                  },
   { "DEPTH_COMPONENT"                 , GL_DEPTH_COMPONENT                },
+  { "DEPTH_COMPONENT24"               , GL_DEPTH_COMPONENT24              },
+  { "DEPTH_COMPONENT32"               , GL_DEPTH_COMPONENT32              },
   { "RED"                             , GL_RED                            },
   { "GREEN"                           , GL_GREEN                          },
   { "BLUE"                            , GL_BLUE                           },

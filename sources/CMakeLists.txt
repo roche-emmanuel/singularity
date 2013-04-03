@@ -59,6 +59,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_micropather)
 # ADD_SUBDIRECTORY(plug_mathgl)
 # ADD_SUBDIRECTORY(plug_proland)
+# ADD_SUBDIRECTORY(plug_opengl)
 
 # ToDo:
 # ADD_SUBDIRECTORY(plug_freenect)

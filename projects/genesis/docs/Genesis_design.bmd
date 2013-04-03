@@ -239,11 +239,6 @@
             <padding>12</padding>
           </style>
           <nodes>
-            <node text="Entry">
-              <nodes>
-                <node text="TableEntry" />
-              </nodes>
-            </node>
             <node text="Entry system">
               <style>
                 <back_color>#FFC080</back_color>
@@ -274,6 +269,11 @@
                         <shape>4</shape>
                       </style>
                     </node>
+                    <node text="Some entries may keep an internal value history">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
                     <node text="_used" />
                     <node text="_name" />
                     <node text="_desc" />
@@ -288,6 +288,165 @@
                   <style>
                     <back_color>#FFC0FF</back_color>
                   </style>
+                  <nodes>
+                    <node text="Contains a table value">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                  </nodes>
+                </node>
+              </nodes>
+            </node>
+            <node text="Display system">
+              <style>
+                <back_color>#FFC080</back_color>
+              </style>
+              <nodes>
+                <node text="SensorView">
+                  <style>
+                    <back_color>#FFC0FF</back_color>
+                  </style>
+                  <nodes>
+                    <node text="Render the view of one sensor on a texture">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                    <node text="rendering one sensor">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                    <node text="Contains a render to texture camera">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                  </nodes>
+                </node>
+                <node text="TurretView">
+                  <style>
+                    <back_color>#FFC0FF</back_color>
+                  </style>
+                  <nodes>
+                    <node text="Display one video output">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                    <node text="Display menus and controls">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                  </nodes>
+                </node>
+                <node text="VideoOutput">
+                  <style>
+                    <back_color>#FFC0FF</back_color>
+                  </style>
+                  <nodes>
+                    <node text="Display one sensor view">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                    <node text="Display the overlays">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                  </nodes>
+                </node>
+              </nodes>
+            </node>
+            <node text="Turret system">
+              <style>
+                <back_color>#FFC080</back_color>
+              </style>
+              <nodes>
+                <node text="TurretManager">
+                  <style>
+                    <back_color>#FFC0FF</back_color>
+                  </style>
+                  <nodes>
+                    <node text="Provide access to all turrets by name">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                  </nodes>
+                </node>
+                <node text="Turret">
+                  <style>
+                    <back_color>#FFC0FF</back_color>
+                  </style>
+                  <nodes>
+                    <node text="Contains gimbal">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                    <node text="Contains an ordered list of sensors">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                  </nodes>
+                </node>
+                <node text="Gimbal">
+                  <style>
+                    <back_color>#FFC0FF</back_color>
+                  </style>
+                  <nodes>
+                    <node text="Controls turret orientation">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                  </nodes>
+                </node>
+                <node text="Sensor">
+                  <style>
+                    <back_color>#FFC0FF</back_color>
+                  </style>
+                </node>
+              </nodes>
+            </node>
+            <node text="Scene system">
+              <style>
+                <back_color>#FFC080</back_color>
+              </style>
+              <nodes>
+                <node text="SceneManager">
+                  <style>
+                    <back_color>#FFC0FF</back_color>
+                  </style>
+                  <nodes>
+                    <node text="Provide access to the 3D scenes.">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                  </nodes>
+                </node>
+                <node text="Scene">
+                  <style>
+                    <back_color>#FFC0FF</back_color>
+                  </style>
+                  <nodes>
+                    <node text="Provide access to one or more platforms">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                    <node text="Serializable">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                  </nodes>
                 </node>
               </nodes>
             </node>
