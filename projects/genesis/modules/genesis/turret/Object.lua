@@ -10,4 +10,17 @@ function Class:getTurret()
 	return self._turret
 end
 
+function Class:getEntry(ename)
+	return self._turret:getEntry(ename)
+end
+
+function Class:getValue(ename,defVal)
+	return self._turret:getValue(ename,defVal)
+end
+
+function Class:getSensor(sname)
+	return self._turret:getSensor(sname)
+end
+
+
 return Class 

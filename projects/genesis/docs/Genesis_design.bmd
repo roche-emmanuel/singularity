@@ -411,6 +411,13 @@
                   <style>
                     <back_color>#FFC0FF</back_color>
                   </style>
+                  <nodes>
+                    <node text="Contains a sensorView">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                  </nodes>
                 </node>
               </nodes>
             </node>

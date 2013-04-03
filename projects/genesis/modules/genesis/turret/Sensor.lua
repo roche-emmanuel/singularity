@@ -18,6 +18,11 @@ function Class:getType()
 	return self._type
 end
 
+function Class:getName()
+	self:check(self._type,"Invalid sensor type")
+	return self._name or self._type
+end
+
 function Class:getTransform()
 	return self._transform
 end

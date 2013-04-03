@@ -43,4 +43,8 @@ function Class:setup()
 	self._camera:addChild(scene:getRoot())
 end
 
+function Class:getColorTexture()
+	return self._colorTexture
+end
+
 return Class 

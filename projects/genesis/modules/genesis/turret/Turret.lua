@@ -37,12 +37,21 @@ function Class:initialize(options)
 	self._gimbal = require("genesis.turret.Gimbal"){turret=self}
 	
 	-- create the sensors:
-	local list = self:getEntry("global.sensor_list")
+	local list = self:getValue("global.sensor_list")
 	
 	self._sensors = require("std.Set")()
-	for _,sens in ipairs(list:getValue()) do
+	for _,sens in ipairs(list) do
 		local sensor = require("genesis.turret." .. sens .. "Sensor"){turret=self}
 		self._sensors:push_back(sensor)
+	end
+
+	-- create the video outputs:
+	local list = self:getValue("global.video_output_list")
+	
+	self._outputs = require("std.Set")()
+	for _,out in ipairs(list) do
+		local output = require("genesis.display." .. out.type .. "Output"){turret=self,id=out.id}
+		self._outputs:push_back(output)
 	end
 end
 
@@ -65,6 +74,16 @@ end
 
 function Class:getValue(ename,defVal)
 	return self._state:getValue(ename,defVal)
+end
+
+function Class:getSensor(sname)
+	for _,sens in self._sensors:sequence() do
+		if sens:getName() == sname then
+			return sens
+		end
+	end
+	
+	self:error("Could not find sensor with name ",sname)
 end
 
 -- function Class:getEntryList(search)

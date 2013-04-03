@@ -42,7 +42,7 @@
 - Updating everything to get debuggin support.
 - Added support for webtile resize
 - Added opengl module
-
+- Added video output for genesis.
 
 TODO:
     * Implement ProcedureCall class... 

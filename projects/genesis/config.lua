@@ -7,3 +7,4 @@ config.genesis = {}
 config.genesis.root_path = path
 config.genesis.default_platform_name = "Alpha"
 config.genesis.default_scene_name = "DefaultScene"
+config.genesis.default_video_output = "digital1"

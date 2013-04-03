@@ -9,7 +9,33 @@ cfg["global.sensor_list"] = {
 	value={ 
 		"EOW",
 	},
-	class="Table",
+}
+
+-- List of video output available on that turret.
+cfg["global.video_output_list"] = {
+	desc="global_video_output_list_desc",
+	value={ 
+		{type="Digital",id=1},
+		{type="Digital",id=2},
+	},
+}
+
+-- Define the sensor used as source for a given video output.
+-- and the overlay display status for a given video output.
+cfg["video_output.digital1"] = {
+	value={ 
+		source="EOW",
+		overlays_enabled=true,
+	},
+}
+
+-- Define the sensor used as source for a given video output.
+-- and the overlay display status for a given video output.
+cfg["video_output.digital2"] = {
+	value={ 
+		source="EOW",
+		overlays_enabled=true,
+	},
 }
 
 -- Default scene used for that turret if not specified.
@@ -19,10 +45,19 @@ cfg["global.scene.default"] = {
 }
 
 
--- Default video output resolution used for any output with no specific resolution set. 
+-- Default sensor resolution used for any sensor with no specific resolution set. 
 -- Width and Height are given in pixels.
 cfg["global.sensor.default_resolution"] = {
 	desc="global_sensor_default_resolution_desc",
+	value=osg.Vec2s(1920,1080),
+	vtype="osg.Vec2s",
+	unit="pixels",
+}
+
+-- Default video output resolution used for any output with no specific resolution set. 
+-- Width and Height are given in pixels.
+cfg["video_output.default_resolution"] = {
+	desc="video_output_default_resolution_desc",
 	value=osg.Vec2s(1920,1080),
 	vtype="osg.Vec2s",
 	unit="pixels",
