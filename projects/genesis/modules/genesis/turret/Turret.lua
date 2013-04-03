@@ -21,9 +21,7 @@ function Class:initialize(options)
 	self._platform = options.platform
 	if not self._platform then
 		-- we create a default scene and platform if none is provided:
-		local Scene = require ("scenes." .. self:getValue("global.scene.default"))
-		local scn = Scene()
-		
+		local scn = require ("scenes." .. self:getValue("global.scene.default"))		
 		self._platform = scn:getPlatform()
 	end
 	
@@ -31,7 +29,7 @@ function Class:initialize(options)
 	self._transform = osg.MatrixTransform();
 	
 	-- add the turret to the platform:
-	self._platform:addChild(self._transform)
+	--self._platform:addChild(self._transform) 
 	
 	-- Create the gimbal:
 	self._gimbal = require("genesis.turret.Gimbal"){turret=self}
@@ -55,9 +53,20 @@ function Class:initialize(options)
 	end
 end
 
+function Class:update()
+	-- get the platform matrix:
+	local mat = self._platform:getLocalToWorldMatrix()
+	self._transform:setMatrix(mat)
+end
+
 function Class:getPlatform()
 	self:check(self._platform,"Invalid platform")
 	return self._platform
+end
+
+function Class:getScene()
+	self:check(self._platform,"Invalid platform")
+	return self._platform:getScene()
 end
 
 function Class:getTransform()
@@ -84,6 +93,16 @@ function Class:getSensor(sname)
 	end
 	
 	self:error("Could not find sensor with name ",sname)
+end
+
+function Class:getVideoOutput(oname)
+	for _,out in self._outputs:sequence() do
+		if out:getName() == oname then
+			return out
+		end
+	end
+	
+	self:error("Could not find video output with name ",oname)
 end
 
 -- function Class:getEntryList(search)

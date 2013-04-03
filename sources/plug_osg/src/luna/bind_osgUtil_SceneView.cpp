@@ -1360,7 +1360,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgUtil::SceneView::SceneView function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp ();
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp&)osg::CopyOp ();
 
 		return new osgUtil::SceneView(sceneview, copyop);
 	}
@@ -1397,7 +1397,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgUtil::SceneView::SceneView function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp ();
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp&)osg::CopyOp ();
 
 		return new wrapper_osgUtil_SceneView(L,NULL, sceneview, copyop);
 	}

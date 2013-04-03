@@ -528,7 +528,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::VertexProgram::VertexProgram function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::VertexProgram(vp, copyop);
 	}
@@ -562,7 +562,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::VertexProgram::VertexProgram function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_VertexProgram(L,NULL, vp, copyop);
 	}
@@ -845,7 +845,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::VertexProgram::setProgramLocalParameter(const unsigned int index, const osg::Vec4f & p) function, expected prototype:\nvoid osg::VertexProgram::setProgramLocalParameter(const unsigned int index, const osg::Vec4f & p)\nClass arguments details:\narg 2 ID = 92303235\n");
 		}
 
-		unsigned int index=(unsigned int)lua_tointeger(L,2);
+		const unsigned int index=(const unsigned int)lua_tointeger(L,2);
 		const osg::Vec4f* p_ptr=(Luna< osg::Vec4f >::check(L,3));
 		if( !p_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg p in osg::VertexProgram::setProgramLocalParameter function");
@@ -943,7 +943,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::VertexProgram::setMatrix(const unsigned int mode, const osg::Matrixd & matrix) function, expected prototype:\nvoid osg::VertexProgram::setMatrix(const unsigned int mode, const osg::Matrixd & matrix)\nClass arguments details:\narg 2 ID = 18903838\n");
 		}
 
-		unsigned int mode=(unsigned int)lua_tointeger(L,2);
+		const unsigned int mode=(const unsigned int)lua_tointeger(L,2);
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,3));
 		if( !matrix_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg matrix in osg::VertexProgram::setMatrix function");

@@ -389,27 +389,6 @@ struct luna_caster<std::vector< osg::ref_ptr< osg::Image > >,dstType> {
 };
 
 template <typename dstType>
-struct luna_caster<std::vector< osg::Node * >,dstType> {
-	static inline dstType* cast(std::vector< osg::Node * >* ptr) {
-		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <typename dstType>
-struct luna_caster<std::vector< osg::NodePath >,dstType> {
-	static inline dstType* cast(std::vector< osg::NodePath >* ptr) {
-		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <typename dstType>
-struct luna_caster<std::vector< osg::Matrixd >,dstType> {
-	static inline dstType* cast(std::vector< osg::Matrixd >* ptr) {
-		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <typename dstType>
 struct luna_caster<osg::MixinVector< int >,dstType> {
 	static inline dstType* cast(osg::MixinVector< int >* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -1630,6 +1609,27 @@ struct luna_caster<osg::ref_ptr< osg::PrimitiveSet >,dstType> {
 template <typename dstType>
 struct luna_caster<osg::ref_ptr< osg::AnimationPath >,dstType> {
 	static inline dstType* cast(osg::ref_ptr< osg::AnimationPath >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::MatrixList,dstType> {
+	static inline dstType* cast(osg::MatrixList* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::NodePath,dstType> {
+	static inline dstType* cast(osg::NodePath* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::NodePathList,dstType> {
+	static inline dstType* cast(osg::NodePathList* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };

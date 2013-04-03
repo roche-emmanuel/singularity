@@ -595,7 +595,7 @@ public:
 		if( luatop>1 && !copyOp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::FlightManipulator::FlightManipulator function");
 		}
-		const osg::CopyOp & copyOp=luatop>1 ? *copyOp_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyOp=luatop>1 ? *copyOp_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgGA::FlightManipulator(fpm, copyOp);
 	}
@@ -632,7 +632,7 @@ public:
 		if( luatop>2 && !copyOp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::FlightManipulator::FlightManipulator function");
 		}
-		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgGA_FlightManipulator(L,NULL, fpm, copyOp);
 	}
@@ -1344,7 +1344,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setAnimationTime(const double t) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setAnimationTime(const double t)\nClass arguments details:\n");
 		}
 
-		double t=(double)lua_tonumber(L,2);
+		const double t=(const double)lua_tonumber(L,2);
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
@@ -1640,7 +1640,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::FlightManipulator::base_setVelocity(const double & velocity) function, expected prototype:\nvoid osgGA::FlightManipulator::base_setVelocity(const double & velocity)\nClass arguments details:\n");
 		}
 
-		double velocity=(double)lua_tonumber(L,2);
+		const double velocity=(const double)lua_tonumber(L,2);
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
 		if(!self) {
@@ -1661,7 +1661,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double acceleration=(double)lua_tonumber(L,2);
+		const double acceleration=(const double)lua_tonumber(L,2);
 		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
@@ -1683,7 +1683,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double maxVelocity=(double)lua_tonumber(L,2);
+		const double maxVelocity=(const double)lua_tonumber(L,2);
 		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);
@@ -1705,7 +1705,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double wheelMovement=(double)lua_tonumber(L,2);
+		const double wheelMovement=(const double)lua_tonumber(L,2);
 		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		osgGA::FlightManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::FlightManipulator >(L,1);

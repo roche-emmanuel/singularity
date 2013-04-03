@@ -546,7 +546,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::SceneGraphBuilder::LoadMatrixd(const double * m) function, expected prototype:\nvoid osgUtil::SceneGraphBuilder::LoadMatrixd(const double * m)\nClass arguments details:\n");
 		}
 
-		double* m=(double*)Luna< void >::check(L,2);
+		const double* m=(const double*)Luna< void >::check(L,2);
 
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {
@@ -565,7 +565,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::SceneGraphBuilder::MultMatrixd(const double * m) function, expected prototype:\nvoid osgUtil::SceneGraphBuilder::MultMatrixd(const double * m)\nClass arguments details:\n");
 		}
 
-		double* m=(double*)Luna< void >::check(L,2);
+		const double* m=(const double*)Luna< void >::check(L,2);
 
 		osgUtil::SceneGraphBuilder* self=(Luna< osgUtil::SceneGraphBuilder >::check(L,1));
 		if(!self) {

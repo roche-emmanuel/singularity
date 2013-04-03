@@ -436,8 +436,8 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in osgViewer::StatsHandler::public_createBackgroundRectangle function");
 		}
 		const osg::Vec3f & pos=*pos_ptr;
-		float width=(float)lua_tonumber(L,3);
-		float height=(float)lua_tonumber(L,4);
+		const float width=(const float)lua_tonumber(L,3);
+		const float height=(const float)lua_tonumber(L,4);
 		osg::Vec4f* color_ptr=(Luna< osg::Vec4f >::check(L,5));
 		if( !color_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg color in osgViewer::StatsHandler::public_createBackgroundRectangle function");

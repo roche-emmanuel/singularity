@@ -125,7 +125,7 @@ public:
 		if( luatop<6 || luatop>7 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,83725871) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,52841328) ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,50169651)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,84922662) ) return false;
@@ -168,7 +168,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
-		osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,3));
+		osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,3));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::NodeVisitor::DatabaseRequestHandler::requestNodeFile function");
 		}

@@ -630,7 +630,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Program::Program function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::Program(rhs, copyop);
 	}
@@ -664,7 +664,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Program::Program function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_Program(L,NULL, rhs, copyop);
 	}
@@ -1094,7 +1094,7 @@ public:
 		}
 
 		unsigned int pname=(unsigned int)lua_tointeger(L,2);
-		float* value=(float*)Luna< void >::check(L,3);
+		const float* value=(const float*)Luna< void >::check(L,3);
 
 		osg::Program* self=Luna< osg::Referenced >::checkSubType< osg::Program >(L,1);
 		if(!self) {

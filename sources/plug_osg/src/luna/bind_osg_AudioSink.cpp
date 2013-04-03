@@ -429,7 +429,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::AudioSink::setDelay(const double delay) function, expected prototype:\nvoid osg::AudioSink::setDelay(const double delay)\nClass arguments details:\n");
 		}
 
-		double delay=(double)lua_tonumber(L,2);
+		const double delay=(const double)lua_tonumber(L,2);
 
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {
@@ -710,7 +710,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::AudioSink::base_setDelay(const double delay) function, expected prototype:\nvoid osg::AudioSink::base_setDelay(const double delay)\nClass arguments details:\n");
 		}
 
-		double delay=(double)lua_tonumber(L,2);
+		const double delay=(const double)lua_tonumber(L,2);
 
 		osg::AudioSink* self=Luna< osg::Referenced >::checkSubType< osg::AudioSink >(L,1);
 		if(!self) {

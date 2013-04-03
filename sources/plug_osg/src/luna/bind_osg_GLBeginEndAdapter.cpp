@@ -727,7 +727,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::LoadMatrixd(const double * m) function, expected prototype:\nvoid osg::GLBeginEndAdapter::LoadMatrixd(const double * m)\nClass arguments details:\n");
 		}
 
-		double* m=(double*)Luna< void >::check(L,2);
+		const double* m=(const double*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -746,7 +746,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::MultMatrixd(const double * m) function, expected prototype:\nvoid osg::GLBeginEndAdapter::MultMatrixd(const double * m)\nClass arguments details:\n");
 		}
 
-		double* m=(double*)Luna< void >::check(L,2);
+		const double* m=(const double*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -914,7 +914,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::Vertex3fv(const float * v) function, expected prototype:\nvoid osg::GLBeginEndAdapter::Vertex3fv(const float * v)\nClass arguments details:\n");
 		}
 
-		float* v=(float*)Luna< void >::check(L,2);
+		const float* v=(const float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -954,7 +954,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::Vertex3dv(const double * v) function, expected prototype:\nvoid osg::GLBeginEndAdapter::Vertex3dv(const double * v)\nClass arguments details:\n");
 		}
 
-		double* v=(double*)Luna< void >::check(L,2);
+		const double* v=(const double*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1004,7 +1004,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::Color3fv(const float * c) function, expected prototype:\nvoid osg::GLBeginEndAdapter::Color3fv(const float * c)\nClass arguments details:\n");
 		}
 
-		float* c=(float*)Luna< void >::check(L,2);
+		const float* c=(const float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1023,7 +1023,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::Color4fv(const float * c) function, expected prototype:\nvoid osg::GLBeginEndAdapter::Color4fv(const float * c)\nClass arguments details:\n");
 		}
 
-		float* c=(float*)Luna< void >::check(L,2);
+		const float* c=(const float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1082,7 +1082,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::Normal3fv(const float * n) function, expected prototype:\nvoid osg::GLBeginEndAdapter::Normal3fv(const float * n)\nClass arguments details:\n");
 		}
 
-		float* n=(float*)Luna< void >::check(L,2);
+		const float* n=(const float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1120,7 +1120,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::TexCoord1fv(const float * tc) function, expected prototype:\nvoid osg::GLBeginEndAdapter::TexCoord1fv(const float * tc)\nClass arguments details:\n");
 		}
 
-		float* tc=(float*)Luna< void >::check(L,2);
+		const float* tc=(const float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1159,7 +1159,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::TexCoord2fv(const float * tc) function, expected prototype:\nvoid osg::GLBeginEndAdapter::TexCoord2fv(const float * tc)\nClass arguments details:\n");
 		}
 
-		float* tc=(float*)Luna< void >::check(L,2);
+		const float* tc=(const float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1199,7 +1199,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::TexCoord3fv(const float * tc) function, expected prototype:\nvoid osg::GLBeginEndAdapter::TexCoord3fv(const float * tc)\nClass arguments details:\n");
 		}
 
-		float* tc=(float*)Luna< void >::check(L,2);
+		const float* tc=(const float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1240,7 +1240,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::TexCoord4fv(const float * tc) function, expected prototype:\nvoid osg::GLBeginEndAdapter::TexCoord4fv(const float * tc)\nClass arguments details:\n");
 		}
 
-		float* tc=(float*)Luna< void >::check(L,2);
+		const float* tc=(const float*)Luna< void >::check(L,2);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1280,7 +1280,7 @@ public:
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
-		float* tc=(float*)Luna< void >::check(L,3);
+		const float* tc=(const float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1321,7 +1321,7 @@ public:
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
-		float* tc=(float*)Luna< void >::check(L,3);
+		const float* tc=(const float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1363,7 +1363,7 @@ public:
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
-		float* tc=(float*)Luna< void >::check(L,3);
+		const float* tc=(const float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1406,7 +1406,7 @@ public:
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
-		float* tc=(float*)Luna< void >::check(L,3);
+		const float* tc=(const float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1446,7 +1446,7 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		float* tc=(float*)Luna< void >::check(L,3);
+		const float* tc=(const float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1487,7 +1487,7 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		float* tc=(float*)Luna< void >::check(L,3);
+		const float* tc=(const float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1529,7 +1529,7 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		float* tc=(float*)Luna< void >::check(L,3);
+		const float* tc=(const float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {
@@ -1572,7 +1572,7 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		float* tc=(float*)Luna< void >::check(L,3);
+		const float* tc=(const float*)Luna< void >::check(L,3);
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {

@@ -566,7 +566,7 @@ public:
 		if( luatop>2 && !copyOp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::StandardManipulator::StandardManipulator function");
 		}
-		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgGA_StandardManipulator(L,NULL, m, copyOp);
 	}
@@ -894,7 +894,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::setAnimationTime(const double t) function, expected prototype:\nvoid osgGA::StandardManipulator::setAnimationTime(const double t)\nClass arguments details:\n");
 		}
 
-		double t=(double)lua_tonumber(L,2);
+		const double t=(const double)lua_tonumber(L,2);
 
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {
@@ -1675,7 +1675,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::base_setAnimationTime(const double t) function, expected prototype:\nvoid osgGA::StandardManipulator::base_setAnimationTime(const double t)\nClass arguments details:\n");
 		}
 
-		double t=(double)lua_tonumber(L,2);
+		const double t=(const double)lua_tonumber(L,2);
 
 		osgGA::StandardManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,1);
 		if(!self) {

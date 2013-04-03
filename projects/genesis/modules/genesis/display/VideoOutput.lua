@@ -31,7 +31,14 @@ function Class:initialize(options)
 	self._viewQuad = tools:createScreenQuad{}
 	
 	self._viewStateSet = self._viewQuad:getOrCreateStateSet()
-	tools:createTexture2DProgram{stateSet=self._viewStateSet}
+	--tools:createTexture2DProgram{stateSet=self._viewStateSet}
+	local shman = require "osg.ShaderManager"
+	-- local prog = shman:loadProgram{"test_half_green"}
+	local prog = shman:loadProgram{"copy_texture"}
+	
+	self._viewStateSet:setAttributeAndModes(prog)
+	self._viewStateSet:getOrCreateUniform("tex",osg.Uniform.SAMPLER_2D):setInt(0);
+
 	
 	self._camera:addChild(self._viewQuad)
 	
@@ -54,12 +61,16 @@ function Class:getName()
 end
 
 function Class:setSensor(sensor)
-	self:debug("Assigning sensor ",sensor:getName()," to video output ",self._type)
+	self:debug("Assigning sensor ",sensor:getName()," to video output ",self:getName())
 	self._sensor = sensor
 	
 	-- apply the sensor texture on the view quad:
 	local tex = sensor:getView():getColorTexture()
 	self._viewStateSet:setTextureAttributeAndModes(0,tex);
+end
+
+function Class:getColorTexture()
+	return self._colorTexture
 end
 
 return Class 

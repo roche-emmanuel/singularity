@@ -258,7 +258,7 @@ public:
 	inline static bool _lg_typecheck_setNodePath(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,83725871) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,52841328) ) return false;
 		return true;
 	}
 
@@ -882,7 +882,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::Hit::_nodePath(osg::NodePath value) function, expected prototype:\nvoid osgUtil::Hit::_nodePath(osg::NodePath value)\nClass arguments details:\narg 1 ID = 52841328\n");
 		}
 
-		osg::NodePath* value_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2));
+		osg::NodePath* value_ptr=(Luna< osg::NodePath >::check(L,2));
 		if( !value_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg value in osgUtil::Hit::_nodePath function");
 		}

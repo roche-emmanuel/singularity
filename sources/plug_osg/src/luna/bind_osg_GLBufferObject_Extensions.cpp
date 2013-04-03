@@ -473,7 +473,7 @@ public:
 		}
 
 		int n=(int)lua_tointeger(L,2);
-		unsigned int* buffers=(unsigned int*)Luna< void >::check(L,3);
+		const unsigned int* buffers=(const unsigned int*)Luna< void >::check(L,3);
 
 		osg::GLBufferObject::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObject::Extensions >(L,1);
 		if(!self) {

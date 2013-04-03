@@ -295,7 +295,7 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,5,83725871) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,52841328) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,9645394) ) return false;
 		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		return true;
@@ -365,7 +365,7 @@ public:
 		osgViewer::View* view=(Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,2));
 		float x=(float)lua_tonumber(L,3);
 		float y=(float)lua_tonumber(L,4);
-		const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,5));
+		const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,5));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osgViewer::InteractiveImageHandler::public_computeIntersections function");
 		}

@@ -54,6 +54,9 @@ function Class:getImagePath(str)
 	return self:getAssetPath("images/" .. str)
 end
 
+function Class:getShaderPath(str)
+	return self:getAssetPath("shaders/" .. str)
+end
 --- Retrieve a relative path from the root path.
 function Class:getPath(subpath)
 	self:checkString(subpath,"Invalid string argument")

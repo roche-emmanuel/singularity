@@ -1,4 +1,14 @@
 
+-- Matrixd extensions:
+osg.Matrixd.__tostring = function(self)
+	local str = "{\n"
+	str = str .. "  " .. self:op_call(0,0) ..", ".. self:op_call(0,1) ..", ".. self:op_call(0,2)..", ".. self:op_call(0,3) .. ",\n"
+	str = str .. "  " .. self:op_call(1,0) ..", ".. self:op_call(1,1) ..", ".. self:op_call(1,2)..", ".. self:op_call(1,3) .. ",\n"
+	str = str .. "  " .. self:op_call(2,0) ..", ".. self:op_call(2,1) ..", ".. self:op_call(2,2)..", ".. self:op_call(2,3) .. ",\n"
+	str = str .. "  " .. self:op_call(3,0) ..", ".. self:op_call(3,1) ..", ".. self:op_call(3,2)..", ".. self:op_call(3,3) .. "\n}"
+	return str
+end
+
 -- Vec4f extensions:
 osg.Vec4f.helloworld = function(self)
 	return "Hello manu! Vec is ".. tostring(self)

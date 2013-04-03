@@ -14,9 +14,14 @@ function Class:getName()
 	return self._name
 end
 
-function Class:addChild(obj)
-	self:check(obj,"Invalid object argument.")
-	self._root:addChild(obj)
+--function Class:addChild(obj)
+--	self:check(obj,"Invalid object argument.")
+--	self._root:addChild(obj)
+--end
+
+function Class:getLocalToWorldMatrix(id)
+	local list = self._root:getWorldMatrices()
+	return list:at(id or 0)
 end
 
 return Class

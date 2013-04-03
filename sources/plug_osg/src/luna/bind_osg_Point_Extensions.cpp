@@ -375,7 +375,7 @@ public:
 		}
 
 		unsigned int pname=(unsigned int)lua_tointeger(L,2);
-		float* params=(float*)Luna< void >::check(L,3);
+		const float* params=(const float*)Luna< void >::check(L,3);
 
 		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {

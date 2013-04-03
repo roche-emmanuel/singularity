@@ -2196,7 +2196,7 @@ public:
 		}
 
 		int n=(int)lua_tointeger(L,2);
-		unsigned int* bufs=(unsigned int*)Luna< void >::check(L,3);
+		const unsigned int* bufs=(const unsigned int*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3053,7 +3053,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		float* value=(float*)Luna< void >::check(L,4);
+		const float* value=(const float*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3074,7 +3074,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		float* value=(float*)Luna< void >::check(L,4);
+		const float* value=(const float*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3095,7 +3095,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		float* value=(float*)Luna< void >::check(L,4);
+		const float* value=(const float*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3116,7 +3116,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		float* value=(float*)Luna< void >::check(L,4);
+		const float* value=(const float*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3137,7 +3137,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		int* value=(int*)Luna< void >::check(L,4);
+		const int* value=(const int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3158,7 +3158,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		int* value=(int*)Luna< void >::check(L,4);
+		const int* value=(const int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3179,7 +3179,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		int* value=(int*)Luna< void >::check(L,4);
+		const int* value=(const int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3200,7 +3200,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		int* value=(int*)Luna< void >::check(L,4);
+		const int* value=(const int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3222,7 +3222,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float* value=(float*)Luna< void >::check(L,5);
+		const float* value=(const float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3244,7 +3244,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float* value=(float*)Luna< void >::check(L,5);
+		const float* value=(const float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3266,7 +3266,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float* value=(float*)Luna< void >::check(L,5);
+		const float* value=(const float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3325,7 +3325,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		double* v=(double*)Luna< void >::check(L,3);
+		const double* v=(const double*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3365,7 +3365,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		float* v=(float*)Luna< void >::check(L,3);
+		const float* v=(const float*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3405,7 +3405,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		short* v=(short*)Luna< void >::check(L,3);
+		const short* v=(const short*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3446,7 +3446,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		double* v=(double*)Luna< void >::check(L,3);
+		const double* v=(const double*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3487,7 +3487,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		float* v=(float*)Luna< void >::check(L,3);
+		const float* v=(const float*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3528,7 +3528,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		short* v=(short*)Luna< void >::check(L,3);
+		const short* v=(const short*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3570,7 +3570,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		double* v=(double*)Luna< void >::check(L,3);
+		const double* v=(const double*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3612,7 +3612,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		float* v=(float*)Luna< void >::check(L,3);
+		const float* v=(const float*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3654,7 +3654,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		short* v=(short*)Luna< void >::check(L,3);
+		const short* v=(const short*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3674,7 +3674,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		signed char* v=(signed char*)Luna< void >::check(L,3);
+		const signed char* v=(const signed char*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3694,7 +3694,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		int* v=(int*)Luna< void >::check(L,3);
+		const int* v=(const int*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3714,7 +3714,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		short* v=(short*)Luna< void >::check(L,3);
+		const short* v=(const short*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3777,7 +3777,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		unsigned int* v=(unsigned int*)Luna< void >::check(L,3);
+		const unsigned int* v=(const unsigned int*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3797,7 +3797,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		unsigned short* v=(unsigned short*)Luna< void >::check(L,3);
+		const unsigned short* v=(const unsigned short*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3817,7 +3817,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		signed char* v=(signed char*)Luna< void >::check(L,3);
+		const signed char* v=(const signed char*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3860,7 +3860,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		double* v=(double*)Luna< void >::check(L,3);
+		const double* v=(const double*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3903,7 +3903,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		float* v=(float*)Luna< void >::check(L,3);
+		const float* v=(const float*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3923,7 +3923,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		int* v=(int*)Luna< void >::check(L,3);
+		const int* v=(const int*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -3966,7 +3966,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		short* v=(short*)Luna< void >::check(L,3);
+		const short* v=(const short*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4006,7 +4006,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		unsigned int* v=(unsigned int*)Luna< void >::check(L,3);
+		const unsigned int* v=(const unsigned int*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4026,7 +4026,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		unsigned short* v=(unsigned short*)Luna< void >::check(L,3);
+		const unsigned short* v=(const unsigned short*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4175,7 +4175,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float* value=(float*)Luna< void >::check(L,5);
+		const float* value=(const float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4197,7 +4197,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float* value=(float*)Luna< void >::check(L,5);
+		const float* value=(const float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4219,7 +4219,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float* value=(float*)Luna< void >::check(L,5);
+		const float* value=(const float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4241,7 +4241,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float* value=(float*)Luna< void >::check(L,5);
+		const float* value=(const float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4263,7 +4263,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float* value=(float*)Luna< void >::check(L,5);
+		const float* value=(const float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4285,7 +4285,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		float* value=(float*)Luna< void >::check(L,5);
+		const float* value=(const float*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4414,7 +4414,7 @@ public:
 		}
 
 		unsigned int pname=(unsigned int)lua_tointeger(L,2);
-		float* values=(float*)Luna< void >::check(L,3);
+		const float* values=(const float*)Luna< void >::check(L,3);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4584,7 +4584,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned int* value=(unsigned int*)Luna< void >::check(L,4);
+		const unsigned int* value=(const unsigned int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4605,7 +4605,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned int* value=(unsigned int*)Luna< void >::check(L,4);
+		const unsigned int* value=(const unsigned int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4626,7 +4626,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned int* value=(unsigned int*)Luna< void >::check(L,4);
+		const unsigned int* value=(const unsigned int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4647,7 +4647,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned int* value=(unsigned int*)Luna< void >::check(L,4);
+		const unsigned int* value=(const unsigned int*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4668,7 +4668,7 @@ public:
 
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 		int uniformCount=(int)lua_tointeger(L,3);
-		unsigned int* uniformIndices=(unsigned int*)Luna< void >::check(L,4);
+		const unsigned int* uniformIndices=(const unsigned int*)Luna< void >::check(L,4);
 		unsigned int pname=(unsigned int)lua_tointeger(L,5);
 		int* params=(int*)Luna< void >::check(L,6);
 
@@ -4932,7 +4932,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		double* value=(double*)Luna< void >::check(L,4);
+		const double* value=(const double*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4953,7 +4953,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		double* value=(double*)Luna< void >::check(L,4);
+		const double* value=(const double*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4974,7 +4974,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		double* value=(double*)Luna< void >::check(L,4);
+		const double* value=(const double*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -4995,7 +4995,7 @@ public:
 
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		double* value=(double*)Luna< void >::check(L,4);
+		const double* value=(const double*)Luna< void >::check(L,4);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -5017,7 +5017,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		double* value=(double*)Luna< void >::check(L,5);
+		const double* value=(const double*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -5039,7 +5039,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		double* value=(double*)Luna< void >::check(L,5);
+		const double* value=(const double*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -5061,7 +5061,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		double* value=(double*)Luna< void >::check(L,5);
+		const double* value=(const double*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -5083,7 +5083,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		double* value=(double*)Luna< void >::check(L,5);
+		const double* value=(const double*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -5105,7 +5105,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		double* value=(double*)Luna< void >::check(L,5);
+		const double* value=(const double*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -5127,7 +5127,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		double* value=(double*)Luna< void >::check(L,5);
+		const double* value=(const double*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -5149,7 +5149,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		double* value=(double*)Luna< void >::check(L,5);
+		const double* value=(const double*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -5171,7 +5171,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		double* value=(double*)Luna< void >::check(L,5);
+		const double* value=(const double*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {
@@ -5193,7 +5193,7 @@ public:
 		int location=(int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
 		unsigned char transpose = (unsigned char)(lua_tointeger(L,4));
-		double* value=(double*)Luna< void >::check(L,5);
+		const double* value=(const double*)Luna< void >::check(L,5);
 
 		osg::GL2Extensions* self=Luna< osg::Referenced >::checkSubType< osg::GL2Extensions >(L,1);
 		if(!self) {

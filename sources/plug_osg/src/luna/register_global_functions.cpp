@@ -190,7 +190,7 @@ static int _bind_glLoadMatrix_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void glLoadMatrix(const float * mat) function, expected prototype:\nvoid glLoadMatrix(const float * mat)\nClass arguments details:\n");
 	}
 
-	float* mat=(float*)Luna< void >::check(L,1);
+	const float* mat=(const float*)Luna< void >::check(L,1);
 
 	::glLoadMatrix(mat);
 
@@ -204,7 +204,7 @@ static int _bind_glLoadMatrix_overload_2(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void glLoadMatrix(const double * mat) function, expected prototype:\nvoid glLoadMatrix(const double * mat)\nClass arguments details:\n");
 	}
 
-	double* mat=(double*)Luna< void >::check(L,1);
+	const double* mat=(const double*)Luna< void >::check(L,1);
 
 	::glLoadMatrix(mat);
 
@@ -227,7 +227,7 @@ static int _bind_glMultMatrix_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void glMultMatrix(const float * mat) function, expected prototype:\nvoid glMultMatrix(const float * mat)\nClass arguments details:\n");
 	}
 
-	float* mat=(float*)Luna< void >::check(L,1);
+	const float* mat=(const float*)Luna< void >::check(L,1);
 
 	::glMultMatrix(mat);
 
@@ -241,7 +241,7 @@ static int _bind_glMultMatrix_overload_2(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void glMultMatrix(const double * mat) function, expected prototype:\nvoid glMultMatrix(const double * mat)\nClass arguments details:\n");
 	}
 
-	double* mat=(double*)Luna< void >::check(L,1);
+	const double* mat=(const double*)Luna< void >::check(L,1);
 
 	::glMultMatrix(mat);
 
@@ -1190,7 +1190,7 @@ inline static bool _lg_typecheck_computeLocalToWorld(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( !Luna<void>::has_uniqueid(L,1,83725871) ) return false;
+	if( !Luna<void>::has_uniqueid(L,1,52841328) ) return false;
 	if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
 	return true;
 }
@@ -1199,7 +1199,7 @@ inline static bool _lg_typecheck_computeWorldToLocal(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( !Luna<void>::has_uniqueid(L,1,83725871) ) return false;
+	if( !Luna<void>::has_uniqueid(L,1,52841328) ) return false;
 	if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
 	return true;
 }
@@ -1209,7 +1209,7 @@ inline static bool _lg_typecheck_computeLocalToEye(lua_State *L) {
 	if( luatop<2 || luatop>3 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,18903838) ) return false;
-	if( !Luna<void>::has_uniqueid(L,2,83725871) ) return false;
+	if( !Luna<void>::has_uniqueid(L,2,52841328) ) return false;
 	if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 	return true;
 }
@@ -1219,7 +1219,7 @@ inline static bool _lg_typecheck_computeEyeToLocal(lua_State *L) {
 	if( luatop<2 || luatop>3 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,18903838) ) return false;
-	if( !Luna<void>::has_uniqueid(L,2,83725871) ) return false;
+	if( !Luna<void>::has_uniqueid(L,2,52841328) ) return false;
 	if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 	return true;
 }
@@ -2704,7 +2704,7 @@ static int _bind_notify_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in std::ostream & osg::notify(const osg::NotifySeverity severity) function, expected prototype:\nstd::ostream & osg::notify(const osg::NotifySeverity severity)\nClass arguments details:\n");
 	}
 
-	osg::NotifySeverity severity=(osg::NotifySeverity)lua_tointeger(L,1);
+	const osg::NotifySeverity severity=(const osg::NotifySeverity)lua_tointeger(L,1);
 
 	const std::ostream* lret = &osg::notify(severity);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -2793,7 +2793,7 @@ static int _bind_computeLocalToWorld(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,1));
+	const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,1));
 	if( !nodePath_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::computeLocalToWorld function");
 	}
@@ -2818,7 +2818,7 @@ static int _bind_computeWorldToLocal(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,1));
+	const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,1));
 	if( !nodePath_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::computeWorldToLocal function");
 	}
@@ -2848,7 +2848,7 @@ static int _bind_computeLocalToEye(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg modelview in osg::computeLocalToEye function");
 	}
 	const osg::Matrixd & modelview=*modelview_ptr;
-	const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2));
+	const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,2));
 	if( !nodePath_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::computeLocalToEye function");
 	}
@@ -2878,7 +2878,7 @@ static int _bind_computeEyeToLocal(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg modelview in osg::computeEyeToLocal function");
 	}
 	const osg::Matrixd & modelview=*modelview_ptr;
-	const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2));
+	const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,2));
 	if( !nodePath_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::computeEyeToLocal function");
 	}

@@ -386,7 +386,7 @@ public:
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		unsigned int index=(unsigned int)lua_tointeger(L,3);
-		float* params=(float*)Luna< void >::check(L,4);
+		const float* params=(const float*)Luna< void >::check(L,4);
 
 		osg::FragmentProgram::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::FragmentProgram::Extensions >(L,1);
 		if(!self) {

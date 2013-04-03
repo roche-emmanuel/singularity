@@ -281,7 +281,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg image in osgViewer::ScreenCaptureHandler::WriteToFile::operator() function");
 		}
 		const osg::Image & image=*image_ptr;
-		unsigned int context_id=(unsigned int)lua_tointeger(L,3);
+		const unsigned int context_id=(const unsigned int)lua_tointeger(L,3);
 
 		osgViewer::ScreenCaptureHandler::WriteToFile* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler::WriteToFile >(L,1);
 		if(!self) {

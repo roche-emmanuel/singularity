@@ -188,8 +188,8 @@ public:
 	inline static bool _lg_typecheck_setTrackNodePath_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,83725871) ) return false;
-		if( (!(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,52841328) ) return false;
+		if( (!(Luna< osg::NodePath >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -667,7 +667,7 @@ public:
 		if( luatop>1 && !copyOp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::NodeTrackerManipulator::NodeTrackerManipulator function");
 		}
-		const osg::CopyOp & copyOp=luatop>1 ? *copyOp_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyOp=luatop>1 ? *copyOp_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgGA::NodeTrackerManipulator(om, copyOp);
 	}
@@ -704,7 +704,7 @@ public:
 		if( luatop>2 && !copyOp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::NodeTrackerManipulator::NodeTrackerManipulator function");
 		}
-		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgGA_NodeTrackerManipulator(L,NULL, om, copyOp);
 	}
@@ -834,7 +834,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::NodeTrackerManipulator::setTrackNodePath(const osg::NodePath & nodePath) function, expected prototype:\nvoid osgGA::NodeTrackerManipulator::setTrackNodePath(const osg::NodePath & nodePath)\nClass arguments details:\narg 1 ID = 52841328\n");
 		}
 
-		const osg::NodePath* nodePath_ptr=(Luna< std::vector< osg::Node * > >::checkSubType< osg::NodePath >(L,2));
+		const osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,2));
 		if( !nodePath_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osgGA::NodeTrackerManipulator::setTrackNodePath function");
 		}
@@ -1546,7 +1546,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::NodeTrackerManipulator::base_setAnimationTime(const double t) function, expected prototype:\nvoid osgGA::NodeTrackerManipulator::base_setAnimationTime(const double t)\nClass arguments details:\n");
 		}
 
-		double t=(double)lua_tonumber(L,2);
+		const double t=(const double)lua_tonumber(L,2);
 
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
@@ -1947,7 +1947,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::NodeTrackerManipulator::base_setTrackballSize(const double & size) function, expected prototype:\nvoid osgGA::NodeTrackerManipulator::base_setTrackballSize(const double & size)\nClass arguments details:\n");
 		}
 
-		double size=(double)lua_tonumber(L,2);
+		const double size=(const double)lua_tonumber(L,2);
 
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);
 		if(!self) {
@@ -1987,7 +1987,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double minimumDistance=(double)lua_tonumber(L,2);
+		const double minimumDistance=(const double)lua_tonumber(L,2);
 		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		osgGA::NodeTrackerManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::NodeTrackerManipulator >(L,1);

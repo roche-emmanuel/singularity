@@ -274,7 +274,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::setBoundaryOnly(const bool tt) function, expected prototype:\nvoid osgUtil::Tessellator::setBoundaryOnly(const bool tt)\nClass arguments details:\n");
 		}
 
-		bool tt=(bool)(lua_toboolean(L,2)==1);
+		const bool tt=(const bool)(lua_toboolean(L,2)==1);
 
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
@@ -312,7 +312,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::setWindingType(const osgUtil::Tessellator::WindingType wt) function, expected prototype:\nvoid osgUtil::Tessellator::setWindingType(const osgUtil::Tessellator::WindingType wt)\nClass arguments details:\n");
 		}
 
-		osgUtil::Tessellator::WindingType wt=(osgUtil::Tessellator::WindingType)lua_tointeger(L,2);
+		const osgUtil::Tessellator::WindingType wt=(const osgUtil::Tessellator::WindingType)lua_tointeger(L,2);
 
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
@@ -350,7 +350,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::setTessellationType(const osgUtil::Tessellator::TessellationType tt) function, expected prototype:\nvoid osgUtil::Tessellator::setTessellationType(const osgUtil::Tessellator::TessellationType tt)\nClass arguments details:\n");
 		}
 
-		osgUtil::Tessellator::TessellationType tt=(osgUtil::Tessellator::TessellationType)lua_tointeger(L,2);
+		const osgUtil::Tessellator::TessellationType tt=(const osgUtil::Tessellator::TessellationType)lua_tointeger(L,2);
 
 		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {

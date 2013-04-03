@@ -284,7 +284,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::AudioStream::AudioStream function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_AudioStream(L,NULL, audio, copyop);
 	}
@@ -385,7 +385,7 @@ public:
 		}
 
 		void* buffer=(Luna< void >::check(L,2));
-		size_t size=(size_t)lua_tointeger(L,3);
+		const size_t size=(const size_t)lua_tointeger(L,3);
 
 		osg::AudioStream* self=Luna< osg::Referenced >::checkSubType< osg::AudioStream >(L,1);
 		if(!self) {

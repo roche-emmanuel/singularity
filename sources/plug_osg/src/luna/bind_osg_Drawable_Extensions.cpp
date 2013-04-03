@@ -1037,7 +1037,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Drawable::Extensions::glSecondaryColor3fv(const float * coord) const function, expected prototype:\nvoid osg::Drawable::Extensions::glSecondaryColor3fv(const float * coord) const\nClass arguments details:\n");
 		}
 
-		float* coord=(float*)Luna< void >::check(L,2);
+		const float* coord=(const float*)Luna< void >::check(L,2);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1056,7 +1056,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Drawable::Extensions::glFogCoordfv(const float * coord) const function, expected prototype:\nvoid osg::Drawable::Extensions::glFogCoordfv(const float * coord) const\nClass arguments details:\n");
 		}
 
-		float* coord=(float*)Luna< void >::check(L,2);
+		const float* coord=(const float*)Luna< void >::check(L,2);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1096,7 +1096,7 @@ public:
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
-		float* coord=(float*)Luna< void >::check(L,3);
+		const float* coord=(const float*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1116,7 +1116,7 @@ public:
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
-		float* coord=(float*)Luna< void >::check(L,3);
+		const float* coord=(const float*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1136,7 +1136,7 @@ public:
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
-		float* coord=(float*)Luna< void >::check(L,3);
+		const float* coord=(const float*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1176,7 +1176,7 @@ public:
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
-		double* coord=(double*)Luna< void >::check(L,3);
+		const double* coord=(const double*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1196,7 +1196,7 @@ public:
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
-		double* coord=(double*)Luna< void >::check(L,3);
+		const double* coord=(const double*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1216,7 +1216,7 @@ public:
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
-		double* coord=(double*)Luna< void >::check(L,3);
+		const double* coord=(const double*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1296,7 +1296,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		float* v=(float*)Luna< void >::check(L,3);
+		const float* v=(const float*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1316,7 +1316,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		float* v=(float*)Luna< void >::check(L,3);
+		const float* v=(const float*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1336,7 +1336,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		float* v=(float*)Luna< void >::check(L,3);
+		const float* v=(const float*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1356,7 +1356,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		double* v=(double*)Luna< void >::check(L,3);
+		const double* v=(const double*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1376,7 +1376,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		double* v=(double*)Luna< void >::check(L,3);
+		const double* v=(const double*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1396,7 +1396,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		double* v=(double*)Luna< void >::check(L,3);
+		const double* v=(const double*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1540,7 +1540,7 @@ public:
 		}
 
 		int n=(int)lua_tointeger(L,2);
-		unsigned int* buffers=(unsigned int*)Luna< void >::check(L,3);
+		const unsigned int* buffers=(const unsigned int*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1686,7 +1686,7 @@ public:
 		}
 
 		int n=(int)lua_tointeger(L,2);
-		unsigned int* ids=(unsigned int*)Luna< void >::check(L,3);
+		const unsigned int* ids=(const unsigned int*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
@@ -1925,7 +1925,7 @@ public:
 		}
 
 		int n=(int)lua_tointeger(L,2);
-		unsigned int* ids=(unsigned int*)Luna< void >::check(L,3);
+		const unsigned int* ids=(const unsigned int*)Luna< void >::check(L,3);
 
 		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {

@@ -579,7 +579,7 @@ public:
 		if( luatop>1 && !copyOp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::MultiTouchTrackballManipulator::MultiTouchTrackballManipulator function");
 		}
-		const osg::CopyOp & copyOp=luatop>1 ? *copyOp_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyOp=luatop>1 ? *copyOp_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgGA::MultiTouchTrackballManipulator(tm, copyOp);
 	}
@@ -616,7 +616,7 @@ public:
 		if( luatop>2 && !copyOp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::MultiTouchTrackballManipulator::MultiTouchTrackballManipulator function");
 		}
-		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgGA_MultiTouchTrackballManipulator(L,NULL, tm, copyOp);
 	}
@@ -1202,7 +1202,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::MultiTouchTrackballManipulator::base_setAnimationTime(const double t) function, expected prototype:\nvoid osgGA::MultiTouchTrackballManipulator::base_setAnimationTime(const double t)\nClass arguments details:\n");
 		}
 
-		double t=(double)lua_tonumber(L,2);
+		const double t=(const double)lua_tonumber(L,2);
 
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
@@ -1641,7 +1641,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::MultiTouchTrackballManipulator::base_setTrackballSize(const double & size) function, expected prototype:\nvoid osgGA::MultiTouchTrackballManipulator::base_setTrackballSize(const double & size)\nClass arguments details:\n");
 		}
 
-		double size=(double)lua_tonumber(L,2);
+		const double size=(const double)lua_tonumber(L,2);
 
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);
 		if(!self) {
@@ -1681,7 +1681,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double minimumDistance=(double)lua_tonumber(L,2);
+		const double minimumDistance=(const double)lua_tonumber(L,2);
 		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		osgGA::MultiTouchTrackballManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::MultiTouchTrackballManipulator >(L,1);

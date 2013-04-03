@@ -1174,7 +1174,7 @@ public:
 			luaL_error(L, "luna typecheck failed in float osgGA::StandardManipulator::public_getThrowScale(const double eventTimeDelta) const function, expected prototype:\nfloat osgGA::StandardManipulator::public_getThrowScale(const double eventTimeDelta) const\nClass arguments details:\n");
 		}
 
-		double eventTimeDelta=(double)lua_tonumber(L,2);
+		const double eventTimeDelta=(const double)lua_tonumber(L,2);
 
 		wrapper_osgGA_TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_TrackballManipulator >(L,1);
 		if(!self) {
@@ -1270,13 +1270,13 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rotation in osgGA::StandardManipulator::public_rotateYawPitch function");
 		}
 		osg::Quat & rotation=*rotation_ptr;
-		double yaw=(double)lua_tonumber(L,2);
-		double pitch=(double)lua_tonumber(L,3);
+		const double yaw=(const double)lua_tonumber(L,2);
+		const double pitch=(const double)lua_tonumber(L,3);
 		const osg::Vec3d* localUp_ptr=luatop>3 ? (Luna< osg::Vec3d >::check(L,4)) : NULL;
 		if( luatop>3 && !localUp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localUp in osgGA::StandardManipulator::public_rotateYawPitch function");
 		}
-		const osg::Vec3d & localUp=luatop>3 ? *localUp_ptr : (const osg::Vec3d)osg::Vec3d (0., 0., 0.);
+		const osg::Vec3d & localUp=luatop>3 ? *localUp_ptr : (const osg::Vec3d&)osg::Vec3d (0., 0., 0.);
 
 		wrapper_osgGA_TrackballManipulator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgGA_TrackballManipulator >(L,1);
 		if(!self) {

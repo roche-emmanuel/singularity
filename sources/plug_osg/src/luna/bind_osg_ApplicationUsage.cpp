@@ -781,7 +781,7 @@ public:
 		if( luatop>5 && !ud_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg ud in osg::ApplicationUsage::getFormattedString function");
 		}
-		const osg::ApplicationUsage::UsageMap & ud=luatop>5 ? *ud_ptr : (const osg::ApplicationUsage::UsageMap)osg::ApplicationUsage::UsageMap ();
+		const osg::ApplicationUsage::UsageMap & ud=luatop>5 ? *ud_ptr : (const osg::ApplicationUsage::UsageMap&)osg::ApplicationUsage::UsageMap ();
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
@@ -818,7 +818,7 @@ public:
 		if( luatop>5 && !ud_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg ud in osg::ApplicationUsage::write function");
 		}
-		const osg::ApplicationUsage::UsageMap & ud=luatop>5 ? *ud_ptr : (const osg::ApplicationUsage::UsageMap)osg::ApplicationUsage::UsageMap ();
+		const osg::ApplicationUsage::UsageMap & ud=luatop>5 ? *ud_ptr : (const osg::ApplicationUsage::UsageMap&)osg::ApplicationUsage::UsageMap ();
 
 		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {

@@ -984,7 +984,7 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned short* indices=(unsigned short*)Luna< void >::check(L,4);
+		const unsigned short* indices=(const unsigned short*)Luna< void >::check(L,4);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
@@ -1005,7 +1005,7 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned int* indices=(unsigned int*)Luna< void >::check(L,4);
+		const unsigned int* indices=(const unsigned int*)Luna< void >::check(L,4);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
@@ -2205,7 +2205,7 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned short* indices=(unsigned short*)Luna< void >::check(L,4);
+		const unsigned short* indices=(const unsigned short*)Luna< void >::check(L,4);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {
@@ -2226,7 +2226,7 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		int count=(int)lua_tointeger(L,3);
-		unsigned int* indices=(unsigned int*)Luna< void >::check(L,4);
+		const unsigned int* indices=(const unsigned int*)Luna< void >::check(L,4);
 
 		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
 		if(!self) {

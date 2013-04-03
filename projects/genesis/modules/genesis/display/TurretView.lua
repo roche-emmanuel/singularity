@@ -1,5 +1,7 @@
 local Class = require("classBuilder"){name="TurretView",bases={"gui.wx.OSGCanvas","osg.CanvasExtensions"}};
 
+local tools = require "osg.Tools"
+
 function Class:initialize(options)
 	self:debug("Creating TurretView")
 
@@ -12,7 +14,6 @@ function Class:initialize(options)
 		self._tile:resize(ww,hh)
 	end}
 	]]
-
 	self:setupEventHandlers()
 	
 	self:setup()	
@@ -29,6 +30,8 @@ end
 
 function Class:setup()
 	--self:getRoot():addChild(osg.Node(self._tile))	
+	
+	--self:createCube(1)
 	
 	--[[
 	local mt = self:loadModel("tests/data/glider.osgt")
@@ -49,9 +52,31 @@ function Class:setup()
 	
 	self:getRoot():addChild(sb)
 	]]
-	local scene = require("scenes.TestScene1")()
-	self:getRoot():addChild(scene:getRoot())
+	--local scene = require("scenes.TestScene1")()
+	--self:getRoot():addChild(scene:getRoot())
 	
+	local Turret = require "genesis.turret.Turret"
+	self._turret = Turret{name="my_turret"}
+	
+	self:getRoot():addChild(self._turret:getTransform())
+	
+	-- add a screen quad for the video output display:
+	self._videoQuad = tools:createScreenQuad{}
+	self._videoStateSet = self._videoQuad:getOrCreateStateSet()
+	--tools:createTexture2DProgram{stateSet=self._videoStateSet}
+	
+	local shman = require "osg.ShaderManager"
+	-- local prog = shman:loadProgram{"test_half_red"}
+	local prog = shman:loadProgram{"copy_texture"}
+	
+	self._videoStateSet:setAttributeAndModes(prog)
+	self._videoStateSet:getOrCreateUniform("tex",osg.Uniform.SAMPLER_2D):setInt(0);
+		
+	self:getRoot():addChild(self._videoQuad)
+	
+	local output = self._turret:getVideoOutput(config.genesis.default_video_output)
+	
+	self:setVideoOutput(output)
 	
 	--[[
 	local view = self._tile:getWebView()
@@ -81,6 +106,15 @@ function Class:setup()
 	self._tile:loadURL(config.genesis.root_path .. "assets/main.html")	
 	-- self._tile:loadURL("asset://genesis/main.html")	
 	]]
+end
+
+function Class:setVideoOutput(output)
+	self:debug("Assigning output ",output:getName()," to TurretView")
+	self._videoOutput = output
+	
+	-- apply the sensor texture on the view quad:
+	local tex = output:getColorTexture()
+	self._videoStateSet:setTextureAttributeAndModes(0,tex);
 end
 
 return Class 

@@ -260,10 +260,10 @@ public:
 
 };
 
-class UpdateCallback: public osg::Object {
+class UpdateCallback: public osg::StateAttributeCallback {
 };
 
-class UpdateCallback: public osg::StateAttributeCallback {
+class UpdateCallback: public osg::Object {
 };
 
 class UpdateSlaveCallback: public osg::Referenced {
@@ -1873,6 +1873,15 @@ namespace osg {
 	};
 
 	class Vec4Array: public osg::Array {
+	};
+
+	class MatrixList {
+	};
+
+	class NodePath {
+	};
+
+	class NodePathList {
 	};
 
 };

@@ -986,7 +986,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgDB::Output::setPathNameHint(const osgDB::Output::PathNameHint pnh) function, expected prototype:\nvoid osgDB::Output::setPathNameHint(const osgDB::Output::PathNameHint pnh)\nClass arguments details:\n");
 		}
 
-		osgDB::Output::PathNameHint pnh=(osgDB::Output::PathNameHint)lua_tointeger(L,2);
+		const osgDB::Output::PathNameHint pnh=(const osgDB::Output::PathNameHint)lua_tointeger(L,2);
 
 		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {

@@ -14,13 +14,13 @@ end
 function suite.test_scene_creation()
 	log:info("Testing scene creation")
 	
-	local Scene = require "scenes.TestScene1"
-	
-	local scn = Scene{name="testScene1"}
-	
+	local scn = require "scenes.TestScene1"
+		
 	-- ensure that we have a valid platform:
 	
 	assert_not_equal(nil,scn:getPlatform(),"Invalid platform in scene.")
+	assert_equal(scn,scn:getPlatform():getScene(),"Invalid scene result.")
+	
 	log:info("Done testing scene creation")
 end
 
@@ -89,5 +89,24 @@ function suite.test_tableentry_onChange()
 	
 	log:info("Done testing entry Changed event")
 end
+
+function suite.test_platform_matrix()
+	log:info("Testing platform local to world matrix")
+	
+	local scn = require "scenes.TestScene1"
+	
+	-- ensure that we have a valid platform:
+	local plat = scn:getPlatform()
+	
+	local mat = plat:getLocalToWorldMatrix()
+	local identity = osg.Matrixd()
+	
+	log:info("Identity matrix is: ",identity)
+	
+	assert_equal(identity,mat,"Invalid platform matrix")
+	
+	log:info("Done testing platform local to world matrix")
+end
+
 
 return suite

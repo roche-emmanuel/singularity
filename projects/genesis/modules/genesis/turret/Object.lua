@@ -22,5 +22,9 @@ function Class:getSensor(sname)
 	return self._turret:getSensor(sname)
 end
 
+function Class:getVideoOutput(oname)
+	return self._turret:getVideoOutput(oname)
+end
+
 
 return Class 

@@ -761,7 +761,7 @@ public:
 		if( luatop>1 && !copyOp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::OrbitManipulator::OrbitManipulator function");
 		}
-		const osg::CopyOp & copyOp=luatop>1 ? *copyOp_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyOp=luatop>1 ? *copyOp_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new osgGA::OrbitManipulator(om, copyOp);
 	}
@@ -798,7 +798,7 @@ public:
 		if( luatop>2 && !copyOp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::OrbitManipulator::OrbitManipulator function");
 		}
-		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osgGA_OrbitManipulator(L,NULL, om, copyOp);
 	}
@@ -1360,7 +1360,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::OrbitManipulator::setTrackballSize(const double & size) function, expected prototype:\nvoid osgGA::OrbitManipulator::setTrackballSize(const double & size)\nClass arguments details:\n");
 		}
 
-		double size=(double)lua_tonumber(L,2);
+		const double size=(const double)lua_tonumber(L,2);
 
 		osgGA::OrbitManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::OrbitManipulator >(L,1);
 		if(!self) {
@@ -1438,7 +1438,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double minimumDistance=(double)lua_tonumber(L,2);
+		const double minimumDistance=(const double)lua_tonumber(L,2);
 		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		osgGA::OrbitManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::OrbitManipulator >(L,1);
@@ -1945,7 +1945,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::OrbitManipulator::base_setAnimationTime(const double t) function, expected prototype:\nvoid osgGA::OrbitManipulator::base_setAnimationTime(const double t)\nClass arguments details:\n");
 		}
 
-		double t=(double)lua_tonumber(L,2);
+		const double t=(const double)lua_tonumber(L,2);
 
 		osgGA::OrbitManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::OrbitManipulator >(L,1);
 		if(!self) {
@@ -2518,7 +2518,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::OrbitManipulator::base_setTrackballSize(const double & size) function, expected prototype:\nvoid osgGA::OrbitManipulator::base_setTrackballSize(const double & size)\nClass arguments details:\n");
 		}
 
-		double size=(double)lua_tonumber(L,2);
+		const double size=(const double)lua_tonumber(L,2);
 
 		osgGA::OrbitManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::OrbitManipulator >(L,1);
 		if(!self) {
@@ -2558,7 +2558,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		double minimumDistance=(double)lua_tonumber(L,2);
+		const double minimumDistance=(const double)lua_tonumber(L,2);
 		bool relativeToModelSize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)false;
 
 		osgGA::OrbitManipulator* self=Luna< osg::Referenced >::checkSubType< osgGA::OrbitManipulator >(L,1);

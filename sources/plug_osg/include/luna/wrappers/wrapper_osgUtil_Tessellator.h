@@ -234,7 +234,7 @@ public:
 		}
 
 		osg::Array* cold=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
-		unsigned int nnu=(unsigned int)lua_tointeger(L,3);
+		const unsigned int nnu=(const unsigned int)lua_tointeger(L,3);
 
 		wrapper_osgUtil_Tessellator* self=Luna< osg::Referenced >::checkSubType< wrapper_osgUtil_Tessellator >(L,1);
 		if(!self) {

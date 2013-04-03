@@ -29,4 +29,4 @@ function Class:initialize(options)
 	
 end
 
-return Class
+return Class()

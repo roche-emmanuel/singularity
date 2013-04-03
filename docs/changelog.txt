@@ -43,6 +43,8 @@
 - Added support for webtile resize
 - Added opengl module
 - Added video output for genesis.
+- Implemented proper render to texture pipeline for genesis.
+
 
 TODO:
     * Implement ProcedureCall class... 

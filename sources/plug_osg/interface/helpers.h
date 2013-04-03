@@ -131,8 +131,25 @@ protected:
 	~Vec4Array();
 };
 
+class MatrixList {
+
 };
+
+class NodePath {
+
+};
+
+class NodePathList {
+
+};
+
+};
+
 
 LUNA_IMPLEMENT_VECTOR(osg::Vec2f,osg::Vec2Array);
 LUNA_IMPLEMENT_VECTOR(osg::Vec3f,osg::Vec3Array);
 LUNA_IMPLEMENT_VECTOR(osg::Vec4f,osg::Vec4Array);
+
+LUNA_IMPLEMENT_VECTOR(osg::Matrixd,osg::MatrixList);
+LUNA_IMPLEMENT_VECTOR(osg::Node*,osg::NodePath);
+LUNA_IMPLEMENT_VECTOR(osg::NodePath,osg::NodePathList);

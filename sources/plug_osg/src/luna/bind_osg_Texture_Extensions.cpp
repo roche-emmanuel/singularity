@@ -1561,7 +1561,7 @@ public:
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		unsigned int pname=(unsigned int)lua_tointeger(L,3);
-		int* data=(int*)Luna< void >::check(L,4);
+		const int* data=(const int*)Luna< void >::check(L,4);
 
 		osg::Texture::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture::Extensions >(L,1);
 		if(!self) {
@@ -1582,7 +1582,7 @@ public:
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		unsigned int pname=(unsigned int)lua_tointeger(L,3);
-		unsigned int* data=(unsigned int*)Luna< void >::check(L,4);
+		const unsigned int* data=(const unsigned int*)Luna< void >::check(L,4);
 
 		osg::Texture::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture::Extensions >(L,1);
 		if(!self) {

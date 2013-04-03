@@ -520,7 +520,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const signed char & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const signed char & arg1)\nClass arguments details:\n");
 		}
 
-		signed char _arg1=(signed char)lua_tointeger(L,2);
+		const signed char _arg1=(const signed char)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
@@ -539,7 +539,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const short & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const short & arg1)\nClass arguments details:\n");
 		}
 
-		short _arg1=(short)lua_tointeger(L,2);
+		const short _arg1=(const short)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
@@ -558,7 +558,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const int & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const int & arg1)\nClass arguments details:\n");
 		}
 
-		int _arg1=(int)lua_tointeger(L,2);
+		const int _arg1=(const int)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
@@ -577,7 +577,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const unsigned short & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const unsigned short & arg1)\nClass arguments details:\n");
 		}
 
-		unsigned short _arg1=(unsigned short)lua_tointeger(L,2);
+		const unsigned short _arg1=(const unsigned short)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
@@ -615,7 +615,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const unsigned int & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const unsigned int & arg1)\nClass arguments details:\n");
 		}
 
-		unsigned int _arg1=(unsigned int)lua_tointeger(L,2);
+		const unsigned int _arg1=(const unsigned int)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
@@ -634,7 +634,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const float & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const float & arg1)\nClass arguments details:\n");
 		}
 
-		float _arg1=(float)lua_tonumber(L,2);
+		const float _arg1=(const float)lua_tonumber(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
@@ -653,7 +653,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::apply(const double & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::apply(const double & arg1)\nClass arguments details:\n");
 		}
 
-		double _arg1=(double)lua_tonumber(L,2);
+		const double _arg1=(const double)lua_tonumber(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
@@ -1023,7 +1023,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const signed char & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const signed char & arg1)\nClass arguments details:\n");
 		}
 
-		signed char _arg1=(signed char)lua_tointeger(L,2);
+		const signed char _arg1=(const signed char)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
@@ -1042,7 +1042,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const short & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const short & arg1)\nClass arguments details:\n");
 		}
 
-		short _arg1=(short)lua_tointeger(L,2);
+		const short _arg1=(const short)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
@@ -1061,7 +1061,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const int & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const int & arg1)\nClass arguments details:\n");
 		}
 
-		int _arg1=(int)lua_tointeger(L,2);
+		const int _arg1=(const int)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
@@ -1080,7 +1080,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const unsigned short & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const unsigned short & arg1)\nClass arguments details:\n");
 		}
 
-		unsigned short _arg1=(unsigned short)lua_tointeger(L,2);
+		const unsigned short _arg1=(const unsigned short)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
@@ -1118,7 +1118,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const unsigned int & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const unsigned int & arg1)\nClass arguments details:\n");
 		}
 
-		unsigned int _arg1=(unsigned int)lua_tointeger(L,2);
+		const unsigned int _arg1=(const unsigned int)lua_tointeger(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
@@ -1137,7 +1137,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const float & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const float & arg1)\nClass arguments details:\n");
 		}
 
-		float _arg1=(float)lua_tonumber(L,2);
+		const float _arg1=(const float)lua_tonumber(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {
@@ -1156,7 +1156,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ConstValueVisitor::base_apply(const double & arg1) function, expected prototype:\nvoid osg::ConstValueVisitor::base_apply(const double & arg1)\nClass arguments details:\n");
 		}
 
-		double _arg1=(double)lua_tonumber(L,2);
+		const double _arg1=(const double)lua_tonumber(L,2);
 
 		osg::ConstValueVisitor* self=(Luna< osg::ConstValueVisitor >::check(L,1));
 		if(!self) {

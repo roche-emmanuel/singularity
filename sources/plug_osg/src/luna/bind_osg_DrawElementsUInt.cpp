@@ -551,7 +551,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::DrawElementsUInt::DrawElementsUInt function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::DrawElementsUInt(array, copyop);
 	}
@@ -567,7 +567,7 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,1);
 		unsigned int no=(unsigned int)lua_tointeger(L,2);
-		unsigned int* ptr=(unsigned int*)Luna< void >::check(L,3);
+		const unsigned int* ptr=(const unsigned int*)Luna< void >::check(L,3);
 		int numInstances=luatop>3 ? (int)lua_tointeger(L,4) : (int)0;
 
 		return new osg::DrawElementsUInt(mode, no, ptr, numInstances);
@@ -618,7 +618,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::DrawElementsUInt::DrawElementsUInt function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_DrawElementsUInt(L,NULL, array, copyop);
 	}
@@ -634,7 +634,7 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		unsigned int no=(unsigned int)lua_tointeger(L,3);
-		unsigned int* ptr=(unsigned int*)Luna< void >::check(L,4);
+		const unsigned int* ptr=(const unsigned int*)Luna< void >::check(L,4);
 		int numInstances=luatop>4 ? (int)lua_tointeger(L,5) : (int)0;
 
 		return new wrapper_osg_DrawElementsUInt(L,NULL, mode, no, ptr, numInstances);
