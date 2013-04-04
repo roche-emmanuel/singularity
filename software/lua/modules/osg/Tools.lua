@@ -390,12 +390,15 @@ function Class:createRTTCamera(options)
 	local cam = osg.Camera()
 	local clearColor = options.clearColor or osg.Vec4f()
 	local clearMask = options.clearMask or bit.bor(gl.COLOR_BUFFER_BIT,gl.DEPTH_BUFFER_BIT)
-	local order = options.renderOrder or osg.Camera.PRE_RENDER
+	local order = options.renderOrder or osg.Camera.PRE_RENDER --osg.Camera.NESTED_RENDER; --osg.Camera.POST_RENDER; --
 	
 	cam:setClearColor( clearColor );
 	cam:setClearMask(clearMask);
 	cam:setRenderTargetImplementation(osg.Camera.FRAME_BUFFER_OBJECT);
 	cam:setRenderOrder(order);
+	cam:setReferenceFrame( osg.Transform.ABSOLUTE_RF )
+	cam:setAllowEventFocus( false );
+	cam:setProjectionMatrixAsPerspective(60.0,1.33, 10.0, 10000.0)
 	
 	local colorTex = options.colorTex
 	if(colorTex) then
@@ -410,6 +413,28 @@ function Class:createRTTCamera(options)
 	end
 
 	return cam;
+end
+
+-- Take a function as argument and build the corresponding nodecallback
+function Class:createNodeCallback(func)
+	local cb = osg.NodeCallback {
+		op_call = function(tt, obj, node, nv) 
+			func(node,nv)
+			obj:traverse(node,nv)
+		end
+	}
+	
+	return cb
+end
+
+function Class:createGUIEventHandler(func)
+	local cb = osgGA.GUIEventHandler {
+		handle = function(tt, obj, ea, aa, node, nv) 
+			return func(ea, aa, node,nv) or false
+		end
+	}
+	
+	return cb
 end
 
 return Class()

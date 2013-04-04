@@ -25,7 +25,7 @@ function Class:initialize(options)
 	self._camera = tools:createRTTCamera{colorTex=self._colorTexture}
 	
 	-- attach this camera as a child of the sensor transform:
-	self:getTurret():getTransform():addChild(self._camera)
+	self:getTurret():getRoot():addChild(self._camera)
 	
 	-- create the quad to render the sensor view:
 	self._viewQuad = tools:createScreenQuad{}

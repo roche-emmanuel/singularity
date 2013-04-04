@@ -11,6 +11,7 @@ function Class:initialize(options)
 	self:createCube(1)
 	self:createBase()
 	self:applyCircleAnimation(mt, 4.0, 6.0)
+	-- self:applyCircleAnimation2(mt, 4.0, 6.0)
 	
 	local tools = require "osg.Tools"
 	
@@ -25,7 +26,11 @@ function Class:initialize(options)
 	
 	self:getRoot():addChild(sb)	
 	
-	local pform = require("genesis.scene.Platform"){scene=self,root=mt}
+	--mt:setDataVariance(osg.Object.DYNAMIC)
+	
+	local pp = osg.Group()
+	mt:addChild(pp)
+	local pform = require("genesis.scene.Platform"){scene=self,root=pp}
 	
 end
 

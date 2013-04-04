@@ -25,11 +25,26 @@ function Class:initialize(options)
 		self._platform = scn:getPlatform()
 	end
 	
+	self._platform:addListener("PlatformUpdated",self)
+	
+	self._root = osg.MatrixTransform()
+	
+	self._parent = osg.MatrixTransform()
+	self._root:addChild(self._parent)
+	
 	-- create the turret transform:
 	self._transform = osg.MatrixTransform();
+	self._parent:addChild(self._transform)
 	
-	-- add the turret to the platform:
-	--self._platform:addChild(self._transform) 
+	-- self._rotateCB = osg.NodeCallback{
+		-- op_call = function(tt, obj, node, nv) 
+			-- angle = nv:getFrameStamp():getReferenceTime()*math.pi*2.0/10.0
+			-- local rot = osg.Matrixd.rotate(angle,osg.ZAXIS)
+			-- self:info("Setting rotation matrix: ",rot)
+			-- self._transform:setMatrix(rot)
+		-- end
+	-- }
+	-- self._transform:setUpdateCallback(self._rotateCB)
 	
 	-- Create the gimbal:
 	self._gimbal = require("genesis.turret.Gimbal"){turret=self}
@@ -53,6 +68,12 @@ function Class:initialize(options)
 	end
 end
 
+function Class:onPlatformUpdated(handler,event,mat)
+	-- self:info("Received platform updated matrix: ", mat)
+	self._parent:setMatrix(mat)
+	self:updateViews()
+end
+
 function Class:update()
 	-- get the platform matrix:
 	local mat = self._platform:getLocalToWorldMatrix()
@@ -69,8 +90,18 @@ function Class:getScene()
 	return self._platform:getScene()
 end
 
+function Class:updateViews()
+	for _,sens in self._sensors:sequence() do
+		sens:getView():updateViewMatrix()
+	end
+end
+
 function Class:getTransform()
 	return self._transform
+end
+
+function Class:getRoot()
+	return self._root
 end
 
 function Class:getGimbal()

@@ -58,7 +58,7 @@ function Class:setup()
 	local Turret = require "genesis.turret.Turret"
 	self._turret = Turret{name="my_turret"}
 	
-	self:getRoot():addChild(self._turret:getTransform())
+	self:getRoot():addChild(self._turret:getRoot())
 	
 	-- add a screen quad for the video output display:
 	self._videoQuad = tools:createScreenQuad{}
@@ -73,6 +73,8 @@ function Class:setup()
 	self._videoStateSet:getOrCreateUniform("tex",osg.Uniform.SAMPLER_2D):setInt(0);
 		
 	self:getRoot():addChild(self._videoQuad)
+	
+	self._viewer:setCameraManipulator(nil)
 	
 	local output = self._turret:getVideoOutput(config.genesis.default_video_output)
 	

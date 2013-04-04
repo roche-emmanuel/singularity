@@ -54,6 +54,20 @@ function Class:applyCircleAnimation(model, radius, dur)
 	model:setUpdateCallback( apcb );
 end
 
+function Class:applyCircleAnimation2(model, radius, dur)
+	model:setUpdateCB( function(node,nv)
+		local angle = nv:getFrameStamp():getReferenceTime()*math.pi*2.0/dur;
+		
+		-- local pos = osg.Vec3d(radius*math.cos(angle),radius*math.sin(angle),0.0)
+		local pos = osg.Vec3d(2.0,radius*math.sin(angle),0.0)
+		--local att = osg.Quat(angle,osg.ZAXIS)
+		local att = osg.Quat();
+		model:setMatrix(osg.Matrixd.rotate(att)*osg.Matrixd.translate(pos))
+		
+		-- self:info("Setting model matrix to: ",model:getMatrix())
+	end	);
+end
+
 function Class:createBase(options)
 	local base = tools:createQuad()
 	self:getRoot():addChild(base)

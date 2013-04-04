@@ -21,13 +21,23 @@ function Class:initialize(options)
 	self._depthTexture = tools:createTexture{width=res:x(),height=res:y(),format="depth"}
 	
 	self._camera = tools:createRTTCamera{colorTex=self._colorTexture, depthTex=self._depthTexture}
-	
+	 
 	-- attach this camera as a child of the sensor transform:
-	self._sensor:getTransform():addChild(self._camera)
+	self:getTurret():getRoot():addChild(self._camera)
 	
 	-- setup the sensor view:
 	self:setup()
+end
+
+function Class:updateViewMatrix()
+	local mat = osg.computeLocalToWorld(self._sensor:getNodePath())
 	
+	local pos = mat:getTrans()
+	-- self:info("Updating view pos to: ",pos)
+	local forward = osg.Matrixd.transform3x3(osg.XAXIS,mat)
+	local up = osg.Matrixd.transform3x3(osg.ZAXIS,mat)
+	self._camera:setViewMatrixAsLookAt(pos - forward,pos + forward,up) 		
+	-- self:info("Current view matrix inverse: ",self._camera:getInverseViewMatrix())
 end
 
 function Class:setup()

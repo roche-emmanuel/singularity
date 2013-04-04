@@ -50,3 +50,65 @@ osg.Vec3 = osg.Vec3f
 osg.Vec4 = osg.Vec4f
 
 osg.BoundingSphere = osg.osg_BoundingSphereImpl_osg_Vec3d
+
+-- callback extensions:
+osg.Node.setUpdateCB = function(self, func)
+	local tools = require "osg.Tools"
+	local cb = tools:createNodeCallback(func)
+	self:setUpdateCallback(cb)
+	return cb
+end
+
+osg.Node.addUpdateCB = function(self, func)
+	local tools = require "osg.Tools"
+	local cb = tools:createNodeCallback(func)
+	self:addUpdateCallback(cb)
+	return cb
+end
+
+osg.Node.setCullCB = function(self, func)
+	local tools = require "osg.Tools"
+	local cb = tools:createNodeCallback(func)
+	self:setCullCallback(cb)
+	return cb
+end
+
+osg.Node.addCullCB = function(self, func)
+	local tools = require "osg.Tools"
+	local cb = tools:createNodeCallback(func)
+	self:addCullCallback(cb)
+	return cb
+end
+
+osg.Node.setEventCB = function(self, func)
+	local tools = require "osg.Tools"
+	local cb = tools:createNodeCallback(func)
+	self:setEventCallback(cb)
+	return cb
+end
+
+osg.Node.addEventCB = function(self, func)
+	local tools = require "osg.Tools"
+	local cb = tools:createNodeCallback(func)
+	self:addEventCallback(cb)
+	return cb
+end
+
+
+-- update the parents again:
+-- local tick = osg.Timer.instance():tick()
+
+-- this is needed to update the methods from osg.Node derived classes.
+log:info("Updating method lists for module osg...")
+__luna.copyAllParents(osg);
+__luna.copyAllParents(osgGA);
+__luna.copyAllParents(osgUtil);
+__luna.copyAllParents(osgText);
+__luna.copyAllParents(osgDB);
+__luna.copyAllParents(osgViewer);
+__luna.copyAllParents(OpenThreads);
+__luna.copyAllParents(osgParticle);
+
+-- local elapsed = osg.Timer.instance():delta_s(tick, osg.Timer.instance():tick())
+
+-- log:info("OSG parents updated in ", elapsed, " secs.")
