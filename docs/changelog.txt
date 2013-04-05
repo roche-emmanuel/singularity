@@ -4,6 +4,8 @@
 - Preventing registration of function typedefs.
 - Added check on class typename validity for wrapping.
 - Fixed typedef recursive definition bug.
+- Checking result of mapped type registration.
+- Not considering class as boolean in luna reflection.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

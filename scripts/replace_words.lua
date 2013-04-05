@@ -34,6 +34,10 @@ function handleFile(data)
 	res = res:gsub("([^%w_:])map<","%1std::map<")
 	res = res:gsub("([^%w_:])string([ >%*&])","%1std::string%2")
 	res = res:gsub("VBS2FUSION_DPR%([%w]+%) ","")
+	res = res:gsub("CONST ","const ")
+	res = res:gsub("BOOL([ >%*&])","bool%1 ")
+	res = res:gsub("UINT([ >%*&])","unsigned int%1 ")
+	res = res:gsub("INT([ >%*&])","int%1 ")
 	
 	if res ~= str then
 		log:info("Updating file ".. filename)

@@ -280,6 +280,10 @@ end
 
 function Class:isBoolean()
 	-- check if we can find a boolean pattern:
+	if self:isClass() then
+		return false -- a class should not be considered a boolean (?)
+	end
+	
 	return type(self._base)=="string" and self._base:find("bool")
 end
 
