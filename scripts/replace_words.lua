@@ -21,8 +21,19 @@ function handleFile(data)
 	-- Now check if we find the assert word:
 	-- local res = str:gsub('([^%w_"])FLOAT([^%w_"])',"%1ork::FLOAT%2")
 	-- local res = str:gsub('([^%w_"])POINTS([^%w_"])',"%1ork::POINTS%2")
-	local res = str:gsub("([^%w_])std::max([^%w_])","%1osg::maximum%2")
-	local res = res:gsub("([^%w_])std::min([^%w_])","%1osg::minimum%2")
+	-- local res = str:gsub("([^%w_])std::max([^%w_])","%1osg::maximum%2")
+	-- local res = res:gsub("([^%w_])std::min([^%w_])","%1osg::minimum%2")
+	
+	-- For VBS2Fusion 3:
+	local res = str
+	res = res:gsub("VBS2FUSION_API ","")
+	res = res:gsub("WINAPI ","")
+	res = res:gsub("([^%w_:])vector<","%1std::vector<")
+	res = res:gsub("([^%w_:])set<","%1std::set<")
+	res = res:gsub("([^%w_:])list<","%1std::list<")
+	res = res:gsub("([^%w_:])map<","%1std::map<")
+	res = res:gsub("([^%w_:])string([ >%*&])","%1std::string%2")
+	res = res:gsub("VBS2FUSION_DPR%([%w]+%) ","")
 	
 	if res ~= str then
 		log:info("Updating file ".. filename)
@@ -33,7 +44,8 @@ function handleFile(data)
 	end
 end
 
-local target_dir = "W:/Cloud/Projects/singularity/sources/plug_proland"
+-- local target_dir = "W:/Cloud/Projects/singularity/sources/plug_proland"
+local target_dir = "W:/Cloud/INSYEN/Projects/VBSSim/sources/plug_fusion3/interface"
 
 fs:traverse{path=target_dir,
 	func=handleFile,

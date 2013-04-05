@@ -3,6 +3,7 @@
 - Removed header "sgtCommon.h" from luna wrapper files to allow external compilation.
 - Preventing registration of function typedefs.
 - Added check on class typename validity for wrapping.
+- Fixed typedef recursive definition bug.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

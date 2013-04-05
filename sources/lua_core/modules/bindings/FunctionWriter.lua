@@ -307,7 +307,9 @@ function Class:writeFunctionCall(cname,func,args)
 		end			
 	else	
 		if (not rt:isClass()) or rname:find("<") then
-			tm:registerMappedType(rname)
+			if not tm:registerMappedType(rname) then
+				self:error("Could not regiter type in function call: ",func:getFullName())
+			end
 		end
 		
 		tm:getExternalBase(rt:getBaseName(true))

@@ -360,7 +360,7 @@ function ReflectionGenerator:getOrCreateMember(mem)
     end
 end
 
-function ReflectionGenerator:generateItemLinks(lti,count,tname)
+function ReflectionGenerator:generateItemLinks(lti,count,tname,parentId)
     count = count or 0
     if count > 1000 then
     	self:error("Detected infinite recursion loop in generateItemLinks() for member: ",tname)
@@ -460,11 +460,17 @@ function ReflectionGenerator:generateItemLinks(lti,count,tname)
                 	else
                 	]]
                 	if mem:kind()==dxp.IMember.Typedef then
-                		if self:isClassTypedef(mem) then
+						log:notice("Current typedef id: ", id)
+						log:notice("Current typedef parent id: ", parentId)
+                		if id == parentId then
+							log:notice("Breaking recursive loop on typedef ".. mem:name():latin1() .. " definition.")
+							subtypes = Vector()
+							subtypes:push_back(ItemLink(mem:name():latin1()))
+                		elseif self:isClassTypedef(mem) then
                 			object = self:getOrCreateMember(mem)
-                		else
+						else
 	                		log:info("Reading sub item links for member ".. mem:name():latin1() .. " in compound " .. comp:name():latin1())
-	                		subtypes = self:generateItemLinks(mem:type(),count+1,mem:name():latin1());
+	                		subtypes = self:generateItemLinks(mem:type(),count+1,mem:name():latin1(),id);
 							if mem:argsstring():latin1() ~= "" then
 								subtypes:push_back(ItemLink(mem:argsstring():latin1()))
 							end
@@ -861,7 +867,7 @@ function ReflectionGenerator:processMembers(sec)
 		    class:setHeaderFile(location)
     		
     		-- Add the mapped type string:
-    		local typevec = self:generateItemLinks(mem:type())
+    		local typevec = self:generateItemLinks(mem:type(),0,mem:name():latin1(),mem:id():latin1())
     		
     		class:setMappedType(Type{links=typevec})
 

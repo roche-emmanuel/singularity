@@ -84,11 +84,17 @@ function TypeManager:registerMappedType(mtype)
 		if(mtype:find("%(%s*%*")) then
 			-- this looks like a function typedef so we ignore it:
 			self:notice("Ignoring function mapped type '",mtype,"'")
+		elseif (mtype:find("union ") or mtype=="class") then
+			self:warn("Got invalid mapped type: ", mtype)
+			self:backtrace()
+			return false
 		else
 			self:info("Registering mapped type '",mtype,"'")
 			self._registeredMappedTypes:push_back(mtype)
 		end
 	end
+	
+	return true
 end
 
 function TypeManager:getRegisteredMappedTypes()
