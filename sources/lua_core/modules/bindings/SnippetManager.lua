@@ -235,7 +235,6 @@ end
 
 function Class:getWrapperStartCode(class)
 	local str = [[
-#include "sgtCommon.h"
 #include "lua/LuaObject.h"
 
 ${3}

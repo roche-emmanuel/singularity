@@ -438,6 +438,11 @@ function Class:isValidForWrapping()
 		return false;
 	end
 	
+	if str:find("%(") or str:find("%)") then
+		self:notice("Considering type '",str,"' as invalid because it contains parentheses.")
+		return false;
+	end
+	
 	return (not self:isInstanceOf(require"reflection.Class",self._base) or self:getBase():isValidForWrapping()) 
 end
 

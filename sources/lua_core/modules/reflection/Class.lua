@@ -333,6 +333,14 @@ end
 
 function Class:isValidForWrapping()
 	local abase = self:getFirstAbsoluteBase()
+	
+	local tname = self:getTypeName()
+	
+	if tname and (tname:find("%(") or tname:find("%)")) then
+		self:notice("Ignoring class ",self:getFullName()," because its typename ", tname," contains parentheses.")
+		return false;
+	end
+	
 	return not self:isTemplated()
 		and (self:getHeaderFile() and not im:ignore(self:getHeaderFile(),"file"))
 		and ((not self:getParent()) or self:getParent():isValidForWrapping())

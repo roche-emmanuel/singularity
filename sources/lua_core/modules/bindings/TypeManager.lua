@@ -81,8 +81,13 @@ end
 
 function TypeManager:registerMappedType(mtype)
 	if not self._externals:get(mtype) then -- We should ignore external types at this point.
-		self:info("Registering mapped type '",mtype,"'")
-		self._registeredMappedTypes:push_back(mtype)
+		if(mtype:find("%(%s*%*")) then
+			-- this looks like a function typedef so we ignore it:
+			self:notice("Ignoring function mapped type '",mtype,"'")
+		else
+			self:info("Registering mapped type '",mtype,"'")
+			self._registeredMappedTypes:push_back(mtype)
+		end
 	end
 end
 

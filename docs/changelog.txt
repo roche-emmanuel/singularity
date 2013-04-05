@@ -1,4 +1,11 @@
-== Singularity release v0.2.0 - ??? ==
+== Singularity release v0.2.1 - ??? ==
+
+- Removed header "sgtCommon.h" from luna wrapper files to allow external compilation.
+- Preventing registration of function typedefs.
+- Added check on class typename validity for wrapping.
+
+
+== Singularity release v0.2.0 - 04/04/2013 ==
 
 - Added cog lua package.
 - Added requirePackage support
@@ -45,16 +52,6 @@
 - Added video output for genesis.
 - Implemented proper render to texture pipeline for genesis.
 - Added support for turret attachment on platform.
-
-
-
-TODO:
-    * Implement ProcedureCall class... 
-	* Implement ComboTree:inferTypeTree()
-    * Implement ComboTree:infer_vertex_type(tr, lit, arg_types) line 46 in ComboTree.lua
-    * Implement Vertex:getArity()  
-
-	* Implement complete Wescam overlays.
 	
 	
 == Singularity release v0.1.1 - 21/02/2013 ==

@@ -5,6 +5,14 @@
 
 - Todo:
 
+TODO:
+    * Implement ProcedureCall class... 
+	* Implement ComboTree:inferTypeTree()
+    * Implement ComboTree:infer_vertex_type(tr, lit, arg_types) line 46 in ComboTree.lua
+    * Implement Vertex:getArity()  
+
+	* Implement complete Wescam overlays.
+	
 * build glew plugin.
 * Check JSBSim for flight dynamics model: http://jsbsim.sourceforge.net/
 * Check flightgear too.
