@@ -1,0 +1,13 @@
+** When the typedef uses its onw name in its definition , doxygen is confused and will recursively link to the typedef definition:
+
+      <memberdef kind="typedef" id="structVBS2Fusion_1_1MagazineAmmo_1a8d42b1bbf2100ed64adb4d7a670aa735" prot="public" static="no">
+        <type>list&lt; int &gt;::<ref refid="structVBS2Fusion_1_1MagazineAmmo_1a8d42b1bbf2100ed64adb4d7a670aa735" kindref="member">iterator</ref></type>
+        <definition>typedef list&lt;int&gt;::iterator VBS2Fusion::MagazineAmmo::iterator</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+		
+=> In that case sgtLuna is confused too and will create a class called for instance: "list< int >::VBS2Fusion::MagazineAmmo::iterator" in that case.
+=> To workaround this we should ensure that typedefs are not recursively expanded.
+

@@ -1,0 +1,36 @@
+**  Same bug as previsouly mentioned but with different typedef names can occur too:
+
+      <memberdef kind="typedef" id="classVBS2Fusion_1_1Group_1ae27668fd624a574e9e72b0aa6ebc0db1" prot="public" static="no">
+        <type>set&lt; <ref refid="classVBS2Fusion_1_1Waypoint" kindref="compound">Waypoint</ref> &gt;::<ref refid="classVBS2Fusion_1_1Group_1a2ba476e44fb807e414bab1cd6734f16f" kindref="member">iterator</ref></type>
+        <definition>typedef set&lt;Waypoint&gt;::iterator VBS2Fusion::Group::wp_iterator</definition>
+        <argsstring></argsstring>
+        <name>wp_iterator</name>
+        <briefdescription>
+        </briefdescription>
+		
+=> Need to upgrade doxygen to fix this properly ?
+
+
+** When we have a mapped type defined in a template class using the template parameter, we get an error in the luna_types.h:
+
+template<typename T>
+class myclass {
+public:
+
+	std::vector< T > getResult();
+};
+
+=> will register std::vector< T > as a valid mapped type !
+
+template<typename T>
+class myclass {
+public:
+	typedef std::vector < T > MyList;
+	
+	MyList getResult();
+};
+
+=> Would this work ??
+
+** when using the 'interface' keyword instead of class or struct the parent namespace is lost (???)
+
