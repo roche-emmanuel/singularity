@@ -23,7 +23,7 @@ ENDIF()
 ADD_SUBDIRECTORY(sgtCore)
 
 ADD_SUBDIRECTORY(lua_core)
-# ADD_SUBDIRECTORY(lua_externals)
+ADD_SUBDIRECTORY(lua_externals)
 # ADD_SUBDIRECTORY(lua_cog)
 
 # ADD_SUBDIRECTORY(plug_byteconverter)

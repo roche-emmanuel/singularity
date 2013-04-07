@@ -94,6 +94,20 @@ osg.Node.addEventCB = function(self, func)
 	return cb
 end
 
+osg.Node.setEvtHandler = function(self, func)
+	local tools = require "osg.Tools"
+	local cb = tools:createGUIEventHandler(func)
+	self:setEventCallback(cb)
+	return cb
+end
+
+osg.Node.addEvtHandler = function(self, func)
+	local tools = require "osg.Tools"
+	local cb = tools:createGUIEventHandler(func)
+	self:addEventCallback(cb)
+	return cb
+end
+
 
 -- update the parents again:
 -- local tick = osg.Timer.instance():tick()

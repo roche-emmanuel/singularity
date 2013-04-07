@@ -441,25 +441,25 @@ MACRO(BUILD_LUA_PLUGIN)
 	COMPRESS_BINARY()
 ENDMACRO(BUILD_LUA_PLUGIN)
 
-
-MACRO(INSTALL_PDB_EX targetName destName)
+MACRO(INSTALL_PDB)
 IF(MSVC)
+	SET(targetName "${ARGV0}")
+	SET(destFolder "${ARGV1}")
+	
 	SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /INCREMENTAL:NO /DEBUG /OPT:REF /OPT:ICF")
 
-	# SET_TARGET_PROPERTIES(${targetName} PROPERTIES 
-		# LINK_FLAGS "/INCREMENTAL:NO /DEBUG /OPT:REF /OPT:ICF"
-	# )
+	IF("${targetName}" STREQUAL "")
+		SET(targetName ${TARGET_NAME})
+	ENDIF()
+	
+	MESSAGE(STATUS "Copying PDB file for ${targetName} in dir ${SGT_DIR}/symbols/${destFolder}")
 
 	ADD_CUSTOM_TARGET(
-		${destName}_pdb ALL
-		# POST_BUILD
+		${targetName}_pdb ALL
 		DEPENDS ${targetName}
 		COMMAND ${CMAKE_COMMAND} -E copy_if_different
 		$<TARGET_FILE_DIR:${targetName}>/${TARGET_NAME}.pdb
-		${SGT_DIR}/symbols/${destName}.pdb)
+		${SGT_DIR}/symbols/${destFolder}${TARGET_NAME}.pdb)
+		
 ENDIF()
-ENDMACRO(INSTALL_PDB_EX)
-
-MACRO(INSTALL_PDB)
-	INSTALL_PDB_EX(${TARGET_NAME} ${TARGET_NAME})
 ENDMACRO(INSTALL_PDB)

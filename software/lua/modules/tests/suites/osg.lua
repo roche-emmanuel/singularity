@@ -150,3 +150,46 @@ function test_diamond_inheritance_handling()
 	log:info("Tests","Done testing iamond inheritance support.")
 end
 
+function test_event_handler()
+	log:info("Tests","Testing event handler.")
+	
+	local grp = osg.Group()
+	
+	local executed = false;
+	local thenode = nil
+	
+	local viewer = osgViewer.Viewer()
+	
+	--viewer:getCamera():setRenderTargetImplementation(osg.Camera.FRAME_BUFFER_OBJECT);
+	viewer:setUpViewInWindow(50,50,500,400)
+	-- viewer:getCamera():addChild(grp)
+	viewer:setSceneData(grp)
+	
+	-- grp:setUpdateCB(function(node,nv)
+		--log:info("Tests","executing node callback...")
+		-- executed = true
+		-- thenode = node;
+		-- viewer:setDone(true);
+	-- end)
+	
+	-- grp:addEvtHandler(function(ea,aa,node,nv)
+		-- log:info("Tests","gui event handler...")
+		-- executed = true
+		-- thenode = node;
+		-- viewer:setDone(true);
+	-- end)
+
+	-- while not executed do
+	log:info("Tests","Rendering viewer...")
+	viewer:run()
+	log:info("Tests","Done rendering viewer.")
+	-- end	
+
+	viewer=nil
+	collectgarbage('collect')
+	
+	assert_equal(true,executed,"Invalid execution status")
+	assert_equal(grp,thenode,"Invalid node retrieved")
+	
+	log:info("Tests","Done testing event handler")
+end

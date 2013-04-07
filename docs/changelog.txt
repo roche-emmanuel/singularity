@@ -6,6 +6,7 @@
 - Fixed typedef recursive definition bug.
 - Checking result of mapped type registration.
 - Not considering class as boolean in luna reflection.
+- Fixed pdb name/location issue (not renaming pdb files).
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
