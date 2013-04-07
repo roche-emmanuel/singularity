@@ -393,7 +393,7 @@ public:
 		if( luatop>1 && !co_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg co in sgt::TimeProvider::TimeProvider function");
 		}
-		const osg::CopyOp & co=luatop>1 ? *co_ptr : (const osg::CopyOp)sgtCopyOp::SHALLOW_COPY;
+		const osg::CopyOp & co=luatop>1 ? *co_ptr : (const osg::CopyOp&)sgtCopyOp::SHALLOW_COPY;
 
 		return new sgt::TimeProvider(tm, co);
 	}
@@ -427,7 +427,7 @@ public:
 		if( luatop>2 && !co_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg co in sgt::TimeProvider::TimeProvider function");
 		}
-		const osg::CopyOp & co=luatop>2 ? *co_ptr : (const osg::CopyOp)sgtCopyOp::SHALLOW_COPY;
+		const osg::CopyOp & co=luatop>2 ? *co_ptr : (const osg::CopyOp&)sgtCopyOp::SHALLOW_COPY;
 
 		return new wrapper_sgt_TimeProvider(L,NULL, tm, co);
 	}

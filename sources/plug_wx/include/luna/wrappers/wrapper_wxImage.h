@@ -3,7 +3,6 @@
 
 #include <plug_common.h>
 
-#include "sgtCommon.h"
 #include "lua/LuaObject.h"
 
 #include <wx/image.h>
@@ -71,14 +70,6 @@ public:
 	};
 	wrapper_wxImage(lua_State* L, lua_Table* dum, const wxSize & sz, unsigned char * data, unsigned char * alpha, bool static_data = false) 
 		: wxImage(sz, data, alpha, static_data), luna_wrapper_base(L) { 
-		register_protected_methods(L);
-		if(_obj.pushFunction("buildInstance")) {
-			_obj.pushArg((wxImage*)this);
-			_obj.callFunction<void>();
-		}
-	};
-	wrapper_wxImage(lua_State* L, lua_Table* dum, const char *const * xpmData) 
-		: wxImage(xpmData), luna_wrapper_base(L) { 
 		register_protected_methods(L);
 		if(_obj.pushFunction("buildInstance")) {
 			_obj.pushArg((wxImage*)this);

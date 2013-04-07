@@ -255,7 +255,7 @@ public:
 		if( luatop>3 && !force_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg force in SPK::LinearForce::LinearForce function");
 		}
-		const SPK::Vector3D & force=luatop>3 ? *force_ptr : (const SPK::Vector3D)SPK::Vector3D ();
+		const SPK::Vector3D & force=luatop>3 ? *force_ptr : (const SPK::Vector3D&)SPK::Vector3D ();
 		SPK::ForceFactor type=luatop>4 ? (SPK::ForceFactor)lua_tointeger(L,5) : (SPK::ForceFactor)SPK::FACTOR_NONE;
 		SPK::ModelParam param=luatop>5 ? (SPK::ModelParam)lua_tointeger(L,6) : (SPK::ModelParam)SPK::PARAM_SIZE;
 
@@ -423,7 +423,7 @@ public:
 		if( luatop>2 && !force_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg force in SPK::LinearForce::create function");
 		}
-		const SPK::Vector3D & force=luatop>2 ? *force_ptr : (const SPK::Vector3D)SPK::Vector3D ();
+		const SPK::Vector3D & force=luatop>2 ? *force_ptr : (const SPK::Vector3D&)SPK::Vector3D ();
 		SPK::ForceFactor type=luatop>3 ? (SPK::ForceFactor)lua_tointeger(L,4) : (SPK::ForceFactor)SPK::FACTOR_NONE;
 		SPK::ModelParam param=luatop>4 ? (SPK::ModelParam)lua_tointeger(L,5) : (SPK::ModelParam)SPK::PARAM_SIZE;
 

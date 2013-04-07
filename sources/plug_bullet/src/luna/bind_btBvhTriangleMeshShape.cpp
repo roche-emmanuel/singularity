@@ -720,7 +720,7 @@ public:
 		if( luatop>2 && !localScaling_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localScaling in btBvhTriangleMeshShape::setOptimizedBvh function");
 		}
-		const btVector3 & localScaling=luatop>2 ? *localScaling_ptr : (const btVector3)btVector3 (1, 1, 1);
+		const btVector3 & localScaling=luatop>2 ? *localScaling_ptr : (const btVector3&)btVector3 (1, 1, 1);
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {

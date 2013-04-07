@@ -225,7 +225,7 @@ public:
 		if( luatop>1 && !position_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg position in SPK::Zone::Zone function");
 		}
-		const SPK::Vector3D & position=luatop>1 ? *position_ptr : (const SPK::Vector3D)SPK::Vector3D ();
+		const SPK::Vector3D & position=luatop>1 ? *position_ptr : (const SPK::Vector3D&)SPK::Vector3D ();
 
 		return new wrapper_SPK_Zone(L,NULL, position);
 	}

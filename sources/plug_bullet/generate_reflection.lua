@@ -46,6 +46,7 @@ ReflectionGenerator.generate{
 	ignoreClasses={
 	},
 	ignoreClassDeclarations={
+		"btAlignedAllocator<",
 	},
 	ignoreConverters={ }, --"Surface"
 	ignoreHeaders = { "helpers%.h" },

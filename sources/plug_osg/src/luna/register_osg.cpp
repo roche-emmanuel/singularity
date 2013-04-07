@@ -886,6 +886,13 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osgViewer::ScreenCaptureHandler >::Register(L);
 	Luna< osgViewer::InteractiveImageHandler >::Register(L);
 	luna_popModule(L);
+	luna_pushModule(L,"osg");
+	Luna< std::vector< osg::VertexAttribAlias > >::Register(L);
+	Luna< std::vector< osg::State::AttributePair > >::Register(L);
+	Luna< std::vector< osgUtil::Hit > >::Register(L);
+	Luna< std::map< const osg::LineSegment *, osgUtil::IntersectVisitor::HitList > >::Register(L);
+	Luna< std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > > >::Register(L);
+	luna_popModule(L);
 
 	luna_pushModule(L,"osg");
 

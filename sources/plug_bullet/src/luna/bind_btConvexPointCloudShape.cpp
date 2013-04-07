@@ -573,7 +573,7 @@ public:
 		if( luatop>4 && !localScaling_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localScaling in btConvexPointCloudShape::setPoints function");
 		}
-		const btVector3 & localScaling=luatop>4 ? *localScaling_ptr : (const btVector3)btVector3 (1.f, 1.f, 1.f);
+		const btVector3 & localScaling=luatop>4 ? *localScaling_ptr : (const btVector3&)btVector3 (1.f, 1.f, 1.f);
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {

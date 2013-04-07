@@ -232,7 +232,7 @@ public:
 		if( luatop>0 && !constructionInfo_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg constructionInfo in btDefaultCollisionConfiguration::btDefaultCollisionConfiguration function");
 		}
-		const btDefaultCollisionConstructionInfo & constructionInfo=luatop>0 ? *constructionInfo_ptr : (const btDefaultCollisionConstructionInfo)btDefaultCollisionConstructionInfo ();
+		const btDefaultCollisionConstructionInfo & constructionInfo=luatop>0 ? *constructionInfo_ptr : (const btDefaultCollisionConstructionInfo&)btDefaultCollisionConstructionInfo ();
 
 		return new btDefaultCollisionConfiguration(constructionInfo);
 	}
@@ -250,7 +250,7 @@ public:
 		if( luatop>1 && !constructionInfo_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg constructionInfo in btDefaultCollisionConfiguration::btDefaultCollisionConfiguration function");
 		}
-		const btDefaultCollisionConstructionInfo & constructionInfo=luatop>1 ? *constructionInfo_ptr : (const btDefaultCollisionConstructionInfo)btDefaultCollisionConstructionInfo ();
+		const btDefaultCollisionConstructionInfo & constructionInfo=luatop>1 ? *constructionInfo_ptr : (const btDefaultCollisionConstructionInfo&)btDefaultCollisionConstructionInfo ();
 
 		return new wrapper_btDefaultCollisionConfiguration(L,NULL, constructionInfo);
 	}

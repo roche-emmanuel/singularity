@@ -317,12 +317,12 @@ public:
 		if( luatop>1 && !position_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg position in SPK::Cylinder::Cylinder function");
 		}
-		const SPK::Vector3D & position=luatop>1 ? *position_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f, 0.0f);
+		const SPK::Vector3D & position=luatop>1 ? *position_ptr : (const SPK::Vector3D&)SPK::Vector3D (0.0f, 0.0f, 0.0f);
 		const SPK::Vector3D* direction_ptr=luatop>2 ? (Luna< SPK::Vector3D >::check(L,3)) : NULL;
 		if( luatop>2 && !direction_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg direction in SPK::Cylinder::Cylinder function");
 		}
-		const SPK::Vector3D & direction=luatop>2 ? *direction_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 1.0f, 0.0f);
+		const SPK::Vector3D & direction=luatop>2 ? *direction_ptr : (const SPK::Vector3D&)SPK::Vector3D (0.0f, 1.0f, 0.0f);
 		float radius=luatop>3 ? (float)lua_tonumber(L,4) : (float)1.0f;
 		float length=luatop>4 ? (float)lua_tonumber(L,5) : (float)1.0f;
 
@@ -634,12 +634,12 @@ public:
 		if( luatop>0 && !position_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg position in SPK::Cylinder::create function");
 		}
-		const SPK::Vector3D & position=luatop>0 ? *position_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 0.0f, 0.0f);
+		const SPK::Vector3D & position=luatop>0 ? *position_ptr : (const SPK::Vector3D&)SPK::Vector3D (0.0f, 0.0f, 0.0f);
 		const SPK::Vector3D* direction_ptr=luatop>1 ? (Luna< SPK::Vector3D >::check(L,2)) : NULL;
 		if( luatop>1 && !direction_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg direction in SPK::Cylinder::create function");
 		}
-		const SPK::Vector3D & direction=luatop>1 ? *direction_ptr : (const SPK::Vector3D)SPK::Vector3D (0.0f, 1.0f, 0.0f);
+		const SPK::Vector3D & direction=luatop>1 ? *direction_ptr : (const SPK::Vector3D&)SPK::Vector3D (0.0f, 1.0f, 0.0f);
 		float radius=luatop>2 ? (float)lua_tonumber(L,3) : (float)1.0f;
 		float length=luatop>3 ? (float)lua_tonumber(L,4) : (float)1.0f;
 

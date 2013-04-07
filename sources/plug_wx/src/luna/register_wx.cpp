@@ -774,6 +774,7 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	Luna< wxHtmlRenderingState >::Register(L);
 	Luna< sockaddr >::Register(L);
 	Luna< wxMenuItemList >::Register(L);
+	Luna< wxScopedCharTypeBuffer< char > >::Register(L);
 	Luna< wxPGCellData >::Register(L);
 	Luna< wxPGWindowList >::Register(L);
 	Luna< wxPGCellRenderer >::Register(L);

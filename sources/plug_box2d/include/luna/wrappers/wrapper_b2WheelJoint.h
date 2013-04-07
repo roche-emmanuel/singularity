@@ -3,7 +3,6 @@
 
 #include <plug_common.h>
 
-#include "sgtCommon.h"
 #include "lua/LuaObject.h"
 
 #include <Box2D/Dynamics/Joints/b2WheelJoint.h>

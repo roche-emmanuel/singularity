@@ -384,7 +384,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Object::Object function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp&)CopyOp::SHALLOW_COPY;
 
 		return new wrapper_osg_Object(L,NULL, _arg2, copyop);
 	}

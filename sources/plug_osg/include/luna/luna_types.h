@@ -15869,6 +15869,101 @@ public:
 };
 
 
+// Mapped type: std::vector< osg::VertexAttribAlias >
+template<>
+class LunaTraits< std::vector< osg::VertexAttribAlias > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< osg::VertexAttribAlias >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< osg::VertexAttribAlias >* obj);
+	typedef std::vector< osg::VertexAttribAlias > parent_t;
+	typedef std::vector< osg::VertexAttribAlias > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: std::vector< osg::State::AttributePair >
+template<>
+class LunaTraits< std::vector< osg::State::AttributePair > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< osg::State::AttributePair >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< osg::State::AttributePair >* obj);
+	typedef std::vector< osg::State::AttributePair > parent_t;
+	typedef std::vector< osg::State::AttributePair > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: std::vector< osgUtil::Hit >
+template<>
+class LunaTraits< std::vector< osgUtil::Hit > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< osgUtil::Hit >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< osgUtil::Hit >* obj);
+	typedef std::vector< osgUtil::Hit > parent_t;
+	typedef std::vector< osgUtil::Hit > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: std::map< const osg::LineSegment *, osgUtil::IntersectVisitor::HitList >
+template<>
+class LunaTraits< std::map< const osg::LineSegment *, osgUtil::IntersectVisitor::HitList > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::map< const osg::LineSegment *, osgUtil::IntersectVisitor::HitList >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::map< const osg::LineSegment *, osgUtil::IntersectVisitor::HitList >* obj);
+	typedef std::map< const osg::LineSegment *, osgUtil::IntersectVisitor::HitList > parent_t;
+	typedef std::map< const osg::LineSegment *, osgUtil::IntersectVisitor::HitList > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Mapped type: std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > >
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > >* obj);
+	typedef std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > > parent_t;
+	typedef std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > > base_t;
+	static luna_ConverterType converters[];
+};
+
 
 // Referenced external: void
 template<>
@@ -19773,20 +19868,6 @@ public:
 };
 
 template<>
-class LunaType< 50375310 > {
-public:
-	typedef std::map< unsigned int, unsigned int > type;
-	
-};
-
-template<>
-class LunaType< 94158825 > {
-public:
-	typedef std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > type;
-	
-};
-
-template<>
 class LunaType< 57488909 > {
 public:
 	typedef std::vector< osg::Object * > type;
@@ -19794,9 +19875,23 @@ public:
 };
 
 template<>
+class LunaType< 50375310 > {
+public:
+	typedef std::map< unsigned int, unsigned int > type;
+	
+};
+
+template<>
 class LunaType< 36696863 > {
 public:
 	typedef std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int > type;
+	
+};
+
+template<>
+class LunaType< 94158825 > {
+public:
+	typedef std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair > type;
 	
 };
 
@@ -20392,6 +20487,41 @@ template<>
 class LunaType< 21902908 > {
 public:
 	typedef std::vector< osgViewer::View * > type;
+	
+};
+
+template<>
+class LunaType< 89957242 > {
+public:
+	typedef std::vector< osg::VertexAttribAlias > type;
+	
+};
+
+template<>
+class LunaType< 13757199 > {
+public:
+	typedef std::vector< osg::State::AttributePair > type;
+	
+};
+
+template<>
+class LunaType< 91520745 > {
+public:
+	typedef std::vector< osgUtil::Hit > type;
+	
+};
+
+template<>
+class LunaType< 49465324 > {
+public:
+	typedef std::map< const osg::LineSegment *, osgUtil::IntersectVisitor::HitList > type;
+	
+};
+
+template<>
+class LunaType< 69153813 > {
+public:
+	typedef std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > > type;
 	
 };
 

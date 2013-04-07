@@ -3,7 +3,6 @@
 
 #include <plug_common.h>
 
-#include "sgtCommon.h"
 #include "lua/LuaObject.h"
 
 #include <wx/icon.h>
@@ -31,14 +30,6 @@ public:
 	};
 	wrapper_wxIcon(lua_State* L, lua_Table* dum, const wxIcon & icon) 
 		: wxIcon(icon), luna_wrapper_base(L) { 
-		register_protected_methods(L);
-		if(_obj.pushFunction("buildInstance")) {
-			_obj.pushArg((wxIcon*)this);
-			_obj.callFunction<void>();
-		}
-	};
-	wrapper_wxIcon(lua_State* L, lua_Table* dum, const char *const * bits) 
-		: wxIcon(bits), luna_wrapper_base(L) { 
 		register_protected_methods(L);
 		if(_obj.pushFunction("buildInstance")) {
 			_obj.pushArg((wxIcon*)this);

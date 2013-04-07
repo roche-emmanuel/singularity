@@ -705,7 +705,7 @@ public:
 		if( luatop>3 && !localInertia_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localInertia in btRigidBody::btRigidBody function");
 		}
-		const btVector3 & localInertia=luatop>3 ? *localInertia_ptr : (const btVector3)btVector3 (0, 0, 0);
+		const btVector3 & localInertia=luatop>3 ? *localInertia_ptr : (const btVector3&)btVector3 (0, 0, 0);
 
 		return new btRigidBody(mass, motionState, collisionShape, localInertia);
 	}
@@ -742,7 +742,7 @@ public:
 		if( luatop>4 && !localInertia_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg localInertia in btRigidBody::btRigidBody function");
 		}
-		const btVector3 & localInertia=luatop>4 ? *localInertia_ptr : (const btVector3)btVector3 (0, 0, 0);
+		const btVector3 & localInertia=luatop>4 ? *localInertia_ptr : (const btVector3&)btVector3 (0, 0, 0);
 
 		return new wrapper_btRigidBody(L,NULL, mass, motionState, collisionShape, localInertia);
 	}

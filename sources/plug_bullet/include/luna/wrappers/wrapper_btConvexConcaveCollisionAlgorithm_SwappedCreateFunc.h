@@ -3,7 +3,6 @@
 
 #include <plug_common.h>
 
-#include "sgtCommon.h"
 #include "lua/LuaObject.h"
 
 #include <BulletCollision/CollisionDispatch/btConvexConcaveCollisionAlgorithm.h>

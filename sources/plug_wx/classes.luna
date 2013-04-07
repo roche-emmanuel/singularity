@@ -759,6 +759,7 @@ wxHtmlHelpDataItems => wxHtmlHelpDataItems
 wxHtmlRenderingState => wxHtmlRenderingState
 sockaddr => sockaddr
 wxMenuItemList => wxMenuItemList
+wxScopedCharTypeBuffer< char > => wxScopedCharTypeBuffer< char >
 wxPGCellData => wxPGCellData
 wxPGWindowList => wxPGWindowList
 wxPGCellRenderer => wxPGCellRenderer

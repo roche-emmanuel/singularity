@@ -14745,6 +14745,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Mapped type: wxScopedCharTypeBuffer< char >
+template<>
+class LunaTraits< wxScopedCharTypeBuffer< char > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxScopedCharTypeBuffer< char >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxScopedCharTypeBuffer< char >* obj);
+	typedef wxScopedCharTypeBuffer< char > parent_t;
+	typedef wxScopedCharTypeBuffer< char > base_t;
+	static luna_ConverterType converters[];
+};
+
 // Mapped type: wxPGCellData
 template<>
 class LunaTraits< wxPGCellData > {
@@ -16786,6 +16805,13 @@ template<>
 class LunaType< 4556242 > {
 public:
 	typedef wxMenuItemList type;
+	
+};
+
+template<>
+class LunaType< 59324013 > {
+public:
+	typedef wxScopedCharTypeBuffer< char > type;
 	
 };
 

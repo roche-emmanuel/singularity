@@ -1,10 +1,10 @@
 local version = {}
 
 version.major = 0
-version.minor = 2
+version.minor = 3
 version.patch = 0
 
-version.build = 811
-version.date = "04/07/13 08:50:52"
+version.build = 819
+version.date = "04/07/13 12:20:14"
 
 return version;

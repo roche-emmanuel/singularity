@@ -8607,13 +8607,6 @@ public:
 };
 
 template<>
-class LunaType< 41950488 > {
-public:
-	typedef btAlignedObjectArray< int > type;
-	
-};
-
-template<>
 class LunaType< 9763203 > {
 public:
 	typedef btAlignedObjectArray< btPersistentManifold * > type;
@@ -8708,6 +8701,13 @@ template<>
 class LunaType< 67655647 > {
 public:
 	typedef btHashMap< btHashInt, btTriangleInfo > type;
+	
+};
+
+template<>
+class LunaType< 41950488 > {
+public:
+	typedef btAlignedObjectArray< int > type;
 	
 };
 

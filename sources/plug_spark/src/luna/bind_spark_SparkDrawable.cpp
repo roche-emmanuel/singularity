@@ -438,7 +438,7 @@ public:
 		if( luatop>1 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in spark::SparkDrawable::SparkDrawable function");
 		}
-		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new spark::SparkDrawable(copy, copyop);
 	}
@@ -472,7 +472,7 @@ public:
 		if( luatop>2 && !copyop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copyop in spark::SparkDrawable::SparkDrawable function");
 		}
-		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp)osg::CopyOp::SHALLOW_COPY;
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : (const osg::CopyOp&)osg::CopyOp::SHALLOW_COPY;
 
 		return new wrapper_spark_SparkDrawable(L,NULL, copy, copyop);
 	}
@@ -1005,12 +1005,12 @@ public:
 		if( luatop>1 && !p_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg p in spark::SparkDrawable::addParticleSystem function");
 		}
-		const osg::Vec3 & p=luatop>1 ? *p_ptr : (const osg::Vec3)osg::Vec3();
+		const osg::Vec3 & p=luatop>1 ? *p_ptr : (const osg::Vec3&)osg::Vec3();
 		const osg::Quat* r_ptr=luatop>2 ? (Luna< osg::Quat >::check(L,3)) : NULL;
 		if( luatop>2 && !r_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg r in spark::SparkDrawable::addParticleSystem function");
 		}
-		const osg::Quat & r=luatop>2 ? *r_ptr : (const osg::Quat)osg::Quat();
+		const osg::Quat & r=luatop>2 ? *r_ptr : (const osg::Quat&)osg::Quat();
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {

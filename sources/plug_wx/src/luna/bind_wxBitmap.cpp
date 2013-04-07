@@ -146,13 +146,6 @@ public:
 	}
 
 	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		if( lua_isstring(L,1)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
@@ -161,7 +154,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
@@ -171,14 +164,14 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_9(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
@@ -187,7 +180,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_10(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_9(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
@@ -198,7 +191,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_11(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_10(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
@@ -209,15 +202,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_12(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_istable(L,1)==0 ) return false;
-		if( lua_isstring(L,2)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_13(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_11(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
@@ -227,7 +212,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_14(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_12(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
@@ -620,21 +605,9 @@ public:
 		return new wxBitmap(sz, depth);
 	}
 
-	// wxBitmap::wxBitmap(const char *const * bits)
+	// wxBitmap::wxBitmap(const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE)
 	static wxBitmap* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmap::wxBitmap(const char *const * bits) function, expected prototype:\nwxBitmap::wxBitmap(const char *const * bits)\nClass arguments details:\n");
-		}
-
-		const char *const * bits=(const char *const *)lua_tostring(L,1);
-
-		return new wxBitmap(bits);
-	}
-
-	// wxBitmap::wxBitmap(const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE)
-	static wxBitmap* _bind_ctor_overload_6(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_6(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxBitmap::wxBitmap(const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE) function, expected prototype:\nwxBitmap::wxBitmap(const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
@@ -648,8 +621,8 @@ public:
 	}
 
 	// wxBitmap::wxBitmap(const wxImage & img, int depth = (-1))
-	static wxBitmap* _bind_ctor_overload_7(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_7(L)) {
+	static wxBitmap* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxBitmap::wxBitmap(const wxImage & img, int depth = (-1)) function, expected prototype:\nwxBitmap::wxBitmap(const wxImage & img, int depth = (-1))\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -667,8 +640,8 @@ public:
 	}
 
 	// wxBitmap::wxBitmap(lua_Table * data)
-	static wxBitmap* _bind_ctor_overload_8(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_8(L)) {
+	static wxBitmap* _bind_ctor_overload_7(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_7(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxBitmap::wxBitmap(lua_Table * data) function, expected prototype:\nwxBitmap::wxBitmap(lua_Table * data)\nClass arguments details:\n");
 		}
@@ -678,8 +651,8 @@ public:
 	}
 
 	// wxBitmap::wxBitmap(lua_Table * data, const wxBitmap & bitmap)
-	static wxBitmap* _bind_ctor_overload_9(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_9(L)) {
+	static wxBitmap* _bind_ctor_overload_8(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_8(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxBitmap::wxBitmap(lua_Table * data, const wxBitmap & bitmap) function, expected prototype:\nwxBitmap::wxBitmap(lua_Table * data, const wxBitmap & bitmap)\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
@@ -694,8 +667,8 @@ public:
 	}
 
 	// wxBitmap::wxBitmap(lua_Table * data, int width, int height, int depth = (-1))
-	static wxBitmap* _bind_ctor_overload_10(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_10(L)) {
+	static wxBitmap* _bind_ctor_overload_9(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_9(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxBitmap::wxBitmap(lua_Table * data, int width, int height, int depth = (-1)) function, expected prototype:\nwxBitmap::wxBitmap(lua_Table * data, int width, int height, int depth = (-1))\nClass arguments details:\n");
 		}
@@ -710,8 +683,8 @@ public:
 	}
 
 	// wxBitmap::wxBitmap(lua_Table * data, const wxSize & sz, int depth = (-1))
-	static wxBitmap* _bind_ctor_overload_11(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_11(L)) {
+	static wxBitmap* _bind_ctor_overload_10(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_10(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxBitmap::wxBitmap(lua_Table * data, const wxSize & sz, int depth = (-1)) function, expected prototype:\nwxBitmap::wxBitmap(lua_Table * data, const wxSize & sz, int depth = (-1))\nClass arguments details:\narg 2 ID = 20268751\n");
 		}
@@ -728,21 +701,9 @@ public:
 		return new wrapper_wxBitmap(L,NULL, sz, depth);
 	}
 
-	// wxBitmap::wxBitmap(lua_Table * data, const char *const * bits)
-	static wxBitmap* _bind_ctor_overload_12(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_12(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmap::wxBitmap(lua_Table * data, const char *const * bits) function, expected prototype:\nwxBitmap::wxBitmap(lua_Table * data, const char *const * bits)\nClass arguments details:\n");
-		}
-
-		const char *const * bits=(const char *const *)lua_tostring(L,2);
-
-		return new wrapper_wxBitmap(L,NULL, bits);
-	}
-
 	// wxBitmap::wxBitmap(lua_Table * data, const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE)
-	static wxBitmap* _bind_ctor_overload_13(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_13(L)) {
+	static wxBitmap* _bind_ctor_overload_11(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_11(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxBitmap::wxBitmap(lua_Table * data, const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE) function, expected prototype:\nwxBitmap::wxBitmap(lua_Table * data, const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE)\nClass arguments details:\narg 2 ID = 88196105\n");
 		}
@@ -756,8 +717,8 @@ public:
 	}
 
 	// wxBitmap::wxBitmap(lua_Table * data, const wxImage & img, int depth = (-1))
-	static wxBitmap* _bind_ctor_overload_14(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_14(L)) {
+	static wxBitmap* _bind_ctor_overload_12(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_12(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxBitmap::wxBitmap(lua_Table * data, const wxImage & img, int depth = (-1)) function, expected prototype:\nwxBitmap::wxBitmap(lua_Table * data, const wxImage & img, int depth = (-1))\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
@@ -788,10 +749,8 @@ public:
 		if (_lg_typecheck_ctor_overload_10(L)) return _bind_ctor_overload_10(L);
 		if (_lg_typecheck_ctor_overload_11(L)) return _bind_ctor_overload_11(L);
 		if (_lg_typecheck_ctor_overload_12(L)) return _bind_ctor_overload_12(L);
-		if (_lg_typecheck_ctor_overload_13(L)) return _bind_ctor_overload_13(L);
-		if (_lg_typecheck_ctor_overload_14(L)) return _bind_ctor_overload_14(L);
 
-		luaL_error(L, "error in function wxBitmap, cannot match any of the overloads for function wxBitmap:\n  wxBitmap()\n  wxBitmap(const wxBitmap &)\n  wxBitmap(int, int, int)\n  wxBitmap(const wxSize &, int)\n  wxBitmap(const char *const *)\n  wxBitmap(const wxString &, wxBitmapType)\n  wxBitmap(const wxImage &, int)\n  wxBitmap(lua_Table *)\n  wxBitmap(lua_Table *, const wxBitmap &)\n  wxBitmap(lua_Table *, int, int, int)\n  wxBitmap(lua_Table *, const wxSize &, int)\n  wxBitmap(lua_Table *, const char *const *)\n  wxBitmap(lua_Table *, const wxString &, wxBitmapType)\n  wxBitmap(lua_Table *, const wxImage &, int)\n");
+		luaL_error(L, "error in function wxBitmap, cannot match any of the overloads for function wxBitmap:\n  wxBitmap()\n  wxBitmap(const wxBitmap &)\n  wxBitmap(int, int, int)\n  wxBitmap(const wxSize &, int)\n  wxBitmap(const wxString &, wxBitmapType)\n  wxBitmap(const wxImage &, int)\n  wxBitmap(lua_Table *)\n  wxBitmap(lua_Table *, const wxBitmap &)\n  wxBitmap(lua_Table *, int, int, int)\n  wxBitmap(lua_Table *, const wxSize &, int)\n  wxBitmap(lua_Table *, const wxString &, wxBitmapType)\n  wxBitmap(lua_Table *, const wxImage &, int)\n");
 		return NULL;
 	}
 

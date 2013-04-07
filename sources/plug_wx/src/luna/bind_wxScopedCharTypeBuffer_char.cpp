@@ -57,11 +57,11 @@ public:
 };
 
 wxScopedCharTypeBuffer< char >* LunaTraits< wxScopedCharTypeBuffer< char > >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return NULL; //Type destructor explicitly removed.
 }
 
 void LunaTraits< wxScopedCharTypeBuffer< char > >::_bind_dtor(wxScopedCharTypeBuffer< char >* obj) {
-	//delete obj; // do not delete by default.
+	//Type destructor explicitly removed.
 }
 
 const char LunaTraits< wxScopedCharTypeBuffer< char > >::className[] = "wxScopedCharTypeBuffer_char";

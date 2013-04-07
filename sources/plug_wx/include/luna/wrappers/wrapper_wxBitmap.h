@@ -3,7 +3,6 @@
 
 #include <plug_common.h>
 
-#include "sgtCommon.h"
 #include "lua/LuaObject.h"
 
 #include <wx/bitmap.h>
@@ -47,14 +46,6 @@ public:
 	};
 	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxSize & sz, int depth = (-1)) 
 		: wxBitmap(sz, depth), luna_wrapper_base(L) { 
-		register_protected_methods(L);
-		if(_obj.pushFunction("buildInstance")) {
-			_obj.pushArg((wxBitmap*)this);
-			_obj.callFunction<void>();
-		}
-	};
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const char *const * bits) 
-		: wxBitmap(bits), luna_wrapper_base(L) { 
 		register_protected_methods(L);
 		if(_obj.pushFunction("buildInstance")) {
 			_obj.pushArg((wxBitmap*)this);

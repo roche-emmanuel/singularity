@@ -126,13 +126,6 @@ public:
 	}
 
 	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		if( lua_isstring(L,1)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>4 ) return false;
 
@@ -143,7 +136,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,82682189) ) return false;
@@ -151,14 +144,14 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
@@ -167,15 +160,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_istable(L,1)==0 ) return false;
-		if( lua_isstring(L,2)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_9(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>5 ) return false;
 
@@ -187,7 +172,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_10(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
@@ -312,21 +297,9 @@ public:
 		return new wxIcon(icon);
 	}
 
-	// wxIcon::wxIcon(const char *const * bits)
+	// wxIcon::wxIcon(const wxString & name, wxBitmapType type = wxICON_DEFAULT_TYPE, int desiredWidth = -1, int desiredHeight = -1)
 	static wxIcon* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIcon::wxIcon(const char *const * bits) function, expected prototype:\nwxIcon::wxIcon(const char *const * bits)\nClass arguments details:\n");
-		}
-
-		const char *const * bits=(const char *const *)lua_tostring(L,1);
-
-		return new wxIcon(bits);
-	}
-
-	// wxIcon::wxIcon(const wxString & name, wxBitmapType type = wxICON_DEFAULT_TYPE, int desiredWidth = -1, int desiredHeight = -1)
-	static wxIcon* _bind_ctor_overload_4(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_4(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxIcon::wxIcon(const wxString & name, wxBitmapType type = wxICON_DEFAULT_TYPE, int desiredWidth = -1, int desiredHeight = -1) function, expected prototype:\nwxIcon::wxIcon(const wxString & name, wxBitmapType type = wxICON_DEFAULT_TYPE, int desiredWidth = -1, int desiredHeight = -1)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
@@ -342,8 +315,8 @@ public:
 	}
 
 	// wxIcon::wxIcon(const wxIconLocation & loc)
-	static wxIcon* _bind_ctor_overload_5(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_5(L)) {
+	static wxIcon* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxIcon::wxIcon(const wxIconLocation & loc) function, expected prototype:\nwxIcon::wxIcon(const wxIconLocation & loc)\nClass arguments details:\narg 1 ID = 82682189\n");
 		}
@@ -358,8 +331,8 @@ public:
 	}
 
 	// wxIcon::wxIcon(lua_Table * data)
-	static wxIcon* _bind_ctor_overload_6(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_6(L)) {
+	static wxIcon* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxIcon::wxIcon(lua_Table * data) function, expected prototype:\nwxIcon::wxIcon(lua_Table * data)\nClass arguments details:\n");
 		}
@@ -369,8 +342,8 @@ public:
 	}
 
 	// wxIcon::wxIcon(lua_Table * data, const wxIcon & icon)
-	static wxIcon* _bind_ctor_overload_7(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_7(L)) {
+	static wxIcon* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxIcon::wxIcon(lua_Table * data, const wxIcon & icon) function, expected prototype:\nwxIcon::wxIcon(lua_Table * data, const wxIcon & icon)\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
@@ -384,21 +357,9 @@ public:
 		return new wrapper_wxIcon(L,NULL, icon);
 	}
 
-	// wxIcon::wxIcon(lua_Table * data, const char *const * bits)
-	static wxIcon* _bind_ctor_overload_8(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIcon::wxIcon(lua_Table * data, const char *const * bits) function, expected prototype:\nwxIcon::wxIcon(lua_Table * data, const char *const * bits)\nClass arguments details:\n");
-		}
-
-		const char *const * bits=(const char *const *)lua_tostring(L,2);
-
-		return new wrapper_wxIcon(L,NULL, bits);
-	}
-
 	// wxIcon::wxIcon(lua_Table * data, const wxString & name, wxBitmapType type = wxICON_DEFAULT_TYPE, int desiredWidth = -1, int desiredHeight = -1)
-	static wxIcon* _bind_ctor_overload_9(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_9(L)) {
+	static wxIcon* _bind_ctor_overload_7(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_7(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxIcon::wxIcon(lua_Table * data, const wxString & name, wxBitmapType type = wxICON_DEFAULT_TYPE, int desiredWidth = -1, int desiredHeight = -1) function, expected prototype:\nwxIcon::wxIcon(lua_Table * data, const wxString & name, wxBitmapType type = wxICON_DEFAULT_TYPE, int desiredWidth = -1, int desiredHeight = -1)\nClass arguments details:\narg 2 ID = 88196105\n");
 		}
@@ -414,8 +375,8 @@ public:
 	}
 
 	// wxIcon::wxIcon(lua_Table * data, const wxIconLocation & loc)
-	static wxIcon* _bind_ctor_overload_10(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_10(L)) {
+	static wxIcon* _bind_ctor_overload_8(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_8(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxIcon::wxIcon(lua_Table * data, const wxIconLocation & loc) function, expected prototype:\nwxIcon::wxIcon(lua_Table * data, const wxIconLocation & loc)\nClass arguments details:\narg 2 ID = 82682189\n");
 		}
@@ -439,10 +400,8 @@ public:
 		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 		if (_lg_typecheck_ctor_overload_7(L)) return _bind_ctor_overload_7(L);
 		if (_lg_typecheck_ctor_overload_8(L)) return _bind_ctor_overload_8(L);
-		if (_lg_typecheck_ctor_overload_9(L)) return _bind_ctor_overload_9(L);
-		if (_lg_typecheck_ctor_overload_10(L)) return _bind_ctor_overload_10(L);
 
-		luaL_error(L, "error in function wxIcon, cannot match any of the overloads for function wxIcon:\n  wxIcon()\n  wxIcon(const wxIcon &)\n  wxIcon(const char *const *)\n  wxIcon(const wxString &, wxBitmapType, int, int)\n  wxIcon(const wxIconLocation &)\n  wxIcon(lua_Table *)\n  wxIcon(lua_Table *, const wxIcon &)\n  wxIcon(lua_Table *, const char *const *)\n  wxIcon(lua_Table *, const wxString &, wxBitmapType, int, int)\n  wxIcon(lua_Table *, const wxIconLocation &)\n");
+		luaL_error(L, "error in function wxIcon, cannot match any of the overloads for function wxIcon:\n  wxIcon()\n  wxIcon(const wxIcon &)\n  wxIcon(const wxString &, wxBitmapType, int, int)\n  wxIcon(const wxIconLocation &)\n  wxIcon(lua_Table *)\n  wxIcon(lua_Table *, const wxIcon &)\n  wxIcon(lua_Table *, const wxString &, wxBitmapType, int, int)\n  wxIcon(lua_Table *, const wxIconLocation &)\n");
 		return NULL;
 	}
 

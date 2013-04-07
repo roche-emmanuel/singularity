@@ -496,12 +496,12 @@ public:
 		if( luatop>4 && !aabbMin_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg aabbMin in bt32BitAxisSweep3::base_rayTest function");
 		}
-		const btVector3 & aabbMin=luatop>4 ? *aabbMin_ptr : (const btVector3)btVector3 (0, 0, 0);
+		const btVector3 & aabbMin=luatop>4 ? *aabbMin_ptr : (const btVector3&)btVector3 (0, 0, 0);
 		const btVector3* aabbMax_ptr=luatop>5 ? (Luna< btVector3 >::check(L,6)) : NULL;
 		if( luatop>5 && !aabbMax_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg aabbMax in bt32BitAxisSweep3::base_rayTest function");
 		}
-		const btVector3 & aabbMax=luatop>5 ? *aabbMax_ptr : (const btVector3)btVector3 (0, 0, 0);
+		const btVector3 & aabbMax=luatop>5 ? *aabbMax_ptr : (const btVector3&)btVector3 (0, 0, 0);
 
 		bt32BitAxisSweep3* self=Luna< btBroadphaseInterface >::checkSubType< bt32BitAxisSweep3 >(L,1);
 		if(!self) {

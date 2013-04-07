@@ -320,7 +320,7 @@ public:
 		if( luatop>1 && !c_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg c in btTransform::btTransform function");
 		}
-		const btVector3 & c=luatop>1 ? *c_ptr : (const btVector3)btVector3 ( float (0),  float (0),  float (0));
+		const btVector3 & c=luatop>1 ? *c_ptr : (const btVector3&)btVector3 ( float (0),  float (0),  float (0));
 
 		return new btTransform(q, c);
 	}
@@ -343,7 +343,7 @@ public:
 		if( luatop>1 && !c_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg c in btTransform::btTransform function");
 		}
-		const btVector3 & c=luatop>1 ? *c_ptr : (const btVector3)btVector3 ( float (0),  float (0),  float (0));
+		const btVector3 & c=luatop>1 ? *c_ptr : (const btVector3&)btVector3 ( float (0),  float (0),  float (0));
 
 		return new btTransform(b, c);
 	}

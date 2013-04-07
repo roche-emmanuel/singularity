@@ -189,6 +189,7 @@ ReflectionGenerator.generate{
 		"ObjectSerializer",
 		"ImageSerializer",
 		"EnumSerializer",
+		"osg::MatrixTemplate<",
 		--"OperationArrayFunctor",
 		"std::list< osg::ref_ptr< osgDB::DatabasePager::DatabaseRequest > >",
 		--"std::list< osgUtil::SceneView * >",
