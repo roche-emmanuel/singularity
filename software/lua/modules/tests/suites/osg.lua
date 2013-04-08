@@ -150,13 +150,30 @@ function test_diamond_inheritance_handling()
 	log:info("Tests","Done testing iamond inheritance support.")
 end
 
+function test_object_equality()
+	log:info("Tests","Testing object equality.")
+
+	local grp1 = osg.Group()
+	local grp2 = osg.Group()
+	
+	assert_not_equal(grp1,grp2,"Different groups are equal.")
+	
+	local obj1 = grp1:dynCast("osg::Object")
+
+	assert_equal(grp1,obj1,"Group casted as object not equal to itself.")
+	
+	log:info("Tests","Done testing object equality.")
+end
+
 function test_event_handler()
 	log:info("Tests","Testing event handler.")
 	
 	local grp = osg.Group()
+	grp:setName("Mygroup")
 	
 	local executed = false;
 	local thenode = nil
+	local thename = nil
 	
 	local viewer = osgViewer.Viewer()
 	
@@ -164,7 +181,8 @@ function test_event_handler()
 	viewer:setUpViewInWindow(50,50,500,400)
 	-- viewer:getCamera():addChild(grp)
 	viewer:setSceneData(grp)
-	
+	viewer:setThreadingModel(osgViewer.ViewerBase.SingleThreaded)
+
 	-- grp:setUpdateCB(function(node,nv)
 		--log:info("Tests","executing node callback...")
 		-- executed = true
@@ -172,12 +190,23 @@ function test_event_handler()
 		-- viewer:setDone(true);
 	-- end)
 	
-	-- grp:addEvtHandler(function(ea,aa,node,nv)
-		-- log:info("Tests","gui event handler...")
-		-- executed = true
-		-- thenode = node;
-		-- viewer:setDone(true);
-	-- end)
+	grp:addEvtHandler(function(ea,aa,node,nv)
+		log:info("Tests","gui event handler...")
+		executed = true
+		thenode = node;
+		assert_not_equal(nil,node,"Invalid node argument in GuiEventHandler::handle()")
+		
+		log:info("Tests","Retrieving node name...")
+		thename = node:getName();
+		log:info("Tests","Node name is: ", thename)
+		
+		if(node:dynCast("osg::Group")==grp) then
+			log:warn("Node test passed!")
+		else
+			log:error("Node test failed!")
+		end
+		viewer:setDone(true);
+	end)
 
 	-- while not executed do
 	log:info("Tests","Rendering viewer...")
@@ -185,11 +214,14 @@ function test_event_handler()
 	log:info("Tests","Done rendering viewer.")
 	-- end	
 
-	viewer=nil
-	collectgarbage('collect')
-	
 	assert_equal(true,executed,"Invalid execution status")
-	assert_equal(grp,thenode,"Invalid node retrieved")
+	assert_equal("Mygroup",thename,"Invalid node retrieved")
+	-- assert_equal(grp,thenode,"Invalid node retrieved")
+
+	viewer=nil
+	grp=nil
+	osg.setNotifyHandler(nil)
+	collectgarbage('collect')
 	
 	log:info("Tests","Done testing event handler")
 end

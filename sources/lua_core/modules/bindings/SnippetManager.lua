@@ -148,7 +148,9 @@ function Class:getEqualityCode(bname,hash)
 			luaL_error(L, "Invalid object in function call __eq(...)");
 		}
 		
-		return self==rhs;
+		lua_pushboolean(L,self==rhs?1:0);
+
+		return 1;
 	}
 ]]
 
