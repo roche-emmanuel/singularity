@@ -150,8 +150,8 @@ function test_diamond_inheritance_handling()
 	log:info("Tests","Done testing iamond inheritance support.")
 end
 
-function test_object_equality()
-	log:info("Tests","Testing object equality.")
+function test_object_equality_advanced()
+	log:info("Tests","Testing object equality advanced.")
 
 	local grp1 = osg.Group()
 	local grp2 = osg.Group()
@@ -163,7 +163,7 @@ function test_object_equality()
 	-- The test below will fail because both arguments do not use the same metamethod.
 	assert_equal(grp1,obj1,"Group casted as object not equal to itself.")
 	
-	log:info("Tests","Done testing object equality.")
+	log:info("Tests","Done testing object equality advanced.")
 end
 
 function test_event_handler()
@@ -217,7 +217,7 @@ function test_event_handler()
 
 	assert_equal(true,executed,"Invalid execution status")
 	assert_equal("Mygroup",thename,"Invalid node retrieved")
-	-- assert_equal(grp,thenode,"Invalid node retrieved")
+	assert_equal(grp,thenode,"Invalid node retrieved")
 
 	viewer=nil
 	grp=nil
