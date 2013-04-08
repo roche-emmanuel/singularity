@@ -4,30 +4,6 @@ class luna_wrapper_osgDB_XmlNode_Input {
 public:
 	typedef Luna< osgDB::XmlNode::Input > luna_t;
 
-	inline static bool _lg_typecheck___eq(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,95509303) ) return false;
-		return true;
-	}
-	
-	static int _bind___eq(lua_State *L) {
-		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::XmlNode::ControlMap*)");
-		}
-
-		osgDB::XmlNode::ControlMap* rhs =(Luna< osgDB::XmlNode::ControlMap >::check(L,2));
-		osgDB::XmlNode::ControlMap* self=(Luna< osgDB::XmlNode::ControlMap >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call __eq(...)");
-		}
-		
-		lua_pushboolean(L,self==rhs?1:0);
-
-		return 1;
-	}
-
 	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -117,7 +93,6 @@ const int LunaTraits< osgDB::XmlNode::Input >::hash = 63781548;
 const int LunaTraits< osgDB::XmlNode::Input >::uniqueIDs[] = {95509303,0};
 
 luna_RegType LunaTraits< osgDB::XmlNode::Input >::methods[] = {
-	{"__eq", &luna_wrapper_osgDB_XmlNode_Input::_bind___eq},
 	{"fromVoid", &luna_wrapper_osgDB_XmlNode_Input::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_osgDB_XmlNode_Input::_bind_asVoid},
 	{0,0}

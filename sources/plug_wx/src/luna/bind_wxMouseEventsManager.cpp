@@ -30,30 +30,6 @@ public:
 		return 0;
 	}
 
-	inline static bool _lg_typecheck___eq(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
-		return true;
-	}
-	
-	static int _bind___eq(lua_State *L) {
-		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxObject*)");
-		}
-
-		wxObject* rhs =(Luna< wxObject >::check(L,2));
-		wxObject* self=(Luna< wxObject >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call __eq(...)");
-		}
-		
-		lua_pushboolean(L,self==rhs?1:0);
-
-		return 1;
-	}
-
 	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -399,7 +375,6 @@ luna_RegType LunaTraits< wxMouseEventsManager >::methods[] = {
 	{"base_ProcessEvent", &luna_wrapper_wxMouseEventsManager::_bind_base_ProcessEvent},
 	{"base_SetNextHandler", &luna_wrapper_wxMouseEventsManager::_bind_base_SetNextHandler},
 	{"base_SetPreviousHandler", &luna_wrapper_wxMouseEventsManager::_bind_base_SetPreviousHandler},
-	{"__eq", &luna_wrapper_wxMouseEventsManager::_bind___eq},
 	{"fromVoid", &luna_wrapper_wxMouseEventsManager::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_wxMouseEventsManager::_bind_asVoid},
 	{"getTable", &luna_wrapper_wxMouseEventsManager::_bind_getTable},

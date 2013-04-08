@@ -30,30 +30,6 @@ public:
 		return 0;
 	}
 
-	inline static bool _lg_typecheck___eq(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,56402633) ) return false;
-		return true;
-	}
-	
-	static int _bind___eq(lua_State *L) {
-		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btStridingMeshInterface*)");
-		}
-
-		btStridingMeshInterface* rhs =(Luna< btStridingMeshInterface >::check(L,2));
-		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call __eq(...)");
-		}
-		
-		lua_pushboolean(L,self==rhs?1:0);
-
-		return 1;
-	}
-
 	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -595,7 +571,6 @@ luna_RegType LunaTraits< btTriangleIndexVertexMaterialArray >::methods[] = {
 	{"base_hasPremadeAabb", &luna_wrapper_btTriangleIndexVertexMaterialArray::_bind_base_hasPremadeAabb},
 	{"base_setPremadeAabb", &luna_wrapper_btTriangleIndexVertexMaterialArray::_bind_base_setPremadeAabb},
 	{"base_getPremadeAabb", &luna_wrapper_btTriangleIndexVertexMaterialArray::_bind_base_getPremadeAabb},
-	{"__eq", &luna_wrapper_btTriangleIndexVertexMaterialArray::_bind___eq},
 	{"fromVoid", &luna_wrapper_btTriangleIndexVertexMaterialArray::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_btTriangleIndexVertexMaterialArray::_bind_asVoid},
 	{"getTable", &luna_wrapper_btTriangleIndexVertexMaterialArray::_bind_getTable},

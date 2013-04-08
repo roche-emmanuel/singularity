@@ -30,30 +30,6 @@ public:
 		return 0;
 	}
 
-	inline static bool _lg_typecheck___eq(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-		return true;
-	}
-	
-	static int _bind___eq(lua_State *L) {
-		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Referenced*)");
-		}
-
-		osg::Referenced* rhs =(Luna< osg::Referenced >::check(L,2));
-		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call __eq(...)");
-		}
-		
-		lua_pushboolean(L,self==rhs?1:0);
-
-		return 1;
-	}
-
 	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -266,7 +242,6 @@ luna_RegType LunaTraits< osg::Texture1D::SubloadCallback >::methods[] = {
 	{"load", &luna_wrapper_osg_Texture1D_SubloadCallback::_bind_load},
 	{"subload", &luna_wrapper_osg_Texture1D_SubloadCallback::_bind_subload},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_osg_Texture1D_SubloadCallback::_bind_base_setThreadSafeRefUnref},
-	{"__eq", &luna_wrapper_osg_Texture1D_SubloadCallback::_bind___eq},
 	{"fromVoid", &luna_wrapper_osg_Texture1D_SubloadCallback::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_osg_Texture1D_SubloadCallback::_bind_asVoid},
 	{"getTable", &luna_wrapper_osg_Texture1D_SubloadCallback::_bind_getTable},

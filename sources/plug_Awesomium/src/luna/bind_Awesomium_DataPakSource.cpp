@@ -30,30 +30,6 @@ public:
 		return 0;
 	}
 
-	inline static bool _lg_typecheck___eq(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,37218942) ) return false;
-		return true;
-	}
-	
-	static int _bind___eq(lua_State *L) {
-		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::DataSource*)");
-		}
-
-		Awesomium::DataSource* rhs =(Luna< Awesomium::DataSource >::check(L,2));
-		Awesomium::DataSource* self=(Luna< Awesomium::DataSource >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call __eq(...)");
-		}
-		
-		lua_pushboolean(L,self==rhs?1:0);
-
-		return 1;
-	}
-
 	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -253,7 +229,6 @@ const int LunaTraits< Awesomium::DataPakSource >::uniqueIDs[] = {37218942,0};
 luna_RegType LunaTraits< Awesomium::DataPakSource >::methods[] = {
 	{"OnRequest", &luna_wrapper_Awesomium_DataPakSource::_bind_OnRequest},
 	{"base_OnRequest", &luna_wrapper_Awesomium_DataPakSource::_bind_base_OnRequest},
-	{"__eq", &luna_wrapper_Awesomium_DataPakSource::_bind___eq},
 	{"fromVoid", &luna_wrapper_Awesomium_DataPakSource::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_Awesomium_DataPakSource::_bind_asVoid},
 	{"getTable", &luna_wrapper_Awesomium_DataPakSource::_bind_getTable},

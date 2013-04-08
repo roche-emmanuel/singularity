@@ -4,30 +4,6 @@ class luna_wrapper_btContactSolverInfo {
 public:
 	typedef Luna< btContactSolverInfo > luna_t;
 
-	inline static bool _lg_typecheck___eq(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,5410878) ) return false;
-		return true;
-	}
-	
-	static int _bind___eq(lua_State *L) {
-		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btContactSolverInfoData*)");
-		}
-
-		btContactSolverInfoData* rhs =(Luna< btContactSolverInfoData >::check(L,2));
-		btContactSolverInfoData* self=(Luna< btContactSolverInfoData >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call __eq(...)");
-		}
-		
-		lua_pushboolean(L,self==rhs?1:0);
-
-		return 1;
-	}
-
 	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -134,7 +110,6 @@ const int LunaTraits< btContactSolverInfo >::hash = 50007106;
 const int LunaTraits< btContactSolverInfo >::uniqueIDs[] = {5410878,0};
 
 luna_RegType LunaTraits< btContactSolverInfo >::methods[] = {
-	{"__eq", &luna_wrapper_btContactSolverInfo::_bind___eq},
 	{"fromVoid", &luna_wrapper_btContactSolverInfo::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_btContactSolverInfo::_bind_asVoid},
 	{0,0}

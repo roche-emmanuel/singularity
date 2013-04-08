@@ -30,30 +30,6 @@ public:
 		return 0;
 	}
 
-	inline static bool _lg_typecheck___eq(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,94004845) ) return false;
-		return true;
-	}
-	
-	static int _bind___eq(lua_State *L) {
-		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxVarScrollHelperBase*)");
-		}
-
-		wxVarScrollHelperBase* rhs =(Luna< wxVarScrollHelperBase >::check(L,2));
-		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call __eq(...)");
-		}
-		
-		lua_pushboolean(L,self==rhs?1:0);
-
-		return 1;
-	}
-
 	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -660,7 +636,6 @@ luna_RegType LunaTraits< wxVarHScrollHelper >::methods[] = {
 	{"base_RefreshColumns", &luna_wrapper_wxVarHScrollHelper::_bind_base_RefreshColumns},
 	{"base_ScrollColumnPages", &luna_wrapper_wxVarHScrollHelper::_bind_base_ScrollColumnPages},
 	{"base_ScrollColumns", &luna_wrapper_wxVarHScrollHelper::_bind_base_ScrollColumns},
-	{"__eq", &luna_wrapper_wxVarHScrollHelper::_bind___eq},
 	{"fromVoid", &luna_wrapper_wxVarHScrollHelper::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_wxVarHScrollHelper::_bind_asVoid},
 	{"getTable", &luna_wrapper_wxVarHScrollHelper::_bind_getTable},

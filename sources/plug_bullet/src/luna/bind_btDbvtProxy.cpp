@@ -4,30 +4,6 @@ class luna_wrapper_btDbvtProxy {
 public:
 	typedef Luna< btDbvtProxy > luna_t;
 
-	inline static bool _lg_typecheck___eq(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,44086089) ) return false;
-		return true;
-	}
-	
-	static int _bind___eq(lua_State *L) {
-		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btBroadphaseProxy*)");
-		}
-
-		btBroadphaseProxy* rhs =(Luna< btBroadphaseProxy >::check(L,2));
-		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call __eq(...)");
-		}
-		
-		lua_pushboolean(L,self==rhs?1:0);
-
-		return 1;
-	}
-
 	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -260,7 +236,6 @@ luna_RegType LunaTraits< btDbvtProxy >::methods[] = {
 	{"getStage", &luna_wrapper_btDbvtProxy::_bind_getStage},
 	{"setLeaf", &luna_wrapper_btDbvtProxy::_bind_setLeaf},
 	{"setStage", &luna_wrapper_btDbvtProxy::_bind_setStage},
-	{"__eq", &luna_wrapper_btDbvtProxy::_bind___eq},
 	{"fromVoid", &luna_wrapper_btDbvtProxy::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_btDbvtProxy::_bind_asVoid},
 	{0,0}

@@ -160,6 +160,7 @@ function test_object_equality()
 	
 	local obj1 = grp1:dynCast("osg::Object")
 
+	-- The test below will fail because both arguments do not use the same metamethod.
 	assert_equal(grp1,obj1,"Group casted as object not equal to itself.")
 	
 	log:info("Tests","Done testing object equality.")

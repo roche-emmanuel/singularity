@@ -48,6 +48,11 @@ function Class:writeFile()
 		end
 	end
 
+	-- we enforce NOT creating the equality metamethod if this is not a base class:
+	if class:getNumBases() > 0 then
+		equalityOperatorProvided=true -- the equality metamethod is provided in the parent base.
+	end
+	
 	local absoluteBases = Set()
 	
 	if not external then

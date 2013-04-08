@@ -4,30 +4,6 @@ class luna_wrapper_btPersistentManifold {
 public:
 	typedef Luna< btPersistentManifold > luna_t;
 
-	inline static bool _lg_typecheck___eq(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,66271199) ) return false;
-		return true;
-	}
-	
-	static int _bind___eq(lua_State *L) {
-		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTypedObject*)");
-		}
-
-		btTypedObject* rhs =(Luna< btTypedObject >::check(L,2));
-		btTypedObject* self=(Luna< btTypedObject >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call __eq(...)");
-		}
-		
-		lua_pushboolean(L,self==rhs?1:0);
-
-		return 1;
-	}
-
 	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -897,7 +873,6 @@ luna_RegType LunaTraits< btPersistentManifold >::methods[] = {
 	{"setCompanionIdA", &luna_wrapper_btPersistentManifold::_bind_setCompanionIdA},
 	{"setCompanionIdB", &luna_wrapper_btPersistentManifold::_bind_setCompanionIdB},
 	{"setIndex1a", &luna_wrapper_btPersistentManifold::_bind_setIndex1a},
-	{"__eq", &luna_wrapper_btPersistentManifold::_bind___eq},
 	{"fromVoid", &luna_wrapper_btPersistentManifold::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_btPersistentManifold::_bind_asVoid},
 	{0,0}

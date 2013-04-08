@@ -30,30 +30,6 @@ public:
 		return 0;
 	}
 
-	inline static bool _lg_typecheck___eq(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,52132875) ) return false;
-		return true;
-	}
-	
-	static int _bind___eq(lua_State *L) {
-		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btBroadphaseAabbCallback*)");
-		}
-
-		btBroadphaseAabbCallback* rhs =(Luna< btBroadphaseAabbCallback >::check(L,2));
-		btBroadphaseAabbCallback* self=(Luna< btBroadphaseAabbCallback >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call __eq(...)");
-		}
-		
-		lua_pushboolean(L,self==rhs?1:0);
-
-		return 1;
-	}
-
 	inline static bool _lg_typecheck_fromVoid(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -276,7 +252,6 @@ luna_RegType LunaTraits< btBroadphaseRayCallback >::methods[] = {
 	{"get_lambda_max", &luna_wrapper_btBroadphaseRayCallback::_bind_get_lambda_max},
 	{"setRayDirectionInverse", &luna_wrapper_btBroadphaseRayCallback::_bind_setRayDirectionInverse},
 	{"set_lambda_max", &luna_wrapper_btBroadphaseRayCallback::_bind_set_lambda_max},
-	{"__eq", &luna_wrapper_btBroadphaseRayCallback::_bind___eq},
 	{"fromVoid", &luna_wrapper_btBroadphaseRayCallback::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_btBroadphaseRayCallback::_bind_asVoid},
 	{"getTable", &luna_wrapper_btBroadphaseRayCallback::_bind_getTable},
