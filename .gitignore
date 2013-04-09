@@ -38,6 +38,7 @@ software/tests/*.net
 software/tests/*.png
 
 software/cache
+software/bin/win32/plugins/plugins.dat
 
 #sgtLauncher
 
