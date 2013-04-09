@@ -1,4 +1,4 @@
-== Singularity release v0.2.1 - ??? ==
+== Singularity release v0.3.0 - ??? ==
 
 - Removed header "sgtCommon.h" from luna wrapper files to allow external compilation.
 - Preventing registration of function typedefs.
@@ -14,6 +14,7 @@
 - Added sgt commit script.
 - Updated version number update script to allow setting version from argument.
 - Fixed issue with second argument for version updater script.
+- Updated version number for next release to 0.3.0
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
