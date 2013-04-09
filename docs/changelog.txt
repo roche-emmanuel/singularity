@@ -11,6 +11,7 @@
 - Updated all modules to fix the equality metamethod issue.
 - Updated vlc dependency to 2.0.5
 - Fixed vlc module loading issue (adding /OPT:NOREF link flag properly).
+- Added sgt commit script.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
