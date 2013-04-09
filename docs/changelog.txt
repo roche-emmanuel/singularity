@@ -9,6 +9,7 @@
 - Fixed pdb name/location issue (not renaming pdb files).
 - Fixed bug in luna classes equality metamethod (__eq was returning self==rhs instead of pushing boolean).
 - Updated all modules to fix the equality metamethod issue.
+- Updated vlc dependency to 2.0.5
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
