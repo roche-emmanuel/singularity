@@ -5,4 +5,4 @@ version_path=arg[1]:gsub("\\","/")
 package.path= version_path.."/?.lua;" .. package.path
 
 local version = require "version"
-print(version[arg[2]])
+io.write(version[arg[2]])

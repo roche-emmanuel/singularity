@@ -15,6 +15,7 @@
 - Updated version number update script to allow setting version from argument.
 - Fixed issue with second argument for version updater script.
 - Updated version number for next release to 0.3.0
+- Fixed issue in get_version_number to remove new line character.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
