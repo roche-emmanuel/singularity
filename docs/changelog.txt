@@ -13,6 +13,7 @@
 - Fixed vlc module loading issue (adding /OPT:NOREF link flag properly).
 - Added sgt commit script.
 - Updated version number update script to allow setting version from argument.
+- Fixed issue with second argument for version updater script.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

@@ -23,7 +23,7 @@ version.date = "%s"
 return version;
 ]]
 
-if nver then
+if nver and nver~="major" and nver~="minor" and nver~="patch" then
 	print("Parsing version number: ",nver)
 	local p1,p2,major,minor,patch = nver:find("(%d+)%.(%d+)%.(%d+)")
 	version.major = major+0
