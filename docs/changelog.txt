@@ -10,6 +10,7 @@
 - Fixed bug in luna classes equality metamethod (__eq was returning self==rhs instead of pushing boolean).
 - Updated all modules to fix the equality metamethod issue.
 - Updated vlc dependency to 2.0.5
+- Fixed vlc module loading issue (adding /OPT:NOREF link flag properly).
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

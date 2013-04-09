@@ -225,6 +225,7 @@ int main(int argc, char *argv[]) {
 		logDEBUG0_V("Opening Lua state...");
 		lua_State* L = luaL_newstate();
 
+
 		luaL_openlibs(L);
 
 		// Setup the package paths:
