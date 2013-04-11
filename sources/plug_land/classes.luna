@@ -20,3 +20,7 @@ sgt::box3d => sgt::box3d
 sgt::box3i => sgt::box3i
 sgt::mat2f => sgt::mat2f
 sgt::mat2d => sgt::mat2d
+sgt::mat3f => sgt::mat3f
+sgt::mat3d => sgt::mat3d
+sgt::mat4f => sgt::mat4f
+sgt::mat4d => sgt::mat4d

@@ -6,6 +6,8 @@
 #include <math/box2.h>
 #include <math/box3.h>
 #include <math/mat2.h>
+#include <math/mat3.h>
+#include <math/mat4.h>
 #include <math/vec2.h>
 #include <math/vec3.h>
 #include <math/vec4.h>
@@ -410,6 +412,82 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::mat3f
+template<>
+class LunaTraits< sgt::mat3f > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::mat3f* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::mat3f* obj);
+	typedef sgt::mat3f parent_t;
+	typedef sgt::mat3f base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::mat3d
+template<>
+class LunaTraits< sgt::mat3d > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::mat3d* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::mat3d* obj);
+	typedef sgt::mat3d parent_t;
+	typedef sgt::mat3d base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::mat4f
+template<>
+class LunaTraits< sgt::mat4f > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::mat4f* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::mat4f* obj);
+	typedef sgt::mat4f parent_t;
+	typedef sgt::mat4f base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::mat4d
+template<>
+class LunaTraits< sgt::mat4d > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::mat4d* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::mat4d* obj);
+	typedef sgt::mat4d parent_t;
+	typedef sgt::mat4d base_t;
+	static luna_ConverterType converters[];
+};
+
 
 
 // Referenced external: void
@@ -484,6 +562,34 @@ template<>
 class LunaType< 67824753 > {
 public:
 	typedef sgt::mat2d type;
+	
+};
+
+template<>
+class LunaType< 67824786 > {
+public:
+	typedef sgt::mat3f type;
+	
+};
+
+template<>
+class LunaType< 67824784 > {
+public:
+	typedef sgt::mat3d type;
+	
+};
+
+template<>
+class LunaType< 67824817 > {
+public:
+	typedef sgt::mat4f type;
+	
+};
+
+template<>
+class LunaType< 67824815 > {
+public:
+	typedef sgt::mat4d type;
 	
 };
 

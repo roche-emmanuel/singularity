@@ -150,6 +150,34 @@ struct luna_caster<sgt::mat2d,dstType> {
 	};
 };
 
+template <typename dstType>
+struct luna_caster<sgt::mat3f,dstType> {
+	static inline dstType* cast(sgt::mat3f* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::mat3d,dstType> {
+	static inline dstType* cast(sgt::mat3d* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::mat4f,dstType> {
+	static inline dstType* cast(sgt::mat4f* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::mat4d,dstType> {
+	static inline dstType* cast(sgt::mat4d* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
 
 #endif
 

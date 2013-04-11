@@ -170,6 +170,73 @@ public: \
     type trace() const; \
 };
 
+#define MAT3_CLASS(mat3,type,vec3,box3,vec2) class mat3 { \
+public: \
+    mat3(); \
+    mat3(type m00, type m01, type m02, \
+         type m10, type m11, type m12, \
+         type m20, type m21, type m22); \
+    mat3(const type *array); \
+    mat3(const mat3& mat); \
+    const type* coefficients() const; \
+    type* operator[](int iRow); \
+    vec3 getColumn(int iCol) const; \
+    void setColumn(int iCol, const vec3& v); \
+    void fromAxes(const vec3& xAxis, const vec3& yAxis, const vec3& zAxis); \
+    mat3& operator=(const mat3& mat); \
+    bool operator==(const mat3& mat) const; \
+    bool operator!=(const mat3& mat) const; \
+    mat3 operator+(const mat3& mat) const; \
+    mat3 operator-(const mat3& mat) const; \
+    mat3 operator*(const mat3& mat) const; \
+    vec3 operator*(const vec3 &v) const; \
+    vec2 operator*(const vec2& v) const; \
+    box3 operator*(const box3 &b) const; \
+    mat3 operator*(const type scalar) const; \
+    mat3 operator-() const; \
+    mat3 transpose() const; \
+    bool inverse(mat3& mInv, type tolerance = 1e-06) const; \
+    mat3 inverse(type tolerance = 1e-06) const; \
+    type determinant() const; \
+    type trace() const; \
+};
+
+#define MAT4_CLASS(mat4,type,vec4,vec3,box3,mat3) class mat4 { \
+public: \
+    mat4(); \
+    mat4(type m00, type m01, type m02, type m03, \
+         type m10, type m11, type m12, type m13, \
+         type m20, type m21, type m22, type m23, \
+         type m30, type m31, type m32, type m33); \
+    mat4(const type *array); \
+    mat4(const type array[4][4]); \
+    mat4(const mat3& m3x3); \
+    const type* coefficients() const; \
+    const type* operator[](int iRow) const; \
+    type *operator[](int iRow); \
+    void operator=(const mat3& m3); \
+    bool operator==(const mat4& m2) const; \
+    bool operator!=(const mat4& m2) const; \
+    mat4 operator+(const mat4& m2) const; \
+    mat4 operator-(const mat4& m2) const; \
+    mat4 operator*(const mat4& m2) const; \
+    vec4 operator*(const vec4& v) const; \
+    vec3 operator*(const vec3& v) const; \
+    box3 operator*(const box3& b) const; \
+    mat4 operator*(type f) const; \
+    mat4 transpose(void) const; \
+    mat4 adjoint() const; \
+    mat4 inverse() const; \
+    mat3 mat3x3() const; \
+    type determinant() const; \
+    static mat4 translate(const vec3& v); \
+    static mat4 rotatex(type angle); \
+    static mat4 rotatey(type angle); \
+    static mat4 rotatez(type angle); \
+    static mat4 perspectiveProjection(type fovy, type aspect, type zNear, type zFar); \
+    static mat4 orthoProjection(type xRight, type xLeft, type yTop, type yBottom, type zNear, type zFar); \
+};
+
 namespace sgt {
 
 VEC2_CLASS(vec2h,half);
@@ -197,4 +264,11 @@ BOX3_CLASS(box3i,int,vec3i);
 
 MAT2_CLASS(mat2f,float,vec2f);
 MAT2_CLASS(mat2d,double,vec2d);
+
+MAT3_CLASS(mat3f,float,vec3f,box3f,vec2f);
+MAT3_CLASS(mat3d,double,vec3d,box3d,vec2d);
+
+MAT4_CLASS(mat4f,float,vec4f,vec3f,box3f,mat3f);
+MAT4_CLASS(mat4d,double,vec4d,vec3d,box3d,mat3d);
+
 };

@@ -26,6 +26,18 @@ namespace sgt {
 	class mat2d {
 	};
 
+	class mat3f {
+	};
+
+	class mat3d {
+	};
+
+	class mat4f {
+	};
+
+	class mat4d {
+	};
+
 	class vec2h {
 	};
 
@@ -72,6 +84,12 @@ namespace sgt {
 	};
 
 	class mat2 {
+	};
+
+	class mat3 {
+	};
+
+	class mat4 {
 	};
 
 	class vec2 {
@@ -141,6 +159,18 @@ namespace sgt {
 	};
 
 	class mat2d {
+	};
+
+	class mat3f {
+	};
+
+	class mat3d {
+	};
+
+	class mat4f {
+	};
+
+	class mat4d {
 	};
 
 };

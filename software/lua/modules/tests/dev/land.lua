@@ -101,4 +101,48 @@ function suite.test_mat2f()
 	log:info("Done testing mat2f")
 end
 
+function suite.test_mat3d()
+	log:info("Testing mat3d")
+	
+	local v1 = sgt.mat3d(2.0,0.0,0.0,
+						 0.0,2.0,0.0,
+						 0.0,0.0,2.0)
+	local v2 = sgt.mat3d(3.0,0.0,0.0,
+						 0.0,3.0,0.0,
+						 0.0,0.0,3.0)
+	local v3 = sgt.mat3d(6.0,0.0,0.0,
+						 0.0,6.0,0.0,
+						 0.0,0.0,6.0)
+	local v4 = sgt.mat3d(1.0/3.0,0.0,0.0,
+						 0.0,1.0/3.0,0.0,
+						 0.0,0.0,1.0/3.0)
+	
+	assert_equal(v3,v1*v2,"Invalid mat3 mult result.")
+	assert_equal(v4,v2:inverse(),"Invalid mat3 inverse result.")
+	
+	log:info("Done testing mat3d")
+end
+
+function suite.test_mat4d()
+	log:info("Testing mat4d")
+	
+	local v1 = sgt.mat4d(sgt.mat3d(2.0,0.0,0.0,
+						 0.0,2.0,0.0,
+						 0.0,0.0,2.0))
+	local v2 = sgt.mat4d(sgt.mat3d(3.0,0.0,0.0,
+						 0.0,3.0,0.0,
+						 0.0,0.0,3.0))
+	local v3 = sgt.mat4d(sgt.mat3d(6.0,0.0,0.0,
+						 0.0,6.0,0.0,
+						 0.0,0.0,6.0))
+	local v4 = sgt.mat4d(sgt.mat3d(1.0/3.0,0.0,0.0,
+						 0.0,1.0/3.0,0.0,
+						 0.0,0.0,1.0/3.0))
+	
+	assert_equal(v3,v1*v2,"Invalid mat4 mult result.")
+	assert_equal(v4,v2:inverse(),"Invalid mat4 inverse result.")
+	
+	log:info("Done testing mat4d")
+end
+
 return suite
