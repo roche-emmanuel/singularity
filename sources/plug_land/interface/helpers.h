@@ -127,6 +127,48 @@ public: \
     bool operator!=(const box2& b) const; \
 };
 
+#define BOX3_CLASS(box3,type,vec3) struct box3 { \
+public: \
+    type xmin; \
+    type xmax; \
+    type ymin; \
+    type ymax; \
+    type zmin; \
+    type zmax; \
+    box3(); \
+    box3(type xmin, type xmax, type ymin, type ymax, type zmin, type zmax); \
+    box3(const vec3 &p, const vec3 &q); \
+    vec3 center() const; \
+    box3 enlarge(const vec3 &p) const; \
+    box3 enlarge(const box3 &r) const; \
+    bool contains(const vec3 &p) const; \
+};
+
+#define MAT2_CLASS(mat2,type,vec2) class mat2 { \
+public: \
+    mat2(); \
+    mat2(type m00, type m01, \
+         type m10, type m11); \
+    mat2(const mat2& mat); \
+    const type* coefficients() const; \
+    type* operator[](int iRow); \
+    vec2 getColumn(int iCol) const; \
+    void setColumn(int iCol, const vec2& v); \
+    mat2& operator=(const mat2& mat); \
+    bool operator==(const mat2& mat) const; \
+    bool operator!=(const mat2& mat) const; \
+    mat2 operator+(const mat2& mat) const; \
+    mat2 operator-(const mat2& mat) const; \
+    mat2 operator*(const mat2& mat) const; \
+    vec2 operator*(const vec2 &v) const; \
+    mat2 operator*(const type scalar) const; \
+    mat2 operator-() const; \
+    mat2 transpose() const; \
+    bool inverse(mat2& mInv, type tolerance = 1e-06) const; \
+    mat2 inverse(type tolerance = 1e-06) const; \
+    type determinant() const; \
+    type trace() const; \
+};
 
 namespace sgt {
 
@@ -149,4 +191,10 @@ BOX2_CLASS(box2f,float,vec2f);
 BOX2_CLASS(box2d,double,vec2d);
 BOX2_CLASS(box2i,int,vec2i);
 
+BOX3_CLASS(box3f,float,vec3f);
+BOX3_CLASS(box3d,double,vec3d);
+BOX3_CLASS(box3i,int,vec3i);
+
+MAT2_CLASS(mat2f,float,vec2f);
+MAT2_CLASS(mat2d,double,vec2d);
 };

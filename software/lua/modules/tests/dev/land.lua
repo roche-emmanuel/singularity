@@ -70,4 +70,35 @@ function suite.test_box2i()
 	log:info("Done testing box2i")
 end
 
+function suite.test_box3d()
+	log:info("Testing box3d")
+	
+	local v1 = sgt.box3d(-1.0,1.0,-1.0,1.0,-1.0,1.0)
+	local v2 = sgt.vec3d(0.0,0.0,0.0)
+	local v3 = sgt.vec3d(0.5,0.5,-0.5)
+	
+	assert_equal(v2,v1:center(),"Invalid center result.")
+	assert_equal(true,v1:contains(v3),"Invalid contains result.")
+	
+	log:info("Done testing box3d")
+end
+
+function suite.test_mat2f()
+	log:info("Testing mat2f")
+	
+	local v1 = sgt.mat2f(2.0,0.0,
+						 0.0,2.0)
+	local v2 = sgt.mat2f(3.0,0.0,
+						 0.0,3.0)
+	local v3 = sgt.mat2f(6.0,0.0,
+						 0.0,6.0)
+	local v4 = sgt.mat2f(1.0/3.0,0.0,
+						 0.0,1.0/3.0)
+	
+	assert_equal(v3,v1*v2,"Invalid mat2 mult result.")
+	assert_equal(v4,v2:inverse(),"Invalid mat2 inverse result.")
+	
+	log:info("Done testing mat2f")
+end
+
 return suite

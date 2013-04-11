@@ -11,6 +11,21 @@ namespace sgt {
 	class box2d {
 	};
 
+	class box3i {
+	};
+
+	class box3f {
+	};
+
+	class box3d {
+	};
+
+	class mat2f {
+	};
+
+	class mat2d {
+	};
+
 	class vec2h {
 	};
 
@@ -50,7 +65,13 @@ namespace sgt {
 	class box2 {
 	};
 
+	class box3 {
+	};
+
 	class half {
+	};
+
+	class mat2 {
 	};
 
 	class vec2 {
@@ -105,6 +126,21 @@ namespace sgt {
 	};
 
 	class box2i {
+	};
+
+	class box3f {
+	};
+
+	class box3d {
+	};
+
+	class box3i {
+	};
+
+	class mat2f {
+	};
+
+	class mat2d {
 	};
 
 };

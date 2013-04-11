@@ -20,7 +20,11 @@
 #include <math/vec2.h>
 #include <math/vec3.h>
 #include <math/vec4.h>
+
 #include <math/box2.h>
+#include <math/box3.h>
+
+#include <math/mat2.h>
 
 // Insert your using namespace commands here.
 

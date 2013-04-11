@@ -4,6 +4,8 @@
 #include <plug_common.h>
 
 #include <math/box2.h>
+#include <math/box3.h>
+#include <math/mat2.h>
 #include <math/vec2.h>
 #include <math/vec3.h>
 #include <math/vec4.h>
@@ -313,6 +315,101 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::box3f
+template<>
+class LunaTraits< sgt::box3f > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::box3f* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::box3f* obj);
+	typedef sgt::box3f parent_t;
+	typedef sgt::box3f base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::box3d
+template<>
+class LunaTraits< sgt::box3d > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::box3d* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::box3d* obj);
+	typedef sgt::box3d parent_t;
+	typedef sgt::box3d base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::box3i
+template<>
+class LunaTraits< sgt::box3i > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::box3i* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::box3i* obj);
+	typedef sgt::box3i parent_t;
+	typedef sgt::box3i base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::mat2f
+template<>
+class LunaTraits< sgt::mat2f > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::mat2f* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::mat2f* obj);
+	typedef sgt::mat2f parent_t;
+	typedef sgt::mat2f base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::mat2d
+template<>
+class LunaTraits< sgt::mat2d > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::mat2d* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::mat2d* obj);
+	typedef sgt::mat2d parent_t;
+	typedef sgt::mat2d base_t;
+	static luna_ConverterType converters[];
+};
+
 
 
 // Referenced external: void
@@ -352,6 +449,41 @@ template<>
 class LunaType< 58086940 > {
 public:
 	typedef sgt::box2d type;
+	
+};
+
+template<>
+class LunaType< 58086976 > {
+public:
+	typedef sgt::box3i type;
+	
+};
+
+template<>
+class LunaType< 58086973 > {
+public:
+	typedef sgt::box3f type;
+	
+};
+
+template<>
+class LunaType< 58086971 > {
+public:
+	typedef sgt::box3d type;
+	
+};
+
+template<>
+class LunaType< 67824755 > {
+public:
+	typedef sgt::mat2f type;
+	
+};
+
+template<>
+class LunaType< 67824753 > {
+public:
+	typedef sgt::mat2d type;
 	
 };
 
