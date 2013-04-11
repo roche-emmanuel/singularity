@@ -38,6 +38,12 @@ namespace sgt {
 	class mat4d {
 	};
 
+	class quatf {
+	};
+
+	class quatd {
+	};
+
 	class vec2h {
 	};
 
@@ -90,6 +96,9 @@ namespace sgt {
 	};
 
 	class mat4 {
+	};
+
+	class quat {
 	};
 
 	class vec2 {
@@ -171,6 +180,12 @@ namespace sgt {
 	};
 
 	class mat4d {
+	};
+
+	class quatf {
+	};
+
+	class quatd {
 	};
 
 };

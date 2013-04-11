@@ -178,6 +178,20 @@ struct luna_caster<sgt::mat4d,dstType> {
 	};
 };
 
+template <typename dstType>
+struct luna_caster<sgt::quatf,dstType> {
+	static inline dstType* cast(sgt::quatf* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::quatd,dstType> {
+	static inline dstType* cast(sgt::quatd* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
 
 #endif
 

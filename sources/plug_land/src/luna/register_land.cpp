@@ -39,6 +39,8 @@ int PLUG_EXPORT luaopen_land(lua_State* L) {
 	Luna< sgt::mat3d >::Register(L);
 	Luna< sgt::mat4f >::Register(L);
 	Luna< sgt::mat4d >::Register(L);
+	Luna< sgt::quatf >::Register(L);
+	Luna< sgt::quatd >::Register(L);
 	luna_popModule(L);
 
 	luna_pushModule(L,"land");

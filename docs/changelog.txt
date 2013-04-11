@@ -25,6 +25,7 @@
 - Added implementation for box2 and vec4 in land module.
 - Added implementation for box3 and mat2 in land module.
 - Added mat3 and mat4 implementation in land module.
+- Added implementation for quat in land module.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

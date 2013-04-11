@@ -145,4 +145,16 @@ function suite.test_mat4d()
 	log:info("Done testing mat4d")
 end
 
+function suite.test_quatd()
+	log:info("Testing quatd")
+	
+	local v1 = sgt.quatd(sgt.vec3d(1.0,1.0,1.0),48)
+	local v2 = sgt.quatd(sgt.vec3d(1.0,1.0,1.0),-48)
+		
+	assert_equal(v2:getAngle(),v1:inverse():getAngle(),"Invalid quat inverse angle result.")
+	assert_equal(v2:getAxis(),v1:inverse():getAxis(),"Invalid quat inverse axis result.")
+	
+	log:info("Done testing quatd")
+end
+
 return suite

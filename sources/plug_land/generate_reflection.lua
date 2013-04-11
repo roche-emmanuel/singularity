@@ -46,6 +46,8 @@ ReflectionGenerator.generate{
 		"sgt::mat3< double >",		
 		"sgt::mat4< float >",
 		"sgt::mat4< double >",		
+		"sgt::quat< float >",
+		"sgt::quat< double >",		
 	},
 	ignoreConverters={},
 	ignoreHeaders = { "helpers%.h" },

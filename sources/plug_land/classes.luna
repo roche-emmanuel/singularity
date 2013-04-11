@@ -24,3 +24,5 @@ sgt::mat3f => sgt::mat3f
 sgt::mat3d => sgt::mat3d
 sgt::mat4f => sgt::mat4f
 sgt::mat4d => sgt::mat4d
+sgt::quatf => sgt::quatf
+sgt::quatd => sgt::quatd

@@ -237,6 +237,30 @@ public: \
     static mat4 orthoProjection(type xRight, type xLeft, type yTop, type yBottom, type zNear, type zFar); \
 };
 
+#define QUAT_CLASS(quat,type,vec3,mat4,mat3) class quat { \
+public: \
+    type x; \
+    type y; \
+    type z; \
+    type w; \
+    quat(); \
+    quat(type x, type y, type z, type w); \
+    quat(const type v[4]); \
+    quat(const quat& v); \
+    quat(const vec3& axis, type angle); \
+    quat(const vec3& to, const vec3& from); \
+    quat(const mat3 &m); \
+    quat operator*(const quat &a) const; \
+    vec3 operator*(const vec3& a) const; \
+    quat inverse() const; \
+    type length() const; \
+    quat normalize() const; \
+    mat3 toMat3() const; \
+    mat4 toMat4() const; \
+    vec3 getAxis() const; \
+    type getAngle() const; \
+};
+
 namespace sgt {
 
 VEC2_CLASS(vec2h,half);
@@ -270,5 +294,8 @@ MAT3_CLASS(mat3d,double,vec3d,box3d,vec2d);
 
 MAT4_CLASS(mat4f,float,vec4f,vec3f,box3f,mat3f);
 MAT4_CLASS(mat4d,double,vec4d,vec3d,box3d,mat3d);
+
+QUAT_CLASS(quatf,float,vec3f,mat4f,mat3f);
+QUAT_CLASS(quatd,double,vec3d,mat4d,mat3d);
 
 };

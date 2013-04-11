@@ -8,6 +8,7 @@
 #include <math/mat2.h>
 #include <math/mat3.h>
 #include <math/mat4.h>
+#include <math/quat.h>
 #include <math/vec2.h>
 #include <math/vec3.h>
 #include <math/vec4.h>
@@ -488,6 +489,44 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::quatf
+template<>
+class LunaTraits< sgt::quatf > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::quatf* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::quatf* obj);
+	typedef sgt::quatf parent_t;
+	typedef sgt::quatf base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::quatd
+template<>
+class LunaTraits< sgt::quatd > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::quatd* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::quatd* obj);
+	typedef sgt::quatd parent_t;
+	typedef sgt::quatd base_t;
+	static luna_ConverterType converters[];
+};
+
 
 
 // Referenced external: void
@@ -590,6 +629,20 @@ template<>
 class LunaType< 67824815 > {
 public:
 	typedef sgt::mat4d type;
+	
+};
+
+template<>
+class LunaType< 72098446 > {
+public:
+	typedef sgt::quatf type;
+	
+};
+
+template<>
+class LunaType< 72098444 > {
+public:
+	typedef sgt::quatd type;
 	
 };
 
