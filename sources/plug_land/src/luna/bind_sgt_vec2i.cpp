@@ -112,13 +112,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_dotproduct(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,76239274) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_dot(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -333,30 +326,6 @@ public:
 			luaL_error(L, "Invalid object in function call int sgt::vec2i::squaredLength() const. Got : '%s'",typeid(Luna< sgt::vec2i >::check(L,1)).name());
 		}
 		int lret = self->squaredLength();
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
-	// int sgt::vec2i::dotproduct(const sgt::vec2i & v) const
-	static int _bind_dotproduct(lua_State *L) {
-		if (!_lg_typecheck_dotproduct(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int sgt::vec2i::dotproduct(const sgt::vec2i & v) const function, expected prototype:\nint sgt::vec2i::dotproduct(const sgt::vec2i & v) const\nClass arguments details:\narg 1 ID = 76239274\n");
-		}
-
-		const sgt::vec2i* v_ptr=(Luna< sgt::vec2i >::check(L,2));
-		if( !v_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg v in sgt::vec2i::dotproduct function");
-		}
-		const sgt::vec2i & v=*v_ptr;
-
-		sgt::vec2i* self=(Luna< sgt::vec2i >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int sgt::vec2i::dotproduct(const sgt::vec2i &) const. Got : '%s'",typeid(Luna< sgt::vec2i >::check(L,1)).name());
-		}
-		int lret = self->dotproduct(v);
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -825,7 +794,6 @@ const int LunaTraits< sgt::vec2i >::uniqueIDs[] = {76239274,0};
 luna_RegType LunaTraits< sgt::vec2i >::methods[] = {
 	{"length", &luna_wrapper_sgt_vec2i::_bind_length},
 	{"squaredLength", &luna_wrapper_sgt_vec2i::_bind_squaredLength},
-	{"dotproduct", &luna_wrapper_sgt_vec2i::_bind_dotproduct},
 	{"dot", &luna_wrapper_sgt_vec2i::_bind_dot},
 	{"normalize", &luna_wrapper_sgt_vec2i::_bind_normalize},
 	{"getX", &luna_wrapper_sgt_vec2i::_bind_getX},

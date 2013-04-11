@@ -14,10 +14,25 @@ namespace sgt {
 	class vec2i {
 	};
 
+	class vec3h {
+	};
+
+	class vec3f {
+	};
+
+	class vec3d {
+	};
+
+	class vec3i {
+	};
+
 	class half {
 	};
 
 	class vec2 {
+	};
+
+	class vec3 {
 	};
 
 	class vec2h {
@@ -30,6 +45,18 @@ namespace sgt {
 	};
 
 	class vec2i {
+	};
+
+	class vec3h {
+	};
+
+	class vec3f {
+	};
+
+	class vec3d {
+	};
+
+	class vec3i {
 	};
 
 };

@@ -4,3 +4,7 @@ sgt::vec2h => sgt::vec2h
 sgt::vec2f => sgt::vec2f
 sgt::vec2d => sgt::vec2d
 sgt::vec2i => sgt::vec2i
+sgt::vec3h => sgt::vec3h
+sgt::vec3f => sgt::vec3f
+sgt::vec3d => sgt::vec3d
+sgt::vec3i => sgt::vec3i

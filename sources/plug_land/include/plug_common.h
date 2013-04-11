@@ -18,6 +18,7 @@
 #include <lua.hpp>
 
 #include <math/vec2.h>
+#include <math/vec3.h>
 
 // Insert your using namespace commands here.
 

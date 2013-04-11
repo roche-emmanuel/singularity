@@ -38,6 +38,34 @@ struct luna_caster<sgt::vec2i,dstType> {
 	};
 };
 
+template <typename dstType>
+struct luna_caster<sgt::vec3h,dstType> {
+	static inline dstType* cast(sgt::vec3h* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::vec3f,dstType> {
+	static inline dstType* cast(sgt::vec3f* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::vec3d,dstType> {
+	static inline dstType* cast(sgt::vec3d* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::vec3i,dstType> {
+	static inline dstType* cast(sgt::vec3i* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
 
 #endif
 
