@@ -3,6 +3,10 @@
 #include <math/half.h>
 
 // Function checkers:
+
+// Function binds:
+
+// Function checkers:
 inline static bool _lg_typecheck_floatToHalf(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 

@@ -21,6 +21,12 @@ ReflectionGenerator.generate{
 	},
 	ignoreClasses={
 	},
+	ignoreClassDeclarations={
+		"sgt::vec2< sgt::half >",
+		"sgt::vec2< float >",
+		"sgt::vec2< double >",
+		"sgt::vec2< int >",
+	},
 	ignoreConverters={},
 	ignoreHeaders = { "helpers%.h" },
 	corrections = {

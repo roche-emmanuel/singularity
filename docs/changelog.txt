@@ -20,6 +20,7 @@
 - Removed obsolete lua script files (moved in shared script location).
 - Added plug_land skeleton. Using cull callback in turret to update view matrices.
 - Preparing sgtLand and plug_land projects.
+- Added vec2 implementation in land module.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
