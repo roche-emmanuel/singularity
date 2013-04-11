@@ -4,8 +4,7 @@
 #include "sgtLand.h"
 
 #include "pmath.h"
-#include "half.h"
-
+#include "math/half.h"
 #include "math/vec2.h"
 
 namespace sgt
@@ -150,6 +149,10 @@ public:
      */
     type squaredLength() const;
 
+	type distanceTo(const vec3& v) const;
+	
+	type squaredDistanceTo(const vec3& v) const;
+	
     /**
      * Returns the dot product of this vector and of the given vector.
      */
@@ -408,6 +411,18 @@ template <typename type>
 inline type vec3<type>::squaredLength() const
 {
     return (x*x + y*y + z*z);
+}
+
+template <typename type>
+inline type vec3<type>::distanceTo(const vec3<type>& v) const
+{
+	return (*this - v).length();
+}
+
+template <typename type>
+inline type vec3<type>::squaredDistanceTo(const vec3<type>& v) const
+{
+	return (*this - v).squaredLength();
 }
 
 template <typename type>

@@ -23,6 +23,13 @@ int PLUG_EXPORT luaopen_land(lua_State* L) {
 	Luna< sgt::vec3f >::Register(L);
 	Luna< sgt::vec3d >::Register(L);
 	Luna< sgt::vec3i >::Register(L);
+	Luna< sgt::vec4h >::Register(L);
+	Luna< sgt::vec4f >::Register(L);
+	Luna< sgt::vec4d >::Register(L);
+	Luna< sgt::vec4i >::Register(L);
+	Luna< sgt::box2f >::Register(L);
+	Luna< sgt::box2d >::Register(L);
+	Luna< sgt::box2i >::Register(L);
 	luna_popModule(L);
 
 	luna_pushModule(L,"land");

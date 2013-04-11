@@ -116,6 +116,20 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_distanceTo(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,76239304) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_squaredDistanceTo(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,76239304) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_dot(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -375,6 +389,60 @@ public:
 			luaL_error(L, "Invalid object in function call sgt::half sgt::vec3h::squaredLength() const. Got : '%s'",typeid(Luna< sgt::vec3h >::check(L,1)).name());
 		}
 		sgt::half stack_lret = self->squaredLength();
+		sgt::half* lret = new sgt::half(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< sgt::half >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// sgt::half sgt::vec3h::distanceTo(const sgt::vec3h & v) const
+	static int _bind_distanceTo(lua_State *L) {
+		if (!_lg_typecheck_distanceTo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::half sgt::vec3h::distanceTo(const sgt::vec3h & v) const function, expected prototype:\nsgt::half sgt::vec3h::distanceTo(const sgt::vec3h & v) const\nClass arguments details:\narg 1 ID = 76239304\n");
+		}
+
+		const sgt::vec3h* v_ptr=(Luna< sgt::vec3h >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in sgt::vec3h::distanceTo function");
+		}
+		const sgt::vec3h & v=*v_ptr;
+
+		sgt::vec3h* self=(Luna< sgt::vec3h >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call sgt::half sgt::vec3h::distanceTo(const sgt::vec3h &) const. Got : '%s'",typeid(Luna< sgt::vec3h >::check(L,1)).name());
+		}
+		sgt::half stack_lret = self->distanceTo(v);
+		sgt::half* lret = new sgt::half(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< sgt::half >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// sgt::half sgt::vec3h::squaredDistanceTo(const sgt::vec3h & v) const
+	static int _bind_squaredDistanceTo(lua_State *L) {
+		if (!_lg_typecheck_squaredDistanceTo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::half sgt::vec3h::squaredDistanceTo(const sgt::vec3h & v) const function, expected prototype:\nsgt::half sgt::vec3h::squaredDistanceTo(const sgt::vec3h & v) const\nClass arguments details:\narg 1 ID = 76239304\n");
+		}
+
+		const sgt::vec3h* v_ptr=(Luna< sgt::vec3h >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in sgt::vec3h::squaredDistanceTo function");
+		}
+		const sgt::vec3h & v=*v_ptr;
+
+		sgt::vec3h* self=(Luna< sgt::vec3h >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call sgt::half sgt::vec3h::squaredDistanceTo(const sgt::vec3h &) const. Got : '%s'",typeid(Luna< sgt::vec3h >::check(L,1)).name());
+		}
+		sgt::half stack_lret = self->squaredDistanceTo(v);
 		sgt::half* lret = new sgt::half(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
@@ -968,6 +1036,8 @@ const int LunaTraits< sgt::vec3h >::uniqueIDs[] = {76239304,0};
 luna_RegType LunaTraits< sgt::vec3h >::methods[] = {
 	{"length", &luna_wrapper_sgt_vec3h::_bind_length},
 	{"squaredLength", &luna_wrapper_sgt_vec3h::_bind_squaredLength},
+	{"distanceTo", &luna_wrapper_sgt_vec3h::_bind_distanceTo},
+	{"squaredDistanceTo", &luna_wrapper_sgt_vec3h::_bind_squaredDistanceTo},
 	{"dot", &luna_wrapper_sgt_vec3h::_bind_dot},
 	{"normalize", &luna_wrapper_sgt_vec3h::_bind_normalize},
 	{"cross", &luna_wrapper_sgt_vec3h::_bind_cross},

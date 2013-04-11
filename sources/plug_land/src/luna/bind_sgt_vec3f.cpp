@@ -113,6 +113,20 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_distanceTo(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,76239302) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_squaredDistanceTo(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,76239302) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_dot(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -354,6 +368,54 @@ public:
 			luaL_error(L, "Invalid object in function call float sgt::vec3f::squaredLength() const. Got : '%s'",typeid(Luna< sgt::vec3f >::check(L,1)).name());
 		}
 		float lret = self->squaredLength();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// float sgt::vec3f::distanceTo(const sgt::vec3f & v) const
+	static int _bind_distanceTo(lua_State *L) {
+		if (!_lg_typecheck_distanceTo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float sgt::vec3f::distanceTo(const sgt::vec3f & v) const function, expected prototype:\nfloat sgt::vec3f::distanceTo(const sgt::vec3f & v) const\nClass arguments details:\narg 1 ID = 76239302\n");
+		}
+
+		const sgt::vec3f* v_ptr=(Luna< sgt::vec3f >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in sgt::vec3f::distanceTo function");
+		}
+		const sgt::vec3f & v=*v_ptr;
+
+		sgt::vec3f* self=(Luna< sgt::vec3f >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float sgt::vec3f::distanceTo(const sgt::vec3f &) const. Got : '%s'",typeid(Luna< sgt::vec3f >::check(L,1)).name());
+		}
+		float lret = self->distanceTo(v);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// float sgt::vec3f::squaredDistanceTo(const sgt::vec3f & v) const
+	static int _bind_squaredDistanceTo(lua_State *L) {
+		if (!_lg_typecheck_squaredDistanceTo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float sgt::vec3f::squaredDistanceTo(const sgt::vec3f & v) const function, expected prototype:\nfloat sgt::vec3f::squaredDistanceTo(const sgt::vec3f & v) const\nClass arguments details:\narg 1 ID = 76239302\n");
+		}
+
+		const sgt::vec3f* v_ptr=(Luna< sgt::vec3f >::check(L,2));
+		if( !v_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v in sgt::vec3f::squaredDistanceTo function");
+		}
+		const sgt::vec3f & v=*v_ptr;
+
+		sgt::vec3f* self=(Luna< sgt::vec3f >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float sgt::vec3f::squaredDistanceTo(const sgt::vec3f &) const. Got : '%s'",typeid(Luna< sgt::vec3f >::check(L,1)).name());
+		}
+		float lret = self->squaredDistanceTo(v);
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -909,6 +971,8 @@ const int LunaTraits< sgt::vec3f >::uniqueIDs[] = {76239302,0};
 luna_RegType LunaTraits< sgt::vec3f >::methods[] = {
 	{"length", &luna_wrapper_sgt_vec3f::_bind_length},
 	{"squaredLength", &luna_wrapper_sgt_vec3f::_bind_squaredLength},
+	{"distanceTo", &luna_wrapper_sgt_vec3f::_bind_distanceTo},
+	{"squaredDistanceTo", &luna_wrapper_sgt_vec3f::_bind_squaredDistanceTo},
 	{"dot", &luna_wrapper_sgt_vec3f::_bind_dot},
 	{"normalize", &luna_wrapper_sgt_vec3f::_bind_normalize},
 	{"cross", &luna_wrapper_sgt_vec3f::_bind_cross},

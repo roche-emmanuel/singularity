@@ -66,6 +66,55 @@ struct luna_caster<sgt::vec3i,dstType> {
 	};
 };
 
+template <typename dstType>
+struct luna_caster<sgt::vec4h,dstType> {
+	static inline dstType* cast(sgt::vec4h* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::vec4f,dstType> {
+	static inline dstType* cast(sgt::vec4f* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::vec4d,dstType> {
+	static inline dstType* cast(sgt::vec4d* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::vec4i,dstType> {
+	static inline dstType* cast(sgt::vec4i* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::box2f,dstType> {
+	static inline dstType* cast(sgt::box2f* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::box2d,dstType> {
+	static inline dstType* cast(sgt::box2d* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::box2i,dstType> {
+	static inline dstType* cast(sgt::box2i* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
 
 #endif
 

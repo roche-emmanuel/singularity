@@ -41,4 +41,33 @@ function suite.test_vec3d()
 	log:info("Done testing vec3d")
 end
 
+function suite.test_vec4i()
+	log:info("Testing vec4i")
+	
+	local v1 = sgt.vec4i(2.0,3.0,1.0,2.0)
+	local v2 = sgt.vec4i(3.0,2.0,1.0,2.0)
+	local v3 = sgt.vec4i(6.0,6.0,1.0,4.0)
+	local v4 = sgt.vec3i(6.0,6.0,1.0)
+	
+	assert_equal(v3,v1*v2,"Invalid vector mult result.")
+	assert_equal(v4,v3:xyz(),"Invalid dot result.")
+	
+	log:info("Done testing vec4i")
+end
+
+function suite.test_box2i()
+	log:info("Testing box2i")
+	
+	local v1 = sgt.box2i(-1.0,1.0,-1.0,1.0)
+	local v2 = sgt.vec2i(2.0,1.0)
+	local v3 = sgt.vec2i(1.0,1.0)
+	
+	assert_equal(0,v1:center():op_index(0),"Invalid center x result.")
+	assert_equal(0,v1:center():op_index(1),"Invalid center x result.")
+	assert_equal(v3,v1:nearestInnerPoint(v2),"Invalid nearest point result.")
+	assert_equal(1,v1:distanceTo(v2),"Invalid distance to result.")
+	
+	log:info("Done testing box2i")
+end
+
 return suite

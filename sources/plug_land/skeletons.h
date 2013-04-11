@@ -2,6 +2,15 @@
 #define _land_SKELETONS_H_
 
 namespace sgt {
+	class box2i {
+	};
+
+	class box2f {
+	};
+
+	class box2d {
+	};
+
 	class vec2h {
 	};
 
@@ -24,6 +33,21 @@ namespace sgt {
 	};
 
 	class vec3i {
+	};
+
+	class vec4h {
+	};
+
+	class vec4f {
+	};
+
+	class vec4d {
+	};
+
+	class vec4i {
+	};
+
+	class box2 {
 	};
 
 	class half {
@@ -35,6 +59,9 @@ namespace sgt {
 	class vec3 {
 	};
 
+	class vec4 {
+	};
+
 	class vec2h {
 	};
 
@@ -57,6 +84,27 @@ namespace sgt {
 	};
 
 	class vec3i {
+	};
+
+	class vec4h {
+	};
+
+	class vec4f {
+	};
+
+	class vec4d {
+	};
+
+	class vec4i {
+	};
+
+	class box2f {
+	};
+
+	class box2d {
+	};
+
+	class box2i {
 	};
 
 };

@@ -22,6 +22,7 @@
 - Preparing sgtLand and plug_land projects.
 - Added vec2 implementation in land module.
 - Added implementation for vec3 classes in land module.
+- Added implementation for box2 and vec4 in land module.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
