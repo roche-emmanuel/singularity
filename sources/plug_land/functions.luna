@@ -1,0 +1,4 @@
+module=sgt
+sgt::floatToHalf
+sgt::halfToFloat
+sgt::isNaN

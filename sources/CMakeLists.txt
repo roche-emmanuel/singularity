@@ -21,6 +21,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(osgdb_freeimage)
 
 ADD_SUBDIRECTORY(sgtCore)
+ADD_SUBDIRECTORY(sgtLand)
 
 # ADD_SUBDIRECTORY(lua_core)
 # ADD_SUBDIRECTORY(lua_externals)
