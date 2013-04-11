@@ -29,6 +29,11 @@ function Class:initialize(options)
 	
 	self._root = osg.MatrixTransform()
 	
+	self._root:addCullCB(function(node,nv)
+		--self:info("Updading view matrices from cull cb.")
+		self:updateViews()
+	end)
+	
 	self._parent = osg.MatrixTransform()
 	self._root:addChild(self._parent)
 	
@@ -71,7 +76,7 @@ end
 function Class:onPlatformUpdated(handler,event,mat)
 	-- self:info("Received platform updated matrix: ", mat)
 	self._parent:setMatrix(mat)
-	self:updateViews()
+	--self:updateViews()
 end
 
 function Class:update()

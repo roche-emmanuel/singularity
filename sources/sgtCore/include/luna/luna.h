@@ -27,6 +27,34 @@ struct lua_Table {};
 // Dummy struct used to declare a lua any parameter for a function.
 struct lua_Any {};
 
+#define LUNA_DEFINE_DIRECT_CAST(cname) template <typename dstType> \
+struct luna_caster<cname, dstType> { \
+	static inline dstType* cast(cname* ptr) {  \
+		return (dstType*)(ptr); \
+	}; \
+};
+
+#define LUNA_BEGIN_SETTER(MyClass) namespace sgt { \
+inline void pushValue(lua_State* L, const MyClass* arg) { \
+	if (!arg) { \
+		lua_pushnil(L); \
+		return; \
+	}
+
+#define LUNA_END_SETTER(MyClass) } \
+\
+inline void pushValue(lua_State* L, const WebString& arg) { \
+	return pushValue(L,&arg); \
+} \
+};
+
+#define LUNA_BEGIN_GETTER(MyClass) namespace sgt { \
+template <> \
+inline MyClass getValue(lua_State* L, int index) {
+
+#define LUNA_END_GETTER(MyClass) } \
+};
+
 typedef int (*luna_mfp)(lua_State *L);
 
 typedef std::map<std::string, luna_mfp> LunaConverterMap;

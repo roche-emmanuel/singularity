@@ -18,6 +18,7 @@
 - Fixed issue in get_version_number to remove new line character.
 - Removed useless temp.txt file.
 - Removed obsolete lua script files (moved in shared script location).
+- Added plug_land skeleton. Using cull callback in turret to update view matrices.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
