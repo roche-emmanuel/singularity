@@ -17,6 +17,9 @@
 
 #include <OpenThreads/ScopedLock>
 #include <OpenThreads/Mutex>
+#include <OpenThreads/ReentrantMutex>
+#include <OpenThreads/Condition>
+#include <OpenThreads/Thread>
 
 #define sgtCast(ptr,targetClass) (dynamic_cast<targetClass*>(ptr))
 

@@ -12,10 +12,49 @@
 #include <math/vec2.h>
 #include <math/vec3.h>
 #include <math/vec4.h>
+#include <taskgraph/Task.h>
 #include <math/half.h>
 #include <taskgraph/Scheduler.h>
-#include <taskgraph/Task.h>
+#include <taskgraph/MultithreadScheduler.h>
 #include <taskgraph/TaskGraph.h>
+
+// Class: std::set< sgtPtr< sgt::Task > >
+template<>
+class LunaTraits< std::set< sgtPtr< sgt::Task > > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::set< sgtPtr< sgt::Task > >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::set< sgtPtr< sgt::Task > >* obj);
+	typedef std::set< sgtPtr< sgt::Task > > parent_t;
+	typedef std::set< sgtPtr< sgt::Task > > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: std::map< sgtPtr< sgt::Task >, sgt::TaskSet >
+template<>
+class LunaTraits< std::map< sgtPtr< sgt::Task >, sgt::TaskSet > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::map< sgtPtr< sgt::Task >, sgt::TaskSet >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::map< sgtPtr< sgt::Task >, sgt::TaskSet >* obj);
+	typedef std::map< sgtPtr< sgt::Task >, sgt::TaskSet > parent_t;
+	typedef std::map< sgtPtr< sgt::Task >, sgt::TaskSet > base_t;
+	static luna_ConverterType converters[];
+};
 
 // Class: sgt::half
 template<>
@@ -74,6 +113,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: sgt::MultithreadScheduler
+template<>
+class LunaTraits< sgt::MultithreadScheduler > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::MultithreadScheduler* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::MultithreadScheduler* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::MultithreadScheduler base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: sgt::Task
 template<>
 class LunaTraits< sgt::Task > {
@@ -90,25 +148,6 @@ public:
 	static void _bind_dtor(sgt::Task* obj);
 	typedef osg::Referenced parent_t;
 	typedef sgt::Task base_t;
-	static luna_ConverterType converters[];
-};
-
-// Class: std::set< sgtPtr< sgt::Task > >
-template<>
-class LunaTraits< std::set< sgtPtr< sgt::Task > > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::set< sgtPtr< sgt::Task > >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::set< sgtPtr< sgt::Task > >* obj);
-	typedef std::set< sgtPtr< sgt::Task > > parent_t;
-	typedef std::set< sgtPtr< sgt::Task > > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -147,25 +186,6 @@ public:
 	static void _bind_dtor(sgt::TaskGraph* obj);
 	typedef osg::Referenced parent_t;
 	typedef sgt::TaskGraph base_t;
-	static luna_ConverterType converters[];
-};
-
-// Class: std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet >
-template<>
-class LunaTraits< std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet >* obj);
-	typedef std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet > parent_t;
-	typedef std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -905,6 +925,20 @@ public:
 };
 
 template<>
+class LunaType< 92752339 > {
+public:
+	typedef sgt::TaskSet type;
+	
+};
+
+template<>
+class LunaType< 30363468 > {
+public:
+	typedef sgt::TaskDependencyMap type;
+	
+};
+
+template<>
 class LunaType< 31071002 > {
 public:
 	typedef sgt::half type;
@@ -919,23 +953,9 @@ public:
 };
 
 template<>
-class LunaType< 32041632 > {
-public:
-	typedef sgt::Task::TaskSet type;
-	
-};
-
-template<>
 class LunaType< 16284073 > {
 public:
 	typedef sgt::TaskListener type;
-	
-};
-
-template<>
-class LunaType< 14825647 > {
-public:
-	typedef sgt::TaskGraph::TaskDependencyMap type;
 	
 };
 
@@ -954,9 +974,9 @@ public:
 };
 
 template<>
-class LunaType< 26583697 > {
+class LunaType< 61782390 > {
 public:
-	typedef std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet > type;
+	typedef std::map< sgtPtr< sgt::Task >, sgt::TaskSet > type;
 	
 };
 

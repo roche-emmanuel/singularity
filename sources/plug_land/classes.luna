@@ -1,11 +1,12 @@
 module=sgt
+std::set< sgtPtr< sgt::Task > > => std::set< sgtPtr< sgt::Task > >
+std::map< sgtPtr< sgt::Task >, sgt::TaskSet > => std::map< sgtPtr< sgt::Task >, sgt::TaskSet >
 sgt::half => sgt::half
 sgt::Scheduler => sgt::Object
+sgt::MultithreadScheduler => sgt::Object
 sgt::Task => sgt::Object
-std::set< sgtPtr< sgt::Task > > => std::set< sgtPtr< sgt::Task > >
 sgt::TaskListener => sgt::TaskListener
 sgt::TaskGraph => sgt::Object
-std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet > => std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet >
 sgt::SetIterator< sgtPtr< sgt::Task > > => sgt::SetIterator< sgtPtr< sgt::Task > >
 sgt::vec2h => sgt::vec2h
 sgt::vec2f => sgt::vec2f

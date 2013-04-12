@@ -103,8 +103,8 @@ public:
 		return TaskGraph::isDone();
 	};
 
-	// void sgt::TaskGraph::init(sgt::Task::TaskSet & initialized)
-	void init(sgt::Task::TaskSet & initialized) {
+	// void sgt::TaskGraph::init(sgt::TaskSet & initialized)
+	void init(sgt::TaskSet & initialized) {
 		if(_obj.pushFunction("init")) {
 			_obj.pushArg((sgt::TaskGraph*)this);
 			_obj.pushArg(&initialized);

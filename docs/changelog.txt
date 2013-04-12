@@ -29,6 +29,7 @@
 - Added implementation for Task in land module.
 - Added Scheduler base class.
 - Added TaskGraph implementation.
+- Added MultithreadScheduler implementation.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

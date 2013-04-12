@@ -51,11 +51,6 @@ public:
     };
 
     /**
-     * An iterator to iterate over a set of tasks.
-     */
-	typedef std::set< sgtPtr<Task> > TaskSet;
-
-    /**
      * Creates a new task.
      *
      * @param type the type of the task.
@@ -115,7 +110,7 @@ public:
      *      avoid initializing several times the same task (for tasks that
      *      belong to several task graphs).
      */
-    virtual void init(TaskSet &initialized);
+	virtual void init(std::set< sgtPtr<Task> > &initialized);
 
     /**
      * Sets the execution context for this task. All tasks that share the same
@@ -286,6 +281,14 @@ private:
      */
     static std::map<std::type_info const*, TaskStatistics*, TypeInfoSort> statistics;
 };
+
+/**
+ * An iterator to iterate over a set of tasks.
+ */
+typedef std::set< sgtPtr<Task> > TaskSet;
+
+typedef std::map< sgtPtr<Task>, TaskSet > TaskDependencyMap;
+
 
 /**
  * A task listener, notified when changes occur in a task.

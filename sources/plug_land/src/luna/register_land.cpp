@@ -14,13 +14,14 @@ int PLUG_EXPORT luaopen_land(lua_State* L) {
 	luna_open(L);
 
 	luna_pushModule(L,"sgt");
+	Luna< std::set< sgtPtr< sgt::Task > > >::Register(L);
+	Luna< std::map< sgtPtr< sgt::Task >, sgt::TaskSet > >::Register(L);
 	Luna< sgt::half >::Register(L);
 	Luna< sgt::Scheduler >::Register(L);
+	Luna< sgt::MultithreadScheduler >::Register(L);
 	Luna< sgt::Task >::Register(L);
-	Luna< std::set< sgtPtr< sgt::Task > > >::Register(L);
 	Luna< sgt::TaskListener >::Register(L);
 	Luna< sgt::TaskGraph >::Register(L);
-	Luna< std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet > >::Register(L);
 	Luna< sgt::SetIterator< sgtPtr< sgt::Task > > >::Register(L);
 	Luna< sgt::vec2h >::Register(L);
 	Luna< sgt::vec2f >::Register(L);

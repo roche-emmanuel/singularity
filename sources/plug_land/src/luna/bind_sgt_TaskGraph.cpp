@@ -395,23 +395,23 @@ public:
 
 
 	// Function binds:
-	// void sgt::TaskGraph::init(sgt::Task::TaskSet & initialized)
+	// void sgt::TaskGraph::init(sgt::TaskSet & initialized)
 	static int _bind_init(lua_State *L) {
 		if (!_lg_typecheck_init(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::TaskGraph::init(sgt::Task::TaskSet & initialized) function, expected prototype:\nvoid sgt::TaskGraph::init(sgt::Task::TaskSet & initialized)\nClass arguments details:\narg 1 ID = 32041632\n");
+			luaL_error(L, "luna typecheck failed in void sgt::TaskGraph::init(sgt::TaskSet & initialized) function, expected prototype:\nvoid sgt::TaskGraph::init(sgt::TaskSet & initialized)\nClass arguments details:\narg 1 ID = 92752339\n");
 		}
 
-		sgt::Task::TaskSet* initialized_ptr=(Luna< std::set< sgtPtr< sgt::Task > > >::checkSubType< sgt::Task::TaskSet >(L,2));
+		sgt::TaskSet* initialized_ptr=(Luna< std::set< sgtPtr< sgt::Task > > >::checkSubType< sgt::TaskSet >(L,2));
 		if( !initialized_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg initialized in sgt::TaskGraph::init function");
 		}
-		sgt::Task::TaskSet & initialized=*initialized_ptr;
+		sgt::TaskSet & initialized=*initialized_ptr;
 
 		sgt::TaskGraph* self=Luna< osg::Referenced >::checkSubType< sgt::TaskGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::TaskGraph::init(sgt::Task::TaskSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::TaskGraph::init(sgt::TaskSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->init(initialized);
 
@@ -667,24 +667,24 @@ public:
 		return 0;
 	}
 
-	// void sgt::TaskGraph::removeAndGetDependencies(sgt::Task * src, sgt::Task::TaskSet & deletedDependencies)
+	// void sgt::TaskGraph::removeAndGetDependencies(sgt::Task * src, sgt::TaskSet & deletedDependencies)
 	static int _bind_removeAndGetDependencies(lua_State *L) {
 		if (!_lg_typecheck_removeAndGetDependencies(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::TaskGraph::removeAndGetDependencies(sgt::Task * src, sgt::Task::TaskSet & deletedDependencies) function, expected prototype:\nvoid sgt::TaskGraph::removeAndGetDependencies(sgt::Task * src, sgt::Task::TaskSet & deletedDependencies)\nClass arguments details:\narg 1 ID = 44367388\narg 2 ID = 32041632\n");
+			luaL_error(L, "luna typecheck failed in void sgt::TaskGraph::removeAndGetDependencies(sgt::Task * src, sgt::TaskSet & deletedDependencies) function, expected prototype:\nvoid sgt::TaskGraph::removeAndGetDependencies(sgt::Task * src, sgt::TaskSet & deletedDependencies)\nClass arguments details:\narg 1 ID = 44367388\narg 2 ID = 92752339\n");
 		}
 
 		sgt::Task* src=(Luna< osg::Referenced >::checkSubType< sgt::Task >(L,2));
-		sgt::Task::TaskSet* deletedDependencies_ptr=(Luna< std::set< sgtPtr< sgt::Task > > >::checkSubType< sgt::Task::TaskSet >(L,3));
+		sgt::TaskSet* deletedDependencies_ptr=(Luna< std::set< sgtPtr< sgt::Task > > >::checkSubType< sgt::TaskSet >(L,3));
 		if( !deletedDependencies_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg deletedDependencies in sgt::TaskGraph::removeAndGetDependencies function");
 		}
-		sgt::Task::TaskSet & deletedDependencies=*deletedDependencies_ptr;
+		sgt::TaskSet & deletedDependencies=*deletedDependencies_ptr;
 
 		sgt::TaskGraph* self=Luna< osg::Referenced >::checkSubType< sgt::TaskGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::TaskGraph::removeAndGetDependencies(sgt::Task *, sgt::Task::TaskSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::TaskGraph::removeAndGetDependencies(sgt::Task *, sgt::TaskSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->removeAndGetDependencies(src, deletedDependencies);
 
@@ -864,23 +864,23 @@ public:
 		return 1;
 	}
 
-	// void sgt::TaskGraph::base_init(sgt::Task::TaskSet & initialized)
+	// void sgt::TaskGraph::base_init(sgt::TaskSet & initialized)
 	static int _bind_base_init(lua_State *L) {
 		if (!_lg_typecheck_base_init(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::TaskGraph::base_init(sgt::Task::TaskSet & initialized) function, expected prototype:\nvoid sgt::TaskGraph::base_init(sgt::Task::TaskSet & initialized)\nClass arguments details:\narg 1 ID = 32041632\n");
+			luaL_error(L, "luna typecheck failed in void sgt::TaskGraph::base_init(sgt::TaskSet & initialized) function, expected prototype:\nvoid sgt::TaskGraph::base_init(sgt::TaskSet & initialized)\nClass arguments details:\narg 1 ID = 92752339\n");
 		}
 
-		sgt::Task::TaskSet* initialized_ptr=(Luna< std::set< sgtPtr< sgt::Task > > >::checkSubType< sgt::Task::TaskSet >(L,2));
+		sgt::TaskSet* initialized_ptr=(Luna< std::set< sgtPtr< sgt::Task > > >::checkSubType< sgt::TaskSet >(L,2));
 		if( !initialized_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg initialized in sgt::TaskGraph::base_init function");
 		}
-		sgt::Task::TaskSet & initialized=*initialized_ptr;
+		sgt::TaskSet & initialized=*initialized_ptr;
 
 		sgt::TaskGraph* self=Luna< osg::Referenced >::checkSubType< sgt::TaskGraph >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::TaskGraph::base_init(sgt::Task::TaskSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void sgt::TaskGraph::base_init(sgt::TaskSet &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
 		}
 		self->TaskGraph::init(initialized);
 

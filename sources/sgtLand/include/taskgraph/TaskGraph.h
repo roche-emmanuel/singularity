@@ -8,7 +8,6 @@
 
 namespace sgt
 {
-
 /**
  * A task made of several sub tasks that may depend on each other. A dependency
  * between two tasks means that one task must be executed before the other. More
@@ -23,7 +22,6 @@ namespace sgt
 class SGTLAND_EXPORT TaskGraph : public Task, public TaskListener
 {
 public:
-	typedef std::map< sgtPtr<Task>, TaskSet > TaskDependencyMap;
 
     /**
      * An iterator to iterate over a set of tasks.

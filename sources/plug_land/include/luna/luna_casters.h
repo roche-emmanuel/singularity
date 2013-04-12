@@ -4,6 +4,20 @@
 #include <plug_common.h>
 
 template <typename dstType>
+struct luna_caster<std::set< sgtPtr< sgt::Task > >,dstType> {
+	static inline dstType* cast(std::set< sgtPtr< sgt::Task > >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<std::map< sgtPtr< sgt::Task >, sgt::TaskSet >,dstType> {
+	static inline dstType* cast(std::map< sgtPtr< sgt::Task >, sgt::TaskSet >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<sgt::half,dstType> {
 	static inline dstType* cast(sgt::half* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -13,20 +27,6 @@ struct luna_caster<sgt::half,dstType> {
 template <typename dstType>
 struct luna_caster<sgt::Object,dstType> {
 	static inline dstType* cast(sgt::Object* ptr) {
-		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <typename dstType>
-struct luna_caster<std::set< sgtPtr< sgt::Task > >,dstType> {
-	static inline dstType* cast(std::set< sgtPtr< sgt::Task > >* ptr) {
-		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <typename dstType>
-struct luna_caster<std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet >,dstType> {
-	static inline dstType* cast(std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet >* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };

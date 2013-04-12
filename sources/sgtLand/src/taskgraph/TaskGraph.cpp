@@ -55,7 +55,7 @@ void TaskGraph::setPredecessorsCompletionDate(unsigned int t)
  * of sub tasks is modified during the iteration (by the init method of one of
  * the sub tasks).
  */
-void initTasks(TaskGraph::TaskIterator &i, Task::TaskSet& initialized)
+void initTasks(TaskGraph::TaskIterator &i, TaskSet& initialized)
 {
     if (i.hasNext()) {
         sgtPtr<Task> t = i.next();

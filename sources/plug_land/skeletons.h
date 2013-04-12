@@ -1,6 +1,12 @@
 #ifndef _land_SKELETONS_H_
 #define _land_SKELETONS_H_
 
+class taskKeySort {
+};
+
+class taskSort {
+};
+
 class TaskStatistics {
 };
 
@@ -86,6 +92,12 @@ namespace sgt {
 	class vec4i {
 	};
 
+	class TaskSet {
+	};
+
+	class TaskDependencyMap {
+	};
+
 	class SetIterator {
 	};
 
@@ -125,14 +137,15 @@ namespace sgt {
 	class vec4 {
 	};
 
+	class MultithreadScheduler: public sgt::Scheduler {
+	public:
+	};
+
 	class Scheduler: public sgt::Object {
 	};
 
 	class Task: public sgt::Object {
 	public:
-		class TaskSet {
-		};
-
 	};
 
 	class TaskListener {
@@ -140,9 +153,6 @@ namespace sgt {
 
 	class TaskGraph: public sgt::Task, public sgt::TaskListener {
 	public:
-		class TaskDependencyMap {
-		};
-
 		class TaskIterator {
 		};
 

@@ -184,5 +184,31 @@ function suite.test_taskgraph()
 	log:info("Done testing TaskGraph")
 end
 
+function suite.test_scheduler()
+	log:info("Testing MultithreadScheduler")
+	
+
+	local v1 = sgt.TaskGraph()
+	local v2 = sgt.Task("MyTask",false,3)
+	
+	local sch = sgt.MultithreadScheduler(0,0,0.0,3)
+	
+	v1:addTask(v2)
+	
+	assert_equal(false,v1:isDone(),"Invalid taskgraph isDone result.")
+
+	sch:run(v1)
+
+	assert_equal(true,v1:isDone(),"Invalid taskgraph isDone result bis.")
+	assert_equal(true,v2:isDone(),"Invalid taskgraph isDone result ter.")
+	
+	log:info("Deleting scheduler...")
+	sch = nil;
+	collectgarbage('collect')
+	log:info("Scheduler deleted.")
+	
+	log:info("Done testing MultithreadScheduler")
+end
+
 
 return suite

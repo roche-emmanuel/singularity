@@ -55,8 +55,8 @@ public:
 		return Task::getComplexity();
 	};
 
-	// void sgt::Task::init(sgt::Task::TaskSet & initialized)
-	void init(sgt::Task::TaskSet & initialized) {
+	// void sgt::Task::init(std::set< sgtPtr< sgt::Task > > & initialized)
+	void init(std::set< sgtPtr< sgt::Task > > & initialized) {
 		if(_obj.pushFunction("init")) {
 			_obj.pushArg((sgt::Task*)this);
 			_obj.pushArg(&initialized);
