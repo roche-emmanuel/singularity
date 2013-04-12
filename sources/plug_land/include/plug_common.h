@@ -30,6 +30,8 @@
 
 #include <math/quat.h>
 
+#include <core/Iterator.h>
+
 // Insert your using namespace commands here.
 
 #include "plug_extensions.h"

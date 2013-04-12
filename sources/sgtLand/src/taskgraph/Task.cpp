@@ -58,7 +58,7 @@ int Task::getComplexity() const
     return 1;
 }
 
-void Task::init(set<Task*> &initialized)
+void Task::init(TaskSet &initialized)
 {
 }
 
@@ -172,7 +172,7 @@ void Task::addListener(TaskListener *l)
 
 void Task::removeListener(TaskListener *l)
 {
-    vector< sgtPtr<TaskListener> >::iterator i = find(listeners.begin(), listeners.end(), l);
+    vector< TaskListener* >::iterator i = find(listeners.begin(), listeners.end(), l);
     if (i != listeners.end()) {
         listeners.erase(i);
     }

@@ -15,6 +15,7 @@
 #include <math/half.h>
 #include <taskgraph/Scheduler.h>
 #include <taskgraph/Task.h>
+#include <taskgraph/TaskGraph.h>
 
 // Class: sgt::half
 template<>
@@ -92,6 +93,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: std::set< sgtPtr< sgt::Task > >
+template<>
+class LunaTraits< std::set< sgtPtr< sgt::Task > > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::set< sgtPtr< sgt::Task > >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::set< sgtPtr< sgt::Task > >* obj);
+	typedef std::set< sgtPtr< sgt::Task > > parent_t;
+	typedef std::set< sgtPtr< sgt::Task > > base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: sgt::TaskListener
 template<>
 class LunaTraits< sgt::TaskListener > {
@@ -106,8 +126,65 @@ public:
 	static luna_RegEnumType enumValues[];
 	static sgt::TaskListener* _bind_ctor(lua_State *L);
 	static void _bind_dtor(sgt::TaskListener* obj);
-	typedef osg::Referenced parent_t;
+	typedef sgt::TaskListener parent_t;
 	typedef sgt::TaskListener base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::TaskGraph
+template<>
+class LunaTraits< sgt::TaskGraph > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::TaskGraph* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::TaskGraph* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::TaskGraph base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet >
+template<>
+class LunaTraits< std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet >* obj);
+	typedef std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet > parent_t;
+	typedef std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::SetIterator< sgtPtr< sgt::Task > >
+template<>
+class LunaTraits< sgt::SetIterator< sgtPtr< sgt::Task > > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::SetIterator< sgtPtr< sgt::Task > >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::SetIterator< sgtPtr< sgt::Task > >* obj);
+	typedef sgt::SetIterator< sgtPtr< sgt::Task > > parent_t;
+	typedef sgt::SetIterator< sgtPtr< sgt::Task > > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -606,25 +683,6 @@ public:
 };
 
 
-// Mapped type: std::set< sgt::Task * >
-template<>
-class LunaTraits< std::set< sgt::Task * > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::set< sgt::Task * >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::set< sgt::Task * >* obj);
-	typedef std::set< sgt::Task * > parent_t;
-	typedef std::set< sgt::Task * > base_t;
-	static luna_ConverterType converters[];
-};
-
 
 // Referenced external: void
 template<>
@@ -861,9 +919,51 @@ public:
 };
 
 template<>
-class LunaType< 42469568 > {
+class LunaType< 32041632 > {
 public:
-	typedef std::set< sgt::Task * > type;
+	typedef sgt::Task::TaskSet type;
+	
+};
+
+template<>
+class LunaType< 16284073 > {
+public:
+	typedef sgt::TaskListener type;
+	
+};
+
+template<>
+class LunaType< 14825647 > {
+public:
+	typedef sgt::TaskGraph::TaskDependencyMap type;
+	
+};
+
+template<>
+class LunaType< 76306638 > {
+public:
+	typedef sgt::TaskGraph::TaskIterator type;
+	
+};
+
+template<>
+class LunaType< 24456226 > {
+public:
+	typedef std::set< sgtPtr< sgt::Task > > type;
+	
+};
+
+template<>
+class LunaType< 26583697 > {
+public:
+	typedef std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet > type;
+	
+};
+
+template<>
+class LunaType< 25781455 > {
+public:
+	typedef sgt::SetIterator< sgtPtr< sgt::Task > > type;
 	
 };
 

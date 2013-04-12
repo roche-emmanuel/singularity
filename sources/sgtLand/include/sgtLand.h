@@ -18,4 +18,6 @@
 #include <OpenThreads/ScopedLock>
 #include <OpenThreads/Mutex>
 
+#define sgtCast(ptr,targetClass) (dynamic_cast<targetClass*>(ptr))
+
 #endif

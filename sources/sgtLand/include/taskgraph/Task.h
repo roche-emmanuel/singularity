@@ -51,6 +51,11 @@ public:
     };
 
     /**
+     * An iterator to iterate over a set of tasks.
+     */
+	typedef std::set< sgtPtr<Task> > TaskSet;
+
+    /**
      * Creates a new task.
      *
      * @param type the type of the task.
@@ -110,7 +115,7 @@ public:
      *      avoid initializing several times the same task (for tasks that
      *      belong to several task graphs).
      */
-    virtual void init(std::set<Task*> &initialized);
+    virtual void init(TaskSet &initialized);
 
     /**
      * Sets the execution context for this task. All tasks that share the same
@@ -226,7 +231,7 @@ public:
 protected:
     unsigned int completionDate; ///< time at which this task was completed.
 
-    std::vector< sgtPtr<TaskListener> > listeners; ///< the listeners of this tasks.
+    std::vector< TaskListener* > listeners; ///< the listeners of this tasks.
 
     /**
      * Returns the type of this task. This type is used to group the execution
@@ -285,7 +290,7 @@ private:
 /**
  * A task listener, notified when changes occur in a task.
  */
-class SGTLAND_EXPORT TaskListener : public sgt::Object
+class SGTLAND_EXPORT TaskListener
 {
 public:
     /**

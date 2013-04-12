@@ -169,4 +169,20 @@ function suite.test_task()
 	log:info("Done testing Task")
 end
 
+function suite.test_taskgraph()
+	log:info("Testing TaskGraph")
+	
+
+	local v1 = sgt.TaskGraph()
+	local v2 = sgt.Task("MyTask",false,3)
+	
+	assert_equal(true,v1:isEmpty(),"Invalid taskgraph isEmpty result.")
+	v1:addTask(v2)
+	
+	assert_equal(false,v1:isEmpty(),"Invalid taskgraph isEmpty result bis.")
+	
+	log:info("Done testing TaskGraph")
+end
+
+
 return suite

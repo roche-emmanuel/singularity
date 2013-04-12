@@ -86,6 +86,15 @@ namespace sgt {
 	class vec4i {
 	};
 
+	class SetIterator {
+	};
+
+	class MapIterator {
+	};
+
+	class MultiMapIterator {
+	};
+
 	class box2 {
 	};
 
@@ -121,9 +130,22 @@ namespace sgt {
 
 	class Task: public sgt::Object {
 	public:
+		class TaskSet {
+		};
+
 	};
 
-	class TaskListener: public sgt::Object {
+	class TaskListener {
+	};
+
+	class TaskGraph: public sgt::Task, public sgt::TaskListener {
+	public:
+		class TaskDependencyMap {
+		};
+
+		class TaskIterator {
+		};
+
 	};
 
 	class vec2h {

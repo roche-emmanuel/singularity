@@ -18,6 +18,27 @@ struct luna_caster<sgt::Object,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<std::set< sgtPtr< sgt::Task > >,dstType> {
+	static inline dstType* cast(std::set< sgtPtr< sgt::Task > >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet >,dstType> {
+	static inline dstType* cast(std::map< sgtPtr< sgt::Task >, sgt::Task::TaskSet >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<sgt::SetIterator< sgtPtr< sgt::Task > >,dstType> {
+	static inline dstType* cast(sgt::SetIterator< sgtPtr< sgt::Task > >* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<sgt::vec2h,dstType> {
 	static inline dstType* cast(sgt::vec2h* ptr) {
 		return static_cast<dstType*>(ptr);
