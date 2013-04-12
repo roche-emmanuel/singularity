@@ -15,4 +15,7 @@
 
 #include "sgtCommon.h"
 
+#include <OpenThreads/ScopedLock>
+#include <OpenThreads/Mutex>
+
 #endif

@@ -1,5 +1,7 @@
 module=sgt
 sgt::half => sgt::half
+sgt::Task => sgt::Object
+sgt::TaskListener => sgt::Object
 sgt::vec2h => sgt::vec2h
 sgt::vec2f => sgt::vec2f
 sgt::vec2d => sgt::vec2d
@@ -26,3 +28,5 @@ sgt::mat4f => sgt::mat4f
 sgt::mat4d => sgt::mat4d
 sgt::quatf => sgt::quatf
 sgt::quatd => sgt::quatd
+module=land
+std::set< sgt::Task * > => std::set< sgt::Task * >

@@ -157,4 +157,16 @@ function suite.test_quatd()
 	log:info("Done testing quatd")
 end
 
+function suite.test_task()
+	log:info("Testing Task")
+	
+	local v1 = sgt.Task("MyTask",false,3)
+	
+	assert_equal("MyTask",v1:getName(),"Invalid task name result.")
+	assert_equal(false,v1:isGpuTask(),"Invalid task isGpuTask() result.")
+	assert_equal(3,v1:getDeadline(),"Invalid task getDeadline() result.")
+	
+	log:info("Done testing Task")
+end
+
 return suite

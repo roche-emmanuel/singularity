@@ -11,6 +11,13 @@ struct luna_caster<sgt::half,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<sgt::Object,dstType> {
+	static inline dstType* cast(sgt::Object* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<sgt::vec2h,dstType> {
 	static inline dstType* cast(sgt::vec2h* ptr) {
 		return static_cast<dstType*>(ptr);

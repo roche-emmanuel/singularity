@@ -15,6 +15,8 @@ int PLUG_EXPORT luaopen_land(lua_State* L) {
 
 	luna_pushModule(L,"sgt");
 	Luna< sgt::half >::Register(L);
+	Luna< sgt::Task >::Register(L);
+	Luna< sgt::TaskListener >::Register(L);
 	Luna< sgt::vec2h >::Register(L);
 	Luna< sgt::vec2f >::Register(L);
 	Luna< sgt::vec2d >::Register(L);
@@ -41,6 +43,9 @@ int PLUG_EXPORT luaopen_land(lua_State* L) {
 	Luna< sgt::mat4d >::Register(L);
 	Luna< sgt::quatf >::Register(L);
 	Luna< sgt::quatd >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"land");
+	Luna< std::set< sgt::Task * > >::Register(L);
 	luna_popModule(L);
 
 	luna_pushModule(L,"land");

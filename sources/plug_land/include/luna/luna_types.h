@@ -13,6 +13,7 @@
 #include <math/vec3.h>
 #include <math/vec4.h>
 #include <math/half.h>
+#include <taskgraph/Task.h>
 
 // Class: sgt::half
 template<>
@@ -30,6 +31,63 @@ public:
 	static void _bind_dtor(sgt::half* obj);
 	typedef sgt::half parent_t;
 	typedef sgt::half base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::Object
+template<>
+class LunaTraits< sgt::Object > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::Object* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::Object* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::Object base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::Task
+template<>
+class LunaTraits< sgt::Task > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::Task* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::Task* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::Task base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: sgt::TaskListener
+template<>
+class LunaTraits< sgt::TaskListener > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static sgt::TaskListener* _bind_ctor(lua_State *L);
+	static void _bind_dtor(sgt::TaskListener* obj);
+	typedef osg::Referenced parent_t;
+	typedef sgt::TaskListener base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -528,6 +586,25 @@ public:
 };
 
 
+// Mapped type: std::set< sgt::Task * >
+template<>
+class LunaTraits< std::set< sgt::Task * > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::set< sgt::Task * >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::set< sgt::Task * >* obj);
+	typedef std::set< sgt::Task * > parent_t;
+	typedef std::set< sgt::Task * > base_t;
+	static luna_ConverterType converters[];
+};
+
 
 // Referenced external: void
 template<>
@@ -545,6 +622,25 @@ public:
 	static void _bind_dtor(void* obj);
 	typedef void parent_t;
 	typedef void base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Referenced
+template<>
+class LunaTraits< osg::Referenced > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Referenced* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Referenced* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Referenced base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -738,9 +834,30 @@ public:
 };
 
 template<>
+class LunaType< 44367388 > {
+public:
+	typedef sgt::Object type;
+	
+};
+
+template<>
+class LunaType< 42469568 > {
+public:
+	typedef std::set< sgt::Task * > type;
+	
+};
+
+template<>
 class LunaType< 3625364 > {
 public:
 	typedef void type;
+	
+};
+
+template<>
+class LunaType< 50169651 > {
+public:
+	typedef osg::Referenced type;
 	
 };
 

@@ -1,6 +1,12 @@
 #ifndef _land_SKELETONS_H_
 #define _land_SKELETONS_H_
 
+class TaskStatistics {
+};
+
+class TypeInfoSort {
+};
+
 namespace sgt {
 	class box2i {
 	};
@@ -108,6 +114,13 @@ namespace sgt {
 	};
 
 	class vec4 {
+	};
+
+	class Task: public sgt::Object {
+	public:
+	};
+
+	class TaskListener: public sgt::Object {
 	};
 
 	class vec2h {

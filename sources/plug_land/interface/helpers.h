@@ -263,6 +263,8 @@ public: \
 
 namespace sgt {
 
+class Object {}; // external parent class.
+
 VEC2_CLASS(vec2h,half);
 VEC2_CLASS(vec2f,float);
 VEC2_CLASS(vec2d,double);
