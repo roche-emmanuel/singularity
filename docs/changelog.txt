@@ -27,6 +27,7 @@
 - Added mat3 and mat4 implementation in land module.
 - Added implementation for quat in land module.
 - Added implementation for Task in land module.
+- Added Scheduler base class.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

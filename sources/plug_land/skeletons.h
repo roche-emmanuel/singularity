@@ -116,6 +116,9 @@ namespace sgt {
 	class vec4 {
 	};
 
+	class Scheduler: public sgt::Object {
+	};
+
 	class Task: public sgt::Object {
 	public:
 	};

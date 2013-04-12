@@ -1,5 +1,6 @@
 module=sgt
 sgt::half => sgt::half
+sgt::Scheduler => sgt::Object
 sgt::Task => sgt::Object
 sgt::TaskListener => sgt::Object
 sgt::vec2h => sgt::vec2h
