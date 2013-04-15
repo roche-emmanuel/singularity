@@ -19,6 +19,11 @@ namespace osg {
 };
 
 /** LUNA_CLASS_EXTENSION  */
+inline float op_index(osg::Matrix3Template< float >* mat, int index) {
+	return (*mat)[index];
+}
+
+/** LUNA_CLASS_EXTENSION  */
 inline void setInt(osg::Uniform* unif, int val) {
 	unif->set(val);
 }

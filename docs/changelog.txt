@@ -31,6 +31,7 @@
 - Added TaskGraph implementation.
 - Added MultithreadScheduler implementation.
 - Working on sgtLand basic quadtree.
+- Implementing TerrainNode functions.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

@@ -15,6 +15,14 @@ osg.Matrixd.toMatrix3 = function(self)
 					   self:op_call(2,0),self:op_call(2,1),self:op_call(2,2))
 end
 
+osg.Matrixd.getRow3 = function(self,row)
+	return osg.Vec3d(self:op_call(row,0),self:op_call(row,1),self:op_call(row,2))
+end
+
+osg.Matrixd.getRow = function(self,row)
+	return osg.Vec4d(self:op_call(row,0),self:op_call(row,1),self:op_call(row,2),self:op_call(row,3))
+end
+
 osg.Matrix3 = osg.osg_Matrix3Template_float
 
 osg.Matrix3.__tostring = function(self)
@@ -26,10 +34,6 @@ osg.Matrix3.__tostring = function(self)
 end
 
 -- Vec4f extensions:
-osg.Vec4f.helloworld = function(self)
-	return "Hello manu! Vec is ".. tostring(self)
-end
-
 osg.Vec4f.__tostring = function(self)
 	return "("..self:x()..", "..self:y()..", "..self:z()..", "..self:w()..")"
 end
@@ -55,6 +59,14 @@ end
 
 osg.Vec3d._v = function(self,id)
 	return (id==0 and self:x()) or (id==1 and self:y()) or (id==2 and self:z()) 
+end
+
+osg.Vec4d.xyz = function(self)
+	return osg.Vec3d(self:x(),self:y(),self:z())
+end
+
+osg.Vec4f.xyz = function(self)
+	return osg.Vec3f(self:x(),self:y(),self:z())
 end
 
 osg.XAXIS = osg.Vec3d(1.0,0.0,0.0)

@@ -1,7 +1,11 @@
+- In progress:
+  * Retrieve fovX angle in osg/land/TerrainNode.lua, line 53.
+
 - Libraries:
 
 * SFML : http://www.sfml-dev.org/index-fr.php
 * ngPlant
+
 
 - Todo:
 

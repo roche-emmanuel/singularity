@@ -54,6 +54,31 @@ public:
 		return luna_dynamicCast(L,converters,"osg::Matrix3Template< float >",name);
 	}
 
+	inline static bool _lg_typecheck_op_index(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3033487)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+
+	// float osg::Matrix3Template< float > *::op_index(osg::Matrix3Template< float > * mat, int index)
+	static int _bind_op_index(lua_State *L) {
+		if (!_lg_typecheck_op_index(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osg::Matrix3Template< float > *::op_index(osg::Matrix3Template< float > * mat, int index) function, expected prototype:\nfloat osg::Matrix3Template< float > *::op_index(osg::Matrix3Template< float > * mat, int index)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		}
+
+		osg::Matrix3Template< float >* mat=(Luna< osg::Matrix3Template< float > >::check(L,1));
+		int index=(int)lua_tointeger(L,2);
+
+		float lret = op_index(mat, index);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 };
 
 osg::Matrix3Template< float >* LunaTraits< osg::Matrix3Template< float > >::_bind_ctor(lua_State *L) {
@@ -75,6 +100,7 @@ luna_RegType LunaTraits< osg::Matrix3Template< float > >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_Matrix3Template_float::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_Matrix3Template_float::_bind___eq},
 	
+	{"op_index", &luna_wrapper_osg_Matrix3Template_float::_bind_op_index},
 	{0,0}
 };
 

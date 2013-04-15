@@ -19007,6 +19007,13 @@ public:
 };
 
 template<>
+class LunaType< 3033487 > {
+public:
+	typedef osg::Matrix3Template< float > type;
+	
+};
+
+template<>
 class LunaType< 57514973 > {
 public:
 	typedef std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > > type;
@@ -19283,13 +19290,6 @@ template<>
 class LunaType< 64512237 > {
 public:
 	typedef osg::Matrix3x2Template< float > type;
-	
-};
-
-template<>
-class LunaType< 3033487 > {
-public:
-	typedef osg::Matrix3Template< float > type;
 	
 };
 
