@@ -143,6 +143,11 @@ class NodePathList {
 
 };
 
+class Matrix3Template< float > {
+public:
+	float operator[](int index);
+};
+
 };
 
 

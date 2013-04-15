@@ -461,5 +461,50 @@
         </node>
       </nodes>
     </chart>
+    <chart name="Terrain rendering" type="MindMap">
+      <layout>MIND_MAP</layout>
+      <style>
+        <back_color>White</back_color>
+        <fore_color>Black</fore_color>
+        <line_color>LightSlateGray</line_color>
+        <border_color>SlateGray</border_color>
+        <node_back_color>LightGray</node_back_color>
+        <node_fore_color>Black</node_fore_color>
+        <select_color>RoyalBlue</select_color>
+        <hover_color>MediumSlateBlue</hover_color>
+        <link_line_color>Green</link_line_color>
+      </style>
+      <nodes>
+        <node text="Terrain rendering">
+          <style>
+            <back_color>Silver</back_color>
+            <fore_color>Black</fore_color>
+            <border_color>Black</border_color>
+            <padding>12</padding>
+          </style>
+          <nodes>
+            <node text="TerrainNode">
+              <style>
+                <back_color>#FFC0FF</back_color>
+              </style>
+              <nodes>
+                <node text="TerrainQuad">
+                  <style>
+                    <back_color>#FFC0FF</back_color>
+                  </style>
+                  <nodes>
+                    <node text="Is a group">
+                      <style>
+                        <shape>4</shape>
+                      </style>
+                    </node>
+                  </nodes>
+                </node>
+              </nodes>
+            </node>
+          </nodes>
+        </node>
+      </nodes>
+    </chart>
   </charts>
 </document>

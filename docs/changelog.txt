@@ -30,6 +30,7 @@
 - Added Scheduler base class.
 - Added TaskGraph implementation.
 - Added MultithreadScheduler implementation.
+- Working on sgtLand basic quadtree.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

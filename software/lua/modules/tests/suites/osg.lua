@@ -166,6 +166,24 @@ function test_object_equality_advanced()
 	log:info("Tests","Done testing object equality advanced.")
 end
 
+function test_matrix3()
+	log:info("Tests","Testing matrix3.")
+	
+	local ca = math.cos(math.pi/6)
+	local sa = math.sin(math.pi/6)
+	
+	local target = osg.Matrix3(ca,sa,0.0,
+	                           -sa,ca,0.0,
+							   0.0,0.0,1.0);
+							   
+	local mat = osg.Matrixd.rotate(math.pi/6, osg.ZAXIS);
+	local res = mat:toMatrix3()
+	
+	assert_equal(target,res,"Matrix3 are not equal.")
+	
+	log:info("Tests","Done testing matrix3.")
+end
+
 function test_event_handler()
 	log:info("Tests","Testing event handler.")
 	

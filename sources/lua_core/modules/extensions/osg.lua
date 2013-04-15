@@ -9,6 +9,22 @@ osg.Matrixd.__tostring = function(self)
 	return str
 end
 
+osg.Matrixd.toMatrix3 = function(self)
+	return osg.Matrix3(self:op_call(0,0),self:op_call(0,1),self:op_call(0,2),
+					   self:op_call(1,0),self:op_call(1,1),self:op_call(1,2),
+					   self:op_call(2,0),self:op_call(2,1),self:op_call(2,2))
+end
+
+osg.Matrix3 = osg.osg_Matrix3Template_float
+
+osg.Matrix3.__tostring = function(self)
+	local str = "{\n"
+	str = str .. "  " .. self:op_index(0) ..", ".. self:op_index(1) ..", ".. self:op_index(2)..",\n"
+	str = str .. "  " .. self:op_index(3) ..", ".. self:op_index(4) ..", ".. self:op_index(5)..",\n"
+	str = str .. "  " .. self:op_index(6) ..", ".. self:op_index(7) ..", ".. self:op_index(8).."\n}"
+	return str
+end
+
 -- Vec4f extensions:
 osg.Vec4f.helloworld = function(self)
 	return "Hello manu! Vec is ".. tostring(self)
@@ -107,7 +123,6 @@ osg.Node.addEvtHandler = function(self, func)
 	self:addEventCallback(cb)
 	return cb
 end
-
 
 -- update the parents again:
 -- local tick = osg.Timer.instance():tick()
