@@ -59,6 +59,14 @@ osg.Vec3d._v = function(self,id)
 	return (id==0 and self:x()) or (id==1 and self:y()) or (id==2 and self:z()) 
 end
 
+osg.Vec3d.xy = function(self)
+	return osg.Vec2d(self:x(),self:y())
+end
+
+osg.Vec3f.xy = function(self)
+	return osg.Vec2f(self:x(),self:y())
+end
+
 osg.Vec4d.xyz = function(self)
 	return osg.Vec3d(self:x(),self:y(),self:z())
 end

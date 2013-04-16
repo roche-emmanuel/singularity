@@ -33,6 +33,7 @@
 - Working on sgtLand basic quadtree.
 - Implementing TerrainNode functions.
 - Updated osg dependency with reference return support. Added test on matrixd::getPerspective.
+- Added extension form land module, added support for infinity values, implemented update from TerrainNode.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

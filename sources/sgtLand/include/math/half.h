@@ -197,13 +197,13 @@ inline int half::mantissa() const
     return value & 0x03ff;
 }
 
-// faster isNaN without conversion
-// to be used by half vector templates
-inline bool isNaN(half x)
-{
-    return x.isNaN();
 }
 
+// faster isNaN without conversion
+// to be used by half vector templates
+inline bool isNaN(sgt::half x)
+{
+    return x.isNaN();
 }
 
 #endif

@@ -261,6 +261,15 @@ public: \
     type getAngle() const; \
 };
 
+// bool isNaN(float x);
+bool isNaN(double x);
+// bool isFinite(float x);
+bool isFinite(double x);
+// bool isInf(float x);
+bool isInf(double x);
+// bool isSubnormal(float x);
+bool isSubnormal(double x);
+
 namespace sgt {
 
 class Object {}; // external parent class.

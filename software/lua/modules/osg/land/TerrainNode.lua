@@ -1,7 +1,10 @@
 local Class = require("classBuilder"){name="TerrainNode",bases="base.Object"};
 
 require "osg"
-	
+require "sgtLand"
+
+local HORIZON_SIZE = 256
+
 function Class:initialize(options)	
 	self:info("Creating TerrainNode.")
 	self._root = osg.Group()
@@ -24,6 +27,8 @@ function Class:initialize(options)
 	self._splitInvisibleQuads = false;
     self._horizonCulling = true;
 	self._maxLevel = 7;
+	self._horizon = {};
+	
 	--self._deformedCameraPos = osg.Vec3d();
 	--self._localCameraPos = osg.Vec3d();
 	
@@ -49,40 +54,45 @@ function Class:initialize(options)
 		local cullSet = cv:getCurrentCullingSet();
 		local frustum = cullSet:getFrustum();
 		local viewport = cv:getViewport();
+		self:check(viewport,"Invalid viewport object.")
 		
-		local fov = 70.0; -- Need to retrieve FOV here!
+		local res, fovy, aspect, znear, zfar = proj:getPerspective(0.0,0.0,0.0,0.0);
+		self:check(res,"Could not get perspective settings from projection matrix ",proj)
+		
+		-- compute the fovx angle:
+		-- The computed relation is:
+		-- fovx = 2 * atan( aspect * tan(fovy/2))
+		local fovx = 2.0 * math.atan(aspect* math.tan(math.rad(fovy/2.0))); -- in radians.
 		
 		self._projection = proj;
-		local mvp = mv*proj;
+		--local mvp = mv*proj;
 		
-		self._deformedCameraPos = osg.Matrixd.inverse(mv):getTrans();
-		SceneManager::getFrustumPlanes(mvp, deformedFrustumPlanes);
+		local mv_inv = osg.Matrixd.inverse(mv);
+		self._deformedCameraPos = mv_inv:getTrans();
 
 		self._localCameraPos = self._deform:deformedToLocal(self._deformedCameraPos);
 
 		local m = deform:localToDeformedDifferential(self._localCameraPos, true);
 		self._distFactor = max(m:getRow3(0):length(), m:getRow3(1):length());
 
-		-- to be analyzed:
-		vec3d left = deformedFrustumPlanes[0].xyz().normalize();
-		vec3d right = deformedFrustumPlanes[1].xyz().normalize();
-		float fov = (float) safe_acos(-left.dotproduct(right));
-		splitDist = splitFactor * fb->getViewport().z / 1024.0f * tan(40.0f / 180.0f * M_PI) / tan(fov / 2.0f);
-		if (splitDist < 1.1f || !(isFinite(splitDist))) {
-			splitDist = 1.1f;
-		}
+		self._splitDist = self._splitFactor * viewport:width() / 1024.0 * tan(math.rad(40.0)) / tan(fovx / 2.0);
+		if (splitDist < 1.1 or not stg.isFinite(splitDist)) then
+			splitDist = 1.1;
+		end
 
-		// initializes data structures for horizon occlusion culling
-		if (horizonCulling && localCameraPos.z <= root->zmax) {
-			vec3d deformedDir = owner->getLocalToCamera().inverse() * vec3d::UNIT_Z;
-			vec2d localDir = (deform->deformedToLocal(deformedDir) - localCameraPos).xy().normalize();
-			localCameraDir = mat2f(localDir.y, -localDir.x, -localDir.x, -localDir.y);
-			for (int i = 0; i < HORIZON_SIZE; ++i) {
-				horizon[i] = -INFINITY;
-			}
-		}
+		-- initializes data structures for horizon occlusion culling
+		if (self._horizonCulling and self._localCameraPos:z() <= self._quad:getZmax()) then
+			local deformedDir = mv_inv * osg.ZAXIS;
+			local localDir = (self._deform:deformedToLocal(deformedDir) - self._localCameraPos).xy()
+			localDir:normalize();
+			
+			self._localCameraDir = sgt.mat2f(localDir.y, -localDir.x, -localDir.x, -localDir.y);
+			for i = 1,HORIZON_SIZE do
+				self._horizon[i] = -sgt.INFINITY;
+			end
+		end
 
-		root->update();		
+		self._quad:update();		
 	end)
 end
 

@@ -16,6 +16,7 @@ ReflectionGenerator.generate{
 	headers={"plug_common.h"},
 	destpath=dest_path,
 	mappedModules={
+		land="sgt",
 	},
 	ignoreFunctions={
 	},

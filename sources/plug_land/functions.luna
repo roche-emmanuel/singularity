@@ -1,4 +1,8 @@
 module=sgt
+isNaN
+isFinite
+isInf
+isSubnormal
+getInfinity
 sgt::floatToHalf
 sgt::halfToFloat
-sgt::isNaN

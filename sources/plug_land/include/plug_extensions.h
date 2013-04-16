@@ -4,5 +4,8 @@
 #include "luna/luna.h"
 
 // Insert extension prototypes here.
+inline double getInfinity() {
+	return INFINITY;
+}
 
 #endif

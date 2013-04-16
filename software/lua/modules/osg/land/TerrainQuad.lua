@@ -20,4 +20,8 @@ function Class:update()
 	self:no_impl()
 end
 
+function Class:getZmax()
+	self:no_impl()
+end
+
 return Class

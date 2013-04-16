@@ -1,0 +1,2 @@
+
+sgt.INFINITY = sgt.getInfinity()

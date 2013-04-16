@@ -210,5 +210,23 @@ function suite.test_scheduler()
 	log:info("Done testing MultithreadScheduler")
 end
 
+function suite.test_infinity()
+	log:info("Testing Infinity value")
+	
+	local val = 1345.33;
+	-- local val2 = sgt.getInfinity()
+	local val2 = sgt.INFINITY
+	
+	assert_equal(true,sgt.isFinite(val),"Invalid isFinite result.")
+	assert_equal(false,sgt.isFinite(val2),"Invalid isFinite result bis.")
+
+	assert_equal(false,sgt.isNaN(val),"Invalid isNaN result.")
+	assert_equal(false,sgt.isNaN(val2),"Invalid isNaN result bis.")
+
+	assert_equal(false,sgt.isInf(val),"Invalid isInf result.")
+	assert_equal(true,sgt.isInf(val2),"Invalid isInf result bis.")
+
+	log:info("Done testing Infinity value.")
+end
 
 return suite
