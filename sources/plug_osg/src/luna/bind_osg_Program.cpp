@@ -1143,7 +1143,10 @@ public:
 		}
 		self->getComputeGroups(numGroupsX, numGroupsY, numGroupsZ);
 
-		return 0;
+		lua_pushnumber(L,numGroupsX);
+		lua_pushnumber(L,numGroupsY);
+		lua_pushnumber(L,numGroupsZ);
+		return 3;
 	}
 
 	// void osg::Program::addBindAttribLocation(const std::string & name, unsigned int index)
@@ -1433,7 +1436,8 @@ public:
 		bool lret = self->getGlProgramInfoLog(contextID, log);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushlstring(L,log.data(),log.size());
+		return 2;
 	}
 
 	// const osg::Program::ActiveUniformMap & osg::Program::getActiveUniforms(unsigned int contextID) const
@@ -1530,7 +1534,8 @@ public:
 
 		osg::Program::flushDeletedGlPrograms(contextID, currentTime, availableTime);
 
-		return 0;
+		lua_pushnumber(L,availableTime);
+		return 1;
 	}
 
 	// static void osg::Program::discardDeletedGlPrograms(unsigned int contextID)

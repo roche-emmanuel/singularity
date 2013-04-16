@@ -2033,7 +2033,13 @@ public:
 		bool lret = self->getOrtho(left, right, bottom, top, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,left);
+		lua_pushnumber(L,right);
+		lua_pushnumber(L,bottom);
+		lua_pushnumber(L,top);
+		lua_pushnumber(L,zNear);
+		lua_pushnumber(L,zFar);
+		return 7;
 	}
 
 	// bool osg::Matrixd::getOrtho(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const
@@ -2058,7 +2064,13 @@ public:
 		bool lret = self->getOrtho(left, right, bottom, top, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,left);
+		lua_pushnumber(L,right);
+		lua_pushnumber(L,bottom);
+		lua_pushnumber(L,top);
+		lua_pushnumber(L,zNear);
+		lua_pushnumber(L,zFar);
+		return 7;
 	}
 
 	// Overload binder for osg::Matrixd::getOrtho
@@ -2138,7 +2150,13 @@ public:
 		bool lret = self->getFrustum(left, right, bottom, top, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,left);
+		lua_pushnumber(L,right);
+		lua_pushnumber(L,bottom);
+		lua_pushnumber(L,top);
+		lua_pushnumber(L,zNear);
+		lua_pushnumber(L,zFar);
+		return 7;
 	}
 
 	// bool osg::Matrixd::getFrustum(float & left, float & right, float & bottom, float & top, float & zNear, float & zFar) const
@@ -2163,7 +2181,13 @@ public:
 		bool lret = self->getFrustum(left, right, bottom, top, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,left);
+		lua_pushnumber(L,right);
+		lua_pushnumber(L,bottom);
+		lua_pushnumber(L,top);
+		lua_pushnumber(L,zNear);
+		lua_pushnumber(L,zFar);
+		return 7;
 	}
 
 	// Overload binder for osg::Matrixd::getFrustum
@@ -2217,7 +2241,11 @@ public:
 		bool lret = self->getPerspective(fovy, aspectRatio, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,fovy);
+		lua_pushnumber(L,aspectRatio);
+		lua_pushnumber(L,zNear);
+		lua_pushnumber(L,zFar);
+		return 5;
 	}
 
 	// bool osg::Matrixd::getPerspective(float & fovy, float & aspectRatio, float & zNear, float & zFar) const
@@ -2240,7 +2268,11 @@ public:
 		bool lret = self->getPerspective(fovy, aspectRatio, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,fovy);
+		lua_pushnumber(L,aspectRatio);
+		lua_pushnumber(L,zNear);
+		lua_pushnumber(L,zFar);
+		return 5;
 	}
 
 	// Overload binder for osg::Matrixd::getPerspective

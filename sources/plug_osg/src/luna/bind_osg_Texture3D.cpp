@@ -1059,7 +1059,10 @@ public:
 		}
 		self->getTextureSize(width, height, depth);
 
-		return 0;
+		lua_pushnumber(L,width);
+		lua_pushnumber(L,height);
+		lua_pushnumber(L,depth);
+		return 3;
 	}
 
 	// void osg::Texture3D::setTextureWidth(int width)

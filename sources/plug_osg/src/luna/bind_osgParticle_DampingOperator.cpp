@@ -638,7 +638,10 @@ public:
 		}
 		self->getDamping(x, y, z);
 
-		return 0;
+		lua_pushnumber(L,x);
+		lua_pushnumber(L,y);
+		lua_pushnumber(L,z);
+		return 3;
 	}
 
 	// const osg::Vec3f & osgParticle::DampingOperator::getDamping() const
@@ -746,7 +749,9 @@ public:
 		}
 		self->getCutoff(low, high);
 
-		return 0;
+		lua_pushnumber(L,low);
+		lua_pushnumber(L,high);
+		return 2;
 	}
 
 	// float osgParticle::DampingOperator::getCutoffLow() const

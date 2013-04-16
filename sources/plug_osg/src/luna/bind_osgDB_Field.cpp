@@ -904,7 +904,8 @@ public:
 		bool lret = self->getInt(i);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,i);
+		return 2;
 	}
 
 	// bool osgDB::Field::isUInt() const
@@ -963,7 +964,8 @@ public:
 		bool lret = self->getUInt(i);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,i);
+		return 2;
 	}
 
 	// bool osgDB::Field::isFloat() const
@@ -1022,7 +1024,8 @@ public:
 		bool lret = self->getFloat(f);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,f);
+		return 2;
 	}
 
 	// bool osgDB::Field::getFloat(double & f) const
@@ -1042,7 +1045,8 @@ public:
 		bool lret = self->getFloat(f);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,f);
+		return 2;
 	}
 
 	// Overload binder for osgDB::Field::getFloat

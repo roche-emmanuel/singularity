@@ -198,6 +198,8 @@ ReflectionGenerator.generate{
 		"osg::State::UniformStack",
 		"std::vector< const osg::StateSet %* >",
 		"std::vector< std::pair< osg::StateAttribute const %*, unsigned int > >",
+		"osg::Matrix3Template< float >",
+		"osg::Matrix3Template< double >",
 		},
 	locationPrefixes={
 		dest_path.."interface/",

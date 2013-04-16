@@ -876,7 +876,8 @@ public:
 		}
 		self->readWrappedString(str);
 
-		return 0;
+		lua_pushlstring(L,str.data(),str.size());
+		return 1;
 	}
 
 	// void osgDB::InputStream::readCharArray(char * s, unsigned int size)
@@ -1599,7 +1600,8 @@ public:
 
 		Luna< osgDB::InputStream >::push(L,lret,false);
 
-		return 1;
+		lua_pushboolean(L,b?1:0);
+		return 2;
 	}
 
 	// osgDB::InputStream & osgDB::InputStream::operator>>(char & c)
@@ -1621,7 +1623,8 @@ public:
 
 		Luna< osgDB::InputStream >::push(L,lret,false);
 
-		return 1;
+		lua_pushnumber(L,c);
+		return 2;
 	}
 
 	// osgDB::InputStream & osgDB::InputStream::operator>>(signed char & c)
@@ -1643,7 +1646,8 @@ public:
 
 		Luna< osgDB::InputStream >::push(L,lret,false);
 
-		return 1;
+		lua_pushnumber(L,c);
+		return 2;
 	}
 
 	// osgDB::InputStream & osgDB::InputStream::operator>>(unsigned char & c)
@@ -1665,7 +1669,8 @@ public:
 
 		Luna< osgDB::InputStream >::push(L,lret,false);
 
-		return 1;
+		lua_pushnumber(L,(int)c);
+		return 2;
 	}
 
 	// osgDB::InputStream & osgDB::InputStream::operator>>(short & s)
@@ -1687,7 +1692,8 @@ public:
 
 		Luna< osgDB::InputStream >::push(L,lret,false);
 
-		return 1;
+		lua_pushnumber(L,s);
+		return 2;
 	}
 
 	// osgDB::InputStream & osgDB::InputStream::operator>>(unsigned short & s)
@@ -1709,7 +1715,8 @@ public:
 
 		Luna< osgDB::InputStream >::push(L,lret,false);
 
-		return 1;
+		lua_pushnumber(L,s);
+		return 2;
 	}
 
 	// osgDB::InputStream & osgDB::InputStream::operator>>(int & i)
@@ -1731,7 +1738,8 @@ public:
 
 		Luna< osgDB::InputStream >::push(L,lret,false);
 
-		return 1;
+		lua_pushnumber(L,i);
+		return 2;
 	}
 
 	// osgDB::InputStream & osgDB::InputStream::operator>>(unsigned int & i)
@@ -1753,7 +1761,8 @@ public:
 
 		Luna< osgDB::InputStream >::push(L,lret,false);
 
-		return 1;
+		lua_pushnumber(L,i);
+		return 2;
 	}
 
 	// osgDB::InputStream & osgDB::InputStream::operator>>(long & l)
@@ -1775,7 +1784,8 @@ public:
 
 		Luna< osgDB::InputStream >::push(L,lret,false);
 
-		return 1;
+		lua_pushnumber(L,l);
+		return 2;
 	}
 
 	// osgDB::InputStream & osgDB::InputStream::operator>>(unsigned long & l)
@@ -1797,7 +1807,8 @@ public:
 
 		Luna< osgDB::InputStream >::push(L,lret,false);
 
-		return 1;
+		lua_pushnumber(L,l);
+		return 2;
 	}
 
 	// osgDB::InputStream & osgDB::InputStream::operator>>(float & f)
@@ -1819,7 +1830,8 @@ public:
 
 		Luna< osgDB::InputStream >::push(L,lret,false);
 
-		return 1;
+		lua_pushnumber(L,f);
+		return 2;
 	}
 
 	// osgDB::InputStream & osgDB::InputStream::operator>>(double & d)
@@ -1841,7 +1853,8 @@ public:
 
 		Luna< osgDB::InputStream >::push(L,lret,false);
 
-		return 1;
+		lua_pushnumber(L,d);
+		return 2;
 	}
 
 	// osgDB::InputStream & osgDB::InputStream::operator>>(std::string & s)
@@ -1863,7 +1876,8 @@ public:
 
 		Luna< osgDB::InputStream >::push(L,lret,false);
 
-		return 1;
+		lua_pushlstring(L,s.data(),s.size());
+		return 2;
 	}
 
 	// osgDB::InputStream & osgDB::InputStream::operator>>(osgDB::ObjectGLenum & value)

@@ -817,7 +817,11 @@ public:
 		}
 		self->getWindowRectangle(x, y, width, height);
 
-		return 0;
+		lua_pushnumber(L,x);
+		lua_pushnumber(L,y);
+		lua_pushnumber(L,width);
+		lua_pushnumber(L,height);
+		return 4;
 	}
 
 	// void osgViewer::GraphicsWindow::setWindowDecoration(bool flag)
@@ -1085,7 +1089,10 @@ public:
 		}
 		self->getSwapGroup(on, group, barrier);
 
-		return 0;
+		lua_pushboolean(L,on?1:0);
+		lua_pushnumber(L,group);
+		lua_pushnumber(L,barrier);
+		return 3;
 	}
 
 	// bool osgViewer::GraphicsWindow::valid() const
@@ -1644,7 +1651,11 @@ public:
 		}
 		self->GraphicsWindow::getWindowRectangle(x, y, width, height);
 
-		return 0;
+		lua_pushnumber(L,x);
+		lua_pushnumber(L,y);
+		lua_pushnumber(L,width);
+		lua_pushnumber(L,height);
+		return 4;
 	}
 
 	// bool osgViewer::GraphicsWindow::base_setWindowDecorationImplementation(bool arg1)

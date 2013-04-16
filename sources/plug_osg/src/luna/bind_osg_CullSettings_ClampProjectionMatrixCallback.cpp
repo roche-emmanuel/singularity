@@ -166,7 +166,9 @@ public:
 		bool lret = self->clampProjectionMatrixImplementation(projection, znear, zfar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,znear);
+		lua_pushnumber(L,zfar);
+		return 3;
 	}
 
 	// bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixd & projection, double & znear, double & zfar) const
@@ -192,7 +194,9 @@ public:
 		bool lret = self->clampProjectionMatrixImplementation(projection, znear, zfar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,znear);
+		lua_pushnumber(L,zfar);
+		return 3;
 	}
 
 	// Overload binder for osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation

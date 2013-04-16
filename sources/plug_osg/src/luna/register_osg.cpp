@@ -103,9 +103,9 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	luna_popModule(L);
 	luna_pushModule(L,"osg");
 	Luna< osg::Program::UniformBlockInfo >::Register(L);
+	Luna< osg::Drawable::UpdateCallback >::Register(L);
 	Luna< osg::StateAttributeCallback >::Register(L);
 	Luna< osg::Image::UpdateCallback >::Register(L);
-	Luna< osg::Drawable::UpdateCallback >::Register(L);
 	Luna< osg::View::Slave::UpdateSlaveCallback >::Register(L);
 	Luna< osg::Geometry::Vec3ArrayData >::Register(L);
 	Luna< osg::GraphicsContext::WindowingSystemInterface >::Register(L);
@@ -168,7 +168,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::Matrix2x3Template< float > >::Register(L);
 	Luna< osg::Matrix2x4Template< float > >::Register(L);
 	Luna< osg::Matrix3x2Template< float > >::Register(L);
-	Luna< osg::Matrix3Template< float > >::Register(L);
 	Luna< osg::Matrix3x4Template< float > >::Register(L);
 	Luna< osg::Matrix4x2Template< float > >::Register(L);
 	Luna< osg::Matrix4x3Template< float > >::Register(L);
@@ -176,7 +175,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::Matrix2x3Template< double > >::Register(L);
 	Luna< osg::Matrix2x4Template< double > >::Register(L);
 	Luna< osg::Matrix3x2Template< double > >::Register(L);
-	Luna< osg::Matrix3Template< double > >::Register(L);
 	Luna< osg::Matrix3x4Template< double > >::Register(L);
 	Luna< osg::Matrix4x2Template< double > >::Register(L);
 	Luna< osg::Matrix4x3Template< double > >::Register(L);
@@ -562,6 +560,8 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::MatrixList >::Register(L);
 	Luna< osg::NodePath >::Register(L);
 	Luna< osg::NodePathList >::Register(L);
+	Luna< osg::Matrix3 >::Register(L);
+	Luna< osg::Matrix3d >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"osgDB");
 	Luna< std::deque< std::string > >::Register(L);

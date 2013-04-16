@@ -1125,7 +1125,8 @@ public:
 
 		osg::FragmentProgram::flushDeletedFragmentProgramObjects(contextID, currentTime, availableTime);
 
-		return 0;
+		lua_pushnumber(L,availableTime);
+		return 1;
 	}
 
 	// static void osg::FragmentProgram::discardDeletedFragmentProgramObjects(unsigned int contextID)

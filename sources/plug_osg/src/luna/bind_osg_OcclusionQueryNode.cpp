@@ -1195,7 +1195,8 @@ public:
 
 		osg::OcclusionQueryNode::flushDeletedQueryObjects(contextID, currentTime, availableTime);
 
-		return 0;
+		lua_pushnumber(L,availableTime);
+		return 1;
 	}
 
 	// static void osg::OcclusionQueryNode::discardDeletedQueryObjects(unsigned int contextID)

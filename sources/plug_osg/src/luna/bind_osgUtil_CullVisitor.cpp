@@ -2063,7 +2063,9 @@ public:
 		bool lret = self->clampProjectionMatrixImplementation(projection, znear, zfar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,znear);
+		lua_pushnumber(L,zfar);
+		return 3;
 	}
 
 	// bool osgUtil::CullVisitor::clampProjectionMatrixImplementation(osg::Matrixd & projection, double & znear, double & zfar) const
@@ -2089,7 +2091,9 @@ public:
 		bool lret = self->clampProjectionMatrixImplementation(projection, znear, zfar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,znear);
+		lua_pushnumber(L,zfar);
+		return 3;
 	}
 
 	// Overload binder for osgUtil::CullVisitor::clampProjectionMatrixImplementation
@@ -2124,7 +2128,9 @@ public:
 		bool lret = self->clampProjectionMatrix(projection, znear, zfar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,znear);
+		lua_pushnumber(L,zfar);
+		return 3;
 	}
 
 	// bool osgUtil::CullVisitor::clampProjectionMatrix(osg::Matrixd & projection, double & znear, double & zfar) const
@@ -2150,7 +2156,9 @@ public:
 		bool lret = self->clampProjectionMatrix(projection, znear, zfar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,znear);
+		lua_pushnumber(L,zfar);
+		return 3;
 	}
 
 	// Overload binder for osgUtil::CullVisitor::clampProjectionMatrix
@@ -3033,7 +3041,9 @@ public:
 		bool lret = self->CullVisitor::clampProjectionMatrixImplementation(projection, znear, zfar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,znear);
+		lua_pushnumber(L,zfar);
+		return 3;
 	}
 
 	// bool osgUtil::CullVisitor::base_clampProjectionMatrixImplementation(osg::Matrixd & projection, double & znear, double & zfar) const
@@ -3059,7 +3069,9 @@ public:
 		bool lret = self->CullVisitor::clampProjectionMatrixImplementation(projection, znear, zfar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,znear);
+		lua_pushnumber(L,zfar);
+		return 3;
 	}
 
 	// Overload binder for osgUtil::CullVisitor::base_clampProjectionMatrixImplementation

@@ -741,7 +741,8 @@ public:
 		bool lret = self->readSequence(keyword, value);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushlstring(L,value.data(),value.size());
+		return 2;
 	}
 
 	// bool osgDB::FieldReaderIterator::readSequence(const char * keyword, unsigned int & value)
@@ -762,7 +763,8 @@ public:
 		bool lret = self->readSequence(keyword, value);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,value);
+		return 2;
 	}
 
 	// bool osgDB::FieldReaderIterator::readSequence(const char * keyword, int & value)
@@ -783,7 +785,8 @@ public:
 		bool lret = self->readSequence(keyword, value);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,value);
+		return 2;
 	}
 
 	// bool osgDB::FieldReaderIterator::readSequence(const char * keyword, float & value)
@@ -804,7 +807,8 @@ public:
 		bool lret = self->readSequence(keyword, value);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,value);
+		return 2;
 	}
 
 	// bool osgDB::FieldReaderIterator::readSequence(const char * keyword, osg::Vec2f & value)
@@ -974,7 +978,8 @@ public:
 		bool lret = self->readSequence(value);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushlstring(L,value.data(),value.size());
+		return 2;
 	}
 
 	// bool osgDB::FieldReaderIterator::readSequence(unsigned int & value)
@@ -994,7 +999,8 @@ public:
 		bool lret = self->readSequence(value);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,value);
+		return 2;
 	}
 
 	// bool osgDB::FieldReaderIterator::readSequence(int & value)
@@ -1014,7 +1020,8 @@ public:
 		bool lret = self->readSequence(value);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,value);
+		return 2;
 	}
 
 	// bool osgDB::FieldReaderIterator::readSequence(float & value)
@@ -1034,7 +1041,8 @@ public:
 		bool lret = self->readSequence(value);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,value);
+		return 2;
 	}
 
 	// bool osgDB::FieldReaderIterator::readSequence(osg::Vec2f & value)

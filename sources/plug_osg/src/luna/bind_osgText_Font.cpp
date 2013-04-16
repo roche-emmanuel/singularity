@@ -903,7 +903,9 @@ public:
 		bool lret = self->getVerticalSize(ascender, descender);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,ascender);
+		lua_pushnumber(L,descender);
+		return 3;
 	}
 
 	// void osgText::Font::setGlyphImageMargin(unsigned int margin)
@@ -1660,7 +1662,9 @@ public:
 		bool lret = self->Font::getVerticalSize(ascender, descender);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,ascender);
+		lua_pushnumber(L,descender);
+		return 3;
 	}
 
 	// void osgText::Font::base_setThreadSafeRefUnref(bool threadSafe)

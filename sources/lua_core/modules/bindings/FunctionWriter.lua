@@ -88,6 +88,16 @@ function Class:writeArgument(v,k)
 	
 	local ptrOverride = pt:isPointer() and "Luna< void >::check"
 	
+	if (pt:isNumber() or pt:isBoolean() or pt:isString()) and pt:isReference() and not pt:isConst() and not pt:isPointer() then
+		local ret = {
+			name=argname,
+			rtype=pt,
+		}
+		self:debug("Inserting return val ", ret, " for function ",self._funcName)
+		table.insert(self._returns,ret)
+	end
+	
+	
 	if converter then
 		isPointer = converter(self,index,pt,argname)
 	elseif v:isLuaState() then
@@ -176,6 +186,9 @@ function Class:retrieveArguments(func)
 	self._funcName = func:getFullName()
 	
 	self._args = {}
+	
+	-- list of additional return values that were passed as non const references:
+	self._returns = {}
 	
 	if(self._defaultOffset) then
 		self:writeLine("int luatop = lua_gettop(L);")
@@ -328,8 +341,27 @@ function Class:writeFunctionCall(cname,func,args)
 	end	
 	self:newLine()
 	
+	-- inject the additional results here:
+	for _,ret in ipairs(self._returns) do
+		local rt = ret.rtype
+		local argname = ret.name
+		
+		local rname = rt:getBaseName()
+		local converter = tc:getToLuaConverter(rt:getName()) or tc:getToLuaConverter(rname)
+	
+		if converter then
+			converter(self,rt,argname)
+		elseif rt:isNumber() then
+			self:writeSubLine('lua_pushnumber(L,${1});',argname)			
+		elseif rt:isBoolean() then
+			self:writeSubLine('lua_pushboolean(L,${1}?1:0);',argname)					
+		elseif rt:isString() then
+			self:check(false,"This should not happen ? strings should be handled with a converter in this case.")
+		end
+	end
+	
 	-- now write the number of results:
-	self:writeSubLine("return ${1};",result_count);
+	self:writeSubLine("return ${1};",result_count + #self._returns);
 end
 
 return Class

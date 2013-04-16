@@ -1100,7 +1100,8 @@ public:
 		}
 		self->public_trackball(axis, angle, p1x, p1y, p2x, p2y);
 
-		return 0;
+		lua_pushnumber(L,angle);
+		return 1;
 	}
 
 	// float osgGA::OrbitManipulator::public_tb_project_to_sphere(float r, float x, float y)

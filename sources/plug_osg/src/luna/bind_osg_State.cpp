@@ -2445,7 +2445,8 @@ public:
 		bool lret = self->convertVertexShaderSourceToOsgBuiltIns(source);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushlstring(L,source.data(),source.size());
+		return 2;
 	}
 
 	// void osg::State::apply(const osg::StateSet * dstate)

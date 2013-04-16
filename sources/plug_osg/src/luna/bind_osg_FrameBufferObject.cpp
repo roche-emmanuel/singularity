@@ -896,7 +896,8 @@ public:
 
 		osg::FrameBufferObject::flushDeletedFrameBufferObjects(contextID, currentTime, availableTime);
 
-		return 0;
+		lua_pushnumber(L,availableTime);
+		return 1;
 	}
 
 	// static void osg::FrameBufferObject::discardDeletedFrameBufferObjects(unsigned int contextID)

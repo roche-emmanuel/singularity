@@ -23,8 +23,6 @@ osg.Matrixd.getRow = function(self,row)
 	return osg.Vec4d(self:op_call(row,0),self:op_call(row,1),self:op_call(row,2),self:op_call(row,3))
 end
 
-osg.Matrix3 = osg.osg_Matrix3Template_float
-
 osg.Matrix3.__tostring = function(self)
 	local str = "{\n"
 	str = str .. "  " .. self:op_index(0) ..", ".. self:op_index(1) ..", ".. self:op_index(2)..",\n"

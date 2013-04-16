@@ -2456,7 +2456,9 @@ public:
 
 		osg::Texture::getCompressedSize(internalFormat, width, height, depth, blockSize, size);
 
-		return 0;
+		lua_pushnumber(L,blockSize);
+		lua_pushnumber(L,size);
+		return 2;
 	}
 
 	// static osg::ref_ptr< osg::Texture::TextureObjectManager > & osg::Texture::getTextureObjectManager(unsigned int contextID)
@@ -2596,7 +2598,8 @@ public:
 
 		osg::Texture::flushDeletedTextureObjects(contextID, currentTime, availableTime);
 
-		return 0;
+		lua_pushnumber(L,availableTime);
+		return 1;
 	}
 
 	// static void osg::Texture::releaseTextureObject(unsigned int contextID, osg::Texture::TextureObject * to)

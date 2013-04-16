@@ -668,7 +668,9 @@ public:
 		bool lret = self->getContextVersion(major, minor);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,major);
+		lua_pushnumber(L,minor);
+		return 3;
 	}
 
 	// int osg::GraphicsContext::Traits::x()

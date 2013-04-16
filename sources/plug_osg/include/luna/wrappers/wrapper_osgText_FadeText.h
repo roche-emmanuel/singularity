@@ -786,7 +786,9 @@ public:
 		bool lret = self->public_computeAverageGlyphWidthAndHeight(avg_width, avg_height);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,avg_width);
+		lua_pushnumber(L,avg_height);
+		return 3;
 	}
 
 	// void osgText::Text::public_computeBackdropPositions(unsigned int contextID) const

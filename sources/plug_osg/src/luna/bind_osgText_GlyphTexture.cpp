@@ -553,7 +553,9 @@ public:
 		bool lret = self->getSpaceForGlyph(glyph, posX, posY);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,posX);
+		lua_pushnumber(L,posY);
+		return 3;
 	}
 
 	// void osgText::GlyphTexture::addGlyph(osgText::Glyph * glyph, int posX, int posY)

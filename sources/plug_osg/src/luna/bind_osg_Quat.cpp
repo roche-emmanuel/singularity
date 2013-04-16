@@ -1526,7 +1526,11 @@ public:
 		}
 		self->getRotate(angle, x, y, z);
 
-		return 0;
+		lua_pushnumber(L,angle);
+		lua_pushnumber(L,x);
+		lua_pushnumber(L,y);
+		lua_pushnumber(L,z);
+		return 4;
 	}
 
 	// void osg::Quat::getRotate(double & angle, osg::Vec3f & vec) const
@@ -1550,7 +1554,8 @@ public:
 		}
 		self->getRotate(angle, vec);
 
-		return 0;
+		lua_pushnumber(L,angle);
+		return 1;
 	}
 
 	// void osg::Quat::getRotate(double & angle, osg::Vec3d & vec) const
@@ -1574,7 +1579,8 @@ public:
 		}
 		self->getRotate(angle, vec);
 
-		return 0;
+		lua_pushnumber(L,angle);
+		return 1;
 	}
 
 	// Overload binder for osg::Quat::getRotate

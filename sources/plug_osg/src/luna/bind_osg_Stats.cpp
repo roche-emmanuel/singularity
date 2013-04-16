@@ -442,7 +442,8 @@ public:
 		bool lret = self->getAttribute(frameNumber, attributeName, value);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,value);
+		return 2;
 	}
 
 	// bool osg::Stats::getAveragedAttribute(const std::string & attributeName, double & value, bool averageInInverseSpace = false) const
@@ -466,7 +467,8 @@ public:
 		bool lret = self->getAveragedAttribute(attributeName, value, averageInInverseSpace);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,value);
+		return 2;
 	}
 
 	// bool osg::Stats::getAveragedAttribute(unsigned int startFrameNumber, unsigned int endFrameNumber, const std::string & attributeName, double & value, bool averageInInverseSpace = false) const
@@ -492,7 +494,8 @@ public:
 		bool lret = self->getAveragedAttribute(startFrameNumber, endFrameNumber, attributeName, value, averageInInverseSpace);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,value);
+		return 2;
 	}
 
 	// Overload binder for osg::Stats::getAveragedAttribute

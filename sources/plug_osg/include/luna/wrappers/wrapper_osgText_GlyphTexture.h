@@ -650,7 +650,10 @@ public:
 		}
 		self->public_computeRequiredTextureDimensions(state, image, width, height, numMipmapLevels);
 
-		return 0;
+		lua_pushnumber(L,width);
+		lua_pushnumber(L,height);
+		lua_pushnumber(L,numMipmapLevels);
+		return 3;
 	}
 
 	// void osg::Texture::public_computeInternalFormatType() const

@@ -1032,7 +1032,11 @@ public:
 		}
 		self->GraphicsWindowEmbedded::getWindowRectangle(x, y, width, height);
 
-		return 0;
+		lua_pushnumber(L,x);
+		lua_pushnumber(L,y);
+		lua_pushnumber(L,width);
+		lua_pushnumber(L,height);
+		return 4;
 	}
 
 	// bool osgViewer::GraphicsWindowEmbedded::base_setWindowDecorationImplementation(bool arg1)

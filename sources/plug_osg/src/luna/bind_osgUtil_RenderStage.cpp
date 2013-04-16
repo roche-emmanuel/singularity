@@ -2448,7 +2448,8 @@ public:
 		}
 		self->drawInner(renderInfo, previous, doCopyTexture);
 
-		return 0;
+		lua_pushboolean(L,doCopyTexture?1:0);
+		return 1;
 	}
 
 	// void osgUtil::RenderStage::drawPostRenderStages(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
@@ -3168,7 +3169,8 @@ public:
 		}
 		self->RenderStage::drawInner(renderInfo, previous, doCopyTexture);
 
-		return 0;
+		lua_pushboolean(L,doCopyTexture?1:0);
+		return 1;
 	}
 
 	// void osgUtil::RenderStage::base_drawPostRenderStages(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)

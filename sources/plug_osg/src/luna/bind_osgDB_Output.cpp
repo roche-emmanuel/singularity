@@ -912,7 +912,8 @@ public:
 		bool lret = self->getUniqueIDForObject(obj, uniqueID);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushlstring(L,uniqueID.data(),uniqueID.size());
+		return 2;
 	}
 
 	// bool osgDB::Output::createUniqueIDForObject(const osg::Object * obj, std::string & uniqueID)
@@ -933,7 +934,8 @@ public:
 		bool lret = self->createUniqueIDForObject(obj, uniqueID);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushlstring(L,uniqueID.data(),uniqueID.size());
+		return 2;
 	}
 
 	// bool osgDB::Output::registerUniqueIDForObject(const osg::Object * obj, std::string & uniqueID)
@@ -954,7 +956,8 @@ public:
 		bool lret = self->registerUniqueIDForObject(obj, uniqueID);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushlstring(L,uniqueID.data(),uniqueID.size());
+		return 2;
 	}
 
 	// void osgDB::Output::setPathNameHint(const osgDB::Output::PathNameHint pnh)

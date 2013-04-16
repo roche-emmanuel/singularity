@@ -143,6 +143,20 @@ class NodePathList {
 
 };
 
+#define MAT3_CLASS(mat3,type) \
+class mat3 { \
+public: \
+	mat3(type a00, type a01, type a02, type a10, type a11, type a12, type a20, type a21, type a22); \
+	type operator[](int i); \
+	type operator() (int row, int col); \
+	void set(const mat3& rhs); \
+	void set(type a00, type a01, type a02, type a10, type a11, type a12, type a20, type a21, type a22); \
+	void makeIdentity (); \
+};
+
+MAT3_CLASS(Matrix3,float);
+MAT3_CLASS(Matrix3d,double);
+
 };
 
 

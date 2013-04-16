@@ -440,7 +440,8 @@ public:
 		}
 		self->flushDeletedGLBufferObjects(currentTime, availableTime);
 
-		return 0;
+		lua_pushnumber(L,availableTime);
+		return 1;
 	}
 
 	// osg::GLBufferObject * osg::GLBufferObjectSet::takeFromOrphans(osg::BufferObject * bufferObject)
@@ -619,7 +620,8 @@ public:
 		bool lret = self->makeSpace(size);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,size);
+		return 2;
 	}
 
 	// bool osg::GLBufferObjectSet::checkConsistency() const

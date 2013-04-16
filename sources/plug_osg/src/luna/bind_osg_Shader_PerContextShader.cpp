@@ -326,7 +326,8 @@ public:
 		bool lret = self->getInfoLog(infoLog);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushlstring(L,infoLog.data(),infoLog.size());
+		return 2;
 	}
 
 	// void osg::Shader::PerContextShader::attachShader(unsigned int program) const

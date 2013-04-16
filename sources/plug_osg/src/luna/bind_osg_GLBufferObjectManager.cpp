@@ -808,7 +808,8 @@ public:
 		}
 		self->flushDeletedGLBufferObjects(currentTime, availableTime);
 
-		return 0;
+		lua_pushnumber(L,availableTime);
+		return 1;
 	}
 
 	// void osg::GLBufferObjectManager::releaseGLBufferObject(osg::GLBufferObject * to)

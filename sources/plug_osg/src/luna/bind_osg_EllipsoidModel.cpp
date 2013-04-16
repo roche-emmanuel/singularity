@@ -634,7 +634,10 @@ public:
 		}
 		self->convertLatLongHeightToXYZ(latitude, longitude, height, X, Y, Z);
 
-		return 0;
+		lua_pushnumber(L,X);
+		lua_pushnumber(L,Y);
+		lua_pushnumber(L,Z);
+		return 3;
 	}
 
 	// void osg::EllipsoidModel::convertXYZToLatLongHeight(double X, double Y, double Z, double & latitude, double & longitude, double & height) const
@@ -658,7 +661,10 @@ public:
 		}
 		self->convertXYZToLatLongHeight(X, Y, Z, latitude, longitude, height);
 
-		return 0;
+		lua_pushnumber(L,latitude);
+		lua_pushnumber(L,longitude);
+		lua_pushnumber(L,height);
+		return 3;
 	}
 
 	// void osg::EllipsoidModel::computeLocalToWorldTransformFromLatLongHeight(double latitude, double longitude, double height, osg::Matrixd & localToWorld) const

@@ -255,7 +255,9 @@ public:
 		bool lret = self->getDepthRange(view, partition, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,zNear);
+		lua_pushnumber(L,zFar);
+		return 3;
 	}
 
 	// osgViewer::DepthPartitionSettings::DepthMode osgViewer::DepthPartitionSettings::_mode()
@@ -453,7 +455,9 @@ public:
 		bool lret = self->DepthPartitionSettings::getDepthRange(view, partition, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,zNear);
+		lua_pushnumber(L,zFar);
+		return 3;
 	}
 
 

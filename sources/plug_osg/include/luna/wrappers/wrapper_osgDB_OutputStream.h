@@ -85,7 +85,8 @@ public:
 		unsigned int lret = self->public_findOrCreateArrayID(array, newID);
 		lua_pushnumber(L,lret);
 
-		return 1;
+		lua_pushboolean(L,newID?1:0);
+		return 2;
 	}
 
 	// unsigned int osgDB::OutputStream::public_findOrCreateObjectID(const osg::Object * obj, bool & newID)
@@ -106,7 +107,8 @@ public:
 		unsigned int lret = self->public_findOrCreateObjectID(obj, newID);
 		lua_pushnumber(L,lret);
 
-		return 1;
+		lua_pushboolean(L,newID?1:0);
+		return 2;
 	}
 
 

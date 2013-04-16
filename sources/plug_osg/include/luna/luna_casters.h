@@ -459,13 +459,6 @@ struct luna_caster<osg::Matrix3x2Template< float >,dstType> {
 };
 
 template <typename dstType>
-struct luna_caster<osg::Matrix3Template< float >,dstType> {
-	static inline dstType* cast(osg::Matrix3Template< float >* ptr) {
-		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <typename dstType>
 struct luna_caster<osg::Matrix3x4Template< float >,dstType> {
 	static inline dstType* cast(osg::Matrix3x4Template< float >* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -510,13 +503,6 @@ struct luna_caster<osg::Matrix2x4Template< double >,dstType> {
 template <typename dstType>
 struct luna_caster<osg::Matrix3x2Template< double >,dstType> {
 	static inline dstType* cast(osg::Matrix3x2Template< double >* ptr) {
-		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <typename dstType>
-struct luna_caster<osg::Matrix3Template< double >,dstType> {
-	static inline dstType* cast(osg::Matrix3Template< double >* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };
@@ -1630,6 +1616,20 @@ struct luna_caster<osg::NodePath,dstType> {
 template <typename dstType>
 struct luna_caster<osg::NodePathList,dstType> {
 	static inline dstType* cast(osg::NodePathList* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix3,dstType> {
+	static inline dstType* cast(osg::Matrix3* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<osg::Matrix3d,dstType> {
+	static inline dstType* cast(osg::Matrix3d* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };

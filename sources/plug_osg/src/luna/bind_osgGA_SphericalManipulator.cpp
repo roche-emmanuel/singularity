@@ -1007,7 +1007,9 @@ public:
 		}
 		self->computeViewPosition(bound, scale, distance, center);
 
-		return 0;
+		lua_pushnumber(L,scale);
+		lua_pushnumber(L,distance);
+		return 2;
 	}
 
 	// void osgGA::SphericalManipulator::setCenter(const osg::Vec3d & center)

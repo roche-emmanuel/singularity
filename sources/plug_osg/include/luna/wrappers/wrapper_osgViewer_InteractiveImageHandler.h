@@ -349,7 +349,9 @@ public:
 		bool lret = self->public_mousePosition(view, nv, ea, x, y);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,x);
+		lua_pushnumber(L,y);
+		return 3;
 	}
 
 	// bool osgViewer::InteractiveImageHandler::public_computeIntersections(osgViewer::View * view, float x, float y, const osg::NodePath & nodePath, osgUtil::LineSegmentIntersector::Intersections & intersections, unsigned int traversalMask = 0xffffffff) const

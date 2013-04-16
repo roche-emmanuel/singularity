@@ -924,7 +924,8 @@ public:
 
 		osg::RenderBuffer::flushDeletedRenderBuffers(contextID, currentTime, availableTime);
 
-		return 0;
+		lua_pushnumber(L,availableTime);
+		return 1;
 	}
 
 	// static void osg::RenderBuffer::discardDeletedRenderBuffers(unsigned int contextID)

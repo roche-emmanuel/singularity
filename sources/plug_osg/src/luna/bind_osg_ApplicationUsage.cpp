@@ -768,7 +768,8 @@ public:
 		}
 		self->getFormattedString(str, um, widthOfOutput, showDefaults, ud);
 
-		return 0;
+		lua_pushlstring(L,str.data(),str.size());
+		return 1;
 	}
 
 	// void osg::ApplicationUsage::write(std::ostream & output, const osg::ApplicationUsage::UsageMap & um, unsigned int widthOfOutput = 80, bool showDefaults = false, const osg::ApplicationUsage::UsageMap & ud = osg::ApplicationUsage::UsageMap ())

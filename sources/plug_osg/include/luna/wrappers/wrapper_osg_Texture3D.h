@@ -607,7 +607,11 @@ public:
 		}
 		self->public_applyTexImage3D(target, image, state, inwidth, inheight, indepth, numMipmapLevels);
 
-		return 0;
+		lua_pushnumber(L,inwidth);
+		lua_pushnumber(L,inheight);
+		lua_pushnumber(L,indepth);
+		lua_pushnumber(L,numMipmapLevels);
+		return 4;
 	}
 
 	// void osg::Texture::public_computeInternalFormatWithImage(const osg::Image & image) const

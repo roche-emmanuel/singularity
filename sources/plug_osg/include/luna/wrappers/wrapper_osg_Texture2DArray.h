@@ -645,7 +645,8 @@ public:
 		}
 		self->public_applyTexImage2DArray_subload(state, image, inwidth, inheight, indepth, inInternalFormat, numMipmapLevels);
 
-		return 0;
+		lua_pushnumber(L,numMipmapLevels);
+		return 1;
 	}
 
 	// void osg::Texture::public_computeInternalFormatWithImage(const osg::Image & image) const
@@ -699,7 +700,10 @@ public:
 		}
 		self->public_computeRequiredTextureDimensions(state, image, width, height, numMipmapLevels);
 
-		return 0;
+		lua_pushnumber(L,width);
+		lua_pushnumber(L,height);
+		lua_pushnumber(L,numMipmapLevels);
+		return 3;
 	}
 
 	// void osg::Texture::public_computeInternalFormatType() const

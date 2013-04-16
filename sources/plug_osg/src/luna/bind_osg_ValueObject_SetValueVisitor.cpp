@@ -495,7 +495,8 @@ public:
 		}
 		self->apply(value);
 
-		return 0;
+		lua_pushboolean(L,value?1:0);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::apply(char & value)
@@ -514,7 +515,8 @@ public:
 		}
 		self->apply(value);
 
-		return 0;
+		lua_pushnumber(L,value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::apply(unsigned char & value)
@@ -533,7 +535,8 @@ public:
 		}
 		self->apply(value);
 
-		return 0;
+		lua_pushnumber(L,(int)value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::apply(short & value)
@@ -552,7 +555,8 @@ public:
 		}
 		self->apply(value);
 
-		return 0;
+		lua_pushnumber(L,value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::apply(unsigned short & value)
@@ -571,7 +575,8 @@ public:
 		}
 		self->apply(value);
 
-		return 0;
+		lua_pushnumber(L,value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::apply(int & value)
@@ -590,7 +595,8 @@ public:
 		}
 		self->apply(value);
 
-		return 0;
+		lua_pushnumber(L,value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::apply(unsigned int & value)
@@ -609,7 +615,8 @@ public:
 		}
 		self->apply(value);
 
-		return 0;
+		lua_pushnumber(L,value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::apply(float & value)
@@ -628,7 +635,8 @@ public:
 		}
 		self->apply(value);
 
-		return 0;
+		lua_pushnumber(L,value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::apply(double & value)
@@ -647,7 +655,8 @@ public:
 		}
 		self->apply(value);
 
-		return 0;
+		lua_pushnumber(L,value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::apply(std::string & value)
@@ -666,7 +675,8 @@ public:
 		}
 		self->apply(value);
 
-		return 0;
+		lua_pushlstring(L,value.data(),value.size());
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::apply(osg::Vec2f & value)
@@ -942,7 +952,8 @@ public:
 		}
 		self->SetValueVisitor::apply(value);
 
-		return 0;
+		lua_pushboolean(L,value?1:0);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::base_apply(char & value)
@@ -961,7 +972,8 @@ public:
 		}
 		self->SetValueVisitor::apply(value);
 
-		return 0;
+		lua_pushnumber(L,value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::base_apply(unsigned char & value)
@@ -980,7 +992,8 @@ public:
 		}
 		self->SetValueVisitor::apply(value);
 
-		return 0;
+		lua_pushnumber(L,(int)value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::base_apply(short & value)
@@ -999,7 +1012,8 @@ public:
 		}
 		self->SetValueVisitor::apply(value);
 
-		return 0;
+		lua_pushnumber(L,value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::base_apply(unsigned short & value)
@@ -1018,7 +1032,8 @@ public:
 		}
 		self->SetValueVisitor::apply(value);
 
-		return 0;
+		lua_pushnumber(L,value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::base_apply(int & value)
@@ -1037,7 +1052,8 @@ public:
 		}
 		self->SetValueVisitor::apply(value);
 
-		return 0;
+		lua_pushnumber(L,value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::base_apply(unsigned int & value)
@@ -1056,7 +1072,8 @@ public:
 		}
 		self->SetValueVisitor::apply(value);
 
-		return 0;
+		lua_pushnumber(L,value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::base_apply(float & value)
@@ -1075,7 +1092,8 @@ public:
 		}
 		self->SetValueVisitor::apply(value);
 
-		return 0;
+		lua_pushnumber(L,value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::base_apply(double & value)
@@ -1094,7 +1112,8 @@ public:
 		}
 		self->SetValueVisitor::apply(value);
 
-		return 0;
+		lua_pushnumber(L,value);
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::base_apply(std::string & value)
@@ -1113,7 +1132,8 @@ public:
 		}
 		self->SetValueVisitor::apply(value);
 
-		return 0;
+		lua_pushlstring(L,value.data(),value.size());
+		return 1;
 	}
 
 	// void osg::ValueObject::SetValueVisitor::base_apply(osg::Vec2f & value)

@@ -1049,7 +1049,9 @@ public:
 		}
 		self->getUnrefImageDataAfterApplyPolicy(changeAutoUnRef, valueAutoUnRef);
 
-		return 0;
+		lua_pushboolean(L,changeAutoUnRef?1:0);
+		lua_pushboolean(L,valueAutoUnRef?1:0);
+		return 2;
 	}
 
 	// void osgDB::DatabasePager::setMaxAnisotropyPolicy(bool changeAnisotropy, float valueAnisotropy)
@@ -1089,7 +1091,9 @@ public:
 		}
 		self->getMaxAnisotropyPolicy(changeAnisotropy, valueAnisotropy);
 
-		return 0;
+		lua_pushboolean(L,changeAnisotropy?1:0);
+		lua_pushnumber(L,valueAnisotropy);
+		return 2;
 	}
 
 	// bool osgDB::DatabasePager::requiresUpdateSceneGraph() const

@@ -636,7 +636,9 @@ public:
 		}
 		self->public_applyTexImage_load(target, image, state, inwidth, inheight);
 
-		return 0;
+		lua_pushnumber(L,inwidth);
+		lua_pushnumber(L,inheight);
+		return 2;
 	}
 
 	// void osg::TextureRectangle::public_applyTexImage_subload(unsigned int target, osg::Image * image, osg::State & state, int & inwidth, int & inheight, int & inInternalFormat) const
@@ -664,7 +666,10 @@ public:
 		}
 		self->public_applyTexImage_subload(target, image, state, inwidth, inheight, inInternalFormat);
 
-		return 0;
+		lua_pushnumber(L,inwidth);
+		lua_pushnumber(L,inheight);
+		lua_pushnumber(L,inInternalFormat);
+		return 3;
 	}
 
 	// void osg::Texture::public_computeInternalFormatWithImage(const osg::Image & image) const
@@ -718,7 +723,10 @@ public:
 		}
 		self->public_computeRequiredTextureDimensions(state, image, width, height, numMipmapLevels);
 
-		return 0;
+		lua_pushnumber(L,width);
+		lua_pushnumber(L,height);
+		lua_pushnumber(L,numMipmapLevels);
+		return 3;
 	}
 
 	// void osg::Texture::public_computeInternalFormatType() const

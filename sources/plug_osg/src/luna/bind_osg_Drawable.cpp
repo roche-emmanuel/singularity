@@ -2074,7 +2074,8 @@ public:
 
 		osg::Drawable::flushDeletedDisplayLists(contextID, availableTime);
 
-		return 0;
+		lua_pushnumber(L,availableTime);
+		return 1;
 	}
 
 	// static osg::Drawable::Extensions * osg::Drawable::getExtensions(unsigned int contextID, bool createIfNotInitalized)

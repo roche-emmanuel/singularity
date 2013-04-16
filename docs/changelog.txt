@@ -32,6 +32,7 @@
 - Added MultithreadScheduler implementation.
 - Working on sgtLand basic quadtree.
 - Implementing TerrainNode functions.
+- Updated osg dependency with reference return support. Added test on matrixd::getPerspective.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

@@ -815,7 +815,11 @@ public:
 		}
 		self->getSubImageDimensions(offsetX, offsetY, width, height);
 
-		return 0;
+		lua_pushnumber(L,offsetX);
+		lua_pushnumber(L,offsetY);
+		lua_pushnumber(L,width);
+		lua_pushnumber(L,height);
+		return 4;
 	}
 
 	// void osg::DrawPixels::drawImplementation(osg::RenderInfo & renderInfo) const

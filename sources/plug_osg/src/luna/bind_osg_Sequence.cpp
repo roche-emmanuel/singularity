@@ -1419,7 +1419,10 @@ public:
 		}
 		self->getInterval(mode, begin, end);
 
-		return 0;
+		lua_pushnumber(L,mode);
+		lua_pushnumber(L,begin);
+		lua_pushnumber(L,end);
+		return 3;
 	}
 
 	// void osg::Sequence::setSpeed(float speed)
@@ -1537,7 +1540,9 @@ public:
 		}
 		self->getDuration(speed, nreps);
 
-		return 0;
+		lua_pushnumber(L,speed);
+		lua_pushnumber(L,nreps);
+		return 2;
 	}
 
 	// void osg::Sequence::setMode(osg::Sequence::SequenceMode mode)

@@ -750,7 +750,11 @@ public:
 		}
 		self->getScissor(x, y, width, height);
 
-		return 0;
+		lua_pushnumber(L,x);
+		lua_pushnumber(L,y);
+		lua_pushnumber(L,width);
+		lua_pushnumber(L,height);
+		return 4;
 	}
 
 	// int & osg::Scissor::x()

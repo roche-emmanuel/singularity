@@ -223,8 +223,8 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,2,3033487) ) return false;
-		if( (!(Luna< osg::Matrix3Template< float > >::checkSubType< osg::Matrix3 >(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,18903789) ) return false;
+		if( (!(Luna< osg::Matrix3 >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -304,8 +304,8 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,2,3861561) ) return false;
-		if( (!(Luna< osg::Matrix3Template< double > >::checkSubType< osg::Matrix3d >(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,86017494) ) return false;
+		if( (!(Luna< osg::Matrix3d >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -612,8 +612,8 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,3033487) ) return false;
-		if( (!(Luna< osg::Matrix3Template< float > >::checkSubType< osg::Matrix3 >(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,18903789) ) return false;
+		if( (!(Luna< osg::Matrix3 >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -702,8 +702,8 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,3861561) ) return false;
-		if( (!(Luna< osg::Matrix3Template< double > >::checkSubType< osg::Matrix3d >(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,86017494) ) return false;
+		if( (!(Luna< osg::Matrix3d >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -1096,8 +1096,8 @@ public:
 	inline static bool _lg_typecheck_set_overload_13(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,3033487) ) return false;
-		if( (!(Luna< osg::Matrix3Template< float > >::checkSubType< osg::Matrix3 >(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,18903789) ) return false;
+		if( (!(Luna< osg::Matrix3 >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -1168,8 +1168,8 @@ public:
 	inline static bool _lg_typecheck_set_overload_22(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,3861561) ) return false;
-		if( (!(Luna< osg::Matrix3Template< double > >::checkSubType< osg::Matrix3d >(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,86017494) ) return false;
+		if( (!(Luna< osg::Matrix3d >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -1404,8 +1404,8 @@ public:
 	inline static bool _lg_typecheck_get_overload_13(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,3033487) ) return false;
-		if( (!(Luna< osg::Matrix3Template< float > >::checkSubType< osg::Matrix3 >(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,18903789) ) return false;
+		if( (!(Luna< osg::Matrix3 >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -1476,8 +1476,8 @@ public:
 	inline static bool _lg_typecheck_get_overload_22(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,3861561) ) return false;
-		if( (!(Luna< osg::Matrix3Template< double > >::checkSubType< osg::Matrix3d >(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,86017494) ) return false;
+		if( (!(Luna< osg::Matrix3d >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -1725,8 +1725,8 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,3033487) ) return false;
-		if( (!(Luna< osg::Matrix3Template< float > >::checkSubType< osg::Matrix3 >(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,18903789) ) return false;
+		if( (!(Luna< osg::Matrix3 >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -1806,8 +1806,8 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,3861561) ) return false;
-		if( (!(Luna< osg::Matrix3Template< double > >::checkSubType< osg::Matrix3d >(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,86017494) ) return false;
+		if( (!(Luna< osg::Matrix3d >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -2071,8 +2071,8 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,3033487) ) return false;
-		if( (!(Luna< osg::Matrix3Template< float > >::checkSubType< osg::Matrix3 >(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,18903789) ) return false;
+		if( (!(Luna< osg::Matrix3 >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -2152,8 +2152,8 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,3861561) ) return false;
-		if( (!(Luna< osg::Matrix3Template< double > >::checkSubType< osg::Matrix3d >(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,86017494) ) return false;
+		if( (!(Luna< osg::Matrix3d >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -2880,7 +2880,7 @@ public:
 		}
 
 		const char * name=(const char *)lua_tostring(L,1);
-		const osg::Matrix3* m3_ptr=(Luna< osg::Matrix3Template< float > >::checkSubType< osg::Matrix3 >(L,2));
+		const osg::Matrix3* m3_ptr=(Luna< osg::Matrix3 >::check(L,2));
 		if( !m3_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg m3 in osg::Uniform::Uniform function");
 		}
@@ -3033,7 +3033,7 @@ public:
 		}
 
 		const char * name=(const char *)lua_tostring(L,1);
-		const osg::Matrix3d* m3_ptr=(Luna< osg::Matrix3Template< double > >::checkSubType< osg::Matrix3d >(L,2));
+		const osg::Matrix3d* m3_ptr=(Luna< osg::Matrix3d >::check(L,2));
 		if( !m3_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg m3 in osg::Uniform::Uniform function");
 		}
@@ -3538,7 +3538,7 @@ public:
 		}
 
 		const char * name=(const char *)lua_tostring(L,2);
-		const osg::Matrix3* m3_ptr=(Luna< osg::Matrix3Template< float > >::checkSubType< osg::Matrix3 >(L,3));
+		const osg::Matrix3* m3_ptr=(Luna< osg::Matrix3 >::check(L,3));
 		if( !m3_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg m3 in osg::Uniform::Uniform function");
 		}
@@ -3691,7 +3691,7 @@ public:
 		}
 
 		const char * name=(const char *)lua_tostring(L,2);
-		const osg::Matrix3d* m3_ptr=(Luna< osg::Matrix3Template< double > >::checkSubType< osg::Matrix3d >(L,3));
+		const osg::Matrix3d* m3_ptr=(Luna< osg::Matrix3d >::check(L,3));
 		if( !m3_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg m3 in osg::Uniform::Uniform function");
 		}
@@ -4735,7 +4735,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Uniform::set(const osg::Matrix3 & m3) function, expected prototype:\nbool osg::Uniform::set(const osg::Matrix3 & m3)\nClass arguments details:\narg 1 ID = 18903789\n");
 		}
 
-		const osg::Matrix3* m3_ptr=(Luna< osg::Matrix3Template< float > >::checkSubType< osg::Matrix3 >(L,2));
+		const osg::Matrix3* m3_ptr=(Luna< osg::Matrix3 >::check(L,2));
 		if( !m3_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg m3 in osg::Uniform::set function");
 		}
@@ -4951,7 +4951,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Uniform::set(const osg::Matrix3d & m3) function, expected prototype:\nbool osg::Uniform::set(const osg::Matrix3d & m3)\nClass arguments details:\narg 1 ID = 86017494\n");
 		}
 
-		const osg::Matrix3d* m3_ptr=(Luna< osg::Matrix3Template< double > >::checkSubType< osg::Matrix3d >(L,2));
+		const osg::Matrix3d* m3_ptr=(Luna< osg::Matrix3d >::check(L,2));
 		if( !m3_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg m3 in osg::Uniform::set function");
 		}
@@ -5396,7 +5396,8 @@ public:
 		bool lret = self->get(f);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,f);
+		return 2;
 	}
 
 	// bool osg::Uniform::get(double & d) const
@@ -5416,7 +5417,8 @@ public:
 		bool lret = self->get(d);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,d);
+		return 2;
 	}
 
 	// bool osg::Uniform::get(int & i) const
@@ -5436,7 +5438,8 @@ public:
 		bool lret = self->get(i);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,i);
+		return 2;
 	}
 
 	// bool osg::Uniform::get(unsigned int & ui) const
@@ -5456,7 +5459,8 @@ public:
 		bool lret = self->get(ui);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,ui);
+		return 2;
 	}
 
 	// bool osg::Uniform::get(bool & b) const
@@ -5476,7 +5480,8 @@ public:
 		bool lret = self->get(b);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushboolean(L,b?1:0);
+		return 2;
 	}
 
 	// bool osg::Uniform::get(osg::Vec2f & v2) const
@@ -5654,7 +5659,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Uniform::get(osg::Matrix3 & m3) const function, expected prototype:\nbool osg::Uniform::get(osg::Matrix3 & m3) const\nClass arguments details:\narg 1 ID = 18903789\n");
 		}
 
-		osg::Matrix3* m3_ptr=(Luna< osg::Matrix3Template< float > >::checkSubType< osg::Matrix3 >(L,2));
+		osg::Matrix3* m3_ptr=(Luna< osg::Matrix3 >::check(L,2));
 		if( !m3_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg m3 in osg::Uniform::get function");
 		}
@@ -5870,7 +5875,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Uniform::get(osg::Matrix3d & m3) const function, expected prototype:\nbool osg::Uniform::get(osg::Matrix3d & m3) const\nClass arguments details:\narg 1 ID = 86017494\n");
 		}
 
-		osg::Matrix3d* m3_ptr=(Luna< osg::Matrix3Template< double > >::checkSubType< osg::Matrix3d >(L,2));
+		osg::Matrix3d* m3_ptr=(Luna< osg::Matrix3d >::check(L,2));
 		if( !m3_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg m3 in osg::Uniform::get function");
 		}
@@ -6073,7 +6078,9 @@ public:
 		bool lret = self->get(i0, i1);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,i0);
+		lua_pushnumber(L,i1);
+		return 3;
 	}
 
 	// bool osg::Uniform::get(int & i0, int & i1, int & i2) const
@@ -6095,7 +6102,10 @@ public:
 		bool lret = self->get(i0, i1, i2);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,i0);
+		lua_pushnumber(L,i1);
+		lua_pushnumber(L,i2);
+		return 4;
 	}
 
 	// bool osg::Uniform::get(int & i0, int & i1, int & i2, int & i3) const
@@ -6118,7 +6128,11 @@ public:
 		bool lret = self->get(i0, i1, i2, i3);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,i0);
+		lua_pushnumber(L,i1);
+		lua_pushnumber(L,i2);
+		lua_pushnumber(L,i3);
+		return 5;
 	}
 
 	// bool osg::Uniform::get(unsigned int & ui0, unsigned int & ui1) const
@@ -6139,7 +6153,9 @@ public:
 		bool lret = self->get(ui0, ui1);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,ui0);
+		lua_pushnumber(L,ui1);
+		return 3;
 	}
 
 	// bool osg::Uniform::get(unsigned int & ui0, unsigned int & ui1, unsigned int & ui2) const
@@ -6161,7 +6177,10 @@ public:
 		bool lret = self->get(ui0, ui1, ui2);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,ui0);
+		lua_pushnumber(L,ui1);
+		lua_pushnumber(L,ui2);
+		return 4;
 	}
 
 	// bool osg::Uniform::get(unsigned int & ui0, unsigned int & ui1, unsigned int & ui2, unsigned int & ui3) const
@@ -6184,7 +6203,11 @@ public:
 		bool lret = self->get(ui0, ui1, ui2, ui3);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,ui0);
+		lua_pushnumber(L,ui1);
+		lua_pushnumber(L,ui2);
+		lua_pushnumber(L,ui3);
+		return 5;
 	}
 
 	// bool osg::Uniform::get(bool & b0, bool & b1) const
@@ -6205,7 +6228,9 @@ public:
 		bool lret = self->get(b0, b1);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushboolean(L,b0?1:0);
+		lua_pushboolean(L,b1?1:0);
+		return 3;
 	}
 
 	// bool osg::Uniform::get(bool & b0, bool & b1, bool & b2) const
@@ -6227,7 +6252,10 @@ public:
 		bool lret = self->get(b0, b1, b2);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushboolean(L,b0?1:0);
+		lua_pushboolean(L,b1?1:0);
+		lua_pushboolean(L,b2?1:0);
+		return 4;
 	}
 
 	// bool osg::Uniform::get(bool & b0, bool & b1, bool & b2, bool & b3) const
@@ -6250,7 +6278,11 @@ public:
 		bool lret = self->get(b0, b1, b2, b3);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushboolean(L,b0?1:0);
+		lua_pushboolean(L,b1?1:0);
+		lua_pushboolean(L,b2?1:0);
+		lua_pushboolean(L,b3?1:0);
+		return 5;
 	}
 
 	// Overload binder for osg::Uniform::get
@@ -6586,7 +6618,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		const osg::Matrix3* m3_ptr=(Luna< osg::Matrix3Template< float > >::checkSubType< osg::Matrix3 >(L,3));
+		const osg::Matrix3* m3_ptr=(Luna< osg::Matrix3 >::check(L,3));
 		if( !m3_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg m3 in osg::Uniform::setElement function");
 		}
@@ -6811,7 +6843,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		const osg::Matrix3d* m3_ptr=(Luna< osg::Matrix3Template< double > >::checkSubType< osg::Matrix3d >(L,3));
+		const osg::Matrix3d* m3_ptr=(Luna< osg::Matrix3d >::check(L,3));
 		if( !m3_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg m3 in osg::Uniform::setElement function");
 		}
@@ -7273,7 +7305,8 @@ public:
 		bool lret = self->getElement(index, f);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,f);
+		return 2;
 	}
 
 	// bool osg::Uniform::getElement(unsigned int index, double & d) const
@@ -7294,7 +7327,8 @@ public:
 		bool lret = self->getElement(index, d);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,d);
+		return 2;
 	}
 
 	// bool osg::Uniform::getElement(unsigned int index, int & i) const
@@ -7315,7 +7349,8 @@ public:
 		bool lret = self->getElement(index, i);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,i);
+		return 2;
 	}
 
 	// bool osg::Uniform::getElement(unsigned int index, unsigned int & ui) const
@@ -7336,7 +7371,8 @@ public:
 		bool lret = self->getElement(index, ui);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,ui);
+		return 2;
 	}
 
 	// bool osg::Uniform::getElement(unsigned int index, bool & b) const
@@ -7357,7 +7393,8 @@ public:
 		bool lret = self->getElement(index, b);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushboolean(L,b?1:0);
+		return 2;
 	}
 
 	// bool osg::Uniform::getElement(unsigned int index, osg::Vec2f & v2) const
@@ -7543,7 +7580,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		osg::Matrix3* m3_ptr=(Luna< osg::Matrix3Template< float > >::checkSubType< osg::Matrix3 >(L,3));
+		osg::Matrix3* m3_ptr=(Luna< osg::Matrix3 >::check(L,3));
 		if( !m3_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg m3 in osg::Uniform::getElement function");
 		}
@@ -7768,7 +7805,7 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		osg::Matrix3d* m3_ptr=(Luna< osg::Matrix3Template< double > >::checkSubType< osg::Matrix3d >(L,3));
+		osg::Matrix3d* m3_ptr=(Luna< osg::Matrix3d >::check(L,3));
 		if( !m3_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg m3 in osg::Uniform::getElement function");
 		}
@@ -7979,7 +8016,9 @@ public:
 		bool lret = self->getElement(index, i0, i1);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,i0);
+		lua_pushnumber(L,i1);
+		return 3;
 	}
 
 	// bool osg::Uniform::getElement(unsigned int index, int & i0, int & i1, int & i2) const
@@ -8002,7 +8041,10 @@ public:
 		bool lret = self->getElement(index, i0, i1, i2);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,i0);
+		lua_pushnumber(L,i1);
+		lua_pushnumber(L,i2);
+		return 4;
 	}
 
 	// bool osg::Uniform::getElement(unsigned int index, int & i0, int & i1, int & i2, int & i3) const
@@ -8026,7 +8068,11 @@ public:
 		bool lret = self->getElement(index, i0, i1, i2, i3);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,i0);
+		lua_pushnumber(L,i1);
+		lua_pushnumber(L,i2);
+		lua_pushnumber(L,i3);
+		return 5;
 	}
 
 	// bool osg::Uniform::getElement(unsigned int index, unsigned int & ui0, unsigned int & ui1) const
@@ -8048,7 +8094,9 @@ public:
 		bool lret = self->getElement(index, ui0, ui1);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,ui0);
+		lua_pushnumber(L,ui1);
+		return 3;
 	}
 
 	// bool osg::Uniform::getElement(unsigned int index, unsigned int & ui0, unsigned int & ui1, unsigned int & ui2) const
@@ -8071,7 +8119,10 @@ public:
 		bool lret = self->getElement(index, ui0, ui1, ui2);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,ui0);
+		lua_pushnumber(L,ui1);
+		lua_pushnumber(L,ui2);
+		return 4;
 	}
 
 	// bool osg::Uniform::getElement(unsigned int index, unsigned int & ui0, unsigned int & ui1, unsigned int & ui2, unsigned int & ui3) const
@@ -8095,7 +8146,11 @@ public:
 		bool lret = self->getElement(index, ui0, ui1, ui2, ui3);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,ui0);
+		lua_pushnumber(L,ui1);
+		lua_pushnumber(L,ui2);
+		lua_pushnumber(L,ui3);
+		return 5;
 	}
 
 	// bool osg::Uniform::getElement(unsigned int index, bool & b0, bool & b1) const
@@ -8117,7 +8172,9 @@ public:
 		bool lret = self->getElement(index, b0, b1);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushboolean(L,b0?1:0);
+		lua_pushboolean(L,b1?1:0);
+		return 3;
 	}
 
 	// bool osg::Uniform::getElement(unsigned int index, bool & b0, bool & b1, bool & b2) const
@@ -8140,7 +8197,10 @@ public:
 		bool lret = self->getElement(index, b0, b1, b2);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushboolean(L,b0?1:0);
+		lua_pushboolean(L,b1?1:0);
+		lua_pushboolean(L,b2?1:0);
+		return 4;
 	}
 
 	// bool osg::Uniform::getElement(unsigned int index, bool & b0, bool & b1, bool & b2, bool & b3) const
@@ -8164,7 +8224,11 @@ public:
 		bool lret = self->getElement(index, b0, b1, b2, b3);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushboolean(L,b0?1:0);
+		lua_pushboolean(L,b1?1:0);
+		lua_pushboolean(L,b2?1:0);
+		lua_pushboolean(L,b3?1:0);
+		return 5;
 	}
 
 	// Overload binder for osg::Uniform::getElement

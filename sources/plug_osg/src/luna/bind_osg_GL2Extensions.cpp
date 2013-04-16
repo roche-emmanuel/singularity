@@ -4077,7 +4077,8 @@ public:
 		bool lret = self->getProgramInfoLog(program, result);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushlstring(L,result.data(),result.size());
+		return 2;
 	}
 
 	// bool osg::GL2Extensions::getShaderInfoLog(unsigned int shader, std::string & result) const
@@ -4098,7 +4099,8 @@ public:
 		bool lret = self->getShaderInfoLog(shader, result);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushlstring(L,result.data(),result.size());
+		return 2;
 	}
 
 	// bool osg::GL2Extensions::getAttribLocation(const char * attribName, unsigned int & slot) const
@@ -4119,7 +4121,8 @@ public:
 		bool lret = self->getAttribLocation(attribName, slot);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,slot);
+		return 2;
 	}
 
 	// bool osg::GL2Extensions::getFragDataLocation(const char * fragDataName, unsigned int & slot) const
@@ -4140,7 +4143,8 @@ public:
 		bool lret = self->getFragDataLocation(fragDataName, slot);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,slot);
+		return 2;
 	}
 
 	// void osg::GL2Extensions::glUniformMatrix2x3fv(int location, int count, unsigned char transpose, const float * value) const

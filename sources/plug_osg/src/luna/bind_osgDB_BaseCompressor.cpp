@@ -237,7 +237,8 @@ public:
 		bool lret = self->decompress(_arg1, _arg2);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushlstring(L,_arg2.data(),_arg2.size());
+		return 2;
 	}
 
 	// void osgDB::BaseCompressor::base_setThreadSafeRefUnref(bool threadSafe)

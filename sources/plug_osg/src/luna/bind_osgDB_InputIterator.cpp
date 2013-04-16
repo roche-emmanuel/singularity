@@ -605,7 +605,8 @@ public:
 		}
 		self->readBool(b);
 
-		return 0;
+		lua_pushboolean(L,b?1:0);
+		return 1;
 	}
 
 	// void osgDB::InputIterator::readChar(char & c)
@@ -624,7 +625,8 @@ public:
 		}
 		self->readChar(c);
 
-		return 0;
+		lua_pushnumber(L,c);
+		return 1;
 	}
 
 	// void osgDB::InputIterator::readSChar(signed char & c)
@@ -643,7 +645,8 @@ public:
 		}
 		self->readSChar(c);
 
-		return 0;
+		lua_pushnumber(L,c);
+		return 1;
 	}
 
 	// void osgDB::InputIterator::readUChar(unsigned char & c)
@@ -662,7 +665,8 @@ public:
 		}
 		self->readUChar(c);
 
-		return 0;
+		lua_pushnumber(L,(int)c);
+		return 1;
 	}
 
 	// void osgDB::InputIterator::readShort(short & s)
@@ -681,7 +685,8 @@ public:
 		}
 		self->readShort(s);
 
-		return 0;
+		lua_pushnumber(L,s);
+		return 1;
 	}
 
 	// void osgDB::InputIterator::readUShort(unsigned short & s)
@@ -700,7 +705,8 @@ public:
 		}
 		self->readUShort(s);
 
-		return 0;
+		lua_pushnumber(L,s);
+		return 1;
 	}
 
 	// void osgDB::InputIterator::readInt(int & i)
@@ -719,7 +725,8 @@ public:
 		}
 		self->readInt(i);
 
-		return 0;
+		lua_pushnumber(L,i);
+		return 1;
 	}
 
 	// void osgDB::InputIterator::readUInt(unsigned int & i)
@@ -738,7 +745,8 @@ public:
 		}
 		self->readUInt(i);
 
-		return 0;
+		lua_pushnumber(L,i);
+		return 1;
 	}
 
 	// void osgDB::InputIterator::readLong(long & l)
@@ -757,7 +765,8 @@ public:
 		}
 		self->readLong(l);
 
-		return 0;
+		lua_pushnumber(L,l);
+		return 1;
 	}
 
 	// void osgDB::InputIterator::readULong(unsigned long & l)
@@ -776,7 +785,8 @@ public:
 		}
 		self->readULong(l);
 
-		return 0;
+		lua_pushnumber(L,l);
+		return 1;
 	}
 
 	// void osgDB::InputIterator::readFloat(float & f)
@@ -795,7 +805,8 @@ public:
 		}
 		self->readFloat(f);
 
-		return 0;
+		lua_pushnumber(L,f);
+		return 1;
 	}
 
 	// void osgDB::InputIterator::readDouble(double & d)
@@ -814,7 +825,8 @@ public:
 		}
 		self->readDouble(d);
 
-		return 0;
+		lua_pushnumber(L,d);
+		return 1;
 	}
 
 	// void osgDB::InputIterator::readString(std::string & s)
@@ -833,7 +845,8 @@ public:
 		}
 		self->readString(s);
 
-		return 0;
+		lua_pushlstring(L,s.data(),s.size());
+		return 1;
 	}
 
 	// void osgDB::InputIterator::readGLenum(osgDB::ObjectGLenum & value)
@@ -941,7 +954,8 @@ public:
 		}
 		self->readWrappedString(str);
 
-		return 0;
+		lua_pushlstring(L,str.data(),str.size());
+		return 1;
 	}
 
 	// bool osgDB::InputIterator::matchString(const std::string & arg1)

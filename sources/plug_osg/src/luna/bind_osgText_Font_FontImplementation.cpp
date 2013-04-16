@@ -377,7 +377,9 @@ public:
 		bool lret = self->getVerticalSize(ascender, descender);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,ascender);
+		lua_pushnumber(L,descender);
+		return 3;
 	}
 
 	// osgText::Font * osgText::Font::FontImplementation::_facade()
@@ -457,7 +459,9 @@ public:
 		bool lret = self->FontImplementation::getVerticalSize(ascender, descender);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,ascender);
+		lua_pushnumber(L,descender);
+		return 3;
 	}
 
 

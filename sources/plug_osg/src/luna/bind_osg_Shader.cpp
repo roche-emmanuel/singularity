@@ -1159,7 +1159,8 @@ public:
 		bool lret = self->getGlShaderInfoLog(contextID, log);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushlstring(L,log.data(),log.size());
+		return 2;
 	}
 
 	// osg::Shader::PerContextShader * osg::Shader::getPCS(unsigned int contextID) const
@@ -1230,7 +1231,8 @@ public:
 
 		osg::Shader::flushDeletedGlShaders(contextID, currentTime, availableTime);
 
-		return 0;
+		lua_pushnumber(L,availableTime);
+		return 1;
 	}
 
 	// static void osg::Shader::discardDeletedGlShaders(unsigned int contextID)

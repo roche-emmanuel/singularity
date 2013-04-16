@@ -1955,7 +1955,9 @@ public:
 
 		Luna< osg::Camera >::push(L,lret,false);
 
-		return 1;
+		lua_pushnumber(L,local_x);
+		lua_pushnumber(L,local_y);
+		return 3;
 	}
 
 	// bool osgViewer::View::computeIntersections(float x, float y, osgUtil::LineSegmentIntersector::Intersections & intersections, unsigned int traversalMask = 0xffffffff)

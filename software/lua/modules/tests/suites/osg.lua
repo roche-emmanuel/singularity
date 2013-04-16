@@ -39,7 +39,7 @@ function test_function_injection()
 	log:info("Tests","Testing function injection.")
 	
 	local vec = osg.Vec4f(1.0,2.0,3.0,0.666)
-	local res = vec:helloworld()
+	local res = "".. tostring(vec)
 	
 	assert_equal("string",type(res),"Invalid vec4f helloword result.")
 	log:info("Tests","Result from vec4f is: ",res)
@@ -179,6 +179,9 @@ function test_matrix3()
 	local mat = osg.Matrixd.rotate(math.pi/6, osg.ZAXIS);
 	local res = mat:toMatrix3()
 	
+	log:info("Mat4 is: ",mat)
+	log:info("Mat3 is: ",target)
+	
 	assert_equal(target,res,"Matrix3 are not equal.")
 	
 	log:info("Tests","Done testing matrix3.")
@@ -243,4 +246,19 @@ function test_event_handler()
 	collectgarbage('collect')
 	
 	log:info("Tests","Done testing event handler")
+end
+
+function test_get_perspective()
+	log:info("Tests","Testing getPerspective.")
+	
+	local angle = math.random()*80.0;
+	local mat = osg.Matrixd.perspective(angle,1.33,1.0,1000.0)
+	
+	local res, fovy, aspect, znear, zfar = mat:getPerspective(0.0,0.0,0.0,0.0);
+	
+	log:info("Tests","Testing perspective with angle: ", angle)
+	
+	assert_equal(angle,fovy,"Invalid perspective fovy angle.")
+	
+	log:info("Tests","Done testing getPerspective.")
 end

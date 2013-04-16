@@ -1738,7 +1738,8 @@ static int _bind_flushDeletedGLObjects(lua_State *L) {
 
 	osg::flushDeletedGLObjects(contextID, currentTime, availableTime);
 
-	return 0;
+	lua_pushnumber(L,availableTime);
+	return 1;
 }
 
 // void osg::flushAllDeletedGLObjects(unsigned int contextID)

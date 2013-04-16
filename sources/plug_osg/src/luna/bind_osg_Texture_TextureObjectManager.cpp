@@ -863,7 +863,8 @@ public:
 		}
 		self->flushDeletedTextureObjects(currentTime, availableTime);
 
-		return 0;
+		lua_pushnumber(L,availableTime);
+		return 1;
 	}
 
 	// void osg::Texture::TextureObjectManager::releaseTextureObject(osg::Texture::TextureObject * to)

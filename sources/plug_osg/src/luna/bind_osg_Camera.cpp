@@ -2429,7 +2429,13 @@ public:
 		bool lret = self->getProjectionMatrixAsOrtho(left, right, bottom, top, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,left);
+		lua_pushnumber(L,right);
+		lua_pushnumber(L,bottom);
+		lua_pushnumber(L,top);
+		lua_pushnumber(L,zNear);
+		lua_pushnumber(L,zFar);
+		return 7;
 	}
 
 	// bool osg::Camera::getProjectionMatrixAsFrustum(double & left, double & right, double & bottom, double & top, double & zNear, double & zFar) const
@@ -2454,7 +2460,13 @@ public:
 		bool lret = self->getProjectionMatrixAsFrustum(left, right, bottom, top, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,left);
+		lua_pushnumber(L,right);
+		lua_pushnumber(L,bottom);
+		lua_pushnumber(L,top);
+		lua_pushnumber(L,zNear);
+		lua_pushnumber(L,zFar);
+		return 7;
 	}
 
 	// bool osg::Camera::getProjectionMatrixAsPerspective(double & fovy, double & aspectRatio, double & zNear, double & zFar) const
@@ -2477,7 +2489,11 @@ public:
 		bool lret = self->getProjectionMatrixAsPerspective(fovy, aspectRatio, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,fovy);
+		lua_pushnumber(L,aspectRatio);
+		lua_pushnumber(L,zNear);
+		lua_pushnumber(L,zFar);
+		return 5;
 	}
 
 	// void osg::Camera::setViewMatrix(const osg::Matrixf & matrix)

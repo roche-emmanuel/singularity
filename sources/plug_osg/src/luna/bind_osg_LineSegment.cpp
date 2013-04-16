@@ -608,7 +608,9 @@ public:
 		bool lret = self->intersect(bb, r1, r2);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,r1);
+		lua_pushnumber(L,r2);
+		return 3;
 	}
 
 	// bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, double & r1, double & r2) const
@@ -634,7 +636,9 @@ public:
 		bool lret = self->intersect(bb, r1, r2);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,r1);
+		lua_pushnumber(L,r2);
+		return 3;
 	}
 
 	// bool osg::LineSegment::intersect(const osg::BoundingSphered & bs) const
@@ -684,7 +688,9 @@ public:
 		bool lret = self->intersect(bs, r1, r2);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,r1);
+		lua_pushnumber(L,r2);
+		return 3;
 	}
 
 	// bool osg::LineSegment::intersect(const osg::BoundingSphered & bs, double & r1, double & r2) const
@@ -710,7 +716,9 @@ public:
 		bool lret = self->intersect(bs, r1, r2);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,r1);
+		lua_pushnumber(L,r2);
+		return 3;
 	}
 
 	// bool osg::LineSegment::intersect(const osg::Vec3f & v1, const osg::Vec3f & v2, const osg::Vec3f & v3, float & r)
@@ -745,7 +753,8 @@ public:
 		bool lret = self->intersect(v1, v2, v3, r);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,r);
+		return 2;
 	}
 
 	// bool osg::LineSegment::intersect(const osg::Vec3d & v1, const osg::Vec3d & v2, const osg::Vec3d & v3, double & r)
@@ -780,7 +789,8 @@ public:
 		bool lret = self->intersect(v1, v2, v3, r);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,r);
+		return 2;
 	}
 
 	// Overload binder for osg::LineSegment::intersect

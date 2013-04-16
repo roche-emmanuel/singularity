@@ -18,9 +18,17 @@ namespace osg {
 
 };
 
-/** LUNA_CLASS_EXTENSION  */
-inline float op_index(osg::Matrix3Template< float >* mat, int index) {
-	return (*mat)[index];
+/** LUNA_CLASS_EXTENSION  LUNA_RENAME __eq */
+inline float matrix3f_eq(osg::Matrix3* mat, osg::Matrix3* rhs) {
+	if(mat == rhs)
+		return true;
+		
+	for(int i =0; i<16; ++i) {
+		if( (*mat)[i] != (*rhs)[i] ) {
+			return false;
+		}
+	}
+	return true;
 }
 
 /** LUNA_CLASS_EXTENSION  */
