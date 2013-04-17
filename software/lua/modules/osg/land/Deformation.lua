@@ -3,6 +3,8 @@ local Class = require("classBuilder"){name="Deformation",bases="base.Object"};
 require "osg"
 require "sgtLand"
 
+SceneManager = require "osg.land.SceneManager"
+
 function Class:initialize(options)	
 	self:check(options and options.node,"Invalid terrain node for deformation creation.")
 	self._node = options.node
@@ -69,6 +71,10 @@ end
 -- Returns an orthonormal reference frame of the tangent space at the given deformed point.
 function Class:deformedToTangentFrame(deformedPt)
 	return osg.Matrixd.translate(-deformedPt:x(),-deformedPt:y(),0.0);	
+end
+
+function Class:getVisibility(localBox)
+	return SceneManager:getVisibility(t:getDeformedFrustumPlanes(), localBox);
 end
 
 function Class:setUniforms(ptr<SceneNode> context, ptr<TerrainNode> n, ptr<Program> prog)

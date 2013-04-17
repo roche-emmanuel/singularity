@@ -1096,15 +1096,15 @@ struct luna_caster<osg::Polytope,dstType> {
 };
 
 template <typename dstType>
-struct luna_caster<std::vector< osg::Plane >,dstType> {
-	static inline dstType* cast(std::vector< osg::Plane >* ptr) {
+struct luna_caster<osg::fast_back_stack< unsigned int >,dstType> {
+	static inline dstType* cast(osg::fast_back_stack< unsigned int >* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };
 
 template <typename dstType>
-struct luna_caster<osg::fast_back_stack< unsigned int >,dstType> {
-	static inline dstType* cast(osg::fast_back_stack< unsigned int >* ptr) {
+struct luna_caster<osg::Polytope::PlaneList,dstType> {
+	static inline dstType* cast(osg::Polytope::PlaneList* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };

@@ -179,6 +179,7 @@ ReflectionGenerator.generate{
 		"osg::TemplateArray< osg::Vec4f, osg::Array::Vec4ArrayType, 4, GL_FLOAT >",
 		"std::vector< osg::Matrixd >",
 		"std::vector< osg::NodePath >",
+		"std::vector< osg::Plane >",
 		"std::vector< osg::Node %* >",
 		"TemplateSerializer",
 		"PropByValSerializer",

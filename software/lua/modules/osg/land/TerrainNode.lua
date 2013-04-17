@@ -28,6 +28,7 @@ function Class:initialize(options)
     self._horizonCulling = true;
 	self._maxLevel = 7;
 	self._horizon = {};
+	self._frustumPlanes = {}
 	
 	--self._deformedCameraPos = osg.Vec3d();
 	--self._localCameraPos = osg.Vec3d();
@@ -55,6 +56,11 @@ function Class:initialize(options)
 		local frustum = cullSet:getFrustum();
 		local viewport = cv:getViewport();
 		self:check(viewport,"Invalid viewport object.")
+		
+		-- retrieve the frustum planes:
+		for i = 0,5 do
+			self._frustumPlanes[i+1] = frustum:
+		end
 		
 		local res, fovy, aspect, znear, zfar = proj:getPerspective(0.0,0.0,0.0,0.0);
 		self:check(res,"Could not get perspective settings from projection matrix ",proj)
@@ -94,6 +100,15 @@ function Class:initialize(options)
 
 		self._quad:update();		
 	end)
+end
+
+function Class:getVisibility(box)
+	return self._deform:getVisibility(box)
+end
+
+function Class:getDeformedFrustumPlanes()
+	self:check(#self._frustumPlanes == 6, "Invalid frustum planes.")
+	return self._frustumPlanes
 end
 
 function Class:getDeformedCamera()

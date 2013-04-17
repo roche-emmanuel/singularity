@@ -143,6 +143,12 @@ class NodePathList {
 
 };
 
+class Polytope {
+public:
+	class PlaneList {
+	};
+};
+
 #define MAT3_CLASS(mat3,type) \
 class mat3 { \
 public: \
@@ -167,3 +173,4 @@ LUNA_IMPLEMENT_VECTOR(osg::Vec4f,osg::Vec4Array);
 LUNA_IMPLEMENT_VECTOR(osg::Matrixd,osg::MatrixList);
 LUNA_IMPLEMENT_VECTOR(osg::Node*,osg::NodePath);
 LUNA_IMPLEMENT_VECTOR(osg::NodePath,osg::NodePathList);
+LUNA_IMPLEMENT_VECTOR(osg::Plane,osg::Polytope::PlaneList);

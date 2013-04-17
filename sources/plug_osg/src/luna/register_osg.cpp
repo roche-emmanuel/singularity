@@ -96,16 +96,16 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	luna_popModule(L);
 	luna_pushModule(L,"osg");
 	Luna< osg::GraphicsContext::Traits >::Register(L);
-	Luna< osg::KdTree::Triangle >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"osgUtil");
 	Luna< osgUtil::EdgeCollector::Triangle >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"osg");
+	Luna< osg::KdTree::Triangle >::Register(L);
 	Luna< osg::Program::UniformBlockInfo >::Register(L);
-	Luna< osg::Drawable::UpdateCallback >::Register(L);
 	Luna< osg::StateAttributeCallback >::Register(L);
 	Luna< osg::Image::UpdateCallback >::Register(L);
+	Luna< osg::Drawable::UpdateCallback >::Register(L);
 	Luna< osg::View::Slave::UpdateSlaveCallback >::Register(L);
 	Luna< osg::Geometry::Vec3ArrayData >::Register(L);
 	Luna< osg::GraphicsContext::WindowingSystemInterface >::Register(L);
@@ -399,8 +399,8 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::PolygonOffset >::Register(L);
 	Luna< osg::PolygonStipple >::Register(L);
 	Luna< osg::Polytope >::Register(L);
-	Luna< std::vector< osg::Plane > >::Register(L);
 	Luna< osg::fast_back_stack< unsigned int > >::Register(L);
+	Luna< osg::Polytope::PlaneList >::Register(L);
 	Luna< osg::PositionAttitudeTransform >::Register(L);
 	Luna< osg::PrimitiveSet >::Register(L);
 	Luna< osg::DrawArrays >::Register(L);

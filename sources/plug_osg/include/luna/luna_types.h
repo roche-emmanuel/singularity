@@ -1162,25 +1162,6 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Class: osg::KdTree::Triangle
-template<>
-class LunaTraits< osg::KdTree::Triangle > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::KdTree::Triangle* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::KdTree::Triangle* obj);
-	typedef osg::KdTree::Triangle parent_t;
-	typedef osg::KdTree::Triangle base_t;
-	static luna_ConverterType converters[];
-};
-
 // Class: osgUtil::EdgeCollector::Triangle
 template<>
 class LunaTraits< osgUtil::EdgeCollector::Triangle > {
@@ -1200,6 +1181,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: osg::KdTree::Triangle
+template<>
+class LunaTraits< osg::KdTree::Triangle > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::KdTree::Triangle* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::KdTree::Triangle* obj);
+	typedef osg::KdTree::Triangle parent_t;
+	typedef osg::KdTree::Triangle base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: osg::Program::UniformBlockInfo
 template<>
 class LunaTraits< osg::Program::UniformBlockInfo > {
@@ -1216,25 +1216,6 @@ public:
 	static void _bind_dtor(osg::Program::UniformBlockInfo* obj);
 	typedef osg::Program::UniformBlockInfo parent_t;
 	typedef osg::Program::UniformBlockInfo base_t;
-	static luna_ConverterType converters[];
-};
-
-// Class: osg::Drawable::UpdateCallback
-template<>
-class LunaTraits< osg::Drawable::UpdateCallback > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::Drawable::UpdateCallback* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::Drawable::UpdateCallback* obj);
-	typedef osg::Referenced parent_t;
-	typedef osg::Drawable::UpdateCallback base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -1273,6 +1254,25 @@ public:
 	static void _bind_dtor(osg::Image::UpdateCallback* obj);
 	typedef osg::Referenced parent_t;
 	typedef osg::Image::UpdateCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Drawable::UpdateCallback
+template<>
+class LunaTraits< osg::Drawable::UpdateCallback > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Drawable::UpdateCallback* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Drawable::UpdateCallback* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Drawable::UpdateCallback base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -6710,25 +6710,6 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Class: std::vector< osg::Plane >
-template<>
-class LunaTraits< std::vector< osg::Plane > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::vector< osg::Plane >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::vector< osg::Plane >* obj);
-	typedef std::vector< osg::Plane > parent_t;
-	typedef std::vector< osg::Plane > base_t;
-	static luna_ConverterType converters[];
-};
-
 // Class: osg::fast_back_stack< unsigned int >
 template<>
 class LunaTraits< osg::fast_back_stack< unsigned int > > {
@@ -6745,6 +6726,25 @@ public:
 	static void _bind_dtor(osg::fast_back_stack< unsigned int >* obj);
 	typedef osg::fast_back_stack< unsigned int > parent_t;
 	typedef osg::fast_back_stack< unsigned int > base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: osg::Polytope::PlaneList
+template<>
+class LunaTraits< osg::Polytope::PlaneList > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Polytope::PlaneList* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Polytope::PlaneList* obj);
+	typedef osg::Polytope::PlaneList parent_t;
+	typedef osg::Polytope::PlaneList base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -19773,13 +19773,6 @@ template<>
 class LunaType< 912958 > {
 public:
 	typedef std::vector< osg::PagedLOD::PerRangeData > type;
-	
-};
-
-template<>
-class LunaType< 5512969 > {
-public:
-	typedef std::vector< osg::Plane > type;
 	
 };
 

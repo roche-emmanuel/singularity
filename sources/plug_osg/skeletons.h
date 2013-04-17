@@ -241,10 +241,10 @@ public:
 class Traits: public osg::Referenced, public osg::GraphicsContext::ScreenIdentifier {
 };
 
-class Triangle {
+class Triangle: public osg::Referenced {
 };
 
-class Triangle: public osg::Referenced {
+class Triangle {
 };
 
 class UniformBlockInfo {
@@ -260,10 +260,10 @@ public:
 
 };
 
-class UpdateCallback: public osg::Object {
+class UpdateCallback: public osg::StateAttributeCallback {
 };
 
-class UpdateCallback: public osg::StateAttributeCallback {
+class UpdateCallback: public osg::Object {
 };
 
 class UpdateSlaveCallback: public osg::Referenced {
@@ -1246,6 +1246,9 @@ namespace osg {
 		};
 
 		class MaskStack {
+		};
+
+		class PlaneList {
 		};
 
 	};

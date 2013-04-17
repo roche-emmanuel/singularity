@@ -117,8 +117,8 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,1,5512969) ) return false;
-		if( (!(Luna< std::vector< osg::Plane > >::checkSubType< osg::Polytope::PlaneList >(L,1))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,1,33161232) ) return false;
+		if( (!(Luna< osg::Polytope::PlaneList >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -157,7 +157,7 @@ public:
 	inline static bool _lg_typecheck_set(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,5512969) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,33161232) ) return false;
 		return true;
 	}
 
@@ -382,7 +382,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Polytope::Polytope(const osg::Polytope::PlaneList & pl) function, expected prototype:\nosg::Polytope::Polytope(const osg::Polytope::PlaneList & pl)\nClass arguments details:\narg 1 ID = 33161232\n");
 		}
 
-		const osg::Polytope::PlaneList* pl_ptr=(Luna< std::vector< osg::Plane > >::checkSubType< osg::Polytope::PlaneList >(L,1));
+		const osg::Polytope::PlaneList* pl_ptr=(Luna< osg::Polytope::PlaneList >::check(L,1));
 		if( !pl_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pl in osg::Polytope::Polytope function");
 		}
@@ -501,7 +501,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Polytope::set(const osg::Polytope::PlaneList & pl) function, expected prototype:\nvoid osg::Polytope::set(const osg::Polytope::PlaneList & pl)\nClass arguments details:\narg 1 ID = 33161232\n");
 		}
 
-		const osg::Polytope::PlaneList* pl_ptr=(Luna< std::vector< osg::Plane > >::checkSubType< osg::Polytope::PlaneList >(L,2));
+		const osg::Polytope::PlaneList* pl_ptr=(Luna< osg::Polytope::PlaneList >::check(L,2));
 		if( !pl_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pl in osg::Polytope::set function");
 		}
