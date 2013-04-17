@@ -6,3 +6,5 @@ isSubnormal
 getInfinity
 sgt::floatToHalf
 sgt::halfToFloat
+sgt::getVisibility
+sgt::getFrustumPlanes

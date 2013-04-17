@@ -35,6 +35,7 @@ SET(INTF_FILES)
 ADD_FILES(INTF_FILES "../../sgtLand/include/core/Iterator.h")
 ADD_FILES(INTF_FILES "../../sgtLand/include/math/*.h")
 ADD_FILES(INTF_FILES "../../sgtLand/include/taskgraph/*.h")
+ADD_FILES(INTF_FILES "../../sgtLand/include/scene/*.h")
 ADD_FILES(INTF_FILES "../include/plug_extensions.h")
 ADD_FILES(INTF_FILES "../interface/helpers.h")
 

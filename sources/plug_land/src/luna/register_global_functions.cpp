@@ -2,6 +2,7 @@
 
 #include <math/half.h>
 #include <plug_extensions.h>
+#include <scene/Tools.h>
 
 // Function checkers:
 inline static bool _lg_typecheck_isNaN_overload_1(lua_State *L) {
@@ -166,6 +167,34 @@ inline static bool _lg_typecheck_halfToFloat(lua_State *L) {
 	return true;
 }
 
+inline static bool _lg_typecheck_getVisibility_overload_1(lua_State *L) {
+	if( lua_gettop(L)!=2 ) return false;
+
+	if( !Luna<void>::has_uniqueid(L,1,33161232) ) return false;
+	if( (!(Luna< osg::Polytope::PlaneList >::check(L,1))) ) return false;
+	if( !Luna<void>::has_uniqueid(L,2,58086971) ) return false;
+	if( (!(Luna< sgt::box3d >::check(L,2))) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_getVisibility_overload_2(lua_State *L) {
+	if( lua_gettop(L)!=2 ) return false;
+
+	if( !Luna<void>::has_uniqueid(L,1,92303233) ) return false;
+	if( (!(Luna< osg::Vec4d >::check(L,1))) ) return false;
+	if( !Luna<void>::has_uniqueid(L,2,58086971) ) return false;
+	if( (!(Luna< sgt::box3d >::check(L,2))) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_getFrustumPlanes(lua_State *L) {
+	if( lua_gettop(L)!=2 ) return false;
+
+	if( !Luna<void>::has_uniqueid(L,1,67824815) ) return false;
+	if( !Luna<void>::has_uniqueid(L,2,33161232) ) return false;
+	return true;
+}
+
 
 // Function binds:
 // unsigned short sgt::floatToHalf(float x)
@@ -198,6 +227,86 @@ static int _bind_halfToFloat(lua_State *L) {
 	return 1;
 }
 
+// sgt::VisibilityMode sgt::getVisibility(const osg::Polytope::PlaneList & frustumPlanes, const sgt::box3d & b)
+static int _bind_getVisibility_overload_1(lua_State *L) {
+	if (!_lg_typecheck_getVisibility_overload_1(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in sgt::VisibilityMode sgt::getVisibility(const osg::Polytope::PlaneList & frustumPlanes, const sgt::box3d & b) function, expected prototype:\nsgt::VisibilityMode sgt::getVisibility(const osg::Polytope::PlaneList & frustumPlanes, const sgt::box3d & b)\nClass arguments details:\narg 2 ID = 58086971\n");
+	}
+
+	const osg::Polytope::PlaneList* frustumPlanes_ptr=(Luna< osg::Polytope::PlaneList >::check(L,1));
+	if( !frustumPlanes_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg frustumPlanes in sgt::getVisibility function");
+	}
+	const osg::Polytope::PlaneList & frustumPlanes=*frustumPlanes_ptr;
+	const sgt::box3d* b_ptr=(Luna< sgt::box3d >::check(L,2));
+	if( !b_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg b in sgt::getVisibility function");
+	}
+	const sgt::box3d & b=*b_ptr;
+
+	sgt::VisibilityMode lret = sgt::getVisibility(frustumPlanes, b);
+	lua_pushnumber(L,lret);
+
+	return 1;
+}
+
+// sgt::VisibilityMode sgt::getVisibility(const osg::Vec4d & clip, const sgt::box3d & b)
+static int _bind_getVisibility_overload_2(lua_State *L) {
+	if (!_lg_typecheck_getVisibility_overload_2(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in sgt::VisibilityMode sgt::getVisibility(const osg::Vec4d & clip, const sgt::box3d & b) function, expected prototype:\nsgt::VisibilityMode sgt::getVisibility(const osg::Vec4d & clip, const sgt::box3d & b)\nClass arguments details:\narg 2 ID = 58086971\n");
+	}
+
+	const osg::Vec4d* clip_ptr=(Luna< osg::Vec4d >::check(L,1));
+	if( !clip_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg clip in sgt::getVisibility function");
+	}
+	const osg::Vec4d & clip=*clip_ptr;
+	const sgt::box3d* b_ptr=(Luna< sgt::box3d >::check(L,2));
+	if( !b_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg b in sgt::getVisibility function");
+	}
+	const sgt::box3d & b=*b_ptr;
+
+	sgt::VisibilityMode lret = sgt::getVisibility(clip, b);
+	lua_pushnumber(L,lret);
+
+	return 1;
+}
+
+// Overload binder for sgt::getVisibility
+static int _bind_getVisibility(lua_State *L) {
+	if (_lg_typecheck_getVisibility_overload_1(L)) return _bind_getVisibility_overload_1(L);
+	if (_lg_typecheck_getVisibility_overload_2(L)) return _bind_getVisibility_overload_2(L);
+
+	luaL_error(L, "error in function getVisibility, cannot match any of the overloads for function getVisibility:\n  getVisibility(const osg::Polytope::PlaneList &, const sgt::box3d &)\n  getVisibility(const osg::Vec4d &, const sgt::box3d &)\n");
+	return 0;
+}
+
+// void sgt::getFrustumPlanes(const sgt::mat4d & toScreen, osg::Polytope::PlaneList & planes)
+static int _bind_getFrustumPlanes(lua_State *L) {
+	if (!_lg_typecheck_getFrustumPlanes(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in void sgt::getFrustumPlanes(const sgt::mat4d & toScreen, osg::Polytope::PlaneList & planes) function, expected prototype:\nvoid sgt::getFrustumPlanes(const sgt::mat4d & toScreen, osg::Polytope::PlaneList & planes)\nClass arguments details:\narg 1 ID = 67824815\n");
+	}
+
+	const sgt::mat4d* toScreen_ptr=(Luna< sgt::mat4d >::check(L,1));
+	if( !toScreen_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg toScreen in sgt::getFrustumPlanes function");
+	}
+	const sgt::mat4d & toScreen=*toScreen_ptr;
+	osg::Polytope::PlaneList* planes_ptr=(Luna< osg::Polytope::PlaneList >::check(L,2));
+	if( !planes_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg planes in sgt::getFrustumPlanes function");
+	}
+	osg::Polytope::PlaneList & planes=*planes_ptr;
+
+	sgt::getFrustumPlanes(toScreen, planes);
+
+	return 0;
+}
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -212,6 +321,8 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_getInfinity); lua_setfield(L,-2,"getInfinity");
 	lua_pushcfunction(L, _bind_floatToHalf); lua_setfield(L,-2,"floatToHalf");
 	lua_pushcfunction(L, _bind_halfToFloat); lua_setfield(L,-2,"halfToFloat");
+	lua_pushcfunction(L, _bind_getVisibility); lua_setfield(L,-2,"getVisibility");
+	lua_pushcfunction(L, _bind_getFrustumPlanes); lua_setfield(L,-2,"getFrustumPlanes");
 	luna_popModule(L);
 }
 

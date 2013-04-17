@@ -742,6 +742,63 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Referenced external: osg::Matrixd
+template<>
+class LunaTraits< osg::Matrixd > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrixd* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrixd* obj);
+	typedef osg::Matrixd parent_t;
+	typedef osg::Matrixd base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Polytope::PlaneList
+template<>
+class LunaTraits< osg::Polytope::PlaneList > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Polytope::PlaneList* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Polytope::PlaneList* obj);
+	typedef osg::Polytope::PlaneList parent_t;
+	typedef osg::Polytope::PlaneList base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Vec4d
+template<>
+class LunaTraits< osg::Vec4d > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec4d* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec4d* obj);
+	typedef osg::Vec4d parent_t;
+	typedef osg::Vec4d base_t;
+	static luna_ConverterType converters[];
+};
+
 template<>
 class LunaType< 58086945 > {
 public:
@@ -998,6 +1055,27 @@ template<>
 class LunaType< 50169651 > {
 public:
 	typedef osg::Referenced type;
+	
+};
+
+template<>
+class LunaType< 18903838 > {
+public:
+	typedef osg::Matrixd type;
+	
+};
+
+template<>
+class LunaType< 33161232 > {
+public:
+	typedef osg::Polytope::PlaneList type;
+	
+};
+
+template<>
+class LunaType< 92303233 > {
+public:
+	typedef osg::Vec4d type;
 	
 };
 

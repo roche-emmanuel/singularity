@@ -32,6 +32,8 @@
 
 #include <core/Iterator.h>
 
+#include "osg/Polytope"
+
 // Insert your using namespace commands here.
 
 #include "plug_extensions.h"

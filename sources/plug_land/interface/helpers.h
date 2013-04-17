@@ -211,6 +211,7 @@ public: \
     mat4(const type *array); \
     mat4(const type array[4][4]); \
     mat4(const mat3& m3x3); \
+    mat4(const osg::Matrixd& mat); \
     const type* coefficients() const; \
     const type* operator[](int iRow) const; \
     type *operator[](int iRow); \
@@ -228,6 +229,8 @@ public: \
     mat4 adjoint() const; \
     mat4 inverse() const; \
     mat3 mat3x3() const; \
+    osg::Matrixd toMatrixd() const; \
+    void fromMatrixd(const osg::Matrixd& mat); \
     type determinant() const; \
     static mat4 translate(const vec3& v); \
     static mat4 rotatex(type angle); \

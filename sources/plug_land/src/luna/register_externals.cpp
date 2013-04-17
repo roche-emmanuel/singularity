@@ -18,4 +18,22 @@ const char LunaTraits< osg::Referenced >::moduleName[] = "osg";
 const int LunaTraits< osg::Referenced >::hash = 50169651;
 const int LunaTraits< osg::Referenced >::uniqueIDs[] = {50169651,0};
 
+const char LunaTraits< osg::Matrixd >::className[] = "Matrixd";
+const char LunaTraits< osg::Matrixd >::fullName[] = "osg::Matrixd";
+const char LunaTraits< osg::Matrixd >::moduleName[] = "osg";
+const int LunaTraits< osg::Matrixd >::hash = 18903838;
+const int LunaTraits< osg::Matrixd >::uniqueIDs[] = {18903838,0};
+
+const char LunaTraits< osg::Polytope::PlaneList >::className[] = "Polytope_PlaneList";
+const char LunaTraits< osg::Polytope::PlaneList >::fullName[] = "osg::Polytope::PlaneList";
+const char LunaTraits< osg::Polytope::PlaneList >::moduleName[] = "osg";
+const int LunaTraits< osg::Polytope::PlaneList >::hash = 33161232;
+const int LunaTraits< osg::Polytope::PlaneList >::uniqueIDs[] = {33161232,0};
+
+const char LunaTraits< osg::Vec4d >::className[] = "Vec4d";
+const char LunaTraits< osg::Vec4d >::fullName[] = "osg::Vec4d";
+const char LunaTraits< osg::Vec4d >::moduleName[] = "osg";
+const int LunaTraits< osg::Vec4d >::hash = 92303233;
+const int LunaTraits< osg::Vec4d >::uniqueIDs[] = {92303233,0};
+
 

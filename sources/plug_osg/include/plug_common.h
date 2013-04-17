@@ -18,13 +18,22 @@
 #include <lua.hpp>
 #include <iostream> 
 
+#include <osg/Vec2d>
 #include <osg/Vec3d>
+#include <osg/Vec4d>
 #include <osg/RenderInfo>
 #include <osgDB/XmlParser>
 #include <OpenThreads/Block>
 
-#include "plug_extensions.h"
+namespace osg {
 
+typedef std::vector<osg::Vec2d> Vec2dVector;
+typedef std::vector<osg::Vec3d> Vec3dVector;
+typedef std::vector<osg::Vec4d> Vec4dVector;
+
+}
+
+#include "plug_extensions.h"
 
 #ifdef LUNA_BINDINGS
 #include <luna/luna.h>

@@ -119,6 +119,14 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,18903838) ) return false;
+		if( (!(Luna< osg::Matrixd >::check(L,1))) ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_coefficients(lua_State *L) {
@@ -148,6 +156,19 @@ public:
 	inline static bool _lg_typecheck_mat3x3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_toMatrixd(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_fromMatrixd(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
 		return true;
 	}
 
@@ -366,14 +387,31 @@ public:
 		return new sgt::mat4f(m3x3);
 	}
 
+	// sgt::mat4f::mat4f(const osg::Matrixd & mat)
+	static sgt::mat4f* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::mat4f::mat4f(const osg::Matrixd & mat) function, expected prototype:\nsgt::mat4f::mat4f(const osg::Matrixd & mat)\nClass arguments details:\n");
+		}
+
+		const osg::Matrixd* mat_ptr=(Luna< osg::Matrixd >::check(L,1));
+		if( !mat_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg mat in sgt::mat4f::mat4f function");
+		}
+		const osg::Matrixd & mat=*mat_ptr;
+
+		return new sgt::mat4f(mat);
+	}
+
 	// Overload binder for sgt::mat4f::mat4f
 	static sgt::mat4f* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
 		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
 
-		luaL_error(L, "error in function mat4f, cannot match any of the overloads for function mat4f:\n  mat4f()\n  mat4f(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float)\n  mat4f(const float *)\n  mat4f(const sgt::mat3f &)\n");
+		luaL_error(L, "error in function mat4f, cannot match any of the overloads for function mat4f:\n  mat4f()\n  mat4f(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float)\n  mat4f(const float *)\n  mat4f(const sgt::mat3f &)\n  mat4f(const osg::Matrixd &)\n");
 		return NULL;
 	}
 
@@ -484,6 +522,51 @@ public:
 		Luna< sgt::mat3f >::push(L,lret,true);
 
 		return 1;
+	}
+
+	// osg::Matrixd sgt::mat4f::toMatrixd() const
+	static int _bind_toMatrixd(lua_State *L) {
+		if (!_lg_typecheck_toMatrixd(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Matrixd sgt::mat4f::toMatrixd() const function, expected prototype:\nosg::Matrixd sgt::mat4f::toMatrixd() const\nClass arguments details:\n");
+		}
+
+
+		sgt::mat4f* self=(Luna< sgt::mat4f >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Matrixd sgt::mat4f::toMatrixd() const. Got : '%s'",typeid(Luna< sgt::mat4f >::check(L,1)).name());
+		}
+		osg::Matrixd stack_lret = self->toMatrixd();
+		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Matrixd >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// void sgt::mat4f::fromMatrixd(const osg::Matrixd & mat)
+	static int _bind_fromMatrixd(lua_State *L) {
+		if (!_lg_typecheck_fromMatrixd(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void sgt::mat4f::fromMatrixd(const osg::Matrixd & mat) function, expected prototype:\nvoid sgt::mat4f::fromMatrixd(const osg::Matrixd & mat)\nClass arguments details:\n");
+		}
+
+		const osg::Matrixd* mat_ptr=(Luna< osg::Matrixd >::check(L,2));
+		if( !mat_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg mat in sgt::mat4f::fromMatrixd function");
+		}
+		const osg::Matrixd & mat=*mat_ptr;
+
+		sgt::mat4f* self=(Luna< sgt::mat4f >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void sgt::mat4f::fromMatrixd(const osg::Matrixd &). Got : '%s'",typeid(Luna< sgt::mat4f >::check(L,1)).name());
+		}
+		self->fromMatrixd(mat);
+
+		return 0;
 	}
 
 	// float sgt::mat4f::determinant() const
@@ -968,6 +1051,8 @@ luna_RegType LunaTraits< sgt::mat4f >::methods[] = {
 	{"adjoint", &luna_wrapper_sgt_mat4f::_bind_adjoint},
 	{"inverse", &luna_wrapper_sgt_mat4f::_bind_inverse},
 	{"mat3x3", &luna_wrapper_sgt_mat4f::_bind_mat3x3},
+	{"toMatrixd", &luna_wrapper_sgt_mat4f::_bind_toMatrixd},
+	{"fromMatrixd", &luna_wrapper_sgt_mat4f::_bind_fromMatrixd},
 	{"determinant", &luna_wrapper_sgt_mat4f::_bind_determinant},
 	{"translate", &luna_wrapper_sgt_mat4f::_bind_translate},
 	{"rotatex", &luna_wrapper_sgt_mat4f::_bind_rotatex},
