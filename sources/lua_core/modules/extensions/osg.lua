@@ -101,6 +101,23 @@ osg.Vec3f.normalized = function(self)
 	return res
 end
 
+osg.Vec3d.cross = function(self,rhs)
+	return self:op_pow(rhs)
+end
+
+osg.Vec3f.cross = function(self,rhs)
+	return self:op_pow(rhs)
+end
+
+osg.Vec3d.dot = function(self,rhs)
+	return self*rhs
+end
+
+osg.Vec3f.dot = function(self,rhs)
+	return self*rhs
+end
+
+
 osg.XAXIS = osg.Vec3d(1.0,0.0,0.0)
 osg.YAXIS = osg.Vec3d(0.0,1.0,0.0)
 osg.ZAXIS = osg.Vec3d(0.0,0.0,1.0)

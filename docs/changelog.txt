@@ -37,6 +37,7 @@
 - Added planeList support in osg module.
 - Added getVisibility functions in land module.
 - Fixed incorrect typecheck for __unm metamethod. Testing osg vector negations.
+- Added cross and dot helpers for Vec3 classes.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
